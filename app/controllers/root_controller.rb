@@ -8,7 +8,8 @@ class RootController < ApplicationController
 
   def publication
     @slug, @partslug = params[:slug], params[:part]
-    @publication = api.publication_for_slug(@slug)
+    @edition = params[:edition]
+    @publication = api.publication_for_slug(@slug,@edition)
     assert_found(@publication)
     instance_variable_set("@#{@publication.type}".to_sym,@publication)
     if @publication.parts

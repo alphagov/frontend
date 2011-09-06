@@ -5,7 +5,7 @@ class RootControllerTest < ActionController::TestCase
   def mock_api(table)
     api = mock()
     table.each { |slug,pub|
-      api.expects(:publication_for_slug).with(slug).returns pub
+      api.expects(:publication_for_slug).with(slug,nil).returns pub
       pub.extend(PartMethods) if pub && pub.parts
     }
     api
@@ -32,6 +32,17 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.expects(:render).with("answer")
     get :publication, :slug => "a-slug"
+  end
+
+  test "should pass edition parameter on to api to provide preview" do
+     edition_id = '123'
+     api = mock()
+     api.expects(:publication_for_slug).with("a-slug",edition_id).returns(
+        OpenStruct.new(:type=>"answer"))
+     @controller.stubs(:api).returns api
+     @controller.stubs(:render)
+     prevent_implicit_rendering
+     get :publication, :slug => "a-slug",:edition => edition_id
   end
 
   test "should pass specific and general variables to template" do

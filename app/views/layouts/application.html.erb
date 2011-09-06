@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -14,6 +13,7 @@
   <% if @publication.overview and @publication.overview != '' %>
   <meta name="description" content="<%= @publication.overview %>">
   <% end %>
+  <% yield :extra_javascript %>
 </head>
 <body>
 

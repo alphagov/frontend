@@ -23,6 +23,23 @@ class PublisherApiTest < ActiveSupport::TestCase
     assert_equal "Something",pub.body
   end
 
+  test "Should optionally accept an edition id" do
+    api = PublisherApi.new("http://example.com")
+
+    slug = "a-publication"
+    publication = %@{"audiences":[""],
+      "slug":"#{slug}",
+      "tags":"",
+      "updated_at":"2011-07-28T11:53:03+00:00",
+      "type":"answer",
+      "body":"Something",
+      "title":"A publication"}@
+    stub_request(:get, "http://example.com/publications/#{slug}.json?edition=678").to_return(
+      :body => publication,:status=>200)     
+    
+    pub = api.publication_for_slug(slug,678)
+  end
+
   test "Should fetch and parse json into hash" do
      api = PublisherApi.new("http://example.com")
      url = "http://example.com/some.json"

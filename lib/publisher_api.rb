@@ -13,14 +13,18 @@ class PublisherApi
     "#{@endpoint}/publications"
   end
 
-  def url_for_slug(slug)
-    "#{base_url}/#{slug}.json"
+  def url_for_slug(slug,edition=nil)
+    base = "#{base_url}/#{slug}.json"
+    base = base + "?edition=#{edition}" if edition
+    base
   end
 
   def fetch_json(url)
     url = URI.parse(url)
     response = Net::HTTP.start(url.host, url.port) do |http|
-      http.get(url.path)
+      request = url.path
+      request = request + "?" + url.query if url.query
+      http.get(request)
     end
     if response.code.to_i != 200
       return nil
@@ -46,9 +50,9 @@ class PublisherApi
     end
   end
 
-  def publication_for_slug(slug)
+  def publication_for_slug(slug,edition_number=nil)
     return nil if slug.blank?
-    url = url_for_slug(slug)
+    url = url_for_slug(slug,edition_number)
     publication_hash = fetch_json(url)
     if publication_hash
       container = OpenStruct.new(publication_hash)

@@ -1,8 +1,7 @@
 require 'test_helper'
 require 'webmock/test_unit'
-
-
 require 'publisher_api'
+
 class PublisherApiTest < ActiveSupport::TestCase
   
   test "Given a slug, should go get resource from publisher_app" do

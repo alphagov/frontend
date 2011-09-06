@@ -1,16 +1,35 @@
+class RecordNotFound < Exception
+end
+
 class RootController < ApplicationController
   def index
     #@items = api.publications
   end
 
   def publication
-    @slug, @part = params[:slug], params[:part]
+    @slug, @partslug = params[:slug], params[:part]
     @publication = api.publication_for_slug(@slug)
-    if @publication
-      instance_variable_set("@#{@publication.type}".to_sym,@publication)
-      render @publication.type 
-    else
-      render :status => 404
+    assert_found(@publication)
+    instance_variable_set("@#{@publication.type}".to_sym,@publication)
+    if @publication.parts
+       @part = pick_part(@partslug,publication)
+       assert_found(@part)
     end
+    render @publication.type 
+  rescue RecordNotFound
+    render :status=>404
+  end
+
+  protected
+  def assert_found(obj)
+    raise RecordNotFound unless obj
+  end
+
+  def pick_part(partslug,publication)
+     if partslug
+        publication.find_part(partslug)
+     else
+        publication.parts.first
+     end
   end
 end

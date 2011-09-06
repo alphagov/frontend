@@ -1,4 +1,4 @@
-module Parts
+module PartMethods
   def part_index(slug)
     parts.index { |p| p.slug == slug }
   end

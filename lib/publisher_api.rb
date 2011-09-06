@@ -1,7 +1,7 @@
 require 'net/http'
 require 'ostruct'
 
-require 'parts'
+require 'part_methods'
 
 class PublisherApi
 
@@ -42,7 +42,7 @@ class PublisherApi
   def reinflate_parts(container)
     if container.parts
       container.parts = container.parts.map {|h| OpenStruct.new(h)}
-      container.extend(Parts)
+      container.extend(PartMethods)
     end
   end
 

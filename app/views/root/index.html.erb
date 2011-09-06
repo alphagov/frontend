@@ -1,0 +1,130 @@
+<section class="group" role="main">
+	<div id="homepage-search" class="location-not-set">
+		<header>
+			<h1>Welcome to BetaGov!</h1>
+			<p>Some kind of intro blurb that a nice editor will help by writing soon...</p>
+		</header>
+    <form action="/search">
+      <label class="make-invisible" for="main_autocomplete">Search</label>
+      <input type="text" id="main_autocomplete" name="q" value="" placeholder="I&rsquo;m looking for&hellip;"><input type="submit" value="Go">
+      <p id="search_hint">e.g. <a href="/uk-bank-holidays/" class="search_hint_item">Bank holidays</a>, <a href="/report-lost-passport/" class="search_hint_item">Lost passport</a> or <a href="/government/departments/education/" class="search_hint_item">Department for Education</a></p>
+    </form>
+  </div>
+  <ul style="list-style: none">
+  <% @items.each do |item| %>
+  <li style="padding-left: 50px; vertical-align: middle; height: 45px"><%= item.inspect %></li>
+  <% end %>
+</ul>
+<div class="popular-sections group">
+	<header>
+		<h1>Popular</h1>
+	</header>
+	<div class="currently-popular">
+		<ul>
+			<li><a href="#">Bank holidays in England 2012</a></li>
+		</ul>
+	</div>
+	<div class="recently-visited">
+		<h2>Recently viewed by you</h2>
+		<ul>
+			<li><a href="#">Benefits and something or other</a></li>
+			<li><a href="#">Benefits and something or other</a></li>
+			<li><a href="#">Benefits and something or other</a></li>
+			<li><a href="#">Benefits and something or other</a></li>
+			<li><a href="#">Benefits and something or other</a></li>
+		</ul>
+	</ul>
+	</div>
+</div>
+<div class="site-sections group">
+	<header>
+		<h1>Popular by section</h1>
+	</header>
+	<ul>
+	<li class="section-rights"><h2>Rights</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-justice"><h2>Justice</h2>
+		<ul>
+			<li><a href="/preview/2/police-powers-of-arrest-your-rights">Police powers of arrest &ndash; your rights</a></li>
+			<li><a href="/preview/2/police-powers-to-stop-and-search-your-rights">Police powers to stop and search &ndash; your rights </a></li>
+		</ul>
+	</li>
+	<li class="section-education"><h2>Education and skills</h2>
+		<ul>
+			<li><a href="/preview/1/compulsory-subjects-in-years-10-and-11">Compulsory subjects in years 10 and 11</a></li>
+			<li><a href="/preview/2/apply-for-the-access-to-learning-fund">Apply for the Access to Learning Fund</a></li>
+			<li><a href="/preview/2/education-maintenance-allowance">Education Maintenance Allowance</a></li>
+		</ul>
+	</li>
+	<li class="section-work"><h2>Work</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-family"><h2>Family</h2>
+		<ul>
+			<li><a href="/preview/2/parental-rights-and-responsibilities/who-has-parental-responsibility">Parental rights and responsibilities</a></li>
+			<li><a href="/preview/2/law-on-leaving-your-child-home-alone">The law on leaving your child home alone</a></li>
+			<li><a href="/preview/2/stop-ex-partner-getting-child-passport">Stop your ex-partner getting your child a passport </a></li>
+		</ul>
+	</li>
+	<li class="section-money"><h2>Money</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-taxes"><h2>Taxes</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-benefits"><h2>Benefits and schemes</h2>
+		<ul>
+			<li><a href="/preview/2/child-benefit-rates">Child Benefit rates</a></li>
+		</ul>
+	</li>
+	<li class="section-driving"><h2>Driving</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-housing"><h2>Housing</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-communities"><h2>Communities</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-pensions"><h2>Pensions</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-disabled"><h2>Disabled people</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<li class="section-travel"><h2>Travel</h2>
+		<ul>
+			<li><a href="/preview/2/child-passport-fees">Child passport fees</a></li>
+		</ul>
+	</li>
+	<li class="section-citizenship"><h2>Citizenship</h2>
+		<ul>
+			<li><a href="#">TBC</a></li>
+		</ul>
+	</li>
+	<ul>
+</div>
+
+
+
+</section>
+

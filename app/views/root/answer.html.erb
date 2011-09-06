@@ -1,0 +1,54 @@
+<div id="wrapper" class="answer">
+	<!-- naughty related position hack -->
+	<div class="related-positioning naughty">
+		<div class="related-container naughty">
+			<div class="related-container-two naughty">
+	   		<div class="related">
+			     <div class="inner" class="group">
+			       <h2><span class="arrow"></span>Related tools &amp; topics</h2>
+			       <nav role="navigation">
+			         <ul>
+                 <%= @answer.related_items.html_safe %>
+								 <li class="related-topic"><a href="#">More in <span><%= @answer.section %></span>&hellip;<span class="arrow"></span></a></li>
+			         </ul>
+			       </nav>
+			     </div>
+			   </div><!-- end .related -->
+			</div>
+		</div>
+	</div>
+	<!-- end naughty related position hack -->
+
+  <section role="main" class="group">
+
+    <header class="group">
+
+        <hgroup>
+          <h1><span>Quick answer </span><%= @answer.title %></h1>
+        </hgroup>
+
+    </header>
+
+		<div class="article-and-navigation group">
+
+	    <article role="article" class="group">
+	      <div class="inner">
+	        <%= Govspeak::Document.new(@answer.body || "").to_html.html_safe %>
+	      </div>
+	    </article>
+
+			<div class="meta-data">
+				<p class="modified-date">Last updated: <%= @answer.updated_at.strftime("%d %B %Y") %></p>
+        <p>Re-use this data:</p>
+				<ul class="api-links">
+          <li class="json"><a href="/<%= @answer.slug %>.json">JSON</a></li>
+        </ul>
+        
+			</div>
+
+		</div>
+
+  </section>
+</div> <!-- end wrapper -->
+
+

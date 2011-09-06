@@ -5,25 +5,17 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
 
-  def fetch_publication(params)
-    @slug = params[:slug]
-    options = {}
-    if @edition = params[:edition]
-      options[:edition] = params[:edition]
-    end
-    options[:snac] = params[:snac] if params[:snac]
-    api.publication_for_slug(@slug,options)
-  end
-
   def publication
     @publication = fetch_publication(params)
     assert_found(@publication)
-    @partslug    =  params[:part]
-    instance_variable_set("@#{@publication.type}".to_sym,@publication)
+
     if @publication.parts
+       @partslug = params[:part]
        @part = pick_part(@partslug,@publication)
        assert_found(@part)
     end
+    
+    instance_variable_set("@#{@publication.type}".to_sym,@publication)
     render @publication.type 
   rescue RecordNotFound
     render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
@@ -38,6 +30,16 @@ class RootController < ApplicationController
   end
 
   protected
+  def fetch_publication(params)
+    @slug = params[:slug]
+    options = {}
+    if @edition = params[:edition]
+      options[:edition] = params[:edition]
+    end
+    options[:snac] = params[:snac] if params[:snac]
+    api.publication_for_slug(@slug,options)
+  end
+
   def council_ons_from_geostack
     geodata = request.env['HTTP_X_GOVGEO_STACK']
     return [] if geodata.nil?

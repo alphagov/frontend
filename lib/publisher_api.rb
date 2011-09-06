@@ -13,9 +13,10 @@ class PublisherApi
     "#{@endpoint}/publications"
   end
 
-  def url_for_slug(slug,edition=nil)
+  def url_for_slug(slug,options={})
     base = "#{base_url}/#{slug}.json"
-    base = base + "?edition=#{edition}" if edition
+    params = options.map { |k,v| "#{k}=#{v}" }
+    base = base + "?#{params.join("")}" unless options.empty? 
     base
   end
 
@@ -50,9 +51,9 @@ class PublisherApi
     end
   end
 
-  def publication_for_slug(slug,edition_number=nil)
+  def publication_for_slug(slug,options = {})
     return nil if slug.blank?
-    url = url_for_slug(slug,edition_number)
+    url = url_for_slug(slug,options)
     publication_hash = fetch_json(url)
     if publication_hash 
       container = OpenStruct.new(publication_hash)
@@ -62,5 +63,16 @@ class PublisherApi
     else
       return nil
     end
+  end
+
+  def council_for_transaction(transaction,snac_codes)
+    url = URI.parse("#{@endpoint}/local_transactions/#{transaction.slug}/verify_snac.json")
+    Net::HTTP.start(url.host, url.port) do |http|
+      post_response = http.post(url.path, {'snac_codes' => snac_codes}.to_json, {'Content-Type' => 'application/json'})
+      if post_response.code == '200'
+        return JSON.parse(post_response.body)['snac']
+      end
+    end
+    return nil
   end
 end

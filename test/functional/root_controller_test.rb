@@ -5,7 +5,7 @@ class RootControllerTest < ActionController::TestCase
   def mock_api(table)
     api = mock()
     table.each { |slug,pub|
-      api.expects(:publication_for_slug).with(slug,nil).returns pub
+      api.expects(:publication_for_slug).with(slug,{}).returns pub
       pub.extend(PartMethods) if pub && pub.parts
     }
     api
@@ -37,7 +37,7 @@ class RootControllerTest < ActionController::TestCase
   test "should pass edition parameter on to api to provide preview" do
      edition_id = '123'
      api = mock()
-     api.expects(:publication_for_slug).with("a-slug",edition_id).returns(
+     api.expects(:publication_for_slug).with("a-slug",{:edition=>'123'}).returns(
         OpenStruct.new(:type=>"answer"))
      @controller.stubs(:api).returns api
      prevent_implicit_rendering
@@ -56,6 +56,45 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "THIS", assigns["publication"].name
     assert_equal "THIS", assigns["answer"].name
     assert_equal "c-slug", assigns["slug"]
+  end
+
+  test "Shouldn't try to identify councils on answers" do
+    @controller.stubs(:api).returns mock_api(
+      "c-slug" => OpenStruct.new(:type=>"answer",:name=>"THIS"))
+    
+    assert_raises RecordNotFound do
+      post :identify_council, :slug => "c-slug"
+    end
+  end
+
+  test "Should redirect to transaction if no geo header" do
+      api = mock_api(
+      "c-slug" => OpenStruct.new(:type=>"local_transaction",:name=>"THIS"))
+     
+      request.env.delete("HTTP_X_GOVGEO_STACK")
+      api.expects(:council_for_transaction).with(anything,[])
+
+      @controller.stubs(:api).returns api
+      post :identify_council, :slug => "c-slug"
+
+      assert_redirected_to publication_path(:slug=>"c-slug")
+  end
+
+  include Rack::Geo::Utils 
+  test "Should redirect to new path if councils found" do
+     api = mock_api( "c-slug" => OpenStruct.new(
+          :type=>"local_transaction",
+          :name=>"THIS"))
+     @controller.stubs(:api).returns api
+
+     stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
+     request.env["HTTP_X_GOVGEO_STACK"] = stack
+     
+     api.expects(:council_for_transaction).with(anything,[1,2,3]).returns(21)
+
+     post :identify_council, :slug => "c-slug"
+     
+     assert_redirected_to publication_path(:slug=>"c-slug",:snac=>"21")
   end
 
   test "objects with parts should get first part selected by default" do

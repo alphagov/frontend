@@ -37,7 +37,7 @@ class PublisherApiTest < ActiveSupport::TestCase
     stub_request(:get, "http://example.com/publications/#{slug}.json?edition=678").to_return(
       :body => publication,:status=>200)     
     
-    pub = api.publication_for_slug(slug,678)
+    pub = api.publication_for_slug(slug,{:edition => 678})
   end
 
   test "Should fetch and parse json into hash" do

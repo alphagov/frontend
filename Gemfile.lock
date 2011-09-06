@@ -1,9 +1,24 @@
 GIT
+  remote: git@github.com:alphagov/geogov.git
+  revision: 6867aedacda13fa8c050f706c3a351864eff0752
+  specs:
+    geogov (0.0.1)
+
+GIT
   remote: git@github.com:alphagov/govspeak.git
   revision: 4e7be4bd5dcd4614de59a6b71fb1d52c035db05b
   specs:
     govspeak (0.8.3)
       kramdown (~> 0.13.3)
+
+GIT
+  remote: git@github.com:alphagov/rack-geo.git
+  revision: cbe1036e663c833835cf68032dd8b9b38ab167d0
+  specs:
+    rack-geo (0.6.0)
+      geogov
+      json
+      rack (~> 1.2.0)
 
 GIT
   remote: git@github.com:alphagov/slimmer.git
@@ -52,6 +67,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
+    json (1.5.4)
     kramdown (0.13.3)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -98,8 +114,10 @@ PLATFORMS
 DEPENDENCIES
   ZenTest
   autotest-rails
+  geogov!
   govspeak!
   mocha
+  rack-geo!
   rails (= 3.0.10)
   slimmer!
   webmock

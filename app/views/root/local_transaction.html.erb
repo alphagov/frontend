@@ -1,0 +1,102 @@
+<div id="wrapper" class="transaction local">
+
+	<!-- naughty related position hack -->
+	<div class="related-positioning naughty">
+		<div class="related-container naughty">
+			<div class="related-container-two naughty">
+	   		<div class="related">
+			     <div class="inner" class="group">
+			       <h2>Related tools &amp; topics</h2>
+			       <nav role="navigation">
+			         <ul>
+                 <%= @local_transaction.related_items %>
+								 <li class="related-topic"><a href="#">More in <span><%= @local_transaction.section %></span>&hellip;<span class="arrow"></span></a></li>
+			         </ul>
+			       </nav>
+			     </div>
+			   </div><!-- end .related -->
+			</div>
+		</div>
+	</div>
+	<!-- end naughty related position hack -->
+
+  <section role="main" class="group">
+
+    <header class="group">
+      <div class="inner">
+
+        <hgroup>
+          <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
+        </hgroup>
+      </div>
+    </header>
+
+    <article role="article" class="group">
+      <div class="inner">
+        
+        <% if @local_transaction.authority %>
+        <div class="find-nearest">
+
+          <%= Govspeak::Document.new(@local_transaction.introduction || "").to_html.html_safe %>
+
+          <form action="<%= form_action_path(@local_transaction.slug) %>" method="POST">
+
+            <fieldset>
+              <legend class="visuallyhidden">Postcode lookup</legend>
+              <% if @edition %>
+              <input type="hidden" name="edition" value="<%= @edition %>">
+              <% end %>
+              <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+              <input type="submit" value="Get started →">
+            </fieldset>
+
+          </form>
+        </div>
+
+        <h2>What you need to know</h2>        
+
+        <% else %>
+
+        <div class="intro">
+
+          <p>We think this service is provided by the <strong><%= @local_transaction.authority.name %></strong>.</p>
+
+          <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
+
+          <p>This will continue on the <%= @local_transaction.authority.name %> website.</p>
+          <p>How this service works may vary from council to council.</p>
+
+        </div>
+
+        <h2>About this service</h2>
+
+        <% end %>
+
+        <div class="more">
+          <ul class="helpers group">
+          <% @local_transaction.expectations.each do |e| %>
+            <li class="<%= e.css_class %>">
+              <%= e.text %>
+            </li>
+          <% end %>
+          </ul>
+
+          <%= Govspeak::Document.new(@local_transaction.more_information || "").to_html.html_safe %>
+        </div>
+
+      </div>
+
+			<div class="meta-data">
+				<p class="modified-date">Last updated: <%= @local_transaction.updated_at.strftime("%d %B %Y") %></p>
+  			<p>Re-use this data:</p>
+				<ul class="api-links">
+          <li class="json"><a href="/<%= @local_transaction.slug %>/all.json">JSON</a></li>
+        </ul>
+			</div>
+
+    </article>
+
+  </section>
+
+</div> <!-- end wrapper -->
+

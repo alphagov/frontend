@@ -21,7 +21,7 @@ class RootControllerTest < ActionController::TestCase
     @controller.stubs(:api).returns mock_api("a-slug" => nil)
     
     prevent_implicit_rendering
-    @controller.expects(:render).with(:status=>404)
+    @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug"
   end
    
@@ -40,8 +40,8 @@ class RootControllerTest < ActionController::TestCase
      api.expects(:publication_for_slug).with("a-slug",edition_id).returns(
         OpenStruct.new(:type=>"answer"))
      @controller.stubs(:api).returns api
-     @controller.stubs(:render)
      prevent_implicit_rendering
+     @controller.stubs(:render)
      get :publication, :slug => "a-slug",:edition => edition_id
   end
 

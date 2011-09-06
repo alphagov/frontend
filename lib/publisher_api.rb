@@ -54,7 +54,7 @@ class PublisherApi
     return nil if slug.blank?
     url = url_for_slug(slug,edition_number)
     publication_hash = fetch_json(url)
-    if publication_hash
+    if publication_hash 
       container = OpenStruct.new(publication_hash)
       parse_updated_at(container)
       reinflate_parts(container)

@@ -6,6 +6,7 @@ class RootControllerTest < ActionController::TestCase
     api = mock()
     table.each { |slug,pub|
       api.expects(:publication_for_slug).with(slug).returns pub
+      pub.extend(PartMethods) if pub && pub.parts
     }
     api
   end
@@ -44,6 +45,34 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "THIS", assigns["publication"].name
     assert_equal "THIS", assigns["answer"].name
     assert_equal "c-slug", assigns["slug"]
+  end
+
+  test "objects with parts should get first part selected by default" do
+     @controller.stubs(:api).returns mock_api(
+      "c-slug" => OpenStruct.new({:type=>"answer",
+                                  :name=>"THIS",
+                                  :parts => [
+                                    OpenStruct.new(:slug=>"a",:name=>"AA"),
+                                    OpenStruct.new(:slug=>"b",:name=>"BB")
+                                ]})) 
+    prevent_implicit_rendering
+    @controller.stubs(:render).with("answer")
+    get :publication, :slug => "c-slug"
+    assert_equal "AA", assigns["part"].name
+  end
+
+  test "objects should have specified parts selected" do
+    @controller.stubs(:api).returns mock_api(
+      "c-slug" => OpenStruct.new({:type=>"answer",
+                                  :name=>"THIS",
+                                  :parts => [
+                                    OpenStruct.new(:slug=>"a",:name=>"AA"),
+                                    OpenStruct.new(:slug=>"b",:name=>"BB")
+                                ]})) 
+    prevent_implicit_rendering
+    @controller.stubs(:render).with("answer")
+    get :publication, :slug => "c-slug", :part => "b"
+    assert_equal "BB", assigns["part"].name
   end
 
 end

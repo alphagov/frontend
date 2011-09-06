@@ -12,7 +12,7 @@ class RootController < ApplicationController
     assert_found(@publication)
     instance_variable_set("@#{@publication.type}".to_sym,@publication)
     if @publication.parts
-       @part = pick_part(@partslug,publication)
+       @part = pick_part(@partslug,@publication)
        assert_found(@part)
     end
     render @publication.type 
@@ -25,11 +25,11 @@ class RootController < ApplicationController
     raise RecordNotFound unless obj
   end
 
-  def pick_part(partslug,publication)
+  def pick_part(partslug,pub)
      if partslug
-        publication.find_part(partslug)
+        pub.find_part(partslug)
      else
-        publication.parts.first
+        pub.parts.first
      end
   end
 end

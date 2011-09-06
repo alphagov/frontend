@@ -34,7 +34,7 @@
     <article role="article" class="group">
       <div class="inner">
         
-        <% if @local_transaction.authority %>
+        <% unless @local_transaction.authority %>
         <div class="find-nearest">
 
           <%= Govspeak::Document.new(@local_transaction.introduction || "").to_html.html_safe %>

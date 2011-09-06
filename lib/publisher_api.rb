@@ -44,10 +44,16 @@ class PublisherApi
     end
   end
 
-  def reinflate_parts(container)
-    if container.parts
-      container.parts = container.parts.map {|h| OpenStruct.new(h)}
-      container.extend(PartMethods)
+  def to_ostruct(obj)
+    case obj
+    when Hash
+      values = {}
+      obj.each { |key, value| values[key] = to_ostruct(value) }
+      OpenStruct.new(values)
+    when Array
+      obj.map { |k| to_ostruct(k) }
+    else
+      obj
     end
   end
 
@@ -56,9 +62,9 @@ class PublisherApi
     url = url_for_slug(slug,options)
     publication_hash = fetch_json(url)
     if publication_hash 
-      container = OpenStruct.new(publication_hash)
+      container = to_ostruct(publication_hash)
+      container.extend(PartMethods) if container.parts
       parse_updated_at(container)
-      reinflate_parts(container)
       container
     else
       return nil

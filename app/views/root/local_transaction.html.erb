@@ -37,7 +37,7 @@
         <% unless @local_transaction.authority %>
         <div class="find-nearest">
 
-          <%= Govspeak::Document.new(@local_transaction.introduction || "").to_html.html_safe %>
+          <%= to_govspeak(@local_transaction.introduction) %>
 
           <form action="<%= form_action_path(@local_transaction.slug) %>" method="POST">
 
@@ -81,7 +81,7 @@
           <% end %>
           </ul>
 
-          <%= Govspeak::Document.new(@local_transaction.more_information || "").to_html.html_safe %>
+          <%= to_govspeak(@local_transaction.more_information) %>
         </div>
 
       </div>

@@ -33,7 +33,7 @@
 
 	    <article role="article" class="group">
 	      <div class="inner">
-	        <%= Govspeak::Document.new(@answer.body || "").to_html.html_safe %>
+	        <%= to_govspeak(@answer.body) %>
 	      </div>
 	    </article>
 

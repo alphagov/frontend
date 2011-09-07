@@ -23,4 +23,9 @@ module RootHelper
   def form_action_path(slug)
     identify_council_path(:slug=>slug) 
   end
+
+  def to_govspeak(field)
+    Govspeak::Document.new(field || "").to_html.html_safe
+  end
+
 end

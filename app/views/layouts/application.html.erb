@@ -3,16 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <title>
-    <%= @publication.alternative_title.nil? ? @publication.alternative_title : @publication.title %> |
-    <% unless @publication.section.nil? or @publication.section == ''%>
-    <%= @publication.section %> |
-    <% end %>
-    Beta.gov.uk
+<% if @publication %>
+      <%= @publication.alternative_title.nil? ? @publication.alternative_title : @publication.title %> |
+      <% unless @publication.section.nil? or @publication.section == ''%>
+      <%= @publication.section %> |
+<% end %>
+      Beta.gov.uk
+<% else %>
+      <% yield :title %>
+<% end %>
   </title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/publisher.css" />
+<% if @publication %>
   <% if @publication.overview and @publication.overview != '' %>
-  <meta name="description" content="<%= @publication.overview %>">
+    <meta name="description" content="<%= @publication.overview %>">
   <% end %>
+<% else %>
+  <% yield :description %>
+<% end %>
   <% yield :extra_javascript %>
 </head>
 <body>

@@ -25,7 +25,7 @@ else
   gem 'geogov', :git => 'git@github.com:alphagov/geogov.git'
 end
 
-
+gem "addressable"
 
 group :test do
   gem "mocha"

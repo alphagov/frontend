@@ -16,7 +16,7 @@ class PublisherApi
   def url_for_slug(slug,options={})
     base = "#{base_url}/#{slug}.json"
     params = options.map { |k,v| "#{k}=#{v}" }
-    base = base + "?#{params.join("")}" unless options.empty? 
+    base = base + "?#{params.join("&")}" unless options.empty? 
     base
   end
 

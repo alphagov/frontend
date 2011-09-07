@@ -45,7 +45,7 @@ class PublisherApiTest < ActiveSupport::TestCase
      url = "http://example.com/some.json"
      stub_request(:get, url).to_return(
       :body => "{}",:status=>200) 
-     assert_equal Hash,api.fetch_json(url).class
+     assert_equal Hash,api.get_json(url).class
   end
 
   test "Should return nil if 404 returned from endpoint" do
@@ -53,7 +53,7 @@ class PublisherApiTest < ActiveSupport::TestCase
      url = "http://example.com/some.json"
      stub_request(:get, url).to_return(
       :body => "{}",:status=>404) 
-     assert_nil api.fetch_json(url)
+     assert_nil api.get_json(url)
   end
 
   test "Should construct correct url for a slug" do

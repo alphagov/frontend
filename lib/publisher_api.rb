@@ -2,8 +2,11 @@ require 'net/http'
 require 'ostruct'
 
 require 'part_methods'
+require 'json_utils'
 
 class PublisherApi
+
+  include JsonUtils
 
   def initialize(endpoint)
     @endpoint = endpoint
@@ -20,25 +23,26 @@ class PublisherApi
     base
   end
 
-  def fetch_json(url)
-    url = URI.parse(url)
-    response = Net::HTTP.start(url.host, url.port) do |http|
-      request = url.path
-      request = request + "?" + url.query if url.query
-      http.get(request)
-    end
-    if response.code.to_i != 200
-      return nil
-    else
-      return JSON.parse(response.body)
-    end
-  end
-
   def publications
-    fetch_json(base_url) 
+    get_json(base_url) 
   end
 
-  def parse_updated_at(container)
+  def publication_for_slug(slug,options = {})
+    return nil if slug.blank?
+    url = url_for_slug(slug,options)
+    publication_hash = get_json(url)
+    if publication_hash 
+      container = to_ostruct(publication_hash)
+      container.extend(PartMethods) if container.parts
+      convert_updated_date(container)
+      container
+    else
+      return nil
+    end
+  end
+  
+  protected
+  def convert_updated_date(container)
     if container.updated_at && container.updated_at.class == String
       container.updated_at = Time.parse(container.updated_at)
     end
@@ -57,28 +61,11 @@ class PublisherApi
     end
   end
 
-  def publication_for_slug(slug,options = {})
-    return nil if slug.blank?
-    url = url_for_slug(slug,options)
-    publication_hash = fetch_json(url)
-    if publication_hash 
-      container = to_ostruct(publication_hash)
-      container.extend(PartMethods) if container.parts
-      parse_updated_at(container)
-      container
+  def council_for_transaction(transaction,snac_codes)
+    if json = post_json("#{@endpoint}/local_transactions/#{transaction.slug}/verify_snac.json",{'snac_codes' => snac_codes})
+      return json['snac']
     else
       return nil
     end
-  end
-
-  def council_for_transaction(transaction,snac_codes)
-    url = URI.parse("#{@endpoint}/local_transactions/#{transaction.slug}/verify_snac.json")
-    Net::HTTP.start(url.host, url.port) do |http|
-      post_response = http.post(url.path, {'snac_codes' => snac_codes}.to_json, {'Content-Type' => 'application/json'})
-      if post_response.code == '200'
-        return JSON.parse(post_response.body)['snac']
-      end
-    end
-    return nil
   end
 end

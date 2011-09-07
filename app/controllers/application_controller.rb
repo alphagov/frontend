@@ -1,4 +1,5 @@
 require 'publisher_api'
+require 'imminence_api'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
@@ -35,5 +36,9 @@ class ApplicationController < ActionController::Base
     @api ||= PublisherApi.new("http://#{api_host}")
   end
 
+  helper_method :places_api
+  def places_api
+    @places_api ||= ImminenceApi.new("http://#{imminence_host}")
+  end
   
 end

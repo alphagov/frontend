@@ -16,8 +16,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
+  helper_method :api
   def api
     @api ||= PublisherApi.new("http://#{api_host}")
   end
+
+  
 end

@@ -88,7 +88,7 @@
 				<p class="modified-date">Last updated: <%= @local_transaction.updated_at.strftime("%d %B %Y") %></p>
   			<p>Re-use this data:</p>
 				<ul class="api-links">
-          <li class="json"><a href="/<%= @local_transaction.slug %>/all.json">JSON</a></li>
+          <li class="json"><a href="<%= api.url_for_slug(@local_transaction.slug,{all:true}) %>">JSON</a></li>
         </ul>
 			</div>
 

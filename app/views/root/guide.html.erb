@@ -49,7 +49,7 @@
 						<p class="modified-date">Last updated: <%= @guide.updated_at.strftime("%d %B %Y") %></p>
 						<p>Re-use this data:</p>
     				<ul class="api-links">
-              <li class="json"><a href="/publications/<%= @guide.slug %>.json">JSON</a></li>
+              <li class="json"><a href="<%= api.url_for_slug(@guide.slug) %>">JSON</a></li>
             </ul>
 					</div>
 

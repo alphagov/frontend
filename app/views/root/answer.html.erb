@@ -40,7 +40,7 @@
 				<p class="modified-date">Last updated: <%= @answer.updated_at.strftime("%d %B %Y") %></p>
         <p>Re-use this data:</p>
 				<ul class="api-links">
-          <li class="json"><a href="/<%= @answer.slug %>.json">JSON</a></li>
+          <li class="json"><a href="<%= api.url_for_slug(@answer.slug) %>">JSON</a></li>
         </ul>
         
 			</div>

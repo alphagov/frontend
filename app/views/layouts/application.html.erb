@@ -10,7 +10,7 @@
 <% end %>
       Beta.gov.uk
 <% else %>
-      <% yield :title %>
+      <%= yield :title %>
 <% end %>
   </title>
   <link rel="stylesheet" type="text/css" href="/stylesheets/publisher.css" />
@@ -19,9 +19,9 @@
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>
 <% else %>
-  <% yield :description %>
+  <%= yield :description %>
 <% end %>
-  <% yield :extra_javascript %>
+  <%= yield :extra_javascript %>
 </head>
 <body>
 

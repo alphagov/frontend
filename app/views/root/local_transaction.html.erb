@@ -1,3 +1,4 @@
+
 	<!-- naughty related position hack -->
 	<div class="related-positioning naughty">
 		<div class="related-container naughty">
@@ -26,12 +27,13 @@
         <hgroup>
           <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
         </hgroup>
+
       </div>
     </header>
 
     <article role="article" class="group">
       <div class="inner">
-        
+
         <% unless @local_transaction.authority %>
         <div class="find-nearest">
 
@@ -51,8 +53,6 @@
           </form>
         </div>
 
-        <h2>What you need to know</h2>        
-
         <% else %>
 
         <div class="intro">
@@ -66,9 +66,9 @@
 
         </div>
 
-        <h2>About this service</h2>
-
         <% end %>
+
+        <h2>What you need to know</h2>
 
         <div class="more">
           <ul class="helpers group">

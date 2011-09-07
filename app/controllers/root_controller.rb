@@ -29,6 +29,56 @@ class RootController < ApplicationController
     redirect_to transaction_path(@slug,council,@edition)
   end
 
+  def load_places
+    @place = fetch_publication(params)
+    assert_found(@place && @place.type == "place")
+    places = load_place_options(@place)
+    render :json => places
+  end
+
+  def get_options(type, lon, lat, limit = 5)
+    %*[{"name": "Place1",
+        "address1": "46 My street",
+        "address2": "Village",
+        "town": "Town",
+        "postcode": "AN12 3df",
+        "access_notes": "Access notes",
+        "general_notes": "General notes",
+        "url": "http://www.google.com",
+        "phone": "01231 4324234",
+        "fax": "01231 123123",
+        "text_phone": "",
+        "location": [50,0]
+      },
+      {"name": "Place2",
+          "address1": "56 My street",
+          "address2": "B Village",
+          "town": "Town2",
+          "postcode": "A34 3df",
+          "access_notes": "Access notes",
+          "general_notes": "General notes",
+          "url": "http://www.google.com",
+          "phone": "01231 43123234",
+          "fax": "01231 11123",
+          "text_phone": "",
+          "location": [49,0]
+      }]*
+  end
+
+  def load_place_options(publication)
+    if geo_known_to_at_least?('ward')
+        options_data = get_options(publication.place_type, geo_header['fuzzy_point']['lon'], geo_header['fuzzy_point']['lat'])
+        my_opts = JSON.parse(options_data)
+        return my_opts.map do |o|
+          o['latitude'] = o['location'][0]
+          o['longitude'] = o['location'][1]
+          o['address'] = [o['address1'], o['address2']].reject { |a| a.nil? or a == '' }.map { |a| a.strip }.join(', ')
+          o
+        end
+    end
+    return []
+  end
+
   protected
   def fetch_publication(params)
     @slug = params[:slug]
@@ -37,7 +87,11 @@ class RootController < ApplicationController
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]
-    api.publication_for_slug(@slug,options)
+    publication = api.publication_for_slug(@slug,options)
+    if publication && publication.type == "place"
+      @options = load_place_options(publication)
+    end
+    publication
   end
 
   def council_ons_from_geostack

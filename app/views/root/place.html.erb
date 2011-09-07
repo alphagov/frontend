@@ -1,0 +1,135 @@
+	<!-- naughty related position hack -->
+	<div class="related-positioning naughty">
+		<div class="related-container naughty">
+			<div class="related-container-two naughty">
+	   		<div class="related">
+			     <div class="inner" class="group">
+			       <h2>Related tools &amp; topics</h2>
+			       <nav role="navigation">
+			         <ul>
+                 <li><a href="#" class="guide">Know my rights about my payslip</a></li>
+                 <li><a href="#" class="answer">The age children can start work</a></li>
+                 <li><a href="#" class="answer">When you can start work</a></li>
+								 <li class="related-topic"><a href="#">More in <span>Cow-Tipping</span>&hellip;<span class="arrow"></span></a></li>
+			         </ul>
+			       </nav>
+			     </div>
+			   </div><!-- end .related -->
+			</div>
+		</div>
+	</div>
+	<!-- end naughty related position hack -->
+
+	<section role="main" class="group">
+
+    <header class="group">
+      <div class="inner">
+
+        <hgroup>
+          <h1><span>Find My Nearest</span> <%= @place.title %></h1>
+        </hgroup>
+
+      </div>
+    </header>
+
+    <article role="article" class="group">
+      <div class="inner">
+
+        <div class="find-nearest">
+          <% unless @options.any? %>
+          <p class="intro"><%= @place.introduction %></p>
+          <% end %>
+
+          <form method="get" id="local-locator-form">
+          <fieldset>
+            <legend class="visuallyhidden">Postcode lookup</legend>
+            <% if @edition %>
+              <input type="hidden" name="edition" value="<%= @edition %>">
+            <% end %>
+            <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'removing' : '' %>">
+              <label for="user-postcode">Enter a UK postcode <input id="user-postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+              <input type="submit" value="Get started →">
+            </div>
+
+            <div class="finding_location hidden">
+              <p>Locating you&hellip;<input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"></p>
+            </div>
+            <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
+              <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="#"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe if geo_known_to_at_least?('ward') %></a></p>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+
+      <% if @options.any? %>
+        <h3>Your nearest options are...</h3>
+        <ol id="options">
+          <%= mustache_partial '_option.html', {'options' => @options} %>
+        </ol>
+      <% else %>
+        <h3 id="options-header">Your nearest options are...</h3>
+        <ol id="options">
+        </ol>
+      <% end %>
+
+        <% if @place.expectations.any? %>
+          <h3>You will need:</h3>
+          <ul class="helpers group">
+          <% @place.expectations.each do |e| %>
+            <li class="<%= e.css_class %>">
+              <%= e.text %>
+            </li>
+          <% end %>
+          </ul>
+        <% end %>
+
+        <div class="more">
+          <h2>More about this service</h2>
+          <%= to_govspeak(@place.more_information) %>
+        </div>
+
+  			<div class="meta-data">
+          <p class="modified-date">Last updated: <%= @place.updated_at.strftime("%d %B %Y") %></p>
+          <p>Re-use this data:</p>
+          <ul class="api-links">
+            <li class="kml"><a href="/<%= @place.place_type %>.kml">KML</a></li>
+            <li class="json"><a href="<%= @place.place_type %>.json">JSON</a></li>
+            <li class="csv"><a href="<%= @place.place_type %>.csv">CSV</a></li>
+          </ul>
+  			</div>
+
+      </div>
+    </article>
+
+  </section>
+
+
+  <script id="option-template" type="text/x-mustache-template">
+  <%= mustache_direct '_option.html' %>
+  </script>
+
+  <script>
+
+  $(document).ready(function() {
+
+      var load_new_locations = function() {
+        var the_href = "<%= load_places_path(@place.slug)+"?edition="+@edition %>";
+        $.getJSON(the_href, function (data) {
+          $('#options').html($.mustache($('#option-template').html(), {options: data}));
+          $('.options-header').show();
+        });
+      }
+
+      AlphaGeo.locate('#local-locator-form');
+      $('#local-locator-form').attr('action',"/locator.json");
+
+      $(document).bind('location-changed', function(e, data) {
+        load_new_locations();
+      });
+
+    });
+    </script>
+    <style type="text/css" media="screen">
+      .removing { display: none; }
+      .options-header { display: none; }
+    </style>

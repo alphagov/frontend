@@ -76,6 +76,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mocha (0.9.12)
+    mustache (0.99.4)
     nokogiri (1.5.0)
     polyglot (0.3.2)
     rack (1.2.3)
@@ -118,6 +119,7 @@ DEPENDENCIES
   geogov!
   govspeak!
   mocha
+  mustache
   rack-geo!
   rails (= 3.0.10)
   slimmer!

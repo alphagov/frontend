@@ -16,6 +16,20 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  helper_method :imminence_host
+  def imminence_host
+    env = ENV['RAILS_ENV'] || 'development'
+    case env 
+    when 'development','test'
+      "local.alphagov.co.uk:3001"
+    when 'production'
+       "api.alpha.gov.uk"
+    else
+       "imminence.#{env}.alphagov.co.uk:8080"
+    end
+  end
+
+
   helper_method :api
   def api
     @api ||= PublisherApi.new("http://#{api_host}")

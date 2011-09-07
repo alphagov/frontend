@@ -21,7 +21,7 @@
 <% else %>
   <%= yield :description %>
 <% end %>
-  <%= javascript_include_tag '/javascripts/jquery.mustache.js' %>
+  <%= javascript_include_tag '/javascripts/jquery.mustache.js',"/javascripts/geo-locator.js"  %>
   <%= yield :extra_javascript %>
 </head>
 <body>
@@ -30,6 +30,7 @@
 <% else %>
   <div id="wrapper" class="<%= yield :wrapper_class %>">
 <% end %>
+	<%= render :partial => 'location_header' %>  
 <%= yield %>
 <script type="text/javascript" charset="utf-8">
         var api_host = '<%= api_host %>';

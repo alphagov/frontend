@@ -25,8 +25,15 @@
   <%= yield :extra_javascript %>
 </head>
 <body>
-
+<% if @publication %>
+  <div id="wrapper" class="<%= @publication.type %>">
+<% else %>
+  <div id="wrapper" class="<%= yield :wrapper_class %>">
+<% end %>
 <%= yield %>
-
+<script type="text/javascript" charset="utf-8">
+        var api_host = '<%= api_host %>';
+</script>
+ </div>
 </body>
 </html>

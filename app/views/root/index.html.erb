@@ -3,7 +3,7 @@
 <script src="/javascripts/geo-locator.js" type="text/javascript"></script>
 <% end %>
 <% content_for :title, "beta.gov.uk - the trial ‘beta’ version of the UK government's official website" %>
-<div id="wrapper" class="wrapper">
+<% content_for :wrapper_class, "wrapper" %>
   <section class="group home" role="main">
 	<%= render :partial => 'location_header' %>  
 	<div id="homepage-search" class="location-not-set group">
@@ -170,4 +170,3 @@
 	</div>
 
   </section>
-<div>

@@ -20,7 +20,7 @@ module RootHelper
     end
   end
 
-  def form_action_path(slug)
+  def council_lookup_path(slug)
     identify_council_path(:slug=>slug) 
   end
 

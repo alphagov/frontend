@@ -39,7 +39,7 @@
 
           <%= to_govspeak(@local_transaction.introduction) %>
 
-          <form action="<%= form_action_path(@local_transaction.slug) %>" method="POST">
+          <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
 
             <fieldset>
               <legend class="visuallyhidden">Postcode lookup</legend>

@@ -62,12 +62,12 @@
         </div>
 
       <% if @options.any? %>
-        <h3>Your nearest options are...</h3>
+        <h3 id="options-header">Your nearest options are...</h3>
         <ol id="options">
           <%= mustache_partial '_option.html', {'options' => @options} %>
         </ol>
       <% else %>
-        <h3 id="options-header">Your nearest options are...</h3>
+        <h3 id="options-header" style="display:none">Your nearest options are...</h3>
         <ol id="options">
         </ol>
       <% end %>
@@ -92,7 +92,7 @@
           <p class="modified-date">Last updated: <%= @place.updated_at.strftime("%d %B %Y") %></p>
           <p>Re-use this data:</p>
           <ul class="api-links">
-            <li class="kml"><a href="/<%= @place.place_type %>.kml">KML</a></li>
+            <li class="kml"><a href="<%= @place.place_type %>.kml">KML</a></li>
             <li class="json"><a href="<%= @place.place_type %>.json">JSON</a></li>
             <li class="csv"><a href="<%= @place.place_type %>.csv">CSV</a></li>
           </ul>
@@ -116,12 +116,25 @@
         var the_href = "<%= load_places_path(@place.slug)+"?edition="+@edition %>";
         $.getJSON(the_href, function (data) {
           $('#options').html($.mustache($('#option-template').html(), {options: data}));
-          $('.options-header').show();
+          $('#options-header').show();
         });
       }
 
+      var remove_existing_location_data = function() {
+        $("#options").html('');
+        $('#options-header').hide();
+      }
+ 
       AlphaGeo.locate('#local-locator-form');
       $('#local-locator-form').attr('action',"/locator.json");
+     
+      $(document).bind('location-removed', function(e, message) {
+        remove_existing_location_data();
+      });
+
+      $(document).bind('location-changed', function(e, data) {
+        remove_existing_location_data();
+      });
 
       $(document).bind('location-changed', function(e, data) {
         load_new_locations();
@@ -131,5 +144,4 @@
     </script>
     <style type="text/css" media="screen">
       .removing { display: none; }
-      .options-header { display: none; }
     </style>

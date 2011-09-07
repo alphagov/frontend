@@ -8,7 +8,7 @@
 			       <h2><span class="arrow"></span>Related tools &amp; topics</h2>
 			       <nav role="navigation">
 			         <ul>
-                 <%= @answer.related_items.html_safe %>
+                 <%= (@answer.related_items || "").html_safe %>
 								 <li class="related-topic"><a href="#">More in <span><%= @answer.section %></span>&hellip;<span class="arrow"></span></a></li>
 			         </ul>
 			       </nav>

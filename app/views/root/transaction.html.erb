@@ -9,7 +9,7 @@
 			       <h2>Related tools &amp; topics</h2>
 			       <nav role="navigation">
 			         <ul>
-                 <%= @transaction.related_items.html_safe %>
+                 <%= (@transaction.related_items || "").html_safe %>
 								 <li class="related-topic"><a href="#">More in <span><%= @transaction.section %></span>&hellip;<span class="arrow"></span></a></li>
 			         </ul>
 			       </nav>
@@ -51,8 +51,8 @@
         <div class="more">
           <ul class="helpers">
           <% @transaction.expectations.each do |e| %>
-            <li class="<%= e['css_class'] %>">
-              <%= e['text'] %>
+            <li class="<%= e.css_class %>">
+              <%= e.text %>
             </li>
           <% end %>
           </ul>

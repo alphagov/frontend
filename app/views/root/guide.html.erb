@@ -9,7 +9,7 @@
 			       <h2>Related tools &amp; topics</h2>
 			       <nav role="navigation">
 			         <ul>
-                 <%= @guide.related_items.html_safe %>
+                 <%= (@guide.related_items || "").html_safe %>
 								 <li class="related-topic"><a href="#">More in <span><%= @guide.section %></span>&hellip;<span class="arrow"></span></a></li>
 			         </ul>
 			       </nav>

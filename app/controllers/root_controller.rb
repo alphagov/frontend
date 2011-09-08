@@ -16,7 +16,10 @@ class RootController < ApplicationController
     end
     
     instance_variable_set("@#{@publication.type}".to_sym,@publication)
-    render @publication.type 
+    respond_to do |format|
+      format.html { render @publication.type }
+      format.json { render :json => @publication.to_json }
+    end
   rescue RecordNotFound
     render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
   end

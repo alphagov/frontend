@@ -1,0 +1,32 @@
+<html>
+  <head>
+ </head>
+<body>
+  <div id="wrapper">
+    <script type="text/javascript">
+      $(document).ready(function() {
+        function nuke_skin() {
+           $("body").children().remove();
+           $("<iframe id='frame' height='100%' width='100%' src=''></iframe>").appendTo($("body"));
+        }
+        function random_page() { 
+          $.ajax({
+            url: "/autocomplete",
+            dataType: "json",
+            success: function(data) {
+                var urls = $.map(data,function(e) {
+                  return "/"+e.slug
+                  });
+                var random_url = urls[Math.floor(Math.random() * urls.length)]
+                $("#frame").attr('src',random_url);  
+              }
+           });
+          }
+        nuke_skin();
+        random_page();
+        window.setInterval(random_page,10000);
+    });
+    </script>
+  </div>
+</body>
+<html>

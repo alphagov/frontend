@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/govspeak.git
-  revision: 4e7be4bd5dcd4614de59a6b71fb1d52c035db05b
+  revision: 3a27e6e28cf49ec9bf410ca46d0baaa1e7bcad68
   specs:
     govspeak (0.8.3)
       kramdown (~> 0.13.3)
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/slimmer.git
-  revision: 2fe052078ea6cd61da3d69dcd9040b0114f12392
+  revision: 12489db6824216e1debddad36c19d33755f687dc
   specs:
     slimmer (0.7.10)
       nokogiri
@@ -85,8 +85,10 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.16)
-    mocha (0.9.12)
+    mocha (0.10.0)
+      metaclass (~> 0.0.1)
     mustache (0.99.4)
     nokogiri (1.5.0)
     polyglot (0.3.2)
@@ -122,7 +124,7 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
     webmock (1.7.6)
-      addressable (~> 2.2, > 2.2.5)
+      addressable (> 2.2.5, ~> 2.2)
       crack (>= 0.1.7)
 
 PLATFORMS

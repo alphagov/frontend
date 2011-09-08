@@ -13,7 +13,7 @@
       <%= yield :title %>
 <% end %>
   </title>
-  <link rel="stylesheet" type="text/css" href="/stylesheets/publisher.css" />
+  <%= stylesheet_link_tag '/stylesheets/publisher.css' %>
 <% if @publication %>
   <% if @publication.overview and @publication.overview != '' %>
     <meta name="description" content="<%= @publication.overview %>">

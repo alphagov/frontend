@@ -1,14 +1,15 @@
-	<!-- naughty related position hack -->
-	<div class="related-positioning naughty">
-		<div class="related-container naughty">
-			<div class="related-container-two naughty">
+
+	<!-- related position hack -->
+	<div class="related-positioning">
+		<div class="related-container">
+			<div class="related-container-two">
 	   		<div class="related">
 			     <div class="inner" class="group">
-			       <h2><span class="arrow"></span>Related tools &amp; topics</h2>
+			       <h2>Related tools &amp; topics</h2>
 			       <nav role="navigation">
 			         <ul>
                  <%= (@answer.related_items || "").html_safe %>
-								 <li class="related-topic"><a href="#">More in <span><%= @answer.section %></span>&hellip;<span class="arrow"></span></a></li>
+								 <li class="related-topic"><a href="">View more in <span><%= @answer.section %>&rarr;</span></a></li>
 			         </ul>
 			       </nav>
 			     </div>
@@ -16,7 +17,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- end naughty related position hack -->
+	<!-- end related position hack -->
 
   <section role="main" class="group">
 
@@ -28,25 +29,19 @@
 
     </header>
 
-		<div class="article-and-navigation group">
+    <article role="article" class="group">
+      <div class="inner">
+        <%= to_govspeak(@answer.body) %>
+      </div>
 
-	    <article role="article" class="group">
-	      <div class="inner">
-	        <%= to_govspeak(@answer.body) %>
-	      </div>
-	    </article>
-
-			<div class="meta-data">
-				<p class="modified-date">Last updated: <%= @answer.updated_at.strftime("%d %B %Y") %></p>
+  		<div class="meta-data">
+  			<p class="modified-date">Last updated: <%= @answer.updated_at.to_formatted_s(:short_ordinal) %></p>
         <p>Re-use this data:</p>
-				<ul class="api-links">
+  			<ul class="api-links">
           <li class="json"><a href="<%= api.url_for_slug(@answer.slug) %>">JSON</a></li>
         </ul>
-        
-			</div>
+  		</div>
 
-		</div>
+    </article>
 
   </section>
-
-

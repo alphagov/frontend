@@ -1,16 +1,15 @@
-	<!-- naughty related position hack -->
-	<div class="related-positioning naughty">
-		<div class="related-container naughty">
-			<div class="related-container-two naughty">
+
+	<!-- related position hack -->
+	<div class="related-positioning">
+		<div class="related-container">
+			<div class="related-container-two">
 	   		<div class="related">
 			     <div class="inner" class="group">
 			       <h2>Related tools &amp; topics</h2>
 			       <nav role="navigation">
 			         <ul>
-                 <li><a href="#" class="guide">Know my rights about my payslip</a></li>
-                 <li><a href="#" class="answer">The age children can start work</a></li>
-                 <li><a href="#" class="answer">When you can start work</a></li>
-								 <li class="related-topic"><a href="#">More in <span>Cow-Tipping</span>&hellip;<span class="arrow"></span></a></li>
+                 <%= (@place.related_items||"").html_safe %>
+								 <li class="related-topic"><a href="">View more in <span><%= @place.section %>&rarr;</span></a></li>
 			         </ul>
 			       </nav>
 			     </div>
@@ -18,7 +17,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- end naughty related position hack -->
+	<!-- end related position hack -->
 
 	<section role="main" class="group">
 
@@ -37,7 +36,7 @@
 
         <div class="find-nearest">
           <% unless @options.any? %>
-          <p class="intro"><%= @place.introduction %></p>
+          <%= to_govspeak(@place.introduction) %>
           <% end %>
 
           <form method="get" id="local-locator-form">
@@ -72,8 +71,9 @@
         </ol>
       <% end %>
 
+      <div class="more">
         <% if @place.expectations.any? %>
-          <h3>You will need:</h3>
+          <h3>What you need to know</h3>
           <ul class="helpers group">
           <% @place.expectations.each do |e| %>
             <li class="<%= e.css_class %>">
@@ -83,13 +83,12 @@
           </ul>
         <% end %>
 
-        <div class="more">
-          <h2>More about this service</h2>
           <%= to_govspeak(@place.more_information) %>
         </div>
 
   			<div class="meta-data">
-          <p class="modified-date">Last updated: <%= @place.updated_at.strftime("%d %B %Y") %></p>
+          <p class="modified-date">Last updated: <%= @place.updated_at.to_formatted_s(:short_ordinal) %></p>
+
           <p>Re-use this data:</p>
           <ul class="api-links">
             <li class="kml"><a href="<%= @place.place_type %>.kml">KML</a></li>
@@ -99,6 +98,7 @@
   			</div>
 
       </div>
+
     </article>
 
   </section>
@@ -124,10 +124,10 @@
         $("#options").html('');
         $('#options-header').hide();
       }
- 
+
       AlphaGeo.locate('#local-locator-form');
       $('#local-locator-form').attr('action',"/locator.json");
-     
+
       $(document).bind('location-removed', function(e, message) {
         remove_existing_location_data();
       });

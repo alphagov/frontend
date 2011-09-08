@@ -28,11 +28,16 @@ end
 
 gem "addressable"
 
+gem 'cdn_helpers', :git => 'git@github.com:alphagov/cdn_helpers.git', :tag => 'v0.8.3'
+
 group :test do
   gem "mocha"
   gem "webmock"
   gem "ZenTest"
   gem "autotest-rails"
+  gem 'simplecov'
+  gem 'simplecov-rcov'
+  gem 'ci_reporter'
 end
 
 

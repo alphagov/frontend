@@ -1,3 +1,5 @@
+require 'cdn_helpers'
+
 Frontend::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -33,6 +35,7 @@ Frontend::Application.configure do
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   config.action_controller.asset_host = "http://demo.alphagov.co.uk"
+  config.action_controller.asset_path = CdnHelpers::AssetPath
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

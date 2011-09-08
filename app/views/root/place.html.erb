@@ -71,9 +71,9 @@
         </ol>
       <% end %>
 
+      <h2>What you need to know</h2>
       <div class="more">
         <% if @place.expectations.any? %>
-          <h3>What you need to know</h3>
           <ul class="helpers group">
           <% @place.expectations.each do |e| %>
             <li class="<%= e.css_class %>">

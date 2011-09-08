@@ -3,6 +3,7 @@ require 'ostruct'
 
 require 'part_methods'
 require 'json_utils'
+require 'core-ext/openstruct'
 
 class PublisherApi
 

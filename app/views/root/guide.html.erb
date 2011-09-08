@@ -51,7 +51,7 @@
 
 						<p>Re-use this data:</p>
     				<ul class="api-links">
-              <li class="json"><a href="<%= api.url_for_slug(@guide.slug) %>">JSON</a></li>
+              <li class="json"><a href="<%= publication_path(@guide.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
             </ul>
 					</div>
 

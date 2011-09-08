@@ -37,8 +37,8 @@
   		<div class="meta-data">
   			<p class="modified-date">Last updated: <%= @answer.updated_at.to_formatted_s(:short_ordinal) %></p>
         <p>Re-use this data:</p>
-  			<ul class="api-links">
-          <li class="json"><a href="<%= api.url_for_slug(@answer.slug) %>">JSON</a></li>
+				<ul class="api-links">
+          <li class="json"><a href="<%= publication_path(@answer.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
         </ul>
   		</div>
 

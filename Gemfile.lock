@@ -143,7 +143,7 @@ DEPENDENCIES
   mustache
   rack-geo!
   rails (= 3.0.10)
-  simplecov
+  simplecov (= 0.4.2)
   simplecov-rcov
   slimmer!
   test-unit

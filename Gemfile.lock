@@ -118,6 +118,7 @@ GEM
     simplecov-html (0.4.5)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
+    test-unit (2.3.2)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
@@ -145,4 +146,5 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   slimmer!
+  test-unit
   webmock

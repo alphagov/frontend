@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SmartAnswers</title>
+        <link href="../css/style.css" type="text/css" rel="stylesheet">
+    </head>
+    
+    <body class="full-width">
+	
+		  <header role="banner" class="group">
+		    <div class="inner">
+		      <hgroup>
+		        <h1>beta.gov.uk Smart Answer Concept</h1>
+		        <h2>This is a prototype concept. The data is purely for example, and may not be accurate at the time of viewing.</h2>
+		      </hgroup>
+					<div id="feedback"><a href="">Send us your feedback</a></div>
+		    </div> <!-- end inner -->
+		  </header><!--end header-->
+	
+        <div class="wrapper">
+            <div class="content">
+                <div class="introduction">
+                    <div class="inner">
+                        <h1>SmartAnswers</h1>
+                        <p>Put all content data files into the <code>/data</code> folder.</p>
+                        <p>Load a SmartAnswer by adding its filename (without the ".js" extension) to the URL in the browser's address bar:</p>
+                        <ul>
+                            <li><a href="?maternity-allowance"><code>index.html?maternity-allowance</code></a></li>
+                            <li><a href="?eligible-for-work"><code>index.html?eligible-for-work</code></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- MICRO-TEMPLATES -->
+        <script type="text/tim" class="smartanswer">
+            <div class="introduction">
+                <div class="inner">
+                    <h1>{{title}}</h1>
+                    <p>{{summary}}</p>
+                    
+                    <ul class="expectations">
+                        <li>This will take about {{completionTime}} minutes</li>
+                    </ul>
+                    <div class="arrow-down"></div>
+                </div>
+                <p class="start"><a>Get started</a></p>
+            </div>
+            
+            <form>
+                <ol class="done-decisions"></ol>
+                <div class="steps"></div>
+            </form>
+        </script>
+        
+        <script type="text/tim" class="decision-intro">
+            <li class="intro-mini">
+                <h2>{{title}}</h2>
+            </li>
+        </script>
+        
+        <script type="text/tim" class="decision">
+            <li class="done" data-step="{{id}}">
+                <h3 class="question">
+                    <span class="decision-number">{{historyIndex}}</span>
+                    {{title}}
+                </h3>
+                
+                <p class="answer">{{decision}}</p>
+                <p class="undo"><a>Change this answer</a></p>
+            </li>
+        </script>
+        
+        <script type="text/tim" class="step">
+            <div class="step current" data-step="{{id}}">
+                <div class="inner">
+                    <h3>
+                        <span class="decision-number">{{historyIndex}}</span>
+                        {{title}}
+                    </h3>
+                    
+                    <ul>{{options}}</ul>
+                    
+                    <div class="arrow-down"></div>
+                    
+                </div>
+								<div class="next-decision">
+                    <input type="submit" value="Next">
+                </div>
+            </div>
+        </script>
+        
+        <script type="text/tim" class="results" data-step="{{id}}">
+            <div class="results">
+                <div id="results" class="inner">
+                    <h2>{{title}}</h2>
+                
+                    {{hasDetails}}
+                    <div class="details">
+                        {{hasSummary}}
+                        <p>{{summary}}</p>
+                        {{/hasSummary}}
+                        
+                        <ul>
+                            {{details}}
+                            <li>{{_content}}</li>
+                            {{/details}}
+                        </ul>
+                    </div>
+                    {{/hasDetails}}
+                
+                    {{hasReadMore}}
+                    <ul class="readmore">
+                        {{readmore}}
+                        <li class="primary"><a href="{{url}}">{{title}}</a></li>
+                        {{/readmore}}
+                    </ul>
+                    {{/hasReadMore}}
+                </div>
+            </div>
+        </script>
+        
+        <!-- INPUT TYPES -->
+        <script type="text/tim" class="option-select">
+            <li>
+                <select name="{{name}}">
+                    {{hasOptionsSummary}}
+                    <option value="null">{{step.optionsSummary}}</option>
+                    {{/hasOptionsSummary}}
+                
+                    {{options}}
+                    <option>{{title}}</option>
+                    {{/options}}
+                </select>
+            </li>
+        </script>
+        
+        <script type="text/tim" class="option-radio">
+            {{options}}
+            <li>
+                <input type="radio" id="{{id}}" name="{{name}}"> 
+                <label for="{{id}}">{{title}}</label>
+            </li>
+            {{/options}}
+        </script>
+        
+        <script type="text/tim" class="option-date">
+            {{options}}
+            <li>                    
+                <select class="date day" name="{{name}}-day">
+                    <option value="null">Day</option>
+                    {{days}}
+                        <option>{{title}}</option>
+                    {{/days}}
+                </select>
+                
+                <select class="date month" name="{{name}}-month">
+                    <option value="null">Month</option>
+                    {{months}}
+                        <option value="{{value}}">{{title}}</option>
+                    {{/months}}
+                </select>
+                
+                <select class="date year" name="{{name}}-year">
+                    <option value="null">Year</option>
+                    {{years}}
+                        <option>{{title}}</option>
+                    {{/years}}
+                </select>
+                
+                <label>{{title}}</label>
+            </li>
+            {{/options}}
+        </script>
+        
+        
+        <!-- SCRIPTS -->
+        <script src="../js/lib/jquery.min.js"></script>
+        <script src="../js/lib/underscore.min.js"></script>
+        <script src="../js/lib/tim.min.js"></script>
+        <script src="js/smartanswers.js"></script>
+        
+        <!-- INITIALISE -->
+        <script>
+            (function(){
+                // Grab the query string, to determine which smartanswer to load, e.g. index.html?maternity-allowance
+                var smartanswerFilename = window.location.search.replace(/^\?|\.js$/g, ""),
+                    url;
+                
+                if (smartanswerFilename){
+                    // Bust the browser cache by adding a timestamp
+                    url = "data/" + smartanswerFilename + ".js?v" + (new Date()).getTime();
+                    
+                    // Use document.write to load file (in Chrome, loading local files by any other method fails)
+                    document.write("<script src='" + url + "'><" + "/script>");
+                }
+            }());
+        </script>
+    </body>
+</html>

@@ -35,7 +35,7 @@ group :test do
   gem "webmock"
   gem "ZenTest"
   gem "autotest-rails"
-  gem 'simplecov'
+  gem 'simplecov', '0.4.2'
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'

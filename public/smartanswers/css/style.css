@@ -275,6 +275,7 @@ div.arrow-down {
 .full-width .content {
 	width: auto;
 	margin: 0 2em;
+	padding-top: 15px;
 }
 
 .full-width .bookend {

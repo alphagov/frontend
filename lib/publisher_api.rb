@@ -42,6 +42,14 @@ class PublisherApi
     end
   end
   
+  def council_for_transaction(transaction,snac_codes)
+    if json = post_json("#{@endpoint}/local_transactions/#{transaction.slug}/verify_snac.json",{'snac_codes' => snac_codes})
+      return json['snac']
+    else
+      return nil
+    end
+  end
+  
   protected
   def convert_updated_date(container)
     if container.updated_at && container.updated_at.class == String
@@ -59,14 +67,6 @@ class PublisherApi
       obj.map { |k| to_ostruct(k) }
     else
       obj
-    end
-  end
-
-  def council_for_transaction(transaction,snac_codes)
-    if json = post_json("#{@endpoint}/local_transactions/#{transaction.slug}/verify_snac.json",{'snac_codes' => snac_codes})
-      return json['snac']
-    else
-      return nil
     end
   end
 end

@@ -27,6 +27,7 @@ else
 end
 
 gem "addressable"
+gem 'exception_notification', '~> 2.4.1', :require => 'exception_notifier'
 
 gem 'cdn_helpers', :git => 'git@github.com:alphagov/cdn_helpers.git', :tag => 'v0.8.3'
 

@@ -5,7 +5,13 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
 
+  def index
+    expires_in 3.minute, :public => true unless Rails.env.development?
+  end
+
   def publication
+    expires_in 3.minute, :public => true unless Rails.env.development?
+
     @publication = fetch_publication(params)
     assert_found(@publication)
 
@@ -14,7 +20,7 @@ class RootController < ApplicationController
        @part = pick_part(@partslug,@publication)
        assert_found(@part)
     end
-    
+
     instance_variable_set("@#{@publication.type}".to_sym,@publication)
     respond_to do |format|
       format.html { render @publication.type }

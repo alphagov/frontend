@@ -40,5 +40,5 @@ class ApplicationController < ActionController::Base
   def places_api
     @places_api ||= ImminenceApi.new("http://#{imminence_host}")
   end
-  
+
 end

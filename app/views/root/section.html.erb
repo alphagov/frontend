@@ -1,14 +1,14 @@
 <% content_for :extra_javascript, javascript_include_tag('geo-locator') %>
-<% content_for :title, "beta.gov.uk - the trial ‘beta’ version of the UK government's official website" %>
+<% content_for :title, "www.gov.uk - the trial ‘beta’ version of the UK government's official website" %>
 
 <section class="group section" role="main">
-	<%= render :partial => 'location_header' %>  
+	<%= render :partial => 'location_header' %>
 	<div id="homepage-search" class="location-not-set group">
 		<header>
 			<h1><%= @section.name %></h1>
 		</header>
 
-		
+
 	<div class="popular-sections group">
 		<div class="popular-in-section">
 			<h2>Popular in this section</h2>
@@ -25,9 +25,9 @@
 			<h2>A to Z</h2>
 		</header>
 
-		<% 
+		<%
 		require 'dictionary_presenter'
-		content_dictionary = DictionaryPresenter.new(@section.publications).as_dictionary 
+		content_dictionary = DictionaryPresenter.new(@section.publications).as_dictionary
 		%>
 
 		<ul>

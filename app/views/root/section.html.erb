@@ -1,47 +1,51 @@
 <% content_for :extra_javascript, javascript_include_tag('geo-locator') %>
-<% content_for :title, "www.gov.uk - the trial ‘beta’ version of the UK government's official website" %>
+<% content_for :title, " | www.gov.uk" %>
 
-<section class="group section" role="main">
+<section role="main" class="group">
+
 	<%= render :partial => 'location_header' %>
-	<div id="homepage-search" class="location-not-set group">
-		<header>
-			<h1><%= @section.name %></h1>
-		</header>
 
+  <header class="group">
+    <div class="inner">
 
-	<div class="popular-sections group">
-		<div class="popular-in-section">
-			<h2>Popular in this section</h2>
-			<ul>
-			  <% @section.publications[0..9].each do |publication| %>
-			  <li class="<%= publication.type %>"><%= link_to publication.title, "/#{publication.slug}" %></a></li>
-			  <% end %>
-			</ul>
-		</div>
-	</div>
+      <hgroup>
+  			<h1><span>View content in</span> <%= @section.name %></h1>
+      </hgroup>
 
-	<div class="a-z group">
-		<header>
-			<h2>A to Z</h2>
-		</header>
+    </div>
+  </header>
 
-		<%
-		require 'dictionary_presenter'
-		content_dictionary = DictionaryPresenter.new(@section.publications).as_dictionary
-		%>
+  <article role="article" class="group">
+    <div class="inner">
 
-		<ul>
-		  <% ('A'..'Z').each do |letter| %>
-			<li><h3><%= letter %></h3>
-				<ul>
-				  <% content_dictionary[letter].each do |publication| %>
-          <li class="<%= publication.type %>"><%= link_to publication.title, "/#{publication.slug}" %></a></li>
-				  <% end %>
-				</ul>
-			</li>
-		<% end %>
-  </ul>
+    	<div class="popular-sections group">
+  			<h2>Popular in this section</h2>
+  			<ul class="group">
+  			  <% @section.publications[0..9].each do |publication| %>
+  			  <li class="<%= publication.type %>"><%= link_to publication.title, "/#{publication.slug}" %></a></li>
+  			  <% end %>
+  			</ul>
+    	</div>
 
-	</div>
+    	<div class="a-z group">
+  			<h2>A to Z</h2>
+    		<%
+    		require 'dictionary_presenter'
+    		content_dictionary = DictionaryPresenter.new(@section.publications).as_dictionary
+    		%>
 
+    		<ul class="group">
+    		  <% ('A'..'Z').each do |letter| %>
+    			<li><h3><%= letter %></h3>
+    				<ul class="group">
+    				  <% content_dictionary[letter].each do |publication| %>
+              <li class  = "<%= publication.type %>"><%= link_to publication.title, "/#{publication.slug}" %></a></li>
+    				  <% end %>
+    				</ul>
+    			</li>
+    		<% end %>
+      </ul>
+
+    </div>
+  </article>
 </section>

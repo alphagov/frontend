@@ -9,7 +9,7 @@
 			       <nav role="navigation">
 			         <ul>
                  <%= (@guide.related_items || "").html_safe %>
-								 <li class="related-topic"><a href="">View more in <span><%= @guide.section %>&rarr;</span></a></li>
+                 <li class="related-topic"><a href="/<%= @guide.section.parameterize %>">View more in <span><%= @guide.section %>&rarr;</span></a></li>
 			         </ul>
 			       </nav>
 			     </div>

@@ -20,10 +20,6 @@ class RootController < ApplicationController
        @part = pick_part(@partslug,@publication)
        assert_found(@part)
     end
-    
-    if @publication.type == 'place'
-      @options = load_place_options(@publication)
-    end
 
     instance_variable_set("@#{@publication.type}".to_sym,@publication)
     respond_to do |format|
@@ -57,7 +53,7 @@ class RootController < ApplicationController
 
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
-      places_api.places(publication.place_type, geo_header['fuzzy_point']['lon'], geo_header['fuzzy_point']['lat'])
+      places_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
     else
       []
     end

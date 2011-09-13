@@ -9,13 +9,13 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/geogov.git
-  revision: 6867aedacda13fa8c050f706c3a351864eff0752
+  revision: c2acf57a158ef18a9820e40f03d0d1cccd9d6345
   specs:
     geogov (0.0.1)
 
 GIT
   remote: git@github.com:alphagov/govspeak.git
-  revision: 00af95391179b879660d56283f9fb9dc73ece1fe
+  revision: e6f9730df3f352e59c56a38d71ab083073644cd5
   specs:
     govspeak (0.8.3)
       kramdown (~> 0.13.3)
@@ -79,7 +79,7 @@ GEM
       abstract (>= 1.0.0)
     exception_notification (2.4.1)
     i18n (0.5.0)
-    json (1.5.4)
+    json (1.6.0)
     kramdown (0.13.3)
     mail (2.2.19)
       activesupport (>= 2.3.6)

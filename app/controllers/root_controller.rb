@@ -39,6 +39,9 @@ class RootController < ApplicationController
     assert_found(@transaction && @transaction.type == "local_transaction")
     snac_codes = council_ons_from_geostack
     council = api.council_for_transaction(@transaction,snac_codes)
+    if council.nil?
+      flash[:no_council] = "No details of a provider of that service in your area are available"
+    end
     redirect_to transaction_path(@slug,council,@edition)
   end
 

@@ -96,6 +96,23 @@ class RootControllerTest < ActionController::TestCase
      
      assert_redirected_to publication_path(:slug=>"c-slug",:snac=>"21")
   end
+  
+  test "Should set message if no council for local transaction" do
+    api = mock_api( "c-slug" => OpenStruct.new(
+         :type=>"local_transaction",
+         :name=>"THIS"))
+    @controller.stubs(:api).returns api
+
+    stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
+    request.env["HTTP_X_GOVGEO_STACK"] = stack
+    
+    api.expects(:council_for_transaction).with(anything,[1,2,3]).returns(nil)
+
+    post :identify_council, :slug => "c-slug"
+    
+    assert_redirected_to publication_path(:slug=>"c-slug")
+    assert_equal "No details of a provider of that service in your area are available", flash[:no_council]
+  end
 
   test "objects with parts should get first part selected by default" do
      @controller.stubs(:api).returns mock_api(

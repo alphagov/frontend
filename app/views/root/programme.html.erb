@@ -16,6 +16,7 @@
 			       <h2>Related tools &amp; topics</h2>
 			       <nav role="navigation">
 			         <ul>
+                 <%= (@programme.related_items||"").html_safe %>
 								 <li class="related-topic"><a href="">View more in <span><%= @programme.section %></span>&rarr;</a></li>
 			         </ul>
 			       </nav>

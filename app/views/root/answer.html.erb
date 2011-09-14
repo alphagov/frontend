@@ -9,7 +9,9 @@
 			       <nav role="navigation">
 			         <ul>
                  <%= (@answer.related_items || "").html_safe %>
-                 <li class="related-topic"><a href="/<%= @answer.section.parameterize %>">View more in <span><%= @answer.section %>&rarr;</span></a></li>
+                 <% if @answer.section %>
+                   <li class="related-topic"><a href="/<%= @answer.section.parameterize %>">View more in <span><%= @answer.section %>&rarr;</span></a></li>
+                 <% end %>
 			         </ul>
 			       </nav>
 			     </div>

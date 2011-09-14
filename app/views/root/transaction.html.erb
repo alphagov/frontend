@@ -9,7 +9,9 @@
 			       <nav role="navigation">
 			         <ul>
                  <%= (@transaction.related_items || "").html_safe %>
-                 <li class="related-topic"><a href="/<%= @transaction.section.parameterize %>">View more in <span><%= @transaction.section %>&rarr;</span></a></li>
+                 <% if @transaction.section %>
+                   <li class="related-topic"><a href="/<%= @transaction.section.parameterize %>">View more in <span><%= @transaction.section %>&rarr;</span></a></li>
+                 <% end %>
 			         </ul>
 			       </nav>
 			     </div>

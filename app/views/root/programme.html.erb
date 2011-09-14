@@ -17,7 +17,9 @@
 			       <nav role="navigation">
 			         <ul>
                  <%= (@programme.related_items||"").html_safe %>
-                 <li class="related-topic"><a href="/<%= @programme.section.parameterize %>">View more in <span><%= @programme.section %></span>&rarr;</a></li>
+                 <% if @programme.section %>
+                   <li class="related-topic"><a href="/<%= @programme.section.parameterize %>">View more in <span><%= @programme.section %></span>&rarr;</a></li>
+                 <% end %>
 			         </ul>
 			       </nav>
 			     </div>

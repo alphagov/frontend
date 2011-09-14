@@ -53,7 +53,7 @@
           <p>Uses Government Gateway.</p>
         <% end %>
         <% if @transaction.minutes_to_complete.present? %>
-          <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes</p>
+          <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes.</p>
         <% end %>
 
         <div class="more">

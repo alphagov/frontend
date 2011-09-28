@@ -63,6 +63,13 @@
 
           <%= to_govspeak(@transaction.more_information) %>
         </div>
+        
+        <% if @transaction.alternate_methods.present? %>
+        <h2>Other ways to apply</h2>
+        <div class="more">
+        	<%= to_govspeak(@transaction.alternate_methods) %>
+        </div>
+        <% end %>
 
       </div>
 

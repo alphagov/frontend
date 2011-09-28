@@ -24,9 +24,9 @@
   <section role="main" class="group">
 
     <header class="group">
-        <hgroup>
-          <h1><span>Guide to </span><%= @guide.title %></h1>
-        </hgroup>
+	    <hgroup>
+	      <h1><span>Guide to </span><%= @guide.title %></h1>
+	    </hgroup>
     </header>
 
 		<div class="article-and-navigation group">
@@ -34,7 +34,7 @@
 	    <aside role="navigation">
 	      <div class="inner">
 
-	        <nav>
+	        <nav class="chapters-navigation">
 	          <ol>
 	            <% @guide.parts.each do |nav_part| %>
 	            <li <% if @part == nav_part %>class="active"<% end %>>

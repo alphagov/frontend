@@ -28,59 +28,58 @@
 	      <h1><span>Services</span> <%= @transaction.title %></h1>
 	    </hgroup>
     </header>
+		<div class="article-container group">
+    	<article role="article" class="group">
+	      <div class="inner">
 
-    <article role="article" class="group">
-      <div class="inner">
+	        <div class="intro">
+	          <%= to_govspeak(@transaction.introduction) %>
 
-        <div class="intro">
-          <%= to_govspeak(@transaction.introduction) %>
+	          <p class="get-started"><a href="<%= @transaction.link %>" title="Begin <%= @transaction.title %> on the <%= @transaction.will_continue_on %> site in a new browser window" rel="external" class="button">Get started &rarr;</a></p>
 
-          <p class="get-started"><a href="<%= @transaction.link %>" title="Begin <%= @transaction.title %> on the <%= @transaction.will_continue_on %> site in a new browser window" rel="external" class="button">Get started &rarr;</a></p>
+	          <% if @transaction.will_continue_on != '' %>
+	            <p>This will continue on <%= @transaction.will_continue_on %>.</p>
+	          <% end %>
 
-          <% if @transaction.will_continue_on != '' %>
-            <p>This will continue on <%= @transaction.will_continue_on %>.</p>
-          <% end %>
+	        </div>
 
-        </div>
+	        <h2>What you need to know</h2>
 
-        <h2>What you need to know</h2>
+	        <% if @transaction.uses_government_gateway %>
+	          <p>Uses Government Gateway.</p>
+	        <% end %>
+	        <% if @transaction.minutes_to_complete.present? %>
+	          <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes.</p>
+	        <% end %>
 
-        <% if @transaction.uses_government_gateway %>
-          <p>Uses Government Gateway.</p>
-        <% end %>
-        <% if @transaction.minutes_to_complete.present? %>
-          <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes.</p>
-        <% end %>
+	        <div class="more">
+	          <ul class="helpers group">
+	          <% @transaction.expectations.each do |e| %>
+	            <li class="<%= e.css_class %>">
+	              <%= e.text %>
+	            </li>
+	          <% end %>
+	          </ul>
 
-        <div class="more">
-          <ul class="helpers group">
-          <% @transaction.expectations.each do |e| %>
-            <li class="<%= e.css_class %>">
-              <%= e.text %>
-            </li>
-          <% end %>
-          </ul>
-
-          <%= to_govspeak(@transaction.more_information) %>
-        </div>
+	          <%= to_govspeak(@transaction.more_information) %>
+	        </div>
         
-        <% if @transaction.alternate_methods.present? %>
-        <h2>Other ways to apply</h2>
-        <div class="more">
-        	<%= to_govspeak(@transaction.alternate_methods) %>
-        </div>
-        <% end %>
+	        <% if @transaction.alternate_methods.present? %>
+	        <h2>Other ways to apply</h2>
+	        <div class="more">
+	        	<%= to_govspeak(@transaction.alternate_methods) %>
+	        </div>
+	        <% end %>
 
-      </div>
-
-  		<div class="meta-data">
+	      </div>
+	    </article>
+			<div class="meta-data">
   			<p class="modified-date">Last updated: <%= @transaction.updated_at.to_formatted_s(:short_ordinal) %></p>
   			<p>Re-use this data:</p>
 				<ul class="api-links">
           <li class="json"><a href="<%= publication_path(@publication.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
         </ul>
   		</div>
-
-    </article>
+		</div>
 
   </section>

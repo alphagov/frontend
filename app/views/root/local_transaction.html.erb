@@ -28,64 +28,64 @@
 	      <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
 	    </hgroup>
     </header>
+		<div class="article-container group">
+    	<article role="article" class="group">
+	      <div class="inner">
 
-    <article role="article" class="group">
-      <div class="inner">
-
-        <% unless @local_transaction.authority %>
+	        <% unless @local_transaction.authority %>
         
-        <% if flash[:no_council] %>
-        <p class="alert"><%= flash[:no_council] %></p>
-        <% end %>
+	        <% if flash[:no_council] %>
+	        <p class="alert"><%= flash[:no_council] %></p>
+	        <% end %>
         
-        <div class="find-nearest">
+	        <div class="find-nearest">
 
-          <%= to_govspeak(@local_transaction.introduction) %>
+	          <%= to_govspeak(@local_transaction.introduction) %>
 
-          <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
+	          <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
 
-            <fieldset>
-              <legend class="visuallyhidden">Postcode lookup</legend>
-              <% if @edition %>
-              <input type="hidden" name="edition" value="<%= @edition %>">
-              <% end %>
-              <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-              <input type="submit" value="Get started →">
-            </fieldset>
+	            <fieldset>
+	              <legend class="visuallyhidden">Postcode lookup</legend>
+	              <% if @edition %>
+	              <input type="hidden" name="edition" value="<%= @edition %>">
+	              <% end %>
+	              <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+	              <input type="submit" value="Get started →">
+	            </fieldset>
 
-          </form>
-        </div>
+	          </form>
+	        </div>
 
-        <% else %>
+	        <% else %>
 
-        <div class="intro">
+	        <div class="intro">
 
-          <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
+	          <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
 
-          <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
+	          <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
 
-          <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
+	          <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
 
-        </div>
+	        </div>
 
-        <% end %>
+	        <% end %>
 
-        <h2>What you need to know</h2>
+	        <h2>What you need to know</h2>
 
-        <div class="more">
-          <ul class="helpers group">
-          <% @local_transaction.expectations.each do |e| %>
-            <li class="<%= e.css_class %>">
-              <%= e.text %>
-            </li>
-          <% end %>
-          </ul>
+	        <div class="more">
+	          <ul class="helpers group">
+	          <% @local_transaction.expectations.each do |e| %>
+	            <li class="<%= e.css_class %>">
+	              <%= e.text %>
+	            </li>
+	          <% end %>
+	          </ul>
 
-          <%= to_govspeak(@local_transaction.more_information) %>
-        </div>
+	          <%= to_govspeak(@local_transaction.more_information) %>
+	        </div>
 
-      </div>
-
+	      </div>
+	    </article>
 			<div class="meta-data">
 				<p class="modified-date">Last updated: <%= @local_transaction.updated_at.to_formatted_s(:short_ordinal) %></p>
   			<p>Re-use this data:</p>
@@ -93,7 +93,5 @@
           <li class="json"><a href="<%= publication_path(@publication.slug,:edition=>@edition,:format=>:json,:all =>true) %>">JSON</a></li>
         </ul>
 			</div>
-
-    </article>
-
+		</div>
   </section>

@@ -27,19 +27,18 @@
           <h1><span>Quick answer </span><%= @answer.title %></h1>
         </hgroup>
     </header>
-    <article role="article" class="group">
-      <div class="inner">
-        <%= to_govspeak(@answer.body) %>
-      </div>
-
-  		<div class="meta-data">
+		<div class="article-container group">
+    	<article role="article" class="group">
+	      <div class="inner">
+	        <%= to_govspeak(@answer.body) %>
+	      </div>
+	    </article>
+			<div class="meta-data">
   			<p class="modified-date">Last updated: <%= @answer.updated_at.to_formatted_s(:short_ordinal) %></p>
         <p>Re-use this data:</p>
 				<ul class="api-links">
           <li class="json"><a href="<%= publication_path(@answer.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
         </ul>
   		</div>
-
-    </article>
-
+		</div>
   </section>

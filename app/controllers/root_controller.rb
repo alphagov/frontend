@@ -13,6 +13,8 @@ class RootController < ApplicationController
     expires_in 3.minute, :public => true unless Rails.env.development?
 
     @publication = fetch_publication(params)
+    @video_mode = params[:mode] == "video"
+    
     assert_found(@publication)
 
     if @publication.parts
@@ -23,7 +25,13 @@ class RootController < ApplicationController
 
     instance_variable_set("@#{@publication.type}".to_sym,@publication)
     respond_to do |format|
-      format.html { render @publication.type }
+      format.html { 
+        if @video_mode
+          render "#{@publication.type}_video"
+        else 
+          render @publication.type
+        end
+      }
       format.json { render :json => @publication.to_json }
     end
   rescue RecordNotFound

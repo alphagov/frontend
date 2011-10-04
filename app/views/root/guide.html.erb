@@ -29,7 +29,7 @@
 	    </hgroup>
     </header>
 
-		<div class="article-and-navigation group">
+		<div class="article-container group">
 
 	    <aside role="navigation">
 	      <div class="inner">
@@ -68,16 +68,6 @@
 	        <%= to_govspeak(@part.body) %>
 
 	        <footer>
-	  	      <!-- <nav class="pagination" role="navigation">
-	            <ul>
-	  	        <%- if @guide.has_previous_part?(@part) -%>
-	  	          <a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>">&larr; Previous part</a></li>
-	  	        <%- end -%>
-	  	          <li class="pages">Part <%= @part.number %> of <%= @guide.parts.length %> in this guide.</li>
-	  	        <%- if @guide.has_next_part?(@part) -%>
-	  	          <li class="next" rel="next"><a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part">Next part &rarr;</a></li>
-	  	        <%- end -%>
-	  	      </nav> -->
 	  	      <nav class="pagination" role="navigation">
 	            <ul class="group">
 	  	        <%- if @guide.has_previous_part?(@part) -%>

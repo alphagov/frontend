@@ -30,7 +30,7 @@
 </head>
 <body>
 <% if @publication %>
-  <div id="wrapper" class="<%= @publication.type %>">
+  <div id="wrapper" class="<%= @publication.type %><%= @video_mode ? ' video-guide' : '' %>">
 <% else %>
   <div id="wrapper" class="<%= yield :wrapper_class %>">
 <% end %>

@@ -11,6 +11,10 @@ module RootHelper
     end
   end
 
+  def part_number(parts, part)
+    parts.index(part) + 1
+  end
+
   def transaction_path(slug,council,edition)
     unless council
       guide_path(slug,nil,edition)

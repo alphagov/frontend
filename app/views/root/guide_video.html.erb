@@ -1,0 +1,53 @@
+
+<!-- related position hack -->
+<div class="related-positioning">
+	<div class="related-container">
+   		<div class="related">
+		     <div class="inner group">
+		       <h2>Related tools &amp; topics</h2>
+		       <nav role="navigation">
+		         <ul>
+               <%= (@guide.related_items || "").html_safe %>
+               <% if @guide.section %>
+                 <li class="related-topic"><a href="/<%= @guide.section.parameterize %>">View more in <span><%= @guide.section %>&rarr;</span></a></li>
+               <% end %>
+		         </ul>
+		       </nav>
+		     </div>
+		   </div><!-- end .related -->
+	</div>
+</div>
+<!-- end related position hack -->
+
+<section role="main" class="group">
+
+  <header class="group">
+    <hgroup>
+      <h1><span>VIDEO Guide to </span><%= @guide.title %></h1>
+    </hgroup>
+		<div class="alternative-guide text">
+			<a href="#">Read the text version</a>
+		</div>
+  </header>
+
+	<div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+
+				<div class="summary">
+					This is the intro. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+
+				<iframe frameborder="0" style="border:1px solid #AAA; width:640px; height:387px;" src="http://video.google.com/a/ife/6d24089b5a98921f"></iframe>
+
+      </div>
+    </article>
+
+		<div class="meta-data">
+			<p class="modified-date">Last updated: <%= @guide.updated_at.to_formatted_s(:short_ordinal) %> SHOULD THIS BE THE DATE THE VIDEO WAS UPDATED RATHER THAN THE PARENT GUIDE?</p>
+		</div>
+
+	</div>
+
+</section>
+

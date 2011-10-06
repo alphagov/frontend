@@ -44,6 +44,16 @@ class RootControllerTest < ActionController::TestCase
      @controller.stubs(:render)
      get :publication, :slug => "a-slug",:edition => edition_id
   end
+  
+  test "should not pass edition parameter on to api if it's blank" do
+     edition_id = ''
+     api = mock()
+     api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
+     @controller.stubs(:api).returns api
+     prevent_implicit_rendering
+     @controller.stubs(:render)
+     get :publication, :slug => "a-slug",:edition => edition_id
+  end
 
   test "should pass specific and general variables to template" do
     @controller.stubs(:api).returns mock_api(

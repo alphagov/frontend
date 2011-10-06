@@ -73,7 +73,7 @@ class RootController < ApplicationController
   def fetch_publication(params)
     @slug = params[:slug]
     options = {}
-    if @edition = params[:edition]
+    if params[:edition].present? and @edition = params[:edition]
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]

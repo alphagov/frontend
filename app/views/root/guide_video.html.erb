@@ -1,24 +1,3 @@
-
-<!-- related position hack -->
-<div class="related-positioning">
-	<div class="related-container">
-   		<div class="related">
-		     <div class="inner group">
-		       <h2>Related tools &amp; topics</h2>
-		       <nav role="navigation">
-		         <ul>
-               <%= (@guide.related_items || "").html_safe %>
-               <% if @guide.section %>
-                 <li class="related-topic"><a href="/<%= @guide.section.parameterize %>">View more in <span><%= @guide.section %>&rarr;</span></a></li>
-               <% end %>
-		         </ul>
-		       </nav>
-		     </div>
-		   </div><!-- end .related -->
-	</div>
-</div>
-<!-- end related position hack -->
-
 <section role="main" class="group">
 
   <header class="group">
@@ -52,3 +31,22 @@
 
 </section>
 
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+   		<div class="related">
+		     <div class="inner group">
+		       <h2>Related tools &amp; topics</h2>
+		       <nav role="navigation">
+		         <ul>
+               <%= (@guide.related_items || "").html_safe %>
+               <% if @guide.section %>
+                 <li class="related-topic"><a href="/<%= @guide.section.parameterize %>">View more in <span><%= @guide.section %>&rarr;</span></a></li>
+               <% end %>
+		         </ul>
+		       </nav>
+		     </div>
+	   </div>
+	</div>
+</div>
+<!-- end related -->

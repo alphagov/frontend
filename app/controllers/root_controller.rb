@@ -14,18 +14,20 @@ class RootController < ApplicationController
 
     @publication = fetch_publication(params)
     @video_mode = params[:part] == "video"
-    
+
     assert_found(@publication)
 
-    if @publication.parts
+    if params[:part] && @publication.parts.blank?
+      raise RecordNotFound
+    elsif @publication.parts
       if params[:part] != "video"
         @partslug = params[:part]
-        @part = pick_part(@partslug,@publication)
+        @part = pick_part(@partslug, @publication)
         assert_found(@part)
       end
     end
 
-    instance_variable_set("@#{@publication.type}".to_sym,@publication)
+    instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
       format.html { 
         if @video_mode

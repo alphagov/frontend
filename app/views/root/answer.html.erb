@@ -1,44 +1,43 @@
-
-	<!-- related position hack -->
-	<div class="related-positioning">
-		<div class="related-container">
-			<div class="related-container-two">
-	   		<div class="related">
-			     <div class="inner group">
-			       <h2>Related tools &amp; topics</h2>
-			       <nav role="navigation">
-			         <ul>
-                 <%= (@answer.related_items || "").html_safe %>
-                 <% if @answer.section %>
-                   <li class="related-topic"><a href="/<%= @answer.section.parameterize %>">View more in <span><%= @answer.section %>&rarr;</span></a></li>
-                 <% end %>
-			         </ul>
-			       </nav>
-			     </div>
-			   </div><!-- end .related -->
+<section role="main" class="group">
+  <header class="group">
+      <hgroup>
+        <h1><span>Quick answer </span><%= @answer.title %></h1>
+      </hgroup>
+  </header>
+	<div class="article-container group">
+	  	<article role="article" class="group">
+	     <div class="inner">
+	       <%= to_govspeak(@answer.body) %>
+	     </div>
+	   </article>
+		<div class="meta-data">
+				<p class="modified-date">Last updated: <%= @answer.updated_at.to_formatted_s(:short_ordinal) %></p>
+	      <p>Re-use this data:</p>
+			<ul class="api-links">
+	        <li class="json"><a href="<%= publication_path(@answer.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
+	      </ul>
 			</div>
-		</div>
 	</div>
-	<!-- end related position hack -->
+</section>
 
-  <section role="main" class="group">
-    <header class="group">
-        <hgroup>
-          <h1><span>Quick answer </span><%= @answer.title %></h1>
-        </hgroup>
-    </header>
-		<div class="article-container group">
-    	<article role="article" class="group">
-	      <div class="inner">
-	        <%= to_govspeak(@answer.body) %>
-	      </div>
-	    </article>
-			<div class="meta-data">
-  			<p class="modified-date">Last updated: <%= @answer.updated_at.to_formatted_s(:short_ordinal) %></p>
-        <p>Re-use this data:</p>
-				<ul class="api-links">
-          <li class="json"><a href="<%= publication_path(@answer.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
-        </ul>
-  		</div>
-		</div>
-  </section>
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+
+		<div class="related">
+			<div class="inner group">
+				<h2>Related tools &amp; topics</h2>
+				<nav role="navigation">
+				  <ul>
+				      <%= (@answer.related_items || "").html_safe %>
+				      <% if @answer.section %>
+				        <li class="related-topic"><a href="/<%= @answer.section.parameterize %>">View more in <span><%= @answer.section %>&rarr;</span></a></li>
+				      <% end %>
+				  </ul>
+				</nav>
+	   </div>
+	 </div>
+
+	</div>
+</div>
+<!-- end related -->

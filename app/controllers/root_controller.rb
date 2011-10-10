@@ -13,14 +13,16 @@ class RootController < ApplicationController
     expires_in 3.minute, :public => true unless Rails.env.development?
 
     @publication = fetch_publication(params)
-    @video_mode = params[:mode] == "video"
+    @video_mode = params[:part] == "video"
     
     assert_found(@publication)
 
     if @publication.parts
-       @partslug = params[:part]
-       @part = pick_part(@partslug,@publication)
-       assert_found(@part)
+      if params[:part] != "video"
+        @partslug = params[:part]
+        @part = pick_part(@partslug,@publication)
+        assert_found(@part)
+      end
     end
 
     instance_variable_set("@#{@publication.type}".to_sym,@publication)

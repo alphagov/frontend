@@ -27,9 +27,11 @@
 	    <hgroup>
 	      <h1><span>Guide to </span><%= @guide.title %></h1>
 	    </hgroup>
+	    <% if @guide.video_url %>
 			<div class="alternative-guide video">
-				<a href="?mode=video">Watch the video version</a>
+				<a href="<%= guide_path(@guide.slug, 'video',@edition) %>">Watch the video version</a>
 			</div>
+			<% end %>
     </header>
 
 		<div class="article-container group">

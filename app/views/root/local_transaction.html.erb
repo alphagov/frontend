@@ -1,97 +1,96 @@
+<section role="main" class="group">
 
-	<!-- related position hack -->
-	<div class="related-positioning">
-		<div class="related-container">
-			<div class="related-container-two">
-	   		<div class="related">
-			     <div class="inner group">
-			       <h2>Related tools &amp; topics</h2>
-			       <nav role="navigation">
-			         <ul>
-                 <%= (@local_transaction.related_items||"").html_safe %>
-                 <% if @local_transaction.section %>
-                   <li class="related-topic"><a href="/<%= @local_transaction.section.parameterize %>">View more in <span><%= @local_transaction.section %>&rarr;</span></a></li>
-                 <% end %>
-			         </ul>
-			       </nav>
-			     </div>
-			   </div><!-- end .related -->
-			</div>
-		</div>
-	</div>
-	<!-- end related position hack -->
+	<header class="group">
+	 <hgroup>
+	   <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
+	 </hgroup>
+	</header>
+	<div class="article-container group">
+		<article role="article" class="group">
+	    <div class="inner">
 
-  <section role="main" class="group">
+	      <% unless @local_transaction.authority %>
+     
+	      <% if flash[:no_council] %>
+	      <p class="alert"><%= flash[:no_council] %></p>
+	      <% end %>
+     
+	      <div class="find-nearest">
 
-    <header class="group">
-	    <hgroup>
-	      <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
-	    </hgroup>
-    </header>
-		<div class="article-container group">
-    	<article role="article" class="group">
-	      <div class="inner">
+	        <%= to_govspeak(@local_transaction.introduction) %>
 
-	        <% unless @local_transaction.authority %>
-        
-	        <% if flash[:no_council] %>
-	        <p class="alert"><%= flash[:no_council] %></p>
-	        <% end %>
-        
-	        <div class="find-nearest">
+	        <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
 
-	          <%= to_govspeak(@local_transaction.introduction) %>
+	          <fieldset>
+	            <legend class="visuallyhidden">Postcode lookup</legend>
+	            <% if @edition %>
+	            <input type="hidden" name="edition" value="<%= @edition %>">
+	            <% end %>
+	            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+	            <input type="submit" value="Get started →">
+	          </fieldset>
 
-	          <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
+	        </form>
+	      </div>
 
-	            <fieldset>
-	              <legend class="visuallyhidden">Postcode lookup</legend>
-	              <% if @edition %>
-	              <input type="hidden" name="edition" value="<%= @edition %>">
-	              <% end %>
-	              <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-	              <input type="submit" value="Get started →">
-	            </fieldset>
+	      <% else %>
 
-	          </form>
-	        </div>
+	      <div class="intro">
 
-	        <% else %>
+	        <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
 
-	        <div class="intro">
+	        <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
 
-	          <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
-
-	          <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
-
-	          <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
-
-	        </div>
-
-	        <% end %>
-
-	        <h2>What you need to know</h2>
-
-	        <div class="more">
-	          <ul class="helpers group">
-	          <% @local_transaction.expectations.each do |e| %>
-	            <li class="<%= e.css_class %>">
-	              <%= e.text %>
-	            </li>
-	          <% end %>
-	          </ul>
-
-	          <%= to_govspeak(@local_transaction.more_information) %>
-	        </div>
+	        <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
 
 	      </div>
-	    </article>
-			<div class="meta-data">
-				<p class="modified-date">Last updated: <%= @local_transaction.updated_at.to_formatted_s(:short_ordinal) %></p>
-  			<p>Re-use this data:</p>
-				<ul class="api-links">
-          <li class="json"><a href="<%= publication_path(@publication.slug,:edition=>@edition,:format=>:json,:all =>true) %>">JSON</a></li>
-        </ul>
-			</div>
+
+	      <% end %>
+
+	      <h2>What you need to know</h2>
+
+	      <div class="more">
+	        <ul class="helpers group">
+	        <% @local_transaction.expectations.each do |e| %>
+	          <li class="<%= e.css_class %>">
+	            <%= e.text %>
+	          </li>
+	        <% end %>
+	        </ul>
+
+	        <%= to_govspeak(@local_transaction.more_information) %>
+	      </div>
+
+	    </div>
+		</article>
+		<div class="meta-data">
+			<p class="modified-date">Last updated: <%= @local_transaction.updated_at.to_formatted_s(:short_ordinal) %></p>
+			<p>Re-use this data:</p>
+			<ul class="api-links">
+		   	<li class="json"><a href="<%= publication_path(@publication.slug,:edition=>@edition,:format=>:json,:all =>true) %>">JSON</a></li>
+			</ul>
 		</div>
-  </section>
+	</div>
+</section>
+
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+
+   		<div class="related">
+		     <div class="inner group">
+		       <h2>Related tools &amp; topics</h2>
+		       <nav role="navigation">
+		         <ul>
+               <%= (@local_transaction.related_items||"").html_safe %>
+               <% if @local_transaction.section %>
+                 <li class="related-topic"><a href="/<%= @local_transaction.section.parameterize %>">View more in <span><%= @local_transaction.section %>&rarr;</span></a></li>
+               <% end %>
+		         </ul>
+		       </nav>
+		     </div>
+		   </div>
+
+	</div>
+</div>
+<!-- end related -->

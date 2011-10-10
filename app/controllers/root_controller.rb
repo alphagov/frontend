@@ -22,9 +22,11 @@ class RootController < ApplicationController
     elsif !@video_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts
-      @partslug = params[:part]
-      @part = pick_part(@partslug, @publication)
-      assert_found(@part)
+      unless @video_mode
+        @partslug = params[:part]
+        @part = pick_part(@partslug, @publication)
+        assert_found(@part)
+      end
     end
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)

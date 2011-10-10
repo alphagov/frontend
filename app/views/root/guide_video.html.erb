@@ -18,7 +18,9 @@
 				</div>
 
         <% video = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-				<iframe frameborder="0" type="text/html" style="border:1px solid #AAA; width:640px; height:385px;" src="http://www.youtube.com/embed/<%=video[0][0]%>"></iframe>
+        <% if video[0] %>
+          <iframe frameborder="0" type="text/html" style="border:1px solid #AAA; width:640px; height:385px;" src="http://www.youtube.com/embed/<%= video[0][0] %>"></iframe>
+        <% end %>
 
       </div>
     </article>

@@ -17,24 +17,20 @@ class RootController < ApplicationController
 
     assert_found(@publication)
 
-    if params[:part] && @publication.parts.blank?
+    if @video_mode && @publication.video_url.blank?
+      raise RecordNotFound
+    elsif !@video_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts
-      if params[:part] != "video"
-        @partslug = params[:part]
-        @part = pick_part(@partslug, @publication)
-        assert_found(@part)
-      end
+      @partslug = params[:part]
+      @part = pick_part(@partslug, @publication)
+      assert_found(@part)
     end
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
       format.html { 
-        if @video_mode
-          render "#{@publication.type}_video"
-        else 
-          render @publication.type
-        end
+        render @video_mode ? "#{@publication.type}_video" : @publication.type
       }
       format.json { render :json => @publication.to_json }
     end

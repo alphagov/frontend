@@ -35,12 +35,12 @@ class RootControllerTest < ActionController::TestCase
   test "should pass edition parameter on to api to provide preview" do
      edition_id = '123'
      api = mock()
-     api.expects(:publication_for_slug).with("a-slug",{:edition=>'123'}).returns(
-        OpenStruct.new(:type=>"answer"))
+     api.expects(:publication_for_slug).with("a-slug", {:edition => '123'}).returns(
+        OpenStruct.new(:type => "answer"))
      @controller.stubs(:api).returns api
      prevent_implicit_rendering
      @controller.stubs(:render)
-     get :publication, :slug => "a-slug",:edition => edition_id
+     get :publication, :slug => "a-slug", :edition => edition_id
   end
 
   test "should return 404 if full slug doesn't match" do
@@ -51,6 +51,26 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug", :part => "evil"
+  end
+
+  test "should return video view when asked if guide has video" do
+    api = mock()
+    api.expects(:publication_for_slug).with("a-slug", {}).returns(
+       OpenStruct.new(:type=>"guide", :video_url => "bob"))
+    @controller.stubs(:api).returns api
+    prevent_implicit_rendering
+    @controller.stubs(:render)
+    get :publication, :slug => "a-slug", :part => "video"
+  end
+
+  test "should return 404 if guide has no video" do
+    api = mock()
+    api.expects(:publication_for_slug).with("a-slug", {}).returns(
+       OpenStruct.new(:type=>"guide"))
+    @controller.stubs(:api).returns api
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status=>404))
+    get :publication, :slug => "a-slug", :part => "video"
   end
 
   test "should not pass edition parameter on to api if it's blank" do

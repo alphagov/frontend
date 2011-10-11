@@ -4,9 +4,10 @@
    <hgroup>
      <h1><span>Guide to </span><%= @guide.title %></h1>
    </hgroup>
-   <% if @guide.video_url %>
+   <% if ! @guide.video_url.blank? %>
 	<div class="alternative-guide video">
-		<a href="<%= guide_path(@guide.slug, 'video',@edition) %>">Watch the video version</a>
+	  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
+		<a href="<%= guide_path(@guide.slug, 'video',@edition) %>" title="Watch the video version"><img src="http://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="96" height="48" alt="Watch the video version of this guide"></a>
 	</div>
 	<% end %>
   </header>

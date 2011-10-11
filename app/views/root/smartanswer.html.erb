@@ -1,7 +1,7 @@
 <% content_for :title, "www.gov.uk - the trial ‘beta’ version of the UK government's official website" %>
 <% content_for :wrapper_class, "wrapper" %>
 
-  <section role="main" class="group">
+  <section id="content" role="main" class="group">
     <header class="group">
         <hgroup>
           <h1><span>Smart answer </span>Question formats</h1>
@@ -29,7 +29,7 @@
 	            <form>
 	              <label class="question" for="yn">Do you like yes or no buttons best?</label>
 	              <span class="yesno">
-	                <input type="submit" value="Yes" class="button" id="yn" /> 
+	                <input type="submit" value="Yes" class="button" id="yn" />
 	                <input type="submit" value="No" class="button" />
 	              </span>
 	            </form>
@@ -56,7 +56,7 @@
 	              </select>
 	              <input type="submit" class="button progress-question" value="Continue" />
 	            </form>
-            </li> 
+            </li>
 	          <li>
 	            <label class="question" for="fave">Which is your favourite one of these things with drop down?</label>
 	            <select id="fave">

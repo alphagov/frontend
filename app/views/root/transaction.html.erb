@@ -1,4 +1,4 @@
-<section role="main" class="group">
+<section id="content" role="main" class="group">
 
   <header class="group">
    <hgroup>
@@ -40,7 +40,7 @@
 
          <%= to_govspeak(@transaction.more_information) %>
        </div>
-      
+
        <% if @transaction.alternate_methods.present? %>
        <h2>Other ways to apply</h2>
        <div class="more">

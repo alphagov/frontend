@@ -5,7 +5,7 @@
       <h1><span>Guide to </span><%= @guide.title %></h1>
     </hgroup>
 		<div class="alternative-guide text">
-			<a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">Read the text version</a>
+			<a href="<%= publication_path(@guide.slug,:edition=>@edition) %>"><span>Read text version</span></a>
 		</div>
   </header>
 
@@ -14,12 +14,12 @@
       <div class="inner">
 
 				<div class="summary">
-					<%= @guide.video_summary %>
+					<p><%= @guide.video_summary %></p>
 				</div>
 
         <% video = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
         <% if video[0] %>
-          <iframe frameborder="0" type="text/html" style="border:1px solid #AAA; width:640px; height:385px;" src="http://www.youtube.com/embed/<%= video[0][0] %>"></iframe>
+          <iframe frameborder="0" type="text/html" style="width:640px; height:385px;" src="http://www.youtube.com/embed/<%= video[0][0] %>"></iframe>
         <% end %>
 
       </div>

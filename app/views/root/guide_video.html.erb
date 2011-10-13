@@ -4,23 +4,26 @@
     <hgroup>
       <h1><span>Guide to </span><%= @guide.title %></h1>
     </hgroup>
-		<div class="alternative-guide text">
-			<a href="<%= publication_path(@guide.slug,:edition=>@edition) %>"><span>Read text version</span></a>
-		</div>
   </header>
 
 	<div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
 
-				<div class="summary">
-					<p><%= @guide.video_summary %></p>
-				</div>
+<p>This is a video guide to <%= @guide.title %>. Go back to the <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>"><span>text version</span></a></p>
 
         <% video = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
         <% if video[0] %>
-          <iframe frameborder="0" type="text/html" style="width:640px; height:385px;" src="http://www.youtube.com/embed/<%= video[0][0] %>"></iframe>
+<!--<iframe frameborder="0" type="text/html" style="width:640px; height:385px;" src="http://www.youtube.com/embed/<%= video[0][0] %>"></iframe>-->
+          <figure class="media-player-wrapper" id="video" style="margin: 0 20px;">
+            <a href="http://www.youtube.com/watch?v=<%=video[0][0]%>">Watch <%= @guide.title %></a>
+          </figure>
         <% end %>
+        
+
+				<div class="summary">
+					<p><%= @guide.video_summary %></p>
+				</div>
 
       </div>
     </article>
@@ -52,3 +55,9 @@
 	</div>
 </div>
 <!-- end related -->
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag '/javascripts/media-player/swfobject/swfobject.js', '/javascripts/media-player/jquery.player.min.js', '/javascripts/media-player/jquery.loader.js' %>
+<% end %>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag '/stylesheets/media-player/player-core.min.css', '/stylesheets/media-player/player-theme.min.css' %>
+<% end %>

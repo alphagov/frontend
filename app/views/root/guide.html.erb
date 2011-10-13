@@ -7,7 +7,7 @@
 		<% if ! @guide.video_url.blank? %>
 		<div class="alternative-guide video">
 		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-			<a class="video-overlay" href="<%= guide_path(@guide.slug, 'video',@edition) %>" title="Watch the video version of this guide"></a>
+			<a class="video-overlay" href="<%= guide_path(@guide.slug, 'video',@edition) %>#video" title="Watch the video version of this guide"></a>
 			<img src="http://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt="Watch the video version of this guide">
 			<a href="<%= guide_path(@guide.slug, 'video',@edition) %>"><span>Watch video version</span></a>
 		</div>
@@ -56,21 +56,21 @@
  	      <nav class="pagination" role="navigation">
            <ul class="group">
  	        <%- if @guide.has_previous_part?(@part) -%>
- 	          <li class="previous" rel="previous">
-							<a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" title="Navigate to previous part">
+ 	          <li class="previous">
+							<a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" title="Navigate to previous part" rel="prev">
 							  <span class="pagination-label">&larr; Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <%= (@guide.part_before(@part).title) %></a>
               </li>
             <%- else -%>
-              <li class="first" rel="previous">
+              <li class="first">
                 You are at the beginning of this guide
               </li>
  	        <%- end -%>
  	        <%- if @guide.has_next_part?(@part) -%>
-						<li class="next" rel="next">
-							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part"><span class="pagination-label">Next part (<%= part_number(@guide.parts, @guide.part_after(@part)) %> of <%= @guide.parts.length %>) &rarr;</span> <%= (@guide.part_after(@part).title) %></a>
+						<li class="next">
+							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Next part (<%= part_number(@guide.parts, @guide.part_after(@part)) %> of <%= @guide.parts.length %>) &rarr;</span> <%= (@guide.part_after(@part).title) %></a>
                 </li>
             <%- else -%>
-              <li class="last" rel="next">
+              <li class="last">
                 You have reached the end of this guide
               </li>
  	        <%- end -%>
@@ -103,3 +103,11 @@
 	</div>
 </div>
 <!-- end related -->
+<% content_for :extra_headers do %>
+  <%- if @guide.has_previous_part?(@part) -%>
+    <link rel="prev" href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" />
+  <%- end -%>
+  <%- if @guide.has_next_part?(@part) -%>
+    <link rel="next" href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" />
+  <%- end -%>
+<% end %>

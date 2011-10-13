@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>
 <% if @publication %>
+      <%= @video_mode ? ' Video - ' : '' %>
       <%= @publication.alternative_title.nil? ? @publication.alternative_title : @publication.title %> |
       <% unless @publication.section.nil? or @publication.section == ''%>
       <%= @publication.section %> |
@@ -28,6 +29,7 @@
 <% end %>
   <%= javascript_include_tag '/javascripts/jquery.mustache.js',"/javascripts/geo-locator.js"  %>
   <%= yield :extra_javascript %>
+  <%= yield :extra_headers %>
 </head>
 <body>
 <% if @publication %>

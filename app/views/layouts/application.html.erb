@@ -27,7 +27,7 @@
 <% else %>
   <%= yield :description %>
 <% end %>
-  <%= javascript_include_tag '/javascripts/jquery.mustache.js',"/javascripts/geo-locator.js"  %>
+  <%= javascript_include_tag '/javascripts/jquery.mustache.js',"/javascripts/geo-locator.js", :defer=>true %>
   <%= yield :extra_javascript %>
   <%= yield :extra_headers %>
 </head>

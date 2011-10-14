@@ -56,7 +56,7 @@
 </div>
 <!-- end related -->
 <% content_for :extra_javascript do %>
-  <%= javascript_include_tag '/javascripts/media-player/swfobject/swfobject.js', '/javascripts/media-player/jquery.player.min.js', '/javascripts/media-player/jquery.loader.js' %>
+  <%= javascript_include_tag '/javascripts/media-player/swfobject/swfobject.js', '/javascripts/media-player/jquery.player.min.js', '/javascripts/media-player/jquery.loader.js', :defer => 'defer' %>
 <% end %>
 <% content_for :extra_stylesheets do %>
   <%= stylesheet_link_tag '/stylesheets/media-player/player-core.min.css', '/stylesheets/media-player/player-theme.min.css' %>

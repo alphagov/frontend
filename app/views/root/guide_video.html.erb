@@ -9,8 +9,10 @@
 	<div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
-
-<p>This is a video guide to <%= @guide.title %>. Go back to the <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>"><span>text version</span></a></p>
+				
+				<div class="view-text-version">
+					<p>This is a video guide to <%= @guide.title %>. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a></p>
+				</div>
 
         <% video = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
         <% if video[0] %>
@@ -20,7 +22,6 @@
           </figure>
         <% end %>
         
-
 				<div class="summary">
 					<p><%= @guide.video_summary %></p>
 				</div>
@@ -59,5 +60,5 @@
   <%= javascript_include_tag '/javascripts/media-player/swfobject/swfobject.js', '/javascripts/media-player/jquery.player.min.js', '/javascripts/media-player/jquery.loader.js', :defer => 'defer' %>
 <% end %>
 <% content_for :extra_stylesheets do %>
-  <%= stylesheet_link_tag '/stylesheets/media-player/player-core.min.css', '/stylesheets/media-player/player-theme.min.css' %>
+  <%= stylesheet_link_tag '/stylesheets/media-player/player-core.css', '/stylesheets/media-player/player-theme.css' %>
 <% end %>

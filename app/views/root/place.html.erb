@@ -1,107 +1,105 @@
+<section id="content" role="main" class="group">
 
-	<!-- related position hack -->
-	<div class="related-positioning">
-		<div class="related-container">
-			<div class="related-container-two">
-	   		<div class="related">
-			     <div class="inner group">
-			       <h2>Related tools &amp; topics</h2>
-			       <nav role="navigation">
-			         <ul>
-                 <%= (@place.related_items||"").html_safe %>
-                 <% if @place.section %>
-                   <li class="related-topic"><a href="/<%= @place.section.parameterize %>">View more in <span><%= @place.section %>&rarr;</span></a></li>
-                 <% end %>
-			         </ul>
-			       </nav>
-			     </div>
-			   </div><!-- end .related -->
-			</div>
-		</div>
-	</div>
-	<!-- end related position hack -->
+  <header class="group">
+   <hgroup>
+     <h1><span>Find My Nearest</span> <%= @place.title %></h1>
+   </hgroup>
+  </header>
+	<div class="article-container group">
+	 	<article role="article" class="group">
+	    <div class="inner">
 
-	<section role="main" class="group">
-
-    <header class="group">
-	    <hgroup>
-	      <h1><span>Find My Nearest</span> <%= @place.title %></h1>
-	    </hgroup>
-    </header>
-		<div class="article-container group">
-    	<article role="article" class="group">
-	      <div class="inner">
-
-	        <div class="find-nearest">
-	          <% unless @options.any? %>
-	          <%= to_govspeak(@place.introduction) %>
-	          <% end %>
-
-	          <form method="get" id="local-locator-form">
-	          <fieldset>
-	            <legend class="visuallyhidden">Postcode lookup</legend>
-	            <% if @edition %>
-	              <input type="hidden" name="edition" value="<%= @edition %>">
-	            <% end %>
-	            <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'removing' : '' %>">
-	              <label for="user-postcode">Enter a UK postcode <input id="user-postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-	              <input type="submit" value="Get started →">
-	            </div>
-
-	            <div class="finding_location hidden">
-	              <p>Locating you&hellip;<input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"></p>
-	            </div>
-	            <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-	              <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="#"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe if geo_known_to_at_least?('ward') %></a></p>
-	            </div>
-	          </fieldset>
-	          </form>
-	        </div>
-
-
-	      <% if @options.any? %>
-	        <h3 id="options-header">Your nearest options are...</h3>
-	        <ol id="options">
-	          <%= mustache_partial '_option.html', {'options' => @options} %>
-	        </ol>
-	      <% else %>
-	        <h3 id="options-header" style="display:none">Your nearest options are:</h3>
-	        <ol id="options">
-	        </ol>
-	      <% end %>
-
-
-	      <h2>What you need to know</h2>
-	      <div class="more">
-	        <% if @place.expectations.any? %>
-	          <ul class="helpers group">
-	          <% @place.expectations.each do |e| %>
-	            <li class="<%= e.css_class %>">
-	              <%= e.text %>
-	            </li>
-	          <% end %>
-	          </ul>
+	      <div class="find-nearest">
+	        <% unless @options.any? %>
+	        <%= to_govspeak(@place.introduction) %>
 	        <% end %>
 
-	          <%= to_govspeak(@place.more_information) %>
-	        </div>
+	        <form method="get" id="local-locator-form">
+	        <fieldset>
+	          <legend class="visuallyhidden">Postcode lookup</legend>
+	          <% if @edition %>
+	            <input type="hidden" name="edition" value="<%= @edition %>">
+	          <% end %>
+	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'removing' : '' %>">
+	            <label for="user-postcode">Enter a UK postcode <input id="user-postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+	            <input type="submit" value="Get started →">
+	          </div>
 
+	          <div class="finding_location hidden">
+	            <p>Locating you&hellip;<input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"></p>
+	          </div>
+	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
+	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="#"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe if geo_known_to_at_least?('ward') %></a></p>
+	          </div>
+	        </fieldset>
+	        </form>
 	      </div>
 
-	    </article>
-			<div class="meta-data">
-	      <p class="modified-date">Last updated: <%= @place.updated_at.to_formatted_s(:short_ordinal) %></p>
 
-	      <p>Re-use this data:</p>
-	      <ul class="api-links">
-	        <li class="kml"><a href="<%= @place.place_type %>.kml">KML</a></li>
-	        <li class="json"><a href="<%= @place.place_type %>.json">JSON</a></li>
-	        <li class="csv"><a href="<%= @place.place_type %>.csv">CSV</a></li>
-	      </ul>
+	     <% if @options.any? %>
+	       <h3 id="options-header">Your nearest options are...</h3>
+	       <ol id="options">
+	         <%= mustache_partial '_option.html', {'options' => @options} %>
+	       </ol>
+	     <% else %>
+	       <h3 id="options-header" style="display:none">Your nearest options are:</h3>
+	       <ol id="options">
+	       </ol>
+	     <% end %>
+
+
+	     <h2>What you need to know</h2>
+				<div class="more">
+				<% if @place.expectations.any? %>
+				  <ul class="helpers group">
+				  <% @place.expectations.each do |e| %>
+				    <li class="<%= e.css_class %>">
+				      <%= e.text %>
+				    </li>
+				  <% end %>
+				  </ul>
+				<% end %>
+
+	        <%= to_govspeak(@place.more_information) %>
+				</div>
+
 			</div>
-		</div>
-  </section>
 
+		</article>
+		<div class="meta-data">
+	     <p class="modified-date">Last updated: <%= @place.updated_at.to_formatted_s(:short_ordinal) %></p>
+
+	     <p>Re-use this data:</p>
+	     <ul class="api-links">
+	       <li class="kml"><a href="<%= @place.place_type %>.kml">KML</a></li>
+	       <li class="json"><a href="<%= @place.place_type %>.json">JSON</a></li>
+	       <li class="csv"><a href="<%= @place.place_type %>.csv">CSV</a></li>
+	     </ul>
+		</div>
+	</div>
+</section>
+
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+
+   		<div class="related">
+		     <div class="inner group">
+		       <h2>Related tools &amp; topics</h2>
+		       <nav role="navigation">
+		         <ul>
+               <%= (@place.related_items||"").html_safe %>
+               <% if @place.section %>
+                 <li class="related-topic"><a href="/<%= @place.section.parameterize %>">View more in <span><%= @place.section %>&rarr;</span></a></li>
+               <% end %>
+		         </ul>
+		       </nav>
+		     </div>
+		   </div>
+
+	</div>
+</div>
+<!-- end related -->
 
   <script id="option-template" type="text/x-mustache-template">
   <%= mustache_direct '_option.html' %>

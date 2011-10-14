@@ -13,24 +13,26 @@ class RootController < ApplicationController
     expires_in 3.minute, :public => true unless Rails.env.development?
 
     @publication = fetch_publication(params)
-    @video_mode = params[:mode] == "video"
-    
+    @video_mode = params[:part] == "video"
+
     assert_found(@publication)
 
-    if @publication.parts
-       @partslug = params[:part]
-       @part = pick_part(@partslug,@publication)
-       assert_found(@part)
+    if @video_mode && @publication.video_url.blank?
+      raise RecordNotFound
+    elsif !@video_mode && params[:part] && @publication.parts.blank?
+      raise RecordNotFound
+    elsif @publication.parts
+      unless @video_mode
+        @partslug = params[:part]
+        @part = pick_part(@partslug, @publication)
+        assert_found(@part)
+      end
     end
 
-    instance_variable_set("@#{@publication.type}".to_sym,@publication)
+    instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
       format.html { 
-        if @video_mode
-          render "#{@publication.type}_video"
-        else 
-          render @publication.type
-        end
+        render @video_mode ? "#{@publication.type}_video" : @publication.type
       }
       format.json { render :json => @publication.to_json }
     end
@@ -73,7 +75,7 @@ class RootController < ApplicationController
   def fetch_publication(params)
     @slug = params[:slug]
     options = {}
-    if @edition = params[:edition]
+    if params[:edition].present? and @edition = params[:edition]
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]

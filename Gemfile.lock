@@ -1,4 +1,18 @@
 GIT
+  remote: git@github.com:alphagov/cdn_helpers.git
+  revision: 31e684761119d01b3accafd3f4652da8a9d026af
+  specs:
+    cdn_helpers (0.9)
+      actionpack
+      nokogiri
+
+GIT
+  remote: git@github.com:alphagov/geogov.git
+  revision: 0d92835dec01266bc3611800850b6abf6923690f
+  specs:
+    geogov (0.0.2)
+
+GIT
   remote: git@github.com:alphagov/govspeak.git
   revision: 209083cfe4dafb5f92b1a12566009a46af25217f
   specs:
@@ -6,31 +20,20 @@ GIT
       kramdown (~> 0.13.3)
 
 GIT
+  remote: git@github.com:alphagov/rack-geo.git
+  revision: 50f46c15cd815ac97c2e9ed56fdb7b6e355aa7c9
+  specs:
+    rack-geo (0.7.0)
+      geogov
+      json
+      rack
+
+GIT
   remote: git@github.com:alphagov/slimmer.git
   revision: 8328b9556612bffa017f27f51d7b949a18582fe6
   specs:
     slimmer (0.7.13)
       nokogiri
-
-PATH
-  remote: ../cdn_helpers
-  specs:
-    cdn_helpers (0.8.5)
-      actionpack
-      nokogiri
-
-PATH
-  remote: ../geogov
-  specs:
-    geogov (0.0.2)
-
-PATH
-  remote: ../rack-geo
-  specs:
-    rack-geo (0.6.1)
-      geogov
-      json
-      rack
 
 GEM
   remote: http://rubygems.org/

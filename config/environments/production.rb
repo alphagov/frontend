@@ -50,9 +50,6 @@ Frontend::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  if Rails.env.production?
-    config.middleware.insert 0,  Slimmer::App, :template_host => "/data/vhost/static.alpha.gov.uk/current/public/templates"
-  else
-    config.middleware.insert 0,  Slimmer::App, :template_host => "/data/vhost/static.#{Rails.env}.alphagov.co.uk/current/public/templates"
-  end
+  config.middleware.use Slimmer::App, :template_host => "/data/vhost/static.alpha.gov.uk/current/public/templates"
+
 end

@@ -14,10 +14,10 @@
 
 	<div class="article-container group">
 
-   <aside role="navigation">
+   <aside>
      <div class="inner">
 
-       <nav class="chapters-navigation">
+       <nav role="navigation" class="chapters-navigation">
          <ol>
            <% @guide.parts.each do |nav_part| %>
            <li <% if @part == nav_part %>class="active"<% end %>>
@@ -28,15 +28,6 @@
            <% end %>
          </ol>
        </nav>
-
-			<div class="meta-data">
-				<p class="modified-date">Last updated: <%= @guide.updated_at.to_formatted_s(:short_ordinal) %></p>
-
-				<p>Re-use this data:</p>
-  				<ul class="api-links">
-            <li class="json"><a href="<%= publication_path(@guide.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
-          </ul>
-			</div>
 
      </div>
    </aside>
@@ -83,6 +74,15 @@
 
      </div>
    </article>
+
+		<div class="meta-data">
+			<p class="modified-date">Last updated: <%= @guide.updated_at.to_formatted_s(:short_ordinal) %></p>
+
+			<p>Re-use this data:</p>
+				<ul class="api-links">
+         <li class="json"><a href="<%= publication_path(@guide.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
+       </ul>
+		</div>
 
 	</div>
 

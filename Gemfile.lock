@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/slimmer.git
-  revision: 8328b9556612bffa017f27f51d7b949a18582fe6
+  revision: 9a5a048cdd2452ee3f88233bce693aa4e4296b35
   specs:
     slimmer (0.7.13)
       nokogiri

@@ -34,7 +34,7 @@ Frontend::Application.configure do
   config.serve_static_assets = false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = "http://demo.alphagov.co.uk"
+  config.action_controller.asset_host = "http://static.production.alphagov.co.uk"
   config.action_controller.asset_path = CdnHelpers::AssetPath
 
   # Disable delivery errors, bad email addresses will be ignored
@@ -51,5 +51,5 @@ Frontend::Application.configure do
   config.active_support.deprecation = :notify
 
   config.middleware.delete Slimmer::App
-  config.middleware.use Slimmer::App, :template_host => "/data/vhost/static.alpha.gov.uk/current/public/templates"
+  config.middleware.use Slimmer::App, :asset_host => "http://static.production.alphagov.co.uk"
 end

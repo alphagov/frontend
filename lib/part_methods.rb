@@ -14,6 +14,16 @@ module PartMethods
     return nil if next_index >= parts.length
     parts[next_index]
   end
+  
+  def has_parts?(part)
+    prev_part = has_previous_part?(part)
+    next_part = has_next_part?(part)
+    if prev_part || next_part 
+      true
+    else
+      false
+    end
+  end
 
   def has_previous_part?(part)
     index = part_index(part.slug)

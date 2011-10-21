@@ -1,222 +1,110 @@
-<% content_for :extra_javascript do %>
-<script src="/javascripts/home-customisation.js" type="text/javascript"></script>
-<% end %>
 <% content_for :title, "www.gov.uk - the trial ‘beta’ version of the UK government's website" %>
-<% content_for :wrapper_class, "wrapper" %>
+
   <section id="content" role="main" class="group home">
+	
+		<div class="homepage-section">
+			<header class="homepage-banner group">
+				<div class="tag-line">
+					<h1>gov.uk</h1>
+					<p>This is a trial ‘beta’ version of the UK government’s website. Use services and find official information.</p>
+				</div>
+	      <form action="/search" class="group">
+					<fieldset>
+					  <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
+		      	<label for="main_autocomplete" class="visuallyhidden">Search</label>
+			      <input type="text" id="main_autocomplete" name="q" value="" placeholder="type your search here">
+			      <input type="submit" value="Search">
+			      <p id="search_hint">eg try <span>Bank holidays</span> or <span>Lost passport</span></p>
+					</fieldset>
+		    </form>
+			</header>
+ 		</div>
 
-	<div id="homepage-search" class="location-not-set group">
-		<header>
-			<h1>www.gov.uk</h1>
-			<p>This is a trial &lsquo;beta&rsquo; version of the UK government&rsquo;s website. Use services and find official information.</p>
-
-      <form action="/search" class="group">
-
-			<fieldset>
-			  <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
-      	<label for="main_autocomplete">Search</label>
-	      <input type="text" id="main_autocomplete" name="q" value="" placeholder="type your search here">
-	      <input type="submit" value="Go →">
-	      <p id="search_hint">eg try <span>Bank holidays</span> or <span>Lost passport</span></p>
-			</fieldset>
-
-  		<div class="formats">
-  		  <ul>
-  				<li><img src="/images/icon-answer-l.png" alt="Quick Answers" title="Quick Answers"></li>
-  				<li><img src="/images/icon-guide-l.png" alt="Guides" title="Guides"></li>
-  				<li><img src="/images/icon-programme-l.png" alt="Benefits &amp; Schemes" title="Benefits &amp; Schemes"></li>
-  				<li><img src="/images/icon-transaction-l.png" alt="Services" title="Services"></li>
-  				<li><img src="/images/icon-localtransaction-l.png" title="Local services"></li>
-  				<li><img src="/images/icon-nearest-l.png" alt="Find my nearest" title="Find my nearest"></li>
-  		  </ul>
-  		</div>
-    </form>
-
-		</header>
-
-
-  </div>
-	<div class="popular-sections group">
-		<div class="currently-popular">
-			<h2>Popular at the moment</h2>
-			<ul>
-				<li class="nearest"><a href="/register-offices">Register Offices</a></li>
-				<li class="transaction"><a href="/buy-a-uk-fishing-rod-licence">Buy a UK fishing rod licence</a></li>
-				<li class="programme"><a href="/crisis-loans">Crisis Loans</a></li>
-				<li class="answer"><a href="/vat-rates">VAT rates</a></li>
-				<li class="answer"><a href="/stop-ex-partner-getting-child-passport">Stop your ex-partner getting your child a passport</a></li>
-				<li class="programme"><a href="/statutory-sick-pay-ssp-">Statutory Sick Pay (SSP)</a></li>
-				<li class="transaction"><a href="/order-copy-birth-death-marriage-certificate">Order a copy of a birth, death or marriage certificate</a></li>
-				<li class="local_transaction"><a href="/apply-for-a-school-uniform-grant">Apply for a school uniform grant</a></li>
-				<li class="guide"><a href="/parental-rights-and-responsibilities">Parental rights and responsibilities</a></li>
-				<li class="answer"><a href="/law-on-leaving-your-child-home-alone">The law on leaving your child home alone</a></li>
-			</ul>
-		</div>
-		<div class="user-favourites">
-			<h2>Your favourites</h2>
-			<p>Customise this area by saving your favourites around the site. <span>(This feature is under construction)</span></p>
-		</div>
-
-	</div>
-
-	<div class="site-sections group">
-		<header>
-			<h2>Browse by section</h2>
-			<div class="edit-control hidden completed-customise"><a href="#">Customise which sections you see</a></div>
-		</header>
-
-		<ul>
-			<li class="section-driving"><h3>Driving</h3>
+		<div class="homepage-section">
+			<div class="tools-topics">
+				<h2>Popular tools &amp; topics</h2>
 				<ul>
-					<li class="answer"><a href="/change-name-address-on-vehicle-registration-certificate-v5c">Change your name and address on your vehicle registration certificate (V5C)</a></li>
-					<li class="answer"><a href="/penalties-if-your-vehicle-isnt-insured">Penalties if your vehicle isn&rsquo;t insured</a></li>
-					<li class="transaction"><a href="/apply-for-a-provisional-driving-licence">Apply for a provisional driving licence</a></li>
-					<li class="transaction"><a href="/renew-your-driving-licence-if-you-are-over-70">Renew your driving licence if you&rsquo;re over 70</a></li>
-					<li class="answer"><a href="/apply-for-a-tax-disc-refund-form-V14">Apply for a tax disc refund</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/driving">View more in <span>Driving</span> &rarr;</a></p>
-			</li>
-			<li class="section-work"><h3>Work</h3>
-				<ul>
-					<li class="answer"><a href="/get-a-fit-note-statement-of-fitness-to-work">Get a fit note (Statement of Fitness for Work)</a></li>
-					<li class="transaction"><a href="/apply-for-an-apprenticeship">Apply for an apprenticeship</a></li>
-					<li class="answer"><a href="/payslips-your-rights">Your rights about your payslip</a></li>
-					<li class="answer"><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
-					<li class="transaction placeholder"><a href="#">Calculate your statutory redundancy pay</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/work">View more in <span>Work</span> &rarr;</a></p>
-			</li>
-			<li class="section-benefits"><h3>Benefits and schemes</h3>
-				<ul>
-					<li class="programme"><a href="/statutory-sick-pay-ssp-">Statutory Sick Pay (SSP)</a></li>
-					<li class="programme"><a href="/budgeting-loans-">Budgeting Loans</a></li>
-					<li class="programme placeholder"><a href="#">Employment and Support Allowance (ESA)</a></li>
-					<li class="answer"><a href="/child-benefit-rates">Child Benefit rates</a></li>
-					<li class="programme"><a href="/crisis-loans">Crisis Loans</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/benefits">View more in <span>Benefits and schemes</span> &rarr;</a></p>
-			</li>
-			<li class="section-pensions"><h3>Pensions</h3>
-				<ul>
-					<li class="transaction"><a href="/find-a-lost-pension">Find a lost pension</a></li>
-					<li class="guide placeholder"><a href="#">State Pension if you retire abroad</a></li>
-					<li class="guide placeholder"><a href="#">Boost your pension</a></li>
-					<li class="programme"><a href="/pension-credit-calculator">Calculate Pension Credit</a></li>
-					<li class="guide placeholder"><a href="#">Additional State Pension</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/pensions">View more in <span>Pensions</span> &rarr;</a></p>
-			</li>
-			<li class="section-education"><h3>Education and skills</h3>
-				<ul>
-					<li class="answer"><a href="/compulsory-subjects-in-years-10-and-11">Compulsory subjects in years 10 and 11</a></li>
-					<li class="local_transaction"><a href="/apply-for-a-school-uniform-grant">Apply for a school uniform grant</a></li>
-					<li class="answer"><a href="/apply-for-the-access-to-learning-fund">Apply for the Access to Learning Fund</a></li>
-					<li class="answer"><a href="/education-maintenance-allowance-ema">Education Maintenance Allowance</a></li>
-					<li class="answer placeholder"><a href="#">School holiday dates</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/education">View more in <span>Education and skills</span> &rarr;</a></p>
-			</li>
-			<li class="section-disabled"><h3>Disabled people</h3>
-				<ul>
-					<li class="answer"><a href="/disability-living-allowance-dla-rates">Disability Living Allowance (DLA) rates</a></li>
-					<li class="answer placeholder"><a href="#">Disability day care centres</a></li>
-					<li class="answer"><a href="/definition-of-disability">What counts as a disability</a></li>
-					<li class="local_transaction"><a href="/apply-for-direct-payments">Apply for direct payments</a></li>
-					<li class="guide placeholder"><a href="#">Help if you have a disabled child</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/disabled">View more in <span>Disabled people</span> &rarr;</a></p>
-			</li>
-			<li class="section-taxes"><h3>Taxes</h3>
-				<ul>
-					<li class="answer"><a href="/vat-rates">VAT rates</a></li>
-					<li class="guide placeholder"><a href="#">Paying tax in retirement</a></li>
-					<li class="guide placeholder"><a href="#">Capital Gains Tax</a></li>
-					<li class="transaction placeholder"><a href="#">Claim a tax refund</a></li>
-					<li class="guide"><a href="/file-tax-return">File your tax return</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/taxes">View more in <span>Taxes</span> &rarr;</a></p>
-			</li>
-			<li class="section-housing"><h3>Housing</h3>
-				<ul>
-					<li class="answer"><a href="/get-the-right-to-buy-form">Get the Right to Buy form</a></li>
-					<li class="local_transaction placeholder"><a href="#">Improvements and repair grants for your home</a></li>
-					<li class="local_transaction placeholder"><a href="#">Apply for Local Housing Allowance</a></li>
-					<li class="guide placeholder"><a href="#">Low-cost home ownership schemes</a></li>
-					<li class="local_transaction"><a href="/apply-for-sheltered-housing">Apply for sheltered housing</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/housing">View more in <span>Housing</span> &rarr;</a></p>
-			</li>
-			<li class="section-family"><h3>Family</h3>
-				<ul>
-					<li class="answer"><a href="/stop-ex-partner-getting-child-passport">Stop your ex-partner getting your child a passport</a></li>
-					<li class="answer"><a href="/law-on-leaving-your-child-home-alone">The law on leaving your child home alone</a></li>
-					<li class="guide"><a href="/parental-rights-and-responsibilities">Parental rights and responsibilities</a></li>
 					<li class="nearest"><a href="/register-offices">Register Offices</a></li>
-					<li class="transaction"><a href="/order-copy-birth-death-marriage-certificate">Order a copy of a birth, death or marriage certificate</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/family">View more in <span>Family</span> &rarr;</a></p>
-			</li>
-			<li class="section-travel"><h3>Travel</h3>
-				<ul>
-					<li class="answer"><a href="/child-passport-fees">Child passport fees</a></li>
-					<li class="guide placeholder"><a href="#">Your rights if your travel company or airline goes bust</a></li>
-					<li class="answer placeholder"><a href="#">Get a passport urgently</a></li>
-					<li class="guide placeholder"><a href="#">Take your pet abroad</a></li>
-					<li class="guide placeholder"><a href="#">Hand luggage rules</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/travel">View more in <span>Family</span> &rarr;</a></p>
-			</li>
-			<li class="section-rights"><h3>Rights and responsibilities</h3>
-				<ul>
-					<li class="answer"><a href="/complain-about-a-legal-adviser">Complain about a legal adviser</a></li>
-					<li class="guide"><a href="/your-rights-when-working-at-night">Your rights working at night</a></li>
-					<li class="guide placeholder"><a href="#">Compensation after an accident or injury</a></li>
-					<li class="answer"><a href="/report-a-concern-about-an-attorney-or-deputy">Report a concern about an attorney or deputy</a></li>
-					<li class="answer"><a href="/complain-about-a-judge-or-magistrate">Complain about a judge, magistrate, tribunal member or coroner</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/rights">View more in <span>Rights and responsibilities</span> &rarr;</a></p>
-			</li>
-			<li class="section-communities"><h3>Communities</h3>
-				<ul>
-					<li class="local_transaction"><a href="/report-a-dangerous-building-or-structure">Report a dangerous building or structure</a></li>
 					<li class="transaction"><a href="/buy-a-uk-fishing-rod-licence">Buy a UK fishing rod licence</a></li>
-					<li class="transaction"><a href="/organ-donation-register">Organ donation - register</a></li>
-					<li class="local_transaction"><a href="/report-a-derelict-or-abandoned-building">Report a derelict or abandoned building</a></li>
-					<li class="local_transaction placeholder"><a href="#">Find a community support group or organisation</a></li>
+					<li class="programme"><a href="/crisis-loans">Crisis Loans</a></li>
+					<li class="answer"><a href="/vat-rates">VAT rates</a></li>
+					<li class="answer"><a href="/stop-ex-partner-getting-child-passport">Stop your ex-partner getting your child a passport</a></li>
+					<li class="programme"><a href="/statutory-sick-pay-ssp-">Statutory Sick Pay (SSP)</a></li>
+					<li class="transaction"><a href="/order-copy-birth-death-marriage-certificate">Order a copy of a birth, death or marriage certificate</a></li>
+					<li class="local_transaction"><a href="/apply-for-a-school-uniform-grant">Apply for a school uniform grant</a></li>
+					<li class="guide"><a href="/parental-rights-and-responsibilities">Parental rights and responsibilities</a></li>
+					<li class="answer"><a href="/law-on-leaving-your-child-home-alone">The law on leaving your child home alone</a></li>
 				</ul>
-				<p class="view-all-section"><a href="/communities">View more in <span>Communities</span> &rarr;</a></p>
-			</li>
-			<li class="section-money"><h3>Money</h3>
-				<ul>
-					<li class="guide"><a href="/making-a-will">Make a will</a></li>
-					<li class="transaction"><a href="/tell-hmrc-about-a-change-of-name-or-address">Tell <abbr title="HM Revenue &amp; Customs">HMRC</abbr> about a change of name of address</a></li>
-					<li class="transaction"><a href="/buy-premium-bonds">Buy Premium Bonds</a></li>
-					<li class="guide"><a href="/bringing-cash-into-the-uk">Bringing money into the UK</a></li>
-					<li class="transaction"><a href="/replace-a-child-trust-fund-voucher">Apply for a replacement Child Trust Fund voucher</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/money">View more in <span>Money</span> &rarr;</a></p>
-			</li>
-			<li class="section-citizenship"><h3>Citizenship and the UK</h3>
-				<ul>
-					<li class="guide placeholder"><a href="#">How parliament and MPs work</a></li>
-					<li class="smart-answer placeholder"><a href="#">Check you&rsquo;re eligible to work in the UK</a></li>
-					<li class="answer"><a href="/devolution-in-the-uk">Devolution in the UK</a></li>
-					<li class="transaction"><a href="/book-the-life-in-the-uk-test">Book the Life in the UK test</a></li>
-					<li class="guide placeholder"><a href="#">Becoming a British citizen</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/citizenship">View more in <span>Citizenship and the UK</span> &rarr;</a></p>
-			</li>
-			<li class="section-justice"><h3>Justice and the law</h3>
-				<ul>
-					<li class="answer"><a href="/protests-and-marches-letting-the-police-know">Protests and marches: letting the police know</a></li>
-					<li class="answer"><a href="/police-powers-of-arrest-your-rights">Police powers of arrest: your rights </a></li>
-					<li class="answer"><a href="/police-powers-to-stop-and-search-your-rights">Police powers to stop and search: your rights</a></li>
-					<li class="transaction"><a href="/join-the-police">Join the police</a></li>
-					<li class="answer"><a href="/being-arrested-held-police-station">Being arrested and held at a police station</a></li>
-				</ul>
-				<p class="view-all-section"><a href="/justice">View more in <span>Justice and the law</span> &rarr;</a></p>
-			</li>
-		</ul>
+			</div>
+		</div>
 
-	</div>
-  </section>
+		<div class="homepage-section">
+			<div class="personal-favourites group">
+				<h2>Your bookmarks</h2>
+				<div class="smart-clippings">
+					<ul>
+						<li>
+							<div class="clipping group register-office">
+								<h3>Lambeth Register Office</h3>
+								<a href="#" class="remove" title="Remove this from your homepage"></a>
+								<iframe width="150" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=SW2+1RW&amp;aq=&amp;sll=53.800651,-4.064941&amp;sspn=17.675514,31.420898&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=London+SW2+1RW,+United+Kingdom&amp;t=m&amp;ll=51.460639,-0.116987&amp;spn=0.008022,0.012789&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+								<div class="info">
+									<p>020 7926 9420</p>
+									<p>Lambeth Register Office<br />
+									Town Hall <br />
+									Brixton Hill <br />
+									London <br />
+									SW2 1RW</p>
+								</div>
+								<span class="jigsaw-piece"></span>
+							</div>
+						</li>
+						<li>
+							<div class="clipping group bank-holiday">
+								<h3>Next bank holiday</h3>
+								<a href="#" class="remove" title="Remove this from your homepage"></a>
+								<p class="bank-holiday-date">1 May</p>
+								<span class="jigsaw-piece"></span>
+							</div>
+						</li>
+						<li>
+							<div class="clipping group bank-holiday">
+								<h3>Next bank holiday</h3>
+								<a href="#" class="remove" title="Remove this from your homepage"></a>
+								<p class="bank-holiday-date">1 May</p>
+								<span class="jigsaw-piece"></span>
+							</div>
+						</li>
+						<li>
+							<div class="clipping group register-office">
+								<h3>Lambeth Register Office</h3>
+								<a href="#" class="remove" title="Remove this from your homepage"></a>
+								<iframe width="150" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=SW2+1RW&amp;aq=&amp;sll=53.800651,-4.064941&amp;sspn=17.675514,31.420898&amp;vpsrc=0&amp;ie=UTF8&amp;hq=&amp;hnear=London+SW2+1RW,+United+Kingdom&amp;t=m&amp;ll=51.460639,-0.116987&amp;spn=0.008022,0.012789&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+								<div class="info">
+									<p>020 7926 9420</p>
+									<p>Lambeth Register Office<br />
+									Town Hall <br />
+									Brixton Hill <br />
+									London <br />
+									SW2 1RW</p>
+								</div>
+								<span class="jigsaw-piece"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="bookmarks">
+					<ul>
+						<li class="guide"><a href="#">Enhanced rider scheme</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+						<li class="guide"><a href="#">Driving disqualifications</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+						<li class="guide"><a href="#">Vehicle insurance</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+						<li class="guide"><a href="#">Being stopped by the police while driving - your rights</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+						<li class="guide"><a href="#">Wills, probate and inheritance - sorting out someone's affairs after their death</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+						<li class="guide"><a href="#">How apprenticeships work</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+						<li class="answer"><a href="#">Support for families and friends of prisoners: what's available</a> <a href="#" class="remove" title="Remove this from your homepage"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</section>

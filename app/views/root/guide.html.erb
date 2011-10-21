@@ -7,18 +7,17 @@
 		<% if ! @guide.video_url.blank? %>
 		<div class="alternative-guide video">
 		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-			<a href="<%= guide_path(@guide.slug, 'video',@edition) %>#video" title="Watch the video version of this guide"><div class="video-wrapper"><img src="http://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt="Watch the video version of this guide"></div>
-			<span>Watch video guide</span></a>
+      <a href="<%= guide_path(@guide.slug, 'video',@edition) %>#video"><div class="video-wrapper"><img src="http://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
 		</div>
 		<% end %>
 	</header>
 
 	<div class="article-container group">
 
-   <aside role="navigation">
+   <aside>
      <div class="inner">
 
-       <nav class="chapters-navigation">
+       <nav role="navigation" class="chapters-navigation">
          <ol>
            <% @guide.parts.each do |nav_part| %>
            <li <% if @part == nav_part %>class="active"<% end %>>
@@ -29,15 +28,6 @@
            <% end %>
          </ol>
        </nav>
-
-			<div class="meta-data">
-				<p class="modified-date">Last updated: <%= @guide.updated_at.to_formatted_s(:short_ordinal) %></p>
-
-				<p>Re-use this data:</p>
-  				<ul class="api-links">
-            <li class="json"><a href="<%= publication_path(@guide.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
-          </ul>
-			</div>
 
      </div>
    </aside>
@@ -54,30 +44,45 @@
        <footer>
  	      <nav class="pagination" role="navigation">
            <ul class="group">
- 	        <%- if @guide.has_previous_part?(@part) -%>
- 	          <li class="previous">
-							<a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" title="Navigate to previous part" rel="prev">
-							  <span class="pagination-label">&larr; Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <%= (@guide.part_before(@part).title) %></a>
-              </li>
-            <%- else -%>
-              <li class="first">
-                You are at the beginning of this guide
-              </li>
- 	        <%- end -%>
- 	        <%- if @guide.has_next_part?(@part) -%>
-						<li class="next">
-							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Next part (<%= part_number(@guide.parts, @guide.part_after(@part)) %> of <%= @guide.parts.length %>) &rarr;</span> <%= (@guide.part_after(@part).title) %></a>
+          <%- if @guide.has_parts?(@part) -%>
+   	        <%- if @guide.has_previous_part?(@part) -%>
+   	          <li class="previous">
+  							<a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" title="Navigate to previous part" rel="prev">
+  							  <span class="pagination-label">&larr; Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <%= (@guide.part_before(@part).title) %></a>
                 </li>
-            <%- else -%>
-              <li class="last">
-                You have reached the end of this guide
-              </li>
- 	        <%- end -%>
+              <%- else -%>
+                <li class="first">
+                  You are at the beginning of this guide
+                </li>
+   	        <%- end -%>
+   	        <%- if @guide.has_next_part?(@part) -%>
+  						<li class="next">
+  							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Next part (<%= part_number(@guide.parts, @guide.part_after(@part)) %> of <%= @guide.parts.length %>) &rarr;</span> <%= (@guide.part_after(@part).title) %></a>
+                  </li>
+              <%- else -%>
+                <li class="last">
+                  You have reached the end of this guide
+                </li>
+   	        <%- end -%>
+   	      <%- else -%>
+   	        <li class="last">
+   	          You have reached the end of this guide
+   	        </li>
+   	      <%- end -%>
  	      </nav>
        </footer>
 
      </div>
    </article>
+
+		<div class="meta-data">
+			<p class="modified-date">Last updated: <%= @guide.updated_at.to_formatted_s(:short_ordinal) %></p>
+
+			<p>Re-use this data:</p>
+				<ul class="api-links">
+         <li class="json"><a href="<%= publication_path(@guide.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
+       </ul>
+		</div>
 
 	</div>
 

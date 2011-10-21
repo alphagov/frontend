@@ -14,24 +14,39 @@
 	        <%= to_govspeak(@place.introduction) %>
 	        <% end %>
 
-	        <form method="get" id="local-locator-form">
-	        <fieldset>
-	          <legend class="visuallyhidden">Postcode lookup</legend>
-	          <% if @edition %>
-	            <input type="hidden" name="edition" value="<%= @edition %>">
-	          <% end %>
-	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'removing' : '' %>">
-	            <label for="user-postcode">Enter a UK postcode <input id="user-postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-	            <input type="submit" value="Get started →">
-	          </div>
+     	     <h2>What you need to know</h2>
+     				<div class="more">
+     				<% if @place.expectations.any? %>
+     				  <ul class="helpers group">
+     				  <% @place.expectations.each do |e| %>
+     				    <li class="<%= e.css_class %>">
+     				      <%= e.text %>
+     				    </li>
+     				  <% end %>
+     				  </ul>
+     				<% end %>
 
-	          <div class="finding_location hidden">
-	            <p>Locating you&hellip;<input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"></p>
-	          </div>
-	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="#"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe if geo_known_to_at_least?('ward') %></a></p>
-	          </div>
-	        </fieldset>
+   	        <%= to_govspeak(@place.more_information) %>
+   				</div>
+
+          <form method="get" id="local-locator-form">
+  	        <fieldset>
+  	          <legend class="visuallyhidden">Postcode lookup</legend>
+  	          <% if @edition %>
+  	            <input type="hidden" name="edition" value="<%= @edition %>">
+  	          <% end %>
+  	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'removing' : '' %>">
+  	            <label for="user-postcode">Enter a UK postcode <input id="user-postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+  	            <input type="submit" value="Find my nearest →">
+  	          </div>
+
+  	          <div class="finding_location hidden">
+  	            <p>Locating you&hellip;<input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"></p>
+  	          </div>
+  	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
+  	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="#"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe if geo_known_to_at_least?('ward') %></a></p>
+  	          </div>
+  	        </fieldset>
 	        </form>
 	      </div>
 
@@ -46,22 +61,6 @@
 	       <ol id="options">
 	       </ol>
 	     <% end %>
-
-
-	     <h2>What you need to know</h2>
-				<div class="more">
-				<% if @place.expectations.any? %>
-				  <ul class="helpers group">
-				  <% @place.expectations.each do |e| %>
-				    <li class="<%= e.css_class %>">
-				      <%= e.text %>
-				    </li>
-				  <% end %>
-				  </ul>
-				<% end %>
-
-	        <%= to_govspeak(@place.more_information) %>
-				</div>
 
 			</div>
 

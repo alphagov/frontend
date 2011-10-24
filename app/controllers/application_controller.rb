@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
     when 'development','test'
       "publisher.dev.gov.uk"
     when 'production'
-       "publisher.production.alphagov.uk"
+      "publisher.production.alphagov.co.uk"
     else
-       "publisher.#{env}.alphagov.co.uk"
+      "publisher.#{env}.alphagov.co.uk"
     end
   end
 
@@ -24,9 +24,9 @@ class ApplicationController < ActionController::Base
     when 'development','test'
       "imminence.dev.gov.uk"
     when 'production'
-       "imminence.production.alphagov.co.uk"
+      "imminence.production.alphagov.co.uk"
     else
-       "imminence.#{env}.alphagov.co.uk"
+      "imminence.#{env}.alphagov.co.uk"
     end
   end
 

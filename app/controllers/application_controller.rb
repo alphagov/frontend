@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     env = ENV['RAILS_ENV'] || 'development'
     case env 
     when 'development','test'
-      "local.alphagov.co.uk:3000"
+      "publisher.dev.gov.uk"
     when 'production'
        "api.alpha.gov.uk"
     else

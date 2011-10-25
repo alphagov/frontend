@@ -9,31 +9,31 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/geogov.git
-  revision: c2acf57a158ef18a9820e40f03d0d1cccd9d6345
+  revision: 13426953924d06b1e0f6af4ef1a439aacc31ba90
   specs:
-    geogov (0.0.1)
+    geogov (0.0.2)
 
 GIT
   remote: git@github.com:alphagov/govspeak.git
-  revision: e6f9730df3f352e59c56a38d71ab083073644cd5
+  revision: 3e90900db09391dd2a3806e522204b39074b3f70
   specs:
     govspeak (0.8.3)
       kramdown (~> 0.13.3)
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
-  revision: cbe1036e663c833835cf68032dd8b9b38ab167d0
+  revision: 0c15b9c050d66232590a23f037d908432804f50c
   specs:
-    rack-geo (0.6.0)
+    rack-geo (0.7.0)
       geogov
       json
-      rack (~> 1.2.0)
+      rack
 
 GIT
   remote: git@github.com:alphagov/slimmer.git
-  revision: 37848062444e3e27b03a4f06df6c31a90b251682
+  revision: 9a5a048cdd2452ee3f88233bce693aa4e4296b35
   specs:
-    slimmer (0.7.10)
+    slimmer (0.7.13)
       nokogiri
 
 GEM
@@ -74,12 +74,12 @@ GEM
     builder (2.1.2)
     ci_reporter (1.6.5)
       builder (>= 2.1.2)
-    crack (0.1.8)
+    crack (0.3.1)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     exception_notification (2.4.1)
     i18n (0.5.0)
-    json (1.6.0)
+    json (1.6.1)
     kramdown (0.13.3)
     mail (2.2.19)
       activesupport (>= 2.3.6)
@@ -87,13 +87,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     metaclass (0.0.1)
-    mime-types (1.16)
+    mime-types (1.17.1)
     mocha (0.10.0)
       metaclass (~> 0.0.1)
     mustache (0.99.4)
     nokogiri (1.5.0)
     polyglot (0.3.2)
-    rack (1.2.3)
+    rack (1.2.4)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -112,20 +112,21 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
-    rake (0.9.2)
-    rdoc (3.9.4)
+    rake (0.9.2.2)
+    rdoc (3.11)
+      json (~> 1.4)
     simplecov (0.4.2)
       simplecov-html (~> 0.4.4)
     simplecov-html (0.4.5)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    test-unit (2.3.2)
+    test-unit (2.4.0)
     thor (0.14.6)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.29)
-    webmock (1.7.6)
+    tzinfo (0.3.30)
+    webmock (1.7.7)
       addressable (~> 2.2, > 2.2.5)
       crack (>= 0.1.7)
 

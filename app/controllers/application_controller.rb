@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
     when 'development','test'
       "publisher.dev.gov.uk"
     when 'production'
-       "api.alpha.gov.uk"
+       "publisher.production.alphagov.uk"
     else
-       "guides.#{env}.alphagov.co.uk:8080"
+       "publisher.#{env}.alphagov.co.uk"
     end
   end
 
@@ -22,11 +22,11 @@ class ApplicationController < ActionController::Base
     env = ENV['RAILS_ENV'] || 'development'
     case env 
     when 'development','test'
-      "local.alphagov.co.uk:3002"
+      "imminence.dev.gov.uk"
     when 'production'
-       "api.alpha.gov.uk"
+       "imminence.production.alphagov.co.uk"
     else
-       "imminence.#{env}.alphagov.co.uk:8080"
+       "imminence.#{env}.alphagov.co.uk"
     end
   end
 

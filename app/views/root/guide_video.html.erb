@@ -9,22 +9,21 @@
 	<div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
-				
+
 				<div class="view-text-version">
 					<p>This is a video guide to <%= @guide.title %>. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a></p>
 				</div>
 
+				<div class="summary">
+					<p><%= @guide.video_summary %></p>
+				</div>
+
         <% video = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
         <% if video[0] %>
-<!--<iframe frameborder="0" type="text/html" style="width:640px; height:385px;" src="http://www.youtube.com/embed/<%= video[0][0] %>"></iframe>-->
           <figure class="media-player-wrapper" id="video" style="margin: 0 20px;">
             <a href="http://www.youtube.com/watch?v=<%=video[0][0]%>">Watch <%= @guide.title %></a>
           </figure>
         <% end %>
-        
-				<div class="summary">
-					<p><%= @guide.video_summary %></p>
-				</div>
 
       </div>
     </article>

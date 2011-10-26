@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     when 'production'
       "publisher.production.alphagov.co.uk"
     when 'staging'
-      "guides.staging.alphagov.co.uk"
+      "guides.staging.alphagov.co.uk:8080"
     else
       "publisher.#{env}.alphagov.co.uk"
     end

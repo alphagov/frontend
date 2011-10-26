@@ -7,6 +7,8 @@ class RootController < ApplicationController
 
   def index
     expires_in 3.minute, :public => true unless Rails.env.development?
+    
+    headers['X-Slimmer-Template'] = 'homepage'
   end
 
   def publication

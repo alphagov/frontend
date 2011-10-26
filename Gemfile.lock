@@ -8,20 +8,20 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/geogov.git
-  revision: 0d92835dec01266bc3611800850b6abf6923690f
+  revision: 13426953924d06b1e0f6af4ef1a439aacc31ba90
   specs:
     geogov (0.0.2)
 
 GIT
   remote: git@github.com:alphagov/govspeak.git
-  revision: 209083cfe4dafb5f92b1a12566009a46af25217f
+  revision: 3e90900db09391dd2a3806e522204b39074b3f70
   specs:
     govspeak (0.8.3)
       kramdown (~> 0.13.3)
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
-  revision: 50f46c15cd815ac97c2e9ed56fdb7b6e355aa7c9
+  revision: 0c15b9c050d66232590a23f037d908432804f50c
   specs:
     rack-geo (0.7.0)
       geogov
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/slimmer.git
-  revision: 9a5a048cdd2452ee3f88233bce693aa4e4296b35
+  revision: 5bf3c40f38633d36a7c67588f2a3b3d4c226f8c6
   specs:
     slimmer (0.7.13)
       nokogiri
@@ -88,7 +88,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     metaclass (0.0.1)
-    mime-types (1.16)
+    mime-types (1.17.2)
     mocha (0.10.0)
       metaclass (~> 0.0.1)
     multi_json (1.0.3)
@@ -119,7 +119,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
-    rake (0.9.2)
+    rake (0.9.2.2)
     rdoc (3.11)
       json (~> 1.4)
     simplecov (0.4.2)

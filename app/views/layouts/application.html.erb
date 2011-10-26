@@ -31,7 +31,7 @@
   <%= yield :extra_javascript %>
   <%= yield :extra_headers %>
 </head>
-<body>
+<body class="<%= yield :body_class %>">
 <% if @publication %>
   <div id="wrapper" class="<%= @publication.type %><%= @video_mode ? ' video-guide' : '' %>">
 <% else %>

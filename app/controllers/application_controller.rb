@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
       "publisher.dev.gov.uk"
     when 'production'
       "publisher.production.alphagov.co.uk"
+    when 'staging'
+      "guides.staging.alphagov.co.uk"
     else
       "publisher.#{env}.alphagov.co.uk"
     end

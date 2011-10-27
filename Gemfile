@@ -3,6 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'mustache'
 
+gem 'rack', '1.3.5'
+gem 'rake', '0.9.2'
+
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else

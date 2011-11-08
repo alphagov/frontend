@@ -32,7 +32,7 @@ module RootHelper
   end
 
   def to_govspeak(field)
-    Govspeak::Document.new(field || "").to_html.html_safe
+    Govspeak::Document.new(field || "", :auto_ids=>false).to_html.html_safe
   end
 
   def mustache_partial(template,context)

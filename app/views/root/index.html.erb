@@ -1,14 +1,14 @@
 <% content_for :title, "www.gov.uk - the trial ‘beta’ version of the UK government's website" %>
 
   <section id="content" role="main" class="group">
-	
+
 		<div class="homepage-section">
 			<header class="homepage-banner group">
 				<div class="tag-line">
 					<h1>gov.uk</h1>
 					<p>This is a trial ‘beta’ version of the UK government’s website. Use services and find official information.</p>
 				</div>
-	      <form action="http://search.production.alphagov.co.uk/search" class="group">
+	      <form action="http://#{Plek.current.find("search")}/search" class="group">
 					<fieldset>
 					  <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
 		      	<label for="main_autocomplete" class="visuallyhidden">Search</label>
@@ -106,5 +106,5 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</section>

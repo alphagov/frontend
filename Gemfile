@@ -5,6 +5,7 @@ gem 'mustache'
 
 gem 'rack', '1.3.5'
 gem 'rake', '0.9.2'
+gem 'plek', '0.1.5'
 
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'

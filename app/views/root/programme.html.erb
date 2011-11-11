@@ -1,4 +1,4 @@
-<% @is_overview = (@partslug!="further-information") %>
+<% @is_overview = (@partslug != "further-information") %>
 <% content_for :extra_javascript do %>
 	<%= javascript_include_tag 'jquery.tabs.js', 'jquery.history.js', :defer=>"defer" %>
   <% if @programme.has_next_part?(@part) %>
@@ -19,8 +19,10 @@
 
 		<nav class="programme-switcher group" role="navigation">
 			<ul>
-	        <li<%= raw(' class="active"') if @is_overview %>><a href="<%= guide_path(@programme.slug,nil,@edition) %>">About and how to claim</a></li>
+	      <li<%= raw(' class="active"') if @is_overview %>><a href="<%= guide_path(@programme.slug,nil,@edition) %>">About and how to claim</a></li>
+	      <% if has_further_information?(@programme) %>
 				<li<%= raw(' class="active"') unless @is_overview %>><a href="<%= guide_path(@programme.slug, @programme.parts.last.slug,@edition) %>"><%= @programme.parts.last.title %></a></li>
+				<% end %>
 			</ul>
 		</nav>
 

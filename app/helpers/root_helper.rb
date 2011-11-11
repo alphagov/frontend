@@ -11,6 +11,10 @@ module RootHelper
     end
   end
 
+  def has_further_information?(publication)
+    publication.parts.collect(&:slug).include?('further-information')
+  end
+
   def part_number(parts, part)
     parts.index(part) + 1
   end

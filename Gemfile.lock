@@ -8,8 +8,6 @@ GIT
   remote: git@github.com:alphagov/plek.git
   revision: a83d6d9cae44fac64c26ab1bf2754d5f28ce6fa1
   specs:
-    plek (0.1.6)
-      builder
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git

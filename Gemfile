@@ -7,16 +7,18 @@ gem 'rack', '1.3.5'
 gem 'rake', '0.9.2'
 gem 'plek', '0.1.5'
 
+gem 'plek', :git => 'git@github.com:alphagov/plek.git'
+
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', :git => 'git@github.com:alphagov/govspeak.git'
+  gem 'govspeak', '0.8.4'
 end
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', :git => 'git@github.com:alphagov/slimmer.git'
+  gem 'slimmer', '0.8.0'
 end
 
 if ENV['GEO_DEV']
@@ -27,22 +29,24 @@ else
   gem 'geogov', :git => 'git@github.com:alphagov/geogov.git'
 end
 
-gem "addressable"
-gem 'exception_notification', '~> 2.4.1', :require => 'exception_notifier'
-
 if ENV['CDN_DEV']
   gem 'cdn_helpers', :path => '../cdn_helpers'
 else
-  gem 'cdn_helpers', :git => 'git@github.com:alphagov/cdn_helpers.git'
+  gem 'cdn_helpers', '0.9'
 end
+
+gem "addressable"
+gem 'exception_notification', '~> 2.4.1', :require => 'exception_notifier'
 
 group :test do
   gem "mocha"
-  gem "webmock"
+  gem "webmock", :require => false
   gem "ZenTest"
   gem "autotest-rails"
   gem 'simplecov', '0.4.2'
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
+  gem 'capybara', '~> 1.0.0'
+  gem "capybara-webkit"
 end

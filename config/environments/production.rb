@@ -35,7 +35,7 @@ Frontend::Application.configure do
   config.serve_static_assets = false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = Plek.current.find("static")
+  config.action_controller.asset_host = Plek.current.find('assets')
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -51,5 +51,5 @@ Frontend::Application.configure do
   config.active_support.deprecation = :notify
 
   config.middleware.delete Slimmer::App
-  config.middleware.use Slimmer::App, :asset_host => Plek.current.find("static")
+  config.middleware.use Slimmer::App, :asset_host => Plek.current.find('assets')
 end

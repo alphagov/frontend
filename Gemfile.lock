@@ -8,6 +8,8 @@ GIT
   remote: git@github.com:alphagov/plek.git
   revision: a83d6d9cae44fac64c26ab1bf2754d5f28ce6fa1
   specs:
+    plek (0.1.6)
+      builder
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
@@ -95,8 +97,6 @@ GEM
     multi_json (1.0.3)
     mustache (0.99.4)
     nokogiri (1.5.0)
-    plek (0.1.5)
-      builder
     polyglot (0.3.2)
     rack (1.3.5)
     rack-cache (1.0.3)

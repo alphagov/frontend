@@ -16,12 +16,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :api
   def api
-    @api ||= PublisherApi.new("http://#{api_host}")
+    @api ||= PublisherApi.new(api_host)
   end
 
   helper_method :places_api
   def places_api
-    @places_api ||= ImminenceApi.new("http://#{imminence_host}")
+    @places_api ||= ImminenceApi.new(imminence_host)
   end
 
 end

@@ -6,32 +6,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :api_host
   def api_host
-    env = ENV['RAILS_ENV'] || 'development'
-    case env 
-    when 'development','test'
-      "publisher.dev.gov.uk"
-    when 'production'
-      "publisher.production.alphagov.co.uk"
-    when 'staging'
-      "guides.staging.alphagov.co.uk:8080"
-    else
-      "publisher.#{env}.alphagov.co.uk"
-    end
+    Plek.current.find('publisher')
   end
 
   helper_method :imminence_host
   def imminence_host
-    env = ENV['RAILS_ENV'] || 'development'
-    case env 
-    when 'development','test'
-      "imminence.dev.gov.uk"
-    when 'production'
-      "imminence.production.alphagov.co.uk"
-    else
-      "imminence.#{env}.alphagov.co.uk"
-    end
+    Plek.current.find('data')
   end
-
 
   helper_method :api
   def api

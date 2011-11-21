@@ -50,13 +50,7 @@
 
      </div>
    </article>
-	<div class="meta-data">
-			<p class="modified-date">Last updated: <%= @transaction.updated_at.to_formatted_s(:short_ordinal) %></p>
-			<p>Re-use this data:</p>
-		<ul class="api-links">
-        <li class="json"><a href="<%= publication_path(@publication.slug,:edition=>@edition,:format=>:json) %>">JSON</a></li>
-      </ul>
-		</div>
+  <%= render 'publication_metadata', :publication => @transaction, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
 </div>
 
 </section>

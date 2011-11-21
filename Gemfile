@@ -46,6 +46,4 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
-  gem 'capybara', '~> 1.0.0'
-  gem "capybara-webkit"
 end

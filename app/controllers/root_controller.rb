@@ -81,6 +81,7 @@ class RootController < ApplicationController
     if publication && publication.type == "place"
       @options = load_place_options(publication)
     end
+    @artefact = artefact_api.artefact_for_slug(params[:slug])
     publication
   end
 

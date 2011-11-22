@@ -63,7 +63,7 @@
 
 	    </div>
 		</article>
-    <%= render 'publication_metadata', :publication => @local_transaction, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json, :all => true) } %>
+    <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json, :all => true) } %>
 	</div>
 </section>
 

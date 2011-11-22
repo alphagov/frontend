@@ -1,0 +1,24 @@
+<div class="contact-card">
+  <dl>
+    <% if (name = contact.name).present? %>
+      <dt>Name:</dt>
+      <dd><%= name %></dd>
+    <% end %>
+    <% if (postal_address = contact.postal_address).present? %>
+      <dt>Postal address:</dt>
+      <dd><%= postal_address %></dd>
+    <% end %>
+    <% if (email_address = contact.email_address).present? %>
+      <dt>Email address:</dt>
+      <dd><%= email_address %></dd>
+    <% end %>
+    <% if (website_url = contact.website_url).present? %>
+      <dt>Website URL:</dt>
+      <dd><%= website_url %></dd>
+    <% end %>
+    <% if (opening_hours = contact.opening_hours).present? %>
+      <dt>Opening hours:</dt>
+      <dd><%= opening_hours %></dd>
+    <% end %>
+  </dl>
+</div>

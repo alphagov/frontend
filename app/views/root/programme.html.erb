@@ -19,45 +19,45 @@
 
 		<nav class="programme-switcher group" role="navigation">
 			<ul>
-	      <li<%= raw(' class="active"') if @is_overview %>><a href="<%= guide_path(@programme.slug,nil,@edition) %>">About and how to claim</a></li>
+	      <li<%= raw(' class="active"') if @is_overview %>><a href="<%= guide_path(@programme.slug,nil,@edition) %>">Overview and how to claim</a></li>
 	      <% if has_further_information?(@programme) %>
 				<li<%= raw(' class="active"') unless @is_overview %>><a href="<%= guide_path(@programme.slug, @programme.parts.last.slug,@edition) %>"><%= @programme.parts.last.title %></a></li>
 				<% end %>
 			</ul>
 		</nav>
 
-		<% unless @is_overview %>
+		<% if @is_overview %>
+  		<nav class="programme-progression group" role="navigation">
+  		  <ol>
+  	      <% @programme.parts.each do |part| %>
+  	        <% if @programme.has_next_part?(part) %>
+              <li><a href="#<%= part.slug %>"><%= part.title %><span class="progressor"></span></a></li>
+            <% end %>
+          <% end %>
+        </ol>
+  		</nav>
+  		<% @programme.parts.each do |part| %>
+        <% if @programme.has_next_part?(part) %>
+          <article role="article" class="overview-etc group" id="<%= part.slug %>">
+            <div class="inner">
+              <%= render :partial => "programme_part", :locals => {:part => part} %>
+              <nav class="part-pagination return-to-top">
+                <a href="#wrapper">Return to top &uarr;</a>
+              </nav>
+            </div>
+          </article>
+        <% end %>
+      <% end %>
+    <% else %>
 		  <article role="article" class="group">
-	        <div class="inner">
-	          <%= render :partial => "programme_part", :locals => {:part => @programme.parts.last} %>
-	          <nav class="part-pagination return-to-top" role="navigation">
-						<a href="<%= guide_path(@programme.slug,nil,@edition) %>">&larr; Overview and how to claim</a>
-					</nav>
-	        </div>
+        <div class="inner">
+          <%= render :partial => "programme_part", :locals => {:part => @programme.parts.last} %>
+          <nav class="part-pagination return-to-top" role="navigation">
+            <a href="<%= guide_path(@programme.slug,nil,@edition) %>">&larr; Overview and how to claim</a>
+          </nav>
+        </div>
 		  </article>
-	    <% else %>
-	      <nav class="programme-progression group" role="navigation">
-			<ol>
-		    <% @programme.parts.each do |part| %>
-		      <% if @programme.has_next_part?(part) %>
-	            <li><a href="#<%= part.slug %>"><%= part.title %><span class="progressor"></span></a></li>
-	          <% end %>
-	        <% end %>
-	      </ol>
-				</nav>
-		  <% @programme.parts.each do |part| %>
-		    <% if @programme.has_next_part?(part) %>
-				  <article role="article" class="with-parts-nav group" id="<%= part.slug %>">
-	            <div class="inner">
-	              <%= render :partial => "programme_part", :locals => {:part => part} %>
-							<nav class="part-pagination return-to-top">
-								<a href="#wrapper">Return to top &uarr;</a>
-							</nav>
-	            </div>
-				  </article>
-		    <% end %>
-		  <% end %>
-		<% end %>
+  	<% end %>
 
 	</div>
 </section>

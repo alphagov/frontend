@@ -75,7 +75,6 @@ GEM
     crack (0.3.1)
     erubis (2.7.0)
     exception_notification (2.4.1)
-    ffi (1.0.11)
     govspeak (0.8.4)
       kramdown (~> 0.13.3)
     hike (1.2.1)
@@ -121,12 +120,6 @@ GEM
     rake (0.9.2)
     rdoc (3.11)
       json (~> 1.4)
-    rubyzip (0.9.4)
-    selenium-webdriver (2.12.2)
-      childprocess (>= 0.2.1)
-      ffi (~> 1.0.9)
-      json_pure
-      rubyzip
     simplecov (0.4.2)
       simplecov-html (~> 0.4.4)
     simplecov-html (0.4.5)

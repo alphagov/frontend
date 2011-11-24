@@ -36,7 +36,6 @@ Frontend::Application.configure do
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   config.action_controller.asset_host = Plek.current.find('assets')
-  config.slimmer.asset_host = Plek.current.find('assets')
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

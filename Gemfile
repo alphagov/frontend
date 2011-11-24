@@ -6,7 +6,7 @@ gem 'mustache'
 gem 'rack', '1.3.5'
 gem 'rake', '0.9.2'
 
-gem 'plek', :git => 'git@github.com:alphagov/plek.git'
+gem 'plek', '~> 0'
 
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
@@ -17,7 +17,7 @@ end
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', :git => 'git@github.com:alphagov/slimmer.git'
+  gem 'slimmer', '~> 1.1'
 end
 
 if ENV['GEO_DEV']

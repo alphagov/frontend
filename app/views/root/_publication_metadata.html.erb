@@ -1,5 +1,5 @@
 <div class="meta-data">
-  <% if (contact = artefact.contact).present? %>
+  <% if artefact.present? && (contact = artefact.contact).present? %>
     <%= render 'contact_details', :contact => contact %>
   <% end %>
 

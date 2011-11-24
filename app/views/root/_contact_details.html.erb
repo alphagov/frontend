@@ -10,6 +10,12 @@
       <dt>Postal address:</dt>
       <dd><%= format_postal_address postal_address %></dd>
     <% end %>
+    <% if (phone_numbers = contact.phone_numbers).present? %>
+      <% phone_numbers.group_by(&:kind).each do |kind, phone_numbers| %>
+        <dt><%= kind.humanize %> number<%= 's' if phone_numbers.many? %></dt>
+        <dd><%= format_phone_numbers phone_numbers %></dd>
+      <% end %>
+    <% end %>
     <% if (email_address = contact.email_address).present? %>
       <dt>Email address:</dt>
       <dd><%= format_email_address email_address %></dd>

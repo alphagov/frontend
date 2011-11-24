@@ -24,3 +24,22 @@
     <% end %>
   </dl>
 </div>
+
+<%= javascript_tag do %>
+  $(function () {
+    var metadata = $('.meta-data');
+    var contact = metadata.find('.contact').remove();
+    metadata.find('.contact-intro .call-to-action')
+      .after('.')
+      .replaceWith(
+        $('<a>', {
+          text: 'click here for contact details',
+          href: '#contact',
+          click: function (event) {
+            event.preventDefault();
+            BetaPopup.popup(contact);
+          }
+        })
+      );
+  });
+<% end %>

@@ -29,7 +29,7 @@ class RootController < ApplicationController
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
-      format.html { 
+      format.html {
         render @video_mode ? "#{@publication.type}_video" : @publication.type
       }
       format.json { render :json => @publication.to_json }

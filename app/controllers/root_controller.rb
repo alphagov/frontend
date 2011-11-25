@@ -77,7 +77,13 @@ class RootController < ApplicationController
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]
-    publication = api.publication_for_slug(@slug,options)
+    begin
+      publication = api.publication_for_slug(@slug,options)
+    rescue URI::InvalidURIError
+      logger.error "Invalid URI formed with slug `#{@slug}`"
+      render :file => "#{Rails.root}/public/404.html", :status => :not_found
+    end
+
     if publication && publication.type == "place"
       @options = load_place_options(publication)
     end

@@ -1,3 +1,6 @@
+<% content_for :extra_javascript do %>
+	<%= javascript_include_tag 'trackers/local-transaction.js', :defer=>"defer" %>
+<% end %>
 <section id="content" role="main" class="group">
 
 	<header class="page-header group">

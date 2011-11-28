@@ -1,3 +1,6 @@
+<% content_for :extra_javascript do %>
+	<%= javascript_include_tag 'trackers/findmynearest.js', :defer=>"defer" %>
+<% end %>
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
@@ -103,6 +106,7 @@
         var the_href = "<%= load_places_path(@place.slug) + "?edition=#{@edition}" %>";
         $.getJSON(the_href, function (data) {
           $('#options').html($.mustache($('#option-template').html(), {options: data}));
+          _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
           $('#options-header').show();
         });
       }

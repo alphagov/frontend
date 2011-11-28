@@ -11,6 +11,14 @@ class RootControllerTest < ActionController::TestCase
     api
   end
 
+  def mock_artefact_api(table)
+    mock().tap do |api|
+      table.each do |slug, artefact|
+        api.expects(:artefact_for_slug).with(slug).returns artefact
+      end
+    end
+  end
+
   def prevent_implicit_rendering
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
@@ -19,6 +27,7 @@ class RootControllerTest < ActionController::TestCase
 
   test "should return a 404 if api returns nil" do
     @controller.stubs(:api).returns mock_api("a-slug" => nil)
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => nil)
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug"
@@ -27,6 +36,7 @@ class RootControllerTest < ActionController::TestCase
   test "should choose template based on type of publication" do
     @controller.stubs(:api).returns mock_api(
       "a-slug" => OpenStruct.new(:type=>"answer"))
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.expects(:render).with("answer")
     get :publication, :slug => "a-slug"
@@ -38,6 +48,7 @@ class RootControllerTest < ActionController::TestCase
      api.expects(:publication_for_slug).with("a-slug", {:edition => '123'}).returns(
         OpenStruct.new(:type => "answer"))
      @controller.stubs(:api).returns api
+     @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
      prevent_implicit_rendering
      @controller.stubs(:render)
      get :publication, :slug => "a-slug", :edition => edition_id
@@ -48,6 +59,7 @@ class RootControllerTest < ActionController::TestCase
     api.expects(:publication_for_slug).with("a-slug", {}).returns(
        OpenStruct.new(:type=>"answer"))
     @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug", :part => "evil"
@@ -58,6 +70,7 @@ class RootControllerTest < ActionController::TestCase
     api.expects(:publication_for_slug).with("a-slug", {}).returns(
        OpenStruct.new(:type=>"guide", :video_url => "bob"))
     @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, :slug => "a-slug", :part => "video"
@@ -68,6 +81,7 @@ class RootControllerTest < ActionController::TestCase
     api.expects(:publication_for_slug).with("a-slug", {}).returns(
        OpenStruct.new(:type=>"guide"))
     @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug", :part => "video"
@@ -78,6 +92,7 @@ class RootControllerTest < ActionController::TestCase
      api = mock()
      api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
      @controller.stubs(:api).returns api
+     @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
      prevent_implicit_rendering
      @controller.stubs(:render)
      get :publication, :slug => "a-slug",:edition => edition_id
@@ -86,6 +101,7 @@ class RootControllerTest < ActionController::TestCase
   test "should pass specific and general variables to template" do
     @controller.stubs(:api).returns mock_api(
       "c-slug" => OpenStruct.new(:type=>"answer",:name=>"THIS"))
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug"
@@ -97,6 +113,7 @@ class RootControllerTest < ActionController::TestCase
   test "Shouldn't try to identify councils on answers" do
     @controller.stubs(:api).returns mock_api(
       "c-slug" => OpenStruct.new(:type=>"answer",:name=>"THIS"))
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
     assert_raises RecordNotFound do
       post :identify_council, :slug => "c-slug"
     end
@@ -109,6 +126,7 @@ class RootControllerTest < ActionController::TestCase
       api.expects(:council_for_transaction).with(anything,[])
 
       @controller.stubs(:api).returns api
+      @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
       post :identify_council, :slug => "c-slug"
 
       assert_redirected_to publication_path(:slug=>"c-slug")
@@ -120,6 +138,7 @@ class RootControllerTest < ActionController::TestCase
           :type=>"local_transaction",
           :name=>"THIS"))
      @controller.stubs(:api).returns api
+     @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
 
      stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
      request.env["HTTP_X_GOVGEO_STACK"] = stack
@@ -134,6 +153,7 @@ class RootControllerTest < ActionController::TestCase
          :type=>"local_transaction",
          :name=>"THIS"))
     @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
 
     stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
     request.env["HTTP_X_GOVGEO_STACK"] = stack
@@ -152,6 +172,7 @@ class RootControllerTest < ActionController::TestCase
                                     OpenStruct.new(:slug=>"a",:name=>"AA"),
                                     OpenStruct.new(:slug=>"b",:name=>"BB")
                                 ]})) 
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug"
@@ -166,6 +187,7 @@ class RootControllerTest < ActionController::TestCase
                                     OpenStruct.new(:slug=>"a",:name=>"AA"),
                                     OpenStruct.new(:slug=>"b",:name=>"BB")
                                 ]}))
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "c-slug", :part => "c"
@@ -179,6 +201,7 @@ class RootControllerTest < ActionController::TestCase
                                     OpenStruct.new(:slug=>"a",:name=>"AA"),
                                     OpenStruct.new(:slug=>"b",:name=>"BB")
                                 ]})) 
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug", :part => "b"

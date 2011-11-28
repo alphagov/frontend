@@ -16,8 +16,6 @@ Frontend::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
-  config.middleware.use Slimmer::App, :template_path => "#{config.root}/public/templates"
-
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 end

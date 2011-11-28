@@ -49,7 +49,4 @@ Frontend::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  config.middleware.delete Slimmer::App
-  config.middleware.use Slimmer::App, :asset_host => Plek.current.find('assets')
 end

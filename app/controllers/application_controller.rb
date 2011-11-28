@@ -1,5 +1,6 @@
 require 'publisher_api'
 require 'imminence_api'
+require 'panopticon_api'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
     Plek.current.find('data')
   end
 
+  def panopticon_host
+    Plek.current.find('arbiter')
+  end
+
   helper_method :api
   def api
     @api ||= PublisherApi.new(api_host)
@@ -24,4 +29,8 @@ class ApplicationController < ActionController::Base
     @places_api ||= ImminenceApi.new(imminence_host)
   end
 
+  helper_method :artefact_api
+  def artefact_api
+    @artefact_api ||= PanopticonApi.new(panopticon_host)
+  end
 end

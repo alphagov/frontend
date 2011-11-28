@@ -1,0 +1,15 @@
+<div class="meta-data">
+  <% if artefact.present? && (contact = artefact.contact).present? %>
+    <%= render 'contact_details', :contact => contact %>
+  <% end %>
+
+  <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+
+  <p>Re-use this data:</p>
+
+  <ul class="api-links">
+    <% api_links.each do |format, url| %>
+      <%= content_tag :li, link_to(format.to_s.upcase, url), :class => format %>
+    <% end %>
+  </ul>
+</div>

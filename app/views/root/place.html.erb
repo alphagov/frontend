@@ -65,16 +65,7 @@
 			</div>
 
 		</article>
-		<div class="meta-data">
-	     <p class="modified-date">Last updated: <%= @place.updated_at.to_formatted_s(:short_ordinal) %></p>
-
-	     <p>Re-use this data:</p>
-	     <ul class="api-links">
-	       <li class="kml"><a href="<%= @place.place_type %>.kml">KML</a></li>
-	       <li class="json"><a href="<%= @place.place_type %>.json">JSON</a></li>
-	       <li class="csv"><a href="<%= @place.place_type %>.csv">CSV</a></li>
-	     </ul>
-		</div>
+    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:kml, :json, :csv].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
 	</div>
 </section>
 

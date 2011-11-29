@@ -6,10 +6,14 @@ class RootController < ApplicationController
   include RootHelper
 
   def index
+    expires_in 10.minute, :public => true unless Rails.env.development?
+
     headers['X-Slimmer-Template'] = 'homepage'
   end
 
   def publication
+    expires_in 10.minute, :public => true unless Rails.env.development?
+
     @publication = fetch_publication(params)
     @video_mode = params[:part] == "video"
 

@@ -56,17 +56,4 @@ class PublisherApi
       container.updated_at = Time.parse(container.updated_at)
     end
   end
-
-  def to_ostruct(obj)
-    case obj
-    when Hash
-      values = {}
-      obj.each { |key, value| values[key] = to_ostruct(value) }
-      OpenStruct.new(values)
-    when Array
-      obj.map { |k| to_ostruct(k) }
-    else
-      obj
-    end
-  end
 end

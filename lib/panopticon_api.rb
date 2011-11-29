@@ -21,15 +21,4 @@ class PanopticonApi
     def base_url
       "#{endpoint}/artefacts"
     end
-
-    def to_ostruct(object)
-      case object
-      when Hash
-        OpenStruct.new Hash[object.map { |key, value| [key, to_ostruct(value)] }]
-      when Array
-        object.map { |k| to_ostruct(k) }
-      else
-        object
-      end
-    end
 end

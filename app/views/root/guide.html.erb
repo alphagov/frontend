@@ -83,25 +83,7 @@
 
 </section>
 
-<!-- related -->
-<div class="related-positioning">
-	<div class="related-container">
- 		<div class="related">
-	     <div class="inner group">
-	       <h2>Related tools &amp; topics</h2>
-	       <nav role="navigation">
-	         <ul>
-              <%= (@guide.related_items || "").html_safe %>
-              <% if @guide.section %>
-                <li class="related-topic"><a href="/<%= @guide.section.parameterize %>">View more in <span><%= @guide.section %>&rarr;</span></a></li>
-              <% end %>
-	         </ul>
-	       </nav>
-	     </div>
-		</div>
-	</div>
-</div>
-<!-- end related -->
+<%= render 'related' %>
 
 <% content_for :extra_headers do %>
   <%- if @guide.has_previous_part?(@part) -%>

@@ -19,9 +19,10 @@ class RootController < ApplicationController
       @view_mode = params[:part]
       params[:part] = nil
     end                  
-    
-    @publication = fetch_publication(params)               
-    
+
+    @publication = fetch_publication(params)
+    @artefact = fetch_artefact(params)
+
     assert_found(@publication)
 
     if @view_mode == 'video' && @publication.video_url.blank?
@@ -101,8 +102,12 @@ class RootController < ApplicationController
     if publication && publication.type == "place"
       @options = load_place_options(publication)
     end
-    @artefact = artefact_api.artefact_for_slug(params[:slug])
+    
     publication
+  end
+  
+  def fetch_artefact(params)
+    artefact_api.artefact_for_slug(params[:slug])
   end
 
   def council_ons_from_geostack

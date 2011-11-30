@@ -20,9 +20,9 @@
   <% if @publication.overview and @publication.overview != '' %>
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>
-  <% if @publication.section and @publication.section != '' %>
-    <meta name="x-section-name" content="<%= @publication.section %>">
-    <meta name="x-section-link" content="/<%= @publication.section.parameterize %>">
+  <% if @artefact.section and @artefact.section != '' %>
+    <meta name="x-section-name" content="<%= @artefact.section %>">
+    <meta name="x-section-link" content="/<%= @artefact.section.parameterize %>">
   <% end %>
 <% else %>
   <%= yield :description %>

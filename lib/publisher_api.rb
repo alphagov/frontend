@@ -1,28 +1,7 @@
-require 'net/http'
-require 'ostruct'
-
 require 'part_methods'
-require 'json_utils'
-require 'core-ext/openstruct'
+require 'gds_api'
 
-class PublisherApi
-
-  include JsonUtils
-
-  def initialize(endpoint)
-    @endpoint = endpoint
-  end
-
-  def base_url
-    "#{@endpoint}/publications"
-  end
-
-  def url_for_slug(slug,options={})
-    base = "#{base_url}/#{slug}.json"
-    params = options.map { |k,v| "#{k}=#{v}" }
-    base = base + "?#{params.join("&")}" unless options.empty? 
-    base
-  end
+class PublisherApi < GdsApi
 
   def publications
     get_json(base_url) 
@@ -30,8 +9,8 @@ class PublisherApi
 
   def publication_for_slug(slug,options = {})
     return nil if slug.blank?
-    url = url_for_slug(slug,options)
-    publication_hash = get_json(url)
+    
+    publication_hash = get_json(url_for_slug(slug, options))
     if publication_hash 
       container = to_ostruct(publication_hash)
       container.extend(PartMethods) if container.parts
@@ -50,10 +29,14 @@ class PublisherApi
     end
   end
   
-  protected
-  def convert_updated_date(container)
-    if container.updated_at && container.updated_at.class == String
-      container.updated_at = Time.parse(container.updated_at)
+  private
+    def convert_updated_date(container)
+      if container.updated_at && container.updated_at.class == String
+        container.updated_at = Time.parse(container.updated_at)
+      end
     end
-  end
+    
+    def base_url
+      "#{@endpoint}/publications"
+    end
 end

@@ -1,13 +1,6 @@
-require 'json_utils'
+require 'gds_api'
 
-class ImminenceApi
-
-  include JsonUtils
-
-  def initialize(endpoint)
-    @endpoint = endpoint
-  end
-
+class ImminenceApi < GdsApi
   def api_url(type,lat,lon,limit=5)
     "#{@endpoint}/places/#{type}.json?limit=#{limit}&lat=#{lat}&lng=#{lon}"
   end

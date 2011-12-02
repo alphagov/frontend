@@ -41,6 +41,8 @@ else
   gem 'cdn_helpers', '0.9'
 end
 
+gem 'gds-api-adapters', :path => '../gds-api-adapters'
+
 gem "addressable"
 gem 'exception_notification', '~> 2.4.1', :require => 'exception_notifier'
 

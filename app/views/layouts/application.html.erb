@@ -20,7 +20,7 @@
   <% if @publication.overview and @publication.overview != '' %>
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>
-  <% if @artefact.section and @artefact.section != '' %>
+  <% if @artefact and @artefact.section and @artefact.section != '' %>
     <meta name="x-section-name" content="<%= @artefact.section %>">
     <meta name="x-section-link" content="/<%= @artefact.section.parameterize %>">
   <% end %>

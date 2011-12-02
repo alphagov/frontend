@@ -3,8 +3,8 @@ namespace :router do
     Bundler.require :router, :default
 
     require 'logger'
-    logger = Logger.new STDOUT
-    logger.level = Logger::DEBUG
+    @logger = Logger.new STDOUT
+    @logger.level = Logger::DEBUG
 
     @router = Router::Client.new :logger => @logger
   end

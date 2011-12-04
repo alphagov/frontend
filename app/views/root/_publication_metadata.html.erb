@@ -3,7 +3,9 @@
     <%= render 'contact_details', :contact => contact %>
   <% end %>
 
+  <% if publication.updated_at %>
   <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+  <% end %>
 
   <p>Re-use this data:</p>
 

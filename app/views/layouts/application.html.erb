@@ -38,6 +38,7 @@
   <div id="wrapper" class="<%= yield :wrapper_class %>">
 <% end %>
 <%= yield %>
+<%= easter_egg @publication.slug if @publication %>
   </div>
 </body>
 </html>

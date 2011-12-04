@@ -42,6 +42,14 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
+  test "we can output text from the json easter eggs file" do
+    @controller.stubs(:api).returns mock_api(
+      "planning-permission" => OpenStruct.new(:type => "answer", :slug => "planning-permission"))
+    @controller.stubs(:artefact_api).returns mock_artefact_api('planning-permission' => OpenStruct.new)
+    get :publication, :slug => "planning-permission"
+    assert @response.body.include? "But Mr Dent"
+  end
+
   test "should pass edition parameter on to api to provide preview" do
      edition_id = '123'
      api = mock()

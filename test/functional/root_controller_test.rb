@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'gds_api/part_methods'
 
 class RootControllerTest < ActionController::TestCase
 
@@ -6,7 +7,7 @@ class RootControllerTest < ActionController::TestCase
     api = mock()
     table.each { |slug,pub|
       api.expects(:publication_for_slug).with(slug,{}).returns pub
-      pub.extend(PartMethods) if pub && pub.parts
+      pub.extend(GdsApi::PartMethods) if pub && pub.parts
     }
     api
   end
@@ -14,7 +15,7 @@ class RootControllerTest < ActionController::TestCase
   def mock_artefact_api(table)
     mock().tap do |api|
       table.each do |slug, artefact|
-        api.expects(:artefact_for_slug).with(slug).returns artefact
+        api.stubs(:artefact_for_slug).with(slug).returns artefact
       end
     end
   end

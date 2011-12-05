@@ -1,0 +1,31 @@
+<% content_for :extra_javascript do %>
+	<%= javascript_include_tag 'trackers/guide.js', :defer=>"defer" %>
+<% end %>
+<section id="content" role="main" class="group">
+
+	<header class="page-header group">
+		<hgroup>
+			<h1><span>Guide to </span><%= @guide.title %></h1>
+		</hgroup>
+	</header>
+
+	<div class="article-container group">
+               
+   <% @guide.parts.each do |part| %>
+   <article role="article" id="<%= part.slug %>" class="group">
+     <div class="inner">
+
+       <header>
+         <h1><span>Part <%= part_number(@guide.parts, part) %><span class="visuallyhidden">:</span> </span><%= part.title %></h1>
+       </header>
+
+       <%= to_govspeak(part.body) %>
+
+     </div>
+   </article>     
+   <% end %>
+
+    <%= render 'publication_metadata', :publication => @guide, :artefact => @artefact, :api_links => false %>
+	</div>
+
+</section>

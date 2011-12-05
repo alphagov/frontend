@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>
+<% if @publication %>
+      <%= @video_mode ? ' Video - ' : '' %>
+      <%= @publication.alternative_title.nil? ? @publication.alternative_title : @publication.title %> |
+      <% unless @publication.section.nil? or @publication.section == ''%>
+      <%= @publication.section %> |
+<% end %>
+      www.gov.uk
+<% else %>
+      <%= yield :title %>
+<% end %>
+  </title>                  
+  <%= stylesheet_link_tag '/stylesheets/core.css', 
+        '/stylesheets/text.css', 
+        '/stylesheets/publisher.css', 
+        '/stylesheets/core-print.css', 
+        '/stylesheets/guides-print.css', :media => 'all'  %> 
+<% if @publication %>
+  <% if @publication.overview and @publication.overview != '' %>
+    <meta name="description" content="<%= @publication.overview %>">
+  <% end %>
+  <% if @publication.section and @publication.section != '' %>
+    <meta name="x-section-name" content="<%= @publication.section %>">
+    <meta name="x-section-link" content="/<%= @publication.section.parameterize %>">
+  <% end %>
+<% else %>
+  <%= yield :description %>
+<% end %>
+  <%= yield :extra_headers %>
+</head>
+<body class="<%= yield :body_class %>">
+<% if @publication %>
+  <div id="wrapper" class="<%= @publication.type %><%= @video_mode ? ' video-guide' : '' %>">
+<% else %>
+  <div id="wrapper" class="<%= yield :wrapper_class %>">
+<% end %>
+<%= yield %>
+  </div>
+</body>
+</html>

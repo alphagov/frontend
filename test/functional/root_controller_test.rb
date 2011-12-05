@@ -82,7 +82,18 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, :slug => "a-slug", :part => "video"
-  end
+  end                                  
+  
+  test "should return print view" do
+    api = mock()
+    api.expects(:publication_for_slug).with("a-slug", {}).returns(
+       OpenStruct.new(:type=>"guide",))
+    @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+    prevent_implicit_rendering
+    @controller.stubs(:render)
+    get :publication, :slug => "a-slug", :part => "print"
+  end 
 
   test "should return 404 if guide has no video" do
     api = mock()

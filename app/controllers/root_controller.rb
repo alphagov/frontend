@@ -12,7 +12,7 @@ class RootController < ApplicationController
   end
 
   def publication
-    expires_in 10.minute, :public => true unless Rails.env.development?
+    expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
     @publication = fetch_publication(params)
     @video_mode = params[:part] == "video"

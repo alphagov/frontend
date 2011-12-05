@@ -36,25 +36,8 @@
 
 </section>
 
-<!-- related -->
-<div class="related-positioning">
-	<div class="related-container">
-   		<div class="related">
-		     <div class="inner group">
-		       <h2>Related tools &amp; topics</h2>
-		       <nav role="navigation">
-		         <ul>
-               <%= (@guide.related_items || "").html_safe %>
-               <% if @guide.section %>
-                 <li class="related-topic"><a href="/<%= @guide.section.parameterize %>">View more in <span><%= @guide.section %>&rarr;</span></a></li>
-               <% end %>
-		         </ul>
-		       </nav>
-		     </div>
-	   </div>
-	</div>
-</div>
-<!-- end related -->
+<%= render 'related' %>
+
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag '/javascripts/media-player/swfobject/swfobject.js', '/javascripts/media-player/jquery.player.min.js', '/javascripts/media-player/jquery.loader.js', :defer => 'defer' %>
 <% end %>

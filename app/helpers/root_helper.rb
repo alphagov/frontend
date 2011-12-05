@@ -1,7 +1,7 @@
 require 'geo_helper'
 
 module RootHelper
-  
+
   include GeoHelper
   def guide_path(slug,part,edition)
     if edition
@@ -9,6 +9,14 @@ module RootHelper
     else
       publication_path(:slug=>slug,:part=>part) 
     end
+  end
+
+  def easter_egg(path)
+    partial_path = Rails.env.test? ? "test/fixtures" : "lib/data"
+    json_path = Rails.root.join(partial_path, "eastereggs.json")
+    data = JSON.parse(File.read(json_path))
+    content = data[path]
+    content ? "<!-- #{content} -->".html_safe : ""
   end
 
   def has_further_information?(publication)

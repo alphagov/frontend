@@ -58,24 +58,4 @@
 
 </section>
 
-<!-- related -->
-<div class="related-positioning">
-	<div class="related-container">
-
-   		<div class="related">
-		     <div class="inner group">
-		       <h2>Related tools &amp; topics</h2>
-		       <nav role="navigation">
-		         <ul>
-                <%= (@transaction.related_items || "").html_safe %>
-                <% if @transaction.section %>
-                  <li class="related-topic"><a href="/<%= @transaction.section.parameterize %>">View more in <span><%= @transaction.section %>&rarr;</span></a></li>
-                <% end %>
-		         </ul>
-		       </nav>
-		     </div>
-		   </div>
-
-	</div>
-</div>
-<!-- end related -->
+<%= render 'related' %>

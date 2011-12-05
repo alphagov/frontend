@@ -58,8 +58,30 @@
         </div>
 		  </article>
   	<% end %>
+
+    <%= render 'publication_metadata', :publication => @programme, :artefact => @artefact, :api_links => { :json => publication_path(@programme.slug, :edition => @edition, :format => :json) } %>
     
 	</div>
 </section>
 
-<%= render 'related' %>
+<!-- related -->
+<div class="related-positioning">
+	<div class="related-container">
+
+   		<div class="related">
+		     <div class="inner group">
+		       <h2>Related tools &amp; topics</h2>
+		       <nav role="navigation">
+		         <ul>
+               <%= (@programme.related_items||"").html_safe %>
+               <% if @programme.section %>
+                 <li class="related-topic"><a href="/<%= @programme.section.parameterize %>">View more in <span><%= @programme.section %></span>&rarr;</a></li>
+               <% end %>
+		         </ul>
+		       </nav>
+		     </div>
+		   </div>
+
+	</div>
+</div>
+<!-- end related -->

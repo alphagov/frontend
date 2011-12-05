@@ -41,7 +41,11 @@ else
   gem 'cdn_helpers', '0.9'
 end
 
-gem 'gds-api-adapters', :path => '../gds-api-adapters'
+if ENV['API_DEV']
+  gem 'gds-api-adapters', :path => '../gds-api-adapters'
+else
+  gem 'gds-api-adapters', :git => 'git@github.com:alphagov/gds-api-adapters.git'
+end
 
 gem "addressable"
 gem 'exception_notification', '~> 2.4.1', :require => 'exception_notifier'

@@ -12,7 +12,7 @@ class RootController < ApplicationController
   end
 
   def publication
-    expires_in 10.minute, :public => true unless Rails.env.development?
+    expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
     @alternative_views = ['video','print']
     if @alternative_views.include? params[:part]

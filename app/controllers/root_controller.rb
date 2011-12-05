@@ -19,7 +19,6 @@ class RootController < ApplicationController
       @view_mode = params[:part]
       params[:part] = nil
     end                  
-    headers['X-Slimmer-Skip'] = 'true' if @view_mode == 'print'
     
     @publication = fetch_publication(params)               
     
@@ -40,10 +39,11 @@ class RootController < ApplicationController
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
       format.html {                                                                 
-        if @view_mode == 'print' 
+        if @view_mode == 'print' and @publication.type == 'guide'  
+          headers['X-Slimmer-Skip'] = 'true' if @view_mode == 'print'
           render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
         else                    
-          render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type
+          render @view_mode ? "#{@publication.type}" : @publication.type
         end
       }
       format.json { render :json => @publication.to_json }

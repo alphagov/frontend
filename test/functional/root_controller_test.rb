@@ -87,11 +87,11 @@ class RootControllerTest < ActionController::TestCase
   test "should return print view" do
     api = mock()
     api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"guide",))
+       OpenStruct.new(:type=>"guide"))
     @controller.stubs(:api).returns api
     @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
     prevent_implicit_rendering
-    @controller.stubs(:render)
+    @controller.stubs(:render).with("guide_print", { :layout => 'print' })
     get :publication, :slug => "a-slug", :part => "print"
   end 
 

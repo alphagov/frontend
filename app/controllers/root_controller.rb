@@ -12,19 +12,25 @@ class RootController < ApplicationController
   end
 
   def publication
-    expires_in 10.minute, :public => true unless Rails.env.development?
+    expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
+
+    @alternative_views = ['video','print']
+    if @alternative_views.include? params[:part]
+      @view_mode = params[:part]
+      params[:part] = nil
+    end                  
 
     @publication = fetch_publication(params)
-    @video_mode = params[:part] == "video"
+    @artefact = fetch_artefact(params)
 
     assert_found(@publication)
 
-    if @video_mode && @publication.video_url.blank?
+    if @view_mode == 'video' && @publication.video_url.blank?
       raise RecordNotFound
-    elsif !@video_mode && params[:part] && @publication.parts.blank?
+    elsif !@view_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts
-      unless @video_mode
+      unless @view_mode == 'video'
         @partslug = params[:part]
         @part = pick_part(@partslug, @publication)
         assert_found(@part)
@@ -33,8 +39,13 @@ class RootController < ApplicationController
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
-      format.html {
-        render @video_mode ? "#{@publication.type}_video" : @publication.type
+      format.html {                                                                 
+        if @view_mode == 'print' and @publication.type == 'guide'  
+          headers['X-Slimmer-Skip'] = 'true' if @view_mode == 'print'
+          render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
+        else                    
+          render @view_mode ? "#{@publication.type}" : @publication.type
+        end
       }
       format.json { render :json => @publication.to_json }
     end
@@ -91,9 +102,12 @@ class RootController < ApplicationController
     if publication && publication.type == "place"
       @options = load_place_options(publication)
     end
-    @artefact = artefact_api.artefact_for_slug(params[:slug])
-    puts @artefact.inspect
+    
     publication
+  end
+  
+  def fetch_artefact(params)
+    artefact_api.artefact_for_slug(params[:slug])
   end
 
   def council_ons_from_geostack

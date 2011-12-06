@@ -1,11 +1,4 @@
 GIT
-  remote: git@github.com:alphagov/gds-api-adapters.git
-  revision: d1096de55c0a7e56ad392acb458da9783f1671e4
-  specs:
-    gds-api-adapters (0.0.1)
-      plek
-
-GIT
   remote: git@github.com:alphagov/geogov.git
   revision: 13426953924d06b1e0f6af4ef1a439aacc31ba90
   specs:
@@ -77,6 +70,8 @@ GEM
     crack (0.3.1)
     erubis (2.7.0)
     exception_notification (2.4.1)
+    gds-api-adapters (0.0.1)
+      plek
     govspeak (0.8.4)
       kramdown (~> 0.13.3)
     hike (1.2.1)
@@ -164,7 +159,7 @@ DEPENDENCIES
   cdn_helpers (= 0.9)
   ci_reporter
   exception_notification (~> 2.4.1)
-  gds-api-adapters!
+  gds-api-adapters (= 0.0.1)
   geogov!
   govspeak (= 0.8.4)
   mocha

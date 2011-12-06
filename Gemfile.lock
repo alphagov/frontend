@@ -70,7 +70,7 @@ GEM
     crack (0.3.1)
     erubis (2.7.0)
     exception_notification (2.4.1)
-    gds-api-adapters (0.0.1)
+    gds-api-adapters (0.0.2)
       plek
     govspeak (0.8.4)
       kramdown (~> 0.13.3)
@@ -159,7 +159,7 @@ DEPENDENCIES
   cdn_helpers (= 0.9)
   ci_reporter
   exception_notification (~> 2.4.1)
-  gds-api-adapters (= 0.0.1)
+  gds-api-adapters (= 0.0.2)
   geogov!
   govspeak (= 0.8.4)
   mocha

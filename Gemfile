@@ -1,4 +1,11 @@
 source 'http://rubygems.org'
+source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
+
+gem 'rummageable', :git => 'git@github.com:alphagov/rummageable.git'
+
+group :router do
+  gem 'router-client', '2.0.3', require: 'router/client'
+end
 
 gem 'rails', '3.1.0'
 gem 'mustache'
@@ -32,6 +39,12 @@ if ENV['CDN_DEV']
   gem 'cdn_helpers', :path => '../cdn_helpers'
 else
   gem 'cdn_helpers', '0.9'
+end
+
+if ENV['API_DEV']
+  gem 'gds-api-adapters', :path => '../gds-api-adapters'
+else
+  gem 'gds-api-adapters', '0.0.3'
 end
 
 gem "addressable"

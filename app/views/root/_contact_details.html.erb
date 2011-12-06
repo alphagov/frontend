@@ -1,32 +1,32 @@
 <p class="contact-intro">If you wish to speak to someone about this information, please <span class="call-to-action">contact:</span></p>
 
 <div class="contact">
-  <dl>
+  <dl class="vcard">
     <% if (name = contact.name).present? %>
       <dt>Name:</dt>
-      <dd><%= name %></dd>
+      <dd class="org"><%= name %></dd>
     <% end %>
     <% if (postal_address = contact.postal_address).present? %>
       <dt>Postal address:</dt>
-      <dd><%= format_postal_address postal_address %></dd>
+      <dd class="adr"><%= format_postal_address postal_address %></dd>
     <% end %>
     <% if (phone_numbers = contact.phone_numbers).present? %>
       <% phone_numbers.group_by(&:kind).each do |kind, phone_numbers| %>
         <dt><%= kind.humanize %> number<%= 's' if phone_numbers.many? %></dt>
-        <dd><%= format_phone_numbers phone_numbers %></dd>
+        <dd class="tel"><%= format_phone_numbers phone_numbers %></dd>
       <% end %>
     <% end %>
     <% if (email_address = contact.email_address).present? %>
       <dt>Email address:</dt>
-      <dd><%= format_email_address email_address %></dd>
+      <dd class="email"><%= format_email_address email_address %></dd>
     <% end %>
     <% if (website_url = contact.website_url).present? %>
       <dt>Website URL:</dt>
-      <dd><%= format_website_url website_url %></dd>
+      <dd class="url"><%= format_website_url website_url %></dd>
     <% end %>
     <% if (opening_hours = contact.opening_hours).present? %>
       <dt>Opening hours:</dt>
-      <dd><%= format_opening_hours opening_hours %></dd>
+      <dd clas="operating-hours"><%= format_opening_hours opening_hours %></dd>
     <% end %>
   </dl>
 </div>

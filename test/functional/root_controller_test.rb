@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'gds_api/part_methods'
 
 class RootControllerTest < ActionController::TestCase
 
@@ -6,7 +7,7 @@ class RootControllerTest < ActionController::TestCase
     api = mock()
     table.each { |slug,pub|
       api.expects(:publication_for_slug).with(slug,{}).returns pub
-      pub.extend(PartMethods) if pub && pub.parts
+      pub.extend(GdsApi::PartMethods) if pub && pub.parts
     }
     api
   end
@@ -14,7 +15,7 @@ class RootControllerTest < ActionController::TestCase
   def mock_artefact_api(table)
     mock().tap do |api|
       table.each do |slug, artefact|
-        api.expects(:artefact_for_slug).with(slug).returns artefact
+        api.stubs(:artefact_for_slug).with(slug).returns artefact
       end
     end
   end
@@ -40,6 +41,14 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.expects(:render).with("answer")
     get :publication, :slug => "a-slug"
+  end
+
+  test "we can output text from the json easter eggs file" do
+    @controller.stubs(:api).returns mock_api(
+      "planning-permission" => OpenStruct.new(:type => "answer", :slug => "planning-permission"))
+    @controller.stubs(:artefact_api).returns mock_artefact_api('planning-permission' => OpenStruct.new)
+    get :publication, :slug => "planning-permission"
+    assert @response.body.include? "But Mr Dent"
   end
 
   test "should pass edition parameter on to api to provide preview" do
@@ -74,7 +83,18 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, :slug => "a-slug", :part => "video"
-  end
+  end                                  
+  
+  test "should return print view" do
+    api = mock()
+    api.expects(:publication_for_slug).with("a-slug", {}).returns(
+       OpenStruct.new(:type=>"guide"))
+    @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+    prevent_implicit_rendering
+    @controller.stubs(:render).with("guide_print", { :layout => 'print' })
+    get :publication, :slug => "a-slug", :part => "print"
+  end 
 
   test "should return 404 if guide has no video" do
     api = mock()

@@ -18,23 +18,20 @@
 	      <p class="alert"><%= flash[:no_council] %></p>
 	      <% end %>
 
-	      <div class="find-nearest">
+        <%= to_govspeak(@local_transaction.introduction) %>
 
-	        <%= to_govspeak(@local_transaction.introduction) %>
+        <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST" class="find-location-for-service">
 
-	        <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
+          <fieldset>
+            <legend class="visuallyhidden">Postcode lookup</legend>
+            <% if @edition %>
+            <input type="hidden" name="edition" value="<%= @edition %>">
+            <% end %>
+            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+            <input type="submit" value="Get started →">
+          </fieldset>
 
-	          <fieldset>
-	            <legend class="visuallyhidden">Postcode lookup</legend>
-	            <% if @edition %>
-	            <input type="hidden" name="edition" value="<%= @edition %>">
-	            <% end %>
-	            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-	            <input type="submit" value="Get started →">
-	          </fieldset>
-
-	        </form>
-	      </div>
+        </form>
 
 	      <% else %>
 

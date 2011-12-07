@@ -15,7 +15,9 @@
 	      <% unless @local_transaction.authority %>
 
 	      <% if @view_mode == 'not_found' %>
-	      <p class="alert">No details of a provider of that service in your area are available</p>
+	      <div class="help-notice">
+	        <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
+	      </div>
 	      <% end %>
 
         <%= to_govspeak(@local_transaction.introduction) %>

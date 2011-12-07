@@ -128,11 +128,11 @@ class RootController < ApplicationController
     raise RecordNotFound unless obj
   end
 
-  def pick_part(partslug,pub)
-     if partslug
-        pub.find_part(partslug)
-     else
-        pub.parts.first
-     end
+  def pick_part(partslug, pub)
+    if partslug
+      pub.find_part(partslug)
+    else
+      pub.parts.first
+    end
   end
 end

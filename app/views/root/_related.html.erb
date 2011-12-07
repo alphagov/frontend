@@ -9,9 +9,11 @@
 				<nav role="navigation">
 				  <ul>
 				      <% (@artefact.related_items || []).each do |item| %>
-				      <li class="<%= item.artefact.kind %>">
-				        <%= link_to item.artefact.name, item.artefact.slug %>
-				      </li>
+  				      <% if item.artefact %>
+  				      <li class="<%= item.artefact.kind %>">
+  				        <%= link_to item.artefact.name, item.artefact.slug %>
+  				      </li>
+  				      <% end %>
               <% end %>
 				      <% if @artefact.section %>
 				        <li class="related-topic"><a href="/<%= @artefact.section.parameterize %>">View more in <span><%= @artefact.section %>&rarr;</span></a></li>

@@ -21,7 +21,7 @@ class RootController < ApplicationController
     
     @publication = fetch_publication(params) 
                   
-    assert_found(@publication)      
+    assert_found(@publication)                                       
     
     if @alternative_views_for[@publication.type.to_sym] and @alternative_views_for[@publication.type.to_sym].include? params[:part]
       @view_mode = params[:part]
@@ -33,18 +33,18 @@ class RootController < ApplicationController
     elsif !@view_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts
-      #unless @view_mode == 'video'
+      unless @view_mode == 'video'
         @partslug = params[:part]
         @part = pick_part(@partslug, @publication)
         assert_found(@part)
-      #end
+      end
     end              
                           
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
       format.html {                                                                 
-        if @view_mode == 'print' and @publication.type == 'guide'  
+        if @view_mode == 'print'  
           headers['X-Slimmer-Skip'] = 'true' if @view_mode == 'print'
           render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
         else                    

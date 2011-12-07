@@ -14,7 +14,7 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    @alternative_views = ['video','print']
+    @alternative_views = ['video','print','not_found']
     if @alternative_views.include? params[:part]
       @view_mode = params[:part]
       params[:part] = nil
@@ -54,14 +54,19 @@ class RootController < ApplicationController
   end
 
   def identify_council
-    @transaction = fetch_publication(params)
-    assert_found(@transaction && @transaction.type == "local_transaction")
+    # TODO: Update API adapter so we just get "council_for_slug"
+    temporary_transaction = OpenStruct.new(slug: params[:slug])
     snac_codes = council_ons_from_geostack
-    council = api.council_for_transaction(@transaction,snac_codes)
+    council = api.council_for_transaction(temporary_transaction, snac_codes)
+
     if council.nil?
-      flash[:no_council] = "No details of a provider of that service in your area are available"
+      redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return
     end
-    redirect_to transaction_path(@slug,council,@edition)
+
+    local_transaction = fetch_publication(slug: params[:slug], snac: council, edition: params[:edition])
+    assert_found(local_transaction && local_transaction.type == "local_transaction")
+
+    redirect_to local_transaction.authority.lgils.last.url and return
   end
 
   def load_places

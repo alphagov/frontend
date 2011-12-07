@@ -14,8 +14,8 @@
 
 	      <% unless @local_transaction.authority %>
 
-	      <% if flash[:no_council] %>
-	      <p class="alert"><%= flash[:no_council] %></p>
+	      <% if @view_mode == 'not_found' %>
+	      <p class="alert">No details of a provider of that service in your area are available</p>
 	      <% end %>
 
         <%= to_govspeak(@local_transaction.introduction) %>

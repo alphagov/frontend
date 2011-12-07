@@ -18,12 +18,16 @@ class RootController < ApplicationController
     if @alternative_views.include? params[:part]
       @view_mode = params[:part]
       params[:part] = nil
-    end                  
+    end
 
     @publication = fetch_publication(params)
+    assert_found(@publication)
+
     @artefact = fetch_artefact(params)
 
-    assert_found(@publication)
+    if @publication.type == "place"
+      @options = load_place_options(publication)
+    end
 
     if @view_mode == 'video' && @publication.video_url.blank?
       raise RecordNotFound
@@ -93,18 +97,11 @@ class RootController < ApplicationController
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]
-    begin
-      publication = api.publication_for_slug(@slug,options)
-    rescue URI::InvalidURIError
-      logger.error "Invalid URI formed with slug `#{@slug}`"
-      render :file => "#{Rails.root}/public/404.html", :status => :not_found
-    end
 
-    if publication && publication.type == "place"
-      @options = load_place_options(publication)
-    end
-    
-    publication
+    api.publication_for_slug(@slug, options)
+  rescue URI::InvalidURIError
+    logger.error "Invalid URI formed with slug `#{@slug}`"
+    return false
   end
   
   def fetch_artefact(params)

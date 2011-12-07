@@ -14,27 +14,32 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    @alternative_views = ['video','print']
-    if @alternative_views.include? params[:part]
+    @alternative_views_for = {
+      :guide => ['video','print'],
+      :programme => ['print']
+    }               
+    
+    @publication = fetch_publication(params) 
+                  
+    assert_found(@publication)      
+    
+    if @alternative_views_for[@publication.type.to_sym] and @alternative_views_for[@publication.type.to_sym].include? params[:part]
       @view_mode = params[:part]
       params[:part] = nil
-    end                  
+    end
     
-    @publication = fetch_publication(params)               
-    
-    assert_found(@publication)
-
     if @view_mode == 'video' && @publication.video_url.blank?
       raise RecordNotFound
     elsif !@view_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts
-      unless @view_mode == 'video'
+      #unless @view_mode == 'video'
         @partslug = params[:part]
         @part = pick_part(@partslug, @publication)
         assert_found(@part)
-      end
-    end
+      #end
+    end              
+                          
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|

@@ -14,20 +14,21 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    @alternative_views_for = {
-      :guide => ['video','print'],
-      :programme => ['print']
-    }               
-    
-    @publication = fetch_publication(params) 
-                  
-    assert_found(@publication)                                       
-    
-    if @alternative_views_for[@publication.type.to_sym] and @alternative_views_for[@publication.type.to_sym].include? params[:part]
+    @alternative_views = ['video','print','not_found']
+    if @alternative_views.include? params[:part]
       @view_mode = params[:part]
       params[:part] = nil
     end
-    
+
+    @publication = fetch_publication(params)
+    assert_found(@publication)
+
+    @artefact = fetch_artefact(params)
+
+    if @publication.type == "place"
+      @options = load_place_options(publication)
+    end
+
     if @view_mode == 'video' && @publication.video_url.blank?
       raise RecordNotFound
     elsif !@view_mode && params[:part] && @publication.parts.blank?
@@ -57,19 +58,20 @@ class RootController < ApplicationController
     render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
   end
 
-  def autocomplete
-    render :json => api.publications
-  end
-
   def identify_council
-    @transaction = fetch_publication(params)
-    assert_found(@transaction && @transaction.type == "local_transaction")
+    # TODO: Update API adapter so we just get "council_for_slug"
+    temporary_transaction = OpenStruct.new(slug: params[:slug])
     snac_codes = council_ons_from_geostack
-    council = api.council_for_transaction(@transaction,snac_codes)
+    council = api.council_for_transaction(temporary_transaction, snac_codes)
+
     if council.nil?
-      flash[:no_council] = "No details of a provider of that service in your area are available"
+      redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return
     end
-    redirect_to transaction_path(@slug,council,@edition)
+
+    local_transaction = fetch_publication(slug: params[:slug], snac: council, edition: params[:edition])
+    assert_found(local_transaction && local_transaction.type == "local_transaction")
+
+    redirect_to local_transaction.authority.lgils.last.url and return
   end
 
   def load_places
@@ -90,24 +92,20 @@ class RootController < ApplicationController
   end
 
   def fetch_publication(params)
-    @slug = params[:slug]
     options = {}
     if params[:edition].present? and @edition = params[:edition]
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]
-    begin
-      publication = api.publication_for_slug(@slug,options)
-    rescue URI::InvalidURIError
-      logger.error "Invalid URI formed with slug `#{@slug}`"
-      render :file => "#{Rails.root}/public/404.html", :status => :not_found
-    end
 
-    if publication && publication.type == "place"
-      @options = load_place_options(publication)
-    end
-    @artefact = artefact_api.artefact_for_slug(params[:slug])
-    publication
+    api.publication_for_slug(params[:slug], options)
+  rescue URI::InvalidURIError
+    logger.error "Invalid URI formed with slug `#{params[:slug]}`"
+    return false
+  end
+  
+  def fetch_artefact(params)
+    artefact_api.artefact_for_slug(params[:slug])
   end
 
   def council_ons_from_geostack
@@ -127,11 +125,11 @@ class RootController < ApplicationController
     raise RecordNotFound unless obj
   end
 
-  def pick_part(partslug,pub)
-     if partslug
-        pub.find_part(partslug)
-     else
-        pub.parts.first
-     end
+  def pick_part(partslug, pub)
+    if partslug
+      pub.find_part(partslug)
+    else
+      pub.parts.first
+    end
   end
 end

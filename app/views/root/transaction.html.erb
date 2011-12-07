@@ -19,7 +19,7 @@
            <p>This will continue on <%= @transaction.will_continue_on %>.</p>
          <% end %>
 
-         <p class="get-started"><a href="<%= @transaction.link %>" title="Begin <%= @transaction.title %> on the <%= @transaction.will_continue_on %> site in a new browser window" rel="external" class="button">Get started &rarr;</a></p>
+         <p class="get-started"><a href="<%= @transaction.link %>" title="Begin <%= @transaction.title %> on the <%= @transaction.will_continue_on %> site in a new browser window" rel="external" class="button big">Get started &rarr;</a></p>
 
        </div>
 
@@ -58,24 +58,4 @@
 
 </section>
 
-<!-- related -->
-<div class="related-positioning">
-	<div class="related-container">
-
-   		<div class="related">
-		     <div class="inner group">
-		       <h2>Related tools &amp; topics</h2>
-		       <nav role="navigation">
-		         <ul>
-                <%= (@transaction.related_items || "").html_safe %>
-                <% if @transaction.section %>
-                  <li class="related-topic"><a href="/<%= @transaction.section.parameterize %>">View more in <span><%= @transaction.section %>&rarr;</span></a></li>
-                <% end %>
-		         </ul>
-		       </nav>
-		     </div>
-		   </div>
-
-	</div>
-</div>
-<!-- end related -->
+<%= render 'related' %>

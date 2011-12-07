@@ -1,12 +1,13 @@
 require 'test_helper'
+require 'gds_api/part_methods'
 
 class RootControllerTest < ActionController::TestCase
 
   def mock_api(table)
     api = mock()
     table.each { |slug,pub|
-      api.expects(:publication_for_slug).with(slug,{}).returns pub
-      pub.extend(PartMethods) if pub && pub.parts
+      api.stubs(:publication_for_slug).with(slug,{}).returns(pub)
+      pub.extend(GdsApi::PartMethods) if pub && pub.parts
     }
     api
   end
@@ -14,7 +15,7 @@ class RootControllerTest < ActionController::TestCase
   def mock_artefact_api(table)
     mock().tap do |api|
       table.each do |slug, artefact|
-        api.expects(:artefact_for_slug).with(slug).returns artefact
+        api.stubs(:artefact_for_slug).with(slug).returns artefact
       end
     end
   end
@@ -32,7 +33,7 @@ class RootControllerTest < ActionController::TestCase
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug"
   end
-
+  
   test "should choose template based on type of publication" do
     @controller.stubs(:api).returns mock_api(
       "a-slug" => OpenStruct.new(:type=>"answer"))
@@ -82,13 +83,10 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, :slug => "a-slug", :part => "video"
-  end                                  
-  
+  end
+
   test "should return print view" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"guide"))
-    @controller.stubs(:api).returns api
+    @controller.stubs(:api).returns mock_api("a-slug" => OpenStruct.new(:type=>"guide", :name=>"THIS"))
     @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
     prevent_implicit_rendering
     @controller.stubs(:render).with("guide_print", { :layout => 'print' })
@@ -126,51 +124,49 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug"
     assert_equal "THIS", assigns["publication"].name
     assert_equal "THIS", assigns["answer"].name
-    assert_equal "c-slug", assigns["slug"]
-  end
-
-  test "Shouldn't try to identify councils on answers" do
-    @controller.stubs(:api).returns mock_api(
-      "c-slug" => OpenStruct.new(:type=>"answer",:name=>"THIS"))
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
-    assert_raises RecordNotFound do
-      post :identify_council, :slug => "c-slug"
-    end
   end
 
   test "Should redirect to transaction if no geo header" do
-      api = mock_api(
-      "c-slug" => OpenStruct.new(:type=>"local_transaction",:name=>"THIS"))
-      request.env.delete("HTTP_X_GOVGEO_STACK")
-      api.expects(:council_for_transaction).with(anything,[])
+    api = mock_api("c-slug" => OpenStruct.new(:type => "local_transaction", :name => "THIS"))
+    request.env.delete("HTTP_X_GOVGEO_STACK")
+    api.expects(:council_for_transaction).with(anything,[])
 
-      @controller.stubs(:api).returns api
-      @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
-      post :identify_council, :slug => "c-slug"
+    @controller.stubs(:api).returns api
+    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
+    post :identify_council, :slug => "c-slug"
 
-      assert_redirected_to publication_path(:slug=>"c-slug")
+    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
   end
 
   include Rack::Geo::Utils
+  include GdsApi::JsonUtils
   test "Should redirect to new path if councils found" do
-     api = mock_api( "c-slug" => OpenStruct.new(
-          :type=>"local_transaction",
-          :name=>"THIS"))
-     @controller.stubs(:api).returns api
-     @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
+    full_details = {
+      :type => "local_transaction",
+      :name => "THIS",
+      :authority => {
+        :lgils => [
+          { :url => "http://www.haringey.gov.uk/something-you-want-to-do" }
+        ]
+      }
+    }
 
-     stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
-     request.env["HTTP_X_GOVGEO_STACK"] = stack
-     api.expects(:council_for_transaction).with(anything,[1,2,3]).returns(21)
+    basic_response = to_ostruct(full_details.slice(:type, :name))
+    full_response = to_ostruct(full_details)
 
-     post :identify_council, :slug => "c-slug"
-     assert_redirected_to publication_path(:slug=>"c-slug",:snac=>"21")
+    @controller.stubs(:api).returns(mock_api("c-slug" => basic_response))
+    @controller.api.expects(:council_for_transaction).with(anything, [1,2,3]).returns(21)
+    @controller.api.expects(:publication_for_slug).with('c-slug', {:snac => 21}).returns(full_response)
+
+    stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
+    request.env["HTTP_X_GOVGEO_STACK"] = stack
+
+    post :identify_council, :slug => "c-slug"
+    assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
   end
 
   test "Should set message if no council for local transaction" do
-    api = mock_api( "c-slug" => OpenStruct.new(
-         :type=>"local_transaction",
-         :name=>"THIS"))
+    api = mock_api( "c-slug" => OpenStruct.new(:type => "local_transaction", :name => "THIS"))
     @controller.stubs(:api).returns api
     @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
 
@@ -179,12 +175,11 @@ class RootControllerTest < ActionController::TestCase
     api.expects(:council_for_transaction).with(anything,[1,2,3]).returns(nil)
 
     post :identify_council, :slug => "c-slug"
-    assert_redirected_to publication_path(:slug=>"c-slug")
-    assert_equal "No details of a provider of that service in your area are available", flash[:no_council]
+    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
   end
 
   test "objects with parts should get first part selected by default" do
-     @controller.stubs(:api).returns mock_api(
+    @controller.stubs(:api).returns mock_api(
       "c-slug" => OpenStruct.new({:type=>"answer",
                                   :name=>"THIS",
                                   :parts => [

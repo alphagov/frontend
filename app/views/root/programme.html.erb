@@ -59,6 +59,8 @@
 		  </article>
   	<% end %>
 
+    <%= render 'publication_metadata', :publication => @programme, :artefact => @artefact, :api_links => { :json => publication_path(@programme.slug, :edition => @edition, :format => :json) } %>
+    
 	</div>
 </section>
 

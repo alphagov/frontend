@@ -14,27 +14,26 @@
 
 	      <% unless @local_transaction.authority %>
 
-	      <% if flash[:no_council] %>
-	      <p class="alert"><%= flash[:no_council] %></p>
+	      <% if @view_mode == 'not_found' %>
+	      <div class="advisory high-alert">
+	        <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
+	      </div>
 	      <% end %>
 
-	      <div class="find-nearest">
+        <%= to_govspeak(@local_transaction.introduction) %>
 
-	        <%= to_govspeak(@local_transaction.introduction) %>
+        <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST" class="find-location-for-service">
 
-	        <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST">
+          <fieldset>
+            <legend class="visuallyhidden">Postcode lookup</legend>
+            <% if @edition %>
+            <input type="hidden" name="edition" value="<%= @edition %>">
+            <% end %>
+            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+            <input type="submit" value="Get started →">
+          </fieldset>
 
-	          <fieldset>
-	            <legend class="visuallyhidden">Postcode lookup</legend>
-	            <% if @edition %>
-	            <input type="hidden" name="edition" value="<%= @edition %>">
-	            <% end %>
-	            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-	            <input type="submit" value="Get started →">
-	          </fieldset>
-
-	        </form>
-	      </div>
+        </form>
 
 	      <% else %>
 
@@ -70,24 +69,4 @@
 	</div>
 </section>
 
-<!-- related -->
-<div class="related-positioning">
-	<div class="related-container">
-
-   		<div class="related">
-		     <div class="inner group">
-		       <h2>Related tools &amp; topics</h2>
-		       <nav role="navigation">
-		         <ul>
-               <%= (@local_transaction.related_items||"").html_safe %>
-               <% if @local_transaction.section %>
-                 <li class="related-topic"><a href="/<%= @local_transaction.section.parameterize %>">View more in <span><%= @local_transaction.section %>&rarr;</span></a></li>
-               <% end %>
-		         </ul>
-		       </nav>
-		     </div>
-		   </div>
-
-	</div>
-</div>
-<!-- end related -->
+<%= render 'related' %>

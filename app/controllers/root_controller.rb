@@ -91,16 +91,15 @@ class RootController < ApplicationController
   end
 
   def fetch_publication(params)
-    @slug = params[:slug]
     options = {}
     if params[:edition].present? and @edition = params[:edition]
       options[:edition] = params[:edition]
     end
     options[:snac] = params[:snac] if params[:snac]
 
-    api.publication_for_slug(@slug, options)
+    api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError
-    logger.error "Invalid URI formed with slug `#{@slug}`"
+    logger.error "Invalid URI formed with slug `#{params[:slug]}`"
     return false
   end
   

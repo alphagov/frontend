@@ -124,7 +124,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug"
     assert_equal "THIS", assigns["publication"].name
     assert_equal "THIS", assigns["answer"].name
-    assert_equal "c-slug", assigns["slug"]
   end
 
   test "Should redirect to transaction if no geo header" do

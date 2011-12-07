@@ -53,10 +53,6 @@ class RootController < ApplicationController
     render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
   end
 
-  def autocomplete
-    render :json => api.publications
-  end
-
   def identify_council
     @transaction = fetch_publication(params)
     assert_found(@transaction && @transaction.type == "local_transaction")

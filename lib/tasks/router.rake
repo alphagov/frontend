@@ -17,7 +17,9 @@ namespace :router do
 
   task :register_routes => :router_environment do
     @router.routes.update application_id: "frontend", route_type: :full,
-     incoming_path: "/"
+      incoming_path: "/"
+    @router.routes.update application_id: "frontend", route_type: :full,
+      incoming_path: "/locator.json"
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/help"
     @router.routes.update application_id: "frontend", route_type: :prefix,

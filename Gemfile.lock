@@ -1,14 +1,14 @@
 GIT
   remote: git@github.com:alphagov/geogov.git
-  revision: 13426953924d06b1e0f6af4ef1a439aacc31ba90
+  revision: fab44daf3e6e58a71583a3fdd56a7fac3a915af1
   specs:
-    geogov (0.0.2)
+    geogov (0.0.3)
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
-  revision: 0c15b9c050d66232590a23f037d908432804f50c
+  revision: 6c6fcc5ba24d75529c1af89394d597d481b3c3d9
   specs:
-    rack-geo (0.7.0)
+    rack-geo (0.8.0)
       geogov
       json
       rack

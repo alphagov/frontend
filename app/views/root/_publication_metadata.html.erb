@@ -15,5 +15,9 @@
       <%= content_tag :li, link_to(format.to_s.upcase, url), :class => format %>
     <% end %>
   </ul>
+  <% end %>                           
+  
+  <% if [:guide,:programme].include? publication.type.to_sym %>
+    <p class="print_link"><%= link_to "Print this #{publication.type}", publication_path(publication.slug, :part => 'print') %></p>
   <% end %>
 </div>

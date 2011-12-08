@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git@github.com:alphagov/rack-geo.git
-  revision: 6c6fcc5ba24d75529c1af89394d597d481b3c3d9
+  revision: 22bc7a0d71a65fa6654c25615afff4014f0e2b09
   specs:
     rack-geo (0.8.0)
       geogov

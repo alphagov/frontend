@@ -31,8 +31,8 @@ if ENV['GEO_DEV']
   gem 'rack-geo', :path => '../rack-geo'
   gem 'geogov', :path => '../geogov'
 else
-  gem 'rack-geo', :git => 'git@github.com:alphagov/rack-geo.git'
-  gem 'geogov', :git => 'git@github.com:alphagov/geogov.git'
+  gem 'rack-geo', '~> 0.8.0'
+  gem 'geogov', '~> 0.0.3'
 end
 
 if ENV['CDN_DEV']

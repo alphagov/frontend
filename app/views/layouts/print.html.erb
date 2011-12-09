@@ -29,7 +29,9 @@
   <% end %>
 <% else %>
   <%= yield :description %>
-<% end %>
+<% end %>                                                
+    <%= javascript_include_tag '/javascripts/libs/jquery/jquery-1.6.2.min.js' %>
+    <%= javascript_include_tag '/javascripts/print.js' %>
   <%= yield :extra_headers %>
 </head>
 <body class="<%= yield :body_class %>">

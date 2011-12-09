@@ -16,8 +16,14 @@ namespace :router do
   end
 
   task :register_routes => :router_environment do
+    @router.routes.update application_id: "frontend", route_type: :full,
+      incoming_path: "/"
+    @router.routes.update application_id: "frontend", route_type: :full,
+      incoming_path: "/locator.json"
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/help"
+    @router.routes.update application_id: "frontend", route_type: :prefix,
+      incoming_path: "/identify_council"
   end
 
   desc "Register frontend application and routes with the router (run this task on server in cluster)"

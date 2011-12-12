@@ -35,12 +35,11 @@
   <%= yield :extra_headers %>
 </head>
 <body class="<%= yield :body_class %>">
-<% if @publication %>
   <div id="wrapper" class="<%= @publication.type %><%= @video_mode ? ' video-guide' : '' %>">
-<% else %>
-  <div id="wrapper" class="<%= yield :wrapper_class %>">
-<% end %>
-<%= yield %>
+      <section id="content" role="main" class="group"> 
+          <h1 class="govuk">gov.uk</h1>
+          <%= yield %>
+      </section>
   </div>
 </body>
 </html>

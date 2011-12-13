@@ -30,14 +30,14 @@
   		<nav class="programme-progression group" role="navigation">
   		  <ol>
   	      <% @programme.parts.each do |part| %>
-  	        <% if @programme.has_next_part?(part) %>
+  	        <% unless part.slug == 'further-information' %>
               <li><a href="#<%= part.slug %>"><%= part.title %><span class="progressor"></span></a></li>
             <% end %>
           <% end %>
         </ol>
   		</nav>
   		<% @programme.parts.each do |part| %>
-        <% if @programme.has_next_part?(part) %>
+  	    <% unless part.slug == 'further-information' %>
           <article role="article" class="overview-etc group" id="<%= part.slug %>">
             <div class="inner">
               <%= render :partial => "programme_part", :locals => {:part => part} %>

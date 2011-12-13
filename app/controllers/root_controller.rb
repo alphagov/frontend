@@ -26,7 +26,7 @@ class RootController < ApplicationController
     @artefact = fetch_artefact(params)
 
     if @publication.type == "place"
-      @options = load_place_options(publication)
+      @options = load_place_options(@publication)
     end
 
     if @view_mode == 'video' && @publication.video_url.blank?

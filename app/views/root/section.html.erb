@@ -27,7 +27,7 @@
 
     		<ul class="group">
     		  <% ('A'..'Z').each do |letter| %>
-    			<li><h3><%= letter %></h3>
+    			<li>
     				<ul class="group">
     				  <% content_dictionary[letter].each do |publication| %>
               <li class  = "<%= publication.type %>"><%= link_to publication.title, "/#{publication.slug}" %></a></li>

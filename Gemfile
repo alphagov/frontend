@@ -44,7 +44,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '0.0.3'
+  gem 'gds-api-adapters', '~> 0.0.7'
 end
 
 gem "addressable"

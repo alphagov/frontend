@@ -25,6 +25,8 @@ class RootController < ApplicationController
 
     @artefact = fetch_artefact(params)
 
+    set_slimmer_artefact_headers(@artefact)
+
     if @publication.type == "place"
       @options = load_place_options(@publication)
     end
@@ -131,5 +133,12 @@ class RootController < ApplicationController
     else
       pub.parts.first
     end
+  end
+
+  def set_slimmer_artefact_headers(artefact)
+    headers["X-Slimmer-Section"]     = artefact.section
+    headers["X-Slimmer-Need-ID"]     = artefact.need_id
+    headers["X-Slimmer-Format"]      = artefact.kind
+    headers["X-Slimmer-Proposition"] = "citizen"
   end
 end

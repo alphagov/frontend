@@ -17,7 +17,10 @@
   </ul>
   <% end %>                           
   
-  <% if [:guide,:programme].include? publication.type.to_sym %>
-    <p class="print-link"><%= link_to "Print this #{publication.type}", publication_path(publication.slug, :part => 'print') %></p>
+  <% if [:programme].include? publication.type.to_sym %>
+    <p class="print-link"><%= link_to "Print this benefit", publication_path(publication.slug, :part => 'print') %></p>
+  <% end %>
+  <% if [:guide].include? publication.type.to_sym %>
+    <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print') %></p>
   <% end %>
 </div>

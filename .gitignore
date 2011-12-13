@@ -6,3 +6,5 @@ log/*.log
 tmp/
 coverage
 test/reports
+/public/autocomplete
+.DS_Store

@@ -10,7 +10,7 @@ require 'rails/test_help'
 require 'test/unit'
 require 'mocha'
 Mocha::Integration.monkey_patches.each do |patch|
-    require patch
+  require patch
 end
 
 class ActiveSupport::TestCase

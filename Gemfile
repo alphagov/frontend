@@ -44,7 +44,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '0.0.3'
+  gem 'gds-api-adapters', '~> 0.0.7'
 end
 
 gem "addressable"
@@ -59,4 +59,6 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
+  gem 'capybara'
+  gem "capybara-webkit"
 end

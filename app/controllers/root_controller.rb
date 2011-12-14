@@ -62,9 +62,18 @@ class RootController < ApplicationController
       }
       format.json { render :json => @publication.to_json }
     end
-  rescue RecordNotFound
-    render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
+  rescue RecordNotFound => e
+    error 404, e
+  rescue => e
+    error 500, e
   end
+
+  def error status_code, exception
+    logger.error [ exception.message, exception.backtrace ].flatten.join("\n")
+    render :file => "#{Rails.root}/public/#{status_code}.html", :layout => nil, :status=> status_code
+  end
+  hide_action :error
+  private :error
 
   def identify_council
     # TODO: Update API adapter so we just get "council_for_slug"

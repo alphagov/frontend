@@ -137,7 +137,7 @@ class RootController < ApplicationController
   end
 
   def set_slimmer_artefact_headers(artefact)
-    headers["X-Slimmer-Section"]     = artefact.section if artefact.session
+    headers["X-Slimmer-Section"]     = artefact.section if artefact.section
     headers["X-Slimmer-Need-ID"]     = artefact.need_id if artefact.need_id
     headers["X-Slimmer-Format"]      = artefact.kind    if artefact.kind
     headers["X-Slimmer-Proposition"] = "citizen"

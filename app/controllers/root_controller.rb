@@ -1,15 +1,20 @@
+require "slimmer/headers"
+
 class RecordNotFound < Exception
 end
 
 class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
+  include Slimmer::Headers
 
   def index
     expires_in 10.minute, :public => true unless Rails.env.development?
 
-    headers['X-Slimmer-Template'] = 'homepage'
-    headers["X-Slimmer-Proposition"] = "citizen"
+    set_slimmer_headers(
+      template:    "homepage",
+      proposition: "citizen"
+    )
   end
 
   def publication
@@ -49,7 +54,7 @@ class RootController < ApplicationController
     respond_to do |format|
       format.html {                                                                 
         if @view_mode == 'print'  
-          headers['X-Slimmer-Skip'] = 'true' if @view_mode == 'print'
+          set_slimmer_headers skip: "true" if @view_mode == 'print'
           render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
         else                    
           render @view_mode ? "#{@publication.type}" : @publication.type
@@ -137,9 +142,11 @@ class RootController < ApplicationController
   end
 
   def set_slimmer_artefact_headers(artefact)
-    headers["X-Slimmer-Section"]     = artefact.section if artefact.section
-    headers["X-Slimmer-Need-ID"]     = artefact.need_id if artefact.need_id
-    headers["X-Slimmer-Format"]      = artefact.kind    if artefact.kind
-    headers["X-Slimmer-Proposition"] = "citizen"
+    set_slimmer_headers(
+      section:     artefact.section,
+      need_id:     artefact.need_id,
+      format:      artefact.kind,
+      proposition: "citizen"
+    )
   end
 end

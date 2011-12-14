@@ -138,6 +138,39 @@ class RootControllerTest < ActionController::TestCase
     assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
   end
 
+  test "should hard code proposition on the home page" do
+    get :index
+
+    assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
+  end
+
+  test "should expose artefact details in header" do
+    artefact = OpenStruct.new(
+      section: "rhubarb",
+      need_id: 42,
+      kind:    "answer"
+    )
+    @controller.stubs(:api).returns mock_api("slug" => OpenStruct.new)
+    @controller.stubs(:artefact_api).returns mock_artefact_api("slug" => artefact)
+    @controller.stubs(:render)
+
+    get :publication, :slug => "slug"
+
+    assert_equal "rhubarb", @response.headers["X-Slimmer-Section"]
+    assert_equal "42",      @response.headers["X-Slimmer-Need-ID"].to_s
+    assert_equal "answer",  @response.headers["X-Slimmer-Format"]
+  end
+
+  test "should set proposition to citizen" do
+    @controller.stubs(:api).returns mock_api("slug" => OpenStruct.new)
+    @controller.stubs(:artefact_api).returns mock_artefact_api("slug" => OpenStruct.new)
+    @controller.stubs(:render)
+
+    get :publication, :slug => "slug"
+
+    assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
+  end
+
   include Rack::Geo::Utils
   include GdsApi::JsonUtils
   test "Should redirect to new path if councils found" do

@@ -138,6 +138,12 @@ class RootControllerTest < ActionController::TestCase
     assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
   end
 
+  test "should hard code proposition on the home page" do
+    get :index
+
+    assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
+  end
+
   test "should expose artefact details in header" do
     artefact = OpenStruct.new(
       section: "rhubarb",
@@ -156,9 +162,8 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should set proposition to citizen" do
-    artefact = OpenStruct.new
     @controller.stubs(:api).returns mock_api("slug" => OpenStruct.new)
-    @controller.stubs(:artefact_api).returns mock_artefact_api("slug" => artefact)
+    @controller.stubs(:artefact_api).returns mock_artefact_api("slug" => OpenStruct.new)
     @controller.stubs(:render)
 
     get :publication, :slug => "slug"

@@ -9,6 +9,7 @@ class RootController < ApplicationController
     expires_in 10.minute, :public => true unless Rails.env.development?
 
     headers['X-Slimmer-Template'] = 'homepage'
+    headers["X-Slimmer-Proposition"] = "citizen"
   end
 
   def publication

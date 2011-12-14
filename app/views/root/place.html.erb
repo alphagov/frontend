@@ -38,8 +38,8 @@
   	          <% if @edition %>
   	            <input type="hidden" name="edition" value="<%= @edition %>">
   	          <% end %>
-  	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'removing' : '' %>">
-  	            <label for="user-postcode">Enter a UK postcode <input id="user-postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+  	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
+  	            <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
   	            <input type="submit" value="Find my nearest →" class="button">
   	          </div>
 
@@ -88,16 +88,20 @@
           $('#options').html($.mustache($('#option-template').html(), {options: data}));
           _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
           $('#options-header').show();
-        });
-      }
+        });                                        
+      }      
+      
+      var show_known_location = function(current_location) {                                                    
+       $("#local-locator-form .friendly-name strong").text(current_location.friendly_name);
+      };
 
       var remove_existing_location_data = function() {
         $("#options").html('');
         $('#options-header').hide();
       }
 
-      AlphaGeo.locate('#local-locator-form');
-      $('#local-locator-form').attr('action',"/locator.json");
+      AlphaGeo.locate('#local-locator-form');      
+			$('#local-locator-form').attr('action',"/locator.json");
 
       $(document).bind('location-removed', function(e, message) {
         remove_existing_location_data();
@@ -108,7 +112,8 @@
       });
 
       $(document).bind('location-changed', function(e, data) {
-        load_new_locations();
+        load_new_locations();     
+        show_known_location(data.current_location);
       });
 
     });

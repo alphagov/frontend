@@ -113,7 +113,7 @@ eos
     })
 
     visit "/register-offices"
-    fill_in 'user-postcode', :with => 'SE1 7DU'
+    fill_in 'postcode_box', :with => 'SE1 7DU'
     puts "Second request"
     click_on "Find my nearest →"
     assert page.has_content? "34 Peckham Road"

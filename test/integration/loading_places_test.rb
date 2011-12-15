@@ -2,6 +2,7 @@
 require 'integration_test_helper'
 require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/panopticon'
+require 'slimmer/test'
 
 module GdsApi::TestHelpers::Imminence
   def imminence_has_places(latitude, longitude, details)
@@ -29,7 +30,7 @@ eos
 {"wgs84_lat": 51.498241853641055, "coordsyst": "G", "shortcuts": {"WMC": 65825, "ward": 8316, "council": 2490}, "wgs84_lon": -0.11354773400359928, "postcode": "SE1 7DU", "easting": 531044, "areas": {"900000": {"generation_high": 15, "codes": {}, "name": "House of Commons", "generation_low": 1, "country_name": "-", "country": "", "type_name": "UK Parliament", "type": "WMP", "id": 900000, "parent_area": null}, "34497": {"generation_high": 15, "codes": {"ons": "E02000618"}, "name": "Lambeth 001", "generation_low": 13, "country_name": "England", "country": "E", "type_name": "Middle Layer Super Output Area (Full)", "type": "OMF", "id": 34497, "parent_area": null}, "69154": {"generation_high": 15, "codes": {"ons": "E01003013"}, "name": "Lambeth 001B", "generation_low": 13, "country_name": "England", "country": "E", "type_name": "Lower Layer Super Output Area (Full)", "type": "OLF", "id": 69154, "parent_area": null}, "900006": {"generation_high": 15, "codes": {}, "name": "London Assembly", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "London Assembly area", "type": "LAS", "id": 900006, "parent_area": null}, "2247": {"generation_high": 15, "codes": {"unit_id": "41441"}, "name": "Greater London Authority", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "Greater London Authority", "type": "GLA", "id": 2247, "parent_area": null}, "103532": {"generation_high": 15, "codes": {"ons": "E01003013"}, "name": "Lambeth 001B", "generation_low": 13, "country_name": "England", "country": "E", "type_name": "Lower Layer Super Output Area (Generalised)", "type": "OLG", "id": 103532, "parent_area": null}, "65825": {"generation_high": 15, "codes": {"gss": "E14001008", "unit_id": "25036"}, "name": "Vauxhall", "generation_low": 13, "country_name": "England", "country": "E", "type_name": "UK Parliament constituency", "type": "WMC", "id": 65825, "parent_area": null}, "11822": {"generation_high": 15, "codes": {"gss": "E32000010", "unit_id": "41446"}, "name": "Lambeth and Southwark", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "London Assembly constituency", "type": "LAC", "id": 11822, "parent_area": 2247}, "900001": {"generation_high": 15, "codes": {}, "name": "European Parliament", "generation_low": 1, "country_name": "-", "country": "", "type_name": "European Parliament", "type": "EUP", "id": 900001, "parent_area": null}, "2490": {"generation_high": 15, "codes": {"ons": "00AY", "gss": "E09000022", "unit_id": "11144"}, "name": "Lambeth Borough Council", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "London borough", "type": "LBO", "id": 2490, "parent_area": null}, "41691": {"generation_high": 15, "codes": {"ons": "E02000618"}, "name": "Lambeth 001", "generation_low": 13, "country_name": "England", "country": "E", "type_name": "Middle Layer Super Output Area (Generalised)", "type": "OMG", "id": 41691, "parent_area": null}, "8316": {"generation_high": 15, "codes": {"ons": "00AYFZ", "gss": "E05000416", "unit_id": "11095"}, "name": "Bishop's", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "London borough ward", "type": "LBW", "id": 8316, "parent_area": 2490}, "11806": {"generation_high": 15, "codes": {"ons": "07", "gss": "E15000007", "unit_id": "41428"}, "name": "London", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "European region", "type": "EUR", "id": 11806, "parent_area": null}, "900002": {"generation_high": 15, "codes": {}, "name": "London Assembly", "generation_low": 1, "country_name": "England", "country": "E", "type_name": "London Assembly area (shared)", "type": "LAE", "id": 900002, "parent_area": 900006}}, "northing": 179387}
 eos
   end
-  
+
   def fake_other_mapit_response
 <<-eos
 {"wgs84_lat": 51.498665890246734, "coordsyst": "G", "wgs84_lon": -0.090415403925209165, "postcode": "SE1", "easting": 532648, "northing": 179476}
@@ -93,10 +94,10 @@ eos
       'slug' => 'registrars-offices',
       'details' => [
         {
-          "_id" => "4e6e34d2e2ba802c7e000046", 
-          "access_notes" => nil, 
+          "_id" => "4e6e34d2e2ba802c7e000046",
+          "access_notes" => nil,
           "address1" => "London",
-          "address2" => nil, 
+          "address2" => nil,
           "fax" => nil,
           "general_notes" => nil,
           "geocode_error" => nil,
@@ -105,8 +106,8 @@ eos
           "phone" => nil,
           "postcode" => "SE5 8QA",
           "source_address" => "34 Peckham Road, London",
-          "text_phone" => nil, 
-          "town" => nil, 
+          "text_phone" => nil,
+          "town" => nil,
           "url" => "http://www.southwark.gov.uk/YourServices/BirthsDeathsMarriages/"
         }
       ]

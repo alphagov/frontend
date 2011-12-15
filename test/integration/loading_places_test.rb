@@ -2,16 +2,8 @@
 require 'integration_test_helper'
 require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/panopticon'
+require 'gds_api/test_helpers/imminence'
 require 'slimmer/test'
-
-module GdsApi::TestHelpers::Imminence
-  def imminence_has_places(latitude, longitude, details)
-    response = JSON.dump(details['details'])
-    stub_request(:get, "http://imminence.test.alphagov.co.uk/places/#{details['slug']}.json").
-      with(:query => {"lat" => latitude, "lng" => longitude, "limit" => "5"}).
-      to_return(:status => 200, :body => response, :headers => {})
-  end
-end
 
 class LoadingPlacesTest < ActionDispatch::IntegrationTest
   include Capybara::DSL

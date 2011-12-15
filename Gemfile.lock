@@ -67,7 +67,8 @@ GEM
     erubis (2.7.0)
     exception_notification (2.4.1)
     ffi (1.0.11)
-    gds-api-adapters (0.0.7)
+    gds-api-adapters (0.0.11)
+      null_logger
       plek
     geogov (0.0.3)
     govspeak (0.8.4)
@@ -173,7 +174,7 @@ DEPENDENCIES
   cdn_helpers (= 0.9)
   ci_reporter
   exception_notification (~> 2.4.1)
-  gds-api-adapters (~> 0.0.7)
+  gds-api-adapters (~> 0.0.11)
   geogov (~> 0.0.3)
   govspeak (= 0.8.4)
   mocha

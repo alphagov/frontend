@@ -95,7 +95,7 @@ class RootController < ApplicationController
     assert_found(@place && @place.type == "place")
     places = load_place_options(@place)
     render :json => places
-    end
+  end
 
 protected
   def part_requested_but_not_found?

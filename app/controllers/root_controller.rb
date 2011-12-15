@@ -37,8 +37,9 @@ class RootController < ApplicationController
       @options = load_place_options(@publication)
     end
 
-    if @view_mode == 'video' && @publication.video_url.blank?
+    if video_requested_but_not_found? or part_requested_but_not_found?
       raise RecordNotFound
+<<<<<<< HEAD
     elsif !@view_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts
@@ -49,6 +50,13 @@ class RootController < ApplicationController
       end
     end
 
+=======
+    elsif @publication.parts and @view_mode != 'video'
+      @partslug = params[:part]
+      @part = pick_part(@partslug, @publication)
+      assert_found(@part)
+    end              
+>>>>>>> Simplify and clarify a little logic in the method that hshows publications
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
@@ -63,7 +71,7 @@ class RootController < ApplicationController
       format.json { render :json => @publication.to_json }
     end
   rescue RecordNotFound
-    render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
+    error(404)
   end
 
   def identify_council
@@ -87,6 +95,15 @@ class RootController < ApplicationController
     assert_found(@place && @place.type == "place")
     places = load_place_options(@place)
     render :json => places
+    end
+
+protected
+  def part_requested_but_not_found?
+    !@view_mode && params[:part] && @publication.parts.blank?
+  end
+
+  def video_requested_but_not_found?
+    @view_mode == 'video' && @publication.video_url.blank?
   end
 
   def error_500; error 500; end
@@ -96,8 +113,6 @@ class RootController < ApplicationController
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
-
-  protected
 
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')

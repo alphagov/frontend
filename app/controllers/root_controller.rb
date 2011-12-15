@@ -20,10 +20,8 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    @alternative_views = ['video','print','not_found']
-    if @alternative_views.include? params[:part]
-      @view_mode = params[:part]
-      params[:part] = nil
+    if ['video', 'print', 'not_found'].include?(params[:part])
+      @view_mode = params.delete(:part)
     end
 
     @publication = fetch_publication(params)
@@ -42,20 +40,19 @@ class RootController < ApplicationController
     elsif !@view_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
     elsif @publication.parts and @view_mode != 'video'
-        @partslug = params[:part]
-        @part = pick_part(@partslug, @publication)
-        assert_found(@part)
-      end
-    end
+      params[:part] ||= @publication.parts.first.slug
+      @part = @publication.find_part(params[:part])
+      assert_found(@part)
+    end              
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
-      format.html {
-        if @view_mode == 'print'
-          set_slimmer_headers skip: "true" if @view_mode == 'print'
-          render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
-        else
-          render @view_mode ? "#{@publication.type}" : @publication.type
+      format.html {                                                                 
+        if @view_mode == 'print'  
+          set_slimmer_headers skip: "true"
+          render "#{@publication.type}_#{@view_mode}", { :layout => "print" }
+        else                    
+          render @publication.type
         end
       }
       format.json { render :json => @publication.to_json }
@@ -86,7 +83,7 @@ class RootController < ApplicationController
 
 protected
   def part_requested_but_not_found?
-    !@view_mode && params[:part] && @publication.parts.blank?
+    params[:part] && @publication.parts.blank?
   end
 
   def video_requested_but_not_found?
@@ -110,11 +107,7 @@ protected
   end
 
   def fetch_publication(params)
-    options = {}
-    if params[:edition].present? and @edition = params[:edition]
-      options[:edition] = params[:edition]
-    end
-    options[:snac] = params[:snac] if params[:snac]
+    options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.nil? }
 
     api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError
@@ -141,14 +134,6 @@ protected
 
   def assert_found(obj)
     raise RecordNotFound unless obj
-  end
-
-  def pick_part(partslug, pub)
-    if partslug
-      pub.find_part(partslug)
-    else
-      pub.parts.first
-    end
   end
 
   def set_slimmer_artefact_headers(artefact)

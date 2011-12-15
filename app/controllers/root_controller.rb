@@ -65,10 +65,7 @@ class RootController < ApplicationController
   end
 
   def identify_council
-    # TODO: Update API adapter so we just get "council_for_slug"
-    temporary_transaction = OpenStruct.new(slug: params[:slug])
-    snac_codes = council_ons_from_geostack
-    council = api.council_for_transaction(temporary_transaction, snac_codes)
+    council = api.council_for_slug(params[:slug], council_ons_from_geostack)
 
     if council.nil?
       redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return

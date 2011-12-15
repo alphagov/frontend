@@ -136,7 +136,7 @@ protected
   end
 
   def fetch_artefact(params)
-    artefact_api.artefact_for_slug(params[:slug])
+    artefact_api.artefact_for_slug(params[:slug]) || OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
   def council_ons_from_geostack

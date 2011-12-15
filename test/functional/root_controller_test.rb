@@ -1,7 +1,12 @@
 require 'test_helper'
+require 'webmock/test_unit'
+WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/part_methods'
+require 'gds_api/test_helpers/publisher'
 
 class RootControllerTest < ActionController::TestCase
+
+  include GdsApi::TestHelpers::Publisher
 
   def mock_api(table)
     api = mock()
@@ -33,7 +38,7 @@ class RootControllerTest < ActionController::TestCase
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug"
   end
-  
+
   test "should choose template based on type of publication" do
     @controller.stubs(:api).returns mock_api(
       "a-slug" => OpenStruct.new(:type=>"answer"))
@@ -171,6 +176,18 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
   end
 
+  test "sets up a default artefact if panopticon isn't available" do
+    @controller.artefact_api.stubs(:artefact_for_slug).returns(nil)
+    @controller.stubs(:render)
+    publication_exists('slug' => 'slug')
+
+    get :publication, slug: "slug"
+
+    assert_equal "missing", @response.headers["X-Slimmer-Section"]
+    assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
+    assert_equal "missing", @response.headers["X-Slimmer-Format"]
+  end
+
   include Rack::Geo::Utils
   include GdsApi::JsonUtils
   test "Should redirect to new path if councils found" do
@@ -254,5 +271,4 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug", :part => "b"
     assert_equal "BB", assigns["part"].name
   end
-
 end

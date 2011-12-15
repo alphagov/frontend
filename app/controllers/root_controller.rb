@@ -47,16 +47,16 @@ class RootController < ApplicationController
         @part = pick_part(@partslug, @publication)
         assert_found(@part)
       end
-    end              
-                          
+    end
+
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
-      format.html {                                                                 
-        if @view_mode == 'print'  
+      format.html {
+        if @view_mode == 'print'
           set_slimmer_headers skip: "true" if @view_mode == 'print'
           render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
-        else                    
+        else
           render @view_mode ? "#{@publication.type}" : @publication.type
         end
       }
@@ -89,6 +89,14 @@ class RootController < ApplicationController
     render :json => places
   end
 
+  def error_500; error 500; end
+  def error_501; error 501; end
+  def error_503; error 503; end
+
+  def error(status_code)
+    render status: status_code, text: "#{status_code} error"
+  end
+
   protected
 
   def load_place_options(publication)
@@ -111,7 +119,7 @@ class RootController < ApplicationController
     logger.error "Invalid URI formed with slug `#{params[:slug]}`"
     return false
   end
-  
+
   def fetch_artefact(params)
     artefact_api.artefact_for_slug(params[:slug])
   end

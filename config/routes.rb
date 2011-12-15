@@ -1,6 +1,9 @@
 Frontend::Application.routes.draw do
   root :to => "root#index"
   match "/help", :to => "root#help"
+  match "/error_500", :to => "root#error_500"
+  match "/error_501", :to => "root#error_501"
+  match "/error_503", :to => "root#error_503"
   match "/platform", :to => "root#platform"
   match "/section", :to => "root#section"
   match "/identify_council/:slug", :as=>"identify_council", :to => "root#identify_council"

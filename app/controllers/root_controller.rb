@@ -39,24 +39,14 @@ class RootController < ApplicationController
 
     if video_requested_but_not_found? or part_requested_but_not_found?
       raise RecordNotFound
-<<<<<<< HEAD
     elsif !@view_mode && params[:part] && @publication.parts.blank?
       raise RecordNotFound
-    elsif @publication.parts
-      unless @view_mode == 'video'
+    elsif @publication.parts and @view_mode != 'video'
         @partslug = params[:part]
         @part = pick_part(@partslug, @publication)
         assert_found(@part)
       end
     end
-
-=======
-    elsif @publication.parts and @view_mode != 'video'
-      @partslug = params[:part]
-      @part = pick_part(@partslug, @publication)
-      assert_found(@part)
-    end              
->>>>>>> Simplify and clarify a little logic in the method that hshows publications
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|

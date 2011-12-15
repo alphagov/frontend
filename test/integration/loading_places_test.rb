@@ -2,6 +2,7 @@
 require 'integration_test_helper'
 require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/panopticon'
+require 'slimmer/test'
 
 module GdsApi::TestHelpers::Imminence
   def imminence_has_places(latitude, longitude, details)

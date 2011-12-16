@@ -28,7 +28,6 @@ class RootController < ApplicationController
     assert_found(@publication)
 
     @artefact = fetch_artefact(params)
-
     set_slimmer_artefact_headers(@artefact)
 
     if @publication.type == "place"
@@ -43,14 +42,16 @@ class RootController < ApplicationController
       params[:part] ||= @publication.parts.first.slug
       @part = @publication.find_part(params[:part])
       assert_found(@part)
-    end              
+    end
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
-      format.html {                                                                 
+      format.html {
         if @view_mode == 'print'  
           set_slimmer_headers skip: "true"
-          render "#{@publication.type}_#{@view_mode}", { :layout => "print" }
+          render "#{@publication.type}_print", { :layout => "print" }
+        elsif @view_mode == "video"
+          render "#{@publication.type}_video"
         else                    
           render @publication.type
         end
@@ -107,7 +108,7 @@ protected
   end
 
   def fetch_publication(params)
-    options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.nil? }
+    options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
 
     api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError

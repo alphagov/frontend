@@ -1,16 +1,6 @@
 require 'test_helper'
-require 'webmock/test_unit'
-WebMock.disable_net_connect!(:allow_localhost => true)
-require 'gds_api/part_methods'
-require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/panopticon'
 
 class RootControllerTest < ActionController::TestCase
-
-  include GdsApi::TestHelpers::Publisher
-  include GdsApi::TestHelpers::Panopticon
-  include Rack::Geo::Utils
-  include GdsApi::JsonUtils
 
   def setup_this_answer
     publication_exists(
@@ -22,11 +12,6 @@ class RootControllerTest < ActionController::TestCase
         {'slug' => 'b', 'name' => 'BB'}
       ]
     )
-    panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
-  end
-
-  def setup_this_local_transaction
-    publication_exists("slug" => "c-slug", "type" => "local_transaction", "name" => "THIS")
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
   end
 
@@ -189,37 +174,6 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "missing", @response.headers["X-Slimmer-Section"]
     assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
     assert_equal "missing", @response.headers["X-Slimmer-Format"]
-  end
-
-  test "Should redirect to new path if councils found" do
-    full_details = {
-      'slug' => 'c-slug',
-      'type' => "local_transaction",
-      'name' => "THIS",
-      'authority' => {
-        'lgils' => [
-          { 'url' => "http://www.haringey.gov.uk/something-you-want-to-do" }
-        ]
-      }
-    }
-
-    council_exists_for_slug({'slug' => 'c-slug', 'snac_codes' => [1,2,3]}, {snac: 21})
-    publication_exists_for_snac(21, full_details)
-    stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
-    request.env["HTTP_X_GOVGEO_STACK"] = stack
-
-    post :identify_council, :slug => "c-slug"
-    assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
-  end
-
-  test "Should set message if no council for local transaction" do
-    setup_this_local_transaction
-
-    stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
-    request.env["HTTP_X_GOVGEO_STACK"] = stack
-    no_council_for_slug('c-slug')
-    post :identify_council, :slug => "c-slug"
-    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
   end
 
   test "objects with parts should get first part selected by default" do

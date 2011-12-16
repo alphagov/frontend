@@ -9,6 +9,12 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'test/unit'
 require 'mocha'
+require 'webmock/test_unit'
+WebMock.disable_net_connect!(:allow_localhost => true)
+
+require 'gds_api/test_helpers/publisher'
+require 'gds_api/test_helpers/panopticon'
+
 Mocha::Integration.monkey_patches.each do |patch|
   require patch
 end
@@ -20,4 +26,6 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
 
   # Add more helper methods to be used by all tests here...
+  include GdsApi::TestHelpers::Publisher
+  include GdsApi::TestHelpers::Panopticon
 end

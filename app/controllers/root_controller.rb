@@ -63,7 +63,7 @@ class RootController < ApplicationController
   end
 
   def identify_council
-    council = api.council_for_slug(params[:slug], council_ons_from_geostack)
+    council = publisher_api.council_for_slug(params[:slug], council_ons_from_geostack)
 
     if council.nil?
       redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return
@@ -114,7 +114,7 @@ protected
 
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
-      places_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
+      imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
     else
       []
     end
@@ -123,14 +123,10 @@ protected
   def fetch_publication(params)
     options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
 
-    api.publication_for_slug(params[:slug], options)
+    publisher_api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError
     logger.error "Invalid URI formed with slug `#{params[:slug]}`"
     return false
-  end
-
-  def fetch_artefact(params)
-    artefact_api.artefact_for_slug(params[:slug]) || OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
   def council_ons_from_geostack

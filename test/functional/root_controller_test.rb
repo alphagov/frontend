@@ -49,7 +49,7 @@ class RootControllerTest < ActionController::TestCase
      api = mock()
      api.expects(:publication_for_slug).with("c-slug", {:edition => '123'}).returns(
         OpenStruct.new(:type => "answer"))
-     @controller.stubs(:api).returns api
+     @controller.stubs(:publisher_api).returns api
      panopticon_has_metadata('slug' => 'c-slug')
 
      prevent_implicit_rendering
@@ -108,7 +108,7 @@ class RootControllerTest < ActionController::TestCase
      edition_id = ''
      api = mock()
      api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
-     @controller.stubs(:api).returns api
+     @controller.stubs(:publisher_api).returns api
      panopticon_has_metadata('slug' => 'a-slug')
 
      prevent_implicit_rendering
@@ -167,7 +167,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "sets up a default artefact if panopticon isn't available" do
-    @controller.artefact_api.stubs(:artefact_for_slug).returns(nil)
+    @controller.panopticon_api.stubs(:artefact_for_slug).returns(nil)
     @controller.stubs(:render)
     publication_exists('slug' => 'slug')
 

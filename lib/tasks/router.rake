@@ -23,6 +23,8 @@ namespace :router do
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/help"
     @router.routes.update application_id: "frontend", route_type: :prefix,
+      incoming_path: "/platform"
+    @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/identify_council"
   end
 

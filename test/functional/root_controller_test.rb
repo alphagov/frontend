@@ -47,33 +47,27 @@ class RootControllerTest < ActionController::TestCase
   test "should pass edition parameter on to api to provide preview" do
      edition_id = '123'
      api = mock()
-     api.expects(:publication_for_slug).with("a-slug", {:edition => '123'}).returns(
+     api.expects(:publication_for_slug).with("c-slug", {:edition => '123'}).returns(
         OpenStruct.new(:type => "answer"))
      @controller.stubs(:api).returns api
-     panopticon_has_metadata('slug' => 'a-slug')
+     panopticon_has_metadata('slug' => 'c-slug')
 
      prevent_implicit_rendering
      @controller.stubs(:render)
-     get :publication, :slug => "a-slug", :edition => edition_id
+     get :publication, :slug => "c-slug", :edition => edition_id
   end
 
   test "should return 404 if full slug doesn't match" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"answer"))
-    @controller.stubs(:api).returns api
-    panopticon_has_metadata('slug' => 'a-slug')
+    setup_this_answer
+    panopticon_has_metadata('slug' => 'c-slug')
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "a-slug", :part => "evil"
+    get :publication, :slug => "c-slug", :part => "evil"
   end
 
   test "should return video view when asked if guide has video" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"guide", :video_url => "bob"))
-    @controller.stubs(:api).returns api
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob')
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
@@ -86,7 +80,7 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.stubs(:render).with("guide_print", { :layout => 'print' })
+    @controller.expects(:render).with("guide_print", { :layout => 'print' })
     get :publication, :slug => "a-slug", :part => "print"
   end 
 

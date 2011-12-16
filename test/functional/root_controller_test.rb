@@ -1,23 +1,18 @@
 require 'test_helper'
-require 'gds_api/part_methods'
 
 class RootControllerTest < ActionController::TestCase
 
-  def mock_api(table)
-    api = mock()
-    table.each { |slug,pub|
-      api.stubs(:publication_for_slug).with(slug,{}).returns(pub)
-      pub.extend(GdsApi::PartMethods) if pub && pub.parts
-    }
-    api
-  end
-
-  def mock_artefact_api(table)
-    mock().tap do |api|
-      table.each do |slug, artefact|
-        api.stubs(:artefact_for_slug).with(slug).returns artefact
-      end
-    end
+  def setup_this_answer
+    publication_exists(
+      'slug' => 'c-slug',
+      'type' => 'answer',
+      'name' => 'THIS',
+      'parts' => [
+        {'slug' => 'a', 'name' => 'AA'},
+        {'slug' => 'b', 'name' => 'BB'}
+      ]
+    )
+    panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
   end
 
   def prevent_implicit_rendering
@@ -27,26 +22,24 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return a 404 if api returns nil" do
-    @controller.stubs(:api).returns mock_api("a-slug" => nil)
-    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => nil)
+    publication_does_not_exist('slug' => 'a-slug')
+    panopticon_has_metadata('slug' => 'a-slug')
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
     get :publication, :slug => "a-slug"
   end
-  
+
   test "should choose template based on type of publication" do
-    @controller.stubs(:api).returns mock_api(
-      "a-slug" => OpenStruct.new(:type=>"answer"))
-    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+    publication_exists('slug' => 'a-slug', 'type' => 'answer')
+    panopticon_has_metadata('slug' => 'a-slug')
     prevent_implicit_rendering
     @controller.expects(:render).with("answer")
     get :publication, :slug => "a-slug"
   end
 
   test "we can output text from the json easter eggs file" do
-    @controller.stubs(:api).returns mock_api(
-      "planning-permission" => OpenStruct.new(:type => "answer", :slug => "planning-permission"))
-    @controller.stubs(:artefact_api).returns mock_artefact_api('planning-permission' => OpenStruct.new)
+    publication_exists('slug' => 'planning-permission', 'type' => 'answer')
+    panopticon_has_metadata('slug' => 'planning-permission')
     get :publication, :slug => "planning-permission"
     assert @response.body.include? "But Mr Dent"
   end
@@ -54,54 +47,59 @@ class RootControllerTest < ActionController::TestCase
   test "should pass edition parameter on to api to provide preview" do
      edition_id = '123'
      api = mock()
-     api.expects(:publication_for_slug).with("a-slug", {:edition => '123'}).returns(
+     api.expects(:publication_for_slug).with("c-slug", {:edition => '123'}).returns(
         OpenStruct.new(:type => "answer"))
      @controller.stubs(:api).returns api
-     @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+     panopticon_has_metadata('slug' => 'c-slug')
+
      prevent_implicit_rendering
      @controller.stubs(:render)
-     get :publication, :slug => "a-slug", :edition => edition_id
-  end
-
-  test "should return 404 if full slug doesn't match" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"answer"))
-    @controller.stubs(:api).returns api
-    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "a-slug", :part => "evil"
+     get :publication, :slug => "c-slug", :edition => edition_id
   end
 
   test "should return video view when asked if guide has video" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"guide", :video_url => "bob"))
-    @controller.stubs(:api).returns api
-    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob')
+    panopticon_has_metadata('slug' => 'a-slug')
+
     prevent_implicit_rendering
-    @controller.stubs(:render)
+    @controller.expects(:render).with("guide_video")
     get :publication, :slug => "a-slug", :part => "video"
   end
 
   test "should return print view" do
-    @controller.stubs(:api).returns mock_api("a-slug" => OpenStruct.new(:type=>"guide", :name=>"THIS"))
-    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')
+    panopticon_has_metadata('slug' => 'a-slug')
+
     prevent_implicit_rendering
-    @controller.stubs(:render).with("guide_print", { :layout => 'print' })
+    @controller.expects(:render).with("guide_print", { :layout => 'print' })
     get :publication, :slug => "a-slug", :part => "print"
   end 
 
-  test "should return 404 if guide has no video" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"guide"))
-    @controller.stubs(:api).returns api
-    @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+  test "should return 404 if video requested but guide has no video" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')
+    panopticon_has_metadata('slug' => 'a-slug')
+
     prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
+    @controller.expects(:render).with(has_entry(:status => 404))
     get :publication, :slug => "a-slug", :part => "video"
+  end
+
+  test "should return 404 if part requested but publication has no parts" do
+    publication_exists('slug' => 'a-slug', 'type' => 'answer', 'name' => 'THIS')
+    panopticon_has_metadata('slug' => 'a-slug')
+
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 404))
+    get :publication, :slug => "a-slug", :part => "information"
+  end
+
+  test "should redirect to first part if bad part requested of multi-part guide" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    panopticon_has_metadata('slug' => 'a-slug')
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug", :part => "information"
+    assert_response :redirect
+    assert_redirected_to "/a-slug/first"
   end
 
   test "should not pass edition parameter on to api if it's blank" do
@@ -109,16 +107,17 @@ class RootControllerTest < ActionController::TestCase
      api = mock()
      api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
      @controller.stubs(:api).returns api
-     @controller.stubs(:artefact_api).returns mock_artefact_api('a-slug' => OpenStruct.new)
+     panopticon_has_metadata('slug' => 'a-slug')
+
      prevent_implicit_rendering
      @controller.stubs(:render)
      get :publication, :slug => "a-slug",:edition => edition_id
   end
 
   test "should pass specific and general variables to template" do
-    @controller.stubs(:api).returns mock_api(
-      "c-slug" => OpenStruct.new(:type=>"answer",:name=>"THIS"))
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
+    publication_exists('slug' => 'c-slug', 'type' => 'answer', 'name' => 'THIS')
+    panopticon_has_metadata('slug' => 'c-slug')
+
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug"
@@ -127,12 +126,11 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "Should redirect to transaction if no geo header" do
-    api = mock_api("c-slug" => OpenStruct.new(:type => "local_transaction", :name => "THIS"))
-    request.env.delete("HTTP_X_GOVGEO_STACK")
-    api.expects(:council_for_transaction).with(anything,[])
+    publication_exists('slug' => 'c-slug', 'type' => 'local_transaction', 'name' => 'THIS')
+    panopticon_has_metadata('slug' => 'c-slug')
 
-    @controller.stubs(:api).returns api
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
+    request.env.delete("HTTP_X_GOVGEO_STACK")
+    no_council_for_slug('c-slug')
     post :identify_council, :slug => "c-slug"
 
     assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
@@ -145,13 +143,8 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should expose artefact details in header" do
-    artefact = OpenStruct.new(
-      section: "rhubarb",
-      need_id: 42,
-      kind:    "answer"
-    )
-    @controller.stubs(:api).returns mock_api("slug" => OpenStruct.new)
-    @controller.stubs(:artefact_api).returns mock_artefact_api("slug" => artefact)
+    panopticon_has_metadata('slug' => 'slug', 'section' => "rhubarb", 'need_id' => 42, 'kind' => "answer")
+    publication_exists('slug' => 'slug')
     @controller.stubs(:render)
 
     get :publication, :slug => "slug"
@@ -162,8 +155,8 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should set proposition to citizen" do
-    @controller.stubs(:api).returns mock_api("slug" => OpenStruct.new)
-    @controller.stubs(:artefact_api).returns mock_artefact_api("slug" => OpenStruct.new)
+    publication_exists('slug' => 'slug')
+    panopticon_has_metadata('slug' => 'slug', 'id' => '12345')
     @controller.stubs(:render)
 
     get :publication, :slug => "slug"
@@ -171,88 +164,32 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
   end
 
-  include Rack::Geo::Utils
-  include GdsApi::JsonUtils
-  test "Should redirect to new path if councils found" do
-    full_details = {
-      :type => "local_transaction",
-      :name => "THIS",
-      :authority => {
-        :lgils => [
-          { :url => "http://www.haringey.gov.uk/something-you-want-to-do" }
-        ]
-      }
-    }
+  test "sets up a default artefact if panopticon isn't available" do
+    @controller.artefact_api.stubs(:artefact_for_slug).returns(nil)
+    @controller.stubs(:render)
+    publication_exists('slug' => 'slug')
 
-    basic_response = to_ostruct(full_details.slice(:type, :name))
-    full_response = to_ostruct(full_details)
+    get :publication, slug: "slug"
 
-    @controller.stubs(:api).returns(mock_api("c-slug" => basic_response))
-    @controller.api.expects(:council_for_transaction).with(anything, [1,2,3]).returns(21)
-    @controller.api.expects(:publication_for_slug).with('c-slug', {:snac => 21}).returns(full_response)
-
-    stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
-    request.env["HTTP_X_GOVGEO_STACK"] = stack
-
-    post :identify_council, :slug => "c-slug"
-    assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
-  end
-
-  test "Should set message if no council for local transaction" do
-    api = mock_api( "c-slug" => OpenStruct.new(:type => "local_transaction", :name => "THIS"))
-    @controller.stubs(:api).returns api
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
-
-    stack = encode_stack({'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]})
-    request.env["HTTP_X_GOVGEO_STACK"] = stack
-    api.expects(:council_for_transaction).with(anything,[1,2,3]).returns(nil)
-
-    post :identify_council, :slug => "c-slug"
-    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
+    assert_equal "missing", @response.headers["X-Slimmer-Section"]
+    assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
+    assert_equal "missing", @response.headers["X-Slimmer-Format"]
   end
 
   test "objects with parts should get first part selected by default" do
-    @controller.stubs(:api).returns mock_api(
-      "c-slug" => OpenStruct.new({:type=>"answer",
-                                  :name=>"THIS",
-                                  :parts => [
-                                    OpenStruct.new(:slug=>"a",:name=>"AA"),
-                                    OpenStruct.new(:slug=>"b",:name=>"BB")
-                                ]})) 
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
+    setup_this_answer
     prevent_implicit_rendering
+
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug"
     assert_equal "AA", assigns["part"].name
   end
 
-  test "should return a 404 if slug exists but part doesn't" do
-    @controller.stubs(:api).returns mock_api(
-      "c-slug" => OpenStruct.new({:type=>"answer",
-                                  :name=>"THIS",
-                                  :parts => [
-                                    OpenStruct.new(:slug=>"a",:name=>"AA"),
-                                    OpenStruct.new(:slug=>"b",:name=>"BB")
-                                ]}))
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "c-slug", :part => "c"
-  end
-
   test "objects should have specified parts selected" do
-    @controller.stubs(:api).returns mock_api(
-      "c-slug" => OpenStruct.new({:type=>"answer",
-                                  :name=>"THIS",
-                                  :parts => [
-                                    OpenStruct.new(:slug=>"a",:name=>"AA"),
-                                    OpenStruct.new(:slug=>"b",:name=>"BB")
-                                ]})) 
-    @controller.stubs(:artefact_api).returns mock_artefact_api('c-slug' => OpenStruct.new)
+    setup_this_answer
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug", :part => "b"
     assert_equal "BB", assigns["part"].name
   end
-
 end

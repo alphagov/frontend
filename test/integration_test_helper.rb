@@ -1,9 +1,6 @@
 require 'test_helper'
 require 'capybara/rails'
 
-require 'webmock/test_unit'
-WebMock.disable_net_connect!(:allow_localhost => true)
-
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 end

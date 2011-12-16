@@ -20,57 +20,50 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    @alternative_views = ['video','print','not_found']
-    if @alternative_views.include? params[:part]
-      @view_mode = params[:part]
-      params[:part] = nil
+    if ['video', 'print', 'not_found'].include?(params[:part])
+      @view_mode = params.delete(:part)
     end
 
     @publication = fetch_publication(params)
     assert_found(@publication)
 
     @artefact = fetch_artefact(params)
-
     set_slimmer_artefact_headers(@artefact)
 
     if @publication.type == "place"
       @options = load_place_options(@publication)
     end
 
-    if @view_mode == 'video' && @publication.video_url.blank?
+    if video_requested_but_not_found? or part_requested_but_not_found?
       raise RecordNotFound
-    elsif !@view_mode && params[:part] && @publication.parts.blank?
+    elsif !@view_mode && params[:part] && @publication.parts.empty?
       raise RecordNotFound
-    elsif @publication.parts
-      unless @view_mode == 'video'
-        @partslug = params[:part]
-        @part = pick_part(@partslug, @publication)
-        assert_found(@part)
-      end
+    elsif @publication.parts and @view_mode != 'video'
+      params[:part] ||= @publication.parts.first.slug
+      @part = @publication.find_part(params[:part])
+      redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return if @part.nil?
     end
-
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
     respond_to do |format|
       format.html {
-        if @view_mode == 'print'
-          set_slimmer_headers skip: "true" if @view_mode == 'print'
-          render @view_mode ? "#{@publication.type}_#{@view_mode}" : @publication.type, { :layout => "print" }
-        else
-          render @view_mode ? "#{@publication.type}" : @publication.type
+        if @view_mode == 'print'  
+          set_slimmer_headers skip: "true"
+          render "#{@publication.type}_print", { :layout => "print" }
+        elsif @view_mode == "video"
+          render "#{@publication.type}_video"
+        else                    
+          render @publication.type
         end
       }
       format.json { render :json => @publication.to_json }
     end
   rescue RecordNotFound
-    render :file => "#{Rails.root}/public/404.html", :layout=>nil, :status=>404
+    error(404)
   end
 
   def identify_council
-    # TODO: Update API adapter so we just get "council_for_slug"
-    temporary_transaction = OpenStruct.new(slug: params[:slug])
-    snac_codes = council_ons_from_geostack
-    council = api.council_for_transaction(temporary_transaction, snac_codes)
+    council = api.council_for_slug(params[:slug], council_ons_from_geostack)
 
     if council.nil?
       redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return
@@ -89,6 +82,15 @@ class RootController < ApplicationController
     render :json => places
   end
 
+protected
+  def part_requested_but_not_found?
+    params[:part] && @publication.parts.blank?
+  end
+
+  def video_requested_but_not_found?
+    @view_mode == 'video' && @publication.video_url.blank?
+  end
+
   def error_500; error 500; end
   def error_501; error 501; end
   def error_503; error 503; end
@@ -96,8 +98,6 @@ class RootController < ApplicationController
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
-
-  protected
 
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
@@ -108,11 +108,7 @@ class RootController < ApplicationController
   end
 
   def fetch_publication(params)
-    options = {}
-    if params[:edition].present? and @edition = params[:edition]
-      options[:edition] = params[:edition]
-    end
-    options[:snac] = params[:snac] if params[:snac]
+    options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
 
     api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError
@@ -121,7 +117,7 @@ class RootController < ApplicationController
   end
 
   def fetch_artefact(params)
-    artefact_api.artefact_for_slug(params[:slug])
+    artefact_api.artefact_for_slug(params[:slug]) || OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
   def council_ons_from_geostack
@@ -139,14 +135,6 @@ class RootController < ApplicationController
 
   def assert_found(obj)
     raise RecordNotFound unless obj
-  end
-
-  def pick_part(partslug, pub)
-    if partslug
-      pub.find_part(partslug)
-    else
-      pub.parts.first
-    end
   end
 
   def set_slimmer_artefact_headers(artefact)

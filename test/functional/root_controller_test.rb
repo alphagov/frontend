@@ -57,15 +57,6 @@ class RootControllerTest < ActionController::TestCase
      get :publication, :slug => "c-slug", :edition => edition_id
   end
 
-  test "should return 404 if full slug doesn't match" do
-    setup_this_answer
-    panopticon_has_metadata('slug' => 'c-slug')
-
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "c-slug", :part => "evil"
-  end
-
   test "should return video view when asked if guide has video" do
     publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob')
     panopticon_has_metadata('slug' => 'a-slug')
@@ -91,6 +82,24 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))
     get :publication, :slug => "a-slug", :part => "video"
+  end
+
+  test "should return 404 if part requested but publication has no parts" do
+    publication_exists('slug' => 'a-slug', 'type' => 'answer', 'name' => 'THIS')
+    panopticon_has_metadata('slug' => 'a-slug')
+
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 404))
+    get :publication, :slug => "a-slug", :part => "information"
+  end
+
+  test "should redirect to first part if bad part requested of multi-part guide" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    panopticon_has_metadata('slug' => 'a-slug')
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug", :part => "information"
+    assert_response :redirect
+    assert_redirected_to "/a-slug/first"
   end
 
   test "should not pass edition parameter on to api if it's blank" do
@@ -174,14 +183,6 @@ class RootControllerTest < ActionController::TestCase
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug"
     assert_equal "AA", assigns["part"].name
-  end
-
-  test "should return a 404 if slug exists but part doesn't" do
-    setup_this_answer
-    prevent_implicit_rendering
-
-    @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "c-slug", :part => "c"
   end
 
   test "objects should have specified parts selected" do

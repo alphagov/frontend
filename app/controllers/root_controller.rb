@@ -36,12 +36,12 @@ class RootController < ApplicationController
 
     if video_requested_but_not_found? or part_requested_but_not_found?
       raise RecordNotFound
-    elsif !@view_mode && params[:part] && @publication.parts.blank?
+    elsif !@view_mode && params[:part] && @publication.parts.empty?
       raise RecordNotFound
     elsif @publication.parts and @view_mode != 'video'
       params[:part] ||= @publication.parts.first.slug
       @part = @publication.find_part(params[:part])
-      assert_found(@part)
+      redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return if @part.nil?
     end
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)

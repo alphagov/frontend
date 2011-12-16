@@ -71,7 +71,7 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.stubs(:render)
+    @controller.expects(:render).with("guide_video")
     get :publication, :slug => "a-slug", :part => "video"
   end
 

@@ -84,15 +84,12 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :part => "print"
   end 
 
-  test "should return 404 if guide has no video" do
-    api = mock()
-    api.expects(:publication_for_slug).with("a-slug", {}).returns(
-       OpenStruct.new(:type=>"guide"))
-    @controller.stubs(:api).returns api
+  test "should return 404 if video requested but guide has no video" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
+    @controller.expects(:render).with(has_entry(:status => 404))
     get :publication, :slug => "a-slug", :part => "video"
   end
 

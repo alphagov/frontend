@@ -20,9 +20,7 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    if ['video', 'print', 'not_found'].include?(params[:part])
-      @view_mode = params.delete(:part)
-    end
+    decipher_overloaded_part_parameter!
 
     @publication = fetch_publication(params)
     assert_found(@publication)
@@ -34,32 +32,34 @@ class RootController < ApplicationController
       @options = load_place_options(@publication)
     end
 
-    if video_requested_but_not_found? or part_requested_but_not_found?
+    if video_requested_but_not_found? || part_requested_but_not_found?
       raise RecordNotFound
-    elsif !@view_mode && params[:part] && @publication.parts.empty?
-      raise RecordNotFound
-    elsif @publication.parts and @view_mode != 'video'
+    elsif @publication.parts && !video_requested?
       params[:part] ||= @publication.parts.first.slug
       @part = @publication.find_part(params[:part])
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return if @part.nil?
     end
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
+
     respond_to do |format|
-      format.html {
-        if @view_mode == 'print'  
-          set_slimmer_headers skip: "true"
-          render "#{@publication.type}_print", { :layout => "print" }
-        elsif @view_mode == "video"
-          render "#{@publication.type}_video"
-        else                    
-          render @publication.type
-        end
-      }
-      format.json { render :json => @publication.to_json }
+      format.html do
+        render @publication.type
+      end
+      format.video do
+        render @publication.type
+      end
+      format.print do
+        set_slimmer_headers skip: "true"
+        render @publication.type, layout: "print"
+      end
+      format.json do
+        render :json => @publication.to_json
+      end
     end
+
   rescue RecordNotFound
-    error(404)
+    error 404
   end
 
   def identify_council
@@ -83,12 +83,25 @@ class RootController < ApplicationController
   end
 
 protected
+  def decipher_overloaded_part_parameter!
+    case params[:part]
+    when "video", "print"
+      request.format = params.delete(:part)
+    when "not_found"
+      @provider_not_found = true
+    end
+  end
+
+  def video_requested?
+    request.format == "video"
+  end
+
   def part_requested_but_not_found?
     params[:part] && @publication.parts.blank?
   end
 
   def video_requested_but_not_found?
-    @view_mode == 'video' && @publication.video_url.blank?
+    video_requested? && @publication.video_url.blank?
   end
 
   def error_500; error 500; end

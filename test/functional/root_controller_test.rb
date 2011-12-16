@@ -62,8 +62,9 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide_video")
+    @controller.expects(:render).with("guide")
     get :publication, :slug => "a-slug", :part => "video"
+    assert_equal "video", @request.format
   end
 
   test "should return print view" do
@@ -71,8 +72,9 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide_print", { :layout => 'print' })
+    @controller.expects(:render).with("guide", { :layout => 'print' })
     get :publication, :slug => "a-slug", :part => "print"
+    assert_equal "print", @request.format
   end 
 
   test "should return 404 if video requested but guide has no video" do

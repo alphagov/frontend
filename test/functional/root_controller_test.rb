@@ -29,6 +29,12 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
+  test "should return a 404 if slug isn't URL friendly" do
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 404))
+    get :publication, :slug => "a complicated slug & one that's not \"url safe\""
+  end
+
   test "should choose template based on type of publication" do
     publication_exists('slug' => 'a-slug', 'type' => 'answer')
     panopticon_has_metadata('slug' => 'a-slug')

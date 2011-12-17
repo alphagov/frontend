@@ -7,7 +7,7 @@ group :router do
   gem 'router-client', '2.0.3', require: 'router/client'
 end
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.3'
 gem 'mustache'
 
 gem 'rack', '1.3.5'

@@ -43,15 +43,12 @@ class RootController < ApplicationController
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
     respond_to do |format|
-      format.html do
-        render @publication.type
-      end
-      format.video do
+      format.any(:html, :video) do
         render @publication.type
       end
       format.print do
         set_slimmer_headers skip: "true"
-        render @publication.type, layout: "print"
+        render @publication.type
       end
       format.json do
         render :json => @publication.to_json
@@ -84,16 +81,11 @@ class RootController < ApplicationController
 
 protected
   def decipher_overloaded_part_parameter!
-    case params[:part]
-    when "video", "print"
-      request.format = params.delete(:part)
-    when "not_found"
-      @provider_not_found = true
-    end
+    @provider_not_found = true if params[:part] == "not_found"
   end
 
   def video_requested?
-    request.format == "video"
+    request.format.video?
   end
 
   def part_requested_but_not_found?
@@ -122,7 +114,6 @@ protected
 
   def fetch_publication(params)
     options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
-
     publisher_api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError
     logger.error "Invalid URI formed with slug `#{params[:slug]}`"

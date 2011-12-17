@@ -63,17 +63,22 @@ class RootControllerTest < ActionController::TestCase
 
     prevent_implicit_rendering
     @controller.expects(:render).with("guide")
-    get :publication, :slug => "a-slug", :part => "video"
+    get :publication, :slug => "a-slug", :format => "video"
     assert_equal "video", @request.format
   end
 
   test "should return print view" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')
+    publication_exists(
+      'slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS', 'parts' => [
+        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}
+      ]
+    )
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide", { :layout => 'print' })
-    get :publication, :slug => "a-slug", :part => "print"
+    @controller.expects(:render).with("guide")
+    get :publication, :slug => "a-slug", :format => "print"
+    # assert_template 'guide'
     assert_equal "print", @request.format
   end 
 
@@ -83,7 +88,7 @@ class RootControllerTest < ActionController::TestCase
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))
-    get :publication, :slug => "a-slug", :part => "video"
+    get :publication, :slug => "a-slug", :format => "video"
   end
 
   test "should return 404 if part requested but publication has no parts" do

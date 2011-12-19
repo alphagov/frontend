@@ -20,6 +20,11 @@ class ApplicationHelperTest < ActionView::TestCase
   	assert page_title(basic_artefact, publication).match(/I am an alternative/)
   end
 
+  test "the page title doesn't blow up if the publication titles are nil" do
+	publication = OpenStruct.new(title: nil)
+  	assert page_title(basic_artefact, publication)
+  end
+
   test "it correctly identifies a video guide in the wrapper classes" do
   	guide = OpenStruct.new(:type => 'guide')
   	video_mode = true

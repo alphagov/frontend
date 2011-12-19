@@ -4,9 +4,9 @@ module ApplicationHelper
 
     title = ''
     if publication and publication.alternative_title.blank?
-      title << publication.title
+      title << publication.title.to_s
     elsif publication
-      title << publication.alternative_title
+      title << publication.alternative_title.to_s
     end
     title << ' | '
     title

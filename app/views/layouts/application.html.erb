@@ -7,10 +7,10 @@
     <%= yield :extra_stylesheets %>
 
     <% if @publication %>
-      <% if @publication.overview and @publication.overview != '' %>
+      <% if @publication.overview.present? %>
         <meta name="description" content="<%= @publication.overview %>">
       <% end %>
-      <% if @artefact and @artefact.section and @artefact.section != '' %>
+      <% if @artefact and @artefact.section.present? %>
         <meta name="x-section-name" content="<%= @artefact.section %>">
         <meta name="x-section-link" content="/<%= @artefact.section.parameterize %>">
       <% end %>

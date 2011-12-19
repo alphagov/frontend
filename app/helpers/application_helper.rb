@@ -26,7 +26,7 @@ module ApplicationHelper
     end
   end
 
-  def body_wrapper_class(publication = nil, video_mode = false)
+  def wrapper_class(publication = nil, video_mode = false)
     if publication and video_mode
       publication.type + ' video-guide'
     elsif publication

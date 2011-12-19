@@ -21,4 +21,12 @@ module ApplicationHelper
       title << "www.gov.uk"
     end
   end
+
+  def body_wrapper_class(publication = nil, video_mode = false)
+    if publication and video_mode
+      publication.type + ' video-guide'
+    elsif publication
+      publication.type
+    end
+  end
 end

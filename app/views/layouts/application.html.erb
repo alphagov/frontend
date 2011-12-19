@@ -23,12 +23,7 @@
   </head>
 
   <body class="<%= yield :body_class %>">
-    <% if @publication %>
-      <div id="wrapper" class="<%= @publication.type %><%= @video_mode ? ' video-guide' : '' %>">
-    <% else %>
-      <div id="wrapper" class="<%= yield :wrapper_class %>">
-    <% end %>
-
+    <div id="wrapper" class="<%= wrapper_class(@publication, @video_mode) %>">
       <%= yield %>
       <%= easter_egg @publication.slug if @publication %>
     </div>

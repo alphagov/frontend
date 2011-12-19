@@ -27,6 +27,8 @@ module ApplicationHelper
       publication.type + ' video-guide'
     elsif publication
       publication.type
+    else
+      ''
     end
   end
 end

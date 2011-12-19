@@ -22,7 +22,7 @@
   <% end %>
   <% if @artefact and @artefact.section and @artefact.section != '' %>
     <meta name="x-section-name" content="<%= @artefact.section %>">
-    <meta name="x-section-link" content="/<%= @artefact.section.parameterize %>">
+    <meta name="x-section-link" content="/browse/<%= @artefact.section.parameterize %>">
   <% end %>
 <% else %>
   <%= yield :description %>

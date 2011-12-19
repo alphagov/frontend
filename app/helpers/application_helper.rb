@@ -1,17 +1,21 @@
 module ApplicationHelper
-  def page_title(publication, artefact, video_mode = false)
+  def assemble_publication_title(publication)
+    return '' if publication.nil?
+
+    title = ''
+    if publication and publication.alternative_title.blank?
+      title << publication.title
+    elsif publication
+      title << publication.alternative_title
+    end
+    title << ' | '
+    title
+  end
+
+  def page_title(artefact, publication = nil, video_mode = false)
     ''.tap do |title|
-      if video_mode
-        title << 'Video - '
-      end
-
-      if publication.alternative_title.blank?
-        title << publication.title
-      else
-        title << publication.alternative_title
-      end
-
-      title << ' | '
+      title << 'Video - ' if video_mode
+      title << assemble_publication_title if publication
 
       unless artefact.section.blank?
         title << artefact.section

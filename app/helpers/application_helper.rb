@@ -15,7 +15,7 @@ module ApplicationHelper
   def page_title(artefact, publication = nil, video_mode = false)
     ''.tap do |title|
       title << 'Video - ' if video_mode
-      title << assemble_publication_title if publication
+      title << assemble_publication_title(publication) if publication
 
       unless artefact.section.blank?
         title << artefact.section

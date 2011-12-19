@@ -15,6 +15,11 @@ class ApplicationHelperTest < ActionView::TestCase
 	assert ! page_title(basic_artefact).match(/\|\s*\|/)
   end
 
+  test "the page title includes the publication alternative title if one's set" do
+	publication = OpenStruct.new(alternative_title: 'I am an alternative')
+  	assert page_title(basic_artefact, publication).match(/I am an alternative/)
+  end
+
   test "it correctly identifies a video guide in the wrapper classes" do
   	guide = OpenStruct.new(:type => 'guide')
   	video_mode = true

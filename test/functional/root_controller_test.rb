@@ -29,6 +29,12 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
+  test "should return a 404 if slug isn't URL friendly" do
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 404))
+    get :publication, :slug => "a complicated slug & one that's not \"url safe\""
+  end
+
   test "should choose template based on type of publication" do
     publication_exists('slug' => 'a-slug', 'type' => 'answer')
     panopticon_has_metadata('slug' => 'a-slug')
@@ -49,7 +55,7 @@ class RootControllerTest < ActionController::TestCase
      api = mock()
      api.expects(:publication_for_slug).with("c-slug", {:edition => '123'}).returns(
         OpenStruct.new(:type => "answer"))
-     @controller.stubs(:api).returns api
+     @controller.stubs(:publisher_api).returns api
      panopticon_has_metadata('slug' => 'c-slug')
 
      prevent_implicit_rendering
@@ -62,17 +68,24 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide_video")
-    get :publication, :slug => "a-slug", :part => "video"
+    @controller.expects(:render).with("guide")
+    get :publication, :slug => "a-slug", :format => "video"
+    assert_equal "video", @request.format
   end
 
   test "should return print view" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')
+    publication_exists(
+      'slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS', 'parts' => [
+        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}
+      ]
+    )
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide_print", { :layout => 'print' })
-    get :publication, :slug => "a-slug", :part => "print"
+    @controller.expects(:render).with("guide")
+    get :publication, :slug => "a-slug", :format => "print"
+    # assert_template 'guide'
+    assert_equal "print", @request.format
   end 
 
   test "should return 404 if video requested but guide has no video" do
@@ -81,7 +94,7 @@ class RootControllerTest < ActionController::TestCase
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))
-    get :publication, :slug => "a-slug", :part => "video"
+    get :publication, :slug => "a-slug", :format => "video"
   end
 
   test "should return 404 if part requested but publication has no parts" do
@@ -106,7 +119,7 @@ class RootControllerTest < ActionController::TestCase
      edition_id = ''
      api = mock()
      api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
-     @controller.stubs(:api).returns api
+     @controller.stubs(:publisher_api).returns api
      panopticon_has_metadata('slug' => 'a-slug')
 
      prevent_implicit_rendering
@@ -165,7 +178,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "sets up a default artefact if panopticon isn't available" do
-    @controller.artefact_api.stubs(:artefact_for_slug).returns(nil)
+    @controller.panopticon_api.stubs(:artefact_for_slug).returns(nil)
     @controller.stubs(:render)
     publication_exists('slug' => 'slug')
 

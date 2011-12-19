@@ -20,9 +20,7 @@ class RootController < ApplicationController
   def publication
     expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
-    if ['video', 'print', 'not_found'].include?(params[:part])
-      @view_mode = params.delete(:part)
-    end
+    decipher_overloaded_part_parameter!
 
     @publication = fetch_publication(params)
     assert_found(@publication)
@@ -34,36 +32,35 @@ class RootController < ApplicationController
       @options = load_place_options(@publication)
     end
 
-    if video_requested_but_not_found? or part_requested_but_not_found?
+    if video_requested_but_not_found? || part_requested_but_not_found?
       raise RecordNotFound
-    elsif !@view_mode && params[:part] && @publication.parts.empty?
-      raise RecordNotFound
-    elsif @publication.parts and @view_mode != 'video'
+    elsif @publication.parts && !video_requested?
       params[:part] ||= @publication.parts.first.slug
       @part = @publication.find_part(params[:part])
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return if @part.nil?
     end
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
+
     respond_to do |format|
-      format.html {
-        if @view_mode == 'print'  
-          set_slimmer_headers skip: "true"
-          render "#{@publication.type}_print", { :layout => "print" }
-        elsif @view_mode == "video"
-          render "#{@publication.type}_video"
-        else                    
-          render @publication.type
-        end
-      }
-      format.json { render :json => @publication.to_json }
+      format.any(:html, :video) do
+        render @publication.type
+      end
+      format.print do
+        set_slimmer_headers skip: "true"
+        render @publication.type
+      end
+      format.json do
+        render :json => @publication.to_json
+      end
     end
+
   rescue RecordNotFound
-    error(404)
+    error 404
   end
 
   def identify_council
-    council = api.council_for_slug(params[:slug], council_ons_from_geostack)
+    council = publisher_api.council_for_slug(params[:slug], council_ons_from_geostack)
 
     if council.nil?
       redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return
@@ -83,12 +80,20 @@ class RootController < ApplicationController
   end
 
 protected
+  def decipher_overloaded_part_parameter!
+    @provider_not_found = true if params[:part] == "not_found"
+  end
+
+  def video_requested?
+    request.format.video?
+  end
+
   def part_requested_but_not_found?
     params[:part] && @publication.parts.blank?
   end
 
   def video_requested_but_not_found?
-    @view_mode == 'video' && @publication.video_url.blank?
+    video_requested? && @publication.video_url.blank?
   end
 
   def error_500; error 500; end
@@ -101,7 +106,7 @@ protected
 
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
-      places_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
+      imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
     else
       []
     end
@@ -109,15 +114,10 @@ protected
 
   def fetch_publication(params)
     options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
-
-    api.publication_for_slug(params[:slug], options)
+    publisher_api.publication_for_slug(params[:slug], options)
   rescue URI::InvalidURIError
     logger.error "Invalid URI formed with slug `#{params[:slug]}`"
     return false
-  end
-
-  def fetch_artefact(params)
-    artefact_api.artefact_for_slug(params[:slug]) || OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
   def council_ons_from_geostack

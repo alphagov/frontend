@@ -1,72 +1,72 @@
 <% content_for :extra_javascript do %>
-	<%= javascript_include_tag 'trackers/local-transaction.js', :defer=>"defer" %>
+  <%= javascript_include_tag 'trackers/local-transaction.js', :defer=>"defer" %>
 <% end %>
 <section id="content" role="main" class="group">
 
-	<header class="page-header group">
-	 <hgroup>
-	   <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
-	 </hgroup>
-	</header>
-	<div class="article-container group">
-		<article role="article" class="group">
-	    <div class="inner">
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
+    </hgroup>
+  </header>
+  <div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
 
-	      <% unless @local_transaction.authority %>
+        <% unless @local_transaction.authority %>
 
-	      <% if @view_mode == 'not_found' %>
-	      <div class="advisory high-alert">
-	        <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
-	      </div>
-	      <% end %>
+          <% if @provider_not_found %>
+            <div class="advisory high-alert">
+              <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
+            </div>
+          <% end %>
 
-        <%= to_govspeak(@local_transaction.introduction) %>
+          <%= to_govspeak(@local_transaction.introduction) %>
 
-        <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST" class="find-location-for-service">
+          <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST" class="find-location-for-service">
 
-          <fieldset>
-            <legend class="visuallyhidden">Postcode lookup</legend>
-            <% if @edition %>
-            <input type="hidden" name="edition" value="<%= @edition %>">
+            <fieldset>
+              <legend class="visuallyhidden">Postcode lookup</legend>
+              <% if @edition %>
+                <input type="hidden" name="edition" value="<%= @edition %>">
+              <% end %>
+              <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+              <input type="submit" value="Get started →" class="button">
+            </fieldset>
+
+          </form>
+
+        <% else %>
+
+          <div class="intro">
+
+            <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
+
+            <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
+
+            <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
+
+          </div>
+
+        <% end %>
+
+        <h2>What you need to know</h2>
+
+        <div class="more">
+          <ul class="helpers group">
+            <% @local_transaction.expectations.each do |e| %>
+              <li class="<%= e.css_class %>">
+              <%= e.text %>
+              </li>
             <% end %>
-            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-            <input type="submit" value="Get started →" class="button">
-          </fieldset>
+          </ul>
 
-        </form>
+          <%= to_govspeak(@local_transaction.more_information) %>
+        </div>
 
-	      <% else %>
-
-	      <div class="intro">
-
-	        <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
-
-	        <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
-
-	        <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
-
-	      </div>
-
-	      <% end %>
-
-	      <h2>What you need to know</h2>
-
-	      <div class="more">
-	        <ul class="helpers group">
-	        <% @local_transaction.expectations.each do |e| %>
-	          <li class="<%= e.css_class %>">
-	            <%= e.text %>
-	          </li>
-	        <% end %>
-	        </ul>
-
-	        <%= to_govspeak(@local_transaction.more_information) %>
-	      </div>
-
-	    </div>
-		</article>
+      </div>
+    </article>
     <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json, :all => true) } %>
-	</div>
+  </div>
 </section>
 
 <%= render 'related' %>

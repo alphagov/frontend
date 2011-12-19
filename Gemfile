@@ -7,7 +7,7 @@ group :router do
   gem 'router-client', '2.0.3', require: 'router/client'
 end
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.3'
 gem 'mustache'
 
 gem 'rack', '1.3.5'
@@ -44,7 +44,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '~> 0.0.11'
+  gem 'gds-api-adapters', '~> 0.0.12'
 end
 
 gem "addressable"

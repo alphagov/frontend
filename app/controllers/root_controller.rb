@@ -40,6 +40,7 @@ class RootController < ApplicationController
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return if @part.nil?
     end
 
+    @edition = params[:edition].present? ? params[:edition] : nil
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
     respond_to do |format|

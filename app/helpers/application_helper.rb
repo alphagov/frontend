@@ -11,14 +11,14 @@ module ApplicationHelper
         title << publication.alternative_title
       end
 
-      title << " | "
+      title << ' | '
 
       unless artefact.section.blank?
         title << artefact.section
-        title << " | "
+        title << ' | '
       end
 
-      title << "www.gov.uk"
+      title << 'www.gov.uk'
     end
   end
 

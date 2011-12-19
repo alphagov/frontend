@@ -41,6 +41,7 @@ class RootController < ApplicationController
     end
 
     @edition = params[:edition].present? ? params[:edition] : nil
+
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
     respond_to do |format|

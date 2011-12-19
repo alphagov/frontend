@@ -15,6 +15,12 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
   end
 
+  def stub_edition_request(slug, edition_id)
+    @api = mock()
+    @api.expects(:publication_for_slug).with(slug, {:edition => edition_id}).returns(OpenStruct.new(:type => "answer"))
+    @controller.stubs(:publisher_api).returns(@api)
+  end
+
   def prevent_implicit_rendering
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
@@ -51,16 +57,14 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should pass edition parameter on to api to provide preview" do
-     edition_id = '123'
-     api = mock()
-     api.expects(:publication_for_slug).with("c-slug", {:edition => '123'}).returns(
-        OpenStruct.new(:type => "answer"))
-     @controller.stubs(:publisher_api).returns api
-     panopticon_has_metadata('slug' => 'c-slug')
+    edition_id = '123'
+    slug = 'c-slug'
+    stub_edition_request(slug, edition_id)
+    panopticon_has_metadata('slug' => slug)
 
-     prevent_implicit_rendering
-     @controller.stubs(:render)
-     get :publication, :slug => "c-slug", :edition => edition_id
+    prevent_implicit_rendering
+    @controller.stubs(:render)
+    get :publication, :slug => "c-slug", :edition => edition_id
   end
 
   test "should return video view when asked if guide has video" do
@@ -113,6 +117,17 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :part => "information"
     assert_response :redirect
     assert_redirected_to "/a-slug/first"
+  end
+
+  test "should assign edition to template if it's not blank and a number" do
+    edition_id = '23'
+    slug = 'a-slug'
+    stub_edition_request(slug, edition_id)
+    panopticon_has_metadata('slug' => slug)
+
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug", :edition => edition_id
+    assigns[:edition] = edition_id
   end
 
   test "should not pass edition parameter on to api if it's blank" do

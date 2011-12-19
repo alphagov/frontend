@@ -24,7 +24,7 @@
          <ol>
            <% @guide.parts.each do |nav_part| %>
            <li <% if @part == nav_part %>class="active"<% end %>>
-             <a href="<%= guide_path(@guide.slug, nav_part.slug,@edition) %>" title="Part <%= part_number(@guide.parts, nav_part) %>: <%= nav_part.title %>">
+             <a href="<%= guide_path(@guide.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@guide.parts, nav_part) %>: <%= nav_part.title %>">
                <span class="part-label">Part <%= part_number(@guide.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
              </a>
            </li>

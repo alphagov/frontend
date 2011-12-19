@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title><% if @publication %><%= page_title(@artefact, @publication, @video_mode) %><% else %><%= yield %><% end %></title>
+    <title><% if @publication %><%= page_title(@artefact, @publication) %><% else %><%= yield %><% end %></title>
     <%= stylesheet_link_tag '/stylesheets/publisher.css' %>
     <%= yield :extra_stylesheets %>
 
@@ -23,7 +23,7 @@
   </head>
 
   <body class="<%= yield :body_class %>">
-    <div id="wrapper" class="<%= wrapper_class(@publication, @video_mode) %>">
+    <div id="wrapper" class="<%= wrapper_class(@publication) %>">
       <%= yield %>
       <%= easter_egg @publication.slug if @publication %>
     </div>

@@ -12,9 +12,9 @@ module ApplicationHelper
     title
   end
 
-  def page_title(artefact, publication = nil, video_mode = false)
+  def page_title(artefact, publication = nil)
     ''.tap do |title|
-      title << 'Video - ' if video_mode
+      title << 'Video - ' if request.format.video?
       title << assemble_publication_title(publication) if publication
 
       unless artefact.section.blank?
@@ -26,8 +26,8 @@ module ApplicationHelper
     end
   end
 
-  def wrapper_class(publication = nil, video_mode = false)
-    if publication and video_mode
+  def wrapper_class(publication = nil)
+    if publication and request.format.video?
       publication.type + ' video-guide'
     elsif publication
       publication.type

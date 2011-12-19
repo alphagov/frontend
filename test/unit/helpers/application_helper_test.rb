@@ -7,6 +7,20 @@ class ApplicationHelperTest < ActionView::TestCase
     OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
+  # Anyone with better ideas of how to stub request.format.video? in a helper feel free
+  # to amend!
+  def format
+    self
+  end
+
+  def video?
+    true
+  end
+
+  def request
+    self
+  end
+
   test "the page title always ends with www.gov.uk" do
     assert_equal 'www.gov.uk', page_title(basic_artefact).split.last
   end
@@ -27,7 +41,6 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "it correctly identifies a video guide in the wrapper classes" do
     guide = OpenStruct.new(:type => 'guide')
-    video_mode = true
-    assert wrapper_class(guide, video_mode).split.include?('video-guide')
+    assert wrapper_class(guide).split.include?('video-guide')
   end
 end

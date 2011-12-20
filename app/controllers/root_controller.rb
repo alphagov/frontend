@@ -1,5 +1,5 @@
 require "slimmer/headers"
-
+ 
 class RecordNotFound < Exception
 end
 
@@ -60,6 +60,19 @@ class RootController < ApplicationController
 
   rescue RecordNotFound
     error 404
+  end
+  
+  def platform
+    @slug = params[:slug]
+  end
+  
+  def help
+    @slug = params[:slug]
+    
+    if @slug
+      path = File.expand_path("../../views/root/_help_#{@slug}.html.erb", __FILE__)
+      error 404 unless File.exists?(path)  
+    end
   end
 
   def identify_council

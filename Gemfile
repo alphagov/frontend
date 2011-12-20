@@ -18,7 +18,7 @@ gem 'plek', '~> 0'
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', '0.8.5'
+  gem 'govspeak', '0.8.6'
 end
 
 if ENV['SLIMMER_DEV']

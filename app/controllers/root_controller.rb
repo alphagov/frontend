@@ -64,6 +64,11 @@ class RootController < ApplicationController
   
   def platform
     @slug = params[:slug]
+    
+    if @slug
+      path = File.expand_path("../../views/root/_platform_#{@slug}.html.erb", __FILE__)
+      error 404 unless File.exists?(path)  
+    end
   end
   
   def help

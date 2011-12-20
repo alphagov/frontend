@@ -18,7 +18,6 @@ class RootController < ApplicationController
   end
 
   def publication
-    expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
 
     decipher_overloaded_part_parameter!
 
@@ -30,6 +29,8 @@ class RootController < ApplicationController
 
     if @publication.type == "place"
       @options = load_place_options(@publication)
+    else
+      expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found?

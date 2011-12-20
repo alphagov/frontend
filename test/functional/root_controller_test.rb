@@ -56,6 +56,26 @@ class RootControllerTest < ActionController::TestCase
     assert @response.body.include? "But Mr Dent"
   end
 
+  test "further information tab should appear for programmes that have it" do
+    publication_exists('slug' => 'zippy', 'type' => 'programme', 'parts' => [
+        {'slug' => 'a', 'name' => 'AA'},
+        {'slug' => 'further-information', 'name' => 'BB'}
+      ])
+    panopticon_has_metadata('slug' => 'zippy')
+    get :publication, :slug => "zippy"
+    assert @response.body.include? "further-information"
+  end
+
+  test "further information tab should not appear for programmes that don't have it" do
+    publication_exists('slug' => 'george', 'type' => 'programme', 'parts' => [
+        {'slug' => 'a', 'name' => 'AA'},
+        {'slug' => 'b', 'name' => 'BB'}
+      ])
+    panopticon_has_metadata('slug' => 'george')
+    get :publication, :slug => "george"
+    assert !@response.body.include?("further-information")
+  end
+
   test "should pass edition parameter on to api to provide preview" do
     edition_id = '123'
     slug = 'c-slug'

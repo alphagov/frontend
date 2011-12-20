@@ -55,7 +55,7 @@ group :test do
   gem "webmock", :require => false
   gem "ZenTest"
   gem "autotest-rails"
-  gem 'simplecov', '0.4.2'
+  gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'

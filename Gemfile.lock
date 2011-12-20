@@ -132,9 +132,10 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
-    simplecov (0.4.2)
-      simplecov-html (~> 0.4.4)
-    simplecov-html (0.4.5)
+    simplecov (0.5.4)
+      multi_json (~> 1.0.3)
+      simplecov-html (~> 0.5.3)
+    simplecov-html (0.5.3)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
     slimmer (1.1.11)
@@ -184,7 +185,7 @@ DEPENDENCIES
   rake (= 0.9.2)
   router-client (= 2.0.3)
   rummageable!
-  simplecov (= 0.4.2)
+  simplecov
   simplecov-rcov
   slimmer (~> 1.1)
   test-unit

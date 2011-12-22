@@ -12,45 +12,39 @@
   	<article role="article" class="group">
      <div class="inner">
 
-       <% if @transaction.uses_government_gateway %>
-         <p class="advisory minor"><span>This service requires a <a href="https://www.gov.uk/government-gateway">Government Gateway</a> account.</span></p>
-       <% end %>
+      <% if @transaction.uses_government_gateway %>
+       <p class="advisory minor"><span>This service requires a <a href="https://www.gov.uk/government-gateway">Government Gateway</a> account.</span></p>
+      <% end %>
 
-       <div class="intro">
-         <%= to_govspeak(@transaction.introduction) %>
-         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-         <p id="get-started" class="get-started">
-           <a href="<%= @transaction.link %>" rel="external" class="button">
-             <span class="button-content"><span class="call-to-action">Get started</span><% if @transaction.will_continue_on.present? %><span class="destination"> on <%= @transaction.will_continue_on %> </span><% end %></span><span class="indicator"></span>
-           </a>
-         </p>
-       </div>
+      <section class="intro">
+        <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
+        <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
+        <p id="get-started" class="get-started">
+         <a href="<%= @transaction.link %>" rel="external" class="button">
+           <span class="button-content"><span class="call-to-action">Get started</span><% if @transaction.will_continue_on.present? %><span class="destination"> on <%= @transaction.will_continue_on %> </span><% end %></span><span class="indicator"></span>
+         </a>
+        </p>
+      </section>
 
-       <h2 id="what-you-need-to-know">What you need to know</h2>
-
-       <% if @transaction.minutes_to_complete.present? %>
+      <section class="more">
+        <h1 id="what-you-need-to-know">What you need to know</h1>
+        <% if @transaction.minutes_to_complete.present? %>
          <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes.</p>
-       <% end %>
-
-       <div class="more">
-         <ul class="helpers group">
-         <% @transaction.expectations.each do |e| %>
-           <li class="<%= e.css_class %>">
-             <%= e.text %>
-           </li>
-         <% end %>
-         </ul>
-         <%= to_govspeak(@transaction.more_information) %>
-       </div>
-
-       <% if @transaction.alternate_methods.present? %>
-       <h2>Other ways to apply</h2>
-       <div class="more">
+        <% end %>
+        <ul class="helpers group">
+        <% @transaction.expectations.each do |e| %>
+         <li class="<%= e.css_class %>">
+           <%= e.text %>
+         </li>
+        <% end %>
+        </ul>
+        <%= to_govspeak(@transaction.more_information) %>
+        <% if @transaction.alternate_methods.present? %>
+        <h1>Other ways to apply</h1>
         <%= to_govspeak(@transaction.alternate_methods) %>
-       </div>
-       <% end %>
-
-       <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
+        <% end %>
+        <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
+      </section>
 
      </div>
    </article>

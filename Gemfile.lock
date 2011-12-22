@@ -68,7 +68,7 @@ GEM
     gds-api-adapters (0.0.12)
       null_logger
       plek
-    geogov (0.0.3)
+    geogov (0.0.4)
     govspeak (0.8.6)
       kramdown (~> 0.13.3)
     hike (1.2.1)

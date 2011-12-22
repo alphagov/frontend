@@ -1,4 +1,10 @@
 GIT
+  remote: git@github.com:alphagov/geogov.git
+  revision: be8d83dc748282f4ec393bacfa33135f28c406b8
+  specs:
+    geogov (0.0.4)
+
+GIT
   remote: git@github.com:alphagov/rummageable.git
   revision: e66b12f47dadd466db2d8407628b31b7f29e8054
   specs:
@@ -68,7 +74,6 @@ GEM
     gds-api-adapters (0.0.12)
       null_logger
       plek
-    geogov (0.0.3)
     govspeak (0.8.6)
       kramdown (~> 0.13.3)
     hike (1.2.1)
@@ -174,7 +179,7 @@ DEPENDENCIES
   ci_reporter
   exception_notification (~> 2.4.1)
   gds-api-adapters (~> 0.0.12)
-  geogov (~> 0.0.3)
+  geogov!
   govspeak (= 0.8.6)
   mocha
   mustache

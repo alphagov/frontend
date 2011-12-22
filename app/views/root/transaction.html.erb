@@ -18,15 +18,12 @@
 
        <div class="intro">
          <%= to_govspeak(@transaction.introduction) %>
-         
          <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-       
          <p id="get-started" class="get-started">
            <a href="<%= @transaction.link %>" rel="external" class="button">
              <span class="button-content"><span class="call-to-action">Get started</span><% if @transaction.will_continue_on.present? %><span class="destination"> on <%= @transaction.will_continue_on %> </span><% end %></span><span class="indicator"></span>
            </a>
          </p>
-
        </div>
 
        <h2 id="what-you-need-to-know">What you need to know</h2>
@@ -43,7 +40,6 @@
            </li>
          <% end %>
          </ul>
-
          <%= to_govspeak(@transaction.more_information) %>
        </div>
 

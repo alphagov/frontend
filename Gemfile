@@ -28,14 +28,15 @@ else
 end
 
 if ENV['GEO_DEV']
-  gem 'rack-geo', :path => '../rack-geo'
+ # gem 'rack-geo', :path => '../rack-geo'
 #  gem 'geogov', :path => '../geogov'
 else
-  gem 'rack-geo', '~> 0.8.1'
+  #gem 'rack-geo', '~> 0.8.1'
 #  gem 'geogov', '~> 0.0.3'
 end
 
 gem 'geogov', :git => 'git@github.com:alphagov/geogov.git'
+gem 'rack-geo', :git => 'git@github.com:alphagov/rack-geo.git'
 
 if ENV['CDN_DEV']
   gem 'cdn_helpers', :path => '../cdn_helpers'

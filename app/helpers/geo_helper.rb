@@ -20,11 +20,12 @@ module GeoHelper
   end
 
   def geo_header
-    if request.env['HTTP_X_GOVGEO_STACK'] and request.env['HTTP_X_GOVGEO_STACK'] != ''
-      @geo_header ||= JSON.parse(Base64.decode64(request.env['HTTP_X_GOVGEO_STACK']))
-    else
-      @geo_header ||= {}
-    end
+    #if request.env['HTTP_X_GOVGEO_STACK'] and request.env['HTTP_X_GOVGEO_STACK'] != ''
+    #  @geo_header ||= JSON.parse(Base64.decode64(request.env['HTTP_X_GOVGEO_STACK']))
+    #else
+    #  @geo_header ||= {}
+    #end
+    @geo_header = {}
     @geo_header
   end
   

@@ -22,7 +22,7 @@
     <%= yield :extra_headers %>
   </head>
 
-  <body class="<%= yield :body_class %>">
+  <body>
     <div id="wrapper" class="<%= wrapper_class(@publication) %>">
       <%= yield %>
       <%= easter_egg @publication.slug if @publication %>

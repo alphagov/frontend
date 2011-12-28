@@ -10,11 +10,11 @@ module GeoHelper
   def geo_known_to?(*accuracy)
     geo_header and geo_header['fuzzy_point'] and accuracy.include?(geo_header['fuzzy_point']['accuracy'])
   end
-  
+
   def geo_friendly_name
     geo_header['friendly_name']
   end
-  
+
   def district_postcode
     geo_header['postcode'] if geo_header['postcode'].present?
   end
@@ -27,7 +27,7 @@ module GeoHelper
     end
     @geo_header
   end
-  
+
   def reset_geo_url
     callback = Addressable::URI.parse(request.url)
     callback.query_values = {:reset_geo => 'true'}

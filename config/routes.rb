@@ -1,5 +1,5 @@
 Frontend::Application.routes.draw do
-  root :to => "root#index"
+  match "/homepage", :to => "root#index"
   match "/help(/:slug)", :to => "root#help"
   match "/error_500", :to => "root#error_500"
   match "/error_501", :to => "root#error_501"

@@ -30,6 +30,8 @@ namespace :router do
       incoming_path: "/places"
     @router.routes.update application_id: "frontend", route_type: :full,
       incoming_path: "/google7623855bb2e66cde.html"
+    @router.routes.update application_id: "frontend", route_type: :full,
+      incoming_path: "/homepage"
   end
 
   desc "Register frontend application and routes with the router (run this task on server in cluster)"

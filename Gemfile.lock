@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:alphagov/rummageable.git
-  revision: e66b12f47dadd466db2d8407628b31b7f29e8054
+  revision: fbe8927c17f47a3cd0bdedb10527f452108f633e
   specs:
     rummageable (0.1.0)
       json
@@ -73,7 +73,7 @@ GEM
       kramdown (~> 0.13.3)
     hike (1.2.1)
     i18n (0.6.0)
-    json (1.6.3)
+    json (1.6.4)
     kramdown (0.13.4)
     mail (2.3.0)
       i18n (>= 0.4.0)

@@ -8,7 +8,7 @@ namespace :rummager do
       "link" => "/help",
       "indexable_content" => "help assistance",
     }]
-    puts "Looking for rummager at: #{Rummeageable.host}"
+    puts "Looking for rummager at: #{Rummageable.host}"
     Rummageable.index documents
   end
 end

@@ -21,7 +21,6 @@ class LoadingPlacesTest < ActionDispatch::IntegrationTest
     setup_api_responses("child-tax-credit")
 
     visit "/child-tax-credit/print"
-    save_and_open_page
     assert page.has_content?("Get Child Tax Credit")
   end
 

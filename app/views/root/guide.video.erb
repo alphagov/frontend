@@ -18,10 +18,9 @@
 					<p><%= @guide.video_summary %></p>
 				</div>
 
-        <% video = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-        <% if video[0] %>
+        <% if video_embed_url(@guide) %>
           <figure class="media-player-wrapper" id="video" style="margin: 0 20px;">
-            <a href="http://www.youtube.com/watch?v=<%=video[0][0]%>">Watch <%= @guide.title %></a>
+            <a href="<%= video_embed_url(@guide) %>">Watch <%= @guide.title %></a>
           </figure>
         <% end %>
 
@@ -36,7 +35,7 @@
 
 </section>
 
-<%= render 'related' %>
+<%= render 'related.html' %>
 
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag '/javascripts/media-player/swfobject/swfobject.js', '/javascripts/media-player/jquery.player.min.js', '/javascripts/media-player/jquery.loader.js', :defer => 'defer' %>

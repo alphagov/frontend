@@ -1,6 +1,6 @@
 <div class="meta-data">
   <% if artefact.present? && (contact = artefact.contact).present? %>
-    <%= render 'contact_details', :contact => contact %>
+    <%= render 'contact_details.html', :contact => contact %>
   <% end %>
 
   <% if publication.updated_at %>

@@ -56,4 +56,13 @@ module RootHelper
     filepath = "#{Rails.root}/app/views/root/#{template}.mustache"
     File.read(filepath).html_safe
   end
+
+  def video_embed_url(guide)
+    video = guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/)
+    if video
+      "http://www.youtube.com/watch?v=#{video[0][0]}"
+    else
+      ""
+    end
+  end
 end

@@ -61,4 +61,5 @@ group :test do
   gem 'test-unit'
   gem 'capybara'
   gem "capybara-webkit"
+  gem "launchy"
 end

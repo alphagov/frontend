@@ -1,15 +1,7 @@
 # encoding: utf-8
 require 'integration_test_helper'
-require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/panopticon'
-require 'gds_api/test_helpers/imminence'
-require 'slimmer/test'
 
 class LoadingPlacesTest < ActionDispatch::IntegrationTest
-  include Capybara::DSL
-  include GdsApi::TestHelpers::Publisher
-  include GdsApi::TestHelpers::Panopticon
-  include GdsApi::TestHelpers::Imminence
 
   def fake_gazeteer_response
 <<-eos
@@ -26,27 +18,6 @@ eos
   def fake_other_mapit_response
 <<-eos
 {"wgs84_lat": 51.498665890246734, "coordsyst": "G", "wgs84_lon": -0.090415403925209165, "postcode": "SE1", "easting": 532648, "northing": 179476}
-eos
-  end
-
-  def fake_slimmer_template
-<<-eos
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Slimmer, yay!</title>
-      </head>
-      <body>
-        <div class='content'>
-          <header><h1>I AM A TITLE</h1></header>
-          <div class='header-context'>
-            <nav role='navigation'><ol><li>MySite</li></ol></nav>
-          </div>
-          <div id='wrapper' class='group'>
-          </div>
-        </div>
-      </body>
-    </html>
 eos
   end
 

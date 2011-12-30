@@ -2,39 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>
-<% if @publication %>
-      <%= @publication.alternative_title.nil? ? @publication.alternative_title : @publication.title %> |
-      <% unless @publication.section.nil? or @publication.section == ''%>
-      <%= @publication.section %> |
-<% end %>
-      www.gov.uk
-<% else %>
-      <%= yield :title %>
-<% end %>
-  </title>                  
+  <title><%= page_title(@artefact, @publication) %></title>
+
   <%= stylesheet_link_tag '/stylesheets/core.css', 
         '/stylesheets/text.css', 
         '/stylesheets/publisher.css', 
         '/stylesheets/core-print.css', 
         '/stylesheets/guides-print.css', :media => 'all'  %> 
-<% if @publication %>
-  <% if @publication.overview and @publication.overview != '' %>
+  <% if @publication.overview.present? %>
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>
-  <% if @publication.section and @publication.section != '' %>
-    <meta name="x-section-name" content="<%= @publication.section %>">
-    <meta name="x-section-link" content="/<%= @publication.section.parameterize %>">
+  <% if @artefact.section.present? %>
+    <meta name="x-section-name" content="<%= @artefact.section %>">
+    <meta name="x-section-link" content="/<%= @artefact.section.parameterize %>">
   <% end %>
-<% else %>
-  <%= yield :description %>
-<% end %>                                                
-    <%= javascript_include_tag '/javascripts/libs/jquery/jquery-1.6.2.min.js' %>
-    <%= javascript_include_tag '/javascripts/print.js' %>
+
+  <%= javascript_include_tag '/javascripts/libs/jquery/jquery-1.6.2.min.js' %>
+  <%= javascript_include_tag '/javascripts/print.js' %>
   <%= yield :extra_headers %>
 </head>
-<body class="<%= yield :body_class %>">
-  <div id="wrapper" class="<%= @publication.type %>">
+<body>
+  <div id="wrapper" class="<%= wrapper_class(@publication) %>">
       <section id="content" role="main" class="group"> 
           <h1 class="govuk">gov.uk</h1>
           <%= yield %>

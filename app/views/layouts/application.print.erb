@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <title>
 <% if @publication %>
-      <%= @video_mode ? ' Video - ' : '' %>
       <%= @publication.alternative_title.nil? ? @publication.alternative_title : @publication.title %> |
       <% unless @publication.section.nil? or @publication.section == ''%>
       <%= @publication.section %> |
@@ -35,7 +34,7 @@
   <%= yield :extra_headers %>
 </head>
 <body class="<%= yield :body_class %>">
-  <div id="wrapper" class="<%= @publication.type %><%= @video_mode ? ' video-guide' : '' %>">
+  <div id="wrapper" class="<%= @publication.type %>">
       <section id="content" role="main" class="group"> 
           <h1 class="govuk">gov.uk</h1>
           <%= yield %>

@@ -18,4 +18,10 @@ module ApplicationHelper
       ''
     end
   end
+
+  def section_meta_tags(artefact)
+    return '' if artefact.nil? or artefact.section.blank?
+    content_tag(:meta, :name => 'x-section-name', :content => artefact.section) +
+    content_tag(:meta, :name => 'x-section-link', :content => artefact.section.parameterize)
+  end
 end

@@ -12,21 +12,17 @@
   <% if @publication.overview.present? %>
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>
-  <% if @artefact.section.present? %>
-    <meta name="x-section-name" content="<%= @artefact.section %>">
-    <meta name="x-section-link" content="/<%= @artefact.section.parameterize %>">
-  <% end %>
 
-  <%= javascript_include_tag '/javascripts/libs/jquery/jquery-1.6.2.min.js' %>
-  <%= javascript_include_tag '/javascripts/print.js' %>
+  <%= section_meta_tags(@artefact) %>
+  <%= javascript_include_tag '/javascripts/libs/jquery/jquery-1.6.2.min.js', '/javascripts/print.js' %>
   <%= yield :extra_headers %>
 </head>
 <body>
   <div id="wrapper" class="<%= wrapper_class(@publication) %>">
-      <section id="content" role="main" class="group"> 
-          <h1 class="govuk">gov.uk</h1>
-          <%= yield %>
-      </section>
+    <section id="content" role="main" class="group">
+      <h1 class="govuk">gov.uk</h1>
+      <%= yield %>
+    </section>
   </div>
 </body>
 </html>

@@ -3,6 +3,8 @@ require 'test_helper'
 class ApplicationHelperTest < ActionView::TestCase
   class ApplicationHelperContainer
     include ApplicationHelper
+    include ActionView::Helpers::TagHelper
+
     def request
       @request ||= OpenStruct.new(:format => OpenStruct.new(:video? => false))
     end
@@ -64,5 +66,20 @@ class ApplicationHelperTest < ActionView::TestCase
     @helper.request.format.stubs(:video?).returns(true)
     artefact = OpenStruct.new(section: "Section")
     assert_equal "Section | www.gov.uk", @helper.page_title(artefact)
+  end
+
+  test "section_meta_tags return empty string if no artefact given" do
+    assert_equal '', @helper.section_meta_tags(nil)
+  end
+
+  test "section_meta_tags return empty string if artefact not in section" do
+    artefact = OpenStruct.new
+    assert_equal '', @helper.section_meta_tags(artefact)
+  end
+
+  test "section_meta_tags returns pair of meta tags if artefact has a section" do
+    artefact = OpenStruct.new(section: "My Section")
+    response = @helper.section_meta_tags(artefact)
+    assert_equal 2, response.scan(/<meta/).count
   end
 end

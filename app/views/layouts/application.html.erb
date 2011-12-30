@@ -6,18 +6,13 @@
     <%= stylesheet_link_tag '/stylesheets/publisher.css' %>
     <%= yield :extra_stylesheets %>
 
-    <% if @publication %>
-      <% if @publication.overview.present? %>
-        <meta name="description" content="<%= @publication.overview %>">
-      <% end %>
-      <% if @artefact and @artefact.section.present? %>
-        <meta name="x-section-name" content="<%= @artefact.section %>">
-        <meta name="x-section-link" content="/browse/<%= @artefact.section.parameterize %>">
-      <% end %>
+    <% if @publication and @publication.overview.present? %>
+      <meta name="description" content="<%= @publication.overview %>">
     <% else %>
       <%= yield :description %>
     <% end %>
 
+    <%= section_meta_tags(@artefact) %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
   </head>

@@ -21,10 +21,31 @@ eos
 eos
   end
 
+  def fake_slimmer_template
+<<-eos
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Slimmer, yay!</title>
+    </head>
+    <body>
+      <div class='content'>
+        <header><h1>I AM A TITLE</h1></header>
+        <div class='header-context'>
+          <nav role='navigation'><ol><li>MySite</li></ol></nav>
+        </div>
+        <div id='wrapper' class='group'>
+        </div>
+      </div>
+    </body>
+  </html>
+eos
+  end
+
   setup do
-    stub_request(:get, "http://assets.test.gov.uk/templates/wrapper.html.erb").
-      with(:headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
-      to_return(:status => 200, :body => fake_slimmer_template, :headers => {})
+    # stub_request(:get, "http://assets.test.gov.uk/templates/wrapper.html.erb").
+    #   with(:headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+    #   to_return(:status => 200, :body => fake_slimmer_template, :headers => {})
     stub_request(:get, "http://mapit.mysociety.org/postcode/SE1+7DU.json").
       to_return(:status => 200, :body => fake_mapit_response, :headers => {})
     stub_request(:get, "http://gazetteer.dracos.vm.bytemark.co.uk/point/51.498241853641055,-0.11354773400359928.json").

@@ -4,23 +4,28 @@ class HelpController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include Slimmer::Headers
+  
+  before_filter :declare_section
+  
+  rescue_from AbstractController::ActionNotFound, :with => :error_404
 
   def index
-    @slug = params[:slug]
-    
-    if @slug
-      path = File.expand_path("../../views/help/_#{@slug}.html.erb", __FILE__)
-      error 404 unless File.exists?(path)  
-    end
-    
-    set_slimmer_headers(
-      section:     "help"
-    )
   end
   
 protected
+  def declare_section
+    @artefact = OpenStruct.new(section: 'Help')
+  end
+
+  def error_404
+    error(404)
+  end
+
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
   
 end
+
+
+

@@ -49,7 +49,7 @@ else
 end
 
 gem "addressable"
-gem 'exception_notification', '~> 2.4.1', :require => 'exception_notifier'
+gem 'exception_notification'
 
 group :test do
   gem "mocha"

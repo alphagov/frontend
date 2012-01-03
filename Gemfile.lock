@@ -181,7 +181,7 @@ DEPENDENCIES
   capybara-webkit
   cdn_helpers (= 0.9)
   ci_reporter
-  exception_notification (~> 2.4.1)
+  exception_notification
   gds-api-adapters (~> 0.0.14)
   geogov (~> 0.0.3)
   govspeak (= 0.8.6)

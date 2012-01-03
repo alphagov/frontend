@@ -45,5 +45,10 @@ class LoadingPlacesTest < ActionDispatch::IntegrationTest
     assert page.has_content?("I need help getting started online")
   end
   
+  test "rendering a platform page" do
+    visit "/platform/api"
+    assert page.has_content?("API")
+  end
+  
 end
 

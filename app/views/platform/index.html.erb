@@ -8,11 +8,11 @@
 		</hgroup>
 	</header>
 
-  <%= render :partial => 'platform_menu' %>
+  <%= render :partial => 'menu' %>
   <article role="article" class="group">
 
   <% if @slug %>
-    <%= render :partial => "platform_#{@slug}" %>
+    <%= render :partial => "#{@slug}" %>
   <% else %>
     <section>
 

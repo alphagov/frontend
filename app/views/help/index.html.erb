@@ -1,5 +1,4 @@
 <% # this needs to take into account that each help page has its own page title content_for :title, "Help using GOV.UK | Help | GOV.UK" %>
-
 <section id="content" role="main" class="group ancillary help">
 
 	<header class="page-header group">
@@ -8,11 +7,11 @@
 		</hgroup>
 	</header>
 
-  <%= render :partial => 'help_menu' %>
+  <%= render :partial => 'menu' %>
   <article role="article" class="group">
 
   <% if @slug %>
-    <%= render :partial => "help_#{@slug}" %>
+    <%= render :partial => "#{@slug}" %>
   <% else %>
     <section>
 

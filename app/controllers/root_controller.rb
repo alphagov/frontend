@@ -70,15 +70,6 @@ class RootController < ApplicationController
       error 404 unless File.exists?(path)  
     end
   end
-  
-  def help
-    @slug = params[:slug]
-    
-    if @slug
-      path = File.expand_path("../../views/root/_help_#{@slug}.html.erb", __FILE__)
-      error 404 unless File.exists?(path)  
-    end
-  end
 
   def identify_council
     council = publisher_api.council_for_slug(params[:slug], council_ons_from_geostack)

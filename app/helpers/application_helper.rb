@@ -22,6 +22,6 @@ module ApplicationHelper
   def section_meta_tags(artefact)
     return '' if artefact.nil? or artefact.section.blank?
     tag(:meta, {name: 'x-section-name', content: artefact.section}, true) +
-    tag(:meta, {name: 'x-section-link', content: "/#{artefact.section.parameterize}"}, true)
+    tag(:meta, {name: 'x-section-link', content: "/browse/#{artefact.section.parameterize}"}, true)
   end
 end

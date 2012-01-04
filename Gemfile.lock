@@ -73,6 +73,8 @@ GEM
     gds-api-adapters (0.0.17)
       null_logger
       plek
+    gelf (1.3.2)
+      json
     geogov (0.0.4)
     govspeak (0.8.6)
       kramdown (~> 0.13.3)
@@ -183,6 +185,7 @@ DEPENDENCIES
   ci_reporter
   exception_notification
   gds-api-adapters (~> 0.0.14)
+  gelf
   geogov (~> 0.0.3)
   govspeak (= 0.8.6)
   launchy

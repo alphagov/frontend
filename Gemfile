@@ -10,6 +10,7 @@ end
 gem 'rails', '3.1.3'
 gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
+gem 'gelf'
 
 gem 'rack', '1.3.5'
 gem 'rake', '0.9.2'

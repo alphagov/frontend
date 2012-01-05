@@ -13,6 +13,7 @@ class RootController < ApplicationController
 
     set_slimmer_headers(
       template:    "homepage",
+      section:     "homepage",
       proposition: "citizen"
     )
   end

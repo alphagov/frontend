@@ -82,6 +82,22 @@
   <script>
 
   $(document).ready(function() {
+      
+      var form = $('#local-locator-form');
+
+      $(document).bind('location-completed', function(e, data) {
+        load_new_locations();     
+        show_known_location(data.current_location);
+      });
+
+      if (navigator.geolocation) {
+        $('<p class="locate-me">or <a href="#">locate me automatically</a></p>').appendTo(form);
+        
+        $(".locate-me a").live("click", function(e){
+          e.preventDefault();
+          AlphaGov.geolocate();          
+        });
+      }
 
       var load_new_locations = function() {
         var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
@@ -102,9 +118,6 @@
         $('#options-header').hide();
       }
 
-      AlphaGeo.locate('#local-locator-form');      
-			// $('#local-locator-form').attr('action',"/locator.json");
-
       $(document).bind('location-removed', function(e, message) {
         remove_existing_location_data();
       });
@@ -113,10 +126,7 @@
         remove_existing_location_data();
       });
 
-      $(document).bind('location-changed', function(e, data) {
-        load_new_locations();     
-        show_known_location(data.current_location);
-      });
+      
 
     });
     </script>

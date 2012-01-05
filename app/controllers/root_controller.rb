@@ -55,6 +55,10 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
+        if @publication.type == "place"
+          @publication.places = @options 
+        end
+        
         render :json => @publication.to_json
       end
     end

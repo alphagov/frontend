@@ -80,13 +80,6 @@ class RootController < ApplicationController
     redirect_to local_transaction.authority.lgils.last.url and return
   end
 
-  def load_places
-    @place = fetch_publication(params)
-    assert_found(@place && @place.type == "place")
-    places = load_place_options(@place)
-    render :json => places
-  end
-
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"

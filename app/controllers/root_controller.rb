@@ -13,6 +13,7 @@ class RootController < ApplicationController
 
     set_slimmer_headers(
       template:    "homepage",
+      section:     "homepage",
       proposition: "citizen"
     )
   end
@@ -54,6 +55,10 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
+        if @publication.type == "place"
+          @publication.places = @options 
+        end
+        
         render :json => @publication.to_json
       end
     end
@@ -143,7 +148,7 @@ protected
   def set_slimmer_artefact_headers(artefact)
     set_slimmer_headers(
       section:     artefact.section,
-      need_id:     artefact.need_id,
+      need_id:     artefact.need_id.to_s,
       format:      artefact.kind,
       proposition: "citizen"
     )

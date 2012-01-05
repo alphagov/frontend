@@ -8,7 +8,7 @@
           <h1>Welcome to gov.uk</h1>
           <p>Make government work for you - GOV.UK is a new service to help you find information from the government and get things done with less hassle.</p>
         </div>
-        <form action="/search" class="group">
+        <form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
           <fieldset>
             <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
             <label for="main_autocomplete" class="visuallyhidden">Search</label>

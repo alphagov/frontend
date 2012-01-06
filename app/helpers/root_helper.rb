@@ -20,6 +20,10 @@ module RootHelper
     publication.parts.collect(&:slug).include?('further-information')
   end
 
+  def programme_parts(publication)
+    publication.parts.reject { |part| part.slug == 'further-information' }
+  end
+
   def part_number(parts, part)
     parts.index(part) + 1
   end

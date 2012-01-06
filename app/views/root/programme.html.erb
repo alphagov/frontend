@@ -17,25 +17,17 @@
 
 	<div class="article-container group">
 
-		<nav class="programme-switcher group" role="navigation">
-			<ul>
-	      <li<%= raw(' class="active"') if @is_overview %>><a href="<%= guide_path(@programme.slug,nil,@edition) %>">Overview and how to claim</a></li>
-	      <% if has_further_information?(@programme) %>
-				<li<%= raw(' class="active"') unless @is_overview %>><a href="<%= guide_path(@programme.slug, @programme.parts.last.slug,@edition) %>"><%= @programme.parts.last.title %></a></li>
-				<% end %>
-			</ul>
+		<nav class="programme-progression group" role="navigation">
+		  <ol>
+	      <% programme_parts(@programme).each do |part| %>
+          <li><a href="<%= guide_path(@programme.slug) + "#" + part.slug %>"><%= part.title %><span class="progressor"></span></a></li>
+        <% end %>
+      </ol>
+      <% if has_further_information?(@programme) %>
+  		  <p<%= raw(' class="active"') unless @is_overview %>><a href="<%= guide_path(@programme.slug, @programme.parts.last.slug,@edition) %>"><%= @programme.parts.last.title %></a></p>
+  		<% end %>
 		</nav>
-
 		<% if @is_overview %>
-  		<nav class="programme-progression group" role="navigation">
-  		  <ol>
-  	      <% @programme.parts.each do |part| %>
-  	        <% unless part.slug == 'further-information' %>
-              <li><a href="#<%= part.slug %>"><%= part.title %><span class="progressor"></span></a></li>
-            <% end %>
-          <% end %>
-        </ol>
-  		</nav>
   		<% @programme.parts.each do |part| %>
   	    <% unless part.slug == 'further-information' %>
           <article role="article" class="overview-etc group" id="<%= part.slug %>">

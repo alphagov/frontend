@@ -3,12 +3,9 @@ require 'geo_helper'
 module RootHelper
 
   include GeoHelper
-  def guide_path(slug,part,edition)
-    if edition
-      publication_path(:slug => slug,:part => part,:edition => edition)
-    else
-      publication_path(:slug => slug, :part => part)
-    end
+  def guide_path(slug, part=nil, edition=nil)
+    opts = Hash[{slug: slug, part: part, edition: edition}.select { |k,v| v }]
+    publication_path(opts)
   end
 
   def easter_egg(path)

@@ -13,6 +13,7 @@ class RootController < ApplicationController
 
     set_slimmer_headers(
       template:    "homepage",
+      section:     "homepage",
       proposition: "citizen"
     )
   end
@@ -54,6 +55,10 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
+        if @publication.type == "place"
+          @publication.places = @options 
+        end
+        
         render :json => @publication.to_json
       end
     end
@@ -73,13 +78,6 @@ class RootController < ApplicationController
     assert_found(local_transaction && local_transaction.type == "local_transaction")
 
     redirect_to local_transaction.authority.lgils.last.url and return
-  end
-
-  def load_places
-    @place = fetch_publication(params)
-    assert_found(@place && @place.type == "place")
-    places = load_place_options(@place)
-    render :json => places
   end
 
 protected
@@ -143,7 +141,7 @@ protected
   def set_slimmer_artefact_headers(artefact)
     set_slimmer_headers(
       section:     artefact.section,
-      need_id:     artefact.need_id,
+      need_id:     artefact.need_id.to_s,
       format:      artefact.kind,
       proposition: "citizen"
     )

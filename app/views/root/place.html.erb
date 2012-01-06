@@ -1,5 +1,6 @@
 <% content_for :extra_javascript do %>
 	<%= javascript_include_tag 'trackers/findmynearest.js', :defer=>"defer" %>
+	<%= javascript_include_tag '/javascripts/feedback.js', :defer=>"defer" %>
 <% end %>
 <section id="content" role="main" class="group">
 
@@ -39,15 +40,15 @@
   	            <input type="hidden" name="edition" value="<%= @edition %>">
   	          <% end %>
   	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
-  	            <label for="postcode_box">Enter a UK postcode <input id="postcode_box" name="postcode_box" type="text" placeholder="e.g. SW1A 2AA"></label>
+  	            <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
   	            <input type="submit" value="Find my nearest →" class="button">
   	          </div>
 
   	          <div class="finding_location hidden">
-  	            <p>Locating you&hellip;<input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"></p>
+  	            <p>Locating you&hellip;<!-- <input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"> --></p>
   	          </div>
   	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-  	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="#"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe if geo_known_to_at_least?('ward') %></a></p>
+  	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe %></a></p>
   	          </div>
   	        </fieldset>
 	        </form>
@@ -81,39 +82,31 @@
   <script>
 
   $(document).ready(function() {
+      
+      var form = new AlphaGeoForm('#local-locator-form');
 
       var load_new_locations = function() {
-        var the_href = "<%= load_places_path(@place.slug) + "?edition=#{@edition}" %>";
-        $.getJSON(the_href, function (data) {
-          $('#options').html($.mustache($('#option-template').html(), {options: data}));
+        var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
+        $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
+          window.console.dir(data);
+          $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
           _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
           $('#options-header').show();
         });                                        
       }      
       
-      var show_known_location = function(current_location) {                                                    
-       $("#local-locator-form .friendly-name strong").text(current_location.friendly_name);
-      };
-
       var remove_existing_location_data = function() {
         $("#options").html('');
         $('#options-header').hide();
       }
 
-      AlphaGeo.locate('#local-locator-form');      
-			$('#local-locator-form').attr('action',"/locator.json");
-
-      $(document).bind('location-removed', function(e, message) {
+      $(AlphaGeo).bind('location-removed', function(e, message) {
         remove_existing_location_data();
       });
 
-      $(document).bind('location-changed', function(e, data) {
+      $(AlphaGeo).bind('location-completed', function(e, location) {
         remove_existing_location_data();
-      });
-
-      $(document).bind('location-changed', function(e, data) {
-        load_new_locations();     
-        show_known_location(data.current_location);
+        load_new_locations();
       });
 
     });

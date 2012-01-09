@@ -80,6 +80,14 @@ class RootController < ApplicationController
     redirect_to local_transaction.authority.lgils.last.url and return
   end
 
+  def settings
+    respond_to do |format|
+      format.html { }
+      format.raw { set_slimmer_headers skip: "true" 
+        render 'settings.html.erb' }
+    end
+  end
+
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"

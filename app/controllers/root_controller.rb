@@ -30,6 +30,8 @@ class RootController < ApplicationController
 
     if @publication.type == "place"
       @options = load_place_options(@publication)
+    elsif @publication.type == "local_transaction"
+      @council = load_council(@publication)
     else
       expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
     end
@@ -48,7 +50,13 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.any(:html, :video) do
-        render @publication.type
+        if @publication.type == "local_transaction" and @council.present?
+          redirect_to @council[:url]
+        elsif @publication.type == "local_transaction" and @council == false
+          redirect_to publication_url(@publication.slug, "not_found")
+        else
+          render @publication.type
+        end
       end
       format.print do
         set_slimmer_headers skip: "true"
@@ -57,6 +65,8 @@ class RootController < ApplicationController
       format.json do
         if @publication.type == "place"
           @publication.places = @options 
+        elsif @publication.type == "local_transaction"
+          @publication.council = @council
         end
         
         render :json => @publication.to_json
@@ -65,19 +75,6 @@ class RootController < ApplicationController
 
   rescue RecordNotFound
     error 404
-  end
-
-  def identify_council
-    council = publisher_api.council_for_slug(params[:slug], council_ons_from_geostack)
-
-    if council.nil?
-      redirect_to publication_path(slug: params[:slug], part: 'not_found', edition: params[:edition]) and return
-    end
-
-    local_transaction = fetch_publication(slug: params[:slug], snac: council, edition: params[:edition])
-    assert_found(local_transaction && local_transaction.type == "local_transaction")
-
-    redirect_to local_transaction.authority.lgils.last.url and return
   end
 
   def settings
@@ -121,6 +118,21 @@ protected
     end
   end
 
+  def load_council(local_transaction)
+    councils = council_from_geostack
+
+    unless councils.any?
+      return false 
+    else
+      local_transaction = fetch_publication(slug: local_transaction.slug, snac: councils.first['ons'])
+      if local_transaction.authority
+        return { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url }
+      else
+        return false
+      end
+    end
+  end
+
   def fetch_publication(params)
     options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
     publisher_api.publication_for_slug(params[:slug], options)
@@ -129,13 +141,13 @@ protected
     return false
   end
 
-  def council_ons_from_geostack
+  def council_from_geostack
     geodata = request.env['HTTP_X_GOVGEO_STACK']
     return [] if geodata.nil?
     location_data = decode_stack(geodata)
     if location_data['council']
       snac_codes = location_data['council'].collect do |council|
-        council['ons']
+        council
       end.compact
     else
       return []

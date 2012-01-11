@@ -13,45 +13,40 @@
     <article role="article" class="group">
       <div class="inner">
 
-        <% unless @local_transaction.authority %>
-
-          <% if @provider_not_found %>
-            <div class="advisory high-alert">
-              <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
-            </div>
-          <% end %>
+          <div class="advisory high-alert hidden">
+            <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
+          </div>
 
           <%= to_govspeak(@local_transaction.introduction) %>
 
-          <form action="<%= council_lookup_path(@local_transaction.slug) %>" method="POST" class="find-location-for-service">
-
+          <form method="get" id="local-locator-form" class="find-location-for-service">
             <fieldset>
               <legend class="visuallyhidden">Postcode lookup</legend>
-              <% if @edition %>
-                <input type="hidden" name="edition" value="<%= @edition %>">
-              <% end %>
-              <label for="postcode">Enter a UK postcode <input id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-              <input type="submit" value="Get started →" class="button">
-            </fieldset>
+              <div class="location_error"></div>
 
+              <div class="ask_location">
+                <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+                <input type="submit" value="Get started &rarr;" class="button">
+              </div>
+
+              <div class="finding_location hidden">
+                <p>Locating you&hellip;</p>
+              </div>
+              <div class="found_location hidden">
+                <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="">Not in <span class="friendly-name"></span>?</a></p>
+              </div>
+            </fieldset>
           </form>
 
-        <% else %>
-
-          <div class="intro">
-
-            <p>This service is provided by the <strong><%= @local_transaction.authority.name %></strong> council.</p>
-
-            <p>This will continue on the <%= @local_transaction.authority.name %> council website.</p>
-
-            <p class="get-started"><a href="<%= @local_transaction.authority.lgils.last.url %>" rel="external" title="Begin <%= @local_transaction.title %> on the <%= @local_transaction.authority.name %> site in a new browser window" class="button">Get started &rarr;</a></p>
-
-          </div>
-
-        <% end %>
+          <p id="get-started" class="get-started hidden">
+             <a href="" rel="external" class="button">
+               <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on </span></span><span class="indicator"></span>
+             </a>
+          </p>
 
         <h2>What you need to know</h2>
 
+        <% if @local_transaction.expectations %>
         <div class="more">
           <ul class="helpers group">
             <% @local_transaction.expectations.each do |e| %>
@@ -63,7 +58,8 @@
 
           <%= to_govspeak(@local_transaction.more_information) %>
         </div>
-
+        <% end %>
+        
       </div>
     </article>
     <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json, :all => true) } %>
@@ -71,3 +67,39 @@
 </section>
 
 <%= render 'related' %>
+
+<script type="text/javascript">
+<!--
+
+$(document).ready(function() {
+  
+  var form = new AlphaGeoForm('#local-locator-form');
+  var button = $('.get-started');
+
+  function load_transaction() {
+    $('.advisory.high-alert').addClass('hidden');
+    $.get('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
+      if (data.council) {
+        button.find('a').attr('href', data.council.url);
+        button.find('span.destination').text(" on "+ data.council.name +" ");
+        button.removeClass('hidden');
+      } else {
+        $('.advisory.high-alert').removeClass('hidden');
+      }
+    });
+  }
+  function unload_transaction() {
+    button.addClass('hidden'); 
+  }
+
+  $(AlphaGeo).bind('location-completed', function(location) {
+    load_transaction();
+  });
+  $(AlphaGeo).bind('location-removed', function(location) {
+    unload_transaction();
+  });
+
+});
+
+-->
+</script>

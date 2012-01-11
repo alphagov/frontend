@@ -15,6 +15,18 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
   end
 
+  def panopticon_has_metadata( metadata )
+    defaults = {
+      'slug' => 'slug', 
+      'id' => '12345', 
+      'section' => 'Test', 
+      'need_id' => '12345', 
+      'kind' => 'guide' 
+    }
+ 
+    super defaults.merge(metadata) 
+  end
+
   def stub_edition_request(slug, edition_id)
     @api = mock()
     @api.expects(:publication_for_slug).with(slug, {:edition => edition_id}).returns(OpenStruct.new(:type => "answer"))
@@ -179,9 +191,7 @@ class RootControllerTest < ActionController::TestCase
 
     request.env.delete("HTTP_X_GOVGEO_STACK")
     no_council_for_slug('c-slug')
-    post :identify_council, :slug => "c-slug"
-
-    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
+    get :publication, :slug => "c-slug"
   end
 
   test "should hard code proposition on the home page" do
@@ -204,7 +214,7 @@ class RootControllerTest < ActionController::TestCase
 
   test "should set proposition to citizen" do
     publication_exists('slug' => 'slug')
-    panopticon_has_metadata('slug' => 'slug', 'id' => '12345')
+    panopticon_has_metadata('slug' => 'slug', 'id' => '12345', 'section' => 'Test', 'need_id' => 123, 'kind' => 'guide')
     @controller.stubs(:render)
 
     get :publication, :slug => "slug"

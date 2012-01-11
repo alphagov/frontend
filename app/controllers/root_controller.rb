@@ -52,7 +52,7 @@ class RootController < ApplicationController
       format.any(:html, :video) do
         if @publication.type == "local_transaction" and @council.present?
           redirect_to @council[:url]
-        elsif @publication.type == "local_transaction" and @council == false
+        elsif @publication.type == "local_transaction" and @council == { }
           redirect_to publication_url(@publication.slug, "not_found")
         else
           render @publication.type
@@ -122,13 +122,13 @@ protected
     councils = council_from_geostack
 
     unless councils.any?
-      return false 
+      return false
     else
       local_transaction = fetch_publication(slug: local_transaction.slug, snac: councils.first['ons'])
       if local_transaction.authority
         return { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url }
       else
-        return false
+        return { }
       end
     end
   end

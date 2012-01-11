@@ -21,13 +21,13 @@
           <fieldset>
             <legend class="visuallyhidden">Postcode lookup</legend>
             <% if @edition %>
-              <input type="hidden" name="edition" value="<%= @edition %>">
+              <input type="hidden" name="edition" value="<%= @edition %>" />
             <% end %>
             <div class="location_error"></div>
 
             <div class="ask_location">
               <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-              <input type="submit" value="Set my location &rarr;" class="button">
+              <input type="submit" value="Set my location &rarr;" class="button" />
             </div>
 
             <div class="finding_location hidden">

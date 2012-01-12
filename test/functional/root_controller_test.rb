@@ -39,6 +39,20 @@ class RootControllerTest < ActionController::TestCase
     @controller.stubs(:default_render)
   end
 
+  test "should return a 404 if asked for a guide without parts" do
+    publication_exists(
+      "slug" => "disability-living-allowance-guide",
+      "alternative_title" => "",
+      "overview" => "",
+      "title" => "Disability Living Allowance",
+      "parts" => [],
+      "type" => "guide"
+    )
+    panopticon_has_metadata('slug' => "disability-living-allowance-guide")
+    get :publication, :slug => "disability-living-allowance-guide"
+    assert_equal '404', response.code
+  end
+
   test "should return a 404 if api returns nil" do
     publication_does_not_exist('slug' => 'a-slug')
     panopticon_has_metadata('slug' => 'a-slug')

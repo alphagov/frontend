@@ -19,7 +19,6 @@ class RootController < ApplicationController
   end
 
   def publication
-
     decipher_overloaded_part_parameter!
 
     @publication = fetch_publication(params)
@@ -36,7 +35,7 @@ class RootController < ApplicationController
       expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
     end
 
-    if video_requested_but_not_found? || part_requested_but_not_found?
+    if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && !video_requested?
       params[:part] ||= @publication.parts.first.slug
@@ -72,7 +71,6 @@ class RootController < ApplicationController
         render :json => @publication.to_json
       end
     end
-
   rescue RecordNotFound
     error 404
   end
@@ -88,6 +86,10 @@ class RootController < ApplicationController
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"
+  end
+
+  def empty_part_list?
+    @publication.parts and @publication.parts.empty?
   end
 
   def video_requested?

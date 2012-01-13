@@ -14,27 +14,11 @@
 	    <div class="inner">
 
 	      <div class="find-nearest">
-	        <% unless @options.any? %>
-	        <%= to_govspeak(@place.introduction) %>
-	        <% end %>
-
-     	     <h2>What you need to know</h2>
-     				<div class="more">
-     				<% if @place.expectations.any? %>
-     				  <ul class="helpers group">
-     				  <% @place.expectations.each do |e| %>
-     				    <li class="<%= e.css_class %>">
-     				      <%= e.text %>
-     				    </li>
-     				  <% end %>
-     				  </ul>
-     				<% end %>
-
-   	        <%= to_govspeak(@place.more_information) %>
-   				</div>
 
           <form method="get" id="local-locator-form" class="find-location-for-service">
   	        <fieldset>
+    	        <%= to_govspeak(@place.introduction) %>
+    	        
   	          <legend class="visuallyhidden">Postcode lookup</legend>
   	          <% if @edition %>
   	            <input type="hidden" name="edition" value="<%= @edition %>">
@@ -50,19 +34,40 @@
   	            <p>Locating you&hellip;<!-- <input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"> --></p>
   	          </div>
   	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-  	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>. <a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Not in <span class=\"friendly-name\">#{geo_header['friendly_name']}</span>?".html_safe %></a></p>
+  	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
   	          </div>
   	        </fieldset>
 	        </form>
+
+          <% if ! @place.more_information.blank? %>
+            <h2>What you need to know</h2>
+            <div class="more">
+              <% if @place.expectations.any? %>
+                <ul class="helpers group">
+                  <% @place.expectations.each do |e| %>
+                    <li class="<%= e.css_class %>">
+                    <%= e.text %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+
+              <%= to_govspeak(@place.more_information) %>
+            </div>
+          <% end %>
+
 	      </div>
 
 
 	     <% if @options.any? %>
-	       <h3 id="options-header">Your nearest options are...</h3>
+	       <h3 id="options-header">Your nearest options are:</h3>
 	       <ol id="options" class="places">
 	         <%= mustache_partial '_option.html', {'options' => @options} %>
 	       </ol>
+	     <% elsif params[:postcode].present? %>
+  	     <div id="error"><p>Sorry, no results were found near you.</p></div>
 	     <% else %>
+         <div class="visuallyhidden" id="error"><p>Sorry, no results were found near you.</p></div>
 	       <h3 id="options-header" class="visuallyhidden">Your nearest options are:</h3>
 	       <ol id="options" class="places">
 	       </ol>
@@ -84,14 +89,17 @@
   <script>
 
   $(document).ready(function() {
-
+      $('#error').hide();
       var form = new AlphaGeoForm('#local-locator-form');
 
       var load_new_locations = function() {
         var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
         $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
-          window.console.dir(data);
-          $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
+          if (data.places.length > 0) {
+            $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
+          } else {
+            $('#error').show();
+          }
           _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
           $('#options-header').show();
         });

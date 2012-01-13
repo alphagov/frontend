@@ -15,6 +15,18 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
   end
 
+  def panopticon_has_metadata( metadata )
+    defaults = {
+      'slug' => 'slug', 
+      'id' => '12345', 
+      'section' => 'Test', 
+      'need_id' => '12345', 
+      'kind' => 'guide' 
+    }
+ 
+    super defaults.merge(metadata) 
+  end
+
   def stub_edition_request(slug, edition_id)
     @api = mock()
     @api.expects(:publication_for_slug).with(slug, {:edition => edition_id}).returns(OpenStruct.new(:type => "answer"))
@@ -25,6 +37,20 @@ class RootControllerTest < ActionController::TestCase
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
     @controller.stubs(:default_render)
+  end
+
+  test "should return a 404 if asked for a guide without parts" do
+    publication_exists(
+      "slug" => "disability-living-allowance-guide",
+      "alternative_title" => "",
+      "overview" => "",
+      "title" => "Disability Living Allowance",
+      "parts" => [],
+      "type" => "guide"
+    )
+    panopticon_has_metadata('slug' => "disability-living-allowance-guide")
+    get :publication, :slug => "disability-living-allowance-guide"
+    assert_equal '404', response.code
   end
 
   test "should return a 404 if api returns nil" do
@@ -139,6 +165,15 @@ class RootControllerTest < ActionController::TestCase
     assert_redirected_to "/a-slug/first"
   end
 
+  test "should redirect to canonical URL for first part if top level guide URL is requested" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    panopticon_has_metadata('slug' => 'a-slug')
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug"
+    assert_response :redirect
+    assert_redirected_to "/a-slug/first"
+  end
+
   test "should assign edition to template if it's not blank and a number" do
     edition_id = '23'
     slug = 'a-slug'
@@ -179,9 +214,7 @@ class RootControllerTest < ActionController::TestCase
 
     request.env.delete("HTTP_X_GOVGEO_STACK")
     no_council_for_slug('c-slug')
-    post :identify_council, :slug => "c-slug"
-
-    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
+    get :publication, :slug => "c-slug"
   end
 
   test "should hard code proposition on the home page" do
@@ -204,7 +237,7 @@ class RootControllerTest < ActionController::TestCase
 
   test "should set proposition to citizen" do
     publication_exists('slug' => 'slug')
-    panopticon_has_metadata('slug' => 'slug', 'id' => '12345')
+    panopticon_has_metadata('slug' => 'slug', 'id' => '12345', 'section' => 'Test', 'need_id' => 123, 'kind' => 'guide')
     @controller.stubs(:render)
 
     get :publication, :slug => "slug"
@@ -222,15 +255,6 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "missing", @response.headers["X-Slimmer-Section"]
     assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
     assert_equal "missing", @response.headers["X-Slimmer-Format"]
-  end
-
-  test "objects with parts should get first part selected by default" do
-    setup_this_answer
-    prevent_implicit_rendering
-
-    @controller.stubs(:render).with("answer")
-    get :publication, :slug => "c-slug"
-    assert_equal "AA", assigns["part"].name
   end
 
   test "objects should have specified parts selected" do

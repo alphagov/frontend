@@ -11,7 +11,7 @@
 				      <% (@artefact.related_items || []).each do |item| %>
   				      <% if item.artefact %>
   				      <li class="<%= item.artefact.kind %>">
-  				        <%= link_to item.artefact.name, item.artefact.slug %>
+                  <%= link_to item.artefact.name, "/#{item.artefact.slug}" %>
   				      </li>
   				      <% end %>
               <% end %>

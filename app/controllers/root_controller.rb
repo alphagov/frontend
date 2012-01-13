@@ -37,10 +37,16 @@ class RootController < ApplicationController
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
-    elsif @publication.parts && !video_requested?
-      params[:part] ||= @publication.parts.first.slug
+    elsif @publication.parts && !request.format.video? && !request.format.print?
+
+      if @publication.type == 'programme'
+        params[:part] ||= @publication.parts.first.slug
+      end
+
       @part = @publication.find_part(params[:part])
-      redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return if @part.nil?
+      if @part.nil?
+        redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return
+      end
     end
 
     @edition = params[:edition].present? ? params[:edition] : nil
@@ -92,16 +98,17 @@ protected
     @publication.parts and @publication.parts.empty?
   end
 
-  def video_requested?
-    request.format.video?
-  end
-
   def part_requested_but_not_found?
     params[:part] && @publication.parts.blank?
   end
 
   def video_requested_but_not_found?
-    video_requested? && @publication.video_url.blank?
+    request.format.video? && @publication.video_url.blank?
+  end
+
+  # request.format.html? returns 5 when the request format is video.
+  def is_standard_html_request?
+    request.format.html? === true
   end
 
   def error_500; error 500; end

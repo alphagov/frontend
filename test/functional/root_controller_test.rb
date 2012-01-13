@@ -165,6 +165,15 @@ class RootControllerTest < ActionController::TestCase
     assert_redirected_to "/a-slug/first"
   end
 
+  test "should redirect to canonical URL for first part if top level guide URL is requested" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    panopticon_has_metadata('slug' => 'a-slug')
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug"
+    assert_response :redirect
+    assert_redirected_to "/a-slug/first"
+  end
+
   test "should assign edition to template if it's not blank and a number" do
     edition_id = '23'
     slug = 'a-slug'
@@ -246,15 +255,6 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "missing", @response.headers["X-Slimmer-Section"]
     assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
     assert_equal "missing", @response.headers["X-Slimmer-Format"]
-  end
-
-  test "objects with parts should get first part selected by default" do
-    setup_this_answer
-    prevent_implicit_rendering
-
-    @controller.stubs(:render).with("answer")
-    get :publication, :slug => "c-slug"
-    assert_equal "AA", assigns["part"].name
   end
 
   test "objects should have specified parts selected" do

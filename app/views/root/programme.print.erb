@@ -1,28 +1,27 @@
 <% content_for :extra_javascript, javascript_include_tag('trackers/benefit.js', defer: "defer") %>
 
 <section id="content" role="main" class="group">
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Benefits &amp; schemes </span><%= @programme.title %></h1>
+    </hgroup>
+  </header>
 
-    <header class="page-header group">
-        <hgroup>
-            <h1><span>Benefits &amp; schemes </span><%= @programme.title %></h1>
-        </hgroup>
-    </header>
-
-    <div class="article-container group">
-        <% @programme.parts.each do |part| %>
-            <% if @programme.has_next_part?(part) %>
-            <article role="article" class="overview-etc group" id="<%= part.slug %>">
-                <div class="inner">
-                    <%= render :partial => "programme_part.html", :locals => {:part => part} %>
-                </div>
-            </article>
-            <% end %>
-        <% end %>
-
-        <article role="article" class="group">
-            <div class="inner">
-                <%= render :partial => "programme_part.html", :locals => {:part => @programme.parts.last} %>
-            </div>
+  <div class="article-container group">
+    <% @programme.parts.each do |part| %>
+      <% if @programme.has_next_part?(part) %>
+        <article role="article" class="overview-etc group" id="<%= part.slug %>">
+          <div class="inner">
+            <%= render partial: "programme_part.html", locals: {part: part} %>
+          </div>
         </article>
-    </div>
+      <% end %>
+    <% end %>
+
+    <article role="article" class="group">
+      <div class="inner">
+        <%= render partial: "programme_part.html", locals: {part: @programme.parts.last} %>
+      </div>
+    </article>
+  </div>
 </section>

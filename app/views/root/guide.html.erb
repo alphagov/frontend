@@ -61,7 +61,7 @@
    	        <%- end -%>
    	        <%- if @guide.has_next_part?(@part) -%>
   						<li class="next">
-  							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Next part (<%= part_number(@guide.parts, @guide.part_after(@part)) %> of <%= @guide.parts.length %>) &rarr;</span> <%= (@guide.part_after(@part).title) %></a>
+  							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Next part (<%= part_number(@guide.parts, @guide.part_after(@part)) %> of <%= @guide.parts.length %>) &rarr;</span> <span class="pagination-part-title"><%= (@guide.part_after(@part).title) %></span></a>
                   </li>
               <%- else -%>
                 <li class="last">

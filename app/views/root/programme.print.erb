@@ -1,11 +1,4 @@
-<% @is_overview = (@partslug != "further-information") %>
-<% content_for :extra_javascript do %>
-<%= javascript_include_tag 'jquery.tabs.js', 'trackers/benefit.js', 'jquery.history.js', :defer=>"defer" %>
-<% if @programme.has_next_part?(@part) %>
-<%= javascript_include_tag 'programmes.js', :defer=>"defer" %>
-<% end %>
-<!--script src="/javascripts/recently-viewed.js" type="text/javascript"></script-->
-<% end %>
+<% content_for :extra_javascript, javascript_include_tag('trackers/benefit.js', defer: "defer") %>
 
 <section id="content" role="main" class="group">
 

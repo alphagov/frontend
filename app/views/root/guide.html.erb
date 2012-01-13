@@ -49,7 +49,7 @@
    	        <%- if @guide.has_previous_part?(@part) -%>
    	          <li class="previous">
   							<a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" title="Navigate to previous part" rel="prev">
-  							  <span class="pagination-label">&larr; Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <%= (@guide.part_before(@part).title) %></a>
+  							  <span class="pagination-label">&larr; Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_before(@part).title) %></span></a>
                 </li>
               <%- else -%>
                 <li class="first">

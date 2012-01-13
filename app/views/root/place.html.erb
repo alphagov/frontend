@@ -42,7 +42,7 @@
               <div class="location_error"></div>
 
   	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
-  	            <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+  	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
   	            <input type="submit" value="Find my nearest →" class="button">
   	          </div>
 
@@ -63,7 +63,7 @@
 	         <%= mustache_partial '_option.html', {'options' => @options} %>
 	       </ol>
 	     <% else %>
-	       <h3 id="options-header" style="display:none">Your nearest options are:</h3>
+	       <h3 id="options-header" class="visuallyhidden">Your nearest options are:</h3>
 	       <ol id="options" class="places">
 	       </ol>
 	     <% end %>
@@ -84,7 +84,7 @@
   <script>
 
   $(document).ready(function() {
-      
+
       var form = new AlphaGeoForm('#local-locator-form');
 
       var load_new_locations = function() {
@@ -94,9 +94,9 @@
           $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
           _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
           $('#options-header').show();
-        });                                        
-      }      
-      
+        });
+      }
+
       var remove_existing_location_data = function() {
         $("#options").html('');
         $('#options-header').hide();

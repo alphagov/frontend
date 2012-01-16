@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <title><% if @publication %><%= page_title(@artefact, @publication) %><% else %><%= yield :title %><% end %></title>
-    <%= stylesheet_link_tag '/stylesheets/publisher.css' %>
     <%= yield :extra_stylesheets %>
 
     <% if @publication and @publication.overview.present? %>

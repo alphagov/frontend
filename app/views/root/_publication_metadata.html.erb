@@ -1,5 +1,8 @@
 <div class="meta-data group">
   <div class="inner">
+    <% if artefact.present? && (contact = artefact.contact).present? %>
+      <%= render 'contact_details.html', :contact => contact %>
+    <% end %>
     <div class="print-and-modified-date group">
     <% if [:programme].include? publication.type.to_sym %>
       <p class="print-link"><%= link_to "Print this benefit", publication_path(publication.slug, :part => 'print') %></p>
@@ -7,15 +10,6 @@
     <% if [:guide].include? publication.type.to_sym %>
       <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print') %></p>
     <% end %>
-    <% if publication.updated_at %>
-      <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
-    <% end %>
-    </div>
-
-    <% if artefact.present? && (contact = artefact.contact).present? %>
-      <%= render 'contact_details.html', :contact => contact %>
-    <% end %>
-
     <% unless api_links.blank? %>
     <div class="data-reuse">
       <p>Re-use this data:</p>
@@ -26,5 +20,9 @@
       </ul>
     </div>
     <% end %>
+    <% if publication.updated_at %>
+      <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+    <% end %>
+    </div>
   </div>
 </div>

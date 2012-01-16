@@ -18,8 +18,8 @@ class ApplicationHelperTest < ActionView::TestCase
     OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
-  test "the page title always ends with www.gov.uk" do
-    assert_equal 'www.gov.uk', @helper.page_title(basic_artefact).split.last
+  test "the page title always ends with GOV.UK" do
+    assert_equal 'GOV.UK', @helper.page_title(basic_artefact).split.last
   end
 
   test "the page title doesn't contain consecutive pipes" do
@@ -47,7 +47,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     artefact = OpenStruct.new(section: "Section")
-    assert_equal "Title | Section | www.gov.uk", @helper.page_title(artefact, publication)
+    assert_equal "Title | Section | GOV.UK", @helper.page_title(artefact, publication)
   end
 
   test "should prefix title of video with video" do
@@ -59,13 +59,13 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should omit artefact section if missing" do
     publication = OpenStruct.new(title: "Title")
     artefact = OpenStruct.new(section: "")
-    assert_equal "Title | www.gov.uk", @helper.page_title(artefact, publication)
+    assert_equal "Title | GOV.UK", @helper.page_title(artefact, publication)
   end
 
   test "should omit first part of title if publication is omitted" do
     @helper.request.format.stubs(:video?).returns(true)
     artefact = OpenStruct.new(section: "Section")
-    assert_equal "Section | www.gov.uk", @helper.page_title(artefact)
+    assert_equal "Section | GOV.UK", @helper.page_title(artefact)
   end
 
   test "section_meta_tags return empty string if no artefact given" do

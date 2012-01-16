@@ -3,6 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "rails/test_unit/railtie"
+require "sprockets/railtie"
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -37,6 +38,23 @@ module Frontend
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    config.assets.precompile += %w( trackers/*.js feedback.js )
+
+    # Path within public/ where assets are compiled to
+    config.assets.prefix = "frontend"
+    config.assets.manifest = Rails.root.join 'public/frontend'
+
+    # Paths used by helpers when generating links to assets
+    config.action_controller.assets_dir = Rails.root.join 'public/frontend'
+    config.action_controller.javascripts_dir = Rails.root.join 'public/frontend/javascripts'
+    config.action_controller.stylesheets_dir = Rails.root.join 'public/frontend/stylesheets'
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]

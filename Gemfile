@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
 gem 'rummageable', :git => 'git@github.com:alphagov/rummageable.git'
+gem 'gds-warmup-controller'
 
 group :router do
   gem 'router-client', '2.0.3', require: 'router/client'

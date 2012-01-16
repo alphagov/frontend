@@ -1,5 +1,5 @@
 require "slimmer/headers"
- 
+
 class RecordNotFound < Exception
 end
 
@@ -69,11 +69,11 @@ class RootController < ApplicationController
       end
       format.json do
         if @publication.type == "place"
-          @publication.places = @options 
+          @publication.places = @options
         elsif @publication.type == "local_transaction"
           @publication.council = @council
         end
-        
+
         render :json => @publication.to_json
       end
     end
@@ -84,7 +84,7 @@ class RootController < ApplicationController
   def settings
     respond_to do |format|
       format.html { }
-      format.raw { set_slimmer_headers skip: "true" 
+      format.raw { set_slimmer_headers skip: "true"
         render 'settings.html.erb' }
     end
   end

@@ -17,10 +17,10 @@
        <p class="advisory minor"><span>This service requires a <a href="https://www.gov.uk/government-gateway">Government Gateway</a> account.</span></p>
       <% end %>
 
-      <section class="intro group">
+      <section class="intro">
         <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-        <p id="get-started" class="get-started">
+        <p id="get-started" class="get-started group">
          <a href="<%= @transaction.link %>" rel="external" class="button">
            <span class="button-content"><span class="call-to-action">Get started</span><% if @transaction.will_continue_on.present? %><span class="destination"> on <%= @transaction.will_continue_on %> </span><% end %></span><span class="indicator"></span>
          </a>

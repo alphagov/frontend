@@ -21,7 +21,7 @@
 		<nav class="programme-progression group" role="navigation">
 		  <ol>
 	      <% programme_parts(@programme).each do |part| %>
-          <li><a href="<%= guide_path(@programme.slug) + "#" + part.slug %>"><%= part.title %><span class="progressor"></span></a></li>
+          <li><a href="<%= guide_path(@programme.slug) + "#" + part.slug %>"><%= part.title %></a></li>
         <% end %>
       </ol>
       <% if has_further_information?(@programme) %>

@@ -18,7 +18,11 @@ Frontend::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  
+ 
+  #config.assets.compress = true
+  #config.assets.digest = true
+  config.assets.debug = true
+
   # comment line below in if you want to use browserstack (or some other tunnel)
   # config.slimmer.asset_host = "http://www.dev.gov.uk"
 end

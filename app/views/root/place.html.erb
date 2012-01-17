@@ -27,7 +27,7 @@
 
   	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
   	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-  	            <input type="submit" value="Find my nearest →" class="button">
+  	            <input type="submit" value="Next &rarr;" class="button">
   	          </div>
 
   	          <div class="finding_location hidden">
@@ -39,8 +39,9 @@
   	        </fieldset>
 	        </form>
 
-          <% if ! @place.more_information.blank? %>
-            <h2>What you need to know</h2>
+          <% if ! @place.more_information.blank? and !geo_known_to_at_least?('ward') %>
+          <div class="further_information">
+            <h2>Further information</h2>
             <div class="more">
               <% if @place.expectations.any? %>
                 <ul class="helpers group">
@@ -54,6 +55,7 @@
 
               <%= to_govspeak(@place.more_information) %>
             </div>
+          </div>
           <% end %>
 
 	      </div>
@@ -95,6 +97,7 @@
       var load_new_locations = function() {
         var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
         $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
+          $('.further_information').hide();
           if (data.places.length > 0) {
             $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
           } else {
@@ -112,6 +115,7 @@
 
       $(AlphaGeo).bind('location-removed', function(e, message) {
         remove_existing_location_data();
+        $('.further_information').show();
       });
 
       $(AlphaGeo).bind('location-completed', function(e, location) {

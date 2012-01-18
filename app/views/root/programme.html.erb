@@ -12,7 +12,7 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Benefits &amp; schemes </span><%= @programme.title %></h1>
+      <h1><span>Benefits &amp; schemes</span> <%= @programme.title %></h1>
     </hgroup>
   </header>
 
@@ -53,7 +53,7 @@
   	<% end %>
 
     <%= render 'publication_metadata', :publication => @programme, :artefact => @artefact, :api_links => { :json => publication_path(@programme.slug, :edition => @edition, :format => :json) } %>
-    
+
 	</div>
 </section>
 

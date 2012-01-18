@@ -4,7 +4,7 @@
 
 <header class="page-header group">
     <hgroup>
-        <h1><span>Guide to </span><%= @guide.title %></h1>
+        <h1><span>Guide to</span> <%= @guide.title %></h1>
     </hgroup>
 </header>
 
@@ -21,8 +21,8 @@
             <%= to_govspeak(part.body) %>
 
         </div>
-    </article>     
+    </article>
     <% end %>
 
     <%= render 'publication_metadata.html', :publication => @guide, :artefact => @artefact, :api_links => false %>
-</div>    
+</div>

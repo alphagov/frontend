@@ -10,10 +10,12 @@ module ApplicationHelper
   end
 
   def wrapper_class(publication = nil)
+    services = %W[transaction local_transaction place]
+
     if publication and request.format.video?
       publication.type + ' video-guide'
-    elsif publication
-      publication.type
+    elsif publication and publication.type
+      publication.type + (services.include?(publication.type) ? ' service' : '')
     else
       ''
     end

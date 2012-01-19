@@ -44,6 +44,11 @@ class ApplicationHelperTest < ActionView::TestCase
     assert @helper.wrapper_class(guide).split.include?('video-guide')
   end
 
+  test "it marks local transactions as a service" do
+    local_transaction = OpenStruct.new(:type => 'local_transaction')
+    assert @helper.wrapper_class(local_transaction).split.include?('service')
+  end
+
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     artefact = OpenStruct.new(section: "Section")

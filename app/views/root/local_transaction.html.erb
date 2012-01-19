@@ -21,19 +21,23 @@
 
           <form method="get" id="local-locator-form" class="find-location-for-service">
             <fieldset>
-              <legend class="visuallyhidden">Postcode lookup</legend>
-              <div class="location_error"></div>
 
-              <div class="ask_location">
-                <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                <input type="submit" value="Get started &rarr;" class="button">
+              <legend class="visuallyhidden">Postcode lookup</legend>
+              <% if @edition %>
+                <input type="hidden" name="edition" value="<%= @edition %>">
+              <% end %>
+              <div class="location_error error-notification hidden"></div>
+
+              <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
+                <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+                <input type="submit" value="Next &rarr;" class="button">
               </div>
 
               <div class="finding_location hidden">
                 <p>Locating you&hellip;</p>
               </div>
-              <div class="found_location hidden">
-                <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="">Not in <span class="friendly-name"></span>?</a></p>
+              <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
+                <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
               </div>
             </fieldset>
           </form>

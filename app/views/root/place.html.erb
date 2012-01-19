@@ -23,7 +23,7 @@
   	          <% if @edition %>
   	            <input type="hidden" name="edition" value="<%= @edition %>">
   	          <% end %>
-              <div class="location_error"></div>
+              <div class="location_error error-notification hidden"></div>
 
   	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
   	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
@@ -31,10 +31,10 @@
   	          </div>
 
   	          <div class="finding_location hidden">
-  	            <p>Locating you&hellip;<!-- <input type="hidden" name="lon" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lon'] : '' %>"><input type="hidden" name="lat" value="<%= geo_known_to_at_least?('ward') ? geo_header['fuzzy_point']['lat'] : '' %>"> --></p>
+  	            <p>Locating you&hellip;</p>
   	          </div>
   	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-  	            <p class="friendly-name">We think you&rsquo;re in <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
+  	            <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
   	          </div>
   	        </fieldset>
 	        </form>
@@ -56,30 +56,27 @@
 
               <%= to_govspeak(@place.more_information) %>
             </div>
-
           </div>
 
           <% end %>
-
 	      </div>
 
+        <% if @options.any? %>
+          <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
+          <ol id="options" class="places">
+           <%= mustache_partial '_option.html', {'options' => @options} %>
+          </ol>
+        <% elsif params[:postcode].present? %>
+          <div id="results-error" class="error-notification"><p>Sorry, no results were found near you.</p></div>
+        <% else %>
+          <h3 id="options-loading" class="hidden">Loading results near <strong class="locality_placeholder"></strong>..</h3>
+          <div class="hidden error-notification" id="results-error"><p></p></div>
+          <h3 id="options-header" class="hidden">Results near <strong class="locality_placeholder"></strong>:</h3>
+          <ol id="options" class="places">
+          </ol>
+        <% end %>
 
-	     <% if @options.any? %>
-	       <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
-	       <ol id="options" class="places">
-	         <%= mustache_partial '_option.html', {'options' => @options} %>
-	       </ol>
-	     <% elsif params[:postcode].present? %>
-  	     <div id="error"><p>Sorry, no results were found near you.</p></div>
-	     <% else %>
-         <div class="visuallyhidden" id="error"><p>Sorry, no results were found near you.</p></div>
-	       <h3 id="options-header" class="hidden">Results near <strong></strong>:</h3>
-	       <ol id="options" class="places">
-	       </ol>
-	     <% end %>
-
-			</div>
-
+      </div>
 		</article>
     <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:json].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
 	</div>
@@ -94,21 +91,23 @@
   <script>
 
   $(document).ready(function() {
-      $('#error').hide();
 
       <% unless geo_known_to_at_least?('ward') -%>
         var form = new AlphaGeoForm('#local-locator-form');
 
         var load_new_locations = function() {
           var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
+
+          $('.further_information').hide();
+          $('#options-loading').removeClass('hidden');
           $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
-            $('.further_information').hide();
-            $('h3#options-header').show().removeClass('hidden').find('strong').text(AlphaGeo.full_location.current_location.locality);
+            $('#options-loading').addClass('hidden');
 
             if (data.places.length > 0) {
+              $('h3#options-header').show().removeClass('hidden');
               $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
             } else {
-              $('#error').show();
+              $('#results-error').removeClass('hidden').find('p').text('Sorry, no results were found near you.');
             }
             _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
             $('#options-header').show();
@@ -118,6 +117,7 @@
         var remove_existing_location_data = function() {
           $("#options").html('');
           $('#options-header').hide();
+          $('#results-error').addClass('hidden');
         }
 
         $(AlphaGeo).bind('location-removed', function(e, message) {
@@ -127,6 +127,7 @@
 
         $(AlphaGeo).bind('location-completed', function(e, location) {
           remove_existing_location_data();
+          $('strong.locality_placeholder').text(AlphaGeo.full_location.current_location.locality);
           load_new_locations();
         });
       <% end %>

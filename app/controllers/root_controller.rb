@@ -123,7 +123,7 @@ protected
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
       places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
-      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) }
+      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
       places
     else
       []

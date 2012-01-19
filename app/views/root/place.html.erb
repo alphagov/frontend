@@ -81,7 +81,7 @@
 			</div>
 
 		</article>
-    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:kml, :json, :csv].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
+    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:json].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
 	</div>
 </section>
 

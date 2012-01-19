@@ -29,16 +29,21 @@
 
       <section class="more">
         <h1 id="what-you-need-to-know">What you need to know</h1>
-        <% if @transaction.minutes_to_complete.present? %>
-         <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes.</p>
-        <% end %>
-        <ul class="helpers group">
-        <% @transaction.expectations.each do |e| %>
-         <li class="<%= e.css_class %>">
-           <%= e.text %>
-         </li>
-        <% end %>
-        </ul>
+
+        <dl class="helpers group">
+          <dt>You&rsquo;ll need</dt>
+          <% if @transaction.minutes_to_complete.present? %>
+            <dd>
+              Should take <span><%= @transaction.minutes_to_complete %></span> minutes
+            </dd>
+          <% end %>
+          <% @transaction.expectations.each do |e| %>
+            <dd class="<%= e.css_class %>">
+              <%= e.text %>
+            </dd>
+          <% end %>
+        </dl>
+
         <%= to_govspeak(@transaction.more_information) %>
         <% if @transaction.alternate_methods.present? %>
         <h1>Other ways to apply</h1>

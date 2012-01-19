@@ -6,7 +6,7 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Local Services</span> <%= @local_transaction.title %></h1>
+      <h1><span>Services</span> <%= @local_transaction.title %></h1>
     </hgroup>
   </header>
   <div class="article-container group">
@@ -59,7 +59,7 @@
           <%= to_govspeak(@local_transaction.more_information) %>
         </div>
         <% end %>
-        
+
       </div>
     </article>
     <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json, :all => true) } %>
@@ -72,7 +72,7 @@
 <!--
 
 $(document).ready(function() {
-  
+
   var form = new AlphaGeoForm('#local-locator-form');
   var button = $('.get-started');
 
@@ -89,7 +89,7 @@ $(document).ready(function() {
     });
   }
   function unload_transaction() {
-    button.addClass('hidden'); 
+    button.addClass('hidden');
   }
 
   $(AlphaGeo).bind('location-completed', function(location) {

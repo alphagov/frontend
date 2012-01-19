@@ -15,7 +15,7 @@ $(function(){
     sectionTitle,
     nav;
 
-    last = "<li><a href='#"+last+"'>No thanks, just tell me how to claim</a></li>"
+    last = "<li><a href='#"+last+"'>Find out how to claim</a></li>"
 
   while(i--){
     j = i+1;

@@ -6,6 +6,7 @@ end
 class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
+  include ActionView::Helpers::TextHelper
   include Slimmer::Headers
 
   def index
@@ -121,7 +122,9 @@ protected
 
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
-      imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
+      places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
+      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) }
+      places
     else
       []
     end

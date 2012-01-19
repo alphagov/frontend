@@ -65,7 +65,7 @@
 
 
 	     <% if @options.any? %>
-	       <h3 id="options-header">Your nearest options are:</h3>
+	       <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
 	       <ol id="options" class="places">
 	         <%= mustache_partial '_option.html', {'options' => @options} %>
 	       </ol>
@@ -73,7 +73,7 @@
   	     <div id="error"><p>Sorry, no results were found near you.</p></div>
 	     <% else %>
          <div class="visuallyhidden" id="error"><p>Sorry, no results were found near you.</p></div>
-	       <h3 id="options-header" class="visuallyhidden">Your nearest options are:</h3>
+	       <h3 id="options-header" class="hidden">Results near <strong></strong>:</h3>
 	       <ol id="options" class="places">
 	       </ol>
 	     <% end %>
@@ -95,37 +95,41 @@
 
   $(document).ready(function() {
       $('#error').hide();
-      var form = new AlphaGeoForm('#local-locator-form');
 
-      var load_new_locations = function() {
-        var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
-        $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
-          $('.further_information').hide();
+      <% unless geo_known_to_at_least?('ward') -%>
+        var form = new AlphaGeoForm('#local-locator-form');
 
-          if (data.places.length > 0) {
-            $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
-          } else {
-            $('#error').show();
-          }
-          _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
-          $('#options-header').show();
+        var load_new_locations = function() {
+          var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
+          $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
+            $('.further_information').hide();
+            $('h3#options-header').show().removeClass('hidden').find('strong').text(AlphaGeo.full_location.current_location.locality);
+
+            if (data.places.length > 0) {
+              $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
+            } else {
+              $('#error').show();
+            }
+            _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
+            $('#options-header').show();
+          });
+        }
+
+        var remove_existing_location_data = function() {
+          $("#options").html('');
+          $('#options-header').hide();
+        }
+
+        $(AlphaGeo).bind('location-removed', function(e, message) {
+          remove_existing_location_data();
+          $('.further_information').show();
         });
-      }
 
-      var remove_existing_location_data = function() {
-        $("#options").html('');
-        $('#options-header').hide();
-      }
-
-      $(AlphaGeo).bind('location-removed', function(e, message) {
-        remove_existing_location_data();
-        $('.further_information').show();
-      });
-
-      $(AlphaGeo).bind('location-completed', function(e, location) {
-        remove_existing_location_data();
-        load_new_locations();
-      });
+        $(AlphaGeo).bind('location-completed', function(e, location) {
+          remove_existing_location_data();
+          load_new_locations();
+        });
+      <% end %>
 
     });
     </script>

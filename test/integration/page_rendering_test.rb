@@ -52,16 +52,15 @@ class LoadingPlacesTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Ride a motorcycle or moped")
     assert page.has_css?("a[href='http://www.youtube.com/watch?v=iD941H0j1Z0']")
   end
-  
+
   test "rendering a help page" do
     visit "/help/accessibility"
     assert page.has_content?("I need help getting started online")
   end
-  
+
   test "rendering a platform page" do
     visit "/platform/api"
     assert page.has_content?("API")
   end
-  
 end
 

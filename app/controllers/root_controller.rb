@@ -172,7 +172,7 @@ protected
 
   def set_slimmer_artefact_headers(artefact)
     set_slimmer_headers(
-      section:     artefact.section,
+      section:     artefact.section.split(':').first,
       need_id:     artefact.need_id.to_s,
       format:      artefact.kind,
       proposition: "citizen"

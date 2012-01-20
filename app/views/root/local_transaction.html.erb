@@ -13,10 +13,6 @@
     <article role="article" class="group">
       <div class="inner">
 
-          <div class="advisory high-alert hidden">
-            <p>Sorry, we couldn't find details of a provider of that service in your area.</p>
-          </div>
-
           <section class="intro">
             <div class="get-started-intro">
 
@@ -29,23 +25,25 @@
                 <div class="location_error error-notification hidden"></div>
                 <div class="ask_location">
                   <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                  <input type="submit" value="Get started &rarr;" class="button">
+                  <input type="submit" value="Next &rarr;" class="button">
                 </div>
 
                 <div class="finding_location hidden">
                   <p>Locating you&hellip;</p>
                 </div>
                 <div class="found_location hidden">
-                  <p class="friendly-name">Your location is set to <strong></strong>. <a class="change-location" href="">Not in <span class="friendly-name"></span>?</a></p>
+                  <p class="friendly-name">Your location is set to <strong></strong>.<br /><a class="change-location" href="">Change your location</a></p>
                 </div>
               </fieldset>
             </form>
 
+            <p id="location-loading" class="hidden">Loading service for <strong class="location-placeholder"></strong>...</p>
             <p id="get-started" class="get-started hidden">
                <a href="" rel="external" class="button">
                  <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on </span></span><span class="indicator"></span>
                </a>
             </p>
+            <p class="no-provider-error error-notification hidden">Sorry, we couldn't find details of a provider for that service in your area.</p>
           </div>
         </section>
 
@@ -84,18 +82,23 @@ $(document).ready(function() {
   var button = $('.get-started');
 
   function load_transaction() {
-    $('.advisory.high-alert').addClass('hidden');
+    $('.no-provider-error').addClass('hidden');
+    $('.location-placeholder').text(AlphaGeo.full_location.current_location.council[0].name);
+    $('#location-loading').removeClass('hidden');
+
     $.get('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
       if (data.council) {
         button.find('a').attr('href', data.council.url);
         button.find('span.destination').text(" on "+ data.council.name +" ");
         button.removeClass('hidden');
       } else {
-        $('.advisory.high-alert').removeClass('hidden');
+        $('.no-provider-error').removeClass('hidden');
       }
+      $('#location-loading').addClass('hidden');
     });
   }
   function unload_transaction() {
+    $('.no-provider-error').addClass('hidden');
     button.addClass('hidden');
   }
 
@@ -103,6 +106,7 @@ $(document).ready(function() {
     load_transaction();
   });
   $(AlphaGeo).bind('location-removed', function(location) {
+    $('.location-placeholder').text('');
     unload_transaction();
   });
 

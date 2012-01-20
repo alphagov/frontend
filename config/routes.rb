@@ -1,4 +1,8 @@
 Frontend::Application.routes.draw do
+  # Crude way of handling the situation described at
+  # http://stackoverflow.com/a/3443678
+  match "*path.gif", :to => proc {|env| [404, {}, ["Not Found"]] }
+
   match "/homepage", :to => "root#index"
   match "/help(/:action)", :to => "help"
   match "/error_500", :to => "root#error_500"
@@ -16,4 +20,3 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)"
   end
 end
-  

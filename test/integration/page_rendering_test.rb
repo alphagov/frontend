@@ -17,6 +17,19 @@ class LoadingPlacesTest < ActionDispatch::IntegrationTest
     panopticon_has_metadata(artefact_info)
   end
 
+  # Crude way of handling the situation described at
+  # http://stackoverflow.com/a/3443678
+  test "requests for gifs 404" do
+    visit "/crisis-loans/refresh.gif"
+    assert page.status_code == 404
+
+    visit "/refresh.gif"
+    assert page.status_code == 404
+
+    visit "/pagerror.gif"
+    assert page.status_code == 404
+  end
+
   test "rendering a print view of a programme" do
     setup_api_responses("child-tax-credit")
 

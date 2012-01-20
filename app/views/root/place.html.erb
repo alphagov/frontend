@@ -13,37 +13,44 @@
 	 	<article role="article" class="group">
 	    <div class="inner">
 
-	      <div class="find-nearest">
+	      <section class="intro">
+  	      <div class="get-started-intro">
 
-          <form method="get" id="local-locator-form" class="find-location-for-service">
-  	        <fieldset>
-    	        <%= to_govspeak(@place.introduction) %>
+  	        <div class="find-nearest">
 
-  	          <legend class="visuallyhidden">Postcode lookup</legend>
-  	          <% if @edition %>
-  	            <input type="hidden" name="edition" value="<%= @edition %>">
-  	          <% end %>
-              <div class="location_error error-notification hidden"></div>
+              <form method="get" id="local-locator-form" class="find-location-for-service">
+      	        <fieldset>
+        	        <%= to_govspeak(@place.introduction) %>
 
-  	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
-  	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-  	            <input type="submit" value="Next &rarr;" class="button">
-  	          </div>
+      	          <legend class="visuallyhidden">Postcode lookup</legend>
+      	          <% if @edition %>
+      	            <input type="hidden" name="edition" value="<%= @edition %>">
+      	          <% end %>
+                  <div class="location_error error-notification hidden"></div>
 
-  	          <div class="finding_location hidden">
-  	            <p>Locating you&hellip;</p>
-  	          </div>
-  	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-  	            <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
-  	          </div>
-  	        </fieldset>
-	        </form>
+      	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
+      	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+      	            <input type="submit" value="Next &rarr;" class="button">
+      	          </div>
 
+      	          <div class="finding_location hidden">
+      	            <p>Locating you&hellip;</p>
+      	          </div>
+      	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
+      	            <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
+      	          </div>
+      	        </fieldset>
+    	        </form>
+
+            </div>
+          </div>
+        </section>
+
+        <section class="more">
           <% if ! @place.more_information.blank? and !geo_known_to_at_least?('ward') %>
-          <div class="further_information">
-            <h2>Further information</h2>
+            <div class="further_information">
+              <h2>Further information</h2>
 
-            <div class="more">
               <% if @place.expectations.any? %>
                 <ul class="helpers group">
                   <% @place.expectations.each do |e| %>
@@ -56,11 +63,10 @@
 
               <%= to_govspeak(@place.more_information) %>
             </div>
-          </div>
-
           <% end %>
-	      </div>
+	      </section>
 
+        <section class"">
         <% if @options.any? %>
           <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
           <ol id="options" class="places">
@@ -69,14 +75,16 @@
         <% elsif params[:postcode].present? %>
           <div id="results-error" class="error-notification"><p>Sorry, no results were found near you.</p></div>
         <% else %>
-          <h3 id="options-loading" class="hidden">Loading results near <strong class="locality_placeholder"></strong>..</h3>
+          <h3 id="options-loading" class="hidden">Loading results near <strong class="locality_placeholder"></strong>.</h3>
           <div class="hidden error-notification" id="results-error"><p></p></div>
           <h3 id="options-header" class="hidden">Results near <strong class="locality_placeholder"></strong>:</h3>
           <ol id="options" class="places">
           </ol>
         <% end %>
+        </section>
 
       </div>
+
 		</article>
     <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:json].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
 	</div>

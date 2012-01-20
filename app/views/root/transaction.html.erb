@@ -29,10 +29,11 @@
 
       <section class="more">
         <h1 id="what-you-need-to-know">What you need to know</h1>
-        <% if @transaction.minutes_to_complete.present? %>
-         <p>This is probably going to take you <%= @transaction.minutes_to_complete %> minutes.</p>
-        <% end %>
+
         <ul class="helpers group">
+        <% if @transaction.minutes_to_complete.present? %>
+         <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
+        <% end %>
         <% @transaction.expectations.each do |e| %>
          <li class="<%= e.css_class %>">
            <%= e.text %>

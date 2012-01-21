@@ -17,14 +17,14 @@ class RootControllerTest < ActionController::TestCase
 
   def panopticon_has_metadata( metadata )
     defaults = {
-      'slug' => 'slug', 
-      'id' => '12345', 
-      'section' => 'Test', 
-      'need_id' => '12345', 
-      'kind' => 'guide' 
+      'slug' => 'slug',
+      'id' => '12345',
+      'section' => 'Test',
+      'need_id' => '12345',
+      'kind' => 'guide'
     }
- 
-    super defaults.merge(metadata) 
+
+    super defaults.merge(metadata)
   end
 
   def stub_edition_request(slug, edition_id)
@@ -136,7 +136,7 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :format => "print"
     # assert_template 'guide'
     assert_equal "print", @request.format
-  end 
+  end
 
   test "should return 404 if video requested but guide has no video" do
     publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')

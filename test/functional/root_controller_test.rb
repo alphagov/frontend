@@ -174,6 +174,14 @@ class RootControllerTest < ActionController::TestCase
     assert_redirected_to "/a-slug/first"
   end
 
+  test "should not redirect to first part URL if request is for JSON" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    panopticon_has_metadata('slug' => 'a-slug')
+    prevent_implicit_rendering
+    get :publication, slug: "a-slug", format: 'json'
+    assert_response :success
+  end
+
   test "should assign edition to template if it's not blank and a number" do
     edition_id = '23'
     slug = 'a-slug'

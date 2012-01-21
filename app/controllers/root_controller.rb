@@ -38,7 +38,7 @@ class RootController < ApplicationController
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
-    elsif @publication.parts && !request.format.video? && !request.format.print?
+    elsif @publication.parts && is_standard_html_request?
 
       if @publication.type == 'programme'
         params[:part] ||= @publication.parts.first.slug

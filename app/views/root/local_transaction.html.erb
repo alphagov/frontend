@@ -43,7 +43,7 @@
                  <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on </span></span><span class="indicator"></span>
                </a>
             </p>
-            <p class="no-provider-error error-notification hidden">Sorry, we couldn't find details of a provider for that service in your area.</p>
+            <p id="extendedLabel" class="no-provider-error error-notification hidden">Sorry, we couldn't find details of a provider for that service in your area.</p>
           </div>
         </section>
 
@@ -83,6 +83,7 @@ $(document).ready(function() {
 
   function load_transaction() {
     $('.no-provider-error').addClass('hidden');
+
     $('.location-placeholder').text(AlphaGeo.full_location.current_location.council[0].name);
     $('#location-loading').removeClass('hidden');
 
@@ -93,6 +94,7 @@ $(document).ready(function() {
         button.removeClass('hidden');
       } else {
         $('.no-provider-error').removeClass('hidden');
+        $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
       }
       $('#location-loading').addClass('hidden');
     });

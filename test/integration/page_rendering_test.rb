@@ -17,6 +17,19 @@ class LoadingPlacesTest < ActionDispatch::IntegrationTest
     panopticon_has_metadata(artefact_info)
   end
 
+  test "guide request" do
+    setup_api_responses("find-job")
+    visit "/find-job"
+    assert page.status_code == 200
+    assert URI.parse(page.current_url).path == "/find-job/introduction"
+
+    details = publisher_api_response('find-job')
+    details['parts'].each do |part|
+      visit "/find-job/#{part['slug']}"
+      assert page.status_code == 200
+    end
+  end
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   test "requests for gifs 404" do

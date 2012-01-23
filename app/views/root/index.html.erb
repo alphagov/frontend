@@ -11,22 +11,42 @@
           <fieldset>
             <legend class="visuallyhidden">Search the beta.gov.uk site</legend>
             <label for="main_autocomplete" class="visuallyhidden">Search</label>
-            <input type="text" id="main_autocomplete" name="q" value="" placeholder="type your search here">
+            <input type="text" id="main_autocomplete" name="q" value="">
             <input type="submit" value="Search" class="button">
-            
+            <p class="totry">Try searching for <em>bank holidays</em> or <em>lost passport</em></p>
           </fieldset>
         </form>
       </header>
      </div>
-
+    <div class="feature-items">
     <div class="carousel">
       <ul>
         <li>
-          <img src="/static/images/placeholder-homepage.png' %>" />
+          <%= image_tag 'homepage/homepage1.jpg' %>
+        </li>
+        <li>
+          <%= image_tag 'homepage/homepage2.jpg' %>
+        </li>
+        <li>
+          <%= image_tag 'homepage/homepage3.jpg' %>
+        </li>
+        <li>
+          <%= image_tag 'homepage/homepage4.jpg' %>
+        </li>
+        <li>
+          <%= image_tag 'homepage/homepage5.jpg' %>
+        </li>
+        <li>
+          <%= image_tag 'homepage/homepage6.jpg' %>
+        </li>
+        <li>
+          <%= image_tag 'homepage/homepage7.jpg' %>
         </li>
       </ul>
     </div>
     <div class="sections">
+    <div class="popular section">
+      <h2>Popular tools and topics</h2>
       <ul>
         <li><a href="/vat-rates">VAT rates</a></li>
         <li><a href="/bank-holidays">UK bank holidays</a></li>
@@ -38,5 +58,22 @@
         <li><a href="/pension-credit">Pension Credit</a></li>
         
       </ul>
+    </div>
+    <div class="browse section">
+      <h2>Browse</h2>
+      <ul>
+        <li><a href="/family">Family</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/money-and-tax">Money and tax</a></li>
+        <li><a href="/driving">Driving</a></li>
+        <li><a href="/life-in-the-uk">Life in the UK</a></li>
+        <li><a href="/housing">Housing</a></li>
+        <li><a href="/travel">Travel</a></li>
+        <li><a href="/neighbourhoods">Neighbourhoods</a></li>
+        <li><a href="/crime-and-justice">Crime and justice</a></li>
+        <li><a href="/work">Work</a></li>
+      </ul>
+    </div>
+    </div>
     </div>
   </section>

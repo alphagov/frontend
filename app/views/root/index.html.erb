@@ -5,8 +5,7 @@
     <div class="homepage-section">
       <header class="homepage-banner group">
         <div class="tag-line">
-          <h1>GOV.UK</h1>
-          <p>A simpler, clearer, faster way to get to government services and information.</p>
+          <p>A better way to find Government services and information</p>
         </div>
         <form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
           <fieldset>
@@ -14,47 +13,30 @@
             <label for="main_autocomplete" class="visuallyhidden">Search</label>
             <input type="text" id="main_autocomplete" name="q" value="" placeholder="type your search here">
             <input type="submit" value="Search" class="button">
-            <p id="search_hint">eg try <span>Bank holidays</span> or <span>Lost passport</span></p>
+            
           </fieldset>
         </form>
       </header>
      </div>
 
-    <div class="homepage-section">
-      <div class="tools-topics group">
-        <h2>Popular tools &amp; topics</h2>
-        <ul>
-          <li class="nearest"><a href="/register-offices">Register Offices</a></li>
-          <li class="transaction"><a href="/buy-a-uk-fishing-rod-licence">Buy a UK fishing rod licence</a></li>
-          <li class="programme"><a href="/crisis-loans">Crisis Loans</a></li>
-
-          <li class="answer"><a href="/vat-rates">VAT rates</a></li>
-          <li class="answer"><a href="/school-uniform-law">School uniform: the law</a></li>
-          <li class="transaction"><a href="/join-police">Join the Police</a></li>
-
-          <li class="transaction"><a href="/order-copy-birth-death-marriage-certificate">Order a copy of a birth, death or marriage certificate</a></li>
-          <li class="guide"><a href="/how-tax-credits-affect-other-benefits/effect-on-uk-benefits">How tax credits affect other benefits</a></li>
-          <li class="answer"><a href="/law-on-leaving-your-child-home-alone">The law on leaving your child home alone</a></li>
-        </ul>
-      </div>
+    <div class="carousel">
+      <ul>
+        <li>
+          <img src="/static/images/placeholder-homepage.png' %>" />
+        </li>
+      </ul>
     </div>
-
-    <div class="homepage-section">
-      <div class="sections group">
-        <h2>Browse sections</h2>
-        <ul>
-          <li><a href="/browse/crime-and-justice">Crime and Justice</a></li>
-          <li><a href="/browse/education">Education</a></li>
-          <li><a href="/browse/work">Work</a></li>
-          <li><a href="/browse/family">Family</a></li>
-          <li><a href="/browse/money-and-tax">Money and Tax</a></li>
-          <li><a href="/browse/driving">Driving</a></li>
-          <li><a href="/browse/housing">Housing</a></li>
-          <li><a href="/browse/travel">Travel</a></li>
-          <li><a href="/browse/life-in-the-uk">Life in the UK</a></li>
-          <li><a href="/browse/neighbourhoods">Neighbourhoods</a></li>
-        </ul>
-      </div>
+    <div class="sections">
+      <ul>
+        <li><a href="/vat-rates">VAT rates</a></li>
+        <li><a href="/bank-holidays">UK bank holidays</a></li>
+        <li><a href="/student-finance-calculator">Student Finance &ndash; how much you can get for 2012/13</a></li>
+        <li><a href="/driving-theory-test/overview">The driving theory test for cars and motorcycles</a></li>
+        <li><a href="/stamp-duty-land-tax-rates">Stamp Duty Land Tax rates</a></li>
+        <li><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
+        <li><a href="/check-mot-status-vehicle">Check the MOT status of a vehicle</a></li>
+        <li><a href="/pension-credit">Pension Credit</a></li>
+        
+      </ul>
     </div>
-
   </section>

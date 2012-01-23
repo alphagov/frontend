@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'integration_test_helper'
 
-class LoadingPlacesTest < ActionDispatch::IntegrationTest
+class PageRenderingTest < ActionDispatch::IntegrationTest
   def publisher_api_response(slug)
     json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
     JSON.parse(json)

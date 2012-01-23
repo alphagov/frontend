@@ -39,7 +39,7 @@ class RootController < ApplicationController
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
-    elsif @publication.parts && is_standard_html_request? && @part.nil?
+    elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return
     end
 
@@ -101,8 +101,8 @@ protected
   end
 
   # request.format.html? returns 5 when the request format is video.
-  def is_standard_html_request?
-    request.format.html? === true
+  def treat_as_standard_html_request?
+    !request.format.json? and !request.format.print? and !request.format.video?
   end
 
   def error_500; error 500; end

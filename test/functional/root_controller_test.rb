@@ -75,13 +75,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
-  test "we can output text from the json easter eggs file" do
-    publication_exists('slug' => 'planning-permission', 'type' => 'answer')
-    panopticon_has_metadata('slug' => 'planning-permission')
-    get :publication, :slug => "planning-permission"
-    assert @response.body.include? "But Mr Dent"
-  end
-
   test "further information tab should appear for programmes that have it" do
     publication_exists('slug' => 'zippy', 'type' => 'programme', 'parts' => [
         {'slug' => 'a', 'name' => 'AA'},

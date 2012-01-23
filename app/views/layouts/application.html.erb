@@ -20,7 +20,6 @@
   <body class="citizen">
     <div id="wrapper" class="<%= wrapper_class(@publication) %>">
       <%= yield %>
-      <%= easter_egg @publication.slug if @publication %>
     </div>
   </body>
 </html>

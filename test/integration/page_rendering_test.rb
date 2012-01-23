@@ -17,6 +17,13 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     panopticon_has_metadata(artefact_info)
   end
 
+  test "programme request" do
+    setup_api_responses('reduced-earnings-allowance')
+    visit "/reduced-earnings-allowance"
+    save_and_open_page
+    assert page.status_code == 200
+  end
+
   test "guide request" do
     setup_api_responses("find-job")
     visit "/find-job"

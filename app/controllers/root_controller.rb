@@ -24,6 +24,7 @@ class RootController < ApplicationController
 
     @publication = fetch_publication(params)
     assert_found(@publication)
+    setup_parts
 
     @artefact = fetch_artefact(params)
     set_slimmer_artefact_headers(@artefact)
@@ -38,16 +39,8 @@ class RootController < ApplicationController
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
-    elsif @publication.parts && is_standard_html_request?
-
-      if @publication.type == 'programme'
-        params[:part] ||= @publication.parts.first.slug
-      end
-
-      @part = @publication.find_part(params[:part])
-      if @part.nil?
-        redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return
-      end
+    elsif @publication.parts && is_standard_html_request? && @part.nil?
+      redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return
     end
 
     @edition = params[:edition].present? ? params[:edition] : nil
@@ -168,6 +161,16 @@ protected
 
   def assert_found(obj)
     raise RecordNotFound unless obj
+  end
+
+  def setup_parts
+    if @publication.type == 'programme'
+      params[:part] ||= @publication.parts.first.slug
+    end
+
+    if @publication.parts
+      @part = @publication.find_part(params[:part])
+    end
   end
 
   def set_slimmer_artefact_headers(artefact)

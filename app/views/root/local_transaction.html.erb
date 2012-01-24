@@ -84,7 +84,7 @@ $(document).ready(function() {
   function load_transaction() {
     $('.no-provider-error').addClass('hidden');
 
-    $('.location-placeholder').text(AlphaGeo.full_location.current_location.council[0].name);
+    $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
     $('#location-loading').removeClass('hidden');
 
     $.get('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {

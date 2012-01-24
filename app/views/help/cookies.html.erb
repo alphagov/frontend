@@ -11,29 +11,31 @@
   <article role="article" class="group">
     <h1>Cookies</h1>
     
-    <p>When we provide services, we want to make them easy, useful and reliable. This sometimes involves placing small amounts of information on your computer. These include small files known as cookies. They cannot be used to identify you personally on this site.</p>
+    <p>To make this site simple to use, we sometimes place small amounts of information on your computer, known as cookies. They improve things by:</p>
 
     <p>These pieces of information can be used to improve the service we provide to you by:</p>
     <ul>
       <li>remembering settings so you don't have to select them whenever you load a page</li>
-      <li>remembering information you've given (e.g. your postcode) so you don't need to enter it several times</li>
+      <li>remembering information you've given (e.g. your postcode) so you don't need keep entering it</li>
       <li>measuring how you use the website so we can make sure it meets your needs</li>
     </ul>
 
-    <p>You can manage these small files yourself and learn more about them from <a href="http://www.aboutcookies.org" title="Information about Cookies">AboutCookies.org</a>.</p>
+    <p>Cookies aren’t used to identify individuals; they can’t identify you personally on this site. They’re just here to make the site work better for you. Indeed, you can manage and/or delete these small files as you wish.</p>
+
+    <p>To learn more about cookies and how to manage them, visit <a href="http://aboutcookies.org/" title="Information about cookies">AboutCookies.org</a>. And please read on to find out more about how and where we use cookies.</p>
 
     <hr/>
 
     <h2>How we use cookies</h2>
     
-    <p>GOV.UK uses cookies in several places - we've listed each of them below with more details about why we use them and how long they will last.</p>
+    <p>GOV.UK uses cookies in several places – we've listed each of them below with more details about why we use them and how long they will last.</p>
     
     <p>In most cases, we will let you know <strong>before</strong> we store a cookie on your computer by providing an icon similar to this: <span class="sets-cookie" style="background: #fde387; font-size: 0.8em; border: #bc9509; padding: 2px 3px; border-radius: 0.5em;"><a href="#" title="This link is an example that doesn't do anything">sets a cookie</a>.</span></p>
     
 
     
     <h3 id="analyticscookies">Measuring website usage (Google Analytics)</h3>
-    <p>We use Google Analytics to collect analytics and information about how people use this site.  We do this to make sure it is meeting its users’ needs and understanding how we could do it better.</p>
+    <p>We use Google Analytics to collect information about how people use this site. We do this to make sure it’s meeting its users’ needs and to understand how we could do it better.</p>
     <p>Google Analytics stores information about what pages you visit, how long you are on the site, how you got here and what you click on. This information cannot be used to identify you and we do not allow Google to use our analytics data.</p>
     
     <p>The following cookies are set by Google Analytics:</p>
@@ -72,19 +74,92 @@
     
     <hr/>
     
-    <h3 id="locationcookies">Storing your location</h3>
+    <h3 id="locationcookies">Storing your approximate location</h3>
+    <p>Some pages on this site provide you with information based on your location. So when you enter your postcode, we save it to a cookie. This means you don’t have to keep typing your postcode in, and means we’ll always point you towards services that are closest to you e.g. the nearest police station.</p>
     
-    <!--OTHER COOKIES THAT NEED CONTENT WRITTEN:
-    govuktour           content:dismiss                 expires: 1 year (x4months)  
-    govukgeo            content:your encoded location   expires: 1 month (x4months)
-    govukfeedback       content:dismiss                 expires: 7 days
-    govuk-accessibility content:wordsdifficult          expires: 24 hours (x4months)
-    -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govukgeo</td>
+          <td>Details about your location (such as postcode, longitude/latitude and a 'friendly name' for where we think you are).</td>
+          <td>4 months <!-- currently 1 month --></td>
+        </tr>
+      </tbody>
+    </table>
 
+    <hr/>
 
-
-
+    <h3 id="usabilitycookies">Storing your usability settings</h3>
+    <p>This site provides usability settings that you can switch on or off as you need. If you switch them on, we store the settings in a cookie, so that they apply to each page you look at.</p>
     
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govuk-accessiblity</td>
+          <td>Your choice of usability setting.</td>
+          <td>4 months <!--currently 24 hours --></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <hr/>
+    
+    <h3 id="feedbackcookies">Remembering your feedback settings</h3>
+    <p>Most pages on GOV.UK show a floating box that asks you if the content was helpful or not. When you close this box (by either providing feedback or clicking the ‘close’ button), we store a cookie so that we know not to show the box again.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govukfeedback</td>
+          <td>The word 'dismiss' if you have closed the feedback box.</td>
+          <td>7 days</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr/>
+
+    <h3 id="tourcookies">Remembering if you’ve seen our introductory message</h3>
+    
+    <p>On your first visit to GOV.UK, you’ll be greeted by a pop-up message, welcoming you and providing background to this trial site. When you close the message, we’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again (and again...).</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govuktour</td>
+          <td>The word 'dismiss' once you have closed the popup box.</td>
+          <td>4 months <!-- currently 1 year --></td>
+        </tr>
+      </tbody>
+    </table>
     
   </article>
 </section>

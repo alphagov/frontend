@@ -43,7 +43,7 @@
                  <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on </span></span><span class="indicator"></span>
                </a>
             </p>
-            <p id="extendedLabel" class="no-provider-error error-notification hidden">Sorry, we couldn't find details of a provider for that service in your area.</p>
+            <p id="extendedLabel" class="no-provider-error error-notification<% unless @not_found %> hidden<% end %>"><% if @not_found %>Sorry, we couldn't find details of a provider for that service in your area.<% end %></p>
           </div>
         </section>
 
@@ -84,11 +84,11 @@ $(document).ready(function() {
   function load_transaction() {
     $('.no-provider-error').addClass('hidden');
 
-    $('.location-placeholder').text(AlphaGeo.full_location.current_location.council[0].name);
+    $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
     $('#location-loading').removeClass('hidden');
 
     $.get('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
-      if (data.council) {
+      if (data.council && data.council.name && data.council.url) {
         button.find('a').attr('href', data.council.url);
         button.find('span.destination').text(" on "+ data.council.name +" ");
         button.removeClass('hidden');

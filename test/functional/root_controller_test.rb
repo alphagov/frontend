@@ -123,6 +123,15 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "video", @request.format
   end
 
+  test "should not throw an error when an invalid video url is specified" do
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob', 'updated_at' => 1.hour.ago, 'parts' => [
+        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}])
+    panopticon_has_metadata('slug' => 'a-slug')    
+
+    get :publication, :slug => "a-slug"
+    get :publication, :slug => "a-slug", :format => "video"
+  end
+
   test "should return print view" do
     publication_exists(
       'slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS', 'parts' => [

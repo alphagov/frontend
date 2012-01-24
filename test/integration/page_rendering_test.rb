@@ -17,6 +17,20 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     panopticon_has_metadata(artefact_info)
   end
 
+  test "returns 503 if backend times out" do
+    uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
+    stub_request(:get, uri).to_raise(GdsApi::TimedOutException)
+    visit "/my-item"
+    assert page.status_code == 503
+  end
+
+  test "returns 503 if backend unavailable" do
+    uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
+    stub_request(:get, uri).to_raise(GdsApi::EndpointNotFound)
+    visit "/my-item"
+    assert page.status_code == 503
+  end
+
   test "programme request" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"

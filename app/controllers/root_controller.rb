@@ -9,6 +9,8 @@ class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
   include Slimmer::Headers
 
+  rescue_from GdsApi::TimedOutException, with: :error_503
+
   def index
     expires_in 10.minute, :public => true unless Rails.env.development?
 

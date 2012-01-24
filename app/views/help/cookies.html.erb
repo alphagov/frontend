@@ -72,19 +72,93 @@
     
     <hr/>
     
-    <h3 id="locationcookies">Storing your location</h3>
+    <h3 id="tourcookies">Remembering if you've seen the GOV.UK introductory popup box</h3>
+    <p>On your first visit to the GOV.UK beta website, you will see a popup box welcoming you to the website and providing background to the beta. When you close this box, we will store a cookie so that we know you have seen the popup and know not to show it to you again.</p>
     
-    <!--OTHER COOKIES THAT NEED CONTENT WRITTEN:
-    govuktour           content:dismiss                 expires: 1 year (x4months)  
-    govukgeo            content:your encoded location   expires: 1 month (x4months)
-    govukfeedback       content:dismiss                 expires: 7 days
-    govuk-accessibility content:wordsdifficult          expires: 24 hours (x4months)
-    -->
-
-
-
-
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govuktour</td>
+          <td>The word 'dismiss' once you have closed the popup box.</td>
+          <td>4 months <!-- currently 1 year --></td>
+        </tr>
+      </tbody>
+    </table>
     
+    <hr/>
+    
+    <h3 id="locationcookies">Storing your approximate location</h3>
+    <p>Some parts of this website provides you with information related to your location.  For example, rather than providing a list of all <a href="/uk-online-centre-internet-access-computer-training" title="find UK Online Centres near you">UK Online Centres</a>, we just can usually direct you to the nearest one.</p>
+    
+    <p>When you enter your postcode we save it (and related information such as your longitude, latitude and a friendly name for the location) to a cookie.  Saving the information to a cookie means that you don't need to type in the postcode every time.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govukgeo</td>
+          <td>Details about your location (such as postcode, longitude/latitude and a 'friendly name' for where we think you are).</td>
+          <td>4 months <!-- currently 1 month --></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <hr/>
+    
+    <h3 id="usabilitycookies">Storing your usability settings</h3>
+    <p>The GOV.UK website provides usability settings that can be switched on as required.  When these settings are turned on, we store this in a cookie so that we know to use these settings on every page you look at.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govuk-accessiblity</td>
+          <td>Your choice of usability setting.</td>
+          <td>4 months <!--currently 24 hours --></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <hr/>
+    
+    <h3 id="feedbackcookies">Remembering your feedback settings</h3>
+    <p>Most pages on the GOV.UK show a floating box that asks you to let us know if the content was helpful or not.  When you close this box (by either providing feedback or clicking the close button), we store a cookie so that we know not to show the box again.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Typical Content</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>govukfeedback</td>
+          <td>The word 'dismiss' if you have closed the feedback box.</td>
+          <td>7 days</td>
+        </tr>
+      </tbody>
+    </table>
     
   </article>
 </section>

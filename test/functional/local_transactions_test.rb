@@ -24,8 +24,8 @@ class LocalTransactionsTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
   end
   
-  def setup_full_transaction_details(snac = 21)
-    full_details = {
+  def setup_full_transaction_details(snac = 21, full_details = nil)
+    full_details ||= {
       'slug' => 'c-slug',
       'type' => "local_transaction",
       'name' => "THIS",
@@ -53,6 +53,46 @@ class LocalTransactionsTest < ActionController::TestCase
     assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
   end
 
+  test "Should select the first council which provides the service" do
+    councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
+    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+
+    panopticon_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
+
+    publication_exists_for_snac(councils['council'][0]['ons'], {
+      'slug' => 'c-slug',
+      'type' => "local_transaction",
+      'name' => "THIS",
+    })
+
+    publication_exists_for_snac(councils['council'][1]['ons'], {
+      'slug' => 'c-slug',
+      'type' => "local_transaction",
+      'name' => "THIS",
+      'authority' => {
+        'name' => "Haringey Council",
+        'lgils' => [
+          { 'url' => "http://www.haringey.gov.uk/something-you-want-to-do" }
+        ]
+      }
+    })
+
+    publication_exists_for_snac(councils['council'][2]['ons'], {
+      'slug' => 'c-slug',
+      'type' => "local_transaction",
+      'name' => "THIS",
+      'authority' => {
+        'name' => "Another Council",
+        'lgils' => [
+          { 'url' => "http://www.another.gov.uk/something-you-want-to-do" }
+        ]
+      }
+    })
+
+    get :publication, :slug => "c-slug"
+    assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
+  end
+
   test "Should set message if no council for local transaction" do
     councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
@@ -62,6 +102,6 @@ class LocalTransactionsTest < ActionController::TestCase
     end 
 
     get :publication, :slug => "c-slug"
-    assert_redirected_to publication_path(:slug => "c-slug", :part => 'not_found')
+    assert response.body.include? "couldn't find details of a provider"
   end
 end

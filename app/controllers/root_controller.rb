@@ -51,9 +51,11 @@ class RootController < ApplicationController
       format.any(:html, :video) do
         if @publication.type == "local_transaction" and @council.present?
           redirect_to @council[:url]
-        elsif @publication.type == "local_transaction" and @council == { }
-          redirect_to publication_url(@publication.slug, "not_found")
         else
+          if @publication.type == "local_transaction" and !@council.present?
+            @not_found = true
+          end
+
           render @publication.type
         end
       end
@@ -72,6 +74,7 @@ class RootController < ApplicationController
       end
     end
   rescue RecordNotFound
+    expires_in 10.minute, :public => true unless Rails.env.development?
     error 404
   end
 
@@ -129,12 +132,11 @@ protected
     unless councils.any?
       return false
     else
-      local_transaction = fetch_publication(slug: local_transaction.slug, snac: councils.first['ons'])
-      if local_transaction.authority
-        return { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url }
-      else
-        return { }
+      providers = councils.map do |c|
+        local_transaction = fetch_publication(slug: local_transaction.slug, snac: c['ons'])
+        local_transaction.authority ? { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url } : nil
       end
+      providers.compact.any? ? providers.compact.first : false
     end
   end
 

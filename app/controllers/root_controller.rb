@@ -72,6 +72,7 @@ class RootController < ApplicationController
       end
     end
   rescue RecordNotFound
+    expires_in 10.minute, :public => true unless Rails.env.development?
     error 404
   end
 

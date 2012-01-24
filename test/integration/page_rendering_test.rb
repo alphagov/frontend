@@ -20,7 +20,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   test "programme request" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"
-    save_and_open_page
     assert page.status_code == 200
   end
 

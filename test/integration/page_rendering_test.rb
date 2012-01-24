@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'integration_test_helper'
 
-class LoadingPlacesTest < ActionDispatch::IntegrationTest
+class PageRenderingTest < ActionDispatch::IntegrationTest
   def publisher_api_response(slug)
     json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
     JSON.parse(json)
@@ -15,6 +15,25 @@ class LoadingPlacesTest < ActionDispatch::IntegrationTest
     publication_info = publisher_api_response(slug)
     publication_exists(publication_info)
     panopticon_has_metadata(artefact_info)
+  end
+
+  test "programme request" do
+    setup_api_responses('reduced-earnings-allowance')
+    visit "/reduced-earnings-allowance"
+    assert page.status_code == 200
+  end
+
+  test "guide request" do
+    setup_api_responses("find-job")
+    visit "/find-job"
+    assert page.status_code == 200
+    assert URI.parse(page.current_url).path == "/find-job/introduction"
+
+    details = publisher_api_response('find-job')
+    details['parts'].each do |part|
+      visit "/find-job/#{part['slug']}"
+      assert page.status_code == 200
+    end
   end
 
   # Crude way of handling the situation described at

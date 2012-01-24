@@ -26,6 +26,9 @@ module RootHelper
 
   def part_number(parts, part)
     parts.index(part) + 1
+  rescue => e
+    Rails.logger.info "#{e.message} : #{parts.inspect} : #{part.inspect}"
+    "-"
   end
 
   def transaction_path(slug,council,edition)
@@ -41,7 +44,7 @@ module RootHelper
   end
 
   def council_lookup_path(slug)
-    identify_council_path(:slug=>slug) 
+    identify_council_path(:slug=>slug)
   end
 
   def to_govspeak(field)

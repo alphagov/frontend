@@ -10,6 +10,7 @@ class RootController < ApplicationController
   include Slimmer::Headers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
+  rescue_from GdsApi::EndpointNotFound, with: :error_503
 
   def index
     expires_in 10.minute, :public => true unless Rails.env.development?

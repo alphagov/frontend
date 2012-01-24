@@ -1,5 +1,8 @@
 <div class="meta-data group">
   <div class="inner">
+    <% if publication.updated_at %>
+      <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+    <% end %>
     <% if artefact.present? && (contact = artefact.contact).present? %>
       <%= render 'contact_details.html', :contact => contact %>
     <% end %>
@@ -11,17 +14,14 @@
       <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print') %></p>
     <% end %>
     <% unless api_links.blank? %>
-    <div class="data-reuse">
+    <!--<div class="data-reuse">
       <p>Re-use this data:</p>
       <ul class="api-links">
         <% api_links.each do |format, url| %>
           <%= content_tag :li, link_to(format.to_s.upcase, url), :class => format %>
         <% end %>
       </ul>
-    </div>
-    <% end %>
-    <% if publication.updated_at %>
-      <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+    </div>-->
     <% end %>
     </div>
   </div>

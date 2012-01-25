@@ -55,7 +55,7 @@ class RootController < ApplicationController
         if @publication.type == "local_transaction" and @council.present?
           redirect_to @council[:url]
         else
-          if @publication.type == "local_transaction" and @council == false
+          if @publication.type == "local_transaction" and !@council.present? and council_from_geostack.any?
             @not_found = true
           end
 

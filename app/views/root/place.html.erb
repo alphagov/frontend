@@ -18,9 +18,10 @@
 
   	        <div class="find-nearest">
 
+    	        <%= to_govspeak(@place.introduction) %>
+
               <form method="get" id="local-locator-form" class="find-location-for-service">
       	        <fieldset>
-        	        <%= to_govspeak(@place.introduction) %>
 
       	          <legend class="visuallyhidden">Postcode lookup</legend>
       	          <% if @edition %>
@@ -30,7 +31,7 @@
 
       	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
       	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-      	            <input type="submit" value="Next &rarr;" class="button">
+      	            <input type="submit" value="Find" class="button">
       	          </div>
 
       	          <div class="finding_location hidden">

@@ -26,8 +26,8 @@ namespace :router do
       incoming_path: "/settings.raw"
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/help"
-    @router.routes.update application_id: "frontend", route_type: :prefix,
-      incoming_path: "/platform"
+    @router.routes.update application_id: "frontend", route_type: :full,
+      incoming_path: "/feedback"
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/identify_council"
     @router.routes.update application_id: "frontend", route_type: :prefix,

@@ -1,15 +1,18 @@
 <% content_for :title, "Feeback | Help | GOV.UK" %>
-<section id="content" role="main" class="group ancillary help">
+<% content_for :section_meta_tags do %>
+  <meta name="x-section-name" content="Feedback" />
+  <meta name="x-section-link" content="/feedback" />
+<% end %>
 
-	<header class="page-header group">
-		<hgroup>
-		  <h1>Help using GOV.UK</h1>
-		</hgroup>
-	</header>
+<section id="content" role="main" class="group ancillary feedback">
 
-  <%= render :partial => 'menu' %>
+  <header class="page-header group">
+    <hgroup>
+      <h1>Feedback</h1>
+    </hgroup>
+  </header>
+
   <article role="article" class="group">
-    <h1>Feedback</h1>
     <h2>Help us improve GOV.UK</h2>
     <p>This site is an experimental trial (‘beta’) replacement for DirectGov and the first step towards a single government website. As it’s a beta site, we know there will be things that need fixing and improving. So we’d love your feedback.</p>
 
@@ -18,6 +21,6 @@
     <p>You can also use Twitter (tweet us <a href="http://twitter.com/govuk">@GovUK</a>) or email us at <a href="mailto:beta-feedback@digital.cabinet-office.gov.uk">beta-feedback@digital.cabinet-office.gov.uk</a></p>
 
     <p>Thanks in advance for all and any feedback.</p>
-        
+
   </article>
 </section>

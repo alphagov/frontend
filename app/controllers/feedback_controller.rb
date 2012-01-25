@@ -1,6 +1,6 @@
 require "slimmer/headers"
 
-class PlatformController < ApplicationController
+class FeedbackController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include Slimmer::Headers
@@ -15,7 +15,7 @@ class PlatformController < ApplicationController
 
 protected
   def declare_section
-    @artefact = OpenStruct.new(section: 'Platform')
+    @artefact = OpenStruct.new(section: 'Feedback')
   end
 
   def cache_headers
@@ -31,3 +31,6 @@ protected
   end
 
 end
+
+
+

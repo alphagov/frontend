@@ -93,13 +93,22 @@ class LocalTransactionsTest < ActionController::TestCase
     assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
   end
 
+  test "Should not show error message if no postcode submitted" do
+    publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
+    panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
+
+    get :publication, :slug => 'c-slug'
+    assert !response.body.include?("couldn't find details of a provider")
+  end
+
   test "Should set message if no council for local transaction" do
-    councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
+    councils = {'council'=>[{'ons'=>1}]}
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
 
-    councils['council'].each do |c|
-      setup_this_local_transaction c['ons']
-    end 
+    publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
+    panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
+
+    stub_request(:get, "#{PUBLISHER_ENDPOINT}/publications/c-slug.json?snac=1").to_return(:body => JSON.dump({"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"}))
 
     get :publication, :slug => "c-slug"
     assert response.body.include? "couldn't find details of a provider"

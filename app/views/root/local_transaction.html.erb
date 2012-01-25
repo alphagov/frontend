@@ -25,7 +25,7 @@
                 <div class="location_error error-notification hidden"></div>
                 <div class="ask_location">
                   <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                  <input type="submit" value="Next &rarr;" class="button">
+                  <input type="submit" value="Find" class="button">
                 </div>
 
                 <div class="finding_location hidden">
@@ -93,7 +93,7 @@ $(document).ready(function() {
         button.find('span.destination').text(" on "+ data.council.name +" ");
         button.removeClass('hidden');
       } else {
-        $('.no-provider-error').removeClass('hidden');
+        $('.no-provider-error').removeClass('hidden').text("Sorry, we couldn't find details of a provider for that service in your area.");
         $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
       }
       $('#location-loading').addClass('hidden');

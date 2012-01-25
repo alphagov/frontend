@@ -1,49 +1,56 @@
 <div id="global-locator-box" class="popover">
-  
+
   <h2>Settings</h2>
-    <div class="global-location hidden">
-      <h3>Set your location</h3>
-      <div class="global-locator-error"></div>
 
-        <form id="global-locator-form">
-          <fieldset>
-            <legend class="visuallyhidden">Enter a UK postcode</legend>
-            <% if @edition %>
-              <input type="hidden" name="edition" value="<%= @edition %>" />
-            <% end %>
-            <div class="location_error"></div>
+  <h3>Set your location</h3>
 
-            <div class="ask_location">
-              <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-              <input type="submit" value="Set location" class="button" />
-            </div>
+    <div class="intro">
+      <p>Setting your location enables us to give you details of services close to you e.g. police stations, driving test centres. Your approximate location will be stored in a cookie on your computer, but we won’t save your postcode or precise location. <a href="/help/cookies">Read more about cookies</a>.</p>
 
-            <div class="finding_location hidden">
-              <p>Locating you&hellip;</p>
-            </div>
-            <div class="found_location hidden">
-              <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Not in <span class="friendly-name"></span>?</a></p>
-            </div>
-          </fieldset>
-        </form>
+      <div class="global-location hidden">
+        <div class="global-locator-error"></div>
 
-        <p><small>Setting your location enables us to give you details of services close to you e.g. police stations, driving test centres. Your approximate location will be stored in a cookie on your computer, but we won’t save your postcode or precise location. Read more about cookies <a href="/help/cookies">here</a>.</small></p>
+          <form id="global-locator-form">
+            <fieldset>
+              <% if @edition %>
+                <input type="hidden" name="edition" value="<%= @edition %>" />
+              <% end %>
+              <div class="location_error"></div>
+
+              <div class="ask_location">
+                <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+                <input type="submit" value="Set location" class="button" />
+              </div>
+
+              <div class="finding_location hidden">
+                <p>Locating you&hellip;</p>
+              </div>
+              <div class="found_location hidden">
+                <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Not in <span class="friendly-name"></span>?</a></p>
+              </div>
+            </fieldset>
+          </form>
+
+        </div>
       </div>
-  </div>
-  <div id="global-set-location">
 
-    <h3>Change the theme to suit your needs</h3>
-
-    <div class="personalise-options">
-      <form>
-        <input type="radio" title="don't use a custom theme, just show me the regular website" id="core" name="acc-options" value="core"> <label>Standard theme</label></input>
-      <input type="radio" title="use the easier-to-read theme" id="wordsdifficult" name="acc-options" value="wordsdifficult"> <label>I find words difficult*</label></input>
-      
-      <input type="submit" value="Save theme" class="button" />
-      </form>
-      
     </div>
-    <p><small>* This is an experimental design to help with dyslexia and other reading disabilities. We’d love feedback from any users selecting this option.</small></p>
+
+    <div id="global-set-location">
+
+      <h3>Change the theme to suit your needs</h3>
+
+      <div class="personalise-options">
+        <form>
+          <input type="radio" title="don't use a custom theme, just show me the regular website" id="core" name="acc-options"> <label for="core">Standard theme</label></input>
+          <input type="radio" title="use the easier-to-read theme" id="wordsdifficult" name="acc-options"> <label for="wordsdifficult">I find words difficult*</label></input>
+
+          <input type="submit" value="Save theme" class="button" />
+        </form>
+      </div>
+      <p>* This is an experimental design to help with dyslexia and other reading disabilities. We’d love feedback from any users selecting this option.</p>
+    </div>
+
 </div>
 <script type="text/javascript">
 $(document).ready(function() {

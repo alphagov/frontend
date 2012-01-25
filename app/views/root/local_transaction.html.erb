@@ -93,7 +93,7 @@ $(document).ready(function() {
         button.find('span.destination').text(" on "+ data.council.name +" ");
         button.removeClass('hidden');
       } else {
-        $('.no-provider-error').removeClass('hidden').text("Sorry, we couldn't find a provider for this service in your area.");
+        $('.no-provider-error').removeClass('hidden').text("Sorry, we couldn't find details of a provider for that service in your area.");
         $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
       }
       $('#location-loading').addClass('hidden');

@@ -1,13 +1,17 @@
 <% content_for :title, "Feeback | Help | GOV.UK" %>
+<% content_for :section_meta_tags do %>
+  <meta name="x-section-name" content="Feedback" />
+  <meta name="x-section-link" content="/feedback" />
+<% end %>
+
 <section id="content" role="main" class="group ancillary help">
 
-	<header class="page-header group">
-		<hgroup>
-		  <h1>Help using GOV.UK</h1>
-		</hgroup>
-	</header>
+  <header class="page-header group">
+    <hgroup>
+      <h1>Help using GOV.UK</h1>
+    </hgroup>
+  </header>
 
-  <%= render :partial => 'menu' %>
   <article role="article" class="group">
     <h1>Feedback</h1>
     <h2>Help us improve GOV.UK</h2>

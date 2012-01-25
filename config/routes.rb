@@ -4,7 +4,9 @@ Frontend::Application.routes.draw do
   match "*path.gif", :to => proc {|env| [404, {}, ["Not Found"]] }
 
   match "/homepage", :to => "root#index"
+  match "/help/feedback" => redirect("/feedback")
   match "/help(/:action)", :to => "help"
+  match "/feedback", :to => 'feedback#index'
   match "/error_500", :to => "root#error_500"
   match "/error_501", :to => "root#error_501"
   match "/error_503", :to => "root#error_503"

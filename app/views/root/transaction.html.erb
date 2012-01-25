@@ -49,7 +49,7 @@
 
      </div>
    </article>
-  <%= render 'publication_metadata', :publication => @transaction, :artefact => @artefact, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
+  <%= render 'publication_metadata', :publication => @transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
 </div>
 
 </section>

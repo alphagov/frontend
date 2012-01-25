@@ -86,9 +86,11 @@
       </div>
 
 		</article>
-    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:json].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
+    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => {'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json)} %>
 	</div>
 </section>
+
+
 
 <div id="related-items"></div>
 

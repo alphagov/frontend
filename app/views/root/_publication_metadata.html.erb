@@ -3,9 +3,6 @@
     <% if publication.updated_at %>
       <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
     <% end %>
-    <% if artefact.present? && (contact = artefact.contact).present? %>
-      <%= render 'contact_details.html', :contact => contact %>
-    <% end %>
     <div class="print-and-modified-date group">
     <% if [:programme].include? publication.type.to_sym %>
       <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print') %></p>

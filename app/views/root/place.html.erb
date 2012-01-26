@@ -105,21 +105,28 @@
         var form = new AlphaGeoForm('#local-locator-form');
 
         var load_new_locations = function() {
-          var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
-
           $('.further_information').hide();
           $('#options-loading').removeClass('hidden');
-          $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
-            $('#options-loading').addClass('hidden');
+          $.ajax({
+            url: "<%= publication_path(@place.slug, :format => 'json') %>",
+            dataType: 'json',
+            data: {
+              lat: AlphaGeo.full_location.current_location.lat,
+              lon: AlphaGeo.full_location.current_location.lon
+            },
+            type: 'POST',
+            success: function (data) {
+              $('#options-loading').addClass('hidden');
 
-            if (data.places.length > 0) {
-              $('h3#options-header').show().removeClass('hidden');
-              $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
-            } else {
-              $('#results-error').removeClass('hidden').find('p').text('Sorry, no results were found near you.');
+              if (data.places.length > 0) {
+                $('h3#options-header').show().removeClass('hidden');
+                $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
+              } else {
+                $('#results-error').removeClass('hidden').find('p').text('Sorry, no results were found near you.');
+              }
+              _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
+              $('#options-header').show();
             }
-            _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
-            $('#options-header').show();
           });
         }
 

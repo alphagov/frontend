@@ -87,7 +87,7 @@ $(document).ready(function() {
     $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
     $('#location-loading').removeClass('hidden');
 
-    $.get('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
+    $.post('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
       if (data.council && data.council.name && data.council.url) {
         button.find('a').attr('href', data.council.url);
         button.find('span.destination').text(" on "+ data.council.name +" ");

@@ -32,7 +32,7 @@ class RootController < ApplicationController
     @artefact = fetch_artefact(params)
     set_slimmer_artefact_headers(@artefact)
 
-    if @publication.type == "place"
+    if @publication.type == "place" and !request.format.kml?
       @options = load_place_options(@publication)
     elsif @publication.type == "local_transaction"
       @council = load_council(@publication)
@@ -52,6 +52,9 @@ class RootController < ApplicationController
 
     @not_found = false
     respond_to do |format|
+      format.kml do
+        render :text => imminence_api.places_kml(@publication.place_type)
+      end
       format.any(:html, :video) do
         if @publication.type == "local_transaction" and @council.present?
           redirect_to @council[:url]

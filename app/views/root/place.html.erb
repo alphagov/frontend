@@ -86,11 +86,12 @@
       </div>
 
 		</article>
-    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => {'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json)} %>
+    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => {
+      'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json),
+      'application/vnd.google-earth.kml+xml' => kml_export_path(@place.slug)
+    } %>
 	</div>
 </section>
-
-
 
 <div id="related-items"></div>
 

@@ -12,6 +12,7 @@
     <% end %>
 
     <%= content_for?(:section_meta_tags) ? yield(:section_meta_tags) : section_meta_tags(@artefact) %>
+    <%= javascript_include_tag 'frontend' %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
   </head>

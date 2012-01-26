@@ -52,7 +52,7 @@
                 </li>
               <%- else -%>
                 <li class="first">
-                  You are at the beginning of this guide
+                  <span>You are at the beginning of this guide</span>
                 </li>
    	        <%- end -%>
    	        <%- if @guide.has_next_part?(@part) -%>
@@ -61,12 +61,12 @@
                   </li>
               <%- else -%>
                 <li class="last">
-                  You have reached the end of this guide
+                  <span>You have reached the end of this guide</span>
                 </li>
    	        <%- end -%>
    	      <%- else -%>
    	        <li class="last">
-   	          You have reached the end of this guide
+   	          <span>You have reached the end of this guide</span>
    	        </li>
    	      <%- end -%>
  	      </nav>

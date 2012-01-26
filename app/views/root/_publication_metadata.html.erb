@@ -14,7 +14,7 @@
 </div>
 
 <% if api_links.any? %>
-<% content_for :head do %>
+<% content_for :extra_headers do %>
   <% api_links.each do |type, href| %>
 <link rel="alternate" type="<%= type %>" href="<%= href %>">
   <% end %>

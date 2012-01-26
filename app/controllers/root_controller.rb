@@ -50,6 +50,7 @@ class RootController < ApplicationController
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
+    @not_found = false
     respond_to do |format|
       format.any(:html, :video) do
         if @publication.type == "local_transaction" and @council.present?

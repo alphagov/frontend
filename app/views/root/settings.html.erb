@@ -10,7 +10,7 @@
       <div class="global-location hidden">
         <div class="global-locator-error"></div>
 
-          <form id="global-locator-form">
+          <form method="post" id="global-locator-form">
             <fieldset>
               <% if @edition %>
                 <input type="hidden" name="edition" value="<%= @edition %>" />
@@ -33,6 +33,7 @@
 
         </div>
       </div>
+
     </div>
 
     <div id="global-set-location">

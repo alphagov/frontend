@@ -1,5 +1,4 @@
 $(function(){
-  $('body').addClass("js-enabled");
   $('#wrapper').tabs();
 
   /* step link prompts */
@@ -15,7 +14,7 @@ $(function(){
     sectionTitle,
     nav;
 
-    last = "<li><a href='#"+last+"'>Find out how to claim</a></li>"
+    last = "<li><a href='#"+last+"'>No thanks, just tell me how to claim</a></li>"
 
   while(i--){
     j = i+1;
@@ -29,7 +28,7 @@ $(function(){
     if(sectionTitle != undefined){
       sectionTitle = sectionTitle.toLowerCase();
       id = id.split("-enhanced")[0];
-      var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+"<span class='progressor'></span></a></li>");
+      var next = ("<li><a href='#"+id+"'>Read about "+sectionTitle+"</a></li>");
       if(i == 2){
         $(ul).append(next)
       }

@@ -82,11 +82,11 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal '', @helper.section_meta_tags(artefact)
   end
 
-  test "section_meta_tags returns pair of meta tags if artefact has a section" do
+  test "section_meta_tags returns three meta tags if artefact has a section" do
     artefact = OpenStruct.new(section: "My Section")
     response = @helper.section_meta_tags(artefact)
 
-    assert_equal 2, response.scan(/<meta/).count
+    assert_equal 3, response.scan(/<meta/).count
     assert response.match(/name="x-section-name"/)
     assert response.match(/content="My Section"/)
   end

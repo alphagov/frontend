@@ -25,6 +25,7 @@ module ApplicationHelper
     return '' if artefact.nil? or artefact.section.blank?
     section = artefact.section.split(':').first
     tag(:meta, {name: 'x-section-name', content: section}, true) +
-      tag(:meta, {name: 'x-section-link', content: "/browse/#{section.parameterize}"}, true)
+      tag(:meta, {name: 'x-section-link', content: "/browse/#{section.parameterize}"}, true) +
+      tag(:meta, {name: 'x-section-format', content: artefact.kind}, true)
   end
 end

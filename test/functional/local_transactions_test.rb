@@ -98,7 +98,7 @@ class LocalTransactionsTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
 
     get :publication, :slug => 'c-slug'
-    assert !response.body.include?("couldn't find details of a provider")
+    assert response.body.include?("no-provider-error error-notification hidden")
   end
 
   test "Should set message if no council for local transaction" do

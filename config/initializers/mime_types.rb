@@ -6,3 +6,4 @@
 Mime::Type.register_alias "text/html", :video
 Mime::Type.register_alias "text/html", :print
 Mime::Type.register_alias "text/html", :raw
+Mime::Type.register 'application/vnd.google-earth.kml+xml', :kml

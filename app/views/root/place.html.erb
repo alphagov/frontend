@@ -1,6 +1,5 @@
 <% content_for :extra_javascript do %>
 	<%= javascript_include_tag 'trackers/findmynearest.js', :defer=>"defer" %>
-	<%= javascript_include_tag 'feedback.js', :defer=>"defer" %>
 <% end %>
 <section id="content" role="main" class="group">
 
@@ -87,7 +86,10 @@
       </div>
 
 		</article>
-    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => Hash[[:json].map { |format| [format, "#{@place.place_type}.#{format}"] }] %>
+    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => {
+      'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json),
+      'application/vnd.google-earth.kml+xml' => publication_path(@place.slug, :edition => @edition, :format => :kml)
+    } %>
 	</div>
 </section>
 
@@ -97,49 +99,8 @@
   <%= mustache_direct '_option.html' %>
   </script>
 
-  <script>
+  <script type="text/javascript">
+  
+  var load_places = <%= geo_known_to_at_least?('ward') ? 'false' : 'true' %>;
 
-  $(document).ready(function() {
-
-      <% unless geo_known_to_at_least?('ward') -%>
-        var form = new AlphaGeoForm('#local-locator-form');
-
-        var load_new_locations = function() {
-          var the_href = "<%= publication_path(@place.slug, :format => 'json') %>";
-
-          $('.further_information').hide();
-          $('#options-loading').removeClass('hidden');
-          $.getJSON(the_href, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function (data) {
-            $('#options-loading').addClass('hidden');
-
-            if (data.places.length > 0) {
-              $('h3#options-header').show().removeClass('hidden');
-              $('#options').html($.mustache($('#option-template').html(), {options: data.places}));
-            } else {
-              $('#results-error').removeClass('hidden').find('p').text('Sorry, no results were found near you.');
-            }
-            _gaq.push(['_trackEvent', 'Citizen-Format-Findmynearest', 'Success-results']);
-            $('#options-header').show();
-          });
-        }
-
-        var remove_existing_location_data = function() {
-          $("#options").html('');
-          $('#options-header').hide();
-          $('#results-error').addClass('hidden');
-        }
-
-        $(AlphaGeo).bind('location-removed', function(e, message) {
-          remove_existing_location_data();
-          $('.further_information').show();
-        });
-
-        $(AlphaGeo).bind('location-completed', function(e, location) {
-          remove_existing_location_data();
-          $('strong.locality_placeholder').text(AlphaGeo.full_location.current_location.locality);
-          load_new_locations();
-        });
-      <% end %>
-
-    });
-    </script>
+  </script>

@@ -1,6 +1,5 @@
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag 'trackers/local-transaction.js', :defer=>"defer" %>
-	<%= javascript_include_tag 'feedback.js', :defer=>"defer" %>
 <% end %>
 <section id="content" role="main" class="group">
 
@@ -67,52 +66,14 @@
 
       </div>
     </article>
-    <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { :json => publication_path(@publication.slug, :edition => @edition, :format => :json, :all => true) } %>
+    <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, edition: @edition, format: :json, all: true) } %>
   </div>
 </section>
 
 <div id="related-items"></div>
 
 <script type="text/javascript">
-<!--
 
-$(document).ready(function() {
 
-  var form = new AlphaGeoForm('#local-locator-form');
-  var button = $('.get-started');
 
-  function load_transaction() {
-    $('.no-provider-error').addClass('hidden');
-
-    $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
-    $('#location-loading').removeClass('hidden');
-
-    $.get('/<%= @local_transaction.slug %>.json', { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
-      if (data.council && data.council.name && data.council.url) {
-        button.find('a').attr('href', data.council.url);
-        button.find('span.destination').text(" on "+ data.council.name +" ");
-        button.removeClass('hidden');
-      } else {
-        $('.no-provider-error').removeClass('hidden').text("Sorry, we couldn't find details of a provider for that service in your area.");
-        $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
-      }
-      $('#location-loading').addClass('hidden');
-    });
-  }
-  function unload_transaction() {
-    $('.no-provider-error').addClass('hidden');
-    button.addClass('hidden');
-  }
-
-  $(AlphaGeo).bind('location-completed', function(location) {
-    load_transaction();
-  });
-  $(AlphaGeo).bind('location-removed', function(location) {
-    $('.location-placeholder').text('');
-    unload_transaction();
-  });
-
-});
-
--->
 </script>

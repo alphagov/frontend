@@ -24,5 +24,5 @@
     </article>
     <% end %>
 
-    <%= render 'publication_metadata.html', :publication => @guide, :artefact => @artefact, :api_links => false %>
+    <%= render 'publication_metadata.html', :publication => @guide, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@guide.slug, :edition => @edition, :format => :json) } %>
 </div>

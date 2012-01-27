@@ -7,18 +7,18 @@
 		<hgroup>
 			<h1><span>Guide </span><%= @guide.title %></h1>
 		</hgroup>
-		<% if ! @guide.video_url.blank? %>
-		<div class="alternative-guide video">
-		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-      <a href="<%= guide_path(@guide.slug, 'video',@edition) %>#video"><div class="video-wrapper"><% if video_id.any? %><img src="http://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
-		</div>
-		<% end %>
 	</header>
 
 	<div class="article-container group">
    <aside>
      <div class="inner">
        <nav role="navigation" class="chapters-navigation">
+     		<% if ! @guide.video_url.blank? %>
+     		<div class="alternative-guide video">
+     		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
+           <a href="<%= guide_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="http://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
+     		</div>
+     		<% end %>
          <ol>
            <% @guide.parts.each do |nav_part| %>
            <li <% if @part == nav_part %>class="active"<% end %>>

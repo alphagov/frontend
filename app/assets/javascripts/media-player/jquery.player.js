@@ -675,8 +675,8 @@ var html5_methods = {
 			getControls : function(){
 				var $controls = $('<span />').addClass('ui-corner-bottom').addClass('control-bar');
 				// Insert the Nomensa Logo
-				var $logo = $('<a />').attr('href', 'http://www.gov.uk?ref=logo').html('Accessible Media Player by Nomensa').addClass('logo');
-				$controls.append($logo);
+				// var $logo = $('<a />').attr('href', 'http://www.gov.uk?ref=logo').html('Accessible Media Player by Nomensa').addClass('logo');
+				// $controls.append($logo);
 				var $func = this.getFuncControls();
 				var $vol = this.getVolControls();
 				var $slider = this.getSliderBar();

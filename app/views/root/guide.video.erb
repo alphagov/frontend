@@ -2,7 +2,7 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Guide to </span> <%= @guide.title %></h1>
+      <h1><span>Guide</span> <%= @guide.title %></h1>
     </hgroup>
   </header>
 
@@ -10,16 +10,16 @@
     <article role="article" class="group">
       <div class="inner">
 
-				<div class="view-text-version">
-					<p>This is a video guide to <%= @guide.title %>. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a></p>
-				</div>
-
 				<div class="summary">
 					<p><%= @guide.video_summary %></p>
 				</div>
 
+				<div class="info-notice">
+					<p>This is the video version of this guide. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a>.</p>
+				</div>
+
         <% if video_embed_url(@guide) %>
-          <figure class="media-player-wrapper" id="video" style="margin: 0 20px;">
+          <figure class="media-player-wrapper" id="video">
             <a href="<%= video_embed_url(@guide) %>">Watch <%= @guide.title %></a>
           </figure>
         <% end %>

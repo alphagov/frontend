@@ -1,0 +1,25 @@
+<% render :partial => 'section_meta_tags' %>
+<% content_for :title, "Help using GOV.UK | Help | GOV.UK" %>
+<section id="content" role="main" class="group ancillary help">
+
+  <header class="page-header group">
+    <hgroup>
+      <h1>Help using GOV.UK</h1>
+    </hgroup>
+  </header>
+
+  <%= render :partial => 'menu' %>
+  <article role="article" class="group">
+    <section>
+      <h2>Accessibility policies</h2>            
+      <p>
+        This page includes the <a href="#website-accessibility-policy">the  accessibility policy for GOV.UK</a> and the 
+        <a href="#organisation-accessibility-policy">organisation accessibility policy for the Government Digital Service</a>
+      </p>
+      <%= render "website_accessibility_policy" %>
+      <%= render "organisation_accessibility_policy" %>
+    </section>
+
+  </article>
+
+</section>

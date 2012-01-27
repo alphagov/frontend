@@ -13,7 +13,7 @@ class RootController < ApplicationController
   rescue_from GdsApi::EndpointNotFound, with: :error_503
 
   def index
-    expires_in 10.minute, :public => true unless Rails.env.development?
+    expires_in 60.minute, :public => true unless Rails.env.development?
 
     set_slimmer_headers(
       template:    "homepage",
@@ -33,11 +33,14 @@ class RootController < ApplicationController
     set_slimmer_artefact_headers(@artefact)
 
     if @publication.type == "place" and !request.format.kml?
+      unless (params.include? 'edition' || Rails.env.development?)
+        expires_in 60.minute, :public => true if request.get?
+      end
       @options = load_place_options(@publication)
     elsif @publication.type == "local_transaction"
       @council = load_council(@publication)
     else
-      expires_in 10.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
+      expires_in 60.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?

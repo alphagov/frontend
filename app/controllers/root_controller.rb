@@ -58,16 +58,18 @@ class RootController < ApplicationController
       format.kml do
         render :text => imminence_api.places_kml(@publication.place_type)
       end
-      format.any(:html, :video) do
-        if @publication.type == "local_transaction" and @council.present?
-          redirect_to @council[:url]
-        else
-          if @publication.type == "local_transaction" and !@council.present? and council_from_geostack.any?
+      format.html do
+        if @publication.type == "local_transaction"
+          if @council.present?
+            redirect_to @council[:url] and return
+          elsif council_from_geostack.any?
             @not_found = true
           end
-
-          render @publication.type
         end
+        render @publication.type
+      end
+      format.video do
+        render @publication.type, layout: "application.html.erb"
       end
       format.print do
         set_slimmer_headers skip: "true"

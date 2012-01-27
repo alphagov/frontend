@@ -111,7 +111,7 @@ class RootControllerTest < ActionController::TestCase
     panopticon_has_metadata('slug' => 'a-slug')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide")
+    @controller.expects(:render).with("guide", layout: "application.html.erb")
     get :publication, :slug => "a-slug", :format => "video"
     assert_equal "video", @request.format
   end

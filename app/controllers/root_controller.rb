@@ -55,9 +55,6 @@ class RootController < ApplicationController
 
     @not_found = false
     respond_to do |format|
-      format.kml do
-        render :text => imminence_api.places_kml(@publication.place_type)
-      end
       format.html do
         if @publication.type == "local_transaction"
           if @council.present?
@@ -83,6 +80,9 @@ class RootController < ApplicationController
         end
 
         render :json => @publication.to_json
+      end
+      format.kml do
+        render :text => imminence_api.places_kml(@publication.place_type)
       end
     end
   rescue RecordNotFound

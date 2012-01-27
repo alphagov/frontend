@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def page_title(artefact, publication=nil)
     if publication
-      title = [publication.alternative_title, publication.title].find(&:present?)
+      title = [publication.title, publication.alternative_title].find(&:present?)
       title = "Video - #{title}" if request.format.video?
     end
 

@@ -14,7 +14,6 @@ class RootController < ApplicationController
 
   def index
     expires_in 60.minute, :public => true unless Rails.env.development?
-    response.headers["Expires"] = CGI.rfc1123_date(Time.now + 60.minutes) unless Rails.env.development?
 
     set_slimmer_headers(
       template:    "homepage",
@@ -36,15 +35,12 @@ class RootController < ApplicationController
     if @publication.type == "place" and !request.format.kml?
       unless (params.include? 'edition' || Rails.env.development?)
         expires_in 60.minute, :public => true if request.get?
-        esponse.headers["Expires"] = CGI.rfc1123_date(Time.now + 60.minutes) if request.get?
       end
       @options = load_place_options(@publication)
     elsif @publication.type == "local_transaction"
       @council = load_council(@publication)
     else
-      response.headers["Expires"] = CGI.rfc1123_date(Time.now + 60.minutes) unless (params.include? 'edition' || Rails.env.development?)
       expires_in 60.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
-
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
@@ -91,7 +87,6 @@ class RootController < ApplicationController
     end
   rescue RecordNotFound
     expires_in 60.minute, :public => true unless Rails.env.development?
-    response.headers["Expires"] = CGI.rfc1123_date(Time.now + 60.minutes) unless Rails.env.development?
     error 404
   end
 

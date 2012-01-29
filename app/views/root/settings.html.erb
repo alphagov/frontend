@@ -4,54 +4,53 @@
 
   <h3>Set your location</h3>
 
-    <div class="intro">
-      <p>Setting your location enables us to automatically give you details of services close to you e.g. police stations, driving test centres.</p>
+  <div class="intro">
+    <div class="global-location hidden">
+      <div class="global-locator-error"></div>
 
-      <div class="global-location hidden">
-        <div class="global-locator-error"></div>
+      <form method="post" id="global-locator-form">
+        <fieldset>
+          <% if @edition %>
+            <input type="hidden" name="edition" value="<%= @edition %>" />
+          <% end %>
+          <div class="location_error"></div>
 
-          <form method="post" id="global-locator-form">
-            <fieldset>
-              <% if @edition %>
-                <input type="hidden" name="edition" value="<%= @edition %>" />
-              <% end %>
-              <div class="location_error"></div>
+          <div class="ask_location">
+            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+            <input type="submit" value="Set location" class="button" />
+          </div>
 
-              <div class="ask_location">
-                <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                <input type="submit" value="Set location" class="button" />
-              </div>
-
-              <div class="finding_location hidden">
-                <p>Locating you&hellip;</p>
-              </div>
-              <div class="found_location hidden">
-                <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Change your location</a>.</p>
-              </div>
-            </fieldset>
-          </form>
-
-        </div>
-      </div>
+          <div class="finding_location hidden">
+            <p>Locating you&hellip;</p>
+          </div>
+          <div class="found_location hidden">
+            <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Change your location</a>.</p>
+          </div>
+        </fieldset>
+      </form>
 
     </div>
-
-    <div id="global-set-location">
-
-      <h3>Change the theme to suit your needs</h3>
-
-      <div class="personalise-options">
-        <form>
-          <input type="radio" title="don't use a custom theme, just show me the regular website" id="core" name="acc-options"> <label for="core">Standard theme</label></input>
-          <input type="radio" title="use the easier-to-read theme" id="wordsdifficult" name="acc-options"> <label for="wordsdifficult">I find words difficult*</label></input>
-
-          <input type="submit" value="Save theme" class="button" />
-        </form>
-      </div>
-      <p>* This is an experimental design to help with dyslexia and other reading disabilities. We’d love feedback from any users selecting this option.</p>
-    </div>
-
+    <p class="explanation">If you set your location, we can tell you more about the services close to you, eg: register offices etc.</p>
+    
+  </div>
 </div>
+
+<div id="global-set-theme">
+
+  <h3>Set your font</h3>
+
+  <div class="personalise-options">
+    <form>
+      <input type="radio" title="don't use a custom theme, just show me the regular website" id="core" name="acc-options"> <label for="core">Standard fonts</label></input>
+      <input type="radio" title="use the easier-to-read theme" id="wordsdifficult" name="acc-options"> <label for="wordsdifficult">Easier reading*</label></input>
+
+      <input type="submit" value="Save" class="button" />
+      <p class="cookie-container"><span class="sets-cookie"><a href="/help/cookies#usabilitycookies" title="This form sets a usability cookie">Sets a cookie</a></span></p>
+    </form>
+  </div>
+  <p class="beta-notice">* We’re experimenting with a font that’s believed to make reading easier for people with dyslexia. If you’d like to try that option please select ‘easier reading’ below. We’d love feedback from anyone trying this out.</p>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function() {
 

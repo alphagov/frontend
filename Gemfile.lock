@@ -88,7 +88,7 @@ GEM
       rails (>= 3.0.0)
     gelf (1.3.2)
       json
-    geogov (0.0.7)
+    geogov (0.0.8)
     govspeak (0.8.9)
       htmlentities (~> 4)
       kramdown (~> 0.13.3)
@@ -217,7 +217,7 @@ DEPENDENCIES
   gds-api-adapters (~> 0.0.41)
   gds-warmup-controller
   gelf
-  geogov (~> 0.0.3)
+  geogov (~> 0.0.8)
   govspeak (~> 0.8.0)
   launchy
   mocha

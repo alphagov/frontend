@@ -21,7 +21,11 @@
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
         <p id="get-started" class="get-started group">
          <a href="<%= @transaction.link %>" rel="external" class="button">
-           <span class="button-content"><span class="call-to-action">Get started</span><% if @transaction.will_continue_on.present? %><span class="destination"> on <%= @transaction.will_continue_on %> </span><% end %></span><span class="indicator"></span>
+           <span class="button-content"><span class="call-to-action">Get started</span><%
+             if @transaction.will_continue_on.present?
+               %><span class="destination"> on the <%= @transaction.will_continue_on %> website</span><%
+             end
+           %></span><span class="indicator"></span>
          </a>
         </p>
       </section>

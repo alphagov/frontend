@@ -10,13 +10,10 @@
     <article role="article" class="group">
       <div class="inner">
 
-				<div class="summary">
-					<p><%= @guide.video_summary %></p>
-				</div>
+	<div class="summary">
+		<p><%= @guide.video_summary %></p>
+	</div>
 
-				<div class="info-notice">
-					<p>This is the video version of this guide. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a>.</p>
-				</div>
 
         <% if video_embed_url(@guide) %>
           <figure class="media-player-wrapper" id="video">
@@ -24,6 +21,12 @@
           </figure>
         <% end %>
 
+	<div class="info-notice">
+		<p>This is the video version of this guide. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a>.</p>
+	</div>
+	<p class="beta-notice">
+		These video guides are an experiment, and are very early prototypes. We hope they’ll help people with reading difficulties. We’d love your <a href="/feedback">feedback</a> on how you think they’re working.
+	<p/>
       </div>
     </article>
 

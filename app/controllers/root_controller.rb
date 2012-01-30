@@ -146,8 +146,8 @@ protected
     unless councils.any?
       return false
     else
-      providers = councils.map do |c|
-        local_transaction = fetch_publication(slug: local_transaction.slug, snac: c['ons'])
+      providers = councils.map do |council_ons_code|
+        local_transaction = fetch_publication(slug: local_transaction.slug, snac: council_ons_code)
         local_transaction.authority ? { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url } : nil
       end
       providers.compact.any? ? providers.compact.first : false
@@ -163,13 +163,15 @@ protected
   end
 
   def council_from_geostack
-    geodata = request.env['HTTP_X_GOVGEO_STACK']
-    return [] if geodata.nil?
-    location_data = decode_stack(geodata)
+    if params['council_ons_codes']
+      return params['council_ons_codes'] 
+    end
+    if ! request.env['HTTP_X_GOVGEO_STACK']
+      return []
+    end
+    location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
     if location_data['council']
-      snac_codes = location_data['council'].collect do |council|
-        council
-      end.compact
+      location_data['council'].compact.map {|c| c['ons']}.compact
     else
       return []
     end

@@ -21,10 +21,15 @@ var setup_local_transactions = function() {
     $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
     $('#location-loading').removeClass('hidden');
 
+    var params = { 
+      lat: AlphaGeo.full_location.current_location.lat, 
+      lon: AlphaGeo.full_location.current_location.lon
+    };
+    if (AlphaGeo.full_location.current_location.council) {
+      params.council_ons_codes = $.map(AlphaGeo.full_location.current_location.council, function(c) {return c.ons});
+    }
     var local_transaction_url = document.location + '.json';
-
-    $.post( local_transaction_url, { lat: AlphaGeo.full_location.current_location.lat, lon: AlphaGeo.full_location.current_location.lon }, function(data) {
-      window.console.dir(data.council);
+    $.post( local_transaction_url, params, function(data) {
       if (data.council && data.council.name && data.council.url) {
         button.find('a').attr('href', data.council.url);
         button.find('span.destination').text(" on "+ data.council.name +" ");

@@ -176,6 +176,15 @@ class RootControllerTest < ActionController::TestCase
     assert_redirected_to "/a-slug/first"
   end
 
+  test "should preserve query parameters when redirecting" do
+    publication_exists({'slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}]}, {:edition => 3})
+    panopticon_has_metadata('slug' => 'a-slug')
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug", :some_param => 1, :edition => 3
+    assert_response :redirect
+    assert_redirected_to "/a-slug/first?edition=3&some_param=1"
+  end
+
   test "should not redirect to first part URL if request is for JSON" do
     publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
     panopticon_has_metadata('slug' => 'a-slug')

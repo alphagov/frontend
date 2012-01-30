@@ -144,7 +144,7 @@ var html5_methods = {
 		// Define the default config settings for the plugin
 		var defaults = {
 			id: 'media_player',	// The base string used for the player id.  Will end up with an integer appended to it e.g. 'ytplayer0', 'ytplayer1' etc
-			url: 'http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=',
+			url: 'https://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=',
 			media: '8LiQ-bLJaM4',
 			repeat: false,	// loop the flash video true/false
             captions: null, // caption XML URL link for caption content
@@ -166,7 +166,7 @@ var html5_methods = {
 				rewind: true,	// Whether or not to show the rewind button
 				toggle: true	// If this is set to false, both play and pause buttons will  be provided
 			},
-			logoURL : 'http://www.gov.uk?ref=logo',	// A url or path to the logo to use within the player.
+			logoURL : 'https://www.gov.uk?ref=logo',	// A url or path to the logo to use within the player.
 			useHtml5 : true,	// Whether or not the player will make use of HTML5 video (if it is supported)
 			swfCallback : null	// If we are using a swf, optionally provide a callback function, currently used with
 		};

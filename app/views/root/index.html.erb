@@ -1,11 +1,10 @@
 <% content_for :title, "Welcome to GOV.UK - simpler, clearer, faster" %>
 
   <section id="content" role="main" class="group">
-
     <div class="homepage-section">
       <header class="homepage-banner group">
         <div class="tag-line">
-          <p>A better way to find government services and information</p>
+          <p>Welcome to GOV.UK, the best way to get to government services and&nbsp;information</p>
         </div>
         <form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
           <fieldset>
@@ -13,50 +12,43 @@
             <label for="main_autocomplete" class="visuallyhidden">Search</label>
             <input type="text" id="main_autocomplete" name="q" value="">
             <input type="submit" value="Search" class="button">
-            <p class="totry"><em>bank holidays</em>, <em>clock change</em>, <em>student finance</em>, <em>car tax</em>, <em>maternity pay</em>, <em>pension</em></p>
+            <p class="totry">Try bank holidays, clock change, student finance, car tax, maternity pay, pension</p>
           </fieldset>
         </form>
       </header>
      </div>
     <div class="feature-items">
-    <div class="carousel">
-      <ul>
-        <li>
-          <%= image_tag 'homepage/homepage1.jpg' %>
-        </li>
-      </ul>
-    </div>
-    <div class="sections">
-    <div class="popular section">
-      <h2>Popular tools and topics</h2>
-      <ul>
-        <li><a href="/vat-rates">VAT rates</a></li>
-        <li><a href="/bank-holidays">UK bank holidays</a></li>
-        <li><a href="/student-finance-calculator">Student Finance &ndash; how much you can get for 2012/13</a></li>
-        <li><a href="/driving-theory-test/overview">The driving theory test for cars and motorcycles</a></li>
-        <li><a href="/stamp-duty-land-tax-rates">Stamp Duty Land Tax rates</a></li>
-        <li><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
-        <li><a href="/check-mot-status-vehicle">Check the MOT status of a vehicle</a></li>
-        <li><a href="/pension-credit">Pension Credit</a></li>
-        
-      </ul>
-    </div>
-    <div class="browse section">
-      <h2>Browse</h2>
-      <ul>
-        <li><a href="/browse/crime-and-justice">Crime and justice</a></li>      
-        <li><a href="/browse/driving">Driving</a></li>
-        <li><a href="/browse/education">Education</a></li>      
-        <li><a href="/browse/family">Family</a></li>
-        <li><a href="/browse/housing">Housing</a></li>        
-        <li><a href="/browse/life-in-the-uk">Life in the UK</a></li>
-        <li><a href="/browse/money-and-tax">Money and tax</a></li>
-        <li><a href="/browse/neighbourhoods">Neighbourhoods</a></li>        
-        <li><a href="/browse/travel">Travel</a></li>
-        <li><a href="/browse/work">Work</a></li>
-      </ul>
-    </div>
-    </div>
+      <div class="sections">
+        <div class="browse section">
+          <h2>Browse</h2>
+          <ul>
+            <li><a href="/browse/crime-and-justice">Crime and justice</a></li>      
+            <li><a href="/browse/driving">Driving</a></li>
+            <li><a href="/browse/education">Education</a></li>      
+            <li><a href="/browse/family">Family</a></li>
+            <li><a href="/browse/housing">Housing</a></li>        
+            <li><a href="/browse/life-in-the-uk">Life in the UK</a></li>
+            <li><a href="/browse/money-and-tax">Money and tax</a></li>
+            <li><a href="/browse/neighbourhoods">Neighbourhoods</a></li>        
+            <li><a href="/browse/travel">Travel</a></li>
+            <li><a href="/browse/work">Work</a></li>
+          </ul>
+        </div>
+        <div class="popular section">
+          <h2>Popular</h2>
+          <ul>
+            <li class="answer"><a href="/vat-rates">VAT rates</a></li>
+            <li class="answer"><a href="/bank-holidays">UK bank holidays</a></li>
+            <li class="answer"><a href="/student-finance-calculator">Student Finance &ndash; how much you can get for 2012/13</a></li>
+            <li class="guide"><a href="/driving-theory-test/overview">The driving theory test for cars and motorcycles</a></li>
+            <li class="answer"><a href="/stamp-duty-land-tax-rates">Stamp Duty Land Tax rates</a></li>
+            <li class="answer"><a href="/national-minimum-wage-rates">National Minimum Wage rates</a></li>
+            <li class="transaction"><a href="/check-mot-status-vehicle">Check the MOT status of a vehicle</a></li>
+            <li class="programme"><a href="/pension-credit">Pension Credit</a></li>
+          
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
   

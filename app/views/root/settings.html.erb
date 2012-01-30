@@ -4,37 +4,33 @@
 
   <h3>Set your location</h3>
 
-    <div class="intro">
       <p>Setting your location enables us to automatically give you details of services close to you e.g. police stations, driving test centres.</p>
 
       <div class="global-location hidden">
         <div class="global-locator-error"></div>
 
-          <form method="post" id="global-locator-form">
-            <fieldset>
-              <% if @edition %>
-                <input type="hidden" name="edition" value="<%= @edition %>" />
-              <% end %>
-              <div class="location_error"></div>
+        <form method="post" id="global-locator-form">
+          <fieldset>
+            <% if @edition %>
+              <input type="hidden" name="edition" value="<%= @edition %>" />
+            <% end %>
+            <div class="location_error"></div>
 
-              <div class="ask_location">
-                <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                <input type="submit" value="Set location" class="button" />
-              </div>
+            <div class="ask_location">
+              <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+              <input type="submit" value="Set location" class="button" />
+            </div>
 
-              <div class="finding_location hidden">
-                <p>Locating you&hellip;</p>
-              </div>
-              <div class="found_location hidden">
-                <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Not in <span class="friendly-name"></span>?</a></p>
-              </div>
-            </fieldset>
-          </form>
+            <div class="finding_location hidden">
+              <p>Locating you&hellip;</p>
+            </div>
+            <div class="found_location hidden">
+              <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Not in <span class="friendly-name"></span>?</a></p>
+            </div>
+          </fieldset>
+        </form>
 
-        </div>
       </div>
-
-    </div>
 
     <div id="global-set-location">
 

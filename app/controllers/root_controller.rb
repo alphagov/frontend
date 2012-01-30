@@ -46,7 +46,9 @@ class RootController < ApplicationController
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
-      redirect_to publication_url(@publication.slug, @publication.parts.first.slug) and return
+      params.delete(:slug)
+      params.delete(:part)
+      redirect_to publication_url(@publication.slug, @publication.parts.first.slug, params) and return
     end
 
     @edition = params[:edition].present? ? params[:edition] : nil

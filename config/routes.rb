@@ -3,7 +3,6 @@ Frontend::Application.routes.draw do
   # http://stackoverflow.com/a/3443678
   match "*path.gif", :to => proc {|env| [404, {}, ["Not Found"]] }
 
-  match "/homepage", :to => "root#index"
   match "/help/feedback" => redirect("/feedback")
   match "/help(/:action)", :to => "help"
   match "/feedback", :to => 'feedback#index'
@@ -20,4 +19,7 @@ Frontend::Application.routes.draw do
     pub.match ":slug/print", :format => :print
     pub.match ":slug(/:part)"
   end
+
+  match "/homepage", :to => redirect("/")
+  root :to => 'root#index'
 end

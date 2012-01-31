@@ -7,9 +7,7 @@ Frontend::Application.routes.draw do
   match "/help/feedback" => redirect("/feedback")
   match "/help(/:action)", :to => "help"
   match "/feedback", :to => 'feedback#index'
-  match "/error_500", :to => "root#error_500"
-  match "/error_501", :to => "root#error_501"
-  match "/error_503", :to => "root#error_503"
+
   match "/platform(/:action)", :to => "platform"
   match "/settings", :to => "root#settings"
   match "/section", :to => "root#section"

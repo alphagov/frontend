@@ -32,7 +32,7 @@ var setup_local_transactions = function() {
     $.post( local_transaction_url, params, function(data) {
       if (data.council && data.council.name && data.council.url) {
         button.find('a').attr('href', data.council.url);
-        button.find('span.destination').text(" on "+ data.council.name +" ");
+        button.find('span.destination').text(" on the "+ data.council.name +" website");
         button.removeClass('hidden');
       } else {
         $('.no-provider-error').removeClass('hidden').text("Sorry, we couldn't find details of a provider for that service in your area.");

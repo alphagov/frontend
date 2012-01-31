@@ -23,7 +23,7 @@
          <a href="<%= @transaction.link %>" rel="external" class="button">
            <span class="button-content"><span class="call-to-action">Get started</span><%
              if @transaction.will_continue_on.present?
-               %><span class="destination"> on the <%= @transaction.will_continue_on %> website</span><%
+               %><span class="destination">on <%= @transaction.will_continue_on %></span><%
              end
            %></span><span class="indicator"></span>
          </a>

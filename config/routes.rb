@@ -20,6 +20,6 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)"
   end
 
-  match "/homepage", :to => redirect("/")
+  match "/homepage" => redirect("/")
   root :to => 'root#index'
 end

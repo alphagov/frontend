@@ -1,4 +1,6 @@
 Frontend::Application.routes.draw do
+  match "/homepage" => redirect("/")
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   match "*path.gif", :to => proc {|env| [404, {}, ["Not Found"]] }
@@ -20,6 +22,5 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)"
   end
 
-  match "/homepage" => redirect("/")
   root :to => 'root#index'
 end

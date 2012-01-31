@@ -3,10 +3,7 @@
     <% if publication.updated_at %>
       <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
     <% end %>
-    <% if [:programme].include? publication.type.to_sym %>
-      <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print') %></p>
-    <% end %>
-    <% if [:guide].include? publication.type.to_sym %>
+    <% if [:programme, :guide].include? publication.type.to_sym %>
       <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print') %></p>
     <% end %>
   </div>

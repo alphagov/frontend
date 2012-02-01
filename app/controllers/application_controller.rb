@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include GdsApi::Helpers
 
   def error_404; error 404; end
+  def error_406; error 406; end
   def error_500; error 500; end
   def error_501; error 501; end
   def error_503; error 503; end

@@ -61,6 +61,22 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
+  test "should 406 when asked for KML for a non-place publication" do
+    publication_exists('slug' => 'a-slug', 'type' => 'answer')
+    panopticon_has_metadata('slug' => 'a-slug')
+
+    get :publication, :slug => 'a-slug', :format => 'kml'
+    assert_equal '406', response.code
+  end
+
+  test "should 406 when asked for unrecognised format" do
+    publication_exists('slug' => 'a-slug', 'type' => 'answer')
+    panopticon_has_metadata('slug' => 'a-slug')
+
+    get :publication, :slug => 'a-slug', :format => '123'
+    assert_equal '406', response.code
+  end
+
   test "should return a 404 if slug isn't URL friendly" do
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))

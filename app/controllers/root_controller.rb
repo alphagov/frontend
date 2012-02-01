@@ -23,6 +23,8 @@ class RootController < ApplicationController
   end
 
   def publication
+    error_406 and return if request.format.nil?
+
     decipher_overloaded_part_parameter!
 
     @publication = fetch_publication(params)
@@ -84,7 +86,11 @@ class RootController < ApplicationController
         render :json => @publication.to_json
       end
       format.kml do
-        render :text => imminence_api.places_kml(@publication.place_type)
+        if @publication.type == 'place'
+          render :text => imminence_api.places_kml(@publication.place_type)
+        else
+          error_406
+        end
       end
     end
   rescue RecordNotFound

@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
+
+  def limit_to_html
+    error_406 unless request.format.html?
+  end
 end

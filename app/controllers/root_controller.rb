@@ -122,14 +122,6 @@ protected
     !request.format.json? and !request.format.print? and !request.format.video?
   end
 
-  def error_500; error 500; end
-  def error_501; error 501; end
-  def error_503; error 503; end
-
-  def error(status_code)
-    render status: status_code, text: "#{status_code} error"
-  end
-
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
       places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])

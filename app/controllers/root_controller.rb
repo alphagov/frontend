@@ -73,7 +73,7 @@ class RootController < ApplicationController
         render @publication.type, layout: "application.html.erb"
       end
       format.print do
-        set_slimmer_headers skip: "true"
+        set_slimmer_headers template: "print"
         render @publication.type
       end
       format.json do

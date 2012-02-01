@@ -2,19 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title><%= page_title(@artefact, @publication) %></title>
 
-  <%= stylesheet_link_tag '/stylesheets/core.css', 
-        '/stylesheets/text.css', 
-        '/stylesheets/publisher.css', 
-        '/stylesheets/core-print.css', 
-        '/stylesheets/guides-print.css', :media => 'all'  %> 
   <% if @publication.overview.present? %>
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>
 
   <%= section_meta_tags(@artefact) %>
-  <%= javascript_include_tag '/javascripts/libs/jquery/jquery-1.6.2.min.js', '/javascripts/print.js' %>
   <%= yield :extra_headers %>
 </head>
 <body>

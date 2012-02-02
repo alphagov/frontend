@@ -1,6 +1,9 @@
 <% content_for :extra_javascript do %>
 	<%= javascript_include_tag 'trackers/guide.js', :defer=>"defer" %>
 <% end %>
+<% content_for :extra_headers do %>
+	<%= tag("link", :rel => "canonical", :href => guide_path(@guide.slug) %>
+<% end %>
 <section id="content" role="main" class="group">
 
 	<header class="page-header group">

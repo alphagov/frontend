@@ -1,55 +1,56 @@
-<div id="global-locator-box" class="popover">
+<div class="inner">
+  <div id="global-locator-box" class="popover">
+    <h2>Settings</h2>
 
-  <h2>Settings</h2>
+    <h3>Set your location</h3>
 
-  <h3>Set your location</h3>
+    <div class="intro">
+      <div class="global-location hidden">
+        <div class="global-locator-error"></div>
 
-  <div class="intro">
-    <div class="global-location hidden">
-      <div class="global-locator-error"></div>
+        <form method="post" id="global-locator-form">
+          <fieldset>
+            <% if @edition %>
+              <input type="hidden" name="edition" value="<%= @edition %>" />
+            <% end %>
+            <div class="location_error"></div>
 
-      <form method="post" id="global-locator-form">
-        <fieldset>
-          <% if @edition %>
-            <input type="hidden" name="edition" value="<%= @edition %>" />
-          <% end %>
-          <div class="location_error"></div>
+            <div class="ask_location">
+              <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+              <input type="submit" value="Set location" class="button" />
+            </div>
 
-          <div class="ask_location">
-            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-            <input type="submit" value="Set location" class="button" />
-          </div>
+            <div class="finding_location hidden">
+              <p>Locating you&hellip;</p>
+              <p class="location-browser-warning"><strong>Your browser may additionally ask you to allow www.gov.uk to access your location. Click 'allow' to set your location.</strong></p>
+            </div>
+            <div class="found_location hidden">
+              <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Change your location</a>.</p>
+            </div>
+          </fieldset>
+        </form>
 
-          <div class="finding_location hidden">
-            <p>Locating you&hellip;</p>
-            <p class="location-browser-warning"><strong>Your browser may additionally ask you to allow www.gov.uk to access your location. Click 'allow' to set your location.</strong></p>
-          </div>
-          <div class="found_location hidden">
-            <p class="friendly-name">We think you&rsquo;re in <strong></strong>. <a class="change-location" href="#">Change your location</a>.</p>
-          </div>
-        </fieldset>
-      </form>
-
+      </div>
+      <p class="explanation">If you set your location, we can tell you more about the services close to you such as registry offices and local council services.</p>
+      
     </div>
-    <p class="explanation">If you set your location, we can tell you more about the services close to you such as registry offices and local council services.</p>
-    
   </div>
-</div>
 
-<div id="global-set-theme">
+  <div id="global-set-theme">
 
-  <h3>Set your font</h3>
+    <h3>Set your font</h3>
 
-  <div class="personalise-options">
-    <form>
-      <input type="radio" title="don't use a custom theme, just show me the regular website" id="core" name="acc-options"> <label for="core">Standard fonts</label>
-      <input type="radio" title="use the easier-to-read theme" id="wordsdifficult" name="acc-options"> <label for="wordsdifficult">Easier reading*</label>
+    <div class="personalise-options">
+      <form>
+        <input type="radio" title="don't use a custom theme, just show me the regular website" id="core" name="acc-options"> <label for="core">Standard fonts</label>
+        <input type="radio" title="use the easier-to-read theme" id="wordsdifficult" name="acc-options"> <label for="wordsdifficult">Easier reading*</label>
 
-      <input type="submit" value="Save" class="button" />
-      <p class="cookie-container"><span class="sets-cookie"><a href="/help/cookies#usabilitycookies" title="This form sets a usability cookie">Sets a cookie</a></span></p>
-    </form>
+        <input type="submit" value="Save" class="button" />
+        <p class="cookie-container"><span class="sets-cookie"><a href="/help/cookies#usabilitycookies" title="This form sets a usability cookie">Sets a cookie</a></span></p>
+      </form>
+    </div>
+    <p class="beta-notice">* We’re experimenting with a font that’s believed to make reading easier for people with dyslexia. If you’d like to try that option please select ‘easier reading’ above. We’d love <a href="/feedback">feedback</a> from anyone trying this out.</p>
   </div>
-  <p class="beta-notice">* We’re experimenting with a font that’s believed to make reading easier for people with dyslexia. If you’d like to try that option please select ‘easier reading’ above. We’d love <a href="/feedback">feedback</a> from anyone trying this out.</p>
 </div>
 
 <script type="text/javascript">

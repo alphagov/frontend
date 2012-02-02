@@ -16,6 +16,8 @@ module ApplicationHelper
       publication.type + ' video-guide'
     elsif publication and publication.type
       publication.type + (services.include?(publication.type) ? ' service' : '')
+    elsif action_name == "settings" and request.format.html?
+      "settings"
     else
       ''
     end

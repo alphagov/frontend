@@ -18,8 +18,8 @@ class ApplicationHelperTest < ActionView::TestCase
     OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
-  test "the page title always ends with GOV.UK Beta (Test)" do
-    assert_equal 'GOV.UK Beta (Test)', @helper.page_title(basic_artefact).split.last
+  test "the page title always ends with (Test)" do
+    assert_equal '(Test)', @helper.page_title(basic_artefact).split.last
   end
 
   test "the page title doesn't contain consecutive pipes" do

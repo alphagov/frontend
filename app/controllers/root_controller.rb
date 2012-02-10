@@ -146,7 +146,14 @@ protected
     else
       providers = councils.map do |council_ons_code|
         local_transaction = fetch_publication(slug: local_transaction.slug, snac: council_ons_code)
-        local_transaction.authority ? { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url } : nil
+        if local_transaction.authority
+          # TODO: This is DEPRECATED. For backward compatibility with old publisher API.
+          { name: local_transaction.authority.name, url: local_transaction.authority.lgils.last.url }
+        elsif local_transaction.interaction
+          { name: local_transaction.interaction.authority.name, url: local_transaction.interaction.url }
+        else
+          nil
+        end
       end
       providers.compact.any? ? providers.compact.first : false
     end

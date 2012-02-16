@@ -47,9 +47,9 @@
         </section>
 
         <section class="more">
+          <% if @local_transaction.expectations.present? %>
           <h2>What you need to know</h2>
 
-          <% if @local_transaction.expectations %>
           <div class="more">
             <ul class="helpers group">
               <% @local_transaction.expectations.each do |e| %>

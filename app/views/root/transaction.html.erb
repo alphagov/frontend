@@ -38,9 +38,7 @@
          <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
         <% end %>
         <% @transaction.expectations.each do |e| %>
-         <li class="<%= e.css_class %>">
-           <%= e.text %>
-         </li>
+         <li class="<%= e.css_class %>"><%= e.text %></li>
         <% end %>
         </ul>
         <%= to_govspeak(@transaction.more_information) %>

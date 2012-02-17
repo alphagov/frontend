@@ -1,5 +1,9 @@
 <% content_for :extra_javascript do %>
 	<%= javascript_include_tag 'trackers/transaction.js', :defer=>"defer" %>
+  
+  <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %>
+    <%= javascript_include_tag 'trackers/ab-testing.js' %>  
+  <% end %> 
 <% end %>
 <section id="content" role="main" class="group">
 
@@ -19,15 +23,17 @@
       <section class="intro">
         <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
+        <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %><script type="text/javascript">utmx_section("Get started button")</script><noscript rel="placeholder"><% end %>
         <p id="get-started" class="get-started group">
-         <a href="<%= @transaction.link %>" rel="external" class="button">
-           <span class="button-content"><span class="call-to-action">Get started</span><%
-             if @transaction.will_continue_on.present?
-               %><span class="destination">on <%= @transaction.will_continue_on %></span><%
-             end
-           %></span><span class="indicator"></span>
-         </a>
+           <a href="<%= @transaction.link %>" rel="external" class="button">
+             <span class="button-content"><span class="call-to-action">Get started</span><%
+               if @transaction.will_continue_on.present?
+                 %><span class="destination">on <%= @transaction.will_continue_on %></span><%
+               end
+             %></span><span class="indicator"></span>
+           </a>
         </p>
+        <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %></noscript><% end %> 
       </section>
 
       <section class="more">

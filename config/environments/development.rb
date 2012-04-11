@@ -23,7 +23,6 @@ Frontend::Application.configure do
   #config.assets.digest = true
   config.assets.debug = true
 
-  # comment line below in if you want to use browserstack (or some other tunnel)
-  # config.slimmer.asset_host = "http://www.dev.gov.uk"
+  config.slimmer.asset_host = ENV["STATIC_DEV"] || Plek.new("preview").find("assets")
 end
 

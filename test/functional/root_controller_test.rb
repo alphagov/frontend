@@ -135,7 +135,7 @@ class RootControllerTest < ActionController::TestCase
   test "should not throw an error when an invalid video url is specified" do
     publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob', 'updated_at' => 1.hour.ago, 'parts' => [
         {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}])
-    panopticon_has_metadata('slug' => 'a-slug')    
+    panopticon_has_metadata('slug' => 'a-slug')
 
     get :publication, :slug => "a-slug"
     get :publication, :slug => "a-slug", :format => "video"
@@ -298,5 +298,43 @@ class RootControllerTest < ActionController::TestCase
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug", :part => "b"
     assert_equal "BB", assigns["part"].name
+  end
+
+  context "local transactions" do
+    def setup_publisher_api(slug, snac)
+      json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
+      artefact_info = {
+        "slug" => slug,
+        "section" => "transport"
+      }
+      publication_info = JSON.parse(json)
+      publication_exists_for_snac(snac, publication_info)
+      panopticon_has_metadata(artefact_info)
+    end
+
+    should "load local transaction with no interaction for snac" do
+      slug = "apply-direct-payments-edinburgh"
+      snac = "00QP"
+      setup_publisher_api(slug, snac)
+
+      post :publication, format: "json", slug: slug, council_ons_codes: [snac]
+
+      json = JSON.parse(response.body)
+      assert_equal slug, json['slug']
+      assert_false json['council']
+    end
+
+    should "load local transaction with interactionf or snac" do
+      slug = "apply-direct-payments-lambeth"
+      snac = "00QP"
+      setup_publisher_api(slug, snac)
+
+      post :publication, format: "json", slug: slug, council_ons_codes: [snac]
+
+      json = JSON.parse(response.body)
+      assert_equal slug, json['slug']
+      assert_equal "http://www.lambeth.gov.uk/Services/HealthSocialCare/ServicesAdults/DirectPayments.htm", json['council']['url']
+      assert_equal "London Borough of Lambeth", json['council']['name']
+    end
   end
 end

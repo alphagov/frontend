@@ -165,6 +165,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    shoulda (2.11.3)
     simplecov (0.5.4)
       multi_json (~> 1.0.3)
       simplecov-html (~> 0.5.3)
@@ -231,6 +232,7 @@ DEPENDENCIES
   router-client (= 2.0.3)
   rummageable!
   sass-rails (~> 3.1.0)
+  shoulda
   simplecov
   simplecov-rcov
   slimmer (~> 1.1)

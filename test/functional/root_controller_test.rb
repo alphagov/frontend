@@ -321,10 +321,24 @@ class RootControllerTest < ActionController::TestCase
 
       json = JSON.parse(response.body)
       assert_equal slug, json['slug']
-      assert_false json['council']
+      assert_equal "London Borough of Lambeth", json['council']['name']
+      assert_nil json['council']['url']
+      assert_equal "contact@lambeth.gov.uk", json['council']['contact_email']
     end
 
-    should "load local transaction with interactionf or snac" do
+    should "load legacy local transaction with no interaction for snac" do
+      slug = "apply-direct-payments-edinburgh-legacy"
+      snac = "00QP"
+      setup_publisher_api(slug, snac)
+
+      post :publication, format: "json", slug: slug, council_ons_codes: [snac]
+
+      json = JSON.parse(response.body)
+      assert_equal slug, json['slug']
+      assert_nil json['council']
+    end
+
+    should "load local transaction with interaction for snac" do
       slug = "apply-direct-payments-lambeth"
       snac = "00QP"
       setup_publisher_api(slug, snac)
@@ -335,6 +349,21 @@ class RootControllerTest < ActionController::TestCase
       assert_equal slug, json['slug']
       assert_equal "http://www.lambeth.gov.uk/Services/HealthSocialCare/ServicesAdults/DirectPayments.htm", json['council']['url']
       assert_equal "London Borough of Lambeth", json['council']['name']
+      assert_equal "contact@lambeth.gov.uk", json['council']['contact_email']
+    end
+
+    should "load legacy local transaction with interaction for snac" do
+      slug = "apply-direct-payments-lambeth-legacy"
+      snac = "00QP"
+      setup_publisher_api(slug, snac)
+
+      post :publication, format: "json", slug: slug, council_ons_codes: [snac]
+
+      json = JSON.parse(response.body)
+      assert_equal slug, json['slug']
+      assert_equal "http://www.lambeth.gov.uk/Services/HealthSocialCare/ServicesAdults/DirectPayments.htm", json['council']['url']
+      assert_equal "London Borough of Lambeth", json['council']['name']
+      assert_equal "contact@lambeth.gov.uk", json['council']['contact_email']
     end
   end
 end

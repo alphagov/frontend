@@ -9,7 +9,7 @@ class LocalTransactionsTest < ActionController::TestCase
 
   tests RootController
   include Rack::Geo::Utils
-  
+
   def authority_json(snac, name = nil, tier = 'unitary')
     {
       "snac" => snac.to_s,
@@ -17,7 +17,7 @@ class LocalTransactionsTest < ActionController::TestCase
       "tier" => tier
     }
   end
-    
+
   def interaction_json(lgsl, lgil, url, authority = nil)
     {
       "lgsl_code" => lgsl,
@@ -40,7 +40,7 @@ class LocalTransactionsTest < ActionController::TestCase
         "interaction" =>
           interaction_json(524, 8, "http://www.haringey.gov.uk/something-you-want-to-do")
       })
-    end 
+    end
 
     get :publication, :slug => "c-slug"
     assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
@@ -62,7 +62,7 @@ class LocalTransactionsTest < ActionController::TestCase
       'slug' => 'c-slug',
       'type' => "local_transaction",
       'name' => "THIS",
-      'interaction' => 
+      'interaction' =>
         interaction_json(524, 8, "http://www.haringey.gov.uk/something-you-want-to-do",
           authority_json(1, "Haringey Council"))
     })
@@ -71,7 +71,7 @@ class LocalTransactionsTest < ActionController::TestCase
       'slug' => 'c-slug',
       'type' => "local_transaction",
       'name' => "THIS",
-      "interaction" => 
+      "interaction" =>
         interaction_json(524, 8, "http://www.another.gov.uk/something-you-want-to-do",
           authority_json(1, "Another Council"))
     })
@@ -82,8 +82,8 @@ class LocalTransactionsTest < ActionController::TestCase
 
   test "Should allow the councils to be overridden by council_ons_codes param" do
     # The secondary lookups pass a fuzzy lat/long which isn't precise enough to always
-    # accurately identify the correct council, especially if the postcode is close 
-    # to a council boundary. However during the initial lookup the geo cookie has 
+    # accurately identify the correct council, especially if the postcode is close
+    # to a council boundary. However during the initial lookup the geo cookie has
     # the data recorded in it, so we can use that.
     councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
@@ -111,7 +111,7 @@ class LocalTransactionsTest < ActionController::TestCase
     get :publication, :slug => "c-slug", council_ons_codes: [456, 789]
     assert_redirected_to "http://www.another.gov.uk/something-you-want-to-do"
   end
-  
+
   test "Should not show error message if no postcode submitted" do
     publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
     panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')

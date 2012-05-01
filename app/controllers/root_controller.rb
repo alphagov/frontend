@@ -61,7 +61,7 @@ class RootController < ApplicationController
     respond_to do |format|
       format.html do
         if @publication.type == "local_transaction"
-          if @council.present?
+          if @council.present? && @council[:url]
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?
             @not_found = true
@@ -146,14 +146,46 @@ protected
     else
       providers = councils.map do |council_ons_code|
         local_transaction = fetch_publication(slug: local_transaction.slug, snac: council_ons_code)
-        if local_transaction.interaction
-          { name: local_transaction.interaction.authority.name, url: local_transaction.interaction.url }
-        else
-          nil
-        end
+        build_local_transaction_information local_transaction
       end
-      providers.compact.any? ? providers.compact.first : false
+      provider = providers.select {|council| council[:url] }.first
+      if provider
+        provider
+      else
+        providers.select {|council| council[:name]}.first
+      end
     end
+  end
+
+  def build_local_transaction_information(local_transaction)
+    result = {
+      url: nil
+    }
+    if local_transaction.interaction
+      result[:url] = local_transaction.interaction.url
+      # DEPRACATED: authority is not located inside the interaction in the latest version
+      # of publisher. This is here for backwards compatibility.
+      if local_transaction.interaction.authority
+        result.merge!({
+          name: local_transaction.interaction.authority.name,
+          contact_address: local_transaction.interaction.authority.contact_address,
+          contact_url: local_transaction.interaction.authority.contact_url,
+          contact_phone: local_transaction.interaction.authority.contact_phone,
+          contact_email: local_transaction.interaction.authority.contact_email
+          })
+      end
+      # END DEPRECATED SECTION
+    end
+    if local_transaction.authority
+      result.merge!({
+        name: local_transaction.authority.name,
+        contact_address: local_transaction.authority.contact_address,
+        contact_url: local_transaction.authority.contact_url,
+        contact_phone: local_transaction.authority.contact_phone,
+        contact_email: local_transaction.authority.contact_email
+        })
+    end
+    result
   end
 
   def fetch_publication(params)
@@ -169,7 +201,7 @@ protected
 
   def council_from_geostack
     if params['council_ons_codes']
-      return params['council_ons_codes'] 
+      return params['council_ons_codes']
     end
     if ! request.env['HTTP_X_GOVGEO_STACK']
       return []

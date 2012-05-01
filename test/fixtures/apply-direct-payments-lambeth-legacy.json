@@ -2,21 +2,21 @@
   "interaction": {
     "url": "http://www.lambeth.gov.uk/Services/HealthSocialCare/ServicesAdults/DirectPayments.htm", 
     "lgil_code": 8, 
-    "lgsl_code": 287
+    "lgsl_code": 287,
+    "authority": {
+      "name": "London Borough of Lambeth", 
+      "snac": "00AY", 
+      "contact_address": [
+        "Line 1", 
+        "line 2", 
+        "line 3"
+      ], 
+      "contact_email": "contact@lambeth.gov.uk", 
+      "contact_url": "http://www.lambeth.gov.uk/", 
+      "tier": "unitary", 
+      "contact_phone": "000000000"
+    }
   }, 
-  "authority": {
-    "name": "London Borough of Lambeth", 
-    "snac": "00AY", 
-    "contact_address": [
-      "Line 1", 
-      "line 2", 
-      "line 3"
-    ], 
-    "contact_email": "contact@lambeth.gov.uk", 
-    "contact_url": "http://www.lambeth.gov.uk/", 
-    "tier": "unitary", 
-    "contact_phone": "000000000"
-  },
   "alternative_title": "", 
   "introduction": "If you or someone you care for get help from social services, you can apply for direct payments. These let you choose and buy the services you need yourself, instead of getting them from your council. ", 
   "overview": "If you get help from social services, direct payments let you choose and buy the services you need yourself, instead of getting them from your council", 
@@ -34,6 +34,6 @@
   ], 
   "more_information": "You can only get direct payments if you've been assessed by social services as needing care and support services. \r\n\r\nDirect payments can be made to:\r\n\r\n- disabled people aged 16 or over (with short or long-term needs)\r\n- disabled parents for children's services\r\n- carers aged 16 or over (including people with parental responsibility for a disabled child)\r\n- elderly people who need community care services", 
   "type": "local_transaction", 
-  "slug": "apply-direct-payments-lambeth", 
+  "slug": "apply-direct-payments-lambeth-legacy", 
   "minutes_to_complete": ""
 }

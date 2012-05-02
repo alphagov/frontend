@@ -28,30 +28,27 @@ var setup_local_transactions = function() {
     if (AlphaGeo.full_location.current_location.council) {
       params.council_ons_codes = $.map(AlphaGeo.full_location.current_location.council, function(c) {return c.ons});
     }
-    var local_transaction_url = document.location + '.json';
+    var local_transaction_url = document.location + '.json',
+        message;
     $.post( local_transaction_url, params, function(data) {
       if (data.council && data.council.name && data.council.url) {
         button.find('a').attr('href', data.council.url);
         button.find('span.destination').text(" on the "+ data.council.name +" website");
         button.removeClass('hidden');
       } else if(data.council && data.council.name && data.council.contact_address) {
-        var message = '<div class="contact"><p>';
-        message += '<p>This service is provided by <a href="' + data.council.contact_url + '">' + data.council.name + '</a>.</p>';
-        // we don't know what the various address parts are
+        element = $('#authority-contact');
+        element.find("a.url").attr("href", data.council.contact_url).text(data.council.name);
+        var address = element.find("div.adr");
         for (var i = 0, l = data.council.contact_address.length; i < l; i++) {
-          message += data.council.contact_address[i] + '<br>';
+            address.append(data.council.contact_address[i]).append('<br>');
         }
-        message += '<br />';
-        message += '<strong>Telephone:</strong> ' + data.council.contact_phone + '<br>';
-        message += '</p></div>';
-
-
-        $('.no-provider-error').removeClass('error-notification').removeClass('hidden').html(message)
-        $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
+        address.append(document.createElement('br'));
+        element.find('div.tel .value').text(data.council.contact_phone);
+        element.removeClass("hidden");
       } else {
-        var message = "Sorry, we couldn't find details of a provider for that service in your area.";
-        $('.no-provider-error').removeClass('hidden').addClass('error-notification').text(message);
-        $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
+        message = "Sorry, we couldn't find details of a provider for that service in your area.";
+        $('#no-provider-error').text(message).removeClass('hidden');
+        $('input[name=postcode]').attr('aria-labelledby', 'no-provider-error');
       }
       $('#location-loading').addClass('hidden');
     });
@@ -60,7 +57,7 @@ var setup_local_transactions = function() {
     $('.no-provider-error').addClass('hidden');
     button.addClass('hidden');
   }
-}
+};
 
 $( function() {
   if ( $('#wrapper').attr('class').match(/local_transaction/) ) {

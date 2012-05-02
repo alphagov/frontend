@@ -163,7 +163,7 @@ protected
     }
     if local_transaction.interaction
       result[:url] = local_transaction.interaction.url
-      # DEPRACATED: authority is not located inside the interaction in the latest version
+      # DEPRECATED: authority is not located inside the interaction in the latest version
       # of publisher. This is here for backwards compatibility.
       if local_transaction.interaction.authority
         result.merge!(build_authority_contact_information(local_transaction.interaction.authority))

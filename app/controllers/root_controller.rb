@@ -166,26 +166,24 @@ protected
       # DEPRACATED: authority is not located inside the interaction in the latest version
       # of publisher. This is here for backwards compatibility.
       if local_transaction.interaction.authority
-        result.merge!({
-          name: local_transaction.interaction.authority.name,
-          contact_address: local_transaction.interaction.authority.contact_address,
-          contact_url: local_transaction.interaction.authority.contact_url,
-          contact_phone: local_transaction.interaction.authority.contact_phone,
-          contact_email: local_transaction.interaction.authority.contact_email
-          })
+        result.merge!(build_authority_contact_information(local_transaction.interaction.authority))
       end
       # END DEPRECATED SECTION
     end
     if local_transaction.authority
-      result.merge!({
-        name: local_transaction.authority.name,
-        contact_address: local_transaction.authority.contact_address,
-        contact_url: local_transaction.authority.contact_url,
-        contact_phone: local_transaction.authority.contact_phone,
-        contact_email: local_transaction.authority.contact_email
-        })
+      result.merge!(build_authority_contact_information(local_transaction.authority))
     end
     result
+  end
+
+  def build_authority_contact_information(authority)
+    {
+      name: authority.name,
+      contact_address: authority.contact_address,
+      contact_url: authority.contact_url,
+      contact_phone: authority.contact_phone,
+      contact_email: authority.contact_email
+    }
   end
 
   def fetch_publication(params)

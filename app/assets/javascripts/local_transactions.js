@@ -35,21 +35,22 @@ var setup_local_transactions = function() {
         button.find('span.destination').text(" on the "+ data.council.name +" website");
         button.removeClass('hidden');
       } else if(data.council && data.council.name && data.council.contact_address) {
-        var message = '<p>This service is provided by <a href="' + data.council.contact_url + '">' + data.council.name + '</a>.</p>';
-        message += '<div class="address vcard"><div class="adr"><p>';
+        var message = '<div class="contact"><p>';
+        message += '<p>This service is provided by <a href="' + data.council.contact_url + '">' + data.council.name + '</a>.</p>';
         // we don't know what the various address parts are
         for (var i = 0, l = data.council.contact_address.length; i < l; i++) {
-          message += data.council.contact_address[i] + '<br/>';
+          message += data.council.contact_address[i] + '<br>';
         }
         message += '<br />';
-        message += '<strong>Tel:</strong> ' + data.council.contact_phone + '<br />';
-        message += '</p></div></div>';
+        message += '<strong>Telephone:</strong> ' + data.council.contact_phone + '<br>';
+        message += '</p></div>';
 
 
         $('.no-provider-error').removeClass('error-notification').removeClass('hidden').html(message)
         $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
       } else {
-        $('.no-provider-error').removeClass('hidden').text("Sorry, we couldn't find details of a provider for that service in your area.");
+        var message = "Sorry, we couldn't find details of a provider for that service in your area.";
+        $('.no-provider-error').removeClass('hidden').addClass('error-notification').text(message);
         $('input[name=postcode]').attr('aria-labelledby', 'extendedLabel');
       }
       $('#location-loading').addClass('hidden');

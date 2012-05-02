@@ -16,7 +16,8 @@ var setup_local_transactions = function() {
   var button = $('.get-started');
 
   function load_transaction() {
-    $('.no-provider-error').addClass('hidden');
+    $('#no-provider-error').addClass('hidden');
+    $('#authority-contact').addClass("hidden");
 
     $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
     $('#location-loading').removeClass('hidden');
@@ -56,7 +57,8 @@ var setup_local_transactions = function() {
     });
   }
   function unload_transaction() {
-    $('.no-provider-error').addClass('hidden');
+    $('#no-provider-error').addClass('hidden');
+    $('#authority-contact').addClass("hidden");
     button.addClass('hidden');
   }
 };

@@ -36,18 +36,20 @@ var setup_local_transactions = function() {
         button.find('span.destination').text(" on the "+ data.council.name +" website");
         button.removeClass('hidden');
       } else if(data.council && data.council.name && data.council.contact_address) {
-        element = $('#authority-contact');
+        var element = $('#authority-contact');
         element.find("a.url").attr("href", data.council.contact_url).text(data.council.name);
-        var address = element.find("div.adr");
+        var address = element.find("div.adr").empty();
         for (var i = 0, l = data.council.contact_address.length; i < l; i++) {
             address.append(data.council.contact_address[i]).append('<br>');
         }
         address.append(document.createElement('br'));
         element.find('div.tel .value').text(data.council.contact_phone);
         element.removeClass("hidden");
+        $('#no-provider-error').addClass("hidden");
       } else {
         message = "Sorry, we couldn't find details of a provider for that service in your area.";
         $('#no-provider-error').text(message).removeClass('hidden');
+        $('#authority-contact').addClass("hidden");
         $('input[name=postcode]').attr('aria-labelledby', 'no-provider-error');
       }
       $('#location-loading').addClass('hidden');

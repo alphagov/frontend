@@ -1,0 +1,16 @@
+<section id="content" role="main" class="group">
+
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Licence</span> <%= @licence.title %></h1>
+    </hgroup>
+  </header>
+
+  <div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+        <%= to_govspeak(@licence.overview) %>
+      </div>
+    </article>
+  </div>
+</section>

@@ -37,6 +37,12 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.status_code == 200
   end
 
+  test "viewing a licence page" do
+    setup_api_responses('licence-generic')
+    visit "/licence-generic"
+    assert page.status_code == 200
+  end
+
   test "guide request" do
     setup_api_responses("find-job")
     visit "/find-job"

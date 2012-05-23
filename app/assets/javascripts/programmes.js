@@ -7,7 +7,7 @@ $(function(){
   var sections = $(".tabs-panel"),
     i = sections.length,
     last = $(".tabs-panel:last").attr("id").split("-enhanced")[0],
-    j, 
+    j,
     id,
     ul,
     navid,
@@ -40,10 +40,11 @@ $(function(){
       $("#"+navid).append(ul);
 
       $(".part-pagination a").live("click", function(){
-        if($(window.location.hash+"-enhanced").length != 0){
-         // $(window).scrollTop( $(window.location.hash+"-enhanced").offset().top );
-         $("html, body").animate({scrollTop: $("#content").offset().top - 95},10);
-        }
+          // if this only links to a fragment ID and not a URL, we
+          // consider it "safe" to scroll.
+          if ($(this).attr('href').indexOf('#') === 0) {
+              $("html, body").animate({scrollTop: $("#content").offset().top - 95}, 10);
+          }
       });
     }
   }

@@ -41,6 +41,8 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     setup_api_responses('licence-generic')
     visit "/licence-generic"
     assert page.status_code == 200
+    assert page.has_content?("Licence overview copy"), %(expected there to be content Licence overview copy in #{page.text.inspect})
+    assert page.has_no_content?("--------") # Markdown should be rendered, not output
   end
 
   test "guide request" do

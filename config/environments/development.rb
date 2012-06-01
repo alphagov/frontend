@@ -18,11 +18,10 @@ Frontend::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
- 
+
   #config.assets.compress = true
   #config.assets.digest = true
   config.assets.debug = true
 
-  config.slimmer.asset_host = ENV["STATIC_DEV"] || Plek.new("preview").find("assets")
+  config.slimmer.asset_host = ENV["STATIC_DEV"] || "http://static.dev.gov.uk"
 end
-

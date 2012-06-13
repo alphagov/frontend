@@ -9,9 +9,7 @@ Frontend::Application.routes.draw do
   match "/help(/:action)", :to => "help"
   match "/feedback", :to => 'feedback#index'
 
-  match "/platform(/:action)", :to => "platform"
   match "/settings", :to => "root#settings"
-  match "/section", :to => "root#section"
   match "/tour", :to => "root#tour"
   match "/identify_council/:slug", :as => "identify_council", :to => "root#identify_council"
   match "/places/load_places/:slug", :as => "load_places", :to => "root#load_places"

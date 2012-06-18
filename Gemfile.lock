@@ -89,14 +89,14 @@ GEM
     gelf (1.3.2)
       json
     geogov (0.0.11)
-    govspeak (0.8.9)
+    govspeak (0.8.15)
       htmlentities (~> 4)
       kramdown (~> 0.13.3)
     hike (1.2.1)
     htmlentities (4.3.1)
     i18n (0.6.0)
     json (1.6.6)
-    kramdown (0.13.4)
+    kramdown (0.13.7)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     libv8 (3.3.10.4)
@@ -220,7 +220,7 @@ DEPENDENCIES
   gds-warmup-controller
   gelf
   geogov (~> 0.0.10)
-  govspeak (~> 0.8.0)
+  govspeak (~> 0.8.15)
   launchy
   mocha
   mustache

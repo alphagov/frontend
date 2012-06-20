@@ -13,7 +13,7 @@
    <aside>
      <div class="inner">
        <nav role="navigation" class="chapters-navigation">
-     		<% unless @guide.video_url.blank? %>
+     		<% if @guide.video_url.present? %>
      		<div class="alternative-guide video">
      		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
            <a href="<%= part_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>

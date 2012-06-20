@@ -13,7 +13,7 @@
    <aside>
      <div class="inner">
        <nav role="navigation" class="chapters-navigation">
-     		<% if ! @guide.video_url.blank? %>
+     		<% unless @guide.video_url.blank? %>
      		<div class="alternative-guide video">
      		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
            <a href="<%= guide_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
@@ -47,7 +47,7 @@
           <%- if @guide.has_parts?(@part) -%>
    	        <%- if @guide.has_previous_part?(@part) -%>
    	          <li class="previous">
-  							<a href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" title="Navigate to previous part" rel="prev">
+  							<a href="<%= previous_part_path(@guide, @part, @edition) %>" title="Navigate to previous part" rel="prev">
   							  <span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_before(@part).title) %></span></a>
                 </li>
               <%- else -%>
@@ -57,7 +57,7 @@
    	        <%- end -%>
    	        <%- if @guide.has_next_part?(@part) -%>
   						<li class="next">
-  							<a href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_after(@part).title) %></span></a>
+  							<a href="<%= next_part_path(@guide, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_after(@part).title) %></span></a>
                   </li>
               <%- else -%>
                 <li class="last">
@@ -69,6 +69,7 @@
    	          <span>You have reached the end of this guide</span>
    	        </li>
    	      <%- end -%>
+          </ul>
  	      </nav>
        </footer>
 

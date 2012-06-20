@@ -16,13 +16,13 @@
      		<% unless @guide.video_url.blank? %>
      		<div class="alternative-guide video">
      		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-           <a href="<%= guide_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
+           <a href="<%= part_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
      		</div>
      		<% end %>
          <ol>
            <% @guide.parts.each do |nav_part| %>
            <li <% if @part == nav_part %>class="active"<% end %>>
-             <a href="<%= guide_path(@guide.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@guide.parts, nav_part) %>: <%= nav_part.title %>">
+             <a href="<%= part_path(@guide.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@guide.parts, nav_part) %>: <%= nav_part.title %>">
                <span class="part-label">Part <%= part_number(@guide.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
              </a>
            </li>
@@ -85,9 +85,9 @@
 
 <% content_for :extra_headers do %>
   <%- if @guide.has_previous_part?(@part) -%>
-    <link rel="prev" href="<%= guide_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" />
+    <link rel="prev" href="<%= part_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" />
   <%- end -%>
   <%- if @guide.has_next_part?(@part) -%>
-    <link rel="next" href="<%= guide_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" />
+    <link rel="next" href="<%= part_path(@guide.slug, @guide.part_after(@part).slug,@edition) %>" />
   <%- end -%>
 <% end %>

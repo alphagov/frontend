@@ -3,11 +3,6 @@ require 'geo_helper'
 module RootHelper
 
   include GeoHelper
-  def guide_path(slug, part=nil, edition=nil)
-    opts = Hash[{slug: slug, part: part, edition: edition}.select { |k,v| v }]
-    publication_path(opts)
-  end
-
   def easter_egg(path)
     partial_path = Rails.env.test? ? "test/fixtures" : "lib/data"
     json_path = Rails.root.join(partial_path, "eastereggs.json")
@@ -22,13 +17,6 @@ module RootHelper
 
   def programme_parts(publication)
     publication.parts.reject { |part| part.slug == 'further-information' }
-  end
-
-  def part_number(parts, part)
-    parts.index(part) + 1
-  rescue => e
-    Rails.logger.info "#{e.message} : #{parts.inspect} : #{part.inspect}"
-    "-"
   end
 
   def transaction_path(slug,council,edition)

@@ -45,6 +45,16 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_no_content?("--------") # Markdown should be rendered, not output
   end
 
+  test "viewing a business support page" do
+    setup_api_responses("business-support-basic")
+    visit "/business-support-basic"
+    assert page.status_code == 200
+    assert page.has_content? "Basic Business Support Item"
+    assert page.has_content? "100"
+    assert page.has_content? "5000"
+    assert page.has_content? "Description"
+  end
+
   test "guide request" do
     setup_api_responses("find-job")
     visit "/find-job"

@@ -1,0 +1,31 @@
+{
+  "alternative_title":"Alternative title",
+  "slug":"business-support-basic",
+  "title":"Basic Business Support Item",
+  "updated_at":"2012-06-21T09:04:52-07:00",
+  "type":"business_support",
+  "min_value": 100,
+  "max_value": 5000,
+  "parts": [
+    {
+      "slug": "description",
+      "title": "Description",
+      "body": "This is a description"
+    },
+    {
+      "slug": "eligibility",
+      "title": "Eligibility",
+      "body": "Are you eligible."
+    },
+    {
+      "slug": "evaluation",
+      "title": "Evaluation",
+      "body": "How is this evaluated."
+    },
+    {
+      "slug": "additional-information",
+      "title": "Additional information",
+      "body": "Here is some additional information."
+    }
+  ]
+}

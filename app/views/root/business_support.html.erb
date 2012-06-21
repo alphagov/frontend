@@ -1,0 +1,34 @@
+<section id="content" role="main" class="group">
+
+  <header class="page-header group">
+    <hgroup>
+      <h1><%= @business_support.title %></h1>
+    </hgroup>
+  </header>
+
+  <div class="article-container group">
+    <div>Support value &pound;<%= @business_support.min_value %> to &pound;<%= @business_support.max_value %></div>
+
+    <nav role="navigation" class="chapters-navigation">
+      <ol>
+      <% @business_support.parts.each do |part| %>
+        <li><a href="<%= "#{guide_path(@business_support.slug, part.slug, @edition)}" %>"><%= part.title %></a></li>
+      <% end %>
+      </ol>
+    </nav>
+
+    <article class="group" role="article">
+      <div class="inner">
+        <header><h1><%= @part.title %></h1></header>
+
+        <%= to_govspeak(@part.body) %>
+
+        <nav class="part-pagination return-to-top">
+          <a href="#wrapper">Return to top &uarr;</a>
+        </nav>
+
+      </div>
+
+    </article>
+  </div>
+</section>

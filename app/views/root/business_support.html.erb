@@ -12,7 +12,7 @@
     <nav role="navigation" class="chapters-navigation">
       <ol>
       <% @business_support.parts.each do |part| %>
-        <li><a href="<%= "#{guide_path(@business_support.slug, part.slug, @edition)}" %>"><%= part.title %></a></li>
+        <li><a href="<%= "#{part_path(@business_support.slug, part.slug, @edition)}" %>"><%= part.title %></a></li>
       <% end %>
       </ol>
     </nav>

@@ -85,6 +85,14 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Ride a motorcycle or moped")
   end
 
+  test "rendering video nav element in a guide" do
+    setup_api_responses("ride-a-motorcycle-or-moped")
+
+    visit "/ride-a-motorcycle-or-moped"
+
+    assert page.has_css?("img[src='https://img.youtube.com/vi/iD941H0j1Z0/1.jpg']")
+  end
+
   test "rendering a video guide" do
     setup_api_responses("ride-a-motorcycle-or-moped")
 

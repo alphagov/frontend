@@ -9,7 +9,7 @@
       </hgroup>
     </header>
 
-    <%= render :partial => 'menu' %>
+    <%= render :partial => 'menu', :locals => { :help_location => action_name } %>
     <article role="article" class="group">
       <div class="inner">
         <h2>GOV.UK privacy policy</h2>

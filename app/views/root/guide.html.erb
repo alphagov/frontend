@@ -1,7 +1,7 @@
 <% content_for :extra_javascript do %>
 	<%= javascript_include_tag 'trackers/guide.js', :defer=>"defer" %>
 <% end %>
-<section id="content" role="main" class="group">
+<section id="content" role="main" class="group multi-page">
 
 	<header class="page-header group">
 		<hgroup>
@@ -12,7 +12,7 @@
 	<div class="article-container group">
    <aside>
      <div class="inner">
-       <nav role="navigation" class="chapters-navigation">
+       <nav role="navigation" class="page-navigation">
      		<% if ! @guide.video_url.blank? %>
      		<div class="alternative-guide video">
      		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>

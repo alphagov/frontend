@@ -7,10 +7,22 @@
   </header>
 
   <div class="article-container group">
-    <article role="article" class="group">
+
+    <aside>
       <div class="inner">
+        <nav role="navigation" class="chapters-navigation">
+          <ol>
+            <li class="active"><a href="#overview">Overview</a></li>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <article role="article" class="group">
+      <div id="overview" class="inner">
         <%= to_govspeak(@licence.licence_overview) %>
       </div>
     </article>
+
   </div>
 </section>

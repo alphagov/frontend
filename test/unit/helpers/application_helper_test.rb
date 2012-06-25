@@ -50,13 +50,15 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test "it marks business link pages as business" do
+    publication = OpenStruct.new()
     srs_business = OpenStruct.new(:business_proposition => true)
-    assert @helper.wrapper_class(srs_business).split.include?("business")
+    assert @helper.wrapper_class(publication, srs_business).split.include?("business")
   end
 
   test "it doesn't mark non-business as business" do
+    publication = OpenStruct.new()
     not_srs_business = OpenStruct.new()
-    assert ! @helper.wrapper_class(not_srs_business).split.include?("business")
+    assert ! @helper.wrapper_class(publication, not_srs_business).split.include?("business")
   end
 
   test "should build title from publication and artefact" do

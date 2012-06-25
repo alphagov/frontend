@@ -54,6 +54,11 @@ class ApplicationHelperTest < ActionView::TestCase
     assert @helper.wrapper_class(srs_business).split.include?("business")
   end
 
+  test "it doesn't mark non-business as business" do
+    not_srs_business = OpenStruct.new()
+    assert ! @helper.wrapper_class(not_srs_business).split.include?("business")
+  end
+
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     artefact = OpenStruct.new(section: "Section")

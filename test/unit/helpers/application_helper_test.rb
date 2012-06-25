@@ -49,6 +49,11 @@ class ApplicationHelperTest < ActionView::TestCase
     assert @helper.wrapper_class(local_transaction).split.include?('service')
   end
 
+  test "it marks business link pages as business" do
+    srs_business = OpenStruct.new(:business_proposition => true)
+    assert @helper.wrapper_class(srs_business).split.include?("business")
+  end
+
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     artefact = OpenStruct.new(section: "Section")

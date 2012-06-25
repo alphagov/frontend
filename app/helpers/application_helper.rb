@@ -11,16 +11,29 @@ module ApplicationHelper
 
   def wrapper_class(publication = nil)
     services = %W[transaction local_transaction place]
+    html_classes = []
 
-    if publication and request.format.video?
-      publication.type + ' video-guide'
-    elsif publication and publication.type
-      publication.type + (services.include?(publication.type) ? ' service' : '')
+    if publication
+      if publication.type
+        html_classes << publication.type
+      end
+
+      if request.format.video?
+        html_classes << "video-guide"
+      end
+
+      if services.include? publication.type
+        html_classes << "service"
+      end
+
+      if publication.business_proposition
+        html_classes << "business"
+      end
     elsif action_name == "settings" and request.format.html?
-      "settings"
-    else
-      ''
+      html_classes << "settings"
     end
+
+    html_classes.join(' ')
   end
 
   def section_meta_tags(artefact)

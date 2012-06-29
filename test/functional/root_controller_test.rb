@@ -280,6 +280,16 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
   end
 
+  test "should set proposition to business for business content" do
+    publication_exists("slug" => "slug")
+    panopticon_has_metadata("slug" => "slug", "id" => "12345", "section" => "Test", "need_id" => 123, "kind" => "guide", "business_proposition" => true)
+    @controller.stubs(:render)
+
+    get :publication, :slug => "slug"
+
+    assert_equal "business", @response.headers["X-Slimmer-Proposition"]
+  end
+
   test "sets up a default artefact if panopticon isn't available" do
     @controller.panopticon_api.stubs(:artefact_for_slug).returns(nil)
     @controller.stubs(:render)

@@ -80,6 +80,27 @@ class LocalTransactionsTest < ActionController::TestCase
     assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
   end
 
+  test "Should pass the edition parameter on when looking for council details" do
+    councils = {'council'=>[{'ons'=>1}]}
+    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+    snac = councils['council'][0]['ons']
+
+    panopticon_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
+
+    details = {slug: 'c-slug', type: 'local_transaction', name: 'THIS'}
+    json = JSON.dump(details)
+    uri = "#{PUBLISHER_ENDPOINT}/publications/#{details[:slug]}.json"
+
+    stub_request(:get, uri).with(query: {edition: '1'}).
+      to_return(:body => json, :status => 200)
+
+    stub_request(:get, uri).with(query: {snac: snac.to_s, edition: '1'}).
+      to_return(:body => json, :status => 200)
+
+    get :publication, {slug: "c-slug", edition: '1'}
+    assert_requested :get, "#{uri}?snac=#{snac}&edition=1"
+  end
+
   test "Should allow the councils to be overridden by council_ons_codes param" do
     # The secondary lookups pass a fuzzy lat/long which isn't precise enough to always
     # accurately identify the correct council, especially if the postcode is close

@@ -40,7 +40,7 @@ class RootController < ApplicationController
       end
       @options = load_place_options(@publication)
     elsif @publication.type == "local_transaction"
-      @council = load_council(@publication)
+      @council = load_council(@publication, params[:edition])
     else
       expires_in 60.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
     end
@@ -138,16 +138,19 @@ protected
     end
   end
 
-  def load_council(local_transaction)
+  def load_council(local_transaction, edition = nil)
     councils = council_from_geostack
+    basic_params = {slug: local_transaction.slug}
+    basic_params[:edition] = edition if edition
 
     unless councils.any?
       return false
     else
       providers = councils.map do |council_ons_code|
-        local_transaction = fetch_publication(slug: local_transaction.slug, snac: council_ons_code)
-        build_local_transaction_information local_transaction
+        local_transaction = fetch_publication(basic_params.merge(snac: council_ons_code))
+        build_local_transaction_information(local_transaction) if local_transaction
       end
+      providers.compact!
       provider = providers.select {|council| council[:url] }.first
       if provider
         provider

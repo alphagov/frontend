@@ -17,12 +17,9 @@ function initScroll() {
     items: 'li',
     interval: 15000,
     force: true,
-    exclude: 3,
+    exclude: 3
     // prev: '.homepage-carousel-controls .prev a',
     // next: '.homepage-carousel-controls .next a',
-    onBefore: function() {
-      console.log('Hello! I‘m scrolling here!');
-    }
   });
 
   $('.homepage-carousel-controls')
@@ -50,8 +47,23 @@ function initScroll() {
   });
 }
 
+function initSuggestions() {
+  $('#homepage-search-suggestion').find('li').not(':lt(1)').hide();
+  setInterval(function() { cycleSuggestion(); }, 15000);
+}
+
+function cycleSuggestion() {
+  var $li = $('#homepage-search-suggestion').find('li:visible').fadeOut(800, function() {
+    $(this).next().fadeIn(800);
+    if ($(this).next().length < 1) {
+      $(this).siblings().first().fadeIn(800);
+    }
+  });
+}
+
+
+
 $(document).ready(function() {
-
   initScroll();
-
+  initSuggestions();
 });

@@ -10,12 +10,12 @@ function initScroll() {
 
   $('.homepage-carousel-wrapper').serialScroll({
     axis: 'x',
-    duration: 1000,
+    duration: 800,
     easing: 'easeInOutQuad',
     step: 1,
     cycle: false,
     items: 'li',
-    interval: 60000,
+    interval: 15000,
     force: true,
     exclude: 3,
     // prev: '.homepage-carousel-controls .prev a',
@@ -45,35 +45,13 @@ function initScroll() {
   });
 
   $('.homepage-carousel').on('focus', 'a', function(){
-    var i = $(this).parent().index();
-    $('.homepage-carousel-wrapper').trigger('goto', [i]);
+    $('.homepage-carousel-wrapper').trigger('stop');
+    $('.homepage-carousel-wrapper').scrollTo($(this).parent());
   });
 }
 
 $(document).ready(function() {
 
   initScroll();
-
-/*
-  $('.homepage-carousel').carouFredSel({
-    height: 235,
-    width: "100%",
-    align: "left",
-    items: {
-      height: 235,
-      width: 230
-      // visible: function(v) { return v+2; }
-    },
-    scroll: {
-      items: 1,
-      easing: "easeOutQuad",
-      duration: 3000,
-      pauseOnHover: true
-    },
-    auto: {
-      pauseDuration: 8000
-    }
-  });
-*/
 
 });

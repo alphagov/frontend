@@ -4,59 +4,155 @@
 <% content_for :title, "Welcome to GOV.UK Beta (Test) - simpler, clearer, faster access to UK government
 services and information" %>
 
-  <section id="content" role="main" class="group">
-    <div class="homepage-section">
-      <header class="homepage-banner group">
-        <div class="tag-line">
-          <p>Welcome to GOV.UK, the best way to get to government services and&nbsp;information</p>
-        </div>
-        <form id="search" class="site-search" action="<%= @prefix %>/search" method="get" role="search">
-          <fieldset>
-            <label for="main_autocomplete" class="visuallyhidden">Search</label>
-            <input type="text" id="main_autocomplete" name="q" value="">
-            <input type="submit" value="Search" class="button">
-            <p class="totry">Try bank holidays, clock change, student finance, car tax</p>
-          </fieldset>
-        </form>
-      </header>
-     </div>
-    <div class="feature-items">
-      <div class="sections">
-        <div class="section">
-          <div class="browse">
-            <h2>Browse</h2>
-            <ul>
-              <li><a href="/browse/crime-and-justice">Crime and justice</a></li>
-              <li><a href="/browse/driving">Driving</a></li>
-              <li><a href="/browse/education">Education</a></li>
-              <li><a href="/browse/family">Family</a></li>
-              <li><a href="/browse/housing">Housing</a></li>
-              <li><a href="/browse/life-in-the-uk">Life in the UK</a></li>
-              <li><a href="/browse/money-and-tax">Money and tax</a></li>
-              <li><a href="/browse/neighbourhoods">Neighbourhoods</a></li>
-              <li><a href="/browse/travel">Travel</a></li>
-              <li><a href="/browse/work">Work</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="popular section">
-          <h2>Popular</h2>
-          <ul>
-            <li class="transaction"><a href="/car-tax-disc-vehicle-licence">Get a tax disc</a></li>
-            <li class="answer"><a href="/bank-holidays">UK bank holidays</a></li>
-            <li class="answer"><a href="/student-finance-calculator">Student finance calculator</a></li>
-            <li class="programme"><a href="/housing-benefit">Housing Benefit</a></li>
-            <li class="answer"><a href="/maternity-benefits">Maternity pay entitlement</a></li>
-            <li class="guide"><a href="/after-a-death/overview">What to do after someone dies</a></li>
-            <li class="transaction"><a href="/pay-council-tax">Pay your Council Tax</a></li>
-            <li class="answer"><a href="/vat-rates">VAT rates</a></li>
+<%= javascript_include_tag 'jquery.scrollTo-1.4.2-min.js' %>
+<%= javascript_include_tag 'jquery.serialScroll-1.2.2-min.js' %>
 
+<section id="homepage">
+  <header>
+    <hgroup>
+      <h1>Welcome to GOV.UK, the best way to get government services and information</h1>
+      <h1 class="strap">Simpler, clearer, faster.</h1>
+    </hgroup>
+  </header>
+  
+  <div class="homepage-search group">
+    <form id="homepage-search-form" name="search" action="/search" method="get">
+      <div class="search-suggestions">
+        Get started! Try searching for <span id="homepage-search-suggestion">student finance</span>
+      </div>
+
+      <label for="homepage-search-input" class="visuallyhidden">Search</label><input id="" type="search" name="q" value="" autocomplete="no" />
+      <input class="button big search" type="submit" value="Search" />
+    </form>
+  </div>
+  
+  <div id="homepage-carousel">
+    <div class="homepage-carousel-wrapper">
+      <ul class="homepage-carousel group">
+        <li class="guide"><a href="#">Rent a room in your home</a></li>
+        <li class="quick-answer"><a href="#">Maternity pay entitlement</a></li>
+        <li class="transaction"><a href="#">Register to vote</a></li>
+        <li class="programme"><a href="#">Claim Tax Credits</a></li>
+        <li class="guide"><a href="#">Lorem ipsum</a></li>
+        <li class="quick-answer"><a href="#">Dolor sit amet</a></li>
+        <li class="transaction"><a href="#">Consectetur adipisicing</a></li>
+        <li class="programme"><a href="#">Sed do eiusmod Tempor Incididunt</a></li>
+      </ul>
+    </div>
+    
+    <ul class="homepage-carousel-controls">
+      <li class="prev"><a href="#">Previous</a></li>
+      <li class="pause"><a href="#">Pause</a></li>
+      <li class="next"><a href="#">Next</a></li>
+    </ul>
+  </div>
+
+  <div class="homepage-sections">
+      <div class="group">  
+    
+      <div class="homepage-sections-column">
+        <ul class="sections-list">
+          <li>
+            <h3><a href="#">Business</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Starting Up</a></li>
+              <li><a href="#">Employing people</a></li>
+              <li><a href="#">Self-employed</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3><a href="#">Crime and Justice</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Report a crime or anti-social behaviour</a></li>
+              <li><a href="#">Jury service</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3><a href="#">Driving</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Get a tax disc</a></li>
+              <li><a href="#">Book a driving test</a></li>
+              <li><a href="#">MOT your vehicle</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3><a href="#">Education</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Student finance 2012-13</a></li>
+              <li><a href="#">School term and holiday dates</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="homepage-sections-column">
+        <ul class="sections-list">
+          <li>
+            <h3><a href="#">Family</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Maternity pay entitlement</a></li>
+              <li><a href="#">What to do after someone dies</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            <h3><a href="#">Housing</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Housing benefit</a></li>
+              <li><a href="#">Pay your council tax</a></li>
+              <li><a href="#">Planning permission</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            <h3><a href="#">Life in the UK</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Petition the government</a></li>
+              <li><a href="#">Register to vote</a></li>
+              <li><a href="#">Devolution in the UK</a></li>
+            </ul>
+          </li>
+  
+          <li>
+            <h3><a href="#">Money and Tax</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Benefits advisor</a></li>
+              <li><a href="#">VAT rates</a></li>
+              <li><a href="#">File your self assessment tax return</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="homepage-sections-column">
+        <ul class="sections-list">
+          <li>
+            <h3><a href="#">Neighbourhoods</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Local transport plans</a></li>
+              <li><a href="#">Find your local park</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3><a href="#">Travel</a></h3>
+            <ul class="sections-links">
+              <li><a href="#">Apply for a UK passport</a></li>
+              <li><a href="#">Taking your pet abroad</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3><a href="#">Work</a></h3>
+            <ul class="sections-links">
+            <li><a href="#">Find a job</a></li>
+            <li><a href="#">National minimum wage rates</a></li>
+            <li><a href="#">UK bank holidays</a></li>
           </ul>
-        </div>
       </div>
     </div>
-
-  </section>
-  <div class="aerial-info">
-    <p class="details">This is an aerial photograph of <a href="http://en.wikipedia.org/wiki/Buckingham_Palace">Buckingham Palace</a> to celebrate the <a href="http://en.wikipedia.org/wiki/Diamond_Jubilee_of_Elizabeth_II">Diamond Jubilee</a>.</p>
   </div>
+</section>

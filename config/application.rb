@@ -61,5 +61,8 @@ module Frontend
 
     config.slimmer.logger = Rails.logger
     config.middleware.use Rack::Geo
+
+    # Disable Rack::Cache
+    config.action_dispatch.rack_cache = nil
   end
 end

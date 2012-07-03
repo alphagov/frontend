@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-
+  <title><% if @publication %><%= page_title(@artefact, @publication) %><% else %><%= yield :title %><% end %></title>
   <% if @publication.overview.present? %>
     <meta name="description" content="<%= @publication.overview %>">
   <% end %>

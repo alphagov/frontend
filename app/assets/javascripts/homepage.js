@@ -13,9 +13,9 @@ function initScroll() {
     duration: 800,
     easing: 'easeInOutQuad',
     step: 1,
-    cycle: false,
+    cycle: true,
     items: 'li',
-    interval: 15000,
+    interval: 8000,
     force: true,
     exclude: 3
     // prev: '.homepage-carousel-controls .prev a',
@@ -48,8 +48,10 @@ function initScroll() {
 }
 
 function initSuggestions() {
-  $('#homepage-search-suggestion').find('li').not(':lt(1)').hide();
-  setInterval(function() { cycleSuggestion(); }, 15000);
+  var $li = $('#homepage-search-suggestion').find('li');
+  var i = Math.floor(Math.random() * $li.length);
+  $li.hide().eq(i).show();
+  setInterval(function() { cycleSuggestion(); }, 12000);
 }
 
 function cycleSuggestion() {

@@ -41,9 +41,11 @@ function initScroll() {
     $(this).text('Pause').parent('li').removeClass('play').addClass('pause');
   });
 
-  $('.homepage-carousel').on('focus', 'a', function(){
-    $('.homepage-carousel-wrapper').trigger('stop');
-    $('.homepage-carousel-wrapper').scrollTo($(this).parent());
+  $('.homepage-carousel').on('keydown', 'a', function(e){
+    if (e.which != 13) {
+      $('.homepage-carousel-wrapper').trigger('stop');
+      $('.homepage-carousel-wrapper').scrollTo($(this).parent());
+    }
   });
 }
 

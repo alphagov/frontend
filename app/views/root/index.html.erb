@@ -4,7 +4,7 @@
 <% content_for :title, "Welcome to GOV.UK Beta (Test) - simpler, clearer, faster access to UK government
 services and information" %>
 
-<%= javascript_include_tag 'homepage.js' %>
+<%= javascript_include_tag 'homepage.js', defer:true %>
 
 <section id="homepage">
   <header>
@@ -16,8 +16,8 @@ services and information" %>
 
   <div class="homepage-search group">
     <form id="search" name="search" action="/search" method="get">
-      <div class="search-suggestions">
-        Get started! Try searching for
+      <div class="search-suggestions group">
+        <span>Get started! Try searching for</span>
         <ul id="homepage-search-suggestion">
           <li><a title="Search for jobs" href="/search?q=jobs">jobs</a></li>
           <li><a title="Search for business rates" href="/search?q=business%20rates">business rates</a></li>

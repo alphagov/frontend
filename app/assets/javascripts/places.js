@@ -9,7 +9,7 @@ var setup_places = function() {
     $('.further_information').hide();
     $('#options-loading').removeClass('hidden');
     $.ajax({
-      url: document.location + '.json',
+      url: (document.location + '.json').replace(/\/\.json$/, '.json'),
       dataType: 'json',
       data: {
         lat: AlphaGeo.full_location.current_location.lat,

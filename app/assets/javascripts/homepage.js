@@ -1,8 +1,11 @@
 // Homepage manifest
 //= require jquery.scrollTo-1.4.2-min.js
 //= require jquery.serialScroll-1.2.2-min.js
+//= require jquery.localscroll-1.2.7-min.js
 //= require_self
+
 function initScroll() {
+  // Set wrapper width to total width of all children
   var w=0;
   $('.homepage-carousel').find('li').each(function(){
     w += $(this).outerWidth(true);
@@ -22,6 +25,7 @@ function initScroll() {
     // next: '.homepage-carousel-controls .next a',
   });
 
+  // event handlers for controls
   $('.homepage-carousel-controls')
   .on('click', '.prev a', function(e) {
     e.preventDefault();
@@ -41,11 +45,20 @@ function initScroll() {
     $(this).text('Pause').parent('li').removeClass('play').addClass('pause');
   });
 
+  // if carousel item gets focus from a keydown event, scroll it into view and stop auto animating
   $('.homepage-carousel').on('keydown', 'a', function(e){
     if (e.which != 13) {
       $('.homepage-carousel-wrapper').trigger('stop');
       $('.homepage-carousel-wrapper').scrollTo($(this).parent());
     }
+  });
+  
+  // animated scroll to browse sections
+  $('#homepage').localScroll({
+    hash: true,
+    duration: 1200,
+    easing: 'easeOutQuad',
+    offset: {top: '-60px'}
   });
 }
 

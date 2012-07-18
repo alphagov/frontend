@@ -69,6 +69,15 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '406', response.code
   end
 
+  test "options not set when asked for KML for a place publication" do
+    publication_exists('slug' => 'a-slug', 'type' => 'place')
+    panopticon_has_metadata('slug' => 'a-slug')
+    GdsApi::Imminence.any_instance.stubs(:places_kml)
+
+    get :publication, :slug => 'a-slug', :format => 'kml'
+    assert_nil assigns[:options]
+  end
+
   test "should 406 when asked for unrecognised format" do
     publication_exists('slug' => 'a-slug', 'type' => 'answer')
     panopticon_has_metadata('slug' => 'a-slug')

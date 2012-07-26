@@ -100,6 +100,9 @@ GEM
     launchy (2.0.5)
       addressable (~> 2.2.6)
     libv8 (3.3.10.4)
+    lograge (0.0.6)
+      actionpack
+      activesupport
     lrucache (0.1.1)
       PriorityQueue (~> 0.1.2)
     mail (2.3.0)
@@ -222,6 +225,7 @@ DEPENDENCIES
   geogov (~> 0.0.10)
   govspeak (~> 0.8.15)
   launchy
+  lograge
   mocha
   mustache
   plek (~> 0.1.22)

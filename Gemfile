@@ -17,6 +17,7 @@ gem 'rack', '1.3.5'
 gem 'rake', '0.9.2'
 
 gem 'plek', '~> 0.1.22'
+gem 'lograge'
 
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'

@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'integration_test_helper'
 
 class PageRenderingTest < ActionDispatch::IntegrationTest
@@ -7,13 +6,13 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     JSON.parse(json)
   end
 
-  def setup_api_responses(slug)
+  def setup_api_responses(slug, options = {})
     artefact_info = {
       "slug" => slug,
       "section" => "transport"
     }
     publication_info = publisher_api_response(slug)
-    publication_exists(publication_info)
+    publication_exists(publication_info, options)
     panopticon_has_metadata(artefact_info)
   end
 
@@ -115,6 +114,21 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   test "rendering a help page" do
     visit "/help/accessibility"
     assert_equal 200, page.status_code
+  end
+
+  test "rendering a programme edition's 'further information' page should keep the query string intact" do
+    setup_api_responses("married-couples-allowance", {edition: 5})
+
+    visit "/married-couples-allowance/further-information?edition=5"
+
+    assert page.has_content? "Overview"
+
+    within ".programme-progression" do
+      click_link "Overview"
+    end
+
+    assert page.status_code == 200
+    assert_equal "/married-couples-allowance?edition=5#overview", current_url[/\/(?!.*\.).*/]
   end
 end
 

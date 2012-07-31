@@ -25,8 +25,6 @@ module ApplicationHelper
       if services.include? publication.type
         html_classes << "service"
       end
-    elsif action_name == "settings" and request.format.html?
-      html_classes << "settings"
     end
 
     if artefact

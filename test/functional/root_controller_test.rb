@@ -29,7 +29,7 @@ class RootControllerTest < ActionController::TestCase
 
   def stub_edition_request(slug, edition_id)
     @api = mock()
-    @api.expects(:publication_for_slug).with(slug, {:edition => edition_id}).returns(OpenStruct.new(:type => "answer"))
+    @api.expects(:publication_for_slug).with(slug, {:edition => edition_id}).returns(OpenStruct.new(:type => "answer", slug: slug))
     @controller.stubs(:publisher_api).returns(@api)
   end
 

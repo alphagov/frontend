@@ -8,7 +8,7 @@ group :router do
   gem 'router-client', '2.0.3', require: 'router/client'
 end
 
-gem 'rails', '3.1.7'
+gem 'rails', '3.2.7'
 gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
@@ -52,8 +52,8 @@ gem "addressable"
 gem 'exception_notification'
 
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
   gem "therubyracer", "~> 0.9.4"
   gem 'uglifier'
 end

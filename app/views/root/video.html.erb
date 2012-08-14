@@ -1,0 +1,44 @@
+<section id="content" role="main" class="group">
+
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Guide</span> <%= @video.title %></h1>
+    </hgroup>
+  </header>
+
+	<div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+
+	      <div class="summary">
+		      <p><%= @video.video_summary %></p>
+	      </div>
+
+        <% if video_embed_url(@video) %>
+          <figure class="media-player-wrapper" id="video">
+            <a href="<%= video_embed_url(@video) %>">Watch <%= @video.title %></a>
+          </figure>
+        <% end %>
+
+	      <p class="beta-notice">
+		      These video guides are an experiment, and are very early prototypes. We hope they’ll help people with reading difficulties. We’d love your <a href="/feedback">feedback</a> on how you think they’re working.
+	      <p/>
+      </div>
+    </article>
+
+		<div class="meta-data">
+			<p class="modified-date">Last updated: <%= @video.updated_at.to_formatted_s(:short_ordinal) %></p>
+		</div>
+
+	</div>
+
+</section>
+
+<div id="related-items"></div>
+
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag 'media-player.js', :defer => 'defer' %>
+<% end %>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'media-player.css' %>
+<% end %>

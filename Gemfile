@@ -25,7 +25,7 @@ end
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '~> 1.1'
+  gem 'slimmer', '1.2.3'
 end
 
 if ENV['GEO_DEV']

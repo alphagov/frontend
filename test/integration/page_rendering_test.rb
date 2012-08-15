@@ -1,4 +1,4 @@
-require 'integration_test_helper'
+require_relative '../integration_test_helper'
 
 class PageRenderingTest < ActionDispatch::IntegrationTest
   def publisher_api_response(slug)
@@ -71,13 +71,13 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   # http://stackoverflow.com/a/3443678
   test "requests for gifs 404" do
     visit "/crisis-loans/refresh.gif"
-    assert page.status_code == 404
+    assert_equal 404, page.status_code
 
     visit "/refresh.gif"
-    assert page.status_code == 404
+    assert_equal 404, page.status_code
 
     visit "/pagerror.gif"
-    assert page.status_code == 404
+    assert_equal 404, page.status_code
   end
 
   test "rendering a print view of a programme" do

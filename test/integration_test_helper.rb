@@ -4,7 +4,7 @@ require 'capybara/rails'
 require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/panopticon'
 require 'gds_api/test_helpers/imminence'
-#require 'slimmer/test'
+require 'slimmer/test'
 
 class ActionController::Base
   before_filter proc {

@@ -38,27 +38,29 @@ class ApplicationHelperTest < ActionView::TestCase
     assert @helper.page_title(basic_artefact, publication)
   end
 
-  test "it correctly identifies a video guide in the wrapper classes" do
-    @helper.request.format.stubs(:video?).returns(true)
-    guide = OpenStruct.new(:type => 'guide')
-    assert @helper.wrapper_class(guide).split.include?('video-guide')
-  end
+  context "wrapper_class" do
+    should "correctly identifies a video guide in the wrapper classes" do
+      @helper.request.format.stubs(:video?).returns(true)
+      guide = OpenStruct.new(:type => 'guide')
+      assert @helper.wrapper_class(guide).split.include?('video-guide')
+    end
 
-  test "it marks local transactions as a service" do
-    local_transaction = OpenStruct.new(:type => 'local_transaction')
-    assert @helper.wrapper_class(local_transaction).split.include?('service')
-  end
+    should "mark local transactions as a service" do
+      local_transaction = OpenStruct.new(:type => 'local_transaction')
+      assert @helper.wrapper_class(local_transaction).split.include?('service')
+    end
 
-  test "it marks business link pages as business" do
-    publication = OpenStruct.new()
-    srs_business = OpenStruct.new(:business_proposition => true)
-    assert @helper.wrapper_class(publication, srs_business).split.include?("business")
-  end
+    should "mark business link pages as business" do
+      publication = OpenStruct.new()
+      srs_business = OpenStruct.new(:business_proposition => true)
+      assert @helper.wrapper_class(publication, srs_business).split.include?("business")
+    end
 
-  test "it doesn't mark non-business as business" do
-    publication = OpenStruct.new()
-    not_srs_business = OpenStruct.new()
-    assert ! @helper.wrapper_class(publication, not_srs_business).split.include?("business")
+    should "not mark non-business as business" do
+      publication = OpenStruct.new()
+      not_srs_business = OpenStruct.new()
+      assert ! @helper.wrapper_class(publication, not_srs_business).split.include?("business")
+    end
   end
 
   test "should build title from publication and artefact" do

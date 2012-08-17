@@ -50,16 +50,39 @@ class ApplicationHelperTest < ActionView::TestCase
       assert @helper.wrapper_class(local_transaction).split.include?('service')
     end
 
-    should "mark business link pages as business" do
-      publication = OpenStruct.new()
-      srs_business = OpenStruct.new(:business_proposition => true)
-      assert @helper.wrapper_class(publication, srs_business).split.include?("business")
-    end
+    context "adding directgov and businesslink classes" do
+      setup do
+        @publication = OpenStruct.new(:type => 'answer')
+        @artefact = OpenStruct.new(:tag_ids => [])
+      end
 
-    should "not mark non-business as business" do
-      publication = OpenStruct.new()
-      not_srs_business = OpenStruct.new()
-      assert ! @helper.wrapper_class(publication, not_srs_business).split.include?("business")
+      should "add businesslink class if the artefact is tagged with it" do
+        @artefact.tag_ids = ['businesslink']
+        assert @helper.wrapper_class(@publication, @artefact).split.include?("businesslink")
+      end
+
+      should "add directgov class if the artefact is tagged with it" do
+        @artefact.tag_ids = ['directgov']
+        assert @helper.wrapper_class(@publication, @artefact).split.include?("directgov")
+      end
+
+      should "add both classes if the artefact is tagged with both" do
+        @artefact.tag_ids = ['directgov', 'businesslink']
+        assert @helper.wrapper_class(@publication, @artefact).split.include?("directgov")
+        assert @helper.wrapper_class(@publication, @artefact).split.include?("businesslink")
+      end
+
+      should "ignore other tags on the artefact" do
+        @artefact.tag_ids = ['business', 'crime']
+        assert ! @helper.wrapper_class(@publication, @artefact).split.include?("crime")
+      end
+
+      should "not blow up if tag_ids is nil" do
+        @artefact.tag_ids = nil
+        assert_nothing_raised do
+          @helper.wrapper_class(@publication, @artefact)
+        end
+      end
     end
   end
 

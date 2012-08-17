@@ -29,10 +29,8 @@ module ApplicationHelper
       html_classes << "settings"
     end
 
-    if artefact
-      if artefact.business_proposition
-        html_classes << "business"
-      end
+    if artefact and artefact.tag_ids
+      html_classes << ( %w(businesslink directgov) & artefact.tag_ids )
     end
 
     html_classes.join(' ')

@@ -9,10 +9,13 @@
   </div>
 </div>
 
-<% if api_links.any? %>
 <% content_for :extra_headers do %>
-  <% api_links.each do |type, href| %>
-<link rel="alternate" type="<%= type %>" href="<%= href %>">
+  <% if api_links.any? %>
+    <% api_links.each do |type, href| %>
+      <link rel="alternate" type="<%= type %>" href="<%= href %>">
+    <% end %>
   <% end %>
-<% end %>
+  <% unless params[:format] && params[:format] == :video %>
+    <%= tag("link", :rel => "canonical", :href => guide_path(@guide.slug, params[:part]) %>
+  <% end %>  
 <% end %>

@@ -10,6 +10,10 @@
  * Frances Berriman
  * Minor changes to support GovUK specific markup
 */
+/* July 2012
+ * Tom Byers
+ * Minor changes to support Trade tariff specific markup
+*/
 jQuery.fn.tabs = function(settings){
 	//configurable options
 	var o = $.extend({
@@ -26,11 +30,11 @@ jQuery.fn.tabs = function(settings){
 		//set app mode
 		//if( !$('body').is('[role]') ){ $('body').attr('role','application'); }
 		
-		//nav is first ul // ol for GovUK
-		var tabsNav = tabs.find('.programme-progression ol:first');
+		//nav is first ul
+		var tabsNav = tabs.find('.nav-tabs ul');
 		
 		//body is nav's next sibling
-		var tabsBody = $(".article-container");
+		var tabsBody = $(".tab-content");
 
 		var tabIDprefix = 'tab-';
 
@@ -45,13 +49,14 @@ jQuery.fn.tabs = function(settings){
 			.addClass('tabs-body');
 		
 		//find tab panels, add class and aria
-		tabsBody.find('>article').each(function(){
+		tabsBody.find('.tab-pane').each(function(){
 			$(this)
 				.addClass('tabs-panel')
 				.attr('role','tabpanel')
 				.attr('aria-hidden', true)
 				.attr('aria-labelledby', tabIDprefix + $(this).attr('id'))
-				.attr('id', $(this).attr('id') + tabIDsuffix);
+				.attr('id', $(this).attr('id') + tabIDsuffix)
+				.hide();
 		});
 		
 		//set role of each tab
@@ -72,18 +77,28 @@ jQuery.fn.tabs = function(settings){
 			}
 			else{	
 				//unselect tabs
-				tabsNav.find('li.active')
+				tabsNav.find('li')
+					.attr('aria-selected', false)
+					.filter('.active')
 					.removeClass('active')
-					.find('a')
+					.find('a');
 				//set selected tab item	
 				tab
 					.parent()
-					.addClass('active');
+					.addClass('active')
+					.attr('aria-selected', true);
 				//unselect  panels
-				tabsBody.find('article.tabs-panel-selected').attr('aria-hidden',true).removeClass('tabs-panel-selected');
+				tabsBody.find('.tabs-panel-selected')
+					.attr('aria-hidden',true)
+					.removeClass('tabs-panel-selected')
+					.hide();
+					
 				//select active panel
 				var anchor = tab.attr('href').split("#")[1];
-				$( "#" + anchor + tabIDsuffix ).addClass('tabs-panel-selected').attr('aria-hidden',false);
+				$( "#" + anchor + tabIDsuffix )
+					.addClass('tabs-panel-selected')
+					.attr('aria-hidden',false)
+					.show();
 
 			}
 		};			
@@ -95,37 +110,6 @@ jQuery.fn.tabs = function(settings){
 				$(this).focus();
 				return false;
 			});
-			/*.keydown(function(event){
-				var currentTab = $(this).parent();
-				var ret = true;
-				switch(event.keyCode){
-					case 37://left
-						if(currentTab.prev().size() > 0){
-							selectTab(currentTab.prev().find('a'));
-							currentTab.prev().find('a').eq(0).focus();
-							ret = false;
-						}
-					break;
-					case 39: //right
-						if(currentTab.next().size() > 0){
-							selectTab(currentTab.next().find('a'));
-							currentTab.next().find('a').eq(0).focus();
-							ret = false;
-						}
-					break;
-					case 36: //home key
-						selectTab(tabsNav.find('li:first a'));
-						tabsNav.find('li:first a').eq(0).focus();
-						ret = false;
-					break;
-					case 35://end key
-						selectTab(tabsNav.find('li:last a'));
-						tabsNav.find('li:last a').eq(0).focus();
-						ret = false;
-					break;
-				}*/
-			// 	return ret;
-			// });
 			
 		//if tabs are rotating, stop them upon user events	
 		tabs.bind('click keydown focus',function(){

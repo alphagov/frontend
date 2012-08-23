@@ -2,7 +2,10 @@
   <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %>
     <%= javascript_include_tag 'trackers/ab-testing.js' %>  
   <% end %> 
+
+  <%= javascript_include_tag 'jquery.tabs.js' %>
 <% end %>
+
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
@@ -31,24 +34,45 @@
       </section>
 
       <section class="more">
-        <h1 id="what-you-need-to-know">What you need to know</h1>
+        <% if @transaction.more_information.present? || @transaction.alternate_methods.present? %>
+        <nav class="nav-tabs" role="navigation">
+          <ul>
+            <% if @transaction.more_information.present? %><li class="active"><a href="#before-you-start">Before you start</a></li><% end %>
+            <li><a href="#what-you-need-to-know">What you need</a></li>
+            <% if @transaction.alternate_methods.present? %><li><a href="#other-ways-to-apply">Other ways to apply</a></li><% end %>
+          </ul>
+        </nav>
+        <% end %>
 
-        <ul class="helpers group">
-        <% if @transaction.minutes_to_complete.present? %>
-         <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
-        <% end %>
-        
-        <% @transaction.expectations.each do |e| %>
-         <li class="<%= e.css_class %>"><%= e.text %></li>
-        <% end %>
-        </ul>
-        
-        <%= to_govspeak(@transaction.more_information) %>
-        
-        <% if @transaction.alternate_methods.present? %>
-        <h1>Other ways to apply</h1>
-        <%= to_govspeak(@transaction.alternate_methods) %>
-        <% end %>
+        <div class="tab-content">
+          <% if @transaction.more_information.present? %>
+          <div class="tab-pane" id="before-you-start">
+            <%= to_govspeak(@transaction.more_information) %>
+          </div>
+          <% end %>
+
+          <div class="tab-pane" id="what-you-need-to-know">
+            <h1>What you need to know</h1>
+
+            <ul class="helpers group">
+            <% if @transaction.minutes_to_complete.present? %>
+             <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
+            <% end %>
+            
+            <% @transaction.expectations.each do |e| %>
+             <li class="<%= e.css_class %>"><%= e.text %></li>
+            <% end %>
+            </ul>
+          </div>
+                
+          <% if @transaction.alternate_methods.present? %>
+          <div class="tab-pane" id="other-ways-to-apply">
+            <h1>Other ways to apply</h1>
+            <%= to_govspeak(@transaction.alternate_methods) %>
+          </div>
+          <% end %>
+        </div>
+
         <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
       </section>
 

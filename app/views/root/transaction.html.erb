@@ -14,10 +14,6 @@
   	<article role="article" class="group">
      <div class="inner">
 
-      <% if @transaction.uses_government_gateway %>
-       <p class="advisory minor"><span>This service requires a <a href="https://www.gov.uk/government-gateway">Government Gateway</a> account.</span></p>
-      <% end %>
-
       <section class="intro">
         <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
@@ -41,11 +37,14 @@
         <% if @transaction.minutes_to_complete.present? %>
          <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
         <% end %>
+        
         <% @transaction.expectations.each do |e| %>
          <li class="<%= e.css_class %>"><%= e.text %></li>
         <% end %>
         </ul>
+        
         <%= to_govspeak(@transaction.more_information) %>
+        
         <% if @transaction.alternate_methods.present? %>
         <h1>Other ways to apply</h1>
         <%= to_govspeak(@transaction.alternate_methods) %>

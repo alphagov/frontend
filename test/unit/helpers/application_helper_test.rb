@@ -49,18 +49,6 @@ class ApplicationHelperTest < ActionView::TestCase
       local_transaction = OpenStruct.new(:type => 'local_transaction')
       assert @helper.wrapper_class(local_transaction).split.include?('service')
     end
-
-    should "mark business link pages as business" do
-      publication = OpenStruct.new()
-      srs_business = OpenStruct.new(:business_proposition => true)
-      assert @helper.wrapper_class(publication, srs_business).split.include?("business")
-    end
-
-    should "not mark non-business as business" do
-      publication = OpenStruct.new()
-      not_srs_business = OpenStruct.new()
-      assert ! @helper.wrapper_class(publication, not_srs_business).split.include?("business")
-    end
   end
 
   test "should build title from publication and artefact" do

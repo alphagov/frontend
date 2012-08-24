@@ -267,48 +267,60 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
   end
 
-  test "should expose artefact details in header" do
-    panopticon_has_metadata('slug' => 'slug', 'section' => "rhubarb", 'need_id' => 42, 'kind' => "answer")
-    publication_exists('slug' => 'slug')
-    @controller.stubs(:render)
+  context "setting up slimmer artefact details" do
+    setup do
+      publication_exists('slug' => 'slug')
+    end
 
-    get :publication, :slug => "slug"
+    should "expose artefact details in header" do
+      panopticon_has_metadata('slug' => 'slug', 'section' => "rhubarb", 'need_id' => 42, 'kind' => "answer")
+      @controller.stubs(:render)
 
-    assert_equal "rhubarb", @response.headers["X-Slimmer-Section"]
-    assert_equal "42",      @response.headers["X-Slimmer-Need-ID"].to_s
-    assert_equal "answer",  @response.headers["X-Slimmer-Format"]
-  end
+      get :publication, :slug => "slug"
 
-  test "should set proposition to citizen" do
-    publication_exists('slug' => 'slug')
-    panopticon_has_metadata('slug' => 'slug', 'id' => '12345', 'section' => 'Test', 'need_id' => 123, 'kind' => 'guide')
-    @controller.stubs(:render)
+      assert_equal "rhubarb", @response.headers["X-Slimmer-Section"]
+      assert_equal "42",      @response.headers["X-Slimmer-Need-ID"].to_s
+      assert_equal "answer",  @response.headers["X-Slimmer-Format"]
+    end
 
-    get :publication, :slug => "slug"
+    should "set the artefact in the header" do
+      artefact_data = {'slug' => 'slug', 'id' => '1234', 'section' => "rhubarb", 'need_id' => 42, 'kind' => "answer"}
+      panopticon_has_metadata(artefact_data)
+      @controller.stubs(:render)
 
-    assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
-  end
+      get :publication, :slug => "slug"
 
-  test "should set proposition to business for business content" do
-    publication_exists("slug" => "slug")
-    panopticon_has_metadata("slug" => "slug", "id" => "12345", "section" => "Test", "need_id" => 123, "kind" => "guide", "business_proposition" => true)
-    @controller.stubs(:render)
+      assert_equal JSON.dump(artefact_data), @response.headers["X-Slimmer-Artefact"]
+    end
 
-    get :publication, :slug => "slug"
+    should "set proposition to citizen" do
+      panopticon_has_metadata('slug' => 'slug', 'id' => '12345', 'section' => 'Test', 'need_id' => 123, 'kind' => 'guide')
+      @controller.stubs(:render)
 
-    assert_equal "business", @response.headers["X-Slimmer-Proposition"]
-  end
+      get :publication, :slug => "slug"
 
-  test "sets up a default artefact if panopticon isn't available" do
-    @controller.panopticon_api.stubs(:artefact_for_slug).returns(nil)
-    @controller.stubs(:render)
-    publication_exists('slug' => 'slug')
+      assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
+    end
 
-    get :publication, slug: "slug"
+    should "set proposition to business for business content" do
+      panopticon_has_metadata("slug" => "slug", "id" => "12345", "section" => "Test", "need_id" => 123, "kind" => "guide", "business_proposition" => true)
+      @controller.stubs(:render)
 
-    assert_equal "missing", @response.headers["X-Slimmer-Section"]
-    assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
-    assert_equal "missing", @response.headers["X-Slimmer-Format"]
+      get :publication, :slug => "slug"
+
+      assert_equal "business", @response.headers["X-Slimmer-Proposition"]
+    end
+
+    should "set up a default artefact if panopticon isn't available" do
+      @controller.panopticon_api.stubs(:artefact_for_slug).returns(nil)
+      @controller.stubs(:render)
+
+      get :publication, slug: "slug"
+
+      assert_equal "missing", @response.headers["X-Slimmer-Section"]
+      assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
+      assert_equal "missing", @response.headers["X-Slimmer-Format"]
+    end
   end
 
   test "objects should have specified parts selected" do

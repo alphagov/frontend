@@ -18,6 +18,9 @@ class ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Panopticon
   include GdsApi::TestHelpers::Imminence
 
+  def teardown
+    Capybara.use_default_driver
+  end
 end
 
-Capybara.default_driver = :webkit
+Capybara.javascript_driver = :webkit

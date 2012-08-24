@@ -117,6 +117,8 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   end
 
   test "rendering a programme edition's 'further information' page should keep the query string intact" do
+    Capybara.current_driver = Capybara.javascript_driver
+
     setup_api_responses("married-couples-allowance", {edition: 5})
 
     visit "/married-couples-allowance/further-information?edition=5"

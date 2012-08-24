@@ -20,26 +20,26 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
     stub_request(:get, uri).to_raise(GdsApi::TimedOutException)
     visit "/my-item"
-    assert page.status_code == 503
+    assert_equal 503, page.status_code
   end
 
   test "returns 503 if backend unavailable" do
     uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
     stub_request(:get, uri).to_raise(GdsApi::EndpointNotFound)
     visit "/my-item"
-    assert page.status_code == 503
+    assert_equal 503, page.status_code
   end
 
   test "programme request" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
   end
 
   test "viewing a licence page" do
     setup_api_responses('licence-generic')
     visit "/licence-generic"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert page.has_content?("Licence overview copy"), %(expected there to be content Licence overview copy in #{page.text.inspect})
     assert page.has_no_content?("--------") # Markdown should be rendered, not output
   end
@@ -47,7 +47,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   test "viewing a business support page" do
     setup_api_responses("business-support-basic")
     visit "/business-support-basic"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert page.has_content? "Basic Business Support Item"
     assert page.has_content? "100"
     assert page.has_content? "5000"
@@ -57,7 +57,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   test "guide request" do
     setup_api_responses("find-job")
     visit "/find-job"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert URI.parse(page.current_url).path == "/find-job/introduction"
 
     details = publisher_api_response('find-job')
@@ -127,7 +127,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
       click_link "Overview"
     end
 
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert_equal "/married-couples-allowance?edition=5#overview", current_url[/\/(?!.*\.).*/]
   end
 end

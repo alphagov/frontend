@@ -4,6 +4,7 @@
   <% end %> 
 
   <%= javascript_include_tag 'jquery.tabs.js' %>
+  <%= javascript_include_tag 'jquery.history.js' %>
 <% end %>
 
 <section id="content" role="main" class="group">
@@ -35,7 +36,7 @@
 
       <section class="more">
         <% if @transaction.more_information.present? || @transaction.alternate_methods.present? %>
-        <nav class="nav-tabs" role="navigation">
+        <nav class="js-tabs nav-tabs" role="navigation">
           <ul>
             <% if @transaction.more_information.present? %><li class="active"><a href="#before-you-start">Before you start</a></li><% end %>
             <li><a href="#what-you-need-to-know">What you need</a></li>
@@ -44,14 +45,14 @@
         </nav>
         <% end %>
 
-        <div class="tab-content">
+        <div class="js-tab-content tab-content">
           <% if @transaction.more_information.present? %>
-          <div class="tab-pane" id="before-you-start">
+          <div class="js-tab-pane tab-pane" id="before-you-start">
             <%= to_govspeak(@transaction.more_information) %>
           </div>
           <% end %>
 
-          <div class="tab-pane" id="what-you-need-to-know">
+          <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
             <h1>What you need to know</h1>
 
             <ul class="helpers group">
@@ -66,7 +67,7 @@
           </div>
                 
           <% if @transaction.alternate_methods.present? %>
-          <div class="tab-pane" id="other-ways-to-apply">
+          <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
             <h1>Other ways to apply</h1>
             <%= to_govspeak(@transaction.alternate_methods) %>
           </div>

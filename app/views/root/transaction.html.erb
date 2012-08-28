@@ -53,8 +53,6 @@
           <% end %>
 
           <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-            <h1>What you need to know</h1>
-
             <ul class="helpers group">
             <% if @transaction.minutes_to_complete.present? %>
              <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
@@ -68,7 +66,6 @@
                 
           <% if @transaction.alternate_methods.present? %>
           <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-            <h1>Other ways to apply</h1>
             <%= to_govspeak(@transaction.alternate_methods) %>
           </div>
           <% end %>

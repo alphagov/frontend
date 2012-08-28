@@ -34,45 +34,7 @@
         <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %></noscript><% end %> 
       </section>
 
-      <section class="more">
-        <% if @transaction.more_information.present? || @transaction.alternate_methods.present? %>
-        <nav class="js-tabs nav-tabs" role="navigation">
-          <ul>
-            <% if @transaction.more_information.present? %><li class="active"><a href="#before-you-start">Before you start</a></li><% end %>
-            <li><a href="#what-you-need-to-know">What you need</a></li>
-            <% if @transaction.alternate_methods.present? %><li><a href="#other-ways-to-apply">Other ways to apply</a></li><% end %>
-          </ul>
-        </nav>
-        <% end %>
-
-        <div class="js-tab-content tab-content">
-          <% if @transaction.more_information.present? %>
-          <div class="js-tab-pane tab-pane" id="before-you-start">
-            <%= to_govspeak(@transaction.more_information) %>
-          </div>
-          <% end %>
-
-          <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-            <ul class="helpers group">
-            <% if @transaction.minutes_to_complete.present? %>
-             <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
-            <% end %>
-            
-            <% @transaction.expectations.each do |e| %>
-             <li class="<%= e.css_class %>"><%= e.text %></li>
-            <% end %>
-            </ul>
-          </div>
-                
-          <% if @transaction.alternate_methods.present? %>
-          <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-            <%= to_govspeak(@transaction.alternate_methods) %>
-          </div>
-          <% end %>
-        </div>
-
-        <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
-      </section>
+      <%= render :partial => 'transaction_additional_information', :locals => {:transaction => @transaction } %>
 
      </div>
    </article>

@@ -1,0 +1,47 @@
+<%- presenter = TransactionPresenter.new(transaction) -%>
+<%- using_tabs = presenter.multiple_more_information_sections? -%>
+<section class="more">
+  <%- if using_tabs -%>
+    <nav class="js-tabs nav-tabs" role="navigation">
+      <ul>
+        <% if presenter.before_you_start? %><li class="active"><a href="#before-you-start">Before you start</a></li><% end %>
+        <% if presenter.what_you_need_to_know? %><li><a href="#what-you-need-to-know">What you need to know</a></li><% end %>
+        <% if presenter.other_ways_to_apply? %><li><a href="#other-ways-to-apply">Other ways to apply</a></li><% end %>
+      </ul>
+    </nav>
+  <% end %>
+
+  <div class="js-tab-content tab-content">
+    <% if presenter.before_you_start? %>
+      <div class="js-tab-pane tab-pane" id="before-you-start">
+        <% unless using_tabs %><h1>Before you start</h1><% end %>
+
+        <%= to_govspeak(transaction.more_information) %>
+      </div>
+    <% end %>
+
+    <% if presenter.what_you_need_to_know? %>
+      <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
+        <% unless using_tabs %><h1>What you need to know</h1><% end %>
+        <ul class="helpers group">
+          <% if transaction.minutes_to_complete.present? %>
+            <li>Takes around <span><%= transaction.minutes_to_complete %></span> minutes</li>
+          <% end %>
+
+          <% transaction.expectations.each do |e| %>
+            <li class="<%= e.css_class %>"><%= e.text %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if presenter.other_ways_to_apply? %>
+      <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
+        <% unless using_tabs %><h1>Other ways to apply</h1><% end %>
+        <%= to_govspeak(transaction.alternate_methods) %>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="visuallyhidden"><a href="<%= transaction.link %>" rel="external">Get started on <%= transaction.will_continue_on %></a></p>
+</section>

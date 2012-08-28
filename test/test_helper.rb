@@ -13,7 +13,7 @@ require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 
 require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/panopticon'
+require 'gds_api/test_helpers/content_api'
 
 Mocha::Integration.monkey_patches.each do |patch|
   require patch
@@ -27,5 +27,5 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   include GdsApi::TestHelpers::Publisher
-  include GdsApi::TestHelpers::Panopticon
+  include GdsApi::TestHelpers::ContentApi
 end

@@ -13,7 +13,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     }
     publication_info = publisher_api_response(slug)
     publication_exists(publication_info, options)
-    panopticon_has_metadata(artefact_info)
+    content_api_has_metadata(artefact_info)
   end
 
   test "returns 503 if backend times out" do

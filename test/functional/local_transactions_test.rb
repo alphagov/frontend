@@ -3,7 +3,7 @@ require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/part_methods'
 require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/content_api'
+require 'gds_api/test_helpers/panopticon'
 
 class LocalTransactionsTest < ActionController::TestCase
 
@@ -32,7 +32,7 @@ class LocalTransactionsTest < ActionController::TestCase
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
 
     councils['council'].each do |c|
-      content_api_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
+      panopticon_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
       publication_exists_for_snac(c['ons'], {
         'slug' => 'c-slug',
         'type' => "local_transaction",
@@ -50,7 +50,7 @@ class LocalTransactionsTest < ActionController::TestCase
     councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
 
-    content_api_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
+    panopticon_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
 
     publication_exists_for_snac(councils['council'][0]['ons'], {
       'slug' => 'c-slug',
@@ -85,7 +85,7 @@ class LocalTransactionsTest < ActionController::TestCase
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
     snac = councils['council'][0]['ons']
 
-    content_api_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
+    panopticon_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
 
     details = {slug: 'c-slug', type: 'local_transaction', name: 'THIS'}
     json = JSON.dump(details)
@@ -109,7 +109,7 @@ class LocalTransactionsTest < ActionController::TestCase
     councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
 
-    content_api_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
+    panopticon_has_metadata({'slug' => 'c-slug', 'id' => '12345'})
 
     publication_exists_for_snac(456, {
       'slug' => 'c-slug',
@@ -135,7 +135,7 @@ class LocalTransactionsTest < ActionController::TestCase
 
   test "Should not show error message if no postcode submitted" do
     publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
-    content_api_has_metadata('slug' => 'c-slug', 'id' => '12345')
+    panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
 
     get :publication, :slug => 'c-slug'
     assert response.body.include?("error-notification hidden")
@@ -146,7 +146,7 @@ class LocalTransactionsTest < ActionController::TestCase
     request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
 
     publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
-    content_api_has_metadata('slug' => 'c-slug', 'id' => '12345')
+    panopticon_has_metadata('slug' => 'c-slug', 'id' => '12345')
 
     stub_request(:get, "#{PUBLISHER_ENDPOINT}/publications/c-slug.json?snac=1").to_return(:body => JSON.dump({"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"}))
 

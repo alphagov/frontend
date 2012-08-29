@@ -81,7 +81,7 @@ eos
   #    "section" => "transport"
   #  }
   #  publication_exists(publication_info)
-  #  content_api_has_metadata(artefact_info)
+  #  panopticon_has_metadata(artefact_info)
   #  imminence_has_places("51.498665890246734", "-0.09041540392520916", {
   #    'slug' => 'registrars-offices',
   #    'details' => [

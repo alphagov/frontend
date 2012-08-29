@@ -2,7 +2,7 @@ require 'test_helper'
 require 'capybara/rails'
 
 require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/content_api'
+require 'gds_api/test_helpers/panopticon'
 require 'gds_api/test_helpers/imminence'
 require 'slimmer/test'
 
@@ -15,7 +15,7 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include GdsApi::TestHelpers::Publisher
-  include GdsApi::TestHelpers::ContentApi
+  include GdsApi::TestHelpers::Panopticon
   include GdsApi::TestHelpers::Imminence
 
 end

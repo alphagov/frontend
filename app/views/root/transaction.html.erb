@@ -34,7 +34,16 @@
         <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %></noscript><% end %> 
       </section>
 
-      <%= render :partial => 'transaction_additional_information', :locals => {:transaction => @transaction } %>
+      <section class="more">
+        <%- presenter = TransactionPresenter.new(@transaction) -%>
+        <%- if presenter.multiple_more_information_sections? -%>
+          <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @transaction, :presenter => presenter } %>
+        <%- else -%>
+          <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @transaction, :presenter => presenter } %>
+        <%- end -%>
+
+        <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
+      </section>
 
      </div>
    </article>

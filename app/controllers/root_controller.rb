@@ -237,6 +237,7 @@ protected
       format:      artefact.kind,
       proposition: artefact.business_proposition ? "business" : "citizen"
     )
+    set_slimmer_artefact(artefact)
   end
 
   def set_expiry

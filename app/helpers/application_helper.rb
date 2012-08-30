@@ -29,12 +29,6 @@ module ApplicationHelper
       html_classes << "settings"
     end
 
-    if artefact
-      if artefact.business_proposition
-        html_classes << "business"
-      end
-    end
-
     html_classes.join(' ')
   end
 

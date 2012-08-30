@@ -1,0 +1,29 @@
+<% if presenter.before_you_start? %>
+  <div id="before-you-start">
+    <h1>Before you start</h1>
+
+    <%= to_govspeak(transaction.more_information) %>
+  </div>
+<% end %>
+
+<% if presenter.what_you_need_to_know? %>
+  <div id="what-you-need-to-know">
+    <h1>What you need to know</h1>
+    <ul class="helpers group">
+      <% if transaction.minutes_to_complete.present? %>
+        <li>Takes around <span><%= transaction.minutes_to_complete %></span> minutes</li>
+      <% end %>
+
+      <% transaction.expectations.each do |e| %>
+        <li class="<%= e.css_class %>"><%= e.text %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if presenter.other_ways_to_apply? %>
+  <div id="other-ways-to-apply">
+    <h1>Other ways to apply</h1>
+    <%= to_govspeak(transaction.alternate_methods) %>
+  </div>
+<% end %>

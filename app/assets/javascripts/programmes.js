@@ -1,5 +1,9 @@
 $(function(){
-  $('#wrapper').tabs();
+  var $container = $('#wrapper');
+
+  if ($container.find('.js-tabs').length) {
+    $container.tabs();
+  }
 
   /* step link prompts */
 

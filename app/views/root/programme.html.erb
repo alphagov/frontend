@@ -15,8 +15,8 @@
     </hgroup>
   </header>
 
-  <div class="article-container group">
-    <nav class="programme-progression group" role="navigation">
+  <div class="article-container js-tab-content group">
+    <nav class="js-tabs programme-progression group" role="navigation">
       <ol>
       <% programme_parts(@programme).each do |part| %>
         <li><a href="<%= "#{part_path(@programme.slug, nil, @edition)}##{part.slug}" %>"><%= part.title %></a></li>
@@ -29,7 +29,7 @@
     <% if @is_overview %>
       <% @programme.parts.each do |part| %>
         <% unless part.slug == 'further-information' %>
-          <article role="article" class="overview-etc group" id="<%= part.slug %>">
+          <article role="article" class="js-tab-pane overview-etc group" id="<%= part.slug %>">
             <div class="inner">
               <%= render :partial => "programme_part", :locals => {:part => part} %>
               <nav class="part-pagination return-to-top">

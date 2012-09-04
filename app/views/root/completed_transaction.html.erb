@@ -1,0 +1,18 @@
+<section id="content" role="main" class="group">
+
+  <header class="page-header group">
+    <hgroup>
+     <h1><span>Service</span> <%= @completed_transaction.title %></h1>
+    </hgroup>
+  </header>
+  <div class="article-container group">
+      <article role="article" class="group">
+       <div class="inner">
+         <%= to_govspeak(@completed_transaction.body) %>
+       </div>
+     </article>
+    <%= render 'publication_metadata', :publication => @completed_transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@completed_transaction.slug, :edition => @edition, :format => :json) } %>
+  </div>
+</section>
+
+<div id="related-items"></div>

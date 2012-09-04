@@ -26,6 +26,7 @@ class RootController < ApplicationController
     error_406 and return if request.format.nil?
 
     decipher_overloaded_part_parameter!
+    merge_slug_for_done_pages!
 
     @publication = fetch_publication(params)
     assert_found(@publication)
@@ -110,6 +111,13 @@ class RootController < ApplicationController
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"
+  end
+
+  def merge_slug_for_done_pages!
+    if params[:slug] == 'done' and !params[:part].blank?
+      params[:slug] += '/' + params[:part]
+      params[:part] = nil
+    end
   end
 
   def empty_part_list?

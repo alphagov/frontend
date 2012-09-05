@@ -1,20 +1,6 @@
 require_relative '../integration_test_helper'
 
 class PageRenderingTest < ActionDispatch::IntegrationTest
-  def publisher_api_response(slug)
-    json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
-    JSON.parse(json)
-  end
-
-  def setup_api_responses(slug, options = {})
-    artefact_info = {
-      "slug" => slug,
-      "section" => "transport"
-    }
-    publication_info = publisher_api_response(slug)
-    publication_exists(publication_info, options)
-    panopticon_has_metadata(artefact_info)
-  end
 
   test "returns 503 if backend times out" do
     uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"

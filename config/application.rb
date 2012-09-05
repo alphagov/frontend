@@ -16,7 +16,7 @@ module Frontend
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/app/presenters)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -42,7 +42,7 @@ module Frontend
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += %w( trackers/*.js feedback.js programmes.js frontend.js media-player.js media-player.css jquery.tabs.js jquery.history.js homepage.js )
+    config.assets.precompile += %w( trackers/*.js feedback.js programmes.js frontend.js media-player.js media-player.css homepage.js )
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "frontend"

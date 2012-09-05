@@ -1,0 +1,21 @@
+{
+    "alternate_methods": "",
+    "alternative_title": "",
+    "introduction": "You have to fill out the form online, print it off and send it to your local electoral registration office.",
+    "link": "http://www.aboutmyvote.co.uk/",
+    "minutes_to_complete": "10",
+    "more_information": "",
+    "overview": "Get the right form to register to vote depending on your circumstances",
+    "slug": "register-to-vote",
+    "title": "Register to vote",
+    "updated_at": "2012-05-02T16:27:12+00:00",
+    "uses_government_gateway": false,
+    "will_continue_on": "the Electoral Commission website",
+    "expectations": [
+        {
+            "css_class": "offline_steps",
+            "text": "Includes offline steps"
+        }
+    ],
+    "type": "transaction"
+}

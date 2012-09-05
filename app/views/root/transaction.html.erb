@@ -3,6 +3,7 @@
     <%= javascript_include_tag 'trackers/ab-testing.js' %>  
   <% end %> 
 <% end %>
+
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
@@ -13,10 +14,6 @@
 	<div class="article-container group">
   	<article role="article" class="group">
      <div class="inner">
-
-      <% if @transaction.uses_government_gateway %>
-       <p class="advisory minor"><span>This service requires a <a href="https://www.gov.uk/government-gateway">Government Gateway</a> account.</span></p>
-      <% end %>
 
       <section class="intro">
         <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
@@ -35,21 +32,13 @@
       </section>
 
       <section class="more">
-        <h1 id="what-you-need-to-know">What you need to know</h1>
+        <%- presenter = TransactionPresenter.new(@transaction) -%>
+        <%- if presenter.multiple_more_information_sections? -%>
+          <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @transaction, :presenter => presenter } %>
+        <%- else -%>
+          <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @transaction, :presenter => presenter } %>
+        <%- end -%>
 
-        <ul class="helpers group">
-        <% if @transaction.minutes_to_complete.present? %>
-         <li>Takes around <span><%= @transaction.minutes_to_complete %></span> minutes</li>
-        <% end %>
-        <% @transaction.expectations.each do |e| %>
-         <li class="<%= e.css_class %>"><%= e.text %></li>
-        <% end %>
-        </ul>
-        <%= to_govspeak(@transaction.more_information) %>
-        <% if @transaction.alternate_methods.present? %>
-        <h1>Other ways to apply</h1>
-        <%= to_govspeak(@transaction.alternate_methods) %>
-        <% end %>
         <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
       </section>
 

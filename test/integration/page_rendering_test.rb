@@ -22,6 +22,12 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
   end
 
+  test "completed transaction request" do
+    setup_api_responses('done/completed-transaction-test')
+    visit "/done/completed-transaction-test"
+    assert_equal 200, page.status_code
+  end
+
   test "viewing a licence page" do
     setup_api_responses('licence-generic')
     visit "/licence-generic"

@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def wrapper_class(publication = nil, artefact = nil)
-    services = %W[transaction local_transaction place]
+    services = %W[transaction local_transaction completed_transaction place]
     html_classes = []
 
     if publication

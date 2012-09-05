@@ -267,6 +267,14 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
   end
 
+  test "should join the slug and part when slug is 'done'" do
+    publication_exists('slug' => 'done/example', 'type' => 'completed_transaction', 'name' => 'Example is done')
+    panopticon_has_metadata('slug' => 'done/example')
+
+    @controller.expects(:fetch_publication).with(has_entry('slug' => 'done/example'))
+    get :publication, :slug => "done", :part => "example"
+  end
+
   context "setting up slimmer artefact details" do
     setup do
       publication_exists('slug' => 'slug')

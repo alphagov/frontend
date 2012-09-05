@@ -113,6 +113,9 @@ protected
     @provider_not_found = true if params[:part] == "not_found"
   end
 
+  # For completed transaction (done/*) pages, the route will assume that any
+  # string after the first slash is the part for a guide. Therefore, join these
+  # together before we fetch the publication.
   def merge_slug_for_done_pages!
     if params[:slug] == 'done' and !params[:part].blank?
       params[:slug] += '/' + params[:part]

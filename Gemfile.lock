@@ -7,6 +7,18 @@ GIT
       plek
       rest-client
 
+GIT
+  remote: https://github.com/alphagov/slimmer
+  revision: 37ca84625fa6df68bf0018312eb4bcdc68997bc6
+  branch: report_a_problem
+  specs:
+    slimmer (2.0.0)
+      json
+      nokogiri (~> 1.5.0)
+      null_logger
+      plek (>= 0.1.8)
+      rack (>= 1.3.5)
+
 GEM
   remote: http://rubygems.org/
   remote: https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/
@@ -174,12 +186,6 @@ GEM
     simplecov-html (0.5.3)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (2.0.0)
-      json
-      nokogiri (~> 1.5.0)
-      null_logger
-      plek (>= 0.1.8)
-      rack (>= 1.3.5)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -239,7 +245,7 @@ DEPENDENCIES
   shoulda
   simplecov
   simplecov-rcov
-  slimmer (= 2.0.0)
+  slimmer!
   test-unit
   therubyracer (~> 0.9.4)
   uglifier

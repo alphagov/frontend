@@ -11,9 +11,10 @@
 	       <%= to_govspeak(@answer.body) %>
 	     </div>
 	   </article>
+	   <div id="report-a-problem"></div>
     <%= render 'publication_metadata', :publication => @answer, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@answer.slug, :edition => @edition, :format => :json) } %>
 	
-    <div id="report-a-problem"></div>	
+
 	</div>
 
 </section>

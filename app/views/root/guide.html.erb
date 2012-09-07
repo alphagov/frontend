@@ -74,12 +74,13 @@
    </article>
 
     <%= render 'publication_metadata', :publication => @guide, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@guide.slug, :edition => @edition, :format => :json) } %>
-	</div>
+	<div id="report-a-problem"></div>
+  </div>
 
 </section>
 
 <div id="related-items"></div>
-<div id="report-a-problem"></div>
+
 
 <% content_for :extra_headers do %>
   <%- if @guide.has_previous_part?(@part) -%>

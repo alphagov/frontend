@@ -12,8 +12,11 @@
 	     </div>
 	   </article>
     <%= render 'publication_metadata', :publication => @answer, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@answer.slug, :edition => @edition, :format => :json) } %>
+	
+    <div id="report-a-problem"></div>	
 	</div>
+
 </section>
 
 <div id="related-items"></div>
-<div id="report-a-problem"></div>
+

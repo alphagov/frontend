@@ -28,6 +28,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           expectations = page.all('#what-you-need-to-know li').map(&:text)
           assert_equal ['Takes around 10 minutes', 'Includes offline steps'], expectations
         end
+
+        assert page.has_selector?(".article-container #test-report_a_problem")
       end
     end
   end

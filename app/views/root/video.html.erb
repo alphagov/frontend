@@ -26,9 +26,7 @@
       </div>
     </article>
 
-    <div class="meta-data">
-      <p class="modified-date">Last updated: <%= @video.updated_at.to_formatted_s(:short_ordinal) %></p>
-    </div>
+    <%= render 'publication_metadata', :publication => @video, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@answer.slug, :edition => @video, :format => :json) } %>
 
   </div>
 

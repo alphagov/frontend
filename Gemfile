@@ -26,7 +26,7 @@ end
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', :git => "https://github.com/alphagov/slimmer", :branch => "report_a_problem"
+  gem 'slimmer', '2.1.0'
 end
 
 if ENV['GEO_DEV']

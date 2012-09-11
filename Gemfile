@@ -23,11 +23,11 @@ else
   gem 'govspeak', '~> 0.8.15'
 end
 
-if ENV['SLIMMER_DEV']
+# if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
-else
-  gem 'slimmer', '2.0.0'
-end
+# else
+#   gem 'slimmer', '2.0.0'
+# end
 
 if ENV['GEO_DEV']
   gem 'rack-geo', :path => '../rack-geo'
@@ -43,11 +43,11 @@ else
   gem 'cdn_helpers', '0.9'
 end
 
-if ENV['API_DEV']
+# if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
-else
-  gem 'gds-api-adapters', '1.1.0'
-end
+# else
+#   gem 'gds-api-adapters', '1.1.0'
+# end
 
 gem "addressable"
 gem 'exception_notification'

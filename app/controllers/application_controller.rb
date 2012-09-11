@@ -1,4 +1,5 @@
 require 'gds_api/helpers'
+require 'gds_api/content_api'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery

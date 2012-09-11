@@ -14,28 +14,28 @@ class ApplicationHelperTest < ActionView::TestCase
     @helper = ApplicationHelperContainer.new
   end
 
-  def basic_artefact
+  def missing_artefact
     OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
   end
 
   test "the page title always ends with (Test)" do
-    assert_equal '(Test)', @helper.page_title(basic_artefact).split.last
+    assert_equal '(Test)', @helper.page_title(missing_artefact).split.last
   end
 
   test "the page title doesn't contain consecutive pipes" do
-    assert_no_match %r{\|\s*\|}, @helper.page_title(basic_artefact)
+    assert_no_match %r{\|\s*\|}, @helper.page_title(missing_artefact)
   end
 
   test "the page title does not includes the publication alternative title if one's set" do
     publication = OpenStruct.new(alternative_title: 'I am an alternative', title: 'I am not')
-    title = @helper.page_title(basic_artefact, publication)
+    title = @helper.page_title(missing_artefact, publication)
     assert_no_match %r{I am an alternative}, title
     assert_match %r{I am not}, title
   end
 
   test "the page title doesn't blow up if the publication titles are nil" do
     publication = OpenStruct.new(title: nil)
-    assert @helper.page_title(basic_artefact, publication)
+    assert @helper.page_title(missing_artefact, publication)
   end
 
   context "wrapper_class" do
@@ -60,7 +60,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should prefix title of video with video" do
     @helper.request.format.stubs(:video?).returns(true)
     publication = OpenStruct.new(title: "Title")
-    assert_match /^Video - Title/, @helper.page_title(basic_artefact, publication)
+    assert_match /^Video - Title/, @helper.page_title(missing_artefact, publication)
   end
 
   test "should omit artefact section if missing" do

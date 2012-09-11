@@ -30,5 +30,6 @@
       </div>
 
     </article>
+    <%= render 'publication_metadata', :publication => @business_support, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@business_support.slug, :edition => @edition, :format => :json) } %>
   </div>
 </section>

@@ -25,5 +25,6 @@
       </div>
     </article>
 
+    <%= render 'publication_metadata', :publication => @licence, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@licence.slug, :edition => @edition, :format => :json) } %>
   </div>
 </section>

@@ -5,9 +5,8 @@ Frontend::Application.routes.draw do
   # http://stackoverflow.com/a/3443678
   match "*path.gif", :to => proc {|env| [404, {}, ["Not Found"]] }
 
-  match "/help/feedback" => redirect("/feedback")
+  match "/help/feedback" => redirect("/feedback") # Handled by feedback app
   match "/help(/:action)", :to => "help"
-  match "/feedback", :to => 'feedback#index'
 
   match "/settings", :to => "root#settings"
   match "/tour", :to => "root#tour"

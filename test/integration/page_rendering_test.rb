@@ -16,10 +16,18 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 503, page.status_code
   end
 
+  test "quick_answer request" do
+    setup_api_responses('vat-rates')
+    visit "/vat-rates"
+    assert_equal 200, page.status_code
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
+  end
+
   test "programme request" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"
     assert_equal 200, page.status_code
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "completed transaction request" do
@@ -34,6 +42,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
     assert page.has_content?("Licence overview copy"), %(expected there to be content Licence overview copy in #{page.text.inspect})
     assert page.has_no_content?("--------") # Markdown should be rendered, not output
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "viewing a business support page" do
@@ -44,6 +53,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_content? "100"
     assert page.has_content? "5000"
     assert page.has_content? "Description"
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "guide request" do
@@ -51,6 +61,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/find-job"
     assert_equal 200, page.status_code
     assert URI.parse(page.current_url).path == "/find-job/introduction"
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
 
     details = publisher_api_response('find-job')
     details['parts'].each do |part|
@@ -125,4 +136,3 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal "/married-couples-allowance?edition=5#overview", current_url[/\/(?!.*\.).*/]
   end
 end
-

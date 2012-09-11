@@ -270,13 +270,13 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "expose artefact details in header" do
-      raise "Section has been removed. Need to find the tag that identifies the (root? parent? child?) section"
-      content_api_has_an_artefact("slug")
+      content_api_has_an_artefact("slug", artefact_for_slug_in_a_section("slug", "root-section-title"))
+
       @controller.stubs(:render)
 
       get :publication, :slug => "slug"
 
-      assert_equal "Root Section Title", @response.headers["X-Slimmer-Section"]
+      assert_equal "Root section title", @response.headers["X-Slimmer-Section"]
       assert_equal "1234", @response.headers["X-Slimmer-Need-ID"].to_s
       assert_equal "Guide", @response.headers["X-Slimmer-Format"]
     end
@@ -318,7 +318,6 @@ class RootControllerTest < ActionController::TestCase
       @controller.stubs(:render)
 
       get :publication, slug: "slug"
-      fail "Section is no longer present, need to find the appropriate section tag"
       assert_equal "missing", @response.headers["X-Slimmer-Section"]
       assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
       assert_equal "missing", @response.headers["X-Slimmer-Format"]

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ApplicationHelperTest < ActionView::TestCase
+  include ArtefactHelpers
+
   class ApplicationHelperContainer
     include ApplicationHelper
     include ActionView::Helpers::TagHelper
@@ -15,8 +17,9 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   def missing_artefact
-    OpenStruct.new(section: 'missing', need_id: 'missing', kind: 'missing')
+    artefact_unavailable
   end
+
 
   test "the page title always ends with (Test)" do
     assert_equal '(Test)', @helper.page_title(missing_artefact).split.last
@@ -53,7 +56,8 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
-    artefact = OpenStruct.new(section: "Section")
+    artefact = artefact_for_slug("slug")
+    artefact["tags"] << full_tag_for_slug("section", "section")
     assert_equal "Title | Section | GOV.UK Beta (Test)", @helper.page_title(artefact, publication)
   end
 
@@ -65,31 +69,34 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "should omit artefact section if missing" do
     publication = OpenStruct.new(title: "Title")
-    artefact = OpenStruct.new(section: "")
+    artefact = artefact_for_slug("slug")
     assert_equal "Title | GOV.UK Beta (Test)", @helper.page_title(artefact, publication)
   end
 
   test "should omit first part of title if publication is omitted" do
     @helper.request.format.stubs(:video?).returns(true)
-    artefact = OpenStruct.new(section: "Section")
-    assert_equal "Section | GOV.UK Beta (Test)", @helper.page_title(artefact)
+    artefact = artefact_for_slug("slug")
+    artefact["tags"] << full_tag_for_slug("my-section", "section")
+    assert_equal "My section | GOV.UK Beta (Test)", @helper.page_title(artefact)
   end
 
   test "section_meta_tags return empty string if no artefact given" do
     assert_equal '', @helper.section_meta_tags(nil)
   end
 
-  test "section_meta_tags return empty string if artefact not in section" do
-    artefact = OpenStruct.new
+  test "section_meta_tags return empty string if artefact does not have a section" do
+    artefact = artefact_for_slug("slug")
     assert_equal '', @helper.section_meta_tags(artefact)
   end
 
   test "section_meta_tags returns three meta tags if artefact has a section" do
-    artefact = OpenStruct.new(section: "My Section")
+    artefact = artefact_for_slug("slug")
+    artefact["tags"] << full_tag_for_slug("my-section", "section")
+
     response = @helper.section_meta_tags(artefact)
 
     assert_equal 3, response.scan(/<meta/).count
     assert response.match(/name="x-section-name"/)
-    assert response.match(/content="My Section"/)
+    assert response.match(/content="My section"/)
   end
 end

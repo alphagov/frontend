@@ -3,20 +3,12 @@ require "slimmer/headers"
 class RecordNotFound < Exception
 end
 
-class HashLikeOpenStruct < OpenStruct
-  def [](field)
-    self.send(field)
-  end
-end
-
-class ArtefactUnavailable < HashLikeOpenStruct
-end
-
 class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
   include Slimmer::Headers
+  include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -43,10 +35,10 @@ class RootController < ApplicationController
     setup_parts
 
     @artefact = begin
-      GdsApi::ContentApi.new(Plek.current_env, timeout: 10).artefact(params[:slug])
+      content_api.artefact(params[:slug]).to_hash
     rescue GdsApi::HTTPErrorResponse => e
       logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
-      ArtefactUnavailable.new(details: HashLikeOpenStruct.new(format: 'missing', section: 'missing', need_id: 'missing'))
+      artefact_unavailable
     end
     set_slimmer_artefact_headers(@artefact)
 
@@ -257,18 +249,15 @@ protected
   end
 
   def set_slimmer_artefact_headers(artefact)
+    root_primary_section = root_primary_section(artefact)
     set_slimmer_headers(
-      # ARGH THIS HAS GONE AWAY
-      # section:     artefact["details"]["section"] && artefact["details"]["section"].split(':').first,
+      section:     root_primary_section.nil? ? "missing" : root_primary_section["title"],
       need_id:     artefact["details"]["need_id"],
       format:      artefact["details"]["format"],
       proposition: artefact["details"]["business_proposition"] ? "business" : "citizen"
     )
-    artefact = artefact.to_hash
-    p artefact
-    
-    set_slimmer_artefact(artefact.to_hash) # Without the to_hash it was being turned into an array
-    p headers["X-Slimmer-Artefact"]
+
+    set_slimmer_artefact(artefact)
   end
 
   def set_expiry

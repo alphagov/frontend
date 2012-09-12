@@ -57,7 +57,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     artefact = artefact_for_slug("slug")
-    artefact["tags"] << full_tag_for_slug("section", "section")
+    artefact["tags"] << tag_for_slug("section", "section")
     assert_equal "Title | Section | GOV.UK Beta (Test)", @helper.page_title(artefact, publication)
   end
 
@@ -76,7 +76,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should omit first part of title if publication is omitted" do
     @helper.request.format.stubs(:video?).returns(true)
     artefact = artefact_for_slug("slug")
-    artefact["tags"] << full_tag_for_slug("my-section", "section")
+    artefact["tags"] << tag_for_slug("my-section", "section")
     assert_equal "My section | GOV.UK Beta (Test)", @helper.page_title(artefact)
   end
 
@@ -91,7 +91,7 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "section_meta_tags returns three meta tags if artefact has a section" do
     artefact = artefact_for_slug("slug")
-    artefact["tags"] << full_tag_for_slug("my-section", "section")
+    artefact["tags"] << tag_for_slug("my-section", "section")
 
     response = @helper.section_meta_tags(artefact)
 

@@ -10,7 +10,7 @@ GIT
 PATH
   remote: ../gds-api-adapters
   specs:
-    gds-api-adapters (1.7.0)
+    gds-api-adapters (1.9.1)
       lrucache (~> 0.1.1)
       null_logger
       plek

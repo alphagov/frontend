@@ -1,4 +1,5 @@
 require "slimmer/headers"
+require "authority_lookup"
 
 class RecordNotFound < Exception
 end
@@ -67,6 +68,11 @@ class RootController < ApplicationController
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?
             @not_found = true
+          end
+        elsif @publication.type == "licence"
+          @authority = load_closest_authority
+          if @authority.present?
+            redirect_to publication_path(:slug => @publication.slug, :part => slug_for_snac_code(@authority['ons'])) and return
           end
         end
         render @publication.type
@@ -214,17 +220,37 @@ protected
 
   def council_from_geostack
     if params['council_ons_codes']
-      return params['council_ons_codes']
+      params['council_ons_codes']
+    else
+      full_council_from_geostack.map {|c| c['ons']}.compact
     end
+  end
+
+  def full_council_from_geostack
     if ! request.env['HTTP_X_GOVGEO_STACK']
       return []
     end
     location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
     if location_data['council']
-      location_data['council'].compact.map {|c| c['ons']}.compact
+      return location_data['council'].compact
     else
       return []
     end
+  end
+
+  def load_closest_authority
+    authorities = full_council_from_geostack
+    ["DIS","LBO","UTY","CTY"].each do |type|
+      authorities_for_type = authorities.select {|a| a["type"] == type }
+      if authorities_for_type.any?
+        return authorities_for_type.first
+      end
+    end
+    return false
+  end
+
+  def slug_for_snac_code(snac)
+    AuthorityLookup.find_slug(snac)
   end
 
   def assert_found(obj)

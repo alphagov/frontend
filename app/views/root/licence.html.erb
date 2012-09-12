@@ -19,6 +19,8 @@
     </aside>
 
     <article role="article" class="group">
+      <%= render :partial => 'location_form' %>
+
       <div id="overview" class="inner">
         <h1>Overview</h1>
         <%= to_govspeak(@licence.licence_overview) %>

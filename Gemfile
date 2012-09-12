@@ -26,7 +26,7 @@ end
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '2.1.0'
+  gem 'slimmer', '3.0.0'
 end
 
 if ENV['GEO_DEV']
@@ -46,7 +46,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '1.8.0'
+  gem 'gds-api-adapters', '1.9.1'
 end
 
 gem "addressable"

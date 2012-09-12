@@ -15,6 +15,7 @@ module ArtefactHelpers
         related: [])
   end
 
+  # Duplicated in Slimmer
   def root_primary_section(artefact)
     primary_section = artefact["tags"].detect do |tag| 
       tag["details"]["type"] == "section"

@@ -79,24 +79,4 @@ class ApplicationHelperTest < ActionView::TestCase
     artefact["tags"] << tag_for_slug("my-section", "section")
     assert_equal "My section | GOV.UK Beta (Test)", @helper.page_title(artefact)
   end
-
-  test "section_meta_tags return empty string if no artefact given" do
-    assert_equal '', @helper.section_meta_tags(nil)
-  end
-
-  test "section_meta_tags return empty string if artefact does not have a section" do
-    artefact = artefact_for_slug("slug")
-    assert_equal '', @helper.section_meta_tags(artefact)
-  end
-
-  test "section_meta_tags returns three meta tags if artefact has a section" do
-    artefact = artefact_for_slug("slug")
-    artefact["tags"] << tag_for_slug("my-section", "section")
-
-    response = @helper.section_meta_tags(artefact)
-
-    assert_equal 3, response.scan(/<meta/).count
-    assert response.match(/name="x-section-name"/)
-    assert response.match(/content="My section"/)
-  end
 end

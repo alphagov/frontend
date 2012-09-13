@@ -252,8 +252,8 @@ protected
     root_primary_section = root_primary_section(artefact)
     set_slimmer_headers(
       section:     root_primary_section.nil? ? "missing" : root_primary_section["title"].dup,
-      need_id:     artefact["details"]["need_id"].dup,
-      format:      artefact["details"]["format"].dup,
+      need_id:     artefact["details"]["need_id"],
+      format:      artefact["details"]["format"],
       proposition: artefact["details"]["business_proposition"] ? "business" : "citizen"
     )
 

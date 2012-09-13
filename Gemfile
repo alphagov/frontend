@@ -20,7 +20,7 @@ gem 'lograge'
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', '~> 0.8.15'
+  gem 'govspeak', '1.0.1'
 end
 
 if ENV['SLIMMER_DEV']

@@ -23,11 +23,11 @@ else
   gem 'govspeak', '1.0.1'
 end
 
-if ENV['SLIMMER_DEV']
+#if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
-else
-  gem 'slimmer', '3.0.0'
-end
+#else
+  #gem 'slimmer', '3.0.0'
+#end
 
 if ENV['GEO_DEV']
   gem 'rack-geo', :path => '../rack-geo'

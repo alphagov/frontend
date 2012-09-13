@@ -8,6 +8,7 @@ class RootController < ApplicationController
   include RootHelper
   include ActionView::Helpers::TextHelper
   include Slimmer::Headers
+  include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -28,11 +29,17 @@ class RootController < ApplicationController
     decipher_overloaded_part_parameter!
     merge_slug_for_done_pages!
 
+
     @publication = fetch_publication(params)
     assert_found(@publication)
     setup_parts
 
-    @artefact = fetch_artefact(params)
+    @artefact = begin
+      content_api.artefact(params[:slug]).to_hash
+    rescue GdsApi::HTTPErrorResponse => e
+      logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
+      artefact_unavailable
+    end
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
@@ -242,12 +249,14 @@ protected
   end
 
   def set_slimmer_artefact_headers(artefact)
+    root_primary_section = root_primary_section(artefact)
     set_slimmer_headers(
-      section:     artefact.section && artefact.section.split(':').first,
-      need_id:     artefact.need_id.to_s,
-      format:      artefact.kind,
-      proposition: artefact.business_proposition ? "business" : "citizen"
+      section:     root_primary_section.nil? ? "missing" : root_primary_section["title"].dup,
+      need_id:     artefact["details"]["need_id"],
+      format:      artefact["details"]["format"],
+      proposition: artefact["details"]["business_proposition"] ? "business" : "citizen"
     )
+
     set_slimmer_artefact(artefact)
   end
 

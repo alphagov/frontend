@@ -49,7 +49,7 @@ GEM
       mail (> 2.2.5)
       mime-types
       xml-simple
-    builder (3.0.3)
+    builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -79,7 +79,7 @@ GEM
     execjs (1.2.13)
       multi_json (~> 1.0)
     ffi (1.0.11)
-    gds-api-adapters (1.8.0)
+    gds-api-adapters (1.9.1)
       lrucache (~> 0.1.1)
       null_logger
       plek
@@ -88,16 +88,17 @@ GEM
     gelf (1.3.2)
       json
     geogov (0.0.11)
-    govspeak (0.8.15)
+    govspeak (1.0.1)
       htmlentities (~> 4)
       kramdown (~> 0.13.3)
+      sanitize (= 2.0.3)
     hike (1.2.1)
     htmlentities (4.3.1)
     i18n (0.6.0)
     journey (1.0.4)
-    json (1.7.5)
+    json (1.7.4)
     kgio (2.7.4)
-    kramdown (0.13.7)
+    kramdown (0.13.8)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     libv8 (3.3.10.4)
@@ -116,9 +117,9 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.0.4)
     mustache (0.99.4)
-    nokogiri (1.5.5)
+    nokogiri (1.5.2)
     null_logger (0.0.1)
-    plek (0.1.24)
+    plek (0.1.22)
       builder
     polyglot (0.3.3)
     rack (1.4.1)
@@ -157,6 +158,8 @@ GEM
       builder
       null_logger
     rubyzip (0.9.5)
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
     sass (3.1.20)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -174,7 +177,7 @@ GEM
     simplecov-html (0.5.3)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (2.1.0)
+    slimmer (3.0.0)
       json
       nokogiri (~> 1.5.0)
       null_logger
@@ -221,11 +224,11 @@ DEPENDENCIES
   ci_reporter
   coffee-rails (~> 3.2.1)
   exception_notification
-  gds-api-adapters (= 1.8.0)
+  gds-api-adapters (= 1.9.1)
   gds-warmup-controller
   gelf
   geogov (~> 0.0.10)
-  govspeak (~> 0.8.15)
+  govspeak (= 1.0.1)
   launchy
   lograge
   mocha
@@ -239,7 +242,7 @@ DEPENDENCIES
   shoulda
   simplecov
   simplecov-rcov
-  slimmer (= 2.1.0)
+  slimmer (= 3.0.0)
   test-unit
   therubyracer (~> 0.9.4)
   uglifier

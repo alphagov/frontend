@@ -115,10 +115,6 @@ class RootController < ApplicationController
     end
   end
 
-  def tour
-    set_slimmer_dummy_artefact(:title => "Tour")
-  end
-
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"

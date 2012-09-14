@@ -250,7 +250,7 @@ protected
   end
 
   def slug_for_snac_code(snac)
-    AuthorityLookup.find_slug(snac)
+    AuthorityLookup.find_slug_from_snac(snac)
   end
 
   def assert_found(obj)

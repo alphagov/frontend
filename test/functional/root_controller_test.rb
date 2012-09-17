@@ -270,7 +270,11 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "expose artefact details in header" do
-      content_api_has_an_artefact("slug", artefact_for_slug_in_a_section("slug", "root-section-title"))
+      # TODO: remove explicit setting of top-level format once gds-api-adapters with updated
+      # factory methods is being used.
+      artefact_data = artefact_for_slug_in_a_section("slug", "root-section-title")
+      artefact_data["format"] = "guide"
+      content_api_has_an_artefact("slug", artefact_data)
 
       @controller.stubs(:render)
 
@@ -278,7 +282,7 @@ class RootControllerTest < ActionController::TestCase
 
       assert_equal "Root section title", @response.headers["X-Slimmer-Section"]
       assert_equal "1234", @response.headers["X-Slimmer-Need-ID"].to_s
-      assert_equal "Guide", @response.headers["X-Slimmer-Format"]
+      assert_equal "guide", @response.headers["X-Slimmer-Format"]
     end
 
     should "set the artefact in the header" do

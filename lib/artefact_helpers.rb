@@ -11,6 +11,7 @@ module ArtefactHelpers
   def artefact_unavailable
     ArtefactUnavailable.new(
         details: HashLikeOpenStruct.new(format: 'missing', need_id: 'missing'), 
+        format: 'missing',
         tags: [], 
         related: [])
   end

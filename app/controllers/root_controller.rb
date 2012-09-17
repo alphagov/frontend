@@ -253,7 +253,7 @@ protected
     set_slimmer_headers(
       section:     root_primary_section.nil? ? "missing" : root_primary_section["title"].dup,
       need_id:     artefact["details"]["need_id"],
-      format:      artefact["details"]["format"],
+      format:      artefact["format"],
       proposition: artefact["details"]["business_proposition"] ? "business" : "citizen"
     )
 

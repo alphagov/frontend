@@ -1,65 +1,67 @@
-# encoding: utf-8
-require 'integration_test_helper'
+require_relative '../integration_test_helper'
 
 class PageRenderingTest < ActionDispatch::IntegrationTest
-  def publisher_api_response(slug)
-    json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
-    JSON.parse(json)
-  end
-
-  def setup_api_responses(slug)
-    artefact_info = {
-      "slug" => slug,
-      "section" => "transport"
-    }
-    publication_info = publisher_api_response(slug)
-    publication_exists(publication_info)
-    panopticon_has_metadata(artefact_info)
-  end
 
   test "returns 503 if backend times out" do
     uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
     stub_request(:get, uri).to_raise(GdsApi::TimedOutException)
     visit "/my-item"
-    assert page.status_code == 503
+    assert_equal 503, page.status_code
   end
 
   test "returns 503 if backend unavailable" do
     uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
     stub_request(:get, uri).to_raise(GdsApi::EndpointNotFound)
     visit "/my-item"
-    assert page.status_code == 503
+    assert_equal 503, page.status_code
+  end
+
+  test "quick_answer request" do
+    setup_api_responses('vat-rates')
+    visit "/vat-rates"
+    assert_equal 200, page.status_code
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "programme request" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
+  end
+
+  test "completed transaction request" do
+    setup_api_responses('done/completed-transaction-test')
+    visit "/done/completed-transaction-test"
+    assert_equal 200, page.status_code
   end
 
   test "viewing a licence page" do
     setup_api_responses('licence-generic')
     visit "/licence-generic"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert page.has_content?("Licence overview copy"), %(expected there to be content Licence overview copy in #{page.text.inspect})
     assert page.has_no_content?("--------") # Markdown should be rendered, not output
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "viewing a business support page" do
     setup_api_responses("business-support-basic")
     visit "/business-support-basic"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert page.has_content? "Basic Business Support Item"
     assert page.has_content? "100"
     assert page.has_content? "5000"
     assert page.has_content? "Description"
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "guide request" do
     setup_api_responses("find-job")
     visit "/find-job"
-    assert page.status_code == 200
+    assert_equal 200, page.status_code
     assert URI.parse(page.current_url).path == "/find-job/introduction"
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
 
     details = publisher_api_response('find-job')
     details['parts'].each do |part|
@@ -72,13 +74,13 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   # http://stackoverflow.com/a/3443678
   test "requests for gifs 404" do
     visit "/crisis-loans/refresh.gif"
-    assert page.status_code == 404
+    assert_equal 404, page.status_code
 
     visit "/refresh.gif"
-    assert page.status_code == 404
+    assert_equal 404, page.status_code
 
     visit "/pagerror.gif"
-    assert page.status_code == 404
+    assert_equal 404, page.status_code
   end
 
   test "rendering a print view of a programme" do
@@ -116,5 +118,21 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/help/accessibility"
     assert_equal 200, page.status_code
   end
-end
 
+  test "rendering a programme edition's 'further information' page should keep the query string intact" do
+    Capybara.current_driver = Capybara.javascript_driver
+
+    setup_api_responses("married-couples-allowance", {edition: 5})
+
+    visit "/married-couples-allowance/further-information?edition=5"
+
+    assert page.has_content? "Overview"
+
+    within ".programme-progression" do
+      click_link "Overview"
+    end
+
+    assert_equal 200, page.status_code
+    assert_equal "/married-couples-allowance?edition=5#overview", current_url[/\/(?!.*\.).*/]
+  end
+end

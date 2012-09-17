@@ -1,6 +1,3 @@
-<% content_for :extra_javascript do %>
-	<%= javascript_include_tag 'trackers/guide.js', :defer=>"defer" %>
-<% end %>
 <section id="content" role="main" class="group multi-page">
 
 	<header class="page-header group">
@@ -75,13 +72,14 @@
 
      </div>
    </article>
-
     <%= render 'publication_metadata', :publication => @guide, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@guide.slug, :edition => @edition, :format => :json) } %>
-	</div>
+	
+  </div>
 
 </section>
 
 <div id="related-items"></div>
+
 
 <% content_for :extra_headers do %>
   <%- if @guide.has_previous_part?(@part) -%>

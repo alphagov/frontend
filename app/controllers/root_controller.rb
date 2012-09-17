@@ -8,12 +8,13 @@ class RootController < ApplicationController
   include RootHelper
   include ActionView::Helpers::TextHelper
   include Slimmer::Headers
+  include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
 
   def index
-    expires_in 60.minute, :public => true unless Rails.env.development?
+    set_expiry
 
     set_slimmer_headers(
       template:    "homepage",
@@ -26,23 +27,31 @@ class RootController < ApplicationController
     error_406 and return if request.format.nil?
 
     decipher_overloaded_part_parameter!
+    merge_slug_for_done_pages!
+
 
     @publication = fetch_publication(params)
     assert_found(@publication)
     setup_parts
 
-    @artefact = fetch_artefact(params)
+    @artefact = begin
+      content_api.artefact(params[:slug]).to_hash
+    rescue GdsApi::HTTPErrorResponse => e
+      logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
+      artefact_unavailable
+    end
     set_slimmer_artefact_headers(@artefact)
 
-    if @publication.type == "place" and !request.format.kml?
-      unless (params.include? 'edition' || Rails.env.development?)
-        expires_in 60.minute, :public => true if request.get?
+    case @publication.type
+    when "place"
+      unless request.format.kml?
+        set_expiry if params.exclude?('edition') and request.get?
+        @options = load_place_options(@publication)
       end
-      @options = load_place_options(@publication)
-    elsif @publication.type == "local_transaction"
+    when "local_transaction"
       @council = load_council(@publication, params[:edition])
     else
-      expires_in 60.minute, :public => true unless (params.include? 'edition' || Rails.env.development?)
+      set_expiry if params.exclude?('edition')
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
@@ -94,7 +103,7 @@ class RootController < ApplicationController
       end
     end
   rescue RecordNotFound
-    expires_in 60.minute, :public => true unless Rails.env.development?
+    set_expiry
     error 404
   end
 
@@ -109,6 +118,16 @@ class RootController < ApplicationController
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"
+  end
+
+  # For completed transaction (done/*) pages, the route will assume that any
+  # string after the first slash is the part for a guide. Therefore, join these
+  # together before we fetch the publication.
+  def merge_slug_for_done_pages!
+    if params[:slug] == 'done' and !params[:part].blank?
+      params[:slug] += '/' + params[:part]
+      params[:part] = nil
+    end
   end
 
   def empty_part_list?
@@ -230,11 +249,20 @@ protected
   end
 
   def set_slimmer_artefact_headers(artefact)
+    root_primary_section = root_primary_section(artefact)
     set_slimmer_headers(
-      section:     artefact.section && artefact.section.split(':').first,
-      need_id:     artefact.need_id.to_s,
-      format:      artefact.kind,
-      proposition: artefact.business_proposition ? "business" : "citizen"
+      section:     root_primary_section.nil? ? "missing" : root_primary_section["title"].dup,
+      need_id:     artefact["details"]["need_id"],
+      format:      artefact["details"]["format"],
+      proposition: artefact["details"]["business_proposition"] ? "business" : "citizen"
     )
+
+    set_slimmer_artefact(artefact)
+  end
+
+  def set_expiry
+    unless Rails.env.development?
+      expires_in(60.minutes, :public => true)
+    end
   end
 end

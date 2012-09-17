@@ -1,6 +1,3 @@
-<% content_for :extra_javascript do %>
-	<%= javascript_include_tag 'trackers/answer.js', :defer=>"defer" %>
-<% end %>
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
@@ -15,7 +12,11 @@
 	     </div>
 	   </article>
     <%= render 'publication_metadata', :publication => @answer, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@answer.slug, :edition => @edition, :format => :json) } %>
+	
+
 	</div>
+
 </section>
 
 <div id="related-items"></div>
+

@@ -1,0 +1,68 @@
+<section id="content" role="main" class="group search ancillary">
+
+  <div class="search-container group">
+    <form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2" role="search">
+      <fieldset>
+        <legend class="visuallyhidden">Search gov.uk</legend>
+        <label for="search-main" ><%= capped_search_set_size %> <%= pluralize("result", "results") %> found for </label>
+        <input type="search" name="q" value="<%= @query %>" id="search-main" /> <input type="submit" value="Search" class="button">
+      </fieldset>
+    </form>
+
+    <div class="group">
+      <div class="results">
+        <div class="results-wrapper">
+          <ul class="results-list">
+            <% @results.each do |result| %>
+              <% if result.presentation_format == "recommended_link" %>
+              <li class="section-<%= result.section %> type-guide external">
+              <% else %>
+              <li class="section-<%= result.section %> type-<%= result.presentation_format %>">
+              <% end %>
+                <p class="search-result-title"><a href="<%= result.link %>" title="View <%= result.title %>"<% if result.presentation_format == "recommended_link" %> rel="external"<% end %>><%= result.title %></a></p>
+                <p><%= h result.description %></p>
+                <% if result.presentation_format == "recommended_link" %>
+                <ul class="result-meta">
+                  <li>External site</li>
+                </ul>
+                <% end %>
+              </li>
+            <% end %>
+
+            <% @secondary_results.each do |result| %>
+              <li class="section-specialist type-<%= result.presentation_format %>">
+                <p class="search-result-title"><a href="<%= result.link %>" title= "View <%= result.title %>"><%= result.title %></a></p>
+                <p><%= result.description %></p>
+
+                <ul class="result-meta">
+                  <li class="<%= result.presentation_format %>"><%= result.humanized_format %></li><% if result.section %><li><a href="/browse/<%= result.section %>"><%= formatted_section_name(result.section) %></a></li><% end %>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="filters group">
+          <h2 class="visuallyhidden">Filter by Section</h2>
+
+          <ul>
+            <li data-filter="*" class="active"><a href="#">All results <span><%= capped_search_set_size %></span><span class="visuallyhidden"> results</span></a></li>
+            <% @results.group_by(&:section).sort_by { |section, results_in_section|
+                 results_in_section.size
+               }.reverse_each do |section, results_in_section| %>
+              <% next unless section %>
+              <li data-filter="section-<%= section %>"><a href="#"><%= formatted_section_name(section) %> <span><%= results_in_section.size %></span><span class="visuallyhidden"> results</span></a></li>
+            <% end %>
+            <% if not @secondary_results.empty? %>
+              <li data-filter="section-specialist"><a href="#">Specialist guidance <span><%= @secondary_results.count %></span><span class="visuallyhidden"> results</span></a></li>
+            <% end %>
+          </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<% content_for :head do %>
+  <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @query %>">
+<% end %>

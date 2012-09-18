@@ -6,14 +6,16 @@ class SearchController < ApplicationController
 
     @search_term = params[:q]
     if @search_term.present?
-      @results = rummager_client.search(@search_term)
+      @results = rummager_client.search(@search_term).map { |res| OpenStruct.new(res) }
     end
+
+    @secondary_results = []
 
     respond_to do |format|
       format.html { 
         if @search_term.blank?
           render action: 'no_search_term'
-        elsif @results.empty?
+        elsif @results.empty? && @secondary_results.empty?
           render action: 'no_results'
         else
           render

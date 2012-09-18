@@ -19,5 +19,6 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)"
   end
 
+  match "/search" => "search#index", as: :search
   root :to => 'root#index'
 end

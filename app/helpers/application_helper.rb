@@ -38,12 +38,4 @@ module ApplicationHelper
 
     html_classes.join(' ')
   end
-
-  def section_meta_tags(artefact)
-    return '' if artefact.nil? 
-    return '' if root_primary_section(artefact).nil?
-    tag(:meta, {name: 'x-section-name', content: root_primary_section(artefact)["title"]}, true) +
-      tag(:meta, {name: 'x-section-link', content: root_primary_section(artefact)["content_with_tag"]["web_url"]}, true) +
-      tag(:meta, {name: 'x-section-format', content: artefact["details"]["format"].downcase}, true)
-  end
 end

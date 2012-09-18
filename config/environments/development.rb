@@ -22,6 +22,4 @@ Frontend::Application.configure do
   #config.assets.compress = true
   #config.assets.digest = true
   config.assets.debug = true
-
-  config.slimmer.asset_host = ENV["STATIC_DEV"] || "http://static.dev.gov.uk"
 end

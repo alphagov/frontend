@@ -7,7 +7,7 @@ class SearchController < ApplicationController
       @secondary_results = specialist_results(@search_term, 5)
 
       remaining_slots = @max_results - @secondary_results.length
-      @results = mainstream_results(@search_term, remaining_slots)
+      @results = mainstream_results(@search_term, remaining_slots, params["format_filter"])
     end
 
     respond_to do |format|
@@ -31,8 +31,8 @@ class SearchController < ApplicationController
     res.map { |r| OpenStruct.new(r) }
   end
 
-  def mainstream_results(term, limit = 50)
-    res = Frontend.mainstream_search_client.search(term).take(limit)
+  def mainstream_results(term, limit = 50, format_filter = nil)
+    res = Frontend.mainstream_search_client.search(term, format_filter).take(limit)
     res.map { |r| OpenStruct.new(r) }
   end
 end

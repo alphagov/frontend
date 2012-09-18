@@ -1,2 +1,3 @@
 require 'gds_api/rummager'
-Frontend.search_client = GdsApi::Rummager.new(Plek.current.find('search'))
+Frontend.mainstream_search_client = GdsApi::Rummager.new(Plek.current.find('search'))
+Frontend.specialist_search_client = GdsApi::Rummager.new(Plek.current.find('whitehall-search'))

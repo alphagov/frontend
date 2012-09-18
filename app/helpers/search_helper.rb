@@ -1,6 +1,6 @@
 module SearchHelper
   def capped_search_set_size
-    [@results.count, (@top_results + @max_more_results)].min
+    [@results.count, @max_results].min
   end
 
   def map_section_name(slug)

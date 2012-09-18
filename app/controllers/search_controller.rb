@@ -1,15 +1,14 @@
 class SearchController < ApplicationController
   def index
-    @top_results = 4
-    @max_more_results = 46
-    @max_recommended_results = 2
+    @max_results = 50
 
     @search_term = params[:q]
     if @search_term.present?
-      @results = rummager_client.search(@search_term).map { |res| OpenStruct.new(res) }
-    end
+      @secondary_results = specialist_results(@search_term, 5)
 
-    @secondary_results = []
+      remaining_slots = @max_results - @secondary_results.length
+      @results = mainstream_results(@search_term, remaining_slots)
+    end
 
     respond_to do |format|
       format.html { 
@@ -26,7 +25,14 @@ class SearchController < ApplicationController
   end
 
   protected
-  def rummager_client
-    Frontend.search_client
+  def specialist_results(term, limit = 5)
+    res = Frontend.specialist_search_client.search(term, 'specialist_guidance').
+      take(limit)
+    res.map { |r| OpenStruct.new(r) }
+  end
+
+  def mainstream_results(term, limit = 50)
+    res = Frontend.mainstream_search_client.search(term).take(limit)
+    res.map { |r| OpenStruct.new(r) }
   end
 end

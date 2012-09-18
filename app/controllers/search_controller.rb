@@ -25,6 +25,6 @@ class SearchController < ApplicationController
 
   protected
   def rummager_client
-    @rummager_client ||= GdsApi::Rummager.new(Plek.current.find('search'))
+    Frontend.search_client
   end
 end

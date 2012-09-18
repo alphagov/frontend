@@ -17,10 +17,11 @@ class RootController < ApplicationController
     set_expiry
 
     set_slimmer_headers(
-      template:    "homepage",
-      section:     "homepage",
-      proposition: "citizen"
+      template:    "homepage"
     )
+
+    # Only needed for Analytics
+    set_slimmer_dummy_artefact(:section_name => "homepage", :section_url => "/")
   end
 
   def publication
@@ -249,12 +250,8 @@ protected
   end
 
   def set_slimmer_artefact_headers(artefact)
-    root_primary_section = root_primary_section(artefact)
     set_slimmer_headers(
-      section:     root_primary_section.nil? ? "missing" : root_primary_section["title"].dup,
-      need_id:     artefact["details"]["need_id"],
-      format:      artefact["details"]["format"],
-      proposition: artefact["details"]["business_proposition"] ? "business" : "citizen"
+      format:      artefact["format"]
     )
 
     set_slimmer_artefact(artefact)

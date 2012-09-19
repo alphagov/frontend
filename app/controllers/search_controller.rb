@@ -9,7 +9,11 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @secondary_results = specialist_results(@search_term, 5)
+      begin
+        @secondary_results = specialist_results(@search_term, 5)
+      rescue GdsApi::Rummager::SearchServiceError
+        @secondary_results = []
+      end
 
       remaining_slots = @max_results - @secondary_results.length
       @results = mainstream_results(@search_term, remaining_slots, params["format_filter"])

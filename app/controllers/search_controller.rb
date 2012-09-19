@@ -3,6 +3,11 @@ class SearchController < ApplicationController
     @max_results = 50
 
     @search_term = params[:q]
+
+    if @search_term.blank?
+      render action: 'no_search_term' and return
+    end
+
     if @search_term.present?
       @secondary_results = specialist_results(@search_term, 5)
 
@@ -10,17 +15,8 @@ class SearchController < ApplicationController
       @results = mainstream_results(@search_term, remaining_slots, params["format_filter"])
     end
 
-    respond_to do |format|
-      format.html { 
-        if @search_term.blank?
-          render action: 'no_search_term'
-        elsif @results.empty? && @secondary_results.empty?
-          render action: 'no_results'
-        else
-          render
-        end
-      }
-      format.json { render json: @results }
+    if @results.empty? && @secondary_results.empty?
+      render action: 'no_results' and return
     end
   end
 

@@ -1,5 +1,6 @@
 Frontend::Application.routes.draw do
   match "/homepage" => redirect("/")
+  match "/search" => "search#index", as: :search
 
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
@@ -19,6 +20,5 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)"
   end
 
-  match "/search" => "search#index", as: :search
   root :to => 'root#index'
 end

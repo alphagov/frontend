@@ -7,7 +7,6 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
-  include Slimmer::Headers
   include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503

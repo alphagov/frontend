@@ -20,13 +20,11 @@
           </figure>
         <% end %>
 
-        <p class="beta-notice">
-          These video guides are an experiment, and are very early prototypes. We hope they’ll help people with reading difficulties. We’d love your <a href="/feedback">feedback</a> on how you think they’re working.
-        <p/>
+        <%= to_govspeak(@video.body) %>
       </div>
     </article>
 
-    <%= render 'publication_metadata', :publication => @video, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@answer.slug, :edition => @video, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @video, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@video.slug, :edition => @video, :format => :json) } %>
 
   </div>
 

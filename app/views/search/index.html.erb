@@ -67,3 +67,4 @@
 <% content_for :head do %>
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @query %>">
 <% end %>
+<% content_for :title, "#{@search_term} | Search | GOV.UK Beta (Test)" %>

@@ -19,6 +19,8 @@ class SearchController < ApplicationController
       @results = mainstream_results(@search_term, remaining_slots, params["format_filter"])
     end
 
+    fill_in_slimmer_headers
+
     if @results.empty? && @secondary_results.empty?
       render action: 'no_results' and return
     end
@@ -34,5 +36,14 @@ class SearchController < ApplicationController
   def mainstream_results(term, limit = 50, format_filter = nil)
     res = Frontend.mainstream_search_client.search(term, format_filter).take(limit)
     res.map { |r| OpenStruct.new(r) }
+  end
+
+  def fill_in_slimmer_headers
+    set_slimmer_headers(
+      result_count: @results.length,
+      format:       "search",
+      section:      "search",
+      proposition:  "citizen"
+    )
   end
 end

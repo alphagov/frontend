@@ -79,7 +79,7 @@ GEM
     execjs (1.2.13)
       multi_json (~> 1.0)
     ffi (1.0.11)
-    gds-api-adapters (1.9.1)
+    gds-api-adapters (2.5.0)
       lrucache (~> 0.1.1)
       null_logger
       plek
@@ -224,7 +224,7 @@ DEPENDENCIES
   ci_reporter
   coffee-rails (~> 3.2.1)
   exception_notification
-  gds-api-adapters (= 1.9.1)
+  gds-api-adapters (= 2.5.0)
   gds-warmup-controller
   gelf
   geogov (~> 0.0.10)

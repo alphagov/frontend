@@ -4,7 +4,7 @@ class HelpController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
 
-  before_filter :declare_section
+  before_filter :setup_slimmer_artefact
   before_filter :cache_headers
   before_filter :limit_to_html
 
@@ -14,8 +14,8 @@ class HelpController < ApplicationController
   end
 
 protected
-  def declare_section
-    @artefact = OpenStruct.new(section: 'Help')
+  def setup_slimmer_artefact
+    set_slimmer_dummy_artefact(:section_name => "Help", :section_link => "/help")
   end
 
   def cache_headers

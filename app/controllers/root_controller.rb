@@ -37,7 +37,7 @@ class RootController < ApplicationController
     begin
       @artefact = content_api.artefact(params[:slug])
       unless @artefact
-        logger.debug("Failed to fetch artefact from Content API. Response code: 404")
+        logger.warn("Failed to fetch artefact from Content API. Response code: 404")
       end
     rescue GdsApi::HTTPErrorResponse => e
       logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")

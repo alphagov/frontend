@@ -34,12 +34,16 @@ class RootController < ApplicationController
     assert_found(@publication)
     setup_parts
 
-    @artefact = begin
-      content_api.artefact(params[:slug]).to_hash
+    begin
+      @artefact = content_api.artefact(params[:slug])
+      unless @artefact
+        logger.debug("Failed to fetch artefact from Content API. Response code: 404")
+      end
     rescue GdsApi::HTTPErrorResponse => e
       logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
-      artefact_unavailable
     end
+
+    @artefact ||= artefact_unavailable
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type

@@ -9,16 +9,13 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      full_result_set = retrieve_results(@search_term, @max_results, params["format_filter"])
+      @results = retrieve_results(@search_term, @max_results, params["format_filter"])
+      @secondary_results = @results.select { |r| r.format == 'specialist_guidance' }
     end
-
-    @secondary_results, @results = full_result_set.partition { |r| 
-      r.format == 'specialist_guidance' 
-    }
 
     fill_in_slimmer_headers(@results)
 
-    if @results.empty? && @secondary_results.empty?
+    if @results.empty?
       render action: 'no_results' and return
     end
   end
@@ -26,7 +23,7 @@ class SearchController < ApplicationController
   protected
   def retrieve_results(term, limit = 50, format_filter = nil)
     res = Frontend.mainstream_search_client.search(term, format_filter).take(limit)
-    res.map { |r| OpenStruct.new(r) }
+    res.map { |r| SearchResult.new(r) }
   end
 
   def fill_in_slimmer_headers(result_set)

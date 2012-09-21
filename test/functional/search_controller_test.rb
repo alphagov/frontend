@@ -71,14 +71,14 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal 0, assigns[:secondary_results].length
   end
 
-  test "should only show limited main and limited secondary results" do
+  test "should extract specialist results for use in display logic" do
     Frontend.mainstream_search_client.stubs(:search).returns(
       Array.new(45, {}) + Array.new(5, {format: 'specialist_guidance'})
     )
 
     get :index, q: "Test"
 
-    assert_equal 45, assigns[:results].length
+    assert_equal 50, assigns[:results].length
     assert_equal 5, assigns[:secondary_results].length
   end
 

@@ -1,8 +1,0 @@
- <li class="section-specialist type-<%= result.presentation_format %>">
-  <p class="search-result-title"><a href="<%= result.link %>" title= "View <%= result.title %>"><%= result.title %></a></p>
-  <p><%= result.description %></p>
-
-  <ul class="result-meta">
-    <li class="<%= result.presentation_format %>"><%= result.humanized_format %></li><% if result.section %><li><a href="/browse/<%= result.section %>"><%= formatted_section_name(result.section) %></a></li><% end %>
-  </ul>
-</li>

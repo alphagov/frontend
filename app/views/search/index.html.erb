@@ -13,8 +13,7 @@
       <div class="results">
         <div class="results-wrapper">
           <ul class="results-list">
-            <%= render collection: @results, partial: 'mainstream_result', as: :result %>
-            <%= render collection: @secondary_results, partial: 'specialist_result', as: :result %>
+            <%= render collection: @results, partial: "result" %>
           </ul>
         </div>
       </div>
@@ -28,9 +27,9 @@
                  results_in_section.size
                }.reverse_each do |section, results_in_section| %>
               <% next unless section %>
-              <li data-filter="section-<%= section %>"><a href="#"><%= formatted_section_name(section) %> <span><%= results_in_section.size %></span><span class="visuallyhidden"> results</span></a></li>
+              <li data-filter="section-<%= section %>"><a href="#"><%= results_in_section.first.formatted_section_name %> <span><%= results_in_section.size %></span><span class="visuallyhidden"> results</span></a></li>
             <% end %>
-            <% if not @secondary_results.empty? %>
+            <% if @secondary_results.any? %>
               <li data-filter="section-specialist"><a href="#">Specialist guidance <span><%= @secondary_results.count %></span><span class="visuallyhidden"> results</span></a></li>
             <% end %>
           </ul>

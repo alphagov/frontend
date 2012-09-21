@@ -4,6 +4,7 @@ require 'gds_api/content_api'
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers
+  include Slimmer::Headers
 
   def error_404; error 404; end
   def error_406; error 406; end

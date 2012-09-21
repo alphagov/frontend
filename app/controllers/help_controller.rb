@@ -3,7 +3,6 @@ require "slimmer/headers"
 class HelpController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
-  include Slimmer::Headers
 
   before_filter :setup_slimmer_artefact
   before_filter :cache_headers

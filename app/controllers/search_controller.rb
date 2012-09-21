@@ -10,7 +10,6 @@ class SearchController < ApplicationController
 
     if @search_term.present?
       @results = retrieve_results(@search_term, @max_results, params["format_filter"])
-      @secondary_results = @results.select { |r| r.format == 'specialist_guidance' }
     end
 
     fill_in_slimmer_headers(@results)

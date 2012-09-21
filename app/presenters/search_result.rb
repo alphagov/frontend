@@ -17,28 +17,18 @@ class SearchResult
     @result = result.stringify_keys!
   end
 
-  def presentation_format
-    result['presentation_format']
+  PASS_THROUGH_KEYS = [ 
+    :presentation_format, :link, :title, :description,
+    :format, :humanized_format
+  ]
+  PASS_THROUGH_KEYS.each do |key|
+    define_method key do
+      result[key.to_s]
+    end
   end
 
   def formatted_section_name
     mapped_section_name ? mapped_section_name : humanized_section_name
-  end
-
-  def link
-    result['link']
-  end
-
-  def title
-    result['title']
-  end
-
-  def description
-    result['description']
-  end
-
-  def format
-    result['format']
   end
 
   def section

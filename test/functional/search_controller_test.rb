@@ -76,7 +76,6 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "Test"
 
     assert_select 'input[value=Test]'
-    # assert_equal 50, assigns[:results].length
   end
 
   test "should_show_external_links_with_a_separate_list_class" do

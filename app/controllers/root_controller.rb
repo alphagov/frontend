@@ -7,7 +7,6 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
-  include Slimmer::Headers
   include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
@@ -35,12 +34,16 @@ class RootController < ApplicationController
     assert_found(@publication)
     setup_parts
 
-    @artefact = begin
-      content_api.artefact(params[:slug]).to_hash
+    begin
+      @artefact = content_api.artefact(params[:slug])
+      unless @artefact
+        logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
+      end
     rescue GdsApi::HTTPErrorResponse => e
-      logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
-      artefact_unavailable
+      logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
     end
+
+    @artefact ||= artefact_unavailable
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type

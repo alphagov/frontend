@@ -17,7 +17,7 @@ class SearchResult
     @result = result.stringify_keys!
   end
 
-  PASS_THROUGH_KEYS = [ 
+  PASS_THROUGH_KEYS = [
     :presentation_format, :link, :title, :description,
     :format, :humanized_format
   ]

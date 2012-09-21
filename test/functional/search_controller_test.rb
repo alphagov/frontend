@@ -70,6 +70,15 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal 50, assigns[:results].length
   end
 
+  test "should show the phrase searched for" do
+    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(75, {}))
+
+    get :index, q: "Test"
+
+    assert_select 'input[value=Test]'
+    # assert_equal 50, assigns[:results].length
+  end
+
   test "should_show_external_links_with_a_separate_list_class" do
     external_document = {
       "title" => "A title",

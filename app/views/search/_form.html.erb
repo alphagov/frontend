@@ -1,0 +1,13 @@
+<form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2" role="search">
+  <fieldset>
+    <legend class="visuallyhidden">Search gov.uk</legend>
+
+    <% if @results && @results.any? %>
+      <label for="search-main" ><span class="result-count"><%= capped_search_set_size %></span> <%= pluralize("result", "results") %> found for </label>
+    <% else %>
+      <label for="search-main">What are you looking for?</label>
+    <% end %>
+
+    <input type="search" name="q" value="<%= @search_term %>" id="search-main" /> <input type="submit" value="Search" class="button">
+  </fieldset>
+</form>

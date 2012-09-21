@@ -1,12 +1,6 @@
 <section id="content" role="main" class="group ancillary search">
   <div class="search-container group">
-    <form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2" role="search">
-      <fieldset>
-        <legend class="visuallyhidden">Search gov.uk</legend>
-        <label for="search-main">What are you looking for?</label>
-        <input type="search" name="q" value="<%= h @query %>" id="search-main" /> <input type="submit" value="Search" class="button">
-      </fieldset>
-    </form>
+    <%= render partial: 'form' %>
 
     <div class="results group">
       <div class="results-wrapper">

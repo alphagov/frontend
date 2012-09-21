@@ -44,7 +44,8 @@ class RootController < ApplicationController
       if @snac_code
         content_api.artefact_with_snac_code(params[:slug], @snac_code).to_hash
       else
-        content_api.artefact(params[:slug]).to_hash
+        api_request = content_api.artefact(params[:slug])
+        api_request.nil? ? artefact_unavailable : api_request.to_hash
       end
     rescue GdsApi::HTTPErrorResponse => e
       logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
@@ -65,6 +66,7 @@ class RootController < ApplicationController
     end
 
     if closest_authority_from_geostack.present?
+      @authority = closest_authority_from_geostack
       redirect_to publication_path(:slug => @publication.slug, :part => slug_for_snac_code(closest_authority_from_geostack['ons'])) and return
     end
 

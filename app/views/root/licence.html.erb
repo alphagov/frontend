@@ -9,32 +9,38 @@
   <div class="article-container group">
 
     <% if @licence_details.present? %>
-    <aside>
-      <div class="inner">
-        <nav role="navigation" class="page-navigation">
-          <ol>
-            <li class="active"><a href="#overview">Overview</a></li>
-            <% @licence_details['authorities'].first['actions'].each do |action,links| %>
-              <li><%= link_to action.capitalize, licence_authority_action_path(@licence.slug, params[:part], action) %></li>
-            <% end %>
-          </ol>
-        </nav>
-      </div>
-    </aside>
-
-    <article role="article" class="group">
-      <section class="intro inner">
-        <div class="get-started-intro">
-          <h1>Apply for this licence</h1>
-          <%= render :partial => 'location_form', :locals => {:format => 'licence'} %>
+      <aside>
+        <div class="inner">
+          <nav role="navigation" class="page-navigation">
+            <ol>
+              <li class="active"><a href="#overview">Overview</a></li>
+              <% @licence_details['authorities'].first['actions'].each do |action,links| %>
+                <li><%= link_to action.capitalize, licence_authority_action_path(@licence.slug, params[:part], action) %></li>
+              <% end %>
+            </ol>
+          </nav>
         </div>
-      </section>
+      </aside>
 
-      <div id="overview" class="inner">
-        <h1>Overview</h1>
-        <%= to_govspeak(@licence.licence_overview) %>
-      </div>
-    </article>
+      <article role="article" class="group">
+        <% if @snac_code and @artefact['details']['licence']['authorities'].any? %>
+          <section class="intro inner">
+            We're showing actions for <strong><%= @artefact['details']['licence']['authorities'].first['name'] %></strong> (<%= link_to 'change', publication_path(@publication.slug) %>)
+          </section>
+        <% elsif @artefact['details']['licence']['location_specific'] %>
+          <section class="intro inner">
+            <div class="get-started-intro">
+              <h1>Apply for this licence</h1>
+              <%= render :partial => 'location_form', :locals => {:format => 'licence'} %>
+            </div>
+          </section>
+        <% end %>
+
+        <div id="overview" class="inner">
+          <h1>Overview</h1>
+          <%= to_govspeak(@licence.licence_overview) %>
+        </div>
+      </article>
     <% else %>
       <%= render :partial => 'licence_introduction', :publication => @licence %>
     <% end %>

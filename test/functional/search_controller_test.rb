@@ -35,6 +35,12 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "label", text: /3 results found/
   end
 
+  test "should use correct pluralisation for a single result" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "label", text: /1 result found/
+  end
+
   test "should display a link to the documents matching our search criteria" do
     client = stub("search", search: [{"title" => "document-title", "link" => "/document-slug"}])
     Frontend.stubs(:mainstream_search_client).returns(client)

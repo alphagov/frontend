@@ -1,12 +1,4 @@
 class SearchResult
-  PRESENTATION_FORMAT_TRANSLATION = {
-    "planner" => "answer",
-    "smart_answer" => "answer",
-    "calculator" => "answer",
-    "licence_finder" => "answer",
-    "custom_application" => "answer",
-    "calendar" => "answer"
-  }
   SECTION_NAME_TRANSLATION = {
     "life-in-the-uk" => "Life in the UK",
     "council-tax" => "Council Tax",
@@ -26,7 +18,7 @@ class SearchResult
   end
 
   def presentation_format
-    PRESENTATION_FORMAT_TRANSLATION.fetch(normalized_format, normalized_format)
+    result['presentation_format']
   end
 
   def formatted_section_name

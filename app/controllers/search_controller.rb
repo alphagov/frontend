@@ -9,17 +9,14 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      begin
-        @secondary_results = specialist_results(@search_term, 5)
-      rescue GdsApi::Rummager::SearchServiceError
-        @secondary_results = []
-      end
-
-      remaining_slots = @max_results - @secondary_results.length
-      @results = mainstream_results(@search_term, remaining_slots, params["format_filter"])
+      full_result_set = retrieve_results(@search_term, @max_results, params["format_filter"])
     end
 
-    fill_in_slimmer_headers
+    @secondary_results, @results = full_result_set.partition { |r| 
+      r.format == 'specialist_guidance' 
+    }
+
+    fill_in_slimmer_headers(@results)
 
     if @results.empty? && @secondary_results.empty?
       render action: 'no_results' and return
@@ -27,20 +24,14 @@ class SearchController < ApplicationController
   end
 
   protected
-  def specialist_results(term, limit = 5)
-    res = Frontend.specialist_search_client.search(term, 'specialist_guidance').
-      take(limit)
-    res.map { |r| OpenStruct.new(r) }
-  end
-
-  def mainstream_results(term, limit = 50, format_filter = nil)
+  def retrieve_results(term, limit = 50, format_filter = nil)
     res = Frontend.mainstream_search_client.search(term, format_filter).take(limit)
     res.map { |r| OpenStruct.new(r) }
   end
 
-  def fill_in_slimmer_headers
+  def fill_in_slimmer_headers(result_set)
     set_slimmer_headers(
-      result_count: @results.length,
+      result_count: result_set.length,
       format:       "search",
       section:      "search",
       proposition:  "citizen"

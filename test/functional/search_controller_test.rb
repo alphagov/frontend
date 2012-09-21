@@ -2,15 +2,13 @@
 require "test_helper"
 
 class SearchControllerTest < ActionController::TestCase
-  def stub_both_clients
+  def stub_client
     mainstream_client = stub("search", search: [])
-    specialist_client = stub("search", search: [])
     Frontend.stubs(:mainstream_search_client).returns(mainstream_client)
-    Frontend.stubs(:specialist_search_client).returns(specialist_client)
   end
 
   setup do
-    stub_both_clients
+    stub_client
   end
 
   test "should ask the user to enter a search term if none was given" do
@@ -31,7 +29,7 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "search-term"
   end
 
-  test "should display the number of results" do
+  test "should display the number of re§lts" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"
     assert_select "span.result-count", text: /3/
@@ -52,8 +50,6 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should_not_blow_up_with_a_result_wihout_a_section" do
-    stub_both_clients
-
     result_without_section = {
       "title" => "TITLE1",
       "description" => "DESCRIPTION",
@@ -76,8 +72,9 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should only show limited main and limited secondary results" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(52, {}))
-    Frontend.specialist_search_client.stubs(:search).returns(Array.new(7, {}))
+    Frontend.mainstream_search_client.stubs(:search).returns(
+      Array.new(45, {}) + Array.new(5, {format: 'specialist_guidance'})
+    )
 
     get :index, q: "Test"
 
@@ -94,7 +91,6 @@ class SearchControllerTest < ActionController::TestCase
       "section" => "driving"
     }
 
-    stub_both_clients
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
     
     get :index, {q: "bleh"}
@@ -104,15 +100,13 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "we pass the optional filter parameter to searches" do
-    stub_both_clients
     Frontend.mainstream_search_client.expects(:search).with("anything", "my-format").returns([])
 
     get :index, {q: "anything", format_filter: "my-format"}
   end
 
 
-  def test_should_send_analytics_headers_for_citizen_proposition
-    stub_both_clients
+  test "should send analytics headers for citizen proposition" do
     get :index, {q: "bob"}
     assert_equal "search",  response.headers["X-Slimmer-Section"]
     assert_equal "search",  response.headers["X-Slimmer-Format"]
@@ -120,8 +114,7 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal "0",       response.headers["X-Slimmer-Result-Count"]
   end
 
-  def test_result_count_header_with_results
-    stub_both_clients
+  test "result count header with results" do
     Frontend.mainstream_search_client.stubs(:search).returns(Array.new(15, {}))
 
     get :index, {q: "bob"}

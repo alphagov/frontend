@@ -29,6 +29,16 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "search-term"
   end
 
+  test "should include link to JSON version in HTML header" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    get :index, q: "search-term"
+    assert_select 'head link[rel=alternate]' do |elements|
+      assert elements.any? { |element|
+        element['href'] == '/api/search.json?q=search-term'
+      }
+    end
+  end
+
   test "should display the number of results" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"

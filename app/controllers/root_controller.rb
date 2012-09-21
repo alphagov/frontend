@@ -31,13 +31,21 @@ class RootController < ApplicationController
     decipher_overloaded_part_parameter!
     merge_slug_for_done_pages!
 
-
     @publication = fetch_publication(params)
     assert_found(@publication)
     setup_parts
 
+    @snac_code = nil
+    if @publication.type == "licence"
+      @snac_code = AuthorityLookup.find_snac(params[:part])
+    end
+
     @artefact = begin
-      content_api.artefact(params[:slug]).to_hash
+      if @snac_code
+        content_api.artefact_with_snac_code(params[:slug], @snac_code).to_hash
+      else
+        content_api.artefact(params[:slug]).to_hash
+      end
     rescue GdsApi::HTTPErrorResponse => e
       logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
       artefact_unavailable
@@ -56,7 +64,13 @@ class RootController < ApplicationController
       set_expiry if params.exclude?('edition')
     end
 
-    if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
+    if closest_authority_from_geostack.present?
+      redirect_to publication_path(:slug => @publication.slug, :part => slug_for_snac_code(closest_authority_from_geostack['ons'])) and return
+    end
+
+    if @publication.type == "licence"
+      setup_licence
+    elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
       params.delete(:slug)
@@ -76,11 +90,6 @@ class RootController < ApplicationController
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?
             @not_found = true
-          end
-        elsif @publication.type == "licence"
-          @authority = load_closest_authority
-          if @authority.present?
-            redirect_to publication_path(:slug => @publication.slug, :part => slug_for_snac_code(@authority['ons'])) and return
           end
         end
         render @publication.type
@@ -226,6 +235,29 @@ protected
     return false
   end
 
+  def setup_licence
+    if @snac_code
+      if @artefact['details']['licence'].present?
+        @licence_details = @artefact['details']['licence']
+      else
+        # no licence in licensify for this area
+      end
+    else
+      # no location
+      if @artefact['details']['licence'].present?
+        if @artefact['details']['licence']['location_specific'] == false
+          # does not require location
+          @licence_details = @artefact['details']['licence']
+        else
+          # show location form
+        end
+      else
+        # no licence available
+        @licence_details = nil
+      end
+    end
+  end
+
   def council_from_geostack
     if params['council_ons_codes']
       params['council_ons_codes']
@@ -246,7 +278,7 @@ protected
     end
   end
 
-  def load_closest_authority
+  def closest_authority_from_geostack
     authorities = full_council_from_geostack
     ["DIS","LBO","UTY","CTY"].each do |type|
       authorities_for_type = authorities.select {|a| a["type"] == type }

@@ -8,11 +8,15 @@
 
   <div class="article-container group">
 
+    <% if @licence_details.present? %>
     <aside>
       <div class="inner">
         <nav role="navigation" class="page-navigation">
           <ol>
             <li class="active"><a href="#overview">Overview</a></li>
+            <% @licence_details['authorities'].first['actions'].each do |action,links| %>
+              <li><%= link_to action.capitalize, licence_authority_action_path(@licence.slug, params[:part], action) %></li>
+            <% end %>
           </ol>
         </nav>
       </div>
@@ -31,6 +35,9 @@
         <%= to_govspeak(@licence.licence_overview) %>
       </div>
     </article>
+    <% else %>
+      <%= render :partial => 'licence_introduction', :publication => @licence %>
+    <% end %>
 
     <%= render 'publication_metadata', :publication => @licence, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@licence.slug, :edition => @edition, :format => :json) } %>
   </div>

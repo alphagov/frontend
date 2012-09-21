@@ -29,10 +29,10 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "search-term"
   end
 
-  test "should display the number of re§lts" do
+  test "should display the number of results" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"
-    assert_select "span.result-count", text: /3/
+    assert_select "label", text: /3 results found/
   end
 
   test "should display a link to the documents matching our search criteria" do

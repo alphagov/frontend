@@ -13,8 +13,8 @@
       <div class="results">
         <div class="results-wrapper">
           <ul class="results-list">
-            <%= render collection: @results, partial: 'mainstream_result' %>
-            <%= render collection: @secondary_results, partial: 'specialist_result' %>
+            <%= render collection: @results, partial: 'mainstream_result', as: :result %>
+            <%= render collection: @secondary_results, partial: 'specialist_result', as: :result %>
           </ul>
         </div>
       </div>

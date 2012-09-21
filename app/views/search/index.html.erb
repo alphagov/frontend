@@ -13,33 +13,8 @@
       <div class="results">
         <div class="results-wrapper">
           <ul class="results-list">
-            <% @results.each do |result| %>
-            <% presentation_format = determine_presentation_format(result.format) %>
-              <% if presentation_format == "recommended_link" %>
-              <li class="section-<%= result.section %> type-guide external">
-              <% else %>
-              <li class="section-<%= result.section %> type-<%= presentation_format %>">
-              <% end %>
-                <p class="search-result-title"><a href="<%= result.link %>" title="View <%= result.title %>"<% if presentation_format == "recommended_link" %> rel="external"<% end %>><%= result.title %></a></p>
-                <p><%= h result.description %></p>
-                <% if presentation_format == "recommended_link" %>
-                <ul class="result-meta">
-                  <li>External site</li>
-                </ul>
-                <% end %>
-              </li>
-            <% end %>
-
-            <% @secondary_results.each do |result| %>
-              <li class="section-specialist type-<%= result.presentation_format %>">
-                <p class="search-result-title"><a href="<%= result.link %>" title= "View <%= result.title %>"><%= result.title %></a></p>
-                <p><%= result.description %></p>
-
-                <ul class="result-meta">
-                  <li class="<%= result.presentation_format %>"><%= result.humanized_format %></li><% if result.section %><li><a href="/browse/<%= result.section %>"><%= formatted_section_name(result.section) %></a></li><% end %>
-                </ul>
-              </li>
-            <% end %>
+            <%= render collection: @results, partial: 'mainstream_result' %>
+            <%= render collection: @secondary_results, partial: 'specialist_result' %>
           </ul>
         </div>
       </div>

@@ -1,0 +1,14 @@
+<% presentation_format = determine_presentation_format(result.format) %>
+<% if presentation_format == "recommended_link" %>
+<li class="section-<%= result.section %> type-guide external">
+<% else %>
+<li class="section-<%= result.section %> type-<%= presentation_format %>">
+<% end %>
+  <p class="search-result-title"><a href="<%= result.link %>" title="View <%= result.title %>"<% if presentation_format == "recommended_link" %> rel="external"<% end %>><%= result.title %></a></p>
+  <p><%= h result.description %></p>
+  <% if presentation_format == "recommended_link" %>
+  <ul class="result-meta">
+    <li>External site</li>
+  </ul>
+  <% end %>
+</li>

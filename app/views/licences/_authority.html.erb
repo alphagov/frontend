@@ -23,9 +23,14 @@
     <% end %>
 
     <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>
-    <section class="intro inner">
-      We're showing actions for <strong><%= @licence_details[:authority]['name'] %></strong> (<%= link_to 'change', publication_path(@publication.slug) %>)
-    </section>
+    <div class="contact">
+      <p>The issuing authority for this license is <strong><%= @licence_details[:authority]['name'] %></strong> <%= link_to '(change location)', publication_path(@publication.slug) %>.</p>
+
+      <% if @licence_details[:authority]['contact'] %>
+        <p>You can contact them using the details below.</p>
+        <p><%= @licence_details[:authority]['contact']['address'] %></p>
+      <% end %>
+    </div>
     <% end %>
   </div>
 </article>

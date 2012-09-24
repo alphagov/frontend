@@ -36,15 +36,3 @@
   <% end %>
 <% end %>
 
-<% if @licence_details[:authority]['contact'] %>
-<section>
-  <div class="address vcard">
-    <div class="adr org fn">
-      <p>
-        <%= @licence_details[:authority]['name'] %><br>
-        <%= @licence_details[:authority]['contact']['address'] %>
-      </p>
-    </div>
-  </div>
-</section>
-<% end %>

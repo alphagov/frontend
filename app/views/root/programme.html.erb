@@ -79,6 +79,7 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
+  <link rel="canonical" href="<%= part_path(@programme.slug, @part.slug,@edition) %>" />
   <%- if @programme.has_previous_part?(@part) -%>
     <link rel="prev" href="<%= part_path(@programme.slug, @programme.part_before(@part).slug,@edition) %>" />
   <%- end -%>

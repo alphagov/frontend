@@ -111,6 +111,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           assert page.has_content? "Licence to kill"
           assert page.has_selector? "h1", :text => "How to apply"
         end
+
+        should "display a button to apply for the licence" do
+          assert page.has_link? "Apply online", :href => "/licence-to-kill/westminster/apply-1"
+        end
       end
 
       context "when visiting an action for which there are no links" do

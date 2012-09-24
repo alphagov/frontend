@@ -16,6 +16,8 @@
     <h2><a id="form-<%= i+1 %>"></a><%= i+1 %>. <%= link['description'] %></h2>
 
     <%= simple_format link['introduction'] %>
+
+    <p><%= link_to "Apply online", link['url'], :class => "button" %></p>
   </section>
   <% end %>
 <% else %>

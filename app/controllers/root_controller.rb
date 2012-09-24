@@ -26,23 +26,15 @@ class RootController < ApplicationController
   def publication
     error_406 and return if request.format.nil?
 
-    merge_slug_for_done_pages!
-
+    if params[:slug] == 'done' and !params[:part].blank?
+      params[:slug] += '/' + params[:part]
+      params[:part] = nil
+    end
 
     @publication = fetch_publication(params)
     assert_found(@publication)
-    setup_parts
 
-    begin
-      @artefact = content_api.artefact(params[:slug])
-      unless @artefact
-        logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
-      end
-    rescue GdsApi::HTTPErrorResponse => e
-      logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
-    end
-
-    @artefact ||= artefact_unavailable
+    @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
@@ -51,8 +43,14 @@ class RootController < ApplicationController
       @options = load_place_options(@publication)
     when "local_transaction"
       @council = load_council(@publication, params[:edition])
+    when "programme"
+      params[:part] ||= @publication.parts.first.slug
     else
       set_expiry if params.exclude?('edition')
+    end
+
+    if @publication.parts
+      @part = @publication.find_part(params[:part])
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
@@ -63,7 +61,7 @@ class RootController < ApplicationController
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug, params) and return
     end
 
-    @edition = params[:edition].present? ? params[:edition] : nil
+    @edition = params[:edition]
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
@@ -110,14 +108,15 @@ class RootController < ApplicationController
   end
 
 protected
-  # For completed transaction (done/*) pages, the route will assume that any
-  # string after the first slash is the part for a guide. Therefore, join these
-  # together before we fetch the publication.
-  def merge_slug_for_done_pages!
-    if params[:slug] == 'done' and !params[:part].blank?
-      params[:slug] += '/' + params[:part]
-      params[:part] = nil
+  def fetch_artefact
+    artefact = content_api.artefact(params[:slug])
+    unless artefact
+      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end
+  rescue GdsApi::HTTPErrorResponse => e
+    logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
+  ensure
+    return artefact || artefact_unavailable
   end
 
   def empty_part_list?
@@ -226,16 +225,6 @@ protected
 
   def assert_found(obj)
     raise RecordNotFound unless obj
-  end
-
-  def setup_parts
-    if @publication.type == 'programme'
-      params[:part] ||= @publication.parts.first.slug
-    end
-
-    if @publication.parts
-      @part = @publication.find_part(params[:part])
-    end
   end
 
   def set_slimmer_artefact_headers(artefact)

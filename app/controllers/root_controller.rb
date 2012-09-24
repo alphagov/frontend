@@ -48,10 +48,8 @@ class RootController < ApplicationController
 
     case @publication.type
     when "place"
-      unless request.format.kml?
-        set_expiry if params.exclude?('edition') and request.get?
-        @options = load_place_options(@publication)
-      end
+      set_expiry if params.exclude?('edition') and request.get?
+      @options = load_place_options(@publication)
     when "local_transaction"
       @council = load_council(@publication, params[:edition])
     else
@@ -97,13 +95,6 @@ class RootController < ApplicationController
         end
 
         render :json => @publication.to_json
-      end
-      format.kml do
-        if @publication.type == 'place'
-          render :text => imminence_api.places_kml(@publication.place_type)
-        else
-          error_406
-        end
       end
     end
   rescue RecordNotFound

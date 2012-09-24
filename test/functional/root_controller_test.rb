@@ -49,23 +49,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
-  test "should 406 when asked for KML for a non-place publication" do
-    publication_exists('slug' => 'a-slug', 'type' => 'answer')
-    content_api_has_an_artefact("a-slug")
-
-    get :publication, :slug => 'a-slug', :format => 'kml'
-    assert_equal '406', response.code
-  end
-
-  test "options not set when asked for KML for a place publication" do
-    publication_exists('slug' => 'a-slug', 'type' => 'place')
-    content_api_has_an_artefact("a-slug")
-    GdsApi::Imminence.any_instance.stubs(:places_kml)
-
-    get :publication, :slug => 'a-slug', :format => 'kml'
-    assert_nil assigns[:options]
-  end
-
   test "should 406 when asked for unrecognised format" do
     publication_exists('slug' => 'a-slug', 'type' => 'answer')
     content_api_has_an_artefact("a-slug")

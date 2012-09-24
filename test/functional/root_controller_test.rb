@@ -46,7 +46,7 @@ class RootControllerTest < ActionController::TestCase
     content_api_has_an_artefact("a-slug")
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "a-slug"
+    get :publication, :slug => "a-slug", :format => 'html'
   end
 
   test "should 406 when asked for KML for a non-place publication" do

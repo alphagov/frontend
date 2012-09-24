@@ -15,9 +15,7 @@ class RootController < ApplicationController
   def index
     set_expiry
 
-    set_slimmer_headers(
-      template:    "homepage"
-    )
+    set_slimmer_headers(template: "homepage")
 
     # Only needed for Analytics
     set_slimmer_dummy_artefact(:section_name => "homepage", :section_url => "/")
@@ -101,9 +99,11 @@ class RootController < ApplicationController
 
   def settings
     respond_to do |format|
-      format.html { }
-      format.raw { set_slimmer_headers skip: "true"
-        render 'settings.html.erb' }
+      format.html {}
+      format.raw {
+        set_slimmer_headers skip: "true"
+        render 'settings.html.erb'
+      }
     end
   end
 
@@ -169,9 +169,7 @@ protected
   end
 
   def build_local_transaction_information(local_transaction)
-    result = {
-      url: nil
-    }
+    result = {url: nil}
     if local_transaction.interaction
       result[:url] = local_transaction.interaction.url
       # DEPRECATED: authority is not located inside the interaction in the latest version
@@ -198,7 +196,10 @@ protected
   end
 
   def fetch_publication(params)
-    options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
+    options = {
+      edition: params[:edition],
+      snac: params[:snac]
+    }.reject { |k, v| v.blank? }
     publisher_api.publication_for_slug(params[:slug], options)
   rescue ArgumentError
     logger.error "invalid UTF-8 byte sequence with slug `#{params[:slug]}`"
@@ -212,7 +213,7 @@ protected
     if params['council_ons_codes']
       return params['council_ons_codes']
     end
-    if ! request.env['HTTP_X_GOVGEO_STACK']
+    if !request.env['HTTP_X_GOVGEO_STACK']
       return []
     end
     location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
@@ -228,10 +229,7 @@ protected
   end
 
   def set_slimmer_artefact_headers(artefact)
-    set_slimmer_headers(
-      format:      artefact["format"]
-    )
-
+    set_slimmer_headers(format: artefact["format"])
     set_slimmer_artefact(artefact)
   end
 

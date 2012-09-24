@@ -39,8 +39,10 @@ class RootController < ApplicationController
     when "place"
       set_expiry if params.exclude?('edition') and request.get?
       @options = load_place_options(@publication)
+      @publication.places = @options
     when "local_transaction"
       @council = load_council(@publication, params[:edition])
+      @publication.council = @council
     when "programme"
       params[:part] ||= @publication.parts.first.slug
     else
@@ -83,12 +85,6 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
-        if @publication.type == "place"
-          @publication.places = @options
-        elsif @publication.type == "local_transaction"
-          @publication.council = @council
-        end
-
         render :json => @publication.to_json
       end
     end

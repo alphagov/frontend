@@ -26,7 +26,6 @@ class RootController < ApplicationController
   def publication
     error_406 and return if request.format.nil?
 
-    decipher_overloaded_part_parameter!
     merge_slug_for_done_pages!
 
 
@@ -111,10 +110,6 @@ class RootController < ApplicationController
   end
 
 protected
-  def decipher_overloaded_part_parameter!
-    @provider_not_found = true if params[:part] == "not_found"
-  end
-
   # For completed transaction (done/*) pages, the route will assume that any
   # string after the first slash is the part for a guide. Therefore, join these
   # together before we fetch the publication.

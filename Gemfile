@@ -20,13 +20,13 @@ gem 'lograge'
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else
-  gem 'govspeak', '~> 0.8.15'
+  gem 'govspeak', '1.0.1'
 end
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.0.0'
+  gem 'slimmer', '3.3.2'
 end
 
 if ENV['GEO_DEV']
@@ -46,7 +46,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '1.9.1'
+  gem 'gds-api-adapters', '2.5.0'
 end
 
 gem "addressable"
@@ -68,8 +68,8 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
-  gem 'capybara'
-  gem "capybara-webkit"
+  gem 'capybara', '1.1.2'
+  gem 'poltergeist', '0.7.0'
   gem "launchy"
   gem "shoulda"
 end

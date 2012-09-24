@@ -11,6 +11,8 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Frontend
   class Application < Rails::Application
+    require 'frontend'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -42,7 +44,7 @@ module Frontend
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += %w( trackers/*.js feedback.js programmes.js frontend.js media-player.js media-player.css homepage.js )
+    config.assets.precompile += %w( trackers/ab-testing.js feedback.js programmes.js frontend.js media-player.js media-player.css homepage.js )
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "frontend"
@@ -59,7 +61,6 @@ module Frontend
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.slimmer.logger = Rails.logger
     config.middleware.use Rack::Geo
 
     # Disable Rack::Cache

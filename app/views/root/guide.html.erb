@@ -1,85 +1,88 @@
 <section id="content" role="main" class="group multi-page">
 
-	<header class="page-header group">
-		<hgroup>
-			<h1><span>Guide </span><%= @guide.title %></h1>
-		</hgroup>
-	</header>
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Guide </span><%= @guide.title %></h1>
+    </hgroup>
+  </header>
 
-	<div class="article-container group">
-   <aside>
-     <div class="inner">
-       <nav role="navigation" class="page-navigation">
-     		<% if @guide.video_url.present? %>
-     		<div class="alternative-guide video">
-     		  <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-           <a href="<%= part_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
-     		</div>
-     		<% end %>
-         <ol>
-           <% @guide.parts.each do |nav_part| %>
-           <li <% if @part == nav_part %>class="active"<% end %>>
-             <a href="<%= part_path(@guide.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@guide.parts, nav_part) %>: <%= nav_part.title %>">
-               <span class="part-label">Part <%= part_number(@guide.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
-             </a>
-           </li>
-           <% end %>
-         </ol>
-       </nav>
-     </div>
-   </aside>
+  <div class="article-container group">
+    <aside>
+      <div class="inner">
+        <nav role="navigation" class="page-navigation">
+          <% if @guide.video_url.present? %>
+            <div class="alternative-guide video">
+              <%video_id = @guide.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
+                <a href="<%= part_path(@guide.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
+            </div>
+          <% end %>
+          <ol>
+            <% @guide.parts.each do |nav_part| %>
+              <li <% if @part == nav_part %>class="active"<% end %>>
+                <% if @part == nav_part %>
+                  <span class="part-label">Part <%= part_number(@guide.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+                <% else %>
+                  <a href="<%= part_path(@guide.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@guide.parts, nav_part) %>: <%= nav_part.title %>">
+                    <span class="part-label">Part <%= part_number(@guide.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+                  </a>
+                <% end %>
+              </li>
+            <% end %>
+          </ol>
+        </nav>
+      </div>
+    </aside>
 
-   <article role="article" class="group">
-     <div class="inner">
+    <article role="article" class="group">
+      <div class="inner">
 
-       <header>
-         <h1><span>Part <%= part_number(@guide.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
-       </header>
+        <header>
+          <h1><span>Part <%= part_number(@guide.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
+        </header>
 
-       <%= to_govspeak(@part.body) %>
+        <%= to_govspeak(@part.body) %>
 
-       <footer>
- 	      <nav class="pagination" role="navigation">
-           <ul class="group">
-          <%- if @guide.has_parts?(@part) -%>
-   	        <%- if @guide.has_previous_part?(@part) -%>
-   	          <li class="previous">
-  							<a href="<%= previous_part_path(@guide, @part, @edition) %>" title="Navigate to previous part" rel="prev">
-  							  <span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_before(@part).title) %></span></a>
-                </li>
-              <%- else -%>
-                <li class="first">
-                  <span>You are at the beginning of this guide</span>
-                </li>
-   	        <%- end -%>
-   	        <%- if @guide.has_next_part?(@part) -%>
-  						<li class="next">
-  							<a href="<%= next_part_path(@guide, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_after(@part).title) %></span></a>
+        <footer>
+          <nav class="pagination" role="navigation">
+            <ul class="group">
+              <%- if @guide.has_parts?(@part) -%>
+                <%- if @guide.has_previous_part?(@part) -%>
+                  <li class="previous">
+                    <a href="<%= previous_part_path(@guide, @part, @edition) %>" title="Navigate to previous part" rel="prev">
+                      <span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_before(@part).title) %></span></a>
                   </li>
+                <%- else -%>
+                  <li class="first">
+                    <span>You are at the beginning of this guide</span>
+                  </li>
+                <%- end -%>
+                <%- if @guide.has_next_part?(@part) -%>
+                  <li class="next">
+                    <a href="<%= next_part_path(@guide, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@guide.parts, @guide.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@guide.part_after(@part).title) %></span></a>
+                  </li>
+                <%- else -%>
+                  <li class="last">
+                    <span>You have reached the end of this guide</span>
+                  </li>
+                <%- end -%>
               <%- else -%>
                 <li class="last">
                   <span>You have reached the end of this guide</span>
                 </li>
-   	        <%- end -%>
-   	      <%- else -%>
-   	        <li class="last">
-   	          <span>You have reached the end of this guide</span>
-   	        </li>
-   	      <%- end -%>
-          </ul>
- 	      </nav>
-       </footer>
+              <%- end -%>
+            </ul>
+          </nav>
+        </footer> 
 
-     </div>
-   </article>
+      </div>
+    </article>
     <%= render 'publication_metadata', :publication => @guide, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@guide.slug, :edition => @edition, :format => :json) } %>
-	
+  
   </div>
 
 </section>
 
 <div id="related-items"></div>
-
 
 <% content_for :extra_headers do %>
   <%- if @guide.has_previous_part?(@part) -%>

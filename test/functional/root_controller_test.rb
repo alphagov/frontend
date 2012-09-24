@@ -49,23 +49,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
-  test "should 406 when asked for KML for a non-place publication" do
-    publication_exists('slug' => 'a-slug', 'type' => 'answer')
-    content_api_has_an_artefact("a-slug")
-
-    get :publication, :slug => 'a-slug', :format => 'kml'
-    assert_equal '406', response.code
-  end
-
-  test "options not set when asked for KML for a place publication" do
-    publication_exists('slug' => 'a-slug', 'type' => 'place')
-    content_api_has_an_artefact("a-slug")
-    GdsApi::Imminence.any_instance.stubs(:places_kml)
-
-    get :publication, :slug => 'a-slug', :format => 'kml'
-    assert_nil assigns[:options]
-  end
-
   test "should 406 when asked for unrecognised format" do
     publication_exists('slug' => 'a-slug', 'type' => 'answer')
     content_api_has_an_artefact("a-slug")
@@ -250,12 +233,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug"
   end
 
-  test "should hard code proposition on the home page" do
-    get :index
-
-    assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
-  end
-
   test "should join the slug and part when slug is 'done'" do
     publication_exists('slug' => 'done/example', 'type' => 'completed_transaction', 'name' => 'Example is done')
     content_api_has_an_artefact("done/example")
@@ -270,15 +247,17 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "expose artefact details in header" do
-      content_api_has_an_artefact("slug", artefact_for_slug_in_a_section("slug", "root-section-title"))
+      # TODO: remove explicit setting of top-level format once gds-api-adapters with updated
+      # factory methods is being used.
+      artefact_data = artefact_for_slug_in_a_section("slug", "root-section-title")
+      artefact_data["format"] = "guide"
+      content_api_has_an_artefact("slug", artefact_data)
 
       @controller.stubs(:render)
 
       get :publication, :slug => "slug"
 
-      assert_equal "Root section title", @response.headers["X-Slimmer-Section"]
-      assert_equal "1234", @response.headers["X-Slimmer-Need-ID"].to_s
-      assert_equal "Guide", @response.headers["X-Slimmer-Format"]
+      assert_equal "guide", @response.headers["X-Slimmer-Format"]
     end
 
     should "set the artefact in the header" do
@@ -291,35 +270,11 @@ class RootControllerTest < ActionController::TestCase
       assert_equal JSON.dump(artefact_data), @response.headers["X-Slimmer-Artefact"]
     end
 
-    should "set proposition to citizen" do
-
-      content_api_has_an_artefact("slug")
-      @controller.stubs(:render)
-
-      get :publication, :slug => "slug"
-
-      assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
-    end
-
-    should "set proposition to business for business content" do
-      standard_artefact = artefact_for_slug("slug")
-      raise "Test artefact format changed." unless standard_artefact["details"].has_key?("business_proposition")
-      standard_artefact["details"]["business_proposition"] = true
-      content_api_has_an_artefact("slug", standard_artefact)
-      @controller.stubs(:render)
-
-      get :publication, :slug => "slug"
-
-      assert_equal "business", @response.headers["X-Slimmer-Proposition"]
-    end
-
     should "set up a default artefact if content API isn't available" do
       content_api_does_not_have_an_artefact("slug")
       @controller.stubs(:render)
 
       get :publication, slug: "slug"
-      assert_equal "missing", @response.headers["X-Slimmer-Section"]
-      assert_equal "missing", @response.headers["X-Slimmer-Need-ID"].to_s
       assert_equal "missing", @response.headers["X-Slimmer-Format"]
     end
   end

@@ -257,7 +257,7 @@ protected
     if licence_attributes[:authority]
       licence_attributes[:action] = params[:interaction]
       if licence_attributes[:action]
-        raise RecordNotFound unless licence_attributes[:authority]['actions'].keys.include?(licence_attributes[:action])
+        raise RecordNotFound unless (licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]).include?(licence_attributes[:action])
       end
     end
 

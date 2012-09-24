@@ -1,7 +1,36 @@
 <h1>How to <%= action %></h1>
 
+<% if @licence_details[:authority]['actions'][action] %>
 <ul>
   <% @licence_details[:authority]['actions'][action].each do |link| %>
     <li><%= link_to link['description'], link['url'] %></li>
   <% end %>
 </ul>
+<% else %>
+  <% if action == "apply" %>
+    <div class="application-notice help-notice">
+      <p>It is not currently possible to apply online for this licence. Please contact your your local authority.</p>
+    </div>
+  <% elsif action == "renew" %>
+    <div class="application-notice help-notice">
+      <p>To find out if you are able to renew your licence, contact your local authority directly.</p>
+    </div>
+  <% elsif action == "change" %>
+    <div class="application-notice help-notice">
+      <p>To find out if you are able to make changes to your licence, contact your local authority directly.</p>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @licence_details[:authority]['contact'] %>
+<section>
+  <div class="address vcard">
+    <div class="adr org fn">
+      <p>
+        <%= @licence_details[:authority]['name'] %><br>
+        <%= @licence_details[:authority]['contact']['address'] %>
+      </p>
+    </div>
+  </div>
+</section>
+<% end %>

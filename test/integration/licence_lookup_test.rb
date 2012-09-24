@@ -29,6 +29,12 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
             "authorities" => [{
               "name" => "Westminster City Council",
               "slug" => "westminster",
+              "contact" => {
+                "website" => "http://westminster.gov.uk/",
+                "email" => "blah@westminster.gov.uk",
+                "phone" => "02012345678",
+                "address" => "Westminster City Hall, 64 Victoria Street"
+              },
               "actions" => {
                 "apply" => [
                   {
@@ -47,14 +53,6 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
                   {
                     "url" => "/licence-to-kill/westminster/renew-1",
                     "description" => "Renew your licence to kill",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }
-                ],
-                "change" => [
-                  {
-                    "url" => "/licence-to-kill/westminster/change-1",
-                    "description" => "Transfer your licence to kill",
                     "payment" => "none",
                     "introduction" => ""
                   }
@@ -96,7 +94,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Westminster")
       end
 
-      should "show licence actions" do
+      should "show licence actions for apply, renew and change" do
         within("#content nav") do
           assert page.has_link? "How to apply", :href => '/licence-to-kill/westminster/apply'
           assert page.has_link? "How to renew", :href => '/licence-to-kill/westminster/renew'
@@ -113,6 +111,23 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           assert page.has_content? "Licence to kill"
           assert page.has_selector? "h1", :text => "How to apply"
         end
+      end
+
+      context "when visiting an action for which there are no links" do
+        setup do
+          click_link "How to change"
+        end
+
+        should "display contact details for the local authority" do
+          # assert page.has_content? "contact your local authority"
+          assert page.has_content? "Westminster City Hall"
+        end
+      end
+
+      should "return a 404 for an invalid action" do
+        visit "/licence-to-kill/westminster/blah"
+
+        assert_equal 404, page.status_code
       end
     end
 
@@ -219,6 +234,54 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+context "given a non-location-specific licence which exists in licensify with a single authority" do
+    setup do
+      setup_api_responses('licence-to-turn-off-a-telescreen')
+      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
+        "title" => "Licence to turn off a telescreen",
+        "kind" => "licence",
+        "details" => {
+          "format" => "licence",
+          "licence" => {
+            "location_specific" => false,
+            "availability" => ["England","Wales"],
+            "authorities" => [{
+              "name" => "Ministry of Love",
+              "slug" => "miniluv",
+              "actions" => {
+                "apply" => [{
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                  "payment" => "none",
+                  "introduction" => ""
+                }]
+              }
+            }]
+          }
+        },
+        "tags" => [],
+        "related" => []
+      })
+    end
+
+    context "when visiting the licence" do
+      setup do
+        visit '/licence-to-turn-off-a-telescreen'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to turn off a telescreen')
+      end
+
+      should "show licence actions for the single authority" do
+        within("#content nav") do
+          assert page.has_link? "How to apply", :href => '/licence-to-turn-off-a-telescreen/miniluv/apply'
+        end
+      end
+    end
+  end
+
 
   context "given a licence edition with alternative licence information fields" do
     setup do

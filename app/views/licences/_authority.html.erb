@@ -3,7 +3,7 @@
     <nav role="navigation" class="page-navigation">
       <ol>
         <li <% unless @licence_details[:action] %>class="active"<% end %>><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
-        <% @licence_details[:authority]['actions'].each do |action,links| %>
+        <% (@licence_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
           <li <% if @licence_details[:action] == action %>class="active"<% end %>><%= link_to "How to #{action}", licence_authority_action_path(@licence.slug, @licence_details[:authority]['slug'], action) %></li>
         <% end %>
       </ol>

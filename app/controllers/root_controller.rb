@@ -238,24 +238,42 @@ protected
   end
 
   def setup_licence
+    @licence_from_licensify = @artefact['details']['licence']
+    @licence_details = {}
+
+    @licence_details['authorities'] = ( @snac_code and @licence_from_licensify and @licence_from_licensify['authorities'] and @licence_from_licensify['authorities'].any? )
+
     if @snac_code
-      if @artefact['details']['licence'].present?
-        @licence_details = @artefact['details']['licence']
+      # if we have a licence available for the snac code
+      if ! @licence_from_licensify.blank?
+        if @licence_details['authorities']
+          @licence_authority = @licence_from_licensify['authorities'].first
+        else
+          raise RecordNotFound
+        end
+
+        unless params[:interaction].blank?
+          @licence_details["action"] = params[:interaction]
+
+          unless @licence_authority['actions'].keys.include?(@licence_details["action"])
+            raise RecordNotFound
+          end
+        end
       else
-        # no licence in licensify for this area
+        # licence does not exist for this snac code, try and find the council
+
+        # else 404 if the authority slug is incorrect
+        # raise RecordNotFound
       end
     else
       # no location
-      if @artefact['details']['licence'].present?
-        if @artefact['details']['licence']['location_specific'] == false
+      if @licence_from_licensify.present?
+        if @licence_from_licensify['location_specific'] == false
           # does not require location
-          @licence_details = @artefact['details']['licence']
-        else
-          # show location form
         end
       else
         # no licence available
-        @licence_details = nil
+
       end
     end
   end

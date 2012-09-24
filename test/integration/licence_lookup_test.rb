@@ -18,10 +18,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         }
       })
 
-      content_api_has_an_artefact_with_snac_code('licence-to-kill', '00BK', {
+      @artefact = {
         "title" => "Licence to Kill",
-        "format" => "licence",
+        "kind" => "licence",
         "details" => {
+          "format" => "licence",
           "licence" => {
             "location_specific" => true,
             "availability" => ["England","Wales"],
@@ -63,7 +64,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         },
         "tags" => [],
         "related" => []
-      })
+      }
+
+      content_api_has_an_artefact('licence-to-kill', @artefact)
+      content_api_has_an_artefact_with_snac_code('licence-to-kill', '00BK', @artefact)
     end
 
     context "when visiting the licence without specifying a location" do
@@ -93,20 +97,20 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
       should "show licence actions" do
         within("#content nav") do
-          assert page.has_link? "Apply", :href => '/licence-to-kill/westminster/apply'
-          assert page.has_link? "Renew", :href => '/licence-to-kill/westminster/renew'
-          assert page.has_link? "Change", :href => '/licence-to-kill/westminster/change'
+          assert page.has_link? "How to apply", :href => '/licence-to-kill/westminster/apply'
+          assert page.has_link? "How to renew", :href => '/licence-to-kill/westminster/renew'
+          assert page.has_link? "How to change", :href => '/licence-to-kill/westminster/change'
         end
       end
 
       context "when visiting a licence action" do
         setup do
-          click_link "Apply"
+          click_link "How to apply"
         end
 
         should "display the page content" do
           assert page.has_content? "Licence to kill"
-          assert page.has_selector? "h1", :text => "Apply"
+          assert page.has_selector? "h1", :text => "How to apply"
         end
       end
     end
@@ -119,6 +123,36 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         click_button('Find')
 
         assert_equal "/licence-to-kill", current_path
+      end
+    end
+  end
+
+  context "given a licence edition with alternative licence information fields" do
+    setup do
+      setup_api_responses("artistic-license")
+      content_api_has_an_artefact('artistic-license', {
+        "title" => "Artistic License",
+        "kind" => "licence",
+        "details" => {
+          "format" => "licence",
+          "licence" => nil
+        },
+        "tags" => [],
+        "related" => []
+      })
+    end
+
+    context "when visiting the licence" do
+      setup do
+        visit '/artistic-license'
+      end
+
+      should "not see a location form" do
+        assert ! page.has_field?('postcode')
+      end
+
+      should "see a 'Get Started' button" do
+        assert page.has_content?('Get started')
       end
     end
   end

@@ -1,0 +1,7 @@
+<h1>How to <%= action %></h1>
+
+<ul>
+  <% @licence_authority['actions'][action].each do |link| %>
+    <li><%= link_to link['description'], link['url'] %></li>
+  <% end %>
+</ul>

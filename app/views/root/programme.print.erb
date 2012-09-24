@@ -10,7 +10,7 @@
       <% if @programme.has_next_part?(part) %>
         <article role="article" class="overview-etc group" id="<%= part.slug %>">
           <div class="inner">
-            <%= render partial: "programme_part.html", locals: {part: part} %>
+            <%= render partial: "programme_part", locals: {part: part}, formats: ["html"] %>
           </div>
         </article>
       <% end %>
@@ -18,7 +18,7 @@
 
     <article role="article" class="group">
       <div class="inner">
-        <%= render partial: "programme_part.html", locals: {part: @programme.parts.last} %>
+        <%= render partial: "programme_part", locals: {part: @programme.parts.last}, formats: ["html"] %>
       </div>
     </article>
   </div>

@@ -235,7 +235,7 @@ protected
   end
 
   def setup_parts
-    if @publication.type == 'programme'
+    if @publication.type == 'programme' || @publication.type == 'guide'
       params[:part] ||= @publication.parts.first.slug
     end
 

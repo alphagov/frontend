@@ -8,13 +8,19 @@
 
 <div class="js-tab-content tab-content">
   <% if presenter.before_you_start? %>
-    <div class="js-tab-pane tab-pane" id="before-you-start">
+    <header class="visuallyhidden">
+      <h1>Before you start</h1>
+    </header>
+    <article class="js-tab-pane tab-pane" id="before-you-start">
       <%= to_govspeak(transaction.more_information) %>
-    </div>
+    </article>
   <% end %>
 
   <% if presenter.what_you_need_to_know? %>
-    <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
+    <header class="visuallyhidden">
+      <h1>What you need to know</h1>
+    </header>
+    <article class="js-tab-pane tab-pane" id="what-you-need-to-know">
       <ul class="helpers group">
         <% if transaction.minutes_to_complete.present? %>
           <li>Takes around <span><%= transaction.minutes_to_complete %></span> minutes</li>
@@ -24,12 +30,15 @@
           <li class="<%= e.css_class %>"><%= e.text %></li>
         <% end %>
       </ul>
-    </div>
+    </article>
   <% end %>
 
   <% if presenter.other_ways_to_apply? %>
-    <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
+    <header class="visuallyhidden">
+      <h1>Other ways to apply</h1>
+    </header>
+    <article class="js-tab-pane tab-pane" id="other-ways-to-apply">
       <%= to_govspeak(transaction.alternate_methods) %>
-    </div>
+    </article>
   <% end %>
 </div>

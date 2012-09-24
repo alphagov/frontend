@@ -65,10 +65,10 @@ class RootController < ApplicationController
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
-    @not_found = false
     respond_to do |format|
       format.html do
         if @publication.type == "local_transaction"
+          @not_found = false
           if @council.present? && @council[:url]
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?

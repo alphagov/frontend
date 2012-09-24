@@ -1,10 +1,31 @@
-<section class="intro inner">
-  <div class="get-started-intro">
-    <p>You can't apply for this licence online. Please contact your local council.</p>
-  </div>
-</section>
+<article role="article" class="group">
+  <% if @licence_details %>
+    <% if @licence_details[:licence]['location_specific'] %>
+      <section class="intro inner">
+        <div class="get-started-intro">
+          <h1>Apply for this licence</h1>
+          <%= render :partial => 'location_form', :locals => {:format => 'licence'} %>
+        </div>
+      </section>
+    <% else %>
+      <section class="intro inner">
+        <p>Please choose the authority from which you would like to apply for the licence:</p>
+        <%= form_tag @publication.slug do %>
+          <ul>
+            <% @licence_details[:licence]['authorities'].each do |authority| %>
+              <li><%= radio_button :authority, :slug, authority['slug'] %><%= label :authority, :slug, authority['name'], :value => authority['slug'] %></li>
+            <% end %>
+          </ul>
+          <%= submit_tag "Select" %>
+        <% end %>
+      </section>
+    <% end %>
+  <% else %>
+    No licence available!
+  <% end %>
 
-<div id="overview" class="inner">
-  <h1>Overview</h1>
-  <%= to_govspeak(@licence.licence_overview) %>
-</div>
+  <div id="overview" class="inner">
+    <h1>Overview</h1>
+    <%= to_govspeak(@licence.licence_overview) %>
+  </div>
+</article>

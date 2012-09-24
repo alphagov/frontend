@@ -10,8 +10,8 @@
 
     <% if ! @licence.continuation_link.blank? %>
       <%= render :partial => 'licences/continues_on' %>
-    <% elsif @licence_details.present? %>
-      <%= render :partial => 'licences/details' %>
+    <% elsif @licence_details and @licence_details[:authority] %>
+      <%= render :partial => 'licences/authority' %>
     <% else %>
       <%= render :partial => 'licences/introduction', :publication => @licence %>
     <% end %>

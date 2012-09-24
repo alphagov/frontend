@@ -28,6 +28,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
             "availability" => ["England","Wales"],
             "authorities" => [{
               "name" => "Westminster City Council",
+              "slug" => "westminster",
               "actions" => {
                 "apply" => [
                   {
@@ -123,6 +124,98 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         click_button('Find')
 
         assert_equal "/licence-to-kill", current_path
+      end
+    end
+  end
+
+  context "given a non-location-specific licence which exists in licensify with multiple authorities" do
+    setup do
+      setup_api_responses('licence-to-turn-off-a-telescreen')
+      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
+        "title" => "Licence to turn off a telescreen",
+        "kind" => "licence",
+        "details" => {
+          "format" => "licence",
+          "licence" => {
+            "location_specific" => false,
+            "availability" => ["England","Wales"],
+            "authorities" => [{
+              "name" => "Ministry of Plenty",
+              "slug" => "miniplenty",
+              "actions" => {
+                "apply" => [{
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-plenty/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                  "payment" => "none",
+                  "introduction" => ""
+                }]
+              }
+            }, {
+              "name" => "Ministry of Love",
+              "slug" => "miniluv",
+              "actions" => {
+                "apply" => [{
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                  "payment" => "none",
+                  "introduction" => ""
+                }]
+              }
+            }, {
+              "name" => "Ministry of Truth",
+              "slug" => "minitrue",
+              "actions" => {
+                "apply" => [{
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-truth/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                  "payment" => "none",
+                  "introduction" => ""
+                }]
+              }
+            }, {
+              "name" => "Ministry of Peace",
+              "slug" => "minipax",
+              "actions" => {
+                "apply" => [{
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-peace/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                  "payment" => "none",
+                  "introduction" => ""
+                }]
+              }
+            }]
+          }
+        },
+        "tags" => [],
+        "related" => []
+      })
+    end
+
+    context "when visiting the licence without specifying an authority" do
+      setup do
+        visit '/licence-to-turn-off-a-telescreen'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to turn off a telescreen')
+      end
+
+      should "see the available authorities in a list" do
+        assert page.has_content?('Ministry of Peace')
+        assert page.has_content?('Ministry of Love')
+        assert page.has_content?('Ministry of Truth')
+        assert page.has_content?('Ministry of Plenty')
+      end
+
+      context "when selecting an authority" do
+        setup do
+          choose 'Ministry of Love'
+          click_button "Select"
+        end
+
+        should "redirect to the authority slug" do
+          assert_equal "/licence-to-turn-off-a-telescreen/miniluv", current_path
+        end
       end
     end
   end

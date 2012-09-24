@@ -38,6 +38,9 @@ class RootController < ApplicationController
     @snac_code = nil
     if @publication.type == "licence"
       @snac_code = AuthorityLookup.find_snac(params[:part])
+      if @snac_code == false and ! params[:part].blank?
+        @licence_authority_slug = params[:part]
+      end
     end
 
     @artefact = begin
@@ -68,10 +71,12 @@ class RootController < ApplicationController
     if closest_authority_from_geostack.present?
       @authority = closest_authority_from_geostack
       redirect_to publication_path(:slug => @publication.slug, :part => slug_for_snac_code(closest_authority_from_geostack['ons'])) and return
+    elsif @publication.type == "licence" and params[:authority].present? and params[:authority][:slug].present?
+      redirect_to publication_path(:slug => @publication.slug, :part => CGI.escape(params[:authority][:slug])) and return
     end
 
     if @publication.type == "licence"
-      setup_licence
+      @licence_details = licence_details
     elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
@@ -237,43 +242,38 @@ protected
     return false
   end
 
-  def setup_licence
-    @licence_from_licensify = @artefact['details']['licence']
-    @licence_details = {}
+  def licence_details
+    licence_attributes = { }
 
-    @licence_details['authorities'] = ( @snac_code and @licence_from_licensify and @licence_from_licensify['authorities'] and @licence_from_licensify['authorities'].any? )
+    licence_attributes[:licence] = @artefact['details']['licence']
+    return false if licence_attributes[:licence].blank?
 
-    if @snac_code
-      # if we have a licence available for the snac code
-      if ! @licence_from_licensify.blank?
-        if @licence_details['authorities']
-          @licence_authority = @licence_from_licensify['authorities'].first
-        else
-          raise RecordNotFound
-        end
+    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence])
 
-        unless params[:interaction].blank?
-          @licence_details["action"] = params[:interaction]
+    if ! licence_attributes[:authority] and (@snac_code.present? || @licence_authority_slug.present?)
+      raise RecordNotFound
+    end
 
-          unless @licence_authority['actions'].keys.include?(@licence_details["action"])
-            raise RecordNotFound
-          end
-        end
-      else
-        # licence does not exist for this snac code, try and find the council
+    if licence_attributes[:authority]
+      licence_attributes[:action] = params[:interaction]
+      if licence_attributes[:action]
+        raise RecordNotFound unless licence_attributes[:authority]['actions'].keys.include?(licence_attributes[:action])
+      end
+    end
 
-        # else 404 if the authority slug is incorrect
-        # raise RecordNotFound
+    return licence_attributes
+  end
+
+  def authority_for_licence(licence)
+    if licence["location_specific"]
+      if @snac_code
+        licence['authorities'].first
       end
     else
-      # no location
-      if @licence_from_licensify.present?
-        if @licence_from_licensify['location_specific'] == false
-          # does not require location
-        end
-      else
-        # no licence available
-
+      if licence['authorities'].size == 1
+        licence['authorities'].first
+      elsif @licence_authority_slug
+        licence['authorities'].select {|authority| authority['slug'] == @licence_authority_slug }.first
       end
     end
   end

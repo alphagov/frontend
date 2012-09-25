@@ -10,15 +10,17 @@ end
 module ArtefactHelpers
   def artefact_unavailable
     ArtefactUnavailable.new(
-        details: HashLikeOpenStruct.new(format: 'missing', need_id: 'missing'), 
+        details: HashLikeOpenStruct.new(format: 'missing', need_id: 'missing'),
         format: 'missing',
-        tags: [], 
+        tags: [],
         related: [])
   end
 
   def root_primary_section(artefact)
-    primary_section = artefact["tags"].detect do |tag| 
-      tag["details"]["type"] == "section"
+    if artefact["tags"]
+      primary_section = artefact["tags"].detect do |tag|
+        tag["details"]["type"] == "section"
+      end
     end
 
     if primary_section.nil?

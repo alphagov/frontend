@@ -3,16 +3,17 @@ require 'test_helper'
 class RootControllerTest < ActionController::TestCase
 
   def setup_this_answer
-    publication_exists(
+    content_api_has_an_artefact("c-slug", {
       'slug' => 'c-slug',
-      'type' => 'answer',
-      'name' => 'THIS',
-      'parts' => [
-        {'slug' => 'a', 'name' => 'AA'},
-        {'slug' => 'b', 'name' => 'BB'}
-      ]
-    )
-    content_api_has_an_artefact("c-slug")
+      'format' => 'answer',
+      'details' => {
+        'name' => 'THIS',
+        'parts' => [
+          {'slug' => 'a', 'name' => 'AA'},
+          {'slug' => 'b', 'name' => 'BB'}
+        ]
+      }
+    })
   end
 
   def stub_edition_request(slug, edition_id)
@@ -28,25 +29,17 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return a 404 if asked for a guide without parts" do
-    publication_exists(
-      "slug" => "disability-living-allowance-guide",
-      "alternative_title" => "",
-      "overview" => "",
+    content_api_has_an_artefact("disability-living-allowance-guide", {
       "title" => "Disability Living Allowance",
-      "parts" => [],
-      "type" => "guide"
-    )
-    content_api_has_an_artefact("disability-living-allowance-guide")
+      "format" => "guide",
+      "details" => {
+        "parts" => [],
+        "alternative_title" => "",
+        "overview" => ""
+      }
+    })
     get :publication, :slug => "disability-living-allowance-guide"
     assert_equal '404', response.code
-  end
-
-  test "should return a 404 if api returns nil" do
-    publication_does_not_exist('slug' => 'a-slug')
-    content_api_has_an_artefact("a-slug")
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
-    get :publication, :slug => "a-slug"
   end
 
   test "should 406 when asked for unrecognised format" do
@@ -64,19 +57,17 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should choose template based on type of publication" do
-    publication_exists('slug' => 'a-slug', 'type' => 'answer')
-    content_api_has_an_artefact("a-slug")
+    content_api_has_an_artefact("a-slug", {'format' => 'answer'})
     prevent_implicit_rendering
     @controller.expects(:render).with("answer")
     get :publication, :slug => "a-slug"
   end
 
   test "further information tab should appear for programmes that have it" do
-    publication_exists('slug' => 'zippy', 'type' => 'programme', 'parts' => [
-        {'slug' => 'a', 'name' => 'AA'},
-        {'slug' => 'further-information', 'name' => 'BB'}
-      ])
-    content_api_has_an_artefact("zippy")
+    content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
+            {'slug' => 'a', 'name' => 'AA'},
+            {'slug' => 'further-information', 'name' => 'BB'}
+          ]}})
     get :publication, :slug => "zippy"
     assert @response.body.include? "further-information"
   end
@@ -92,19 +83,21 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should pass edition parameter on to api to provide preview" do
-    edition_id = '123'
-    slug = 'c-slug'
-    stub_edition_request(slug, edition_id)
-    content_api_has_an_artefact(slug)
+    pending "support editions in gds-api-adapters"
+    # edition_id = '123'
+    # slug = 'c-slug'
+    # stub_edition_request(slug, edition_id)
+    # content_api_has_an_artefact(slug, {"web_url" => "http://example.org/c-slug"})
 
-    prevent_implicit_rendering
-    @controller.stubs(:render)
-    get :publication, :slug => "c-slug", :edition => edition_id
+    # prevent_implicit_rendering
+    # @controller.stubs(:render)
+    # get :publication, :slug => "c-slug", :edition => edition_id
   end
 
   test "should return video view when asked if guide has video" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob')
-    content_api_has_an_artefact("a-slug")
+    content_api_has_an_artefact("a-slug", {"format" => "guide", "details" => {
+      'video_url' => 'bob'
+    }})
 
     prevent_implicit_rendering
     @controller.expects(:render).with("guide", layout: "application.html.erb")
@@ -113,9 +106,13 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should not throw an error when an invalid video url is specified" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob', 'updated_at' => 1.hour.ago, 'parts' => [
-        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}])
-    content_api_has_an_artefact("a-slug")
+    content_api_has_an_artefact("a-slug", {
+      "web_url" => "http://example.org/a-slug",
+      "details" => {
+        'slug' => 'a-slug', 'video_url' => 'bob', 'updated_at' => 1.hour.ago, 'parts' => [
+        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}]      },
+      'format' => 'guide'
+    })
 
     get :publication, :slug => "a-slug"
     get :publication, :slug => "a-slug", :format => "video"
@@ -146,8 +143,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return 404 if part requested but publication has no parts" do
-    publication_exists('slug' => 'a-slug', 'type' => 'answer', 'name' => 'THIS')
-    content_api_has_an_artefact("a-slug")
+    content_api_has_an_artefact("a-slug", {'format' => 'answer'})
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))
@@ -155,8 +151,10 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should redirect to first part if bad part requested of multi-part guide" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
-    content_api_has_an_artefact("a-slug")
+    # publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    content_api_has_an_artefact("a-slug", {
+      'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}
+    })
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"
     assert_response :redirect
@@ -164,8 +162,10 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should redirect to canonical URL for first part if top level guide URL is requested" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
-    content_api_has_an_artefact("a-slug")
+    # publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
+    content_api_has_an_artefact("a-slug", {
+      'format' => 'guide', "web_url" => "http://example.org/a-slug", "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}
+    })
     prevent_implicit_rendering
     get :publication, :slug => "a-slug"
     assert_response :redirect
@@ -173,8 +173,8 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should preserve query parameters when redirecting" do
-    publication_exists({'slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}]}, {:edition => 3})
-    content_api_has_an_artefact("a-slug")
+    # publication_exists({'slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}]}, {:edition => 3})
+    content_api_has_an_artefact("a-slug", {'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}})
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :some_param => 1, :edition => 3
     assert_response :redirect
@@ -190,32 +190,33 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should assign edition to template if it's not blank and a number" do
-    edition_id = '23'
-    slug = 'a-slug'
-    stub_edition_request(slug, edition_id)
-    content_api_has_an_artefact(slug)
+    pending "support editions in gds-api-adapters"
+    # edition_id = '23'
+    # slug = 'a-slug'
+    # stub_edition_request(slug, edition_id)
+    # content_api_has_an_artefact(slug)
 
-    prevent_implicit_rendering
-    get :publication, :slug => "a-slug", :edition => edition_id
-    assigns[:edition] = edition_id
+    # prevent_implicit_rendering
+    # get :publication, :slug => "a-slug", :edition => edition_id
+    # assigns[:edition] = edition_id
   end
 
   test "should not pass edition parameter on to api if it's blank" do
-     edition_id = ''
-     api = mock()
-     api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
-     @controller.stubs(:publisher_api).returns api
+    pending "support editions in gds-api-adapters"
+    # edition_id = ''
+    # api = mock()
+    # api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
+    # @controller.stubs(:publisher_api).returns api
 
-     content_api_has_an_artefact("a-slug")
+    # content_api_has_an_artefact("a-slug")
 
-     prevent_implicit_rendering
-     @controller.stubs(:render)
-     get :publication, :slug => "a-slug",:edition => edition_id
+    # prevent_implicit_rendering
+    # @controller.stubs(:render)
+    # get :publication, :slug => "a-slug",:edition => edition_id
   end
 
   test "should pass specific and general variables to template" do
-    publication_exists('slug' => 'c-slug', 'type' => 'answer', 'name' => 'THIS')
-    content_api_has_an_artefact("c-slug")
+    content_api_has_an_artefact("c-slug", {"format" => "answer", "details" => {'name' => 'THIS'}})
 
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
@@ -231,14 +232,6 @@ class RootControllerTest < ActionController::TestCase
     request.env.delete("HTTP_X_GOVGEO_STACK")
     no_council_for_slug('c-slug')
     get :publication, :slug => "c-slug"
-  end
-
-  test "should join the slug and part when slug is 'done'" do
-    publication_exists('slug' => 'done/example', 'type' => 'completed_transaction', 'name' => 'Example is done')
-    content_api_has_an_artefact("done/example")
-
-    @controller.expects(:fetch_publication).with(has_entry('slug' => 'done/example'))
-    get :publication, :slug => "done", :part => "example"
   end
 
   context "setting up slimmer artefact details" do
@@ -293,7 +286,12 @@ class RootControllerTest < ActionController::TestCase
       publication_info = JSON.parse(json)
       publication_exists_for_snac(snac, publication_info)
 
-      content_api_has_an_artefact(slug)
+      p = {
+        "details" => publication_info,
+        "web_url" => "http://example.org/#{slug}"
+      }
+
+      content_api_has_an_artefact(slug, p)
     end
 
     should "load local transaction with no interaction for snac" do

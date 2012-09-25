@@ -29,11 +29,11 @@ class RootController < ApplicationController
       params[:part] = nil
     end
 
-    @publication = fetch_publication(params)
-    assert_found(@publication)
-
-    @artefact = fetch_artefact
+    @artefact = fetch_artefact || artefact_unavailable
     set_slimmer_artefact_headers(@artefact)
+
+    @publication = PublicationPresenter.new(@artefact)
+    assert_found(@publication)
 
     case @publication.type
     when "place"
@@ -109,10 +109,10 @@ protected
     unless artefact
       logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end
-  rescue GdsApi::HTTPErrorResponse => e
-    logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
-  ensure
-    return artefact || artefact_unavailable
+    artefact
+  rescue URI::InvalidURIError
+    logger.warn("Failed to fetch artefact from Content API.")
+    raise RecordNotFound
   end
 
   def empty_part_list?

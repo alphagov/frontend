@@ -24,34 +24,35 @@ class RootController < ApplicationController
   def publication
     error_406 and return if request.format.nil?
 
-    decipher_overloaded_part_parameter!
-    merge_slug_for_done_pages!
-
+    if params[:slug] == 'done' and params[:part].present?
+      params[:slug] += "/#{params[:part]}"
+      params[:part] = nil
+    end
 
     @publication = fetch_publication(params)
     assert_found(@publication)
-    setup_parts
 
-    begin
-      @artefact = content_api.artefact(params[:slug])
-      unless @artefact
-        logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
-      end
-    rescue GdsApi::HTTPErrorResponse => e
-      logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
-    end
-
-    @artefact ||= artefact_unavailable
+    @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
     when "place"
       set_expiry if params.exclude?('edition') and request.get?
       @options = load_place_options(@publication)
+      @publication.places = @options
     when "local_transaction"
       @council = load_council(@publication, params[:edition])
+      @publication.council = @council
+    when "programme"
+      params[:part] ||= @publication.parts.first.slug
+    when "guide"
+      params[:part] ||= @publication.parts.first.slug
     else
       set_expiry if params.exclude?('edition')
+    end
+
+    if @publication.parts
+      @part = @publication.find_part(params[:part])
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
@@ -62,14 +63,14 @@ class RootController < ApplicationController
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug, params) and return
     end
 
-    @edition = params[:edition].present? ? params[:edition] : nil
+    @edition = params[:edition]
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
-    @not_found = false
     respond_to do |format|
       format.html do
         if @publication.type == "local_transaction"
+          @not_found = false
           if @council.present? && @council[:url]
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?
@@ -86,12 +87,6 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
-        if @publication.type == "place"
-          @publication.places = @options
-        elsif @publication.type == "local_transaction"
-          @publication.council = @council
-        end
-
         render :json => @publication.to_json
       end
     end
@@ -111,18 +106,15 @@ class RootController < ApplicationController
   end
 
 protected
-  def decipher_overloaded_part_parameter!
-    @provider_not_found = true if params[:part] == "not_found"
-  end
-
-  # For completed transaction (done/*) pages, the route will assume that any
-  # string after the first slash is the part for a guide. Therefore, join these
-  # together before we fetch the publication.
-  def merge_slug_for_done_pages!
-    if params[:slug] == 'done' and !params[:part].blank?
-      params[:slug] += '/' + params[:part]
-      params[:part] = nil
+  def fetch_artefact
+    artefact = content_api.artefact(params[:slug])
+    unless artefact
+      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end
+  rescue GdsApi::HTTPErrorResponse => e
+    logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
+  ensure
+    return artefact || artefact_unavailable
   end
 
   def empty_part_list?
@@ -232,16 +224,6 @@ protected
 
   def assert_found(obj)
     raise RecordNotFound unless obj
-  end
-
-  def setup_parts
-    if @publication.type == 'programme' || @publication.type == 'guide'
-      params[:part] ||= @publication.parts.first.slug
-    end
-
-    if @publication.parts
-      @part = @publication.find_part(params[:part])
-    end
   end
 
   def set_slimmer_artefact_headers(artefact)

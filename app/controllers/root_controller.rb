@@ -33,11 +33,13 @@ class RootController < ApplicationController
     @publication = fetch_publication(params)
     assert_found(@publication)
 
-    @snac_code = nil
     if @publication.type == "licence"
       @snac_code = AuthorityLookup.find_snac(params[:part])
-      if @snac_code == false and ! params[:part].blank?
-        @licence_authority_slug = params[:part]
+      @licence_authority_slug = params[:part]
+
+      if closest_authority_from_geostack.present? || (params[:authority].present? && params[:authority][:slug].present?)
+        part = identify_authority_slug(closest_authority_from_geostack)
+        redirect_to publication_path(:slug => @publication.slug, :part => part) and return
       end
     end
 
@@ -62,14 +64,9 @@ class RootController < ApplicationController
       @part = @publication.find_part(params[:part])
     end
 
-    if closest_authority_from_geostack.present?
-      @authority = closest_authority_from_geostack
-      redirect_to publication_path(:slug => @publication.slug, :part => slug_for_snac_code(closest_authority_from_geostack['ons'])) and return
-    elsif @publication.type == "licence" and params[:authority].present? and params[:authority][:slug].present?
-      redirect_to publication_path(:slug => @publication.slug, :part => CGI.escape(params[:authority][:slug])) and return
-    end
-
     if @publication.type == "licence"
+      # Relies on the artefact but could potentially be moved elsewhere
+      # once we're loading publications and artefacts in one go
       @licence_details = licence_details
     elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
@@ -259,6 +256,15 @@ protected
       end
     end
   end
+
+  def identity_authority_slug(closest_authority)
+    if closest_authority
+      slug_for_snac_code(closest_authority_from_geostack['ons'])
+    elsif params[:authority] && params[:authority][:slug].present?
+      CGI.escape(params[:authority][:slug])
+    end
+  end
+
 
   def council_from_geostack
     if params['council_ons_codes']

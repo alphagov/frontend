@@ -110,6 +110,49 @@ class RootController < ApplicationController
     end
   end
 
+  def exit
+    # TODO: handle other types
+    publication = fetch_publication(params)
+    if publication.type != "transaction"
+      raise "This is not a transaction!"
+    end
+    # TODO: handle urls in the body
+    # is '[params[:target]]' in body content...
+    if params[:target] != publication.link
+      raise "Invalid target url (add better handling here) #{publication.link}"
+    end
+    need_id = ""
+    begin
+      artefact = content_api.artefact(params[:slug])
+      need_id = artefact["details"]["need_id"].to_s
+    rescue GdsApi::HTTPErrorResponse => e
+      logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
+      # TODO: just send the user without tracking
+    end
+
+      # track in google
+    # WARNING! This is also set in static
+    # todo: maybe use different domains - UA-26179049-1
+    gabba = Gabba::Gabba.new("UA-33768939-1", ".www.gov.uk")
+    gabba.identify_user(cookies[:__utma])
+    gabba.event(
+      "MS_transaction", need_id, 'Success'
+    )
+
+    # set headers
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+    response.headers["Cache-Control"] = "no-cache, must-revalidate"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
+
+    # send response
+    text = <<END_TEXT
+<script>window.location.replace("#{params[:target]}")</script>
+<noscript><META http-equiv="refresh" content="0;URL='#{params[:target]}'"></noscript>
+END_TEXT
+    render :text => text
+  end
 protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"

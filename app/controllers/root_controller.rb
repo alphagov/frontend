@@ -25,8 +25,6 @@ class RootController < ApplicationController
   def publication
     error_406 and return if request.format.nil?
 
-    decipher_overloaded_part_parameter!
-
     if params[:slug] == 'done' and params[:part].present?
       params[:slug] += "/#{params[:part]}"
       params[:part] = nil

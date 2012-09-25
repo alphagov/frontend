@@ -17,7 +17,7 @@ namespace :router do
 
   task :register_routes => :router_environment do
     # Remove rummager route for search
-    @router.routes.delete 'search'
+    @router.routes.delete '/search'
     @router.routes.update application_id: "frontend", route_type: :full,
       incoming_path: "/search"
 

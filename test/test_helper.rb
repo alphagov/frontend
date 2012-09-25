@@ -28,12 +28,4 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include GdsApi::TestHelpers::Publisher
   include GdsApi::TestHelpers::ContentApi
-
-  def setup
-    WebMock.reset!
-  end
-
-  def teardown
-    WebMock.reset!
-  end
 end

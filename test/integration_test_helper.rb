@@ -1,5 +1,6 @@
 require_relative 'test_helper'
 require 'capybara/rails'
+require 'capybara/poltergeist'
 
 require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/content_api'
@@ -15,7 +16,7 @@ class ActionDispatch::IntegrationTest
   def teardown
     Capybara.use_default_driver
   end
-  
+
   def publisher_api_response(slug)
     json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
     JSON.parse(json)
@@ -34,4 +35,4 @@ class ActionDispatch::IntegrationTest
   end
 end
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :poltergeist

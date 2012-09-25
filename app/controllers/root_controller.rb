@@ -8,7 +8,6 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
-  include Slimmer::Headers
   include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
@@ -17,9 +16,7 @@ class RootController < ApplicationController
   def index
     set_expiry
 
-    set_slimmer_headers(
-      template:    "homepage"
-    )
+    set_slimmer_headers(template: "homepage")
 
     # Only needed for Analytics
     set_slimmer_dummy_artefact(:section_name => "homepage", :section_url => "/")
@@ -29,11 +26,14 @@ class RootController < ApplicationController
     error_406 and return if request.format.nil?
 
     decipher_overloaded_part_parameter!
-    merge_slug_for_done_pages!
+
+    if params[:slug] == 'done' and params[:part].present?
+      params[:slug] += "/#{params[:part]}"
+      params[:part] = nil
+    end
 
     @publication = fetch_publication(params)
     assert_found(@publication)
-    setup_parts
 
     @snac_code = nil
     if @publication.type == "licence"
@@ -54,18 +54,26 @@ class RootController < ApplicationController
       logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
       artefact_unavailable
     end
+
+    @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
     when "place"
-      unless request.format.kml?
-        set_expiry if params.exclude?('edition') and request.get?
-        @options = load_place_options(@publication)
-      end
+      set_expiry if params.exclude?('edition') and request.get?
+      @options = load_place_options(@publication)
+      @publication.places = @options
     when "local_transaction"
       @council = load_council(@publication, params[:edition])
+      @publication.council = @council
+    when "programme"
+      params[:part] ||= @publication.parts.first.slug
     else
       set_expiry if params.exclude?('edition')
+    end
+
+    if @publication.parts
+      @part = @publication.find_part(params[:part])
     end
 
     if closest_authority_from_geostack.present?
@@ -85,14 +93,14 @@ class RootController < ApplicationController
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug, params) and return
     end
 
-    @edition = params[:edition].present? ? params[:edition] : nil
+    @edition = params[:edition]
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
-    @not_found = false
     respond_to do |format|
       format.html do
         if @publication.type == "local_transaction"
+          @not_found = false
           if @council.present? && @council[:url]
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?
@@ -109,20 +117,7 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
-        if @publication.type == "place"
-          @publication.places = @options
-        elsif @publication.type == "local_transaction"
-          @publication.council = @council
-        end
-
         render :json => @publication.to_json
-      end
-      format.kml do
-        if @publication.type == 'place'
-          render :text => imminence_api.places_kml(@publication.place_type)
-        else
-          error_406
-        end
       end
     end
   rescue RecordNotFound
@@ -132,25 +127,24 @@ class RootController < ApplicationController
 
   def settings
     respond_to do |format|
-      format.html { }
-      format.raw { set_slimmer_headers skip: "true"
-        render 'settings.html.erb' }
+      format.html {}
+      format.raw {
+        set_slimmer_headers skip: "true"
+        render 'settings.html.erb'
+      }
     end
   end
 
 protected
-  def decipher_overloaded_part_parameter!
-    @provider_not_found = true if params[:part] == "not_found"
-  end
-
-  # For completed transaction (done/*) pages, the route will assume that any
-  # string after the first slash is the part for a guide. Therefore, join these
-  # together before we fetch the publication.
-  def merge_slug_for_done_pages!
-    if params[:slug] == 'done' and !params[:part].blank?
-      params[:slug] += '/' + params[:part]
-      params[:part] = nil
+  def fetch_artefact
+    artefact = content_api.artefact(params[:slug])
+    unless artefact
+      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end
+  rescue GdsApi::HTTPErrorResponse => e
+    logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
+  ensure
+    return artefact || artefact_unavailable
   end
 
   def empty_part_list?
@@ -203,9 +197,7 @@ protected
   end
 
   def build_local_transaction_information(local_transaction)
-    result = {
-      url: nil
-    }
+    result = {url: nil}
     if local_transaction.interaction
       result[:url] = local_transaction.interaction.url
       # DEPRECATED: authority is not located inside the interaction in the latest version
@@ -232,7 +224,10 @@ protected
   end
 
   def fetch_publication(params)
-    options = { edition: params[:edition], snac: params[:snac] }.reject { |k, v| v.blank? }
+    options = {
+      edition: params[:edition],
+      snac: params[:snac]
+    }.reject { |k, v| v.blank? }
     publisher_api.publication_for_slug(params[:slug], options)
   rescue ArgumentError
     logger.error "invalid UTF-8 byte sequence with slug `#{params[:slug]}`"
@@ -287,7 +282,7 @@ protected
   end
 
   def full_council_from_geostack
-    if ! request.env['HTTP_X_GOVGEO_STACK']
+    if !request.env['HTTP_X_GOVGEO_STACK']
       return []
     end
     location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
@@ -317,21 +312,8 @@ protected
     raise RecordNotFound unless obj
   end
 
-  def setup_parts
-    if @publication.type == 'programme'
-      params[:part] ||= @publication.parts.first.slug
-    end
-
-    if @publication.parts
-      @part = @publication.find_part(params[:part])
-    end
-  end
-
   def set_slimmer_artefact_headers(artefact)
-    set_slimmer_headers(
-      format:      artefact["format"]
-    )
-
+    set_slimmer_headers(format: artefact["format"])
     set_slimmer_artefact(artefact)
   end
 

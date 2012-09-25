@@ -68,8 +68,8 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
-  gem 'capybara'
-  gem "capybara-webkit"
+  gem 'capybara', '1.1.2'
+  gem 'poltergeist', '0.7.0'
   gem "launchy"
   gem "shoulda"
 end

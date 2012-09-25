@@ -1,0 +1,20 @@
+<section class="intro inner">
+  <div class="get-started-intro">
+    <h1>Apply for this licence</h1>
+
+    <p id="get-started" class="get-started group">
+       <a href="<%= @licence.continuation_link %>" rel="external" class="button">
+         <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
+           if @licence.will_continue_on.present?
+             %><span class="destination">on <%= @licence.will_continue_on %></span><%
+           end
+         %></span><span class="indicator"></span>
+       </a>
+    </p>
+  </div>
+</section>
+
+<div id="overview" class="inner">
+  <h1>Overview</h1>
+  <%= to_govspeak(@licence.licence_overview) %>
+</div>

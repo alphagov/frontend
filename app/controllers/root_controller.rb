@@ -1,4 +1,5 @@
 require "slimmer/headers"
+require "authority_lookup"
 
 class RecordNotFound < Exception
 end
@@ -35,6 +36,16 @@ class RootController < ApplicationController
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
 
+    if @publication.type == "licence"
+      @snac_code = AuthorityLookup.find_snac(params[:part])
+      @licence_authority_slug = params[:part]
+
+      if closest_authority_from_geostack.present? || (params[:authority].present? && params[:authority][:slug].present?)
+        part = identify_authority_slug(closest_authority_from_geostack)
+        redirect_to publication_path(:slug => @publication.slug, :part => part) and return
+      end
+    end
+
     case @publication.type
     when "place"
       set_expiry if params.exclude?('edition') and request.get?
@@ -53,7 +64,11 @@ class RootController < ApplicationController
       @part = @publication.find_part(params[:part])
     end
 
-    if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
+    if @publication.type == "licence"
+      # Relies on the artefact but could potentially be moved elsewhere
+      # once we're loading publications and artefacts in one go
+      @licence_details = licence_details(@artefact, @licence_authority_slug, @snac_code)
+    elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
       params.delete(:slug)
@@ -105,7 +120,8 @@ class RootController < ApplicationController
 
 protected
   def fetch_artefact
-    artefact = content_api.artefact(params[:slug])
+    artefact = @snac_code.blank? ? content_api.artefact(params[:slug]) : content_api.artefact_with_snac_code(params[:slug], @snac_code).to_hash
+
     unless artefact
       logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end
@@ -205,19 +221,84 @@ protected
     return false
   end
 
+  def licence_details(artefact, licence_authority_slug, snac_code)
+    licence_attributes = { licence: artefact['details']['licence'] }
+
+    return false if licence_attributes[:licence].blank?
+
+    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
+
+    if ! licence_attributes[:authority] and (snac_code.present? || licence_authority_slug.present?)
+      raise RecordNotFound
+    end
+
+    if licence_attributes[:authority]
+      licence_attributes[:action] = params[:interaction]
+      available_actions = licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]
+
+      if licence_attributes[:action] && ! available_actions.include?(licence_attributes[:action])
+        raise RecordNotFound
+      end
+    end
+
+    return licence_attributes
+  end
+
+  def authority_for_licence(licence, licence_authority_slug, snac_code)
+    if licence["location_specific"]
+      if snac_code
+        licence['authorities'].first
+      end
+    else
+      if licence['authorities'].size == 1
+        licence['authorities'].first
+      elsif licence_authority_slug
+        licence['authorities'].select {|authority| authority['slug'] == licence_authority_slug }.first
+      end
+    end
+  end
+
+  def identify_authority_slug(closest_authority)
+    if closest_authority
+      slug_for_snac_code(closest_authority_from_geostack['ons'])
+    elsif params[:authority] && params[:authority][:slug].present?
+      CGI.escape(params[:authority][:slug])
+    end
+  end
+
   def council_from_geostack
     if params['council_ons_codes']
-      return params['council_ons_codes']
+      params['council_ons_codes']
+    else
+      full_council_from_geostack.map {|c| c['ons']}.compact
     end
+  end
+
+  def full_council_from_geostack
     if !request.env['HTTP_X_GOVGEO_STACK']
       return []
     end
     location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
     if location_data['council']
-      location_data['council'].compact.map {|c| c['ons']}.compact
+      return location_data['council'].compact
     else
       return []
     end
+  end
+
+  def closest_authority_from_geostack
+    authorities = full_council_from_geostack
+    ["DIS","LBO","UTY","CTY"].each do |type|
+      authorities_for_type = authorities.select {|a| a["type"] == type }
+      if authorities_for_type.any?
+        return authorities_for_type.first
+      end
+    end
+    return false
+  end
+
+  def slug_for_snac_code(snac)
+    AuthorityLookup.find_slug_from_snac(snac)
   end
 
   def assert_found(obj)

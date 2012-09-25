@@ -67,7 +67,7 @@ class RootController < ApplicationController
     if @publication.type == "licence"
       # Relies on the artefact but could potentially be moved elsewhere
       # once we're loading publications and artefacts in one go
-      @licence_details = licence_details
+      @licence_details = licence_details(@artefact, @licence_authority_slug, @snac_code)
     elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
@@ -221,50 +221,50 @@ protected
     return false
   end
 
-  def licence_details
-    licence_attributes = { }
+  def licence_details(artefact, licence_authority_slug, snac_code)
+    licence_attributes = { licence: artefact['details']['licence'] }
 
-    licence_attributes[:licence] = @artefact['details']['licence']
     return false if licence_attributes[:licence].blank?
 
-    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence])
+    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
 
-    if ! licence_attributes[:authority] and (@snac_code.present? || @licence_authority_slug.present?)
+    if ! licence_attributes[:authority] and (snac_code.present? || licence_authority_slug.present?)
       raise RecordNotFound
     end
 
     if licence_attributes[:authority]
       licence_attributes[:action] = params[:interaction]
-      if licence_attributes[:action]
-        raise RecordNotFound unless (licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]).include?(licence_attributes[:action])
+      available_actions = licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]
+
+      if licence_attributes[:action] && ! available_actions.include?(licence_attributes[:action])
+        raise RecordNotFound
       end
     end
 
     return licence_attributes
   end
 
-  def authority_for_licence(licence)
+  def authority_for_licence(licence, licence_authority_slug, snac_code)
     if licence["location_specific"]
-      if @snac_code
+      if snac_code
         licence['authorities'].first
       end
     else
       if licence['authorities'].size == 1
         licence['authorities'].first
-      elsif @licence_authority_slug
-        licence['authorities'].select {|authority| authority['slug'] == @licence_authority_slug }.first
+      elsif licence_authority_slug
+        licence['authorities'].select {|authority| authority['slug'] == licence_authority_slug }.first
       end
     end
   end
 
-  def identity_authority_slug(closest_authority)
+  def identify_authority_slug(closest_authority)
     if closest_authority
       slug_for_snac_code(closest_authority_from_geostack['ons'])
     elsif params[:authority] && params[:authority][:slug].present?
       CGI.escape(params[:authority][:slug])
     end
   end
-
 
   def council_from_geostack
     if params['council_ons_codes']

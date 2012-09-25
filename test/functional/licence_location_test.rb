@@ -43,10 +43,6 @@ class LicenceLocationTest < ActionController::TestCase
         get :publication, slug: "licence-to-kill"
       end
 
-      should "find the lowest level authority for the area" do
-        assert_equal assigns(:authority)["name"], "Staffordshire Moorlands District Council"
-      end
-
       should "redirect to the slug for the lowest level authority" do
         assert_redirected_to "/licence-to-kill/staffordshire-moorlands"
       end

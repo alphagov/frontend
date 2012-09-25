@@ -41,18 +41,6 @@ class RootController < ApplicationController
       end
     end
 
-    @artefact = begin
-      if @snac_code
-        content_api.artefact_with_snac_code(params[:slug], @snac_code).to_hash
-      else
-        api_request = content_api.artefact(params[:slug])
-        api_request.nil? ? artefact_unavailable : api_request.to_hash
-      end
-    rescue GdsApi::HTTPErrorResponse => e
-      logger.debug("Failed to fetch artefact from Content API. Response code: #{e.code}")
-      artefact_unavailable
-    end
-
     @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
@@ -135,7 +123,8 @@ class RootController < ApplicationController
 
 protected
   def fetch_artefact
-    artefact = content_api.artefact(params[:slug])
+    artefact = @snac_code.blank? ? content_api.artefact(params[:slug]) : content_api.artefact_with_snac_code(params[:slug], @snac_code).to_hash
+
     unless artefact
       logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end

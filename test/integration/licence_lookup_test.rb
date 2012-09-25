@@ -133,6 +133,12 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
         assert_equal 404, page.status_code
       end
+
+      should "return a 404 for an invalid authority" do
+        visit "/licence-to-kill/not-a-valid-council-name"
+
+        assert_equal 404, page.status_code
+      end
     end
 
     context "when visiting the licence with an invalid postcode" do
@@ -144,6 +150,28 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
         assert_equal "/licence-to-kill", current_path
       end
+    end
+  end
+
+  context "given a licence which does not exist in licensify" do
+    setup do
+      setup_api_responses("licence-to-kill")
+      content_api_has_an_artefact("licence-to-kill", {
+        "title" => "Licence to Kill",
+        "kind" => "licence",
+        "details" => {
+          "format" => "licence",
+          "licence" => {}
+        },
+        "tags" => [],
+        "related" => []
+      })
+    end
+
+    should "show message to contact local authority" do
+      visit '/licence-to-kill'
+
+      assert page.has_content?('contact your your local authority')
     end
   end
 
@@ -239,7 +267,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
     end
   end
 
-context "given a non-location-specific licence which exists in licensify with a single authority" do
+  context "given a non-location-specific licence which exists in licensify with a single authority" do
     setup do
       setup_api_responses('licence-to-turn-off-a-telescreen')
       content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
@@ -286,6 +314,28 @@ context "given a non-location-specific licence which exists in licensify with a 
     end
   end
 
+  context "given a location-specific licence which does not exist in licensify for an authority" do
+    setup do
+      setup_api_responses("licence-to-kill")
+      content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", {
+        "title" => "Licence to Kill",
+        "kind" => "licence",
+        "details" => {
+          "format" => "licence"
+        },
+        "tags" => [],
+        "related" => []
+      })
+    end
+
+    should "show message to contact local authority" do
+      visit '/licence-to-kill/south-ribble'
+      save_page
+
+      assert page.status_code == 200
+      assert page.has_content?('contact your your local authority')
+    end
+  end
 
   context "given a licence edition with alternative licence information fields" do
     setup do

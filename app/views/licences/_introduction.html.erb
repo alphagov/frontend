@@ -8,7 +8,7 @@
           <%= render :partial => 'location_form', :locals => {:format => 'licence'} %>
         </div>
       <% else %>
-        <p>Please choose a local authority to apply for the licence from.</p>
+        <p>Please choose an authority to apply for the licence from.</p>
         <p>The authority you select will not affect the type of licence you apply for.</p>
         <%= form_tag @publication.slug do %>
           <ul>

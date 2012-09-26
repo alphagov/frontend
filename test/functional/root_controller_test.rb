@@ -4,13 +4,13 @@ class RootControllerTest < ActionController::TestCase
 
   def setup_this_answer
     publication_exists(
-      'slug' => 'c-slug',
-      'type' => 'answer',
-      'name' => 'THIS',
-      'parts' => [
-        {'slug' => 'a', 'name' => 'AA'},
-        {'slug' => 'b', 'name' => 'BB'}
-      ]
+        'slug' => 'c-slug',
+        'type' => 'answer',
+        'name' => 'THIS',
+        'parts' => [
+            {'slug' => 'a', 'name' => 'AA'},
+            {'slug' => 'b', 'name' => 'BB'}
+        ]
     )
     content_api_has_an_artefact("c-slug")
   end
@@ -29,12 +29,12 @@ class RootControllerTest < ActionController::TestCase
 
   test "should return a 404 if asked for a guide without parts" do
     publication_exists(
-      "slug" => "disability-living-allowance-guide",
-      "alternative_title" => "",
-      "overview" => "",
-      "title" => "Disability Living Allowance",
-      "parts" => [],
-      "type" => "guide"
+        "slug" => "disability-living-allowance-guide",
+        "alternative_title" => "",
+        "overview" => "",
+        "title" => "Disability Living Allowance",
+        "parts" => [],
+        "type" => "guide"
     )
     content_api_has_an_artefact("disability-living-allowance-guide")
     get :publication, :slug => "disability-living-allowance-guide"
@@ -45,7 +45,7 @@ class RootControllerTest < ActionController::TestCase
     publication_does_not_exist('slug' => 'a-slug')
     content_api_has_an_artefact("a-slug")
     prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status=>404))
+    @controller.expects(:render).with(has_entry(:status => 404))
     get :publication, :slug => "a-slug"
   end
 
@@ -75,7 +75,7 @@ class RootControllerTest < ActionController::TestCase
     publication_exists('slug' => 'zippy', 'type' => 'programme', 'parts' => [
         {'slug' => 'a', 'name' => 'AA'},
         {'slug' => 'further-information', 'name' => 'BB'}
-      ])
+    ])
     content_api_has_an_artefact("zippy")
     get :publication, :slug => "zippy"
     assert @response.body.include? "further-information"
@@ -85,7 +85,7 @@ class RootControllerTest < ActionController::TestCase
     publication_exists('slug' => 'george', 'type' => 'programme', 'parts' => [
         {'slug' => 'a', 'name' => 'AA'},
         {'slug' => 'b', 'name' => 'BB'}
-      ])
+    ])
     content_api_has_an_artefact("george")
     get :publication, :slug => "george"
     assert !@response.body.include?("further-information")
@@ -123,9 +123,9 @@ class RootControllerTest < ActionController::TestCase
 
   test "should return print view" do
     publication_exists(
-      'slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS', 'parts' => [
+        'slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS', 'parts' => [
         {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}
-      ]
+    ]
     )
     content_api_has_an_artefact("a-slug")
 
@@ -201,16 +201,16 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should not pass edition parameter on to api if it's blank" do
-     edition_id = ''
-     api = mock()
-     api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
-     @controller.stubs(:publisher_api).returns api
+    edition_id = ''
+    api = mock()
+    api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type => "answer"))
+    @controller.stubs(:publisher_api).returns api
 
-     content_api_has_an_artefact("a-slug")
+    content_api_has_an_artefact("a-slug")
 
-     prevent_implicit_rendering
-     @controller.stubs(:render)
-     get :publication, :slug => "a-slug",:edition => edition_id
+    prevent_implicit_rendering
+    @controller.stubs(:render)
+    get :publication, :slug => "a-slug", :edition => edition_id
   end
 
   test "should pass specific and general variables to template" do
@@ -348,6 +348,83 @@ class RootControllerTest < ActionController::TestCase
       assert_equal "http://www.lambeth.gov.uk/Services/HealthSocialCare/ServicesAdults/DirectPayments.htm", json['council']['url']
       assert_equal "London Borough of Lambeth", json['council']['name']
       assert_equal "contact@lambeth.gov.uk", json['council']['contact_email']
+    end
+
+    should "should render exit html for transaction" do
+      slug = '/tax-disc-license'
+      target = 'http://google.com'
+      needId = '999999'
+
+      api = mock()
+      api.expects(:publication_for_slug).with(slug, {}).returns(OpenStruct.new(:type => "transaction", :link => target))
+      @controller.stubs(:publisher_api).returns(api)
+
+      gabba = mock()
+      gabba.stubs(:identify_user)
+      gabba.expects(:event).with('MS_transaction', needId, 'Success')
+      @controller.stubs(:create_gabba).returns(gabba)
+
+      get :exit, slug: slug, target: target, needId: needId
+
+      html = response.body
+      assert html.include?("<script>window.location.replace(\"#{target}\")</script>")
+      assert html.include?("<noscript><META http-equiv=\"refresh\" content=\"0;URL='#{target}'\"></noscript>")
+    end
+
+    should "return 403 if the target url is not included in the publication" do
+      slug = '/tax-disc-license'
+      target = 'http://www.naughty_website.com'
+      needId = '999999'
+
+      api = mock()
+      api.expects(:publication_for_slug).with(slug, {}).returns(OpenStruct.new(:type => "transaction", :link => "http://nice-guys-inc.com", :more_information => ""))
+      @controller.stubs(:publisher_api).returns(api)
+
+      get :exit, slug: slug, target: target, needId: needId
+
+      assert_equal 403, response.status
+    end
+
+
+    should "return 404 if the publication type is not supported" do
+      slug = '/tax-disc-license'
+      target = 'http://www.naughty_website.com'
+      needId = '999999'
+
+      api = mock()
+      api.expects(:publication_for_slug).with(slug, {}).returns(OpenStruct.new(:type => "pickles"))
+      @controller.stubs(:publisher_api).returns(api)
+
+      get :exit, slug: slug, target: target, needId: needId
+
+      assert_equal 404, response.status
+    end
+
+    should "return 404 if target is missing from url params" do
+      slug = '/tax-disc-license'
+      needId = '999999'
+
+      get :exit, slug: slug, needId: needId
+
+      assert_equal 404, response.status
+    end
+
+    should "return 404 if needId is missing from url params" do
+      slug = '/tax-disc-license'
+      target = 'http://www.naughty_website.com'
+
+      get :exit, slug: slug, target: target
+
+      assert_equal 404, response.status
+    end
+
+    should "return 404 if slug is missing from url params" do
+      target = 'http://www.naughty_website.com'
+      needId = '999999'
+
+      get :exit, target: target, needId: needId
+
+      assert_equal 404, response.status
     end
   end
 end

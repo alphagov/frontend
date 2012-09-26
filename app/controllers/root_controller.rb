@@ -112,18 +112,18 @@ class RootController < ApplicationController
 
   def exit
     error_404 and return unless (params[:slug] && params[:target] && params[:needId])
-    # TODO: handle other types
     publication = fetch_publication(params)
-    if (not publication) || publication.type != "transaction"
-      error_404 and return
-    end
-    # TODO: handle urls in the body
-    error 403 and return unless publication_contains_link?(publication, params[:target])
+    forwarding_warden = fetch_warden(publication.type)
 
-    # track in google
-    # WARNING! This is also set in static
-    # todo: maybe use different domains - UA-26179049-1
-    gabba = Gabba::Gabba.new("UA-33768939-1", ".www.gov.uk")
+    if forwarding_warden.nil?
+      error_404 and return
+    elsif not forwarding_warden.call(publication, params[:target])
+      error 403 and return
+    end
+
+    gabba = create_gabba
+
+    # TODO: handle urls in the body
     gabba.identify_user(cookies[:__utma])
     gabba.event(
       "MS_transaction", params[:needId], 'Success'
@@ -142,9 +142,24 @@ class RootController < ApplicationController
 END_TEXT
     render :text => text
   end
+
 protected
-  def publication_contains_link?(publication, link)
-    publication.link == link || publication.more_information.include?("](#{link}")
+  def fetch_warden(publication_type)
+    case publication_type
+      when 'transaction'
+        lambda do |publication, link|
+          publication.link == link or publication.more_information.include?("](#{link}")
+        end
+      else
+        nil
+    end
+  end
+
+  def create_gabba
+    # track in google
+    # WARNING! This is also set in static
+    # todo: maybe use different domains - UA-26179049-1
+    Gabba::Gabba.new("UA-33768939-1", ".www.gov.uk")
   end
 
   def decipher_overloaded_part_parameter!

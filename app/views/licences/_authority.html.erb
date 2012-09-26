@@ -26,9 +26,9 @@
     <div class="contact">
       <p>The issuing authority for this license is <strong><%= @licence_details[:authority]['name'] %></strong> <%= link_to '(change location)', publication_path(@publication.slug) %>.</p>
 
-      <% if @licence_details[:authority]['contact'] %>
+      <% if ! @licence_details[:authority]['contact']['address'].blank? %>
         <p>You can contact them using the details below.</p>
-        <p><%= @licence_details[:authority]['contact']['address'] %></p>
+        <%= simple_format @licence_details[:authority]['contact']['address'] %>
       <% end %>
     </div>
     <% end %>

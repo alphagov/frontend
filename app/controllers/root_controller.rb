@@ -32,6 +32,10 @@ class RootController < ApplicationController
     @publication = fetch_publication(params)
     assert_found(@publication)
 
+    if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
+      raise RecordNotFound
+    end
+
     @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
@@ -53,10 +57,6 @@ class RootController < ApplicationController
 
     if @publication.parts
       @part = @publication.find_part(params[:part])
-    end
-
-    if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
-      raise RecordNotFound
     end
 
     @edition = params[:edition]

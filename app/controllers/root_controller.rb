@@ -118,7 +118,9 @@ protected
   end
 
   def part_requested_but_not_found?
-    params[:part] && @publication.parts.blank?
+    params[:part] && ! (
+      @publication.parts && @publication.parts.any? { |p| p.slug == params[:part] }
+    )
   end
 
   def video_requested_but_not_found?

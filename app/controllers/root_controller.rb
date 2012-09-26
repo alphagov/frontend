@@ -113,11 +113,13 @@ class RootController < ApplicationController
   def exit
     error_404 and return unless (params[:slug] && params[:target] && params[:needId])
     publication = fetch_publication(params)
-    forwarding_warden = fetch_warden(publication.type)
+    forwarding_warden = fetch_warden(publication)
 
     if forwarding_warden.nil?
+      logger.info { "root#exit rejected redirect to '#{params[:target]}' from #{param[:slug]}"}
       error_404 and return
-    elsif not forwarding_warden.call(publication, params[:target])
+    elsif not forwarding_warden.call(params[:target])
+      logger.warn { "root#exit rejected redirect to '#{params[:target]}' from #{param[:slug]}"}
       error 403 and return
     end
 
@@ -126,7 +128,7 @@ class RootController < ApplicationController
     # TODO: handle urls in the body
     gabba.identify_user(cookies[:__utma])
     gabba.event(
-      "MS_transaction", params[:needId], 'Success'
+      "MS_#{publication.type}", params[:needId], 'Success'
     )
 
     # set headers
@@ -144,15 +146,9 @@ END_TEXT
   end
 
 protected
-  def fetch_warden(publication_type)
-    case publication_type
-      when 'transaction'
-        lambda do |publication, link|
-          publication.link == link or publication.more_information.include?("](#{link}")
-        end
-      else
-        nil
-    end
+  def fetch_warden(publication)
+    @redirect_warden_factory ||= RedirectWardenFactory.new
+    @redirect_warden_factory.for(publication)
   end
 
   def create_gabba

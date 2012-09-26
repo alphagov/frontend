@@ -17,7 +17,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         within 'section.intro' do
           assert page.has_content?("You have to fill out the form online, print it off and send it to your local electoral registration office.")
 
-          assert page.has_link?("Get started on the Electoral Commission website", :href => "http://www.aboutmyvote.co.uk/")
+          assert page.has_link?("Start now on the Electoral Commission website", :href => "http://www.aboutmyvote.co.uk/")
         end
 
         within 'section.more' do

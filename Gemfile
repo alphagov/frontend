@@ -46,7 +46,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '1.9.1'
+  gem 'gds-api-adapters', '2.7.2'
 end
 
 gem "addressable"
@@ -68,8 +68,8 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
-  gem 'capybara'
-  gem "capybara-webkit"
+  gem 'capybara', '1.1.2'
+  gem 'poltergeist', '0.7.0'
   gem "launchy"
   gem "shoulda"
 end

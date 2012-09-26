@@ -1,0 +1,37 @@
+<div class="relevant-authority">From <strong><%= @licence_details[:authority]['name'] %></strong></div>
+
+<aside>
+  <div class="inner">
+    <nav role="navigation" class="page-navigation">
+      <ol>
+        <li <% unless @licence_details[:action] %>class="active"<% end %>><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
+        <% (@licence_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
+          <li <% if @licence_details[:action] == action %>class="active"<% end %>><%= link_to "How to #{action}", licence_authority_action_path(@licence.slug, @licence_details[:authority]['slug'], action) %></li>
+        <% end %>
+      </ol>
+    </nav>
+  </div>
+</aside>
+
+<article role="article" class="group">
+  <div id="overview" class="inner">
+    <% if @licence_details[:action].present? %>
+      <%= render :partial => "licences/action", :locals => {:action => @licence_details[:action] } %>
+    <% else %>
+      <h1>Overview</h1>
+      <%= to_govspeak(@licence.licence_overview) %>
+    <% end %>
+
+    <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>
+    <div class="contact">
+      <p>The issuing authority for this license is <strong><%= @licence_details[:authority]['name'] %></strong> <%= link_to '(change location)', publication_path(@publication.slug) %>.</p>
+
+      <% if @licence_details[:authority]['contact'] %>
+        <p>You can contact them using the details below.</p>
+        <p><%= @licence_details[:authority]['contact']['address'] %></p>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</article>
+

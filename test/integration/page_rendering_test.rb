@@ -60,7 +60,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     setup_api_responses("find-job")
     visit "/find-job"
     assert_equal 200, page.status_code
-    assert URI.parse(page.current_url).path == "/find-job/introduction"
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
 
     details = publisher_api_response('find-job')

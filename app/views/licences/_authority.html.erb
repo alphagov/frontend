@@ -24,7 +24,7 @@
 
     <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>
     <div class="contact">
-      <p>The issuing authority for this license is <strong><%= @licence_details[:authority]['name'] %></strong>
+      <p>The issuing authority for this licence is <strong><%= @licence_details[:authority]['name'] %></strong>
         <%= link_to (@licence_details[:licence]['location_specific'] ? '(change location)' : '(change authority)'), publication_path(@publication.slug) %>
       </p>
 

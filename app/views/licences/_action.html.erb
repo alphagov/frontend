@@ -2,7 +2,7 @@
 
 <% if @licence_details[:authority]['actions'][action] %>
   <% if @licence_details[:authority]['actions'][action].size > 1 %>
-  <p>There is more than one online form available for this license:</p>
+  <p>There is more than one online form available for this licence:</p>
 
   <ol>
     <% @licence_details[:authority]['actions'][action].each_with_index do |link, i| %>

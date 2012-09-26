@@ -28,7 +28,7 @@
         <%= link_to (@licence_details[:licence]['location_specific'] ? '(change location)' : '(change authority)'), publication_path(@publication.slug) %>
       </p>
 
-      <% if ! @licence_details[:authority]['contact']['address'].blank? %>
+      <% if @licence_details[:authority]['contact'] and ! @licence_details[:authority]['contact']['address'].blank? %>
         <p>You can contact them using the details below.</p>
         <%= simple_format @licence_details[:authority]['contact']['address'] %>
       <% end %>

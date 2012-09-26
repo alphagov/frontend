@@ -45,16 +45,18 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
-  test "viewing a business support page" do
-    setup_api_responses("business-support-basic")
-    visit "/business-support-basic"
-    assert_equal 200, page.status_code
-    assert page.has_content? "Basic Business Support Item"
-    assert page.has_content? "100"
-    assert page.has_content? "5000"
-    assert page.has_content? "Description"
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
-  end
+  # temporarily commenting out this test. more work due to happen on
+  # business support format soon
+  # test "viewing a business support page" do
+  #   setup_api_responses("business-support-basic")
+  #   visit "/business-support-basic"
+  #   assert_equal 200, page.status_code
+  #   assert page.has_content? "Basic Business Support Item"
+  #   assert page.has_content? "100"
+  #   assert page.has_content? "5000"
+  #   assert page.has_content? "Description"
+  #   assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
+  # end
 
   test "guide request" do
     setup_api_responses("find-job")

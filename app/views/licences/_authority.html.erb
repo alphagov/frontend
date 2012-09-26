@@ -18,7 +18,7 @@
     <% if @licence_details[:action].present? %>
       <%= render :partial => "licences/action", :locals => {:action => @licence_details[:action] } %>
     <% else %>
-      <h1>Overview</h1>
+      <header><h1>Overview</h1></header>
       <%= to_govspeak(@licence.licence_overview) %>
     <% end %>
 

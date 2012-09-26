@@ -257,7 +257,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       context "when selecting an authority" do
         setup do
           choose 'Ministry of Love'
-          click_button "Select"
+          click_button "Get started"
         end
 
         should "redirect to the authority slug" do

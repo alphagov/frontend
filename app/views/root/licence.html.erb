@@ -1,4 +1,4 @@
-<section id="content" role="main" class="group multi-page">
+<section id="content" role="main" class="group <%= "multi-page" if @licence_details and @licence_details[:authority] %>">
 
   <header class="page-header group">
     <hgroup>
@@ -8,22 +8,13 @@
 
   <div class="article-container group">
 
-    <aside>
-      <div class="inner">
-        <nav role="navigation" class="page-navigation">
-          <ol>
-            <li class="active"><a href="#overview">Overview</a></li>
-          </ol>
-        </nav>
-      </div>
-    </aside>
-
-    <article role="article" class="group">
-      <div id="overview" class="inner">
-        <h1>Overview</h1>
-        <%= to_govspeak(@licence.licence_overview) %>
-      </div>
-    </article>
+    <% if ! @licence.continuation_link.blank? %>
+      <%= render :partial => 'licences/continues_on' %>
+    <% elsif @licence_details and @licence_details[:authority] %>
+      <%= render :partial => 'licences/authority' %>
+    <% else %>
+      <%= render :partial => 'licences/introduction', :publication => @licence %>
+    <% end %>
 
     <%= render 'publication_metadata', :publication => @licence, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@licence.slug, :edition => @edition, :format => :json) } %>
   </div>

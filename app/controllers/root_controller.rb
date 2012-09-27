@@ -1,4 +1,5 @@
 require "slimmer/headers"
+require "authority_lookup"
 
 class RecordNotFound < Exception
 end
@@ -25,37 +26,50 @@ class RootController < ApplicationController
   def publication
     error_406 and return if request.format.nil?
 
-    decipher_overloaded_part_parameter!
-    merge_slug_for_done_pages!
-
+    if params[:slug] == 'done' and params[:part].present?
+      params[:slug] += "/#{params[:part]}"
+      params[:part] = nil
+    end
 
     @publication = fetch_publication(params)
     assert_found(@publication)
-    setup_parts
 
-    begin
-      @artefact = content_api.artefact(params[:slug])
-      unless @artefact
-        logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
+    if @publication.type == "licence"
+      @snac_code = AuthorityLookup.find_snac(params[:part])
+      @licence_authority_slug = params[:part]
+
+      if closest_authority_from_geostack.present? || (params[:authority].present? && params[:authority][:slug].present?)
+        part = identify_authority_slug(closest_authority_from_geostack)
+        redirect_to publication_path(:slug => @publication.slug, :part => part) and return
       end
-    rescue GdsApi::HTTPErrorResponse => e
-      logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
     end
 
-    @artefact ||= artefact_unavailable
+    @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
-      when "place"
-        set_expiry if params.exclude?('edition') and request.get?
-        @options = load_place_options(@publication)
-      when "local_transaction"
-        @council = load_council(@publication, params[:edition])
-      else
-        set_expiry if params.exclude?('edition')
+    when "place"
+      set_expiry if params.exclude?('edition') and request.get?
+      @options = load_place_options(@publication)
+      @publication.places = @options
+    when "local_transaction"
+      @council = load_council(@publication, params[:edition])
+      @publication.council = @council
+    when "programme"
+      params[:part] ||= @publication.parts.first.slug
+    else
+      set_expiry if params.exclude?('edition')
     end
 
-    if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
+    if @publication.parts
+      @part = @publication.find_part(params[:part])
+    end
+
+    if @publication.type == "licence"
+      # Relies on the artefact but could potentially be moved elsewhere
+      # once we're loading publications and artefacts in one go
+      @licence_details = licence_details(@artefact, @licence_authority_slug, @snac_code)
+    elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
       params.delete(:slug)
@@ -63,14 +77,14 @@ class RootController < ApplicationController
       redirect_to publication_url(@publication.slug, @publication.parts.first.slug, params) and return
     end
 
-    @edition = params[:edition].present? ? params[:edition] : nil
+    @edition = params[:edition]
 
     instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
-    @not_found = false
     respond_to do |format|
       format.html do
         if @publication.type == "local_transaction"
+          @not_found = false
           if @council.present? && @council[:url]
             redirect_to @council[:url] and return
           elsif council_from_geostack.any?
@@ -87,12 +101,6 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.json do
-        if @publication.type == "place"
-          @publication.places = @options
-        elsif @publication.type == "local_transaction"
-          @publication.council = @council
-        end
-
         render :json => @publication.to_json
       end
     end
@@ -111,21 +119,17 @@ class RootController < ApplicationController
     end
   end
 
+protected
+  def fetch_artefact
+    artefact = @snac_code.blank? ? content_api.artefact(params[:slug]) : content_api.artefact_with_snac_code(params[:slug], @snac_code).to_hash
 
-
-  protected
-  def decipher_overloaded_part_parameter!
-    @provider_not_found = true if params[:part] == "not_found"
-  end
-
-  # For completed transaction (done/*) pages, the route will assume that any
-  # string after the first slash is the part for a guide. Therefore, join these
-  # together before we fetch the publication.
-  def merge_slug_for_done_pages!
-    if params[:slug] == 'done' and !params[:part].blank?
-      params[:slug] += '/' + params[:part]
-      params[:part] = nil
+    unless artefact
+      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
     end
+  rescue GdsApi::HTTPErrorResponse => e
+    logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
+  ensure
+    return artefact || artefact_unavailable
   end
 
   def empty_part_list?
@@ -148,7 +152,7 @@ class RootController < ApplicationController
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
       places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
-      places.each_with_index { |place, i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
+      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
       places
     else
       []
@@ -168,11 +172,11 @@ class RootController < ApplicationController
         build_local_transaction_information(local_transaction) if local_transaction
       end
       providers.compact!
-      provider = providers.select { |council| council[:url] }.first
+      provider = providers.select {|council| council[:url] }.first
       if provider
         provider
       else
-        providers.select { |council| council[:name] }.first
+        providers.select {|council| council[:name]}.first
       end
     end
   end
@@ -196,41 +200,96 @@ class RootController < ApplicationController
 
   def build_authority_contact_information(authority)
     {
-        name: authority.name,
-        contact_address: authority.contact_address,
-        contact_url: authority.contact_url,
-        contact_phone: authority.contact_phone,
-        contact_email: authority.contact_email
+      name: authority.name,
+      contact_address: authority.contact_address,
+      contact_url: authority.contact_url,
+      contact_phone: authority.contact_phone,
+      contact_email: authority.contact_email
     }
+  end
+
+  def licence_details(artefact, licence_authority_slug, snac_code)
+    licence_attributes = { licence: artefact['details']['licence'] }
+
+    return false if licence_attributes[:licence].blank?
+
+    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
+
+    if ! licence_attributes[:authority] and (snac_code.present? || licence_authority_slug.present?)
+      raise RecordNotFound
+    end
+
+    if licence_attributes[:authority]
+      licence_attributes[:action] = params[:interaction]
+      available_actions = licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]
+
+      if licence_attributes[:action] && ! available_actions.include?(licence_attributes[:action])
+        raise RecordNotFound
+      end
+    end
+
+    return licence_attributes
+  end
+
+  def authority_for_licence(licence, licence_authority_slug, snac_code)
+    if licence["location_specific"]
+      if snac_code
+        licence['authorities'].first
+      end
+    else
+      if licence['authorities'].size == 1
+        licence['authorities'].first
+      elsif licence_authority_slug
+        licence['authorities'].select {|authority| authority['slug'] == licence_authority_slug }.first
+      end
+    end
+  end
+
+  def identify_authority_slug(closest_authority)
+    if closest_authority
+      slug_for_snac_code(closest_authority_from_geostack['ons'])
+    elsif params[:authority] && params[:authority][:slug].present?
+      CGI.escape(params[:authority][:slug])
+    end
   end
 
   def council_from_geostack
     if params['council_ons_codes']
-      return params['council_ons_codes']
+      params['council_ons_codes']
+    else
+      full_council_from_geostack.map {|c| c['ons']}.compact
     end
+  end
+
+  def full_council_from_geostack
     if !request.env['HTTP_X_GOVGEO_STACK']
       return []
     end
     location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
     if location_data['council']
-      location_data['council'].compact.map { |c| c['ons'] }.compact
+      return location_data['council'].compact
     else
       return []
     end
   end
 
-  def assert_found(obj)
-    raise RecordNotFound unless obj
+  def closest_authority_from_geostack
+    authorities = full_council_from_geostack
+    ["DIS","LBO","UTY","CTY"].each do |type|
+      authorities_for_type = authorities.select {|a| a["type"] == type }
+      if authorities_for_type.any?
+        return authorities_for_type.first
+      end
+    end
+    return false
   end
 
-  def setup_parts
-    if @publication.type == 'programme'
-      params[:part] ||= @publication.parts.first.slug
-    end
+  def slug_for_snac_code(snac)
+    AuthorityLookup.find_slug_from_snac(snac)
+  end
 
-    if @publication.parts
-      @part = @publication.find_part(params[:part])
-    end
+  def assert_found(obj)
+    raise RecordNotFound unless obj
   end
 
   def set_slimmer_artefact_headers(artefact)

@@ -3,15 +3,10 @@
   <div class="search-container group">
     <%= render partial: 'form' %>
 
-    <div class="group">
-      <div class="results">
-        <div class="results-wrapper">
-          <ul class="results-list">
-            <%= render collection: @results, partial: "result" %>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <ul class="results-list">
+      <%= render collection: @results, partial: "result" %>
+    </ul>
+
   </div>
 </section>
 

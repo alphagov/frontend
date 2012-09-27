@@ -1,0 +1,40 @@
+<header>
+  <h1>How to <%= action %></h1>
+</header>
+
+<% if @licence_details[:authority]['actions'][action] %>
+  <% if @licence_details[:authority]['actions'][action].size > 1 %>
+  <p>There is more than one online form available for this licence:</p>
+
+  <ol>
+    <% @licence_details[:authority]['actions'][action].each_with_index do |link, i| %>
+      <li><%= link_to link['description'], "#form-#{i+1}" %></li>
+    <% end %>
+  </ol>
+  <% end %>
+
+  <% @licence_details[:authority]['actions'][action].each_with_index do |link, i| %>
+  <section>
+    <h2><a id="form-<%= i+1 %>"></a><%= i+1 %>. <%= link['description'] %></h2>
+
+    <%= simple_format link['introduction'] %>
+
+    <p><%= link_to "Apply online", link['url'], :class => "button" %></p>
+  </section>
+  <% end %>
+<% else %>
+  <% if action == "apply" %>
+    <div class="application-notice help-notice">
+      <p>It is not currently possible to apply online for this licence. Please contact the authority directly.</p>
+    </div>
+  <% elsif action == "renew" %>
+    <div class="application-notice help-notice">
+      <p>To find out if you are able to renew your licence, contact the authority directly.</p>
+    </div>
+  <% elsif action == "change" %>
+    <div class="application-notice help-notice">
+      <p>To find out if you are able to make changes to your licence, contact the authority directly.</p>
+    </div>
+  <% end %>
+<% end %>
+

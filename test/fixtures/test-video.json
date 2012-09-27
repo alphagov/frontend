@@ -1,0 +1,11 @@
+{
+  "slug": "test-video",
+  "title": "Test Video",
+  "alternative_title": "",
+  "body": "Video description\n------",
+  "overview": "",
+  "updated_at": "2012-09-19T13:54:20+00:00",
+  "video_summary": "This is the video summary",
+  "video_url": "http://www.youtube.com/watch?v=fLreo24WYeQ",
+  "type": "video"
+}

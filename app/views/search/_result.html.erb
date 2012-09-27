@@ -1,0 +1,19 @@
+<% if result.format == "recommended-link" %>
+<li class="section-<%= result.section %> type-guide external">
+<% else %>
+<li class="section-<%= result.section %> type-<%= result.format %>">
+<% end %>
+  <p class="search-result-title"><a href="<%= result.link %>" title="View <%= result.title %>"<% if result.format == "recommended-link" %> rel="external"<% end %>><%= result.title %></a></p>
+  <p><%= result.description %></p>
+
+  <% if result.format == "recommended-link" %>
+  <ul class="result-meta">
+    <li>External site</li>
+  </ul>
+
+  <% elsif result.format == 'specialist_guidance' %>
+  <ul class="result-meta">
+    <li class="<%= result.format %>"><%= result.humanized_format %></li>
+  </ul>
+  <% end %>
+</li>

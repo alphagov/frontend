@@ -1,0 +1,16 @@
+<section id="content" role="main" class="group search ancillary">
+
+  <div class="search-container group">
+    <%= render partial: 'form' %>
+
+    <ul class="results-list">
+      <%= render collection: @results, partial: "result" %>
+    </ul>
+
+  </div>
+</section>
+
+<% content_for :extra_headers do %>
+  <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
+<% end %>
+<% content_for :title, "#{@search_term} | Search | GOV.UK Beta (Test)" %>

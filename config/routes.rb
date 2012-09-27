@@ -1,5 +1,6 @@
 Frontend::Application.routes.draw do
   match "/homepage" => redirect("/")
+  match "/search" => "search#index", as: :search
 
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
@@ -16,6 +17,7 @@ Frontend::Application.routes.draw do
   with_options(:as => "publication", :to => "root#publication") do |pub|
     pub.match ":slug/video", :format => :video
     pub.match ":slug/print", :format => :print
+    pub.match ":slug/:part/:interaction", :as => :licence_authority_action
     pub.match ":slug(/:part)"
   end
 

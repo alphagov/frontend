@@ -1478,5 +1478,109 @@
   "gwynedd": {
     "ons": "00NC",
     "gss": "W06000002"
+  },
+  "derry": {
+    "ons": "95A",
+    "gss": null
+  },
+  "limavady": {
+    "ons": "95B",
+    "gss": null
+  },
+  "coleraine": {
+    "ons": "95C",
+    "gss": null
+  },
+  "ballymoney": {
+    "ons": "95D",
+    "gss": null
+  },
+  "moyle": {
+    "ons": "95E",
+    "gss": null
+  },
+  "larne": {
+    "ons": "95F",
+    "gss": null
+  },
+  "ballymena": {
+    "ons": "95G",
+    "gss": null
+  },
+  "magherafelt": {
+    "ons": "95H",
+    "gss": null
+  },
+  "cookstown": {
+    "ons": "95I",
+    "gss": null
+  },
+  "strabane": {
+    "ons": "95J",
+    "gss": null
+  },
+  "omagh": {
+    "ons": "95K",
+    "gss": null
+  },
+  "fermanagh": {
+    "ons": "95L",
+    "gss": null
+  },
+  "dungannon-and-south-tyrone": {
+    "ons": "95M",
+    "gss": null
+  },
+  "craigavon": {
+    "ons": "95N",
+    "gss": null
+  },
+  "armagh": {
+    "ons": "95O",
+    "gss": null
+  },
+  "newry-and-mourne": {
+    "ons": "95P",
+    "gss": null
+  },
+  "banbridge": {
+    "ons": "95Q",
+    "gss": null
+  },
+  "down": {
+    "ons": "95R",
+    "gss": null
+  },
+  "lisburn": {
+    "ons": "95S",
+    "gss": null
+  },
+  "antrim": {
+    "ons": "95T",
+    "gss": null
+  },
+  "newtownabbey": {
+    "ons": "95U",
+    "gss": null
+  },
+  "carrickfergus": {
+    "ons": "95V",
+    "gss": null
+  },
+  "north-down": {
+    "ons": "95W",
+    "gss": null
+  },
+  "ards": {
+    "ons": "95X",
+    "gss": null
+  },
+  "castlereagh": {
+    "ons": "95Y",
+    "gss": null
+  },
+  "belfast": {
+    "ons": "95Z",
+    "gss": null
   }
 }

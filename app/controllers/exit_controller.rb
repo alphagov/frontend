@@ -1,5 +1,4 @@
 class ExitController < ApplicationController
-  include PublicationHelper
 
   def exit
     error_404 and return unless (params[:slug] && params[:target] && params[:needId])

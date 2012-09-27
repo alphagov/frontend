@@ -1,18 +1,23 @@
-<section id="content" role="main" class="group sections-page">
+<section id="content" role="main" class="group category-page">
   <header class="page-header group">
-    <hgroup>
-      <h1>All sections</h1>
+    <hgroup class="full-width">
+      <h1>Births, deaths, marriages, parenting and care</h1>
     </hgroup>
   </header>
 
-  <div class="browse-sections">
-    <p>SHABBA <%= @section.title %></p>
-    <dl>
-        <dt>
-        </dt>
-        <dd>
-        </dd>
-    </dl>
+  <div class="browse-container full-width group">
+    <div class="category-description">
+      <p><%= @category.details.description %></p>
+    </div>
+
+    <ul class="sub-categories group">
+      <% @sub_categories.each do |category|%>
+      <li>
+        <h2><a href="#"><%= category.title %></a></h2>
+        <p><%= category.details.description %> Nominating someone for an honour, setting up a charity and how to volunteer</p>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </section>
 
@@ -21,4 +26,8 @@
  -->
 <% content_for :head do %>
   <link rel="alternate" type="application/json" href="/browse.json">
+<% end %>
+
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'browse-categories.scss' %>
 <% end %>

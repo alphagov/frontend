@@ -7,10 +7,10 @@ class BrowseController < ApplicationController
     end
 
     # Get Section tag with tag_id @section
-    @section = content_api.tag(params[:section])
+    @category = content_api.tag(params[:section])
     # Get all the tags who have a parent of @section
     response = content_api.sub_sections(params[:section])
-    @sub_sections = response.results
+    @sub_categories = response.results
 
     # Is this still right??
     fill_in_slimmer_headers("Section nav")

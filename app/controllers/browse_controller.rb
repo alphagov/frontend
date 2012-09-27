@@ -15,7 +15,15 @@ class BrowseController < ApplicationController
   end
 
   def sub_section
-    # fill_in_slimmer_headers("Section nav")
+    tag_id = "#{params[:section]}/#{params[:sub_section]}"
+    @sub_category = content_api.tag(tag_id)
+
+    @category = @sub_category.parent
+    @results = content_api.curated_list(tag_id).results
+
+    setup_page_title(@sub_category.title)
+    options = {title: "browse", section_name: "#{@sub_category.title}", section_link: "/browse/#{params[:section]}/#{params[:sub_section]}"}
+    set_slimmer_dummy_artefact(options)
   end
 
 protected

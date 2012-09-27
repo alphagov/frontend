@@ -14,6 +14,9 @@ Frontend::Application.routes.draw do
   match "/identify_council/:slug", :as => "identify_council", :to => "root#identify_council"
   match "/places/load_places/:slug", :as => "load_places", :to => "root#load_places"
 
+  # Campaign pages.
+  match "/workplacepensions", :to => "campaign#workplace_pensions"
+
   with_options(:as => "publication", :to => "root#publication") do |pub|
     pub.match ":slug/video", :format => :video
     pub.match ":slug/print", :format => :print

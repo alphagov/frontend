@@ -32,19 +32,37 @@ class LicenceLocationTest < ActionController::TestCase
     end
 
     context "loading the licence edition when posting a location" do
-      setup do
-        councils = { "council" => [
-          {"id" => 2240, "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
-          {"id" => 2432, "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
-          {"id" => 15636, "name" => "Cheadle and Checkley", "type" => "CED"}
-        ]}
-        request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+      context "for an English local authority" do
+        setup do
+          councils = { "council" => [
+            {"id" => 2240, "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
+            {"id" => 2432, "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
+            {"id" => 15636, "name" => "Cheadle and Checkley", "type" => "CED"}
+          ]}
+          request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
 
-        get :publication, slug: "licence-to-kill"
+          get :publication, slug: "licence-to-kill"
+        end
+
+        should "redirect to the slug for the lowest level authority" do
+          assert_redirected_to "/licence-to-kill/staffordshire-moorlands"
+        end
       end
 
-      should "redirect to the slug for the lowest level authority" do
-        assert_redirected_to "/licence-to-kill/staffordshire-moorlands"
+      context "for a Northern Irish local authority" do
+        setup do
+          councils = { "council" => [
+            {"id" => 14333, "name" => "Belfast City Council", "type" => "LGD", "ons" => "95Z"},
+            {"id" => 33813, "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
+          ]}
+          request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+
+          get :publication, slug: "licence-to-kill"
+        end
+
+        should "redirect to the slug for the lowest level authority" do
+          assert_redirected_to "/licence-to-kill/belfast"
+        end
       end
     end
   end

@@ -18,17 +18,19 @@
     <% if @licence_details[:action].present? %>
       <%= render :partial => "licences/action", :locals => {:action => @licence_details[:action] } %>
     <% else %>
-      <h1>Overview</h1>
+      <header><h1>Overview</h1></header>
       <%= to_govspeak(@licence.licence_overview) %>
     <% end %>
 
     <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>
     <div class="contact">
-      <p>The issuing authority for this license is <strong><%= @licence_details[:authority]['name'] %></strong> <%= link_to '(change location)', publication_path(@publication.slug) %>.</p>
+      <p>The issuing authority for this licence is <strong><%= @licence_details[:authority]['name'] %></strong>
+        <%= link_to (@licence_details[:licence]['location_specific'] ? '(change location)' : '(change authority)'), publication_path(@publication.slug) %>
+      </p>
 
-      <% if @licence_details[:authority]['contact'] %>
+      <% if @licence_details[:authority]['contact'] and ! @licence_details[:authority]['contact']['address'].blank? %>
         <p>You can contact them using the details below.</p>
-        <p><%= @licence_details[:authority]['contact']['address'] %></p>
+        <%= simple_format @licence_details[:authority]['contact']['address'] %>
       <% end %>
     </div>
     <% end %>

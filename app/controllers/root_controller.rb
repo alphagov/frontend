@@ -288,7 +288,7 @@ protected
 
   def closest_authority_from_geostack
     authorities = full_council_from_geostack
-    ["DIS","LBO","UTY","CTY"].each do |type|
+    ["DIS","LBO","UTY","CTY","LGD"].each do |type|
       authorities_for_type = authorities.select {|a| a["type"] == type }
       if authorities_for_type.any?
         return authorities_for_type.first

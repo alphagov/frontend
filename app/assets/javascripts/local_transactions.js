@@ -22,12 +22,12 @@ var setup_local_transactions = function() {
     $('.location-placeholder').text(AlphaGeo.full_location.current_location.councils[0].name);
     $('#location-loading').removeClass('hidden');
 
-    var params = { 
-      lat: AlphaGeo.full_location.current_location.lat, 
+    var params = {
+      lat: AlphaGeo.full_location.current_location.lat,
       lon: AlphaGeo.full_location.current_location.lon
     };
     if (AlphaGeo.full_location.current_location.council) {
-      params.council_ons_codes = $.map(AlphaGeo.full_location.current_location.council, function(c) {return c.ons});
+      params.council_ons_codes = $.map(AlphaGeo.full_location.current_location.council, function(c) {return c.ons;});
     }
     var local_transaction_url = document.location + '.json',
         message;
@@ -75,4 +75,4 @@ $(document).ready(function () {
   if ($container.find('.js-tabs').length) {
     $container.tabs();
   }
-})
+});

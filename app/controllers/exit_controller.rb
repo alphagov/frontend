@@ -26,11 +26,7 @@ class ExitController < ApplicationController
     response.headers["Cache-Control"] = "no-cache, must-revalidate"
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
 
-    text = <<END_TEXT
-<script>window.location.replace("#{params[:target]}")</script>
-<noscript><META http-equiv="refresh" content="0;URL='#{params[:target]}'"></noscript>
-END_TEXT
-    render :text => text
+    render :template => :exit, :locals => {:target => params[:target]}
   end
 
   protected

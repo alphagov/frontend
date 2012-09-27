@@ -28,9 +28,7 @@ class ExitControllerTest < ActionController::TestCase
 
         get :exit, slug: slug, target: target, needId: need_id
 
-        html = response.body
-        assert html.include?("<script>window.location.replace(\"#{target}\")</script>")
-        assert html.include?("<META http-equiv=\"refresh\" content=\"0;URL='#{target}'\">")
+        assert_redirected_to target
       end
 
       should "return 403 if the target is not included publication" do
@@ -59,9 +57,8 @@ class ExitControllerTest < ActionController::TestCase
 
         get :exit, slug: slug, target: target, needId: need_id
 
-        html = response.body
-        assert html.include?("<script>window.location.replace(\"#{target}\")</script>")
-        assert html.include?("<META http-equiv=\"refresh\" content=\"0;URL='#{target}'\">")
+        assert_redirected_to target
+
       end
 
       should "return 403 if the target is not included publication" do

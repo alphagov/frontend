@@ -6,32 +6,21 @@ class BrowseController < ApplicationController
       error 404
     end
 
-    # Get Section tag with tag_id @section
     @category = content_api.tag(params[:section])
-    # Get all the tags who have a parent of @section
     response = content_api.sub_sections(params[:section])
     @sub_categories = response.results
-
-    # Is this still right??
-    fill_in_slimmer_headers("Section nav")
+    setup_page_title(@category.title)
+    options = {title: "browse", section_name: "#{@category.title}", section_link: "/browse"}
+    set_slimmer_dummy_artefact(options)
   end
 
   def sub_section
-    fill_in_slimmer_headers("Section nav")
+    # fill_in_slimmer_headers("Section nav")
   end
 
-  protected
-  def retrieve_results(term, limit = 50, format_filter = nil)
-    res = Frontend.mainstream_search_client.search(term, format_filter).take(limit)
-    res.map { |r| SearchResult.new(r) }
+protected
+  def setup_page_title(category=nil)
+    @page_title = category.nil? ? "Browse | GOV.UK Beta (Test)" : "#{category} | GOV.UK Beta (Test)"
   end
 
-  def fill_in_slimmer_headers(section)
-    set_slimmer_headers(
-      section: section,
-      format: "search",
-      section: "search",
-      proposition: "citizen"
-    )
-  end
 end

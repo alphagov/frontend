@@ -1,7 +1,8 @@
+<% content_for :title do %><%= @page_title %><% end %>
 <section id="content" role="main" class="group category-page">
   <header class="page-header group">
     <hgroup class="full-width">
-      <h1>Births, deaths, marriages, parenting and care</h1>
+      <h1><%= @category.title %></h1>
     </hgroup>
   </header>
 
@@ -13,8 +14,8 @@
     <ul class="sub-categories group">
       <% @sub_categories.each do |category|%>
       <li>
-        <h2><a href="#"><%= category.title %></a></h2>
-        <p><%= category.details.description %> Nominating someone for an honour, setting up a charity and how to volunteer</p>
+        <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
+        <p><%= category.details.description %></p>
       </li>
       <% end %>
     </ul>

@@ -8,6 +8,7 @@ class RootController < ApplicationController
   include RootHelper
   include ActionView::Helpers::TextHelper
   include ArtefactHelpers
+  include PublicationHelper
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -45,13 +46,13 @@ class RootController < ApplicationController
     set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
-    when "place"
-      set_expiry if params.exclude?('edition') and request.get?
-      @options = load_place_options(@publication)
-    when "local_transaction"
-      @council = load_council(@publication, params[:edition])
-    else
-      set_expiry if params.exclude?('edition')
+      when "place"
+        set_expiry if params.exclude?('edition') and request.get?
+        @options = load_place_options(@publication)
+      when "local_transaction"
+        @council = load_council(@publication, params[:edition])
+      else
+        set_expiry if params.exclude?('edition')
     end
 
     if video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
@@ -110,54 +111,9 @@ class RootController < ApplicationController
     end
   end
 
-  def exit
-    error_404 and return unless (params[:slug] && params[:target] && params[:needId])
-    publication = fetch_publication(params)
-    forwarding_warden = fetch_warden(publication)
 
-    if forwarding_warden.nil?
-      logger.info { "root#exit rejected redirect to '#{params[:target]}' from #{param[:slug]}"}
-      error_404 and return
-    elsif not forwarding_warden.call(params[:target])
-      logger.warn { "root#exit rejected redirect to '#{params[:target]}' from #{param[:slug]}"}
-      error 403 and return
-    end
 
-    gabba = create_gabba
-
-    # TODO: handle urls in the body
-    gabba.identify_user(cookies[:__utma])
-    gabba.event(
-      "MS_#{publication.type}", params[:needId], 'Success'
-    )
-
-    # set headers
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-    response.headers["Cache-Control"] = "no-cache, must-revalidate"
-    response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
-
-    # send response
-    text = <<END_TEXT
-<script>window.location.replace("#{params[:target]}")</script>
-<noscript><META http-equiv="refresh" content="0;URL='#{params[:target]}'"></noscript>
-END_TEXT
-    render :text => text
-  end
-
-protected
-  def fetch_warden(publication)
-    @redirect_warden_factory ||= RedirectWardenFactory.new
-    @redirect_warden_factory.for(publication)
-  end
-
-  def create_gabba
-    # track in google
-    # WARNING! This is also set in static
-    # todo: maybe use different domains - UA-26179049-1
-    Gabba::Gabba.new("UA-33768939-1", ".www.gov.uk")
-  end
-
+  protected
   def decipher_overloaded_part_parameter!
     @provider_not_found = true if params[:part] == "not_found"
   end
@@ -192,7 +148,7 @@ protected
   def load_place_options(publication)
     if geo_known_to_at_least?('ward')
       places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
-      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
+      places.each_with_index { |place, i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
       places
     else
       []
@@ -212,11 +168,11 @@ protected
         build_local_transaction_information(local_transaction) if local_transaction
       end
       providers.compact!
-      provider = providers.select {|council| council[:url] }.first
+      provider = providers.select { |council| council[:url] }.first
       if provider
         provider
       else
-        providers.select {|council| council[:name]}.first
+        providers.select { |council| council[:name] }.first
       end
     end
   end
@@ -240,26 +196,12 @@ protected
 
   def build_authority_contact_information(authority)
     {
-      name: authority.name,
-      contact_address: authority.contact_address,
-      contact_url: authority.contact_url,
-      contact_phone: authority.contact_phone,
-      contact_email: authority.contact_email
+        name: authority.name,
+        contact_address: authority.contact_address,
+        contact_url: authority.contact_url,
+        contact_phone: authority.contact_phone,
+        contact_email: authority.contact_email
     }
-  end
-
-  def fetch_publication(params)
-    options = {
-      edition: params[:edition],
-      snac: params[:snac]
-    }.reject { |k, v| v.blank? }
-    publisher_api.publication_for_slug(params[:slug], options)
-  rescue ArgumentError
-    logger.error "invalid UTF-8 byte sequence with slug `#{params[:slug]}`"
-    return false
-  rescue URI::InvalidURIError
-    logger.error "Invalid URI formed with slug `#{params[:slug]}`"
-    return false
   end
 
   def council_from_geostack
@@ -271,7 +213,7 @@ protected
     end
     location_data = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
     if location_data['council']
-      location_data['council'].compact.map {|c| c['ons']}.compact
+      location_data['council'].compact.map { |c| c['ons'] }.compact
     else
       return []
     end

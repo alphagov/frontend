@@ -103,7 +103,8 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return video view when asked if guide has video" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob')
+    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob', 'parts' => [
+        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}])
     content_api_has_an_artefact("a-slug")
 
     prevent_implicit_rendering
@@ -154,31 +155,12 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :part => "information"
   end
 
-  test "should redirect to first part if bad part requested of multi-part guide" do
+  test "should 404 if bad part requested of multi-part guide" do
     publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
     content_api_has_an_artefact("a-slug")
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"
-    assert_response :redirect
-    assert_redirected_to "/a-slug/first"
-  end
-
-  test "should redirect to canonical URL for first part if top level guide URL is requested" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
-    content_api_has_an_artefact("a-slug")
-    prevent_implicit_rendering
-    get :publication, :slug => "a-slug"
-    assert_response :redirect
-    assert_redirected_to "/a-slug/first"
-  end
-
-  test "should preserve query parameters when redirecting" do
-    publication_exists({'slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}]}, {:edition => 3})
-    content_api_has_an_artefact("a-slug")
-    prevent_implicit_rendering
-    get :publication, :slug => "a-slug", :some_param => 1, :edition => 3
-    assert_response :redirect
-    assert_redirected_to "/a-slug/first?edition=3&some_param=1"
+    assert_response :not_found
   end
 
   test "should not redirect to first part URL if request is for JSON" do

@@ -85,6 +85,7 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
+  <link rel="canonical" href="<%= part_path(@guide.slug, @part.slug,@edition) %>" />
   <%- if @guide.has_previous_part?(@part) -%>
     <link rel="prev" href="<%= part_path(@guide.slug, @guide.part_before(@part).slug,@edition) %>" />
   <%- end -%>

@@ -19,7 +19,7 @@ class BrowseController < ApplicationController
     @sub_category = content_api.tag(tag_id)
 
     @category = @sub_category.parent
-    @results = content_api.curated_list(tag_id).results
+    @results = content_api.sorted_by(tag_id, "alphabetical").results
 
     setup_page_title(@sub_category.title)
     options = {title: "browse",

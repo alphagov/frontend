@@ -14,7 +14,7 @@
     <% @results.each do |content| %>
       <li>
         <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
-        <p><%= content.details.overview %></p>
+        <p><%= content.details.overview.nil? ? nil : content.details.overview.html_safe %></p>
       </li>
     <% end %>
     </ul>

@@ -1,7 +1,7 @@
 class BrowseController < ApplicationController
 
   def index
-    setup_page_title("Browse")
+    setup_page_title("All categories")
     options = {title: "browse", section_name: "Browse", section_link: "/browse"}
     set_slimmer_dummy_artefact(options)
   end

@@ -1,8 +1,3 @@
-<% content_for :extra_javascript do %>
-  <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %>
-    <%= javascript_include_tag 'trackers/ab-testing.js' %>  
-  <% end %> 
-<% end %>
 <%- presenter = TransactionPresenter.new(@transaction) -%>
 
 <section id="content" role="main" class="group">
@@ -19,7 +14,6 @@
       <section class="intro">
         <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-        <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %><script type="text/javascript">utmx_section("Get started button")</script><noscript rel="placeholder"><% end %>
         <p id="get-started" class="get-started group">
            <a href="<%= @transaction.link %>" rel="external" class="button" <% if presenter.open_in_new_window? %>target="_blank"<% end %>>
              <span class="button-content"><span class="call-to-action">Start now</span> <!-- this space is important --><%
@@ -29,7 +23,6 @@
              %></span>
            </a>
         </p>
-        <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %></noscript><% end %> 
       </section>
 
       <section class="more">

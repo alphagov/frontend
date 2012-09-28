@@ -9,10 +9,12 @@
 
   <div class="browse-container full-width group">
     <ul class="categories group">
+      <% @categories.each do | category | %>
       <li>
-        <h2><a href="#">Lord of the Rings</a></h2>
-        <p>Starring all your favourite developers.</p>
+        <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
+        <p><%= category.details.description.html_safe %></p>
       </li>
+      <% end %>
     </ul>
   </div>
 </section>

@@ -1,5 +1,7 @@
 class TransactionPresenter
 
+  cattr_accessor :new_window_transactions
+
   def initialize(transaction)
     @transaction = transaction
   end
@@ -22,12 +24,11 @@ class TransactionPresenter
   end
 
   def open_in_new_window?
-    @new_window_transactions ||= load_new_window_transactions
-    @new_window_transactions.include? @transaction.slug
+    self.class.load_new_window_transactions unless self.class.new_window_transactions
+    self.class.new_window_transactions.include? @transaction.slug
   end
 
-  private
-    def load_new_window_transactions
-      @new_window_transactions = JSON.parse( File.open( Rails.root.join('lib', 'data', 'new_window_transactions.json') ).read )
-    end
+  def self.load_new_window_transactions
+    self.new_window_transactions = JSON.parse( File.open( Rails.root.join('lib', 'data', 'new_window_transactions.json') ).read )
+  end
 end

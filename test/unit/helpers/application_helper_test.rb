@@ -57,8 +57,7 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     artefact = artefact_for_slug("slug")
-    artefact["tags"] << tag_for_slug("section", "section")
-    assert_equal "Title | Section | GOV.UK Beta (Test)", @helper.page_title(artefact, publication)
+    assert_equal "Title | GOV.UK Beta (Test)", @helper.page_title(artefact, publication)
   end
 
   test "should prefix title of video with video" do
@@ -67,16 +66,9 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_match /^Video - Title/, @helper.page_title(missing_artefact, publication)
   end
 
-  test "should omit artefact section if missing" do
-    publication = OpenStruct.new(title: "Title")
-    artefact = artefact_for_slug("slug")
-    assert_equal "Title | GOV.UK Beta (Test)", @helper.page_title(artefact, publication)
-  end
-
   test "should omit first part of title if publication is omitted" do
     @helper.request.format.stubs(:video?).returns(true)
     artefact = artefact_for_slug("slug")
-    artefact["tags"] << tag_for_slug("my-section", "section")
-    assert_equal "My section | GOV.UK Beta (Test)", @helper.page_title(artefact)
+    assert_equal "GOV.UK Beta (Test)", @helper.page_title(artefact)
   end
 end

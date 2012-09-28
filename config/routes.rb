@@ -1,7 +1,8 @@
 Frontend::Application.routes.draw do
   match "/homepage" => redirect("/")
   match "/search" => "search#index", as: :search
-  match "/browse(/:section)", :as => "browse", :to => "browse#section"
+  match "/browse" => "browse#index", :to => "browse#index"
+  match "/browse/:section", :as => "browse", :to => "browse#section"
   match "/browse/:section/:sub_section", :as => "browse", :to => "browse#sub_section"
 
 

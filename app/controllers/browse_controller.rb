@@ -1,11 +1,12 @@
 class BrowseController < ApplicationController
 
-  def section
-    # TODO: What do we do when it's just to /browse?
-    if params[:section].nil?
-      error 404
-    end
+  def index
+    setup_page_title("Browse")
+    options = {title: "browse", section_name: "Browse", section_link: "/browse"}
+    set_slimmer_dummy_artefact(options)
+  end
 
+  def section
     @category = content_api.tag(params[:section])
     response = content_api.sub_sections(params[:section])
     @sub_categories = response.results

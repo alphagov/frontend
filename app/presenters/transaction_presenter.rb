@@ -20,4 +20,14 @@ class TransactionPresenter
   def other_ways_to_apply?
     @transaction.alternate_methods.present?
   end
+
+  def open_in_new_window?
+    @new_window_transactions ||= load_new_window_transactions
+    @new_window_transactions.include? @transaction.slug
+  end
+
+  private
+    def load_new_window_transactions
+      @new_window_transactions = JSON.parse( File.open( Rails.root.join('lib', 'data', 'new_window_transactions.json') ).read )
+    end
 end

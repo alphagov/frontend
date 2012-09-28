@@ -10,7 +10,7 @@ class BrowseController < ApplicationController
     response = content_api.sub_sections(params[:section])
     @sub_categories = response.results
     setup_page_title(@category.title)
-    options = {title: "browse", section_name: "#{@category.title}", section_link: "/browse"}
+    options = {title: "browse", section_name: "#{@category.title}", section_link: "/browse/#{params[:section]}"}
     set_slimmer_dummy_artefact(options)
   end
 

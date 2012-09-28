@@ -35,10 +35,8 @@ class ExitController < ApplicationController
   end
 
   def create_gabba
-    # track in google
     # WARNING! This is also set in static
-    # todo: maybe use different domains - UA-26179049-1
-    Gabba::Gabba.new("UA-33768939-1", ".www.gov.uk")
+    Gabba::Gabba.new("UA-26179049-1", ".www.gov.uk")
   end
 
 end

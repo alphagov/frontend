@@ -1,3 +1,5 @@
+@import '_typography';
+
 .category-page {
   
   header.page-header {
@@ -8,6 +10,12 @@
       h1 {
         padding-left: 0;
         padding-right: 0;
+      }
+
+      h2 {
+        @include core-24;
+        color: inherit;
+        margin: 0;
       }
     }
   }
@@ -21,7 +29,7 @@
       width: 65.5%;
 
       p {
-        // @include core-24;
+        @include core-24;
         margin: 0;
       }
     }
@@ -34,7 +42,7 @@
         list-style: none;
         margin-right: 3.5%;
         margin-bottom: 1em;
-        // min-height: 6em;
+        min-height: 6em;
         width: 31%;
 
         &:nth-child(3n) {
@@ -42,7 +50,30 @@
         }
 
         p {
-          // @include core-16;
+          @include core-16;
+          margin: 0;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    .content-list {
+      margin: 0;
+      padding: 1em 0 0 0;
+      width: 65.5%;
+
+      li {
+        list-style: none;
+        margin-bottom: 1em;
+
+        h2 {
+          @include core-19;
+        }
+
+        p {
+          @include core-16;
+          margin: 0;
+          word-wrap: break-word
         }
       }
     }

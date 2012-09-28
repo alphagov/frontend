@@ -1,18 +1,27 @@
 <% content_for :title do %><%= @page_title %><% end %>
 
-<section id="content" role="main" class="group sections-page">
+<section id="content" role="main" class="group category-page">
   <header class="page-header group">
-    <hgroup>
+    <hgroup class="full-width">
       <h1><%= @category.title %></h1>
       <h2><%= @sub_category.title %></h2>
     </hgroup>
   </header>
 
-  <div class="browse-sections">
-    <p><%= @sub_category.details.description %></p>
+  <div class="browse-container full-width group">
+
+    <ul class="content-list group">
     <% @results.each do |content| %>
-      <a href="<%= content.web_url %>"><%= content.title %></a>
-      <p><%= content.details.overview %></p>
+      <li>
+        <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
+        <p><%= content.details.overview %></p>
+      </li>
     <% end %>
+    </ul>
+
   </div>
 </section>
+
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'browse-categories' %>
+<% end %>

@@ -22,7 +22,12 @@ class BrowseController < ApplicationController
     @results = content_api.curated_list(tag_id).results
 
     setup_page_title(@sub_category.title)
-    options = {title: "browse", section_name: "#{@sub_category.title}", section_link: "/browse/#{params[:section]}/#{params[:sub_section]}"}
+    options = {title: "browse",
+              section_name: "#{@sub_category.title}",
+              section_link: "/browse/#{params[:section]}/#{params[:sub_section]}",
+              parent: {section_name: @category.title,
+                      section_link: "/browse/#{params[:section]}"},
+            }
     set_slimmer_dummy_artefact(options)
   end
 

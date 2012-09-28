@@ -22,13 +22,6 @@
   </div>
 </section>
 
-<!-- TODO: Do we still need this? browse.json won't exist anymore.
-  Methinks change this to be /browse/section.json?
- -->
-<% content_for :head do %>
-  <link rel="alternate" type="application/json" href="/browse.json">
-<% end %>
-
 <% content_for :extra_stylesheets do %>
   <%= stylesheet_link_tag 'browse-categories.scss' %>
 <% end %>

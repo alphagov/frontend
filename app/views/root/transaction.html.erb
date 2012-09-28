@@ -21,11 +21,11 @@
         <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %><script type="text/javascript">utmx_section("Get started button")</script><noscript rel="placeholder"><% end %>
         <p id="get-started" class="get-started group">
            <a href="<%= @transaction.link %>" rel="external" class="button">
-             <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
+             <span class="button-content"><span class="call-to-action">Start now</span> <!-- this space is important --><%
                if @transaction.will_continue_on.present?
                  %><span class="destination">on <%= @transaction.will_continue_on %></span><%
                end
-             %></span><span class="indicator"></span>
+             %></span>
            </a>
         </p>
         <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %></noscript><% end %> 

@@ -29,13 +29,13 @@ var setup_places = function() {
         $('#options-header').show();
       }
     });
-  }
+  };
 
   var remove_existing_location_data = function() {
     $("#options").html('');
     $('#options-header').hide();
     $('#results-error').addClass('hidden');
-  }
+  };
 
   $(AlphaGeo).bind('location-removed', function(e, message) {
     remove_existing_location_data();
@@ -47,7 +47,7 @@ var setup_places = function() {
     $('strong.locality_placeholder').text(AlphaGeo.full_location.current_location.locality);
     load_new_locations();
   });
-}
+};
 
 $( function() {
   if ( $('#wrapper').attr('class').match(/place/) ) {

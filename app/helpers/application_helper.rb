@@ -8,12 +8,7 @@ module ApplicationHelper
       title = [publication.title, publication.alternative_title].find(&:present?)
       title = "Video - #{title}" if request.format.video?
     end
-    if root_primary_section = root_primary_section(artefact)
-      root_primary_section_title = root_primary_section["title"]
-    else
-      root_primary_section_title = nil
-    end
-    [title, root_primary_section_title, 'GOV.UK Beta (Test)'].select(&:present?).join(" | ")
+    [title, 'GOV.UK Beta (Test)'].select(&:present?).join(" | ")
   end
 
   def wrapper_class(publication = nil, artefact = nil)

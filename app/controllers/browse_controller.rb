@@ -2,7 +2,7 @@ class BrowseController < ApplicationController
 
   def index
     setup_page_title("All categories")
-    @categories = content_api.root_sections.results
+    @categories = content_api.root_sections.results.sort_by { |category| category.title }
     options = {title: "browse", section_name: "Browse", section_link: "/browse"}
     set_slimmer_dummy_artefact(options)
   end
@@ -10,7 +10,7 @@ class BrowseController < ApplicationController
   def section
     @category = content_api.tag(params[:section])
     response = content_api.sub_sections(params[:section])
-    @sub_categories = response.results
+    @sub_categories = response.results.sort_by { |category| category.title }
     setup_page_title(@category.title)
     options = {title: "browse", section_name: "#{@category.title}", section_link: "/browse/#{params[:section]}"}
     set_slimmer_dummy_artefact(options)

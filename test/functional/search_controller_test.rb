@@ -5,6 +5,8 @@ class SearchControllerTest < ActionController::TestCase
   def stub_client
     mainstream_client = stub("search", search: [])
     Frontend.stubs(:mainstream_search_client).returns(mainstream_client)
+    detailed_client = stub("search", search: [])
+    Frontend.stubs(:detailed_guidance_search_client).returns(detailed_client)
   end
 
   setup do
@@ -42,13 +44,42 @@ class SearchControllerTest < ActionController::TestCase
   test "should display the number of results" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"
-    assert_select "label", text: /3 results found/
+    assert_select "label", text: /3 results for/
+  end
+
+  test "should display correct count for combined results" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "label", text: /4 results for/
   end
 
   test "should use correct pluralisation for a single result" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}])
     get :index, q: "search-term"
-    assert_select "label", text: /1 result found/
+    assert_select "label", text: /1 result for/
+  end
+
+  test "should display just tab page of results if we have results from a single index" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    Frontend.detailed_guidance_search_client.stubs(:search).returns([])
+    get :index, q: "search-term"
+    assert_select 'nav.js-tabs', count: 0
+  end
+
+  test "should display tabs when there are mixed results" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "nav.js-tabs"
+  end
+
+  test "should display index count on respective tab" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "a[href='#mainstream-results']", text: "Results (3)"
+    assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
   end
 
   test "should display a link to the documents matching our search criteria" do
@@ -69,7 +100,6 @@ class SearchControllerTest < ActionController::TestCase
     result_without_section = {
       "title" => "TITLE1",
       "description" => "DESCRIPTION",
-      "format" => "local_transaction",
       "link" => "/URL"
     }
     Frontend.mainstream_search_client.stubs(:search).returns([result_without_section])
@@ -78,12 +108,25 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
-  test "should limit results" do
+  test "should include sections in results" do
+    result_with_section = {
+      "title" => "TITLE1",
+      "description" => "DESCRIPTION",
+      "link" => "/url",
+      "section" => "life-in-the-uk",
+    }
+    Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
+    get :index, {q: "bob"}
+
+    assert_select '.result-meta li', text: "Life in the UK"
+  end
+
+  test "should return unlimited results" do
     Frontend.mainstream_search_client.stubs(:search).returns(Array.new(75, {}))
 
     get :index, q: "Test"
 
-    assert_equal 50, assigns[:results].length
+    assert_equal 75, assigns[:primary_results].length
   end
 
   test "should show the phrase searched for" do
@@ -98,23 +141,17 @@ class SearchControllerTest < ActionController::TestCase
     external_document = {
       "title" => "A title",
       "description" => "This is a description",
-      "format" => "recommended-link",
       "link" => "http://twitter.com",
-      "section" => "driving"
+      "section" => "driving",
+      "format" => "recommended-link"
     }
 
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
-    
+
     get :index, {q: "bleh"}
     assert_select "li.external" do
       assert_select "a[rel=external]", "A title"
     end
-  end
-
-  test "we pass the optional filter parameter to searches" do
-    Frontend.mainstream_search_client.expects(:search).with("anything", "my-format").returns([])
-
-    get :index, {q: "anything", format_filter: "my-format"}
   end
 
 

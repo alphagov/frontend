@@ -11,10 +11,10 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @primary_results = retrieve_primary_results(@search_term)
+      @external_link_results, @primary_results = extract_external_links(retrieve_primary_results(@search_term))
       @secondary_results = retrieve_secondary_results(@search_term)
 
-      @all_results = @primary_results + @secondary_results
+      @all_results = @primary_results + @secondary_results + @external_link_results
     end
 
     fill_in_slimmer_headers(@all_results)
@@ -29,6 +29,12 @@ class SearchController < ApplicationController
   def retrieve_primary_results(term)
     res = Frontend.mainstream_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
+  end
+
+  def extract_external_links(results)
+    results.partition do |result|
+      (result.respond_to?(:format) && result.format == 'recommended-link')
+    end
   end
 
   def retrieve_secondary_results(term)

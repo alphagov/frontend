@@ -137,6 +137,15 @@ class SearchControllerTest < ActionController::TestCase
     assert_select 'input[value=Test]'
   end
 
+  test "should split mainstream into internal and external" do
+    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
+
+    get :index, q: "Test"
+
+    assert_equal 45, assigns[:primary_results].length
+    assert_equal 20, assigns[:external_link_results].length
+  end
+
   test "should_show_external_links_with_a_separate_list_class" do
     external_document = {
       "title" => "A title",
@@ -149,11 +158,28 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
 
     get :index, {q: "bleh"}
-    assert_select "li.external" do
+    assert_select ".external-links li.external" do
       assert_select "a[rel=external]", "A title"
     end
   end
 
+  test "should show external links in a separate column" do
+    external_document = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "http://twitter.com",
+      "section" => "driving",
+      "format" => "recommended-link"
+    }
+
+    Frontend.mainstream_search_client.stubs(:search).returns([external_document])
+
+    get :index, {q: "bleh"}
+    assert_select ".external-links li.external" do
+      assert_select "a[rel=external]", "A title"
+    end
+    assert_select '.internal-links li.external', count: 0
+  end
 
   test "should send analytics headers for citizen proposition" do
     get :index, {q: "bob"}

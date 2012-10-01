@@ -13,7 +13,7 @@
     <ul class="content-list group">
     <% @results.each do |content| %>
       <li>
-        <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
+        <h3><a href="<%= content.web_url %>"><%= content.title %></a></h3>
         <p><%= content.details.overview.nil? ? nil : content.details.overview.html_safe %></p>
       </li>
     <% end %>

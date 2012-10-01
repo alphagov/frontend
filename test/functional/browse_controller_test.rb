@@ -48,7 +48,7 @@ class BrowseControllerTest < ActionController::TestCase
 
       assert_select "h1", "Crime and justice"
       assert_select "h2", "Judges"
-      assert_select "li h2 a", "Judge dredd"
+      assert_select "li h3 a", "Judge dredd"
     end
 
     should "404 if the section does not exist" do

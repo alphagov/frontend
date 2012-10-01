@@ -9,6 +9,8 @@ class BrowseController < ApplicationController
 
   def section
     @category = content_api.tag(params[:section])
+    return error_404 unless @category
+    
     response = content_api.sub_sections(params[:section])
     @sub_categories = response.results.sort_by { |category| category.title }
     setup_page_title(@category.title)
@@ -19,6 +21,7 @@ class BrowseController < ApplicationController
   def sub_section
     tag_id = "#{params[:section]}/#{params[:sub_section]}"
     @sub_category = content_api.tag(tag_id)
+    return error_404 unless @sub_category
 
     @category = @sub_category.parent
     @results = content_api.sorted_by(tag_id, "alphabetical").results

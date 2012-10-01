@@ -55,7 +55,7 @@ module Frontend
       media-player.js
       media-player.css
       homepage.js
-      browse-categories.scss
+      browse-categories.css
     )
 
     # Path within public/ where assets are compiled to

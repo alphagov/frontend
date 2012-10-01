@@ -210,7 +210,7 @@ protected
   def licence_details(artefact, licence_authority_slug, snac_code)
     licence_attributes = { licence: artefact['details']['licence'] }
 
-    return false if licence_attributes[:licence].blank?
+    return false if licence_attributes[:licence].blank? or licence_attributes[:licence]['error'].present?
 
     licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
 

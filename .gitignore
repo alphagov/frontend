@@ -10,3 +10,4 @@ test/reports
 .DS_Store
 public/frontend
 .idea
+.sass-cache

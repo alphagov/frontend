@@ -16,7 +16,7 @@
     <%= yield :extra_headers %>
   </head>
 
-  <body class="mainstream">
+  <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication, @artefact) %>">
       <%= yield %>
     </div>

@@ -47,7 +47,16 @@ module Frontend
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += %w( trackers/ab-testing.js feedback.js programmes.js frontend.js media-player.js media-player.css homepage.js )
+    config.assets.precompile += %w(
+      trackers/ab-testing.js
+      feedback.js
+      programmes.js
+      frontend.js
+      media-player.js
+      media-player.css
+      homepage.js
+      browse-categories.scss
+    )
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "frontend"

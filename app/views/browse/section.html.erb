@@ -25,6 +25,10 @@
 
 <% content_for :extra_stylesheets do %>
   <%= stylesheet_link_tag 'browse-categories' %>
+  <!--[if gt IE 8]><!--><%= stylesheet_link_tag 'browse-categories' %><!--<![endif]-->
+  <!--[if IE 6]><%= stylesheet_link_tag 'browse-categories-ie6' %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag 'browse-categories-ie7' %><![endif]-->
+  <!--[if IE 8]><%= stylesheet_link_tag 'browse-categories-ie8' %><![endif]-->
 <% end %>
 
 <% content_for :body_classes do %>full-width<% end %>

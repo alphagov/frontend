@@ -3,15 +3,13 @@ require_relative '../integration_test_helper'
 class PageRenderingTest < ActionDispatch::IntegrationTest
 
   test "returns 503 if backend times out" do
-    uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
-    stub_request(:get, uri).to_raise(GdsApi::TimedOutException)
+    stub_request(:get, "https://contentapi.test.alphagov.co.uk/my-item.json").to_timeout
     visit "/my-item"
     assert_equal 503, page.status_code
   end
 
   test "returns 503 if backend unavailable" do
-    uri = "#{GdsApi::TestHelpers::Publisher::PUBLISHER_ENDPOINT}/publications/my-item.json"
-    stub_request(:get, uri).to_raise(GdsApi::EndpointNotFound)
+    stub_request(:get, "https://contentapi.test.alphagov.co.uk/my-item.json").to_return(:status => 500)
     visit "/my-item"
     assert_equal 503, page.status_code
   end

@@ -1,4 +1,36 @@
 {
+  "holme-valley-north": {
+    "ons": null,
+    "gss": "E05008561"
+  },
+  "kirkburton": {
+    "ons": null,
+    "gss": "E05008562"
+  },
+  "colne-valley": {
+    "ons": null,
+    "gss": "E05008559"
+  },
+  "crosland-moor-and-netherton": {
+    "ons": null,
+    "gss": "E05008560"
+  },
+  "almondbury": {
+    "ons": null,
+    "gss": "E05008558"
+  },
+  "dinnington": {
+    "ons": null,
+    "gss": "E05008936"
+  },
+  "anston-and-woodsetts": {
+    "ons": null,
+    "gss": "E05008935"
+  },
+  "reading": {
+    "ons": "00MC",
+    "gss": "E06000038"
+  },
   "buckinghamshire": {
     "ons": "11",
     "gss": "E10000002"
@@ -116,8 +148,8 @@
     "gss": "E10000034"
   },
   "northumberland": {
-    "ons": "00EM",
-    "gss": "E06000048"
+    "ons": "00CKGJ",
+    "gss": "E05001126"
   },
   "devon": {
     "ons": "18",
@@ -126,6 +158,10 @@
   "cornwall": {
     "ons": "00HE",
     "gss": "E06000052"
+  },
+  "renfrewshire": {
+    "ons": "00RC",
+    "gss": "S12000038"
   },
   "bedford": {
     "ons": "00KB",
@@ -164,8 +200,8 @@
     "gss": "E07000011"
   },
   "cambridge": {
-    "ons": "12UB",
-    "gss": "E07000008"
+    "ons": "00CAHC",
+    "gss": "E05000935"
   },
   "copeland": {
     "ons": "16UE",
@@ -459,9 +495,9 @@
     "ons": "29UK",
     "gss": "E07000111"
   },
-  "tonbridge-and-malling": {
-    "ons": "29UP",
-    "gss": "E07000115"
+  "south-gloucestershire": {
+    "ons": "00HD",
+    "gss": "E06000025"
   },
   "thanet": {
     "ons": "29UN",
@@ -520,8 +556,8 @@
     "gss": "E07000119"
   },
   "preston": {
-    "ons": "30UK",
-    "gss": "E07000123"
+    "ons": "00CKGK",
+    "gss": "E05001127"
   },
   "wyre": {
     "ons": "30UQ",
@@ -660,8 +696,8 @@
     "gss": "E07000169"
   },
   "craven": {
-    "ons": "36UB",
-    "gss": "E07000163"
+    "ons": "00CXGR",
+    "gss": "E05001349"
   },
   "richmondshire": {
     "ons": "36UE",
@@ -863,9 +899,9 @@
     "ons": "44UF",
     "gss": "E07000222"
   },
-  "stratfordonavon": {
-    "ons": "44UE",
-    "gss": "E07000221"
+  "flintshire": {
+    "ons": "00NJ",
+    "gss": "W06000005"
   },
   "nuneaton-and-bedworth": {
     "ons": "44UC",
@@ -967,9 +1003,9 @@
     "ons": "00AY",
     "gss": "E09000022"
   },
-  "southwark": {
-    "ons": "00BE",
-    "gss": "E09000028"
+  "slough": {
+    "ons": "00MD",
+    "gss": "E06000039"
   },
   "lewisham": {
     "ons": "00AZ",
@@ -996,8 +1032,8 @@
     "gss": "E09000026"
   },
   "sutton": {
-    "ons": "00BF",
-    "gss": "E09000029"
+    "ons": "00BZGG",
+    "gss": "E05000927"
   },
   "richmond-upon-thames": {
     "ons": "00BD",
@@ -1055,6 +1091,150 @@
     "ons": "00AA",
     "gss": "E09000001"
   },
+  "barnsley": {
+    "ons": "00CC",
+    "gss": "E08000016"
+  },
+  "birmingham": {
+    "ons": "00CN",
+    "gss": "E08000025"
+  },
+  "bolton": {
+    "ons": "00BL",
+    "gss": "E08000001"
+  },
+  "bradford": {
+    "ons": "00BNGP",
+    "gss": "E05000690"
+  },
+  "bury": {
+    "ons": "00BM",
+    "gss": "E08000002"
+  },
+  "calderdale": {
+    "ons": "00CY",
+    "gss": "E08000033"
+  },
+  "wolverhampton": {
+    "ons": "00CW",
+    "gss": "E08000031"
+  },
+  "coventry": {
+    "ons": "00CQ",
+    "gss": "E08000026"
+  },
+  "doncaster": {
+    "ons": "00CE",
+    "gss": "E08000017"
+  },
+  "dudley": {
+    "ons": "00CR",
+    "gss": "E08000027"
+  },
+  "gateshead": {
+    "ons": "00CH",
+    "gss": "E08000020"
+  },
+  "kirklees": {
+    "ons": "00CZ",
+    "gss": "E08000034"
+  },
+  "knowsley": {
+    "ons": "00BX",
+    "gss": "E08000011"
+  },
+  "leeds": {
+    "ons": "00DA",
+    "gss": "E08000035"
+  },
+  "liverpool": {
+    "ons": "00BY",
+    "gss": "E08000012"
+  },
+  "manchester": {
+    "ons": "00BN",
+    "gss": "E08000003"
+  },
+  "newcastle-upon-tyne": {
+    "ons": "00CJ",
+    "gss": "E08000021"
+  },
+  "north-tyneside": {
+    "ons": "00CK",
+    "gss": "E08000022"
+  },
+  "oldham": {
+    "ons": "00BP",
+    "gss": "E08000004"
+  },
+  "rochdale": {
+    "ons": "00BQ",
+    "gss": "E08000005"
+  },
+  "rotherham": {
+    "ons": "00CF",
+    "gss": "E08000018"
+  },
+  "salford": {
+    "ons": "00BR",
+    "gss": "E08000006"
+  },
+  "sandwell": {
+    "ons": "00CS",
+    "gss": "E08000028"
+  },
+  "sefton": {
+    "ons": "00CA",
+    "gss": "E08000014"
+  },
+  "sheffield": {
+    "ons": "00CG",
+    "gss": "E08000019"
+  },
+  "solihull": {
+    "ons": "00CT",
+    "gss": "E08000029"
+  },
+  "south-tyneside": {
+    "ons": "00CL",
+    "gss": "E08000023"
+  },
+  "stockport": {
+    "ons": "00BS",
+    "gss": "E08000007"
+  },
+  "st-helens": {
+    "ons": "00CCGS",
+    "gss": "E05000993"
+  },
+  "sunderland": {
+    "ons": "00CM",
+    "gss": "E08000024"
+  },
+  "tameside": {
+    "ons": "00BT",
+    "gss": "E08000008"
+  },
+  "trafford": {
+    "ons": "00BU",
+    "gss": "E08000009"
+  },
+  "wakefield": {
+    "ons": "00DB",
+    "gss": "E08000036"
+  },
+  "walsall": {
+    "ons": "00CU",
+    "gss": "E08000030"
+  },
+  "wigan": {
+    "ons": "00BW",
+    "gss": "E08000010"
+  },
+  "wirral": {
+    "ons": "00CB",
+    "gss": "E08000015"
+  },
   "swansea": {
     "ons": "00NX",
     "gss": "W06000011"
@@ -1108,8 +1288,8 @@
     "gss": "E06000023"
   },
   "derby": {
-    "ons": "00FK",
-    "gss": "E06000015"
+    "ons": "00CAHE",
+    "gss": "E05000937"
   },
   "hull": {
     "ons": "00FA",
@@ -1243,121 +1423,117 @@
     "ons": "00NN",
     "gss": "W06000023"
   },
-  "reading": {
-    "ons": "00MC",
-    "gss": "E06000038"
+  "penistone-west": {
+    "ons": "00CCGP",
+    "gss": "E05000990"
   },
-  "redcar-and-cleveland": {
-    "ons": "00EE",
-    "gss": "E06000003"
+  "penistone-east": {
+    "ons": "00CCGN",
+    "gss": "E05000989"
   },
-  "renfrewshire": {
-    "ons": "00RC",
-    "gss": "S12000038"
+  "darfield": {
+    "ons": "00CCGB",
+    "gss": "E05000978"
   },
-  "rhondda-cynon-taf": {
-    "ons": "00PF",
-    "gss": "W06000016"
+  "north-east": {
+    "ons": "00CCGL",
+    "gss": "E05000987"
   },
-  "rutland": {
-    "ons": "00FP",
-    "gss": "E06000017"
+  "rockingham": {
+    "ons": "00CCGQ",
+    "gss": "E05000991"
   },
-  "scottish-borders": {
-    "ons": "00QE",
-    "gss": "S12000026"
+  "hoyland-milton": {
+    "ons": "00CCGH",
+    "gss": "E05000984"
   },
-  "denbighshire": {
-    "ons": "00NG",
-    "gss": "W06000004"
+  "dearne-north": {
+    "ons": "00CCGE",
+    "gss": "E05000981"
   },
   "monmouthshire": {
     "ons": "00PP",
     "gss": "W06000021"
   },
-  "carmarthenshire": {
-    "ons": "00NU",
-    "gss": "W06000010"
+  "dodworth": {
+    "ons": "00CCGG",
+    "gss": "E05000983"
   },
-  "flintshire": {
-    "ons": "00NJ",
-    "gss": "W06000005"
+  "darton-west": {
+    "ons": "00CCGD",
+    "gss": "E05000980"
   },
-  "slough": {
-    "ons": "00MD",
-    "gss": "E06000039"
+  "central": {
+    "ons": "00CGGN",
+    "gss": "E05001045"
   },
   "southendonsea": {
     "ons": "00KF",
     "gss": "E06000033"
   },
-  "south-gloucestershire": {
-    "ons": "00HD",
-    "gss": "E06000025"
+  "dearne-south": {
+    "ons": "00CCGF",
+    "gss": "E05000982"
   },
   "south-lanarkshire": {
     "ons": "00RF",
     "gss": "S12000029"
   },
-  "stirling": {
-    "ons": "00RG",
-    "gss": "S12000030"
+  "monk-bretton": {
+    "ons": "00CCGK",
+    "gss": "E05000986"
   },
-  "stocktonontees": {
-    "ons": "00EF",
-    "gss": "E06000004"
+  "cudworth": {
+    "ons": "00CCGA",
+    "gss": "E05000977"
   },
-  "swindon": {
-    "ons": "00HX",
-    "gss": "E06000030"
+  "royston": {
+    "ons": "00CCGR",
+    "gss": "E05000992"
   },
-  "telford-and-wrekin": {
-    "ons": "00GF",
-    "gss": "E06000020"
+  "kingstone": {
+    "ons": "00CCGJ",
+    "gss": "E05000985"
   },
   "brighton-and-hove": {
     "ons": "00ML",
     "gss": "E06000043"
   },
-  "thurrock": {
-    "ons": "00KG",
-    "gss": "E06000034"
-  },
-  "torfaen": {
-    "ons": "00PM",
-    "gss": "W06000020"
+  "old-town": {
+    "ons": "00CCGM",
+    "gss": "E05000988"
   },
   "torbay": {
     "ons": "00HH",
     "gss": "E06000027"
   },
-  "warrington": {
-    "ons": "00EU",
-    "gss": "E06000007"
+  "sutton-four-oaks": {
+    "ons": "00CNJD",
+    "gss": "E05001211"
   },
-  "west-berkshire": {
-    "ons": "00MB",
-    "gss": "E06000037"
+  "nechells": {
+    "ons": "00CNHN",
+    "gss": "E05001197"
   },
-  "west-dunbartonshire": {
-    "ons": "00QG",
-    "gss": "S12000039"
+  "perry-barr": {
+    "ons": "00CNHR",
+    "gss": "E05001200"
   },
-  "west-lothian": {
-    "ons": "00RH",
-    "gss": "S12000040"
+  "oscott": {
+    "ons": "00CNHQ",
+    "gss": "E05001199"
   },
-  "windsor-and-maidenhead": {
-    "ons": "00ME",
-    "gss": "E06000040"
+  "sutton-vesey": {
+    "ons": "00CNJG",
+    "gss": "E05001214"
   },
-  "wokingham": {
-    "ons": "00MF",
-    "gss": "E06000041"
+  "tyburn": {
+    "ons": "00CNJH",
+    "gss": "E05001215"
   },
-  "wrexham": {
-    "ons": "00NL",
-    "gss": "W06000006"
+  "sutton-new-hall": {
+    "ons": "00CNJE",
+    "gss": "E05001212"
   },
   "city-of-york": {
     "ons": "00FF",
@@ -1367,21 +1543,49 @@
     "ons": "33UC",
     "gss": "E07000144"
   },
-  "south-hams": {
-    "ons": "18UG",
-    "gss": "E07000044"
+  "isle-of-wight": {
+    "ons": "00MW",
+    "gss": "E06000046"
   },
-  "torridge": {
-    "ons": "18UK",
-    "gss": "E07000046"
+  "kings-norton": {
+    "ons": "00CNHG",
+    "gss": "E05001191"
   },
-  "cheshire-west-and-chester": {
-    "ons": "00EW",
-    "gss": "E06000050"
+  "bournville": {
+    "ons": "00CNGY",
+    "gss": "E05001183"
   },
-  "cheshire-east": {
-    "ons": "00EQ",
-    "gss": "E06000049"
+  "bartley-green": {
+    "ons": "00CNGU",
+    "gss": "E05001180"
+  },
+  "selly-oak": {
+    "ons": "00CNHT",
+    "gss": "E05001202"
+  },
+  "quinton": {
+    "ons": "00CNHS",
+    "gss": "E05001201"
+  },
+  "harborne": {
+    "ons": "00CNHE",
+    "gss": "E05001189"
+  },
+  "edgbaston": {
+    "ons": "00CNHA",
+    "gss": "E05001185"
+  },
+  "ladywood": {
+    "ons": "00CNHJ",
+    "gss": "E05001193"
+  },
+  "brandwood": {
+    "ons": "00CNGZ",
+    "gss": "E05001184"
+  },
+  "billesley": {
+    "ons": "00CNGW",
+    "gss": "E05001181"
   },
   "central-bedfordshire": {
     "ons": "00KC",
@@ -1395,9 +1599,9 @@
     "ons": "00NQ",
     "gss": "W06000008"
   },
-  "pembrokeshire": {
-    "ons": "00NS",
-    "gss": "W06000009"
+  "acocks-green": {
+    "ons": "00CNGS",
+    "gss": "E05001178"
   },
   "north-somerset": {
     "ons": "00HC",
@@ -1407,9 +1611,9 @@
     "ons": "00QT",
     "gss": "S12000017"
   },
-  "moray": {
-    "ons": "00QX",
-    "gss": "S12000020"
+  "bordesley-green": {
+    "ons": "00CNGX",
+    "gss": "E05001182"
   },
   "orkney-islands": {
     "ons": "00RA",
@@ -1447,37 +1651,3093 @@
     "ons": "00RD",
     "gss": "S12000027"
   },
-  "north-ayrshire": {
-    "ons": "00QY",
-    "gss": "S12000021"
+  "erdington": {
+    "ons": "00CNHB",
+    "gss": "E05001186"
   },
-  "south-ayrshire": {
-    "ons": "00RE",
-    "gss": "S12000028"
+  "shard-end": {
+    "ons": "00CNHU",
+    "gss": "E05001203"
   },
   "dumfries-and-galloway": {
     "ons": "00QH",
     "gss": "S12000006"
   },
-  "portsmouth": {
-    "ons": "00MR",
-    "gss": "E06000044"
+  "kearsley": {
+    "ons": "00BLGL",
+    "gss": "E05000663"
   },
   "plymouth": {
     "ons": "00HG",
     "gss": "E06000026"
   },
-  "isle-of-wight": {
-    "ons": "00MW",
-    "gss": "E06000046"
+  "hulton": {
+    "ons": "00BLGK",
+    "gss": "E05000662"
+  },
+  "westhoughton-north-and-chew-moor": {
+    "ons": "00BLGR",
+    "gss": "E05000668"
+  },
+  "farnworth": {
+    "ons": "00BLGC",
+    "gss": "E05000655"
+  },
+  "little-lever-and-darcy-lever": {
+    "ons": "00BLGM",
+    "gss": "E05000664"
+  },
+  "horwich-and-blackrod": {
+    "ons": "00BLGH",
+    "gss": "E05000660"
+  },
+  "heaton-and-lostock": {
+    "ons": "00BLGG",
+    "gss": "E05000659"
+  },
+  "smithills": {
+    "ons": "00BLGP",
+    "gss": "E05000666"
+  },
+  "crompton": {
+    "ons": "00BPGC",
+    "gss": "E05000724"
+  },
+  "horwich-north-east": {
+    "ons": "00BLGJ",
+    "gss": "E05000661"
+  },
+  "astley-bridge": {
+    "ons": "00BLFX",
+    "gss": "E05000650"
+  },
+  "bromley-cross": {
+    "ons": "00BLGA",
+    "gss": "E05000653"
+  },
+  "bradshaw": {
+    "ons": "00BLFY",
+    "gss": "E05000651"
+  },
+  "harper-green": {
+    "ons": "00BLGF",
+    "gss": "E05000658"
+  },
+  "rumworth": {
+    "ons": "00BLGN",
+    "gss": "E05000665"
+  },
+  "great-lever": {
+    "ons": "00BLGD",
+    "gss": "E05000656"
+  },
+  "halliwell": {
+    "ons": "00BLGE",
+    "gss": "E05000657"
+  },
+  "tonge-with-the-haulgh": {
+    "ons": "00BLGQ",
+    "gss": "E05000667"
+  },
+  "breightmet": {
+    "ons": "00BLFZ",
+    "gss": "E05000652"
+  },
+  "tong": {
+    "ons": "00CXHJ",
+    "gss": "E05001365"
+  },
+  "bingley-rural": {
+    "ons": "00CXGK",
+    "gss": "E05001343"
+  },
+  "keighley-east": {
+    "ons": "00CXGZ",
+    "gss": "E05001356"
+  },
+  "queensbury": {
+    "ons": "00CXHD",
+    "gss": "E05001360"
+  },
+  "thornton-and-allerton": {
+    "ons": "00CXHG",
+    "gss": "E05001363"
+  },
+  "clayton-and-fairweather-green": {
+    "ons": "00CXGQ",
+    "gss": "E05001348"
+  },
+  "worth-valley": {
+    "ons": "00CXHN",
+    "gss": "E05001369"
+  },
+  "keighley-west": {
+    "ons": "00CXHA",
+    "gss": "E05001357"
+  },
+  "bingley": {
+    "ons": "00CXGJ",
+    "gss": "E05001342"
+  },
+  "baildon": {
+    "ons": "00CXGH",
+    "gss": "E05001341"
+  },
+  "ilkley": {
+    "ons": "00CXGX",
+    "gss": "E05001354"
+  },
+  "wharfedale": {
+    "ons": "00CXHK",
+    "gss": "E05001366"
+  },
+  "royds": {
+    "ons": "00CXHE",
+    "gss": "E05001361"
+  },
+  "southwark": {
+    "ons": "00BE",
+    "gss": "E09000028"
+  },
+  "heaton": {
+    "ons": "00CXGU",
+    "gss": "E05001352"
+  },
+  "little-horton": {
+    "ons": "00CXHB",
+    "gss": "E05001358"
+  },
+  "city": {
+    "ons": "00CXGP",
+    "gss": "E05001347"
+  },
+  "bowling-and-barkerend": {
+    "ons": "00CXGM",
+    "gss": "E05001345"
+  },
+  "windhill-and-wrose": {
+    "ons": "00CXHM",
+    "gss": "E05001368"
+  },
+  "eccleshill": {
+    "ons": "00CXGS",
+    "gss": "E05001350"
+  },
+  "keighley-central": {
+    "ons": "00CXGY",
+    "gss": "E05001355"
+  },
+  "shipley": {
+    "ons": "00CXHF",
+    "gss": "E05001362"
+  },
+  "idle-and-thackley": {
+    "ons": "00CXGW",
+    "gss": "E05001353"
+  },
+  "telford-and-wrekin": {
+    "ons": "00GF",
+    "gss": "E06000020"
+  },
+  "great-horton": {
+    "ons": "00CXGT",
+    "gss": "E05001351"
+  },
+  "toller": {
+    "ons": "00CXHH",
+    "gss": "E05001364"
+  },
+  "manningham": {
+    "ons": "00CXHC",
+    "gss": "E05001359"
+  },
+  "bradford-moor": {
+    "ons": "00CXGN",
+    "gss": "E05001346"
+  },
+  "bolton-and-undercliffe": {
+    "ons": "00CXGL",
+    "gss": "E05001344"
+  },
+  "ramsbottom": {
+    "ons": "00BMGE",
+    "gss": "E05000681"
+  },
+  "north-manor": {
+    "ons": "00BMFZ",
+    "gss": "E05000676"
+  },
+  "pilkington-park": {
+    "ons": "00BMGA",
+    "gss": "E05000677"
+  },
+  "holyrood": {
+    "ons": "00BMFX",
+    "gss": "E05000674"
+  },
+  "unsworth": {
+    "ons": "00BMGK",
+    "gss": "E05000686"
+  },
+  "radcliffe-north": {
+    "ons": "00BMGC",
+    "gss": "E05000679"
+  },
+  "tottington": {
+    "ons": "00BMGJ",
+    "gss": "E05000685"
+  },
+  "radcliffe-east": {
+    "ons": "00BMGB",
+    "gss": "E05000678"
+  },
+  "redvales": {
+    "ons": "00BMGF",
+    "gss": "E05000682"
+  },
+  "church": {
+    "ons": "00CAHD",
+    "gss": "E05000936"
+  },
+  "east": {
+    "ons": "00BMFU",
+    "gss": "E05000672"
+  },
+  "radcliffe-west": {
+    "ons": "00BMGD",
+    "gss": "E05000680"
+  },
+  "st-marys": {
+    "ons": "00BUGP",
+    "gss": "E05000834"
+  },
+  "sedgley": {
+    "ons": "00CRGY",
+    "gss": "E05001256"
+  },
+  "besses": {
+    "ons": "00BMFS",
+    "gss": "E05000670"
+  },
+  "elton": {
+    "ons": "00BMFW",
+    "gss": "E05000673"
+  },
+  "moorside": {
+    "ons": "00BMFY",
+    "gss": "E05000675"
+  },
+  "brighouse": {
+    "ons": "00CYFU",
+    "gss": "E05001371"
+  },
+  "ryburn": {
+    "ons": "00CYGG",
+    "gss": "E05001382"
+  },
+  "greetland-and-stainland": {
+    "ons": "00CYFY",
+    "gss": "E05001374"
+  },
+  "todmorden": {
+    "ons": "00CYGK",
+    "gss": "E05001385"
+  },
+  "calder": {
+    "ons": "00CYFW",
+    "gss": "E05001372"
+  },
+  "luddendenfoot": {
+    "ons": "00CYGB",
+    "gss": "E05001377"
+  },
+  "hipperholme-and-lightcliffe": {
+    "ons": "00CYFZ",
+    "gss": "E05001375"
+  },
+  "illingworth-and-mixenden": {
+    "ons": "00CYGA",
+    "gss": "E05001376"
+  },
+  "sowerby-bridge": {
+    "ons": "00CYGJ",
+    "gss": "E05001384"
+  },
+  "elland": {
+    "ons": "00CYFX",
+    "gss": "E05001373"
+  },
+  "rastrick": {
+    "ons": "00CYGF",
+    "gss": "E05001381"
+  },
+  "warley": {
+    "ons": "00CYGM",
+    "gss": "E05001387"
+  },
+  "park": {
+    "ons": "00CAHS",
+    "gss": "E05000949"
+  },
+  "town": {
+    "ons": "00CYGL",
+    "gss": "E05001386"
+  },
+  "northowram-and-shelf": {
+    "ons": "00CYGC",
+    "gss": "E05001378"
+  },
+  "skircoat": {
+    "ons": "00CYGH",
+    "gss": "E05001383"
+  },
+  "ovenden": {
+    "ons": "00CYGD",
+    "gss": "E05001379"
+  },
+  "wednesfield-north": {
+    "ons": "00CWGR",
+    "gss": "E05001339"
+  },
+  "penn": {
+    "ons": "00CWGL",
+    "gss": "E05001334"
+  },
+  "merry-hill": {
+    "ons": "00CWGH",
+    "gss": "E05001331"
+  },
+  "blakenhall": {
+    "ons": "00CWFZ",
+    "gss": "E05001323"
+  },
+  "bilston-east": {
+    "ons": "00CWFX",
+    "gss": "E05001321"
+  },
+  "ettingshall": {
+    "ons": "00CWGD",
+    "gss": "E05001327"
+  },
+  "bilston-north": {
+    "ons": "00CWFY",
+    "gss": "E05001322"
+  },
+  "tettenhall-wightwick": {
+    "ons": "00CWGQ",
+    "gss": "E05001338"
+  },
+  "tettenhall-regis": {
+    "ons": "00CWGP",
+    "gss": "E05001337"
+  },
+  "oxley": {
+    "ons": "00CWGJ",
+    "gss": "E05001332"
+  },
+  "st-peters": {
+    "ons": "00BTGN",
+    "gss": "E05000816"
+  },
+  "east-park": {
+    "ons": "00CWGC",
+    "gss": "E05001326"
+  },
+  "heath-town": {
+    "ons": "00CWGG",
+    "gss": "E05001330"
+  },
+  "wednesfield-south": {
+    "ons": "00CWGS",
+    "gss": "E05001340"
+  },
+  "bushbury-south-and-low-hill": {
+    "ons": "00CWGB",
+    "gss": "E05001325"
+  },
+  "bushbury-north": {
+    "ons": "00CWGA",
+    "gss": "E05001324"
+  },
+  "fallings-park": {
+    "ons": "00CWGE",
+    "gss": "E05001328"
+  },
+  "graiseley": {
+    "ons": "00CWGF",
+    "gss": "E05001329"
+  },
+  "spring-vale": {
+    "ons": "00CWGN",
+    "gss": "E05001336"
+  },
+  "henley": {
+    "ons": "00CQGA",
+    "gss": "E05001223"
+  },
+  "westwood": {
+    "ons": "00CQGK",
+    "gss": "E05001232"
+  },
+  "bablake": {
+    "ons": "00CQFU",
+    "gss": "E05001218"
+  },
+  "wainbody": {
+    "ons": "00CQGJ",
+    "gss": "E05001231"
+  },
+  "earlsdon": {
+    "ons": "00CQFY",
+    "gss": "E05001221"
+  },
+  "cheylesmore": {
+    "ons": "00CQFX",
+    "gss": "E05001220"
+  },
+  "binley-and-willenhall": {
+    "ons": "00CQFW",
+    "gss": "E05001219"
+  },
+  "woodlands": {
+    "ons": "00CQGM",
+    "gss": "E05001234"
+  },
+  "whoberley": {
+    "ons": "00CQGL",
+    "gss": "E05001233"
+  },
+  "foleshill": {
+    "ons": "00CQFZ",
+    "gss": "E05001222"
+  },
+  "st-michaels": {
+    "ons": "00CMGS",
+    "gss": "E05001167"
+  },
+  "sherbourne": {
+    "ons": "00CQGG",
+    "gss": "E05001229"
+  },
+  "radford": {
+    "ons": "00CQGE",
+    "gss": "E05001227"
+  },
+  "lower-stoke": {
+    "ons": "00CQGD",
+    "gss": "E05001226"
+  },
+  "wyken": {
+    "ons": "00CQGN",
+    "gss": "E05001235"
+  },
+  "upper-stoke": {
+    "ons": "00CQGH",
+    "gss": "E05001230"
+  },
+  "longford": {
+    "ons": "00BUGM",
+    "gss": "E05000832"
+  },
+  "holbrook": {
+    "ons": "00CQGB",
+    "gss": "E05001224"
+  },
+  "conisbrough-and-denaby": {
+    "ons": "00CEGF",
+    "gss": "E05001004"
+  },
+  "edlington-and-warmsworth": {
+    "ons": "00CEGH",
+    "gss": "E05001006"
+  },
+  "torne-valley": {
+    "ons": "00CEGS",
+    "gss": "E05001015"
+  },
+  "balby": {
+    "ons": "00CEGB",
+    "gss": "E05001000"
+  },
+  "thorne": {
+    "ons": "00CEGR",
+    "gss": "E05001014"
+  },
+  "sprotbrough": {
+    "ons": "00CEGP",
+    "gss": "E05001012"
+  },
+  "askern-spa": {
+    "ons": "00CEGA",
+    "gss": "E05000999"
+  },
+  "stainforth-and-moorends": {
+    "ons": "00CEGQ",
+    "gss": "E05001013"
+  },
+  "bentley": {
+    "ons": "00CEGC",
+    "gss": "E05001001"
+  },
+  "finningley": {
+    "ons": "00CEGJ",
+    "gss": "E05001007"
+  },
+  "edenthorpe-kirk-sandall-and-barnby-dun": {
+    "ons": "00CEGG",
+    "gss": "E05001005"
+  },
+  "mexborough": {
+    "ons": "00CEGM",
+    "gss": "E05001010"
+  },
+  "rossington": {
+    "ons": "00CEGN",
+    "gss": "E05001011"
+  },
+  "bessacarr-and-cantley": {
+    "ons": "00CEGD",
+    "gss": "E05001002"
+  },
+  "great-north-road": {
+    "ons": "00CEGK",
+    "gss": "E05001008"
+  },
+  "adwick": {
+    "ons": "00CEFY",
+    "gss": "E05000997"
+  },
+  "town-moor": {
+    "ons": "00CEGT",
+    "gss": "E05001016"
+  },
+  "wheatley": {
+    "ons": "00CEGU",
+    "gss": "E05001017"
+  },
+  "armthorpe": {
+    "ons": "00CEFZ",
+    "gss": "E05000998"
+  },
+  "hatfield": {
+    "ons": "00CEGL",
+    "gss": "E05001009"
+  },
+  "amblecote": {
+    "ons": "00CRGB",
+    "gss": "E05001236"
+  },
+  "brierley-hill": {
+    "ons": "00CRGD",
+    "gss": "E05001238"
+  },
+  "cradley-and-wollescote": {
+    "ons": "00CRGH",
+    "gss": "E05001242"
+  },
+  "lye-and-stourbridge-north": {
+    "ons": "00CRGQ",
+    "gss": "E05001249"
+  },
+  "quarry-bank-and-dudley-wood": {
+    "ons": "00CRGU",
+    "gss": "E05001253"
+  },
+  "belle-vale": {
+    "ons": "00BYGN",
+    "gss": "E05000888"
+  },
+  "halesowen-south": {
+    "ons": "00CRGL",
+    "gss": "E05001245"
+  },
+  "halesowen-north": {
+    "ons": "00CRGK",
+    "gss": "E05001244"
+  },
+  "kingswinford-south": {
+    "ons": "00CRGP",
+    "gss": "E05001248"
+  },
+  "brockmoor-and-pensnett": {
+    "ons": "00CRGE",
+    "gss": "E05001239"
+  },
+  "kingswinford-north-and-wall-heath": {
+    "ons": "00CRGN",
+    "gss": "E05001247"
+  },
+  "gornal": {
+    "ons": "00CRGJ",
+    "gss": "E05001243"
+  },
+  "netherton-woodside-and-st-andrews": {
+    "ons": "00CRGR",
+    "gss": "E05001250"
+  },
+  "st-thomass": {
+    "ons": "00CRGX",
+    "gss": "E05001255"
+  },
+  "castle-and-priory": {
+    "ons": "00CRGF",
+    "gss": "E05001240"
+  },
+  "coseley-east": {
+    "ons": "00CRGG",
+    "gss": "E05001241"
+  },
+  "norton": {
+    "ons": "00CRGS",
+    "gss": "E05001251"
+  },
+  "pedmore-and-stourbridge-east": {
+    "ons": "00CRGT",
+    "gss": "E05001252"
+  },
+  "wollaston-and-stourbridge-town": {
+    "ons": "00CRHA",
+    "gss": "E05001258"
+  },
+  "wordsley": {
+    "ons": "00CRHB",
+    "gss": "E05001259"
+  },
+  "hayley-green-and-cradley-south": {
+    "ons": "00CRGM",
+    "gss": "E05001246"
+  },
+  "st-jamess": {
+    "ons": "00CRGW",
+    "gss": "E05001254"
+  },
+  "upper-gornal-and-woodsetton": {
+    "ons": "00CRGZ",
+    "gss": "E05001257"
+  },
+  "lamesley": {
+    "ons": "00CHGL",
+    "gss": "E05001078"
+  },
+  "chopwell-and-rowlands-gill": {
+    "ons": "00CHGC",
+    "gss": "E05001070"
+  },
+  "winlaton-and-high-spen": {
+    "ons": "00CHGX",
+    "gss": "E05001088"
+  },
+  "crawcrook-and-greenside": {
+    "ons": "00CHGE",
+    "gss": "E05001072"
+  },
+  "ryton-crookhill-and-stella": {
+    "ons": "00CHGQ",
+    "gss": "E05001082"
+  },
+  "whickham-south-and-sunniside": {
+    "ons": "00CHGU",
+    "gss": "E05001086"
+  },
+  "lobley-hill-and-bensham": {
+    "ons": "00CHGM",
+    "gss": "E05001079"
+  },
+  "blaydon": {
+    "ons": "00CHGA",
+    "gss": "E05001068"
+  },
+  "birtley": {
+    "ons": "00CHFZ",
+    "gss": "E05001067"
+  },
+  "wardley-and-leam-lane": {
+    "ons": "00CHGS",
+    "gss": "E05001084"
+  },
+  "whickham-north": {
+    "ons": "00CHGT",
+    "gss": "E05001085"
+  },
+  "dunston-and-teams": {
+    "ons": "00CHGG",
+    "gss": "E05001074"
+  },
+  "chowdene": {
+    "ons": "00CHGD",
+    "gss": "E05001071"
+  },
+  "low-fell": {
+    "ons": "00CHGN",
+    "gss": "E05001080"
+  },
+  "windy-nook-and-whitehills": {
+    "ons": "00CHGW",
+    "gss": "E05001087"
+  },
+  "bridges": {
+    "ons": "00CHGB",
+    "gss": "E05001069"
+  },
+  "pelaw-and-heworth": {
+    "ons": "00CHGP",
+    "gss": "E05001081"
+  },
+  "dunston-hill-and-whickham-east": {
+    "ons": "00CHGH",
+    "gss": "E05001075"
+  },
+  "saltwell": {
+    "ons": "00CHGR",
+    "gss": "E05001083"
+  },
+  "high-fell": {
+    "ons": "00CHGK",
+    "gss": "E05001077"
+  },
+  "deckham": {
+    "ons": "00CHGF",
+    "gss": "E05001073"
+  },
+  "felling": {
+    "ons": "00CHGJ",
+    "gss": "E05001076"
+  },
+  "holme-valley-south": {
+    "ons": "00CZGU",
+    "gss": "E05001405"
+  },
+  "denby-dale": {
+    "ons": "00CZGL",
+    "gss": "E05001397"
+  },
+  "batley-east": {
+    "ons": "00CZGD",
+    "gss": "E05001390"
+  },
+  "newsome": {
+    "ons": "00CZHA",
+    "gss": "E05001410"
+  },
+  "dewsbury-south": {
+    "ons": "00CZGN",
+    "gss": "E05001399"
+  },
+  "ashbrow": {
+    "ons": "00CZGC",
+    "gss": "E05001389"
+  },
+  "liversedge-and-gomersal": {
+    "ons": "00CZGY",
+    "gss": "E05001408"
+  },
+  "golcar": {
+    "ons": "00CZGQ",
+    "gss": "E05001401"
+  },
+  "lindley": {
+    "ons": "00CZGX",
+    "gss": "E05001407"
+  },
+  "greenhead": {
+    "ons": "00CZGR",
+    "gss": "E05001402"
+  },
+  "dalton": {
+    "ons": "00CZGK",
+    "gss": "E05001396"
+  },
+  "mirfield": {
+    "ons": "00CZGZ",
+    "gss": "E05001409"
+  },
+  "dewsbury-west": {
+    "ons": "00CZGP",
+    "gss": "E05001400"
+  },
+  "cleckheaton": {
+    "ons": "00CZGG",
+    "gss": "E05001393"
+  },
+  "dewsbury-east": {
+    "ons": "00CZGM",
+    "gss": "E05001398"
+  },
+  "batley-west": {
+    "ons": "00CZGE",
+    "gss": "E05001391"
+  },
+  "birstall-and-birkenshaw": {
+    "ons": "00CZGF",
+    "gss": "E05001392"
+  },
+  "heckmondwike": {
+    "ons": "00CZGS",
+    "gss": "E05001403"
+  },
+  "halewood-south": {
+    "ons": "00BXGB",
+    "gss": "E05000867"
+  },
+  "halewood-north": {
+    "ons": "00BXGA",
+    "gss": "E05000866"
+  },
+  "st-bartholomews": {
+    "ons": "00BXGM",
+    "gss": "E05000877"
+  },
+  "whiston-south": {
+    "ons": "00BXGU",
+    "gss": "E05000884"
+  },
+  "whiston-north": {
+    "ons": "00BXGT",
+    "gss": "E05000883"
+  },
+  "prescot-west": {
+    "ons": "00BXGK",
+    "gss": "E05000875"
+  },
+  "kirkby-central": {
+    "ons": "00BXGD",
+    "gss": "E05000869"
+  },
+  "shevington": {
+    "ons": "00BXGQ",
+    "gss": "E05000880"
+  },
+  "halewood-west": {
+    "ons": "00BXGC",
+    "gss": "E05000868"
+  },
+  "roby": {
+    "ons": "00BXGL",
+    "gss": "E05000876"
+  },
+  "swanside": {
+    "ons": "00BXGS",
+    "gss": "E05000882"
+  },
+  "st-gabriels": {
+    "ons": "00BXGN",
+    "gss": "E05000878"
+  },
+  "page-moss": {
+    "ons": "00BXGG",
+    "gss": "E05000872"
+  },
+  "stockbridge": {
+    "ons": "00BXGR",
+    "gss": "E05000881"
+  },
+  "cherryfield": {
+    "ons": "00BXFZ",
+    "gss": "E05000865"
+  },
+  "whitefield": {
+    "ons": "00BXGW",
+    "gss": "E05000885"
+  },
+  "northwood": {
+    "ons": "00BXGF",
+    "gss": "E05000871"
+  },
+  "longview": {
+    "ons": "00BXGE",
+    "gss": "E05000870"
+  },
+  "prescot-east": {
+    "ons": "00BXGJ",
+    "gss": "E05000874"
+  },
+  "kippax-and-methley": {
+    "ons": "00DAHH",
+    "gss": "E05001431"
+  },
+  "morley-north": {
+    "ons": "00DAHM",
+    "gss": "E05001435"
+  },
+  "ardsley-and-robin-hood": {
+    "ons": "00DAGN",
+    "gss": "E05001413"
+  },
+  "rothwell": {
+    "ons": "00DAHR",
+    "gss": "E05001439"
+  },
+  "stalybridge-south": {
+    "ons": "00BTGQ",
+    "gss": "E05000818"
+  },
+  "garforth-and-swillington": {
+    "ons": "00DAGZ",
+    "gss": "E05001423"
+  },
+  "guiseley-and-rawdon": {
+    "ons": "00DAHB",
+    "gss": "E05001425"
+  },
+  "otley-and-yeadon": {
+    "ons": "00DAHP",
+    "gss": "E05001437"
+  },
+  "adel-and-wharfedale": {
+    "ons": "00DAGL",
+    "gss": "E05001411"
+  },
+  "harewood": {
+    "ons": "00DAHC",
+    "gss": "E05001426"
+  },
+  "wetherby": {
+    "ons": "00DAHW",
+    "gss": "E05001443"
+  },
+  "morley-south": {
+    "ons": "00DAHN",
+    "gss": "E05001436"
+  },
+  "pudsey": {
+    "ons": "00DAHQ",
+    "gss": "E05001438"
+  },
+  "farnley-and-wortley": {
+    "ons": "00DAGY",
+    "gss": "E05001422"
+  },
+  "armley": {
+    "ons": "00DAGP",
+    "gss": "E05001414"
+  },
+  "middleton-park": {
+    "ons": "00DAHK",
+    "gss": "E05001433"
+  },
+  "beeston-and-holbeck": {
+    "ons": "00DAGQ",
+    "gss": "E05001415"
+  },
+  "city-and-hunslet": {
+    "ons": "00DAGW",
+    "gss": "E05001420"
+  },
+  "burmantofts-and-richmond-hill": {
+    "ons": "00DAGS",
+    "gss": "E05001417"
+  },
+  "gipton-and-harehills": {
+    "ons": "00DAHA",
+    "gss": "E05001424"
+  },
+  "calverley-and-farsley": {
+    "ons": "00DAGT",
+    "gss": "E05001418"
+  },
+  "kirkstall": {
+    "ons": "00DAHJ",
+    "gss": "E05001432"
+  },
+  "weetwood": {
+    "ons": "00DAHU",
+    "gss": "E05001442"
+  },
+  "horsforth": {
+    "ons": "00DAHE",
+    "gss": "E05001428"
+  },
+  "killingbeck-and-seacroft": {
+    "ons": "00DAHG",
+    "gss": "E05001430"
+  },
+  "roundhay": {
+    "ons": "00DAHS",
+    "gss": "E05001440"
+  },
+  "moortown": {
+    "ons": "00DAHL",
+    "gss": "E05001434"
+  },
+  "alwoodley": {
+    "ons": "00DAGM",
+    "gss": "E05001412"
+  },
+  "cross-gates-and-whinmoor": {
+    "ons": "00DAGX",
+    "gss": "E05001421"
+  },
+  "hyde-park-and-woodhouse": {
+    "ons": "00DAHF",
+    "gss": "E05001429"
+  },
+  "bramley-and-stanningley": {
+    "ons": "00DAGR",
+    "gss": "E05001416"
+  },
+  "headingley": {
+    "ons": "00DAHD",
+    "gss": "E05001427"
+  },
+  "chapel-allerton": {
+    "ons": "00DAGU",
+    "gss": "E05001419"
+  },
+  "fazakerley": {
+    "ons": "00BYGY",
+    "gss": "E05000897"
+  },
+  "mossley-hill": {
+    "ons": "00BYHD",
+    "gss": "E05000902"
+  },
+  "spekegarston": {
+    "ons": "00BYHL",
+    "gss": "E05000909"
+  },
+  "allerton-and-hunts-cross": {
+    "ons": "00BYGL",
+    "gss": "E05000886"
+  },
+  "riverside": {
+    "ons": "00CKGL",
+    "gss": "E05001128"
+  },
+  "kirkdale": {
+    "ons": "00BYHB",
+    "gss": "E05000900"
+  },
+  "woolton": {
+    "ons": "00BYHR",
+    "gss": "E05000914"
+  },
+  "croxteth": {
+    "ons": "00BYGW",
+    "gss": "E05000895"
+  },
+  "cressington": {
+    "ons": "00BYGU",
+    "gss": "E05000894"
+  },
+  "princes-park": {
+    "ons": "00BYHH",
+    "gss": "E05000906"
+  },
+  "picton": {
+    "ons": "00BYHG",
+    "gss": "E05000905"
+  },
+  "everton": {
+    "ons": "00BYGX",
+    "gss": "E05000896"
+  },
+  "kensington-and-fairfield": {
+    "ons": "00BYHA",
+    "gss": "E05000899"
+  },
+  "anfield": {
+    "ons": "00BYGM",
+    "gss": "E05000887"
+  },
+  "county": {
+    "ons": "00BYGT",
+    "gss": "E05000893"
+  },
+  "warbreck": {
+    "ons": "00BYHN",
+    "gss": "E05000911"
+  },
+  "greenbank": {
+    "ons": "00BYGZ",
+    "gss": "E05000898"
+  },
+  "wavertree": {
+    "ons": "00BYHP",
+    "gss": "E05000912"
+  },
+  "childwall": {
+    "ons": "00BYGQ",
+    "gss": "E05000890"
+  },
+  "tuebrook-and-stoneycroft": {
+    "ons": "00BYHM",
+    "gss": "E05000910"
+  },
+  "old-swan": {
+    "ons": "00BYHF",
+    "gss": "E05000904"
+  },
+  "knotty-ash": {
+    "ons": "00BYHC",
+    "gss": "E05000901"
+  },
+  "clubmoor": {
+    "ons": "00BYGS",
+    "gss": "E05000892"
+  },
+  "west-derby": {
+    "ons": "00BYHQ",
+    "gss": "E05000913"
+  },
+  "yew-tree": {
+    "ons": "00BYHS",
+    "gss": "E05000915"
+  },
+  "norris-green": {
+    "ons": "00BYHE",
+    "gss": "E05000903"
+  },
+  "brooklands": {
+    "ons": "00BUGC",
+    "gss": "E05000823"
+  },
+  "northenden": {
+    "ons": "00BNHN",
+    "gss": "E05000712"
+  },
+  "chorlton-park": {
+    "ons": "00BNGW",
+    "gss": "E05000696"
+  },
+  "ancoats-and-clayton": {
+    "ons": "00BNGL",
+    "gss": "E05000687"
+  },
+  "gorton-north": {
+    "ons": "00BNHC",
+    "gss": "E05000702"
+  },
+  "woodhouse-park": {
+    "ons": "00BNHU",
+    "gss": "E05000718"
+  },
+  "baguley": {
+    "ons": "00BNGN",
+    "gss": "E05000689"
+  },
+  "sharston": {
+    "ons": "00BNHR",
+    "gss": "E05000715"
+  },
+  "higher-blackley": {
+    "ons": "00BNHF",
+    "gss": "E05000705"
+  },
+  "didsbury-east": {
+    "ons": "00BNGZ",
+    "gss": "E05000699"
+  },
+  "didsbury-west": {
+    "ons": "00BNHA",
+    "gss": "E05000700"
+  },
+  "burnage": {
+    "ons": "00BNGR",
+    "gss": "E05000692"
+  },
+  "chorlton": {
+    "ons": "00BNGU",
+    "gss": "E05000695"
+  },
+  "whalley-range": {
+    "ons": "00BNHS",
+    "gss": "E05000716"
+  },
+  "fallowfield": {
+    "ons": "00BNHB",
+    "gss": "E05000701"
+  },
+  "levenshulme": {
+    "ons": "00BNHH",
+    "gss": "E05000707"
+  },
+  "gorton-south": {
+    "ons": "00BNHD",
+    "gss": "E05000703"
+  },
+  "moss-side": {
+    "ons": "00BNHL",
+    "gss": "E05000710"
+  },
+  "hulme": {
+    "ons": "00BNHG",
+    "gss": "E05000706"
+  },
+  "ardwick": {
+    "ons": "00BNGM",
+    "gss": "E05000688"
+  },
+  "city-centre": {
+    "ons": "00BNGX",
+    "gss": "E05000697"
+  },
+  "longsight": {
+    "ons": "00BNHJ",
+    "gss": "E05000708"
+  },
+  "cheetham": {
+    "ons": "00BNGT",
+    "gss": "E05000694"
+  },
+  "miles-platting-and-newton-heath": {
+    "ons": "00BNHK",
+    "gss": "E05000709"
+  },
+  "crumpsall": {
+    "ons": "00BNGY",
+    "gss": "E05000698"
+  },
+  "harpurhey": {
+    "ons": "00BNHE",
+    "gss": "E05000704"
+  },
+  "moston": {
+    "ons": "00BNHM",
+    "gss": "E05000711"
+  },
+  "charlestown": {
+    "ons": "00BNGS",
+    "gss": "E05000693"
+  },
+  "old-moat": {
+    "ons": "00BNHP",
+    "gss": "E05000713"
+  },
+  "withington": {
+    "ons": "00BNHT",
+    "gss": "E05000717"
+  },
+  "rusholme": {
+    "ons": "00BNHQ",
+    "gss": "E05000714"
+  },
+  "walkergate": {
+    "ons": "00CJHA",
+    "gss": "E05001109"
+  },
+  "newburn": {
+    "ons": "00CJGR",
+    "gss": "E05001101"
+  },
+  "denton": {
+    "ons": "00CJGJ",
+    "gss": "E05001094"
+  },
+  "benwell-and-scotswood": {
+    "ons": "00CJGD",
+    "gss": "E05001089"
+  },
+  "elswick": {
+    "ons": "00CJGL",
+    "gss": "E05001096"
+  },
+  "fenham": {
+    "ons": "00CJGN",
+    "gss": "E05001098"
+  },
+  "wingrove": {
+    "ons": "00CJHE",
+    "gss": "E05001113"
+  },
+  "byker": {
+    "ons": "00CJGF",
+    "gss": "E05001091"
+  },
+  "south-heaton": {
+    "ons": "00CJGX",
+    "gss": "E05001106"
+  },
+  "dene": {
+    "ons": "00CJGH",
+    "gss": "E05001093"
+  },
+  "woolsington": {
+    "ons": "00CJHF",
+    "gss": "E05001114"
+  },
+  "parklands": {
+    "ons": "00CJGW",
+    "gss": "E05001105"
+  },
+  "castle": {
+    "ons": "00CMGD",
+    "gss": "E05001154"
+  },
+  "lemington": {
+    "ons": "00CJGQ",
+    "gss": "E05001100"
+  },
+  "westerhope": {
+    "ons": "00CJHB",
+    "gss": "E05001110"
+  },
+  "westgate": {
+    "ons": "00CJHC",
+    "gss": "E05001111"
+  },
+  "walker": {
+    "ons": "00CJGZ",
+    "gss": "E05001108"
+  },
+  "blakelaw": {
+    "ons": "00CJGE",
+    "gss": "E05001090"
+  },
+  "kenton": {
+    "ons": "00CJGP",
+    "gss": "E05001099"
+  },
+  "west-gosforth": {
+    "ons": "00CJHD",
+    "gss": "E05001112"
+  },
+  "east-gosforth": {
+    "ons": "00CJGK",
+    "gss": "E05001095"
+  },
+  "ouseburn": {
+    "ons": "00CJGU",
+    "gss": "E05001104"
+  },
+  "south-jesmond": {
+    "ons": "00CJGY",
+    "gss": "E05001107"
+  },
+  "north-heaton": {
+    "ons": "00CJGS",
+    "gss": "E05001102"
+  },
+  "fawdon": {
+    "ons": "00CJGM",
+    "gss": "E05001097"
+  },
+  "north-jesmond": {
+    "ons": "00CJGT",
+    "gss": "E05001103"
+  },
+  "howdon": {
+    "ons": "00CKGD",
+    "gss": "E05001121"
+  },
+  "chirton": {
+    "ons": "00CKGA",
+    "gss": "E05001118"
+  },
+  "tynemouth": {
+    "ons": "00CKGN",
+    "gss": "E05001130"
+  },
+  "longbenton": {
+    "ons": "00CKGF",
+    "gss": "E05001123"
+  },
+  "camperdown": {
+    "ons": "00CKFZ",
+    "gss": "E05001117"
+  },
+  "weetslade": {
+    "ons": "00CKGR",
+    "gss": "E05001133"
+  },
+  "killingworth": {
+    "ons": "00CKGE",
+    "gss": "E05001122"
+  },
+  "valley": {
+    "ons": "00CFGR",
+    "gss": "E05001034"
+  },
+  "collingwood": {
+    "ons": "00CKGB",
+    "gss": "E05001119"
+  },
+  "monkseaton-south": {
+    "ons": "00CKGH",
+    "gss": "E05001125"
+  },
+  "benton": {
+    "ons": "00CKFY",
+    "gss": "E05001116"
+  },
+  "wallsend": {
+    "ons": "00CKGQ",
+    "gss": "E05001132"
+  },
+  "battle-hill": {
+    "ons": "00CKFX",
+    "gss": "E05001115"
+  },
+  "cullercoats": {
+    "ons": "00CKGC",
+    "gss": "E05001120"
+  },
+  "monkseaton-north": {
+    "ons": "00CKGG",
+    "gss": "E05001124"
+  },
+  "whitley-bay": {
+    "ons": "00CKGS",
+    "gss": "E05001134"
+  },
+  "failsworth-east": {
+    "ons": "00BPGD",
+    "gss": "E05000725"
+  },
+  "saddleworth-west-and-lees": {
+    "ons": "00BPGM",
+    "gss": "E05000733"
+  },
+  "royton-north": {
+    "ons": "00BPGH",
+    "gss": "E05000729"
+  },
+  "saddleworth-south": {
+    "ons": "00BPGL",
+    "gss": "E05000732"
+  },
+  "saddleworth-north": {
+    "ons": "00BPGK",
+    "gss": "E05000731"
+  },
+  "failsworth-west": {
+    "ons": "00BPGE",
+    "gss": "E05000726"
+  },
+  "chadderton-south": {
+    "ons": "00BPGA",
+    "gss": "E05000722"
+  },
+  "chadderton-central": {
+    "ons": "00BPFY",
+    "gss": "E05000720"
+  },
+  "hollinwood": {
+    "ons": "00BPGF",
+    "gss": "E05000727"
+  },
+  "medlock-vale": {
+    "ons": "00BPGG",
+    "gss": "E05000728"
+  },
+  "werneth": {
+    "ons": "00BPGS",
+    "gss": "E05000738"
+  },
+  "coldhurst": {
+    "ons": "00BPGB",
+    "gss": "E05000723"
+  },
+  "alexandra": {
+    "ons": "00BPFX",
+    "gss": "E05000719"
+  },
+  "chadderton-north": {
+    "ons": "00BPFZ",
+    "gss": "E05000721"
+  },
+  "royton-south": {
+    "ons": "00BPGJ",
+    "gss": "E05000730"
+  },
+  "waterhead": {
+    "ons": "00BPGR",
+    "gss": "E05000737"
+  },
+  "st-james": {
+    "ons": "00BPGN",
+    "gss": "E05000734"
+  },
+  "shaw": {
+    "ons": "00BPGQ",
+    "gss": "E05000736"
+  },
+  "wardle-and-west-littleborough": {
+    "ons": "00BQGQ",
+    "gss": "E05000756"
+  },
+  "norden": {
+    "ons": "00BQGJ",
+    "gss": "E05000750"
+  },
+  "south-middleton": {
+    "ons": "00BQGN",
+    "gss": "E05000754"
+  },
+  "north-middleton": {
+    "ons": "00BQGL",
+    "gss": "E05000752"
+  },
+  "west-middleton": {
+    "ons": "00BQGS",
+    "gss": "E05000758"
+  },
+  "hopwood-hall": {
+    "ons": "00BQGD",
+    "gss": "E05000745"
+  },
+  "castleton": {
+    "ons": "00BQFZ",
+    "gss": "E05000741"
+  },
+  "bamford": {
+    "ons": "00BQFY",
+    "gss": "E05000740"
+  },
+  "spotland-and-falinge": {
+    "ons": "00BQGP",
+    "gss": "E05000755"
+  },
+  "balderstone-and-kirkholt": {
+    "ons": "00BQFX",
+    "gss": "E05000739"
+  },
+  "milnrow-and-newhey": {
+    "ons": "00BQGH",
+    "gss": "E05000749"
+  },
+  "healey": {
+    "ons": "00BQGC",
+    "gss": "E05000744"
+  },
+  "littleborough-lakeside": {
+    "ons": "00BQGF",
+    "gss": "E05000747"
+  },
+  "east-middleton": {
+    "ons": "00BQGB",
+    "gss": "E05000743"
+  },
+  "west-heywood": {
+    "ons": "00BQGR",
+    "gss": "E05000757"
+  },
+  "north-heywood": {
+    "ons": "00BQGK",
+    "gss": "E05000751"
+  },
+  "milkstone-and-deeplish": {
+    "ons": "00BQGG",
+    "gss": "E05000748"
+  },
+  "kingsway": {
+    "ons": "00BQGE",
+    "gss": "E05000746"
+  },
+  "central-rochdale": {
+    "ons": "00BQGA",
+    "gss": "E05000742"
+  },
+  "smallbridge-and-firgrove": {
+    "ons": "00BQGM",
+    "gss": "E05000753"
+  },
+  "wales": {
+    "ons": "00CFGS",
+    "gss": "E05001035"
+  },
+  "rother-vale": {
+    "ons": "00CFGK",
+    "gss": "E05001028"
+  },
+  "wath": {
+    "ons": "00CFGT",
+    "gss": "E05001036"
+  },
+  "holderness": {
+    "ons": "00CFGE",
+    "gss": "E05001023"
+  },
+  "brinsworth-and-catcliffe": {
+    "ons": "00CFGB",
+    "gss": "E05001020"
+  },
+  "boston-castle": {
+    "ons": "00CFGA",
+    "gss": "E05001019"
+  },
+  "rotherham-west": {
+    "ons": "00CFGM",
+    "gss": "E05001030"
+  },
+  "keppel": {
+    "ons": "00CFGG",
+    "gss": "E05001025"
+  },
+  "hoober": {
+    "ons": "00CFGF",
+    "gss": "E05001024"
+  },
+  "sitwell": {
+    "ons": "00CFGP",
+    "gss": "E05001032"
+  },
+  "hellaby": {
+    "ons": "00CFGD",
+    "gss": "E05001022"
+  },
+  "maltby": {
+    "ons": "00CFGH",
+    "gss": "E05001026"
+  },
+  "silverwood": {
+    "ons": "00CFGN",
+    "gss": "E05001031"
+  },
+  "rotherham-east": {
+    "ons": "00CFGL",
+    "gss": "E05001029"
+  },
+  "wingfield": {
+    "ons": "00CFGW",
+    "gss": "E05001038"
+  },
+  "rawmarsh": {
+    "ons": "00CFGJ",
+    "gss": "E05001027"
+  },
+  "swinton": {
+    "ons": "00CFGQ",
+    "gss": "E05001033"
+  },
+  "wickersley": {
+    "ons": "00CFGU",
+    "gss": "E05001037"
+  },
+  "cadishead": {
+    "ons": "00BRGA",
+    "gss": "E05000762"
+  },
+  "irlam": {
+    "ons": "00BRGD",
+    "gss": "E05000765"
+  },
+  "boothstown-and-ellenbrook": {
+    "ons": "00BRFY",
+    "gss": "E05000760"
+  },
+  "kersal": {
+    "ons": "00BRGF",
+    "gss": "E05000767"
+  },
+  "barton": {
+    "ons": "00BRFX",
+    "gss": "E05000759"
+  },
+  "worsley": {
+    "ons": "00BRGS",
+    "gss": "E05000778"
+  },
+  "walkden-south": {
+    "ons": "00BRGP",
+    "gss": "E05000775"
+  },
+  "walkden-north": {
+    "ons": "00BRGN",
+    "gss": "E05000774"
+  },
+  "swinton-north": {
+    "ons": "00BRGL",
+    "gss": "E05000772"
+  },
+  "irwell-riverside": {
+    "ons": "00BRGE",
+    "gss": "E05000766"
+  },
+  "pendlebury": {
+    "ons": "00BRGK",
+    "gss": "E05000771"
+  },
+  "little-hulton": {
+    "ons": "00BRGH",
+    "gss": "E05000769"
+  },
+  "winton": {
+    "ons": "00BRGR",
+    "gss": "E05000777"
+  },
+  "eccles": {
+    "ons": "00BRGC",
+    "gss": "E05000764"
+  },
+  "swinton-south": {
+    "ons": "00BRGM",
+    "gss": "E05000773"
+  },
+  "weaste-and-seedley": {
+    "ons": "00BRGQ",
+    "gss": "E05000776"
+  },
+  "ordsall": {
+    "ons": "00BRGJ",
+    "gss": "E05000770"
+  },
+  "langworthy": {
+    "ons": "00BRGG",
+    "gss": "E05000768"
+  },
+  "claremont": {
+    "ons": "00BRGB",
+    "gss": "E05000763"
+  },
+  "broughton": {
+    "ons": "00BRFZ",
+    "gss": "E05000761"
+  },
+  "great-barr-with-yew-tree": {
+    "ons": "00CSGH",
+    "gss": "E05001266"
+  },
+  "oldbury": {
+    "ons": "00CSGQ",
+    "gss": "E05001273"
+  },
+  "west-bromwich-central": {
+    "ons": "00CSHB",
+    "gss": "E05001283"
+  },
+  "cradley-heath-and-old-hill": {
+    "ons": "00CSGF",
+    "gss": "E05001264"
+  },
+  "blackheath": {
+    "ons": "00CSGC",
+    "gss": "E05001261"
+  },
+  "rowley": {
+    "ons": "00CSGS",
+    "gss": "E05001275"
+  },
+  "tividale": {
+    "ons": "00CSGY",
+    "gss": "E05001280"
+  },
+  "langley": {
+    "ons": "00CSGM",
+    "gss": "E05001270"
+  },
+  "old-warley": {
+    "ons": "00CSGP",
+    "gss": "E05001272"
+  },
+  "bristnall": {
+    "ons": "00CSGD",
+    "gss": "E05001262"
+  },
+  "st-pauls": {
+    "ons": "00CSGT",
+    "gss": "E05001276"
+  },
+  "soho-and-victoria": {
+    "ons": "00CSGW",
+    "gss": "E05001278"
+  },
+  "tipton-green": {
+    "ons": "00CSGX",
+    "gss": "E05001279"
+  },
+  "great-bridge": {
+    "ons": "00CSGJ",
+    "gss": "E05001267"
+  },
+  "greets-green-and-lyng": {
+    "ons": "00CSGK",
+    "gss": "E05001268"
+  },
+  "wednesbury-south": {
+    "ons": "00CSHA",
+    "gss": "E05001282"
+  },
+  "hateley-heath": {
+    "ons": "00CSGL",
+    "gss": "E05001269"
+  },
+  "wednesbury-north": {
+    "ons": "00CSGZ",
+    "gss": "E05001281"
+  },
+  "friar-park": {
+    "ons": "00CSGG",
+    "gss": "E05001265"
+  },
+  "newton": {
+    "ons": "00BZGC",
+    "gss": "E05000923"
+  },
+  "charlemont-with-grove-vale": {
+    "ons": "00CSGE",
+    "gss": "E05001263"
+  },
+  "abbey": {
+    "ons": "00CSGB",
+    "gss": "E05001260"
+  },
+  "smethwick": {
+    "ons": "00CSGU",
+    "gss": "E05001277"
+  },
+  "princes-end": {
+    "ons": "00CSGR",
+    "gss": "E05001274"
+  },
+  "meols": {
+    "ons": "00CAHN",
+    "gss": "E05000945"
+  },
+  "manor": {
+    "ons": "00BSGN",
+    "gss": "E05000793"
+  },
+  "molyneux": {
+    "ons": "00CAHP",
+    "gss": "E05000946"
+  },
+  "harington": {
+    "ons": "00CAHH",
+    "gss": "E05000940"
+  },
+  "ravenmeols": {
+    "ons": "00CAHT",
+    "gss": "E05000950"
+  },
+  "ainsdale": {
+    "ons": "00CAGZ",
+    "gss": "E05000932"
+  },
+  "dukes": {
+    "ons": "00CAHF",
+    "gss": "E05000938"
+  },
+  "blundellsands": {
+    "ons": "00CAHB",
+    "gss": "E05000934"
+  },
+  "linacre": {
+    "ons": "00CAHK",
+    "gss": "E05000942"
+  },
+  "ford": {
+    "ons": "00CAHG",
+    "gss": "E05000939"
+  },
+  "netherton-and-orrell": {
+    "ons": "00CAHQ",
+    "gss": "E05000947"
+  },
+  "st-oswald": {
+    "ons": "00CAHU",
+    "gss": "E05000951"
+  },
+  "sudell": {
+    "ons": "00CAHW",
+    "gss": "E05000952"
+  },
+  "birkdale": {
+    "ons": "00CAHA",
+    "gss": "E05000933"
+  },
+  "norwood": {
+    "ons": "00CAHR",
+    "gss": "E05000948"
+  },
+  "litherland": {
+    "ons": "00CAHL",
+    "gss": "E05000943"
+  },
+  "victoria": {
+    "ons": "00CAHX",
+    "gss": "E05000953"
+  },
+  "kew": {
+    "ons": "00CAHJ",
+    "gss": "E05000941"
+  },
+  "mosborough": {
+    "ons": "00CGHB",
+    "gss": "E05001057"
+  },
+  "stocksbridge-and-upper-don": {
+    "ons": "00CGHH",
+    "gss": "E05001063"
+  },
+  "dore-and-totley": {
+    "ons": "00CGGR",
+    "gss": "E05001048"
+  },
+  "fulwood": {
+    "ons": "00CGGW",
+    "gss": "E05001052"
+  },
+  "ecclesall": {
+    "ons": "00CGGT",
+    "gss": "E05001050"
+  },
+  "darnall": {
+    "ons": "00CGGQ",
+    "gss": "E05001047"
+  },
+  "stannington": {
+    "ons": "00CGHG",
+    "gss": "E05001062"
+  },
+  "east-ecclesfield": {
+    "ons": "00CGGS",
+    "gss": "E05001049"
+  },
+  "west-ecclesfield": {
+    "ons": "00CGHK",
+    "gss": "E05001065"
+  },
+  "beauchief-and-greenhill": {
+    "ons": "00CGGH",
+    "gss": "E05001040"
+  },
+  "nether-edge": {
+    "ons": "00CGHC",
+    "gss": "E05001058"
+  },
+  "crookes": {
+    "ons": "00CGGP",
+    "gss": "E05001046"
+  },
+  "graves-park": {
+    "ons": "00CGGY",
+    "gss": "E05001054"
+  },
+  "gleadless-valley": {
+    "ons": "00CGGX",
+    "gss": "E05001053"
+  },
+  "arbourthorne": {
+    "ons": "00CGGG",
+    "gss": "E05001039"
+  },
+  "manor-castle": {
+    "ons": "00CGHA",
+    "gss": "E05001056"
+  },
+  "birley": {
+    "ons": "00CGGK",
+    "gss": "E05001042"
+  },
+  "richmond": {
+    "ons": "00CGHD",
+    "gss": "E05001059"
+  },
+  "beighton": {
+    "ons": "00CGGJ",
+    "gss": "E05001041"
+  },
+  "woodhouse": {
+    "ons": "00CGHL",
+    "gss": "E05001066"
+  },
+  "walkley": {
+    "ons": "00CGHJ",
+    "gss": "E05001064"
+  },
+  "hillsborough": {
+    "ons": "00CGGZ",
+    "gss": "E05001055"
+  },
+  "southey": {
+    "ons": "00CGHF",
+    "gss": "E05001061"
+  },
+  "burngreave": {
+    "ons": "00CGGM",
+    "gss": "E05001044"
+  },
+  "firth-park": {
+    "ons": "00CGGU",
+    "gss": "E05001051"
+  },
+  "shiregreen-and-brightside": {
+    "ons": "00CGHE",
+    "gss": "E05001060"
+  },
+  "broomhill": {
+    "ons": "00CGGL",
+    "gss": "E05001043"
+  },
+  "meriden": {
+    "ons": "00CTGD",
+    "gss": "E05001293"
+  },
+  "bickenhill": {
+    "ons": "00CTFT",
+    "gss": "E05001284"
+  },
+  "blythe": {
+    "ons": "00CTFU",
+    "gss": "E05001285"
+  },
+  "dorridge-and-hockley-heath": {
+    "ons": "00CTFY",
+    "gss": "E05001288"
+  },
+  "shirley-south": {
+    "ons": "00CTGH",
+    "gss": "E05001297"
+  },
+  "st-alphege": {
+    "ons": "00CTGF",
+    "gss": "E05001295"
+  },
+  "knowle": {
+    "ons": "00CTGB",
+    "gss": "E05001291"
+  },
+  "silhill": {
+    "ons": "00CTGK",
+    "gss": "E05001299"
+  },
+  "kingshurst-and-fordbridge": {
+    "ons": "00CTGA",
+    "gss": "E05001290"
+  },
+  "shirley-west": {
+    "ons": "00CTGJ",
+    "gss": "E05001298"
+  },
+  "shirley-east": {
+    "ons": "00CTGG",
+    "gss": "E05001296"
+  },
+  "olton": {
+    "ons": "00CTGE",
+    "gss": "E05001294"
+  },
+  "elmdon": {
+    "ons": "00CTFZ",
+    "gss": "E05001289"
+  },
+  "lyndon": {
+    "ons": "00CTGC",
+    "gss": "E05001292"
+  },
+  "castle-bromwich": {
+    "ons": "00CTFW",
+    "gss": "E05001286"
+  },
+  "smiths-wood": {
+    "ons": "00CTGL",
+    "gss": "E05001300"
+  },
+  "chelmsley-wood": {
+    "ons": "00CTFX",
+    "gss": "E05001287"
+  },
+  "fellgate-and-hedworth": {
+    "ons": "00CLGD",
+    "gss": "E05001141"
+  },
+  "boldon-colliery": {
+    "ons": "00CLGA",
+    "gss": "E05001138"
+  },
+  "whitburn-and-marsden": {
+    "ons": "00CLGP",
+    "gss": "E05001151"
+  },
+  "hebburn-south": {
+    "ons": "00CLGG",
+    "gss": "E05001144"
+  },
+  "monkton": {
+    "ons": "00CLGJ",
+    "gss": "E05001146"
+  },
+  "hebburn-north": {
+    "ons": "00CLGF",
+    "gss": "E05001143"
+  },
+  "primrose": {
+    "ons": "00CLGK",
+    "gss": "E05001147"
+  },
+  "bede": {
+    "ons": "00CLFY",
+    "gss": "E05001136"
+  },
+  "biddick-and-all-saints": {
+    "ons": "00CLFZ",
+    "gss": "E05001137"
+  },
+  "simonside-and-rekendyke": {
+    "ons": "00CLGL",
+    "gss": "E05001148"
+  },
+  "whiteleas": {
+    "ons": "00CLGQ",
+    "gss": "E05001152"
+  },
+  "cleadon-park": {
+    "ons": "00CLGC",
+    "gss": "E05001140"
+  },
+  "cleadon-and-east-boldon": {
+    "ons": "00CLGB",
+    "gss": "E05001139"
+  },
+  "beacon-and-bents": {
+    "ons": "00CLFX",
+    "gss": "E05001135"
+  },
+  "harton": {
+    "ons": "00CLGE",
+    "gss": "E05001142"
+  },
+  "horsley-hill": {
+    "ons": "00CLGH",
+    "gss": "E05001145"
+  },
+  "west-park": {
+    "ons": "00BZGK",
+    "gss": "E05000930"
+  },
+  "westoe": {
+    "ons": "00CLGM",
+    "gss": "E05001149"
+  },
+  "bramhall-south": {
+    "ons": "00BSFZ",
+    "gss": "E05000780"
+  },
+  "cheadle-hulme-south": {
+    "ons": "00BSGF",
+    "gss": "E05000786"
+  },
+  "bredbury-green-and-romiley": {
+    "ons": "00BSGB",
+    "gss": "E05000782"
+  },
+  "cheadle-hulme-north": {
+    "ons": "00BSGE",
+    "gss": "E05000785"
+  },
+  "davenport-and-cale-green": {
+    "ons": "00BSGG",
+    "gss": "E05000787"
+  },
+  "marple-north": {
+    "ons": "00BSGP",
+    "gss": "E05000794"
+  },
+  "heatons-south": {
+    "ons": "00BSGM",
+    "gss": "E05000792"
+  },
+  "brinnington-and-central": {
+    "ons": "00BSGC",
+    "gss": "E05000783"
+  },
+  "stepping-hill": {
+    "ons": "00BSGU",
+    "gss": "E05000799"
+  },
+  "marple-south": {
+    "ons": "00BSGQ",
+    "gss": "E05000795"
+  },
+  "bredbury-and-woodley": {
+    "ons": "00BSGA",
+    "gss": "E05000781"
+  },
+  "heald-green": {
+    "ons": "00BSGK",
+    "gss": "E05000790"
+  },
+  "bramhall-north": {
+    "ons": "00BSFY",
+    "gss": "E05000779"
+  },
+  "hazel-grove": {
+    "ons": "00BSGJ",
+    "gss": "E05000789"
+  },
+  "cheadle-and-gatley": {
+    "ons": "00BSGD",
+    "gss": "E05000784"
+  },
+  "edgeley-and-cheadle-heath": {
+    "ons": "00BSGH",
+    "gss": "E05000788"
+  },
+  "heatons-north": {
+    "ons": "00BSGL",
+    "gss": "E05000791"
+  },
+  "reddish-south": {
+    "ons": "00BSGT",
+    "gss": "E05000798"
+  },
+  "reddish-north": {
+    "ons": "00BSGS",
+    "gss": "E05000797"
+  },
+  "offerton": {
+    "ons": "00BSGR",
+    "gss": "E05000796"
+  },
+  "eccleston": {
+    "ons": "00BZFZ",
+    "gss": "E05000920"
+  },
+  "haydock": {
+    "ons": "00BZGA",
+    "gss": "E05000921"
+  },
+  "rainhill": {
+    "ons": "00BZGF",
+    "gss": "E05000926"
+  },
+  "thatto-heath": {
+    "ons": "00BZGH",
+    "gss": "E05000928"
+  },
+  "bold": {
+    "ons": "00BZFX",
+    "gss": "E05000918"
+  },
+  "town-centre": {
+    "ons": "00BZGJ",
+    "gss": "E05000929"
+  },
+  "rainford": {
+    "ons": "00BZGE",
+    "gss": "E05000925"
+  },
+  "parr": {
+    "ons": "00BZGD",
+    "gss": "E05000924"
+  },
+  "earlestown": {
+    "ons": "00BZFY",
+    "gss": "E05000919"
+  },
+  "billinge-and-seneley-green": {
+    "ons": "00BZFU",
+    "gss": "E05000916"
+  },
+  "windle": {
+    "ons": "00BZGL",
+    "gss": "E05000931"
+  },
+  "moss-bank": {
+    "ons": "00BZGB",
+    "gss": "E05000922"
+  },
+  "blackbrook": {
+    "ons": "00BZFW",
+    "gss": "E05000917"
+  },
+  "houghton": {
+    "ons": "00CMGK",
+    "gss": "E05001160"
+  },
+  "fulwell": {
+    "ons": "00CMGG",
+    "gss": "E05001157"
+  },
+  "hetton": {
+    "ons": "00CMGJ",
+    "gss": "E05001159"
+  },
+  "copt-hill": {
+    "ons": "00CMGE",
+    "gss": "E05001155"
+  },
+  "washington-east": {
+    "ons": "00CMHA",
+    "gss": "E05001174"
+  },
+  "washington-west": {
+    "ons": "00CMHD",
+    "gss": "E05001177"
+  },
+  "washington-north": {
+    "ons": "00CMHB",
+    "gss": "E05001175"
+  },
+  "shiney-row": {
+    "ons": "00CMGW",
+    "gss": "E05001170"
+  },
+  "doxford": {
+    "ons": "00CMGF",
+    "gss": "E05001156"
+  },
+  "sandhill": {
+    "ons": "00CMGU",
+    "gss": "E05001169"
+  },
+  "st-annes": {
+    "ons": "00CMGQ",
+    "gss": "E05001165"
+  },
+  "redhill": {
+    "ons": "00CMGN",
+    "gss": "E05001163"
+  },
+  "hendon": {
+    "ons": "00CMGH",
+    "gss": "E05001158"
+  },
+  "southwick": {
+    "ons": "00CMGY",
+    "gss": "E05001172"
+  },
+  "washington-south": {
+    "ons": "00CMHC",
+    "gss": "E05001176"
+  },
+  "washington-central": {
+    "ons": "00CMGZ",
+    "gss": "E05001173"
+  },
+  "st-chads": {
+    "ons": "00CMGR",
+    "gss": "E05001166"
+  },
+  "barnes": {
+    "ons": "00CMGC",
+    "gss": "E05001153"
+  },
+  "silksworth": {
+    "ons": "00CMGX",
+    "gss": "E05001171"
+  },
+  "ryhope": {
+    "ons": "00CMGP",
+    "gss": "E05001164"
+  },
+  "pallion": {
+    "ons": "00CMGM",
+    "gss": "E05001162"
+  },
+  "millfield": {
+    "ons": "00CMGL",
+    "gss": "E05001161"
+  },
+  "denton-south": {
+    "ons": "00BTGB",
+    "gss": "E05000805"
+  },
+  "denton-west": {
+    "ons": "00BTGC",
+    "gss": "E05000806"
+  },
+  "denton-north-east": {
+    "ons": "00BTGA",
+    "gss": "E05000804"
+  },
+  "stalybridge-north": {
+    "ons": "00BTGP",
+    "gss": "E05000817"
+  },
+  "hyde-werneth": {
+    "ons": "00BTGK",
+    "gss": "E05000813"
+  },
+  "hyde-newton": {
+    "ons": "00BTGJ",
+    "gss": "E05000812"
+  },
+  "hyde-godley": {
+    "ons": "00BTGH",
+    "gss": "E05000811"
+  },
+  "longdendale": {
+    "ons": "00BTGL",
+    "gss": "E05000814"
+  },
+  "audenshaw": {
+    "ons": "00BTFZ",
+    "gss": "E05000803"
+  },
+  "dukinfield": {
+    "ons": "00BTGF",
+    "gss": "E05000809"
+  },
+  "droylsden-east": {
+    "ons": "00BTGD",
+    "gss": "E05000807"
+  },
+  "redcar-and-cleveland": {
+    "ons": "00EE",
+    "gss": "E06000003"
+  },
+  "ashton-waterloo": {
+    "ons": "00BTFY",
+    "gss": "E05000802"
+  },
+  "ashton-hurst": {
+    "ons": "00BTFW",
+    "gss": "E05000800"
+  },
+  "mossley": {
+    "ons": "00BTGM",
+    "gss": "E05000815"
+  },
+  "droylsden-west": {
+    "ons": "00BTGE",
+    "gss": "E05000808"
+  },
+  "ashton-st-michaels": {
+    "ons": "00BTFX",
+    "gss": "E05000801"
+  },
+  "dukinfield-stalybridge": {
+    "ons": "00BTGG",
+    "gss": "E05000810"
+  },
+  "bowdon": {
+    "ons": "00BUGA",
+    "gss": "E05000821"
+  },
+  "altrincham": {
+    "ons": "00BUFY",
+    "gss": "E05000819"
+  },
+  "broadheath": {
+    "ons": "00BUGB",
+    "gss": "E05000822"
+  },
+  "hale-central": {
+    "ons": "00BUGL",
+    "gss": "E05000831"
+  },
+  "hale-barns": {
+    "ons": "00BUGK",
+    "gss": "E05000830"
+  },
+  "clifford": {
+    "ons": "00BUGE",
+    "gss": "E05000825"
+  },
+  "priory": {
+    "ons": "00BUGN",
+    "gss": "E05000833"
+  },
+  "sale-moor": {
+    "ons": "00BUGQ",
+    "gss": "E05000835"
+  },
+  "flixton": {
+    "ons": "00BUGH",
+    "gss": "E05000828"
+  },
+  "bucklowst-martins": {
+    "ons": "00BUGD",
+    "gss": "E05000824"
+  },
+  "rutland": {
+    "ons": "00FP",
+    "gss": "E06000017"
+  },
+  "davyhulme-west": {
+    "ons": "00BUGG",
+    "gss": "E05000827"
+  },
+  "davyhulme-east": {
+    "ons": "00BUGF",
+    "gss": "E05000826"
+  },
+  "stretford": {
+    "ons": "00BUGR",
+    "gss": "E05000836"
+  },
+  "gorse-hill": {
+    "ons": "00BUGJ",
+    "gss": "E05000829"
+  },
+  "timperley": {
+    "ons": "00BUGS",
+    "gss": "E05000837"
+  },
+  "scottish-borders": {
+    "ons": "00QE",
+    "gss": "S12000026"
+  },
+  "ashton-upon-mersey": {
+    "ons": "00BUFZ",
+    "gss": "E05000820"
+  },
+  "hemsworth": {
+    "ons": "00DBGE",
+    "gss": "E05001450"
+  },
+  "south-elmsall-and-south-kirkby": {
+    "ons": "00DBGM",
+    "gss": "E05001457"
+  },
+  "denbighshire": {
+    "ons": "00NG",
+    "gss": "W06000004"
+  },
+  "wakefield-rural": {
+    "ons": "00DBGR",
+    "gss": "E05001461"
+  },
+  "knottingley": {
+    "ons": "00DBGG",
+    "gss": "E05001452"
+  },
+  "wrenthorpe-and-outwood-west": {
+    "ons": "00DBGU",
+    "gss": "E05001464"
+  },
+  "stanley-and-outwood-east": {
+    "ons": "00DBGN",
+    "gss": "E05001458"
+  },
+  "featherstone": {
+    "ons": "00DBGD",
+    "gss": "E05001449"
+  },
+  "crofton-ryhill-and-walton": {
+    "ons": "00DBGC",
+    "gss": "E05001448"
+  },
+  "ackworth-north-elmsall-and-upton": {
+    "ons": "00DBFY",
+    "gss": "E05001444"
+  },
+  "pontefract-south": {
+    "ons": "00DBGL",
+    "gss": "E05001456"
+  },
+  "normanton": {
+    "ons": "00DBGH",
+    "gss": "E05001453"
+  },
+  "altofts-and-whitwood": {
+    "ons": "00DBGA",
+    "gss": "E05001446"
+  },
+  "horbury-and-south-ossett": {
+    "ons": "00DBGF",
+    "gss": "E05001451"
+  },
+  "carmarthenshire": {
+    "ons": "00NU",
+    "gss": "W06000010"
+  },
+  "wakefield-west": {
+    "ons": "00DBGT",
+    "gss": "E05001463"
+  },
+  "wakefield-north": {
+    "ons": "00DBGQ",
+    "gss": "E05001460"
+  },
+  "wakefield-east": {
+    "ons": "00DBGP",
+    "gss": "E05001459"
+  },
+  "pontefract-north": {
+    "ons": "00DBGK",
+    "gss": "E05001455"
+  },
+  "castleford-central-and-glasshoughton": {
+    "ons": "00DBGB",
+    "gss": "E05001447"
+  },
+  "airedale-and-ferry-fryston": {
+    "ons": "00DBFZ",
+    "gss": "E05001445"
+  },
+  "streetly": {
+    "ons": "00CUGQ",
+    "gss": "E05001318"
+  },
+  "darlaston-south": {
+    "ons": "00CUGF",
+    "gss": "E05001309"
+  },
+  "willenhall-south": {
+    "ons": "00CUGS",
+    "gss": "E05001320"
+  },
+  "bentley-and-darlaston-north": {
+    "ons": "00CUFZ",
+    "gss": "E05001303"
+  },
+  "pleck": {
+    "ons": "00CUGL",
+    "gss": "E05001314"
+  },
+  "palfrey": {
+    "ons": "00CUGH",
+    "gss": "E05001311"
+  },
+  "st-matthews": {
+    "ons": "00CUGN",
+    "gss": "E05001316"
+  },
+  "paddock": {
+    "ons": "00CUGG",
+    "gss": "E05001310"
+  },
+  "pheasey-park-farm": {
+    "ons": "00CUGK",
+    "gss": "E05001313"
+  },
+  "short-heath": {
+    "ons": "00CUGP",
+    "gss": "E05001317"
+  },
+  "birchills-leamore": {
+    "ons": "00CUGA",
+    "gss": "E05001304"
+  },
+  "willenhall-north": {
+    "ons": "00CUGR",
+    "gss": "E05001319"
+  },
+  "bloxwich-east": {
+    "ons": "00CUGC",
+    "gss": "E05001306"
+  },
+  "blakenall": {
+    "ons": "00CUGB",
+    "gss": "E05001305"
+  },
+  "aldridge-central-and-south": {
+    "ons": "00CUFX",
+    "gss": "E05001301"
+  },
+  "rushallshelfield": {
+    "ons": "00CUGM",
+    "gss": "E05001315"
+  },
+  "pelsall": {
+    "ons": "00CUGJ",
+    "gss": "E05001312"
+  },
+  "aldridge-north-and-walsall-wood": {
+    "ons": "00CUFY",
+    "gss": "E05001302"
+  },
+  "brownhills": {
+    "ons": "00CUGE",
+    "gss": "E05001308"
+  },
+  "bloxwich-west": {
+    "ons": "00CUGD",
+    "gss": "E05001307"
+  },
+  "astley-mosley-common": {
+    "ons": "00BWGE",
+    "gss": "E05000843"
+  },
+  "ashton": {
+    "ons": "00BWGC",
+    "gss": "E05000841"
+  },
+  "aspull-new-springs-whelley": {
+    "ons": "00BWGD",
+    "gss": "E05000842"
+  },
+  "golborne-and-lowton-west": {
+    "ons": "00BWGK",
+    "gss": "E05000848"
+  },
+  "lowton-east": {
+    "ons": "00BWGS",
+    "gss": "E05000855"
+  },
+  "leigh-west": {
+    "ons": "00BWGR",
+    "gss": "E05000854"
+  },
+  "leigh-south": {
+    "ons": "00BWGQ",
+    "gss": "E05000853"
+  },
+  "orrell": {
+    "ons": "00BWGT",
+    "gss": "E05000856"
+  },
+  "wigan-central": {
+    "ons": "00BWGZ",
+    "gss": "E05000861"
+  },
+  "shevington-with-lower-ground": {
+    "ons": "00BWGW",
+    "gss": "E05000858"
+  },
+  "standish-with-langtree": {
+    "ons": "00BWGX",
+    "gss": "E05000859"
+  },
+  "abram": {
+    "ons": "00BWGB",
+    "gss": "E05000840"
+  },
+  "hindley-green": {
+    "ons": "00BWGM",
+    "gss": "E05000850"
+  },
+  "atherleigh": {
+    "ons": "00BWGF",
+    "gss": "E05000844"
+  },
+  "atherton": {
+    "ons": "00BWGG",
+    "gss": "E05000845"
+  },
+  "bryn": {
+    "ons": "00BWGH",
+    "gss": "E05000846"
+  },
+  "leigh-east": {
+    "ons": "00BWGP",
+    "gss": "E05000852"
+  },
+  "winstanley": {
+    "ons": "00BWHB",
+    "gss": "E05000863"
+  },
+  "pemberton": {
+    "ons": "00BWGU",
+    "gss": "E05000857"
+  },
+  "worsley-mesnes": {
+    "ons": "00BWHC",
+    "gss": "E05000864"
+  },
+  "douglas": {
+    "ons": "00BWGJ",
+    "gss": "E05000847"
+  },
+  "swindon": {
+    "ons": "00HX",
+    "gss": "E06000030"
+  },
+  "ince": {
+    "ons": "00BWGN",
+    "gss": "E05000851"
+  },
+  "hindley": {
+    "ons": "00BWGL",
+    "gss": "E05000849"
+  },
+  "tyldesley": {
+    "ons": "00BWGY",
+    "gss": "E05000860"
+  },
+  "eastham": {
+    "ons": "00CBGF",
+    "gss": "E05000960"
+  },
+  "heswall": {
+    "ons": "00CBGH",
+    "gss": "E05000962"
+  },
+  "clatterbridge": {
+    "ons": "00CBGD",
+    "gss": "E05000958"
+  },
+  "bromborough": {
+    "ons": "00CBGC",
+    "gss": "E05000957"
+  },
+  "west-kirby-and-thurstaston": {
+    "ons": "00CBGX",
+    "gss": "E05000975"
+  },
+  "hoylake-and-meols": {
+    "ons": "00CBGJ",
+    "gss": "E05000963"
+  },
+  "moreton-west-and-saughall-massie": {
+    "ons": "00CBGM",
+    "gss": "E05000966"
+  },
+  "pensby-and-thingwall": {
+    "ons": "00CBGQ",
+    "gss": "E05000969"
+  },
+  "darton-east": {
+    "ons": "00CCGC",
+    "gss": "E05000979"
+  },
+  "claughton": {
+    "ons": "00CBGE",
+    "gss": "E05000959"
+  },
+  "bidston-and-st-james": {
+    "ons": "00CBGA",
+    "gss": "E05000955"
+  },
+  "wallasey": {
+    "ons": "00CBGW",
+    "gss": "E05000974"
+  },
+  "bebington": {
+    "ons": "00CBFZ",
+    "gss": "E05000954"
+  },
+  "greasby-frankby-and-irby": {
+    "ons": "00CBGG",
+    "gss": "E05000961"
+  },
+  "thurrock": {
+    "ons": "00KG",
+    "gss": "E06000034"
+  },
+  "prenton": {
+    "ons": "00CBGR",
+    "gss": "E05000970"
+  },
+  "oxton": {
+    "ons": "00CBGP",
+    "gss": "E05000968"
+  },
+  "birkenhead-and-tranmere": {
+    "ons": "00CBGB",
+    "gss": "E05000956"
+  },
+  "seacombe": {
+    "ons": "00CBGT",
+    "gss": "E05000972"
+  },
+  "rock-ferry": {
+    "ons": "00CBGS",
+    "gss": "E05000971"
+  },
+  "liscard": {
+    "ons": "00CBGL",
+    "gss": "E05000965"
+  },
+  "new-brighton": {
+    "ons": "00CBGN",
+    "gss": "E05000967"
+  },
+  "weoley": {
+    "ons": "00CNJK",
+    "gss": "E05001217"
+  },
+  "temple-newsam": {
+    "ons": "00DAHT",
+    "gss": "E05001441"
   },
   "isle-of-anglesey": {
     "ons": "00NA",
     "gss": "W06000001"
   },
+  "west-berkshire": {
+    "ons": "00MB",
+    "gss": "E06000037"
+  },
+  "worsbrough": {
+    "ons": "00CCGW",
+    "gss": "E05000996"
+  },
+  "west-dunbartonshire": {
+    "ons": "00QG",
+    "gss": "S12000039"
+  },
+  "west-lothian": {
+    "ons": "00RH",
+    "gss": "S12000040"
+  },
+  "windsor-and-maidenhead": {
+    "ons": "00ME",
+    "gss": "E06000040"
+  },
+  "wokingham": {
+    "ons": "00MF",
+    "gss": "E06000041"
+  },
+  "wrexham": {
+    "ons": "00NL",
+    "gss": "W06000006"
+  },
+  "sutton-trinity": {
+    "ons": "00CNJF",
+    "gss": "E05001213"
+  },
+  "longbridge": {
+    "ons": "00CNHK",
+    "gss": "E05001194"
+  },
+  "northfield": {
+    "ons": "00CNHP",
+    "gss": "E05001198"
+  },
+  "wombwell": {
+    "ons": "00CCGU",
+    "gss": "E05000995"
+  },
+  "south-hams": {
+    "ons": "18UG",
+    "gss": "E07000044"
+  },
+  "torridge": {
+    "ons": "18UK",
+    "gss": "E07000046"
+  },
+  "urmston": {
+    "ons": "00BUGT",
+    "gss": "E05000838"
+  },
+  "cheshire-west-and-chester": {
+    "ons": "00EW",
+    "gss": "E06000050"
+  },
+  "village": {
+    "ons": "00BUGU",
+    "gss": "E05000839"
+  },
+  "cheshire-east": {
+    "ons": "00EQ",
+    "gss": "E06000049"
+  },
   "gwynedd": {
     "ons": "00NC",
     "gss": "W06000002"
+  },
+  "hall-green": {
+    "ons": "00CNHC",
+    "gss": "E05001187"
+  },
+  "springfield": {
+    "ons": "00CNJA",
+    "gss": "E05001208"
+  },
+  "pembrokeshire": {
+    "ons": "00NS",
+    "gss": "W06000009"
+  },
+  "sparkbrook": {
+    "ons": "00CNHZ",
+    "gss": "E05001207"
+  },
+  "ossett": {
+    "ons": "00DBGJ",
+    "gss": "E05001454"
+  },
+  "south-yardley": {
+    "ons": "00CNHY",
+    "gss": "E05001206"
+  },
+  "moray": {
+    "ons": "00QX",
+    "gss": "S12000020"
+  },
+  "sheldon": {
+    "ons": "00CNHW",
+    "gss": "E05001204"
+  },
+  "stechford-and-yardley-north": {
+    "ons": "00CNJB",
+    "gss": "E05001209"
+  },
+  "stratfordonavon": {
+    "ons": "44UE",
+    "gss": "E07000221"
+  },
+  "soho": {
+    "ons": "00CNHX",
+    "gss": "E05001205"
+  },
+  "handsworth-wood": {
+    "ons": "00CNHD",
+    "gss": "E05001188"
+  },
+  "lozells-and-east-handsworth": {
+    "ons": "00CNHL",
+    "gss": "E05001195"
+  },
+  "aston": {
+    "ons": "00CNGT",
+    "gss": "E05001179"
+  },
+  "washwood-heath": {
+    "ons": "00CNJJ",
+    "gss": "E05001216"
+  },
+  "hodge-hill": {
+    "ons": "00CNHF",
+    "gss": "E05001190"
+  },
+  "stockland-green": {
+    "ons": "00CNJC",
+    "gss": "E05001210"
+  },
+  "stairfoot": {
+    "ons": "00CCGT",
+    "gss": "E05000994"
+  },
+  "north-ayrshire": {
+    "ons": "00QY",
+    "gss": "S12000021"
+  },
+  "wakefield-south": {
+    "ons": "00DBGS",
+    "gss": "E05001462"
+  },
+  "south-ayrshire": {
+    "ons": "00RE",
+    "gss": "S12000028"
+  },
+  "moseley-and-kings-heath": {
+    "ons": "00CNHM",
+    "gss": "E05001196"
+  },
+  "kingstanding": {
+    "ons": "00CNHH",
+    "gss": "E05001192"
+  },
+  "portsmouth": {
+    "ons": "00MR",
+    "gss": "E06000044"
+  },
+  "westhoughton-south": {
+    "ons": "00BLGS",
+    "gss": "E05000669"
+  },
+  "torfaen": {
+    "ons": "00PM",
+    "gss": "W06000020"
+  },
+  "stocktonontees": {
+    "ons": "00EF",
+    "gss": "E06000004"
+  },
+  "rhondda-cynon-taf": {
+    "ons": "00PF",
+    "gss": "W06000016"
+  },
+  "stirling": {
+    "ons": "00RG",
+    "gss": "S12000030"
+  },
+  "wyke": {
+    "ons": "00CXHP",
+    "gss": "E05001370"
+  },
+  "tonbridge-and-malling": {
+    "ons": "29UP",
+    "gss": "E07000115"
+  },
+  "wibsey": {
+    "ons": "00CXHL",
+    "gss": "E05001367"
+  },
+  "wigan-west": {
+    "ons": "00BWHA",
+    "gss": "E05000862"
+  },
+  "leasowe-and-moreton-east": {
+    "ons": "00CBGK",
+    "gss": "E05000964"
+  },
+  "warrington": {
+    "ons": "00EU",
+    "gss": "E06000007"
   },
   "derry": {
     "ons": "95A",
@@ -1578,6 +4838,10 @@
   "castlereagh": {
     "ons": "95Y",
     "gss": null
+  },
+  "upton": {
+    "ons": "00CBGU",
+    "gss": "E05000973"
   },
   "belfast": {
     "ons": "95Z",

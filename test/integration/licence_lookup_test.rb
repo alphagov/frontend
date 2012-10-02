@@ -20,9 +20,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
       @artefact = {
         "title" => "Licence to Kill",
-        "kind" => "licence",
+        "format" => "licence",
         "details" => {
-          "format" => "licence",
+          "format" => "Licence",
           "licence" => {
             "location_specific" => true,
             "availability" => ["England","Wales"],
@@ -171,7 +171,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
     should "show message to contact local authority" do
       visit '/licence-to-kill'
 
-      assert page.has_content?('contact your your local authority')
+      assert page.has_content?('contact your local authority')
     end
   end
 
@@ -180,9 +180,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       setup_api_responses('licence-to-turn-off-a-telescreen')
       content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
         "title" => "Licence to turn off a telescreen",
-        "kind" => "licence",
+        "format" => "licence",
         "details" => {
-          "format" => "licence",
+          "format" => "Licence",
           "licence" => {
             "location_specific" => false,
             "availability" => ["England","Wales"],
@@ -272,9 +272,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       setup_api_responses('licence-to-turn-off-a-telescreen')
       content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
         "title" => "Licence to turn off a telescreen",
-        "kind" => "licence",
+        "format" => "licence",
         "details" => {
-          "format" => "licence",
+          "format" => "Licence",
           "licence" => {
             "location_specific" => false,
             "availability" => ["England","Wales"],
@@ -316,24 +316,26 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a location-specific licence which does not exist in licensify for an authority" do
     setup do
-      setup_api_responses("licence-to-kill")
-      content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", {
+      @artefact = {
         "title" => "Licence to Kill",
-        "kind" => "licence",
+        "format" => "licence",
         "details" => {
-          "format" => "licence"
+          "format" => "Licence"
         },
         "tags" => [],
         "related" => []
-      })
+      }
+
+      setup_api_responses("licence-to-kill")
+      content_api_has_an_artefact('licence-to-kill', @artefact)
+      content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", @artefact)
     end
 
     should "show message to contact local authority" do
       visit '/licence-to-kill/south-ribble'
-      save_page
 
       assert page.status_code == 200
-      assert page.has_content?('contact your your local authority')
+      assert page.has_content?('contact your local authority')
     end
   end
 
@@ -342,9 +344,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       setup_api_responses("artistic-license")
       content_api_has_an_artefact('artistic-license', {
         "title" => "Artistic License",
-        "kind" => "licence",
+        "format" => "licence",
         "details" => {
-          "format" => "licence",
+          "format" => "Licence",
           "licence" => nil
         },
         "tags" => [],
@@ -372,9 +374,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       setup_api_responses("licence-to-kill")
       content_api_has_an_artefact('licence-to-kill', {
         "title" => "Licence to Kill",
-        "kind" => "licence",
+        "format" => "licence",
         "details" => {
-          "format" => "licence",
+          "format" => "Licence",
           "licence" => {
             "error" => "http_error"
           }
@@ -391,7 +393,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
     should "show message to contact local authority" do
       visit '/licence-to-kill'
-      assert page.has_content?('contact your your local authority')
+      assert page.has_content?('contact your local authority')
     end
   end
 

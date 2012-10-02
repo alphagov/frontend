@@ -41,6 +41,10 @@ class PublicationPresenter
     artefact["details"]
   end
 
+  def body
+    details["body"]
+  end
+
   def parts
     @parts ||= build_parts
   end

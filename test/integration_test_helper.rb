@@ -24,8 +24,7 @@ class ActionDispatch::IntegrationTest
 
   def setup_api_responses(slug, options = {})
     publication_info = publisher_api_response(slug)
-    publication_exists(publication_info, options)
-    content_api_has_an_artefact(slug)
+    content_api_has_an_artefact(slug, publication_info)
   end
 
   def stub_location_request(postcode, response)

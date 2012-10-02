@@ -257,7 +257,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       context "when selecting an authority" do
         setup do
           choose 'Ministry of Love'
-          click_button "Select"
+          click_button "Get started"
         end
 
         should "redirect to the authority slug" do
@@ -364,6 +364,34 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       should "see a 'Get Started' button" do
         assert page.has_content?('Get started')
       end
+    end
+  end
+
+  context "given that licensify is down" do
+    setup do
+      setup_api_responses("licence-to-kill")
+      content_api_has_an_artefact('licence-to-kill', {
+        "title" => "Licence to Kill",
+        "kind" => "licence",
+        "details" => {
+          "format" => "licence",
+          "licence" => {
+            "error" => "http_error"
+          }
+        },
+        "tags" => [],
+        "related" => []
+      })
+    end
+
+    should "not blow the stack" do
+      visit '/licence-to-kill'
+      assert page.status_code == 200
+    end
+
+    should "show message to contact local authority" do
+      visit '/licence-to-kill'
+      assert page.has_content?('contact your your local authority')
     end
   end
 

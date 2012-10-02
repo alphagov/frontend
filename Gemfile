@@ -26,7 +26,7 @@ end
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.3.2'
+  gem 'slimmer', '3.5.0'
 end
 
 if ENV['GEO_DEV']
@@ -46,13 +46,14 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '2.8.0'
+  gem 'gds-api-adapters', '2.10.0'
 end
 
 gem "addressable"
 gem 'exception_notification'
 
 group :assets do
+  gem 'govuk_frontend_toolkit', '0.2.1'
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem "therubyracer", "~> 0.9.4"

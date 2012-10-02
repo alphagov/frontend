@@ -44,6 +44,8 @@ class RootController < ApplicationController
         part = identify_authority_slug(closest_authority_from_geostack)
         redirect_to publication_path(:slug => @publication.slug, :part => part) and return
       end
+    elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
+      raise RecordNotFound
     end
 
     case @publication.type
@@ -55,6 +57,8 @@ class RootController < ApplicationController
       @council = load_council(@publication, params[:edition])
       @publication.council = @council
     when "programme"
+      params[:part] ||= @publication.parts.first.slug
+    when "guide"
       params[:part] ||= @publication.parts.first.slug
     else
       set_expiry if params.exclude?('edition')
@@ -68,12 +72,6 @@ class RootController < ApplicationController
       # Relies on the artefact but could potentially be moved elsewhere
       # once we're loading publications and artefacts in one go
       @licence_details = licence_details(@artefact, @licence_authority_slug, @snac_code)
-    elsif video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?
-      raise RecordNotFound
-    elsif @publication.parts && treat_as_standard_html_request? && @part.nil?
-      params.delete(:slug)
-      params.delete(:part)
-      redirect_to publication_url(@publication.slug, @publication.parts.first.slug, params) and return
     end
 
     @edition = params[:edition]
@@ -136,7 +134,9 @@ protected
   end
 
   def part_requested_but_not_found?
-    params[:part] && @publication.parts.blank?
+    params[:part] && ! (
+      @publication.parts && @publication.parts.any? { |p| p.slug == params[:part] }
+    )
   end
 
   def video_requested_but_not_found?
@@ -224,7 +224,7 @@ protected
   def licence_details(artefact, licence_authority_slug, snac_code)
     licence_attributes = { licence: artefact['details']['licence'] }
 
-    return false if licence_attributes[:licence].blank?
+    return false if licence_attributes[:licence].blank? or licence_attributes[:licence]['error'].present?
 
     licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
 
@@ -288,7 +288,7 @@ protected
 
   def closest_authority_from_geostack
     authorities = full_council_from_geostack
-    ["DIS","LBO","UTY","CTY"].each do |type|
+    ["DIS","LBO","UTY","CTY","LGD"].each do |type|
       authorities_for_type = authorities.select {|a| a["type"] == type }
       if authorities_for_type.any?
         return authorities_for_type.first

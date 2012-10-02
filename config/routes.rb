@@ -15,6 +15,7 @@ Frontend::Application.routes.draw do
   match "/places/load_places/:slug", :as => "load_places", :to => "root#load_places"
 
   # Campaign pages.
+  match "/energyhelp", :to => "campaign#energy_help"
   match "/workplacepensions", :to => "campaign#workplace_pensions"
 
   with_options(:as => "publication", :to => "root#publication") do |pub|

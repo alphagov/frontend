@@ -39,12 +39,15 @@ class RedirectWardenFactory
 
   def transaction_warden(publication)
     lambda do |link|
-      publication.link == link or link_in_markup?(publication.more_information, link)
+      publication.link == link or
+          link_in_markup?(publication.more_information, link) or
+          link_in_markup?(publication.minutes_to_complete, link) or
+          link_in_markup?(publication.alternate_methods, link)
     end
   end
 
   def link_in_markup?(content, link)
-    content.include?("](#{link}")
+    content && content.include?("](#{link}")
   end
 
   def link_in_parts_body?(publication, link)

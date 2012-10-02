@@ -42,6 +42,20 @@ class RedirectWardenTest < ActiveSupport::TestCase
       assert @redirect_warden.for(@publication).call(target)
     end
 
+    should "pass if link is in publication.minutes_to_complete" do
+      target = 'http://example.com'
+      @publication.minutes_to_complete = "   #{link_markup(target)}   "
+
+      assert @redirect_warden.for(@publication).call(target)
+    end
+
+    should "pass if link is in publication.alternate_methods" do
+      target = 'http://example.com'
+      @publication.alternate_methods = "   #{link_markup(target)}   "
+
+      assert @redirect_warden.for(@publication).call(target)
+    end
+
     should "not pass, if link is not in publication" do
       target = 'http://evil.com'
       @publication.link = "http://nice-guys-inc.com"

@@ -2,7 +2,7 @@
 @import "_typography";
 
 .category-page {
-  
+
   header.page-header {
 
     hgroup {
@@ -43,6 +43,12 @@
         @include core-24;
         margin: 0;
       }
+    }
+
+    .detailed-guidance {
+      border: solid 4px #2B8CC4;
+      padding: 1em 2em;
+      margin-top: 1em;
     }
 
     ul {

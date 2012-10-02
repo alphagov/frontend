@@ -9,12 +9,12 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
     should "select the correct tier authority from geostack providing a district and county" do
       geostack = {
-        "areas" => {
-          1 => {"id" => 1, "codes" => {"ons" => "30"}, "name" => "Lancashire City Council", "type" => "CTY" },
-          2 => {"id" => 2, "codes" => {"ons" => "30UN"}, "name" => "South Ribble Borough Council", "type" => "DIS" },
-          3 => {"id" => 3, "codes" => {"unit_id" => "43006"}, "name" => "Leyland South West", "type" => "CED"},
-          4 => {"id" => 4, "codes" => {"unit_id" => "24783"}, "name" => "South Ribble", "type" => "WMC"}
-        }
+        "council" => [
+          {"id" => 1, "name" => "Lancashire County Council", "type" => "CTY", "ons" => "30"},
+          {"id" => 2, "name" => "South Ribble Borough Council", "type" => "DIS", "ons" => "30UN"},
+          {"id" => 3, "name" => "Leyland South West", "type" => "CED" },
+          {"id" => 4, "name" => "South Ribble", "type" => "WMC" }
+        ]
       }
       snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
 
@@ -23,10 +23,10 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
     should "return nil if no authorities match" do
       geostack = {
-        "areas" => {
-          3 => {"id" => 3, "codes" => {"unit_id" => "43006"}, "name" => "Leyland South West", "type" => "CED"},
-          4 => {"id" => 4, "codes" => {"unit_id" => "24783"}, "name" => "South Ribble", "type" => "WMC"}
-        }
+        "council" => [
+          {"id" => 3, "name" => "Leyland South West", "type" => "CED" },
+          {"id" => 4, "name" => "South Ribble", "type" => "WMC" }
+        ]
       }
       snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
 
@@ -41,12 +41,12 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
     should "select the correct tier authority from geostack providing a district and county" do
       geostack = {
-        "areas" => {
-          1 => {"id" => 1, "codes" => {"ons" => "30"}, "name" => "Lancashire City Council", "type" => "CTY" },
-          2 => {"id" => 2, "codes" => {"ons" => "30UN"}, "name" => "South Ribble Borough Council", "type" => "DIS" },
-          3 => {"id" => 3, "codes" => {"unit_id" => "43006"}, "name" => "Leyland South West", "type" => "CED"},
-          4 => {"id" => 4, "codes" => {"unit_id" => "24783"}, "name" => "South Ribble", "type" => "WMC"}
-        }
+        "council" => [
+          {"id" => 1, "name" => "Lancashire County Council", "type" => "CTY", "ons" => "30"},
+          {"id" => 2, "name" => "South Ribble Borough Council", "type" => "DIS", "ons" => "30UN"},
+          {"id" => 3, "name" => "Leyland South West", "type" => "CED" },
+          {"id" => 4, "name" => "South Ribble", "type" => "WMC" }
+        ]
       }
       snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
 
@@ -55,10 +55,10 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
     should "select the correct tier authority from geostack providing a unitary authority" do
       geostack = {
-        "areas" => {
-          1 => {"id" => 1, "codes" => {"ons" => "00GG"}, "name" => "Shropshire Council", "type" => "UTA" },
-          2 => {"id" => 2, "codes" => {"ons" => "00GG162"}, "name" => "Shrewsbury", "type" => "CPC" }
-        }
+        "council" => [
+          {"id" => 2, "name" => "Shropshire Council", "type" => "UTA", "ons" => "00GG"},
+          {"id" => 3, "name" => "Shrewsbury", "type" => "CPC" }
+        ]
       }
       snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
 

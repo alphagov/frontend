@@ -1,6 +1,6 @@
 class LicenceLocationIdentifier
   def self.find_snac(geostack, artefact = nil)
-    authorities = Hash[geostack['areas'].map {|i,area| [area['type'], area['codes']['ons']] }]
+    authorities = Hash[geostack['council'].map {|area| [area['type'], area['ons']] }]
     self.authority_types.each {|type|
       return authorities[type] unless authorities[type].nil?
     }

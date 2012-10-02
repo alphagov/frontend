@@ -1,0 +1,34 @@
+<% content_for :title do %><%= @page_title %><% end %>
+
+<section id="content" role="main" class="group category-page">
+  <header class="page-header group">
+    <hgroup class="full-width">
+      <h1><%= @category.title %></h1>
+    </hgroup>
+  </header>
+
+  <div class="browse-container full-width group">
+    <div class="category-description">
+      <p><%= @category.details.description.nil? ? nil : @category.details.description.html_safe %></p>
+    </div>
+
+    <ul class="sub-categories group">
+      <% @sub_categories.each do |category|%>
+      <li>
+        <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
+        <p><%= category.details.description.nil? ? nil : category.details.description.html_safe %></p>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
+
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'browse-categories' %>
+  <!--[if gt IE 8]><!--><%= stylesheet_link_tag 'browse-categories' %><!--<![endif]-->
+  <!--[if IE 6]><%= stylesheet_link_tag 'browse-categories-ie6' %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag 'browse-categories-ie7' %><![endif]-->
+  <!--[if IE 8]><%= stylesheet_link_tag 'browse-categories-ie8' %><![endif]-->
+<% end %>
+
+<% content_for :body_classes do %>full-width<% end %>

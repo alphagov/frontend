@@ -67,7 +67,7 @@
         <% if @options.any? %>
           <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
           <ol id="options" class="places">
-           <%= mustache_partial '_option.html', {'options' => @options} %>
+            <%= mustache_partial '_option.html', {'options' => @options} %>
           </ol>
         <% elsif params[:postcode].present? %>
           <div id="results-error" class="error-notification"><p>Sorry, no results were found near you.</p></div>
@@ -84,8 +84,7 @@
 
 		</article>
     <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => {
-      'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json),
-      'application/vnd.google-earth.kml+xml' => publication_path(@place.slug, :edition => @edition, :format => :kml)
+      'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json)
     } %>
 	</div>
 </section>
@@ -97,7 +96,7 @@
   </script>
 
   <script type="text/javascript">
-  
+
   var load_places = <%= geo_known_to_at_least?('ward') ? 'false' : 'true' %>;
 
   </script>

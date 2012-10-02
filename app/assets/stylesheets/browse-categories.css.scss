@@ -1,0 +1,113 @@
+@import "_conditionals";
+@import "_typography";
+
+.category-page {
+  
+  header.page-header {
+
+    hgroup {
+      padding: 0.25em 2.5em 0 2.5em;
+
+      h1 {
+        padding-left: 0;
+        padding-right: 0;
+        width: 75%;
+
+        @include media(mobile) {
+          width: auto;
+        }
+      }
+
+      h2 {
+        @include core-24;
+        color: inherit;
+        margin: 0;
+      }
+    }
+  }
+
+  .browse-container {
+    background-color: #fff;
+    padding: 0 2.5em 2em 2.5em;
+
+    .category-description {
+      margin-bottom: 2em;
+      width: 65.5%;
+
+      @include media(mobile) {
+        margin-bottom: 1em;
+        width: auto;
+      }
+
+      p {
+        @include core-24;
+        margin: 0;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin-bottom: 1em;
+
+        p {
+          @include core-16;
+          margin: 0;
+          word-wrap: break-word;
+        }
+      }
+
+      &.categories {
+
+        h2 {
+          margin: 0;
+        }
+      }
+
+      &.sub-categories {
+        padding: 0;
+
+        li {
+          float: left;
+          margin-right: 3.5%;
+          margin-bottom: 0.75em;
+          width: 31%;
+
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+
+          &:nth-child(3n+1) {
+            clear: left;
+          }
+
+          @include media(mobile) {
+            float: none;
+            margin-right: 0;
+            width: auto;
+          }
+
+          @include ie-lte(7) {
+            min-height: 9em;
+            width: 30.9%;
+          }
+        }
+      }
+
+      &.content-list {
+        padding: 1em 0 0 0;
+        width: 65.5%;
+
+        li {
+
+          h2 {
+            @include core-19;
+          }
+        }
+      }
+    }
+  }
+}

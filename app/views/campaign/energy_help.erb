@@ -10,34 +10,32 @@
       <span class="image-scope">
         <style scoped>
           /* fall-back styles for browsers without media query support (IE6-8) */
-          #dwp-workplace-pensions {
+          #banner {
             background-image: url('<%= image_path "campaign/dwp-workplace-pensions/960px.jpg" %>');
-            width: 100%;
           }
 
           /* small image for mobile */
           @media (min-width: 0px) {
-            #dwp-workplace-pensions {
+            #banner {
               background-image: url('<%= image_path "campaign/dwp-workplace-pensions/320px.jpg" %>');
             }
           }
 
           /* medium image for tablets */
-          @media (min-width: 400px) {
-            #dwp-workplace-pensions {
+          @media (min-width: 500px) {
+            #banner {
               background-image: url('<%= image_path "campaign/dwp-workplace-pensions/768px.jpg" %>');
             }
           }
 
           /* large image for desktop */
-          @media (min-width: 850px) {
-            #dwp-workplace-pensions {
+          @media (min-width: 900px) {
+            #banner {
               background-image: url('<%= image_path "campaign/dwp-workplace-pensions/960px.jpg" %>');
             }
           }
         </style>
-        <span id="dwp-workplace-pensions" class="image" role="img" aria-label="Karen Brady says: I'm in">
-          <span class="inner"></span></span>
+        <a href="#" id="banner">Karen Brad says: I'm in</a>
       </span>
 
 			<div class="campaign-links inner group">

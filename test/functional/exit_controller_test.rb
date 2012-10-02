@@ -8,13 +8,6 @@ class ExitControllerTest < ActionController::TestCase
     @controller.stubs(:publisher_api).returns(api)
   end
 
-  def expect_gabba_event(format, need_id)
-    gabba = mock()
-    gabba.stubs(:identify_user)
-    gabba.expects(:event).with(format, need_id, 'Success')
-    @controller.stubs(:create_gabba).returns(gabba)
-  end
-
   context 'exit page tracking' do
     context 'transaction format' do
       should "render exit html" do
@@ -24,7 +17,6 @@ class ExitControllerTest < ActionController::TestCase
         type = "transaction"
 
         mock_publications_api(slug, {:type => type, :link => target})
-        expect_gabba_event('MS_transaction', need_id)
 
         get :exit, slug: slug, target: target, needId: need_id
 
@@ -67,7 +59,6 @@ class ExitControllerTest < ActionController::TestCase
         type = "guide"
 
         mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => 'Go here [local councils](http://example.com "Find your local council")  ')]})
-        expect_gabba_event('MS_guide', need_id)
 
         get :exit, slug: slug, target: target, needId: need_id
 

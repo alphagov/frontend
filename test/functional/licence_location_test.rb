@@ -27,7 +27,7 @@ class LicenceLocationTest < ActionController::TestCase
         get :publication, slug: "licence-to-kill"
 
         assert_response :success
-        assert_equal assigns(:publication).title, "Licence to Kill"
+        assert_equal assigns(:publication).title, "Licence to kill"
       end
     end
 

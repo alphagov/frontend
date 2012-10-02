@@ -31,6 +31,20 @@ class ExitControllerTest < ActionController::TestCase
         assert_redirected_to target
       end
 
+      should "return 404 if slug does not exist" do
+        slug = 'tax-disc-license234'
+        target = 'http://www.naughty_website.com'
+        need_id = '999999'
+
+        api = mock()
+        api.expects(:publication_for_slug).with(slug, {}).returns(nil)
+        @controller.stubs(:publisher_api).returns(api)
+
+        get :exit, slug: slug, target: target, needId: need_id
+
+        assert_equal 404, response.status
+      end
+
       should "return 403 if the target is not included publication" do
         slug = 'tax-disc-license'
         target = 'http://www.naughty_website.com'

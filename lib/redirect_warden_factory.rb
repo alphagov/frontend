@@ -2,6 +2,8 @@ class RedirectWardenFactory
 
 
   def for publication
+    return nil unless publication
+
     case publication.type
       when 'answer'
         answer_warden(publication)

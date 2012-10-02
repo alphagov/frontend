@@ -10,6 +10,12 @@ class RedirectWardenTest < ActiveSupport::TestCase
     "[#{text}](#{target} #{title})"
   end
 
+  context 'error handling' do
+    should "return nil if publication is nil" do
+      assert @redirect_warden.for(@publication).nil?
+    end
+  end
+
   context 'transaction format' do
 
     setup do

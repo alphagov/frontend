@@ -16,12 +16,6 @@ class RootControllerTest < ActionController::TestCase
     })
   end
 
-  def stub_edition_request(slug, edition_id)
-    @api = mock()
-    @api.expects(:publication_for_slug).with(slug, {:edition => edition_id}).returns(OpenStruct.new(:type => "answer", slug: slug))
-    @controller.stubs(:publisher_api).returns(@api)
-  end
-
   def prevent_implicit_rendering
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
@@ -43,7 +37,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should 406 when asked for unrecognised format" do
-    publication_exists('slug' => 'a-slug', 'type' => 'answer')
     content_api_has_an_artefact("a-slug")
 
     get :publication, :slug => 'a-slug', :format => '123'
@@ -73,10 +66,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "further information tab should not appear for programmes that don't have it" do
-    publication_exists('slug' => 'george', 'type' => 'programme', 'parts' => [
-        {'slug' => 'a', 'name' => 'AA'},
-        {'slug' => 'b', 'name' => 'BB'}
-      ])
     content_api_has_an_artefact("george")
     get :publication, :slug => "george"
     assert !@response.body.include?("further-information")
@@ -94,8 +83,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return video view when asked if guide has video" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'video_url' => 'bob', 'parts' => [
-        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}])
     content_api_has_an_artefact("a-slug", {'format' => 'guide', 'details' => {'video_url' => 'bob', 'parts' => [
         {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}]}})
 
@@ -119,11 +106,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return print view" do
-    publication_exists(
-      'slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS', 'parts' => [
-        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}
-      ]
-    )
     content_api_has_an_artefact("a-slug")
 
     prevent_implicit_rendering
@@ -134,7 +116,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return 404 if video requested but guide has no video" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'name' => 'THIS')
     content_api_has_an_artefact("a-slug")
 
     prevent_implicit_rendering
@@ -151,7 +132,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should 404 if bad part requested of multi-part guide" do
-    # publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
     content_api_has_an_artefact("a-slug", {
       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}
     })
@@ -161,7 +141,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should not redirect to first part URL if request is for JSON" do
-    publication_exists('slug' => 'a-slug', 'type' => 'guide', 'parts' => [{'title' => 'first', 'slug' => 'first'}])
     content_api_has_an_artefact("a-slug")
     prevent_implicit_rendering
     get :publication, slug: "a-slug", format: 'json'
@@ -181,10 +160,6 @@ class RootControllerTest < ActionController::TestCase
 
   test "should not pass edition parameter on to api if it's blank" do
     edition_id = ''
-    # api = mock()
-    # api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
-    # @controller.stubs(:publisher_api).returns api
-
     content_api_has_an_artefact("a-slug")
 
     prevent_implicit_rendering
@@ -203,19 +178,13 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "Should redirect to transaction if no geo header" do
-    publication_exists('slug' => 'c-slug', 'type' => 'local_transaction', 'name' => 'THIS')
     content_api_has_an_artefact("c-slug")
 
     request.env.delete("HTTP_X_GOVGEO_STACK")
-    no_council_for_slug('c-slug')
     get :publication, :slug => "c-slug"
   end
 
   context "setting up slimmer artefact details" do
-    setup do
-      publication_exists('slug' => 'slug')
-    end
-
     should "expose artefact details in header" do
       # TODO: remove explicit setting of top-level format once gds-api-adapters with updated
       # factory methods is being used.

@@ -2,7 +2,6 @@ require 'test_helper'
 require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/part_methods'
-require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/panopticon'
 
 class LicenceLocationTest < ActionController::TestCase
@@ -10,7 +9,7 @@ class LicenceLocationTest < ActionController::TestCase
   tests RootController
   include Rack::Geo::Utils
 
-  context "given a licence exists in publisher and panopticon" do
+  context "given a licence exists" do
     setup do
       content_api_has_an_artefact('licence-to-kill', {
         "format" => "licence",

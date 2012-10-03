@@ -1,1 +1,0 @@
-require "#{Rails.root}/lib/redirect_warden_factory"

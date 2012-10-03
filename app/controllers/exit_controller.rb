@@ -1,3 +1,5 @@
+require_relative '../../lib/redirect_warden_factory'
+
 class ExitController < ApplicationController
 
   def exit

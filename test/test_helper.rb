@@ -15,8 +15,6 @@ WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/content_api'
 
-require_relative '../lib/redirect_warden_factory'
-
 Mocha::Integration.monkey_patches.each do |patch|
   require patch
 end

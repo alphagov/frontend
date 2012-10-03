@@ -12,7 +12,10 @@ class LicenceLocationTest < ActionController::TestCase
 
   context "given a licence exists in publisher and panopticon" do
     setup do
-      content_api_has_an_artefact('licence-to-kill')
+      content_api_has_an_artefact('licence-to-kill', {
+        "format" => "licence",
+        "details" => { }
+      })
       publication_exists(
         "slug" => "licence-to-kill",
         "alternative_title" => "",

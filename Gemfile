@@ -56,6 +56,7 @@ gem 'exception_notification'
 
 group :assets do
   gem 'govuk_frontend_toolkit', '0.2.1'
+  gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem "therubyracer", "~> 0.9.4"

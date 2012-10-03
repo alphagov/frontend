@@ -18,7 +18,7 @@ class ExitControllerTest < ActionController::TestCase
 
         mock_publications_api(slug, {:type => type, :link => target})
 
-        get :exit, slug: slug, target: target, needId: need_id
+        get :exit, slug: slug, target: target, need_id: need_id
 
         assert_redirected_to target
       end
@@ -32,7 +32,7 @@ class ExitControllerTest < ActionController::TestCase
         api.expects(:publication_for_slug).with(slug, {}).returns(nil)
         @controller.stubs(:publisher_api).returns(api)
 
-        get :exit, slug: slug, target: target, needId: need_id
+        get :exit, slug: slug, target: target, need_id: need_id
 
         assert_equal 404, response.status
       end
@@ -44,7 +44,7 @@ class ExitControllerTest < ActionController::TestCase
 
         mock_publications_api(slug, {:type => "transaction", :link => "http://nice-guys-inc.com", :more_information => ""})
 
-        get :exit, slug: slug, target: target, needId: need_id
+        get :exit, slug: slug, target: target, need_id: need_id
 
         assert_equal 403, response.status
       end
@@ -60,7 +60,7 @@ class ExitControllerTest < ActionController::TestCase
 
         mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => 'Go here [local councils](http://example.com "Find your local council")  ')]})
 
-        get :exit, slug: slug, target: target, needId: need_id
+        get :exit, slug: slug, target: target, need_id: need_id
 
         assert_redirected_to target
 
@@ -74,7 +74,7 @@ class ExitControllerTest < ActionController::TestCase
 
         mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => "akdsjfhaksd aksdjfhkasd")]})
 
-        get :exit, slug: slug, target: target, needId: need_id
+        get :exit, slug: slug, target: target, need_id: need_id
 
         assert_equal 403, response.status
       end
@@ -89,21 +89,21 @@ class ExitControllerTest < ActionController::TestCase
 
       mock_publications_api(slug, {:type => 'pickles'})
 
-      get :exit, slug: slug, target: target, needId: need_id
+      get :exit, slug: slug, target: target, need_id: need_id
 
       assert_equal 404, response.status
     end
 
     should "return 404 if target is missing from url params" do
       slug = '/tax-disc-license'
-      needId = '999999'
+      need_id = '999999'
 
-      get :exit, slug: slug, needId: needId
+      get :exit, slug: slug, need_id: need_id
 
       assert_equal 404, response.status
     end
 
-    should "return 404 if needId is missing from url params" do
+    should "return 404 if need_id is missing from url params" do
       slug = '/tax-disc-license'
       target = 'http://www.naughty_website.com'
 
@@ -114,9 +114,9 @@ class ExitControllerTest < ActionController::TestCase
 
     should "return 404 if slug is missing from url params" do
       target = 'http://www.naughty_website.com'
-      needId = '999999'
+      need_id = '999999'
 
-      get :exit, target: target, needId: needId
+      get :exit, target: target, need_id: need_id
 
       assert_equal 404, response.status
     end

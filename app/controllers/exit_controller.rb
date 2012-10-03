@@ -1,7 +1,7 @@
 class ExitController < ApplicationController
 
   def exit
-    error_404 and return unless (params[:slug] && params[:target] && params[:needId])
+    error_404 and return unless (params[:slug] && params[:target] && params[:need_id])
     publication = fetch_publication(params)
     forwarding_warden = fetch_warden(publication)
 

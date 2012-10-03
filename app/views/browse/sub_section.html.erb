@@ -19,6 +19,22 @@
     <% end %>
     </ul>
 
+  <% if @detailed_categories.any? %>
+    <div class="detailed-guidance">
+      <h2>Additional detailed guidance from government departments</h2>
+      <ul class="group">
+        <% @detailed_categories.each do |category| %>
+          <li>
+            <h3><%= link_to category.title, category.content_with_tag.web_url %></h3>
+            <% if category.details.description.present? %>
+              <p><%= category.details.description %></p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   </div>
 </section>
 

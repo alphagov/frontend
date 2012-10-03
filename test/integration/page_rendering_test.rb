@@ -29,7 +29,11 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   end
 
   test "completed transaction request" do
-    setup_api_responses('done/completed-transaction-test')
+    artefact = artefact_for_slug "done/completed-transaction-test"
+    artefact = artefact.merge({
+      format: "completed_transaction"
+    })
+    content_api_has_an_artefact('done/completed-transaction-test', artefact)
     visit "/done/completed-transaction-test"
     assert_equal 200, page.status_code
   end

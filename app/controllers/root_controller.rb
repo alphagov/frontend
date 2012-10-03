@@ -113,20 +113,6 @@ class RootController < ApplicationController
   end
 
 protected
-  def fetch_artefact(snac = nil)
-    options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
-    artefact = content_api.artefact(params[:slug], options)
-
-    unless artefact
-      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
-      raise RecordNotFound
-    end
-    artefact
-  rescue URI::InvalidURIError
-    logger.warn("Failed to fetch artefact from Content API.")
-    raise RecordNotFound
-  end
-
   def empty_part_list?
     @publication.parts and @publication.parts.empty?
   end

@@ -3,7 +3,10 @@ require_relative '../../lib/redirect_warden_factory'
 class ExitController < ApplicationController
 
   def exit
-    error_404 and return unless (params[:slug] && params[:target] && params[:need_id])
+    unless (params[:slug] && params[:target] && params[:need_id]) and params[:target] =~ URI::regexp
+      error_404 and return
+    end
+
     publication = fetch_publication(params)
     forwarding_warden = fetch_warden(publication)
 

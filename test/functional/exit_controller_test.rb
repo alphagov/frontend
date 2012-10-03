@@ -81,6 +81,19 @@ class ExitControllerTest < ActionController::TestCase
 
     end
 
+    should "return 404 if the exit links is not a valid target" do
+      slug = '/tax-disc-license'
+      target = 'htp://google.com'
+      need_id = '999999'
+      type = "transaction"
+
+      mock_publications_api(slug, {:type => type, :link => target})
+
+      get :exit, slug: slug, target: target, need_id: need_id
+
+      assert_redirected_to target
+    end
+
 
     should "return 404 if the publication type is not supported" do
       slug = '/tax-disc-license'

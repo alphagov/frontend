@@ -3,154 +3,148 @@ require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/part_methods'
 require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/content_api'
+require 'gds_api/test_helpers/panopticon'
 
 class LocalTransactionsTest < ActionController::TestCase
 
   tests RootController
   include Rack::Geo::Utils
 
-  def authority_json(snac, name = nil, tier = 'unitary')
-    {
-      "snac" => snac.to_s,
-      "name" => name || "Authority #{snac}",
-      "tier" => tier
-    }
-  end
+  context "given a local transaction exists in content api" do
+    setup do
+      @artefact = {
+        "title" => "Send a bear to your local council",
+        "format" => "local_transaction",
+        "details" => {
+          "format" => "LocalTransaction",
+          "local_service" => {
+            "description" => "What could go wrong?",
+            "lgsl_code" => "8342",
+            "providing_tier" => [ "district", "unitary" ]
+          }
+        }
+      }
 
-  def interaction_json(lgsl, lgil, url, authority = nil)
-    {
-      "lgsl_code" => lgsl,
-      "lgil_code" => lgil,
-      "url" => url,
-      "authority" => authority || authority_json(1)
-    }
-  end
-
-  test "Should redirect to new path if councils found" do
-    councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
-    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
-
-    councils['council'].each do |c|
-      content_api_has_an_artefact("c-slug")
-      publication_exists_for_snac(c['ons'], {
-        'slug' => 'c-slug',
-        'type' => "local_transaction",
-        'name' => "THIS",
-        "interaction" =>
-          interaction_json(524, 8, "http://www.haringey.gov.uk/something-you-want-to-do")
-      })
+      content_api_has_an_artefact('send-a-bear-to-your-local-council', @artefact)
+      publication_exists(
+        "slug" => "send-a-bear-to-your-local-council",
+        "alternative_title" => "",
+        "overview" => "",
+        "title" => "Send a bear to your local council",
+        "type" => "local_transaction"
+      )
     end
 
-    get :publication, :slug => "c-slug"
-    assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
+    context "loading the local transaction edition without any location" do
+      should "return the normal content for a page" do
+        get :publication, slug: "send-a-bear-to-your-local-council"
+
+        assert_response :success
+        assert_equal assigns(:publication).title, "Send a bear to your local council"
+      end
+    end
+
+    context "loading the local transaction when posting a location" do
+      context "for an English local authority" do
+        setup do
+          councils = { "council" => [
+            {"id" => 2240, "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
+            {"id" => 2432, "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
+            {"id" => 15636, "name" => "Cheadle and Checkley", "type" => "CED"}
+          ]}
+          request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+
+          get :publication, slug: "send-a-bear-to-your-local-council"
+        end
+
+        should "redirect to the slug for the appropriate authority tier" do
+          assert_redirected_to "/send-a-bear-to-your-local-council/staffordshire-moorlands"
+        end
+      end
+    end
+
+    context "loading the local transaction for an authority" do
+      setup do
+        artefact_with_interaction = @artefact.dup
+        artefact_with_interaction["details"].merge!({
+          "local_interaction" => {
+            "lgsl_code" => 461,
+            "lgil_code" => 8,
+            "url" => "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks"
+          },
+          "local_authority" => {
+            "name" => "Staffordshire Moorlands",
+            "contact_details" => [
+              "Moorlands House",
+              "Stockwell Street",
+              "Leek",
+              "Staffordshire",
+              "ST13 6HQ"
+            ],
+            "contact_url" => "http://www.staffsmoorlands.gov.uk/sm/contact-us"
+          }
+        })
+
+        content_api_has_an_artefact_with_snac_code('send-a-bear-to-your-local-council', "41UH", artefact_with_interaction)
+      end
+
+      should "assign local transaction information" do
+        get :publication, slug: "send-a-bear-to-your-local-council", part: "staffordshire-moorlands"
+
+        assert_equal "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks", assigns(:local_transaction_details)["local_interaction"]["url"]
+      end
+    end
+
+    should "return a 404 for an incorrect authority slug" do
+      get :publication, slug: "send-a-bear-to-your-local-council", part: "this slug should not exist"
+
+      assert_equal 404, response.status
+    end
   end
 
-  test "Should select the first council which provides the service" do
-    councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
-    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+  context "given a local transaction without an interaction exists in content api" do
+    setup do
+      @artefact = {
+        "title" => "Report a bear on a local road",
+        "format" => "local_transaction",
+        "details" => {
+          "format" => "LocalTransaction",
+          "local_service" => {
+            "description" => "Contact your council to dispatch Cousin Sven's bear enforcement squad in your area.",
+            "lgsl_code" => "1234",
+            "providing_tier" => [ "district", "unitary" ]
+          },
+          "local_interaction" => nil,
+          "local_authority" => {
+            "name" => "Staffordshire Moorlands",
+            "contact_details" => [
+              "Moorlands House",
+              "Stockwell Street",
+              "Leek",
+              "Staffordshire",
+              "ST13 6HQ"
+            ],
+            "contact_url" => "http://www.staffsmoorlands.gov.uk/sm/contact-us"
+          }
+        }
+      }
 
-    content_api_has_an_artefact("c-slug")
+      content_api_has_an_artefact('report-a-bear-on-a-local-road', @artefact)
+      content_api_has_an_artefact_with_snac_code('report-a-bear-on-a-local-road', "41UH", @artefact)
+      publication_exists(
+        "slug" => "report-a-bear-on-a-local-road",
+        "alternative_title" => "",
+        "overview" => "",
+        "title" => "Report a bear on a local road",
+        "type" => "local_transaction"
+      )
+    end
 
-    publication_exists_for_snac(councils['council'][0]['ons'], {
-      'slug' => 'c-slug',
-      'type' => "local_transaction",
-      'name' => "THIS",
-    })
+    should "show error message" do
+      get :publication, slug: "report-a-bear-on-a-local-road", part: "staffordshire-moorlands"
 
-    publication_exists_for_snac(councils['council'][1]['ons'], {
-      'slug' => 'c-slug',
-      'type' => "local_transaction",
-      'name' => "THIS",
-      'interaction' =>
-        interaction_json(524, 8, "http://www.haringey.gov.uk/something-you-want-to-do",
-          authority_json(1, "Haringey Council"))
-    })
-
-    publication_exists_for_snac(councils['council'][2]['ons'], {
-      'slug' => 'c-slug',
-      'type' => "local_transaction",
-      'name' => "THIS",
-      "interaction" =>
-        interaction_json(524, 8, "http://www.another.gov.uk/something-you-want-to-do",
-          authority_json(1, "Another Council"))
-    })
-
-    get :publication, :slug => "c-slug"
-    assert_redirected_to "http://www.haringey.gov.uk/something-you-want-to-do"
-  end
-
-  test "Should pass the edition parameter on when looking for council details" do
-    councils = {'council'=>[{'ons'=>1}]}
-    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
-    snac = councils['council'][0]['ons']
-
-    content_api_has_an_artefact("c-slug")
-
-    details = {slug: 'c-slug', type: 'local_transaction', name: 'THIS'}
-    json = JSON.dump(details)
-    uri = "#{PUBLISHER_ENDPOINT}/publications/#{details[:slug]}.json"
-
-    stub_request(:get, uri).with(query: {edition: '1'}).
-      to_return(:body => json, :status => 200)
-
-    stub_request(:get, uri).with(query: {snac: snac.to_s, edition: '1'}).
-      to_return(:body => json, :status => 200)
-
-    get :publication, {slug: "c-slug", edition: '1'}
-    assert_requested :get, "#{uri}?snac=#{snac}&edition=1"
-  end
-
-  test "Should allow the councils to be overridden by council_ons_codes param" do
-    # The secondary lookups pass a fuzzy lat/long which isn't precise enough to always
-    # accurately identify the correct council, especially if the postcode is close
-    # to a council boundary. However during the initial lookup the geo cookie has
-    # the data recorded in it, so we can use that.
-    councils = {'council'=>[{'ons'=>1},{'ons'=>2},{'ons'=>3}]}
-    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
-
-    content_api_has_an_artefact("c-slug")
-
-    publication_exists_for_snac(456, {
-      'slug' => 'c-slug',
-      'type' => "local_transaction",
-      'name' => "THIS",
-      "interaction" =>
-        interaction_json(524, 8, "http://www.another.gov.uk/something-you-want-to-do",
-          authority_json(456, "Another Council"))
-    })
-
-    publication_exists_for_snac(789, {
-      'slug' => 'c-slug',
-      'type' => "local_transaction",
-      'name' => "THIS",
-      "interaction" =>
-        interaction_json(524, 8, "http://irrelevant",
-          authority_json(789, "Irrelevant")),
-    })
-
-    get :publication, :slug => "c-slug", council_ons_codes: [456, 789]
-    assert_redirected_to "http://www.another.gov.uk/something-you-want-to-do"
-  end
-
-  test "Should not show error message if no postcode submitted" do
-    publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
-    content_api_has_an_artefact("c-slug")
-
-    get :publication, :slug => 'c-slug'
-    assert response.body.include?("error-notification hidden")
-  end
-
-  test "Should set message if no council for local transaction" do
-    councils = {'council'=>[{'ons'=>1}]}
-    request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
-
-    publication_exists_for_snac(1234, {"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"})
-    content_api_has_an_artefact("c-slug")
-
-    stub_request(:get, "#{PUBLISHER_ENDPOINT}/publications/c-slug.json?snac=1").to_return(:body => JSON.dump({"slug" => "c-slug", "type" => "local_transaction", "name" => "THIS"}))
-
-    get :publication, :slug => "c-slug"
-    assert response.body.include? "couldn't find details of a provider"
+      assert response.ok?
+      assert response.body.include?("application-notice help-notice")
+    end
   end
 end

@@ -83,15 +83,14 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should pass edition parameter on to api to provide preview" do
-    pending "support editions in gds-api-adapters"
-    # edition_id = '123'
-    # slug = 'c-slug'
+    edition_id = '123'
+    slug = 'c-slug'
     # stub_edition_request(slug, edition_id)
-    # content_api_has_an_artefact(slug, {"web_url" => "http://example.org/c-slug"})
+    content_api_has_unpublished_artefact(slug, edition_id)
 
-    # prevent_implicit_rendering
-    # @controller.stubs(:render)
-    # get :publication, :slug => "c-slug", :edition => edition_id
+    prevent_implicit_rendering
+    @controller.stubs(:render)
+    get :publication, :slug => "c-slug", :edition => edition_id
   end
 
   test "should return video view when asked if guide has video" do
@@ -170,29 +169,27 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should assign edition to template if it's not blank and a number" do
-    pending "support editions in gds-api-adapters"
-    # edition_id = '23'
-    # slug = 'a-slug'
-    # stub_edition_request(slug, edition_id)
-    # content_api_has_an_artefact(slug)
+    edition_id = '23'
+    slug = 'a-slug'
 
-    # prevent_implicit_rendering
-    # get :publication, :slug => "a-slug", :edition => edition_id
-    # assigns[:edition] = edition_id
+    content_api_has_unpublished_artefact(slug, edition_id)
+
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug", :edition => edition_id
+    assigns[:edition] = edition_id
   end
 
   test "should not pass edition parameter on to api if it's blank" do
-    pending "support editions in gds-api-adapters"
-    # edition_id = ''
+    edition_id = ''
     # api = mock()
     # api.expects(:publication_for_slug).with("a-slug", {}).returns(OpenStruct.new(:type=>"answer"))
     # @controller.stubs(:publisher_api).returns api
 
-    # content_api_has_an_artefact("a-slug")
+    content_api_has_an_artefact("a-slug")
 
-    # prevent_implicit_rendering
-    # @controller.stubs(:render)
-    # get :publication, :slug => "a-slug",:edition => edition_id
+    prevent_implicit_rendering
+    @controller.stubs(:render)
+    get :publication, :slug => "a-slug",:edition => edition_id
   end
 
   test "should pass specific and general variables to template" do

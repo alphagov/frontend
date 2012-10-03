@@ -114,8 +114,9 @@ class RootController < ApplicationController
 
 protected
   def fetch_artefact(snac = nil)
-    options = { snac: snac }.delete_if { |k,v| v.blank? }
+    options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
     artefact = content_api.artefact(params[:slug], options)
+
     unless artefact
       logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
       raise RecordNotFound
@@ -242,5 +243,9 @@ protected
     unless Rails.env.development?
       expires_in(60.minutes, :public => true)
     end
+  end
+
+  def content_api
+    @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
   end
 end

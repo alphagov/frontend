@@ -3,7 +3,7 @@
         "status": "ok"
     },
     "title": "This is the video summary",
-    "format": "video",
+    "format": "guide",
     "id": "https://contentapi.preview.alphagov.co.uk/write-business-plan.json",
     "web_url": "https://www.preview.alphagov.co.uk/write-business-plan",
     "details": {

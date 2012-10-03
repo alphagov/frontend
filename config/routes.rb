@@ -14,6 +14,7 @@ Frontend::Application.routes.draw do
 
   match "/settings", to: "root#settings"
   match "/tour", to: "root#tour"
+  match "/exit", :to => "exit#exit"
 
   # Campaign pages.
   match "/workplacepensions", :to => "campaign#workplace_pensions"

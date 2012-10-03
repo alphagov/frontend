@@ -2,7 +2,7 @@
 @import "_typography";
 
 .category-page {
-  
+
   header.page-header {
 
     hgroup {
@@ -43,6 +43,26 @@
         @include core-24;
         margin: 0;
       }
+    }
+
+    .detailed-guidance {
+      border: solid 4px #2B8CC4;
+      padding: 1em 2em;
+      margin-top: 2em;
+
+      li:nth-child(n) {
+        float: left;
+        width: 45%;
+
+      }
+
+      li:nth-child(odd) {
+        clear: left;
+      }
+      li:nth-child(even) {
+        float: right;
+      }
+
     }
 
     ul {

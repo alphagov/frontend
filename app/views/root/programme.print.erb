@@ -1,25 +1,17 @@
-<section id="content" role="main" class="group">
-  <header class="page-header group">
-    <hgroup>
-      <h1><span>Benefits &amp; credits</span> <%= @programme.title %></h1>
-    </hgroup>
+<header>
+  <h1>Benefits &amp; credits: <%= @programme.title %></h1>
+  <p>Notes</p>
+</header>
+
+<% @programme.parts.each do |part| %>
+<article id="<%= part.slug %>">
+  <header>
+    <h1>Part <%= part_number(@programme.parts, part) %>: <%= part.title %></h1>
   </header>
 
-  <div class="article-container group">
-    <% @programme.parts.each do |part| %>
-      <% if @programme.has_next_part?(part) %>
-        <article role="article" class="overview-etc group" id="<%= part.slug %>">
-          <div class="inner">
-            <%= render partial: "programme_part", locals: {part: part}, formats: ["html"] %>
-          </div>
-        </article>
-      <% end %>
-    <% end %>
+  <%= to_govspeak(part.body) %>
+</article>
+<% end %>
 
-    <article role="article" class="group">
-      <div class="inner">
-        <%= render partial: "programme_part", locals: {part: @programme.parts.last}, formats: ["html"] %>
-      </div>
-    </article>
-  </div>
-</section>
+<%= render partial: 'publication_metadata', locals: {:publication => @programme, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@programme.slug, :edition => @edition, :format => :json) }}, formats: ["html"] %>
+

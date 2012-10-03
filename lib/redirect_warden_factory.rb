@@ -1,7 +1,15 @@
 class RedirectWardenFactory
 
 
-  def for publication
+  # Will return a lambda for the passed publication to check.
+  # The lambda will be check, if a given link is present in the publication.
+  #
+  # Example
+  #
+  #   warden_factory.for(publication).call('http://example.com')
+  #   # => true if 'http://example.com' is present in the publication
+  # 
+  def for(publication)
     return nil unless publication
 
     case publication.type

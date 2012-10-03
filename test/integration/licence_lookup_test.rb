@@ -336,7 +336,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "format" => "licence",
         "details" => {
           "format" => "Licence",
-          "licence" => nil
+          "licence" => nil,
+          "will_continue_on" => "another planet",
+          "continuation_link" => "http://gov.uk/blah"
         }
       )
       content_api_has_an_artefact('artistic-license', artefact)

@@ -118,6 +118,7 @@ protected
 
     unless artefact
       logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
+      raise RecordNotFound
     end
     artefact
   rescue URI::InvalidURIError

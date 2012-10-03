@@ -57,13 +57,14 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   # end
 
   test "guide request" do
-    setup_api_responses("find-job")
+    response = publisher_api_response("find-job")
+    content_api_has_an_artefact("find-job", response)
+
     visit "/find-job"
     assert_equal 200, page.status_code
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
 
-    details = publisher_api_response('find-job')
-    details['parts'].each do |part|
+    response['details']['parts'].each do |part|
       visit "/find-job/#{part['slug']}"
       assert page.status_code == 200
     end

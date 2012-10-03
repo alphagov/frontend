@@ -129,12 +129,12 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
     assert page.has_content? "Overview"
 
-    within ".programme-progression" do
+    within ".page-navigation" do
       click_link "Overview"
     end
 
     assert_equal 200, page.status_code
-    assert_equal "/married-couples-allowance?edition=5#overview", current_url[/\/(?!.*\.).*/]
+    assert_equal "/married-couples-allowance/overview?edition=5", current_url[/\/(?!.*\.).*/]
   end
 
   test "viewing a video answer page" do

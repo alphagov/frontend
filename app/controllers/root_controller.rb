@@ -114,8 +114,8 @@ class RootController < ApplicationController
 
 protected
   def fetch_artefact(snac = nil)
-    artefact = snac.blank? ? content_api.artefact(params[:slug]) : content_api.artefact_with_snac_code(params[:slug], snac).to_hash
-
+    options = { snac: snac }.delete_if { |k,v| v.blank? }
+    artefact = content_api.artefact(params[:slug], options)
     unless artefact
       logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
       raise RecordNotFound

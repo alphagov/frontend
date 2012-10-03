@@ -45,6 +45,14 @@ class PublicationPresenter
     details["body"]
   end
 
+  def introduction
+    details["introduction"]
+  end
+
+  def expectations
+    details["expectations"]
+  end
+
   def parts
     @parts ||= build_parts
   end
@@ -89,6 +97,14 @@ class PublicationPresenter
 
   def video_summary
     details["video_summary"]
+  end
+
+  def continuation_link
+    details["continuation_link"]
+  end
+
+  def licence_overview
+    details["licence_overview"]
   end
 
   # Parts stuff

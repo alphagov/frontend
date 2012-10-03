@@ -15,6 +15,7 @@ class LocalTransactionsTest < ActionController::TestCase
       @artefact = {
         "title" => "Send a bear to your local council",
         "format" => "local_transaction",
+        "web_url" => "http://example.org/send-a-bear-to-your-local-council",
         "details" => {
           "format" => "LocalTransaction",
           "local_service" => {
@@ -107,6 +108,7 @@ class LocalTransactionsTest < ActionController::TestCase
       @artefact = {
         "title" => "Report a bear on a local road",
         "format" => "local_transaction",
+        "web_url" => "http://example.org/report-a-bear-on-a-local-road",
         "details" => {
           "format" => "LocalTransaction",
           "local_service" => {

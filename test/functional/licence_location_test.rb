@@ -14,15 +14,10 @@ class LicenceLocationTest < ActionController::TestCase
     setup do
       content_api_has_an_artefact('licence-to-kill', {
         "format" => "licence",
+        "web_url" => "http://example.org/licence-to-kill",
+        "title" => "Licence to kill",
         "details" => { }
       })
-      publication_exists(
-        "slug" => "licence-to-kill",
-        "alternative_title" => "",
-        "overview" => "",
-        "title" => "Licence to Kill",
-        "type" => "licence"
-      )
     end
 
     context "loading the licence edition without any location" do

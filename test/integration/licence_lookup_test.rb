@@ -5,7 +5,6 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
   context "given a licence which exists in licensify" do
 
     setup do
-      setup_api_responses("licence-to-kill")
       stub_location_request("SW1A 1AA", {
         "wgs84_lat" => 51.5010096,
         "wgs84_lon" => -0.1415870,
@@ -17,12 +16,12 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "council" => 1
         }
       })
-
-      @artefact = {
-        "title" => "Licence to Kill",
+      @artefact = artefact_for_slug('licence-to-kill').merge({
+        "title" => "Licence to kill",
         "format" => "licence",
         "details" => {
           "format" => "Licence",
+          "licence_overview" => "You only live twice, Mr Bond.\n",
           "licence" => {
             "location_specific" => true,
             "availability" => ["England","Wales"],
@@ -60,10 +59,8 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
               }
             }]
           }
-        },
-        "tags" => [],
-        "related" => []
-      }
+        }
+      })
 
       content_api_has_an_artefact('licence-to-kill', @artefact)
       content_api_has_an_artefact_with_snac_code('licence-to-kill', '00BK', @artefact)
@@ -155,17 +152,17 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a licence which does not exist in licensify" do
     setup do
-      setup_api_responses("licence-to-kill")
-      content_api_has_an_artefact("licence-to-kill", {
-        "title" => "Licence to Kill",
-        "kind" => "licence",
+      artefact = artefact_for_slug('licence-to-kill').merge(
+        "title" => "Licence to kill",
+        "format" => "licence",
         "details" => {
-          "format" => "licence",
+          "format" => "Licence",
           "licence" => {}
         },
         "tags" => [],
         "related" => []
-      })
+      )
+      content_api_has_an_artefact("licence-to-kill", artefact)
     end
 
     should "show message to contact local authority" do
@@ -177,8 +174,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a non-location-specific licence which exists in licensify with multiple authorities" do
     setup do
-      setup_api_responses('licence-to-turn-off-a-telescreen')
-      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
+      artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
         "title" => "Licence to turn off a telescreen",
         "format" => "licence",
         "details" => {
@@ -232,10 +228,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
               }
             }]
           }
-        },
-        "tags" => [],
-        "related" => []
-      })
+        }
+      )
+      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', artefact)
     end
 
     context "when visiting the licence without specifying an authority" do
@@ -269,8 +264,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a non-location-specific licence which exists in licensify with a single authority" do
     setup do
-      setup_api_responses('licence-to-turn-off-a-telescreen')
-      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', {
+      artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
         "title" => "Licence to turn off a telescreen",
         "format" => "licence",
         "details" => {
@@ -291,10 +285,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
               }
             }]
           }
-        },
-        "tags" => [],
-        "related" => []
-      })
+        }
+      )
+      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', artefact)
     end
 
     context "when visiting the licence" do
@@ -316,19 +309,16 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a location-specific licence which does not exist in licensify for an authority" do
     setup do
-      @artefact = {
-        "title" => "Licence to Kill",
+      artefact = artefact_for_slug('licence-to-kill').merge(
+        "title" => "Licence to kill",
         "format" => "licence",
         "details" => {
           "format" => "Licence"
-        },
-        "tags" => [],
-        "related" => []
-      }
-
-      setup_api_responses("licence-to-kill")
-      content_api_has_an_artefact('licence-to-kill', @artefact)
-      content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", @artefact)
+        }
+      )
+        
+      content_api_has_an_artefact('licence-to-kill', artefact)
+      content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", artefact)
     end
 
     should "show message to contact local authority" do
@@ -341,17 +331,15 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a licence edition with alternative licence information fields" do
     setup do
-      setup_api_responses("artistic-license")
-      content_api_has_an_artefact('artistic-license', {
+      artefact = artefact_for_slug('artistic-license').merge(
         "title" => "Artistic License",
         "format" => "licence",
         "details" => {
           "format" => "Licence",
           "licence" => nil
-        },
-        "tags" => [],
-        "related" => []
-      })
+        }
+      )
+      content_api_has_an_artefact('artistic-license', artefact)
     end
 
     context "when visiting the licence" do
@@ -371,19 +359,17 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given that licensify is down" do
     setup do
-      setup_api_responses("licence-to-kill")
-      content_api_has_an_artefact('licence-to-kill', {
-        "title" => "Licence to Kill",
+      artefact = artefact_for_slug('licence-to-kill').merge(
+        "title" => "Licence to kill",
         "format" => "licence",
         "details" => {
           "format" => "Licence",
           "licence" => {
             "error" => "http_error"
           }
-        },
-        "tags" => [],
-        "related" => []
-      })
+        }
+      )
+      content_api_has_an_artefact('licence-to-kill', artefact)
     end
 
     should "not blow the stack" do

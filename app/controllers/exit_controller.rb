@@ -18,7 +18,6 @@ class ExitController < ApplicationController
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
     response.headers["Cache-Control"] = "no-cache, must-revalidate"
-    response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
 
     redirect_to params[:target], :status => 302
   end

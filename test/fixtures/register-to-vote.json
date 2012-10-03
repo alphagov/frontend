@@ -1,0 +1,94 @@
+{
+    "_response_info": {
+        "status": "ok"
+    },
+    "title": "Register to vote",
+    "format": "transaction",
+    "id": "https://contentapi.preview.alphagov.co.uk/register-to-vote.json",
+    "web_url": "https://www.preview.alphagov.co.uk/register-to-vote",
+    "details": {
+        "need_id": "692",
+        "business_proposition": false,
+        "format": "Transaction",
+        "alternative_title": "",
+        "overview": "Get the right form to register to vote depending on your circumstances",
+        "more_information": "",
+        "introduction": "You have to fill out the form online, print it off and send it to your local electoral registration office.",
+        "will_continue_on": "the Electoral Commission website",
+        "link": "http://www.aboutmyvote.co.uk/",
+        "alternate_methods": "",
+        "minutes_to_complete": "10",
+        "expectations": ["Includes offline steps"]
+    },
+    "tags": [
+        {
+            "title": "Voting",
+            "id": "https://contentapi.preview.alphagov.co.uk/tags/citizenship%2Fvoting.json",
+            "web_url": null,
+            "details": {
+                "description": "Register to vote, getting on the electoral register and voting by proxy",
+                "type": "section"
+            },
+            "content_with_tag": {
+                "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=citizenship%2Fvoting",
+                "web_url": "https://www.preview.alphagov.co.uk/browse/citizenship/voting"
+            },
+            "parent": {
+                "title": "Citizenship and life in the UK",
+                "id": "https://contentapi.preview.alphagov.co.uk/tags/citizenship.json",
+                "web_url": null,
+                "details": {
+                    "description": "Includes voting and how government works",
+                    "type": "section"
+                },
+                "content_with_tag": {
+                    "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=citizenship",
+                    "web_url": "https://www.preview.alphagov.co.uk/browse/citizenship"
+                },
+                "parent": null
+            }
+        }
+    ],
+    "related": [
+        {
+            "title": "Voting in the UK",
+            "format": "guide",
+            "id": "https://contentapi.preview.alphagov.co.uk/voting-in-uk.json",
+            "web_url": "https://www.preview.alphagov.co.uk/voting-in-uk",
+            "details": {
+                "need_id": "799",
+                "business_proposition": false
+            }
+        },
+        {
+            "title": "The electoral register ",
+            "format": "answer",
+            "id": "https://contentapi.preview.alphagov.co.uk/electoral-register.json",
+            "web_url": "https://www.preview.alphagov.co.uk/electoral-register",
+            "details": {
+                "need_id": "1877",
+                "business_proposition": false
+            }
+        },
+        {
+            "title": "Find local consultations",
+            "format": "local_transaction",
+            "id": "https://contentapi.preview.alphagov.co.uk/find-local-consultations.json",
+            "web_url": "https://www.preview.alphagov.co.uk/find-local-consultations",
+            "details": {
+                "need_id": "170",
+                "business_proposition": false
+            }
+        },
+        {
+            "title": "Apply to vote by proxy",
+            "format": "local_transaction",
+            "id": "https://contentapi.preview.alphagov.co.uk/apply-vote-proxy-local-electoral-office.json",
+            "web_url": "https://www.preview.alphagov.co.uk/apply-vote-proxy-local-electoral-office",
+            "details": {
+                "need_id": "2114",
+                "business_proposition": false
+            }
+        }
+    ]
+}

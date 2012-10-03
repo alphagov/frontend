@@ -1,0 +1,21 @@
+{
+    "_response_info": {
+        "status": "ok"
+    },
+    "title": "This is the video summary",
+    "format": "video",
+    "id": "https://contentapi.preview.alphagov.co.uk/write-business-plan.json",
+    "web_url": "https://www.preview.alphagov.co.uk/write-business-plan",
+    "details": {
+        "need_id": "",
+        "business_proposition": true,
+        "format": "Video",
+        "alternative_title": "How to write a business plan",
+        "overview": "overview",
+        "video_summary": "summary",
+        "video_url": "http://www.youtube.com/watch?v=fLreo24WYeQ",
+        "body": "Video description\n-------\nblah"
+    },
+    "tags": [],
+    "related": []
+}

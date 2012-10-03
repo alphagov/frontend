@@ -107,6 +107,26 @@ class PublicationPresenter
     details["licence_overview"]
   end
 
+  def link
+    details["link"]
+  end
+
+  def will_continue_on
+    details["will_continue_on"]
+  end
+
+  def more_information
+    details["more_information"]
+  end
+
+  def minutes_to_complete
+    details["minutes_to_complete"]
+  end
+
+  def alternate_methods
+    details["alternate_methods"]
+  end
+
   # Parts stuff
 
   def part_index(slug)

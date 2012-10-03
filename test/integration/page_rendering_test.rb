@@ -61,7 +61,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   # end
 
   test "guide request" do
-    response = publisher_api_response("find-job")
+    response = content_api_response("find-job")
     content_api_has_an_artefact("find-job", response)
 
     visit "/find-job"

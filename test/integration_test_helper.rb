@@ -17,14 +17,14 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
-  def publisher_api_response(slug)
+  def content_api_response(slug)
     json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
     JSON.parse(json)
   end
 
   def setup_api_responses(slug, options = {})
-    publication_info = publisher_api_response(slug)
-    content_api_has_an_artefact(slug, publication_info)
+    artefact = content_api_response(slug)
+    content_api_has_an_artefact(slug, artefact)
   end
 
   def stub_location_request(postcode, response)

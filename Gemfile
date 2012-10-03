@@ -14,7 +14,7 @@ gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
 
-gem 'plek', '~> 0.1.22'
+gem 'plek', '0.5.0'
 gem 'lograge'
 
 if ENV['GOVSPEAK_DEV']

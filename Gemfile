@@ -17,8 +17,6 @@ gem 'gelf'
 gem 'plek', '~> 0.1.22'
 gem 'lograge'
 
-gem 'gabba'
-
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'
 else

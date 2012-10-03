@@ -242,14 +242,6 @@ class RootControllerTest < ActionController::TestCase
 
       assert_equal JSON.dump(artefact_data), @response.headers["X-Slimmer-Artefact"]
     end
-
-    should "set up a default artefact if content API isn't available" do
-      content_api_does_not_have_an_artefact("slug")
-      @controller.stubs(:render)
-
-      get :publication, slug: "slug"
-      assert_equal "missing", @response.headers["X-Slimmer-Format"]
-    end
   end
 
   test "objects should have specified parts selected" do

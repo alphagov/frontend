@@ -4,22 +4,12 @@ require 'ostruct'
 class PartHelperTest < ActionView::TestCase
   include PartHelper
 
-  def to_ostruct(value)
-    case value
-      when Hash
-        OpenStruct.new(value.map {|k, v| [k, to_ostruct(v)]})
-      when Array
-        value.map {|v| to_ostruct(v)}
-      else
-        value
-    end
-  end
   setup do
-    @model = to_ostruct(JSON.parse(
+    @model = PublicationPresenter.new(JSON.parse(
       File.read(
         Rails.root.join("test/fixtures/child-tax-credit.json")
       )
-    )).extend(GdsApi::PartMethods)
+    ))
   end
 
   test "if given bad values it returns a part number of -" do
@@ -42,7 +32,7 @@ class PartHelperTest < ActionView::TestCase
 
   context "previous_part_path" do
     should "show previous part path if available" do
-      assert_equal "/child-tax-credit/eligibility?edition=1", previous_part_path(@model, @model.parts[3], 1)
+      assert_equal "/child-tax-credit/adoptive-or-foster-parents?edition=1", previous_part_path(@model, @model.parts[3], 1)
     end
 
     should "fail if there is no previous part" do
@@ -54,7 +44,7 @@ class PartHelperTest < ActionView::TestCase
 
   context "next_part_path" do
     should "show next part path if available" do
-      assert_equal "/child-tax-credit/eligibility?edition=1", next_part_path(@model, @model.parts[1], 1)
+      assert_equal "/child-tax-credit/adoptive-or-foster-parents?edition=1", next_part_path(@model, @model.parts[1], 1)
     end
 
     should "show fail if there is no next part" do

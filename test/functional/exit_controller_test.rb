@@ -9,79 +9,37 @@ class ExitControllerTest < ActionController::TestCase
   end
 
   context 'exit page tracking' do
-    context 'transaction format' do
-      should "render exit html" do
-        slug = '/tax-disc-license'
-        target = 'http://google.com'
-        need_id = '999999'
-        type = "transaction"
 
-        mock_publications_api(slug, {:type => type, :link => target})
+    should "render exit html for guide" do
+      slug = 'council-housing'
+      target = 'http://example.com'
+      need_id = '999999'
+      type = "guide"
 
-        get :exit, slug: slug, target: target, need_id: need_id
+      mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:link => target)]})
 
-        assert_redirected_to target
-      end
+      get :exit, slug: slug, target: target, need_id: need_id
 
-      should "return 404 if slug does not exist" do
-        slug = 'tax-disc-license234'
-        target = 'http://www.naughty_website.com'
-        need_id = '999999'
-
-        api = mock()
-        api.expects(:publication_for_slug).with(slug, {}).returns(nil)
-        @controller.stubs(:publisher_api).returns(api)
-
-        get :exit, slug: slug, target: target, need_id: need_id
-
-        assert_equal 404, response.status
-      end
-
-      should "return 403 if the target is not included publication" do
-        slug = 'tax-disc-license'
-        target = 'http://www.naughty_website.com'
-        need_id = '999999'
-
-        mock_publications_api(slug, {:type => "transaction", :link => "http://nice-guys-inc.com", :more_information => ""})
-
-        get :exit, slug: slug, target: target, need_id: need_id
-
-        assert_equal 403, response.status
-      end
-    end
-
-    context 'guide format' do
-
-      should "render exit html for guide" do
-        slug = 'council-housing'
-        target = 'http://example.com'
-        need_id = '999999'
-        type = "guide"
-
-        mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => 'Go here [local councils](http://example.com "Find your local council")  ')]})
-
-        get :exit, slug: slug, target: target, need_id: need_id
-
-        assert_redirected_to target
-
-      end
-
-      should "return 403 if the target is not included publication" do
-        slug = 'tax-disc-license'
-        target = 'http://www.naughty_website.com'
-        need_id = '999999'
-        type = "guide"
-
-        mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => "akdsjfhaksd aksdjfhkasd")]})
-
-        get :exit, slug: slug, target: target, need_id: need_id
-
-        assert_equal 403, response.status
-      end
+      assert_redirected_to target
 
     end
 
-    should "return 404 if the exit links is not a valid target" do
+
+    should "redirect for link in body property" do
+      slug = 'council-housing'
+      target = 'http://example.com'
+      need_id = '999999'
+      type = "guide"
+
+      mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => 'Go here [local councils](http://example.com "Find your local council")  ')]})
+
+      get :exit, slug: slug, target: target, need_id: need_id
+
+      assert_redirected_to target
+
+    end
+
+    should "redirect links for link in link property" do
       slug = '/tax-disc-license'
       target = 'htp://google.com'
       need_id = '999999'
@@ -95,16 +53,28 @@ class ExitControllerTest < ActionController::TestCase
     end
 
 
-    should "return 404 if the publication type is not supported" do
-      slug = '/tax-disc-license'
-      target = 'http://www.naughty_website.com'
+    should "return 404 if the target is not a valid uri" do
+      slug = 'tax-disc-license'
+      target = 'www.naughty_website.com'
       need_id = '999999'
-
-      mock_publications_api(slug, {:type => 'pickles'})
+      type = "guide"
 
       get :exit, slug: slug, target: target, need_id: need_id
 
       assert_equal 404, response.status
+    end
+
+    should "return 403 if the target is not included publication" do
+      slug = 'tax-disc-license'
+      target = 'http://www.naughty_website.com'
+      need_id = '999999'
+      type = "guide"
+
+      mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => "akdsjfhaksd aksdjfhkasd")]})
+
+      get :exit, slug: slug, target: target, need_id: need_id
+
+      assert_equal 403, response.status
     end
 
     should "return 404 if target is missing from url params" do

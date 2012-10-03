@@ -1,20 +1,12 @@
-require_relative '../../lib/redirect_warden_factory'
-
 class ExitController < ApplicationController
 
   def exit
-    unless (params[:slug] && params[:target] && params[:need_id]) and params[:target] =~ URI::regexp
-      error_404 and return
-    end
-
-    publication = fetch_publication(params)
-    forwarding_warden = fetch_warden(publication)
-
-    if forwarding_warden.nil?
+    publication = params_valid?(params) ? fetch_publication(params) : nil
+    if publication.nil?
       logger.info { "root#exit rejected redirect to '#{params[:target]}' from #{params[:slug]}" }
       statsd.increment('request.exist.404')
       error_404 and return
-    elsif not forwarding_warden.call(params[:target])
+    elsif not publication.marshal_dump.to_json.include?(params[:target])
       logger.warn { "root#exit rejected redirect to '#{params[:target]}' from #{params[:slug]}" }
       statsd.increment('request.exist.403')
       error 403 and return
@@ -37,6 +29,16 @@ class ExitController < ApplicationController
   def statsd
     @statsd ||= Statsd.new("localhost").tap do |c|
       c.namespace = "govuk.app.frontend"
+    end
+  end
+
+  def params_valid?(params)
+    if params[:slug].nil? || params[:target].nil? || params[:need_id].nil?
+      false
+    elsif not params[:target] =~ URI::regexp
+      false
+    else
+      true
     end
   end
 

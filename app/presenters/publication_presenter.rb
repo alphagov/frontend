@@ -23,28 +23,31 @@ class PublicationPresenter
     @artefact = artefact
   end
 
+  PASS_THROUGH_KEYS = [
+    :title, :details
+  ]
+
+  PASS_THROUGH_DETAILS_KEYS = [
+    :body, :introduction, :expectations, :video_url, :alternative_title,
+    :overview, :name, :video_summary, :continuation_link, :licence_overview,
+    :link, :will_continue_on, :more_information, :minutes_to_complete,
+    :alternate_methods
+  ]
+
+  PASS_THROUGH_KEYS.each do |key|
+    define_method key do
+      artefact[key.to_s]
+    end
+  end
+
+  PASS_THROUGH_DETAILS_KEYS.each do |key|
+    define_method key do
+      details[key.to_s]
+    end
+  end
+
   def type
     artefact["format"]
-  end
-
-  def title
-    artefact["title"]
-  end
-
-  def details
-    artefact["details"]
-  end
-
-  def body
-    details["body"]
-  end
-
-  def introduction
-    details["introduction"]
-  end
-
-  def expectations
-    details["expectations"]
   end
 
   def parts
@@ -63,10 +66,6 @@ class PublicationPresenter
     parts.find{|part| part.slug == slug}
   end
 
-  def video_url
-    details["video_url"]
-  end
-
   def slug
     web_url = artefact["web_url"]
     URI.parse(web_url).path.gsub("/", "")
@@ -75,50 +74,6 @@ class PublicationPresenter
   def updated_at
     date = details["updated_at"]
     DateTime.parse(date) if date
-  end
-
-  def alternative_title
-    details["alternative_title"]
-  end
-
-  def overview
-    details["overview"]
-  end
-
-  def name
-    details["name"]
-  end
-
-  def video_summary
-    details["video_summary"]
-  end
-
-  def continuation_link
-    details["continuation_link"]
-  end
-
-  def licence_overview
-    details["licence_overview"]
-  end
-
-  def link
-    details["link"]
-  end
-
-  def will_continue_on
-    details["will_continue_on"]
-  end
-
-  def more_information
-    details["more_information"]
-  end
-
-  def minutes_to_complete
-    details["minutes_to_complete"]
-  end
-
-  def alternate_methods
-    details["alternate_methods"]
   end
 
   # Parts stuff

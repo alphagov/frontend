@@ -17,7 +17,7 @@ class PublicationPresenter
     :body, :introduction, :expectations, :video_url, :alternative_title,
     :overview, :name, :video_summary, :continuation_link, :licence_overview,
     :link, :will_continue_on, :more_information, :minutes_to_complete,
-    :alternate_methods
+    :alternate_methods, :place_type
   ]
 
   PASS_THROUGH_KEYS.each do |key|

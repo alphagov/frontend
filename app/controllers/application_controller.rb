@@ -34,4 +34,8 @@ class ApplicationController < ActionController::Base
       logger.warn("Failed to fetch artefact from Content API.")
       raise RecordNotFound
     end
+
+    def content_api
+      @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
+    end
 end

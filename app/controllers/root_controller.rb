@@ -206,8 +206,4 @@ protected
       expires_in(60.minutes, :public => true)
     end
   end
-
-  def content_api
-    @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
-  end
 end

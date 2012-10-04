@@ -15,6 +15,7 @@ class SearchController < ApplicationController
       @secondary_results = retrieve_secondary_results(@search_term)
 
       @all_results = @primary_results + @secondary_results + @external_link_results
+      @count_results = @primary_results + @secondary_results
     end
 
     fill_in_slimmer_headers(@all_results)

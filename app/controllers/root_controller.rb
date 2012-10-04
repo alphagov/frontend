@@ -11,10 +11,6 @@ class RootController < ApplicationController
   include RootHelper
   include ActionView::Helpers::TextHelper
 
-  rescue_from GdsApi::TimedOutException, with: :error_503
-  rescue_from GdsApi::EndpointNotFound, with: :error_503
-  rescue_from GdsApi::HTTPErrorResponse, with: :error_503
-
   def index
     set_expiry
 

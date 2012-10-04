@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   def error_501; error 501; end
   def error_503; error 503; end
 
+  rescue_from GdsApi::TimedOutException, with: :error_503
+  rescue_from GdsApi::EndpointNotFound, with: :error_503
+  rescue_from GdsApi::HTTPErrorResponse, with: :error_503
+
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end

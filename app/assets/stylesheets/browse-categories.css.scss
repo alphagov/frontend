@@ -91,9 +91,10 @@
         padding: 0;
 
         li {
+          border-top: solid 1px #C9D0D0;
           float: left;
           margin-right: 3.5%;
-          margin-bottom: 0.75em;
+          margin-bottom: 1.5em;
           width: 31%;
 
           &:nth-child(3n) {

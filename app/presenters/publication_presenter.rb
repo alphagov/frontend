@@ -5,20 +5,14 @@ class PartPresenter
     @part = part
   end
 
-  def slug
-    part["slug"]
-  end
+  PASS_THROUGH_KEYS = [
+    :slug, :title, :body, :name
+  ]
 
-  def title
-    part["title"]
-  end
-
-  def body
-    part["body"]
-  end
-
-  def name
-    part["name"]
+  PASS_THROUGH_KEYS.each do |key|
+    define_method key do
+      part[key.to_s]
+    end
   end
 end
 

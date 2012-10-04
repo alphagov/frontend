@@ -3,6 +3,8 @@ class PublicationPresenter
 
   attr_reader :artefact
 
+  attr_accessor :places
+
   def initialize(artefact)
     @artefact = artefact
   end

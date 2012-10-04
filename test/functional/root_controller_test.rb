@@ -224,4 +224,12 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug", :part => "b"
     assert_equal "BB", assigns["part"].name
   end
+
+  test "should work with place editions" do
+    content_api_has_an_artefact("a-slug", artefact_for_slug("a-slug").merge({
+          'format' => 'place', 'details' => {}}))
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug"
+    assert_equal '200', response.code
+  end
 end

@@ -102,16 +102,6 @@ class RootController < ApplicationController
     error 404
   end
 
-  def settings
-    respond_to do |format|
-      format.html {}
-      format.raw {
-        set_slimmer_headers skip: "true"
-        render 'settings.html.erb'
-      }
-    end
-  end
-
 protected
   def empty_part_list?
     @publication.parts and @publication.parts.empty?

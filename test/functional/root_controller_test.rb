@@ -174,16 +174,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug",:edition => edition_id
   end
 
-  test "should pass specific and general variables to template" do
-    content_api_has_an_artefact("c-slug", {"format" => "answer", "details" => {'name' => 'THIS'}})
-
-    prevent_implicit_rendering
-    @controller.stubs(:render).with("answer")
-    get :publication, :slug => "c-slug"
-    assert_equal "THIS", assigns["publication"].name
-    assert_equal "THIS", assigns["answer"].name
-  end
-
   test "Should redirect to transaction if no geo header" do
     content_api_has_an_artefact("c-slug")
 

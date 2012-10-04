@@ -6,7 +6,7 @@
       <ol>
         <li <% unless @licence_details[:action] %>class="active"<% end %>><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
         <% (@licence_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
-          <li <% if @licence_details[:action] == action %>class="active"<% end %>><%= link_to "How to #{action}", licence_authority_action_path(@licence.slug, @licence_details[:authority]['slug'], action) %></li>
+          <li <% if @licence_details[:action] == action %>class="active"<% end %>><%= link_to "How to #{action}", licence_authority_action_path(@publication.slug, @licence_details[:authority]['slug'], action) %></li>
         <% end %>
       </ol>
     </nav>
@@ -19,7 +19,7 @@
       <%= render :partial => "licences/action", :locals => {:action => @licence_details[:action] } %>
     <% else %>
       <header><h1>Overview</h1></header>
-      <%= to_govspeak(@licence.licence_overview) %>
+      <%= to_govspeak(@publication.licence_overview) %>
     <% end %>
 
     <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>

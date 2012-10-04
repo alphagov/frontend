@@ -79,8 +79,6 @@ class RootController < ApplicationController
 
     @edition = params[:edition]
 
-    instance_variable_set("@#{@publication.type}".to_sym, @publication)
-
     respond_to do |format|
       format.html do
         render @publication.type

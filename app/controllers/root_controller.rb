@@ -102,16 +102,6 @@ class RootController < ApplicationController
     error 404
   end
 
-  def settings
-    respond_to do |format|
-      format.html {}
-      format.raw {
-        set_slimmer_headers skip: "true"
-        render 'settings.html.erb'
-      }
-    end
-  end
-
 protected
   def fetch_artefact(snac = nil)
     artefact = snac.blank? ? content_api.artefact(params[:slug]) : content_api.artefact_with_snac_code(params[:slug], snac).to_hash
@@ -152,20 +142,6 @@ protected
     else
       []
     end
-  end
-
-  def fetch_publication(params)
-    options = {
-      edition: params[:edition],
-      snac: params[:snac]
-    }.reject { |k, v| v.blank? }
-    publisher_api.publication_for_slug(params[:slug], options)
-  rescue ArgumentError
-    logger.error "invalid UTF-8 byte sequence with slug `#{params[:slug]}`"
-    return false
-  rescue URI::InvalidURIError
-    logger.error "Invalid URI formed with slug `#{params[:slug]}`"
-    return false
   end
 
   def local_transaction_details(artefact, authority_slug, snac)

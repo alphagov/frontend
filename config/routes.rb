@@ -12,10 +12,11 @@ Frontend::Application.routes.draw do
   match "/help/feedback" => redirect("/feedback") # Handled by feedback app
   match "/help(/:action)", to: "help"
 
-  match "/settings", to: "root#settings"
   match "/tour", to: "root#tour"
-  match "/identify_council/:slug", as: "identify_council", to: "root#identify_council"
-  match "/places/load_places/:slug", as: "load_places", to: "root#load_places"
+  match "/exit", :to => "exit#exit"
+
+  # Campaign pages.
+  match "/workplacepensions", :to => "campaign#workplace_pensions"
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.match ":slug/video", format: :video

@@ -16,6 +16,7 @@ gem 'gelf'
 
 gem 'plek', '0.5.0'
 gem 'lograge'
+gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 
 if ENV['GOVSPEAK_DEV']
   gem 'govspeak', :path => '../govspeak'

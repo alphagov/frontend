@@ -1,7 +1,8 @@
-@import '_typography';
+@import "_conditionals";
+@import "_typography";
 
 .category-page {
-  
+
   header.page-header {
 
     hgroup {
@@ -10,6 +11,11 @@
       h1 {
         padding-left: 0;
         padding-right: 0;
+        width: 75%;
+
+        @include media(mobile) {
+          width: auto;
+        }
       }
 
       h2 {
@@ -28,10 +34,35 @@
       margin-bottom: 2em;
       width: 65.5%;
 
+      @include media(mobile) {
+        margin-bottom: 1em;
+        width: auto;
+      }
+
       p {
         @include core-24;
         margin: 0;
       }
+    }
+
+    .detailed-guidance {
+      border: solid 4px #2B8CC4;
+      padding: 1em 2em;
+      margin-top: 2em;
+
+      li:nth-child(n) {
+        float: left;
+        width: 45%;
+
+      }
+
+      li:nth-child(odd) {
+        clear: left;
+      }
+      li:nth-child(even) {
+        float: right;
+      }
+
     }
 
     ul {
@@ -62,11 +93,26 @@
         li {
           float: left;
           margin-right: 3.5%;
-          min-height: 6em;
+          margin-bottom: 0.75em;
           width: 31%;
 
           &:nth-child(3n) {
             margin-right: 0;
+          }
+
+          &:nth-child(3n+1) {
+            clear: left;
+          }
+
+          @include media(mobile) {
+            float: none;
+            margin-right: 0;
+            width: auto;
+          }
+
+          @include ie-lte(7) {
+            min-height: 9em;
+            width: 30.9%;
           }
         }
       }

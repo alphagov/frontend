@@ -40,6 +40,13 @@ class BrowseControllerTest < ActionController::TestCase
   end
 
   context "GET sub_section" do
+    setup do
+      mock_api = stub('guidance_api')
+      @results = stub("results", results: [])
+      mock_api.stubs(:sub_sections).returns(@results)
+      Frontend.stubs(:detailed_guidance_content_api).returns(mock_api)
+    end
+
     should "list the content in the sub section" do
       content_api_has_section("crime-and-justice/judges", "crime-and-justice")
       content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])
@@ -49,6 +56,26 @@ class BrowseControllerTest < ActionController::TestCase
       assert_select "h1", "Crime and justice"
       assert_select "h2", "Judges"
       assert_select "li h3 a", "Judge dredd"
+    end
+
+    should "list detailed guidance categories in the sub section" do
+      content_api_has_section("crime-and-justice/judges", "crime-and-justice")
+      content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])
+
+      detailed_guidance = OpenStruct.new({
+          title: 'Detailed guidance',
+          details: OpenStruct.new(description: "Lorem Ipsum Dolor Sit Amet"),
+          content_with_tag: OpenStruct.new(web_url: 'http://example.com/browse/detailed-guidance')
+        })
+
+      @results.stubs(:results).returns([detailed_guidance])
+
+      get :sub_section, section: "crime-and-justice", sub_section: "judges"
+
+      assert_select '.detailed-guidance' do
+        assert_select "li a[href='http://example.com/browse/detailed-guidance']", text: 'Detailed guidance'
+        assert_select 'li p', text: "Lorem Ipsum Dolor Sit Amet"
+      end
     end
 
     should "404 if the section does not exist" do

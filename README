@@ -1,1 +1,3 @@
 Front-end (and preview) app for single domain.
+
+This runs the /browse URLs, as well as serving documents from publisher.

@@ -90,4 +90,20 @@ class TransactionPresenterTest < ActiveSupport::TestCase
       assert ! @presenter.other_ways_to_apply?
     end
   end
+
+  context "open in new window?" do
+    setup do
+      @presenter.stubs(:load_new_window_transactions).returns(["example-slug-one"])
+    end
+
+    should "be true if transaction slug exists in list of transactions to open in new window" do
+      @transaction.stubs(:slug).returns("example-slug-one")
+      assert @presenter.open_in_new_window?
+    end
+
+    should "be true if transaction slug exists in list of transactions to open in new window" do
+      @transaction.stubs(:slug).returns("example-slug-two")
+      assert ! @presenter.open_in_new_window?
+    end
+  end
 end

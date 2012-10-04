@@ -1055,6 +1055,150 @@
     "ons": "00AA",
     "gss": "E09000001"
   },
+  "barnsley": {
+    "ons": "00CC",
+    "gss": "E08000016"
+  },
+  "birmingham": {
+    "ons": "00CN",
+    "gss": "E08000025"
+  },
+  "bolton": {
+    "ons": "00BL",
+    "gss": "E08000001"
+  },
+  "bradford": {
+    "ons": "00CX",
+    "gss": "E08000032"
+  },
+  "bury": {
+    "ons": "00BM",
+    "gss": "E08000002"
+  },
+  "calderdale": {
+    "ons": "00CY",
+    "gss": "E08000033"
+  },
+  "wolverhampton": {
+    "ons": "00CW",
+    "gss": "E08000031"
+  },
+  "coventry": {
+    "ons": "00CQ",
+    "gss": "E08000026"
+  },
+  "doncaster": {
+    "ons": "00CE",
+    "gss": "E08000017"
+  },
+  "dudley": {
+    "ons": "00CR",
+    "gss": "E08000027"
+  },
+  "gateshead": {
+    "ons": "00CH",
+    "gss": "E08000020"
+  },
+  "kirklees": {
+    "ons": "00CZ",
+    "gss": "E08000034"
+  },
+  "knowsley": {
+    "ons": "00BX",
+    "gss": "E08000011"
+  },
+  "leeds": {
+    "ons": "00DA",
+    "gss": "E08000035"
+  },
+  "liverpool": {
+    "ons": "00BY",
+    "gss": "E08000012"
+  },
+  "manchester": {
+    "ons": "00BN",
+    "gss": "E08000003"
+  },
+  "newcastle-upon-tyne": {
+    "ons": "00CJ",
+    "gss": "E08000021"
+  },
+  "north-tyneside": {
+    "ons": "00CK",
+    "gss": "E08000022"
+  },
+  "oldham": {
+    "ons": "00BP",
+    "gss": "E08000004"
+  },
+  "rochdale": {
+    "ons": "00BQ",
+    "gss": "E08000005"
+  },
+  "rotherham": {
+    "ons": "00CF",
+    "gss": "E08000018"
+  },
+  "salford": {
+    "ons": "00BR",
+    "gss": "E08000006"
+  },
+  "sandwell": {
+    "ons": "00CS",
+    "gss": "E08000028"
+  },
+  "sefton": {
+    "ons": "00CA",
+    "gss": "E08000014"
+  },
+  "sheffield": {
+    "ons": "00CG",
+    "gss": "E08000019"
+  },
+  "solihull": {
+    "ons": "00CT",
+    "gss": "E08000029"
+  },
+  "south-tyneside": {
+    "ons": "00CL",
+    "gss": "E08000023"
+  },
+  "stockport": {
+    "ons": "00BS",
+    "gss": "E08000007"
+  },
+  "st-helens": {
+    "ons": "00BZ",
+    "gss": "E08000013"
+  },
+  "sunderland": {
+    "ons": "00CM",
+    "gss": "E08000024"
+  },
+  "tameside": {
+    "ons": "00BT",
+    "gss": "E08000008"
+  },
+  "trafford": {
+    "ons": "00BU",
+    "gss": "E08000009"
+  },
+  "wakefield": {
+    "ons": "00DB",
+    "gss": "E08000036"
+  },
+  "walsall": {
+    "ons": "00CU",
+    "gss": "E08000030"
+  },
+  "wigan": {
+    "ons": "00BW",
+    "gss": "E08000010"
+  },
+  "wirral": {
+    "ons": "00CB",
+    "gss": "E08000015"
+  },
   "swansea": {
     "ons": "00NX",
     "gss": "W06000011"

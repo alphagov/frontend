@@ -1,7 +1,9 @@
-class SearchController < ApplicationController
-  def index
-    @max_results = 50
+require "slimmer/headers"
 
+class SearchController < ApplicationController
+  before_filter :setup_slimmer_artefact, only: [:index]
+
+  def index
     @search_term = params[:q]
 
     if @search_term.blank?
@@ -9,19 +11,34 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @results = retrieve_results(@search_term, @max_results, params["format_filter"])
+      @external_link_results, @primary_results = extract_external_links(retrieve_primary_results(@search_term))
+      @secondary_results = retrieve_secondary_results(@search_term)
+
+      @all_results = @primary_results + @secondary_results + @external_link_results
     end
 
-    fill_in_slimmer_headers(@results)
+    fill_in_slimmer_headers(@all_results)
 
-    if @results.empty?
+    if @all_results.empty?
       render action: 'no_results' and return
     end
   end
 
   protected
-  def retrieve_results(term, limit = 50, format_filter = nil)
-    res = Frontend.mainstream_search_client.search(term, format_filter).take(limit)
+
+  def retrieve_primary_results(term)
+    res = Frontend.mainstream_search_client.search(term)
+    res.map { |r| SearchResult.new(r) }
+  end
+
+  def extract_external_links(results)
+    results.partition do |result|
+      (result.respond_to?(:format) && result.format == 'recommended-link')
+    end
+  end
+
+  def retrieve_secondary_results(term)
+    res = Frontend.detailed_guidance_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
   end
 
@@ -32,5 +49,9 @@ class SearchController < ApplicationController
       section:      "search",
       proposition:  "citizen"
     )
+  end
+
+  def setup_slimmer_artefact
+    set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
   end
 end

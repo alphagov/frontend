@@ -41,8 +41,9 @@ class PublicationPresenter
   def build_parts
     if details
       parts = details["parts"]
-      return unless parts
-      parts.map{|part| PartPresenter.new(part)}
+      if parts
+        parts.map{|part| PartPresenter.new(part)}
+      end
     end
   end
 

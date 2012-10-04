@@ -2,10 +2,9 @@ require "test_helper"
 
 class ExitControllerTest < ActionController::TestCase
 
-  def mock_publications_api(slug, publication)
-    api = mock()
-    api.expects(:publication_for_slug).with(slug, {}).returns(OpenStruct.new(publication))
-    @controller.stubs(:publisher_api).returns(api)
+  def mock_content_api(slug, publication)
+    artefact = artefact_for_slug(slug).merge(publication)
+    content_api_has_an_artefact(slug, artefact)
   end
 
   context 'exit page tracking' do
@@ -14,14 +13,13 @@ class ExitControllerTest < ActionController::TestCase
       slug = 'council-housing'
       target = 'http://example.com'
       need_id = '999999'
-      type = "guide"
+      format = "guide"
 
-      mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:link => target)]})
+      mock_content_api(slug, {:format => format, details: { :parts => [ { :link => target } ] } } )
 
       get :exit, slug: slug, target: target, need_id: need_id
 
       assert_redirected_to target
-
     end
 
 
@@ -29,23 +27,22 @@ class ExitControllerTest < ActionController::TestCase
       slug = 'council-housing'
       target = 'http://example.com'
       need_id = '999999'
-      type = "guide"
+      format = "guide"
 
-      mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => 'Go here [local councils](http://example.com "Find your local council")  ')]})
+      mock_content_api(slug, { :format => format, details: { :parts => [ { :body => 'Go here [local councils](http://example.com "Find your local council")  ' } ] } } )
 
       get :exit, slug: slug, target: target, need_id: need_id
 
       assert_redirected_to target
-
     end
 
     should "redirect links for link in link property" do
       slug = '/tax-disc-license'
       target = 'htp://google.com'
       need_id = '999999'
-      type = "transaction"
+      format = "transaction"
 
-      mock_publications_api(slug, {:type => type, :link => target})
+      mock_content_api(slug, { :format => format, :link => target })
 
       get :exit, slug: slug, target: target, need_id: need_id
 
@@ -57,7 +54,7 @@ class ExitControllerTest < ActionController::TestCase
       slug = 'tax-disc-license'
       target = 'www.naughty_website.com'
       need_id = '999999'
-      type = "guide"
+      format = "guide"
 
       get :exit, slug: slug, target: target, need_id: need_id
 
@@ -68,9 +65,9 @@ class ExitControllerTest < ActionController::TestCase
       slug = 'tax-disc-license'
       target = 'http://www.naughty_website.com'
       need_id = '999999'
-      type = "guide"
+      format = "guide"
 
-      mock_publications_api(slug, {:type => type, :parts => [OpenStruct.new(:body => "akdsjfhaksd aksdjfhkasd")]})
+      mock_content_api(slug, {:format => format, details: { :parts => [ { :body => "akdsjfhaksd aksdjfhkasd" } ] } } )
 
       get :exit, slug: slug, target: target, need_id: need_id
 

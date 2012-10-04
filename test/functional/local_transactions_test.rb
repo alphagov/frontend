@@ -2,8 +2,6 @@ require 'test_helper'
 require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/part_methods'
-require 'gds_api/test_helpers/publisher'
-require 'gds_api/test_helpers/panopticon'
 
 class LocalTransactionsTest < ActionController::TestCase
 
@@ -15,6 +13,7 @@ class LocalTransactionsTest < ActionController::TestCase
       @artefact = {
         "title" => "Send a bear to your local council",
         "format" => "local_transaction",
+        "web_url" => "http://example.org/send-a-bear-to-your-local-council",
         "details" => {
           "format" => "LocalTransaction",
           "local_service" => {
@@ -26,13 +25,6 @@ class LocalTransactionsTest < ActionController::TestCase
       }
 
       content_api_has_an_artefact('send-a-bear-to-your-local-council', @artefact)
-      publication_exists(
-        "slug" => "send-a-bear-to-your-local-council",
-        "alternative_title" => "",
-        "overview" => "",
-        "title" => "Send a bear to your local council",
-        "type" => "local_transaction"
-      )
     end
 
     context "loading the local transaction edition without any location" do
@@ -107,6 +99,7 @@ class LocalTransactionsTest < ActionController::TestCase
       @artefact = {
         "title" => "Report a bear on a local road",
         "format" => "local_transaction",
+        "web_url" => "http://example.org/report-a-bear-on-a-local-road",
         "details" => {
           "format" => "LocalTransaction",
           "local_service" => {
@@ -131,13 +124,6 @@ class LocalTransactionsTest < ActionController::TestCase
 
       content_api_has_an_artefact('report-a-bear-on-a-local-road', @artefact)
       content_api_has_an_artefact_with_snac_code('report-a-bear-on-a-local-road', "41UH", @artefact)
-      publication_exists(
-        "slug" => "report-a-bear-on-a-local-road",
-        "alternative_title" => "",
-        "overview" => "",
-        "title" => "Report a bear on a local road",
-        "type" => "local_transaction"
-      )
     end
 
     should "show error message" do

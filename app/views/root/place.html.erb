@@ -51,9 +51,7 @@
               <% if @place.expectations.any? %>
                 <ul class="helpers group">
                   <% @place.expectations.each do |e| %>
-                    <li class="<%= e.css_class %>">
-                    <%= e.text %>
-                    </li>
+                    <li><%= e %></li>
                   <% end %>
                 </ul>
               <% end %>

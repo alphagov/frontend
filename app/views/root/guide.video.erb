@@ -14,12 +14,11 @@
 		<p><%= @publication.video_summary %></p>
 	</div>
 
-
-        <% if video_embed_url(@publication) %>
-          <figure class="media-player-wrapper" id="video">
-            <a href="<%= video_embed_url(@publication) %>">Watch <%= @publication.title %></a>
-          </figure>
-        <% end %>
+  <% if @publication.video_embed_url %>
+    <figure class="media-player-wrapper" id="video">
+      <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
+    </figure>
+  <% end %>
 
 	<div class="application-notice info-notice">
 		<p>This is the video version of this guide. You can also <a href="<%= publication_path(@publication.slug,:edition=>@edition) %>">read the text version</a>.</p>

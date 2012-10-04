@@ -14,9 +14,9 @@
           <p><%= @publication.video_summary %></p>
         </div>
 
-        <% if video_embed_url(@publication) %>
+        <% if @publication.video_embed_url %>
           <figure class="media-player-wrapper" id="video">
-            <a href="<%= video_embed_url(@publication) %>">Watch <%= @publication.title %></a>
+            <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
           </figure>
         <% end %>
 

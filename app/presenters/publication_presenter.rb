@@ -8,7 +8,7 @@ class PublicationPresenter
   end
 
   PASS_THROUGH_KEYS = [
-    :title, :details
+    :title, :details, :web_url
   ]
 
   PASS_THROUGH_DETAILS_KEYS = [
@@ -52,7 +52,6 @@ class PublicationPresenter
   end
 
   def slug
-    web_url = artefact["web_url"]
     URI.parse(web_url).path.gsub("/", "")
   end
 

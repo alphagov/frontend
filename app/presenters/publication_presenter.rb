@@ -77,13 +77,4 @@ class PublicationPresenter
     date = details["updated_at"]
     DateTime.parse(date) if date
   end
-
-private
-
-  def part_at(part, relative_offset)
-    return nil unless current_index = part_index(part.slug)
-    other_index = current_index + relative_offset
-    return nil unless (0 ... parts.length).include?(other_index)
-    parts[other_index]
-  end
 end

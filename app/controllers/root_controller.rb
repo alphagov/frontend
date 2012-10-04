@@ -10,7 +10,6 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
-  include ArtefactHelpers
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -33,7 +32,7 @@ class RootController < ApplicationController
       params[:part] = nil
     end
 
-    @artefact = fetch_artefact || artefact_unavailable
+    @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)

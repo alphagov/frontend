@@ -3,13 +3,6 @@ require 'geo_helper'
 module RootHelper
 
   include GeoHelper
-  def easter_egg(path)
-    partial_path = Rails.env.test? ? "test/fixtures" : "lib/data"
-    json_path = Rails.root.join(partial_path, "eastereggs.json")
-    data = JSON.parse(File.read(json_path))
-    content = data[path]
-    content ? "<!-- #{content} -->".html_safe : ""
-  end
 
   def has_further_information?(publication)
     publication.parts.collect(&:slug).include?('further-information')

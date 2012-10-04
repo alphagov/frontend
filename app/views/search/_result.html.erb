@@ -10,13 +10,11 @@
     <ul class="result-meta">
       <li><%= result.link %></li>
     </ul>
-  <% elsif result.format == 'specialist_guidance' %>
-    <ul class="result-meta">
-      <li class="<%= result.format %>"><%= result.humanized_format %></li>
-    </ul>
-  <% elsif result.section %>
+  <% elsif (result.format == 'detailed_guidance' && result.section) || result.section %>
     <ul class="result-meta">
       <li><%= result.formatted_section_name %></li>
+      <% if result.subsection %><li><%= result.formatted_subsection_name %></li><% end %>
+      <% if result.subsubsection %><li><%= result.formatted_subsubsection_name %></li><% end %>
     </ul>
   <% end %>
 </li>

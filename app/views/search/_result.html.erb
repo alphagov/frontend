@@ -11,10 +11,10 @@
       <li><%= result.link %></li>
     </ul>
   <% elsif (result.format == 'detailed_guidance' && result.section) || result.section %>
-    <ul class="result-meta">
-      <li><%= result.formatted_section_name %></li>
-      <% if result.subsection %><li><%= result.formatted_subsection_name %></li><% end %>
-      <% if result.subsubsection %><li><%= result.formatted_subsubsection_name %></li><% end %>
+    <ul class="result-meta result-sections">
+      <li class="result-section"><%= result.formatted_section_name %></li>
+      <% if result.subsection %><li class="result-subsection"><%= result.formatted_subsection_name %></li><% end %>
+      <% if result.subsubsection %><li class="result-subsubsection"><%= result.formatted_subsubsection_name %></li><% end %>
     </ul>
   <% end %>
 </li>

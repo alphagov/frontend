@@ -49,6 +49,13 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a complicated slug & one that's not \"url safe\""
   end
 
+  test "should return a 404 if content_api returns a 404 (nil)" do
+    content_api_does_not_have_an_artefact("banana")
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 404))
+    get :publication, :slug => "banana"
+  end
+
   test "should choose template based on type of publication" do
     content_api_has_an_artefact("a-slug", {'format' => 'answer'})
     prevent_implicit_rendering

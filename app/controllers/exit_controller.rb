@@ -1,6 +1,6 @@
 class ExitController < ApplicationController
 
-  class TargetNotAllowed < Exception
+  class TargetNotAllowed < StandardError
   end
 
   def exit

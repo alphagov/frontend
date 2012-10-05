@@ -3,7 +3,7 @@ require "authority_lookup"
 require "local_transaction_location_identifier"
 require "licence_location_identifier"
 
-class RecordNotFound < Exception
+class RecordNotFound < StandardError
 end
 
 class RootController < ApplicationController

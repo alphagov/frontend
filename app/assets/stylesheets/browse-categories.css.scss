@@ -48,20 +48,24 @@
 
     .detailed-guidance {
       border: solid 4px #2B8CC4;
-      padding: 1em 2em;
+      padding: 1em 1em;
       margin-top: 2em;
 
-      li:nth-child(n) {
+      h2 {
+        padding: 0 (16/24 * 1em); // heading is 24, base is 16
+      }
+
+      li {
         float: left;
-        width: 45%;
+        width: 50%;
 
-      }
+        h3, p {
+          padding: 0 1em;
+        }
 
-      li:nth-child(odd) {
-        clear: left;
-      }
-      li:nth-child(even) {
-        float: right;
+        &:nth-child(odd) {
+          clear: left;
+        }
       }
 
     }

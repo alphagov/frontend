@@ -1,17 +1,17 @@
 <header>
-  <h1>Benefits &amp; credits: <%= @programme.title %></h1>
+  <h1>Benefits &amp; credits: <%= @publication.title %></h1>
   <p>Notes</p>
 </header>
 
-<% @programme.parts.each do |part| %>
+<% @publication.parts.each do |part| %>
 <article id="<%= part.slug %>">
   <header>
-    <h1>Part <%= part_number(@programme.parts, part) %>: <%= part.title %></h1>
+    <h1>Part <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
   </header>
 
   <%= to_govspeak(part.body) %>
 </article>
 <% end %>
 
-<%= render partial: 'publication_metadata', locals: {:publication => @programme, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@programme.slug, :edition => @edition, :format => :json) }}, formats: ["html"] %>
+<%= render partial: 'publication_metadata', locals: {:publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) }}, formats: ["html"] %>
 

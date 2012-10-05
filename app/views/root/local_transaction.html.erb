@@ -2,7 +2,7 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Service</span> <%= @local_transaction.title %></h1>
+      <h1><span>Service</span> <%= @publication.title %></h1>
     </hgroup>
   </header>
   <div class="article-container group">
@@ -11,7 +11,7 @@
         <section class="intro">
           <div class="get-started-intro">
 
-          <%= to_govspeak(@local_transaction.introduction) %>
+          <%= to_govspeak(@publication.introduction) %>
 
           </div>
         </section>
@@ -49,26 +49,24 @@
 
         <section class="more">
 
-          <% if @local_transaction.expectations.present? %>
+          <% if @publication.expectations.present? %>
           <h2>What you need to know</h2>
 
           <div class="more">
             <ul class="helpers group">
-              <% @local_transaction.expectations.each do |e| %>
-                <li class="<%= e.css_class %>">
-                <%= e.text %>
-                </li>
+              <% @publication.expectations.each do |e| %>
+                <li><%= e %></li>
               <% end %>
             </ul>
 
-            <%= to_govspeak(@local_transaction.more_information) %>
+            <%= to_govspeak(@publication.more_information) %>
           </div>
           <% end %>
         </section>
 
       </div>
     </article>
-    <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, edition: @edition, format: :json, all: true) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, edition: @edition, format: :json, all: true) } %>
   </div>
 </section>
 

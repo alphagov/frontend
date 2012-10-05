@@ -1,8 +1,4 @@
-require "#{Rails.root}/lib/artefact_helpers"
-
 module ApplicationHelper
-  include ArtefactHelpers
-
   def page_title(artefact, publication=nil)
     if publication
       title = [publication.title, publication.alternative_title].find(&:present?)

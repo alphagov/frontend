@@ -2,17 +2,17 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><%= @business_support.title %></h1>
+      <h1><%= @publication.title %></h1>
     </hgroup>
   </header>
 
   <div class="article-container group">
-    <div>Support value &pound;<%= @business_support.min_value %> to &pound;<%= @business_support.max_value %></div>
+    <div>Support value &pound;<%= @publication.min_value %> to &pound;<%= @publication.max_value %></div>
 
     <nav role="navigation" class="chapters-navigation">
       <ol>
-      <% @business_support.parts.each do |part| %>
-        <li><a href="<%= "#{part_path(@business_support.slug, part.slug, @edition)}" %>"><%= part.title %></a></li>
+      <% @publication.parts.each do |part| %>
+        <li><a href="<%= "#{part_path(@publication.slug, part.slug, @edition)}" %>"><%= part.title %></a></li>
       <% end %>
       </ol>
     </nav>
@@ -30,6 +30,6 @@
       </div>
 
     </article>
-    <%= render 'publication_metadata', :publication => @business_support, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@business_support.slug, :edition => @edition, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @business_support, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
   </div>
 </section>

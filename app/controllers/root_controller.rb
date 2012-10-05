@@ -10,10 +10,6 @@ class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
-  include ArtefactHelpers
-
-  rescue_from GdsApi::TimedOutException, with: :error_503
-  rescue_from GdsApi::EndpointNotFound, with: :error_503
 
   def index
     set_expiry
@@ -32,10 +28,11 @@ class RootController < ApplicationController
       params[:part] = nil
     end
 
-    @publication = fetch_publication(params)
-    assert_found(@publication)
-
     @artefact = fetch_artefact
+    set_slimmer_artefact_headers(@artefact)
+
+    @publication = PublicationPresenter.new(@artefact)
+    assert_found(@publication)
 
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']
@@ -54,8 +51,6 @@ class RootController < ApplicationController
     elsif (video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?)
       raise RecordNotFound
     end
-
-    set_slimmer_artefact_headers(@artefact)
 
     case @publication.type
     when "place"
@@ -80,8 +75,6 @@ class RootController < ApplicationController
 
     @edition = params[:edition]
 
-    instance_variable_set("@#{@publication.type}".to_sym, @publication)
-
     respond_to do |format|
       format.html do
         render @publication.type
@@ -103,18 +96,6 @@ class RootController < ApplicationController
   end
 
 protected
-  def fetch_artefact(snac = nil)
-    artefact = snac.blank? ? content_api.artefact(params[:slug]) : content_api.artefact_with_snac_code(params[:slug], snac).to_hash
-
-    unless artefact
-      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
-    end
-  rescue GdsApi::HTTPErrorResponse => e
-    logger.warn("Failed to fetch artefact from Content API. Response code: #{e.code}")
-  ensure
-    return artefact || artefact_unavailable
-  end
-
   def empty_part_list?
     @publication.parts and @publication.parts.empty?
   end

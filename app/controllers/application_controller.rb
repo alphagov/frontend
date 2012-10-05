@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   def error_501; error 501; end
   def error_503; error 503; end
 
+  rescue_from GdsApi::TimedOutException, with: :error_503
+  rescue_from GdsApi::EndpointNotFound, with: :error_503
+  rescue_from GdsApi::HTTPErrorResponse, with: :error_503
+
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
@@ -21,17 +25,27 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def fetch_publication(params)
-    options = {
-        edition: params[:edition],
-        snac: params[:snac]
-    }.reject { |k, v| v.blank? }
-    publisher_api.publication_for_slug(params[:slug], options)
-  rescue ArgumentError
-    logger.error "invalid UTF-8 byte sequence with slug `#{params[:slug]}`"
-    return false
-  rescue URI::InvalidURIError
-    logger.error "Invalid URI formed with slug `#{params[:slug]}`"
-    return false
-  end
+    def statsd
+      @statsd ||= Statsd.new("localhost").tap do |c|
+        c.namespace = "govuk.app.frontend"
+      end
+    end
+
+    def fetch_artefact(snac = nil)
+      options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
+      artefact = content_api.artefact(params[:slug], options)
+
+      unless artefact
+        logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
+        raise RecordNotFound
+      end
+      artefact
+    rescue URI::InvalidURIError
+      logger.warn("Failed to fetch artefact from Content API.")
+      raise RecordNotFound
+    end
+
+    def content_api
+      @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
+    end
 end

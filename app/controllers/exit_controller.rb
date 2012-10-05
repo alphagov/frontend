@@ -1,12 +1,12 @@
 class ExitController < ApplicationController
 
   def exit
-    publication = params_valid?(params) ? fetch_publication(params) : nil
+    publication = params_valid?(params) ? fetch_artefact : nil
     if publication.nil?
       logger.info { "root#exit rejected redirect to '#{params[:target]}' from #{params[:slug]}" }
       statsd.increment('request.exist.404')
       error_404 and return
-    elsif not publication.marshal_dump.to_json.include?(params[:target])
+    elsif not publication.raw_response_body.include?(params[:target])
       logger.warn { "root#exit rejected redirect to '#{params[:target]}' from #{params[:slug]}" }
       statsd.increment('request.exist.403')
       error 403 and return

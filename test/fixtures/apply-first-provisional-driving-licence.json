@@ -1,29 +1,88 @@
 {
-    "alternate_methods": "Driving licence alternate methods\r\n------",
-    "alternative_title": "",
-    "introduction": "You can get your first provisional driving licence online. Apply using your Government Gateway ID. If you don't have one or need to re-register, you'll get an ID as part of your application.",
-    "link": "https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&_pageLabel=FAP&_nfls=false",
-    "minutes_to_complete": "",
-    "more_information": "Driving licence more information\r\n------",
-    "overview": "Apply for your first provisional driving licence online",
-    "slug": "apply-first-provisional-driving-licence",
+    "_response_info": {
+        "status": "ok"
+    },
     "title": "Apply for your first provisional driving licence",
-    "updated_at": "2012-07-02T16:05:37+00:00",
-    "uses_government_gateway": true,
-    "will_continue_on": "the Directgov website",
-    "expectations": [
+    "format": "transaction",
+    "id": "https://contentapi.preview.alphagov.co.uk/apply-first-provisional-driving-licence.json",
+    "web_url": "https://www.preview.alphagov.co.uk/apply-first-provisional-driving-licence",
+    "details": {
+        "need_id": "1957",
+        "business_proposition": false,
+        "format": "Transaction",
+        "alternative_title": "",
+        "overview": "Apply for your first provisional driving licence online",
+        "more_information": "Driving licence more information\r\n------",
+        "introduction": "You can get your first provisional driving licence online. Apply using your Government Gateway ID. If you don't have one or need to re-register, you'll get an ID as part of your application.",
+        "will_continue_on": "the Directgov website",
+        "link": "https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&_pageLabel=FAP&_nfls=false",
+        "alternate_methods": "Driving licence alternate methods",
+        "minutes_to_complete": "",
+        "expectations": [
+            "Proof of identification required",
+            "National Insurance number required",
+            "Debit or credit card required"
+        ]
+    },
+    "tags": [
         {
-            "css_class": "need_id",
-            "text": "Proof of identification required"
-        },
-        {
-            "css_class": "need_ni",
-            "text": "National Insurance number required"
-        },
-        {
-            "css_class": "debit_or_credit_card_payment",
-            "text": "Debit or credit card required"
+            "title": "Driving licences",
+            "id": "https://contentapi.preview.alphagov.co.uk/tags/driving%2Fdriving-licences.json",
+            "web_url": null,
+            "details": {
+                "description": "Includes getting a driving licence, fees and tracking your application",
+                "type": "section"
+            },
+            "content_with_tag": {
+                "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=driving%2Fdriving-licences",
+                "web_url": "https://www.preview.alphagov.co.uk/browse/driving/driving-licences"
+            },
+            "parent": {
+                "title": "Driving, transport, and travel",
+                "id": "https://contentapi.preview.alphagov.co.uk/tags/driving.json",
+                "web_url": null,
+                "details": {
+                    "description": "Includes passports and car tax",
+                    "type": "section"
+                },
+                "content_with_tag": {
+                    "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=driving",
+                    "web_url": "https://www.preview.alphagov.co.uk/browse/driving"
+                },
+                "parent": null
+            }
         }
     ],
-    "type": "transaction"
+    "related": [
+        {
+            "title": "Driving before you've got your full licence",
+            "format": "answer",
+            "id": "https://contentapi.preview.alphagov.co.uk/driving-before-you-have-full-licence.json",
+            "web_url": "https://www.preview.alphagov.co.uk/driving-before-you-have-full-licence",
+            "details": {
+                "need_id": "1971",
+                "business_proposition": false
+            }
+        },
+        {
+            "title": "Track your driving licence application",
+            "format": "transaction",
+            "id": "https://contentapi.preview.alphagov.co.uk/track-your-driving-licence-application.json",
+            "web_url": "https://www.preview.alphagov.co.uk/track-your-driving-licence-application",
+            "details": {
+                "need_id": "857",
+                "business_proposition": false
+            }
+        },
+        {
+            "title": "Adding higher categories to your driving licence",
+            "format": "answer",
+            "id": "https://contentapi.preview.alphagov.co.uk/adding-higher-categories-to-your-driving-licence.json",
+            "web_url": "https://www.preview.alphagov.co.uk/adding-higher-categories-to-your-driving-licence",
+            "details": {
+                "need_id": "1624",
+                "business_proposition": false
+            }
+        }
+    ]
 }

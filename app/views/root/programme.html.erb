@@ -2,7 +2,7 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Benefits &amp; credits </span><%= @programme.title %></h1>
+      <h1><span>Benefits &amp; credits </span><%= @publication.title %></h1>
     </hgroup>
   </header>
 
@@ -11,13 +11,13 @@
       <div class="inner">
         <nav role="navigation" class="page-navigation">
           <ol>
-            <% @programme.parts.each do |nav_part| %>
+            <% @publication.parts.each do |nav_part| %>
               <li <% if @part == nav_part %>class="active"<% end %>>
                 <% if @part == nav_part %>
-                  <span class="part-label">Part <%= part_number(@programme.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+                  <span class="part-label">Part <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
                 <% else %>
-                  <a href="<%= part_path(@programme.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@programme.parts, nav_part) %>: <%= nav_part.title %>">
-                    <span class="part-label">Part <%= part_number(@programme.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+                  <a href="<%= part_path(@publication.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@publication.parts, nav_part) %>: <%= nav_part.title %>">
+                    <span class="part-label">Part <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
                   </a>
                 <% end %>
               </li>
@@ -31,7 +31,7 @@
       <div class="inner">
 
         <header>
-          <h1><span>Part <%= part_number(@programme.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
+          <h1><span>Part <%= part_number(@publication.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
         </header>
 
         <%= to_govspeak(@part.body) %>
@@ -39,20 +39,20 @@
         <footer>
           <nav class="pagination" role="navigation">
             <ul class="group">
-              <%- if @programme.has_parts?(@part) -%>
-                <%- if @programme.has_previous_part?(@part) -%>
+              <%- if @publication.has_parts?(@part) -%>
+                <%- if @publication.has_previous_part?(@part) -%>
                   <li class="previous">
-                    <a href="<%= previous_part_path(@programme, @part, @edition) %>" title="Navigate to previous part" rel="prev">
-                      <span class="pagination-label">Part <%= part_number(@programme.parts, @programme.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@programme.part_before(@part).title) %></span></a>
+                    <a href="<%= previous_part_path(@publication, @part, @edition) %>" title="Navigate to previous part" rel="prev">
+                      <span class="pagination-label">Part <%= part_number(@publication.parts, @publication.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_before(@part).title) %></span></a>
                   </li>
                 <%- else -%>
                   <li class="first">
                     <span>You are at the beginning of this guide</span>
                   </li>
                 <%- end -%>
-                <%- if @programme.has_next_part?(@part) -%>
+                <%- if @publication.has_next_part?(@part) -%>
                   <li class="next">
-                    <a href="<%= next_part_path(@programme, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@programme.parts, @programme.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@programme.part_after(@part).title) %></span></a>
+                    <a href="<%= next_part_path(@publication, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@publication.parts, @publication.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_after(@part).title) %></span></a>
                   </li>
                 <%- else -%>
                   <li class="last">
@@ -70,7 +70,7 @@
 
       </div>
     </article>
-    <%= render 'publication_metadata', :publication => @programme, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@programme.slug, :edition => @edition, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
   
   </div>
 
@@ -79,11 +79,11 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
-  <link rel="canonical" href="<%= part_path(@programme.slug, @part.slug,@edition) %>" />
-  <%- if @programme.has_previous_part?(@part) -%>
-    <link rel="prev" href="<%= part_path(@programme.slug, @programme.part_before(@part).slug,@edition) %>" />
+  <link rel="canonical" href="<%= part_path(@publication.slug, @part.slug,@edition) %>" />
+  <%- if @publication.has_previous_part?(@part) -%>
+    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
   <%- end -%>
-  <%- if @programme.has_next_part?(@part) -%>
-    <link rel="next" href="<%= part_path(@programme.slug, @programme.part_after(@part).slug,@edition) %>" />
+  <%- if @publication.has_next_part?(@part) -%>
+    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@part).slug,@edition) %>" />
   <%- end -%>
 <% end %>

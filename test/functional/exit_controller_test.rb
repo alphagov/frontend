@@ -74,6 +74,17 @@ class ExitControllerTest < ActionController::TestCase
       assert_equal 403, response.status
     end
 
+    should "return 404 if content api throws a RecordNotFound Error" do
+      slug = 'tax-disc-license'
+      target = 'http://www.naughty_website.com'
+      need_id = '999999'
+
+      content_api_does_not_have_an_artefact(slug)
+      get :exit, slug: slug, target: target, need_id: need_id
+
+      assert_equal 404, response.status
+    end
+
     should "return 404 if target is missing from url params" do
       slug = '/tax-disc-license'
       need_id = '999999'

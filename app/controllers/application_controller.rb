@@ -1,6 +1,9 @@
 require 'gds_api/helpers'
 require 'gds_api/content_api'
 
+class RecordNotFound < StandardError
+end
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers

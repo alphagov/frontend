@@ -53,7 +53,7 @@ protected
   end
 
   def setup_page_title(category=nil)
-    @page_title = category.nil? ? "Browse | GOV.UK Beta (Test)" : "#{category} | GOV.UK Beta (Test)"
+    @page_title = category.nil? ? "Browse - GOV.UK Beta (Test)" : "#{category} - GOV.UK Beta (Test)"
   end
 
   def detailed_guidance_sections(tag_id)

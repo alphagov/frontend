@@ -32,7 +32,7 @@ class BrowseController < ApplicationController
     detailed_guidance_sections(tag_id)
 
     setup_page_title(@sub_category.title)
-    options = {title: "browse", section_name: "#{@category.title}", section_link: "/browse/#{params[:section]}"}
+    options = {title: "browse", section_name: @category.title, section_link: "/browse/#{params[:section]}"}
     set_slimmer_dummy_artefact(options)
   end
 

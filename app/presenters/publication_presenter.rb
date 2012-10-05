@@ -61,4 +61,15 @@ class PublicationPresenter
     date = details["updated_at"]
     DateTime.parse(date) if date
   end
+
+  def video_embed_url
+    return nil unless video_url
+
+    video = video_url.scan(/\?v=([A-Za-z0-9_\-]+)/)
+    if video.any?
+      "http://www.youtube.com/watch?v=#{video[0][0]}"
+    else
+      ""
+    end
+  end
 end

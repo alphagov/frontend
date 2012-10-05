@@ -5,10 +5,10 @@
         <h1>Apply for this licence</h1>
 
         <p id="get-started" class="get-started group">
-           <a href="<%= @licence.continuation_link %>" rel="external" class="button">
+           <a href="<%= @publication.continuation_link %>" rel="external" class="button">
              <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
-               if @licence.will_continue_on.present?
-                 %><span class="destination">on <%= @licence.will_continue_on %></span><%
+               if @publication.will_continue_on.present?
+                 %><span class="destination">on <%= @publication.will_continue_on %></span><%
                end
              %></span><span class="indicator"></span>
            </a>
@@ -21,7 +21,7 @@
         <h1>Overview</h1>
       </header>
 
-      <%= to_govspeak(@licence.licence_overview) %>
+      <%= to_govspeak(@publication.licence_overview) %>
     </div>
   </div>
 </article>

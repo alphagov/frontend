@@ -2,16 +2,16 @@
 
   <header class="page-header group">
       <hgroup>
-        <h1><span>Quick answer</span> <%= @answer.title %></h1>
+        <h1><span>Quick answer</span> <%= @publication.title %></h1>
       </hgroup>
   </header>
 	<div class="article-container group">
 	  	<article role="article" class="group">
 	     <div class="inner">
-	       <%= to_govspeak(@answer.body) %>
+	       <%= to_govspeak(@publication.body) %>
 	     </div>
 	   </article>
-    <%= render 'publication_metadata', :publication => @answer, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@answer.slug, :edition => @edition, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
 	
 
 	</div>

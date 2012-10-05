@@ -2,13 +2,13 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Licence</span> <%= @licence.title %></h1>
+      <h1><span>Licence</span> <%= @publication.title %></h1>
     </hgroup>
   </header>
 
   <div class="article-container group">
 
-    <% if ! @licence.continuation_link.blank? %>
+    <% if ! @publication.continuation_link.blank? %>
       <%= render :partial => 'licences/continues_on' %>
     <% elsif @licence_details and @licence_details[:authority] %>
       <%= render :partial => 'licences/authority' %>
@@ -16,6 +16,6 @@
       <%= render :partial => 'licences/introduction', :publication => @licence %>
     <% end %>
 
-    <%= render 'publication_metadata', :publication => @licence, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@licence.slug, :edition => @edition, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
   </div>
 </section>

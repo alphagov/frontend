@@ -25,6 +25,12 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+    def statsd
+      @statsd ||= Statsd.new("localhost").tap do |c|
+        c.namespace = "govuk.app.frontend"
+      end
+    end
+
     def fetch_artefact(snac = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
       artefact = content_api.artefact(params[:slug], options)

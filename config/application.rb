@@ -55,6 +55,7 @@ module Frontend
       media-player.js
       media-player.css
       homepage.js
+      homepage.css
       browse-categories.css
       browse-categories-ie6.css
       browse-categories-ie7.css

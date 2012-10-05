@@ -56,6 +56,13 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "banana"
   end
 
+  test "should return a 410 if content_api returns a 410" do
+    content_api_has_an_archived_artefact("atlantis")
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 410))
+    get :publication, :slug => "atlantis"
+  end
+
   test "should choose template based on type of publication" do
     content_api_has_an_artefact("a-slug", {'format' => 'answer'})
     prevent_implicit_rendering

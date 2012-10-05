@@ -1,22 +1,77 @@
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
-      <hgroup>
-        <h1><span>Quick answer</span> <%= @publication.title %></h1>
-      </hgroup>
+    <hgroup>
+      <h1><span>Quick answer</span> <%= @publication.title %></h1>
+    </hgroup>
   </header>
   <div class="article-container group">
-      <article role="article" class="group">
-       <div class="inner">
-         <%= to_govspeak(@publication.body) %>
-       </div>
-     </article>
+    <article role="article" class="group">
+
+      <div class="inner">
+        
+        <section class="intro">
+          <div class="get-started-intro"><%= to_govspeak(@publication.short_description) %></div>
+          <p id="get-started" class="get-started group">
+            <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">
+              <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
+                if @publication.will_continue_on.present?
+                  %><span class="destination">on <%= @publication.will_continue_on %></span><%
+                end
+              %></span>
+            </a>
+          </p>
+        </section>
+        
+        <nav class="js-tabs nav-tabs" role="navigation">
+          <ul>
+            <li class="active"><a href="#what-you-need-to-know">What you need to know</a></li>
+            <li><a href="#additional-information">Additional information</a></li>
+          </ul>
+        </nav>
+        
+        <div class="js-tab-content tab-content">
+
+          <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
+            <p>To be elligible for this support, your business must fit into the following categories:</p>
+            <% if @publication.organiser.present? %>
+              <h3>Organiser</h3>
+              <p><%= @publication.organiser %></p>
+            <% end %>
+            <% if @publication.max_value.present? and @publication.max_value > 0 %>
+              <h3>Grant value</h3>
+              <p>&pound;<%= @publication.min_value %> - &pound;<%= @publication.max_value %></p>
+            <% end %>
+            <% if @publication.max_employees.present? %>
+              <h3>Maximum number of employees</h3>
+              <p><%= @publication.max_employees %></p>
+            <% end %>
+            <% if @publication.eligibility.present? %>
+              <h3>Eligibility</h3>
+              <p><%= to_govspeak(@publication.elibility) %></p>
+            <% end %>
+            <% if @publication.evaluation.present? %>
+              <h3>Evaluation</h3>
+              <p><%= to_govspeak(@publication.evaluation) %></p>
+            <% end %>
+            <% if @publication.additional_information.present? %>
+              <h3>Additional information</h3>
+              <p><%= to_govspeak(@publication.additional_information) %></p>
+            <% end %>
+            <% if @publication.contact_details.present? %>
+              <h3>Contact details</h3>
+              <p><%= @publication.contact_details %></p>
+            <% end %>
+          </div>
+
+          <div class="js-tab-pane tab-pane" id="additional-information">
+            <%= to_govspeak(@publication.body) %>
+          </div>
+        </div>
+      </div>
+    </article>
+    
     <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
-
-
   </div>
 
 </section>
-
-<div id="related-items"></div>
-

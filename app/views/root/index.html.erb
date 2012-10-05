@@ -5,105 +5,104 @@
 
 <%= javascript_include_tag 'homepage.js', defer:true %>
 
-<section id="homepage">
-  <header class="intro">
-    <hgroup>
-      <h1 class="strap">Simpler, clearer, faster.</h1>
-      <p>The best place to find government services and information.</p>
-    </hgroup>
-    <p>This website replaces</p>
-    <ul>
-      <li><%= image_tag 'homepage/directgov-logo.png', :alt => 'Directgov' %></li>
-      <li><%= image_tag 'homepage/businesslink-logo.png', :alt => 'Businesslink' %></li>
-    </ul>
-  </header>
-  <div class="homepage-sections">
-    <ul class="sections-list">
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/driving">Driving, transport, and travel</a></h2>
-        <p>Includes passports and car tax</p>
-      </li>
+<section id="content">
+  <div id="homepage">
 
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/business">Businesses and self-employed</a></h2>
-        <p>Tools and guidance for businesses</p>
-      </li>
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/education">Education and learning</a></h2>
-        <p>Includes student loans and admissions</p>
-      </li>
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/housing">Housing and local services</a></h2>
-        <p>Owning or renting and council services</p>
-      </li>
-
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/justice">Crime, justice and the law</a></h2>
-        <p>Legal processes, courts and the police</p>
-      </li>
-
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/tax">Money and tax</a></h2>
-        <p>Includes VAT, debt and inheritance tax</p>
-      </li>
+    <header class="homepage-section intro">
+      <hgroup>
+        <h1 class="strap">Simpler, clearer, faster.</h1>
+        <p>The best place to find government services and information.</p>
+      </hgroup>
+      <p>This website replaces</p>
+      <ul>
+        <li><%= image_tag 'homepage/directgov-logo.png', :alt => 'Directgov' %></li>
+        <li><%= image_tag 'homepage/businesslink-logo.png', :alt => 'Businesslink' %></li>
       </ul>
-      <ul class="sections-list">
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/benefits">Benefits</a></h2>
-        <p>Eligibility and how to apply</p>
-      </li>
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/employing-people">Employing people</a></h2>
-        <p>Includes pay, contracts and hiring</p>
-      </li>
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/working">Working, jobs and pensions</a></h2>
-        <p>Includes holidays and finding a job</p>
-      </li>
-
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/citizenship">Citizenship and life in the UK</a></h2>
-        <p>Includes voting, how government works</p>
-      </li>
-      <li class="group">
-        <h2 id="section-business"><a href="/browse/births-deaths-marriages">Births, deaths, marriages, parenting and care</a></h2>
-        <p>Includes civil partnerships and lasting power of attorney</p>
-      </li>
-    </ul>
-  </div>
-
-</section>
-<section class="main-campaign group">
-    <a href="/tour">The best place to find government services and information is www.gov.uk.  Click to take the tour.</a>
-</section>
-
-<section class="minor-campaigns group">
-  <article class="most-popular">
-    <header><h1>Most read on GOV.UK</h1></header>
-    <ul>
-      <li><a href="/jobs-jobsearch">Jobcentre Plus job search</a></li>
-      <li><a href="/student-finance-register-login">Log in to student finance</a></li>
-      <li><a href="/passport-fees">Passport fees</a></li>
-      <li><a href="/jobseekers-allowance">Jobseekers Allowance</a></li>
-      <li><a href="/council-tax-bands">Council Tax bands</a></li>
-      <li><a href="/running-a-limited-company/directors-responsibilities">Running a limited company</a></li>
-      <li><a href="/book-a-driving-theory-test">Driving theory test</a></li>
-      <li><a href="/calculate-vehicle-tax-rates">Car tax rates</a></li>
-      <li><a href="/car-tax-disc-vehicle-licence">Get a car tax disc</a></li>
-      <li><a href="/vat-rates">VAT rates</a></li>
-    </ul>
-  </article>
-  <article class="mini-promo">
-    <header><h1>When do the clocks change?</h1></header>
-    <p><a href="/when-do-the-clocks-change">The clocks go back <span>28 October</span></a></p>
-  </article>
-  <article class="inside-gov">
-    <header>
-      <h1>Inside Government</h1>
-      <p>Coming soon</p>
     </header>
-    <p>Departments, policy, announcements and publications. </p>
-    <p>Inside Government on GOV.UK will replace the websites of most government departments and agencies. <a href="https://www.gov.uk/government">Find out more</a>. </p>
-    <p>For existing department sites, see the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">Cabinet Office website</a></p>
-  </article>
+
+    <div class="homepage-section homepage-categories group">
+      <ul class="categories-list group">
+        <li class="group">
+          <h2><a href="/browse/driving">Driving, transport, and travel</a></h2>
+          <p>Includes passports and car tax</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/benefits">Benefits</a></h2>
+          <p>Eligibility and how to apply</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/business">Businesses and self-employed</a></h2>
+          <p>Tools and guidance for businesses</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/employing-people">Employing people</a></h2>
+          <p>Includes pay, contracts and hiring</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/education">Education and learning</a></h2>
+          <p>Includes student loans and admissions</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/working">Working, jobs and pensions</a></h2>
+          <p>Includes holidays and finding a job</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/housing">Housing and local services</a></h2>
+          <p>Owning or renting and council services</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/citizenship">Citizenship and life in the UK</a></h2>
+          <p>Includes voting, how government works</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/justice">Crime, justice and the law</a></h2>
+          <p>Legal processes, courts and the police</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/births-deaths-marriages">Births, deaths, marriages, parenting and care</a></h2>
+          <p>Includes civil partnerships and lasting power of attorney</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/tax">Money and tax</a></h2>
+          <p>Includes VAT, debt and inheritance tax</p>
+        </li>
+      </ul>
+    </div>
+
+    <section class="main-campaign group">
+      <a href="/tour">The best place to find government services and information is www.gov.uk.  Click to take the tour.</a>
+    </section>
+
+    <section class="minor-campaigns group">
+      <article class="homepage-section most-popular">
+        <header><h1>Most read on GOV.UK</h1></header>
+        <ul>
+          <li><a href="/jobs-jobsearch">Jobcentre Plus job search</a></li>
+          <li><a href="/student-finance-register-login">Log in to student finance</a></li>
+          <li><a href="/passport-fees">Passport fees</a></li>
+          <li><a href="/jobseekers-allowance">Jobseekers Allowance</a></li>
+          <li><a href="/council-tax-bands">Council Tax bands</a></li>
+          <li><a href="/running-a-limited-company/directors-responsibilities">Running a limited company</a></li>
+          <li><a href="/book-a-driving-theory-test">Driving theory test</a></li>
+          <li><a href="/calculate-vehicle-tax-rates">Car tax rates</a></li>
+          <li><a href="/car-tax-disc-vehicle-licence">Get a car tax disc</a></li>
+          <li><a href="/vat-rates">VAT rates</a></li>
+        </ul>
+      </article>
+      <article class="homepage-section mini-promo">
+        <header><h1>When do the clocks change?</h1></header>
+        <p><a href="/when-do-the-clocks-change">The clocks go back <span>28 October</span></a></p>
+      </article>
+      <article class="homepage-section inside-gov">
+        <header>
+          <h1>Inside Government</h1>
+          <p>Coming soon</p>
+        </header>
+        <p>Departments, policy, announcements and publications. </p>
+        <p>Inside Government on GOV.UK will replace the websites of most government departments and agencies. <a href="https://www.gov.uk/government">Find out more</a>. </p>
+        <p>For existing department sites, see the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">Cabinet Office website</a></p>
+      </article>
+    </section>
+    
+  </div>  
 </section>

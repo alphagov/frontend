@@ -40,11 +40,12 @@ div#homepage {
 
   .categories-list {
     list-style: none;
-    margin: 0 0 1em 0;
+    margin: 0;
     padding: 0;
 
     @include media(mobile) {
       border-top:1px solid #ccc;
+      margin-bottom: 1em;
     }
 
     li {

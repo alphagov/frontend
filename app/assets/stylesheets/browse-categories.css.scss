@@ -58,7 +58,11 @@
         float: left;
         width: 50%;
 
-        h3, p {
+        h3 {
+          padding: 0 (16/19 * 1em); // this heading is 19, base is 16
+        }
+
+        p {
           padding: 0 1em;
         }
 

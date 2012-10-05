@@ -38,6 +38,17 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
   end
 
+  test "business support request" do
+    artefact = artefact_for_slug "business-support-example"
+    artefact = artefact.merge({
+      format: "business_support",
+      business_support_id: "123"
+    })
+    content_api_has_an_artefact('business-support-example', artefact)
+    visit "business-support-example"
+    assert_equal 200, page.status_code
+  end
+
   test "viewing a licence page" do
     setup_api_responses('licence-generic')
     visit "/licence-generic"

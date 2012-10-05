@@ -22,52 +22,55 @@
             </a>
           </p>
         </section>
-        
-        <nav class="js-tabs nav-tabs" role="navigation">
-          <ul>
-            <li class="active"><a href="#what-you-need-to-know">What you need to know</a></li>
-            <li><a href="#additional-information">Additional information</a></li>
-          </ul>
-        </nav>
-        
-        <div class="js-tab-content tab-content">
 
-          <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-            <p>To be elligible for this support, your business must fit into the following categories:</p>
-            <% if @publication.organiser.present? %>
-              <h3>Organiser</h3>
-              <p><%= @publication.organiser %></p>
-            <% end %>
-            <% if @publication.max_value.present? and @publication.max_value > 0 %>
-              <h3>Grant value</h3>
-              <p>&pound;<%= @publication.min_value %> - &pound;<%= @publication.max_value %></p>
-            <% end %>
-            <% if @publication.max_employees.present? %>
-              <h3>Maximum number of employees</h3>
-              <p><%= @publication.max_employees %></p>
-            <% end %>
-            <% if @publication.eligibility.present? %>
-              <h3>Eligibility</h3>
-              <p><%= to_govspeak(@publication.elibility) %></p>
-            <% end %>
-            <% if @publication.evaluation.present? %>
-              <h3>Evaluation</h3>
-              <p><%= to_govspeak(@publication.evaluation) %></p>
-            <% end %>
-            <% if @publication.additional_information.present? %>
-              <h3>Additional information</h3>
-              <p><%= to_govspeak(@publication.additional_information) %></p>
-            <% end %>
-            <% if @publication.contact_details.present? %>
-              <h3>Contact details</h3>
-              <p><%= @publication.contact_details %></p>
-            <% end %>
-          </div>
+        <section class="more">
 
-          <div class="js-tab-pane tab-pane" id="additional-information">
-            <%= to_govspeak(@publication.body) %>
+          <nav class="js-tabs nav-tabs" role="navigation">
+            <ul>
+              <li class="active"><a href="#what-you-need-to-know">What you need to know</a></li>
+              <li><a href="#additional-information">Additional information</a></li>
+            </ul>
+          </nav>
+        
+          <div class="js-tab-content tab-content">
+
+            <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
+              <p>To be elligible for this support, your business must fit into the following categories:</p>
+              <% if @publication.organiser.present? %>
+                <h3>Organiser</h3>
+                <p><%= @publication.organiser %></p>
+              <% end %>
+              <% if @publication.max_value.present? and @publication.max_value > 0 %>
+                <h3>Grant value</h3>
+                <p>&pound;<%= @publication.min_value %> - &pound;<%= @publication.max_value %></p>
+              <% end %>
+              <% if @publication.max_employees.present? %>
+                <h3>Maximum number of employees</h3>
+                <p><%= @publication.max_employees %></p>
+              <% end %>
+              <% if @publication.eligibility.present? %>
+                <h3>Eligibility</h3>
+                <p><%= to_govspeak(@publication.elibility) %></p>
+              <% end %>
+              <% if @publication.evaluation.present? %>
+                <h3>Evaluation</h3>
+                <p><%= to_govspeak(@publication.evaluation) %></p>
+              <% end %>
+              <% if @publication.additional_information.present? %>
+                <h3>Additional information</h3>
+                <p><%= to_govspeak(@publication.additional_information) %></p>
+              <% end %>
+              <% if @publication.contact_details.present? %>
+                <h3>Contact details</h3>
+                <p><%= @publication.contact_details %></p>
+              <% end %>
+            </div>
+
+            <div class="js-tab-pane tab-pane" id="additional-information">
+              <%= to_govspeak(@publication.body) %>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </article>
     

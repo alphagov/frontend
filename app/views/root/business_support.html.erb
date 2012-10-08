@@ -5,6 +5,7 @@
       <h1><span>Quick answer</span> <%= @publication.title %></h1>
     </hgroup>
   </header>
+
   <div class="article-container group">
     <article role="article" class="group">
 
@@ -16,13 +17,13 @@
             <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">
               <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
                 if @publication.will_continue_on.present?
-                  %><span class="destination">on <%= @publication.will_continue_on %></span><%
+                  %><span class="destination">on the <%= @publication.will_continue_on %></span><%
                 end
               %></span>
             </a>
           </p>
         </section>
-
+        
         <section class="more">
 
           <nav class="js-tabs nav-tabs" role="navigation">
@@ -31,44 +32,62 @@
               <li><a href="#additional-information">Additional information</a></li>
             </ul>
           </nav>
-        
+
           <div class="js-tab-content tab-content">
 
-            <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
+            <article class="js-tab-pane tab-pane" id="what-you-need-to-know">
               <p>To be elligible for this support, your business must fit into the following categories:</p>
-              <% if @publication.organiser.present? %>
-                <h3>Organiser</h3>
-                <p><%= @publication.organiser %></p>
-              <% end %>
+              <% if @publication.organiser.present? -%>
+                <section class="support-info">
+                  <h2>Organiser</h2>
+                  <div class="faux-cell">
+                    <%= @publication.organiser %>
+                  </div>  
+                </section>
+              <% end -%>
               <% if @publication.max_value.present? and @publication.max_value > 0 %>
-                <h3>Grant value</h3>
-                <p>&pound;<%= @publication.min_value %> - &pound;<%= @publication.max_value %></p>
+                <section class="support-info">
+                  <h2>Grant value</h2>
+                  <div class="faux-cell">&pound;<%= @publication.min_value %> - &pound;<%= @publication.max_value %></div>  
+                </section>
               <% end %>
               <% if @publication.max_employees.present? %>
-                <h3>Maximum number of employees</h3>
-                <p><%= @publication.max_employees %></p>
+                <section class="support-info">
+                  <h2>Maximum employees</h2>
+                  <div class="faux-cell"><%= @publication.max_employees %></div>
+                </section>
               <% end %>
               <% if @publication.eligibility.present? %>
-                <h3>Eligibility</h3>
-                <p><%= to_govspeak(@publication.elibility) %></p>
+                <section class="support-info">
+                  <h2>Eligibility</h2>
+                  <div class="faux-cell"><%= to_govspeak(@publication.eligibility) %></div>
+                  </section>
               <% end %>
               <% if @publication.evaluation.present? %>
-                <h3>Evaluation</h3>
-                <p><%= to_govspeak(@publication.evaluation) %></p>
+                <section class="support-info">
+                  <h2>Evaluation</h2>
+                  <div class="faux-cell"><%= to_govspeak(@publication.evaluation) %></div>
+                </section>
               <% end %>
               <% if @publication.additional_information.present? %>
-                <h3>Additional information</h3>
-                <p><%= to_govspeak(@publication.additional_information) %></p>
+                <section class="support-info">
+                  <h2>Additional information</h2>
+                  <div class="faux-cell"><%= to_govspeak(@publication.additional_information) %></div>
+                </section>
               <% end %>
               <% if @publication.contact_details.present? %>
-                <h3>Contact details</h3>
-                <p><%= @publication.contact_details %></p>
+                <section class="support-info last">
+                  <h2>Contact details</h2>
+                  <div class="faux-cell"><%= to_govspeak(@publication.contact_details) %></div>
+                </section>  
               <% end %>
-            </div>
+            </article>
 
-            <div class="js-tab-pane tab-pane" id="additional-information">
-              <%= to_govspeak(@publication.body) %>
-            </div>
+            <article class="js-tab-pane tab-pane" id="additional-information">
+              <section class="long-description">
+                <%= to_govspeak(@publication.body) %>
+              </section>
+            </article>
           </div>
         </section>
       </div>

@@ -1,16 +1,48 @@
 <section id="content" role="main" class="group search ancillary">
+  <%= render partial: 'form' %>
 
-  <div class="search-container group">
-    <%= render partial: 'form' %>
+  <% if (@primary_results.any? or @external_link_results.any?) and @secondary_results.any? %>
+    <nav class="js-tabs" role="navigation">
+      <ul id="search-index-navigation">
+        <li class="active">
+          <a href="#mainstream-results">Results (<%= @primary_results.length %>)</a>
+        </li>
+        <li>
+          <a href="#detailed-results">Detailed guidance (<%= @secondary_results.length %>)</a>
+        </li>
+      </ul>
+    </nav>
+  <% end %>
 
-    <ul class="results-list">
-      <%= render collection: @results, partial: "result" %>
-    </ul>
+  <div class="search-container group js-tab-content">
+    <% if @primary_results.any? or @external_link_results.any? %>
+      <div id="mainstream-results" class="js-tab-pane">
+        <% if @primary_results.any? %>
+          <ul class="results-list internal-links">
+            <%= render collection: @primary_results, partial: "result" %>
+          </ul>
+        <% end %>
+        <% if @external_link_results.any? %>
+          <div class="external-links">
+            <h2>Other sites that may be useful</h2>
+            <ul class="results-list">
+              <%= render collection: @external_link_results, partial: "result" %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
+    <% if @secondary_results %>
+      <ul id="detailed-results" class="results-list js-tab-pane">
+        <%= render collection: @secondary_results, partial: "result" %>
+      </ul>
+    <% end %>
   </div>
 </section>
 
 <% content_for :extra_headers do %>
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
 <% end %>
-<% content_for :title, "#{@search_term} | Search | GOV.UK Beta (Test)" %>
+
+<% content_for :title, "#{@search_term} - Search - GOV.UK Beta (Test)" %>

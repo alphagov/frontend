@@ -5,9 +5,12 @@ require "action_mailer/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
 
-# If you have a Gemfile, require the gems listed there, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+end
 
 module Frontend
   class Application < Rails::Application
@@ -44,7 +47,19 @@ module Frontend
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += %w( trackers/ab-testing.js feedback.js programmes.js frontend.js media-player.js media-player.css homepage.js )
+    config.assets.precompile += %w(
+      trackers/ab-testing.js
+      feedback.js
+      programmes.js
+      frontend.js
+      media-player.js
+      media-player.css
+      homepage.js
+      application.css
+      application-ie6.css
+      application-ie7.css
+      application-ie8.css
+    )
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "frontend"

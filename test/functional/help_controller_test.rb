@@ -5,4 +5,16 @@ class HelpControllerTest < ActionController::TestCase
     @controller.expects(:set_slimmer_dummy_artefact).with(:section_name => 'Help', :section_link => '/help')
     get :index
   end
+
+  should "set slimmer format of support-pages" do
+    get :index
+    assert_equal "support-pages",  response.headers["X-Slimmer-Format"]
+  end
+
+  should "set correct expiry headers" do
+    get :index
+
+    assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+  end
+
 end

@@ -1,60 +1,92 @@
-<% @is_overview = (@part.slug != "further-information") %>
-<% content_for :extra_javascript do %>
-  <% if @programme.has_next_part?(@part) %>
-    <%= javascript_include_tag 'programmes.js', :defer=>"defer" %>
-  <% end %>
-  <!--script src="/javascripts/recently-viewed.js" type="text/javascript"></script-->
-<% end %>
-
-<section id="content" role="main" class="group">
+<section id="content" role="main" class="group multi-page">
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Benefits &amp; credits</span> <%= @programme.title %></h1>
+      <h1><span>Benefits &amp; credits </span><%= @publication.title %></h1>
     </hgroup>
     <nav class="skip-to-related">
       <a href="#related">Not what you're looking for? ↓</a>
     </nav>
   </header>
 
-  <div class="article-container js-tab-content group">
-    <nav class="js-tabs programme-progression group" role="navigation">
-      <ol>
-      <% programme_parts(@programme).each do |part| %>
-        <li><a href="<%= "#{part_path(@programme.slug, nil, @edition)}##{part.slug}" %>"><%= part.title %></a></li>
-      <% end %>
-      </ol>
-      <% if has_further_information?(@programme) %>
-        <div class="further-information <%= raw('active') unless @is_overview %>"><a href="<%= part_path(@programme.slug, @programme.parts.last.slug, @edition) %>"><span>Further information</span></a></div>
-      <% end %>
-    </nav>
-    <% if @is_overview %>
-      <% @programme.parts.each do |part| %>
-        <% unless part.slug == 'further-information' %>
-          <article role="article" class="js-tab-pane overview-etc group" id="<%= part.slug %>">
-            <div class="inner">
-              <%= render :partial => "programme_part", :locals => {:part => part} %>
-              <nav class="part-pagination return-to-top">
-                <a href="#wrapper">Return to top &uarr;</a>
-              </nav>
-            </div>
-          </article>
-        <% end %>
-      <% end %>
-    <% else %>
-      <article role="article" class="group">
-        <div class="inner">
-          <%= render :partial => "programme_part", :locals => {:part => @programme.parts.last} %>
-          <nav class="part-pagination return-to-top" role="navigation">
-            <a href="<%= part_path(@programme.slug,nil,@edition) %>">&larr; Overview and how to claim</a>
+  <div class="article-container group">
+    <aside>
+      <div class="inner">
+        <nav role="navigation" class="page-navigation">
+          <ol>
+            <% @publication.parts.each do |nav_part| %>
+              <li <% if @part == nav_part %>class="active"<% end %>>
+                <% if @part == nav_part %>
+                  <span class="part-label">Part <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+                <% else %>
+                  <a href="<%= part_path(@publication.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@publication.parts, nav_part) %>: <%= nav_part.title %>">
+                    <span class="part-label">Part <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+                  </a>
+                <% end %>
+              </li>
+            <% end %>
+          </ol>
+        </nav>
+      </div>
+    </aside>
+
+    <article role="article" class="group">
+      <div class="inner">
+
+        <header>
+          <h1><span>Part <%= part_number(@publication.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
+        </header>
+
+        <%= to_govspeak(@part.body) %>
+
+        <footer>
+          <nav class="pagination" role="navigation">
+            <ul class="group">
+              <%- if @publication.has_parts?(@part) -%>
+                <%- if @publication.has_previous_part?(@part) -%>
+                  <li class="previous">
+                    <a href="<%= previous_part_path(@publication, @part, @edition) %>" title="Navigate to previous part" rel="prev">
+                      <span class="pagination-label">Part <%= part_number(@publication.parts, @publication.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_before(@part).title) %></span></a>
+                  </li>
+                <%- else -%>
+                  <li class="first">
+                    <span>You are at the beginning of this guide</span>
+                  </li>
+                <%- end -%>
+                <%- if @publication.has_next_part?(@part) -%>
+                  <li class="next">
+                    <a href="<%= next_part_path(@publication, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@publication.parts, @publication.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_after(@part).title) %></span></a>
+                  </li>
+                <%- else -%>
+                  <li class="last">
+                    <span>You have reached the end of this guide</span>
+                  </li>
+                <%- end -%>
+              <%- else -%>
+                <li class="last">
+                  <span>You have reached the end of this guide</span>
+                </li>
+              <%- end -%>
+            </ul>
           </nav>
-        </div>
-      </article>
-    <% end %>
+        </footer> 
 
-    <%= render 'publication_metadata', :publication => @programme, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@programme.slug, :edition => @edition, :format => :json) } %>
-
+      </div>
+    </article>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
+  
   </div>
+
 </section>
 
 <div id="related-items"></div>
+
+<% content_for :extra_headers do %>
+  <link rel="canonical" href="<%= part_path(@publication.slug, @part.slug,@edition) %>" />
+  <%- if @publication.has_previous_part?(@part) -%>
+    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
+  <%- end -%>
+  <%- if @publication.has_next_part?(@part) -%>
+    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@part).slug,@edition) %>" />
+  <%- end -%>
+<% end %>

@@ -2,7 +2,6 @@ require 'test_helper'
 require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 require 'gds_api/part_methods'
-require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/panopticon'
 
 class LicenceLocationTest < ActionController::TestCase
@@ -10,16 +9,14 @@ class LicenceLocationTest < ActionController::TestCase
   tests RootController
   include Rack::Geo::Utils
 
-  context "given a licence exists in publisher and panopticon" do
+  context "given a licence exists" do
     setup do
-      content_api_has_an_artefact('licence-to-kill')
-      publication_exists(
-        "slug" => "licence-to-kill",
-        "alternative_title" => "",
-        "overview" => "",
-        "title" => "Licence to Kill",
-        "type" => "licence"
-      )
+      content_api_has_an_artefact('licence-to-kill', {
+        "format" => "licence",
+        "web_url" => "http://example.org/licence-to-kill",
+        "title" => "Licence to kill",
+        "details" => { }
+      })
     end
 
     context "loading the licence edition without any location" do
@@ -27,7 +24,13 @@ class LicenceLocationTest < ActionController::TestCase
         get :publication, slug: "licence-to-kill"
 
         assert_response :success
-        assert_equal assigns(:publication).title, "Licence to Kill"
+        assert_equal assigns(:publication).title, "Licence to kill"
+      end
+
+      should "set correct expiry headers" do
+        get :publication, slug: "licence-to-kill"
+
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
       end
     end
 

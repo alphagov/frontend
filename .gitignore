@@ -9,3 +9,5 @@ test/reports
 /public/autocomplete
 .DS_Store
 public/frontend
+.idea
+.sass-cache

@@ -2,7 +2,7 @@
 
   <header class="page-header group">
    <hgroup>
-     <h1><span>Service</span> <%= @place.title %></h1>
+     <h1><span>Service</span> <%= @publication.title %></h1>
    </hgroup>
    <p class="related-skiplink"><a href="#related">Not what you're looking for? ↓</a></p>
   </header>
@@ -15,7 +15,7 @@
 
   	        <div class="find-nearest">
 
-    	        <%= to_govspeak(@place.introduction) %>
+    	        <%= to_govspeak(@publication.introduction) %>
 
               <form method="post" id="local-locator-form" class="find-location-for-service">
       	        <fieldset>
@@ -35,7 +35,7 @@
       	            <p>Locating you&hellip;</p>
       	          </div>
       	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-      	            <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@place.slug) %>"><%= "Change your location".html_safe %></a></p>
+      	            <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@publication.slug) %>"><%= "Change your location".html_safe %></a></p>
       	          </div>
       	        </fieldset>
     	        </form>
@@ -45,21 +45,19 @@
         </section>
 
         <section class="more">
-          <% if ! @place.more_information.blank? and !geo_known_to_at_least?('ward') %>
+          <% if ! @publication.more_information.blank? and !geo_known_to_at_least?('ward') %>
             <div class="further_information">
               <h2>Further information</h2>
 
-              <% if @place.expectations.any? %>
+              <% if @publication.expectations.any? %>
                 <ul class="helpers group">
-                  <% @place.expectations.each do |e| %>
-                    <li class="<%= e.css_class %>">
-                    <%= e.text %>
-                    </li>
+                  <% @publication.expectations.each do |e| %>
+                    <li><%= e %></li>
                   <% end %>
                 </ul>
               <% end %>
 
-              <%= to_govspeak(@place.more_information) %>
+              <%= to_govspeak(@publication.more_information) %>
             </div>
           <% end %>
 	      </section>
@@ -68,7 +66,7 @@
         <% if @options.any? %>
           <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
           <ol id="options" class="places">
-           <%= mustache_partial '_option.html', {'options' => @options} %>
+            <%= mustache_partial '_option.html', {'options' => @options} %>
           </ol>
         <% elsif params[:postcode].present? %>
           <div id="results-error" class="error-notification"><p>Sorry, no results were found near you.</p></div>
@@ -84,8 +82,8 @@
       </div>
 
 		</article>
-    <%= render 'publication_metadata', :publication => @place, :artefact => @artefact, :api_links => {
-      'application/json' => publication_path(@place.slug, :edition => @edition, :format => :json)
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => {
+      'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json)
     } %>
 	</div>
 </section>

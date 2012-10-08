@@ -24,13 +24,13 @@
       </div>
     <% else %>
       <div class="application-notice help-notice">
-        <p>It is not currently possible to apply online for this licence. Please <a href="/find-your-local-council" title="find your local council">contact your your local authority</a>.</p>
+        <p>It is not currently possible to apply online for this licence. Please <a href="/find-your-local-council" title="find your local council">contact your local authority</a>.</p>
       </div>
     <% end %>
 
     <div id="overview">
       <h1>Overview</h1>
-      <%= to_govspeak(@licence.licence_overview) %>
+      <%= to_govspeak(@publication.licence_overview) %>
     </div>
   </div>
 </article>

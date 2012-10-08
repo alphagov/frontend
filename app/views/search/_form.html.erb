@@ -2,8 +2,8 @@
   <fieldset>
     <legend class="visuallyhidden">Search gov.uk</legend>
 
-    <% if @results && @results.any? %>
-      <label for="search-main" ><%= pluralize(capped_search_set_size, "result", "results") %> found for </label>
+    <% if @count_results && @count_results.any? %>
+      <label for="search-main" ><%= pluralize(@count_results.length, "result", "results") %> for</label>
     <% else %>
       <label for="search-main">What are you looking for?</label>
     <% end %>

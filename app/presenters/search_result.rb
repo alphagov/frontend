@@ -27,15 +27,15 @@ class SearchResult
     end
   end
 
-  def formatted_section_name
-    mapped_section_name ? mapped_section_name : humanized_section_name
-  end
+  # Avoid the mundanity of creating these all by hand by making
+  # dynamic method and accessors.
+  %w(section subsection subsubsection).each do |key|
+    define_method "formatted_#{key}_name" do
+      mapped_name(send("#{key}")) ? mapped_name(send("#{key}")) : humanized_name(send("#{key}"))
+    end
 
-  def section
-    if result['format'] == 'specialist_guidance'
-      'specialist'
-    else
-      result['section']
+    define_method "#{key}" do
+      result[key]
     end
   end
 
@@ -44,11 +44,11 @@ class SearchResult
     result['format'] ? result['format'].gsub("-", "_") : 'unknown'
   end
 
-  def mapped_section_name
-    return SECTION_NAME_TRANSLATION[section] ? SECTION_NAME_TRANSLATION[section] : false
+  def mapped_name(var)
+    return SECTION_NAME_TRANSLATION[var] ? SECTION_NAME_TRANSLATION[var] : false
   end
 
-  def humanized_section_name
-    section.gsub('-', ' ').capitalize
+  def humanized_name(name)
+    name.gsub('-', ' ').capitalize
   end
 end

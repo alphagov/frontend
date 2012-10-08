@@ -1,35 +1,22 @@
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
-    <hgroup>
-      <h1><%= @business_support.title %></h1>
-    </hgroup>
+      <hgroup>
+        <h1><span>Quick answer</span> <%= @publication.title %></h1>
+      </hgroup>
   </header>
-
   <div class="article-container group">
-    <div>Support value &pound;<%= @business_support.min_value %> to &pound;<%= @business_support.max_value %></div>
+      <article role="article" class="group">
+       <div class="inner">
+         <%= to_govspeak(@publication.body) %>
+       </div>
+     </article>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
 
-    <nav role="navigation" class="chapters-navigation">
-      <ol>
-      <% @business_support.parts.each do |part| %>
-        <li><a href="<%= "#{part_path(@business_support.slug, part.slug, @edition)}" %>"><%= part.title %></a></li>
-      <% end %>
-      </ol>
-    </nav>
 
-    <article class="group" role="article">
-      <div class="inner">
-        <header><h1><%= @part.title %></h1></header>
-
-        <%= to_govspeak(@part.body) %>
-
-        <nav class="part-pagination return-to-top">
-          <a href="#wrapper">Return to top &uarr;</a>
-        </nav>
-
-      </div>
-
-    </article>
-    <%= render 'publication_metadata', :publication => @business_support, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@business_support.slug, :edition => @edition, :format => :json) } %>
   </div>
+
 </section>
+
+<div id="related-items"></div>
+

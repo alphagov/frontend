@@ -26,6 +26,12 @@ class LicenceLocationTest < ActionController::TestCase
         assert_response :success
         assert_equal assigns(:publication).title, "Licence to kill"
       end
+
+      should "set correct expiry headers" do
+        get :publication, slug: "licence-to-kill"
+
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
     end
 
     context "loading the licence edition when posting a location" do

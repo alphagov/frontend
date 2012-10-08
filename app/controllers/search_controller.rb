@@ -2,12 +2,12 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
   before_filter :setup_slimmer_artefact, only: [:index]
+  before_filter :set_expiry
 
   def index
     @search_term = params[:q]
 
     if @search_term.blank?
-      set_expiry
       render action: 'no_search_term' and return
     end
 
@@ -17,8 +17,6 @@ class SearchController < ApplicationController
 
       @all_results = @primary_results + @secondary_results + @external_link_results
       @count_results = @primary_results + @secondary_results
-
-      set_expiry 15.minutes
     end
 
     fill_in_slimmer_headers(@all_results)

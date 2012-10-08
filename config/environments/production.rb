@@ -37,9 +37,6 @@ Frontend::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = Plek.current.find('assets') #.gsub(/^http\:/, 'https:')
-
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
@@ -53,7 +50,8 @@ Frontend::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_controller.asset_host = Plek.current.find('cdn')
+  # Enable serving of images, stylesheets, and javascripts from an asset server
+  config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST'] || Plek.current.find('cdn')
 
   config.slimmer.use_cache = true
   config.slimmer.asset_host = Plek.current.find('assets')

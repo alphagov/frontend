@@ -119,12 +119,44 @@ class SearchControllerTest < ActionController::TestCase
       "title" => "TITLE1",
       "description" => "DESCRIPTION",
       "link" => "/url",
-      "section" => "life-in-the-uk",
+      "section" => "life-in-the-uk"
     }
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li', text: "Life in the UK"
+    assert_select '.result-meta li:first-child', text: "Life in the UK"
+  end
+
+  test "should include sub-sections in results" do
+    result_with_section = {
+      "title" => "TITLE1",
+      "description" => "DESCRIPTION",
+      "link" => "/url",
+      "section" => "life-in-the-uk",
+      "subsection" => "test-thing"
+    }
+    Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
+    get :index, {q: "bob"}
+
+    assert_select '.result-meta li:first-child', text: "Life in the UK"
+    assert_select '.result-meta li:nth-child(2)', text: 'Test thing'
+  end
+
+  test "should include sub-sub-sections in results" do
+    result_with_section = {
+      "title" => "TITLE1",
+      "description" => "DESCRIPTION",
+      "link" => "/url",
+      "section" => "life-in-the-uk",
+      "subsection" => "test-thing",
+      "subsubsection" => "sub-section"
+    }
+    Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
+    get :index, {q: "bob"}
+
+    assert_select '.result-meta li:first-child', text: "Life in the UK"
+    assert_select '.result-meta li:nth-child(2)', text: 'Test thing'
+    assert_select '.result-meta li:nth-child(3)', text: 'Sub section'
   end
 
   test "should return unlimited results" do

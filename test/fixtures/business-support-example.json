@@ -1,0 +1,26 @@
+{"_response_info":{"status":"ok"},"total":1,"results":[
+  { "title":"Access to Work - London",
+    "id":"http://contentapi.dev.gov.uk/access-to-work-london.json",
+    "web_url":"http://frontend.dev.gov.uk/access-to-work-london",
+    "format":"business_support",
+    "details":{
+      "need_id":"1",
+      "business_proposition":false,
+      "alternative_title":null,
+      "overview":null,
+      "min_value":0,
+      "max_value":10000,
+      "short_description":"\n\nGrants and practical advice for disabled people and their employers to help overcome the practical problems resulting from disability",
+      "will_continue_on":"Jobcentre Plus website",
+      "continuation_link":"http://www.direct.gov.uk/en/DisabledPeople/Employmentsupport/WorkSchemesAndProgrammes/DG_4000347",
+      "eligibility":"\n\nDisabled employees and their employers are eligible to apply for grants under this scheme.",
+      "evaluation":null,
+      "additional_information":null,
+      "business_support_identifier":"2",
+      "max_employees":249,
+      "organiser":"Jobcentre Plus",
+      "contact_details":"Jobcentre Plus atwosu.london@jobcentreplus.gsi.gov.uk 020 8426 3110 Access to Work Operational Support Nine Elms Lane London SW95 9BH",
+      "updated_at":"2012-10-08T09:25:53+00:00",
+      "body":"\n<p>This scheme provides grants to employers towards extra employment costs which result from an employee having a disability. The programme aims to provide practical advice and support to disabled people and their employers, in order to overcome work related obstacles which result from disability.</p>\n"}
+  }
+]}

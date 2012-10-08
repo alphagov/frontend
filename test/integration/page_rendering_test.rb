@@ -58,18 +58,19 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
-  # temporarily commenting out this test. more work due to happen on
-  # business support format soon
-  # test "viewing a business support page" do
-  #   setup_api_responses("business-support-basic")
-  #   visit "/business-support-basic"
-  #   assert_equal 200, page.status_code
-  #   assert page.has_content? "Basic Business Support Item"
-  #   assert page.has_content? "100"
-  #   assert page.has_content? "5000"
-  #   assert page.has_content? "Description"
-  #   assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
-  # end
+  test "viewing a business support page" do
+    artefact = artefact_for_slug "business-support-example"
+    artefact = artefact.merge({"format" => "business_support"})
+    artefact = artefact.merge(content_api_response("business-support-example"))
+    content_api_has_an_artefact('business-support-example', artefact)
+    visit "/business-support-example"
+    assert_equal 200, page.status_code
+    assert page.has_content? "Business support example"
+    assert page.has_content? "Get started"
+    assert page.has_content? "What you need to know"
+    assert page.has_content? "Additional information"
+    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
+  end
 
   test "guide request" do
     response = content_api_response("find-job")

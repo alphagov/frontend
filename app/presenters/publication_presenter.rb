@@ -17,7 +17,7 @@ class PublicationPresenter
     :body, :introduction, :expectations, :video_url, :alternative_title,
     :overview, :name, :video_summary, :continuation_link, :licence_overview,
     :link, :will_continue_on, :more_information, :minutes_to_complete,
-    :alternate_methods, :place_type
+    :alternate_methods, :place_type, :min_value, :max_value
   ]
 
   PASS_THROUGH_KEYS.each do |key|
@@ -60,5 +60,16 @@ class PublicationPresenter
   def updated_at
     date = details["updated_at"]
     DateTime.parse(date) if date
+  end
+
+  def video_embed_url
+    return nil unless video_url
+
+    video = video_url.scan(/\?v=([A-Za-z0-9_\-]+)/)
+    if video.any?
+      "http://www.youtube.com/watch?v=#{video[0][0]}"
+    else
+      ""
+    end
   end
 end

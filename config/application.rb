@@ -55,10 +55,10 @@ module Frontend
       media-player.js
       media-player.css
       homepage.js
-      browse-categories.css
-      browse-categories-ie6.css
-      browse-categories-ie7.css
-      browse-categories-ie8.css
+      application.css
+      application-ie6.css
+      application-ie7.css
+      application-ie8.css
     )
 
     # Path within public/ where assets are compiled to

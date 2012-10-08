@@ -56,6 +56,13 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "banana"
   end
 
+  test "should return a 410 if content_api returns a 410" do
+    content_api_has_an_archived_artefact("atlantis")
+    prevent_implicit_rendering
+    @controller.expects(:render).with(has_entry(:status => 410))
+    get :publication, :slug => "atlantis"
+  end
+
   test "should choose template based on type of publication" do
     content_api_has_an_artefact("a-slug", {'format' => 'answer'})
     prevent_implicit_rendering
@@ -172,16 +179,6 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, :slug => "a-slug",:edition => edition_id
-  end
-
-  test "should pass specific and general variables to template" do
-    content_api_has_an_artefact("c-slug", {"format" => "answer", "details" => {'name' => 'THIS'}})
-
-    prevent_implicit_rendering
-    @controller.stubs(:render).with("answer")
-    get :publication, :slug => "c-slug"
-    assert_equal "THIS", assigns["publication"].name
-    assert_equal "THIS", assigns["answer"].name
   end
 
   test "Should redirect to transaction if no geo header" do

@@ -3,9 +3,6 @@ require "authority_lookup"
 require "local_transaction_location_identifier"
 require "licence_location_identifier"
 
-class RecordNotFound < Exception
-end
-
 class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
@@ -14,7 +11,7 @@ class RootController < ApplicationController
   def index
     set_expiry
 
-    set_slimmer_headers(template: "homepage")
+    set_slimmer_headers(template: "homepage", format: "homepage")
 
     # Only needed for Analytics
     set_slimmer_dummy_artefact(:section_name => "homepage", :section_url => "/")
@@ -74,8 +71,6 @@ class RootController < ApplicationController
     end
 
     @edition = params[:edition]
-
-    instance_variable_set("@#{@publication.type}".to_sym, @publication)
 
     respond_to do |format|
       format.html do

@@ -18,6 +18,13 @@ class BrowseControllerTest < ActionController::TestCase
       assert_select "ul h2 a", "Crime and justice"
       assert_select "ul h2 a[href=#{url}]"
     end
+
+    should "set slimmer format of browse" do
+      content_api_has_root_sections(["crime-and-justice"])
+      get :index
+
+      assert_equal "browse",  response.headers["X-Slimmer-Format"]
+    end
   end
 
   context "GET section" do
@@ -36,6 +43,14 @@ class BrowseControllerTest < ActionController::TestCase
 
       get :section, section: "banana"
       assert_response 404
+    end
+
+    should "set slimmer format of browse" do
+      content_api_has_section("crime-and-justice")
+      content_api_has_subsections("crime-and-justice", ["alpha"])
+      get :section, section: "crime-and-justice"
+
+      assert_equal "browse",  response.headers["X-Slimmer-Format"]
     end
   end
 
@@ -91,6 +106,14 @@ class BrowseControllerTest < ActionController::TestCase
       api_returns_404_for("https://contentapi.test.alphagov.co.uk/tags/crime-and-justice%2Ffrume.json")
       get :sub_section, section: "crime-and-justice", sub_section: "frume"
       assert_response 404
+    end
+
+    should "set slimmer format of browse" do
+      content_api_has_section("crime-and-justice/judges", "crime-and-justice")
+      content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])
+      get :sub_section, section: "crime-and-justice", sub_section: "judges"
+
+      assert_equal "browse",  response.headers["X-Slimmer-Format"]
     end
   end
 end

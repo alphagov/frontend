@@ -16,6 +16,7 @@ class HelpController < ApplicationController
 protected
   def setup_slimmer_artefact
     set_slimmer_dummy_artefact(:section_name => "Help", :section_link => "/help")
+    set_slimmer_headers(format: 'support-pages')
   end
 
   def cache_headers

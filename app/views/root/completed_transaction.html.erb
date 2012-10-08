@@ -2,16 +2,16 @@
 
   <header class="page-header group">
     <hgroup>
-     <h1><span>Service</span> <%= @completed_transaction.title %></h1>
+     <h1><span>Service</span> <%= @publication.title %></h1>
     </hgroup>
   </header>
   <div class="article-container group">
       <article role="article" class="group">
        <div class="inner">
-         <%= to_govspeak(@completed_transaction.body) %>
+         <%= to_govspeak(@publication.body) %>
        </div>
      </article>
-    <%= render 'publication_metadata', :publication => @completed_transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@completed_transaction.slug, :edition => @edition, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
   </div>
 </section>
 

@@ -13,6 +13,10 @@
       <%= yield :description %>
     <% end %>
 
+    <!--[if gt IE 8]><!--><%= stylesheet_link_tag "application.css" %><!--<![endif]-->
+    <!--[if IE 6]><%= stylesheet_link_tag "application-ie6.css" %><![endif]-->
+    <!--[if IE 7]><%= stylesheet_link_tag "application-ie7.css" %><![endif]-->
+    <!--[if IE 8]><%= stylesheet_link_tag "application-ie8.css" %><![endif]-->
     <%= javascript_include_tag 'frontend.js' %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>

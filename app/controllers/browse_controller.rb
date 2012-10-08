@@ -21,8 +21,7 @@ class BrowseController < ApplicationController
     response = content_api.sub_sections(params[:section])
     @sub_categories = response.results.sort_by { |category| category.title }
     setup_page_title(@category.title)
-    options = {title: "browse", section_name: "#{@category.title}", section_link: "/browse/#{params[:section]}"}
-    set_slimmer_artefact_headers(options)
+    set_slimmer_artefact_headers
   end
 
   def sub_section
@@ -36,22 +35,14 @@ class BrowseController < ApplicationController
     detailed_guidance_sections(tag_id)
 
     setup_page_title(@sub_category.title)
-    options = {
-      title: "browse",
-      section_name: "#{@sub_category.title}",
-      section_link: "/browse/#{params[:section]}/#{params[:sub_section]}",
-      parent: {
-        section_name: @category.title,
-        section_link: "/browse/#{params[:section]}"
-      }
-    }
+    options = {title: "browse", section_name: @category.title, section_link: "/browse/#{params[:section]}"}
     set_slimmer_artefact_headers(options)
   end
 
 protected
-  def set_slimmer_artefact_headers(dummy_artefact)
+  def set_slimmer_artefact_headers(dummy_artefact={})
     set_slimmer_headers(format: 'browse')
-    set_slimmer_dummy_artefact(dummy_artefact)
+    set_slimmer_dummy_artefact(dummy_artefact) unless dummy_artefact.empty?
   end
 
   def setup_page_title(category=nil)

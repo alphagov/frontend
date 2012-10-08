@@ -68,8 +68,7 @@ class BrowseControllerTest < ActionController::TestCase
 
       get :sub_section, section: "crime-and-justice", sub_section: "judges"
 
-      assert_select "h1", "Crime and justice"
-      assert_select "h2", "Judges"
+      assert_select "h1", "Judges"
       assert_select "li h3 a", "Judge dredd"
     end
 

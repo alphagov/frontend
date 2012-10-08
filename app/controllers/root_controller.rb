@@ -39,12 +39,12 @@ class RootController < ApplicationController
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
       end
 
-      @snac = AuthorityLookup.find_snac(params[:part])
-      @authority_slug = params[:part]
+      snac = AuthorityLookup.find_snac(params[:part])
+      authority_slug = params[:part]
 
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
-      @artefact = fetch_artefact(@snac) if @snac
+      @artefact = fetch_artefact(snac) if snac
     elsif (video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?)
       raise RecordNotFound
     end
@@ -58,9 +58,9 @@ class RootController < ApplicationController
     when "guide"
       params[:part] ||= @publication.parts.first.slug
     when "licence"
-      @licence_details = licence_details(@artefact, @authority_slug, @snac)
+      @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
-      @local_transaction_details = local_transaction_details(@artefact, @authority_slug, @snac)
+      @local_transaction_details = local_transaction_details(@artefact, authority_slug, snac)
     end
 
     set_expiry if params.exclude?('edition') and request.get?

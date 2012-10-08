@@ -51,7 +51,6 @@ class RootController < ApplicationController
 
     case @publication.type
     when "place"
-      set_expiry if params.exclude?('edition') and request.get?
       @options = load_place_options(@publication)
       @publication.places = @options
     when "programme"
@@ -62,9 +61,9 @@ class RootController < ApplicationController
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
       @local_transaction_details = local_transaction_details(@artefact, authority_slug, snac)
-    else
-      set_expiry if params.exclude?('edition')
     end
+
+    set_expiry if params.exclude?('edition') and request.get?
 
     if @publication.parts
       @part = @publication.find_part(params[:part])
@@ -88,7 +87,7 @@ class RootController < ApplicationController
       end
     end
   rescue RecordNotFound
-    set_expiry
+    set_expiry(10.minutes)
     error 404
   end
 
@@ -189,11 +188,5 @@ protected
   def set_slimmer_artefact_headers(artefact)
     set_slimmer_headers(format: artefact["format"])
     set_slimmer_artefact(artefact)
-  end
-
-  def set_expiry
-    unless Rails.env.development?
-      expires_in(60.minutes, :public => true)
-    end
   end
 end

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: */print
+Disallow: search
+Disallow: licence-finder/*
+Disallow: business-finance-support-finder/*
+Disallow: apply-for-a-licence

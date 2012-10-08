@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
   before_filter :setup_slimmer_artefact, only: [:index]
+  before_filter :set_expiry
 
   def index
     @search_term = params[:q]

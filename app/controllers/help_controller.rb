@@ -5,7 +5,7 @@ class HelpController < ApplicationController
   include RootHelper
 
   before_filter :setup_slimmer_artefact
-  before_filter :cache_headers
+  before_filter :set_expiry
   before_filter :limit_to_html
 
   rescue_from AbstractController::ActionNotFound, :with => :error_404
@@ -18,11 +18,4 @@ protected
     set_slimmer_dummy_artefact(:section_name => "Help", :section_link => "/help")
     set_slimmer_headers(format: 'support-pages')
   end
-
-  def cache_headers
-    expires_in 10.minute, :public => true unless Rails.env.development?
-  end
 end
-
-
-

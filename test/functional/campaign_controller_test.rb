@@ -6,4 +6,16 @@ class CampaignControllerTest < ActionController::TestCase
     get :workplace_pensions
     assert_equal "campaign",  response.headers["X-Slimmer-Format"]
   end
+
+  should "set correct expiry headers" do
+    get :workplace_pensions
+
+    assert_equal "max-age=86400, public",  response.headers["Cache-Control"]
+  end
+
+  should "load the workplace pensions campaign" do
+    get :workplace_pensions
+
+    assert_response :success
+  end
 end

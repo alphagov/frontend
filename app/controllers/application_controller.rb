@@ -39,6 +39,12 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_expiry(duration = 30.minutes)
+      unless Rails.env.development?
+        expires_in(duration, :public => true)
+      end
+    end
+
     def fetch_artefact(snac = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
       artefact = content_api.artefact(params[:slug], options)

@@ -40,7 +40,7 @@ class RootController < ApplicationController
       end
 
       snac = AuthorityLookup.find_snac(params[:part])
-      @authority_slug = params[:part]
+      authority_slug = params[:part]
 
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
@@ -59,9 +59,9 @@ class RootController < ApplicationController
     when "guide"
       params[:part] ||= @publication.parts.first.slug
     when "licence"
-      @licence_details = licence_details(@artefact, @authority_slug, snac)
+      @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
-      @local_transaction_details = local_transaction_details(@artefact, @authority_slug, snac)
+      @local_transaction_details = local_transaction_details(@artefact, authority_slug, snac)
     else
       set_expiry if params.exclude?('edition')
     end

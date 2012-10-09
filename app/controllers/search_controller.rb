@@ -24,6 +24,8 @@ class SearchController < ApplicationController
     if @all_results.empty?
       render action: 'no_results' and return
     end
+  rescue GdsApi::Rummager::SearchServiceError
+    error_503 and return
   end
 
   protected

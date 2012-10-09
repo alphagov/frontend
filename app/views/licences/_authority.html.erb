@@ -4,9 +4,17 @@
   <div class="inner">
     <nav role="navigation" class="page-navigation">
       <ol>
-        <li <% unless @licence_details[:action] %>class="active"<% end %>><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
+        <% if @licence_details[:action] %>
+          <li><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
+        <% else %>
+          <li class="active">Overview</li>
+        <% end %>
         <% (@licence_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
-          <li <% if @licence_details[:action] == action %>class="active"<% end %>><%= link_to "How to #{action}", licence_authority_action_path(@publication.slug, @licence_details[:authority]['slug'], action) %></li>
+          <% if @licence_details[:action] == action %>
+            <li class="active"><%= "How to #{action}" %></li>
+          <% else %>
+            <li><%= link_to "How to #{action}", licence_authority_action_path(@publication.slug, @licence_details[:authority]['slug'], action) %></li>
+          <% end %>
         <% end %>
       </ol>
     </nav>

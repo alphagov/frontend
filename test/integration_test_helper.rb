@@ -13,6 +13,7 @@ class ActionDispatch::IntegrationTest
 
   def teardown
     Capybara.use_default_driver
+    WebMock.reset!
   end
 
   def content_api_response(slug)

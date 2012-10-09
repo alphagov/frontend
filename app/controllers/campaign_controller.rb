@@ -11,6 +11,9 @@ class CampaignController < ApplicationController
   def workplace_pensions
   end
 
+  def uk_welcomes
+  end
+
 protected
   def setup_slimmer_artefact
     set_slimmer_headers(format: 'campaign')

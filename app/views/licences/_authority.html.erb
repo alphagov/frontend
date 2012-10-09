@@ -4,10 +4,10 @@
   <div class="inner">
     <nav role="navigation" class="page-navigation">
       <ol>
-        <% if !@licence_details[:action] %>
-          <li class="active">Overview</li>
-        <% else %>
+        <% if @licence_details[:action] %>
           <li><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
+        <% else %>
+          <li class="active">Overview</li>
         <% end %>
         <% (@licence_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
           <% if @licence_details[:action] == action %>

@@ -73,6 +73,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert page.has_content? "Licence to kill"
         assert page.has_content? "You only live twice, Mr Bond."
       end
+
+      should "not show a postcode error" do
+        assert !page.has_selector?(".location_error")
+      end
     end
 
     context "when visiting the licence with a postcode" do

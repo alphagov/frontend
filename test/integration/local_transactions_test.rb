@@ -74,6 +74,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "ask for a postcode" do
         assert page.has_field? "postcode"
       end
+
+      should "not show a postcode error" do
+        assert !page.has_selector?(".location_error")
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do
@@ -93,6 +97,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "show a get started button which links to the interaction" do
         assert page.has_link?("Get started", :href => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
+      end
+
+      should "not show a postcode error" do
+        assert !page.has_selector?(".location_error")
       end
     end
 

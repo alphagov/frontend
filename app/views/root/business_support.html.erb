@@ -48,7 +48,9 @@
               <% if @publication.max_value.present? and @publication.max_value > 0 %>
                 <section class="support-info">
                   <h2>Grant value</h2>
-                  <div class="faux-cell">&pound;<%= @publication.min_value %> - &pound;<%= @publication.max_value %></div>  
+                  <div class="faux-cell">&pound;<%= 
+                    @publication.min_value == 0 ? '1' : @publication.min_value 
+                  %> - &pound;<%= @publication.max_value %></div>  
                 </section>
               <% end %>
               <% if @publication.max_employees.present? %>

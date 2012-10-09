@@ -18,4 +18,10 @@ class CampaignControllerTest < ActionController::TestCase
 
     assert_response :success
   end
+
+  should "load the UK Welcomes campaign" do
+    get :uk_welcomes
+
+    assert_response :success
+  end
 end

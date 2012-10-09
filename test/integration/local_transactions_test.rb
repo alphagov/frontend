@@ -95,6 +95,38 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Get started", :href => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
       end
     end
+
+    context "when visiting the local transaction with an invalid postcode" do
+      setup do
+        visit '/pay-bear-tax'
+        fill_in 'postcode', :with => "Not a postcode. Nope. Nada."
+        click_button('Find')
+      end
+
+      should "remain on the local transaction page" do
+        assert_equal "/pay-bear-tax", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "Please enter a valid UK postcode."
+      end
+    end
+
+    context "when visiting the local transaction with a blank postcode" do
+      setup do
+        visit '/pay-bear-tax'
+        fill_in 'postcode', :with => ""
+        click_button('Find')
+      end
+
+      should "remain on the local transaction page" do
+        assert_equal "/pay-bear-tax", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "Please enter a valid UK postcode."
+      end
+    end
   end
 
   context "given a local transaction without an interaction present" do

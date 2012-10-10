@@ -2,7 +2,7 @@ $(function(){
   var $container = $('#wrapper');
 
   if ($container.find('.js-tabs').length) {
-    $container.tabs();
+    $container.tabs({ 'wrapperTag' : 'article' });
   }
 
   /* step link prompts */

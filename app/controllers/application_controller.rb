@@ -39,6 +39,12 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_expiry(duration = 30.minutes)
+      unless Rails.env.development?
+        expires_in(duration, :public => true)
+      end
+    end
+
     def fetch_artefact(snac = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
       artefact = content_api.artefact(params[:slug], options)
@@ -51,9 +57,10 @@ class ApplicationController < ActionController::Base
     rescue GdsApi::HTTPErrorResponse => e
       if e.code == 410
         raise RecordArchived
-      else
-        raise
+      elsif e.code >= 500
+        statsd.increment("content_api_error")
       end
+      raise
     rescue URI::InvalidURIError
       logger.warn("Failed to fetch artefact from Content API.")
       raise RecordNotFound

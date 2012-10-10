@@ -34,6 +34,12 @@ class LocalTransactionsTest < ActionController::TestCase
         assert_response :success
         assert_equal assigns(:publication).title, "Send a bear to your local council"
       end
+
+      should "set correct expiry headers" do
+        get :publication, slug: "send-a-bear-to-your-local-council"
+
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
     end
 
     context "loading the local transaction when posting a location" do

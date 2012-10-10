@@ -5,6 +5,8 @@ class BrowseController < ApplicationController
     error_404
   }
 
+  before_filter :set_expiry
+
   def index
     setup_page_title("All categories")
     @categories = content_api.root_sections.results.sort_by { |category| category.title }
@@ -19,6 +21,7 @@ class BrowseController < ApplicationController
     response = content_api.sub_sections(params[:section])
     @sub_categories = response.results.sort_by { |category| category.title }
     setup_page_title(@category.title)
+    set_slimmer_artefact_headers
   end
 
   def sub_section
@@ -33,13 +36,13 @@ class BrowseController < ApplicationController
 
     setup_page_title(@sub_category.title)
     options = {title: "browse", section_name: @category.title, section_link: "/browse/#{params[:section]}"}
-    set_slimmer_dummy_artefact(options)
+    set_slimmer_artefact_headers(options)
   end
 
 protected
-  def set_slimmer_artefact_headers(dummy_artefact)
+  def set_slimmer_artefact_headers(dummy_artefact={})
     set_slimmer_headers(format: 'browse')
-    set_slimmer_dummy_artefact(dummy_artefact)
+    set_slimmer_dummy_artefact(dummy_artefact) unless dummy_artefact.empty?
   end
 
   def setup_page_title(category=nil)

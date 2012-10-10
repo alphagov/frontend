@@ -12,8 +12,14 @@ namespace :panopticon do
       RegisterableCampaign.new({
         :title => "Automatic enrolment into a workplace pension",
         :slug => "workplacepensions",
-        :need_id => nil,
+        :need_id => "B1047",
         :description => "Workplace pensions - what it means for you"
+      }),
+      RegisterableCampaign.new({
+        :title => "UK Welcomes",
+        :slug => "ukwelcomes",
+        :need_id => "B1048",
+        :description => "UK Welcomes gives simple information on how to set up and run your business in the UK."
       })
     ]
 

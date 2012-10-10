@@ -10,4 +10,11 @@ class HelpControllerTest < ActionController::TestCase
     get :index
     assert_equal "support-pages",  response.headers["X-Slimmer-Format"]
   end
+
+  should "set correct expiry headers" do
+    get :index
+
+    assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+  end
+
 end

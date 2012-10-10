@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
   before_filter :setup_slimmer_artefact, only: [:index]
+  before_filter :set_expiry
 
   def index
     @search_term = params[:q]
@@ -23,6 +24,8 @@ class SearchController < ApplicationController
     if @all_results.empty?
       render action: 'no_results' and return
     end
+  rescue GdsApi::Rummager::SearchServiceError
+    error_503 and return
   end
 
   protected

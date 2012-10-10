@@ -25,6 +25,13 @@ class BrowseControllerTest < ActionController::TestCase
 
       assert_equal "browse",  response.headers["X-Slimmer-Format"]
     end
+
+    should "set correct expiry headers" do
+      content_api_has_root_sections(["crime-and-justice"])
+      get :index
+
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
   end
 
   context "GET section" do
@@ -52,6 +59,14 @@ class BrowseControllerTest < ActionController::TestCase
 
       assert_equal "browse",  response.headers["X-Slimmer-Format"]
     end
+
+    should "set correct expiry headers" do
+      content_api_has_section("crime-and-justice")
+      content_api_has_subsections("crime-and-justice", ["alpha"])
+      get :section, section: "crime-and-justice"
+
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
   end
 
   context "GET sub_section" do
@@ -68,8 +83,7 @@ class BrowseControllerTest < ActionController::TestCase
 
       get :sub_section, section: "crime-and-justice", sub_section: "judges"
 
-      assert_select "h1", "Crime and justice"
-      assert_select "h2", "Judges"
+      assert_select "h1", "Judges"
       assert_select "li h3 a", "Judge dredd"
     end
 
@@ -114,6 +128,14 @@ class BrowseControllerTest < ActionController::TestCase
       get :sub_section, section: "crime-and-justice", sub_section: "judges"
 
       assert_equal "browse",  response.headers["X-Slimmer-Format"]
+    end
+
+    should "set correct expiry headers" do
+      content_api_has_section("crime-and-justice/judges", "crime-and-justice")
+      content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])
+      get :sub_section, section: "crime-and-justice", sub_section: "judges"
+
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
   end
 end

@@ -73,6 +73,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert page.has_content? "Licence to kill"
         assert page.has_content? "You only live twice, Mr Bond."
       end
+
+      should "not show a postcode error" do
+        assert !page.has_selector?(".location_error")
+      end
     end
 
     context "when visiting the licence with a postcode" do
@@ -139,13 +143,19 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
     end
 
     context "when visiting the licence with an invalid postcode" do
-      should "remain on the licence page" do
+      setup do
         visit '/licence-to-kill'
 
         fill_in 'postcode', :with => "Not a postcode"
         click_button('Find')
+      end
 
+      should "remain on the licence page" do
         assert_equal "/licence-to-kill", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "Please enter a valid UK postcode."
       end
     end
   end
@@ -316,7 +326,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "format" => "Licence"
         }
       )
-        
+
       content_api_has_an_artefact('licence-to-kill', artefact)
       content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", artefact)
     end

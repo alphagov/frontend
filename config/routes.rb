@@ -18,6 +18,7 @@ Frontend::Application.routes.draw do
 
   # Campaign pages.
   match "/workplacepensions", :to => "campaign#workplace_pensions"
+  match "/energyhelp", :to => "campaign#energy_help"
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.match ":slug/video", format: :video

@@ -19,7 +19,7 @@ namespace :panopticon do
         :title => "UK Welcomes",
         :slug => "ukwelcomes",
         :need_id => "B1048",
-        :description => "Workplace pensions - what it means for you"
+        :description => "UK Welcomes gives simple information on how to set up and run your business in the UK."
       })
     ]
 

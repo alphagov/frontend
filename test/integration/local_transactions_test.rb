@@ -96,7 +96,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show a get started button which links to the interaction" do
-        assert page.has_link?("Get started", :href => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
+        assert page.has_link?("Start now", :href => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
       end
 
       should "not show a postcode error" do

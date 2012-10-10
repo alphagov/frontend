@@ -18,7 +18,7 @@ class RootController < ApplicationController
   end
 
   def publication
-    error_406 and return if request.format.nil?
+    error_404 and return if request.format.nil?
 
     if params[:slug] == 'done' and params[:part].present?
       params[:slug] += "/#{params[:part]}"

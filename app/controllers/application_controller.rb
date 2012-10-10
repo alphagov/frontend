@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def limit_to_html
-    error_406 unless request.format.html?
+    error_404 unless request.format.html?
   end
 
   protected

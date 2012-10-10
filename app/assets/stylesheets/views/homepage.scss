@@ -91,9 +91,13 @@
     }
 
     hgroup {
+      margin-right: 0;
+      padding: 0;
+
       h1{
         &.strap{
           @include core-48;
+          padding-top: 0;
           padding-bottom:0.25em;
         }
       }

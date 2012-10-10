@@ -57,9 +57,10 @@ class ApplicationController < ActionController::Base
     rescue GdsApi::HTTPErrorResponse => e
       if e.code == 410
         raise RecordArchived
-      else
-        raise
+      elsif e.code >= 500
+        statsd.increment("content_api_error")
       end
+      raise
     rescue URI::InvalidURIError
       logger.warn("Failed to fetch artefact from Content API.")
       raise RecordNotFound

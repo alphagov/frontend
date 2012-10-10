@@ -12,7 +12,6 @@ require 'mocha'
 require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 
-require 'gds_api/test_helpers/publisher'
 require 'gds_api/test_helpers/content_api'
 
 Mocha::Integration.monkey_patches.each do |patch|
@@ -26,14 +25,5 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
 
   # Add more helper methods to be used by all tests here...
-  include GdsApi::TestHelpers::Publisher
   include GdsApi::TestHelpers::ContentApi
-
-  def setup
-    WebMock.reset!
-  end
-
-  def teardown
-    WebMock.reset!
-  end
 end

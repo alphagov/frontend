@@ -28,6 +28,10 @@ module GeoHelper
     @geo_header
   end
 
+  def geo_error?
+    params[:postcode] and geo_header['postcode'].nil?
+  end
+
   def reset_geo_url
     callback = Addressable::URI.parse(request.url)
     callback.query_values = {:reset_geo => 'true'}

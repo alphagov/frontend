@@ -1,0 +1,27 @@
+<article role="article" class="group">
+  <div class="inner">
+    <div class="intro">
+      <div class="get-started-intro">
+        <h1>Apply for this licence</h1>
+
+        <p id="get-started" class="get-started group">
+           <a href="<%= @publication.continuation_link %>" rel="external" class="button">
+             <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
+               if @publication.will_continue_on.present?
+                 %><span class="destination">on <%= @publication.will_continue_on %></span><%
+               end
+             %></span><span class="indicator"></span>
+           </a>
+        </p>
+      </div>
+    </div>
+
+    <div id="overview">
+      <header>
+        <h1>Overview</h1>
+      </header>
+
+      <%= to_govspeak(@publication.licence_overview) %>
+    </div>
+  </div>
+</article>

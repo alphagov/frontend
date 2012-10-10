@@ -16,18 +16,19 @@ namespace :router do
   end
 
   task :register_routes => :router_environment do
+    # Remove rummager route for browse
+    @router.routes.delete '/browse'
+    @router.routes.update application_id: "frontend", route_type: :prefix,
+      incoming_path: "/browse"
+    @router.routes.update application_id: "frontend", route_type: :full,
+      incoming_path: "/search"
+
     @router.routes.update application_id: "frontend", route_type: :full,
       incoming_path: "/"
     @router.routes.update application_id: "frontend", route_type: :full,
       incoming_path: "/locator.json"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/settings"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/settings.raw"
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/help"
-    @router.routes.update application_id: "frontend", route_type: :prefix,
-      incoming_path: "/identify_council"
     @router.routes.update application_id: "frontend", route_type: :prefix,
       incoming_path: "/places"
     @router.routes.update application_id: "frontend", route_type: :full,

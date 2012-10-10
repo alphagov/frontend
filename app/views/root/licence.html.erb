@@ -1,30 +1,21 @@
-<section id="content" role="main" class="group multi-page">
+<section id="content" role="main" class="group <%= "multi-page" if @licence_details and @licence_details[:authority] %>">
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Licence</span> <%= @licence.title %></h1>
+      <h1><span>Licence</span> <%= @publication.title %></h1>
     </hgroup>
   </header>
 
   <div class="article-container group">
 
-    <aside>
-      <div class="inner">
-        <nav role="navigation" class="page-navigation">
-          <ol>
-            <li class="active"><a href="#overview">Overview</a></li>
-          </ol>
-        </nav>
-      </div>
-    </aside>
+    <% if ! @publication.continuation_link.blank? %>
+      <%= render :partial => 'licences/continues_on' %>
+    <% elsif @licence_details and @licence_details[:authority] %>
+      <%= render :partial => 'licences/authority' %>
+    <% else %>
+      <%= render :partial => 'licences/introduction', :publication => @licence %>
+    <% end %>
 
-    <article role="article" class="group">
-      <div id="overview" class="inner">
-        <h1>Overview</h1>
-        <%= to_govspeak(@licence.licence_overview) %>
-      </div>
-    </article>
-
-    <%= render 'publication_metadata', :publication => @licence, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@licence.slug, :edition => @edition, :format => :json) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
   </div>
 </section>

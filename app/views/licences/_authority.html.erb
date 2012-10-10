@@ -1,0 +1,47 @@
+<div class="relevant-authority">From <strong><%= @licence_details[:authority]['name'] %></strong></div>
+
+<aside>
+  <div class="inner">
+    <nav role="navigation" class="page-navigation">
+      <ol>
+        <% if @licence_details[:action] %>
+          <li><%= link_to "Overview", publication_path(@publication.slug, @licence_details[:authority]['slug']) %></li>
+        <% else %>
+          <li class="active">Overview</li>
+        <% end %>
+        <% (@licence_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
+          <% if @licence_details[:action] == action %>
+            <li class="active"><%= "How to #{action}" %></li>
+          <% else %>
+            <li><%= link_to "How to #{action}", licence_authority_action_path(@publication.slug, @licence_details[:authority]['slug'], action) %></li>
+          <% end %>
+        <% end %>
+      </ol>
+    </nav>
+  </div>
+</aside>
+
+<article role="article" class="group">
+  <div id="overview" class="inner">
+    <% if @licence_details[:action].present? %>
+      <%= render :partial => "licences/action", :locals => {:action => @licence_details[:action] } %>
+    <% else %>
+      <header><h1>Overview</h1></header>
+      <%= to_govspeak(@publication.licence_overview) %>
+    <% end %>
+
+    <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>
+    <div class="contact">
+      <p>The issuing authority for this licence is <strong><%= @licence_details[:authority]['name'] %></strong>
+        <%= link_to (@licence_details[:licence]['location_specific'] ? '(change location)' : '(change authority)'), publication_path(@publication.slug) %>
+      </p>
+
+      <% if @licence_details[:authority]['contact'] and ! @licence_details[:authority]['contact']['address'].blank? %>
+        <p>You can contact them using the details below.</p>
+        <%= simple_format @licence_details[:authority]['contact']['address'] %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</article>
+

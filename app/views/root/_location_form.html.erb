@@ -1,0 +1,19 @@
+<div class="find-nearest">
+  <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
+    <fieldset>
+      <legend class="visuallyhidden">Postcode lookup</legend>
+      <% if @edition %>
+        <input type="hidden" name="edition" value="<%= @edition %>">
+      <% end %>
+
+      <% if geo_error? %>
+      <div class="location_error error-notification">Please enter a valid UK postcode.</div>
+      <% end %>
+
+      <div class="ask_location">
+        <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+        <input type="submit" value="Find" class="button">
+      </div>
+    </fieldset>
+  </form>
+</div>

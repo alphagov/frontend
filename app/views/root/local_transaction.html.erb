@@ -2,83 +2,75 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Service</span> <%= @local_transaction.title %></h1>
+      <h1><span>Service</span> <%= @publication.title %></h1>
     </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related">Not what you're looking for? ↓</a>
+    </nav>
   </header>
   <div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
+        <section class="intro">
+          <div class="get-started-intro">
 
-          <section class="intro">
-            <div class="get-started-intro">
+          <%= to_govspeak(@publication.introduction) %>
 
-            <%= to_govspeak(@local_transaction.introduction) %>
-
-            <form method="post" id="local-locator-form" class="find-location-for-service">
-              <fieldset>
-                <legend class="visuallyhidden">Postcode lookup</legend>
-
-                <div class="location_error error-notification hidden"></div>
-                <div class="ask_location">
-                  <label for="postcode">Enter a UK postcode <input class="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                  <input type="submit" value="Find" class="button">
-                </div>
-
-                <div class="finding_location hidden">
-                  <p>Locating you&hellip;</p>
-                </div>
-                <div class="found_location hidden">
-                  <p class="friendly-name">Your location is set to <strong></strong>.<br /><a class="change-location" href="">Change your location</a></p>
-                </div>
-              </fieldset>
-            </form>
-
-            <p id="location-loading" class="hidden">Loading service for <strong class="location-placeholder"></strong>...</p>
-            <p id="get-started" class="get-started hidden">
-               <a href="" rel="external" class="button">
-                 <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on </span></span><span class="indicator"></span>
-               </a>
-            </p>
-            <p id="no-provider-error" class="error-notification<% unless @not_found %> hidden<% end %>"><% if @not_found %>Sorry, we couldn't find details of a provider for that service in your area.<% end %></p>
-            <div id="authority-contact" class="hidden">
-              <div class="contact vcard">
-                <p>This service is provided by <a class="url fn org" href=""></a>.</p>
-
-                <div class="adr"></div>
-                <div class="tel"><strong>Telephone:</strong> <span class="value"></span></div>
-              </div>
-            </div>
           </div>
         </section>
 
+        <% if @local_transaction_details['local_interaction'] %>
+
+          <p id="get-started" class="get-started">
+             <a href="<%= @local_transaction_details['local_interaction']['url'] %>" rel="external" class="button">
+               <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on <%= @local_transaction_details['local_authority']['name'] %></span><span class="indicator"></span>
+             </a>
+          </p>
+
+          <% if @local_transaction_details['local_authority'] %>
+            <% authority = @local_transaction_details['local_authority'] %>
+            <div class="contact">
+              <div class="contact vcard">
+                <p>This service is provided by <a class="url fn org" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a> <%= link_to '(change location)', publication_path(@publication.slug) %></p>
+
+                <% if authority['contact_address'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
+                <div class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></div>
+              </div>
+            </div>
+          <% end %>
+
+        <% elsif @local_transaction_details['local_authority'] %>
+
+          <div class="application-notice help-notice">
+            <p>Sorry, we couldn't find details from <%= @local_transaction_details['local_authority']['name'] %>  for that service in your area.</p>
+            <% if @local_transaction_details['local_authority']['website'] %><p>You may find more information on the <%= link_to @local_transaction_details['local_authority']['name'] + " website", @local_transaction_details['local_authority']['contact_url'] %></p><% end %>
+          </div>
+
+        <% else %>
+          <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+        <% end %>
+
         <section class="more">
-          <% if @local_transaction.expectations.present? %>
+
+          <% if @publication.expectations.present? %>
           <h2>What you need to know</h2>
 
           <div class="more">
             <ul class="helpers group">
-              <% @local_transaction.expectations.each do |e| %>
-                <li class="<%= e.css_class %>">
-                <%= e.text %>
-                </li>
+              <% @publication.expectations.each do |e| %>
+                <li><%= e %></li>
               <% end %>
             </ul>
 
-            <%= to_govspeak(@local_transaction.more_information) %>
+            <%= to_govspeak(@publication.more_information) %>
           </div>
           <% end %>
         </section>
 
       </div>
     </article>
-    <%= render 'publication_metadata', :publication => @local_transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, edition: @edition, format: :json, all: true) } %>
+    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, edition: @edition, format: :json, all: true) } %>
   </div>
 </section>
 
 <div id="related-items"></div>
-
-<script type="text/javascript">
-
-
-
-</script>

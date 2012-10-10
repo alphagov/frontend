@@ -1,0 +1,245 @@
+.root-index {
+  section#content {
+    margin: 0 auto;
+  }
+
+  .main-campaign,
+  .minor-campaigns {
+    max-width: 960px;
+    margin: 0 auto;
+    clear:both;
+    
+    @include ie-lte(7){
+      width: 960px;
+    }
+  }
+
+  div#homepage {
+    background-color:#fff;
+    overflow:auto;
+
+    @include media(desktop) {
+      min-height:26em;
+    }
+
+    .homepage-categories {
+      padding-top: 0;
+
+      @include media(desktop) {
+        float: left;
+        width: 62.7%;
+      }
+
+      h2 {
+        @include core-16;
+      }
+    }
+
+    .categories-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include media(mobile) {
+        border-top:1px solid #ccc;
+        margin-bottom: 1em;
+      }
+
+      li {
+        @include core-19;
+        display: block;
+        border-bottom:1px solid #ccc;
+
+        @include media(desktop) {
+          float: right;
+          width: 46.75%;
+
+          &:nth-child(10n) {
+            border:none;
+          }
+
+          &:nth-child(odd) {
+            float: left;
+          }
+        }
+
+        a{
+          color: darken($turquoise, 10%);
+          &:hover {
+            color: $turquoise;
+          }
+        }
+        p{
+          @include core-16;
+          padding:0 0 0.85em 0;
+          margin:0;
+        }
+
+        &:last-child {
+          border:none;
+        }
+      }
+    }
+  }
+
+  header.intro {
+    @include media(desktop) {
+      padding-top: 0;
+    }
+
+    hgroup {
+      h1{
+        &.strap{
+          @include core-48;
+          padding-bottom:0.25em;
+        }
+      }
+      p {
+        @include core-19;
+        margin-top: 0;
+      }
+    }
+
+    p {
+      @include core-16;
+    }
+
+    ul{
+      list-style-type:none;
+      padding:0;
+      margin:0 0 2em 0;
+    }
+    ul li{
+      display:inline;
+      padding-right:1em;
+    }
+  }
+
+  .homepage-section {
+    width: 98%;
+    margin:0em 1% 0em 1%;
+    border-bottom:none;
+    min-height:0;
+    padding-top:1em;
+
+    @include media(desktop) {
+      width:29.3%;
+      float:left;
+      margin:1em 2% 1em 2%;
+    }
+  }
+
+  .minor-campaigns article{
+    margin-top:1em;
+    border-bottom:none;
+    border-top: 4px solid $turquoise;
+    &.most-popular{
+      ul{
+        list-style: none;
+        list-style-image: none;
+        li{
+          @include core-16;
+          padding-bottom:0.5em;
+          a {
+            color: darken($turquoise, 10%);
+            &:hover {
+              color: $turquoise;
+            }
+          }
+        }
+      }
+    }
+    
+    &.inside-gov{
+      background-color:#303030;
+      border:none;
+      padding-top:0;
+      
+      p{
+        @include core-16;
+        color:#fff;
+        padding:0 1.2em;
+      }
+
+      a{
+        color:#fff;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      
+      header{
+        padding-top:1em;
+        background-image: image-url("homepage/homepage-cabinet.jpg");
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        padding-bottom:140px;
+        
+        h1, p{
+          @include core-19;
+          color:#fff;
+          padding:0 1em;
+          margin:0;
+        }
+        h1{
+          @include core-24;
+          padding:0 0.825em;
+        }
+      }
+    }
+
+    &.mini-promo{
+
+      p {
+        text-align: center;
+
+        a {
+          @include core-24;
+          background-color: $turquoise;
+          color: #fff;
+          display: block;
+          padding: 1em;
+          text-decoration: none;
+
+          span {
+            @include core-36;
+            display: block;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+
+  .main-campaign{
+    a{
+      display:block;
+      text-indent:-9999px;
+      height:272px;
+      background-image: image-url('homepage/govuk-500px.png');
+      background-position: bottom right;
+      background-repeat: no-repeat;
+
+
+      @include media($min-width: 500px){
+        height:470px;
+        background-image: image-url('homepage/govuk-935px.png');
+        background-position: bottom right;
+      }
+
+
+      @include media($min-width: 936px){
+        height:300px;
+        background-image: image-url('homepage/govuk-960px.png');
+        background-position: top left;
+      }
+
+    }
+    
+  }
+}

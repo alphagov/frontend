@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>GOV.UK</ShortName>
+    <Description>Search GOV.UK - The best place to find government services and information.</Description>
+    <Url type="text/html" template="https://www.gov.uk/search?q={searchTerms}"/>
+</OpenSearchDescription>

@@ -1,50 +1,46 @@
-<% content_for :extra_javascript do %>
-  <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %>
-    <%= javascript_include_tag 'trackers/ab-testing.js' %>  
-  <% end %> 
-<% end %>
+<%- presenter = TransactionPresenter.new(@publication) -%>
 
 <section id="content" role="main" class="group">
 
   <header class="page-header group">
     <hgroup>
-     <h1><span>Service</span> <%= @transaction.title %></h1>
+     <h1><span>Service</span> <%= @publication.title %></h1>
     </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related">Not what you're looking for? ↓</a>
+    </nav>                
   </header>
 	<div class="article-container group">
   	<article role="article" class="group">
      <div class="inner">
 
       <section class="intro">
-        <div class="get-started-intro"><%= to_govspeak(@transaction.introduction) %></div>
+        <div class="get-started-intro"><%= to_govspeak(@publication.introduction) %></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-        <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %><script type="text/javascript">utmx_section("Get started button")</script><noscript rel="placeholder"><% end %>
         <p id="get-started" class="get-started group">
-           <a href="<%= @transaction.link %>" rel="external" class="button">
-             <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
-               if @transaction.will_continue_on.present?
-                 %><span class="destination">on <%= @transaction.will_continue_on %></span><%
+           <a href="<%= @publication.link %>" rel="external" class="button" <% if presenter.open_in_new_window? %>target="_blank"<% end %>>
+             <span class="button-content"><span class="call-to-action">Start now</span> <!-- this space is important --><%
+               if @publication.will_continue_on.present?
+                 %><span class="destination">on <%= @publication.will_continue_on %></span><%
                end
-             %></span><span class="indicator"></span>
+             %></span>
            </a>
         </p>
-        <% if @transaction.slug =~ /car-tax-disc-vehicle-licence/ %></noscript><% end %> 
       </section>
 
       <section class="more">
-        <%- presenter = TransactionPresenter.new(@transaction) -%>
         <%- if presenter.multiple_more_information_sections? -%>
-          <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @transaction, :presenter => presenter } %>
+          <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @publication, :presenter => presenter } %>
         <%- else -%>
-          <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @transaction, :presenter => presenter } %>
+          <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @publication, :presenter => presenter } %>
         <%- end -%>
 
-        <p class="visuallyhidden"><a href="<%= @transaction.link %>" rel="external">Get started on <%= @transaction.will_continue_on %></a></p>
+        <p class="visuallyhidden"><a href="<%= @publication.link %>" rel="external">Get started on <%= @publication.will_continue_on %></a></p>
       </section>
 
      </div>
    </article>
-  <%= render 'publication_metadata', :publication => @transaction, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
+  <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) } %>
 </div>
 
 </section>

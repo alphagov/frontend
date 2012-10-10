@@ -2,8 +2,11 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Guide</span> <%= @guide.title %></h1>
+      <h1><span>Guide</span> <%= @publication.title %></h1>
     </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related">Not what you're looking for? ↓</a>
+    </nav>
   </header>
 
 	<div class="article-container group">
@@ -11,18 +14,17 @@
       <div class="inner">
 
 	<div class="summary">
-		<p><%= @guide.video_summary %></p>
+		<p><%= @publication.video_summary %></p>
 	</div>
 
-
-        <% if video_embed_url(@guide) %>
-          <figure class="media-player-wrapper" id="video">
-            <a href="<%= video_embed_url(@guide) %>">Watch <%= @guide.title %></a>
-          </figure>
-        <% end %>
+  <% if @publication.video_embed_url %>
+    <figure class="media-player-wrapper" id="video">
+      <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
+    </figure>
+  <% end %>
 
 	<div class="application-notice info-notice">
-		<p>This is the video version of this guide. You can also <a href="<%= publication_path(@guide.slug,:edition=>@edition) %>">read the text version</a>.</p>
+		<p>This is the video version of this guide. You can also <a href="<%= publication_path(@publication.slug,:edition=>@edition) %>">read the text version</a>.</p>
 	</div>
 	<p class="beta-notice">
 		These video guides are an experiment, and are very early prototypes. We hope they’ll help people with reading difficulties. We’d love your <a href="/feedback">feedback</a> on how you think they’re working.
@@ -31,7 +33,7 @@
     </article>
 
 		<div class="meta-data">
-			<p class="modified-date">Last updated: <%= @guide.updated_at.to_formatted_s(:short_ordinal) %></p>
+			<p class="modified-date">Last updated: <%= @publication.updated_at.to_formatted_s(:short_ordinal) %></p>
 		</div>
 
 	</div>

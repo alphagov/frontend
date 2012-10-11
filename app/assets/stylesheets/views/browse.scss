@@ -3,12 +3,10 @@
   header.page-header {
 
     hgroup {
-      padding: 1em 2em 0 2em;
+      padding-bottom: 0;
 
       h1 {
         @include core-36;
-        padding-left: 0;
-        padding-right: 0;
         width: 75%;
 
         @include media(mobile) {

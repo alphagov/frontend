@@ -13,6 +13,8 @@ Frontend::Application.routes.draw do
   match "/help/feedback" => redirect("/feedback") # Handled by feedback app
   match "/help(/:action)", to: "help"
 
+  match "/support(/:action)", to: "support"
+
   match "/tour", to: "root#tour"
   match "/exit", :to => "exit#exit"
 

@@ -15,7 +15,6 @@ Frontend::Application.routes.draw do
   match "/help/cookies" => redirect("/support/cookies")
   match "/help/privacy-policy" => redirect("/support/privacy-policy")
   match "/help" => redirect("/support")
-  match "/help(/:action)", to: "help"
 
   match "/support(/:action)", to: "support"
 

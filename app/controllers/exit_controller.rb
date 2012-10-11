@@ -46,5 +46,4 @@ class ExitController < ApplicationController
       true
     end
   end
-
 end

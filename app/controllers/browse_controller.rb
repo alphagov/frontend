@@ -5,6 +5,8 @@ class BrowseController < ApplicationController
     error_404
   }
 
+  before_filter :set_expiry
+
   def index
     setup_page_title("All categories")
     @categories = content_api.root_sections.results.sort_by { |category| category.title }

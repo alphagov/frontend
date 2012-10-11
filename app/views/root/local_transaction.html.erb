@@ -4,6 +4,9 @@
     <hgroup>
       <h1><span>Service</span> <%= @publication.title %></h1>
     </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related">Not what you're looking for? ↓</a>
+    </nav>
   </header>
   <div class="article-container group">
     <article role="article" class="group">
@@ -14,26 +17,28 @@
           <%= to_govspeak(@publication.introduction) %>
 
           </div>
-        </section>
 
         <% if @local_transaction_details['local_interaction'] %>
 
-          <p id="get-started" class="get-started">
+          <p id="get-started" class="get-started group">
              <a href="<%= @local_transaction_details['local_interaction']['url'] %>" rel="external" class="button">
-               <span class="button-content"><span class="call-to-action">Get started</span><span class="destination"> on <%= @local_transaction_details['local_authority']['name'] %></span><span class="indicator"></span>
+               <span class="button-content"><span class="call-to-action">Start now</span>
+               <span class="destination"> on <%= @local_transaction_details['local_authority']['name'] %></span>
              </a>
           </p>
 
+        </section>
+
           <% if @local_transaction_details['local_authority'] %>
             <% authority = @local_transaction_details['local_authority'] %>
-            <div class="contact">
+            <section class="contact-container">
               <div class="contact vcard">
                 <p>This service is provided by <a class="url fn org" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a> <%= link_to '(change location)', publication_path(@publication.slug) %></p>
 
                 <% if authority['contact_address'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
                 <div class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></div>
               </div>
-            </div>
+            </section>
           <% end %>
 
         <% elsif @local_transaction_details['local_authority'] %>
@@ -43,8 +48,12 @@
             <% if @local_transaction_details['local_authority']['website'] %><p>You may find more information on the <%= link_to @local_transaction_details['local_authority']['name'] + " website", @local_transaction_details['local_authority']['contact_url'] %></p><% end %>
           </div>
 
+        </section>
+
         <% else %>
           <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+
+        </section>
         <% end %>
 
         <section class="more">

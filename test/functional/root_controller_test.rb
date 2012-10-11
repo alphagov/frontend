@@ -36,11 +36,11 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '404', response.code
   end
 
-  test "should 406 when asked for unrecognised format" do
+  test "should 404 when asked for unrecognised format" do
     content_api_has_an_artefact("a-slug")
 
     get :publication, :slug => 'a-slug', :format => '123'
-    assert_equal '406', response.code
+    assert_equal '404', response.code
   end
 
   test "should return a 404 if slug isn't URL friendly" do
@@ -68,6 +68,13 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.expects(:render).with("answer")
     get :publication, :slug => "a-slug"
+  end
+
+  test "should set expiry headers for an edition" do
+    content_api_has_an_artefact("a-slug")
+
+    get :publication, :slug => 'a-slug'
+    assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
   end
 
   test "further information tab should appear for programmes that have it" do
@@ -229,4 +236,21 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
     assert_equal '200', response.code
   end
+
+  context "loading the homepage" do
+    should "respond with success" do
+      get :index
+
+      assert_response :success
+    end
+
+    should "set correct expiry headers" do
+      get :index
+
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
+  end
+
+
+
 end

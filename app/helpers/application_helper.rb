@@ -33,9 +33,9 @@ module ApplicationHelper
     html_classes.join(' ')
   end
 
-  def publication_api_path(publication, edition = nil)
+  def publication_api_path(publication, opts = {})
     path = "/api/#{publication.slug}.json"
-    path += "?edition=#{edition}" if edition
+    path += "?edition=#{opts[:edition]}" if opts[:edition]
     path
   end
 end

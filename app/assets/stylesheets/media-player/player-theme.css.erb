@@ -29,10 +29,10 @@
 
 /* CONTROL BAR */
 .player-container .control-bar {
-    background: #ccc url(<%= asset_path("media-player/bg.gif") %>) top center no-repeat;
-    border-width: 1px;
+    background: #f2f2f2;
+border-width: 1px;
     border-style: solid;
-    border-color: #fafafa #cdcdcd #9f9f9f #cdcdcd; }
+    border-color: #ccc; }
     
 .player-container .ui-state-default {
     background: none;
@@ -55,10 +55,13 @@
 .player-container .control-bar .logo:hover, .player-container .control-bar .logo:focus {background: url(<%= asset_path("templogo.png") %>) no-repeat -16px 0; }
     
 .player-container .ui-corner-bottom {
-    -moz-border-radius-bottomleft: 5px;
+    /*
+-moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;
     -webkit-border-radius-bottomleft: 5px;
-    -webkit-border-right-radius: 5px; }
+    -webkit-border-right-radius: 5px;
+*/ 
+}
 
 /* BUTTONS */
 .player-container .control-bar button {

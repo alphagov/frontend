@@ -11,6 +11,10 @@ Frontend::Application.routes.draw do
   match "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }
 
   match "/help/feedback" => redirect("/feedback") # Handled by feedback app
+  match "/help/accessibility" => redirect("/support/accessibility")
+  match "/help/cookies" => redirect("/support/cookies")
+  match "/help/privacy-policy" => redirect("/support/privacy-policy")
+  match "/help" => redirect("/support")
   match "/help(/:action)", to: "help"
 
   match "/support(/:action)", to: "support"

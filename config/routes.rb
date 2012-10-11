@@ -18,6 +18,7 @@ Frontend::Application.routes.draw do
 
   # Campaign pages.
   match "/workplacepensions", :to => "campaign#workplace_pensions"
+  match "/energyhelp", :to => "campaign#energy_help"
   match "/ukwelcomes", :to => "campaign#uk_welcomes"
   match "/studentfinance", :to => "campaign#student_finance"
 

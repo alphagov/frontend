@@ -22,6 +22,12 @@ namespace :panopticon do
         :description => "UK Welcomes gives simple information on how to set up and run your business in the UK."
       }),
       RegisterableCampaign.new({
+        :title => "Help with bills and energy efficiency in your home",
+        :slug => "energyhelp",
+        :need_id => "B1049",
+        :description => "Help is available to make your home warm and cosy this winter."
+      }),
+      RegisterableCampaign.new({
         :title => "Student Finance",
         :slug => "studentfinance",
         :need_id => "B1050",

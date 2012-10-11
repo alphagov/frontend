@@ -1,60 +1,55 @@
 <% content_for :title, "Help with bills and energy efficiency in your home - GOV.UK Beta (Test)" %>
-<section id="content" role="main" class="group">
+<section id="content" role="main" class="group campaign">
   <section id="landing">
-	  <h1>Help with bills and energy efficiency in your home</h1>
-	  <div class="organisation">
-      <a href="#" class="organisation-logo department-for-energy-and-climate-change"><span>Department <br>of Energy &amp;<br>Climate Change</span></a>
-	  </div>
+    <h1>Help with bills and energy efficiency in your home</h1>
+    <div class="organisation">
+      <a href="http://www.dwp.gov.uk" class="organisation-logo department-for-energy-and-climate-change"><span>Department <br />of Energy &amp; <br />Climate Change</span></a>
+    </div>
 
-	  <div class="campaign-image">
+    <div class="campaign-image">
       <span class="image-scope">
         <style scoped>
           /* fall-back styles for browsers without media query support (IE6-8) */
           #banner {
-            background-image: url('<%= image_path "campaign/dwp-workplace-pensions/960px.jpg" %>');
+            background-image: url('<%= image_path "campaign/decc-energy-help/960px.png" %>');
           }
 
           /* small image for mobile */
           @media (min-width: 0px) {
             #banner {
-              background-image: url('<%= image_path "campaign/dwp-workplace-pensions/320px.jpg" %>');
+              background-image: url('<%= image_path "campaign/decc-energy-help/500px.png" %>');
             }
           }
 
           /* medium image for tablets */
           @media (min-width: 500px) {
             #banner {
-              background-image: url('<%= image_path "campaign/dwp-workplace-pensions/768px.jpg" %>');
+              background-image: url('<%= image_path "campaign/decc-energy-help/935px.png" %>');
             }
           }
 
           /* large image for desktop */
-          @media (min-width: 900px) {
+          @media (min-width: 936px) {
             #banner {
-              background-image: url('<%= image_path "campaign/dwp-workplace-pensions/960px.jpg" %>');
+              background-image: url('<%= image_path "campaign/decc-energy-help/960px.png" %>');
             }
           }
         </style>
-        <a href="#" id="banner">Karen Brad says: I'm in</a>
+        <a href="#" id="banner">House wrapped in a scarf</a>
       </span>
+    </div>
 
-			<div class="campaign-links inner group">
-	      <h2>Find out more</h2>
-	      <nav role="navigation">
-	        <ul class="links">
-		        <li><a href="https://www.gov.uk/browse/money-and-tax#/winter-payments">Winter payments and help with fuel bills</a></li>
-	          <li><a href="#">Energy saving measures for your home or business</a></li>
-            <li><a href="#" rel="external">Finding the best supplier or tariffing measures for your home or business</a></li>
-	        </ul>
-        </nav>
-		  </div>
-	  </div>
-
-	  <article class="campaign">
+    <article class="campaign">
       <h2>Need help with fuel bills or the cost of insulation?</h2>
       <p>Whatever your financial position, help is available to make your home warm and cosy this winter.</p>
       <p>Some schemes are aimed at people on benefits or on low incomes but help is still available if you are in work and own your own home.</p>
-	  </article>
+      <p>What to know more? You can get:</p>
+      <ul>
+        <li><a href="https://www.gov.uk/the-warm-home-discount-scheme">a discount on your winter fuel bills</a></li>
+        <li><a href="https://www.gov.uk/warm-front-scheme">grants to help with the cost of insulating your home and other energy efficiency measures</a></li>
+        <li><a href="http://www.adviceguide.org.uk/england/your_world/energy_index_ew/consumer_energy_supply_e.htm" rel="external">advice about switching energy suppliers</a></li>
+      </ul>
+    </article>
 
   </section>
 </section>

@@ -88,21 +88,23 @@
       padding-top: 0;
     }
 
-    hgroup {
+    .strap {
       margin-right: 0;
       padding: 0;
 
-      h1{
-        &.strap{
-          @include core-48;
-          padding-top: 0;
-          padding-bottom:0.25em;
-        }
+      h1 {
+        @include core-48;
+        padding-top: 0;
+        padding-bottom:0.25em;
       }
       p {
         @include core-19;
         margin-top: 0;
       }
+    }
+
+    .replaces {
+      margin-bottom: 0.5em;
     }
 
     p {
@@ -166,6 +168,7 @@
       border:none;
       
       .inner {
+        margin-top: 4px;
         padding: 0 1em 1em 1em;
       }
 

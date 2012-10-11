@@ -5,8 +5,6 @@
 
   .main-campaign,
   .minor-campaigns {
-    // max-width: 960px;
-    // margin: 0 auto;
     clear:both;
     
     @include ie-lte(7){
@@ -57,7 +55,7 @@
           float: right;
           width: 46.75%;
 
-          &:nth-child(10n) {
+          &:nth-child(11n) {
             border:none;
           }
 

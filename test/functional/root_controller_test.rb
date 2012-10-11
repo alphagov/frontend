@@ -43,6 +43,14 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '404', response.code
   end
 
+  test "should 404 when asked for an artefact that has an unsupported format" do
+    artefact = artefact_for_slug("a-slug").merge("format" => "licence-finder")
+    content_api_has_an_artefact("a-slug", artefact)
+
+    get :publication, :slug => 'a-slug'
+    assert_equal '404', response.code
+  end
+
   test "should return a 404 if slug isn't URL friendly" do
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))

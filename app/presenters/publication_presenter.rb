@@ -59,7 +59,7 @@ class PublicationPresenter
   end
 
   def updated_at
-    date = details["updated_at"]
+    date = @artefact["updated_at"]
     DateTime.parse(date) if date
   end
 

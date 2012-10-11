@@ -12,16 +12,19 @@
 /* DEFAULT LAYOUT (under 650px)
 ---------------------------------------------------------------------*/
 /* PLAYER CONTAINER */
+
 .player-container {
     background-color: #fff;
     font: 13px Helvetica, Arial, sans-serif;
     color: #000;
-		margin-bottom: 1.5em;
+    margin-bottom: 1.5em;
  }
-    
+.player-container.player-wide .control-bar .logo, .player-container .control-bar .logo { display: none; }
+.player-container .ui-helper-hidden-accessible { position: absolute; text-indent: -9999px; }
+
 .player-container span, .player-container object {font-size: 90%; }
-    
-.player-container .video {background: #000; position:relative;z-index:3000;}
+
+.player-container .video {background: #fff; position:relative;z-index:3000; border: #ccc 1px solid; }
 .player-container-ie .video{height:1%;}
 
 .player-container .video .caption{position:absolute;bottom:0;background-color:#000;font-size:1.2em;font-weight:bold;color:#FFF;padding:10px 0;line-height:1.5em;width:100%;text-align:center;}
@@ -43,7 +46,6 @@ border-width: 1px;
 
 .player-container .control-bar .logo {
     text-indent: -9999em;
-    display: block;
     width: 16px;
     height: 17px;
     left: 10px;

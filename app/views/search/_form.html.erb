@@ -2,11 +2,15 @@
   <fieldset>
     <legend class="visuallyhidden">Search gov.uk</legend>
 
-    <% if @count_results && @count_results.any? %>
-      <label for="search-main" ><%= pluralize(@count_results.length, "result", "results") %> for</label>
-    <% else %>
-      <label for="search-main">What are you looking for?</label>
-    <% end %>
+    <label for="search-main">
+      <h1>
+        <%- if @count_results && @count_results.any? -%>
+          <%= pluralize(@count_results.length, "result", "results") %> for
+        <%- else -%>
+          What are you looking for?
+        <%- end -%>
+      </h1>
+    </label>
 
     <input type="search" name="q" value="<%= @search_term %>" id="search-main" /> <input type="submit" value="Search" class="button">
   </fieldset>

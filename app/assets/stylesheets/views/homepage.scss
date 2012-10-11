@@ -151,6 +151,7 @@
         list-style-image: none;
         li{
           @include core-16;
+          margin-left: 0;
           padding-bottom:0.5em;
           a {
             color: darken($turquoise, 10%);

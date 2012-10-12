@@ -66,7 +66,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/business-support-example"
     assert_equal 200, page.status_code
     assert page.has_content? "Business support example"
-    assert page.has_content? "Get started"
+    assert page.has_content? "Find out more"
     assert page.has_content? "What you need to know"
     assert page.has_content? "Additional information"
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")

@@ -6,6 +6,7 @@ require "licence_location_identifier"
 class RootController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
+  include AuthoritiesHelper
   include ActionView::Helpers::TextHelper
 
   def index

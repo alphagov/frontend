@@ -1,67 +1,70 @@
 <% content_for :title, "Tour of GOV.UK - Help - GOV.UK Beta (Test)" %>
-<section id="content" role="main" class="group ancillary tour">
-<div class="article-container group">
+<section id="content" role="main" class="group tour">
+<div class="tour-container full-width group">
   <header class="page-header group">
     <hgroup>
-      <h1><span>Tour</span> Welcome to GOV.UK</h1>
+      <h1>GOV.UK is the best place to find government services and information.</h1>
     </hgroup>
   </header>
+  <div class="tour-video">
+    <figure></figure>
+    <figcaption><p>Find out about GOV.UK in under a minute.</p></figcaption>
+  </div>
+  <div class="tour-intro">
+    <p>It’s a simpler, clearer and faster way to get what you need from government.</p>
+    <p>You can read more about the site below, or get started now by searching for things like <a href="https://www.gov.uk/search?q=car+tax">car tax</a>, <a href="https://www.gov.uk/search?q=passports">passports</a>, and <a href="https://www.gov.uk/search?q=holiday+entitlement">holiday entitlement</a>.</p>
+  </div>
+  <ul class="tour-topics group">
+    <li>
+        <h2>Starting with search</h2>
+        <p>People begin most internet journeys with search, so we’ve designed the site with that in mind.</p>
+      <p>Whether you use a search engine or our own search tools, we’ve made sure you’ll get to the information you want quickly.</p>
+      <form class="search-box" action="/search" method="get" role="search">
+        <p>
+          <label for="main_autocomplete2" class="visuallyhidden">Try searching</label>
+          <input type="text" id="main_autocomplete2" value="" placeholder="Enter search text">
+          <input type="submit" value="Search" class="button">
+        </p>
+      </form>
+      </li>
+      <li>
+        <h2>Simple navigation</h2>
+        <p>We use clear and simple headings and descriptions like <a href="#">'LINK TO CATEGORY'</a> or <a href="#">'LINK TO CATEGORY'</a>. And we always show you where you are, so you can quickly explore a category.</p>
+        <img src="images/breadcrumbs.png" />
+      </li>
+      <li>
+        <h2>Plain and direct language</h2>
+        <p>We’ve made sure that everything on GOV.UK has been written simply and directly, so that it is usable and accessible by everyone. That means short, engaging pieces of writing that avoid unnecessary jargon.</p>
+      <p>The <a href="https://www.gov.uk/designprinciples/styleguide">GOV.UK style guide</a> goes into more detail about the guidelines our writers adhere to for everything on the website.</p>
+      </li>
+      <li>
+        <h2>Pages clear of clutter</h2>
+        <p>Pages are clean and simple, and we’ve looked carefully at what people search for so we show the information most people want right away.</p>
+        <img src="images/placeholder.png" />
+      </li>
+      <li>
+        <h2>Step-by-step guides</h2>
+        <p>We’ll take you through complicated processes, like employing staff for the first time, step-by-step, and highlight the most important information.</p>
+        <img src="images/placeholder.png" />
+      </li>
+      <li>
+        <h2>Detail when you need it</h2>
+        <p>If you need more specific information, about things like maternity pay entitlement, then our tools will quickly give you a clear answer.</p>
+        <img src="images/placeholder.png" />
+      </li>
+  </ul>
 
 
-  <article role="article" class="group">
-    <div class="inner">
-      <p>GOV.UK has been designed to make it simpler, clearer, and faster for you to get to what you need from government.</p>
-      
-      <p>From 17 October, GOV.UK will replace <a href="http://www.direct.gov.uk/en/index.htm">Directgov</a> and <a href="http://www.businesslink.gov.uk/">Business Link</a>. This website will be the best place to find government services and information.</p>
-      
-      <p>You can look at some examples of how GOV.UK works below, or use the search tool to get started right away.</p>
-
-     <%= image_tag 'tour/1govuk.jpg' %>
-
-     <h2>Start with search</h2>
-     <p>People begin most internet journeys with search, so we’ve designed the site with that in mind. Searches take you straight to the information you need.</p>
-     <%= image_tag 'tour/2google.jpg' %>  <!--[point to main search box] -->
-     <a href="https://www.gov.uk/vat-rates"><%= image_tag 'tour/3vat.jpg' %></a>  <!-- [point to top nav and the crumb trail (is that what you call it?)] -->
-
-     <h2>Simple navigation</h2>
-     <p>We keep the options simple and clear, and always show you where you are on the site.</p>
-     <a href="https://www.gov.uk/working-tax-credit/overview"><%= image_tag 'tour/4workingtaxcredit.jpg' %></a>
-
-
-     <h2>Space to breathe</h2>
-     <p>The clean design simplifies rather than confuses, making the site fast and easy to navigate.</p>
-     <a href="https://www.gov.uk/when-do-the-clocks-change"><%= image_tag 'tour/5clockschange.jpg' %></a>  <!-- [point to main promo area in the middle of the homepage i.e. the nice big photos] -->
-
-     <h2>Clearly organised information</h2>
-     <p>If you don’t find what you need straight away a ‘related’ menu shows you other things we think might be useful.</p>
-     <%= image_tag 'tour/6taxcreditrelatedbox.jpg' %>  <!-- [show example of clear, simple page] -->
-
-
-     <h2>Information is presented in a few different ways:</h2>
-     <p><strong>Guides</strong> are groups of information that are more lengthy or complex. Guides have "parts" on the left-hand side, allowing you to quickly access the right information.</p>
-     <a href="https://www.gov.uk/income-tax/overview"><%= image_tag 'tour/7incometaxguide.jpg' %></a>  <!-- [Screenshot of Find out about adult learning and skills guide] -->
-
-
-     <p><strong>Quick answers</strong> provide concise answers to popular user questions. Less text, more specific answers.</p>
-     <a href="https://www.gov.uk/child-benefit-rates"><%= image_tag 'tour/8childbenefitrates.jpg' %></a>  <!-- [Screenshot of Child Benefit rates quick answer] -->
-
-     <p>For more open-ended situations you can answer a series of questions and we'll give you the information you need. eg working out what loans and grants you can get if you're a student.</p>
-     <a href="https://www.gov.uk/student-finance-calculator"><%= image_tag 'tour/9studentfinance.jpg' %></a>  <!-- [Screenshot of Maternity benefits you're eligible for smart answer] -->
-
-     <p><strong>Services</strong> are tools and transactional pages that enable you to complete tasks online and interact with government.  For local services just enter your postcode and find places and services which are close to you, such as your nearest recycling point or driving test centre.</p>
-     <a href="https://www.gov.uk/pay-council-tax"><%= image_tag 'tour/10counciltax.jpg' %></a>  <!-- [Screenshot of Apply online for a replacement Child Trust Fund voucher service] -->
-
-
-     <p><strong>Benefits and credits</strong> – an overview of a particular government benefit or credit, allowing you to read additional information if you need using the tabs at the top of the page.</p>
-     <a href="https://www.gov.uk/council-tax-benefit"><%= image_tag 'tour/11counciltaxbenefit.jpg' %></a>  <!-- [Screenshot of Statutory Sick Pay Benefit and Credit] -->
-
-     <h2>Feedback</h2>
-     <p>It's a beta, so we'd love your <a href="/feedback">feedback</a>.</p>
-     <a href="https://www.gov.uk/feedback"><%= image_tag 'tour/12feedback.jpg' %></a>  <!-- "[point to feedback button in footer]" -->
-
-
-    </div>
-
-  </article>
+  <h2>Search GOV.UK</h2>
+  <p>Some sort of introductory paragraph call to action thing here.</p>
+  <form class="search-box" action="/search" method="get" role="search">
+    <p>
+      <label for="main_autocomplete2" class="visuallyhidden">Try searching</label>
+      <input type="text" id="main_autocomplete2" value="" placeholder="Enter search text">
+      <input type="submit" value="Search" class="button">
+    </p>
+  </form>
 </div>
 </section>
+
+<% content_for :body_classes do %>full-width<% end %>

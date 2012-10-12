@@ -15,7 +15,6 @@
   div#homepage {
     background-color:#fff;
     padding: 0 2em;
-    overflow:auto;
 
     @include media(desktop) {
       min-height:26em;

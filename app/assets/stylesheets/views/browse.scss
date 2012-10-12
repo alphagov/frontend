@@ -5,6 +5,10 @@
     hgroup {
       padding: 1em 2em 0 2em;
 
+      @include media(mobile) {
+        padding: 1em 1em 0 1em;
+      }
+
       h1 {
         @include core-36;
         padding-left: 0;
@@ -13,6 +17,7 @@
 
         @include media(mobile) {
           width: auto;
+          padding: 0;
         }
       }
 
@@ -28,6 +33,11 @@
     background-color: #fff;
     min-height: 35em;
     padding: 0 2em 2em 2em;
+
+    @include media(mobile) {
+      padding: 0 1em 2em 1em;
+      min-height: auto;
+    }
 
     .category-description {
       margin-bottom: 2em;

@@ -42,4 +42,36 @@ class Mirrorer_Test < ActionDispatch::IntegrationTest
     end
   end
 
+  context "licences" do
+    context "given a licence exists" do
+      setup do
+        @artefact = artefact_for_slug('licence-to-kill').merge({
+          "title" => "Licence to kill",
+          "format" => "licence",
+          "details" => {
+            "format" => "Licence",
+            "licence_overview" => "You only live twice, Mr Bond.\n",
+            "licence" => {
+              "location_specific" => true,
+              "availability" => ["England","Wales"],
+              "authorities" => [ ]
+            }
+          }
+        })
+
+        content_api_has_an_artefact('licence-to-kill', @artefact)
+      end
+
+      should "show a dropdown list of all councils" do
+        visit "/licence-to-kill"
+
+        within "select#authority" do
+          assert page.has_content?("South Ribble Borough Council")
+          assert page.has_content?("Barrow-in-Furness Borough Council")
+          assert page.has_content?("Camden Borough Council")
+        end
+      end
+    end
+  end
+
 end

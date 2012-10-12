@@ -14,13 +14,10 @@
         <section class="intro">
           <div class="get-started-intro"><%= to_govspeak(@publication.short_description) %></div>
           <p id="get-started" class="get-started group">
-            <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">
-              <span class="button-content"><span class="call-to-action">Get started</span> <!-- this space is important --><%
-                if @publication.will_continue_on.present?
-                  %><span class="destination">on the <%= @publication.will_continue_on %></span><%
-                end
-              %></span>
-            </a>
+            <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">Find out more</a>
+            <% if @publication.will_continue_on.present? %>
+              <span class="destination"> on the <%= @publication.will_continue_on %></span>
+            <% end %>
           </p>
         </section>
         

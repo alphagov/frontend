@@ -14,11 +14,17 @@
 
   div#homepage {
     background-color:#fff;
-    padding: 0 2em;
+    padding: 0 1em;
     overflow:auto;
 
     @include media(desktop) {
       min-height:26em;
+      padding: 0 2em;
+    }
+
+    header hgroup {
+      padding: 0;
+      margin-right: 0;
     }
 
     .homepage-categories {
@@ -123,10 +129,11 @@
   }
 
   .homepage-section {
-    width: 100%;
-    // margin:0em 1% 0em 1%;
-    border-bottom:none;
+    float: none;
+    width: auto;
     min-height:0;
+    border-bottom:none;
+    margin:0;
     padding-top:1em;
 
     @include media(desktop) {
@@ -145,14 +152,18 @@
     margin-top:1em;
     border-bottom:none;
     border-top: 4px solid $turquoise;
+
     &.most-popular{
       ul{
         list-style: none;
         list-style-image: none;
+        padding-left: 0;
         li{
           @include core-16;
           margin-left: 0;
+          padding-left: 0;
           padding-bottom:0.5em;
+
           a {
             color: darken($turquoise, 10%);
             &:hover {
@@ -162,7 +173,7 @@
         }
       }
     }
-    
+
     &.inside-gov{
       background-color:#303030;
       border:none;
@@ -235,6 +246,12 @@
 
 
   .main-campaign{
+    margin: 0 -1em;
+
+    @include media(desktop) {
+      margin:0;
+    }
+
     a{
       display:block;
       text-indent:-9999px;

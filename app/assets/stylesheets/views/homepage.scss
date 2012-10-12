@@ -11,11 +11,11 @@
   div#homepage {
     background-color:#fff;
     padding: 0 2em;
-    overflow:auto;
+    min-height:26em;
+    overflow: visible;
 
-    @include media(desktop) {
-      min-height:26em;
-      overflow: visible;
+    @include media(mobile) {
+      overflow: auto;
     }
 
     .homepage-categories {

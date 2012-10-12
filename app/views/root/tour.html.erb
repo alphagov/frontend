@@ -8,7 +8,12 @@
   </header>
   <div class="tour-video">
     <figure><!--Video goes here, when added, remove the height/width declarations from CSS and the pink background --></figure>
-    <figcaption><p>Find out about GOV.UK in under a minute.</p></figcaption>
+    <figcaption><p>Find out about GOV.UK in under a minute. </p> 
+      <p><a href="">View video transcript</a></p>
+      <div class="video-transcript">
+        <p>TODO: Transcript</p>
+      </div>
+    </figcaption>
   </div>
   <div class="tour-intro">
     <p>It’s a simpler, clearer and faster way to get what you need from government.</p>
@@ -67,3 +72,8 @@
 </section>
 
 <% content_for :body_classes do %>full-width<% end %>
+
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag 'media-player.js', :defer => 'defer' %>
+  <%= javascript_include_tag 'tour.js', :defer => 'defer' %>
+<% end %>

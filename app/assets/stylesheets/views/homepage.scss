@@ -5,13 +5,7 @@
 
   .main-campaign,
   .minor-campaigns {
-    // max-width: 960px;
-    // margin: 0 auto;
     clear:both;
-    
-    @include ie-lte(7){
-      width: 960px;
-    }
   }
 
   div#homepage {
@@ -21,16 +15,19 @@
 
     @include media(desktop) {
       min-height:26em;
+      overflow: visible;
     }
 
     .homepage-categories {
       padding-top: 0;
+      float: left;
+      width: 69%;
+      margin-right: 0;
+      margin-bottom: 1em;
 
-      @include media(desktop) {
-        float: left;
-        width: 65.5%;
-        margin-right: 0;
-        margin-bottom: 1em;
+      @include media(mobile) {
+        float: none;
+        width: 100%;
       }
 
       h2 {
@@ -52,17 +49,41 @@
         @include core-19;
         display: block;
         border-bottom:1px solid #ccc;
+        float: left;
+        clear: left;
+        width: 45.5%;
+        margin-left: 4.5%;
 
-        @include media(desktop) {
+        &:nth-child(10n) {
+          border:none;
+        }
+
+        &:nth-child(even) {
           float: right;
-          width: 46.75%;
+          clear: none;
+        }
+
+        @include ie-lte(8) {
+          display: inline;
+          min-height: 4.5em;
+          clear: none;
+        }
+
+        @include ie(6) {
+          height: 4.5em;
+        }
+
+        @include media(mobile) {
+          float: none;
+          width: 100%;
+          margin-left: 0;
 
           &:nth-child(10n) {
-            border:none;
+            border-bottom: 1px solid #ccc;
           }
 
-          &:nth-child(odd) {
-            float: left;
+          &:nth-child(even) {
+            float: none;
           }
         }
 
@@ -86,9 +107,7 @@
   }
 
   header.intro {
-    @include media(desktop) {
-      padding-top: 0;
-    }
+    padding-top: 0;
 
     hgroup {
       margin-right: 0;
@@ -123,21 +142,29 @@
   }
 
   .homepage-section {
-    width: 100%;
-    // margin:0em 1% 0em 1%;
     border-bottom:none;
     min-height:0;
     padding-top:1em;
 
-    @include media(desktop) {
-      width:31%;
-      float:left;
-      margin-right: 3.5%;
-      margin-top: 1em;
+    width:31%;
+    float:left;
+    margin-top: 1em;
 
-      &:last-child {
-        margin-right: 0;
-      }
+    @include media(mobile) {
+      float: none;
+      width: 100%;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .minor-campaigns .homepage-section {
+    margin-right: 3.5%;
+
+    @include media(mobile) {
+      margin-right: 0;
     }
   }
 
@@ -166,6 +193,7 @@
     &.inside-gov{
       background-color:#303030;
       border:none;
+      margin-right: 0;
       
       .inner {
         padding: 0 1em 1em 1em;
@@ -174,7 +202,6 @@
       p{
         @include core-16;
         color:#fff;
-        // padding:0 1.2em;
       }
 
       a{
@@ -201,7 +228,6 @@
         }
         h1{
           @include core-24;
-          // padding:0 0.825em;
         }
       }
     }
@@ -227,36 +253,36 @@
           &:hover {
             text-decoration: underline;
           }
+
+          @include ie(6) {
+            zoom: 1;
+          }
         }
       }
     }
   }
 
-
   .main-campaign{
     a{
       display:block;
       text-indent:-9999px;
-      height:272px;
-      background-image: image-url('homepage/govuk-500px.png');
-      background-position: bottom right;
+      overflow: hidden;
+      height:300px;
+      background-image: image-url('homepage/govuk-960px.png');
+      background-position: top left;
       background-repeat: no-repeat;
 
-
-      @include media($min-width: 500px){
+      @media(max-width: 935px){
         height:470px;
         background-image: image-url('homepage/govuk-935px.png');
         background-position: bottom right;
       }
 
-
-      @include media($min-width: 936px){
-        height:300px;
-        background-image: image-url('homepage/govuk-960px.png');
-        background-position: top left;
+      @media(max-width: 500px) {
+        height:272px;
+        background-image: image-url('homepage/govuk-500px.png');
+        background-position: bottom right;
       }
-
     }
-    
   }
 }

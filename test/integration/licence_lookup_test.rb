@@ -363,8 +363,8 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert ! page.has_field?('postcode')
       end
 
-      should "see a 'Get Started' button" do
-        assert page.has_content?('Get started')
+      should "see a 'Start now' button" do
+        assert page.has_content?('Start now')
       end
     end
   end

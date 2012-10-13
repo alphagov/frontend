@@ -7,7 +7,11 @@
     </hgroup>
   </header>
   <div class="tour-video">
-    <figure><!--Video goes here, when added, remove the height/width declarations from CSS and the pink background --></figure>
+    <div id="govuk-tour-video">
+      <figure class="media-player-wrapper" id="video">
+        <a href="http://www.youtube.com/watch?v=SuEU-d4A5Tk">Watch our video about GOV.UK</a>
+      </figure>
+    </div>
     <figcaption><p>Watch Sarah Richards and Mike Bracken from the Government Digital Service introduce GOV.UK in this short video.</p> 
       <p><a href="">View video transcript</a></p>
       <div class="video-transcript">
@@ -81,4 +85,7 @@
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag 'media-player.js', :defer => 'defer' %>
   <%= javascript_include_tag 'tour.js', :defer => 'defer' %>
+<% end %>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'media-player.css' %>
 <% end %>

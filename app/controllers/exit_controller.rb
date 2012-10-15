@@ -16,11 +16,11 @@ class ExitController < ApplicationController
     redirect_to params[:target], :status => 302
   rescue RecordNotFound
     logger.info { "root#exit rejected redirect to '#{params[:target]}' from #{params[:slug]}" }
-    statsd.increment('request.exist.404')
+    statsd.increment('request.exit.404')
     error_404 and return
   rescue TargetNotAllowed
     logger.warn { "root#exit rejected redirect to '#{params[:target]}' from #{params[:slug]}" }
-    statsd.increment('request.exist.403')
+    statsd.increment('request.exit.403')
     error 403 and return
   end
 

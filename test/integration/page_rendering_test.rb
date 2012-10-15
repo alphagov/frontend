@@ -66,10 +66,27 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/business-support-example"
     assert_equal 200, page.status_code
     assert page.has_content? "Business support example"
-    assert page.has_content? "Get started"
+    assert page.has_content? "Find out more"
     assert page.has_content? "What you need to know"
     assert page.has_content? "Additional information"
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
+  end
+
+  test "looking for last updated at" do
+    content_api_has_an_artefact("example-answer", {
+      "format" => "answer",
+      "title" => "Is it me you're looking for?",
+      "web_url" => "https://www.gov.uk/example-answer",
+      "details" => {
+        "body" => "No."
+      },
+      "updated_at" => "2012-10-09T09:59:15+00:00",
+      "tags" => [],
+      "related" => []
+    })
+
+    visit '/example-answer'
+    assert page.has_content? "Last updated: 09 October 2012"
   end
 
   test "guide request" do

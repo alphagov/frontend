@@ -35,7 +35,7 @@ if ENV['GEO_DEV']
   gem 'geogov', :path => '../geogov'
 else
   gem 'rack-geo', '~> 0.8.6'
-  gem 'geogov', '~> 0.0.10'
+  gem 'geogov', '~> 0.0.12'
 end
 
 if ENV['CDN_DEV']
@@ -47,14 +47,14 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '3.2.0'
+  gem 'gds-api-adapters', '3.3.1'
 end
 
 gem "addressable"
 gem 'exception_notification'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.2.1'
+  gem 'govuk_frontend_toolkit', '0.6.1'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"

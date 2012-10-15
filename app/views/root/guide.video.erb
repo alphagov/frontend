@@ -33,7 +33,9 @@
     </article>
 
 		<div class="meta-data">
-			<p class="modified-date">Last updated: <%= @publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+      <% if @publication.updated_at %>
+  			<p class="modified-date">Last updated: <%= @publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+      <% end %>
 		</div>
 
 	</div>

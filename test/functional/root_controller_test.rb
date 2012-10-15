@@ -36,11 +36,19 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '404', response.code
   end
 
-  test "should 406 when asked for unrecognised format" do
+  test "should 404 when asked for unrecognised format" do
     content_api_has_an_artefact("a-slug")
 
     get :publication, :slug => 'a-slug', :format => '123'
-    assert_equal '406', response.code
+    assert_equal '404', response.code
+  end
+
+  test "should 404 when asked for an artefact that has an unsupported format" do
+    artefact = artefact_for_slug("a-slug").merge("format" => "licence-finder")
+    content_api_has_an_artefact("a-slug", artefact)
+
+    get :publication, :slug => 'a-slug'
+    assert_equal '404', response.code
   end
 
   test "should return a 404 if slug isn't URL friendly" do
@@ -80,10 +88,19 @@ class RootControllerTest < ActionController::TestCase
   test "further information tab should appear for programmes that have it" do
     content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
             {'slug' => 'a', 'name' => 'AA'},
-            {'slug' => 'further-information', 'name' => 'BB'}
+            {'slug' => 'further-information', 'name' => 'BB', 'body' => "abc"}
           ]}})
     get :publication, :slug => "zippy"
     assert @response.body.include? "further-information"
+  end
+
+  test "further information tab should not appear for programmes where it is empty" do
+    content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
+            {'slug' => 'a', 'name' => 'AA'},
+            {'slug' => 'further-information', 'name' => 'BB'}
+          ]}})
+    get :publication, :slug => "zippy"
+    assert_false @response.body.include? "further-information"
   end
 
   test "further information tab should not appear for programmes that don't have it" do

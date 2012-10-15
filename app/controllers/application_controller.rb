@@ -7,6 +7,9 @@ end
 class RecordArchived < StandardError
 end
 
+class UnsupportedArtefactFormat < StandardError
+end
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers
@@ -23,13 +26,14 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
   rescue_from RecordArchived, with: :error_410
+  rescue_from UnsupportedArtefactFormat, with: :error_404
 
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
 
   def limit_to_html
-    error_406 unless request.format.html?
+    error_404 unless request.format.html?
   end
 
   protected
@@ -53,6 +57,10 @@ class ApplicationController < ActionController::Base
         logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
         raise RecordNotFound
       end
+
+      unless supported_artefact_formats.include?(artefact.format)
+        raise UnsupportedArtefactFormat
+      end
       artefact
     rescue GdsApi::HTTPErrorResponse => e
       if e.code == 410
@@ -68,5 +76,9 @@ class ApplicationController < ActionController::Base
 
     def content_api
       @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
+    end
+
+    def supported_artefact_formats
+      %w{answer business_support completed_transaction guide licence local_transaction place programme transaction video}
     end
 end

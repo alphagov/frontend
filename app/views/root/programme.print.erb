@@ -13,5 +13,5 @@
 </article>
 <% end %>
 
-<%= render partial: 'publication_metadata', locals: {:publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json) }}, formats: ["html"] %>
+<%= render partial: 'publication_metadata', locals: {:publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) }}, formats: ["html"] %>
 

@@ -18,7 +18,7 @@ class RootController < ApplicationController
   end
 
   def publication
-    error_406 and return if request.format.nil?
+    error_404 and return if request.format.nil?
 
     if params[:slug] == 'done' and params[:part].present?
       params[:slug] += "/#{params[:part]}"
@@ -53,10 +53,6 @@ class RootController < ApplicationController
     when "place"
       @options = load_place_options(@publication)
       @publication.places = @options
-    when "programme"
-      params[:part] ||= @publication.parts.first.slug
-    when "guide"
-      params[:part] ||= @publication.parts.first.slug
     when "licence"
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
@@ -66,7 +62,8 @@ class RootController < ApplicationController
     set_expiry if params.exclude?('edition') and request.get?
 
     if @publication.parts
-      @part = @publication.find_part(params[:part])
+      part = params.fetch(:part){ @publication.parts.first.slug }
+      @part = @publication.find_part(part)
     end
 
     @edition = params[:edition]

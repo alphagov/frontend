@@ -30,7 +30,7 @@ class BrowseController < ApplicationController
     return error_404 unless @sub_category
 
     @category = @sub_category.parent
-    @results = content_api.sorted_by(tag_id, "alphabetical").results
+    @results = content_api.sorted_by(tag_id, "curated").results
 
     detailed_guidance_sections(tag_id)
 

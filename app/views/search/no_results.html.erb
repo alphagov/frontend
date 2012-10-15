@@ -4,17 +4,23 @@
   <div class="search-container group">
 
     <div class="results group">
-      <div class="results-wrapper">
+      <div>
         <article>
-          <p>This might happen from time to time, since this is an incomplete trial (‘beta’) site. You can help us improve GOV.UK by <a href="/feedback" id="gs-feedback-banner">telling us what you were doing</a>.</p>
 
-          <p>Please try another search in the search box at the top of the page.</p>
+          <h1>Sorry, but there are no results for '<%= @search_term %>'</h1>
 
-          <p>Remember, <a href="http://www.direct.gov.uk/en/index.htm">Directgov</a> and <a href="http://businesslink.gov.uk">Businesslink</a> remain the official sites for government services and information.</p>
+          <p>Please try</p>
+
+            <ul>
+              <li>Searching again using different words</li>
+              <li>Browsing from the <a href="/">GOV.UK home page</a></li>
+              <li>Visiting the <a href="/support"> support pages</a> if you need more assistance</li>
+            </ul>
+
         </article>
       </div>
     </div>
 
   </div>
 </section>
-<% content_for :title, "#{@search_term} - Search - GOV.UK Beta (Test)" %>
+<% content_for :title, "#{@search_term} - Search - GOV.UK" %>

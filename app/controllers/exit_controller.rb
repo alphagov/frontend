@@ -30,13 +30,6 @@ class ExitController < ApplicationController
     @redirect_warden_factory.for(publication)
   end
 
-  # Initialise statsd
-  def statsd
-    @statsd ||= Statsd.new("localhost").tap do |c|
-      c.namespace = "govuk.app.frontend"
-    end
-  end
-
   def params_valid?(params)
     if params[:slug].nil? || params[:target].nil? || params[:need_id].nil?
       false

@@ -139,14 +139,14 @@ var html5_methods = {
             captions: null, // caption XML URL link for caption content 
             captionsOn : true, // Setting for turning the captions on/off by default
             flashWidth: '100%',
-			flashHeight: '300px',
+			flashHeight: '350px',
 			playerStyles : {
 					'height' : '100%',
 					'width' : '100%'
 				},
 			sliderTimeout:350,
 			flashContainer: 'span',
-			playerContainer: 'span', // the container of the flash and controls
+			playerContainer: 'figure', // the container of the flash and controls
 			image: '', //thumbnail image URL that appears before the media is played - This needs to be worked into the player
             playerSkip: 10, // amount in seconds the rewind and forward buttons skip
             volumeStep: 10,	// Amount by which to increase or decrease the volume at any given time

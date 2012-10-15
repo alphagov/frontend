@@ -88,10 +88,19 @@ class RootControllerTest < ActionController::TestCase
   test "further information tab should appear for programmes that have it" do
     content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
             {'slug' => 'a', 'name' => 'AA'},
-            {'slug' => 'further-information', 'name' => 'BB'}
+            {'slug' => 'further-information', 'name' => 'BB', 'body' => "abc"}
           ]}})
     get :publication, :slug => "zippy"
     assert @response.body.include? "further-information"
+  end
+
+  test "further information tab should not appear for programmes where it is empty" do
+    content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
+            {'slug' => 'a', 'name' => 'AA'},
+            {'slug' => 'further-information', 'name' => 'BB'}
+          ]}})
+    get :publication, :slug => "zippy"
+    assert_false @response.body.include? "further-information"
   end
 
   test "further information tab should not appear for programmes that don't have it" do

@@ -8,7 +8,8 @@ class SearchResult
     "owning-a-car-motorbike" => "Owning a car/motorbike",
     "council-and-housing-association-homes" => "Council and housing association homes",
     "animals-food-and-plants" => "Animals, food and plants",
-    "mot" => "MOT"
+    "mot" => "MOT",
+    "Mot insurance" => "MOT insurance"
   }
 
   attr_accessor :result

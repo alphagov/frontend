@@ -251,6 +251,7 @@ class RootControllerTest < ActionController::TestCase
       get :index
       assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION
       assert_equal "true", response.headers[Slimmer::Headers::CAMPAIGN_NOTIFICATION]
+      assert_response :success
     end
   end
 end

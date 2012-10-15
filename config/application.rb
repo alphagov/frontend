@@ -55,6 +55,7 @@ module Frontend
       media-player.js
       media-player.css
       homepage.js
+      tour.js
       application.css
       application-ie6.css
       application-ie7.css

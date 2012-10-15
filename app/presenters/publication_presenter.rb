@@ -45,7 +45,9 @@ class PublicationPresenter
     if details
       parts = details["parts"]
       if parts
-        parts.map{|part| PartPresenter.new(part)}
+        parts.reject {|part|
+          part['slug'] == "further-information" and (part['body'].nil? or part['body'].strip == "")
+        }.map{|part| PartPresenter.new(part)}
       end
     end
   end

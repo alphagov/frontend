@@ -11,7 +11,7 @@ class RootController < ApplicationController
   def index
     set_expiry
 
-    set_slimmer_headers(template: "homepage", format: "homepage")
+    set_slimmer_headers(template: "homepage", format: "homepage", campaign_notification: true)
 
     # Only needed for Analytics
     set_slimmer_dummy_artefact(:section_name => "homepage", :section_url => "/")

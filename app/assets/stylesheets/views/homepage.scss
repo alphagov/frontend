@@ -5,32 +5,35 @@
 
   .main-campaign,
   .minor-campaigns {
-    // max-width: 960px;
-    // margin: 0 auto;
     clear:both;
-    
-    @include ie-lte(7){
-      width: 960px;
-    }
   }
 
   div#homepage {
     background-color:#fff;
     padding: 0 2em;
-    overflow:auto;
+    min-height:26em;
+    overflow: visible;
 
-    @include media(desktop) {
-      min-height:26em;
+    @include media(mobile) {
+      overflow: auto;
+      padding: 0 1em;
+    }
+
+    header hgroup {
+      padding: 0;
+      margin-right: 0;
     }
 
     .homepage-categories {
       padding-top: 0;
+      float: left;
+      width: 69%;
+      margin-right: 0;
+      margin-bottom: 1em;
 
-      @include media(desktop) {
-        float: left;
-        width: 65.5%;
-        margin-right: 0;
-        margin-bottom: 1em;
+      @include media(mobile) {
+        float: none;
+        width: 100%;
       }
 
       h2 {
@@ -52,17 +55,41 @@
         @include core-19;
         display: block;
         border-bottom:1px solid #ccc;
+        float: left;
+        clear: left;
+        width: 45.5%;
+        margin-left: 4.5%;
 
-        @include media(desktop) {
+        &:nth-child(11n) {
+          border:none;
+        }
+
+        &:nth-child(even) {
           float: right;
-          width: 46.75%;
+          clear: none;
+        }
 
-          &:nth-child(10n) {
+        @include ie-lte(8) {
+          display: inline;
+          min-height: 4.5em;
+          clear: none;
+        }
+
+        @include ie(6) {
+          height: 4.5em;
+        }
+
+        @include media(mobile) {
+          float: none;
+          width: 100%;
+          margin-left: 0;
+
+          &:nth-child(11n) {
             border:none;
           }
 
-          &:nth-child(odd) {
-            float: left;
+          &:nth-child(even) {
+            float: none;
           }
         }
 
@@ -86,25 +113,25 @@
   }
 
   header.intro {
-    @include media(desktop) {
-      padding-top: 0;
-    }
+    padding-top: 0;
 
-    hgroup {
+    .strap {
       margin-right: 0;
       padding: 0;
 
-      h1{
-        &.strap{
-          @include core-48;
-          padding-top: 0;
-          padding-bottom:0.25em;
-        }
+      h1 {
+        @include core-48;
+        padding-top: 0;
+        padding-bottom:0.25em;
       }
       p {
         @include core-19;
         margin-top: 0;
       }
+    }
+
+    .replaces {
+      margin-bottom: 0.5em;
     }
 
     p {
@@ -123,21 +150,29 @@
   }
 
   .homepage-section {
-    width: 100%;
-    // margin:0em 1% 0em 1%;
-    border-bottom:none;
     min-height:0;
+    border-bottom:none;
+    margin:0;
     padding-top:1em;
+    width:31%;
+    float:left;
+    margin-top: 1em;
 
-    @include media(desktop) {
-      width:31%;
-      float:left;
-      margin-right: 3.5%;
-      margin-top: 1em;
+    @include media(mobile) {
+      float: none;
+      width: 100%;
+    }
 
-      &:last-child {
-        margin-right: 0;
-      }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .minor-campaigns .homepage-section {
+    margin-right: 3.5%;
+
+    @include media(mobile) {
+      margin-right: 0;
     }
   }
 
@@ -145,14 +180,18 @@
     margin-top:1em;
     border-bottom:none;
     border-top: 4px solid $turquoise;
+
     &.most-popular{
       ul{
         list-style: none;
         list-style-image: none;
+        padding-left: 0;
         li{
           @include core-16;
           margin-left: 0;
+          padding-left: 0;
           padding-bottom:0.5em;
+
           a {
             color: darken($turquoise, 10%);
             &:hover {
@@ -162,19 +201,20 @@
         }
       }
     }
-    
+
     &.inside-gov{
       background-color:#303030;
       border:none;
+      margin-right: 0;
       
       .inner {
+        margin-top: 4px;
         padding: 0 1em 1em 1em;
       }
 
       p{
         @include core-16;
         color:#fff;
-        // padding:0 1.2em;
       }
 
       a{
@@ -201,7 +241,6 @@
         }
         h1{
           @include core-24;
-          // padding:0 0.825em;
         }
       }
     }
@@ -227,36 +266,42 @@
           &:hover {
             text-decoration: underline;
           }
+
+          @include ie(6) {
+            zoom: 1;
+          }
         }
       }
     }
   }
 
-
   .main-campaign{
+    margin: 0;
+
+    @include media(mobile) {
+      margin:0 -1em;
+    }
+
     a{
       display:block;
       text-indent:-9999px;
-      height:272px;
-      background-image: image-url('homepage/govuk-500px.png');
-      background-position: bottom right;
+      overflow: hidden;
+      height:300px;
+      background-image: image-url('homepage/govuk-960px.png');
+      background-position: top left;
       background-repeat: no-repeat;
 
-
-      @include media($min-width: 500px){
+      @media(max-width: 935px){
         height:470px;
         background-image: image-url('homepage/govuk-935px.png');
         background-position: bottom right;
       }
 
-
-      @include media($min-width: 936px){
-        height:300px;
-        background-image: image-url('homepage/govuk-960px.png');
-        background-position: top left;
+      @media(max-width: 500px) {
+        height:272px;
+        background-image: image-url('homepage/govuk-500px.png');
+        background-position: bottom right;
       }
-
     }
-    
   }
 }

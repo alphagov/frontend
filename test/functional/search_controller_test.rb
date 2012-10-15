@@ -23,7 +23,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should inform the user that we didn't find any documents matching the search term" do
     get :index, q: "search-term"
-    assert_select "p", text: %Q{Please try another search in the search box at the top of the page.}
+    assert_select "h1", text: %Q{Sorry, but there are no results for 'search-term'}
   end
 
   test "should pass our query parameter in to the search client" do

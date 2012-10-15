@@ -111,29 +111,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug", :edition => edition_id
   end
 
-  test "should return video view when asked if guide has video" do
-    content_api_has_an_artefact("a-slug", {'format' => 'guide', 'details' => {'video_url' => 'bob', 'parts' => [
-        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}]}})
-
-    prevent_implicit_rendering
-    @controller.expects(:render).with("guide", layout: "application.html.erb")
-    get :publication, :slug => "a-slug", :format => "video"
-    assert_equal "video", @request.format
-  end
-
-  test "should not throw an error when an invalid video url is specified" do
-    content_api_has_an_artefact("a-slug", {
-      "web_url" => "http://example.org/a-slug",
-      "details" => {
-        'slug' => 'a-slug', 'video_url' => 'bob', 'updated_at' => 1.hour.ago, 'parts' => [
-        {'title' => 'Part 1', 'slug' => 'part-1', 'body' => 'Part 1 I am'}]      },
-      'format' => 'guide'
-    })
-
-    get :publication, :slug => "a-slug"
-    get :publication, :slug => "a-slug", :format => "video"
-  end
-
   test "should return print view" do
     content_api_has_an_artefact("a-slug")
 
@@ -142,14 +119,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :format => "print"
     # assert_template 'guide'
     assert_equal "print", @request.format
-  end
-
-  test "should return 404 if video requested but guide has no video" do
-    content_api_has_an_artefact("a-slug")
-
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status => 404))
-    get :publication, :slug => "a-slug", :format => "video"
   end
 
   test "should return 404 if part requested but publication has no parts" do

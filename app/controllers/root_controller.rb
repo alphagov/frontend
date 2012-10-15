@@ -45,7 +45,7 @@ class RootController < ApplicationController
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
       @artefact = fetch_artefact(snac) if snac
-    elsif (video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?)
+    elsif (part_requested_but_not_found? || empty_part_list?)
       raise RecordNotFound
     end
 
@@ -72,9 +72,6 @@ class RootController < ApplicationController
       format.html do
         render @publication.type
       end
-      format.video do
-        render @publication.type, layout: "application.html.erb"
-      end
       format.print do
         set_slimmer_headers template: "print"
         render @publication.type
@@ -97,10 +94,6 @@ protected
     params[:part] && ! (
       @publication.parts && @publication.parts.any? { |p| p.slug == params[:part] }
     )
-  end
-
-  def video_requested_but_not_found?
-    request.format.video? && @publication.video_url.blank?
   end
 
   # request.format.html? returns 5 when the request format is video.

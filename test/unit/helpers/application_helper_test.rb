@@ -18,10 +18,6 @@ class ApplicationHelperTest < ActionView::TestCase
     artefact_for_slug("dummy")
   end
 
-  test "the page title always ends with (Test)" do
-    assert_equal '(Test)', @helper.page_title(dummy_artefact).split.last
-  end
-
   test "the page title doesn't contain consecutive pipes" do
     assert_no_match %r{\|\s*\|}, @helper.page_title(dummy_artefact)
   end

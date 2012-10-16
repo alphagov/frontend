@@ -93,8 +93,9 @@ GEM
       htmlentities (~> 4)
       kramdown (~> 0.13.3)
       sanitize (= 2.0.3)
-    govuk_frontend_toolkit (0.2.1)
+    govuk_frontend_toolkit (0.6.2)
       rails (>= 3.1.0)
+      sass (>= 3.2.0)
     hike (1.2.1)
     htmlentities (4.3.1)
     http_parser.rb (0.5.3)
@@ -240,7 +241,7 @@ DEPENDENCIES
   gelf
   geogov (~> 0.0.12)
   govspeak (= 1.0.1)
-  govuk_frontend_toolkit (= 0.2.1)
+  govuk_frontend_toolkit (= 0.6.2)
   launchy
   lograge
   mocha

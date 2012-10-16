@@ -5,7 +5,7 @@
     <nav class="js-tabs" role="navigation">
       <ul id="search-index-navigation">
         <li class="active">
-          <a href="#mainstream-results">Results (<%= @primary_results.length %>)</a>
+          <a href="#mainstream-results">General results (<%= @primary_results.length %>)</a>
         </li>
         <li>
           <a href="#detailed-results">Detailed guidance (<%= @secondary_results.length %>)</a>
@@ -45,4 +45,4 @@
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
 <% end %>
 
-<% content_for :title, "#{@search_term} - Search - GOV.UK Beta (Test)" %>
+<% content_for :title, "#{@search_term} - Search - GOV.UK" %>

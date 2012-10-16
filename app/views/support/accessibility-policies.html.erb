@@ -1,0 +1,29 @@
+<% content_for :title, "Accessibility policies - Support Pages - GOV.UK Beta (Test)" %>
+
+<section id="content" role="main" class="group support-page">
+  <header class="page-header group">
+    <hgroup class="full-width">
+      <h1>Accessibility policies</h1>
+    </hgroup>
+  </header>
+
+
+  <div class="support-container full-width group">
+    <article role="article" class="group">
+      <div class="inner">
+        <p>
+          This page includes the the accessibility policy for GOV.UK and the 
+          organisation accessibility policy for the Government Digital Service.
+        </p>
+        <%= render "website_accessibility_policy" %>
+        <%= render "organisation_accessibility_policy" %>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<% content_for :body_classes do %>full-width<% end %>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'support-styles' %>
+<% end %>

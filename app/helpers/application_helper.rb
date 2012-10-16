@@ -4,7 +4,7 @@ module ApplicationHelper
       title = [publication.title, publication.alternative_title].find(&:present?)
       title = "Video - #{title}" if request.format.video?
     end
-    [title, 'GOV.UK Beta (Test)'].select(&:present?).join(" - ")
+    [title, 'GOV.UK'].select(&:present?).join(" - ")
   end
 
   def wrapper_class(publication = nil, artefact = nil)

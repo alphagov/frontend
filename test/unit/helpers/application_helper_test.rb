@@ -53,7 +53,7 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
-    assert_equal "Title - GOV.UK Beta (Test)", @helper.page_title(dummy_artefact, publication)
+    assert_equal "Title - GOV.UK", @helper.page_title(dummy_artefact, publication)
   end
 
   test "should prefix title of video with video" do
@@ -64,6 +64,6 @@ class ApplicationHelperTest < ActionView::TestCase
 
   test "should omit first part of title if publication is omitted" do
     @helper.request.format.stubs(:video?).returns(true)
-    assert_equal "GOV.UK Beta (Test)", @helper.page_title(dummy_artefact)
+    assert_equal "GOV.UK", @helper.page_title(dummy_artefact)
   end
 end

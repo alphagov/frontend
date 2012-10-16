@@ -65,6 +65,11 @@
         float: left;
         width: 50%;
 
+        @include media(mobile) {
+          width: auto;
+          float: none;
+        }
+
         h3 {
           padding: 0 (16/19 * 1em); // this heading is 19, base is 16
         }
@@ -128,7 +133,7 @@
 
           @include ie-lte(7) {
             min-height: 9em;
-            width: 30.9%;
+            width: 29.5%;
           }
         }
       }

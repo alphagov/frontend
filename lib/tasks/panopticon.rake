@@ -26,6 +26,12 @@ namespace :panopticon do
         :slug => "energyhelp",
         :need_id => "B1049",
         :description => "Help is available to make your home warm and cosy this winter."
+      }),
+      RegisterableCampaign.new({
+        :title => "Student Finance",
+        :slug => "studentfinance",
+        :need_id => "B1050",
+        :description => "Find out what loans and grants you can get to help with university tuition fees and living costs."
       })
     ]
 

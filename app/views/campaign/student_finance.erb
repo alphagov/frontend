@@ -1,0 +1,62 @@
+<% content_for :title, "Student finance - GOV.UK" %>
+<section id="content" role="main" class="group campaign">
+  <section id="landing">
+    <h1>Student finance</h1>
+
+    <div class="campaign-image">
+      <span class="image-scope">
+        <style scoped>
+          /* fall-back styles for browsers without media query support (IE6-8) */
+          #banner {
+            background-image: url('<%= image_path "campaign/student-finance/960px.png" %>');
+          }
+
+          /* small image for mobile */
+          @media (min-width: 0px) {
+            #banner {
+              background-image: url('<%= image_path "campaign/student-finance/500px.png" %>');
+            }
+          }
+
+          /* medium image for tablets */
+          @media (min-width: 500px) {
+            #banner {
+              background-image: url('<%= image_path "campaign/student-finance/935px.png" %>');
+            }
+          }
+
+          /* large image for desktop */
+          @media (min-width: 936px) {
+            #banner {
+              background-image: url('<%= image_path "campaign/student-finance/960px.png" %>');
+            }
+          }
+        </style>
+        <a href="#" id="banner">You&#39;ve still got time to apply for student finance!</a>
+      </span>
+      
+      <div class="campaign-links inner group">
+        <h2>Find out more</h2>
+        <nav role="navigation">
+          <ul class="links">
+            <li><a href="https://www.gov.uk/student-finance">Find out about student finance</a></li>
+            <li><a href="https://www.gov.uk/student-finance-calculator">Student finance calculator</a></li>
+            <li><a href="https://www.gov.uk/student-finance-register-login">Register or log in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <article class="campaign">
+      <p>Find out what loans and grants you can get to help with tuition fees and living costs -
+      who qualifies and how to apply.</p>
+
+      <p>If you’ve still to apply for 2012/13 full-time or part-time funding then you should apply as
+      soon as possible.</p>
+
+      <p>If you’re applying for academic year 2013/14, then you’ll be able to do this online from
+      early 2013.</p>
+    </article>
+
+  </section>
+</section>

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class RootControllerTest < ActionController::TestCase
-
   def setup_this_answer
     content_api_has_an_artefact("c-slug", {
       'slug' => 'c-slug',
@@ -257,17 +256,19 @@ class RootControllerTest < ActionController::TestCase
   context "loading the homepage" do
     should "respond with success" do
       get :index
-
       assert_response :success
     end
 
     should "set correct expiry headers" do
       get :index
-
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
+
+    should "have a slimmer set to load the campaign notification" do
+      get :index
+      assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION
+      assert_equal "true", response.headers[Slimmer::Headers::CAMPAIGN_NOTIFICATION]
+      assert_response :success
+    end
   end
-
-
-
 end

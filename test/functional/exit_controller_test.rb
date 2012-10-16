@@ -36,6 +36,19 @@ class ExitControllerTest < ActionController::TestCase
       assert_redirected_to target
     end
 
+    should "redirect for link in details.link of transaction" do
+      slug = 'council-housing'
+      need_id = '999999'
+      target = 'http://example.com'
+      format = "transaction"
+
+      mock_content_api(slug, { :format => format, details: { :link => target} } )
+
+      get :exit, slug: slug, need_id: need_id, format: format
+
+      assert_redirected_to target
+    end
+
     should "redirect links for link in link property" do
       slug = '/tax-disc-license'
       target = 'htp://google.com'
@@ -85,11 +98,12 @@ class ExitControllerTest < ActionController::TestCase
       assert_equal 404, response.status
     end
 
-    should "return 404 if target is missing from url params" do
+    should "return 404 if target is missing and format is not transaction from url params" do
       slug = '/tax-disc-license'
       need_id = '999999'
+      format = 'ABC'
 
-      get :exit, slug: slug, need_id: need_id
+      get :exit, slug: slug, need_id: need_id, format: format
 
       assert_equal 404, response.status
     end

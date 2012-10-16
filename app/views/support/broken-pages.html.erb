@@ -1,0 +1,50 @@
+<% content_for :title, "Errors and broken pages - Support Pages - GOV.UK" %>
+
+<section id="content" role="main" class="group support-page">
+  <header class="page-header group">
+    <hgroup class="full-width">
+      <h1>Errors and broken pages</h1>
+    </hgroup>
+  </header>
+
+
+  <div class="support-container full-width group">
+    <article role="article" class="group">
+      <div class="inner">
+
+        <div class="top-issues">
+          <h2>On this page:</h2>
+          <ul>
+            <li><a href="#cant-get-to-page">I can't get to the page I'm trying to visit, can you help?</a></li>
+            <li><a href="#how-do-i-report-errors">How do I report errors I have found on your website?</a></li>
+          </ul>
+        </div>
+
+        <h2 id="cant-get-to-page">I can't get to the page I'm trying to visit, can you help?</h2>
+        <p>The most common reason that pages appear to be broken is that the URL has been mistyped, either by hand or in a link. </p>
+
+        <p>If you've checked that the link is spelled correctly and the page still isn't working then contact us, and use the form to tell us:</p>
+        <ul>
+          <li>the address of the page you were visiting</li>
+          <li>the information you were expecting to see</li>
+          <li>any information contained in the error message you are seeing</li>
+        </ul>
+
+        <p>If the link you were trying to follow came from GOV.UK then please also tell us</p>
+        <ul>
+          <li>the page the broken link is on</li>
+        </ul>
+
+        <h2 id="how-do-i-report-errors">How do I report errors I have found on your website?</h2>
+        <p>At the bottom of each page on GOV.UK you can report a problem; if you've found errors (including typos, bugs, or badly formatted pages) then use that link to send us a quick note and we'll investigate that as soon as possible.</p>
+
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<% content_for :body_classes do %>full-width<% end %>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'support-styles' %>
+<% end %>

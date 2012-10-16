@@ -1,6 +1,6 @@
 require "slimmer/headers"
 
-class HelpController < ApplicationController
+class SupportController < ApplicationController
   include Rack::Geo::Utils
   include RootHelper
 
@@ -15,7 +15,7 @@ class HelpController < ApplicationController
 
 protected
   def setup_slimmer_artefact
-    set_slimmer_dummy_artefact(:section_name => "Help", :section_link => "/help")
+    set_slimmer_dummy_artefact(:section_name => "Support", :section_link => "/support")
     set_slimmer_headers(format: 'support-pages')
   end
 end

@@ -60,6 +60,7 @@ module Frontend
       application-ie6.css
       application-ie7.css
       application-ie8.css
+      support-styles.css
     )
 
     # Path within public/ where assets are compiled to

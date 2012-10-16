@@ -70,7 +70,7 @@ class PublicationPresenter
 
     video = video_url.scan(/\?v=([A-Za-z0-9_\-]+)/)
     if video.any?
-      "http://www.youtube.com/watch?v=#{video[0][0]}"
+      "https://www.youtube.com/watch?v=#{video[0][0]}"
     else
       ""
     end

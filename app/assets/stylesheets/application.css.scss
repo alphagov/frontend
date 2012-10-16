@@ -5,10 +5,10 @@
 @import "_typography";
 @import "_colours";
 
+// local styleguide gubbins
+@import "styleguide/_colours";
 
-
-// View stylesheets.
-
+// View stylesheets
 @import "views/browse";
 @import "views/homepage";
 @import "views/campaigns";

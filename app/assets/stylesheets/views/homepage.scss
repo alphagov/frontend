@@ -92,13 +92,6 @@
             float: none;
           }
         }
-
-        a{
-          color: darken($turquoise, 10%);
-          &:hover {
-            color: $turquoise;
-          }
-        }
         p{
           @include core-16;
           padding:0 0 0.85em 0;
@@ -192,12 +185,7 @@
           padding-left: 0;
           padding-bottom:0.5em;
 
-          a {
-            color: darken($turquoise, 10%);
-            &:hover {
-              color: $turquoise;
-            }
-          }
+          
         }
       }
     }

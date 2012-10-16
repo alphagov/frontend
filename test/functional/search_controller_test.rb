@@ -234,4 +234,14 @@ class SearchControllerTest < ActionController::TestCase
 
     assert_equal "15", response.headers["X-Slimmer-Result-Count"]
   end
+
+  test "blank pages should have a slimmer head set to remove the meta viewport HTML" do
+    get :index
+    assert_equal "true", response.headers[Slimmer::Headers::REMOVE_META_VIEWPORT]
+  end
+
+  test "results pages should have a slimmer head set to remove the meta viewport HTM" do
+    get :index, {q: "bob"}
+    assert_equal "true", response.headers[Slimmer::Headers::REMOVE_META_VIEWPORT]
+  end
 end

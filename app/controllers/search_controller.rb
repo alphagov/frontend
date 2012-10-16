@@ -8,6 +8,7 @@ class SearchController < ApplicationController
     @search_term = params[:q]
 
     if @search_term.blank?
+      fill_in_slimmer_headers([])
       render action: 'no_search_term' and return
     end
 
@@ -49,9 +50,10 @@ class SearchController < ApplicationController
   def fill_in_slimmer_headers(result_set)
     set_slimmer_headers(
       result_count: result_set.length,
-      format:       "search",
-      section:      "search",
-      proposition:  "citizen"
+      format:               "search",
+      section:              "search",
+      proposition:          "citizen",
+      remove_meta_viewport: true,
     )
   end
 

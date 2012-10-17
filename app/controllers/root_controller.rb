@@ -8,9 +8,9 @@ class RootController < ApplicationController
   include RootHelper
   include ActionView::Helpers::TextHelper
 
-  def index
-    set_expiry
+  before_filter :set_expiry, :only => [:index, :tour]
 
+  def index
     set_slimmer_headers(
       template: "homepage",
       format: "homepage",

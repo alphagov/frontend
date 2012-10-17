@@ -38,6 +38,10 @@
 
       h2 {
         @include core-16;
+
+        @include media(mobile) {
+          @include core-19;
+        }
       }
     }
 
@@ -151,6 +155,10 @@
     float:left;
     margin-top: 1em;
 
+    h1{
+      padding: 0;
+    }
+
     @include media(mobile) {
       float: none;
       width: 100%;
@@ -227,6 +235,7 @@
           padding: 0;
           margin:0;
         }
+
         h1{
           @include core-24;
         }

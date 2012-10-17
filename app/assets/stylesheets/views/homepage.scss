@@ -38,6 +38,10 @@
 
       h2 {
         @include core-16;
+
+        @include media(mobile) {
+          @include core-19;
+        }
       }
     }
 

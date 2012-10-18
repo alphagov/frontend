@@ -34,7 +34,7 @@
         </div>
       <% end %>
 
-      <% if @secondary_results %>
+      <% if @secondary_results.any? %>
         <div id="detailed-results" class="js-tab-pane tab-pane">
           <ul>
             <%= render collection: @secondary_results, partial: "result" %>

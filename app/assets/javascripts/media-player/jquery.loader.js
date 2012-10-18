@@ -48,11 +48,14 @@ jQuery(function($) {
         // Ensure that we extract the last part of the youtube link (the video id)
         // and pass it to the player() method
         var link = $(this).attr('href').split("=")[1];
+        // make sure we fetch the right SSL level
+        var youTubeURL = (document.location.protocol + '//www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=');
         // Initialise the player
         $holder.player({
             id:'yt'+i,
             media:link,
-			captions:captionsf
+			captions:captionsf,
+            url: youTubeURL
         });
     });
 

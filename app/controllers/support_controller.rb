@@ -6,9 +6,9 @@ class SupportController < ApplicationController
 
   before_filter :setup_slimmer_artefact
   before_filter :set_expiry
-  before_filter :limit_to_html
 
   rescue_from AbstractController::ActionNotFound, :with => :error_404
+  rescue_from ActionView::MissingTemplate, :with => :error_404
 
   def index
   end

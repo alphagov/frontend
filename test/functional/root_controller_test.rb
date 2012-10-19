@@ -21,6 +21,26 @@ class RootControllerTest < ActionController::TestCase
     @controller.stubs(:default_render)
   end
 
+  test "should redirect requests for JSON" do
+    setup_this_answer
+    get :publication, :slug => 'c-slug', :format => 'json'
+    assert_response :redirect
+    assert_redirected_to "/api/c-slug.json"
+  end
+
+  test "should not redirect request for places JSON" do
+    content_api_has_an_artefact("d-slug", {
+      'slug' => 'c-slug',
+      'format' => 'place',
+      'details' => {
+        'name' => 'THIS'
+      }
+    })
+
+    get :publication, :slug => 'd-slug', :format => 'json'
+    assert_response :success
+  end
+
   test "should return a 404 if asked for a guide without parts" do
     content_api_has_an_artefact("disability-living-allowance-guide", {
       "title" => "Disability Living Allowance",
@@ -175,13 +195,6 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"
     assert_response :not_found
-  end
-
-  test "should not redirect to first part URL if request is for JSON" do
-    content_api_has_an_artefact("a-slug")
-    prevent_implicit_rendering
-    get :publication, slug: "a-slug", format: 'json'
-    assert_response :success
   end
 
   test "should assign edition to template if it's not blank and a number" do

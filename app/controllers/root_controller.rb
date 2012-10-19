@@ -36,6 +36,10 @@ class RootController < ApplicationController
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
 
+    if request.format.json? && @artefact['format'] != 'place'
+      redirect_to "/api/#{params[:slug]}.json" and return
+    end
+
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']
         snac = appropriate_snac_code_from_geostack(@artefact)

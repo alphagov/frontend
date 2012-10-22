@@ -66,7 +66,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/business-support-example"
     assert_equal 200, page.status_code
     assert page.has_content? "Business support example"
-    assert page.has_content? "Get started"
+    assert page.has_content? "Find out more"
     assert page.has_content? "What you need to know"
     assert page.has_content? "Additional information"
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
@@ -144,7 +144,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/ride-a-motorcycle-or-moped/video"
 
     assert page.has_content?("Ride a motorcycle or moped")
-    assert page.has_css?("a[href='http://www.youtube.com/watch?v=iD941H0j1Z0']")
+    assert page.has_css?("a[href='https://www.youtube.com/watch?v=iD941H0j1Z0']")
   end
 
   test "rendering a help page" do
@@ -192,7 +192,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
     within '#content' do
       assert page.has_content?("This is the video summary")
-      assert page.has_selector?("figure#video a[href='http://www.youtube.com/watch?v=fLreo24WYeQ']")
+      assert page.has_selector?("figure#video a[href='https://www.youtube.com/watch?v=fLreo24WYeQ']")
       assert page.has_content?("Video description")
       assert page.has_no_content?("------") # Markdown should be rendered, not output
     end

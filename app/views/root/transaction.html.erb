@@ -18,13 +18,10 @@
         <div class="get-started-intro"><%= to_govspeak(@publication.introduction) %></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
         <p id="get-started" class="get-started group">
-           <a href="<%= @publication.link %>" rel="external" class="button" <% if presenter.open_in_new_window? %>target="_blank"<% end %>>
-             <span class="button-content"><span class="call-to-action">Start now</span> <!-- this space is important --><%
-               if @publication.will_continue_on.present?
-                 %><span class="destination">on <%= @publication.will_continue_on %></span><%
-               end
-             %></span>
-           </a>
+           <a href="<%= @publication.link %>" rel="external" class="button" <% if presenter.open_in_new_window? %>target="_blank"<% end %>>Start now</a>
+           <% if @publication.will_continue_on.present? %>
+             <span class="destination"> on <%= @publication.will_continue_on %></span>
+           <% end %>
         </p>
       </section>
 

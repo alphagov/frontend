@@ -1,5 +1,6 @@
 <% content_for :extra_headers do %>
 <link rel="canonical" href="<%= root_path %>" />
+<meta name="description" content="GOV.UK - The new place to find government services and information. Simpler, clearer, faster." />
 <% end %>
 <% content_for :title, "Welcome to GOV.UK" %>
 
@@ -9,11 +10,13 @@
   <div id="homepage">
 
     <header class="homepage-section intro">
-      <hgroup>
-        <h1 class="strap">Simpler, clearer, faster.</h1>
-        <p>The best place to find government services and information.</p>
-      </hgroup>
-      <p>This website replaces</p>
+      <div class="strap">
+        <h1>Welcome to GOV.UK</h1>
+
+        <p>The new place to find government services and information</p>
+        <p>Simpler, clearer, faster</p>
+      </div>
+      <p class="replaces">This website replaces</p>
       <ul>
         <li><%= image_tag 'homepage/directgov-logo.png', :alt => 'Directgov' %></li>
         <li><%= image_tag 'homepage/businesslink-logo.png', :alt => 'Businesslink' %></li>
@@ -28,7 +31,7 @@
         </li>
         <li class="group">
           <h2><a href="/browse/benefits">Benefits</a></h2>
-          <p>Eligibility and how to apply</p>
+          <p>Includes tax credits and eligibility</p>
         </li>
         <li class="group">
           <h2><a href="/browse/business">Businesses and self-employed</a></h2>
@@ -51,20 +54,24 @@
           <p>Owning or renting and council services</p>
         </li>
         <li class="group">
-          <h2><a href="/browse/citizenship">Citizenship and life in the UK</a></h2>
-          <p>Includes voting, how government works</p>
-        </li>
-        <li class="group">
           <h2><a href="/browse/justice">Crime, justice and the law</a></h2>
           <p>Legal processes, courts and the police</p>
         </li>
         <li class="group">
-          <h2><a href="/browse/births-deaths-marriages">Births, deaths, marriages, parenting and care</a></h2>
-          <p>Includes civil partnerships and lasting power of attorney</p>
+          <h2><a href="/browse/tax">Money and tax</a></h2>
+          <p>Includes debt and Self Assessment</p>
         </li>
         <li class="group">
-          <h2><a href="/browse/tax">Money and tax</a></h2>
-          <p>Includes VAT, debt and inheritance tax</p>
+          <h2><a href="/browse/births-deaths-marriages">Births, deaths, marriages and care</a></h2>
+          <p>Includes civil partnerships and Lasting Power of Attorney</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/disabilities">Disabled people</a></h2>
+          <p>Includes your rights, benefits and the Equality Act</p>
+        </li>
+        <li class="group">
+          <h2><a href="/browse/citizenship">Citizenship and life in the UK</a></h2>
+          <p>Includes voting, how government works</p>
         </li>
       </ul>
     </div>
@@ -75,12 +82,12 @@
 
     <section class="minor-campaigns group">
       <article class="homepage-section most-popular">
-        <header><h1>Most read on GOV.UK</h1></header>
+        <header><h1>Most active on GOV.UK</h1></header>
         <ul>
           <li><a href="/jobs-jobsearch">Jobcentre Plus job search</a></li>
           <li><a href="/student-finance-register-login">Log in to student finance</a></li>
           <li><a href="/passport-fees">Passport fees</a></li>
-          <li><a href="/jobseekers-allowance">Jobseekers Allowance</a></li>
+          <li><a href="/jobseekers-allowance">Jobseeker's Allowance</a></li>
           <li><a href="/council-tax-bands">Council Tax bands</a></li>
           <li><a href="/running-a-limited-company/directors-responsibilities">Running a limited company</a></li>
           <li><a href="/book-a-driving-theory-test">Driving theory test</a></li>
@@ -101,7 +108,7 @@
           </header>
           <p>Departments, policy, announcements and publications. </p>
           <p>Inside Government on GOV.UK will replace the websites of most government departments and agencies. <a href="https://www.gov.uk/government">Find out more about Inside Government</a>. </p>
-          <p>For existing department sites, see the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">Cabinet Office website</a></p>
+          <p>For existing department sites, see the <a href="http://www.cabinetoffice.gov.uk/content/list-government-departments-and-ministers">Cabinet Office website</a>.</p>
         </div>
       </article>
     </section>

@@ -133,20 +133,20 @@ var html5_methods = {
 		// Define the default config settings for the plugin
 		var defaults = {
 			id: 'media_player',	// The base string used for the player id.  Will end up with an integer appended to it e.g. 'ytplayer0', 'ytplayer1' etc
-			url: 'http://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=',
+			url: 'https://www.youtube.com/apiplayer?enablejsapi=1&version=3&playerapiid=',
 			media: '8LiQ-bLJaM4',
 			repeat: false,	// loop the flash video true/false
             captions: null, // caption XML URL link for caption content 
             captionsOn : true, // Setting for turning the captions on/off by default
             flashWidth: '100%',
-			flashHeight: '300px',
+			flashHeight: '350px',
 			playerStyles : {
 					'height' : '100%',
 					'width' : '100%'
 				},
 			sliderTimeout:350,
 			flashContainer: 'span',
-			playerContainer: 'span', // the container of the flash and controls
+			playerContainer: 'figure', // the container of the flash and controls
 			image: '', //thumbnail image URL that appears before the media is played - This needs to be worked into the player
             playerSkip: 10, // amount in seconds the rewind and forward buttons skip
             volumeStep: 10,	// Amount by which to increase or decrease the volume at any given time

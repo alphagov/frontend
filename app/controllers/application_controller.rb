@@ -34,10 +34,6 @@ class ApplicationController < ActionController::Base
     render status: status_code, text: "#{status_code} error"
   end
 
-  def limit_to_html
-    error_404 unless request.format.html?
-  end
-
   protected
     def statsd
       @statsd ||= Statsd.new("localhost").tap do |c|

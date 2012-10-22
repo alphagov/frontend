@@ -246,4 +246,23 @@ class SearchControllerTest < ActionController::TestCase
 
     assert_equal "15", response.headers["X-Slimmer-Result-Count"]
   end
+
+  test "truncate long external URLs to a fixed length" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "http://www.weally.weally.long.url.com/weaseling/about/the/world",
+      "section" => "driving",
+      "format" => "recommended-link"
+    }
+
+    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external ul.result-meta' do
+      assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+    end
+  end
 end

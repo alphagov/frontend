@@ -8,7 +8,7 @@
 
   <% if result.format == "recommended-link" %>
     <ul class="result-meta">
-      <li><%= result.link %></li>
+      <li><%= truncate(result.link, :length => 48) %></li>
     </ul>
   <% elsif (result.format == 'detailed_guidance' && result.section) || result.section %>
     <ul class="result-meta result-sections">

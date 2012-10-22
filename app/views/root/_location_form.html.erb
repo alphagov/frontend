@@ -1,19 +1,30 @@
 <div class="find-nearest">
-  <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
-    <fieldset>
-      <legend class="visuallyhidden">Postcode lookup</legend>
-      <% if @edition %>
-        <input type="hidden" name="edition" value="<%= @edition %>">
-      <% end %>
+  <% if is_mirrorer_request? %>
+    <form id="authority-selector-form" class="find-location-for-service visuallyhidden">
+      <label for="authority">Select your local authority&nbsp; <%= select_tag "authority", options_for_select(authorities_with_slugs) %></label>
+      <input type="submit" value="Find" class="button">
+    </form>
 
-      <% if geo_error? %>
-      <div class="location_error error-notification">Please enter a valid UK postcode.</div>
-      <% end %>
+    <div class="application-notice help-notice local-service-unavailable-notice">
+      <p>Sorry, we don't have any details for this service right now. Please <a href="/find-your-local-council">contact your local council</a> for more information.</p>
+    </div>
+  <% else %>
+    <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
+      <fieldset>
+        <legend class="visuallyhidden">Postcode lookup</legend>
+        <% if @edition %>
+          <input type="hidden" name="edition" value="<%= @edition %>">
+        <% end %>
 
-      <div class="ask_location">
-        <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-        <input type="submit" value="Find" class="button">
-      </div>
-    </fieldset>
-  </form>
+        <% if geo_error? %>
+        <div class="location_error error-notification">Please enter a valid UK postcode.</div>
+        <% end %>
+
+        <div class="ask_location">
+          <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
+          <input type="submit" value="Find" class="button">
+        </div>
+      </fieldset>
+    </form>
+  <% end %>
 </div>

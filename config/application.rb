@@ -52,6 +52,7 @@ module Frontend
       feedback.js
       programmes.js
       frontend.js
+      flat_location.js
       media-player.js
       media-player.css
       homepage.js

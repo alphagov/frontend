@@ -38,4 +38,8 @@ module ApplicationHelper
     path += "?edition=#{opts[:edition]}" if opts[:edition]
     path
   end
+
+  def is_mirrorer_request?
+    request.headers['X-Govuk-Mirrorer'].present?
+  end
 end

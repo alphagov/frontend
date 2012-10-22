@@ -277,6 +277,19 @@ class RootControllerTest < ActionController::TestCase
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
 
+    should "set response mirrorer headers for a mirrorer request" do
+      @request.env["X-Govuk-Mirrorer"] = "1"
+      get :index
+
+      assert_equal "1", response.headers["X-Govuk-Mirrorer"]
+    end
+
+    should "not set response mirrorer headers for a regular request" do
+      get :index
+
+      assert_nil response.headers["X-Govuk-Mirrorer"]
+    end
+
     should "have a slimmer set to load the campaign notification" do
       get :index
       assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION

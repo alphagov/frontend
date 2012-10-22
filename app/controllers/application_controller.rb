@@ -28,6 +28,8 @@ class ApplicationController < ActionController::Base
   rescue_from RecordArchived, with: :error_410
   rescue_from UnsupportedArtefactFormat, with: :error_404
 
+  before_filter :set_headers_for_mirrorer_requests
+
   def error(status_code)
     render status: status_code, text: "#{status_code} error"
   end
@@ -42,6 +44,12 @@ class ApplicationController < ActionController::Base
     def set_expiry(duration = 30.minutes)
       unless Rails.env.development?
         expires_in(duration, :public => true)
+      end
+    end
+
+    def set_headers_for_mirrorer_requests
+      if request.headers['X-Govuk-Mirrorer'].present?
+        response.headers['X-Govuk-Mirrorer'] = '1'
       end
     end
 

@@ -1879,7 +1879,7 @@
     "ons": "00NL",
     "gss": "W06000006"
   },
-  "city-of-york": {
+  "york": {
     "name": "City of York Council",
     "ons": "00FF",
     "gss": "E06000014"
@@ -1949,7 +1949,7 @@
     "ons": "00RA",
     "gss": "S12000023"
   },
-  "comhairle-nan-eilean-siar": {
+  "eilean-siar": {
     "name": "Comhairle nan Eilean Siar",
     "ons": "00RJ",
     "gss": "S12000013"
@@ -1974,7 +1974,7 @@
     "ons": "00QA",
     "gss": "S12000033"
   },
-  "city-of-edinburgh": {
+  "edinburgh": {
     "name": "City of Edinburgh Council",
     "ons": "00QP",
     "gss": "S12000036"

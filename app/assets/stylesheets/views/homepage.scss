@@ -51,21 +51,24 @@
       padding: 0;
 
       @include media(mobile) {
-        border-top:1px solid #ccc;
+        border-top:1px solid $grey-6;
         margin-bottom: 1em;
       }
 
       li {
         @include core-19;
         display: block;
-        border-bottom:1px solid #ccc;
+        border-bottom:1px solid $grey-6;
         float: left;
         clear: left;
         width: 45.5%;
         margin-left: 4.5%;
 
-        &:nth-child(11n) {
-          border:none;
+        @include media(desktop) {
+
+          &:nth-child(11n) {
+            border-bottom:none;
+          }
         }
 
         &:nth-child(even) {
@@ -87,10 +90,6 @@
           float: none;
           width: 100%;
           margin-left: 0;
-
-          &:nth-child(11n) {
-            border:none;
-          }
 
           &:nth-child(even) {
             float: none;
@@ -199,7 +198,7 @@
     }
 
     &.inside-gov{
-      background-color:#303030;
+      background-color: $black;
       border:none;
       margin-right: 0;
       

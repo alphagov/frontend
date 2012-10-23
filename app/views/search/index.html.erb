@@ -17,7 +17,7 @@
 
     <div class="search-container group js-tab-content tab-content">
       <% if @primary_results.any? or @external_link_results.any? %>
-        <div id="mainstream-results" class="js-tab-pane tab-pane">
+        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@primary_results + @external_link_results).length == 1 ? ' single-item-pane' : ''%>">
           <% if @external_link_results.any? %>
             <div class="external-links">
               <h2>Other sites that may be useful</h2>
@@ -34,7 +34,7 @@
         </div>
       <% end %>
 
-      <% if @secondary_results %>
+      <% if @secondary_results.any? %>
         <div id="detailed-results" class="js-tab-pane tab-pane">
           <ul>
             <%= render collection: @secondary_results, partial: "result" %>

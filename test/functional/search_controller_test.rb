@@ -60,6 +60,18 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "label", text: /1 result for/
   end
 
+  test "should display single result with specific class name attribute" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "div#mainstream-results.single-item-pane" 
+  end
+
+  test "should display multiple results without class name for single result set" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    get :index, q: "search-term"
+    assert_select "div#mainstream-results.single-item-pane", 0 
+  end
+
   test "should only count non-recommended results in total" do
     Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
     get :index, q: "search-term"
@@ -233,5 +245,24 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bob"}
 
     assert_equal "15", response.headers["X-Slimmer-Result-Count"]
+  end
+
+  test "truncate long external URLs to a fixed length" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "http://www.weally.weally.long.url.com/weaseling/about/the/world",
+      "section" => "driving",
+      "format" => "recommended-link"
+    }
+
+    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external ul.result-meta' do
+      assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+    end
   end
 end

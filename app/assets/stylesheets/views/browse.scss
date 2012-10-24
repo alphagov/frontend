@@ -37,6 +37,10 @@
       min-height: auto;
     }
 
+    @include ie-lte(8) {
+      padding: 0 3.5% 2em;
+    }
+
     .category-description {
       margin-bottom: 2em;
       width: 65.5%;
@@ -110,6 +114,10 @@
       &.sub-categories {
         padding: 0;
 
+        @include ie-lte(8) {
+          margin: 0 -2em;
+        }
+
         li {
           border-top: solid 1px $grey-6;
           float: left;
@@ -131,9 +139,18 @@
             width: auto;
           }
 
+          @include ie-lte(8) {
+            float: none;
+            margin-right: 0;
+            margin-left: 3.5%;
+            display: inline-block;
+            vertical-align: top;
+            width: 28.5%;
+          }
+
           @include ie-lte(7) {
-            min-height: 9em;
-            width: 29.5%;
+            display: inline;
+            zoom: 1;
           }
         }
       }

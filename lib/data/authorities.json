@@ -24,7 +24,7 @@
     "ons": "19",
     "gss": "E10000009"
   },
-  "durham": {
+  "county-durham": {
     "name": "Durham County Council",
     "ons": "00EJ",
     "gss": "E06000047"
@@ -158,6 +158,11 @@
     "name": "Cornwall Council",
     "ons": "00HE",
     "gss": "E06000052"
+  },
+  "isles-of-scilly": {
+    "name": "Isles of Scilly Council",
+    "ons": "00HF",
+    "gss": "E06000053"
   },
   "bedford": {
     "name": "Bedford Borough Council",
@@ -1569,7 +1574,7 @@
     "ons": "00FK",
     "gss": "E06000015"
   },
-  "hull": {
+  "kingston-upon-hull": {
     "name": "Hull City Council",
     "ons": "00FA",
     "gss": "E06000010"
@@ -1749,7 +1754,7 @@
     "ons": "00RC",
     "gss": "S12000038"
   },
-  "rhondda-cynon-taf": {
+  "rhondda-cynon-taff": {
     "name": "Rhondda Cynon Taf Council",
     "ons": "00PF",
     "gss": "W06000016"

@@ -8,6 +8,6 @@ class LicenceLocationIdentifier
   end
 
   def self.authority_types
-    ["DIS","LBO","UTA","CTY","LGD","MTD"]
+    ["DIS","LBO","UTA","CTY","LGD","MTD","COI"]
   end
 end

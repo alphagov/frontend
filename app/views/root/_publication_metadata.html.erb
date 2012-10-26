@@ -6,7 +6,7 @@
       <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
     <% end %>
     <% if [:programme, :guide].include? publication.type.to_sym %>
-      <p class="print-link"><%= link_to "Print this guide", publication_path(publication.slug, :part => 'print'), rel: "nofollow" %></p>
+      <p class="print-link"><%= link_to "Printer friendly page", publication_path(publication.slug, :part => 'print'), rel: "nofollow" %></p>
     <% end %>
   </div>
 </div>

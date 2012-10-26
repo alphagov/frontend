@@ -74,12 +74,6 @@
                   <div class="support-detail"><%= to_govspeak(@publication.additional_information) %></div>
                 </section>
               <% end %>
-              <% if @publication.contact_details.present? %>
-                <section class="last">
-                  <h2>Contact details</h2>
-                  <div class="support-detail"><%= to_govspeak(@publication.contact_details) %></div>
-                </section>  
-              <% end %>
             </article>
 
             <article class="js-tab-pane tab-pane" id="additional-information">

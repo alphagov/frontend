@@ -29,7 +29,7 @@ module GeoHelper
   end
 
   def geo_error?
-    params[:postcode] and geo_header['postcode'].nil?
+    params[:postcode] and (geo_header['postcode'].nil? or geo_header['nation'].nil?)
   end
 
   def reset_geo_url

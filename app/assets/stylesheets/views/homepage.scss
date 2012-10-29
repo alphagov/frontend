@@ -243,30 +243,9 @@
 
     &.mini-promo{
 
-      p {
-        text-align: center;
-
-        a {
-          @include core-24;
-          background-color: $turquoise;
-          color: #fff;
-          display: block;
-          padding: 1em;
-          text-decoration: none;
-
-          span {
-            @include core-36;
-            display: block;
-          }
-
-          &:hover {
-            text-decoration: underline;
-          }
-
-          @include ie(6) {
-            zoom: 1;
-          }
-        }
+      img {
+        margin: 0.75em 0 0 0;
+        width: 100%;
       }
     }
   }

@@ -49,7 +49,6 @@ module Frontend
 
     config.assets.precompile += %w(
       trackers/ab-testing.js
-      feedback.js
       programmes.js
       frontend.js
       media-player.js

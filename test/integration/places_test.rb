@@ -96,6 +96,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
         assert page.has_link?("http://www.example.com/london_ips...", :href => "http://www.example.com/london_ips_office")
         assert page.has_content?("Phone: 0800 123 4567")
+
+        assert page.has_content?("Monday to Saturday 8.00am - 6.00pm.")
+        assert page.has_content?("The London Passport Office is fully accessible to wheelchair users.")
       end
     end
 

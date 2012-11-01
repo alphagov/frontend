@@ -23,58 +23,18 @@
       </ul>
     </header>
 
+    <% unless @root_sections.nil? %>
     <div class="homepage-section homepage-categories group">
       <ul class="categories-list group">
+      <% @root_sections["results"].each do |section| %>
         <li class="group">
-          <h2><a href="/browse/driving">Driving, transport and travel</a></h2>
-          <p>Includes passports and car tax</p>
+          <h2><a href="<%= section["content_with_tag"]["web_url"] %>"><%= section["title"] %></a></h2>
+          <p><%= raw section["details"]["short_description"] %></p>
         </li>
-        <li class="group">
-          <h2><a href="/browse/benefits">Benefits</a></h2>
-          <p>Includes tax credits and eligibility</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/business">Businesses and self-employed</a></h2>
-          <p>Tools and guidance for businesses</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/employing-people">Employing people</a></h2>
-          <p>Includes pay, contracts and hiring</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/education">Education and learning</a></h2>
-          <p>Includes student loans and admissions</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/working">Working, jobs and pensions</a></h2>
-          <p>Includes holidays and finding a job</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/housing">Housing and local services</a></h2>
-          <p>Owning or renting and council services</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/justice">Crime, justice and the law</a></h2>
-          <p>Legal processes, courts and the police</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/tax">Money and tax</a></h2>
-          <p>Includes debt and Self Assessment</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/births-deaths-marriages">Births, deaths, marriages and care</a></h2>
-          <p>Includes civil partnerships and Lasting Power of Attorney</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/disabilities">Disabled people</a></h2>
-          <p>Includes your rights, benefits and the Equality Act</p>
-        </li>
-        <li class="group">
-          <h2><a href="/browse/citizenship">Citizenship and life in the UK</a></h2>
-          <p>Includes voting, how government works</p>
-        </li>
+      <% end %>
       </ul>
     </div>
+    <% end %>
 
     <section class="main-campaign group">
       <a href="/tour">The best place to find government services and information is www.gov.uk.  Click to take the tour.</a>

@@ -21,7 +21,7 @@ class RootController < ApplicationController
       section_name: "homepage",
       section_url: "/")
 
-    @root_sections = content_api.root_sections
+    @root_sections = content_api.root_sections.to_hash
   end
 
   def publication

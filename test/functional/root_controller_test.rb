@@ -273,7 +273,7 @@ class RootControllerTest < ActionController::TestCase
                           "Authorization" => "Bearer overwritten on deploy",
                           "Content-Type" => "application/json",
                           "User-Agent" => "GDS Api Client v. 3.4.0"}).
-        to_return(:status => 200, :body => "", :headers => {})
+        to_return(:status => 200, :body => "{\"results\": []}", :headers => {})
     end
 
     should "respond with success" do
@@ -294,7 +294,9 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "query the content api for root sections" do
-      GdsApi::ContentApi.any_instance.expects(:root_sections).at_most_once.returns(nil)
+      mocked = mock("response")
+      mocked.expects(:to_hash).returns(nil)
+      GdsApi::ContentApi.any_instance.expects(:root_sections).at_most_once.returns(mocked)
       get :index
       assert_response :success
       assert_template "root/index"

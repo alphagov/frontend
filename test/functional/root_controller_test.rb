@@ -267,6 +267,15 @@ class RootControllerTest < ActionController::TestCase
   end
 
   context "loading the homepage" do
+    setup do
+      stub_request(:get, "https://contentapi.test.alphagov.co.uk/tags.json?root_sections=true&type=section").
+        with(:headers => {"Accept" => "application/json",
+                          "Authorization" => "Bearer overwritten on deploy",
+                          "Content-Type" => "application/json",
+                          "User-Agent" => "GDS Api Client v. 3.4.0"}).
+        to_return(:status => 200, :body => "", :headers => {})
+    end
+
     should "respond with success" do
       get :index
       assert_response :success
@@ -282,6 +291,13 @@ class RootControllerTest < ActionController::TestCase
       assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION
       assert_equal "true", response.headers[Slimmer::Headers::CAMPAIGN_NOTIFICATION]
       assert_response :success
+    end
+
+    should "query the content api for root sections" do
+      GdsApi::ContentApi.any_instance.expects(:root_sections).at_most_once.returns(nil)
+      get :index
+      assert_response :success
+      assert_template "root/index"
     end
   end
 

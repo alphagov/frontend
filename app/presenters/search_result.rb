@@ -32,10 +32,10 @@ class SearchResult
   # dynamic method and accessors.
   %w(section subsection subsubsection).each do |key|
     define_method "formatted_#{key}_name" do
-      mapped_name(send("#{key}")) ? mapped_name(send("#{key}")) : humanized_name(send("#{key}"))
+      mapped_name(send(key)) || humanized_name(send(key))
     end
 
-    define_method "#{key}" do
+    define_method key do
       result[key]
     end
   end

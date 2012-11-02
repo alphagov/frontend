@@ -185,7 +185,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show advisory message that no interaction is available" do
-        assert page.has_content?("Sorry, we couldn't find details from Westminster City Council for that service in your area.")
+        assert page.has_content?("We don't have a direct link to this service from Westminster City Council")
+      end
+
+      should "show contact details for the authority" do
+        within('.contact') do
+          assert page.has_content?("123 Example Street")
+          assert page.has_content?("SW1A 1AA")
+        end
       end
     end
   end

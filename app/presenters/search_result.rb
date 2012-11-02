@@ -9,7 +9,7 @@ class SearchResult
     "council-and-housing-association-homes" => "Council and housing association homes",
     "animals-food-and-plants" => "Animals, food and plants",
     "mot" => "MOT",
-    "Mot insurance" => "MOT insurance"
+    "mot-insurance" => "MOT insurance"
   }
 
   attr_accessor :result

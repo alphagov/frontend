@@ -17,6 +17,7 @@
           <%= to_govspeak(@publication.introduction) %>
 
           </div>
+        </section>
 
         <% if @local_transaction_details['local_interaction'] %>
 
@@ -27,33 +28,24 @@
              <span class="destination"> on <%= @local_transaction_details['local_authority']['name'] %></span>
           </p>
 
-        </section>
-
-          <% if @local_transaction_details['local_authority'] %>
-            <% authority = @local_transaction_details['local_authority'] %>
-            <section class="contact-container">
-              <div class="contact vcard">
-                <p>This service is provided by <a class="url fn org" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a> <%= link_to '(change location)', publication_path(@publication.slug) %></p>
-
-                <% if authority['contact_address'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
-                <div class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></div>
-              </div>
-            </section>
-          <% end %>
-
         <% elsif @local_transaction_details['local_authority'] %>
 
           <div class="application-notice help-notice">
-            <p>Sorry, we couldn't find details from <%= @local_transaction_details['local_authority']['name'] %>  for that service in your area.</p>
-            <% if @local_transaction_details['local_authority']['website'] %><p>You may find more information on the <%= link_to @local_transaction_details['local_authority']['name'] + " website", @local_transaction_details['local_authority']['contact_url'] %></p><% end %>
+            <p>We don't have a direct link to this service from <%= @local_transaction_details['local_authority']['name'] %><% if @local_transaction_details['local_authority']['contact_url'] %>, but you could try the <%= link_to @local_transaction_details['local_authority']['name'] + " website", @local_transaction_details['local_authority']['contact_url'], :rel => :external %><% end %>.</p>
           </div>
-
-        </section>
 
         <% else %>
           <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+        <% end %>
 
-        </section>
+        <% if @local_transaction_details['local_authority'] %>
+          <% authority = @local_transaction_details['local_authority'] %>
+            <div class="contact vcard">
+              <p>This service is provided by <a class="url fn org" rel="external" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a> <%= link_to '(change location)', publication_path(@publication.slug) %></p>
+
+              <% if authority['contact_address'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
+              <p class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></p>
+            </div>
         <% end %>
 
         <section class="more">

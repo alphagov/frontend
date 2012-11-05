@@ -293,13 +293,39 @@ class RootControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "query the content api for root sections" do
+    should "query the content api for root section and display it" do
+      hash_response = {
+      "_response_info" => {"status" => "ok"},
+      "description" => "Tags!",
+      "total" => 1,
+      "start_index" => 1, "page_size" => 1,
+      "current_page" => 1,
+      "pages" => 1,
+      "results" => [{"title" => "Crime and justice",
+                      "id" => "https://in-your-government.uk/tags/crime-and-justice.json",
+                      "web_url" => nil,
+                      "details" => {
+                        "description" => "Bleh",
+                        "short_description" => "ASBOs, prisons, Jokers and Batman",
+                        "type" => "section"},
+                      "content_with_tag" => {
+                        "id" => "https://in-your-government.uk/with_tag.json?tag=crime-and-justice",
+                        "web_url" => "https://in-your-government.uk/browse/crime-and-justice"},
+                      "parent" => nil}]}
+
       mocked = mock("response")
-      mocked.expects(:to_hash).returns(nil)
+      mocked.expects(:to_hash).returns(hash_response)
       GdsApi::ContentApi.any_instance.expects(:root_sections).at_most_once.returns(mocked)
+
       get :index
+
       assert_response :success
       assert_template "root/index"
+      assert_select "ul.categories-list li", {:count => 1}
+      assert_select "ul.categories-list li" do
+        assert_select "h2", {:text => "Crime and justice"}
+        assert_select "p", {:text => "ASBOs, prisons, Jokers and Batman"}
+      end
     end
   end
 

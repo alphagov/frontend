@@ -49,12 +49,10 @@ module Frontend
 
     config.assets.precompile += %w(
       trackers/ab-testing.js
-      feedback.js
       programmes.js
       frontend.js
       media-player.js
       media-player.css
-      homepage.js
       tour.js
       application.css
       application-ie6.css

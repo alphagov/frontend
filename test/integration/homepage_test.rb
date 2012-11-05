@@ -1,7 +1,7 @@
 require_relative "../integration_test_helper"
 
 class HomepageTest < ActionDispatch::IntegrationTest
-  should "show a curated list generated from the Content API" do
+  should "show a root section generated from the Content API" do
     hash_response = {
       "_response_info" => {"status" => "ok"},
       "description" => "Tags!",

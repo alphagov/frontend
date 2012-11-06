@@ -9,7 +9,7 @@
 <div class="js-tab-content tab-content">
   <% if presenter.before_you_start? %>
     <div class="js-tab-pane tab-pane" id="before-you-start">
-      <%= to_govspeak(transaction.more_information) %>
+      <%= (transaction.more_information || "").html_safe %>
     </div>
   <% end %>
 
@@ -29,7 +29,7 @@
 
   <% if presenter.other_ways_to_apply? %>
     <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-      <%= to_govspeak(transaction.alternate_methods) %>
+      <%= (transaction.alternate_methods || "").html_safe %>
     </div>
   <% end %>
 </div>

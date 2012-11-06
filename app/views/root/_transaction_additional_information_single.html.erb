@@ -2,7 +2,7 @@
   <div id="before-you-start">
     <h1>Before you start</h1>
 
-    <%= to_govspeak(transaction.more_information) %>
+    <%= (transaction.more_information || "").html_safe %>
   </div>
 <% end %>
 
@@ -24,6 +24,6 @@
 <% if presenter.other_ways_to_apply? %>
   <div id="other-ways-to-apply">
     <h1>Other ways to apply</h1>
-    <%= to_govspeak(transaction.alternate_methods) %>
+    <%= (transaction.alternate_methods || "").html_safe %>
   </div>
 <% end %>

@@ -16,7 +16,7 @@
         <h1>Overview</h1>
       </header>
 
-      <%= to_govspeak(@publication.licence_overview) %>
+      <%= (@publication.licence_overview || "").html_safe %>
     </div>
   </div>
 </article>

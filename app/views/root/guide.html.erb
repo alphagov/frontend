@@ -43,7 +43,7 @@
           <h1><span>Part <%= part_number(@publication.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
         </header>
 
-        <%= to_govspeak(@part.body) %>
+        <%= (@part.body || "").html_safe %>
 
         <footer>
           <nav class="pagination" role="navigation">

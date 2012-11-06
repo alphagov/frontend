@@ -30,7 +30,7 @@
 
     <div id="overview">
       <h1>Overview</h1>
-      <%= to_govspeak(@publication.licence_overview) %>
+      <%= (@publication.licence_overview || "").html_safe %>
     </div>
   </div>
 </article>

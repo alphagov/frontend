@@ -14,7 +14,7 @@
         <section class="intro">
           <div class="get-started-intro">
 
-          <%= to_govspeak(@publication.introduction) %>
+          <%= (@publication.introduction || "").html_safe %>
 
           </div>
         </section>
@@ -60,7 +60,7 @@
               <% end %>
             </ul>
 
-            <%= to_govspeak(@publication.more_information) %>
+            <%= (@publication.more_information || "").html_safe %>
           </div>
           <% end %>
         </section>

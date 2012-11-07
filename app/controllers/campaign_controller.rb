@@ -14,9 +14,6 @@ class CampaignController < ApplicationController
   def uk_welcomes
   end
 
-  def student_finance
-  end
-
 protected
   def setup_slimmer_artefact
     set_slimmer_headers(format: 'campaign')

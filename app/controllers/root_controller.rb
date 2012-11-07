@@ -21,7 +21,7 @@ class RootController < ApplicationController
       section_name: "homepage",
       section_url: "/")
 
-    @root_sections = content_api.root_sections.results.sort_by(&:title)
+    @root_sections = load_root_sections
   end
 
   def publication

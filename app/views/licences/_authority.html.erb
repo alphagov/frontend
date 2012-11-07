@@ -27,7 +27,7 @@
       <%= render :partial => "licences/action", :locals => {:action => @licence_details[:action] } %>
     <% else %>
       <header><h1>Overview</h1></header>
-      <%= to_govspeak(@publication.licence_overview) %>
+      <%= raw @publication.licence_overview %>
     <% end %>
 
     <% if @licence_details[:licence]['location_specific'] or @licence_details[:licence]['authorities'].size > 1 %>

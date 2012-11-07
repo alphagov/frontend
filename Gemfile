@@ -18,12 +18,6 @@ gem 'plek', '0.5.0'
 gem 'lograge'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 
-if ENV['GOVSPEAK_DEV']
-  gem 'govspeak', :path => '../govspeak'
-else
-  gem 'govspeak', '1.0.1'
-end
-
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else

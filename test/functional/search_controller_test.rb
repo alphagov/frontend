@@ -102,6 +102,8 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "search-term"
     assert_select "a[href='#mainstream-results']", text: "General results (3)"
     assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
+    # Temporarily, Government results only visible with parameter
+    get :index, q: "search-term", government: "1"
     assert_select "a[href='#government-results']", text: "Government (2)"
   end
 

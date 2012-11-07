@@ -17,7 +17,7 @@
 
   	        <div class="find-nearest">
 
-    	        <%= (@publication.introduction || "").html_safe %>
+    	        <%= raw @publication.introduction %>
 
               <form method="post" id="local-locator-form" class="find-location-for-service">
       	        <fieldset>
@@ -59,7 +59,7 @@
                 </ul>
               <% end %>
 
-              <%= (@publication.more_information || "").html_safe %>
+              <%= raw @publication.more_information %>
             </div>
           <% end %>
 	      </section>

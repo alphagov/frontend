@@ -12,7 +12,7 @@
       <div class="inner">
         
         <section class="intro">
-          <div class="get-started-intro"><%= (@publication.short_description || "").html_safe %></div>
+          <div class="get-started-intro"><%= raw @publication.short_description %></div>
           <p id="get-started" class="get-started group">
             <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">Find out more</a>
             <% if @publication.will_continue_on.present? %>
@@ -59,26 +59,26 @@
               <% if @publication.eligibility.present? %>
                 <section>
                   <h2>Eligibility</h2>
-                  <div class="support-detail"><%= (@publication.eligibility || "").html_safe %></div>
+                  <div class="support-detail"><%= raw @publication.eligibility %></div>
                   </section>
               <% end %>
               <% if @publication.evaluation.present? %>
                 <section>
                   <h2>Evaluation</h2>
-                  <div class="support-detail"><%= (@publication.evaluation || "").html_safe %></div>
+                  <div class="support-detail"><%= raw @publication.evaluation %></div>
                 </section>
               <% end %>
               <% if @publication.additional_information.present? %>
                 <section>
                   <h2>Additional information</h2>
-                  <div class="support-detail"><%= (@publication.additional_information || "").html_safe %></div>
+                  <div class="support-detail"><%= raw @publication.additional_information %></div>
                 </section>
               <% end %>
             </article>
 
             <article class="js-tab-pane tab-pane" id="additional-information">
               <section class="long-description">
-                <%= (@publication.body || "").html_safe %>
+                <%= raw @publication.body %>
               </section>
             </article>
           </div>

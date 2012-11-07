@@ -2,7 +2,7 @@
   <div id="before-you-start">
     <h1>Before you start</h1>
 
-    <%= (transaction.more_information || "").html_safe %>
+    <%= raw transaction.more_information %>
   </div>
 <% end %>
 
@@ -24,6 +24,6 @@
 <% if presenter.other_ways_to_apply? %>
   <div id="other-ways-to-apply">
     <h1>Other ways to apply</h1>
-    <%= (transaction.alternate_methods || "").html_safe %>
+    <%= raw transaction.alternate_methods %>
   </div>
 <% end %>

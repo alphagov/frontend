@@ -8,7 +8,7 @@
 	<div class="article-container group">
 	  	<article role="article" class="group">
 	     <div class="inner">
-	       <%= (@publication.body || "").html_safe %>
+	       <%= raw @publication.body %>
 	     </div>
 	   </article>
     <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>

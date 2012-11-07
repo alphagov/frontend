@@ -16,7 +16,7 @@
         <h1>Overview</h1>
       </header>
 
-      <%= (@publication.licence_overview || "").html_safe %>
+      <%= raw @publication.licence_overview %>
     </div>
   </div>
 </article>

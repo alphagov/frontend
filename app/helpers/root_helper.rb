@@ -4,10 +4,6 @@ module RootHelper
 
   include GeoHelper
 
-  def to_govspeak(field)
-    Govspeak::Document.new(field || "", :auto_ids=>false).to_html.html_safe
-  end
-
   def mustache_partial(template,context)
     filepath = "#{Rails.root}/app/views/root/#{template}.mustache"
     Mustache.render(File.read(filepath), context).html_safe

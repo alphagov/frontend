@@ -52,7 +52,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert page.has_no_selector?('h1')
 
             assert page.has_content?("Driving licence more information")
-            assert page.has_no_content?("------") # Markdown should be rendered, not output
           end
 
           within '#what-you-need-to-know' do
@@ -66,7 +65,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert page.has_no_selector?('h1')
 
             assert page.has_content?("Driving licence alternate methods")
-            assert page.has_no_content?("------") # Markdown should be rendered, not output
           end
 
         end # .tab-content

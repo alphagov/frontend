@@ -10,7 +10,7 @@
         "alternative_title": "Alternative title",
         "overview": "This is an example licence.",
         "licence_identifier": "AB1234",
-        "licence_overview": "Licence overview copy\r\n--------\r\n",
+        "licence_overview": "<h2 id=\"licence-overview-copy\">Licence overview copy</h2>\n",
         "slug": "licence-generic",
         "title": "Generic Licence Example",
         "updated_at": "2012-05-22T09:04:52-07:00",

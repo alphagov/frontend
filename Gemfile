@@ -63,7 +63,7 @@ group :assets do
 end
 
 group :test do
-  gem "mocha"
+  gem "mocha", :require => false
   gem "webmock", :require => false
   gem "ZenTest"
   gem "autotest-rails"

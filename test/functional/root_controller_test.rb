@@ -268,12 +268,7 @@ class RootControllerTest < ActionController::TestCase
 
   context "loading the homepage" do
     setup do
-      stub_request(:get, "https://contentapi.test.alphagov.co.uk/tags.json?root_sections=true&type=section").
-        with(:headers => {"Accept" => "application/json",
-                          "Authorization" => "Bearer overwritten on deploy",
-                          "Content-Type" => "application/json",
-                          "User-Agent" => "GDS Api Client v. 3.4.0"}).
-        to_return(:status => 200, :body => "{\"results\": []}", :headers => {})
+      GdsApi::ContentApi.any_instance.stubs(:root_sections).returns(stub("Response", :results => []))
     end
 
     should "respond with success" do
@@ -293,39 +288,15 @@ class RootControllerTest < ActionController::TestCase
       assert_response :success
     end
 
-    should "query the content api for root section and display it" do
-      hash_response = {
-      "_response_info" => {"status" => "ok"},
-      "description" => "Tags!",
-      "total" => 1,
-      "start_index" => 1, "page_size" => 1,
-      "current_page" => 1,
-      "pages" => 1,
-      "results" => [{"title" => "Crime and justice",
-                      "id" => "https://in-your-government.uk/tags/crime-and-justice.json",
-                      "web_url" => nil,
-                      "details" => {
-                        "description" => "Bleh",
-                        "short_description" => "ASBOs, prisons, Jokers and Batman",
-                        "type" => "section"},
-                      "content_with_tag" => {
-                        "id" => "https://in-your-government.uk/with_tag.json?tag=crime-and-justice",
-                        "web_url" => "https://in-your-government.uk/browse/crime-and-justice"},
-                      "parent" => nil}]}
+    should "query the content api for root sections and assign them to @root_sections in title order" do
+      prevent_implicit_rendering
 
-      mocked = mock("response")
-      mocked.expects(:to_hash).returns(hash_response)
-      GdsApi::ContentApi.any_instance.expects(:root_sections).at_most_once.returns(mocked)
+      stub_results = stub("Response", :results => [stub(:title => "Foo"), stub(:title => "Bar")])
+      GdsApi::ContentApi.any_instance.stubs(:root_sections).returns(stub_results)
 
       get :index
 
-      assert_response :success
-      assert_template "root/index"
-      assert_select "ul.categories-list li", {:count => 1}
-      assert_select "ul.categories-list li" do
-        assert_select "h2", {:text => "Crime and justice"}
-        assert_select "p", {:text => "ASBOs, prisons, Jokers and Batman"}
-      end
+      assert_equal ["Bar", "Foo"], assigns[:root_sections].map(&:title)
     end
   end
 

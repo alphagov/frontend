@@ -23,13 +23,13 @@
       </ul>
     </header>
 
-    <% unless @root_sections.nil? %>
+    <% if @root_sections.any? %>
     <div class="homepage-section homepage-categories group">
       <ul class="categories-list group">
-      <% @root_sections["results"].each do |section| %>
+      <% @root_sections.each do |section| %>
         <li class="group">
-          <h2><a href="<%= section["content_with_tag"]["web_url"] %>"><%= section["title"] %></a></h2>
-          <p><%= raw section["details"]["short_description"] %></p>
+          <h2><%= link_to section.title, section.content_with_tag.web_url %></h2>
+          <p><%= section.details.short_description %></p>
         </li>
       <% end %>
       </ul>

@@ -12,11 +12,11 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @external_link_results, @primary_results = extract_external_links(retrieve_primary_results(@search_term))
-      @secondary_results = retrieve_secondary_results(@search_term)
+      @external_link_results, @mainstream_results = extract_external_links(retrieve_mainstream_results(@search_term))
+      @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
 
-      @all_results = @primary_results + @secondary_results + @external_link_results
-      @count_results = @primary_results + @secondary_results
+      @all_results = @mainstream_results + @detailed_guidance_results + @external_link_results
+      @count_results = @mainstream_results + @detailed_guidance_results
     end
 
     fill_in_slimmer_headers(@all_results)
@@ -30,7 +30,7 @@ class SearchController < ApplicationController
 
   protected
 
-  def retrieve_primary_results(term)
+  def retrieve_mainstream_results(term)
     res = Frontend.mainstream_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
   end
@@ -41,7 +41,7 @@ class SearchController < ApplicationController
     end
   end
 
-  def retrieve_secondary_results(term)
+  def retrieve_detailed_guidance_results(term)
     res = Frontend.detailed_guidance_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
   end

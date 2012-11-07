@@ -176,7 +176,7 @@ class SearchControllerTest < ActionController::TestCase
 
     get :index, q: "Test"
 
-    assert_equal 75, assigns[:primary_results].length
+    assert_equal 75, assigns[:mainstream_results].length
   end
 
   test "should show the phrase searched for" do
@@ -192,7 +192,7 @@ class SearchControllerTest < ActionController::TestCase
 
     get :index, q: "Test"
 
-    assert_equal 45, assigns[:primary_results].length
+    assert_equal 45, assigns[:mainstream_results].length
     assert_equal 20, assigns[:external_link_results].length
   end
 

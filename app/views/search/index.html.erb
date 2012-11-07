@@ -2,22 +2,22 @@
   <%= render partial: 'form' %>
 
   <div id="search-results-tabs">
-    <% if (@primary_results.any? or @external_link_results.any?) and @secondary_results.any? %>
+    <% if (@mainstream_results.any? or @external_link_results.any?) and @detailed_guidance_results.any? %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
           <li>
-            <a href="#mainstream-results">General results (<%= @primary_results.length %>)</a>
+            <a href="#mainstream-results">General results (<%= @mainstream_results.length %>)</a>
           </li>
           <li>
-            <a href="#detailed-results">Detailed guidance (<%= @secondary_results.length %>)</a>
+            <a href="#detailed-results">Detailed guidance (<%= @detailed_guidance_results.length %>)</a>
           </li>
         </ul>
       </nav>
     <% end %>
 
     <div class="search-container group js-tab-content tab-content">
-      <% if @primary_results.any? or @external_link_results.any? %>
-        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@primary_results + @external_link_results).length == 1 ? ' single-item-pane' : ''%>">
+      <% if @mainstream_results.any? or @external_link_results.any? %>
+        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@mainstream_results + @external_link_results).length == 1 ? ' single-item-pane' : ''%>">
           <% if @external_link_results.any? %>
             <div class="external-links">
               <h2>Other sites that may be useful</h2>
@@ -26,18 +26,18 @@
               </ul>
             </div>
           <% end %>
-          <% if @primary_results.any? %>
+          <% if @mainstream_results.any? %>
             <ul class="results-list internal-links">
-              <%= render collection: @primary_results, partial: "result" %>
+              <%= render collection: @mainstream_results, partial: "result" %>
             </ul>
           <% end %>
         </div>
       <% end %>
 
-      <% if @secondary_results.any? %>
+      <% if @detailed_guidance_results.any? %>
         <div id="detailed-results" class="js-tab-pane tab-pane">
           <ul>
-            <%= render collection: @secondary_results, partial: "result" %>
+            <%= render collection: @detailed_guidance_results, partial: "result" %>
           </ul>
         </div>
       <% end %>

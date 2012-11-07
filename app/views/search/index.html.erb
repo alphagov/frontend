@@ -2,15 +2,22 @@
   <%= render partial: 'form' %>
 
   <div id="search-results-tabs">
-    <% if (@mainstream_results.any? or @external_link_results.any?) and @detailed_guidance_results.any? %>
+    <% if (@mainstream_results.any? or @external_link_results.any?) and (@detailed_guidance_results.any? or @government_results.any?) %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
           <li>
             <a href="#mainstream-results">General results (<%= @mainstream_results.length %>)</a>
           </li>
-          <li>
-            <a href="#detailed-results">Detailed guidance (<%= @detailed_guidance_results.length %>)</a>
-          </li>
+          <% if @detailed_guidance_results.any? %>
+            <li>
+              <a href="#detailed-results">Detailed guidance (<%= @detailed_guidance_results.length %>)</a>
+            </li>
+          <% end %>
+          <% if @government_results.any? %>
+            <li>
+              <a href="#government-results">Government (<%= @government_results.length %>)</a>
+            </li>
+          <% end %>
         </ul>
       </nav>
     <% end %>
@@ -38,6 +45,14 @@
         <div id="detailed-results" class="js-tab-pane tab-pane">
           <ul>
             <%= render collection: @detailed_guidance_results, partial: "result" %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% if @government_results.any? %>
+        <div id="government-results" class="js-tab-pane tab-pane">
+          <ul>
+            <%= render collection: @government_results, partial: "result" %>
           </ul>
         </div>
       <% end %>

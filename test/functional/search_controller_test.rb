@@ -7,6 +7,8 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.stubs(:mainstream_search_client).returns(mainstream_client)
     detailed_client = stub("search", search: [])
     Frontend.stubs(:detailed_guidance_search_client).returns(detailed_client)
+    government_client = stub("search", search: [])
+    Frontend.stubs(:government_search_client).returns(government_client)
   end
 
   setup do
@@ -81,6 +83,7 @@ class SearchControllerTest < ActionController::TestCase
   test "should display just tab page of results if we have results from a single index" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([])
+    Frontend.government_search_client.stubs(:search).returns([])
     get :index, q: "search-term"
     assert_select 'nav.js-tabs', count: 0
   end
@@ -95,9 +98,11 @@ class SearchControllerTest < ActionController::TestCase
   test "should display index count on respective tab" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+    Frontend.government_search_client.stubs(:search).returns([{}, {}])
     get :index, q: "search-term"
     assert_select "a[href='#mainstream-results']", text: "General results (3)"
     assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
+    assert_select "a[href='#government-results']", text: "Government (2)"
   end
 
   test "should display a link to the documents matching our search criteria" do

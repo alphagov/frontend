@@ -104,7 +104,7 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
     # Temporarily, Government results only visible with parameter
     get :index, q: "search-term", government: "1"
-    assert_select "a[href='#government-results']", text: "Government (2)"
+    assert_select "a[href='#government-results']", text: "Inside Government (2)"
   end
 
   test "should display a link to the documents matching our search criteria" do

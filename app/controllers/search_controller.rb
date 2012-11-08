@@ -12,15 +12,14 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @external_link_results, @mainstream_results = extract_external_links(retrieve_mainstream_results(@search_term))
+      @recommended_link_results, @mainstream_results = extract_external_links(retrieve_mainstream_results(@search_term))
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
       if include_government_results?
         @government_results = retrieve_government_results(@search_term)
       else
         @government_results = []
       end
-
-      @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @external_link_results
+      @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
       @count_results = @mainstream_results + @detailed_guidance_results + @government_results
     end
 

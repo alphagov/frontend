@@ -12,7 +12,9 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @recommended_link_results, @mainstream_results = extract_external_links(retrieve_mainstream_results(@search_term))
+      @recommended_link_results, inside_government_link_results, mainstream_results = extract_special_links(retrieve_mainstream_results(@search_term))
+      # Get Inside Government results to the top
+      @mainstream_results = inside_government_link_results + mainstream_results
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
 
       @all_results = @mainstream_results + @detailed_guidance_results + @recommended_link_results
@@ -35,10 +37,25 @@ class SearchController < ApplicationController
     res.map { |r| SearchResult.new(r) }
   end
 
-  def extract_external_links(results)
-    results.partition do |result|
-      (result.respond_to?(:format) && result.format == 'recommended-link')
+  def extract_special_links(results)
+    grouped_results = results.group_by do |result|
+      if !result.respond_to?(:format)
+        :everything_else
+      else
+        if result.format == 'recommended-link'
+          :recommended_link
+        elsif result.format == 'inside-government-link'
+          :inside_government_link
+        else
+          :everything_else
+        end
+      end
     end
+    [
+      grouped_results[:recommended_link] || [], 
+      grouped_results[:inside_government_link] || [], 
+      grouped_results[:everything_else] || []
+    ]
   end
 
   def retrieve_detailed_guidance_results(term)

@@ -2,7 +2,7 @@
   <%= render partial: 'form' %>
 
   <div id="search-results-tabs">
-    <% if (@mainstream_results.any? or @external_link_results.any?) and (@detailed_guidance_results.any? or @government_results.any?) %>
+    <% if [(@mainstream_results + @external_link_results), @detailed_guidance_results, @government_results].reject(&:blank?).count > 1 %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
           <li>

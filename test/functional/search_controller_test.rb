@@ -249,7 +249,7 @@ class SearchControllerTest < ActionController::TestCase
 
     Frontend.mainstream_search_client.stubs(:search).returns([normal_result, inside_government_link])
 
-    get :index, {q: "bleh"}
+    get :index, { q: "bleh", government: "1" }
     assert_select '#mainstream-results li:first-child a', text: "QUEUE JUMPER"
     assert_select '#mainstream-results li:nth-child(2) a', text: 'BORING'
   end

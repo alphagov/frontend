@@ -13,8 +13,12 @@ class SearchController < ApplicationController
 
     if @search_term.present?
       @recommended_link_results, inside_government_link_results, mainstream_results = extract_special_links(retrieve_mainstream_results(@search_term))
-      # Get Inside Government results to the top
-      @mainstream_results = inside_government_link_results + mainstream_results
+      if include_government_results?
+        # Get Inside Government results to the top
+        @mainstream_results = inside_government_link_results + mainstream_results
+      else
+        @mainstream_results = mainstream_results
+      end
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
 
       @all_results = @mainstream_results + @detailed_guidance_results + @recommended_link_results
@@ -74,5 +78,9 @@ class SearchController < ApplicationController
 
   def setup_slimmer_artefact
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
+  end
+
+  def include_government_results?
+    ! params[:government].blank?
   end
 end

@@ -5,9 +5,11 @@
     <% if [(@mainstream_results + @recommended_link_results), @detailed_guidance_results, @government_results].reject(&:blank?).count > 1 %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
-          <li>
-            <a href="#mainstream-results">General results (<%= @mainstream_results.length %>)</a>
-          </li>
+          <% if (@mainstream_results + @recommended_link_results).any? %>
+            <li>
+              <a href="#mainstream-results">General results (<%= @mainstream_results.length %>)</a>
+            </li>
+          <% end %>
           <% if @detailed_guidance_results.any? %>
             <li>
               <a href="#detailed-results">Detailed guidance (<%= @detailed_guidance_results.length %>)</a>

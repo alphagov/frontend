@@ -70,6 +70,6 @@ class SearchController < ApplicationController
   end
 
   def include_government_results?
-    ! params[:government].blank?
+    params[:government].present?
   end
 end

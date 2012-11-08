@@ -193,7 +193,7 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "Test"
 
     assert_equal 45, assigns[:mainstream_results].length
-    assert_equal 20, assigns[:external_link_results].length
+    assert_equal 20, assigns[:recommended_link_results].length
   end
 
   test "should_show_external_links_with_a_separate_list_class" do
@@ -208,7 +208,7 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
 
     get :index, {q: "bleh"}
-    assert_select ".external-links li.external" do
+    assert_select ".recommended-links li.external" do
       assert_select "a[rel=external]", "A title"
     end
   end
@@ -225,7 +225,7 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
 
     get :index, {q: "bleh"}
-    assert_select ".external-links li.external" do
+    assert_select ".recommended-links li.external" do
       assert_select "a[rel=external]", "A title"
     end
     assert_select '.internal-links li.external', count: 0

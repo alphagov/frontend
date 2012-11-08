@@ -2,7 +2,7 @@
   <%= render partial: 'form' %>
 
   <div id="search-results-tabs">
-    <% if (@mainstream_results.any? or @external_link_results.any?) and @detailed_guidance_results.any? %>
+    <% if (@mainstream_results.any? or @recommended_link_results.any?) and @detailed_guidance_results.any? %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
           <li>
@@ -16,13 +16,13 @@
     <% end %>
 
     <div class="search-container group js-tab-content tab-content">
-      <% if @mainstream_results.any? or @external_link_results.any? %>
-        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@mainstream_results + @external_link_results).length == 1 ? ' single-item-pane' : ''%>">
-          <% if @external_link_results.any? %>
-            <div class="external-links">
+      <% if @mainstream_results.any? or @recommended_link_results.any? %>
+        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@mainstream_results + @recommended_link_results).length == 1 ? ' single-item-pane' : ''%>">
+          <% if @recommended_link_results.any? %>
+            <div class="recommended-links">
               <h2>Other sites that may be useful</h2>
               <ul class="results-list">
-                <%= render collection: @external_link_results, partial: "result" %>
+                <%= render collection: @recommended_link_results, partial: "result" %>
               </ul>
             </div>
           <% end %>

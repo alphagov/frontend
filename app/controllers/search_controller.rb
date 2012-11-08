@@ -20,9 +20,13 @@ class SearchController < ApplicationController
         @mainstream_results = mainstream_results
       end
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
-
-      @all_results = @mainstream_results + @detailed_guidance_results + @recommended_link_results
-      @count_results = @mainstream_results + @detailed_guidance_results
+      if include_government_results?
+        @government_results = retrieve_government_results(@search_term)
+      else
+        @government_results = []
+      end
+      @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
+      @count_results = @mainstream_results + @detailed_guidance_results + @government_results
     end
 
     fill_in_slimmer_headers(@all_results)
@@ -67,6 +71,11 @@ class SearchController < ApplicationController
     res.map { |r| SearchResult.new(r) }
   end
 
+  def retrieve_government_results(term)
+    res = Frontend.government_search_client.search(term)
+    res.map { |r| SearchResult.new(r) }
+  end
+
   def fill_in_slimmer_headers(result_set)
     set_slimmer_headers(
       result_count: result_set.length,
@@ -81,6 +90,6 @@ class SearchController < ApplicationController
   end
 
   def include_government_results?
-    ! params[:government].blank?
+    params[:government].present?
   end
 end

@@ -42,9 +42,6 @@ class SearchResult
   end
 
   protected
-  def normalized_format
-    result['format'] ? result['format'].gsub("-", "_") : 'unknown'
-  end
 
   def mapped_name(var)
     return SECTION_NAME_TRANSLATION[var] ? SECTION_NAME_TRANSLATION[var] : false

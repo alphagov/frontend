@@ -36,10 +36,6 @@ class RootController < ApplicationController
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
 
-    if request.format.json? && @artefact['format'] != 'place'
-      redirect_to "/api/#{params[:slug]}.json" and return
-    end
-
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']
         snac = appropriate_snac_code_from_geostack(@artefact)
@@ -51,11 +47,17 @@ class RootController < ApplicationController
       snac = AuthorityLookup.find_snac(params[:part])
       authority_slug = params[:part]
 
+      if request.format.json?
+        redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+      end
+
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
       @artefact = fetch_artefact(snac) if snac
     elsif (video_requested_but_not_found? || part_requested_but_not_found? || empty_part_list?)
       raise RecordNotFound
+    elsif request.format.json? && @artefact['format'] != 'place'
+      redirect_to "/api/#{params[:slug]}.json" and return
     end
 
     case @publication.type

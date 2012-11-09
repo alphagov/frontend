@@ -41,6 +41,47 @@ class RootControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should redirect JSON requests for local transactions with a parameter for the appropriate snac code" do
+    artefact = {
+      "title" => "Find your local cake sale",
+      "format" => "local_transaction",
+      "details" => {
+        "format" => "LocalTransaction",
+        "local_service" => {
+          "description" => "Find your local cake sale",
+          "lgsl_code" => "1234",
+          "providing_tier" => [ "district", "unitary" ]
+        }
+      }
+    }
+    artefact_with_interaction = artefact.dup
+    artefact_with_interaction["details"].merge({
+      "local_interaction" => {
+        "lgsl_code" => 461,
+        "lgil_code" => 8,
+        "url" => "http://www.torfaen.gov.uk/en/moar-caek.aspx"
+      },
+      "local_authority" => {
+        "name" => "Torfaen County Borough Council",
+        "contact_details" => [
+          "Moorlands House",
+          "Stockwell Street",
+          "Leek",
+          "Staffordshire",
+          "ST13 6HQ"
+        ],
+        "contact_url" => "http://www.torfaen.gov.uk/en/moar-caek.aspx"
+      }
+    })
+
+    content_api_has_an_artefact("find-local-cake-sale", artefact)
+    content_api_has_an_artefact_with_snac_code("find-local-cake-sale", "00PM", artefact_with_interaction)
+
+    get :publication, :slug => 'find-local-cake-sale', :part => "torfaen", :format => 'json'
+    assert_response :redirect
+    assert_redirected_to "/api/find-local-cake-sale.json?snac=00PM"
+  end
+
   test "should return a 404 if asked for a guide without parts" do
     content_api_has_an_artefact("disability-living-allowance-guide", {
       "title" => "Disability Living Allowance",

@@ -1,6 +1,8 @@
 require "slimmer/headers"
 
 class SearchController < ApplicationController
+  extend ActiveSupport::Memoizable
+
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
 
@@ -12,13 +14,8 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @recommended_link_results, inside_government_link_results, mainstream_results = extract_special_links(retrieve_mainstream_results(@search_term))
-      if include_government_results?
-        # Get Inside Government results to the top
-        @mainstream_results = inside_government_link_results + mainstream_results
-      else
-        @mainstream_results = mainstream_results
-      end
+      @mainstream_results = mainstream_results
+      @recommended_link_results = grouped_mainstream_results[:recommended_link]
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
       if include_government_results?
         @government_results = retrieve_government_results(@search_term)
@@ -40,12 +37,8 @@ class SearchController < ApplicationController
 
   protected
 
-  def retrieve_mainstream_results(term)
-    res = Frontend.mainstream_search_client.search(term)
-    res.map { |r| SearchResult.new(r) }
-  end
-
-  def extract_special_links(results)
+  def grouped_mainstream_results
+    results = retrieve_mainstream_results(@search_term)
     grouped_results = results.group_by do |result|
       if !result.respond_to?(:format)
         :everything_else
@@ -59,11 +52,25 @@ class SearchController < ApplicationController
         end
       end
     end
-    [
-      grouped_results[:recommended_link] || [], 
-      grouped_results[:inside_government_link] || [], 
-      grouped_results[:everything_else] || []
-    ]
+    grouped_results[:recommended_link] ||= []
+    grouped_results[:inside_government_link] ||= []
+    grouped_results[:everything_else] ||= []
+    grouped_results
+  end
+  memoize :grouped_mainstream_results
+
+  def mainstream_results
+    if include_government_results?
+      # Get Inside Government results to the top
+      @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
+    else
+      @mainstream_results = grouped_mainstream_results[:everything_else]
+    end
+  end
+
+  def retrieve_mainstream_results(term)
+    res = Frontend.mainstream_search_client.search(term)
+    res.map { |r| SearchResult.new(r) }
   end
 
   def retrieve_detailed_guidance_results(term)

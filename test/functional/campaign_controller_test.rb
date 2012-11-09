@@ -24,4 +24,11 @@ class CampaignControllerTest < ActionController::TestCase
 
     assert_response :success
   end
+
+  should "load the sort my tax campaign" do
+    get :sort_my_tax
+
+    assert_response :success
+  end
+  
 end

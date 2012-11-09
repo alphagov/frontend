@@ -238,6 +238,29 @@ class SearchControllerTest < ActionController::TestCase
     assert_select '.internal-links li.external', count: 0
   end
 
+  test "should show inside-government-links at the top of mainstream results" do
+    normal_result = {
+      "title" => "BORING",
+      "description" => "DESCRIPTION",
+      "link" => "/url",
+      "section" => "life-in-the-uk",
+      "subsection" => "test-thing"
+    }
+    inside_government_link = {
+      "title" => "QUEUE JUMPER",
+      "description" => "DESCRIPTION",
+      "link" => "/government/awesome",
+      "format" => "inside-government-link",
+      "section" => "Inside Government"
+    }
+
+    Frontend.mainstream_search_client.stubs(:search).returns([normal_result, inside_government_link])
+
+    get :index, { q: "bleh", government: "1" }
+    assert_select '#mainstream-results li:first-child a', text: "QUEUE JUMPER"
+    assert_select '#mainstream-results li:nth-child(2) a', text: 'BORING'
+  end
+
   test "should send analytics headers for citizen proposition" do
     get :index, {q: "bob"}
     assert_equal "search",  response.headers["X-Slimmer-Section"]

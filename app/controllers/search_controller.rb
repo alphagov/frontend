@@ -1,6 +1,8 @@
 require "slimmer/headers"
 
 class SearchController < ApplicationController
+  extend ActiveSupport::Memoizable
+
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
 
@@ -12,7 +14,8 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @recommended_link_results, @mainstream_results = extract_external_links(retrieve_mainstream_results(@search_term))
+      @mainstream_results = mainstream_results
+      @recommended_link_results = grouped_mainstream_results[:recommended_link]
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
       if include_government_results?
         @government_results = retrieve_government_results(@search_term)
@@ -34,15 +37,40 @@ class SearchController < ApplicationController
 
   protected
 
+  def grouped_mainstream_results
+    results = retrieve_mainstream_results(@search_term)
+    grouped_results = results.group_by do |result|
+      if !result.respond_to?(:format)
+        :everything_else
+      else
+        if result.format == 'recommended-link'
+          :recommended_link
+        elsif result.format == 'inside-government-link'
+          :inside_government_link
+        else
+          :everything_else
+        end
+      end
+    end
+    grouped_results[:recommended_link] ||= []
+    grouped_results[:inside_government_link] ||= []
+    grouped_results[:everything_else] ||= []
+    grouped_results
+  end
+  memoize :grouped_mainstream_results
+
+  def mainstream_results
+    if include_government_results?
+      # Get Inside Government results to the top
+      @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
+    else
+      @mainstream_results = grouped_mainstream_results[:everything_else]
+    end
+  end
+
   def retrieve_mainstream_results(term)
     res = Frontend.mainstream_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
-  end
-
-  def extract_external_links(results)
-    results.partition do |result|
-      (result.respond_to?(:format) && result.format == 'recommended-link')
-    end
   end
 
   def retrieve_detailed_guidance_results(term)

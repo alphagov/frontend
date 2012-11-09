@@ -1,7 +1,6 @@
 require "slimmer/headers"
 
 class SearchController < ApplicationController
-  extend ActiveSupport::Memoizable
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
@@ -38,26 +37,27 @@ class SearchController < ApplicationController
   protected
 
   def grouped_mainstream_results
-    results = retrieve_mainstream_results(@search_term)
-    grouped_results = results.group_by do |result|
-      if !result.respond_to?(:format)
-        :everything_else
-      else
-        if result.format == 'recommended-link'
-          :recommended_link
-        elsif result.format == 'inside-government-link'
-          :inside_government_link
-        else
+    @_grouped_mainstream_results ||= begin
+      results = retrieve_mainstream_results(@search_term)
+      grouped_results = results.group_by do |result|
+        if !result.respond_to?(:format)
           :everything_else
+        else
+          if result.format == 'recommended-link'
+            :recommended_link
+          elsif result.format == 'inside-government-link'
+            :inside_government_link
+          else
+            :everything_else
+          end
         end
       end
+      grouped_results[:recommended_link] ||= []
+      grouped_results[:inside_government_link] ||= []
+      grouped_results[:everything_else] ||= []
+      grouped_results
     end
-    grouped_results[:recommended_link] ||= []
-    grouped_results[:inside_government_link] ||= []
-    grouped_results[:everything_else] ||= []
-    grouped_results
   end
-  memoize :grouped_mainstream_results
 
   def mainstream_results
     if include_government_results?

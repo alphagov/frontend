@@ -3,7 +3,7 @@ require "slimmer/headers"
 class CampaignController < ApplicationController
 
   before_filter :setup_slimmer_artefact
-  before_filter { set_expiry 1.day }
+  before_filter :set_expiry
 
   def energy_help
   end
@@ -13,8 +13,8 @@ class CampaignController < ApplicationController
 
   def uk_welcomes
   end
-
-  def student_finance
+  
+  def sort_my_tax
   end
 
 protected

@@ -28,10 +28,10 @@ namespace :panopticon do
         :description => "Help is available to make your home warm and cosy this winter."
       }),
       RegisterableCampaign.new({
-        :title => "Student Finance",
-        :slug => "studentfinance",
-        :need_id => "B1050",
-        :description => "Find out what loans and grants you can get to help with university tuition fees and living costs."
+        :title => "HMRC is closing in on undeclared income",
+        :slug => "sortmytax",
+        :need_id => "B1051",
+        :description => "HMRC is closing in on undeclared income."
       })
     ]
 

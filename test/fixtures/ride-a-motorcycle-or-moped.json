@@ -15,7 +15,7 @@
         "updated_at": "2012-03-26T09:46:13+00:00",
         "video_summary": "summary",
         "video_url": "http://www.youtube.com/watch?v=iD941H0j1Z0",
-        "body": "Video description\n-------\nblah",
+        "body": "<h2 id=\"video-description\">Video description</h2>\n<p>blah</p>\n",
         "parts": [
             {
                 "web_url": "https://www.preview.alphagov.co.uk/ride-motorcycle-moped/safety-equipment",

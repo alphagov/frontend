@@ -12,7 +12,7 @@
         "format": "Transaction",
         "alternative_title": "",
         "overview": "Apply for your first provisional driving licence online",
-        "more_information": "Driving licence more information\r\n------",
+        "more_information": "<h2>Driving licence more information</h2>",
         "introduction": "You can get your first provisional driving licence online. Apply using your Government Gateway ID. If you don't have one or need to re-register, you'll get an ID as part of your application.",
         "will_continue_on": "the Directgov website",
         "link": "https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&_pageLabel=FAP&_nfls=false",

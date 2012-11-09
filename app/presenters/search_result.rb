@@ -9,7 +9,8 @@ class SearchResult
     "council-and-housing-association-homes" => "Council and housing association homes",
     "animals-food-and-plants" => "Animals, food and plants",
     "mot" => "MOT",
-    "mot-insurance" => "MOT insurance"
+    "mot-insurance" => "MOT insurance",
+    "Inside Government" => "Inside Government"
   }
 
   attr_accessor :result
@@ -41,9 +42,6 @@ class SearchResult
   end
 
   protected
-  def normalized_format
-    result['format'] ? result['format'].gsub("-", "_") : 'unknown'
-  end
 
   def mapped_name(var)
     return SECTION_NAME_TRANSLATION[var] ? SECTION_NAME_TRANSLATION[var] : false
@@ -53,3 +51,7 @@ class SearchResult
     name.gsub('-', ' ').capitalize
   end
 end
+
+class GovernmentResult < SearchResult
+end
+

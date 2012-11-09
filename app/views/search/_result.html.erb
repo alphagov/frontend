@@ -16,5 +16,11 @@
       <% if result.subsection %><li class="result-subsection"><%= result.formatted_subsection_name %></li><% end %>
       <% if result.subsubsection %><li class="result-subsubsection"><%= result.formatted_subsubsection_name %></li><% end %>
     </ul>
+  <% elsif result.is_a?(GovernmentResult) && result.format %>
+    <ul class="result-meta">
+      <li>
+        <%= result.format.humanize %>
+      </li>
+    </ul>
   <% end %>
 </li>

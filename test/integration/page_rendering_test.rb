@@ -54,7 +54,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/licence-generic"
     assert_equal 200, page.status_code
     assert page.has_content?("Licence overview copy"), %(expected there to be content Licence overview copy in #{page.text.inspect})
-    assert page.has_no_content?("--------") # Markdown should be rendered, not output
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
@@ -194,7 +193,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_content?("This is the video summary")
       assert page.has_selector?("figure#video a[href='https://www.youtube.com/watch?v=fLreo24WYeQ']")
       assert page.has_content?("Video description")
-      assert page.has_no_content?("------") # Markdown should be rendered, not output
     end
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end

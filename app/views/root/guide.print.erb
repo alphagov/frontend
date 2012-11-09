@@ -9,7 +9,7 @@
     <h1>Part <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
   </header>
 
-  <%= to_govspeak(part.body) %>
+  <%= raw part.body %>
 </article>
 <% end %>
 

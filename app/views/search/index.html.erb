@@ -2,42 +2,59 @@
   <%= render partial: 'form' %>
 
   <div id="search-results-tabs">
-    <% if (@primary_results.any? or @external_link_results.any?) and @secondary_results.any? %>
+    <% if [(@mainstream_results + @recommended_link_results), @detailed_guidance_results, @government_results].reject(&:blank?).count > 1 %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
-          <li>
-            <a href="#mainstream-results">General results (<%= @primary_results.length %>)</a>
-          </li>
-          <li>
-            <a href="#detailed-results">Detailed guidance (<%= @secondary_results.length %>)</a>
-          </li>
+          <% if (@mainstream_results + @recommended_link_results).any? %>
+            <li>
+              <a href="#mainstream-results">General results (<%= @mainstream_results.length %>)</a>
+            </li>
+          <% end %>
+          <% if @detailed_guidance_results.any? %>
+            <li>
+              <a href="#detailed-results">Detailed guidance (<%= @detailed_guidance_results.length %>)</a>
+            </li>
+          <% end %>
+          <% if @government_results.any? %>
+            <li>
+              <a href="#government-results">Inside Government (<%= @government_results.length %>)</a>
+            </li>
+          <% end %>
         </ul>
       </nav>
     <% end %>
 
     <div class="search-container group js-tab-content tab-content">
-      <% if @primary_results.any? or @external_link_results.any? %>
-        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@primary_results + @external_link_results).length == 1 ? ' single-item-pane' : ''%>">
-          <% if @external_link_results.any? %>
-            <div class="external-links">
+      <% if @mainstream_results.any? or @recommended_link_results.any? %>
+        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@mainstream_results + @recommended_link_results).length == 1 ? ' single-item-pane' : ''%>">
+          <% if @recommended_link_results.any? %>
+            <div class="recommended-links">
               <h2>Other sites that may be useful</h2>
               <ul class="results-list">
-                <%= render collection: @external_link_results, partial: "result" %>
+                <%= render collection: @recommended_link_results, partial: "result" %>
               </ul>
             </div>
           <% end %>
-          <% if @primary_results.any? %>
+          <% if @mainstream_results.any? %>
             <ul class="results-list internal-links">
-              <%= render collection: @primary_results, partial: "result" %>
+              <%= render collection: @mainstream_results, partial: "result" %>
             </ul>
           <% end %>
         </div>
       <% end %>
 
-      <% if @secondary_results.any? %>
+      <% if @detailed_guidance_results.any? %>
         <div id="detailed-results" class="js-tab-pane tab-pane">
           <ul>
-            <%= render collection: @secondary_results, partial: "result" %>
+            <%= render collection: @detailed_guidance_results, partial: "result" %>
+          </ul>
+        </div>
+      <% end %>
+
+      <% if @government_results.any? %>
+        <div id="government-results" class="js-tab-pane tab-pane">
+          <ul>
+            <%= render collection: @government_results, partial: "result" %>
           </ul>
         </div>
       <% end %>

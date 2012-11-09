@@ -80,7 +80,7 @@ class SearchController < ApplicationController
 
   def retrieve_government_results(term)
     res = Frontend.government_search_client.search(term)
-    res.map { |r| SearchResult.new(r) }
+    res.map { |r| GovernmentResult.new(r) }
   end
 
   def fill_in_slimmer_headers(result_set)

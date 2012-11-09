@@ -51,3 +51,7 @@ class SearchResult
     name.gsub('-', ' ').capitalize
   end
 end
+
+class GovernmentResult < SearchResult
+end
+

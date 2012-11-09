@@ -13,6 +13,9 @@ class CampaignController < ApplicationController
 
   def uk_welcomes
   end
+  
+  def sort_my_tax
+  end
 
 protected
   def setup_slimmer_artefact

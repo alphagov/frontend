@@ -27,6 +27,12 @@ namespace :panopticon do
         :need_id => "B1049",
         :description => "Help is available to make your home warm and cosy this winter."
       }),
+      RegisterableCampaign.new({
+        :title => "HMRC is closing in on undeclared income",
+        :slug => "sortmytax",
+        :need_id => "B1051",
+        :description => "HMRC is closing in on undeclared income."
+      })
     ]
 
     campaigns.each do |campaign|

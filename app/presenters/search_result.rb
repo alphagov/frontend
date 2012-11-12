@@ -8,7 +8,9 @@ class SearchResult
     "owning-a-car-motorbike" => "Owning a car/motorbike",
     "council-and-housing-association-homes" => "Council and housing association homes",
     "animals-food-and-plants" => "Animals, food and plants",
-    "mot" => "MOT"
+    "mot" => "MOT",
+    "mot-insurance" => "MOT insurance",
+    "Inside Government" => "Inside Government"
   }
 
   attr_accessor :result
@@ -31,18 +33,15 @@ class SearchResult
   # dynamic method and accessors.
   %w(section subsection subsubsection).each do |key|
     define_method "formatted_#{key}_name" do
-      mapped_name(send("#{key}")) ? mapped_name(send("#{key}")) : humanized_name(send("#{key}"))
+      mapped_name(send(key)) || humanized_name(send(key))
     end
 
-    define_method "#{key}" do
+    define_method key do
       result[key]
     end
   end
 
   protected
-  def normalized_format
-    result['format'] ? result['format'].gsub("-", "_") : 'unknown'
-  end
 
   def mapped_name(var)
     return SECTION_NAME_TRANSLATION[var] ? SECTION_NAME_TRANSLATION[var] : false
@@ -52,3 +51,7 @@ class SearchResult
     name.gsub('-', ' ').capitalize
   end
 end
+
+class GovernmentResult < SearchResult
+end
+

@@ -13,7 +13,9 @@
     <% @results.each do |content| %>
       <li>
         <h3><a href="<%= content.web_url %>"><%= content.title %></a></h3>
-        <p><%= content.details.overview.nil? ? nil : content.details.overview.html_safe %></p>
+        <% if content.details.description.present? %>
+        <p><%= content.details.description %></p>
+        <% end %>
       </li>
     <% end %>
     </ul>
@@ -39,5 +41,5 @@
 
 <% content_for :body_classes do %>full-width<% end %>
 <% content_for :extra_headers do %>
-<link rel="alternate" type="application/json" href="/api/with_tag.json?tag=<%= params[:sub_section] %>">
+<link rel="alternate" type="application/json" href="/api/with_tag.json?tag=<%= CGI.escape(@tag_id) %>">
 <% end %>

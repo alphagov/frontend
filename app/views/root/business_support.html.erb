@@ -12,7 +12,7 @@
       <div class="inner">
         
         <section class="intro">
-          <div class="get-started-intro"><%= to_govspeak(@publication.short_description) %></div>
+          <div class="get-started-intro"><%= raw @publication.short_description %></div>
           <p id="get-started" class="get-started group">
             <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">Find out more</a>
             <% if @publication.will_continue_on.present? %>
@@ -33,7 +33,7 @@
           <div class="js-tab-content tab-content">
 
             <article class="js-tab-pane tab-pane what-you-need-to-know" id="what-you-need-to-know">
-              <p>To be eligible for this support, your business must fit into the following categories:</p>
+              <p>Find out what you can get and if your business is eligible</p>
               <% if @publication.organiser.present? -%>
                 <section>
                   <h2>Organiser</h2>
@@ -44,13 +44,13 @@
               <% end -%>
               <% if @publication.max_value.present? and @publication.max_value > 0 %>
                 <section>
-                  <h2>Grant value</h2>
+                  <h2>How much you can get</h2>
                   <div class="support-detail">&pound;<%= 
                     @publication.min_value == 0 ? '1' : @publication.min_value 
                   %> - &pound;<%= @publication.max_value %></div>  
                 </section>
               <% end %>
-              <% if @publication.max_employees.present? %>
+              <% if @publication.max_employees.present? and @publication.max_employees > 0 %>
                 <section>
                   <h2>Maximum employees</h2>
                   <div class="support-detail"><%= @publication.max_employees %></div>
@@ -59,32 +59,26 @@
               <% if @publication.eligibility.present? %>
                 <section>
                   <h2>Eligibility</h2>
-                  <div class="support-detail"><%= to_govspeak(@publication.eligibility) %></div>
+                  <div class="support-detail"><%= raw @publication.eligibility %></div>
                   </section>
               <% end %>
               <% if @publication.evaluation.present? %>
                 <section>
                   <h2>Evaluation</h2>
-                  <div class="support-detail"><%= to_govspeak(@publication.evaluation) %></div>
+                  <div class="support-detail"><%= raw @publication.evaluation %></div>
                 </section>
               <% end %>
               <% if @publication.additional_information.present? %>
                 <section>
                   <h2>Additional information</h2>
-                  <div class="support-detail"><%= to_govspeak(@publication.additional_information) %></div>
+                  <div class="support-detail"><%= raw @publication.additional_information %></div>
                 </section>
-              <% end %>
-              <% if @publication.contact_details.present? %>
-                <section class="last">
-                  <h2>Contact details</h2>
-                  <div class="support-detail"><%= to_govspeak(@publication.contact_details) %></div>
-                </section>  
               <% end %>
             </article>
 
             <article class="js-tab-pane tab-pane" id="additional-information">
               <section class="long-description">
-                <%= to_govspeak(@publication.body) %>
+                <%= raw @publication.body %>
               </section>
             </article>
           </div>

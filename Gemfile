@@ -18,16 +18,10 @@ gem 'plek', '0.5.0'
 gem 'lograge'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 
-if ENV['GOVSPEAK_DEV']
-  gem 'govspeak', :path => '../govspeak'
-else
-  gem 'govspeak', '1.0.1'
-end
-
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.5.0'
+  gem 'slimmer', '3.8.0'
 end
 
 if ENV['GEO_DEV']
@@ -47,14 +41,14 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '3.3.1'
+  gem 'gds-api-adapters', '3.4.0'
 end
 
 gem "addressable"
 gem 'exception_notification'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.2.1'
+  gem 'govuk_frontend_toolkit', '0.6.2'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"

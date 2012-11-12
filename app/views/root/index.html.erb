@@ -1,9 +1,8 @@
 <% content_for :extra_headers do %>
 <link rel="canonical" href="<%= root_path %>" />
+<meta name="description" content="GOV.UK - The new place to find government services and information replacing Directgov and Business Link - Simpler, clearer, faster" />
 <% end %>
 <% content_for :title, "Welcome to GOV.UK" %>
-
-<%= javascript_include_tag 'homepage.js', defer:true %>
 
 <section id="content" class="root-index">
   <div id="homepage">
@@ -25,7 +24,7 @@
     <div class="homepage-section homepage-categories group">
       <ul class="categories-list group">
         <li class="group">
-          <h2><a href="/browse/driving">Driving, transport, and travel</a></h2>
+          <h2><a href="/browse/driving">Driving, transport and travel</a></h2>
           <p>Includes passports and car tax</p>
         </li>
         <li class="group">
@@ -96,8 +95,12 @@
         </ul>
       </article>
       <article class="homepage-section mini-promo">
-        <header><h1>When do the clocks change?</h1></header>
-        <p><a href="/when-do-the-clocks-change">The clocks go back <span>28 October</span></a></p>
+        <header>
+          <h1>Workplace pensions</h1>
+        </header>
+        <a href="/workplacepensions"><%= image_tag 'homepage/workplace-pensions-promo.jpg', :alt => "Karren Brady says: I'm in" %></a>
+        <p>Starting from October, millions of workers will be enrolled into a workplace pension.</p>
+        <p><a href="/workplacepensions">What it means for you</a></p>
       </article>
       <article class="homepage-section inside-gov">
         <div class="inner">

@@ -8,13 +8,18 @@ class RootController < ApplicationController
   include RootHelper
   include ActionView::Helpers::TextHelper
 
-  def index
-    set_expiry
+  before_filter :set_expiry, :only => [:index, :tour]
 
-    set_slimmer_headers(template: "homepage", format: "homepage")
+  def index
+    set_slimmer_headers(
+      template: "homepage",
+      format: "homepage",
+      campaign_notification: true)
 
     # Only needed for Analytics
-    set_slimmer_dummy_artefact(:section_name => "homepage", :section_url => "/")
+    set_slimmer_dummy_artefact(
+      section_name: "homepage",
+      section_url: "/")
   end
 
   def publication
@@ -30,6 +35,10 @@ class RootController < ApplicationController
 
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
+
+    if request.format.json? && @artefact['format'] != 'place'
+      redirect_to "/api/#{params[:slug]}.json" and return
+    end
 
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']

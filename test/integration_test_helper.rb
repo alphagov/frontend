@@ -26,10 +26,11 @@ class ActionDispatch::IntegrationTest
     content_api_has_an_artefact(slug, artefact)
   end
 
-  def stub_location_request(postcode, response)
+  def stub_location_request(postcode, response, status = 200)
     defaults = { "shortcuts" => {} }
-    stub_request(:get, "http://mapit.test.gov.uk/postcode/" + postcode.sub(' ','+') + ".json").to_return(:body => defaults.merge(response).to_json)
-    stub_request(:get, "http://mapit.test.gov.uk/postcode/partial/" + postcode.split(' ').first + ".json").to_return(:body => response.slice("wgs84_lat","wgs84_lon").to_json)
+    stub_request(:get, /api.geonames.org/)
+    stub_request(:get, "http://mapit.test.gov.uk/postcode/" + postcode.sub(' ','+') + ".json").to_return(:body => defaults.merge(response).to_json, :status => status)
+    stub_request(:get, "http://mapit.test.gov.uk/postcode/partial/" + postcode.split(' ').first + ".json").to_return(:body => response.slice("wgs84_lat","wgs84_lon").to_json, :status => status)
   end
 end
 

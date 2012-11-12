@@ -38,6 +38,10 @@
 
       h2 {
         @include core-16;
+
+        @include media(mobile) {
+          @include core-19;
+        }
       }
     }
 
@@ -47,21 +51,24 @@
       padding: 0;
 
       @include media(mobile) {
-        border-top:1px solid #ccc;
+        border-top:1px solid $grey-6;
         margin-bottom: 1em;
       }
 
       li {
         @include core-19;
         display: block;
-        border-bottom:1px solid #ccc;
+        border-bottom:1px solid $grey-6;
         float: left;
         clear: left;
         width: 45.5%;
         margin-left: 4.5%;
 
-        &:nth-child(11n) {
-          border:none;
+        @include media(desktop) {
+
+          &:nth-child(11n) {
+            border-bottom:none;
+          }
         }
 
         &:nth-child(even) {
@@ -84,19 +91,8 @@
           width: 100%;
           margin-left: 0;
 
-          &:nth-child(11n) {
-            border:none;
-          }
-
           &:nth-child(even) {
             float: none;
-          }
-        }
-
-        a{
-          color: darken($turquoise, 10%);
-          &:hover {
-            color: $turquoise;
           }
         }
         p{
@@ -158,6 +154,10 @@
     float:left;
     margin-top: 1em;
 
+    h1{
+      padding: 0;
+    }
+
     @include media(mobile) {
       float: none;
       width: 100%;
@@ -192,18 +192,13 @@
           padding-left: 0;
           padding-bottom:0.5em;
 
-          a {
-            color: darken($turquoise, 10%);
-            &:hover {
-              color: $turquoise;
-            }
-          }
+          
         }
       }
     }
 
     &.inside-gov{
-      background-color:#303030;
+      background-color: $black;
       border:none;
       margin-right: 0;
       
@@ -239,6 +234,7 @@
           padding: 0;
           margin:0;
         }
+
         h1{
           @include core-24;
         }
@@ -247,30 +243,9 @@
 
     &.mini-promo{
 
-      p {
-        text-align: center;
-
-        a {
-          @include core-24;
-          background-color: $turquoise;
-          color: #fff;
-          display: block;
-          padding: 1em;
-          text-decoration: none;
-
-          span {
-            @include core-36;
-            display: block;
-          }
-
-          &:hover {
-            text-decoration: underline;
-          }
-
-          @include ie(6) {
-            zoom: 1;
-          }
-        }
+      img {
+        margin: 0.75em 0 0 0;
+        width: 100%;
       }
     }
   }

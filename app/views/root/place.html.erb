@@ -17,7 +17,7 @@
 
   	        <div class="find-nearest">
 
-    	        <%= to_govspeak(@publication.introduction) %>
+    	        <%= raw @publication.introduction %>
 
               <form method="post" id="local-locator-form" class="find-location-for-service">
       	        <fieldset>
@@ -59,7 +59,7 @@
                 </ul>
               <% end %>
 
-              <%= to_govspeak(@publication.more_information) %>
+              <%= raw @publication.more_information %>
             </div>
           <% end %>
 	      </section>

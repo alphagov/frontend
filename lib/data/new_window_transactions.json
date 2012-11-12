@@ -11,11 +11,13 @@
   "tell-us-once-report-death",
   "calculate-child-maintenance",
   "report-benefit-fraud",
-  "jobs-jobsearch",
   "report-extremism",
   "pay-court-fine-online",
   "send-vat-return",
   "use-construction-industry-scheme-online",
   "file-your-company-accounts-and-tax-return",
-  "change-date-practical-driving-test"
+  "change-date-practical-driving-test",
+  "check-mot-status-vehicle",
+  "check-mot-history-vehicle",
+  "cancel-practical-driving-test"
 ]

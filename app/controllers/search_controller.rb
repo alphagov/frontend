@@ -1,6 +1,7 @@
 require "slimmer/headers"
 
 class SearchController < ApplicationController
+
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
 
@@ -12,11 +13,16 @@ class SearchController < ApplicationController
     end
 
     if @search_term.present?
-      @external_link_results, @primary_results = extract_external_links(retrieve_primary_results(@search_term))
-      @secondary_results = retrieve_secondary_results(@search_term)
-
-      @all_results = @primary_results + @secondary_results + @external_link_results
-      @count_results = @primary_results + @secondary_results
+      @mainstream_results = mainstream_results
+      @recommended_link_results = grouped_mainstream_results[:recommended_link]
+      @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
+      if include_government_results?
+        @government_results = retrieve_government_results(@search_term)
+      else
+        @government_results = []
+      end
+      @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
+      @count_results = @mainstream_results + @detailed_guidance_results + @government_results
     end
 
     fill_in_slimmer_headers(@all_results)
@@ -30,20 +36,51 @@ class SearchController < ApplicationController
 
   protected
 
-  def retrieve_primary_results(term)
+  def grouped_mainstream_results
+    @_grouped_mainstream_results ||= begin
+      results = retrieve_mainstream_results(@search_term)
+      grouped_results = results.group_by do |result|
+        if !result.respond_to?(:format)
+          :everything_else
+        else
+          if result.format == 'recommended-link'
+            :recommended_link
+          elsif result.format == 'inside-government-link'
+            :inside_government_link
+          else
+            :everything_else
+          end
+        end
+      end
+      grouped_results[:recommended_link] ||= []
+      grouped_results[:inside_government_link] ||= []
+      grouped_results[:everything_else] ||= []
+      grouped_results
+    end
+  end
+
+  def mainstream_results
+    if include_government_results?
+      # Get Inside Government results to the top
+      @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
+    else
+      @mainstream_results = grouped_mainstream_results[:everything_else]
+    end
+  end
+
+  def retrieve_mainstream_results(term)
     res = Frontend.mainstream_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
   end
 
-  def extract_external_links(results)
-    results.partition do |result|
-      (result.respond_to?(:format) && result.format == 'recommended-link')
-    end
-  end
-
-  def retrieve_secondary_results(term)
+  def retrieve_detailed_guidance_results(term)
     res = Frontend.detailed_guidance_search_client.search(term)
     res.map { |r| SearchResult.new(r) }
+  end
+
+  def retrieve_government_results(term)
+    res = Frontend.government_search_client.search(term)
+    res.map { |r| GovernmentResult.new(r) }
   end
 
   def fill_in_slimmer_headers(result_set)
@@ -57,5 +94,9 @@ class SearchController < ApplicationController
 
   def setup_slimmer_artefact
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
+  end
+
+  def include_government_results?
+    params[:government].present?
   end
 end

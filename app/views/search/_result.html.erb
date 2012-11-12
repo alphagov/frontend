@@ -8,13 +8,19 @@
 
   <% if result.format == "recommended-link" %>
     <ul class="result-meta">
-      <li><%= result.link %></li>
+      <li><%= truncate(result.link, :length => 48) %></li>
     </ul>
   <% elsif (result.format == 'detailed_guidance' && result.section) || result.section %>
     <ul class="result-meta result-sections">
       <li class="result-section"><%= result.formatted_section_name %></li>
       <% if result.subsection %><li class="result-subsection"><%= result.formatted_subsection_name %></li><% end %>
       <% if result.subsubsection %><li class="result-subsubsection"><%= result.formatted_subsubsection_name %></li><% end %>
+    </ul>
+  <% elsif result.is_a?(GovernmentResult) && result.format %>
+    <ul class="result-meta">
+      <li>
+        <%= result.format.humanize %>
+      </li>
     </ul>
   <% end %>
 </li>

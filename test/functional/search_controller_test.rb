@@ -7,6 +7,8 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.stubs(:mainstream_search_client).returns(mainstream_client)
     detailed_client = stub("search", search: [])
     Frontend.stubs(:detailed_guidance_search_client).returns(detailed_client)
+    government_client = stub("search", search: [])
+    Frontend.stubs(:government_search_client).returns(government_client)
   end
 
   setup do
@@ -23,7 +25,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should inform the user that we didn't find any documents matching the search term" do
     get :index, q: "search-term"
-    assert_select "p", text: %Q{Please try another search in the search box at the top of the page.}
+    assert_select "h1", text: %Q{Sorry, but there are no results for 'search-term'}
   end
 
   test "should pass our query parameter in to the search client" do
@@ -60,6 +62,18 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "label", text: /1 result for/
   end
 
+  test "should display single result with specific class name attribute" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "div#mainstream-results.single-item-pane" 
+  end
+
+  test "should display multiple results without class name for single result set" do
+    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    get :index, q: "search-term"
+    assert_select "div#mainstream-results.single-item-pane", 0 
+  end
+
   test "should only count non-recommended results in total" do
     Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
     get :index, q: "search-term"
@@ -69,6 +83,7 @@ class SearchControllerTest < ActionController::TestCase
   test "should display just tab page of results if we have results from a single index" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([])
+    Frontend.government_search_client.stubs(:search).returns([])
     get :index, q: "search-term"
     assert_select 'nav.js-tabs', count: 0
   end
@@ -83,9 +98,13 @@ class SearchControllerTest < ActionController::TestCase
   test "should display index count on respective tab" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+    Frontend.government_search_client.stubs(:search).returns([{}, {}])
     get :index, q: "search-term"
-    assert_select "a[href='#mainstream-results']", text: "Results (3)"
+    assert_select "a[href='#mainstream-results']", text: "General results (3)"
     assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
+    # Temporarily, Government results only visible with parameter
+    get :index, q: "search-term", government: "1"
+    assert_select "a[href='#government-results']", text: "Inside Government (2)"
   end
 
   test "should display a link to the documents matching our search criteria" do
@@ -164,7 +183,7 @@ class SearchControllerTest < ActionController::TestCase
 
     get :index, q: "Test"
 
-    assert_equal 75, assigns[:primary_results].length
+    assert_equal 75, assigns[:mainstream_results].length
   end
 
   test "should show the phrase searched for" do
@@ -180,8 +199,8 @@ class SearchControllerTest < ActionController::TestCase
 
     get :index, q: "Test"
 
-    assert_equal 45, assigns[:primary_results].length
-    assert_equal 20, assigns[:external_link_results].length
+    assert_equal 45, assigns[:mainstream_results].length
+    assert_equal 20, assigns[:recommended_link_results].length
   end
 
   test "should_show_external_links_with_a_separate_list_class" do
@@ -196,7 +215,7 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
 
     get :index, {q: "bleh"}
-    assert_select ".external-links li.external" do
+    assert_select ".recommended-links li.external" do
       assert_select "a[rel=external]", "A title"
     end
   end
@@ -213,10 +232,33 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([external_document])
 
     get :index, {q: "bleh"}
-    assert_select ".external-links li.external" do
+    assert_select ".recommended-links li.external" do
       assert_select "a[rel=external]", "A title"
     end
     assert_select '.internal-links li.external', count: 0
+  end
+
+  test "should show inside-government-links at the top of mainstream results" do
+    normal_result = {
+      "title" => "BORING",
+      "description" => "DESCRIPTION",
+      "link" => "/url",
+      "section" => "life-in-the-uk",
+      "subsection" => "test-thing"
+    }
+    inside_government_link = {
+      "title" => "QUEUE JUMPER",
+      "description" => "DESCRIPTION",
+      "link" => "/government/awesome",
+      "format" => "inside-government-link",
+      "section" => "Inside Government"
+    }
+
+    Frontend.mainstream_search_client.stubs(:search).returns([normal_result, inside_government_link])
+
+    get :index, { q: "bleh", government: "1" }
+    assert_select '#mainstream-results li:first-child a', text: "QUEUE JUMPER"
+    assert_select '#mainstream-results li:nth-child(2) a', text: 'BORING'
   end
 
   test "should send analytics headers for citizen proposition" do
@@ -233,5 +275,24 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bob"}
 
     assert_equal "15", response.headers["X-Slimmer-Result-Count"]
+  end
+
+  test "truncate long external URLs to a fixed length" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "http://www.weally.weally.long.url.com/weaseling/about/the/world",
+      "section" => "driving",
+      "format" => "recommended-link"
+    }
+
+    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external ul.result-meta' do
+      assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+    end
   end
 end

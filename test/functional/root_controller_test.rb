@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class RootControllerTest < ActionController::TestCase
-
   def setup_this_answer
     content_api_has_an_artefact("c-slug", {
       'slug' => 'c-slug',
@@ -20,6 +19,26 @@ class RootControllerTest < ActionController::TestCase
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
     @controller.stubs(:default_render)
+  end
+
+  test "should redirect requests for JSON" do
+    setup_this_answer
+    get :publication, :slug => 'c-slug', :format => 'json'
+    assert_response :redirect
+    assert_redirected_to "/api/c-slug.json"
+  end
+
+  test "should not redirect request for places JSON" do
+    content_api_has_an_artefact("d-slug", {
+      'slug' => 'c-slug',
+      'format' => 'place',
+      'details' => {
+        'name' => 'THIS'
+      }
+    })
+
+    get :publication, :slug => 'd-slug', :format => 'json'
+    assert_response :success
   end
 
   test "should return a 404 if asked for a guide without parts" do
@@ -88,10 +107,19 @@ class RootControllerTest < ActionController::TestCase
   test "further information tab should appear for programmes that have it" do
     content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
             {'slug' => 'a', 'name' => 'AA'},
-            {'slug' => 'further-information', 'name' => 'BB'}
+            {'slug' => 'further-information', 'name' => 'BB', 'body' => "abc"}
           ]}})
     get :publication, :slug => "zippy"
     assert @response.body.include? "further-information"
+  end
+
+  test "further information tab should not appear for programmes where it is empty" do
+    content_api_has_an_artefact("zippy", {'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
+            {'slug' => 'a', 'name' => 'AA'},
+            {'slug' => 'further-information', 'name' => 'BB'}
+          ]}})
+    get :publication, :slug => "zippy"
+    assert_false @response.body.include? "further-information"
   end
 
   test "further information tab should not appear for programmes that don't have it" do
@@ -136,13 +164,6 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"
     assert_response :not_found
-  end
-
-  test "should not redirect to first part URL if request is for JSON" do
-    content_api_has_an_artefact("a-slug")
-    prevent_implicit_rendering
-    get :publication, slug: "a-slug", format: 'json'
-    assert_response :success
   end
 
   test "should assign edition to template if it's not blank and a number" do
@@ -217,17 +238,31 @@ class RootControllerTest < ActionController::TestCase
   context "loading the homepage" do
     should "respond with success" do
       get :index
-
       assert_response :success
     end
 
     should "set correct expiry headers" do
       get :index
-
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
+
+    should "have a slimmer set to load the campaign notification" do
+      get :index
+      assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION
+      assert_equal "true", response.headers[Slimmer::Headers::CAMPAIGN_NOTIFICATION]
+      assert_response :success
     end
   end
 
+  context "loading the tour page" do
+    should "respond with success" do
+      get :tour
+      assert_response :success
+    end
 
-
+    should "set correct expiry headers" do
+      get :tour
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
+  end
 end

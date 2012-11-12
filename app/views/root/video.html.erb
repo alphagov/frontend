@@ -21,9 +21,10 @@
           <figure class="media-player-wrapper" id="video">
             <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
           </figure>
+          <p><a href="<%= @publication.video_embed_url %>" title="Watch the video on YouTube" rel="external">Watch on YouTube</a></p>
         <% end %>
 
-        <%= to_govspeak(@publication.body) %>
+        <%= raw @publication.body %>
       </div>
     </article>
 

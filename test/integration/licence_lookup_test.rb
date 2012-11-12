@@ -142,7 +142,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the licence with an invalid postcode" do
+    context "when visiting the licence with an invalid formatted postcode" do
       setup do
         visit '/licence-to-kill'
 
@@ -155,7 +155,29 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "Please enter a valid UK postcode."
+        assert page.has_content? "Please enter a valid full UK postcode."
+      end
+    end
+
+    context "when visiting the licence with an incorrect postcode" do
+      setup do
+        stub_location_request("AB1 2AB", {
+          "code" => 404,
+          "error" => "Postcode not found"
+        }, 404)
+
+        visit '/licence-to-kill'
+
+        fill_in 'postcode', :with => "AB1 2AB"
+        click_button('Find')
+      end
+
+      should "remain on the licence page" do
+        assert_equal "/licence-to-kill", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "Please enter a valid full UK postcode."
       end
     end
   end

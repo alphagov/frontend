@@ -25,14 +25,14 @@ class BrowseController < ApplicationController
   end
 
   def sub_section
-    tag_id = "#{params[:section]}/#{params[:sub_section]}"
-    @sub_category = content_api.tag(tag_id)
+    @tag_id = "#{params[:section]}/#{params[:sub_section]}"
+    @sub_category = content_api.tag(@tag_id)
     return error_404 unless @sub_category
 
     @category = @sub_category.parent
-    @results = content_api.sorted_by(tag_id, "curated").results
+    @results = content_api.sorted_by(@tag_id, "curated").results
 
-    detailed_guidance_sections(tag_id)
+    detailed_guidance_sections(@tag_id)
 
     setup_page_title(@sub_category.title)
     options = {title: "browse", section_name: @category.title, section_link: "/browse/#{params[:section]}"}
@@ -46,7 +46,7 @@ protected
   end
 
   def setup_page_title(category=nil)
-    @page_title = category.nil? ? "Browse - GOV.UK Beta (Test)" : "#{category} - GOV.UK Beta (Test)"
+    @page_title = category.nil? ? "Browse - GOV.UK" : "#{category} - GOV.UK"
   end
 
   def detailed_guidance_sections(tag_id)

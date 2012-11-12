@@ -49,16 +49,16 @@ module Frontend
 
     config.assets.precompile += %w(
       trackers/ab-testing.js
-      feedback.js
       programmes.js
       frontend.js
       media-player.js
       media-player.css
-      homepage.js
+      tour.js
       application.css
       application-ie6.css
       application-ie7.css
       application-ie8.css
+      support-styles.css
     )
 
     # Path within public/ where assets are compiled to
@@ -80,5 +80,8 @@ module Frontend
 
     # Disable Rack::Cache
     config.action_dispatch.rack_cache = nil
+
+    # Disable Content Negotiation
+    config.action_dispatch.ignore_accept_header = true
   end
 end

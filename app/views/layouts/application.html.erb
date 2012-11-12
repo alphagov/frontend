@@ -7,12 +7,6 @@
 
     <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 
-    <% if @publication and @publication.overview.present? %>
-      <meta name="description" content="<%= @publication.overview %>">
-    <% else %>
-      <%= yield :description %>
-    <% end %>
-
     <!--[if gt IE 8]><!--><%= stylesheet_link_tag "application.css" %><!--<![endif]-->
     <!--[if IE 6]><%= stylesheet_link_tag "application-ie6.css" %><![endif]-->
     <!--[if IE 7]><%= stylesheet_link_tag "application-ie7.css" %><![endif]-->

@@ -45,7 +45,9 @@ class PublicationPresenter
     if details
       parts = details["parts"]
       if parts
-        parts.map{|part| PartPresenter.new(part)}
+        parts.reject {|part|
+          part['slug'] == "further-information" and (part['body'].nil? or part['body'].strip == "")
+        }.map{|part| PartPresenter.new(part)}
       end
     end
   end
@@ -68,7 +70,7 @@ class PublicationPresenter
 
     video = video_url.scan(/\?v=([A-Za-z0-9_\-]+)/)
     if video.any?
-      "http://www.youtube.com/watch?v=#{video[0][0]}"
+      "https://www.youtube.com/watch?v=#{video[0][0]}"
     else
       ""
     end

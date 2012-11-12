@@ -13,12 +13,6 @@
     <aside>
       <div class="inner">
         <nav role="navigation" class="page-navigation">
-          <% if @publication.video_url.present? %>
-            <div class="alternative-guide video">
-              <%video_id = @publication.video_url.scan(/\?v=([A-Za-z0-9_\-]+)/) %>
-                <a href="<%= part_path(@publication.slug, 'video',@edition) %>"><div class="video-wrapper"><% if video_id.any? %><img src="https://img.youtube.com/vi/<%=video_id[0][0]%>/1.jpg" width="120" height="96" alt=""><% end %></div><span>Watch <span class="visuallyhidden">the</span> video <span class="visuallyhidden">version of this</span> guide</span></a>
-            </div>
-          <% end %>
           <ol>
             <% @publication.parts.each do |nav_part| %>
               <li <% if @part == nav_part %>class="active"<% end %>>
@@ -75,12 +69,12 @@
               <%- end -%>
             </ul>
           </nav>
-        </footer> 
+        </footer>
 
       </div>
     </article>
     <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
-  
+
   </div>
 
 </section>

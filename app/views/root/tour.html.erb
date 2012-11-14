@@ -1,6 +1,7 @@
 <% content_for :title, "Tour - GOV.UK" %>
 <section id="content" role="main" class="group tour">
 <div class="tour-container full-width group">
+  <article id="mainstream">
   <header class="page-header group">
     <hgroup>
       <h1>GOV.UK is the best place to find government services and information.</h1>
@@ -77,7 +78,8 @@
       <button type="submit" class="button">Search</button>
     </p>
   </form>
-
+</article>
+<article id="inside-government">
   <header class="page-header group">
     <hgroup>
       <h1>Inside Government: Policy, publications and announcements in one place.</h1>
@@ -119,7 +121,6 @@
       <li class="last">
         <h2>...and by topic</h2>
         <p>You don’t have to be an expert on how the government works to get around. Explore subjects by topic, like transport or housing, and see different policies on that subject from across government - all in one place.</p>
-      <p>The <a href="/designprinciples/styleguide">GOV.UK style guide</a> goes into more detail about the guidelines our writers follow for everything on the site.</p>
       </li>
       <li>
         <h2>Clear, easy-to-read formats</h2>
@@ -137,7 +138,9 @@
         
       </li>
   </ul>
+  </article>
 </div>
+
 </section>
 
 <% content_for :body_classes do %>full-width<% end %>

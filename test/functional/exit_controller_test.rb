@@ -18,7 +18,7 @@ class ExitControllerTest < ActionController::TestCase
 
       mock_content_api(slug, { :format => format, details: { :link => target} } )
 
-      get :exit, slug: slug, need_id: need_id, format: format
+      get :exit, slug: slug, format: format
 
       assert_redirected_to target
     end
@@ -29,7 +29,7 @@ class ExitControllerTest < ActionController::TestCase
       format = 'transaction'
 
       content_api_does_not_have_an_artefact(slug)
-      get :exit, slug: slug, need_id: need_id, format: format
+      get :exit, slug: slug, format: format
 
       assert_equal 404, response.status
     end
@@ -41,7 +41,7 @@ class ExitControllerTest < ActionController::TestCase
 
       mock_content_api(slug, { :format => format } )
 
-      get :exit, slug: slug, need_id: need_id, format: format
+      get :exit, slug: slug, format: format
 
       assert_equal 404, response.status
     end
@@ -53,7 +53,7 @@ class ExitControllerTest < ActionController::TestCase
 
       mock_content_api(slug, { :format => format, :details => {} } )
 
-      get :exit, slug: slug, need_id: need_id, format: format
+      get :exit, slug: slug, format: format
 
       assert_equal 404, response.status
     end
@@ -62,15 +62,6 @@ class ExitControllerTest < ActionController::TestCase
       slug = '/tax-disc-license'
       need_id = '999999'
       format = 'ABC'
-
-      get :exit, slug: slug, need_id: need_id, format: format
-
-      assert_equal 404, response.status
-    end
-
-    should "return 404 if need_id is missing from url params" do
-      slug = '/tax-disc-license'
-      format = 'transaction'
 
       get :exit, slug: slug, format: format
 
@@ -81,7 +72,7 @@ class ExitControllerTest < ActionController::TestCase
       slug = '/tax-disc-license'
       need_id = '999999'
 
-      get :exit, slug: slug, need_id: need_id
+      get :exit, slug: slug
 
       assert_equal 404, response.status
     end
@@ -90,7 +81,7 @@ class ExitControllerTest < ActionController::TestCase
       need_id = '999999'
       format = 'transaction'
 
-      get :exit, need_id: need_id, format: format
+      get :exit, format: format
 
       assert_equal 404, response.status
     end

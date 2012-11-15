@@ -16,11 +16,8 @@ class SearchController < ApplicationController
       @mainstream_results = mainstream_results
       @recommended_link_results = grouped_mainstream_results[:recommended_link]
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
-      if include_government_results?
-        @government_results = retrieve_government_results(@search_term)
-      else
-        @government_results = []
-      end
+      @government_results = retrieve_government_results(@search_term)
+
       @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
       @count_results = @mainstream_results + @detailed_guidance_results + @government_results
     end
@@ -60,12 +57,7 @@ class SearchController < ApplicationController
   end
 
   def mainstream_results
-    if include_government_results?
-      # Get Inside Government results to the top
-      @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
-    else
-      @mainstream_results = grouped_mainstream_results[:everything_else]
-    end
+    @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
   end
 
   def retrieve_mainstream_results(term)
@@ -94,9 +86,5 @@ class SearchController < ApplicationController
 
   def setup_slimmer_artefact
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
-  end
-
-  def include_government_results?
-    params[:government].present?
   end
 end

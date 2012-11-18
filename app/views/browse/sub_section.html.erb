@@ -10,6 +10,13 @@
   <div class="browse-container full-width group">
 
     <ul class="content-list group">
+      <% hardcoded_results(@sub_category).each do |res| %>
+      <li>
+        <h3><%= link_to res[:title], res[:link] %></h3>
+        <p><%= res[:description] %></p>
+      </li>
+      <% end %>
+
     <% @results.each do |content| %>
       <li>
         <h3><a href="<%= content.web_url %>"><%= content.title %></a></h3>

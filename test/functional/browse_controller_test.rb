@@ -77,6 +77,26 @@ class BrowseControllerTest < ActionController::TestCase
       Frontend.stubs(:detailed_guidance_content_api).returns(mock_api)
     end
 
+    context "nasty hardcoded links till we properly integrate inside gov" do
+      should "include link to 'how government works' on government page" do
+        content_api_has_section("citizenship/government", "citizenship")
+        content_api_has_artefacts_in_a_section("citizenship/government", [])
+
+        get :sub_section, section: 'citizenship', sub_section: 'government'
+
+        assert_select "li h3 a", {:count => 1, :text => "How government works"}
+      end
+
+      should "not include 'how government works' on other sections" do
+        content_api_has_section("crime-and-justice/judges", "crime-and-justice")
+        content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])
+
+        get :sub_section, section: "crime-and-justice", sub_section: "judges"
+
+        assert_select "li h3 a", {:count => 0, :text => "How government works"}
+      end
+    end
+
     should "list the content in the sub section" do
       content_api_has_section("crime-and-justice/judges", "crime-and-justice")
       content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])

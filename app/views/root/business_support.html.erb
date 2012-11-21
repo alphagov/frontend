@@ -42,15 +42,16 @@
                   </div>  
                 </section>
               <% end -%>
-              <% if @publication.max_value.present? and @publication.max_value > 0 %>
+              <% if @publication.min_value.present? and @publication.max_value.present? and 
+                  @publication.max_value.to_i > 0 %>
                 <section>
                   <h2>How much you can get</h2>
                   <div class="support-detail">&pound;<%= 
-                    @publication.min_value == 0 ? '1' : @publication.min_value 
+                    @publication.min_value.to_i == 0 ? '1' : @publication.min_value 
                   %> - &pound;<%= @publication.max_value %></div>  
                 </section>
               <% end %>
-              <% if @publication.max_employees.present? and @publication.max_employees > 0 %>
+              <% if @publication.max_employees.present? and @publication.max_employees.to_i > 0 %>
                 <section>
                   <h2>Maximum employees</h2>
                   <div class="support-detail"><%= @publication.max_employees %></div>

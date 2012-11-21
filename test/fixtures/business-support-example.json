@@ -1,26 +1,24 @@
-{"_response_info":{"status":"ok"},"total":1,"results":[
-  { "title":"Access to Work - London",
-    "id":"http://contentapi.dev.gov.uk/access-to-work-london.json",
-    "web_url":"http://frontend.dev.gov.uk/access-to-work-london",
-    "format":"business_support",
-    "details":{
-      "need_id":"1",
-      "business_proposition":false,
-      "alternative_title":null,
-      "overview":null,
-      "min_value":0,
-      "max_value":10000,
-      "short_description":"<p>Grants and practical advice for disabled people and their employers to help overcome the practical problems resulting from disability</p>",
-      "will_continue_on":"Jobcentre Plus website",
-      "continuation_link":"http://www.direct.gov.uk/en/DisabledPeople/Employmentsupport/WorkSchemesAndProgrammes/DG_4000347",
-      "eligibility":"<p>Disabled employees and their employers are eligible to apply for grants under this scheme.</p>",
-      "evaluation":null,
-      "additional_information":null,
-      "business_support_identifier":"2",
-      "max_employees":249,
-      "organiser":"Jobcentre Plus",
-      "contact_details":"Jobcentre Plus atwosu.london@jobcentreplus.gsi.gov.uk 020 8426 3110 Access to Work Operational Support Nine Elms Lane London SW95 9BH",
-      "updated_at":"2012-10-08T09:25:53+00:00",
-      "body":"\n<p>This scheme provides grants to employers towards extra employment costs which result from an employee having a disability. The programme aims to provide practical advice and support to disabled people and their employers, in order to overcome work related obstacles which result from disability.</p>\n"}
-  }
-]}
+{ "_response_info": {"status":"ok"},
+  "id":"https://www.gov.uk/api/business-support-example.json",
+  "web_url":"https://www.gov.uk/business-support-example",
+  "title":"Business support example",
+  "format":"business_support",
+  "details":{
+    "need_id":"",
+    "business_proposition":true,
+    "description":"Provides UK businesses with free, quick and easy access to a directory of approved finance suppliers","body":"<p>Business Finance for You brings into one place a wide range of finance providers across Britain - including business angels, regional funds, government schemes and banks - enabling businesses to more easily seek the finance they require. Its free and easy-to-use search engine allows businesses to refine searches according to their geographic location, the industry in which they operate, the amount of finance they require, and the life stage of their business. </p>\n",
+    "alternative_title":"",
+    "min_value":0,
+    "max_value":20000000,
+    "short_description":"Provides UK businesses with free, quick and easy access to a directory of approved finance suppliers",
+    "will_continue_on":"Business finance for you website",
+    "continuation_link":"http://www.businessfinanceforyou.co.uk/finance-finder",
+    "eligibility":"<p>Will depend on the individual provider.</p>\n","evaluation":"\n","additional_information":"<p>Business Finance For You has been developed in association with the BBA, CDFA, the UK Business Angels Association, ABFA, FLA, British Chamber of Commerce, Forum of Private Business and the Department for Business Innovation and Skills.  </p>\n",
+    "business_support_identifier":"1026",
+    "max_employees":0,
+    "organiser":""
+  },
+  "updated_at":"2012-11-19T11:49:26+00:00",
+  "tags":[],
+  "related":[]
+}

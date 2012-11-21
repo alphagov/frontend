@@ -4,7 +4,7 @@ class ExitController < ApplicationController
   end
 
   def exit
-    raise RecordNotFound unless params[:slug] and params[:need_id] and params[:format]
+    raise RecordNotFound unless params[:slug] and params[:format]
     raise RecordNotFound unless params[:format] == 'transaction'
 
     publication = fetch_artefact

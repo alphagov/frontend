@@ -9,7 +9,7 @@ class BrowseController < ApplicationController
 
   def index
     setup_page_title("All categories")
-    @categories = content_api.root_sections.results.sort_by { |category| category.title }
+    @categories = load_root_sections
     options = {title: "browse", section_name: "Browse", section_link: "/browse"}
     set_slimmer_artefact_headers(options)
   end

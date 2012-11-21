@@ -20,6 +20,8 @@ class RootController < ApplicationController
     set_slimmer_dummy_artefact(
       section_name: "homepage",
       section_url: "/")
+
+    @root_sections = load_root_sections
   end
 
   def publication

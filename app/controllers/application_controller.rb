@@ -70,6 +70,10 @@ class ApplicationController < ActionController::Base
       raise RecordNotFound
     end
 
+    def load_root_sections
+      content_api.root_sections.results.sort_by(&:title)
+    end
+
     def content_api
       @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
     end

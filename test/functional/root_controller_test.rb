@@ -277,6 +277,10 @@ class RootControllerTest < ActionController::TestCase
   end
 
   context "loading the homepage" do
+    setup do
+      GdsApi::ContentApi.any_instance.stubs(:root_sections).returns(stub("Response", :results => []))
+    end
+
     should "respond with success" do
       get :index
       assert_response :success
@@ -292,6 +296,17 @@ class RootControllerTest < ActionController::TestCase
       assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION
       assert_equal "true", response.headers[Slimmer::Headers::CAMPAIGN_NOTIFICATION]
       assert_response :success
+    end
+
+    should "query the content api for root sections and assign them to @root_sections in title order" do
+      prevent_implicit_rendering
+
+      stub_results = stub("Response", :results => [stub(:title => "Foo"), stub(:title => "Bar")])
+      GdsApi::ContentApi.any_instance.stubs(:root_sections).returns(stub_results)
+
+      get :index
+
+      assert_equal ["Bar", "Foo"], assigns[:root_sections].map(&:title)
     end
   end
 

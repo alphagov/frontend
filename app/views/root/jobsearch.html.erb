@@ -1,0 +1,78 @@
+<%- presenter = TransactionPresenter.new(@publication) -%>
+
+<section id="content" role="main" class="group jobsearch">
+
+  <header class="page-header group">
+    <hgroup>
+     <h1><span>Service</span> Find a job with Universal Jobmatch</h1>
+    </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related">Not what you're looking for? ↓</a>
+    </nav>                
+  </header>
+	<div class="article-container group">
+  	<article role="article" class="group">
+     <div class="inner">
+
+      <section class="intro">
+        <div class="get-started-intro"><p>Search for full or part-time jobs in Great Britian and abroad.</p></div>
+        <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
+        <form class="jobsearch-form" action="https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx" method="get">
+
+					<input type="hidden" name="rad" value="20"/>
+					<input type="hidden" name="rad_units" value="miles"/>
+					<input type="hidden" name="pp" value="25"/>
+					<input type="hidden" name="sort" value="rv.dt.di"/>
+					<input type="hidden" name="vw" value="b"/>
+					<input type="hidden" name="re" value="134"/>
+					<input type="hidden" name="setype" value="2"/>
+		
+					<p class="group"><label for="search_title">Job title</label><input id="search_title" type="text" name="tjt"></p>        
+					
+					<p class="group"><label for="search_where">Town, place or postcode</label><input id="search_where" name="where" type="text"/></p>
+
+					<p class="group"><label for="search_keywords">Skills (optional)</label><input id="search_keywords" name="q" type="text" /></p>
+                                        <p id="get-started" class="get-started group">
+                                          <button class="button" type="submit" >Search</button>
+                                          <span class="destination"> on Universal Jobmatch</span>
+                                        </p>	
+				</form>
+      </section>
+
+      <section class="more">
+      	<nav class="js-tabs nav-tabs">
+		      <ul>
+						<li class="active"><a href="#before-you-start">Before you start</a></li>
+		    		<li><a href="#other-ways-to-apply">Other ways to apply</a></li>
+		  		</ul>
+		  	</nav>
+
+		  	<div class="js-tab-content tab-content">
+    			<div class="js-tab-pane tab-pane" id="before-you-start">
+						<div class="application-notice info-notice">
+							<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>
+						</div>
+            <p>If you're having problems registering with Universal Jobmatch:</p>
+            <ul>
+            	<li>check your email spam folder for the confirmation email</li>
+              <li>make a note of the Government Gateway number during the signup process - you will need this to sign in again later</li>
+            </ul>
+        		<p>Search for jobs in Northern Ireland with <a href="http://www.jobcentreonline.com" rel="external">JobCentre Online</a></p> 
+					</div>
+					<div class="js-tab-pane tab-pane" id="other-ways-to-apply">
+      			<p>You can also search for jobs by calling Jobcentre Plus.</p>
+						<div class="contact">
+							<p><strong>Telephone:</strong> 0845 606 0234<br><strong>Textphone:</strong> 0845 605 5255<br>
+								Monday to Friday, 8am to 6pm</p>
+						</div>
+					</div>
+				</div>
+      </section>
+
+     </div>
+   </article>
+</div>
+
+</section>
+
+<div id="related-items"></div>

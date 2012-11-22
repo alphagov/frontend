@@ -1,3 +1,5 @@
+@import "_conditionals.scss";
+
 .organisation {
   .eugo {
     display: block;
@@ -6,4 +8,29 @@
     width: 137px;
     height: 85px;
   }
+}
+
+
+/* temp extra styles for jobsearch */
+.jobsearch-form input {
+  background-color: #f9f9f9;
+  border: 1px inset #e2e2e2;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 0.3em 0 0.1em 0.4em;
+  margin-left:0;
+  @include ie-lte(7){
+    margin-left:1em;
+  }
+}
+.jobsearch-form label {
+  color: #231f20;
+  font-family: "nta", "GDS-Regular", sans-serif;
+  font-size: 19px;
+  font-size: 1.9rem;
+  line-height: 1.31579;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  display:block;
 }

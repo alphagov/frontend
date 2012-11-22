@@ -57,14 +57,14 @@ group :assets do
 end
 
 group :test do
-  gem "mocha"
+  gem 'test-unit'
+  gem "mocha", :require => false
   gem "webmock", :require => false
   gem "ZenTest"
   gem "autotest-rails"
   gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'ci_reporter'
-  gem 'test-unit'
   gem 'capybara', '1.1.2'
   gem 'poltergeist', '0.7.0'
   gem "launchy"

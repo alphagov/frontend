@@ -27,6 +27,7 @@ Frontend::Application.routes.draw do
   match "/energyhelp", :to => "campaign#energy_help"
   match "/ukwelcomes", :to => "campaign#uk_welcomes"
   match "/sortmytax", :to => "campaign#sort_my_tax"
+  match "/newlicencerules", :to => "campaign#new_licence_rules"
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.match ":slug/video", format: :video

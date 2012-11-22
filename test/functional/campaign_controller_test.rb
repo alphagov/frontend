@@ -27,11 +27,13 @@ class CampaignControllerTest < ActionController::TestCase
 
   should "load the sort my tax campaign" do
     get :sort_my_tax
-    
-    should "load the dval new licence rules campaign" do
-      get :new_licence_rules
 
     assert_response :success
   end
   
+  should "load the dvla new licence rules campaign" do
+    get :new_licence_rules
+    assert_response :success
+  end
+
 end

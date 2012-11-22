@@ -7,6 +7,16 @@ GIT
       plek (>= 0.5.0)
       rest-client
 
+GIT
+  remote: https://github.com/alphagov/gds-api-adapters.git
+  revision: 4b8a341af72c2a43b5941ec8356fc1932d3c2b27
+  ref: make_c_api_stubbing_more_flexible
+  specs:
+    gds-api-adapters (3.4.1)
+      lrucache (~> 0.1.1)
+      null_logger
+      plek
+
 GEM
   remote: http://rubygems.org/
   remote: https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/
@@ -86,10 +96,6 @@ GEM
     faye-websocket (0.4.6)
       eventmachine (>= 0.12.0)
     ffi (1.1.5)
-    gds-api-adapters (3.4.0)
-      lrucache (~> 0.1.1)
-      null_logger
-      plek
     gds-warmup-controller (0.1.0)
       rails (>= 3.0.0)
     gelf (1.3.2)
@@ -258,7 +264,7 @@ DEPENDENCIES
   ci_reporter
   coffee-rails (~> 3.2.1)
   exception_notification
-  gds-api-adapters (= 3.4.0)
+  gds-api-adapters (= 3.4.1)!
   gds-warmup-controller
   gelf
   geogov (~> 0.0.12)

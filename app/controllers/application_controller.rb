@@ -13,6 +13,8 @@ end
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers
+  include GeoHelper
+  include Rack::Geo::Utils
   include Slimmer::Headers
 
   def error_404; error 404; end
@@ -47,6 +49,10 @@ class ApplicationController < ActionController::Base
 
     def fetch_artefact(snac = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
+      if geo_known_to_at_least?('ward')
+        options[:latitude]  = geo_header['fuzzy_point']['lat']
+        options[:longitude] = geo_header['fuzzy_point']['lon']
+      end
       artefact = content_api.artefact(params[:slug], options)
 
       unless artefact

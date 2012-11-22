@@ -65,10 +65,10 @@
 	      </section>
 
         <section class="places">
-        <% if @presentable_places.any? %>
+        <% if @publication.places.any? %>
           <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
           <ol id="options" class="places">
-            <%= mustache_partial '_option.html', { 'options' => @presentable_places } %>
+            <%= mustache_partial '_option.html', { 'options' => @publication.places } %>
           </ol>
         <% elsif params[:postcode].present? %>
           <div id="results-error" class="error-notification"><p>Sorry, no results were found near you.</p></div>

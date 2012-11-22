@@ -75,7 +75,7 @@ class RootController < ApplicationController
     set_expiry if params.exclude?('edition') and request.get?
 
     if @publication.parts
-      part = params.fetch(:part){ @publication.parts.first.slug }
+      part = params.fetch(:part) { @publication.parts.first.slug }
       @part = @publication.find_part(part)
     end
 

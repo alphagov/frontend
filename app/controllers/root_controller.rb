@@ -54,8 +54,10 @@ class RootController < ApplicationController
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
       @artefact = fetch_artefact(snac) if snac
-    elsif (part_requested_but_not_found? || empty_part_list?)
+    elsif part_requested_but_no_parts? || empty_part_list?
       raise RecordNotFound
+    elsif @publication.parts && part_requested_but_not_found?
+      redirect_to publication_path(:slug => @publication.slug, :part => @publication.parts.first.slug) and return
     elsif request.format.json? && @artefact['format'] != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return
     end
@@ -101,10 +103,12 @@ protected
     @publication.parts and @publication.parts.empty?
   end
 
+  def part_requested_but_no_parts?
+    params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
+  end
+
   def part_requested_but_not_found?
-    params[:part] && ! (
-      @publication.parts && @publication.parts.any? { |p| p.slug == params[:part] }
-    )
+    params[:part] && ! @publication.find_part(params[:part])
   end
 
   # request.format.html? returns 5 when the request format is video.

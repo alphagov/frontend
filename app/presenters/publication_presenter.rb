@@ -53,7 +53,7 @@ class PublicationPresenter
   end
 
   def find_part(slug)
-    parts.find{|part| part.slug == slug}
+    parts && parts.find { |part| part.slug == slug }
   end
 
   def slug

@@ -1,6 +1,6 @@
 <%- presenter = TransactionPresenter.new(@publication) -%>
 
-<section id="content" role="main" class="group">
+<section id="content" role="main" class="group jobsearch">
 
   <header class="page-header group">
     <hgroup>
@@ -17,12 +17,55 @@
       <section class="intro">
         <div class="get-started-intro"><p>Register or sign in to Universal Jobmatch and search for full or part-time jobs in Great Britain and abroad by location, title, or type of work. The Universal Jobmatch service lets you create an online CV and automatically match it to available jobs.</p></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-        
+        <form class="startform" action="https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx" method="get">
+
+					<input type="hidden" name="rad" value="20"/>
+					<input type="hidden" name="rad_units" value="miles"/>
+					<input type="hidden" name="pp" value="25"/>
+					<input type="hidden" name="sort" value="rv.dt.di"/>
+					<input type="hidden" name="vw" value="b"/>
+					<input type="hidden" name="re" value="134"/>
+					<input type="hidden" name="setype" value="2"/>
+		
+					<label for="search_title">Enter any job title</label><input id="search_title" type="text" name="tjt"><small></small>
+					
+					<label for="search_keywords">Enter your skills</label><input id="search_keywords" name="q" type="text" />          
+					
+					<label for="search_where">Enter a postcode or place name</label><input id="search_where" name="where" type="text"/>
+					
+					<input class="button" type="submit" value="Search"/>
+				</form>
       </section>
 
-      <section class="more">
-       <!-- tabs go here -->
-        
+      <section class="more"><nav class="js-tabs nav-tabs"><ul>
+<li class="active"><a href="#before-you-start">Before you start</a></li>
+    
+    <li><a href="#other-ways-to-apply">Other ways to apply</a></li>
+  </ul></nav><div class="js-tab-content tab-content">
+    <div class="js-tab-pane tab-pane" id="before-you-start">
+      
+<div class="application-notice info-notice">
+<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>
+</div>
+
+<p>Use JobCentre Online to <a rel="external" href="http://www.jobcentreonline.com/JCOLFront/Home.aspx" title="Jobcentre Online NI">search for jobs in Northern Ireland.</a></p>
+
+    </div>
+
+
+    <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
+      <p>You can also search for jobs by calling Jobcentre Plus.</p>
+
+<div class="contact">
+<p><strong>Telephone:</strong> 0845 606 0234<br><strong>Textphone:</strong> 0845 605 5255<br>
+Monday to Friday, 8am to 6pm</p>
+</div>
+
+    </div>
+</div>
+
+
+        <p class="visuallyhidden"><a href="https://jobsearch.direct.gov.uk" rel="external">Get started on Universal Jobmatch</a></p>
       </section>
 
      </div>
@@ -32,3 +75,4 @@
 </section>
 
 <div id="related-items"></div>
+

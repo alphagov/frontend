@@ -9,25 +9,21 @@ class CampaignControllerTest < ActionController::TestCase
 
   should "set correct expiry headers" do
     get :workplace_pensions
-
     assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
   end
 
   should "load the workplace pensions campaign" do
     get :workplace_pensions
-
     assert_response :success
   end
 
   should "load the UK Welcomes campaign" do
     get :uk_welcomes
-
     assert_response :success
   end
 
   should "load the sort my tax campaign" do
     get :sort_my_tax
-
     assert_response :success
   end
   

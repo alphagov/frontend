@@ -7,3 +7,24 @@
     height: 85px;
   }
 }
+
+
+/* temp extra styles for jobsearch */
+.jobsearch-form input[type="text"] {
+  background-color: #f9f9f9;
+  border: 1px inset #e2e2e2;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 0.3em 0 0.1em 0.4em;
+}
+.jobsearch-form label {
+  color: #231f20;
+  font-family: "nta", "GDS-Regular", sans-serif;
+  font-size: 19px;
+  font-size: 1.9rem;
+  line-height: 1.31579;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  display:block;
+}

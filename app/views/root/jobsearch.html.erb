@@ -17,7 +17,7 @@
       <section class="intro">
         <div class="get-started-intro"><p>Register or sign in to Universal Jobmatch and search for full or part-time jobs in Great Britain and abroad by location, title, or type of work. The Universal Jobmatch service lets you create an online CV and automatically match it to available jobs.</p></div>
         <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
-        <form class="startform" action="https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx" method="get">
+        <form class="jobsearch-form" action="https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx" method="get">
 
 					<input type="hidden" name="rad" value="20"/>
 					<input type="hidden" name="rad_units" value="miles"/>
@@ -27,45 +27,39 @@
 					<input type="hidden" name="re" value="134"/>
 					<input type="hidden" name="setype" value="2"/>
 		
-					<label for="search_title">Enter any job title</label><input id="search_title" type="text" name="tjt"><small></small>
+					<p class="group"><label for="search_title">Enter any job title</label><input id="search_title" type="text" name="tjt"></p>        
 					
-					<label for="search_keywords">Enter your skills</label><input id="search_keywords" name="q" type="text" />          
-					
-					<label for="search_where">Enter a postcode or place name</label><input id="search_where" name="where" type="text"/>
+					<p class="group"><label for="search_where">Enter a postcode or place name</label><input id="search_where" name="where" type="text"/></p>
+
+					<p class="group"><label for="search_keywords">Enter your skills (optional)</label><input id="search_keywords" name="q" type="text" /></p>
 					
 					<input class="button" type="submit" value="Search"/>
 				</form>
       </section>
 
-      <section class="more"><nav class="js-tabs nav-tabs"><ul>
-<li class="active"><a href="#before-you-start">Before you start</a></li>
-    
-    <li><a href="#other-ways-to-apply">Other ways to apply</a></li>
-  </ul></nav><div class="js-tab-content tab-content">
-    <div class="js-tab-pane tab-pane" id="before-you-start">
-      
-<div class="application-notice info-notice">
-<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>
-</div>
+      <section class="more">
+      	<nav class="js-tabs nav-tabs">
+		      <ul>
+						<li class="active"><a href="#before-you-start">Before you start</a></li>
+		    		<li><a href="#other-ways-to-apply">Other ways to apply</a></li>
+		  		</ul>
+		  	</nav>
 
-<p>Use JobCentre Online to <a rel="external" href="http://www.jobcentreonline.com/JCOLFront/Home.aspx" title="Jobcentre Online NI">search for jobs in Northern Ireland.</a></p>
-
-    </div>
-
-
-    <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-      <p>You can also search for jobs by calling Jobcentre Plus.</p>
-
-<div class="contact">
-<p><strong>Telephone:</strong> 0845 606 0234<br><strong>Textphone:</strong> 0845 605 5255<br>
-Monday to Friday, 8am to 6pm</p>
-</div>
-
-    </div>
-</div>
-
-
-        <p class="visuallyhidden"><a href="https://jobsearch.direct.gov.uk" rel="external">Get started on Universal Jobmatch</a></p>
+		  	<div class="js-tab-content tab-content">
+    			<div class="js-tab-pane tab-pane" id="before-you-start">
+						<div class="application-notice info-notice">
+							<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>
+						</div>
+						<p>Use JobCentre Online to <a rel="external" href="http://www.jobcentreonline.com/JCOLFront/Home.aspx" title="Jobcentre Online NI">search for jobs in Northern Ireland.</a></p>
+					</div>
+					<div class="js-tab-pane tab-pane" id="other-ways-to-apply">
+      			<p>You can also search for jobs by calling Jobcentre Plus.</p>
+						<div class="contact">
+							<p><strong>Telephone:</strong> 0845 606 0234<br><strong>Textphone:</strong> 0845 605 5255<br>
+								Monday to Friday, 8am to 6pm</p>
+						</div>
+					</div>
+				</div>
       </section>
 
      </div>
@@ -74,5 +68,37 @@ Monday to Friday, 8am to 6pm</p>
 
 </section>
 
-<div id="related-items"></div>
+<!--div id="related-items"></div-->
+<div class="related-positioning" style="position: fixed;">
+  <div class="related-container">
 
+    <div class="related" id="related">
+      <div class="inner group">
+        <h2>Other relevant links</h2>
+        <nav role="navigation">
+        	<ul>
+						<li>
+              <a href="/apprenticeships-guide">Apprenticeships</a>
+            </li>
+            <li>
+            	<a href="/moving-from-benefits-to-work">Help with moving from benefits to work</a>
+            </li>
+            <li>
+              <a href="/jobsearch-rights">Your rights and safety when looking for a job</a>
+            </li>
+            <li class="related-topic"><a href="/browse/working">More from the <span>Working, jobs and pensions</span> category</a></li>
+					</ul>
+				</nav>
+				<nav role="navigation" class="return-to-top"><a href="#content">Return to top ↑</a></nav>
+			</div>
+     	<div id="legacy-sources">
+       <p>This replaces</p>
+       <ul>
+				<li class="directgov">Directgov</li>
+        <li class="businesslink">Business Link</li>
+       </ul>
+			</div>
+   </div>
+
+  </div>
+</div>

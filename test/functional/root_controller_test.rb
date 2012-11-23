@@ -312,6 +312,7 @@ class RootControllerTest < ActionController::TestCase
       setup do
         @details = {
           'slug' => 'jobs-jobsearch',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
           'format' => 'transaction',
           'details' => {},
           'title' => 'Universal Jobsearch'

@@ -6,7 +6,6 @@ Frontend::Application.routes.draw do
   match "/browse/:section", as: "browse", to: "browse#section"
   match "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
   match "/jobs-jobsearch" => "root#jobsearch"
-  match "/advertise-job" => "root#advertisejob"
 
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678

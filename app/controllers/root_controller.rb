@@ -22,27 +22,6 @@ class RootController < ApplicationController
       section_url: "/")
   end
 
-  def advertisejob
-    error_404 and return if request.format.nil?
-    params[:slug] = "advertise-job"
-
-    @artefact = fetch_artefact
-    set_slimmer_artefact_headers(@artefact)
-
-    @publication = PublicationPresenter.new(@artefact)
-    assert_found(@publication)
-
-    if request.format.json?
-      redirect_to "/api/#{params[:slug]}.json" and return
-    end
-
-    set_expiry
-
-  rescue RecordNotFound
-    set_expiry(10.minutes)
-    error 404
-  end
-
   def jobsearch
     error_404 and return if request.format.nil?
     params[:slug] = "jobs-jobsearch"

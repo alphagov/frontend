@@ -1,0 +1,31 @@
+<%- presenter = TransactionPresenter.new(@publication) -%>
+
+<section id="content" role="main" class="group jobsearch">
+
+  <header class="page-header group">
+    <hgroup>
+     <h1><span>Service</span> Advertise a job with Universal Jobmatch</h1>
+    </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related">Not what you're looking for? ↓</a>
+    </nav>
+  </header>
+	<div class="article-container group">
+  	<article role="article" class="group">
+     <div class="inner">
+
+      <section class="intro">
+        <div class="application-notice help-notice">
+          <p>Universal Jobmatch is currently unavailable.</p>
+          <p>Call <strong>0845 601 2001</strong> for help advertising job.</p>
+        </div>
+      </section>
+
+     </div>
+   </article>
+   <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+</div>
+
+</section>
+
+<div id="related-items"></div>

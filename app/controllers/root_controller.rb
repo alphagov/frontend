@@ -83,8 +83,8 @@ class RootController < ApplicationController
 
     case @publication.type
     when "place"
-      @options = load_place_options(@publication)
-      @publication.places = @options
+      @presentable_places = load_place_options(@publication)
+      @publication.places = @presentable_places
     when "licence"
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"

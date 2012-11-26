@@ -306,4 +306,65 @@ class RootControllerTest < ActionController::TestCase
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
   end
+
+  context "loading the jobsearch page" do
+    context "given an artefact for 'jobs-jobsearch' exists" do
+      setup do
+        @details = {
+          'slug' => 'jobs-jobsearch',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
+          'format' => 'transaction',
+          'details' => {},
+          'title' => 'Universal Jobsearch'
+        }
+        content_api_has_an_artefact("jobs-jobsearch", @details)
+      end
+
+      should "respond with success" do
+        get :jobsearch
+        assert_response :success
+      end
+
+      should "loads the correct artefact" do
+        get :jobsearch
+        assert_equal "Universal Jobsearch", assigns(:artefact)['title']
+      end
+
+      should "initialize a publication object" do
+        get :jobsearch
+        assert_equal "Universal Jobsearch", assigns(:publication).title
+      end
+
+      should "set correct slimmer artefact in headers" do
+        get :jobsearch
+        assert_equal JSON.dump(@details), @response.headers["X-Slimmer-Artefact"]
+      end
+
+      should "set correct expiry headers" do
+        get :jobsearch
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+
+      should "render the jobsearch view" do
+        get :jobsearch
+        assert_template "jobsearch"
+      end
+
+      should "redirect to the api for json format" do
+        get :jobsearch, :format => :json
+        assert_redirected_to "/api/jobs-jobsearch.json"
+      end
+    end
+
+    context "given an artefact does not exist" do
+      setup do
+        content_api_does_not_have_an_artefact('jobs-jobsearch')
+      end
+
+      should "respond with 404" do
+        get :jobsearch
+        assert_response :not_found
+      end
+    end
+  end
 end

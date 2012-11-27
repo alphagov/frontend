@@ -1,12 +1,13 @@
 require_relative "../test_helper"
 
 class BrowseControllerTest < ActionController::TestCase
-  def api_returns_404_for(url)
+  def api_returns_404_for(path)
     body = {
       "_response_info" => {
         "status" => "not found"
       }
     }
+    url = "#{Plek.current.find("contentapi")}#{path}"
     stub_request(:get, url).to_return(:status => 404, :body => body.to_json, :headers => {})
   end
 
@@ -45,8 +46,8 @@ class BrowseControllerTest < ActionController::TestCase
     end
 
     should "404 if the section does not exist" do
-      api_returns_404_for("https://contentapi.test.alphagov.co.uk/tags/banana.json")
-      api_returns_404_for("https://contentapi.test.alphagov.co.uk/tags.json?parent_id=banana&type=section")
+      api_returns_404_for("/tags/banana.json")
+      api_returns_404_for("/tags.json?parent_id=banana&type=section")
 
       get :section, section: "banana"
       assert_response 404
@@ -128,8 +129,8 @@ class BrowseControllerTest < ActionController::TestCase
     end
 
     should "404 if the section does not exist" do
-      api_returns_404_for("https://contentapi.test.alphagov.co.uk/tags/crime-and-justice%2Ffrume.json")
-      api_returns_404_for("https://contentapi.test.alphagov.co.uk/tags/crime-and-justice.json")
+      api_returns_404_for("/tags/crime-and-justice%2Ffrume.json")
+      api_returns_404_for("/tags/crime-and-justice.json")
 
       get :sub_section, section: "crime-and-justice", sub_section: "frume"
       assert_response 404
@@ -137,7 +138,7 @@ class BrowseControllerTest < ActionController::TestCase
 
     should "404 if the sub section does not exist" do
       content_api_has_section("crime-and-justice")
-      api_returns_404_for("https://contentapi.test.alphagov.co.uk/tags/crime-and-justice%2Ffrume.json")
+      api_returns_404_for("/tags/crime-and-justice%2Ffrume.json")
       get :sub_section, section: "crime-and-justice", sub_section: "frume"
       assert_response 404
     end

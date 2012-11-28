@@ -3,13 +3,13 @@ require_relative '../integration_test_helper'
 class PageRenderingTest < ActionDispatch::IntegrationTest
 
   test "returns 503 if backend times out" do
-    stub_request(:get, "https://contentapi.test.alphagov.co.uk/my-item.json").to_timeout
+    stub_request(:get, "http://contentapi.test.gov.uk/my-item.json").to_timeout
     visit "/my-item"
     assert_equal 503, page.status_code
   end
 
   test "returns 503 if backend unavailable" do
-    stub_request(:get, "https://contentapi.test.alphagov.co.uk/my-item.json").to_return(:status => 500)
+    stub_request(:get, "http://contentapi.test.gov.uk/my-item.json").to_return(:status => 500)
     visit "/my-item"
     assert_equal 503, page.status_code
   end

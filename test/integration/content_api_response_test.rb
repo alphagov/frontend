@@ -7,7 +7,7 @@ class ContentApiResponseTest < ActionDispatch::IntegrationTest
       status: status,
       body: "{\"test\":\"bleh\"}"
     }
-    stub_request(:get, "https://contentapi.test.alphagov.co.uk#{url}.json").to_return(response)
+    stub_request(:get, "http://contentapi.test.gov.uk#{url}.json").to_return(response)
   end
 
   should "render the page with a 500 error code when receiving a 500 status" do

@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
     end
 
     def content_api
-      @content_api ||= GdsApi::ContentApi.new(Plek.current.environment, CONTENT_API_CREDENTIALS)
+      @content_api ||= GdsApi::ContentApi.new(Plek.current.find('content_api'), CONTENT_API_CREDENTIALS)
     end
 
     def supported_artefact_formats

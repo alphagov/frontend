@@ -93,20 +93,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Last updated: 09 October 2012"
   end
 
-  test "guide request" do
-    response = content_api_response("find-job")
-    content_api_has_an_artefact("find-job", response)
-
-    visit "/find-job"
-    assert_equal 200, page.status_code
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
-
-    response['details']['parts'].each do |part|
-      visit "/find-job/#{part['slug']}"
-      assert page.status_code == 200
-    end
-  end
-
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   test "requests for gifs 404" do

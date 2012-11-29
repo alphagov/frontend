@@ -32,6 +32,15 @@ class ActionDispatch::IntegrationTest
     stub_request(:get, "http://mapit.test.gov.uk/postcode/" + postcode.sub(' ','+') + ".json").to_return(:body => defaults.merge(response).to_json, :status => status)
     stub_request(:get, "http://mapit.test.gov.uk/postcode/partial/" + postcode.split(' ').first + ".json").to_return(:body => response.slice("wgs84_lat","wgs84_lon").to_json, :status => status)
   end
+
+   def assert_current_url(path_with_query, options = {})
+    expected = URI.parse(path_with_query)
+    current = URI.parse(current_url)
+    assert_equal expected.path, current.path
+    unless options[:ignore_query]
+      assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
+    end
+  end
 end
 
 Capybara.javascript_driver = :poltergeist

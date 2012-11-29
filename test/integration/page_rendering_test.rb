@@ -21,13 +21,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
-  test "programme request" do
-    setup_api_responses('reduced-earnings-allowance')
-    visit "/reduced-earnings-allowance"
-    assert_equal 200, page.status_code
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
-  end
-
   test "completed transaction request" do
     artefact = artefact_for_slug "done/completed-transaction-test"
     artefact = artefact.merge({
@@ -104,13 +97,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
     visit "/pagerror.gif"
     assert_equal 404, page.status_code
-  end
-
-  test "rendering a print view of a programme" do
-    setup_api_responses("child-tax-credit")
-
-    visit "/child-tax-credit/print"
-    assert page.has_content?("Get Child Tax Credit")
   end
 
   test "rendering a help page" do

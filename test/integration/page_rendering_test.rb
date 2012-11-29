@@ -14,13 +14,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 503, page.status_code
   end
 
-  test "quick_answer request" do
-    setup_api_responses('vat-rates')
-    visit "/vat-rates"
-    assert_equal 200, page.status_code
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
-  end
-
   test "completed transaction request" do
     artefact = artefact_for_slug "done/completed-transaction-test"
     artefact = artefact.merge({
@@ -28,17 +21,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     })
     content_api_has_an_artefact('done/completed-transaction-test', artefact)
     visit "/done/completed-transaction-test"
-    assert_equal 200, page.status_code
-  end
-
-  test "business support request" do
-    artefact = artefact_for_slug "business-support-example"
-    artefact = artefact.merge({
-      format: "business_support",
-      business_support_id: "123"
-    })
-    content_api_has_an_artefact('business-support-example', artefact)
-    visit "business-support-example"
     assert_equal 200, page.status_code
   end
 
@@ -67,23 +49,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_content? "What you need to know"
     assert page.has_content? "Additional information"
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
-  end
-
-  test "looking for last updated at" do
-    content_api_has_an_artefact("example-answer", {
-      "format" => "answer",
-      "title" => "Is it me you're looking for?",
-      "web_url" => "https://www.gov.uk/example-answer",
-      "details" => {
-        "body" => "No."
-      },
-      "updated_at" => "2012-10-09T09:59:15+00:00",
-      "tags" => [],
-      "related" => []
-    })
-
-    visit '/example-answer'
-    assert page.has_content? "Last updated: 09 October 2012"
   end
 
   # Crude way of handling the situation described at

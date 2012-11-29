@@ -36,9 +36,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
           within 'footer nav.pagination' do
             assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
-            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get']",
-                                      :text => "Part 2 What you'll get",
-                                      :title => "Navigate to next part")
+            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to next part']",
+                                      :text => "Part 2 What you'll get")
           end
         end
 
@@ -70,12 +69,10 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("h2", :text => "Going abroad")
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/what-youll-get']",
-                                    :text => "Part 2 What you'll get",
-                                    :title => "Navigate to previous part")
-          assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/how-to-claim']",
-                                    :text => "Part 4 How to claim",
-                                    :title => "Navigate to next part")
+          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to previous part']",
+                                    :text => "Part 2 What you'll get")
+          assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to next part']",
+                                    :text => "Part 4 How to claim")
         end
       end
     end
@@ -99,9 +96,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("h3", :text => "Scotland, North West England, East of England, South East England and London")
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim']",
-                                    :text => "Part 4 How to claim",
-                                    :title => "Navigate to previous part")
+          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to previous part']",
+                                    :text => "Part 4 How to claim")
           assert page.has_selector?("li.last", :text => "You have reached the end of this guide")
         end
       end

@@ -35,9 +35,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
           within 'footer nav.pagination' do
             assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
-            assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you']",
-                                      :text => "Part 2 Find out what data an organisation has about you",
-                                      :title => "Navigate to next part")
+            assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to next part']",
+                                      :text => "Part 2 Find out what data an organisation has about you")
           end
         end
 
@@ -69,12 +68,10 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("h2", :text => "When information can be withheld")
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/the-data-protection-act']",
-                                    :text => "Part 1 The Data Protection Act",
-                                    :title => "Navigate to previous part")
-          assert page.has_selector?("li.next a[rel=next][href='/data-protection/make-a-complaint']",
-                                    :text => "Part 3 Make a complaint",
-                                    :title => "Navigate to next part")
+          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/the-data-protection-act'][title='Navigate to previous part']",
+                                    :text => "Part 1 The Data Protection Act")
+          assert page.has_selector?("li.next a[rel=next][href='/data-protection/make-a-complaint'][title='Navigate to next part']",
+                                    :text => "Part 3 Make a complaint")
         end
       end
     end
@@ -98,9 +95,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("p strong", :text => "ICO helpline")
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you']",
-                                    :text => "Part 2 Find out what data an organisation has about you",
-                                    :title => "Navigate to previous part")
+          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to previous part']",
+                                    :text => "Part 2 Find out what data an organisation has about you")
           assert page.has_selector?("li.last", :text => "You have reached the end of this guide")
         end
       end

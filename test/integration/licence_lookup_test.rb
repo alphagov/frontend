@@ -63,7 +63,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       })
 
       content_api_has_an_artefact('licence-to-kill', @artefact)
-      content_api_has_an_artefact_with_snac_code('licence-to-kill', '00BK', @artefact)
+      GdsApi::TestHelpers::ContentApi::ArtefactStub.new('licence-to-kill')
+          .with_query_parameters(snac: '00BK', latitude: 51.5010096, longitude: -0.1415870)
+          .with_response_body(@artefact)
+          .stub
     end
 
     context "when visiting the licence without specifying a location" do

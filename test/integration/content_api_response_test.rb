@@ -1,13 +1,13 @@
 require_relative "../integration_test_helper"
 
 class ContentApiResponseTest < ActionDispatch::IntegrationTest
-  def status_for_url(url, status)
-    url = "/#{url}" if url[0] != "/"
+  def status_for_url(path, status)
+    path = "/#{path}" if path[0] != "/"
     response = {
       status: status,
       body: "{\"test\":\"bleh\"}"
     }
-    stub_request(:get, "http://contentapi.test.gov.uk#{url}.json").to_return(response)
+    stub_request(:get, "#{Plek.current.find("contentapi")}#{path}.json").to_return(response)
   end
 
   should "render the page with a 500 error code when receiving a 500 status" do

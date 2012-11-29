@@ -20,7 +20,7 @@ class ExitControllerTest < ActionController::TestCase
       get :exit, slug: slug, format: format
 
       assert_equal 301, response.status
-      assert_equal "public, max-age=1800", response.headers["Cache-Control"]
+      assert_equal "public, max-age=0, s-maxage=1800", response.headers["Cache-Control"]
       assert_redirected_to target
     end
 

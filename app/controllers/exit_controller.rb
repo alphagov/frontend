@@ -11,7 +11,7 @@ class ExitController < ApplicationController
 
     raise RecordNotFound unless publication and publication.details and publication.details.link
 
-    response.headers["Cache-Control"] = "public, max-age=1800"
+    response.headers["Cache-Control"] = "public, max-age=0, s-maxage=1800"
 
     redirect_to publication.details.link, :status => 301
   rescue RecordNotFound

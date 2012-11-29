@@ -113,13 +113,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Get Child Tax Credit")
   end
 
-  test "rendering a print view of a guide" do
-    setup_api_responses("ride-a-motorcycle-or-moped")
-
-    visit "/ride-a-motorcycle-or-moped/print"
-    assert page.has_content?("Ride a motorcycle or moped")
-  end
-
   test "rendering a help page" do
     visit "/help/accessibility"
     assert_equal 200, page.status_code

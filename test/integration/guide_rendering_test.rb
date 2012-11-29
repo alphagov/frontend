@@ -107,5 +107,31 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  should "render the print view of a guide correctly"
+  should "render the print view of a guide correctly" do
+    setup_api_responses('data-protection')
+    visit "/data-protection/print"
+
+    within "section[role=main]" do
+      within "header h1" do
+        assert page.has_content?("Data protection, a guide from GOV.UK")
+      end
+
+      within "article#the-data-protection-act" do
+        assert page.has_selector?("header h1", :text => "Part 1: The Data Protection Act")
+        assert page.has_selector?("ul li", :text => "used fairly and lawfully")
+      end
+
+      within "article#find-out-what-data-an-organisation-has-about-you" do
+        assert page.has_selector?("header h1", :text => "Part 2: Find out what data an organisation has about you")
+        assert page.has_selector?("h2", :text => "When information can be withheld")
+      end
+
+      within "article#make-a-complaint" do
+        assert page.has_selector?("header h1", :text => "Part 3: Make a complaint")
+        assert page.has_selector?("p strong", :text => "ICO helpline")
+      end
+
+      assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
+    end
+  end
 end

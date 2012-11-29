@@ -145,4 +145,20 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
     end
   end
+
+  should "preserve the query string when navigating around a preview of a programme" do
+    artefact = content_api_response('reduced-earnings-allowance')
+    content_api_has_unpublished_artefact('reduced-earnings-allowance', 5, artefact)
+
+    visit "/reduced-earnings-allowance/further-information?edition=5"
+
+    assert page.has_content? "Overview"
+
+    within ".page-navigation" do
+      click_link "Overview"
+    end
+
+    assert_equal 200, page.status_code
+    assert_current_url "/reduced-earnings-allowance/overview?edition=5"
+  end
 end

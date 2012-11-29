@@ -1,0 +1,12 @@
+cy:
+  common:
+    last_updated: "Diweddarwyd ddiwethaf"
+  formats:
+    answer:
+      name: "Ateb cyflym"
+  date:
+    formats:
+      last_updated: "%d %B %Y"
+  time:
+    formats:
+      last_updated: "%d %B %Y"

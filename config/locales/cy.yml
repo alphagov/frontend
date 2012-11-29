@@ -1,9 +1,18 @@
 cy:
   common:
-    last_updated: "Diweddarwyd ddiwethaf"
+    last_updated: "Diweddarwyd diwethaf"
   formats:
     answer:
       name: "Ateb cyflym"
+    guide:
+      part: "Rhan"
+      printer_friendly_page: "Tudalen hawdd ei hargraffu"
+      at_beginning_of_guide: "Rydych chi ar ddechrau'r canllaw hwn"
+      at_end_of_guide: "Rydych wedi cyrraedd diwedd y canllaw hwn"
+      navigate_to_previous_part: "Navigate to previous part (in Welsh)"
+      navigate_to_next_part: "Navigate to next part (in Welsh)"
+    programme:
+      name: "Budd-daliadau a chredydau"
   date:
     formats:
       last_updated: "%d %B %Y"

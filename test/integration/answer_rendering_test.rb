@@ -51,7 +51,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
-        assert page.has_selector?(".modified-date", :text => "Diweddarwyd ddiwethaf: 22 Hydref 2012")
+        assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
       end
     end # within #content
   end

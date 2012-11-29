@@ -234,6 +234,29 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug"
   end
 
+  context "setting the locale" do
+    should "set the locale to the artefact's locale" do
+      artefact = artefact_for_slug('slug')
+      artefact["details"]["language"] = 'pt'
+      content_api_has_an_artefact('slug', artefact)
+
+      I18n.expects(:locale=).with('pt')
+
+      get :publication, :slug => 'slug'
+    end
+
+    should "not set the locale if the artefact has no language" do
+      artefact = artefact_for_slug('slug')
+      artefact["details"].delete("language")
+      content_api_has_an_artefact('slug', artefact)
+
+      I18n.expects(:locale=).never
+
+      get :publication, :slug => 'slug'
+    end
+
+  end
+
   context "setting up slimmer artefact details" do
     should "expose artefact details in header" do
       # TODO: remove explicit setting of top-level format once gds-api-adapters with updated

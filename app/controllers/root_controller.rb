@@ -57,6 +57,8 @@ class RootController < ApplicationController
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
 
+    I18n.locale = @publication.language if @publication.language
+
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']
         snac = appropriate_snac_code_from_geostack(@artefact)

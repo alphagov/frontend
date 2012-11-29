@@ -2,48 +2,52 @@
     "_response_info": {
         "status": "ok"
     },
+    "id": "https://www.gov.uk/api/register-to-vote.json",
+    "web_url": "https://www.gov.uk/register-to-vote",
     "title": "Register to vote",
     "format": "transaction",
-    "id": "https://contentapi.preview.alphagov.co.uk/register-to-vote.json",
-    "web_url": "https://www.preview.alphagov.co.uk/register-to-vote",
     "details": {
         "need_id": "692",
         "business_proposition": false,
-        "format": "Transaction",
+        "description": "Get the right form to register to vote depending on your circumstances",
         "alternative_title": "",
-        "overview": "Get the right form to register to vote depending on your circumstances",
-        "more_information": "",
-        "introduction": "You have to fill out the form online, print it off and send it to your local electoral registration office.",
+        "more_information": "\n",
+        "introduction": "<p>You have to fill out the form online, print it off and send it to your local electoral registration office.</p>\n",
         "will_continue_on": "the Electoral Commission website",
         "link": "http://www.aboutmyvote.co.uk/",
-        "alternate_methods": "",
+        "alternate_methods": "\n",
         "minutes_to_complete": "10",
-        "expectations": ["Includes offline steps"]
+        "expectations": [
+            "Includes offline steps"
+        ]
     },
+    "updated_at": "2012-10-22T15:13:13+00:00",
     "tags": [
         {
             "title": "Voting",
-            "id": "https://contentapi.preview.alphagov.co.uk/tags/citizenship%2Fvoting.json",
+            "id": "https://www.gov.uk/api/tags/citizenship%2Fvoting.json",
             "web_url": null,
             "details": {
                 "description": "Register to vote, getting on the electoral register and voting by proxy",
+                "short_description": null,
                 "type": "section"
             },
             "content_with_tag": {
-                "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=citizenship%2Fvoting",
-                "web_url": "https://www.preview.alphagov.co.uk/browse/citizenship/voting"
+                "id": "https://www.gov.uk/api/with_tag.json?tag=citizenship%2Fvoting",
+                "web_url": "https://www.gov.uk/browse/citizenship/voting"
             },
             "parent": {
                 "title": "Citizenship and life in the UK",
-                "id": "https://contentapi.preview.alphagov.co.uk/tags/citizenship.json",
+                "id": "https://www.gov.uk/api/tags/citizenship.json",
                 "web_url": null,
                 "details": {
                     "description": "Includes voting and how government works",
+                    "short_description": null,
                     "type": "section"
                 },
                 "content_with_tag": {
-                    "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=citizenship",
-                    "web_url": "https://www.preview.alphagov.co.uk/browse/citizenship"
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=citizenship",
+                    "web_url": "https://www.gov.uk/browse/citizenship"
                 },
                 "parent": null
             }
@@ -51,44 +55,40 @@
     ],
     "related": [
         {
-            "title": "Voting in the UK",
-            "format": "guide",
-            "id": "https://contentapi.preview.alphagov.co.uk/voting-in-uk.json",
-            "web_url": "https://www.preview.alphagov.co.uk/voting-in-uk",
-            "details": {
-                "need_id": "799",
-                "business_proposition": false
-            }
-        },
-        {
+            "id": "https://www.gov.uk/api/electoral-register.json",
+            "web_url": "https://www.gov.uk/electoral-register",
             "title": "The electoral register ",
             "format": "answer",
-            "id": "https://contentapi.preview.alphagov.co.uk/electoral-register.json",
-            "web_url": "https://www.preview.alphagov.co.uk/electoral-register",
             "details": {
                 "need_id": "1877",
-                "business_proposition": false
-            }
+                "business_proposition": false,
+                "description": "Find out how to get on the electoral register (also known as the electoral roll) and what it's used for"
+            },
+            "updated_at": "2012-10-22T15:12:49+00:00"
         },
         {
+            "id": "https://www.gov.uk/api/find-local-consultations.json",
+            "web_url": "https://www.gov.uk/find-local-consultations",
             "title": "Find local consultations",
             "format": "local_transaction",
-            "id": "https://contentapi.preview.alphagov.co.uk/find-local-consultations.json",
-            "web_url": "https://www.preview.alphagov.co.uk/find-local-consultations",
             "details": {
                 "need_id": "170",
-                "business_proposition": false
-            }
+                "business_proposition": false,
+                "description": "Councils carry out consultations to help plan, manage and deliver services. Have your say about local issues by responding to consultations run by your council"
+            },
+            "updated_at": "2012-10-22T15:18:55+00:00"
         },
         {
+            "id": "https://www.gov.uk/api/apply-vote-proxy-local-electoral-office.json",
+            "web_url": "https://www.gov.uk/apply-vote-proxy-local-electoral-office",
             "title": "Apply to vote by proxy",
             "format": "local_transaction",
-            "id": "https://contentapi.preview.alphagov.co.uk/apply-vote-proxy-local-electoral-office.json",
-            "web_url": "https://www.preview.alphagov.co.uk/apply-vote-proxy-local-electoral-office",
             "details": {
                 "need_id": "2114",
-                "business_proposition": false
-            }
+                "business_proposition": false,
+                "description": "If you are unable to vote, you can ask someone to vote for you, and tell them who to vote for - contact your council for more information"
+            },
+            "updated_at": "2012-10-22T15:18:36+00:00"
         }
     ]
 }

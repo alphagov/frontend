@@ -24,9 +24,3 @@ en:
       what_you_need_to_know: "What you need to know"
       other_ways_to_apply: "Other ways to apply"
       takes_around_n_minutes: "Takes around %{count} minutes"
-  date:
-    formats:
-      last_updated: "%d %B %Y"
-  time:
-    formats:
-      last_updated: "%d %B %Y"

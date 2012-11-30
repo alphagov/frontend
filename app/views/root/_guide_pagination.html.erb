@@ -1,0 +1,31 @@
+<footer>
+  <nav class="pagination" role="navigation">
+    <ul class="group">
+      <%- if @publication.has_parts?(@part) -%>
+        <%- if @publication.has_previous_part?(@part) -%>
+          <li class="previous">
+            <a href="<%= previous_part_path(@publication, @part, @edition) %>" title="<%= t 'formats.guide.navigate_to_previous_part' %>" rel="prev">
+              <span class="pagination-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, @publication.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_before(@part).title) %></span></a>
+          </li>
+        <%- else -%>
+          <li class="first">
+            <span><%= t 'formats.guide.at_beginning_of_guide' %></span>
+          </li>
+        <%- end -%>
+        <%- if @publication.has_next_part?(@part) -%>
+          <li class="next">
+            <a href="<%= next_part_path(@publication, @part, @edition) %>" title="<%= t 'formats.guide.navigate_to_next_part' %>" rel="next"><span class="pagination-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, @publication.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_after(@part).title) %></span></a>
+          </li>
+        <%- else -%>
+          <li class="last">
+            <span><%= t 'formats.guide.at_end_of_guide' %></span>
+          </li>
+        <%- end -%>
+      <%- else -%>
+        <li class="last">
+          <span><%= t 'formats.guide.at_end_of_guide' %></span>
+        </li>
+      <%- end -%>
+    </ul>
+  </nav>
+</footer> 

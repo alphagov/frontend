@@ -1,0 +1,19 @@
+<aside>
+  <div class="inner">
+    <nav role="navigation" class="page-navigation">
+      <ol>
+        <% @publication.parts.each do |nav_part| %>
+          <li <% if @part == nav_part %>class="active"<% end %>>
+            <% if @part == nav_part %>
+              <span class="part-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+            <% else %>
+              <a href="<%= part_path(@publication.slug, nav_part.slug, @edition) %>" title="<%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %>: <%= nav_part.title %>">
+                <span class="part-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
+              </a>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+    </nav>
+  </div>
+</aside>

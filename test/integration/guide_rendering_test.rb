@@ -103,6 +103,63 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  should "render the Welsh version of a guide correctly" do
+    # Note, this is using an english piece of content set to Welsh
+    # This is fine because we're testing the page furniture, not the rendering of the content.
+    artefact = content_api_response('data-protection')
+    artefact["details"]["language"] = "cy"
+    content_api_has_an_artefact('data-protection', artefact)
+
+    visit "/data-protection"
+    assert_equal 200, page.status_code
+
+    within '#content' do
+      within 'header' do
+        assert page.has_content?("Guide (in Welsh)")
+        assert page.has_content?("Data protection")
+      end
+
+      within '.article-container' do
+        within 'aside nav' do
+          part_titles = page.all('li').map(&:text).map(&:strip)
+          assert_equal ['Rhan 1: The Data Protection Act', 'Rhan 2: Find out what data an organisation has about you', 'Rhan 3: Make a complaint'], part_titles
+
+          assert page.has_link?("Rhan 2: Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
+          assert page.has_link?("Rhan 3: Make a complaint", :href => "/data-protection/make-a-complaint")
+        end
+
+        within 'article' do
+          within('header') { assert page.has_content?("Rhan 1: The Data Protection Act") }
+
+          within 'footer nav.pagination' do
+            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau'r canllaw hwn")
+            assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to next part (in Welsh)']",
+                                      :text => "Rhan 2 Find out what data an organisation has about you")
+          end
+        end
+
+        assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Tudalen hawdd ei hargraffu")
+      end
+    end # within #content
+
+    within('#content aside nav') { click_on "Make a complaint" }
+
+    assert_current_url "/data-protection/make-a-complaint"
+
+    within '#content .article-container' do
+      within 'article' do
+        within('header') { assert page.has_content?("Rhan 3: Make a complaint") }
+
+        within 'footer nav.pagination' do
+          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to previous part (in Welsh)']",
+                                    :text => "Rhan 2 Find out what data an organisation has about you")
+          assert page.has_selector?("li.last", :text => "Rydych wedi cyrraedd diwedd y canllaw hwn")
+        end
+      end
+    end
+  end
+
   should "render the print view of a guide correctly" do
     setup_api_responses('data-protection')
     visit "/data-protection/print"

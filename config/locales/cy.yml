@@ -5,6 +5,7 @@ cy:
     answer:
       name: "Ateb cyflym"
     guide:
+      name: "Guide (in Welsh)"
       part: "Rhan"
       printer_friendly_page: "Tudalen hawdd ei hargraffu"
       at_beginning_of_guide: "Rydych chi ar ddechrau'r canllaw hwn"

@@ -5,6 +5,7 @@ en:
     answer:
       name: "Quick answer"
     guide:
+      name: "Guide"
       part: "Part"
       printer_friendly_page: "Printer friendly page"
       at_beginning_of_guide: "You are at the beginning of this guide"

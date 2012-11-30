@@ -3,15 +3,17 @@
     <nav role="navigation" class="page-navigation">
       <ol>
         <% @publication.parts.each do |nav_part| %>
-          <li <% if @part == nav_part %>class="active"<% end %>>
-            <% if @part == nav_part %>
+          <% if @part == nav_part %>
+            <li class="active">
               <span class="part-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
-            <% else %>
-              <a href="<%= part_path(@publication.slug, nav_part.slug, @edition) %>" title="<%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %>: <%= nav_part.title %>">
+            </li>
+          <% else %>
+            <li>
+              <%= link_to part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" do %>
                 <span class="part-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
-              </a>
-            <% end %>
-          </li>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ol>
     </nav>

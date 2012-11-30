@@ -1,3 +1,4 @@
+# encoding: utf-8
 require_relative '../integration_test_helper'
 
 class TransactionRenderingTest < ActionDispatch::IntegrationTest
@@ -137,5 +138,66 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         assert_equal expected, tabs
       end
     end
+  end
+
+  context "Jobsearch special case" do
+
+    should "render the jobsearch page correctly" do
+      setup_api_responses('jobs-jobsearch')
+      visit "/jobs-jobsearch"
+
+      assert_equal 200, page.status_code
+
+      within 'head' do
+        assert page.has_selector?("title", :text => "Find a job with Universal Jobmatch - GOV.UK")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobs-jobsearch.json']")
+      end
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Service")
+          assert page.has_content?("Find a job with Universal Jobmatch")
+        end
+
+        within '.article-container' do
+          within 'section.intro' do
+            assert page.has_selector?(".application-notice p", :text => "You may have difficulties using this service while it’s being improved - if you’re affected, please try again later.")
+
+            assert page.has_selector?("form.jobsearch-form[action='https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
+            within "form.jobsearch-form" do
+              assert page.has_field?("Job title", :type => "text")
+              assert page.has_field?("Town, place or postcode", :type => "text")
+              assert page.has_field?("Skills (optional)", :type => "text")
+
+              assert page.has_selector?("button", :text => "Search")
+              assert page.has_content?("on Universal Jobmatch")
+            end
+          end
+
+          within 'section.more' do
+            expected = ['Before you start', 'Other ways to apply']
+            tabs = page.all('nav.nav-tabs li').map(&:text)
+            assert_equal expected, tabs
+
+            within '.tab-content' do
+              within '#before-you-start' do
+                assert page.has_selector?(".application-notice p", :text => "Universal Jobmatch has replaced the Jobcentre Plus job search tool.")
+              end
+
+              within '#other-ways-to-apply' do
+                assert page.has_selector?('p', :text => "You can also search for jobs by calling Jobcentre Plus.")
+              end
+            end # within .tab_content
+          end
+
+          assert page.has_selector?(".modified-date", :text => "Last updated: 20 November 2012")
+
+          assert page.has_selector?("#test-report_a_problem")
+        end
+      end # within #content
+
+      assert page.has_selector?("#test-related")
+    end
+
   end
 end

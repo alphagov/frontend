@@ -1,0 +1,92 @@
+{
+    "_response_info": {
+        "status": "ok"
+    },
+    "id": "https://www.gov.uk/api/jobs-jobsearch.json",
+    "web_url": "https://www.gov.uk/jobs-jobsearch",
+    "title": "Find a job with Universal Jobmatch",
+    "format": "transaction",
+    "details": {
+        "need_id": "125",
+        "business_proposition": false,
+        "description": "Find a job using the Universal Jobmatch service - jobseekers can match their CV and skills to jobs posted by companies",
+        "alternative_title": "Universal Jobmatch job search and matching",
+        "more_information": "\n<div class=\"application-notice info-notice\">\n<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>\n</div>\n\n<p>Use JobCentre Online to <a rel=\"external\" href=\"http://www.jobcentreonline.com/JCOLFront/Home.aspx\" title=\"Jobcentre Online NI\">search for jobs in Northern Ireland.</a></p>\n",
+        "introduction": "<p>Register or sign in to Universal Jobmatch and search for full or part-time jobs in Great Britain and abroad by location, title, or type of work. The Universal Jobmatch service lets you create an online CV and automatically match it to available jobs.</p>\n\n<div class=\"application-notice info-notice\">\n<p>You may have difficulties using this service while it’s being improved - if you’re affected, please try again later.</p>\n</div>\n",
+        "will_continue_on": "Universal Jobmatch",
+        "link": "https://jobsearch.direct.gov.uk",
+        "alternate_methods": "<p>You can also search for jobs by calling Jobcentre Plus.</p>\n\n<div class=\"contact\">\n<p><strong>Telephone:</strong> 0845 606 0234<br />\n<strong>Textphone:</strong> 0845 605 5255<br />\nMonday to Friday, 8am to 6pm</p>\n</div>\n",
+        "minutes_to_complete": "",
+        "expectations": [ ]
+    },
+    "updated_at": "2012-11-20T12:27:44+00:00",
+    "tags": [
+        {
+            "title": "Finding a job",
+            "id": "https://www.gov.uk/api/tags/working%2Ffinding-job.json",
+            "web_url": null,
+            "details": {
+                "description": "Includes job search, volunteering, apprenticeships and job offers",
+                "short_description": null,
+                "type": "section"
+            },
+            "content_with_tag": {
+                "id": "https://www.gov.uk/api/with_tag.json?tag=working%2Ffinding-job",
+                "web_url": "https://www.gov.uk/browse/working/finding-job"
+            },
+            "parent": {
+                "title": "Working, jobs and pensions",
+                "id": "https://www.gov.uk/api/tags/working.json",
+                "web_url": null,
+                "details": {
+                    "description": "Includes holidays and finding a job",
+                    "short_description": null,
+                    "type": "section"
+                },
+                "content_with_tag": {
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=working",
+                    "web_url": "https://www.gov.uk/browse/working"
+                },
+                "parent": null
+            }
+        }
+    ],
+    "related": [
+        {
+            "id": "https://www.gov.uk/api/apprenticeships-guide.json",
+            "web_url": "https://www.gov.uk/apprenticeships-guide",
+            "title": "Apprenticeships",
+            "format": "guide",
+            "details": {
+                "need_id": "B696",
+                "business_proposition": true,
+                "description": "How to become an apprentice – qualifications, pay and training, take on an apprentice - funding, employer grants and NAS "
+            },
+            "updated_at": "2012-11-05T15:02:28+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/moving-from-benefits-to-work.json",
+            "web_url": "https://www.gov.uk/moving-from-benefits-to-work",
+            "title": "Help with moving from benefits to work",
+            "format": "guide",
+            "details": {
+                "need_id": "2585",
+                "business_proposition": false,
+                "description": "Support and services from Jobcentre Plus to help you leave benefits and start work - work programme, work clubs, starting a business, volunteering, work experience, help with drug or alcohol problems, support for carers"
+            },
+            "updated_at": "2012-11-29T10:58:48+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/jobsearch-rights.json",
+            "web_url": "https://www.gov.uk/jobsearch-rights",
+            "title": "Your rights and safety when looking for a job",
+            "format": "answer",
+            "details": {
+                "need_id": "2640",
+                "business_proposition": false,
+                "description": "Help and advice on finding a job including where to look and safety when looking for a job "
+            },
+            "updated_at": "2012-11-01T11:47:40+00:00"
+        }
+    ]
+}

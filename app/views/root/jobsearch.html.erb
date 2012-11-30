@@ -4,7 +4,7 @@
 
   <header class="page-header group">
     <hgroup>
-     <h1><span>Service</span> Find a job with Universal Jobmatch</h1>
+      <h1><span><%= t 'formats.transaction.name' %></span> <%= @publication.title %></h1>
     </hgroup>
     <nav class="skip-to-related">
       <a href="#related">Not what you're looking for? ↓</a>
@@ -15,8 +15,8 @@
      <div class="inner">
 
       <section class="intro">
-        <div class="get-started-intro"><p>Search for full or part-time jobs in Great Britain and abroad. <a href="https://jobsearch.direct.gov.uk/FedHandler.ashx" title="Login to your Universal Jobmatch account" rel="external">Login to Universal Jobmatch</a> if you already have an account.</p></div>
-        <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
+        <div class="get-started-intro"><%= raw @publication.introduction %></div>
+
         <form class="jobsearch-form" action="https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx" method="get">
 
 					<input type="hidden" name="rad" value="20"/>
@@ -34,40 +34,17 @@
 					<p class="group"><label for="search_keywords">Skills (optional)</label><input id="search_keywords" name="q" type="text" /></p>
                                         <p id="get-started" class="get-started group">
                                           <button class="button" type="submit" >Search</button>
-                                          <span class="destination"> on Universal Jobmatch</span>
+                                          <span class="destination"> on <%= @publication.will_continue_on %></span>
                                         </p>
 				</form>
       </section>
 
       <section class="more">
-      	<nav class="js-tabs nav-tabs">
-		      <ul>
-						<li class="active"><a href="#before-you-start">Before you start</a></li>
-		    		<li><a href="#other-ways-to-apply">Other ways to apply</a></li>
-		  		</ul>
-		  	</nav>
-
-        <div class="js-tab-content tab-content">
-          <div class="js-tab-pane tab-pane" id="before-you-start">
-            <div class="application-notice info-notice">
-              <p><a href="https://myaccount.gateway.gov.uk/RegisterOrLogon.aspx?gwv=1.0&amp;gwrealm=urn:TransformingLabourMarketServices&amp;gwlang=en-GB&amp;gwtheme=directgov&amp;gwcategory=IND&amp;gwaction=REGISTER_UID&amp;gwreply=https%3a%2f%2fjobsearch.direct.gov.uk%2fFedHandler.ashx&amp;gwreplytext=Universal+Jobmatch" rel="external">Register with Universal Jobmatch</a> or <a href="https://jobsearch.direct.gov.uk/FedHandler.ashx" rel="external">login to your existing account</a> for services including saved job searches, email alerts and keeping track of your past applications. You can still search and apply for jobs without an account.</p>
-            </div>
-            <p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>
-            <p>If you're having problems registering with Universal Jobmatch:</p>
-            <ul>
-              <li>check your email spam folder for the confirmation email</li>
-              <li>make a note of the Government Gateway number during the signup process - you will need this to sign in again later</li>
-            </ul>
-        		<p>Search for jobs in Northern Ireland with <a href="http://www.jobcentreonline.com" rel="external">Jobcentre Online</a></p>
-					</div>
-					<div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-      			<p>You can also search for jobs by calling Jobcentre Plus.</p>
-						<div class="contact">
-							<p><strong>Telephone:</strong> 0845 606 0234<br><strong>Textphone:</strong> 0845 605 5255<br>
-								Monday to Friday, 8am to 6pm</p>
-						</div>
-					</div>
-				</div>
+        <%- if presenter.multiple_more_information_sections? -%>
+          <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @publication, :presenter => presenter } %>
+        <%- else -%>
+          <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @publication, :presenter => presenter } %>
+        <%- end -%>
       </section>
 
      </div>

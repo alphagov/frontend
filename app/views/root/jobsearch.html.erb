@@ -27,14 +27,14 @@
             <input type="hidden" name="re" value="134"/>
             <input type="hidden" name="setype" value="2"/>
 
-            <p class="group"><label for="search_title">Job title <input id="search_title" type="text" name="tjt" /></label></p>
+            <p class="group"><label for="search_title"><%= t 'formats.transaction.jobsearch.job_title' %> <input id="search_title" type="text" name="tjt" /></label></p>
 
-            <p class="group"><label for="search_where">Town, place or postcode <input id="search_where" name="where" type="text" /></label></p>
+            <p class="group"><label for="search_where"><%= t 'formats.transaction.jobsearch.town_place_postcode' %> <input id="search_where" name="where" type="text" /></label></p>
 
-            <p class="group"><label for="search_keywords">Skills (optional) <input id="search_keywords" name="q" type="text" /></label></p>
+            <p class="group"><label for="search_keywords"><%= t 'formats.transaction.jobsearch.skills' %> <input id="search_keywords" name="q" type="text" /></label></p>
             <p id="get-started" class="get-started group">
-              <button class="button" type="submit" >Search</button>
-              <span class="destination"> on <%= @publication.will_continue_on %></span>
+              <button class="button" type="submit" ><%= t 'formats.transaction.jobsearch.search' %></button>
+              <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
             </p>
           </form>
         </section>

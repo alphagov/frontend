@@ -24,7 +24,6 @@ class RootController < ApplicationController
 
   def jobsearch
     error_404 and return if request.format.nil?
-    params[:slug] = "jobs-jobsearch"
 
     @artefact = fetch_artefact
     set_slimmer_artefact_headers(@artefact)
@@ -37,6 +36,8 @@ class RootController < ApplicationController
     end
 
     set_expiry
+
+    I18n.locale = @publication.language if @publication.language
 
   rescue RecordNotFound
     set_expiry(10.minutes)

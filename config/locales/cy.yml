@@ -24,3 +24,8 @@ cy:
       what_you_need_to_know: "Yr hyn mae angen i chi ei wybod"
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
       takes_around_n_minutes: "Takes around %{count} minutes (in Welsh)"
+      jobsearch:
+        job_title: "Job title (in Welsh)"
+        town_place_postcode: "Town, place or postcode (in Welsh)"
+        skills: "Skills (optional) (in Welsh)"
+        search: "Search (in Welsh)"

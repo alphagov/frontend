@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative '../test_helper'
 
 class RootControllerTest < ActionController::TestCase
   def setup_this_answer
@@ -337,45 +337,63 @@ class RootControllerTest < ActionController::TestCase
           'slug' => 'jobs-jobsearch',
           'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
           'format' => 'transaction',
-          'details' => {},
+          'details' => {"expectations" => []},
           'title' => 'Universal Jobsearch'
         }
         content_api_has_an_artefact("jobs-jobsearch", @details)
       end
 
       should "respond with success" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_response :success
       end
 
       should "loads the correct artefact" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_equal "Universal Jobsearch", assigns(:artefact)['title']
       end
 
       should "initialize a publication object" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "set correct slimmer artefact in headers" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_equal JSON.dump(@details), @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set correct expiry headers" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
       end
 
       should "render the jobsearch view" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_template "jobsearch"
       end
 
       should "redirect to the api for json format" do
-        get :jobsearch, :format => :json
+        get :jobsearch, :slug => "jobs-jobsearch", :format => :json
         assert_redirected_to "/api/jobs-jobsearch.json"
+      end
+    end
+
+    context "given a welsh version exists" do
+      setup do
+        @details = {
+          'id' => 'https://www.gov.uk/api/jobs-jobsearch-welsh.json',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch-welsh',
+          'format' => 'transaction',
+          'details' => {"expectations" => [], "language" => "cy"},
+          'title' => 'Universal Jobsearch'
+        }
+        content_api_has_an_artefact("jobs-jobsearch-welsh", @details)
+      end
+
+      should "set the locale to welsh" do
+        I18n.expects(:locale=).with("cy")
+        get :jobsearch, :slug => "jobs-jobsearch-welsh"
       end
     end
 
@@ -385,7 +403,7 @@ class RootControllerTest < ActionController::TestCase
       end
 
       should "respond with 404" do
-        get :jobsearch
+        get :jobsearch, :slug => "jobs-jobsearch"
         assert_response :not_found
       end
     end

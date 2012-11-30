@@ -5,7 +5,6 @@ Frontend::Application.routes.draw do
   match "/browse" => "browse#index", to: "browse#index"
   match "/browse/:section", as: "browse", to: "browse#section"
   match "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
-  match "/jobs-jobsearch" => "root#jobsearch"
 
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
@@ -29,6 +28,8 @@ Frontend::Application.routes.draw do
   match "/ukwelcomes", :to => "campaign#uk_welcomes"
   match "/sortmytax", :to => "campaign#sort_my_tax"
   match "/newlicencerules", :to => "campaign#new_licence_rules"
+
+  match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobs-jobsearch|jobs-jobsearch-welsh)/}
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.match ":slug/video", format: :video

@@ -199,5 +199,45 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#test-related")
     end
 
+    should "render welsh jobsearch page correctly" do
+      # Note, this is using the english versions, set to welsh
+      # This is fine because we're testing the page furniture, not the rendering of the content.
+      # We can use the welsh version when it exists.
+      artefact = content_api_response('jobs-jobsearch')
+      artefact["details"]["language"] = "cy"
+      content_api_has_an_artefact('jobs-jobsearch-welsh', artefact)
+
+      visit "/jobs-jobsearch-welsh"
+
+      assert_equal 200, page.status_code
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Gwasanaeth")
+          assert page.has_content?("Find a job with Universal Jobmatch")
+        end
+
+        within '.article-container' do
+          within 'section.intro' do
+            within "form.jobsearch-form" do
+              assert page.has_field?("Job title (in Welsh)", :type => "text")
+              assert page.has_field?("Town, place or postcode (in Welsh)", :type => "text")
+              assert page.has_field?("Skills (optional) (in Welsh)", :type => "text")
+
+              assert page.has_selector?("button", :text => "Search (in Welsh)")
+              assert page.has_content?("ar Universal Jobmatch")
+            end
+          end
+
+          within 'section.more' do
+            expected = ['Cyn i chi ddechrau', 'Ffyrdd eraill o wneud cais']
+            tabs = page.all('nav.nav-tabs li').map(&:text)
+            assert_equal expected, tabs
+          end
+
+          assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 20 Tachwedd 2012")
+        end
+      end # within #content
+    end
   end
 end

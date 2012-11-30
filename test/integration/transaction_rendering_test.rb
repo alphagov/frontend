@@ -3,11 +3,8 @@ require_relative '../integration_test_helper'
 class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
   context "a transaction with expectations but no 'before you start' and 'other ways to apply'" do
-    setup do
-      setup_api_responses('register-to-vote')
-    end
-
     should "render the main information" do
+      setup_api_responses('register-to-vote')
       visit "/register-to-vote"
 
       assert_equal 200, page.status_code
@@ -48,14 +45,45 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("#test-related")
     end
+
+    should "render the welsh version correctly" do
+      # Note, this is using an english piece of content set to Welsh
+      # This is fine because we're testing the page furniture, not the rendering of the content.
+      artefact = content_api_response('register-to-vote')
+      artefact["details"]["language"] = "cy"
+      content_api_has_an_artefact('register-to-vote', artefact)
+      visit "/register-to-vote"
+
+      assert_equal 200, page.status_code
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Register to vote")
+          assert page.has_content?("Gwasanaeth")
+        end
+
+        within '.article-container' do
+          within 'section.intro' do
+            assert page.has_link?("Dechrau nawr", :href => "http://www.aboutmyvote.co.uk/")
+            assert page.has_content?("ar the Electoral Commission website")
+          end
+
+          within 'section.more' do
+            assert page.has_selector?('h1', :text => "Yr hyn mae angen i chi ei wybod")
+
+            expectations = page.all('#what-you-need-to-know li').map(&:text)
+            assert_equal ['Takes around 10 minutes (in Welsh)', 'Includes offline steps'], expectations
+          end
+
+          assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
+        end
+      end # within #content
+    end
   end
 
   context "a transaction with all 3 'more information' sections" do
-    setup do
-      setup_api_responses('apply-first-provisional-driving-licence')
-    end
-
     should "render tabs for more information" do
+      setup_api_responses('apply-first-provisional-driving-licence')
       visit "/apply-first-provisional-driving-licence"
 
       assert_equal 200, page.status_code
@@ -92,6 +120,22 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end # .tab-content
       end
     end
-  end
 
+    should "render the welsh version correctly" do
+      # Note, this is using an english piece of content set to Welsh
+      # This is fine because we're testing the page furniture, not the rendering of the content.
+      artefact = content_api_response('apply-first-provisional-driving-licence')
+      artefact["details"]["language"] = "cy"
+      content_api_has_an_artefact('apply-first-provisional-driving-licence', artefact)
+      visit "/apply-first-provisional-driving-licence"
+
+      assert_equal 200, page.status_code
+
+      within '#content .article-container section.more' do
+        expected = ['Cyn i chi ddechrau', 'Yr hyn mae angen i chi ei wybod', 'Ffyrdd eraill o wneud cais']
+        tabs = page.all('nav.nav-tabs li').map(&:text)
+        assert_equal expected, tabs
+      end
+    end
+  end
 end

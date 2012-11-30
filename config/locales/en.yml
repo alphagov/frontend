@@ -12,6 +12,8 @@ en:
       at_end_of_guide: "You have reached the end of this guide"
       navigate_to_previous_part: "Navigate to previous part"
       navigate_to_next_part: "Navigate to next part"
+      a_guide_from_govuk: "a guide from GOV.UK"
+      notes: "Notes"
     programme:
       name: "Benefits & credits"
     transaction:

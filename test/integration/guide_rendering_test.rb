@@ -187,4 +187,35 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
     end
   end
+
+  should "render the print view of a welsh guide correctly" do
+    # Note, this is using an english piece of content set to Welsh
+    # This is fine because we're testing the page furniture, not the rendering of the content.
+    artefact = content_api_response('data-protection')
+    artefact["details"]["language"] = "cy"
+    content_api_has_an_artefact('data-protection', artefact)
+
+    visit "/data-protection/print"
+
+    within "section[role=main]" do
+      within "header" do
+        within('h1') { assert page.has_content?("Data protection, a guide from GOV.UK (in Welsh)") }
+        assert page.has_content?("Notes (in Welsh)")
+      end
+
+      within "article#the-data-protection-act" do
+        assert page.has_selector?("header h1", :text => "Rhan 1: The Data Protection Act")
+      end
+
+      within "article#find-out-what-data-an-organisation-has-about-you" do
+        assert page.has_selector?("header h1", :text => "Rhan 2: Find out what data an organisation has about you")
+      end
+
+      within "article#make-a-complaint" do
+        assert page.has_selector?("header h1", :text => "Rhan 3: Make a complaint")
+      end
+
+      assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
+    end
+  end
 end

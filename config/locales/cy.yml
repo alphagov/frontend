@@ -12,6 +12,8 @@ cy:
       at_end_of_guide: "Rydych wedi cyrraedd diwedd y canllaw hwn"
       navigate_to_previous_part: "Navigate to previous part (in Welsh)"
       navigate_to_next_part: "Navigate to next part (in Welsh)"
+      a_guide_from_govuk: "a guide from GOV.UK (in Welsh)"
+      notes: "Notes (in Welsh)"
     programme:
       name: "Budd-daliadau a chredydau"
     transaction:

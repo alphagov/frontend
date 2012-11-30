@@ -13,9 +13,3 @@ cy:
       navigate_to_next_part: "Navigate to next part (in Welsh)"
     programme:
       name: "Budd-daliadau a chredydau"
-  date:
-    formats:
-      last_updated: "%d %B %Y"
-  time:
-    formats:
-      last_updated: "%d %B %Y"

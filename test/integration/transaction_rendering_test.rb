@@ -220,11 +220,11 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         within '.article-container' do
           within 'section.intro' do
             within "form.jobsearch-form" do
-              assert page.has_field?("Job title (in Welsh)", :type => "text")
-              assert page.has_field?("Town, place or postcode (in Welsh)", :type => "text")
-              assert page.has_field?("Skills (optional) (in Welsh)", :type => "text")
+              assert page.has_field?("Teitl swydd", :type => "text")
+              assert page.has_field?("Tref, lle neu god post", :type => "text")
+              assert page.has_field?("Sgiliau (dewisol)", :type => "text")
 
-              assert page.has_selector?("button", :text => "Search (in Welsh)")
+              assert page.has_selector?("button", :text => "Chwilio")
               assert page.has_content?("ar Universal Jobmatch")
             end
           end

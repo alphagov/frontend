@@ -25,7 +25,7 @@ cy:
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
       takes_around_n_minutes: "Takes around %{count} minutes (in Welsh)"
       jobsearch:
-        job_title: "Job title (in Welsh)"
-        town_place_postcode: "Town, place or postcode (in Welsh)"
-        skills: "Skills (optional) (in Welsh)"
-        search: "Search (in Welsh)"
+        job_title: "Teitl swydd"
+        town_place_postcode: "Tref, lle neu god post"
+        skills: "Sgiliau (dewisol)"
+        search: "Chwilio"

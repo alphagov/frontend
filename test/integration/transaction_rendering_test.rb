@@ -205,9 +205,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       # We can use the welsh version when it exists.
       artefact = content_api_response('jobs-jobsearch')
       artefact["details"]["language"] = "cy"
-      content_api_has_an_artefact('jobs-jobsearch-welsh', artefact)
+      content_api_has_an_artefact('chwilio-am-swydd', artefact)
 
-      visit "/jobs-jobsearch-welsh"
+      visit "/chwilio-am-swydd"
 
       assert_equal 200, page.status_code
 

@@ -1,3 +1,4 @@
+# encoding: utf-8
 require_relative '../integration_test_helper'
 
 class GuideRenderingTest < ActionDispatch::IntegrationTest
@@ -17,6 +18,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("Data protection")
         assert page.has_content?("Guide")
+        assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -117,6 +119,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("Guide (in Welsh)")
         assert page.has_content?("Data protection")
+        assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do

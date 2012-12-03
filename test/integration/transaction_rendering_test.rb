@@ -1,3 +1,4 @@
+# encoding: utf-8
 require_relative '../integration_test_helper'
 
 class TransactionRenderingTest < ActionDispatch::IntegrationTest
@@ -18,6 +19,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         within 'header' do
           assert page.has_content?("Register to vote")
           assert page.has_content?("Service")
+          assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
         end
 
         within '.article-container' do
@@ -60,6 +62,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         within 'header' do
           assert page.has_content?("Register to vote")
           assert page.has_content?("Gwasanaeth")
+          assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
         end
 
         within '.article-container' do

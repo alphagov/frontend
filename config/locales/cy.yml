@@ -1,6 +1,7 @@
 cy:
   common:
     last_updated: "Diweddarwyd diwethaf"
+    not_what_youre_looking_for: "Ddim beth rydych chi'n chwilio amdano?"
   formats:
     answer:
       name: "Ateb cyflym"

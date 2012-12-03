@@ -1,6 +1,7 @@
 en:
   common:
     last_updated: "Last updated"
+    not_what_youre_looking_for: "Not what you're looking for?"
   formats:
     answer:
       name: "Quick answer"

@@ -1,3 +1,4 @@
+# encoding: utf-8
 require_relative '../integration_test_helper'
 
 class AnswerRenderingTest < ActionDispatch::IntegrationTest
@@ -17,6 +18,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("VAT rates")
         assert page.has_content?("Quick answer")
+        assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -48,6 +50,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("VAT rates")
         assert page.has_content?("Ateb cyflym")
+        assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do

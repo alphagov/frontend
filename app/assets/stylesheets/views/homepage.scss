@@ -155,7 +155,11 @@
     margin-top: 1em;
 
     h1{
-      padding: 0;
+      padding: 0 0 5px 0;
+    }
+
+    p {
+      @include core-16;
     }
 
     @include media(mobile) {
@@ -224,14 +228,14 @@
         background-image: image-url("homepage/homepage-cabinet.jpg");
         background-position: bottom left;
         background-repeat: no-repeat;
-        margin: 0 -1em;
+        margin: 0 -1em 1em -1em;
         padding: 0 1em;
         padding-bottom:140px;
         
         h1, p{
           @include core-19;
           color:#fff;
-          padding: 0;
+          padding: 0 0 10px 0;
           margin:0;
         }
 

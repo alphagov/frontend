@@ -27,6 +27,6 @@ cy:
       takes_around_n_minutes: "Mae’n cymryd tua %{count} munud"
       jobsearch:
         job_title: "Teitl swydd"
-        town_place_postcode: "Tref, lle neu god post"
+        town_place_postcode: "Cod post, Tref neu lle"
         skills: "Sgiliau (dewisol)"
         search: "Chwilio"

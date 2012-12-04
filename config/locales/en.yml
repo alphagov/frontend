@@ -27,6 +27,6 @@ en:
       takes_around_n_minutes: "Takes around %{count} minutes"
       jobsearch:
         job_title: "Job title"
-        town_place_postcode: "Town, place or postcode"
+        town_place_postcode: "Postcode, town or place"
         skills: "Skills (optional)"
         search: "Search"

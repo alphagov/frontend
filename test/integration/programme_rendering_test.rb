@@ -120,7 +120,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("Budd-daliadau a chredydau")
         assert page.has_content?("Reduced Earnings Allowance")
-        assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
+        assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -136,8 +136,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
           within('header') { assert page.has_content?("Rhan 1: Overview") }
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau'r canllaw hwn")
-            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to next part (in Welsh)']",
+            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau’r canllaw hwn")
+            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Llywio i’r rhan nesaf']",
                                       :text => "Rhan 2 What you'll get")
           end
         end
@@ -157,7 +157,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         within('header') { assert page.has_content?("Rhan 5: Further information") }
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to previous part (in Welsh)']",
+          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Llywio i’r rhan flaenorol']",
                                     :text => "Rhan 4 How to claim")
           assert page.has_selector?("li.last", :text => "Rydych wedi cyrraedd diwedd y canllaw hwn")
         end

@@ -50,7 +50,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("VAT rates")
         assert page.has_content?("Ateb cyflym")
-        assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
+        assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do

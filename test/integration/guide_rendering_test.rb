@@ -117,9 +117,9 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     within '#content' do
       within 'header' do
-        assert page.has_content?("Guide (in Welsh)")
+        assert page.has_content?("Canllaw")
         assert page.has_content?("Data protection")
-        assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
+        assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -135,8 +135,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
           within('header') { assert page.has_content?("Rhan 1: The Data Protection Act") }
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau'r canllaw hwn")
-            assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to next part (in Welsh)']",
+            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau’r canllaw hwn")
+            assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Llywio i’r rhan nesaf']",
                                       :text => "Rhan 2 Find out what data an organisation has about you")
           end
         end
@@ -155,7 +155,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         within('header') { assert page.has_content?("Rhan 3: Make a complaint") }
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to previous part (in Welsh)']",
+          assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Llywio i’r rhan flaenorol']",
                                     :text => "Rhan 2 Find out what data an organisation has about you")
           assert page.has_selector?("li.last", :text => "Rydych wedi cyrraedd diwedd y canllaw hwn")
         end
@@ -202,8 +202,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     within "section[role=main]" do
       within "header" do
-        within('h1') { assert page.has_content?("Data protection, a guide from GOV.UK (in Welsh)") }
-        assert page.has_content?("Notes (in Welsh)")
+        within('h1') { assert page.has_content?("Data protection, canllaw gan GOV.UK") }
+        assert page.has_content?("Nodiadau")
       end
 
       within "article#the-data-protection-act" do

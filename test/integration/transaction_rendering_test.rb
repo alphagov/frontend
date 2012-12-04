@@ -62,7 +62,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         within 'header' do
           assert page.has_content?("Register to vote")
           assert page.has_content?("Gwasanaeth")
-          assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
+          assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
         end
 
         within '.article-container' do
@@ -75,7 +75,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert page.has_selector?('h1', :text => "Yr hyn mae angen i chi ei wybod")
 
             expectations = page.all('#what-you-need-to-know li').map(&:text)
-            assert_equal ['Takes around 10 minutes (in Welsh)', 'Includes offline steps'], expectations
+            assert_equal ["Mae’n cymryd tua 10 munud", 'Includes offline steps'], expectations
           end
 
           assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
@@ -218,7 +218,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         within 'header' do
           assert page.has_content?("Gwasanaeth")
           assert page.has_content?("Find a job with Universal Jobmatch")
-          assert page.has_link?("Ddim beth rydych chi'n chwilio amdano? ↓", :href => "#related")
+          assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
         end
 
         within '.article-container' do

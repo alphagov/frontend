@@ -1,20 +1,20 @@
 cy:
   common:
     last_updated: "Diweddarwyd diwethaf"
-    not_what_youre_looking_for: "Ddim beth rydych chi'n chwilio amdano?"
+    not_what_youre_looking_for: "Ddim beth rydych chi’n chwilio amdano?"
   formats:
     answer:
       name: "Ateb cyflym"
     guide:
-      name: "Guide (in Welsh)"
+      name: "Canllaw"
       part: "Rhan"
       printer_friendly_page: "Tudalen hawdd ei hargraffu"
-      at_beginning_of_guide: "Rydych chi ar ddechrau'r canllaw hwn"
+      at_beginning_of_guide: "Rydych chi ar ddechrau’r canllaw hwn"
       at_end_of_guide: "Rydych wedi cyrraedd diwedd y canllaw hwn"
-      navigate_to_previous_part: "Navigate to previous part (in Welsh)"
-      navigate_to_next_part: "Navigate to next part (in Welsh)"
-      a_guide_from_govuk: "a guide from GOV.UK (in Welsh)"
-      notes: "Notes (in Welsh)"
+      navigate_to_previous_part: "Llywio i’r rhan flaenorol"
+      navigate_to_next_part: "Llywio i’r rhan nesaf"
+      a_guide_from_govuk: "canllaw gan GOV.UK"
+      notes: "Nodiadau"
     programme:
       name: "Budd-daliadau a chredydau"
     transaction:
@@ -24,7 +24,7 @@ cy:
       before_you_start: "Cyn i chi ddechrau"
       what_you_need_to_know: "Yr hyn mae angen i chi ei wybod"
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
-      takes_around_n_minutes: "Takes around %{count} minutes (in Welsh)"
+      takes_around_n_minutes: "Mae’n cymryd tua %{count} munud"
       jobsearch:
         job_title: "Teitl swydd"
         town_place_postcode: "Tref, lle neu god post"

@@ -4,7 +4,6 @@ require "local_transaction_location_identifier"
 require "licence_location_identifier"
 
 class RootController < ApplicationController
-  include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
 
@@ -85,9 +84,6 @@ class RootController < ApplicationController
     end
 
     case @publication.type
-    when "place"
-      @presentable_places = load_place_options(@publication)
-      @publication.places = @presentable_places
     when "licence"
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
@@ -134,16 +130,6 @@ protected
   # request.format.html? returns 5 when the request format is video.
   def treat_as_standard_html_request?
     !request.format.json? and !request.format.print? and !request.format.video?
-  end
-
-  def load_place_options(publication)
-    if geo_known_to_at_least?('ward')
-      places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
-      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
-      places
-    else
-      []
-    end
   end
 
   def local_transaction_details(artefact, authority_slug, snac)

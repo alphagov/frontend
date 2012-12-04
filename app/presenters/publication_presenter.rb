@@ -60,6 +60,18 @@ class PublicationPresenter
     URI.parse(web_url).path.gsub("/", "")
   end
 
+  def places
+    if details && details["places"]
+      details["places"].map do |place| 
+        place['text']    = place['url'].truncate(36) if place['url']
+        place['address'] = [place['address1'], place['address2']].compact.map(&:strip).join(", ")
+        place
+      end
+    else
+      []
+    end
+  end
+
   def updated_at
     date = @artefact["updated_at"]
     DateTime.parse(date) if date
@@ -74,5 +86,11 @@ class PublicationPresenter
     else
       ""
     end
+  end
+
+  def to_json
+    {
+      places: places
+    }.to_json
   end
 end

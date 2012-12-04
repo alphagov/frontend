@@ -24,13 +24,13 @@
           {{/postcode}}
           </p>
 
-          {{#latitude}}
-          <ul class="view-maps">
-            <li><a href="https://maps.google.com/maps?z=16&amp;ie=UTF8&amp;q=loc:{{latitude}}%2C{{longitude}}&amp;ll={{latitude}}%2C{{longitude}}">View on Google Maps</a></li>
-            <li><a href="http://bing.com/maps/default.aspx?cp={{latitude}}~{{longitude}}&amp;lvl=16&amp;sp=point.{{latitude}}_{{longitude}}_{{name}}">View on Bing Maps</a></li>
-            <li><a href="http://www.openstreetmap.org/index.html?mlat={{latitude}}&amp;mlon={{longitude}}&amp;zoom=16">View on Open Street Map</a></li>
-          </ul>
-          {{/latitude}}
+          {{#location}}
+            <ul class="view-maps">
+              <li><a href="https://maps.google.com/maps?z=16&amp;ie=UTF8&amp;q=loc:{{latitude}}%2C{{longitude}}&amp;ll={{latitude}}%2C{{longitude}}">View on Google Maps</a></li>
+              <li><a href="http://bing.com/maps/default.aspx?cp={{latitude}}~{{longitude}}&amp;lvl=16&amp;sp=point.{{latitude}}_{{longitude}}">View on Bing Maps</a></li>
+              <li><a href="http://www.openstreetmap.org/index.html?mlat={{latitude}}&amp;mlon={{longitude}}&amp;zoom=16">View on Open Street Map</a></li>
+            </ul>
+          {{/location}}
 
           <div class="additional-information">
             {{#url}}

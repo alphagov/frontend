@@ -3,10 +3,10 @@
 <div class="meta-data group">
   <div class="inner">
     <% if publication.updated_at %>
-      <p class="modified-date">Last updated: <%= publication.updated_at.to_formatted_s(:short_ordinal) %></p>
+      <p class="modified-date"><%= t 'common.last_updated' %>: <%= l publication.updated_at, :format => '%d %B %Y' %></p>
     <% end %>
     <% if [:programme, :guide].include? publication.type.to_sym %>
-      <p class="print-link"><%= link_to "Printer friendly page", publication_path(publication.slug, :part => 'print'), rel: "nofollow" %></p>
+      <p class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(publication.slug, :part => 'print'), rel: "nofollow" %></p>
     <% end %>
   </div>
 </div>

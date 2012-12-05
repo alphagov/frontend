@@ -1,5 +1,32 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  common:
+    last_updated: "Last updated"
+    not_what_youre_looking_for: "Not what you're looking for?"
+  formats:
+    answer:
+      name: "Quick answer"
+    guide:
+      name: "Guide"
+      part: "Part"
+      printer_friendly_page: "Printer friendly page"
+      at_beginning_of_guide: "You are at the beginning of this guide"
+      at_end_of_guide: "You have reached the end of this guide"
+      navigate_to_previous_part: "Navigate to previous part"
+      navigate_to_next_part: "Navigate to next part"
+      a_guide_from_govuk: "a guide from GOV.UK"
+      notes: "Notes"
+    programme:
+      name: "Benefits & credits"
+    transaction:
+      name: "Service"
+      start_now: "Start now"
+      "on": !!str "on"
+      before_you_start: "Before you start"
+      what_you_need_to_know: "What you need to know"
+      other_ways_to_apply: "Other ways to apply"
+      takes_around_n_minutes: "Takes around %{count} minutes"
+      jobsearch:
+        job_title: "Job title"
+        town_place_postcode: "Postcode, town or place"
+        skills: "Skills (optional)"
+        search: "Search"

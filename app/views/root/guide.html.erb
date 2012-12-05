@@ -2,75 +2,26 @@
 
   <header class="page-header group">
     <hgroup>
-      <h1><span>Guide </span><%= @publication.title %></h1>
+      <h1><span><%= t 'formats.guide.name' %> </span><%= @publication.title %></h1>
     </hgroup>
     <nav class="skip-to-related">
-      <a href="#related">Not what you're looking for? ↓</a>
+      <a href="#related"><%= t 'common.not_what_youre_looking_for' %> ↓</a>
     </nav>
   </header>
 
   <div class="article-container group">
-    <aside>
-      <div class="inner">
-        <nav role="navigation" class="page-navigation">
-          <ol>
-            <% @publication.parts.each do |nav_part| %>
-              <li <% if @part == nav_part %>class="active"<% end %>>
-                <% if @part == nav_part %>
-                  <span class="part-label">Part <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
-                <% else %>
-                  <a href="<%= part_path(@publication.slug, nav_part.slug, @edition) %>" title="Part <%= part_number(@publication.parts, nav_part) %>: <%= nav_part.title %>">
-                    <span class="part-label">Part <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
-                  </a>
-                <% end %>
-              </li>
-            <% end %>
-          </ol>
-        </nav>
-      </div>
-    </aside>
+    <%= render :partial => "guide_navigation" %>
 
     <article role="article" class="group">
       <div class="inner">
 
         <header>
-          <h1><span>Part <%= part_number(@publication.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
+          <h1><span><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
         </header>
 
         <%= raw @part.body %>
 
-        <footer>
-          <nav class="pagination" role="navigation">
-            <ul class="group">
-              <%- if @publication.has_parts?(@part) -%>
-                <%- if @publication.has_previous_part?(@part) -%>
-                  <li class="previous">
-                    <a href="<%= previous_part_path(@publication, @part, @edition) %>" title="Navigate to previous part" rel="prev">
-                      <span class="pagination-label">Part <%= part_number(@publication.parts, @publication.part_before(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_before(@part).title) %></span></a>
-                  </li>
-                <%- else -%>
-                  <li class="first">
-                    <span>You are at the beginning of this guide</span>
-                  </li>
-                <%- end -%>
-                <%- if @publication.has_next_part?(@part) -%>
-                  <li class="next">
-                    <a href="<%= next_part_path(@publication, @part, @edition) %>" title="Navigate to next part" rel="next"><span class="pagination-label">Part <%= part_number(@publication.parts, @publication.part_after(@part)) %></span> <span class="pagination-part-title"><%= (@publication.part_after(@part).title) %></span></a>
-                  </li>
-                <%- else -%>
-                  <li class="last">
-                    <span>You have reached the end of this guide</span>
-                  </li>
-                <%- end -%>
-              <%- else -%>
-                <li class="last">
-                  <span>You have reached the end of this guide</span>
-                </li>
-              <%- end -%>
-            </ul>
-          </nav>
-        </footer>
-
+        <%= render :partial => "guide_pagination" %>
       </div>
     </article>
     <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>

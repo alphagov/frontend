@@ -1,12 +1,12 @@
 <header>
-  <h1><%= @publication.title %>, a guide from GOV.UK</h1>
-  <p>Notes</p>
+  <h1><%= @publication.title %>, <%= t 'formats.guide.a_guide_from_govuk' %></h1>
+  <p><%= t 'formats.guide.notes' %></p>
 </header>
 
 <% @publication.parts.each do |part| %>
 <article id="<%= part.slug %>">
   <header>
-    <h1>Part <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
+    <h1><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
   </header>
 
   <%= raw part.body %>

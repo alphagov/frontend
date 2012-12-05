@@ -1,12 +1,12 @@
 <header>
-  <h1>Benefits &amp; credits: <%= @publication.title %></h1>
+  <h1><%= t 'formats.programme.name' %>: <%= @publication.title %></h1>
   <p>Notes</p>
 </header>
 
 <% @publication.parts.each do |part| %>
 <article id="<%= part.slug %>">
   <header>
-    <h1>Part <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
+    <h1><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
   </header>
 
   <%= raw part.body %>

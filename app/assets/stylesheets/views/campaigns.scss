@@ -12,7 +12,8 @@
 
 
 /* temp extra styles for jobsearch */
-.jobsearch-form input {
+.jobsearch-form label input {
+  display: block;
   background-color: #f9f9f9;
   border: 1px inset #e2e2e2;
   font-size: 1em;
@@ -22,15 +23,4 @@
   @include ie-lte(7){
     margin-left:1em;
   }
-}
-.jobsearch-form label {
-  color: #231f20;
-  font-family: "nta", "GDS-Regular", sans-serif;
-  font-size: 19px;
-  font-size: 1.9rem;
-  line-height: 1.31579;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  display:block;
 }

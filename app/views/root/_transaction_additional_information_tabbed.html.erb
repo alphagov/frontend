@@ -1,8 +1,8 @@
 <nav class="js-tabs nav-tabs">
   <ul>
-    <% if presenter.before_you_start? %><li class="active"><a href="#before-you-start">Before you start</a></li><% end %>
-    <% if presenter.what_you_need_to_know? %><li><a href="#what-you-need-to-know">What you need to know</a></li><% end %>
-    <% if presenter.other_ways_to_apply? %><li><a href="#other-ways-to-apply">Other ways to apply</a></li><% end %>
+    <% if presenter.before_you_start? %><li class="active"><a href="#before-you-start"><%= t 'formats.transaction.before_you_start' %></a></li><% end %>
+    <% if presenter.what_you_need_to_know? %><li><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></li><% end %>
+    <% if presenter.other_ways_to_apply? %><li><a href="#other-ways-to-apply"><%= t 'formats.transaction.other_ways_to_apply' %></a></li><% end %>
   </ul>
 </nav>
 
@@ -15,15 +15,7 @@
 
   <% if presenter.what_you_need_to_know? %>
     <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-      <ul class="helpers group">
-        <% if transaction.minutes_to_complete.present? %>
-          <li>Takes around <span><%= transaction.minutes_to_complete %></span> minutes</li>
-        <% end %>
-
-        <% transaction.expectations.each do |e| %>
-          <li><%= e %></li>
-        <% end %>
-      </ul>
+      <%= render :partial => 'transaction_expectations', :locals => { :transaction => transaction } %>
     </div>
   <% end %>
 

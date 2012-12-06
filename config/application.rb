@@ -38,6 +38,10 @@ module Frontend
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # This saves loading all 80-odd locales from the rails-i18n gem.  This doesn't affect the loading
+    # of locales from config/locales
+    config.i18n.available_locales = [:en, :cy]
+
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
 

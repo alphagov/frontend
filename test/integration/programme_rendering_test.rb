@@ -18,6 +18,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       within 'header' do
         assert page.has_content?("Reduced Earnings Allowance")
         assert page.has_content?("Benefits & credits")
+        assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -36,9 +37,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
           within 'footer nav.pagination' do
             assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
-            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get']",
-                                      :text => "Part 2 What you'll get",
-                                      :title => "Navigate to next part")
+            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to next part']",
+                                      :text => "Part 2 What you'll get")
           end
         end
 
@@ -70,12 +70,10 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("h2", :text => "Going abroad")
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/what-youll-get']",
-                                    :text => "Part 2 What you'll get",
-                                    :title => "Navigate to previous part")
-          assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/how-to-claim']",
-                                    :text => "Part 4 How to claim",
-                                    :title => "Navigate to next part")
+          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to previous part']",
+                                    :text => "Part 2 What you'll get")
+          assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to next part']",
+                                    :text => "Part 4 How to claim")
         end
       end
     end
@@ -99,16 +97,75 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("h3", :text => "Scotland, North West England, East of England, South East England and London")
 
         within 'footer nav.pagination' do
-          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim']",
-                                    :text => "Part 4 How to claim",
-                                    :title => "Navigate to previous part")
+          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to previous part']",
+                                    :text => "Part 4 How to claim")
           assert page.has_selector?("li.last", :text => "You have reached the end of this guide")
         end
       end
     end
   end
 
-  should "render the print view of a guide correctly" do
+  should "render a Welsh programme correctly" do
+    # Note, this is using an english piece of content set to Welsh
+    # This is fine because we're testing the page furniture, not the rendering of the content.
+    artefact = content_api_response('reduced-earnings-allowance')
+    artefact["details"]["language"] = "cy"
+    content_api_has_an_artefact('reduced-earnings-allowance', artefact)
+
+    visit "/reduced-earnings-allowance"
+
+    assert_equal 200, page.status_code
+
+    within '#content' do
+      within 'header' do
+        assert page.has_content?("Budd-daliadau a chredydau")
+        assert page.has_content?("Reduced Earnings Allowance")
+        assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
+      end
+
+      within '.article-container' do
+        within 'aside nav' do
+          part_titles = page.all('li').map(&:text).map(&:strip)
+          assert_equal ['Rhan 1: Overview', "Rhan 2: What you'll get", 'Rhan 3: Eligibility', 'Rhan 4: How to claim', 'Rhan 5: Further information'], part_titles
+
+          assert page.has_link?("Rhan 2: What you'll get", :href => "/reduced-earnings-allowance/what-youll-get")
+          assert page.has_link?("Rhan 5: Further information", :href => "/reduced-earnings-allowance/further-information")
+        end
+
+        within 'article' do
+          within('header') { assert page.has_content?("Rhan 1: Overview") }
+
+          within 'footer nav.pagination' do
+            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau’r canllaw hwn")
+            assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Llywio i’r rhan nesaf']",
+                                      :text => "Rhan 2 What you'll get")
+          end
+        end
+
+        assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 12 Tachwedd 2012")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Tudalen hawdd ei hargraffu")
+      end
+    end # within #content
+
+    within('#content aside nav') { click_on "Further information" }
+
+    assert_current_url "/reduced-earnings-allowance/further-information"
+
+    within '#content .article-container' do
+
+      within 'article' do
+        within('header') { assert page.has_content?("Rhan 5: Further information") }
+
+        within 'footer nav.pagination' do
+          assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Llywio i’r rhan flaenorol']",
+                                    :text => "Rhan 4 How to claim")
+          assert page.has_selector?("li.last", :text => "Rydych wedi cyrraedd diwedd y canllaw hwn")
+        end
+      end
+    end
+  end
+
+  should "render the print view of a programme correctly" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance/print"
 
@@ -143,6 +200,44 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       end
 
       assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
+    end
+  end
+
+  should "render the print view of a welsh programme correctly" do
+    # Note, this is using an english piece of content set to Welsh
+    # This is fine because we're testing the page furniture, not the rendering of the content.
+    artefact = content_api_response('reduced-earnings-allowance')
+    artefact["details"]["language"] = "cy"
+    content_api_has_an_artefact('reduced-earnings-allowance', artefact)
+
+    visit "/reduced-earnings-allowance/print"
+
+    within "section[role=main]" do
+      within "header h1" do
+        assert page.has_content?("Budd-daliadau a chredydau: Reduced Earnings Allowance")
+      end
+
+      within "article#overview" do
+        assert page.has_selector?("header h1", :text => "Rhan 1: Overview")
+      end
+
+      within "article#what-youll-get" do
+        assert page.has_selector?("header h1", :text => "Rhan 2: What you'll get")
+      end
+
+      within "article#eligibility" do
+        assert page.has_selector?("header h1", :text => "Rhan 3: Eligibility")
+      end
+
+      within "article#how-to-claim" do
+        assert page.has_selector?("header h1", :text => "Rhan 4: How to claim")
+      end
+
+      within "article#further-information" do
+        assert page.has_selector?("header h1", :text => "Rhan 5: Further information")
+      end
+
+      assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 12 Tachwedd 2012")
     end
   end
 

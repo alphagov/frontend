@@ -18,7 +18,7 @@ class PublicationPresenter
     :overview, :name, :video_summary, :continuation_link, :licence_overview,
     :link, :will_continue_on, :more_information, :minutes_to_complete,
     :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
-    :eligibility, :evaluation, :additional_information, :contact_details
+    :eligibility, :evaluation, :additional_information, :contact_details, :language
   ]
 
   PASS_THROUGH_KEYS.each do |key|
@@ -29,7 +29,7 @@ class PublicationPresenter
 
   PASS_THROUGH_DETAILS_KEYS.each do |key|
     define_method key do
-      details[key.to_s]
+      details[key.to_s] if details
     end
   end
 
@@ -45,15 +45,15 @@ class PublicationPresenter
     if details
       parts = details["parts"]
       if parts
-        parts.reject {|part|
-          part['slug'] == "further-information" and (part['body'].nil? or part['body'].strip == "")
-        }.map{|part| PartPresenter.new(part)}
+        parts.reject { |part|
+          part['slug'] == "further-information" && (part['body'].nil? || part['body'].strip == "")
+        }.map { |part| PartPresenter.new(part) }
       end
     end
   end
 
   def find_part(slug)
-    parts.find{|part| part.slug == slug}
+    parts && parts.find { |part| part.slug == slug }
   end
 
   def slug

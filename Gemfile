@@ -9,6 +9,7 @@ group :router do
 end
 
 gem 'rails', '3.2.7'
+gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.3.1'
 gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'

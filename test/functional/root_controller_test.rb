@@ -198,13 +198,14 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :part => "information"
   end
 
-  test "should 404 if bad part requested of multi-part guide" do
+  test "should redirect to base url if bad part requested of multi-part guide" do
     content_api_has_an_artefact("a-slug", {
       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}
     })
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"
-    assert_response :not_found
+    assert_response :redirect
+    assert_redirected_to '/a-slug'
   end
 
   test "should assign edition to template if it's not blank and a number" do

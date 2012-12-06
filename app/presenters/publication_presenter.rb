@@ -45,15 +45,15 @@ class PublicationPresenter
     if details
       parts = details["parts"]
       if parts
-        parts.reject {|part|
-          part['slug'] == "further-information" and (part['body'].nil? or part['body'].strip == "")
-        }.map{|part| PartPresenter.new(part)}
+        parts.reject { |part|
+          part['slug'] == "further-information" && (part['body'].nil? || part['body'].strip == "")
+        }.map { |part| PartPresenter.new(part) }
       end
     end
   end
 
   def find_part(slug)
-    parts.find{|part| part.slug == slug}
+    parts && parts.find { |part| part.slug == slug }
   end
 
   def slug

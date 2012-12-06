@@ -80,7 +80,7 @@ class RootController < ApplicationController
     elsif part_requested_but_no_parts? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
-      redirect_to publication_path(:slug => @publication.slug, :part => @publication.parts.first.slug) and return
+      redirect_to publication_path(:slug => @publication.slug) and return
     elsif request.format.json? && @artefact['format'] != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return
     end

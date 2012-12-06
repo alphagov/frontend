@@ -16,6 +16,9 @@ class CampaignController < ApplicationController
   
   def sort_my_tax
   end
+  
+  def new_licence_rules
+  end
 
 protected
   def setup_slimmer_artefact

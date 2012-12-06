@@ -2,43 +2,45 @@
     "_response_info": {
         "status": "ok"
     },
+    "id": "https://www.gov.uk/api/vat-rates.json",
+    "web_url": "https://www.gov.uk/vat-rates",
     "title": "VAT rates",
     "format": "answer",
-    "id": "https://contentapi.preview.alphagov.co.uk/vat-rates.json",
-    "web_url": "https://www.preview.alphagov.co.uk/vat-rates",
     "details": {
         "need_id": "1870",
         "business_proposition": false,
-        "format": "Answer",
-        "alternative_title": "",
-        "overview": "Current VAT rates - standard 20% and rates for reduced rate and zero-rated items",
-        "updated_at": "2012-10-02T12:14:39+00:00",
-        "body": "\n<div class=\"highlight-answer\">\n<p>The standard <abbr title=\"Value Added Tax\">VAT</abbr> rate is <em>20%</em></p>\n</div>\n\n<h2><abbr title=\"Value Added Tax\">VAT</abbr> rates for goods and services</h2>\n\n<table>\n  <thead>\n    <tr>\n      <th>Rate</th>\n      <th>% of <abbr title=\"Value Added Tax\">VAT</abbr></th>\n      <th>What the rate applies to</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Standard</td>\n      <td>20%</td>\n      <td>Most goods and services</td>\n    </tr>\n    <tr>\n      <td>Reduced rate</td>\n      <td>5%</td>\n      <td>Some goods and services, eg children&rsquo;s car seats and home energy</td>\n    </tr>\n    <tr>\n      <td>Zero rate</td>\n      <td>0%</td>\n      <td>Zero-rated goods and services, eg most food and children’s clothes</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>The standard rate of <abbr title=\"Value Added Tax\">VAT</abbr> increased from 17.5 per cent to 20 per cent on 4 January 2011.</p>\n\n<p>Some things are exempt from <abbr title=\"Value Added Tax\">VAT</abbr> (eg postage stamps, financial and property transactions).</p>\n\n<p>HM Revenue &amp; Customs lists the <a rel=\"external\" href=\"http://www.hmrc.gov.uk/vat/forms-rates/rates/goods-services.htm\" title=\"Rates of VAT on different goods and services\">rates of <abbr title=\"Value Added Tax\">VAT</abbr></a> on different goods and services.</p>\n\n"
+        "description": "Current VAT rates - standard 20% and rates for reduced rate and zero-rated items",
+        "language": "en",
+        "body": "\n<div class=\"highlight-answer\">\n<p>The standard <abbr title=\"Value Added Tax\">VAT</abbr> rate is <em>20%</em></p>\n</div>\n\n<h2><abbr title=\"Value Added Tax\">VAT</abbr> rates for goods and services</h2>\n\n<table>\n <thead>\n <tr>\n <th>Rate</th>\n <th>% of <abbr title=\"Value Added Tax\">VAT</abbr></th>\n <th>What the rate applies to</th>\n </tr>\n </thead>\n <tbody>\n <tr>\n <td>Standard</td>\n <td>20%</td>\n <td>Most goods and services</td>\n </tr>\n <tr>\n <td>Reduced rate</td>\n <td>5%</td>\n <td>Some goods and services, eg children&rsquo;s car seats and home energy</td>\n </tr>\n <tr>\n <td>Zero rate</td>\n <td>0%</td>\n <td>Zero-rated goods and services, eg most food and children’s clothes</td>\n </tr>\n </tbody>\n</table>\n\n<p>The standard rate of <abbr title=\"Value Added Tax\">VAT</abbr> increased from 17.5 per cent to 20 per cent on 4 January 2011.</p>\n\n<p>Some things are exempt from <abbr title=\"Value Added Tax\">VAT</abbr> (eg postage stamps, financial and property transactions).</p>\n\n<p>HM Revenue &amp; Customs lists the <a rel=\"external\" href=\"http://www.hmrc.gov.uk/vat/forms-rates/rates/goods-services.htm\" title=\"Rates of VAT on different goods and services\">rates of <abbr title=\"Value Added Tax\">VAT</abbr></a> on different goods and services.</p>\n\n",
+        "alternative_title": ""
     },
+    "updated_at": "2012-10-22T15:21:03+00:00",
     "tags": [
         {
             "title": "VAT",
-            "id": "https://contentapi.preview.alphagov.co.uk/tags/tax%2Fvat.json",
+            "id": "https://www.gov.uk/api/tags/tax%2Fvat.json",
             "web_url": null,
             "details": {
-                "description": "Includes returns online, rates, charging and record keeping",
+                "description": "Includes online returns, rates, charging and record keeping",
+                "short_description": null,
                 "type": "section"
             },
             "content_with_tag": {
-                "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=tax%2Fvat",
-                "web_url": "https://www.preview.alphagov.co.uk/browse/tax/vat"
+                "id": "https://www.gov.uk/api/with_tag.json?tag=tax%2Fvat",
+                "web_url": "https://www.gov.uk/browse/tax/vat"
             },
             "parent": {
                 "title": "Money and tax",
-                "id": "https://contentapi.preview.alphagov.co.uk/tags/tax.json",
+                "id": "https://www.gov.uk/api/tags/tax.json",
                 "web_url": null,
                 "details": {
                     "description": "Includes VAT, debt and inheritance tax",
+                    "short_description": null,
                     "type": "section"
                 },
                 "content_with_tag": {
-                    "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=tax",
-                    "web_url": "https://www.preview.alphagov.co.uk/browse/tax"
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=tax",
+                    "web_url": "https://www.gov.uk/browse/tax"
                 },
                 "parent": null
             }
@@ -46,14 +48,16 @@
     ],
     "related": [
         {
+            "id": "https://www.gov.uk/api/vat-registration-thresholds.json",
+            "web_url": "https://www.gov.uk/vat-registration-thresholds",
             "title": "VAT registration thresholds",
             "format": "answer",
-            "id": "https://contentapi.preview.alphagov.co.uk/vat-registration-thresholds.json",
-            "web_url": "https://www.preview.alphagov.co.uk/vat-registration-thresholds",
             "details": {
                 "need_id": "B903",
-                "business_proposition": true
-            }
+                "business_proposition": true,
+                "description": "VAT thresholds - VAT registration, Flat Rate Scheme, Cash Accounting Scheme or Annual Accounting Scheme"
+            },
+            "updated_at": "2012-10-22T15:21:02+00:00"
         }
     ]
 }

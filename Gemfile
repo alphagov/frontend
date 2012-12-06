@@ -9,6 +9,7 @@ group :router do
 end
 
 gem 'rails', '3.2.7'
+gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.3.1'
 gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
@@ -41,7 +42,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '3.4.0'
+  gem 'gds-api-adapters', '4.1.3'
 end
 
 gem "addressable"
@@ -57,7 +58,7 @@ group :assets do
 end
 
 group :test do
-  gem "mocha"
+  gem "mocha", :require => false
   gem "webmock", :require => false
   gem "ZenTest"
   gem "autotest-rails"

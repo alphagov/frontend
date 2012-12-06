@@ -18,7 +18,7 @@ class PublicationPresenter
     :overview, :name, :video_summary, :continuation_link, :licence_overview,
     :link, :will_continue_on, :more_information, :minutes_to_complete,
     :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
-    :eligibility, :evaluation, :additional_information, :contact_details
+    :eligibility, :evaluation, :additional_information, :contact_details, :language
   ]
 
   PASS_THROUGH_KEYS.each do |key|
@@ -29,7 +29,7 @@ class PublicationPresenter
 
   PASS_THROUGH_DETAILS_KEYS.each do |key|
     define_method key do
-      details[key.to_s]
+      details[key.to_s] if details
     end
   end
 
@@ -60,6 +60,18 @@ class PublicationPresenter
     URI.parse(web_url).path.gsub("/", "")
   end
 
+  def places
+    if details && details["places"]
+      details["places"].map do |place| 
+        place['text']    = place['url'].truncate(36) if place['url']
+        place['address'] = [place['address1'], place['address2']].compact.map(&:strip).join(", ")
+        place
+      end
+    else
+      []
+    end
+  end
+
   def updated_at
     date = @artefact["updated_at"]
     DateTime.parse(date) if date
@@ -74,5 +86,11 @@ class PublicationPresenter
     else
       ""
     end
+  end
+
+  def to_json
+    {
+      places: places
+    }.to_json
   end
 end

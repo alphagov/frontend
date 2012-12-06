@@ -4,7 +4,6 @@ require "local_transaction_location_identifier"
 require "licence_location_identifier"
 
 class RootController < ApplicationController
-  include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
 
@@ -22,6 +21,28 @@ class RootController < ApplicationController
       section_url: "/")
   end
 
+  def jobsearch
+    error_404 and return if request.format.nil?
+
+    @artefact = fetch_artefact
+    set_slimmer_artefact_headers(@artefact)
+
+    @publication = PublicationPresenter.new(@artefact)
+    assert_found(@publication)
+
+    if request.format.json?
+      redirect_to "/api/#{params[:slug]}.json" and return
+    end
+
+    set_expiry
+
+    I18n.locale = @publication.language if @publication.language
+
+  rescue RecordNotFound
+    set_expiry(10.minutes)
+    error 404
+  end
+
   def publication
     error_404 and return if request.format.nil?
 
@@ -35,6 +56,8 @@ class RootController < ApplicationController
 
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
+
+    I18n.locale = @publication.language if @publication.language
 
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']
@@ -63,9 +86,6 @@ class RootController < ApplicationController
     end
 
     case @publication.type
-    when "place"
-      @options = load_place_options(@publication)
-      @publication.places = @options
     when "licence"
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
@@ -114,16 +134,6 @@ protected
   # request.format.html? returns 5 when the request format is video.
   def treat_as_standard_html_request?
     !request.format.json? and !request.format.print? and !request.format.video?
-  end
-
-  def load_place_options(publication)
-    if geo_known_to_at_least?('ward')
-      places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
-      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
-      places
-    else
-      []
-    end
   end
 
   def local_transaction_details(artefact, authority_slug, snac)

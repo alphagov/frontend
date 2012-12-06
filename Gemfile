@@ -48,7 +48,7 @@ gem "addressable"
 gem 'exception_notification'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.6.2'
+  gem 'govuk_frontend_toolkit', '0.8.2'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"

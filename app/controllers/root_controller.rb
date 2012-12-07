@@ -9,6 +9,8 @@ class RootController < ApplicationController
 
   before_filter :set_expiry, :only => [:index, :tour]
 
+  PRINT_FORMATS = %w(guide programme)
+
   def index
     set_slimmer_headers(
       template: "homepage",
@@ -106,8 +108,12 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.print do
-        set_slimmer_headers template: "print"
-        render @publication.type
+        if PRINT_FORMATS.include?(@publication.type)
+          set_slimmer_headers template: "print"
+          render @publication.type
+        else
+          error_404
+        end
       end
       format.json do
         render :json => @publication.to_json

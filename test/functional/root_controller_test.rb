@@ -190,6 +190,13 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "print", @request.format
   end
 
+  test "should return 404 when print view of a non-=supported format is requested" do
+    content_api_has_an_artefact("a-slug", artefact_for_slug("a-slug").merge("format" => "answer"))
+
+    get :publication, :slug => "a-slug", :format => "print"
+    assert_equal 404, response.status
+  end
+
   test "should return 404 if part requested but publication has no parts" do
     content_api_has_an_artefact("a-slug", {'format' => 'answer'})
 

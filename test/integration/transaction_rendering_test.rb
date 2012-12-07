@@ -223,6 +223,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
         within '.article-container' do
           within 'section.intro' do
+            assert page.has_selector?("form.jobsearch-form[action='https://chwiliadgwaith.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
             within "form.jobsearch-form" do
               assert page.has_field?("Teitl swydd", :type => "text")
               assert page.has_field?("Cod post, Tref neu lle", :type => "text")

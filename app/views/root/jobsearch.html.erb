@@ -17,7 +17,7 @@
         <section class="intro">
           <div class="get-started-intro"><%= raw @publication.introduction %></div>
 
-          <form class="jobsearch-form" action="https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx" method="get">
+          <form class="jobsearch-form" action="<%= t 'formats.transaction.jobsearch.form_url' %>" method="get">
 
             <input type="hidden" name="rad" value="20"/>
             <input type="hidden" name="rad_units" value="miles"/>

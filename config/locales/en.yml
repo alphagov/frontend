@@ -26,6 +26,7 @@ en:
       other_ways_to_apply: "Other ways to apply"
       takes_around_n_minutes: "Takes around %{count} minutes"
       jobsearch:
+        form_url: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx"
         job_title: "Job title"
         town_place_postcode: "Postcode, town or place"
         skills: "Skills (optional)"

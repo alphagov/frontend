@@ -136,7 +136,7 @@ class TransactionPresenterTest < ActiveSupport::TestCase
         end
 
         should "load transaction in new window if slug is in list" do
-          @transaction.stubs(:slug).returns("example-slug-one")
+          @transaction.stubs(:slug).returns("restricted-window-example")
           assert @presenter.open_in_restricted_window?
         end
 

@@ -11,7 +11,6 @@ class ExitControllerTest < ActionController::TestCase
 
     should "redirect for link in details.link of transaction" do
       slug = 'council-housing'
-      need_id = '999999'
       format = "transaction"
 
       target = 'http://example.com'
@@ -20,12 +19,13 @@ class ExitControllerTest < ActionController::TestCase
 
       get :exit, slug: slug, format: format
 
+      assert_equal 302, response.status
+      assert_equal "public, max-age=0, s-maxage=1800", response.headers["Cache-Control"]
       assert_redirected_to target
     end
 
     should "return 404 if content api throws a RecordNotFound Error" do
       slug = 'tax-disc-license'
-      need_id = '999999'
       format = 'transaction'
 
       content_api_does_not_have_an_artefact(slug)
@@ -36,7 +36,6 @@ class ExitControllerTest < ActionController::TestCase
 
     should "return 404 if details is missing in publication" do
       slug = 'council-housing'
-      need_id = '999999'
       format = "transaction"
 
       mock_content_api(slug, { :format => format } )
@@ -48,7 +47,6 @@ class ExitControllerTest < ActionController::TestCase
 
     should "return 404 if details.link is missing in publication" do
       slug = 'council-housing'
-      need_id = '999999'
       format = "transaction"
 
       mock_content_api(slug, { :format => format, :details => {} } )
@@ -60,7 +58,6 @@ class ExitControllerTest < ActionController::TestCase
 
     should "return 404 if format is not transaction from url params" do
       slug = '/tax-disc-license'
-      need_id = '999999'
       format = 'ABC'
 
       get :exit, slug: slug, format: format
@@ -70,7 +67,6 @@ class ExitControllerTest < ActionController::TestCase
 
     should "return 404 if format is missing from url params" do
       slug = '/tax-disc-license'
-      need_id = '999999'
 
       get :exit, slug: slug
 
@@ -78,7 +74,6 @@ class ExitControllerTest < ActionController::TestCase
     end
 
     should "return 404 if slug is missing from url params" do
-      need_id = '999999'
       format = 'transaction'
 
       get :exit, format: format

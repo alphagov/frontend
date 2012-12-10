@@ -15,7 +15,7 @@ gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
 
-gem 'plek', '0.5.0'
+gem 'plek', '1.0.0'
 gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 

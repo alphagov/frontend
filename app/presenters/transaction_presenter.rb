@@ -1,7 +1,10 @@
 class TransactionPresenter
 
+  attr_accessor :new_window_transactions_file
+
   def initialize(transaction)
     @transaction = transaction
+    @new_window_transactions_file = Rails.root.join('lib','data','new_window_transactions.json')
   end
 
   def multiple_more_information_sections?
@@ -22,10 +25,10 @@ class TransactionPresenter
   end
 
   def open_in_new_window?
-    self.class.new_window_transactions.include? @transaction.slug
+    new_window_transactions.include? @transaction.slug
   end
 
-  def self.new_window_transactions
-    @new_window_transactions ||= JSON.parse( File.open( Rails.root.join('lib', 'data', 'new_window_transactions.json') ).read )
+  def new_window_transactions
+    @new_window_transactions ||= JSON.parse( File.open( @new_window_transactions_file ).read )
   end
 end

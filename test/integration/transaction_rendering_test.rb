@@ -142,6 +142,21 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "a transaction which should open in a new window" do
+    should "have the correct target attribute set on the 'Start now' link" do
+      setup_api_responses('find-your-local-council')
+      visit '/find-your-local-council'
+
+      assert_equal 200, page.status_code
+
+      within '.article-container' do
+        within 'section.intro' do
+          assert page.has_selector?("a[href='http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1'][target='_blank']", :text => "Start now")
+        end
+      end
+    end
+  end
+
   context "Jobsearch special case" do
 
     should "render the jobsearch page correctly" do

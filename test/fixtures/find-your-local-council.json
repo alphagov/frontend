@@ -1,0 +1,78 @@
+{
+    "_response_info": {
+        "status": "ok"
+    },
+    "id": "https://www.gov.uk/api/find-your-local-council.json",
+    "web_url": "https://www.gov.uk/find-your-local-council",
+    "title": "Find your local council",
+    "format": "transaction",
+    "updated_at": "2012-10-22T15:14:34+00:00",
+    "details": {
+        "need_id": "2007",
+        "business_proposition": false,
+        "description": "Find your local authority in England, Wales, Scotland and Northern Ireland",
+        "language": "en",
+        "alternative_title": "",
+        "more_information": "\n",
+        "introduction": "<p>Find the contact details and website for your local council.</p>\n",
+        "will_continue_on": "the local council directory",
+        "link": "http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1",
+        "alternate_methods": "\n",
+        "minutes_to_complete": "",
+        "expectations": []
+    },
+    "tags": [
+        {
+            "title": "Local councils and services",
+            "id": "https://www.gov.uk/api/tags/housing%2Flocal-councils.json",
+            "web_url": null,
+            "details": {
+                "description": "Includes running community events and projects, libraries and help in the community",
+                "short_description": null,
+                "type": "section"
+            },
+            "content_with_tag": {
+                "id": "https://www.gov.uk/api/with_tag.json?tag=housing%2Flocal-councils",
+                "web_url": "https://www.gov.uk/browse/housing/local-councils"
+            },
+            "parent": {
+                "title": "Housing and local services",
+                "id": "https://www.gov.uk/api/tags/housing.json",
+                "web_url": null,
+                "details": {
+                    "description": "Your legal obligations and rights when renting, buying or owning a home, plus information about Council Tax, what to do if you're homeless and where to get help if you have a housing dispute.",
+                    "short_description": null,
+                    "type": "section"
+                },
+                "content_with_tag": {
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=housing",
+                    "web_url": "https://www.gov.uk/browse/housing"
+                },
+                "parent": null
+            }
+        }
+    ],
+    "related": [
+        {
+            "id": "https://www.gov.uk/api/council-tax.json",
+            "web_url": "https://www.gov.uk/council-tax",
+            "title": "Council Tax",
+            "format": "guide",
+            "updated_at": "2012-11-09T12:25:06+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/council-housing.json",
+            "web_url": "https://www.gov.uk/council-housing",
+            "title": "Council housing",
+            "format": "guide",
+            "updated_at": "2012-10-22T15:25:05+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/understand-how-your-council-works.json",
+            "web_url": "https://www.gov.uk/understand-how-your-council-works",
+            "title": "Understand how your council works",
+            "format": "guide",
+            "updated_at": "2012-11-27T16:11:39+00:00"
+        }
+    ]
+}

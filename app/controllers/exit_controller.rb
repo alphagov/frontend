@@ -11,9 +11,7 @@ class ExitController < ApplicationController
 
     raise RecordNotFound unless publication and publication.details and publication.details.link
 
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-    response.headers["Cache-Control"] = "no-cache, must-revalidate"
+    response.headers["Cache-Control"] = "public, max-age=0, s-maxage=1800"
 
     redirect_to publication.details.link, :status => 302
   rescue RecordNotFound

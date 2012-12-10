@@ -143,7 +143,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
   end
 
   context "a transaction which should open in a new window" do
-    should "have the correct target attribute set on the 'Start now' link" do
+    should "have the correct target attribute set on the 'Start now' link for a new window" do
       setup_api_responses('find-your-local-council')
       visit '/find-your-local-council'
 
@@ -155,10 +155,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end
       end
     end
-  end
 
-  context "a transaction which should open in a new window" do
-    should "set an additional class on the 'Start now' link" do
+    should "set an additional class on the 'Start now' link for a restricted window" do
       setup_api_responses('book-practical-driving-test')
       visit '/book-practical-driving-test'
 

@@ -29,7 +29,7 @@ class TransactionPresenter
   end
 
   def open_in_restricted_window?
-    new_window_transactions.include? @transaction.slug
+    restricted_window_transactions.include? @transaction.slug
   end
 
   def new_window_transactions

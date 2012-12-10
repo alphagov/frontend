@@ -157,6 +157,21 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "a transaction which should open in a new window" do
+    should "set an additional class on the 'Start now' link" do
+      setup_api_responses('book-practical-driving-test')
+      visit '/book-practical-driving-test'
+
+      assert_equal 200, page.status_code
+
+      within '.article-container' do
+        within 'section.intro' do
+          assert page.has_selector?("a.toolbar-disabled[href='https://driverpracticaltest.direct.gov.uk/selectcategory.aspx']", :text => "Start now")
+        end
+      end
+    end
+  end
+
   context "Jobsearch special case" do
 
     should "render the jobsearch page correctly" do

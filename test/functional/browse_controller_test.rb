@@ -15,7 +15,7 @@ class BrowseControllerTest < ActionController::TestCase
     should "list all categories" do
       content_api_has_root_sections(["crime-and-justice"])
       get :index
-      url = "http://www.dev.gov.uk/browse/crime-and-justice"
+      url = "http://www.test.gov.uk/browse/crime-and-justice"
       assert_select "ul h2 a", "Crime and justice"
       assert_select "ul h2 a[href=#{url}]"
     end

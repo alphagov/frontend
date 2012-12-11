@@ -22,7 +22,7 @@ gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.9.4'
+  gem 'slimmer', '3.9.5'
 end
 
 if ENV['GEO_DEV']

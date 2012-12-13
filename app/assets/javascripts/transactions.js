@@ -6,7 +6,7 @@ $(document).ready(function () {
   }
 
   $('#get-started a.toolbar-disabled').click(function(e) {
-    window.open($(this).attr('href'), 'govuk_transaction_window', 'toolbar=no')
+    window.open($(this).attr('href'), 'govuk_transaction_window', 'toolbar=no,resizable=yes,scrollbars=yes')
     e.preventDefault();
   });
 });

@@ -4,11 +4,12 @@ require "local_transaction_location_identifier"
 require "licence_location_identifier"
 
 class RootController < ApplicationController
-  include Rack::Geo::Utils
   include RootHelper
   include ActionView::Helpers::TextHelper
 
   before_filter :set_expiry, :only => [:index, :tour]
+
+  PRINT_FORMATS = %w(guide programme)
 
   def index
     set_slimmer_headers(
@@ -20,6 +21,28 @@ class RootController < ApplicationController
     set_slimmer_dummy_artefact(
       section_name: "homepage",
       section_url: "/")
+  end
+
+  def jobsearch
+    error_404 and return if request.format.nil?
+
+    @artefact = fetch_artefact
+    set_slimmer_artefact_headers(@artefact)
+
+    @publication = PublicationPresenter.new(@artefact)
+    assert_found(@publication)
+
+    if request.format.json?
+      redirect_to "/api/#{params[:slug]}.json" and return
+    end
+
+    set_expiry
+
+    I18n.locale = @publication.language if @publication.language
+
+  rescue RecordNotFound
+    set_expiry(10.minutes)
+    error 404
   end
 
   def publication
@@ -36,9 +59,7 @@ class RootController < ApplicationController
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
 
-    if request.format.json? && @artefact['format'] != 'place'
-      redirect_to "/api/#{params[:slug]}.json" and return
-    end
+    I18n.locale = @publication.language if @publication.language
 
     if ['licence','local_transaction'].include? @artefact['format']
       if geo_header and geo_header['council']
@@ -51,17 +72,22 @@ class RootController < ApplicationController
       snac = AuthorityLookup.find_snac(params[:part])
       authority_slug = params[:part]
 
+      if request.format.json?
+        redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+      end
+
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
       @artefact = fetch_artefact(snac) if snac
-    elsif (part_requested_but_not_found? || empty_part_list?)
+    elsif part_requested_but_no_parts? || empty_part_list?
       raise RecordNotFound
+    elsif @publication.parts && part_requested_but_not_found?
+      redirect_to publication_path(:slug => @publication.slug) and return
+    elsif request.format.json? && @artefact['format'] != 'place'
+      redirect_to "/api/#{params[:slug]}.json" and return
     end
 
     case @publication.type
-    when "place"
-      @options = load_place_options(@publication)
-      @publication.places = @options
     when "licence"
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
@@ -71,7 +97,7 @@ class RootController < ApplicationController
     set_expiry if params.exclude?('edition') and request.get?
 
     if @publication.parts
-      part = params.fetch(:part){ @publication.parts.first.slug }
+      part = params.fetch(:part) { @publication.parts.first.slug }
       @part = @publication.find_part(part)
     end
 
@@ -82,8 +108,12 @@ class RootController < ApplicationController
         render @publication.type
       end
       format.print do
-        set_slimmer_headers template: "print"
-        render @publication.type
+        if PRINT_FORMATS.include?(@publication.type)
+          set_slimmer_headers template: "print"
+          render @publication.type
+        else
+          error_404
+        end
       end
       format.json do
         render :json => @publication.to_json
@@ -99,25 +129,17 @@ protected
     @publication.parts and @publication.parts.empty?
   end
 
+  def part_requested_but_no_parts?
+    params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
+  end
+
   def part_requested_but_not_found?
-    params[:part] && ! (
-      @publication.parts && @publication.parts.any? { |p| p.slug == params[:part] }
-    )
+    params[:part] && ! @publication.find_part(params[:part])
   end
 
   # request.format.html? returns 5 when the request format is video.
   def treat_as_standard_html_request?
     !request.format.json? and !request.format.print? and !request.format.video?
-  end
-
-  def load_place_options(publication)
-    if geo_known_to_at_least?('ward')
-      places = imminence_api.places(publication.place_type, geo_header['fuzzy_point']['lat'], geo_header['fuzzy_point']['lon'])
-      places.each_with_index {|place,i| places[i]['text'] = places[i]['url'].truncate(36) if places[i]['url'].present? }
-      places
-    else
-      []
-    end
   end
 
   def local_transaction_details(artefact, authority_slug, snac)

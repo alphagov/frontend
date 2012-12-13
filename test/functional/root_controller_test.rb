@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative '../test_helper'
 
 class RootControllerTest < ActionController::TestCase
   def setup_this_answer
@@ -39,6 +39,47 @@ class RootControllerTest < ActionController::TestCase
 
     get :publication, :slug => 'd-slug', :format => 'json'
     assert_response :success
+  end
+
+  test "should redirect JSON requests for local transactions with a parameter for the appropriate snac code" do
+    artefact = {
+      "title" => "Find your local cake sale",
+      "format" => "local_transaction",
+      "details" => {
+        "format" => "LocalTransaction",
+        "local_service" => {
+          "description" => "Find your local cake sale",
+          "lgsl_code" => "1234",
+          "providing_tier" => [ "district", "unitary" ]
+        }
+      }
+    }
+    artefact_with_interaction = artefact.dup
+    artefact_with_interaction["details"].merge({
+      "local_interaction" => {
+        "lgsl_code" => 461,
+        "lgil_code" => 8,
+        "url" => "http://www.torfaen.gov.uk/en/moar-caek.aspx"
+      },
+      "local_authority" => {
+        "name" => "Torfaen County Borough Council",
+        "contact_details" => [
+          "Moorlands House",
+          "Stockwell Street",
+          "Leek",
+          "Staffordshire",
+          "ST13 6HQ"
+        ],
+        "contact_url" => "http://www.torfaen.gov.uk/en/moar-caek.aspx"
+      }
+    })
+
+    content_api_has_an_artefact("find-local-cake-sale", artefact)
+    content_api_has_an_artefact_with_snac_code("find-local-cake-sale", "00PM", artefact_with_interaction)
+
+    get :publication, :slug => 'find-local-cake-sale', :part => "torfaen", :format => 'json'
+    assert_response :redirect
+    assert_redirected_to "/api/find-local-cake-sale.json?snac=00PM"
   end
 
   test "should return a 404 if asked for a guide without parts" do
@@ -149,6 +190,13 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "print", @request.format
   end
 
+  test "should return 404 when print view of a non-=supported format is requested" do
+    content_api_has_an_artefact("a-slug", artefact_for_slug("a-slug").merge("format" => "answer"))
+
+    get :publication, :slug => "a-slug", :format => "print"
+    assert_equal 404, response.status
+  end
+
   test "should return 404 if part requested but publication has no parts" do
     content_api_has_an_artefact("a-slug", {'format' => 'answer'})
 
@@ -157,13 +205,14 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug", :part => "information"
   end
 
-  test "should 404 if bad part requested of multi-part guide" do
+  test "should redirect to base url if bad part requested of multi-part guide" do
     content_api_has_an_artefact("a-slug", {
       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}
     })
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"
-    assert_response :not_found
+    assert_response :redirect
+    assert_redirected_to '/a-slug'
   end
 
   test "should assign edition to template if it's not blank and a number" do
@@ -191,6 +240,29 @@ class RootControllerTest < ActionController::TestCase
 
     request.env.delete("HTTP_X_GOVGEO_STACK")
     get :publication, :slug => "c-slug"
+  end
+
+  context "setting the locale" do
+    should "set the locale to the artefact's locale" do
+      artefact = artefact_for_slug('slug')
+      artefact["details"]["language"] = 'pt'
+      content_api_has_an_artefact('slug', artefact)
+
+      I18n.expects(:locale=).with('pt')
+
+      get :publication, :slug => 'slug'
+    end
+
+    should "not set the locale if the artefact has no language" do
+      artefact = artefact_for_slug('slug')
+      artefact["details"].delete("language")
+      content_api_has_an_artefact('slug', artefact)
+
+      I18n.expects(:locale=).never
+
+      get :publication, :slug => 'slug'
+    end
+
   end
 
   context "setting up slimmer artefact details" do
@@ -263,6 +335,85 @@ class RootControllerTest < ActionController::TestCase
     should "set correct expiry headers" do
       get :tour
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
+  end
+
+  context "loading the jobsearch page" do
+    context "given an artefact for 'jobs-jobsearch' exists" do
+      setup do
+        @details = {
+          'slug' => 'jobs-jobsearch',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
+          'format' => 'transaction',
+          'details' => {"expectations" => []},
+          'title' => 'Universal Jobsearch'
+        }
+        content_api_has_an_artefact("jobs-jobsearch", @details)
+      end
+
+      should "respond with success" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_response :success
+      end
+
+      should "loads the correct artefact" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_equal "Universal Jobsearch", assigns(:artefact)['title']
+      end
+
+      should "initialize a publication object" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_equal "Universal Jobsearch", assigns(:publication).title
+      end
+
+      should "set correct slimmer artefact in headers" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_equal JSON.dump(@details), @response.headers["X-Slimmer-Artefact"]
+      end
+
+      should "set correct expiry headers" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+
+      should "render the jobsearch view" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_template "jobsearch"
+      end
+
+      should "redirect to the api for json format" do
+        get :jobsearch, :slug => "jobs-jobsearch", :format => :json
+        assert_redirected_to "/api/jobs-jobsearch.json"
+      end
+    end
+
+    context "given a welsh version exists" do
+      setup do
+        @details = {
+          'id' => 'https://www.gov.uk/api/jobs-jobsearch-welsh.json',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch-welsh',
+          'format' => 'transaction',
+          'details' => {"expectations" => [], "language" => "cy"},
+          'title' => 'Universal Jobsearch'
+        }
+        content_api_has_an_artefact("jobs-jobsearch-welsh", @details)
+      end
+
+      should "set the locale to welsh" do
+        I18n.expects(:locale=).with("cy")
+        get :jobsearch, :slug => "jobs-jobsearch-welsh"
+      end
+    end
+
+    context "given an artefact does not exist" do
+      setup do
+        content_api_does_not_have_an_artefact('jobs-jobsearch')
+      end
+
+      should "respond with 404" do
+        get :jobsearch, :slug => "jobs-jobsearch"
+        assert_response :not_found
+      end
     end
   end
 end

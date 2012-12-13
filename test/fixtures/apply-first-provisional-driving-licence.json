@@ -2,52 +2,84 @@
     "_response_info": {
         "status": "ok"
     },
+    "id": "https://www.gov.uk/api/apply-first-provisional-driving-licence.json",
+    "web_url": "https://www.gov.uk/apply-first-provisional-driving-licence",
     "title": "Apply for your first provisional driving licence",
     "format": "transaction",
-    "id": "https://contentapi.preview.alphagov.co.uk/apply-first-provisional-driving-licence.json",
-    "web_url": "https://www.preview.alphagov.co.uk/apply-first-provisional-driving-licence",
     "details": {
         "need_id": "1957",
         "business_proposition": false,
-        "format": "Transaction",
+        "description": "Apply for your first provisional driving licence online to drive a car, moped or motorcycle",
+        "language": "en",
         "alternative_title": "",
-        "overview": "Apply for your first provisional driving licence online",
-        "more_information": "<h2>Driving licence more information</h2>",
-        "introduction": "You can get your first provisional driving licence online. Apply using your Government Gateway ID. If you don't have one or need to re-register, you'll get an ID as part of your application.",
-        "will_continue_on": "the Directgov website",
+        "more_information": "<p>To get your first provisional driving licence online for a car, motorcycle or moped you need to:</p>\n\n<ul>\n <li>be a resident of Great Britain</li>\n <li>meet the minimum age requirement</li>\n <li>meet the <a href=\"/driving-eyesight-rules\" title=\"minimum eyesight requirement\">minimum eyesight requirement</a></li>\n <li>not be prevented from driving for any reason</li>\n <li>pay £50 by MasterCard, Visa, Electron, Maestro or Delta debit or credit card</li>\n <li>have a valid UK passport or <a href=\"/driving-licence-application-identity-documents\" title=\"other form of identity\">other form of identity</a></li>\n <li>have your National Insurance number if known</li>\n <li>provide addresses where you&rsquo;ve lived for the last 3 years</li>\n</ul>\n\n<p>You can apply up to 3 months before you can start driving. You can normally start driving on your 17th birthday if you want to drive a car and your 16th birthday if you want to drive a motorcycle or moped.</p>\n\n<p>If you&rsquo;re getting the higher rate of the mobility component of Disability Living Allowance (DLA) you can drive at 16.</p>\n\n<h2>Personal data</h2>\n\n<p>If you apply online you&rsquo;ll be agreeing that <abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> can check your personal data, including your National Insurance number.</p>\n\n<p><abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> will confirm your details with the Department for Work and Pensions (DWP) and HM Revenue &amp; Customs (HMRC). If <abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> can&rsquo;t fully verify your identity, you&rsquo;ll be told what to do at the end of the application.</p>\n\n",
+        "introduction": "<p>You can get your first provisional driving licence for a car, moped or motorcycle online. Apply using your Government Gateway ID. If you don&rsquo;t have one or need to re-register, you&rsquo;ll get an ID as part of your application.</p>\n",
+        "will_continue_on": "driving licensing online",
         "link": "https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&_pageLabel=FAP&_nfls=false",
-        "alternate_methods": "Driving licence alternate methods",
+        "alternate_methods": "<p>You can apply by post by completing a D1 application form, which you can get from the <a rel=\"external\" href=\"https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg\" title=\"DVLA form ordering service\"><abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> form ordering service</a> or from a Post Office.</p>\n\n<p>You&rsquo;ll also need to include:</p>\n\n<ul>\n <li>\n <p>original documentation confirming your identity</p>\n </li>\n <li>\n <p>a colour <a href=\"/photos-for-passports\" title=\"Passport photo requirements\">passport-style photograph</a> </p>\n </li>\n <li>\n <p>the fee of £50 by cheque or postal order payable to <abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> (do not send cash) </p>\n </li>\n</ul>\n\n<p>Send your completed application and payment to <abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr>, Swansea, SA99 1AD.</p>\n\n",
         "minutes_to_complete": "",
         "expectations": [
             "Proof of identification required",
-            "National Insurance number required",
+            "3 years of address details required",
             "Debit or credit card required"
         ]
     },
+    "updated_at": "2012-11-16T15:34:57+00:00",
     "tags": [
         {
             "title": "Driving licences",
-            "id": "https://contentapi.preview.alphagov.co.uk/tags/driving%2Fdriving-licences.json",
+            "id": "https://www.gov.uk/api/tags/driving%2Fdriving-licences.json",
             "web_url": null,
             "details": {
                 "description": "Includes getting a driving licence, fees and tracking your application",
+                "short_description": null,
                 "type": "section"
             },
             "content_with_tag": {
-                "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=driving%2Fdriving-licences",
-                "web_url": "https://www.preview.alphagov.co.uk/browse/driving/driving-licences"
+                "id": "https://www.gov.uk/api/with_tag.json?tag=driving%2Fdriving-licences",
+                "web_url": "https://www.gov.uk/browse/driving/driving-licences"
             },
             "parent": {
-                "title": "Driving, transport, and travel",
-                "id": "https://contentapi.preview.alphagov.co.uk/tags/driving.json",
+                "title": "Driving, transport and travel",
+                "id": "https://www.gov.uk/api/tags/driving.json",
                 "web_url": null,
                 "details": {
-                    "description": "Includes passports and car tax",
+                    "description": "Book your driving test or get a tax disc online, find out the legal requirements for buying, owning, importing or scrapping a car or motorcycle, and read about your rights and responsibilities as a driver.",
+                    "short_description": "",
                     "type": "section"
                 },
                 "content_with_tag": {
-                    "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=driving",
-                    "web_url": "https://www.preview.alphagov.co.uk/browse/driving"
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=driving",
+                    "web_url": "https://www.gov.uk/browse/driving"
+                },
+                "parent": null
+            }
+        },
+        {
+            "title": "Driving tests, motorcycle tests and learning to drive",
+            "id": "https://www.gov.uk/api/tags/driving%2Flearning-to-drive.json",
+            "web_url": null,
+            "details": {
+                "description": "Booking a test, changing and cancelling tests, rules and fees, compulsory basic training",
+                "short_description": "",
+                "type": "section"
+            },
+            "content_with_tag": {
+                "id": "https://www.gov.uk/api/with_tag.json?tag=driving%2Flearning-to-drive",
+                "web_url": "https://www.gov.uk/browse/driving/learning-to-drive"
+            },
+            "parent": {
+                "title": "Driving, transport and travel",
+                "id": "https://www.gov.uk/api/tags/driving.json",
+                "web_url": null,
+                "details": {
+                    "description": "Book your driving test or get a tax disc online, find out the legal requirements for buying, owning, importing or scrapping a car or motorcycle, and read about your rights and responsibilities as a driver.",
+                    "short_description": "",
+                    "type": "section"
+                },
+                "content_with_tag": {
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=driving",
+                    "web_url": "https://www.gov.uk/browse/driving"
                 },
                 "parent": null
             }
@@ -55,34 +87,64 @@
     ],
     "related": [
         {
+            "id": "https://www.gov.uk/api/change-photo-driving-licence.json",
+            "web_url": "https://www.gov.uk/change-photo-driving-licence",
+            "title": "Renew the photo on your driving licence",
+            "format": "transaction",
+            "details": {
+                "need_id": "849",
+                "business_proposition": false,
+                "description": "Apply online to renew the photo on your driving licence, full or provisional"
+            },
+            "updated_at": "2012-11-19T11:26:38+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/driving-before-you-have-full-licence.json",
+            "web_url": "https://www.gov.uk/driving-before-you-have-full-licence",
             "title": "Driving before you've got your full licence",
             "format": "answer",
-            "id": "https://contentapi.preview.alphagov.co.uk/driving-before-you-have-full-licence.json",
-            "web_url": "https://www.preview.alphagov.co.uk/driving-before-you-have-full-licence",
             "details": {
                 "need_id": "1971",
-                "business_proposition": false
-            }
+                "business_proposition": false,
+                "description": "The rules for driving or riding before you've passed your test and got a full licence"
+            },
+            "updated_at": "2012-11-02T17:27:20+00:00"
         },
         {
+            "id": "https://www.gov.uk/api/track-your-driving-licence-application.json",
+            "web_url": "https://www.gov.uk/track-your-driving-licence-application",
             "title": "Track your driving licence application",
             "format": "transaction",
-            "id": "https://contentapi.preview.alphagov.co.uk/track-your-driving-licence-application.json",
-            "web_url": "https://www.preview.alphagov.co.uk/track-your-driving-licence-application",
             "details": {
                 "need_id": "857",
-                "business_proposition": false
-            }
+                "business_proposition": false,
+                "description": "Track your driving licence application if you've already made an online application"
+            },
+            "updated_at": "2012-10-22T15:19:07+00:00"
         },
         {
+            "id": "https://www.gov.uk/api/adding-higher-categories-to-your-driving-licence.json",
+            "web_url": "https://www.gov.uk/adding-higher-categories-to-your-driving-licence",
             "title": "Adding higher categories to your driving licence",
             "format": "answer",
-            "id": "https://contentapi.preview.alphagov.co.uk/adding-higher-categories-to-your-driving-licence.json",
-            "web_url": "https://www.preview.alphagov.co.uk/adding-higher-categories-to-your-driving-licence",
             "details": {
                 "need_id": "1624",
-                "business_proposition": false
-            }
+                "business_proposition": false,
+                "description": "You may be able to get provisional entitlement to higher category vehicles, and automatic entitlement to lower categories if you pass a higher category driving test"
+            },
+            "updated_at": "2012-11-01T16:37:05+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/driving-licence-fees.json",
+            "web_url": "https://www.gov.uk/driving-licence-fees",
+            "title": "Driving licence fees",
+            "format": "answer",
+            "details": {
+                "need_id": "B180",
+                "business_proposition": true,
+                "description": "There are different fees if you want to renew, exchange or amend your driving licence, full or provisional - or get a duplicate if yours has been lost, stolen or damaged"
+            },
+            "updated_at": "2012-11-27T12:32:18+00:00"
         }
     ]
 }

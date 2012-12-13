@@ -1,0 +1,56 @@
+<%- presenter = TransactionPresenter.new(@publication) -%>
+
+<section id="content" role="main" class="group jobsearch">
+
+  <header class="page-header group">
+    <hgroup>
+      <h1><span><%= t 'formats.transaction.name' %></span> <%= @publication.title %></h1>
+    </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related"><%= t 'common.not_what_youre_looking_for' %> ↓</a>
+    </nav>
+  </header>
+  <div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+
+        <section class="intro">
+          <div class="get-started-intro"><%= raw @publication.introduction %></div>
+
+          <form class="jobsearch-form" action="<%= t 'formats.transaction.jobsearch.form_url' %>" method="get">
+
+            <input type="hidden" name="rad" value="20"/>
+            <input type="hidden" name="rad_units" value="miles"/>
+            <input type="hidden" name="pp" value="25"/>
+            <input type="hidden" name="sort" value="rv.dt.di"/>
+            <input type="hidden" name="vw" value="b"/>
+            <input type="hidden" name="re" value="134"/>
+            <input type="hidden" name="setype" value="2"/>
+
+            <p class="group"><label for="search_title"><%= t 'formats.transaction.jobsearch.job_title' %> <input id="search_title" type="text" name="tjt" /></label></p>
+
+            <p class="group"><label for="search_where"><%= t 'formats.transaction.jobsearch.town_place_postcode' %> <input id="search_where" name="where" type="text" /></label></p>
+
+            <p class="group"><label for="search_keywords"><%= t 'formats.transaction.jobsearch.skills' %> <input id="search_keywords" name="q" type="text" /></label></p>
+            <p id="get-started" class="get-started group">
+              <button class="button" type="submit" ><%= t 'formats.transaction.jobsearch.search' %></button>
+              <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
+            </p>
+          </form>
+        </section>
+
+        <section class="more">
+          <%- if presenter.multiple_more_information_sections? -%>
+            <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @publication, :presenter => presenter } %>
+          <%- else -%>
+            <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @publication, :presenter => presenter } %>
+          <%- end -%>
+        </section>
+
+      </div>
+    </article>
+     <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+  </div>
+</section>
+
+<div id="related-items"></div>

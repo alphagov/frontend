@@ -1,0 +1,33 @@
+cy:
+  common:
+    last_updated: "Diweddarwyd diwethaf"
+    not_what_youre_looking_for: "Ddim beth rydych chi’n chwilio amdano?"
+  formats:
+    answer:
+      name: "Ateb cyflym"
+    guide:
+      name: "Canllaw"
+      part: "Rhan"
+      printer_friendly_page: "Tudalen hawdd ei hargraffu"
+      at_beginning_of_guide: "Rydych chi ar ddechrau’r canllaw hwn"
+      at_end_of_guide: "Rydych wedi cyrraedd diwedd y canllaw hwn"
+      navigate_to_previous_part: "Llywio i’r rhan flaenorol"
+      navigate_to_next_part: "Llywio i’r rhan nesaf"
+      a_guide_from_govuk: "canllaw gan GOV.UK"
+      notes: "Nodiadau"
+    programme:
+      name: "Budd-daliadau a chredydau"
+    transaction:
+      name: "Gwasanaeth"
+      start_now: "Dechrau nawr"
+      "on": "ar"
+      before_you_start: "Cyn i chi ddechrau"
+      what_you_need_to_know: "Yr hyn mae angen i chi ei wybod"
+      other_ways_to_apply: "Ffyrdd eraill o wneud cais"
+      takes_around_n_minutes: "Mae’n cymryd tua %{count} munud"
+      jobsearch:
+        form_url: "https://chwiliadgwaith.direct.gov.uk/JobSearch/PowerSearch.aspx"
+        job_title: "Teitl swydd"
+        town_place_postcode: "Cod post, Tref neu lle"
+        skills: "Sgiliau (dewisol)"
+        search: "Chwilio"

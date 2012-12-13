@@ -155,7 +155,11 @@
     margin-top: 1em;
 
     h1{
-      padding: 0;
+      padding: 0 0 5px 0;
+    }
+
+    p {
+      @include core-16;
     }
 
     @include media(mobile) {
@@ -224,14 +228,14 @@
         background-image: image-url("homepage/homepage-cabinet.jpg");
         background-position: bottom left;
         background-repeat: no-repeat;
-        margin: 0 -1em;
+        margin: 0 -1em 1em -1em;
         padding: 0 1em;
         padding-bottom:140px;
         
         h1, p{
           @include core-19;
           color:#fff;
-          padding: 0;
+          padding: 0 0 10px 0;
           margin:0;
         }
 
@@ -262,19 +266,19 @@
       text-indent:-9999px;
       overflow: hidden;
       height:300px;
-      background-image: image-url('homepage/govuk-960px.png');
+      background-image: image-url('homepage/govuk-960px.jpg');
       background-position: top left;
       background-repeat: no-repeat;
 
       @media(max-width: 935px){
         height:470px;
-        background-image: image-url('homepage/govuk-935px.png');
+        background-image: image-url('homepage/govuk-935px.jpg');
         background-position: bottom right;
       }
 
       @media(max-width: 500px) {
         height:272px;
-        background-image: image-url('homepage/govuk-500px.png');
+        background-image: image-url('homepage/govuk-500px.jpg');
         background-position: bottom right;
       }
     }

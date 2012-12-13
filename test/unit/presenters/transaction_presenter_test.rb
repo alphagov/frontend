@@ -91,19 +91,60 @@ class TransactionPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context "open in new window?" do
-    setup do
-      @presenter.stubs(:load_new_window_transactions).returns(["example-slug-one"])
+  context "new window transactions" do
+    should "use the new window transaction list in lib/data by default" do
+      presenter = TransactionPresenter.new(@transaction)
+      pathname = Rails.root.join('lib','data','new_window_transactions.json')
+
+      assert_equal pathname, presenter.new_window_transactions_file
     end
 
-    should "be true if transaction slug exists in list of transactions to open in new window" do
-      @transaction.stubs(:slug).returns("example-slug-one")
-      assert @presenter.open_in_new_window?
-    end
+    context "given a list of new window transactions" do
+      setup do
+        @presenter.new_window_transactions_file = Rails.root.join('test','fixtures','new-window-transactions.json')
+      end
 
-    should "be true if transaction slug exists in list of transactions to open in new window" do
-      @transaction.stubs(:slug).returns("example-slug-two")
-      assert ! @presenter.open_in_new_window?
+      context "new window transactions" do
+        should "load new window transactions from file" do
+          expected_transactions = [
+            "car-tax-disc-vehicle-licence",
+            "register-login-student-finance",
+            "find-your-local-council",
+            "book-practical-driving-test",
+            "example-slug-one"
+          ]
+
+          assert_equal expected_transactions, @presenter.new_window_transactions
+        end
+
+        should "load transaction in new window if slug is in list" do
+          @transaction.stubs(:slug).returns("example-slug-one")
+          assert @presenter.open_in_new_window?
+        end
+
+        should "not load transaction in new window if slug is not in list" do
+          @transaction.stubs(:slug).returns("example-slug-two")
+          assert ! @presenter.open_in_new_window?
+        end
+      end
+
+      context "restricted window transactions" do
+        should "load restricted window transactions from file" do
+          expected_transactions = [ "restricted-window-example" ]
+
+          assert_equal expected_transactions, @presenter.restricted_window_transactions
+        end
+
+        should "load transaction in new window if slug is in list" do
+          @transaction.stubs(:slug).returns("restricted-window-example")
+          assert @presenter.open_in_restricted_window?
+        end
+
+        should "not load transaction in new window if slug is not in list" do
+          @transaction.stubs(:slug).returns("example-slug-two")
+          assert ! @presenter.open_in_restricted_window?
+        end
+      end
     end
   end
 end

@@ -1,0 +1,87 @@
+{
+    "_response_info": {
+        "status": "ok"
+    },
+    "id": "https://www.gov.uk/api/data-protection.json",
+    "web_url": "https://www.gov.uk/data-protection",
+    "title": "Data protection",
+    "format": "guide",
+    "details": {
+        "need_id": "636",
+        "business_proposition": false,
+        "description": "The Data Protection Act (DPA) controls how personal information can be used and your rights to ask for information about yourself",
+        "language": "en",
+        "alternative_title": "",
+        "video_summary": "",
+        "video_url": "",
+        "parts": [
+            {
+                "web_url": "https://www.gov.uk/data-protection/the-data-protection-act",
+                "slug": "the-data-protection-act",
+                "order": 1,
+                "title": "The Data Protection Act",
+                "body": "<p>The Data Protection Act controls how your personal information is used by organisations, businesses or the government. </p>\n\n<p>Everyone who collects data has to follow strict rules called &lsquo;data protection principles&rsquo;. They must make sure the information is:</p>\n\n<ul>\n <li>used fairly and lawfully</li>\n <li>used for limited, specifically stated purposes</li>\n <li>used in a way that is adequate, relevant and not excessive</li>\n <li>accurate</li>\n <li>kept for no longer than is absolutely necessary</li>\n <li>kept safe and secure</li>\n <li>not transferred outside the UK without adequate protection</li>\n</ul>\n\n<p>There is stronger legal protection for more sensitive information, such as:</p>\n\n<ul>\n <li>ethnic background</li>\n <li>political opinions</li>\n <li>religious beliefs</li>\n <li>health</li>\n <li>sexual health</li>\n <li>criminal records</li>\n</ul>\n"
+            },
+            {
+                "web_url": "https://www.gov.uk/data-protection/find-out-what-data-an-organisation-has-about-you",
+                "slug": "find-out-what-data-an-organisation-has-about-you",
+                "order": 2,
+                "title": "Find out what data an organisation has about you",
+                "body": "<p>The Data Protection Act gives you the right to find out what information the government and other organisations stores about you. </p>\n\n<p>Write to the organisation and ask for a copy of the information they hold about you. If you do not know who in the organisation to write to, address your letter to the company secretary.</p>\n\n<p>The organisation is legally required to provide you with a copy of the information they hold about you if you request it.</p>\n\n<h2>When information can be withheld</h2>\n\n<p>There are some situations when organisations are allowed to withhold information, eg if the information is about:</p>\n\n<ul>\n <li>the prevention, detection or investigation of a crime</li>\n <li>national security or the armed forces</li>\n <li>the assessment or collection of tax</li>\n <li>judicial or ministerial appointments</li>\n</ul>\n\n<p>An organisation doesn&rsquo;t have to say why they are withholding information.</p>\n\n<h2>How much it costs</h2>\n\n<p>Some organisations may charge you for providing the information. The cost is usually no more than £10 but it can be more if there is a lot of information or if it is held in manual (ie paper) records.</p>\n"
+            },
+            {
+                "web_url": "https://www.gov.uk/data-protection/make-a-complaint",
+                "slug": "make-a-complaint",
+                "order": 3,
+                "title": "Make a complaint",
+                "body": "<p>If you think your data has been misused or that the organisation holding it hasn&rsquo;t kept it secure, you should contact them and tell them. </p>\n\n<p>If you are unhappy with their response or if you need any advice you should contact the Information Commissioner&rsquo;s Office (ICO). </p>\n\n<div class=\"contact\">\n<p><strong>ICO helpline</strong><br />\n0303 123 1113</p>\n</div>\n\n<p>The ICO can investigate your claim and take action against anyone who has misused personal data.</p>\n\n<p>You can also visit their website for information on <a rel=\"external\" href=\"http://www.ico.gov.uk/complaints/data_protection.aspx\" title=\"how to make a data protection complaint\">how to make a data protection complaint</a>.</p>\n"
+            }
+        ]
+    },
+    "updated_at": "2012-10-22T15:14:23+00:00",
+    "tags": [
+        {
+            "title": "Your rights and the law",
+            "id": "https://www.gov.uk/api/tags/justice%2Frights.json",
+            "web_url": null,
+            "details": {
+                "description": "Includes being arrested, cautions, discrimination and consumer rights",
+                "short_description": null,
+                "type": "section"
+            },
+            "content_with_tag": {
+                "id": "https://www.gov.uk/api/with_tag.json?tag=justice%2Frights",
+                "web_url": "https://www.gov.uk/browse/justice/rights"
+            },
+            "parent": {
+                "title": "Crime, justice and the law",
+                "id": "https://www.gov.uk/api/tags/justice.json",
+                "web_url": null,
+                "details": {
+                    "description": "Legal processes, courts and the police",
+                    "short_description": null,
+                    "type": "section"
+                },
+                "content_with_tag": {
+                    "id": "https://www.gov.uk/api/with_tag.json?tag=justice",
+                    "web_url": "https://www.gov.uk/browse/justice"
+                },
+                "parent": null
+            }
+        }
+    ],
+    "related": [
+        {
+            "id": "https://www.gov.uk/api/personal-data-my-employer-can-keep-about-me.json",
+            "web_url": "https://www.gov.uk/personal-data-my-employer-can-keep-about-me",
+            "title": "Personal data an employer can keep about an employee",
+            "format": "answer",
+            "details": {
+                "need_id": "353",
+                "business_proposition": false,
+                "description": "Personal data an employer can keep about an employee, and employee rights to see this information under data protection rules"
+            },
+            "updated_at": "2012-10-22T15:23:09+00:00"
+        }
+    ]
+}

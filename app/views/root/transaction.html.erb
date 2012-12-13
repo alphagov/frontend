@@ -4,11 +4,11 @@
 
   <header class="page-header group">
     <hgroup>
-     <h1><span>Service</span> <%= @publication.title %></h1>
+      <h1><span><%= t 'formats.transaction.name' %></span> <%= @publication.title %></h1>
     </hgroup>
     <nav class="skip-to-related">
-      <a href="#related">Not what you're looking for? ↓</a>
-    </nav>                
+      <a href="#related"><%= t 'common.not_what_youre_looking_for' %> ↓</a>
+    </nav>
   </header>
 	<div class="article-container group">
   	<article role="article" class="group">
@@ -16,12 +16,12 @@
 
       <section class="intro">
         <div class="get-started-intro"><%= raw @publication.introduction %></div>
-        <p class="visuallyhidden"><a href="#what-you-need-to-know">What you need to know</a></p>
+        <p class="visuallyhidden"><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></p>
         <p id="get-started" class="get-started group">
-           <a href="<%= @publication.link %>" rel="external" class="button" <% if presenter.open_in_new_window? %>target="_blank"<% end %>>Start now</a>
-           <% if @publication.will_continue_on.present? %>
-             <span class="destination"> on <%= @publication.will_continue_on %></span>
-           <% end %>
+          <a href="<%= @publication.link %>" rel="external" class="button<% if presenter.open_in_restricted_window? %> toolbar-disabled<% end %>" <% if presenter.open_in_new_window? %>target="_blank"<% end %>><%= t 'formats.transaction.start_now' %></a>
+          <% if @publication.will_continue_on.present? %>
+            <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
+          <% end %>
         </p>
       </section>
 

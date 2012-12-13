@@ -1,9 +1,10 @@
 class TransactionPresenter
 
-  cattr_accessor :new_window_transactions
+  attr_accessor :new_window_transactions_file
 
   def initialize(transaction)
     @transaction = transaction
+    @new_window_transactions_file = Rails.root.join('lib','data','new_window_transactions.json')
   end
 
   def multiple_more_information_sections?
@@ -24,11 +25,18 @@ class TransactionPresenter
   end
 
   def open_in_new_window?
-    self.class.load_new_window_transactions unless self.class.new_window_transactions
-    self.class.new_window_transactions.include? @transaction.slug
+    new_window_transactions.include? @transaction.slug
   end
 
-  def self.load_new_window_transactions
-    self.new_window_transactions = JSON.parse( File.open( Rails.root.join('lib', 'data', 'new_window_transactions.json') ).read )
+  def open_in_restricted_window?
+    restricted_window_transactions.include? @transaction.slug
+  end
+
+  def new_window_transactions
+    @new_window_transactions ||= JSON.parse( File.open( @new_window_transactions_file ).read )["new-window"]
+  end
+
+  def restricted_window_transactions
+    @restricted_window_transactions ||= JSON.parse( File.open( @new_window_transactions_file ).read )["restricted-window"]
   end
 end

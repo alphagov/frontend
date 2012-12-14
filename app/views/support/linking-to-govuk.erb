@@ -1,0 +1,46 @@
+<% content_for :title, "Linking to GOV.UK from other websites - Support Pages - GOV.UK" %>
+
+<section id="content" role="main" class="group support-page">
+  <header class="page-header group">
+    <hgroup class="full-width">
+      <h1>Linking to GOV.UK from other websites</h1>
+    </hgroup>
+  </header>
+
+
+  <div class="support-container full-width group">
+    <article role="article" class="group">
+      <div class="inner">
+
+        <div class="top-issues">
+          <h2>On this page:</h2>
+          <ul>
+            <li><a href="#text-links">Can I link to GOV.UK?</a></li>
+            <li><a href="#logos">Can I use the logo to link to GOV.UK?</a></li>
+          </ul>
+        </div>
+
+        <h2 id="text-links">Can I link to GOV.UK?</h2>
+        <p>Of course! But instead of linking to the home page, consider linking directly to <a href="https://www.gov.uk">GOV.UK</a> pages that are useful to the people visiting your site. The best link text to use is often the title of the page you're linking to.</p>
+
+        <p>If you want to create a link to the <a href="https://www.gov.uk/">GOV.UK</a> home page, please use <a href="https://www.gov.uk/">GOV.UK</a> (in capitals) as the link text.</p>
+
+        <h2 id="logos">Can I use the logo to link to GOV.UK?</h2>
+        <p>We would prefer it if you used text to link to a relevant page within <a href="https://www.gov.uk/">GOV.UK</a></p>
+
+        <p>But if you're linking only to the home page and want to use the <a href="https://www.gov.uk/">GOV.UK</a> logo, here are the images you'll need. Please don't modify the logo in any way.</p>
+
+        <%= image_tag 'support/gov_uk_small.png', :class => 'block-image', :alt => 'GOV.UK logo, small.' %>
+
+        <%= image_tag 'support/gov_uk_med.png', :class => 'block-image', :alt => 'GOV.UK logo, medium.' %>
+
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<% content_for :body_classes, 'full-width' %>
+<% content_for :extra_stylesheets do %>
+  <%= stylesheet_link_tag 'support-styles' %>
+<% end %>

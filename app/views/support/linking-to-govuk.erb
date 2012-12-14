@@ -30,9 +30,9 @@
 
         <p>But if you're linking only to the home page and want to use the <a href="https://www.gov.uk/">GOV.UK</a> logo, here are the images you'll need. Please don't modify the logo in any way.</p>
 
-        <img class="block-image" src="<%= image_path 'support/gov_uk_small.png' %>" alt="GOV.UK logo, small." />
+        <%= image_tag 'support/gov_uk_small.png', :class => 'block-image', :alt => 'GOV.UK logo, small.' %>
 
-        <img class="block-image" src="<%= image_path 'support/gov_uk_med.png' %>" alt="GOV.UK logo, medium." />
+        <%= image_tag 'support/gov_uk_med.png', :class => 'block-image', :alt => 'GOV.UK logo, medium.' %>
 
       </div>
     </article>
@@ -40,7 +40,7 @@
   </div>
 </section>
 
-<% content_for :body_classes do %>full-width<% end %>
+<% content_for :body_classes, 'full-width' %>
 <% content_for :extra_stylesheets do %>
   <%= stylesheet_link_tag 'support-styles' %>
 <% end %>

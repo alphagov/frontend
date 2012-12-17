@@ -1,7 +1,8 @@
-<form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2" role="search">
+<form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2 js-search-hash" role="search">
   <% if params[:government] %>
     <%= hidden_field_tag :government, params[:government] %>
   <% end %>
+  <%= hidden_field_tag :tab, @results_tab if @results_tab %>
   <fieldset>
     <legend class="visuallyhidden">Search gov.uk</legend>
 

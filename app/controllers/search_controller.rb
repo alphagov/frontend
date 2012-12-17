@@ -4,6 +4,7 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
+  before_filter :set_results_tab, only: [:index]
 
   def index
     @search_term = params[:q]
@@ -86,5 +87,10 @@ class SearchController < ApplicationController
 
   def setup_slimmer_artefact
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
+  end
+
+  def set_results_tab
+    tabs =  %w{ government-results detailed-results mainstream-results }
+    @results_tab = tabs.include?(params[:tab]) ? params[:tab] : nil
   end
 end

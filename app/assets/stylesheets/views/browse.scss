@@ -105,9 +105,28 @@
       }
 
       &.categories {
+        padding: 1em 0 0 0;
+        width: 100%;
 
-        h2 {
-          margin: 0;
+        li {
+          margin: 0 -2em;
+          padding: 1em 2em;
+
+          h2 {
+            margin: 0;
+          }
+
+          h2, p {
+            width: 65.5%;
+
+            @include media(mobile) {
+              width: auto;
+            }
+          }
+
+          &:nth-child(odd) {
+            background-color: $highlight-colour;
+          }
         }
       }
 
@@ -157,16 +176,22 @@
 
       &.content-list {
         padding: 1em 0 0 0;
-        width: 65.5%;
-
-        @include media(mobile) {
-          width: auto;
-        }
+        width: 100%;
 
         li {
+          margin: 0 -2em;
+          padding: 0.5em 2em 1em;
 
-          h2 {
-            @include core-19;
+          h3, p {
+            width: 65.5%;
+
+            @include media(mobile) {
+              width: auto;
+            }
+          }
+
+          &:nth-child(odd) {
+            background-color: $highlight-colour;
           }
         }
       }

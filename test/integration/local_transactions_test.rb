@@ -102,6 +102,17 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "not show a postcode error" do
         assert !page.has_selector?(".location_error")
       end
+
+      should "show link to change location" do
+        assert page.has_link?('(change location)')
+      end
+
+      should "not show any authority contact details" do
+        within('.contact') do
+          assert !page.has_content?("123 Example Street")
+          assert !page.has_content?("SW1A 1AA")
+        end
+      end
     end
 
     context "when visiting the local transaction with an invalid postcode" do
@@ -186,6 +197,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "show advisory message that no interaction is available" do
         assert page.has_content?("We don't have a direct link to this service from Westminster City Council")
+      end
+
+      should "show link to change location" do
+        assert page.has_link?('(change location)')
       end
 
       should "show contact details for the authority" do

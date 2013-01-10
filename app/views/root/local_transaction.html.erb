@@ -43,7 +43,7 @@
             <div class="contact vcard">
               <p>This service is provided by <a class="url fn org" rel="external" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a> <%= link_to '(change location)', publication_path(@publication.slug) %></p>
 
-              <% if authority['contact_address'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
+              <% if authority['contact_address'] and not @local_transaction_details['local_interaction'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
               <p class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></p>
             </div>
         <% end %>

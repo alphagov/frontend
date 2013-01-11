@@ -8,7 +8,7 @@ group :router do
   gem 'router-client', '2.0.3', require: 'router/client'
 end
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.11'
 gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.3.1'
 gem 'mustache'
@@ -16,7 +16,7 @@ gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
 
 gem 'plek', '0.5.0'
-gem 'lograge'
+gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 
 if ENV['SLIMMER_DEV']

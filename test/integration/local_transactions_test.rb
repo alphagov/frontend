@@ -111,6 +111,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         within('.contact') do
           assert !page.has_content?("123 Example Street")
           assert !page.has_content?("SW1A 1AA")
+          assert !page.has_content?("020 1234 567")
         end
       end
     end
@@ -207,6 +208,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         within('.contact') do
           assert page.has_content?("123 Example Street")
           assert page.has_content?("SW1A 1AA")
+          assert page.has_content?("020 1234 567")
         end
       end
     end

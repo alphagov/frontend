@@ -30,7 +30,7 @@ Frontend::Application.routes.draw do
   match "/newlicencerules", :to => "campaign#new_licence_rules"
 
   # Jobssearch form override (English and Welsh variants)
-  match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobs-jobsearch|chwilio-am-swydd)/}
+  match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobs-jobsearch|jobsearch|chwilio-am-swydd)/}
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.match ":slug/video", format: :video

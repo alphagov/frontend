@@ -26,7 +26,6 @@ cy:
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
       takes_around_n_minutes: "Mae’n cymryd tua %{count} munud"
       jobsearch:
-        form_url: "https://chwiliadgwaith.direct.gov.uk/JobSearch/PowerSearch.aspx"
         job_title: "Teitl swydd"
         town_place_postcode: "Cod post, Tref neu lle"
         skills: "Sgiliau (dewisol)"

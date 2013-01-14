@@ -173,14 +173,14 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
   context "Jobsearch special case" do
 
     should "render the jobsearch page correctly" do
-      setup_api_responses('jobs-jobsearch')
-      visit "/jobs-jobsearch"
+      setup_api_responses('jobsearch')
+      visit "/jobsearch"
 
       assert_equal 200, page.status_code
 
       within 'head' do
         assert page.has_selector?("title", :text => "Find a job with Universal Jobmatch - GOV.UK")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobs-jobsearch.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobsearch.json']")
       end
 
       within '#content' do
@@ -234,7 +234,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       # Note, this is using the english versions, set to welsh
       # This is fine because we're testing the page furniture, not the rendering of the content.
       # We can use the welsh version when it exists.
-      artefact = content_api_response('jobs-jobsearch')
+      artefact = content_api_response('jobsearch')
       artefact["details"]["language"] = "cy"
       content_api_has_an_artefact('chwilio-am-swydd', artefact)
 
@@ -251,7 +251,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
         within '.article-container' do
           within 'section.intro' do
-            assert page.has_selector?("form.jobsearch-form[action='https://chwiliadgwaith.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
+            assert page.has_selector?("form.jobsearch-form[action='https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
             within "form.jobsearch-form" do
               assert page.has_field?("Teitl swydd", :type => "text")
               assert page.has_field?("Cod post, Tref neu lle", :type => "text")

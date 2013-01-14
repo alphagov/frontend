@@ -15,7 +15,7 @@
         "more_information": "\n<div class=\"application-notice info-notice\">\n<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>\n</div>\n\n<p>Use JobCentre Online to <a rel=\"external\" href=\"http://www.jobcentreonline.com/JCOLFront/Home.aspx\" title=\"Jobcentre Online NI\">search for jobs in Northern Ireland.</a></p>\n",
         "introduction": "<p>Register or sign in to Universal Jobmatch and search for full or part-time jobs in Great Britain and abroad by location, title, or type of work. The Universal Jobmatch service lets you create an online CV and automatically match it to available jobs.</p>\n\n<div class=\"application-notice info-notice\">\n<p>You may have difficulties using this service while it’s being improved - if you’re affected, please try again later.</p>\n</div>\n",
         "will_continue_on": "Universal Jobmatch",
-        "link": "https://jobsearch.direct.gov.uk",
+        "link": "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx",
         "alternate_methods": "<p>You can also search for jobs by calling Jobcentre Plus.</p>\n\n<div class=\"contact\">\n<p><strong>Telephone:</strong> 0845 606 0234<br />\n<strong>Textphone:</strong> 0845 605 5255<br />\nMonday to Friday, 8am to 6pm</p>\n</div>\n",
         "minutes_to_complete": "",
         "expectations": [ ]

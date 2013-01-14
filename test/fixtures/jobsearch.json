@@ -2,8 +2,8 @@
     "_response_info": {
         "status": "ok"
     },
-    "id": "https://www.gov.uk/api/jobs-jobsearch.json",
-    "web_url": "https://www.gov.uk/jobs-jobsearch",
+    "id": "https://www.gov.uk/api/jobsearch.json",
+    "web_url": "https://www.gov.uk/jobsearch",
     "title": "Find a job with Universal Jobmatch",
     "format": "transaction",
     "details": {

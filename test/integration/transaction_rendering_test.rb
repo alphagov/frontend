@@ -278,7 +278,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             end # within .tab_content
           end
 
-          assert page.has_selector?(".modified-date", :text => "Last updated: 10 January 2013")
+          assert page.has_selector?(".modified-date", :text => "Last updated: 14 January 2013")
         end
       end # within #content
     end

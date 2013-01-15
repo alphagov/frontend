@@ -230,6 +230,59 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#test-related")
     end
 
+    should "return a static copy of the jobsearch page at old slug" do
+      visit "/jobs-jobsearch"
+
+      assert_equal 200, page.status_code
+
+      within 'head' do
+        assert page.has_selector?("title", :text => "Find a job with Universal Jobmatch - GOV.UK")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobs-jobsearch.json']")
+      end
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Service")
+          assert page.has_content?("Find a job with Universal Jobmatch")
+          assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
+        end
+
+        within '.article-container' do
+          within 'section.intro' do
+            assert page.has_content?("Search for full or part-time jobs in Great Britain and abroad.")
+
+            assert page.has_selector?("form.jobsearch-form[action='https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
+            within "form.jobsearch-form" do
+              assert page.has_field?("Job title", :type => "text")
+              assert page.has_field?("Postcode, town or place", :type => "text")
+              assert page.has_field?("Skills (optional)", :type => "text")
+
+              assert page.has_selector?("button", :text => "Search")
+              assert page.has_content?("on Universal Jobmatch")
+            end
+          end
+
+          within 'section.more' do
+            expected = ['Before you start', 'Other ways to apply']
+            tabs = page.all('nav.nav-tabs li').map(&:text)
+            assert_equal expected, tabs
+
+            within '.tab-content' do
+              within '#before-you-start' do
+                assert page.has_selector?(".application-notice p a", :text => "Register with Universal Jobmatch")
+              end
+
+              within '#other-ways-to-apply' do
+                assert page.has_selector?('p', :text => "You can also search for jobs by calling Jobcentre Plus.")
+              end
+            end # within .tab_content
+          end
+
+          assert page.has_selector?(".modified-date", :text => "Last updated: 14 January 2013")
+        end
+      end # within #content
+    end
+
     should "render welsh jobsearch page correctly" do
       # Note, this is using the english versions, set to welsh
       # This is fine because we're testing the page furniture, not the rendering of the content.

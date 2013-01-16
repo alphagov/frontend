@@ -81,6 +81,6 @@ class ApplicationController < ActionController::Base
     end
 
     def supported_artefact_formats
-      %w{answer business_support completed_transaction guide licence local_transaction place programme transaction video}
+      %w{answer business_support completed_transaction guide licence local_transaction place programme transaction travel-advice video}
     end
 end

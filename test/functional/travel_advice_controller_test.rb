@@ -21,7 +21,11 @@ class TravelAdviceControllerTest < ActionController::TestCase
                 "body" => "<h1>Advice</h1>",
                 "slug" => "advice"
               }
-            ]
+            ],
+            "country" => {
+              "name" => "Turks and Caicos Islands",
+              "slug" => "turks-and-caicos-islands"
+            }
           }
         }
         content_api_has_an_artefact "travel-advice/turks-and-caicos-islands", artefact
@@ -34,9 +38,14 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
 
       should "make a request to the content api with a concatenated slug" do
+        stub_artefact = artefact_for_slug('travel-advice/turks-and-caicos-islands')
+        stub_artefact['details']['country'] = {
+          "name" => "Turks and Caicos Islands",
+          "slug" => "turks-and-caicos-islands"
+        }
+
         GdsApi::ContentApi.any_instance.expects(:artefact).
-          with('travel-advice/turks-and-caicos-islands', { }).
-          returns( artefact_for_slug 'travel-advice/turks-and-caicos-islands' )
+          with('travel-advice/turks-and-caicos-islands', { }).returns(stub_artefact)
 
         get :country, :slug => "turks-and-caicos-islands"
       end

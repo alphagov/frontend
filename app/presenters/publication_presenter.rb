@@ -18,7 +18,7 @@ class PublicationPresenter
     :overview, :name, :video_summary, :continuation_link, :licence_overview,
     :link, :will_continue_on, :more_information, :minutes_to_complete,
     :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
-    :eligibility, :evaluation, :additional_information, :contact_details, :language
+    :eligibility, :evaluation, :additional_information, :contact_details, :language, :country
   ]
 
   PASS_THROUGH_KEYS.each do |key|

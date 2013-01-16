@@ -27,5 +27,13 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("This is the summary")
       end
     end
+
+    should "not display part numbers" do
+      setup_api_responses "travel-advice/turks-and-caicos-islands"
+
+      visit "/travel-advice/turks-and-caicos-islands"
+
+      assert !page.has_content?("Part 1")
+    end
   end
 end

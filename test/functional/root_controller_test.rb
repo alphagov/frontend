@@ -180,6 +180,13 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "c-slug", :edition => edition_id
   end
 
+  test "should join the slug and part together for /done/* pages" do
+    artefact = content_api_has_an_artefact "done/example"
+
+    get :publication, :slug => "done", :part => "example"
+    assert_equal 200, response.status
+  end
+
   test "should return print view" do
     content_api_has_an_artefact("a-slug")
 

@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
         raise RecordNotFound
       end
 
-      unless supported_artefact_formats.include?(artefact.format)
+      unless supported_artefact_formats.include?(artefact['format'])
         raise UnsupportedArtefactFormat
       end
       artefact

@@ -1,0 +1,41 @@
+<section id="content" role="main" class="group multi-page">
+
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Travel advice </span><%= @publication.title %></h1>
+    </hgroup>
+    <nav class="skip-to-related">
+      <a href="#related"><%= t 'common.not_what_youre_looking_for' %> ↓</a>
+    </nav>
+  </header>
+
+  <div class="article-container group">
+    <%= render :partial => "root/guide_navigation" %>
+
+    <article role="article" class="group">
+      <div class="inner">
+
+        <header>
+          <h1><%= @part.title %></h1>
+        </header>
+
+        <%= raw @part.body %>
+      </div>
+    </article>
+    <%= render 'root/publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
+  </div>
+
+</section>
+
+<div id="related-items"></div>
+
+<% content_for :extra_headers do %>
+  <link rel="canonical" href="<%= part_path(@publication.slug, @part.slug,@edition) %>" />
+  <%- if @publication.has_previous_part?(@part) -%>
+    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
+  <%- end -%>
+  <%- if @publication.has_next_part?(@part) -%>
+    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@part).slug,@edition) %>" />
+  <%- end -%>
+<% end %>

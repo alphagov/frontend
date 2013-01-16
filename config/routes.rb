@@ -22,6 +22,8 @@ Frontend::Application.routes.draw do
   match "/tour", to: "root#tour"
   match "/exit", :to => "exit#exit"
 
+  match '/travel-advice/:slug(/:part)', to: "travel_advice#country", :as => :travel_advice_country
+
   # Campaign pages.
   match "/workplacepensions", :to => "campaign#workplace_pensions"
   match "/energyhelp", :to => "campaign#energy_help"

@@ -57,7 +57,7 @@ class PublicationPresenter
   end
 
   def slug
-    URI.parse(web_url).path.gsub("/", "")
+    URI.parse(web_url).path.sub("/", "")
   end
 
   def places

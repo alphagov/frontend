@@ -45,6 +45,11 @@ class ApplicationHelperTest < ActionView::TestCase
       local_transaction = OpenStruct.new(:type => 'local_transaction')
       assert @helper.wrapper_class(local_transaction).split.include?('service')
     end
+
+    should "mark travel advice as a guide" do
+      travel_advice_edition = OpenStruct.new(:type => 'travel-advice')
+      assert @helper.wrapper_class(travel_advice_edition).split.include?('guide')
+    end
   end
 
   test "should build title from publication and artefact" do

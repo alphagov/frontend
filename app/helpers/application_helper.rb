@@ -10,6 +10,7 @@ module ApplicationHelper
   def wrapper_class(publication = nil, artefact = nil)
     services = %W[transaction local_transaction completed_transaction place]
     answers = %W[answer business_support]
+    guides = %W[guide travel-advice]
     html_classes = []
 
     if publication
@@ -27,6 +28,10 @@ module ApplicationHelper
 
       if answers.include? publication.type
         html_classes << "answer"
+      end
+
+      if guides.include? publication.type
+        html_classes << "guide"
       end
     end
 

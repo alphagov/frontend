@@ -205,9 +205,4 @@ protected
   def assert_found(obj)
     raise RecordNotFound unless obj
   end
-
-  def set_slimmer_artefact_headers(artefact)
-    set_slimmer_headers(format: artefact["format"])
-    set_slimmer_artefact(artefact)
-  end
 end

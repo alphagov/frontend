@@ -47,6 +47,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_slimmer_artefact_headers(artefact)
+      set_slimmer_headers(format: artefact["format"])
+      set_slimmer_artefact(artefact)
+    end
+
     def fetch_artefact(snac = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
       if geo_known_to_at_least?('ward')
@@ -60,7 +65,7 @@ class ApplicationController < ActionController::Base
         raise RecordNotFound
       end
 
-      unless supported_artefact_formats.include?(artefact.format)
+      unless supported_artefact_formats.include?(artefact['format'])
         raise UnsupportedArtefactFormat
       end
       artefact
@@ -81,6 +86,6 @@ class ApplicationController < ActionController::Base
     end
 
     def supported_artefact_formats
-      %w{answer business_support completed_transaction guide licence local_transaction place programme transaction video}
+      %w{answer business_support completed_transaction guide licence local_transaction place programme transaction travel-advice video}
     end
 end

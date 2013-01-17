@@ -94,7 +94,8 @@ GEM
     faye-websocket (0.4.6)
       eventmachine (>= 0.12.0)
     ffi (1.1.5)
-    gds-api-adapters (4.1.3)
+    gds-api-adapters (4.2.0)
+      link_header
       lrucache (~> 0.1.1)
       null_logger
       plek
@@ -118,6 +119,7 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
+    link_header (0.0.5)
     lograge (0.1.2)
       actionpack
       activesupport
@@ -267,7 +269,7 @@ DEPENDENCIES
   ci_reporter
   coffee-rails (~> 3.2.1)
   exception_notification
-  gds-api-adapters (= 4.1.3)
+  gds-api-adapters (= 4.2.0)
   gds-warmup-controller
   gelf
   geogov (~> 0.0.12)

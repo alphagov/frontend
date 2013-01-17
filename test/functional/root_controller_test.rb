@@ -112,6 +112,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return a 404 if slug isn't URL friendly" do
+    content_api_does_not_have_an_artefact("a complicated slug & one that's not \"url safe\"")
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))
     get :publication, :slug => "a complicated slug & one that's not \"url safe\""
@@ -178,6 +179,13 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, :slug => "c-slug", :edition => edition_id
+  end
+
+  test "should join the slug and part together for /done/* pages" do
+    artefact = content_api_has_an_artefact "done/example"
+
+    get :publication, :slug => "done", :part => "example"
+    assert_equal 200, response.status
   end
 
   test "should return print view" do

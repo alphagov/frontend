@@ -1,0 +1,38 @@
+{
+  "_response_info": {
+      "status": "ok"
+  },
+  "id": "https://www.gov.uk/travel-advice%2Fturks-and-caicos-islands.json",
+  "web_url": "https://www.gov.uk/travel-advice/turks-and-caicos-islands",
+  "title": "Turks and Caicos Islands",
+  "format": "travel-advice",
+  "updated_at": "2013-01-16T14:25:51+00:00",
+  "details": {
+    "need_id": null,
+    "business_proposition": false,
+    "description": null,
+    "language": "en",
+    "country": {
+        "name": "Turks and Caicos Islands",
+        "slug": "turks-and-caicos-islands"
+    },
+    "parts": [
+      {
+        "web_url": "https://www.gov.uk/travel-advice/turks-and-caicos-islands/summary",
+        "order": 1,
+        "title": "Summary",
+        "slug": "summary",
+        "body": "<h2>This is the summary</h2>"
+      },
+      {
+        "web_url": "https://www.gov.uk/travel-advice/turks-and-caicos-islands/page-two",
+        "order": 2,
+        "title": "Page Two",
+        "slug": "page-two",
+        "body": "<ul><li>We're all going on a summer holiday,</li><li>mo more working for a week or two.</li><li>Fun and laughter on our summer holiday,</li><li>no more worries for me or you,</li><li>For a week or two.</li></ul>"
+      }
+    ]
+  },
+  "tags": [],
+  "related": []
+}

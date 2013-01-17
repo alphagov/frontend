@@ -82,6 +82,12 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
         assert_redirected_to "/travel-advice/turks-and-caicos-islands"
       end
+
+      should "set correct expiry headers" do
+        get :country, :slug => "turks-and-caicos-islands"
+
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
     end
 
     should "return a 404 status for a country which doesn't exist" do

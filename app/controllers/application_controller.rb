@@ -47,6 +47,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_slimmer_artefact_headers(artefact)
+      set_slimmer_headers(format: artefact["format"])
+      set_slimmer_artefact(artefact)
+    end
+
     def fetch_artefact(snac = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
       if geo_known_to_at_least?('ward')

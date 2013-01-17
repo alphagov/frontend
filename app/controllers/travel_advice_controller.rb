@@ -4,7 +4,7 @@ class TravelAdviceController < ApplicationController
 
   def country
     @country = params[:slug].dup
-    @publication = fetch_artefact_for_country(@country)
+    @publication, @artefact = fetch_artefact_and_publication_for_country(@country)
 
     part = params.fetch(:part) { @publication.parts.first.slug }
     @part = @publication.find_part(part)
@@ -21,14 +21,14 @@ class TravelAdviceController < ApplicationController
   end
 
   private
-    def fetch_artefact_for_country(country)
+    def fetch_artefact_and_publication_for_country(country)
       params[:slug] = "travel-advice/" + params[:slug]
 
-      @artefact = fetch_artefact
-      @publication = PublicationPresenter.new(@artefact)
+      artefact = fetch_artefact
+      publication = PublicationPresenter.new(artefact)
 
-      raise RecordNotFound unless @publication
-      return @publication
+      raise RecordNotFound unless publication
+      return [publication, artefact]
     end
 
 end

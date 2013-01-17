@@ -5,7 +5,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
   context "GET country" do
     context "given a valid country" do
       setup do
-        artefact = {
+        @artefact = {
           "title" => "Turks and Caicos Islands",
           "web_url" => "https://www.gov.uk/travel-advice/turks-and-caicos-islands",
           "format" => "travel-advice",
@@ -28,7 +28,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
             }
           }
         }
-        content_api_has_an_artefact "travel-advice/turks-and-caicos-islands", artefact
+        content_api_has_an_artefact "travel-advice/turks-and-caicos-islands", @artefact
       end
 
       should "be a successful request" do
@@ -87,6 +87,24 @@ class TravelAdviceControllerTest < ActionController::TestCase
         get :country, :slug => "turks-and-caicos-islands"
 
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+
+      context "setting up slimmer artefact details" do
+        should "expose artefact details in header" do
+          @controller.stubs(:render)
+
+          get :country, :slug => "turks-and-caicos-islands"
+
+          assert_equal "travel-advice", @response.headers["X-Slimmer-Format"]
+        end
+
+        should "set the artefact in the header" do
+          @controller.stubs(:render)
+
+          get :country, :slug => "turks-and-caicos-islands"
+
+          assert_equal JSON.dump(@artefact), @response.headers["X-Slimmer-Artefact"]
+        end
       end
     end
 

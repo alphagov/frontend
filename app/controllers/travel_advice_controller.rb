@@ -3,7 +3,7 @@ class TravelAdviceController < ApplicationController
   before_filter :set_expiry
 
   def country
-    @country = params[:slug].dup
+    @country = params[:country_slug].dup
     @publication, @artefact = fetch_artefact_and_publication_for_country(@country)
     set_slimmer_artefact_headers(@artefact)
 

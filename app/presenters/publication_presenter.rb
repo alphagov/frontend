@@ -57,7 +57,7 @@ class PublicationPresenter
   end
 
   def slug
-    URI.parse(web_url).path.sub("/", "")
+    URI.parse(web_url).path.match(/\A\/(.*)/) {|m| m[1] }
   end
 
   def places

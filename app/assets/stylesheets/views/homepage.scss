@@ -121,7 +121,7 @@
         padding-bottom:0.25em;
       }
       p {
-        @include core-19;
+        @include bold-19;
         margin-top: 0;
       }
     }
@@ -240,7 +240,7 @@
         }
 
         h1{
-          @include core-24;
+          @include bold-24;
         }
       }
     }

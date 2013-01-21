@@ -24,6 +24,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       within 'article' do
         assert page.has_content?("Summary")
+
+        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Last updated 16 January 2013")
+
         assert page.has_content?("This is the summary")
       end
     end

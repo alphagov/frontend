@@ -19,6 +19,9 @@
           <h1><%= @part.title %></h1>
         </header>
 
+        <% if @part == @publication.parts.first %>
+          <p>Current at <%= Date.today.strftime("%e %B %Y") %>.<br />Last updated <%= @publication.updated_at.strftime("%e %B %Y") %></p>
+        <% end %>
         <%= raw @part.body %>
       </div>
     </article>

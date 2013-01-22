@@ -9,6 +9,8 @@ class TravelAdviceController < ApplicationController
     @publication, @artefact = fetch_artefact_and_publication_for_country(@country)
     set_slimmer_artefact_headers(@artefact)
 
+    I18n.locale = @publication.language if @publication.language
+
     if @publication.parts
       part = params.fetch(:part) { @publication.parts.first.slug }
       @part = @publication.find_part(part)

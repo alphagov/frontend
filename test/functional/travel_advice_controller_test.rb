@@ -11,6 +11,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
           "updated_at" => Date.parse("16 March 2013"),
           "format" => "travel-advice",
           "details" => {
+            "language" => "en",
             "parts" => [
               {
                 "title" => "Summary",
@@ -64,6 +65,12 @@ class TravelAdviceControllerTest < ActionController::TestCase
         get :country, :country_slug => "turks-and-caicos-islands"
 
         assert_template "country"
+      end
+
+      should "set the locale to the artefact's locale" do
+        I18n.expects(:locale=).with("en")
+
+        get :country, :country_slug => "turks-and-caicos-islands"
       end
 
       should "select the first part by default" do

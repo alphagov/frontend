@@ -1,3 +1,2 @@
-//= require media-player/jquery.loader.js
-//= require media-player/jquery.player.js
-//= require media-player/swfobject/swfobject.js
+//= require vendor/jquery.player.min.js
+//= require media-player-loader.js

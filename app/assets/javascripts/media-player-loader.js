@@ -19,7 +19,8 @@ jQuery(function($) {
             id:'yt'+i,
             media:link,
             captions:captionsf,
-            url: youTubeURL
+            url: youTubeURL,
+            flashHeight: '350px'
         });
     });
 });

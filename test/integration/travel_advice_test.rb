@@ -32,6 +32,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_content?("This is the summary")
       end
+
+      within '.meta-data' do
+        assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print")
+      end
     end
 
     should "not display part numbers" do

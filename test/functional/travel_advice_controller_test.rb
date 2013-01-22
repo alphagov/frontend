@@ -116,6 +116,61 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
     end
 
+    context "given a country with no published travel advice edition" do
+      setup do
+        @artefact = {
+          "title" => "United States",
+          "web_url" => "https://www.gov.uk/travel-advice/united-states",
+          "updated_at" => Date.parse("16 March 2013"),
+          "format" => "travel-advice",
+          "details" => {
+            "country" => {
+              "name" => "United States",
+              "slug" => "united-states"
+            }
+          }
+        }
+        content_api_has_an_artefact "travel-advice/united-states", @artefact
+      end
+
+      should "be a successful request" do
+        get :country, :country_slug => "united-states"
+
+        assert response.success?
+      end
+
+      should "build a summary part" do
+        get :country, :country_slug => "united-states"
+
+        assert_equal 1, assigns(:publication).parts.length
+        assert_equal "summary", assigns(:publication).parts.first.slug
+      end
+
+      should "select the summary part by default" do
+        get :country, :country_slug => "united-states"
+
+        assert_equal "summary", assigns(:part).slug
+      end
+
+      context "setting up slimmer artefact details" do
+        should "expose artefact details in header" do
+          @controller.stubs(:render)
+
+          get :country, :country_slug => "united-states"
+
+          assert_equal "travel-advice", @response.headers["X-Slimmer-Format"]
+        end
+
+        should "set the artefact in the header" do
+          @controller.stubs(:render)
+
+          get :country, :country_slug => "united-states"
+
+          assert_equal JSON.dump(@artefact), @response.headers["X-Slimmer-Artefact"]
+        end
+      end
+    end
+
     should "return a 404 status for a country which doesn't exist" do
       content_api_does_not_have_an_artefact "travel-advice/timbuktu"
 

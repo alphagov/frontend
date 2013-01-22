@@ -41,6 +41,42 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "a country without a travel advice edition" do
+    setup do
+      setup_api_responses "travel-advice/portugal"
+    end
+
+    should "display a basic travel advice page" do
+      visit "/travel-advice/portugal"
+      assert_equal 200, page.status_code
+
+      within '.page-header' do
+        assert page.has_content?("Travel advice")
+        assert page.has_content?("Portugal")
+      end
+
+      within '.page-navigation' do
+        within 'li.active' do
+          assert page.has_content?("Summary")
+        end
+      end
+
+      within 'article' do
+        assert page.has_content?("Summary")
+
+        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Last updated 10 January 2013")
+      end
+    end
+  end
+
+  should "return a not found response for a country which does not exist" do
+    content_api_does_not_have_an_artefact "travel-advice/timbuktu"
+    visit "/travel-advice/timbuktu"
+
+    assert_equal 404, page.status_code
+  end
+
   context "previewing a country page" do
     should "display the travel advice page" do
       setup_api_responses "travel-advice/turks-and-caicos-islands"

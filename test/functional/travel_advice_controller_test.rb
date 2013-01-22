@@ -91,6 +91,12 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
       end
 
+      should "assign the edition number when previewing a country" do
+        get :country, :country_slug => "turks-and-caicos-islands", :edition => "5"
+
+        assert_equal "5", assigns(:edition)
+      end
+
       context "setting up slimmer artefact details" do
         should "expose artefact details in header" do
           @controller.stubs(:render)

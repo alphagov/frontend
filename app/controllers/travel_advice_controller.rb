@@ -4,6 +4,8 @@ class TravelAdviceController < ApplicationController
 
   def country
     @country = params[:country_slug].dup
+    @edition = params[:edition]
+
     @publication, @artefact = fetch_artefact_and_publication_for_country(@country)
     set_slimmer_artefact_headers(@artefact)
 

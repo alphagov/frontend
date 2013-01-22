@@ -10,7 +10,7 @@
   </header>
 
   <div class="article-container group">
-    <%= render :partial => "guide_navigation", :locals => { :show_part_numbers => true } %>
+    <%= render :partial => "guide_navigation" %>
 
     <article role="article" class="group">
       <div class="inner">
@@ -25,7 +25,7 @@
       </div>
     </article>
     <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
-  
+
   </div>
 
 </section>

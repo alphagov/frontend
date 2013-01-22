@@ -19,6 +19,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within '.page-navigation' do
         within 'li.active' do
           assert page.has_content?("Summary")
+          assert page.has_content?("Current travel advice")
         end
 
         assert page.has_link?("Page Two", :href => "/travel-advice/turks-and-caicos-islands/page-two")

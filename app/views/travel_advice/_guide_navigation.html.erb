@@ -6,11 +6,17 @@
           <% if @part == nav_part %>
             <li class="active">
               <span class="part-title"><%= nav_part.title %></span>
+              <% if nav_part == @publication.parts.first %>
+                <span class="part-description">Current travel advice</span>
+              <% end %>
             </li>
           <% else %>
             <li>
               <%= link_to part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" do %>
                 <span class="part-title"><%= nav_part.title %></span>
+                <% if nav_part == @publication.parts.first %>
+                  <span class="part-description">Current travel advice</span>
+                <% end %>
               <% end %>
             </li>
           <% end %>

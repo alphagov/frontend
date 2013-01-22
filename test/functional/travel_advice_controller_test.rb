@@ -8,6 +8,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         @artefact = {
           "title" => "Turks and Caicos Islands",
           "web_url" => "https://www.gov.uk/travel-advice/turks-and-caicos-islands",
+          "updated_at" => Date.parse("16 March 2013"),
           "format" => "travel-advice",
           "details" => {
             "parts" => [
@@ -47,6 +48,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         GdsApi::ContentApi.any_instance.expects(:artefact).
           with('travel-advice/turks-and-caicos-islands', { }).returns(stub_artefact)
 
+        @controller.stubs(:render)
         get :country, :country_slug => "turks-and-caicos-islands"
       end
 

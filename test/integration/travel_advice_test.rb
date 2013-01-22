@@ -3,9 +3,11 @@ require_relative '../integration_test_helper'
 class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "a single country page" do
-    should "display the travel advice page" do
+    setup do
       setup_api_responses "travel-advice/turks-and-caicos-islands"
+    end
 
+    should "display the travel advice page" do
       visit "/travel-advice/turks-and-caicos-islands"
       assert_equal 200, page.status_code
 
@@ -33,8 +35,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
 
     should "not display part numbers" do
-      setup_api_responses "travel-advice/turks-and-caicos-islands"
-
       visit "/travel-advice/turks-and-caicos-islands"
 
       assert !page.has_content?("Part 1")

@@ -3,7 +3,7 @@ class PublicationPresenter
 
   attr_reader :artefact
 
-  attr_accessor :places
+  attr_accessor :places, :parts
 
   def initialize(artefact)
     @artefact = artefact

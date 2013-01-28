@@ -55,8 +55,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "have all of the parts on a single page" do
-        assert page.has_content?("Part 1: Summary")
-        assert page.has_content?("Part 2: Page Two")
+        assert page.has_content?("Summary")
+        assert page.has_content?("Page Two")
       end
     end
   end

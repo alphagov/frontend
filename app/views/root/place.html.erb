@@ -84,9 +84,11 @@
       </div>
 
 		</article>
-    <%= render 'publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => {
-      'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json)
-    } %>
+    <%= render :partial => "shared/publication_metadata", :locals => {
+          :publication => @publication,
+          :artefact => @artefact,
+          :api_links => { "application/json" => publication_path(@publication.slug, :edition => @edition, :format => :json) }
+        } %>
 	</div>
 </section>
 

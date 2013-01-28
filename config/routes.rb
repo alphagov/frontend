@@ -22,7 +22,10 @@ Frontend::Application.routes.draw do
   match "/tour", to: "root#tour"
   match "/exit", :to => "exit#exit"
 
-  match '/travel-advice/:country_slug(/:part)', to: "travel_advice#country", :as => :travel_advice_country
+  with_options(:as => :travel_advice_country, to: "travel_advice#country") do |country|
+    country.match '/travel-advice/:country_slug/print', format: :print
+    country.match '/travel-advice/:country_slug(/:part)'
+  end
 
   # Campaign pages.
   match "/workplacepensions", :to => "campaign#workplace_pensions"

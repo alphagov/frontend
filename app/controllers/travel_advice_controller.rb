@@ -1,6 +1,16 @@
 class TravelAdviceController < ApplicationController
+  include TravelAdviceHelper
 
   before_filter :set_expiry
+
+  def index
+    @countries = content_api.countries['results']
+
+    respond_to do |format|
+      format.html
+      format.json { redirect_to "/api/travel-advice.json" }
+    end
+  end
 
   def country
     @country = params[:country_slug].dup

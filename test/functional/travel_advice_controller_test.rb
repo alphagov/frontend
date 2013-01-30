@@ -2,6 +2,60 @@ require_relative '../test_helper'
 
 class TravelAdviceControllerTest < ActionController::TestCase
 
+  context "GET index" do
+    context "given countries exist" do
+      setup do
+        content_api_has_countries(
+          "aruba" => "Aruba",
+          "portugal" => "Portugal",
+          "turks-and-caicos-islands" => "Turks and Caicos Islands"
+        )
+      end
+
+      should "be a successful request" do
+        get :index
+
+        assert response.success?
+      end
+
+      should "make a request to the content api for all countries" do
+        GdsApi::ContentApi.any_instance.expects(:countries).returns({
+          "results" => [ "something" ]
+        })
+
+        @controller.stubs(:render)
+        get :index
+      end
+
+      should "assign a collection of countries to the template" do
+        get :index
+
+        assert_not_nil assigns(:countries)
+        assert_equal 3, assigns(:countries).length
+        assert_equal ["Aruba", "Portugal", "Turks and Caicos Islands"], assigns(:countries).map {|c| c['name'] }
+      end
+
+      should "render the index template" do
+        get :index
+
+        assert_template "index"
+      end
+
+      should "set correct expiry headers" do
+        get :index
+
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+
+      should "redirect json requests to the api" do
+        get :index, format: 'json'
+
+        assert_redirected_to "/api/travel-advice.json"
+      end
+    end
+
+  end
+
   context "GET country" do
     context "given a valid country" do
       setup do

@@ -19,7 +19,7 @@
   </article>
 <% end %>
 
-<%= render :partial => "shared/publication_metadata", :locals => {
+<%= render :partial => "root/publication_metadata", :locals => {
       :publication => @publication,
       :api_links => { "application/json" => publication_api_path(@publication, :edition => @edition) }
     }, :formats => ["html"] %>

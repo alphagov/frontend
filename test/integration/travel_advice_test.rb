@@ -11,53 +11,127 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit "/travel-advice/turks-and-caicos-islands"
       assert_equal 200, page.status_code
 
+      within 'head' do
+        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fturks-and-caicos-islands.json']")
+      end
+
       within '.page-header' do
         assert page.has_content?("Travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
       within '.page-navigation' do
+        link_titles = page.all('.part-title').map(&:text)
+        assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], link_titles
+
         within 'li.active' do
           assert page.has_content?("Summary")
           assert page.has_content?("Current travel advice")
         end
 
         assert page.has_link?("Page Two", :href => "/travel-advice/turks-and-caicos-islands/page-two")
+        assert page.has_link?("The Bridge of Death", :href => "/travel-advice/turks-and-caicos-islands/the-bridge-of-death")
       end
 
       within 'article' do
-        assert page.has_content?("Summary")
+        assert page.has_selector?("h1", :text => "Summary")
 
         assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Last updated 16 January 2013")
 
-        assert page.has_content?("This is the summary")
+        assert page.has_selector?("h3", :text => "This is the summary")
       end
 
       within '.meta-data' do
         assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print")
       end
+
+      within('.page-navigation') { click_on "Page Two" }
+      assert_equal 200, page.status_code
+
+      within 'head' do
+        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fturks-and-caicos-islands.json']")
+      end
+
+      within '.page-header' do
+        assert page.has_content?("Travel advice")
+        assert page.has_content?("Turks and Caicos Islands")
+      end
+
+      within '.page-navigation' do
+        link_titles = page.all('.part-title').map(&:text)
+        assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], link_titles
+
+        assert page.has_link?("Summary", :href => "/travel-advice/turks-and-caicos-islands")
+        within 'li.active' do
+          assert page.has_content?("Page Two")
+        end
+        assert page.has_link?("The Bridge of Death", :href => "/travel-advice/turks-and-caicos-islands/the-bridge-of-death")
+      end
+
+      within 'article' do
+        assert page.has_selector?("h1", :text => "Page Two")
+        assert page.has_selector?("li", :text => "We're all going on a summer holiday,")
+      end
+
+      within('.page-navigation') { click_on "The Bridge of Death" }
+      assert_equal 200, page.status_code
+
+      within 'head' do
+        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fturks-and-caicos-islands.json']")
+      end
+
+      within '.page-header' do
+        assert page.has_content?("Travel advice")
+        assert page.has_content?("Turks and Caicos Islands")
+      end
+
+      within '.page-navigation' do
+        link_titles = page.all('.part-title').map(&:text)
+        assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], link_titles
+
+        assert page.has_link?("Summary", :href => "/travel-advice/turks-and-caicos-islands")
+        assert page.has_link?("Page Two", :href => "/travel-advice/turks-and-caicos-islands/page-two")
+        within 'li.active' do
+          assert page.has_content?("The Bridge of Death")
+        end
+      end
+
+      within 'article' do
+        assert page.has_selector?("h1", :text => "The Bridge of Death")
+        assert page.has_selector?("li", :text => "What...is your quest?")
+      end
     end
 
-    should "not display part numbers" do
-      visit "/travel-advice/turks-and-caicos-islands"
+    should "display the print view of a country page" do
+      visit "/travel-advice/turks-and-caicos-islands/print"
+      assert_equal 200, page.status_code
 
-      assert !page.has_content?("Part 1")
-    end
+      within 'section[role=main]' do
+        assert page.has_selector?('h1', :text => "Turks and Caicos Islands travel advice")
 
-    context "print-friendly view" do
-      setup do
-        visit "/travel-advice/turks-and-caicos-islands/print"
+        section_titles = page.all('article h1').map(&:text)
+        assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], section_titles
+
+        within 'article#summary' do
+          assert page.has_selector?("h1", :text => "Summary")
+          assert page.has_selector?("h3", :text => "This is the summary")
+        end
+
+        within 'article#page-two' do
+          assert page.has_selector?("h1", :text => "Page Two")
+          assert page.has_selector?("li", :text => "We're all going on a summer holiday,")
+        end
+
+        within 'article#the-bridge-of-death' do
+          assert page.has_selector?("h1", :text => "The Bridge of Death")
+          assert page.has_selector?("li", :text => "What...is your quest?")
+        end
       end
-
-      should "respond with a status of success" do
-        assert_equal 200, page.status_code
-      end
-
-      should "have all of the parts on a single page" do
-        assert page.has_content?("Summary")
-        assert page.has_content?("Page Two")
-      end
+      assert page.has_content?("Last updated: 16 January 2013")
     end
   end
 

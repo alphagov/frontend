@@ -1,0 +1,34 @@
+<aside>
+  <div class="inner">
+    <nav role="navigation" class="page-navigation">
+      <ol>
+        <% if @part %>
+          <li>
+            <%= link_to part_path(@publication.slug, nil, @edition), :title => "Summary" do %>
+              <span class="part-title">Summary</span>
+              <span class="part-description">Current travel advice</span>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="active">
+            <span class="part-title">Summary</span>
+            <span class="part-description">Current travel advice</span>
+          </li>
+        <% end %>
+        <% (@publication.parts || []).each do |nav_part| %>
+          <% if @part == nav_part %>
+            <li class="active">
+              <span class="part-title"><%= nav_part.title %></span>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to part_path(@publication.slug, nav_part.slug, @edition), :title => nav_part.title do %>
+                <span class="part-title"><%= nav_part.title %></span>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ol>
+    </nav>
+  </div>
+</aside>

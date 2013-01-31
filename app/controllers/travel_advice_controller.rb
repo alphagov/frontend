@@ -11,16 +11,12 @@ class TravelAdviceController < ApplicationController
 
     I18n.locale = :en # These pages haven't been localised yet.
 
-    if @publication.parts
-      part = params.fetch(:part) { @publication.parts.first.slug }
-      @part = @publication.find_part(part)
+    if params[:part].present?
+      @part = @publication.find_part(params[:part])
 
       unless @part
         redirect_to travel_advice_country_path(@country) and return
       end
-    else
-      @publication.parts = [ build_initial_part ]
-      @part = @publication.parts.first
     end
 
     respond_to do |format|
@@ -46,14 +42,4 @@ class TravelAdviceController < ApplicationController
       raise RecordNotFound unless publication
       return [publication, artefact]
     end
-
-    def build_initial_part
-      PartPresenter.new(
-        'slug' => "summary",
-        'title' => "Summary",
-        'body' => "",
-        'name' => "Summary"
-      )
-    end
-
 end

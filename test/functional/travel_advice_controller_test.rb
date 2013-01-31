@@ -1,7 +1,6 @@
 require_relative '../test_helper'
 
 class TravelAdviceControllerTest < ActionController::TestCase
-
   context "GET country" do
     context "given a valid country" do
       setup do
@@ -120,6 +119,15 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
           assert_equal JSON.dump(@artefact), @response.headers["X-Slimmer-Artefact"]
         end
+      end
+
+      should "return a print format" do
+        @controller.stubs(:render)
+
+        get :country, :country_slug => "turks-and-caicos-islands", :edition => "5", :format => "print"
+
+        assert_equal "print", @request.format
+        assert_equal "print", @response.headers["X-Slimmer-Template"]
       end
     end
 

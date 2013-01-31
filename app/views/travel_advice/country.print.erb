@@ -2,7 +2,16 @@
   <h1><%= @publication.country['name'] %> travel advice</h1>
 </header>
 
-<% @publication.parts.each do |part| %>
+<article id="summary">
+  <header>
+    <h1>Summary</h1>
+  </header>
+
+  <%= render :partial => 'country_metadata', :formats => ['html'] %>
+
+  <%= raw @publication.summary %>
+</article>
+<% (@publication.parts || []).each do |part| %>
   <article id="<%= part.slug %>">
     <header>
       <h1><%= part.title %></h1>
@@ -11,8 +20,3 @@
     <%= raw part.body %>
   </article>
 <% end %>
-
-<%= render :partial => "shared/publication_metadata", :locals => {
-      :publication => @publication,
-      :api_links => { "application/json" => publication_api_path(@publication, :edition => @edition) }
-    }, :formats => ["html"] %>

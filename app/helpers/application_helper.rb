@@ -7,7 +7,7 @@ module ApplicationHelper
     [title, 'GOV.UK'].select(&:present?).join(" - ")
   end
 
-  def wrapper_class(publication = nil, artefact = nil)
+  def wrapper_class(publication = nil)
     services = %W[transaction local_transaction completed_transaction place]
     answers = %W[answer business_support]
     guides = %W[guide travel-advice]

@@ -44,6 +44,21 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert !page.has_content?("Part 1")
     end
+
+    context "print-friendly view" do
+      setup do
+        visit "/travel-advice/turks-and-caicos-islands/print"
+      end
+
+      should "respond with a status of success" do
+        assert_equal 200, page.status_code
+      end
+
+      should "have all of the parts on a single page" do
+        assert page.has_content?("Summary")
+        assert page.has_content?("Page Two")
+      end
+    end
   end
 
   context "a country without a travel advice edition" do

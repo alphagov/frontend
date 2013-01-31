@@ -9,7 +9,7 @@
 
   <%= raw @publication.summary %>
 </article>
-<% @publication.parts.each do |part| %>
+<% (@publication.parts || []).each do |part| %>
   <article id="<%= part.slug %>">
     <header>
       <h1><%= part.title %></h1>

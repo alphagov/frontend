@@ -162,6 +162,22 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Last updated 10 January 2013")
       end
     end
+
+    should "display a basic print view" do
+      visit "/travel-advice/portugal/print"
+
+      within 'section[role=main]' do
+        assert page.has_selector?('h1', :text => "Portugal travel advice")
+
+        section_titles = page.all('article h1').map(&:text)
+        assert_equal ['Summary'], section_titles
+
+        within 'article#summary' do
+          assert page.has_selector?("h1", :text => "Summary")
+        end
+      end
+      assert page.has_content?("Last updated: 10 January 2013")
+    end
   end
 
   should "return a not found response for a country which does not exist" do

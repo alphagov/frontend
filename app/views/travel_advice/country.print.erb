@@ -7,6 +7,8 @@
     <h1>Summary</h1>
   </header>
 
+  <%= render :partial => 'country_metadata', :formats => ['html'] %>
+
   <%= raw @publication.summary %>
 </article>
 <% (@publication.parts || []).each do |part| %>
@@ -18,8 +20,3 @@
     <%= raw part.body %>
   </article>
 <% end %>
-
-<%= render :partial => "root/publication_metadata", :locals => {
-      :publication => @publication,
-      :api_links => { "application/json" => publication_api_path(@publication, :edition => @edition) }
-    }, :formats => ["html"] %>

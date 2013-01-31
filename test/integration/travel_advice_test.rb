@@ -37,14 +37,15 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 
-        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Last updated 16 January 2013")
+        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Updated: 16 January 2013")
 
         assert page.has_selector?("h3", :text => "This is the summary")
       end
 
       within '.meta-data' do
         assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print")
+        assert ! page.has_selector?('.modified-date')
       end
 
       within('.page-navigation') { click_on "Page Two" }
@@ -118,6 +119,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
+          assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?("Updated: 16 January 2013")
           assert page.has_selector?("h3", :text => "This is the summary")
         end
 
@@ -131,7 +134,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("li", :text => "What...is your quest?")
         end
       end
-      assert page.has_content?("Last updated: 16 January 2013")
     end
   end
 
@@ -159,8 +161,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 
-        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Last updated 31 January 2013")
+        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Updated: 31 January 2013")
 
         assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
       end
@@ -182,10 +184,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
+          assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?("Updated: 31 January 2013")
           assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
         end
       end
-      assert page.has_content?("Last updated: 31 January 2013")
     end
   end
 
@@ -208,8 +211,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_content?("Summary")
 
-        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Last updated 10 January 2013")
+        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Updated: 10 January 2013")
       end
     end
 
@@ -224,9 +227,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
+          assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?("Updated: 10 January 2013")
         end
       end
-      assert page.has_content?("Last updated: 10 January 2013")
     end
   end
 
@@ -260,8 +264,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_content?("Summary")
 
-        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Last updated 16 January 2013")
+        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Updated: 16 January 2013")
 
         assert page.has_content?("This is the summary")
       end

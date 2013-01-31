@@ -26,16 +26,19 @@
             <h1>Summary</h1>
           </header>
 
-          <p>
-            Current at <%= Date.today.strftime("%e %B %Y") %>.<br />
-            Last updated <%= @publication.updated_at.strftime("%e %B %Y") %>
-          </p>
+          <%= render :partial => "country_metadata" %>
           <%= raw @publication.summary %>
         <% end %>
       </div>
     </article>
-    <%= render 'root/publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
 
+    <div id="report-a-problem"></div>
+
+    <div class="meta-data group">
+      <div class="inner">
+        <p class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print'), rel: "nofollow" %></p>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -43,6 +46,7 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
+  <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
   <%- if @part and @publication.has_previous_part?(@part) -%>
     <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
   <%- end -%>

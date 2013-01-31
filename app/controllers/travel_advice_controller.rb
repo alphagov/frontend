@@ -1,6 +1,4 @@
 class TravelAdviceController < ApplicationController
-  include TravelAdviceHelper
-
   before_filter :set_expiry
 
   def index

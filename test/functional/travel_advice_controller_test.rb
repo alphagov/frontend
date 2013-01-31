@@ -66,29 +66,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_template "country"
       end
 
-      should "set the locale to the artefact's locale" do
-        I18n.expects(:locale=).with("en")
+      should "set the locale to en" do
+        I18n.expects(:locale=).with(:en)
 
         get :country, :country_slug => "turks-and-caicos-islands"
-      end
-
-      should "select the first part by default" do
-        get :country, :country_slug => "turks-and-caicos-islands"
-
-        assert_equal "summary", assigns(:part).slug
-      end
-
-      should "select a given part if it exists" do
-        get :country, :country_slug => "turks-and-caicos-islands", :part => "advice"
-
-        assert_equal "advice", assigns(:part).slug
-        assert response.success?
-      end
-
-      should "redirect to the travel advice edition root when a part doesn't exist" do
-        get :country, :country_slug => "turks-and-caicos-islands", :part => "nightlife"
-
-        assert_redirected_to "/travel-advice/turks-and-caicos-islands"
       end
 
       should "set correct expiry headers" do
@@ -129,6 +110,30 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_equal "print", @request.format
         assert_equal "print", @response.headers["X-Slimmer-Template"]
       end
+
+      context "requesting the root 'part'" do
+        should "not assign a part" do
+          get :country, :country_slug => "turks-and-caicos-islands"
+
+          assert_nil assigns(:part)
+        end
+      end # root part
+
+      context "requesting a part" do
+        should "select a given part if it exists" do
+          get :country, :country_slug => "turks-and-caicos-islands", :part => "advice"
+
+          assert_equal "advice", assigns(:part).slug
+          assert assigns(:part).is_a?(PartPresenter)
+          assert response.success?
+        end
+
+        should "redirect to the travel advice edition root when a part doesn't exist" do
+          get :country, :country_slug => "turks-and-caicos-islands", :part => "nightlife"
+
+          assert_redirected_to "/travel-advice/turks-and-caicos-islands"
+        end
+      end
     end
 
     context "given a country with no published travel advice edition" do
@@ -152,19 +157,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
         get :country, :country_slug => "united-states"
 
         assert response.success?
-      end
-
-      should "build a summary part" do
-        get :country, :country_slug => "united-states"
-
-        assert_equal 1, assigns(:publication).parts.length
-        assert_equal "summary", assigns(:publication).parts.first.slug
-      end
-
-      should "select the summary part by default" do
-        get :country, :country_slug => "united-states"
-
-        assert_equal "summary", assigns(:part).slug
       end
 
       context "setting up slimmer artefact details" do

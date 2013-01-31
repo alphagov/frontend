@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def publication_api_path(publication, opts = {})
-    path = "/api/#{publication.slug}.json"
+    path = "/api/#{CGI.escape publication.slug}.json"
     path += "?edition=#{opts[:edition]}" if opts[:edition]
     path
   end

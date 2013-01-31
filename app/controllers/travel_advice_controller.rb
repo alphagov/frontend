@@ -5,6 +5,7 @@ class TravelAdviceController < ApplicationController
 
   def index
     @countries = content_api.countries['results']
+    @publication = OpenStruct.new(:type => 'travel-advice')
 
     respond_to do |format|
       format.html

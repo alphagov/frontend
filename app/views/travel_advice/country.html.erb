@@ -10,7 +10,7 @@
   </header>
 
   <div class="article-container group">
-    <%= render :partial => "travel_advice_navigation" %>
+    <%= render :partial => "travel_advice_navigation" if @publication.parts.present? %>
 
     <article role="article" class="group">
       <div class="inner">

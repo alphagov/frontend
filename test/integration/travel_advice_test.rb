@@ -135,6 +135,60 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "a country with no parts" do
+    setup do
+      setup_api_responses "travel-advice/luxembourg"
+    end
+
+    should "display a simplified view with no part navigation" do
+      visit "/travel-advice/luxembourg"
+      assert_equal 200, page.status_code
+
+      within 'head' do
+        assert page.has_selector?("title", :text => "Luxembourg travel advice")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fluxembourg.json']")
+      end
+
+      within '.page-header' do
+        assert page.has_content?("Travel advice")
+        assert page.has_content?("Luxembourg")
+      end
+
+      assert ! page.has_selector?('.page-navigation')
+
+      within 'article' do
+        assert page.has_selector?("h1", :text => "Summary")
+
+        assert page.has_content?("Current at #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Last updated 31 January 2013")
+
+        assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
+      end
+
+      within '.meta-data' do
+        assert page.has_link?("Printer friendly page", :href => "/travel-advice/luxembourg/print")
+      end
+    end
+
+    should "display the print view correctly" do
+      visit "/travel-advice/luxembourg/print"
+      assert_equal 200, page.status_code
+
+      within 'section[role=main]' do
+        assert page.has_selector?('h1', :text => "Luxembourg travel advice")
+
+        section_titles = page.all('article h1').map(&:text)
+        assert_equal ['Summary'], section_titles
+
+        within 'article#summary' do
+          assert page.has_selector?("h1", :text => "Summary")
+          assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
+        end
+      end
+      assert page.has_content?("Last updated: 31 January 2013")
+    end
+  end
+
   context "a country without a travel advice edition" do
     setup do
       setup_api_responses "travel-advice/portugal"
@@ -149,11 +203,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Portugal")
       end
 
-      within '.page-navigation' do
-        within 'li.active' do
-          assert page.has_content?("Summary")
-        end
-      end
+      assert ! page.has_selector?('.page-navigation')
 
       within 'article' do
         assert page.has_content?("Summary")

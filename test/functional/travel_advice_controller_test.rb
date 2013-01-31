@@ -66,8 +66,8 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_template "country"
       end
 
-      should "set the locale to the artefact's locale" do
-        I18n.expects(:locale=).with("en")
+      should "set the locale to en" do
+        I18n.expects(:locale=).with(:en)
 
         get :country, :country_slug => "turks-and-caicos-islands"
       end

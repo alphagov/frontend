@@ -10,7 +10,7 @@
       }
 
       h1 {
-        @include core-36;
+        @include core-48;
         width: 75%;
 
         @include media(mobile) {
@@ -51,7 +51,7 @@
       }
 
       p {
-        @include core-16;
+        @include core-24;
         margin: 0;
       }
     }

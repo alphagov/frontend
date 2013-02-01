@@ -9,6 +9,42 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     string.gsub(/ +/, ' ')
   end
 
+  context "country list" do
+    setup do
+      content_api_has_countries(
+        "aruba" => "Aruba",
+        "portugal" => "Portugal",
+        "turks-and-caicos-islands" => "Turks and Caicos Islands"
+      )
+    end
+
+    should "display the list of countries" do
+      visit '/travel-advice'
+      assert_equal 200, page.status_code
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Quick answer")
+          assert page.has_content?("Travel advice")
+        end
+
+        assert page.has_selector?(".article-container #test-report_a_problem")
+      end
+
+      within ".list#A" do
+        assert page.has_link?("Aruba", :href => "/travel-advice/aruba")
+      end
+
+      within ".list#P" do
+        assert page.has_link?("Portugal", :href => "/travel-advice/portugal")
+      end
+
+      within ".list#T" do
+        assert page.has_link?("Turks and Caicos Islands", :href => "/travel-advice/turks-and-caicos-islands")
+      end
+    end
+  end
+
   context "a single country page" do
     setup do
       setup_api_responses "travel-advice/turks-and-caicos-islands"

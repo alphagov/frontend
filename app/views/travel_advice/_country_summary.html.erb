@@ -1,0 +1,9 @@
+<header>
+  <h1>Summary</h1>
+</header>
+
+<ul class="country-metadata">
+  <li>Still current at: <%= Date.today.strftime("%e %B %Y") %></li>
+  <li>Updated: <%= publication.updated_at.strftime("%e %B %Y") %></li>
+</ul>
+<%= raw publication.summary %>

@@ -13,6 +13,7 @@
     "description": "",
     "language": "en",
     "summary": "<p>There are no parts of Luxembourg that the FCO recommends avoiding.</p>\n",
+    "alert_status": [],
     "parts": [],
     "country": {
       "name": "Luxembourg",

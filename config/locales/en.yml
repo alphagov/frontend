@@ -30,3 +30,9 @@ en:
         town_place_postcode: "Postcode, town or place"
         skills: "Skills (optional)"
         search: "Search"
+  travel_advice:
+    alert_status:
+      avoid_all_but_essential_travel_to_parts: Avoid all but essential travel to parts of the country.
+      avoid_all_travel_to_parts: Avoid all travel to parts of the country.
+      avoid_all_but_essential_travel_to_whole_country: Avoid all but essential travel to the whole country.
+      avoid_all_travel_to_whole_country: Avoid all travel to the whole country.

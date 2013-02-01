@@ -1,0 +1,20 @@
+<header>
+  <h1>Summary</h1>
+</header>
+
+<ul class="country-metadata">
+  <li>Still current at: <%= Date.today.strftime("%e %B %Y") %></li>
+  <li>Updated: <%= publication.updated_at.strftime("%e %B %Y") %></li>
+</ul>
+
+<% if publication.alert_status.present? %>
+  <div class="application-notice help-notice">
+    <% publication.alert_status.each do |alert| %>
+      <p><%= t "travel_advice.alert_status.#{alert}" %></p>
+    <% end %>
+  </div>
+<% else %>
+  <p>There are no travel restrictions in place for <%= publication.country['name'] %>.</p>
+<% end %>
+
+<%= raw publication.summary %>

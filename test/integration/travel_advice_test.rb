@@ -2,6 +2,13 @@ require_relative '../integration_test_helper'
 
 class TravelAdviceTest < ActionDispatch::IntegrationTest
 
+  # Necessary because Capybara's has_content? method normalizes spaces in the document
+  # However, it doesn't normalize spaces in the query string, so if you're looking for a string
+  # with 2 spaces in it (e.g. when the date is a single digit with a space prefix), it will fail.
+  def de_dup_spaces(string)
+    string.gsub(/ +/, ' ')
+  end
+
   context "a single country page" do
     setup do
       setup_api_responses "travel-advice/turks-and-caicos-islands"
@@ -37,7 +44,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 
-        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 16 January 2013")
 
         assert page.has_selector?("h3", :text => "This is the summary")
@@ -119,7 +126,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
-          assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 16 January 2013")
           assert page.has_selector?("h3", :text => "This is the summary")
         end
@@ -161,7 +168,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 
-        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 31 January 2013")
 
         assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
@@ -184,7 +191,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
-          assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 31 January 2013")
           assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
         end
@@ -211,7 +218,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_content?("Summary")
 
-        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 10 January 2013")
       end
     end
@@ -227,7 +234,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
-          assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 10 January 2013")
         end
       end
@@ -264,7 +271,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_content?("Summary")
 
-        assert page.has_content?("Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 16 January 2013")
 
         assert page.has_content?("This is the summary")

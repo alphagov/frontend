@@ -42,7 +42,9 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '4.2.0'
+  # Use version from git until we can push 4.4.0 to rubygems.org
+  # gem 'gds-api-adapters', '4.4.0'
+  gem 'gds-api-adapters', :git => "https://github.com/alphagov/gds-api-adapters.git"
 end
 
 gem "addressable"

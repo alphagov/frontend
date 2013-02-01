@@ -8,6 +8,17 @@ GIT
       rest-client
 
 GIT
+  remote: https://github.com/alphagov/gds-api-adapters.git
+  revision: 31da6b715da9c0e23090882b3c74386dc544ec2b
+  specs:
+    gds-api-adapters (4.4.0)
+      link_header
+      lrucache (~> 0.1.1)
+      null_logger
+      plek
+      rest-client (~> 1.6.3)
+
+GIT
   remote: https://github.com/alphagov/rails-i18n.git
   revision: 67ce6ca672ea05457a48c152ba9478b0755d6e94
   branch: welsh_updates
@@ -94,11 +105,6 @@ GEM
     faye-websocket (0.4.6)
       eventmachine (>= 0.12.0)
     ffi (1.1.5)
-    gds-api-adapters (4.2.0)
-      link_header
-      lrucache (~> 0.1.1)
-      null_logger
-      plek
     gds-warmup-controller (0.1.0)
       rails (>= 3.0.0)
     gelf (1.3.2)
@@ -269,7 +275,7 @@ DEPENDENCIES
   ci_reporter
   coffee-rails (~> 3.2.1)
   exception_notification
-  gds-api-adapters (= 4.2.0)
+  gds-api-adapters!
   gds-warmup-controller
   gelf
   geogov (~> 0.0.12)

@@ -83,6 +83,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 16 January 2013")
 
+        within '.application-notice.help-notice' do
+          assert page.has_content?("Avoid all travel to parts of the country")
+          assert page.has_content?("Avoid all but essential travel to the whole country")
+        end
+
         assert page.has_selector?("h3", :text => "This is the summary")
       end
 
@@ -164,6 +169,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("h1", :text => "Summary")
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 16 January 2013")
+          within '.application-notice.help-notice' do
+            assert page.has_content?("Avoid all travel to parts of the country")
+            assert page.has_content?("Avoid all but essential travel to the whole country")
+          end
           assert page.has_selector?("h3", :text => "This is the summary")
         end
 
@@ -207,6 +216,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 31 January 2013")
 
+        assert page.has_content?("There are no travel restrictions in place for Luxembourg.")
+
         assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
       end
 
@@ -229,6 +240,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("h1", :text => "Summary")
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 31 January 2013")
+          assert page.has_content?("There are no travel restrictions in place for Luxembourg.")
           assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
         end
       end
@@ -256,6 +268,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 10 January 2013")
+
+        assert page.has_content?("There are no travel restrictions in place for Portugal.")
       end
     end
 
@@ -272,6 +286,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("h1", :text => "Summary")
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 10 January 2013")
+          assert page.has_content?("There are no travel restrictions in place for Portugal.")
         end
       end
     end

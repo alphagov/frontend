@@ -13,6 +13,10 @@
     "description": "",
     "language": "en",
     "summary": "<h3>This is the summary</h3>\n",
+    "alert_status": [
+      "avoid_all_travel_to_parts",
+      "avoid_all_but_essential_travel_to_whole_country"
+    ],
     "country": {
         "name": "Turks and Caicos Islands",
         "slug": "turks-and-caicos-islands"

@@ -22,12 +22,7 @@
 
           <%= raw @part.body %>
         <% else %><%# The summary page %>
-          <header>
-            <h1>Summary</h1>
-          </header>
-
-          <%= render :partial => "country_metadata" %>
-          <%= raw @publication.summary %>
+          <%= render :partial => "country_summary", :locals => {:publication => @publication} %>
         <% end %>
       </div>
     </article>

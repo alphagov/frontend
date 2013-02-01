@@ -3,13 +3,7 @@
 </header>
 
 <article id="summary">
-  <header>
-    <h1>Summary</h1>
-  </header>
-
-  <%= render :partial => 'country_metadata', :formats => ['html'] %>
-
-  <%= raw @publication.summary %>
+  <%= render :partial => 'country_summary', :locals => {:publication => @publication }, :formats => ['html'] %>
 </article>
 <% (@publication.parts || []).each do |part| %>
   <article id="<%= part.slug %>">

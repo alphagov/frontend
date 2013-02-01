@@ -1,0 +1,43 @@
+<section id="content" class="group">
+  <header class="page-header group">
+    <hgroup>
+      <h1><span>Quick answer</span>Travel advice</h1>
+    </hgroup>
+  </header>
+
+  <div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+        <!--
+        <section id="recently-updated" class="list">
+          <h1>Recently updated</h1>
+          <ul>
+            <li><a href="#" class="important">Afghanistan</a> <span class="meta">updated 11 December 2012</span></li>
+            <li><a href="#" class="important">Burundi</a> <span class="meta">updated 15 December 2012</span></li>
+          </ul>
+        </section>
+
+        <form id="country-filter">
+          <fieldset>
+            <label for="country">Which country are you looking for?</label>
+            <input id="country" name="country" type="text" />
+          </fieldset>
+        </form>
+        -->
+
+        <% group_by_initial_letter(@countries).each do |initial,countries| %>
+          <section id="<%= initial %>" class="list">
+            <h1><%= initial %></h1>
+            <ul>
+              <% countries.each do |country| %>
+                <li><%= link_to country['name'], travel_advice_country_path(country['identifier']) %></li>
+              <% end %>
+            </ul>
+          </section>
+        <% end %>
+      </div>
+    </article>
+
+    <div id="report-a-problem"></div>
+  </div>
+</section>

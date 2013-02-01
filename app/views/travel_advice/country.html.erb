@@ -10,23 +10,35 @@
   </header>
 
   <div class="article-container group">
-    <%= render :partial => "guide_navigation" %>
+    <%= render :partial => "travel_advice_navigation" if @publication.parts.present? %>
 
     <article role="article" class="group">
       <div class="inner">
 
-        <header>
-          <h1><%= @part.title %></h1>
-        </header>
+        <% if @part %>
+          <header>
+            <h1><%= @part.title %></h1>
+          </header>
 
-        <% if @part == @publication.parts.first %>
-          <p>Current at <%= Date.today.strftime("%e %B %Y") %>.<br />Last updated <%= @publication.updated_at.strftime("%e %B %Y") %></p>
+          <%= raw @part.body %>
+        <% else %><%# The summary page %>
+          <header>
+            <h1>Summary</h1>
+          </header>
+
+          <%= render :partial => "country_metadata" %>
+          <%= raw @publication.summary %>
         <% end %>
-        <%= raw @part.body %>
       </div>
     </article>
-    <%= render 'root/publication_metadata', :publication => @publication, :artefact => @artefact, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
 
+    <div id="report-a-problem"></div>
+
+    <div class="meta-data group">
+      <div class="inner">
+        <p class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print'), rel: "nofollow" %></p>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -34,11 +46,11 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
-  <link rel="canonical" href="<%= part_path(@publication.slug, @part.slug,@edition) %>" />
-  <%- if @publication.has_previous_part?(@part) -%>
+  <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
+  <%- if @part and @publication.has_previous_part?(@part) -%>
     <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
   <%- end -%>
-  <%- if @publication.has_next_part?(@part) -%>
+  <%- if @part and @publication.has_next_part?(@part) -%>
     <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@part).slug,@edition) %>" />
   <%- end -%>
 <% end %>

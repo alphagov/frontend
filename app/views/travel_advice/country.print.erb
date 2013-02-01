@@ -1,0 +1,22 @@
+<header>
+  <h1><%= @publication.country['name'] %> travel advice</h1>
+</header>
+
+<article id="summary">
+  <header>
+    <h1>Summary</h1>
+  </header>
+
+  <%= render :partial => 'country_metadata', :formats => ['html'] %>
+
+  <%= raw @publication.summary %>
+</article>
+<% (@publication.parts || []).each do |part| %>
+  <article id="<%= part.slug %>">
+    <header>
+      <h1><%= part.title %></h1>
+    </header>
+
+    <%= raw part.body %>
+  </article>
+<% end %>

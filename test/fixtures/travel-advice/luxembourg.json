@@ -1,0 +1,24 @@
+{
+  "_response_info": {
+    "status": "ok"
+  },
+  "id": "https://contentapi.preview.alphagov.co.uk/travel-advice%2Fluxembourg.json",
+  "web_url": "https://www.preview.alphagov.co.uk/travel-advice/luxembourg",
+  "title": "Luxembourg travel advice",
+  "format": "travel-advice",
+  "updated_at": "2013-01-31T11:35:17+00:00",
+  "details": {
+    "need_id": null,
+    "business_proposition": false,
+    "description": "",
+    "language": "en",
+    "summary": "<p>There are no parts of Luxembourg that the FCO recommends avoiding.</p>\n",
+    "parts": [],
+    "country": {
+      "name": "Luxembourg",
+      "slug": "luxembourg"
+    }
+  },
+  "tags": [],
+  "related": []
+}

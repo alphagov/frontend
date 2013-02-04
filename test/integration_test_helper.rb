@@ -41,6 +41,13 @@ class ActionDispatch::IntegrationTest
         .stub
   end
 
+  def content_api_has_a_draft_artefact(slug, version, body = artefact_for_slug(slug))
+    GdsApi::TestHelpers::ContentApi::ArtefactStub.new(slug)
+        .with_query_parameters(edition: version)
+        .with_response_body(body)
+        .stub
+  end
+
   def assert_current_url(path_with_query, options = {})
     expected = URI.parse(path_with_query)
     current = URI.parse(current_url)

@@ -31,7 +31,7 @@
 
     <div class="meta-data group">
       <div class="inner">
-        <p class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print'), rel: "nofollow" %></p>
+        <p class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></p>
       </div>
     </div>
   </div>

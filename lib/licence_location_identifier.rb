@@ -1,26 +1,31 @@
 require_relative 'location_identifier'
 
 class LicenceLocationIdentifier < LocationIdentifier
+  # If the licence has an equivalent local service in the LGSL, try
+  # to find the most appropriate council from the "providing tier"
+  # if not, then return the closest authority available.
   def self.find_snac(geostack, artefact = nil)
+    councils = geostack["council"].map do |area|
+      [area["type"], area["ons"]]
+    end
 
-    # if the licence has an equivalent local service in the LGSL, try to find
-    # the most appropriate council from the "providing tier"
-    # if not, then return the closest authority available
+    if artefact and providing_tier = artefact["details"].try(:[], "licence").try(:[], "local_service").try(:[], "providing_tier")
+      councils_by_tier = Hash[councils.collect do |k, v|
+        [self.identify_tier(k), v]
+      end]
 
-    if artefact and artefact['details']['licence'] and artefact['details']['licence']['local_service'] and artefact['details']['licence']['local_service']['providing_tier']
-      providing_tier = artefact['details']['licence']['local_service']['providing_tier']
+      appropriate_authority = providing_tier.map do |tier|
+        councils_by_tier[tier]
+      end.compact.first
 
-      authorities = geostack['council']
-      by_tier = Hash[authorities.map {|area| [self.identify_tier(area["type"]), area["ons"]] }]
-
-      appropriate_authority = providing_tier.map {|tier| by_tier[tier] }.compact.first
       return appropriate_authority unless appropriate_authority.nil?
     end
 
-    authorities = Hash[geostack['council'].map {|area| [area['type'], area['ons']] }]
-    self.authority_types.each {|type|
+    authorities = Hash[councils]
+    self.authority_types.each do |type|
       return authorities[type] unless authorities[type].nil?
-    }
-    return nil
+    end
+
+    nil
   end
 end

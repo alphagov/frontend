@@ -329,4 +329,16 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "a country RSS feed" do
+    setup do
+      setup_api_responses "travel-advice/portugal"
+    end
+    should "display the RSS feed for a country" do
+      visit "/travel-advice/portugal.rss"
+
+      assert_equal 200, page.status_code
+      assert page.has_content? "Portugal"
+    end
+  end
 end

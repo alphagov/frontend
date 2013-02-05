@@ -221,4 +221,46 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
     end
   end
+
+  should "allow previewing a guide" do
+    content_api_has_a_draft_artefact "data-protection", 1, content_api_response("data-protection")
+
+    visit "/data-protection?edition=1"
+
+    assert_equal 200, page.status_code
+
+    within 'head' do
+      assert page.has_selector?("title", :text => "Data protection - GOV.UK")
+    end
+
+    within '#content' do
+      within 'header' do
+        assert page.has_content?("Data protection")
+      end
+
+      within '.article-container' do
+        within 'aside nav' do
+          part_titles = page.all('li').map(&:text).map(&:strip)
+          assert_equal ['Part 1: The Data Protection Act', 'Part 2: Find out what data an organisation has about you', 'Part 3: Make a complaint'], part_titles
+
+          assert page.has_link?("Part 2: Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1")
+          assert page.has_link?("Part 3: Make a complaint", :href => "/data-protection/make-a-complaint?edition=1")
+        end
+
+        within 'article' do
+          within('header') { assert page.has_content?("Part 1: The Data Protection Act") }
+
+          assert page.has_selector?("ul li", :text => "used fairly and lawfully")
+
+          within 'footer nav.pagination' do
+            assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
+            assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1'][title='Navigate to next part']",
+                                      :text => "Part 2 Find out what data an organisation has about you")
+          end
+        end
+
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Printer friendly page")
+      end
+    end # within #content
+  end
 end

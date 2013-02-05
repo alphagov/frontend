@@ -301,7 +301,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "previewing a country page" do
     should "display the travel advice page" do
-      setup_api_responses "travel-advice/turks-and-caicos-islands"
+      content_api_has_a_draft_artefact "travel-advice/turks-and-caicos-islands", 1, content_api_response("travel-advice/turks-and-caicos-islands")
 
       visit "/travel-advice/turks-and-caicos-islands?edition=1"
       assert_equal 200, page.status_code
@@ -326,6 +326,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Updated: 16 January 2013")
 
         assert page.has_content?("This is the summary")
+      end
+
+      within '.meta-data' do
+        assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print?edition=1")
       end
     end
   end

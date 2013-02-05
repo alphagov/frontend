@@ -15,7 +15,7 @@ xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
                :href => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}.rss")
       xml.link(:rel => "alternate", :type => "text/html",
                :href => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}")
-      xml.description(@publication.summary)
+      xml.description(strip_tags(@publication.summary))
       xml.pubDate(@publication.updated_at)
       xml.guid(@publication.country['slug'])
     end

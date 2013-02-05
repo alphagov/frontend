@@ -330,19 +330,19 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "a country RSS feed" do
+  context "a country atom feed" do
     setup do
       setup_api_responses "travel-advice/portugal"
     end
-    should "display the RSS feed for a country" do
-      visit "/travel-advice/portugal.rss"
+    should "display the atom feed for a country" do
+      visit "/travel-advice/portugal.atom"
       
       assert_equal 200, page.status_code
-      assert page.has_xpath? ".//rss/channel/title", :text => "Travel Advice Summary"
-      assert page.has_xpath? ".//rss/channel/link[@rel='self' and @href='https://www.gov.uk/travel-advice.rss']"
-      assert page.has_xpath? ".//rss/channel/item/title", :text => "Portugal"
-      assert page.has_xpath? ".//rss/channel/item/link[@rel='self' and @href='https://www.gov.uk/travel-advice/portugal.rss']"
-      assert page.has_xpath? ".//rss/channel/item/description", :text => "Portugal is a country located in Southwestern Europe, on the Iberian Peninsula."
+      assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
+      assert page.has_xpath? ".//feed/link[@rel='self' and @href='https://www.gov.uk/travel-advice.rss']"
+      assert page.has_xpath? ".//feed/entry/title", :text => "Portugal"
+      assert page.has_xpath? ".//feed/entry/link[@rel='self' and @href='https://www.gov.uk/travel-advice/portugal.rss']"
+      assert page.has_xpath? ".//feed/entry/summary", :text => "Portugal is a country located in Southwestern Europe, on the Iberian Peninsula."
     end
   end
 end

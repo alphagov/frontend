@@ -190,12 +190,12 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
       end
 
-      context "request as rss" do
-        should "return the rss template" do
-          get :country, :format => 'rss', :country_slug => "turks-and-caicos-islands"
+      context "request as atom feed" do
+        should "return the atom template" do
+          get :country, :format => 'atom', :country_slug => "turks-and-caicos-islands"
 
           assert_equal 200, response.status
-          assert_equal "application/rss+xml; charset=utf-8", response.headers["Content-Type"]
+          assert_equal "application/atom+xml; charset=utf-8", response.headers["Content-Type"]
           assert_template "country"
         end
       end

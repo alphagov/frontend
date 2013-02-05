@@ -30,7 +30,7 @@ class TravelAdviceController < ApplicationController
 
     respond_to do |format|
       format.html { render "country" }
-
+      format.rss { render "country" }
       format.print do
         set_slimmer_headers template: "print"
         render "country"

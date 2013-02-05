@@ -189,6 +189,16 @@ class TravelAdviceControllerTest < ActionController::TestCase
           assert_redirected_to "/travel-advice/turks-and-caicos-islands"
         end
       end
+
+      context "request as rss" do
+        should "return the rss template" do
+          get :country, :format => 'rss', :country_slug => "turks-and-caicos-islands"
+
+          assert_equal 200, response.status
+          assert_equal "application/rss+xml; charset=utf-8", response.headers["Content-Type"]
+          assert_template "country"
+        end
+      end
     end
 
     context "given a country with no published travel advice edition" do
@@ -241,5 +251,4 @@ class TravelAdviceControllerTest < ActionController::TestCase
       assert response.not_found?
     end
   end
-
 end

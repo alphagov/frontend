@@ -1,4 +1,4 @@
-xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
+xml.rss("version" => "2.0", :encoding => "UTF-8") do
   xml.channel do
     xml.title("Travel Advice Summary")
     xml.link(:rel => "self", :type => "application/rss+xml",

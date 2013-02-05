@@ -336,9 +336,13 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
     should "display the RSS feed for a country" do
       visit "/travel-advice/portugal.rss"
-
+      
       assert_equal 200, page.status_code
-      assert page.has_content? "Portugal"
+      assert page.has_xpath? ".//rss/channel/title", :text => "Travel Advice Summary"
+      assert page.has_xpath? ".//rss/channel/link[@rel='self' and @href='https://www.gov.uk/travel-advice.rss']"
+      assert page.has_xpath? ".//rss/channel/item/title", :text => "Portugal"
+      assert page.has_xpath? ".//rss/channel/item/link[@rel='self' and @href='https://www.gov.uk/travel-advice/portugal.rss']"
+      assert page.has_xpath? ".//rss/channel/item/description", :text => "Portugal is a country located in Southwestern Europe, on the Iberian Peninsula."
     end
   end
 end

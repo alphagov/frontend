@@ -251,6 +251,21 @@
         margin: 0.75em 0 0 0;
         width: 100%;
       }
+
+      .highlighted-event {
+        margin: 0;
+        padding: 1em 2em 0.2em 2em;
+
+        a{
+          text-decoration: none;
+          color:#fff;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+        }
+      }
     }
   }
 

@@ -7,6 +7,7 @@ class TravelAdviceController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.atom
       format.json { redirect_to "/api/travel-advice.json" }
     end
   end

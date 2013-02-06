@@ -4,7 +4,7 @@ atom_feed(:root_url => "https://www.gov.uk/travel-advice/#{@publication.country[
   xml.entry do |entry|
     entry.title(@publication.title)
     entry.link(:type => "text/html",
-               :href => "#{request.scheme}://#{request.host}/travel-advice/#{@publication.country['slug']}")
+               :href => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}")
     entry.summary(strip_tags(@publication.summary))
     entry.updated(@publication.updated_at)
   end

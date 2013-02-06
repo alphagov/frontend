@@ -49,8 +49,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     setup do
       # Manually stub the content api request,
       # filtering and ordering by updated_at values are being tested.
-      endpoint = Plek.current.find('contentapi')
-      response = { 'results' => [
+      endpoint = GdsApi::TestHelpers::ContentApi::CONTENT_API_ENDPOINT
+      ArtefactStub.new('travel-advice').with_response_body({ 'results' => [
         { 
           'id' => "#{endpoint}/travel-advice/luxembourg.json",
           'name' => 'Luxembourg',
@@ -68,8 +68,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           'identifier' => 'syria',
           'updated_at' => "2013-02-23T11:31:08+00:00"           
         }
-      ] }
-      stub_request(:get, %r{\A#{endpoint}/travel-advice\.json}).to_return(status: 200, body: response.to_json, headers: { })
+      ] }).stub
     end
 
     should "display the list of countries as an atom feed" do
@@ -78,20 +77,20 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
-      assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/travel-advice.atom']"
 
+      assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/travel-advice.atom']"
       assert page.has_xpath? ".//feed/entry", :count => 2
 
       assert page.has_xpath? ".//feed/entry[1]/title", :text => "Syria"
-      assert page.has_xpath? ".//feed/entry[1]/link[@href='http://www.example.com/travel-advice/syria.atom']"
+      assert page.has_xpath? ".//feed/entry[1]/link[@href='https://www.gov.uk/travel-advice/syria.atom']"
       assert page.has_xpath? ".//feed/entry[1]/updated", :text => "2013-02-23T11:31:08+00:00" 
       
       assert page.has_xpath? ".//feed/entry[2]/title", :text => "Luxembourg"
-      assert page.has_xpath? ".//feed/entry[2]/link[@href='http://www.example.com/travel-advice/luxembourg.atom']"
+      assert page.has_xpath? ".//feed/entry[2]/link[@href='https://www.gov.uk/travel-advice/luxembourg.atom']"
       assert page.has_xpath? ".//feed/entry[2]/updated", :text => "2013-01-15T16:48:54+00:00"
 
       assert page.has_no_xpath? ".//feed/entry/title", :text => "Portugal"
-      assert page.has_no_xpath? ".//feed/entry/link[@href='http://www.example.com/travel-advice/portugal.atom']"
+      assert page.has_no_xpath? ".//feed/entry/link[@href='https://www.gov.uk/travel-advice/portugal.atom']"
     end
   end
 

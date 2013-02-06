@@ -4,8 +4,9 @@ atom_feed(:root_url => "#{request.scheme}://#{request.host}/travel-advice") do |
   @countries.each do |country|
     xml.entry do |entry|
       entry.title(country['name'])
-      entry.link(:rel => "self", :type => "application/atom+xml",
+      entry.link(:type => "application/atom+xml",
                  :href => "#{request.scheme}://#{request.host}/travel-advice/#{country['identifier']}.atom")
+      entry.updated(country['updated_at'])
     end
   end
 end

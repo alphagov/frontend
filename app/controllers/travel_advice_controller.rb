@@ -7,7 +7,11 @@ class TravelAdviceController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.atom
+      format.atom do
+        @countries.reject!{|c| c['updated_at'].nil? }.sort! do |x,y| 
+          Date.parse(y['updated_at']) <=> Date.parse(x['updated_at'])
+        end
+      end
       format.json { redirect_to "/api/travel-advice.json" }
     end
   end

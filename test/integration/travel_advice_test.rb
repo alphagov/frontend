@@ -42,6 +42,53 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within ".list#T" do
         assert page.has_link?("Turks and Caicos Islands", :href => "/travel-advice/turks-and-caicos-islands")
       end
+    end  
+  end
+  
+  context "aggregate feed" do
+    setup do
+      # Manually stub the content api request here updated_at values are beign tested.
+      endpoint = Plek.current.find('contentapi')
+      response = { 'results' => [
+        { 
+          'id' => "#{endpoint}/travel-advice/luxembourg.json",
+          'name' => 'Luxembourg',
+          'identifier' => 'luxembourg',
+          'updated_at' => "2013-01-15T16:48:54+00:00"
+        },
+        {
+          'id' => "#{endpoint}/travel-advice/portugal.json",
+          'name' => 'Portugal',
+          'identifier' => 'portugal'
+        },
+        {
+          'id' => "#{endpoint}/travel-advice/syria.json",
+          'name' => 'Syria',
+          'identifier' => 'syria',
+          'updated_at' => "2013-02-23T11:31:08+00:00"           
+        }
+      ] }
+      stub_request(:get, %r{\A#{endpoint}/travel-advice\.json}).to_return(status: 200, body: response.to_json, headers: { })
+    end
+
+    should "display the list of countries as an atom feed" do
+      visit '/travel-advice.atom'
+
+      assert_equal 200, page.status_code
+
+      assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
+      assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/travel-advice.atom']"
+
+      assert page.has_xpath? ".//feed/entry", :count => 2
+
+      assert page.has_xpath? ".//feed/entry[1]/title", :text => "Syria"
+      assert page.has_xpath? ".//feed/entry[1]/link[@rel='self' and @href='http://www.example.com/travel-advice/syria.atom']"
+      
+      assert page.has_xpath? ".//feed/entry[2]/title", :text => "Luxembourg"
+      assert page.has_xpath? ".//feed/entry[2]/link[@rel='self' and @href='http://www.example.com/travel-advice/luxembourg.atom']"
+
+      assert page.has_no_xpath? ".//feed/entry/title", :text => "Portugal"
+      assert page.has_no_xpath? ".//feed/entry/link[@rel='self' and @href='http://www.example.com/travel-advice/portugal.atom']"
     end
   end
 

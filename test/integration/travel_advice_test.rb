@@ -339,9 +339,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       
       assert_equal 200, page.status_code
       assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
-      assert page.has_xpath? ".//feed/link[@rel='self' and @href='https://www.gov.uk/travel-advice.rss']"
+      assert page.has_xpath? ".//feed/link[@rel='self' and @href='https://www.gov.uk/travel-advice/portugal.atom']"
       assert page.has_xpath? ".//feed/entry/title", :text => "Portugal"
-      assert page.has_xpath? ".//feed/entry/link[@rel='self' and @href='https://www.gov.uk/travel-advice/portugal.rss']"
+      assert page.has_xpath? ".//feed/entry/link[@href='https://www.gov.uk/travel-advice/portugal']"
       assert page.has_xpath? ".//feed/entry/summary", :text => "Portugal is a country located in Southwestern Europe, on the Iberian Peninsula."
     end
   end

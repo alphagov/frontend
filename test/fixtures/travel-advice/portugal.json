@@ -12,7 +12,6 @@
     "business_proposition": false,
     "description": null,
     "language": "en",
-    "summary": "Portugal is a country located in Southwestern Europe, on the <em>Iberian Peninsula</em>.",
     "country": {
       "name": "Portugal",
       "slug": "portugal"

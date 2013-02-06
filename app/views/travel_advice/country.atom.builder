@@ -1,14 +1,10 @@
-atom_feed("xml:lang" => "en-GB", "xmlns" => "http://www.w3.org/2005/Atom", :encoding => "UTF-8") do |feed|
+atom_feed(:root_url => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}") do |feed|
   feed.title("Travel Advice Summary")
-  feed.link(:rel => "self", :type => "application/atom+xml",
-            :href => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}.atom")
-  feed.link(:rel => "alternate", :type => "text/html",
-            :href => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}")
   feed.copyright("The Foreign and Commonwealth Office")
   xml.entry do |entry|
     entry.title(@publication.title)
     entry.link(:type => "text/html",
-               :href => "https://www.gov.uk/travel-advice/#{@publication.country['slug']}")
+               :href => "#{request.scheme}://#{request.host}/travel-advice/#{@publication.country['slug']}")
     entry.summary(strip_tags(@publication.summary))
     entry.updated(@publication.updated_at)
   end

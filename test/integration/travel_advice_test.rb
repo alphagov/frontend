@@ -245,6 +245,20 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
       end
     end
+    
+    context "a country atom feed" do
+      should "display the atom feed for a country" do
+        visit "/travel-advice/luxembourg.atom"
+        
+        assert_equal 200, page.status_code
+
+        assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
+        assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/travel-advice/luxembourg.atom']"
+        assert page.has_xpath? ".//feed/entry/title", :text => "Luxembourg"
+        assert page.has_xpath? ".//feed/entry/link[@href='http://www.example.com/travel-advice/luxembourg']"
+        assert page.has_xpath? ".//feed/entry/summary", :text => "There are no parts of Luxembourg that the FCO recommends avoiding."
+      end
+    end
   end
 
   context "a country without a travel advice edition" do
@@ -330,19 +344,5 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "a country atom feed" do
-    setup do
-      setup_api_responses "travel-advice/portugal"
-    end
-    should "display the atom feed for a country" do
-      visit "/travel-advice/portugal.atom"
-      
-      assert_equal 200, page.status_code
-      assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
-      assert page.has_xpath? ".//feed/link[@rel='self' and @href='https://www.gov.uk/travel-advice/portugal.atom']"
-      assert page.has_xpath? ".//feed/entry/title", :text => "Portugal"
-      assert page.has_xpath? ".//feed/entry/link[@href='https://www.gov.uk/travel-advice/portugal']"
-      assert page.has_xpath? ".//feed/entry/summary", :text => "Portugal is a country located in Southwestern Europe, on the Iberian Peninsula."
-    end
-  end
+
 end

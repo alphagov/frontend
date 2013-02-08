@@ -34,11 +34,10 @@ class TravelAdviceController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render "country" }
-
+      format.html
+      format.atom
       format.print do
         set_slimmer_headers template: "print"
-        render "country"
       end
     end
   rescue RecordNotFound

@@ -42,7 +42,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within ".list#T" do
         assert page.has_link?("Turks and Caicos Islands", :href => "/travel-advice/turks-and-caicos-islands")
       end
-    end  
+    end
   end
 
   context "a single country page" do

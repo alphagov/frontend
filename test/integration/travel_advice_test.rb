@@ -247,51 +247,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "a country without a travel advice edition" do
-    setup do
-      setup_api_responses "travel-advice/portugal"
-    end
-
-    should "display a basic travel advice page" do
-      visit "/travel-advice/portugal"
-      assert_equal 200, page.status_code
-
-      within '.page-header' do
-        assert page.has_content?("Travel advice")
-        assert page.has_content?("Portugal")
-      end
-
-      assert ! page.has_selector?('.page-navigation')
-
-      within 'article' do
-        assert page.has_content?("Summary")
-
-        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Updated: 10 January 2013")
-
-        assert page.has_content?("There are no travel restrictions in place for Portugal.")
-      end
-    end
-
-    should "display a basic print view" do
-      visit "/travel-advice/portugal/print"
-
-      within 'section[role=main]' do
-        assert page.has_selector?('h1', :text => "Portugal travel advice")
-
-        section_titles = page.all('article h1').map(&:text)
-        assert_equal ['Summary'], section_titles
-
-        within 'article#summary' do
-          assert page.has_selector?("h1", :text => "Summary")
-          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-          assert page.has_content?("Updated: 10 January 2013")
-          assert page.has_content?("There are no travel restrictions in place for Portugal.")
-        end
-      end
-    end
-  end
-
   should "return a not found response for a country which does not exist" do
     content_api_does_not_have_an_artefact "travel-advice/timbuktu"
     visit "/travel-advice/timbuktu"

@@ -52,8 +52,18 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
         assert_redirected_to "/api/travel-advice.json"
       end
-    end
 
+      context "requesting atom" do
+        setup do
+          get :index, :format => 'atom'
+        end
+
+        should "return an aggregate of country atom feeds" do
+          assert_equal 200, response.status
+          assert_equal "application/atom+xml; charset=utf-8", response.headers["Content-Type"]
+        end
+      end
+    end
   end
 
   context "GET country" do

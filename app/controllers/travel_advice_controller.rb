@@ -52,7 +52,6 @@ class TravelAdviceController < ApplicationController
       artefact = fetch_artefact
       publication = PublicationPresenter.new(artefact)
 
-      raise RecordNotFound unless publication
       return [publication, artefact]
     end
 end

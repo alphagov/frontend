@@ -57,6 +57,7 @@ class RootController < ApplicationController
       @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
     end
 
+    @artefact = fetch_artefact(nil, @location)
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)

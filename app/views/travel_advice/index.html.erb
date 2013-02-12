@@ -1,3 +1,4 @@
+<%= javascript_include_tag "views/travel-advice.js", :defer => "defer" %>
 <section id="content" class="group">
   <header class="page-header group">
     <hgroup>
@@ -31,7 +32,7 @@
         <% group_by_initial_letter(@countries).each do |initial,countries| %>
           <section id="<%= initial %>" class="list">
             <h1><%= initial %></h1>
-            <ul>
+            <ul class="countries">
               <% countries.each do |country| %>
                 <li><%= link_to country['name'], travel_advice_country_path(country['identifier']) %></li>
               <% end %>

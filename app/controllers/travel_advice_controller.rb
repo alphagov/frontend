@@ -3,6 +3,7 @@ class TravelAdviceController < ApplicationController
 
   def index
     @countries = sort_countries(content_api.countries['results'])
+    @recently_updated = @countries.take(5)
     @publication = OpenStruct.new(:type => 'travel-advice')
 
     respond_to do |format|

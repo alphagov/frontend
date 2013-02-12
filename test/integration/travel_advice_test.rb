@@ -42,6 +42,19 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Turks and Caicos Islands", :href => "/travel-advice/turks-and-caicos-islands")
       end
     end
+
+    should "show a list of the recently updated countries" do
+      visit "/travel-advice"
+      assert_equal 200, page.status_code
+
+      within "#recently-updated" do
+        assert page.has_content?("Aruba")
+        assert page.has_content?("23 February 2013")
+
+        assert page.has_content?("Turks and Caicos Islands")
+        assert page.has_content?("19 February 2013")
+      end
+    end
   end
 
   context "a single country page" do

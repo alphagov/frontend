@@ -1,3 +1,5 @@
+require 'gds_api/mapit'
+
 Frontend::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -23,3 +25,5 @@ Frontend::Application.configure do
   #config.assets.digest = true
   config.assets.debug = true
 end
+
+Frontend.mapit_api = GdsApi::Mapit.new(ENV['MAPIT_ENDPOINT'] || 'http://mapit.mysociety.org/')

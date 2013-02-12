@@ -323,5 +323,23 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("li", visible: false)
       end
     end
+
+    should "show only one country" do
+      within "#country-filter" do
+        fill_in "country", :with => "B"
+      end
+
+      within "#A" do
+        assert page.has_selector?("li", visible: true)
+      end
+
+      within "#P" do
+        assert page.has_selector?("li", visible: false)
+      end
+
+      within "#T" do
+        assert page.has_selector?("li", visible: false)
+      end
+    end
   end
 end

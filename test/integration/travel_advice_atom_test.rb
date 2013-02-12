@@ -24,7 +24,6 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
     setup do
       content_api_has_countries(
         "luxembourg" => { :name => "Luxembourg", :updated_at => "2013-01-15T16:48:54+00:00" },
-        "portugal" => { :name => "Portugal" },
         "syria" => { :name => "Syria", :updated_at => "2013-02-23T11:31:08+00:00" })
     end
 
@@ -41,15 +40,12 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry[1]/title", :text => "Syria"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='text/html' and @href='http://www.test.gov.uk/travel-advice/syria']"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='application/atom+xml' and @href='http://www.test.gov.uk/travel-advice/syria.atom']"
-      assert page.has_xpath? ".//feed/entry[1]/updated", :text => "2013-02-23T11:31:08+00:00" 
-      
+      assert page.has_xpath? ".//feed/entry[1]/updated", :text => "2013-02-23T11:31:08+00:00"
+
       assert page.has_xpath? ".//feed/entry[2]/title", :text => "Luxembourg"
       assert page.has_xpath? ".//feed/entry[2]/link[@type='text/html' and @href='http://www.test.gov.uk/travel-advice/luxembourg']"
       assert page.has_xpath? ".//feed/entry[2]/link[@type='application/atom+xml' and @href='http://www.test.gov.uk/travel-advice/luxembourg.atom']"
       assert page.has_xpath? ".//feed/entry[2]/updated", :text => "2013-01-15T16:48:54+00:00"
-
-      assert page.has_no_xpath? ".//feed/entry/title", :text => "Portugal"
-      assert page.has_no_xpath? ".//feed/entry/link[@href='http://www.test.gov.uk/travel-advice/portugal']"
     end
   end
 end

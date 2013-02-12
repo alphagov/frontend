@@ -41,7 +41,6 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  # Use version from git until we can push 4.4.0 to rubygems.org
   gem 'gds-api-adapters', '4.4.0'
 end
 

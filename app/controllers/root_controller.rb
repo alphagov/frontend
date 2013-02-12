@@ -53,7 +53,10 @@ class RootController < ApplicationController
       params[:part] = nil
     end
 
-    @artefact = fetch_artefact
+    unless params[:postcode].blank?
+      @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
+    end
+
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)
@@ -62,8 +65,8 @@ class RootController < ApplicationController
     I18n.locale = @publication.language if @publication.language
 
     if ['licence','local_transaction'].include? @artefact['format']
-      if geo_header and geo_header['council']
-        snac = appropriate_snac_code_from_geostack(@artefact)
+      if @location
+        snac = appropriate_snac_code_from_location(@artefact, @location)
         redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
@@ -187,13 +190,19 @@ protected
     end
   end
 
-  def appropriate_snac_code_from_geostack(artefact)
+  def appropriate_snac_code_from_location(artefact, location)
     identifier_class = case artefact['format']
                        when "licence" then LicenceLocationIdentifier
                        when "local_transaction" then LocalTransactionLocationIdentifier
                        else raise(Exception, "No location identifier available for #{artefact['format']}")
                        end
-    geostack = decode_stack(request.env['HTTP_X_GOVGEO_STACK'])
+
+    # map to legacy geostack format
+    geostack = {
+      "council" => location.areas.map {|area|
+        { "name" => area.name, "type" => area.type, "ons" => area.codes['ons'] }
+      }
+    }
 
     identifier_class.find_snac(geostack, artefact)
   end

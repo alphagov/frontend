@@ -12,9 +12,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
   context "country list" do
     setup do
       content_api_has_countries(
-        "aruba" => {:name => "Aruba"},
-        "portugal" => {:name => "Portugal"},
-        "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands"})
+        "aruba" => {:name => "Aruba", :updated_at => "2013-02-23T11:31:08+00:00"},
+        "portugal" => {:name => "Portugal", :updated_at => "2013-02-22T11:31:08+00:00"},
+        "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-19T11:31:08+00:00"})
     end
 
     should "display the list of countries" do

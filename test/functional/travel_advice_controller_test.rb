@@ -7,8 +7,8 @@ class TravelAdviceControllerTest < ActionController::TestCase
       setup do
         content_api_has_countries(
           "aruba" => {:name => "Aruba", :updated_at => "2013-02-12T11:20:35+00:00"},
-          "portugal" => {:name => "Portugal"},
-          "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands"})
+          "portugal" => {:name => "Portugal", :updated_at => "2013-02-12T11:20:35+00:00"},
+          "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-12T11:20:35+00:00"})
       end
 
       should "be a successful request" do

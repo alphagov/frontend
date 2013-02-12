@@ -19,39 +19,28 @@
 
     	        <%= raw @publication.introduction %>
 
-              <form method="post" id="local-locator-form" class="find-location-for-service">
-      	        <fieldset>
-
-      	          <legend class="visuallyhidden">Postcode lookup</legend>
-      	          <% if @edition %>
-      	            <input type="hidden" name="edition" value="<%= @edition %>">
-      	          <% end %>
-                  <div class="location_error error-notification hidden"></div>
-
-      	          <div class="ask_location <%= geo_known_to_at_least?('ward') ? 'hidden' : '' %>">
-      	            <label for="postcode">Enter a UK postcode <input class="postcode" id="postcode" name="postcode" type="text" placeholder="e.g. SW1A 2AA"></label>
-                    <button type="submit" class="button">Find</button>
-      	          </div>
-
-      	          <div class="finding_location hidden">
-      	            <p>Locating you&hellip;</p>
-      	          </div>
-      	          <div class="found_location <%= geo_known_to_at_least?('ward') ? '' : 'hidden' %>">
-      	            <p class="friendly-name">Your location is set to <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>.<br/><a class="change-location" href="<%= publication_path(@publication.slug) %>"><%= "Change your location".html_safe %></a></p>
-      	          </div>
-      	        </fieldset>
-    	        </form>
-
+              <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
             </div>
           </div>
         </section>
 
-        <section class="more">
-          <% if ! @publication.more_information.blank? and !geo_known_to_at_least?('ward') %>
+        <% if @location.present? %>
+          <% if @publication.places.any? %>
+            <section class="places">
+              <h2>Results near <strong><%= @location.postcode %></strong>:</h2>
+              <ol id="options" class="places">
+                <%= mustache_partial '_option.html', { 'options' => @publication.places } %>
+              </ol>
+            </section>
+          <% else %>
+            <div class="error-notification"><p>Sorry, no results were found near you.</p></div>
+          <% end %>
+        <% else %>
+          <section class="more">
             <div class="further_information">
               <h2>Further information</h2>
 
-              <% if @publication.expectations.any? %>
+              <% if @publication.expectations and @publication.expectations.any? %>
                 <ul class="helpers group">
                   <% @publication.expectations.each do |e| %>
                     <li><%= e %></li>
@@ -61,25 +50,8 @@
 
               <%= raw @publication.more_information %>
             </div>
-          <% end %>
-	      </section>
-
-        <section class="places">
-        <% if @publication.places.any? %>
-          <h3 id="options-header">Results near <strong><%= geo_header['friendly_name'] if geo_known_to_at_least?('ward') %></strong>:</h3>
-          <ol id="options" class="places">
-            <%= mustache_partial '_option.html', { 'options' => @publication.places } %>
-          </ol>
-        <% elsif params[:postcode].present? %>
-          <div id="results-error" class="error-notification"><p>Sorry, no results were found near you.</p></div>
-        <% else %>
-          <h3 id="options-loading" class="hidden">Loading results near <strong class="locality_placeholder"></strong>.</h3>
-          <div class="hidden error-notification" id="results-error"><p></p></div>
-          <h3 id="options-header" class="hidden">Results near <strong class="locality_placeholder"></strong>:</h3>
-          <ol id="options" class="places">
-          </ol>
+          </section>
         <% end %>
-        </section>
 
       </div>
 
@@ -91,13 +63,3 @@
 </section>
 
 <div id="related-items"></div>
-
-  <script id="option-template" type="text/x-mustache-template">
-  <%= mustache_direct '_option.html' %>
-  </script>
-
-  <script type="text/javascript">
-
-  var load_places = <%= geo_known_to_at_least?('ward') ? 'false' : 'true' %>;
-
-  </script>

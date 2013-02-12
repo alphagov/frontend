@@ -1,8 +1,4 @@
-require 'geo_helper'
-
 module RootHelper
-
-  include GeoHelper
 
   def mustache_partial(template,context)
     filepath = "#{Rails.root}/app/views/root/#{template}.mustache"

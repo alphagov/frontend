@@ -1,7 +1,6 @@
 require "slimmer/headers"
 
 class SupportController < ApplicationController
-  include Rack::Geo::Utils
   include RootHelper
 
   before_filter :setup_slimmer_artefact

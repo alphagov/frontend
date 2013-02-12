@@ -6,7 +6,7 @@
         <input type="hidden" name="edition" value="<%= @edition %>">
       <% end %>
 
-      <% if geo_error? %>
+      <% if params[:postcode] and @location.nil? %>
       <div class="location_error error-notification">Please enter a valid full UK postcode.</div>
       <% end %>
 

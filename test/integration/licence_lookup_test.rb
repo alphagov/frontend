@@ -1,21 +1,17 @@
 require 'integration_test_helper'
+require 'gds_api/test_helpers/mapit'
 
 class LicenceLookupTest < ActionDispatch::IntegrationTest
+  include GdsApi::TestHelpers::Mapit
 
   context "given a licence which exists in licensify" do
 
     setup do
-      stub_location_request("SW1A 1AA", {
-        "wgs84_lat" => 51.5010096,
-        "wgs84_lon" => -0.1415870,
-        "areas" => {
-          1 => {"id" => 1, "codes" => {"ons" => "00BK"}, "name" => "Westminster City Council", "type" => "LBO" },
-          2 => {"id" => 2, "codes" => {"unit_id" => "41441"}, "name" => "Greater London Authority", "type" => "GLA" }
-        },
-        "shortcuts" => {
-          "council" => 1
-        }
-      })
+      mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO" },
+        { "name" => "Greater London Authority", "type" => "GLA" }
+      ])
+
       @artefact = artefact_for_slug('licence-to-kill').merge({
         "title" => "Licence to kill",
         "format" => "licence",
@@ -147,9 +143,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence with an invalid formatted postcode" do
       setup do
+        mapit_does_not_have_a_bad_postcode("Not valid")
         visit '/licence-to-kill'
 
-        fill_in 'postcode', :with => "Not a postcode"
+        fill_in 'postcode', :with => "Not valid"
         click_button('Find')
       end
 
@@ -164,10 +161,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence with an incorrect postcode" do
       setup do
-        stub_location_request("AB1 2AB", {
-          "code" => 404,
-          "error" => "Postcode not found"
-        }, 404)
+        mapit_does_not_have_a_postcode("AB1 2AB")
 
         visit '/licence-to-kill'
 

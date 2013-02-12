@@ -19,8 +19,15 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       should "make a request to the content api for all countries" do
         GdsApi::ContentApi.any_instance.expects(:countries).returns({
-          "results" => [ "something" ]
-        })
+          "results" => [
+            {
+              "id" => "/travel-advice/aruba.json",
+              "name" => "Aruba",
+              "identifier" => "aruba",
+              "web_url" => "http://www.test.gov.uk/travel-advice/arube",
+              "updated_at" => Time.parse("2013-02-12T11:55:46+00:00"),
+            }
+          ]})
 
         @controller.stubs(:render)
         get :index

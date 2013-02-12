@@ -1,9 +1,7 @@
 module TravelAdviceHelper
 
   def group_by_initial_letter(countries)
-    countries.sort do |x, y|
-      x['name'] <=> y['name']
-    end.group_by do |country|
+    countries.group_by do |country|
       country['name'][0] if country and country['name']
     end
   end

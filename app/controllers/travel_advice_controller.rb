@@ -2,15 +2,13 @@ class TravelAdviceController < ApplicationController
   before_filter :set_expiry
 
   def index
-    @countries = content_api.countries['results']
+    @countries = sort_countries(content_api.countries['results'])
     @publication = OpenStruct.new(:type => 'travel-advice')
 
     respond_to do |format|
       format.html
       format.atom do
-        @countries.reject!{|c| c['updated_at'].nil? }.sort! do |x, y|
-          y['updated_at'] <=> x['updated_at']
-        end
+        @countries
       end
       format.json { redirect_to "/api/travel-advice.json" }
     end
@@ -54,5 +52,13 @@ class TravelAdviceController < ApplicationController
     publication = PublicationPresenter.new(artefact)
 
     return [publication, artefact]
+  end
+
+  def sort_countries(countries)
+    countries.reject do |c|
+      c['updated_at'].nil?
+    end.sort do |x, y|
+      y['updated_at'] <=> x['updated_at']
+    end
   end
 end

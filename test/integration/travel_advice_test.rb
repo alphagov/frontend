@@ -300,4 +300,29 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "filtering countries" do
+    setup do
+      content_api_has_countries(
+        "afghanistan" => {:name => "Afghanistan", :updated_at => "2013-02-09T11:31:08+00:00"},
+        "albania" => {:name => "Albania", :updated_at => "2013-02-10T11:31:08+00:00"},
+        "algeria" => {:name => "Algeria", :updated_at => "2013-02-11T11:31:08+00:00"},
+        "american samoa" => {:name => "American Samoa", :updated_at => "2013-02-12T11:31:08+00:00"},
+        "andorra" => {:name => "Andorra", :updated_at => "2013-02-13T11:31:08+00:00"},
+        "angola" => {:name => "Angola", :updated_at => "2013-02-14T11:31:08+00:00"},
+        "anguilla" => {:name => "Anguilla", :updated_at => "2013-02-15T11:31:08+00:00"},
+        "antigua and barbuda" => {:name => "Antigua and Barbuda", :updated_at => "2013-02-16T11:31:08+00:00"},
+        "argentina" => {:name => "Argentina", :updated_at => "2013-02-17T11:31:08+00:00"},
+        "armenia" => {:name => "Armenia", :updated_at => "2013-02-18T11:31:08+00:00"},
+        "aruba"=> {:name => "Aruba", :updated_at => "2013-02-19T11:31:08+00:00"},
+        "ascension island" => {:name => "Ascension Island", :updated_at => "2013-02-20T11:31:08+00:00"},
+        "australia" => {:name => "Australia", :updated_at => "2013-02-21T11:31:08+00:00"},
+        "austria" => {:name => "Austria", :updated_at => "2013-02-22T11:31:08+00:00"},
+        "azerbaijan" => {:name => "Azerbaijan", :updated_at => "2013-02-23T11:31:08+00:00"})
+    end
+
+    should "have a visible visible form" do
+      assert page.has_selector?("#country-filter", :visible => true)
+    end
+  end
 end

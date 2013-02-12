@@ -1,6 +1,6 @@
 (function ($) {
-  jQuery.expr[':'].contains = function(a, i, m){
-      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+  jQuery.expr[':'].contains = function(obj, index, meta){
+    return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
   var input = $("form#country-filter input#country");

@@ -27,13 +27,4 @@ Frontend::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-
-  Geogov.configure do |g|
-    g.provider_for :centre_of_country,             Geogov::Geonames.new
-    g.provider_for :centre_of_district,            Geogov::Mapit.new("http://mapit.test.gov.uk")
-    g.provider_for :areas_for_stack_from_postcode, Geogov::Mapit.new("http://mapit.test.gov.uk")
-    g.provider_for :areas_for_stack_from_coords,   Geogov::Mapit.new("http://mapit.test.gov.uk")
-    g.provider_for :lat_lon_from_postcode,         Geogov::Mapit.new("http://mapit.test.gov.uk")
-  end
-
 end

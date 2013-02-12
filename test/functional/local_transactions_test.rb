@@ -1,12 +1,12 @@
 require 'test_helper'
-require 'webmock/test_unit'
-WebMock.disable_net_connect!(:allow_localhost => true)
+
 require 'gds_api/part_methods'
+require 'gds_api/test_helpers/mapit'
 
 class LocalTransactionsTest < ActionController::TestCase
 
   tests RootController
-  include Rack::Geo::Utils
+  include GdsApi::TestHelpers::Mapit
 
   context "given a local transaction exists in content api" do
     setup do
@@ -45,14 +45,13 @@ class LocalTransactionsTest < ActionController::TestCase
     context "loading the local transaction when posting a location" do
       context "for an English local authority" do
         setup do
-          councils = { "council" => [
-            {"id" => 2240, "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
-            {"id" => 2432, "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
-            {"id" => 15636, "name" => "Cheadle and Checkley", "type" => "CED"}
-          ]}
-          request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
+            { "name" => "Cheadle and Checkley", "type" => "CED" }
+          ])
 
-          get :publication, slug: "send-a-bear-to-your-local-council"
+          post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10 4DB"
         end
 
         should "redirect to the slug for the appropriate authority tier" do

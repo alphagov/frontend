@@ -1,13 +1,13 @@
 require 'test_helper'
-require 'webmock/test_unit'
-WebMock.disable_net_connect!(:allow_localhost => true)
+
 require 'gds_api/part_methods'
 require 'gds_api/test_helpers/panopticon'
+require 'gds_api/test_helpers/mapit'
 
 class LicenceLocationTest < ActionController::TestCase
 
   tests RootController
-  include Rack::Geo::Utils
+  include GdsApi::TestHelpers::Mapit
 
   context "given a licence exists" do
     setup do
@@ -37,14 +37,13 @@ class LicenceLocationTest < ActionController::TestCase
     context "loading the licence edition when posting a location" do
       context "for an English local authority" do
         setup do
-          councils = { "council" => [
-            {"id" => 2240, "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
-            {"id" => 2432, "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
-            {"id" => 15636, "name" => "Cheadle and Checkley", "type" => "CED"}
-          ]}
-          request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
+            { "name" => "Cheadle and Checkley", "type" => "CED" }
+          ])
 
-          get :publication, slug: "licence-to-kill"
+          post :publication, slug: "licence-to-kill", postcode: "ST10 4DB"
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -54,13 +53,12 @@ class LicenceLocationTest < ActionController::TestCase
 
       context "for a Northern Irish local authority" do
         setup do
-          councils = { "council" => [
-            {"id" => 14333, "name" => "Belfast City Council", "type" => "LGD", "ons" => "95Z"},
-            {"id" => 33813, "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
-          ]}
-          request.env["HTTP_X_GOVGEO_STACK"] = encode_stack councils
+          mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
+            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "95Z"},
+            { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
+          ])
 
-          get :publication, slug: "licence-to-kill"
+          post :publication, slug: "licence-to-kill", postcode: "BT1 5GS"
         end
 
         should "redirect to the slug for the lowest level authority" do

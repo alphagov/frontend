@@ -24,14 +24,6 @@ else
   gem 'slimmer', '3.9.5'
 end
 
-if ENV['GEO_DEV']
-  gem 'rack-geo', :path => '../rack-geo'
-  gem 'geogov', :path => '../geogov'
-else
-  gem 'rack-geo', '~> 0.8.6'
-  gem 'geogov', '~> 0.0.12'
-end
-
 if ENV['CDN_DEV']
   gem 'cdn_helpers', :path => '../cdn_helpers'
 else
@@ -41,7 +33,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '4.4.0'
+  gem 'gds-api-adapters', '4.5.0'
 end
 
 gem "addressable"

@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 
     def fetch_artefact(snac = nil, location = nil)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
-      unless location.nil?
+      if location
         options[:latitude]  = location.lat
         options[:longitude] = location.lon
       end

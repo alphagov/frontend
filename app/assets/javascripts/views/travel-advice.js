@@ -1,5 +1,5 @@
 (function ($) {
-  jQuery.expr[':'].contains = function(obj, index, meta){
+  jQuery.expr[':'].contains = function (obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 

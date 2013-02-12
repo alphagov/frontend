@@ -12,7 +12,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
   context "country list" do
     setup do
       content_api_has_countries(
-        "aruba" => {:name => "Aruba", :updated_at => "2013-02-23T11:31:08+00:00"},
+        "aruba" => {:name => "Aruba", :updated_at => "2013-02-20T11:31:08+00:00"},
         "portugal" => {:name => "Portugal", :updated_at => "2013-02-22T11:31:08+00:00"},
         "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-19T11:31:08+00:00"})
     end
@@ -50,8 +50,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within "#recently-updated" do
-        assert_equal ["Aruba", "Portugal", "Turks and Caicos Islands"], page.all("li a").map(&:text)
-        assert_equal ["updated 23 February 2013", "updated 22 February 2013", "updated 19 February 2013"], page.all("li span").map(&:text)
+        assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands"], page.all("li a").map(&:text)
+        assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013"], page.all("li span").map(&:text)
       end
     end
   end

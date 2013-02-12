@@ -303,7 +303,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "filtering countries" do
     should "have a visible visible form" do
-      assert page.has_selector?("#country-filter", :visible => true)
+      assert page.has_selector?("#country-filter", visible: true)
     end
 
     should "not show any countries" do

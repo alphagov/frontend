@@ -21,14 +21,12 @@
           </ul>
         </section>
 
-        <!--
         <form id="country-filter">
           <fieldset>
             <label for="country">Which country are you looking for?</label>
             <input id="country" name="country" type="text" />
           </fieldset>
         </form>
-        -->
 
         <% group_by_initial_letter(@countries).each do |initial,countries| %>
           <section id="<%= initial %>" class="list">

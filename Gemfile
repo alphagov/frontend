@@ -25,14 +25,6 @@ else
   gem 'slimmer', '3.9.5'
 end
 
-if ENV['GEO_DEV']
-  gem 'rack-geo', :path => '../rack-geo'
-  gem 'geogov', :path => '../geogov'
-else
-  gem 'rack-geo', '~> 0.8.6'
-  gem 'geogov', '~> 0.0.12'
-end
-
 if ENV['CDN_DEV']
   gem 'cdn_helpers', :path => '../cdn_helpers'
 else

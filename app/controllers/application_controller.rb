@@ -13,8 +13,6 @@ end
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers
-  include GeoHelper
-  include Rack::Geo::Utils
   include Slimmer::Headers
 
   def error_404; error 404; end

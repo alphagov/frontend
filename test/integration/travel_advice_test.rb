@@ -48,11 +48,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within "#recently-updated" do
-        assert page.has_content?("Aruba")
-        assert page.has_content?("23 February 2013")
-
-        assert page.has_content?("Turks and Caicos Islands")
-        assert page.has_content?("19 February 2013")
+        assert_equal ["Aruba", "Portugal", "Turks and Caicos Islands"], page.all("li a").map(&:text)
+        assert_equal ["updated 23 February 2013", "updated 22 February 2013", "updated 19 February 2013"], page.all("li span").map(&:text)
       end
     end
   end

@@ -28,6 +28,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".article-container #test-report_a_problem")
+
+        assert_equal ["Aruba", "Portugal", "Turks and Caicos Islands"], page.all("ul.countries li a").map(&:text)
       end
 
       within ".list#A" do

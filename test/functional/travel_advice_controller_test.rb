@@ -41,10 +41,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_template "index"
       end
 
-      should "set correct expiry headers" do
+      should "set expiry headers to 5 mins" do
         get :index
 
-        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=300, public",  response.headers["Cache-Control"]
       end
 
       should "redirect json requests to the api" do
@@ -137,10 +137,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         get :country, :country_slug => "turks-and-caicos-islands"
       end
 
-      should "set correct expiry headers" do
+      should "set expiry headers to 5 mins" do
         get :country, :country_slug => "turks-and-caicos-islands"
 
-        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=300, public",  response.headers["Cache-Control"]
       end
 
       should "assign the edition number when previewing a country" do

@@ -1,5 +1,6 @@
 class TravelAdviceController < ApplicationController
-  before_filter :set_expiry
+
+  before_filter { set_expiry(5.minutes) }
 
   def index
     @countries = content_api.countries['results']
@@ -41,7 +42,6 @@ class TravelAdviceController < ApplicationController
       end
     end
   rescue RecordNotFound
-    set_expiry(10.minutes)
     error 404
   end
 

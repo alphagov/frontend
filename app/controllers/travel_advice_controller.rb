@@ -3,14 +3,15 @@ class TravelAdviceController < ApplicationController
 
   def index
     @countries = content_api.countries['results']
+    sorted_countries = sort_countries_by_date(@countries)
+
+    @recently_updated = sorted_countries.take(5)
     @publication = OpenStruct.new(:type => 'travel-advice')
 
     respond_to do |format|
       format.html
       format.atom do
-        @countries.reject!{|c| c['updated_at'].nil? }.sort! do |x,y| 
-          Date.parse(y['updated_at']) <=> Date.parse(x['updated_at'])
-        end
+        @countries = sorted_countries
       end
       format.json { redirect_to "/api/travel-advice.json" }
     end
@@ -46,12 +47,19 @@ class TravelAdviceController < ApplicationController
   end
 
   private
-    def fetch_artefact_and_publication_for_country(country)
-      params[:slug] = "travel-advice/" + country
 
-      artefact = fetch_artefact
-      publication = PublicationPresenter.new(artefact)
+  def fetch_artefact_and_publication_for_country(country)
+    params[:slug] = "travel-advice/" + country
 
-      return [publication, artefact]
+    artefact = fetch_artefact
+    publication = PublicationPresenter.new(artefact)
+
+    return [publication, artefact]
+  end
+
+  def sort_countries_by_date(countries)
+    countries.sort do |x, y|
+      y['updated_at'] <=> x['updated_at']
     end
+  end
 end

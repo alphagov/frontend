@@ -6,10 +6,9 @@ class TravelAdviceControllerTest < ActionController::TestCase
     context "given countries exist" do
       setup do
         content_api_has_countries(
-          "aruba" => "Aruba",
-          "portugal" => "Portugal",
-          "turks-and-caicos-islands" => "Turks and Caicos Islands"
-        )
+          "aruba" => {:name => "Aruba", :updated_at => "2013-02-12T11:20:35+00:00"},
+          "portugal" => {:name => "Portugal", :updated_at => "2013-02-12T11:20:35+00:00"},
+          "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-12T11:20:35+00:00"})
       end
 
       should "be a successful request" do
@@ -20,8 +19,15 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       should "make a request to the content api for all countries" do
         GdsApi::ContentApi.any_instance.expects(:countries).returns({
-          "results" => [ "something" ]
-        })
+          "results" => [
+            {
+              "id" => "/travel-advice/aruba.json",
+              "name" => "Aruba",
+              "identifier" => "aruba",
+              "web_url" => "http://www.test.gov.uk/travel-advice/arube",
+              "updated_at" => Time.parse("2013-02-12T11:55:46+00:00"),
+            }
+          ]})
 
         @controller.stubs(:render)
         get :index

@@ -1,3 +1,4 @@
+<%= javascript_include_tag "views/travel-advice.js", :defer => "defer" %>
 <section id="content" class="group">
   <header class="page-header group">
     <hgroup>
@@ -8,12 +9,16 @@
   <div class="article-container group">
     <article role="article" class="group">
       <div class="inner">
-        <!--
+
         <section id="recently-updated" class="list">
           <h1>Recently updated</h1>
           <ul>
-            <li><a href="#" class="important">Afghanistan</a> <span class="meta">updated 11 December 2012</span></li>
-            <li><a href="#" class="important">Burundi</a> <span class="meta">updated 15 December 2012</span></li>
+            <% @recently_updated.each do |country| %>
+            <li>
+              <%= link_to country['name'], travel_advice_country_path(country['identifier']) %>
+              <span class="meta">updated <%= readable_time(country['updated_at']) %></span>
+            </li>
+            <% end %>
           </ul>
         </section>
 
@@ -23,12 +28,11 @@
             <input id="country" name="country" type="text" />
           </fieldset>
         </form>
-        -->
 
         <% group_by_initial_letter(@countries).each do |initial,countries| %>
           <section id="<%= initial %>" class="list">
             <h1><%= initial %></h1>
-            <ul>
+            <ul class="countries">
               <% countries.each do |country| %>
                 <li><%= link_to country['name'], travel_advice_country_path(country['identifier']) %></li>
               <% end %>

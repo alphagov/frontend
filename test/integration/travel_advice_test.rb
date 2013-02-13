@@ -12,10 +12,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
   context "country list" do
     setup do
       content_api_has_countries(
-        "aruba" => "Aruba",
-        "portugal" => "Portugal",
-        "turks-and-caicos-islands" => "Turks and Caicos Islands"
-      )
+        "aruba" => {:name => "Aruba", :updated_at => "2013-02-20T11:31:08+00:00"},
+        "congo" => {:name => "Congo", :updated_at => "2013-02-03T11:31:08+00:00"},
+        "germany" => {:name => "Germany", :updated_at => "2013-02-02T11:31:08+00:00"},
+        "iran" => {:name => "Iran", :updated_at => "2013-02-02T11:31:08+00:00"},
+        "portugal" => {:name => "Portugal", :updated_at => "2013-02-22T11:31:08+00:00"},
+        "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-19T11:31:08+00:00"})
     end
 
     should "display the list of countries" do
@@ -29,6 +31,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".article-container #test-report_a_problem")
+
+        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Turks and Caicos Islands"], page.all("ul.countries li a").map(&:text)
       end
 
       within ".list#A" do
@@ -41,6 +45,19 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       within ".list#T" do
         assert page.has_link?("Turks and Caicos Islands", :href => "/travel-advice/turks-and-caicos-islands")
+      end
+    end
+
+    should "show a list of the recently updated countries" do
+      visit "/travel-advice"
+      assert_equal 200, page.status_code
+
+      within "#recently-updated" do
+        assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"],
+                     page.all("li a").map(&:text)
+        assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013",
+                      "updated  3 February 2013", "updated  2 February 2013"],
+                     page.all("li span").map(&:text)
       end
     end
   end
@@ -285,6 +302,65 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       within '.meta-data' do
         assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print?edition=1")
+      end
+    end
+  end
+
+  context "filtering countries" do
+    setup do
+      content_api_has_countries(
+        "aruba" => {:name => "Aruba", :updated_at => "2013-02-20T11:31:08+00:00"},
+        "congo" => {:name => "Congo", :updated_at => "2013-02-03T11:31:08+00:00"},
+        "germany" => {:name => "Germany", :updated_at => "2013-02-02T11:31:08+00:00"},
+        "iran" => {:name => "Iran", :updated_at => "2013-02-02T11:31:08+00:00"},
+        "portugal" => {:name => "Portugal", :updated_at => "2013-02-22T11:31:08+00:00"},
+        "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-19T11:31:08+00:00"})
+
+      visit '/travel-advice'
+    end
+
+    should "have a visible visible form" do
+      assert_equal 200, page.status_code
+      assert page.has_selector?("#country-filter", visible: true)
+    end
+
+    should "not show any countries" do
+      assert_equal 200, page.status_code
+
+      within "#country-filter" do
+        fill_in "country", :with => "z"
+      end
+
+      within "#A" do
+        assert page.has_selector?("li", visible: false)
+      end
+
+      within "#P" do
+        assert page.has_selector?("li", visible: false)
+      end
+
+      within "#T" do
+        assert page.has_selector?("li", visible: false)
+      end
+    end
+
+    should "show only one country" do
+      assert_equal 200, page.status_code
+
+      within "#country-filter" do
+        fill_in "country", :with => "B"
+      end
+
+      within "#A" do
+        assert page.has_selector?("li", visible: true)
+      end
+
+      within "#P" do
+        assert page.has_selector?("li", visible: false)
+      end
+
+      within "#T" do
+        assert page.has_selector?("li", visible: false)
       end
     end
   end

@@ -1,15 +1,62 @@
 .travel-advice {
-  article .list {
-    ul { padding-left: 0; }
-    li { list-style: none; padding-left: 0; }
+  article {
+    .list {
+      ul {
+        padding-left: 0;
+      }
+
+      li {
+        list-style: none;
+        padding-left: 0;
+      }
+    }
+
+    form#country-filter {
+      @include core-19;
+
+      display: none;
+      margin: 2em 0 1em;
+
+      .js-enabled & {
+        display: block;
+      }
+
+      fieldset {
+        border-top: 1px solid #A6AAAC;
+        border-bottom: 1px solid #A6AAAC;
+        padding: 1em 0;
+        color: #53595B;
+
+        label {
+          display: inline-block;
+          margin-right: 5.3em;
+
+          @include ie-lte(7) {
+            margin-right: 5.85em;
+          }
+
+          @include ie-lte(6) {
+            margin-right: 1.3em;
+          }
+        }
+
+        input {
+          display: inline-block;
+          border-color: #A6AAAC;
+          margin: 0;
+        }
+      }
+    }
   }
 
   .country-metadata {
     padding: 0;
     margin: 0;
     color: $secondary-text-colour;
+
     li {
       @include core-16;
+
       list-style: none;
       padding: 0;
       margin: 0;

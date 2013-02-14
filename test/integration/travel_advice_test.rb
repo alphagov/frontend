@@ -21,13 +21,13 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
 
     should "display the list of countries" do
-      visit '/travel-advice'
+      visit '/foreign-travel-advice'
       assert_equal 200, page.status_code
 
       within '#content' do
         within 'header' do
           assert page.has_content?("Quick answer")
-          assert page.has_content?("Travel advice")
+          assert page.has_content?("Foreign travel advice")
         end
 
         assert page.has_selector?(".article-container #test-report_a_problem")
@@ -36,20 +36,20 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within ".list#A" do
-        assert page.has_link?("Aruba", :href => "/travel-advice/aruba")
+        assert page.has_link?("Aruba", :href => "/foreign-travel-advice/aruba")
       end
 
       within ".list#P" do
-        assert page.has_link?("Portugal", :href => "/travel-advice/portugal")
+        assert page.has_link?("Portugal", :href => "/foreign-travel-advice/portugal")
       end
 
       within ".list#T" do
-        assert page.has_link?("Turks and Caicos Islands", :href => "/travel-advice/turks-and-caicos-islands")
+        assert page.has_link?("Turks and Caicos Islands", :href => "/foreign-travel-advice/turks-and-caicos-islands")
       end
     end
 
     should "show a list of the recently updated countries" do
-      visit "/travel-advice"
+      visit "/foreign-travel-advice"
       assert_equal 200, page.status_code
 
       within "#recently-updated" do
@@ -64,20 +64,20 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "a single country page" do
     setup do
-      setup_api_responses "travel-advice/turks-and-caicos-islands"
+      setup_api_responses "foreign-travel-advice/turks-and-caicos-islands"
     end
 
     should "display the travel advice page" do
-      visit "/travel-advice/turks-and-caicos-islands"
+      visit "/foreign-travel-advice/turks-and-caicos-islands"
       assert_equal 200, page.status_code
 
       within 'head' do
         assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fturks-and-caicos-islands.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -90,8 +90,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Current travel advice")
         end
 
-        assert page.has_link?("Page Two", :href => "/travel-advice/turks-and-caicos-islands/page-two")
-        assert page.has_link?("The Bridge of Death", :href => "/travel-advice/turks-and-caicos-islands/the-bridge-of-death")
+        assert page.has_link?("Page Two", :href => "/foreign-travel-advice/turks-and-caicos-islands/page-two")
+        assert page.has_link?("The Bridge of Death", :href => "/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death")
       end
 
       within 'article' do
@@ -109,7 +109,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.meta-data' do
-        assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print")
+        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
         assert ! page.has_selector?('.modified-date')
       end
 
@@ -118,11 +118,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       within 'head' do
         assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fturks-and-caicos-islands.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -130,11 +130,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         link_titles = page.all('.part-title').map(&:text)
         assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], link_titles
 
-        assert page.has_link?("Summary", :href => "/travel-advice/turks-and-caicos-islands")
+        assert page.has_link?("Summary", :href => "/foreign-travel-advice/turks-and-caicos-islands")
         within 'li.active' do
           assert page.has_content?("Page Two")
         end
-        assert page.has_link?("The Bridge of Death", :href => "/travel-advice/turks-and-caicos-islands/the-bridge-of-death")
+        assert page.has_link?("The Bridge of Death", :href => "/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death")
       end
 
       within 'article' do
@@ -147,11 +147,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       within 'head' do
         assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fturks-and-caicos-islands.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -159,8 +159,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         link_titles = page.all('.part-title').map(&:text)
         assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], link_titles
 
-        assert page.has_link?("Summary", :href => "/travel-advice/turks-and-caicos-islands")
-        assert page.has_link?("Page Two", :href => "/travel-advice/turks-and-caicos-islands/page-two")
+        assert page.has_link?("Summary", :href => "/foreign-travel-advice/turks-and-caicos-islands")
+        assert page.has_link?("Page Two", :href => "/foreign-travel-advice/turks-and-caicos-islands/page-two")
         within 'li.active' do
           assert page.has_content?("The Bridge of Death")
         end
@@ -173,7 +173,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
 
     should "display the print view of a country page" do
-      visit "/travel-advice/turks-and-caicos-islands/print"
+      visit "/foreign-travel-advice/turks-and-caicos-islands/print"
       assert_equal 200, page.status_code
 
       within 'section[role=main]' do
@@ -208,20 +208,20 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "a country with no parts" do
     setup do
-      setup_api_responses "travel-advice/luxembourg"
+      setup_api_responses "foreign-travel-advice/luxembourg"
     end
 
     should "display a simplified view with no part navigation" do
-      visit "/travel-advice/luxembourg"
+      visit "/foreign-travel-advice/luxembourg"
       assert_equal 200, page.status_code
 
       within 'head' do
         assert page.has_selector?("title", :text => "Luxembourg travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/travel-advice%2Fluxembourg.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fluxembourg.json']")
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Luxembourg")
       end
 
@@ -239,12 +239,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.meta-data' do
-        assert page.has_link?("Printer friendly page", :href => "/travel-advice/luxembourg/print")
+        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/luxembourg/print")
       end
     end
 
     should "display the print view correctly" do
-      visit "/travel-advice/luxembourg/print"
+      visit "/foreign-travel-advice/luxembourg/print"
       assert_equal 200, page.status_code
 
       within 'section[role=main]' do
@@ -265,21 +265,21 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
   end
 
   should "return a not found response for a country which does not exist" do
-    content_api_does_not_have_an_artefact "travel-advice/timbuktu"
-    visit "/travel-advice/timbuktu"
+    content_api_does_not_have_an_artefact "foreign-travel-advice/timbuktu"
+    visit "/foreign-travel-advice/timbuktu"
 
     assert_equal 404, page.status_code
   end
 
   context "previewing a country page" do
     should "display the travel advice page" do
-      content_api_has_a_draft_artefact "travel-advice/turks-and-caicos-islands", 1, content_api_response("travel-advice/turks-and-caicos-islands")
+      content_api_has_a_draft_artefact "foreign-travel-advice/turks-and-caicos-islands", 1, content_api_response("foreign-travel-advice/turks-and-caicos-islands")
 
-      visit "/travel-advice/turks-and-caicos-islands?edition=1"
+      visit "/foreign-travel-advice/turks-and-caicos-islands?edition=1"
       assert_equal 200, page.status_code
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -288,7 +288,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Summary")
         end
 
-        assert page.has_link?("Page Two", :href => "/travel-advice/turks-and-caicos-islands/page-two?edition=1")
+        assert page.has_link?("Page Two", :href => "/foreign-travel-advice/turks-and-caicos-islands/page-two?edition=1")
       end
 
       within 'article' do
@@ -301,7 +301,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.meta-data' do
-        assert page.has_link?("Printer friendly page", :href => "/travel-advice/turks-and-caicos-islands/print?edition=1")
+        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
       end
     end
   end
@@ -316,7 +316,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         "portugal" => {:name => "Portugal", :updated_at => "2013-02-22T11:31:08+00:00"},
         "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-19T11:31:08+00:00"})
 
-      visit '/travel-advice'
+      visit '/foreign-travel-advice'
     end
 
     should "have a visible visible form" do

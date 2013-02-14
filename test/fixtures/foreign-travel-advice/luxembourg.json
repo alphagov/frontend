@@ -2,8 +2,8 @@
   "_response_info": {
     "status": "ok"
   },
-  "id": "https://www.gov.uk/api/travel-advice%2Fluxembourg.json",
-  "web_url": "https://www.gov.uk/travel-advice/luxembourg",
+  "id": "https://www.gov.uk/api/foreign-travel-advice%2Fluxembourg.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice/luxembourg",
   "title": "Luxembourg travel advice",
   "format": "travel-advice",
   "updated_at": "2013-01-31T11:35:17+00:00",

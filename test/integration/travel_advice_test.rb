@@ -11,13 +11,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "travel advice index" do
     setup do
-      content_api_has_countries(
-        "aruba" => {:name => "Aruba", :updated_at => "2013-02-20T11:31:08+00:00"},
-        "congo" => {:name => "Congo", :updated_at => "2013-02-03T11:31:08+00:00"},
-        "germany" => {:name => "Germany", :updated_at => "2013-02-02T11:31:08+00:00"},
-        "iran" => {:name => "Iran", :updated_at => "2013-02-02T11:31:08+00:00"},
-        "portugal" => {:name => "Portugal", :updated_at => "2013-02-22T11:31:08+00:00"},
-        "turks-and-caicos-islands" => {:name => "Turks and Caicos Islands", :updated_at => "2013-02-19T11:31:08+00:00"})
+      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index1.json')
     end
 
     should "display the list of countries" do

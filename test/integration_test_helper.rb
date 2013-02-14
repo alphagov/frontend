@@ -14,13 +14,14 @@ class ActionDispatch::IntegrationTest
     WebMock.reset!
   end
 
-  def content_api_response(slug)
-    json = File.read(Rails.root.join("test/fixtures/#{slug}.json"))
+  def content_api_response(slug, options = {})
+    options[:file] ||= "#{slug}.json"
+    json = File.read(Rails.root.join("test/fixtures/#{options[:file]}"))
     JSON.parse(json)
   end
 
   def setup_api_responses(slug, options = {})
-    artefact = content_api_response(slug)
+    artefact = content_api_response(slug, options)
     content_api_has_an_artefact_with_optional_location(slug, artefact)
   end
 

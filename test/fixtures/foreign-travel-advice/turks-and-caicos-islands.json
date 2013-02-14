@@ -2,8 +2,8 @@
   "_response_info": {
       "status": "ok"
   },
-  "id": "https://www.gov.uk/api/travel-advice%2Fturks-and-caicos-islands.json",
-  "web_url": "https://www.gov.uk/travel-advice/turks-and-caicos-islands",
+  "id": "https://www.gov.uk/api/foreign-travel-advice%2Fturks-and-caicos-islands.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands",
   "title": "Turks and Caicos Islands extra special travel advice",
   "format": "travel-advice",
   "updated_at": "2013-01-16T14:25:51+00:00",
@@ -23,14 +23,14 @@
     },
     "parts": [
       {
-        "web_url": "https://www.gov.uk/travel-advice/turks-and-caicos-islands/page-two",
+        "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands/page-two",
         "order": 1,
         "title": "Page Two",
         "slug": "page-two",
         "body": "<ul><li>We're all going on a summer holiday,</li><li>mo more working for a week or two.</li><li>Fun and laughter on our summer holiday,</li><li>no more worries for me or you,</li><li>For a week or two.</li></ul>"
       },
       {
-        "web_url": "https://www.gov.uk/travel-advice/turks-and-caicos-islands/the-bridge-of-death",
+        "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death",
         "order": 2,
         "title": "The Bridge of Death",
         "slug": "the-bridge-of-death",

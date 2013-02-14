@@ -27,7 +27,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Quick answer")
-          assert page.has_content?("Travel advice")
+          assert page.has_content?("Foreign travel advice")
         end
 
         assert page.has_selector?(".article-container #test-report_a_problem")
@@ -77,7 +77,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -122,7 +122,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -151,7 +151,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 
@@ -221,7 +221,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Luxembourg")
       end
 
@@ -279,7 +279,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within '.page-header' do
-        assert page.has_content?("Travel advice")
+        assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")
       end
 

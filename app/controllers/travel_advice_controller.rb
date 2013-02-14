@@ -14,7 +14,7 @@ class TravelAdviceController < ApplicationController
       format.atom do
         @countries = sorted_countries
       end
-      format.json { redirect_to "/api/travel-advice.json" }
+      format.json { redirect_to "/api/foreign-travel-advice.json" }
     end
   end
 
@@ -49,7 +49,7 @@ class TravelAdviceController < ApplicationController
   private
 
   def fetch_artefact_and_publication_for_country(country)
-    params[:slug] = "travel-advice/" + country
+    params[:slug] = "foreign-travel-advice/" + country
 
     artefact = fetch_artefact
     publication = PublicationPresenter.new(artefact)

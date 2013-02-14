@@ -21,10 +21,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         GdsApi::ContentApi.any_instance.expects(:countries).returns({
           "results" => [
             {
-              "id" => "/travel-advice/aruba.json",
+              "id" => "/foreign-travel-advice/aruba.json",
               "name" => "Aruba",
               "identifier" => "aruba",
-              "web_url" => "http://www.test.gov.uk/travel-advice/arube",
+              "web_url" => "http://www.test.gov.uk/foreign-travel-advice/aruba",
               "updated_at" => Time.parse("2013-02-12T11:55:46+00:00"),
             }
           ]})
@@ -56,7 +56,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "redirect json requests to the api" do
         get :index, format: 'json'
 
-        assert_redirected_to "/api/travel-advice.json"
+        assert_redirected_to "/api/foreign-travel-advice.json"
       end
 
       context "requesting atom" do
@@ -77,7 +77,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       setup do
         @artefact = {
           "title" => "Turks and Caicos Islands",
-          "web_url" => "https://www.gov.uk/travel-advice/turks-and-caicos-islands",
+          "web_url" => "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands",
           "updated_at" => Date.parse("16 March 2013"),
           "format" => "travel-advice",
           "details" => {
@@ -100,7 +100,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
             }
           }
         }
-        content_api_has_an_artefact "travel-advice/turks-and-caicos-islands", @artefact
+        content_api_has_an_artefact "foreign-travel-advice/turks-and-caicos-islands", @artefact
       end
 
       should "be a successful request" do
@@ -110,14 +110,14 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
 
       should "make a request to the content api with a concatenated slug" do
-        stub_artefact = artefact_for_slug('travel-advice/turks-and-caicos-islands')
+        stub_artefact = artefact_for_slug('foreign-travel-advice/turks-and-caicos-islands')
         stub_artefact['details']['country'] = {
           "name" => "Turks and Caicos Islands",
           "slug" => "turks-and-caicos-islands"
         }
 
         GdsApi::ContentApi.any_instance.expects(:artefact).
-          with('travel-advice/turks-and-caicos-islands', { }).returns(stub_artefact)
+          with('foreign-travel-advice/turks-and-caicos-islands', { }).returns(stub_artefact)
 
         @controller.stubs(:render)
         get :country, :country_slug => "turks-and-caicos-islands"
@@ -202,7 +202,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "redirect to the travel advice edition root when a part doesn't exist" do
           get :country, :country_slug => "turks-and-caicos-islands", :part => "nightlife"
 
-          assert_redirected_to "/travel-advice/turks-and-caicos-islands"
+          assert_redirected_to "/foreign-travel-advice/turks-and-caicos-islands"
         end
       end
 
@@ -218,7 +218,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
     end
 
     should "return a 404 status for a country which doesn't exist" do
-      content_api_does_not_have_an_artefact "travel-advice/timbuktu"
+      content_api_does_not_have_an_artefact "foreign-travel-advice/timbuktu"
 
       get :country, :country_slug => "timbuktu"
 

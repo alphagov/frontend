@@ -3,7 +3,14 @@ class TravelAdviceController < ApplicationController
   before_filter { set_expiry(5.minutes) }
 
   def index
-    @countries = content_api.countries['results']
+    @artefact = content_api.artefact('foreign-travel-advice')
+    unless @artefact
+      logger.warn("Failed to fetch artefact foreign-travel-advice from Content API. Response code: 404")
+      error_404
+      return
+    end
+
+    @countries = @artefact["details"]["countries"]
     sorted_countries = sort_countries_by_date(@countries)
 
     @recently_updated = sorted_countries.take(5)

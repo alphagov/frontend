@@ -1,0 +1,41 @@
+{
+  "_response_info": {
+      "status": "ok"
+  },
+  "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice",
+  "title": "Foreign travel advice",
+  "format": "custom-application",
+  "updated_at": "2013-02-14T15:23:25+00:00",
+  "details": {
+      "need_id": "133",
+      "business_proposition": false,
+      "description": "",
+      "language": "en",
+      "countries": [
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fluxembourg.json",
+              "name": "Luxembourg",
+              "identifier": "luxembourg",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/luxembourg",
+              "updated_at": "2013-01-15T16:48:54+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fportugal.json",
+              "name": "Portugal",
+              "identifier": "portugal",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/portugal",
+              "updated_at": "2012-02-22T11:31:08+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fsyria.json",
+              "name": "Syria",
+              "identifier": "syria",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/syria",
+              "updated_at": "2013-02-23T11:31:08+00:00"
+          }
+      ]
+  },
+  "tags": [ ],
+  "related": [ ]
+}

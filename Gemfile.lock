@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/alphagov/rummageable.git
-  revision: b023beafa3fccae08b5d8040482c633f2563c76f
-  specs:
-    rummageable (0.5.0)
-      json
-      plek (>= 0.5.0)
-      rest-client
-
-GIT
   remote: https://github.com/alphagov/rails-i18n.git
   revision: 67ce6ca672ea05457a48c152ba9478b0755d6e94
   branch: welsh_updates
@@ -177,6 +168,10 @@ GEM
       builder
       null_logger
     rubyzip (0.9.9)
+    rummageable (0.5.0)
+      json
+      plek (>= 0.5.0)
+      rest-client
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -275,7 +270,7 @@ DEPENDENCIES
   rails (= 3.2.12)
   rails-i18n!
   router-client (= 2.0.3)
-  rummageable!
+  rummageable (= 0.5.0)
   sass (= 3.2.1)
   sass-rails (~> 3.2.3)
   shoulda

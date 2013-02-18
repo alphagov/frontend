@@ -80,10 +80,22 @@ class ApplicationController < ActionController::Base
     end
 
     def content_api
-      @content_api ||= GdsApi::ContentApi.new(Plek.current.find('contentapi'), CONTENT_API_CREDENTIALS)
+      @content_api ||= GdsApi::ContentApi.new(
+        Plek.current.find("contentapi"),
+        content_api_options
+      )
     end
 
     def supported_artefact_formats
       %w{answer business_support completed_transaction guide licence local_transaction place programme transaction travel-advice video}
+    end
+
+  private
+    def content_api_options
+      api_options = CONTENT_API_CREDENTIALS.dup
+      if ENV["GOVUK_WEBSITE_ROOT"]
+        api_options.merge!(web_urls_relative_to: ENV["GOVUK_WEBSITE_ROOT"])
+      end
+      api_options
     end
 end

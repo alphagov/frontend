@@ -1,8 +1,6 @@
 source 'http://rubygems.org'
 source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
 
-gem 'rummageable', :git => 'git://github.com/alphagov/rummageable.git'
-
 group :router do
   gem 'router-client', '2.0.3', require: 'router/client'
 end
@@ -17,6 +15,7 @@ gem 'gelf'
 gem 'plek', '1.1.0'
 gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
+gem 'rummageable', '0.5.0'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'

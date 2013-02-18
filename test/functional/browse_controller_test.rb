@@ -11,13 +11,25 @@ class BrowseControllerTest < ActionController::TestCase
     stub_request(:get, url).to_return(:status => 404, :body => body.to_json, :headers => {})
   end
 
+  def setup
+    # Stub out the content API client to make sure we are providing a
+    # consistent root for the site URL, regardless of environment.
+    #
+    # The website root is hard-coded in the test helpers, so it gets hard-coded
+    # here too.
+    api_client = GdsApi::ContentApi.new(
+      Plek.current.find("contentapi"),
+      web_urls_relative_to: "http://www.test.gov.uk"
+    )
+    BrowseController.any_instance.stubs(:content_api).returns(api_client)
+  end
+
   context "GET index" do
     should "list all categories" do
       content_api_has_root_sections(["crime-and-justice"])
       get :index
-      url = "http://www.test.gov.uk/browse/crime-and-justice"
       assert_select "ul h2 a", "Crime and justice"
-      assert_select "ul h2 a[href=#{url}]"
+      assert_select "ul h2 a[href=/browse/crime-and-justice]"
     end
 
     should "set slimmer format of browse" do
@@ -42,7 +54,7 @@ class BrowseControllerTest < ActionController::TestCase
       get :section, section: "crime-and-justice"
 
       assert_select "h1", "Crime and justice"
-      assert_select "ul h2 a", "Alpha"
+      assert_select "ul h2 a[href=/browse/alpha]"
     end
 
     should "404 if the section does not exist" do

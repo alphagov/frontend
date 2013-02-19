@@ -92,10 +92,8 @@ class ApplicationController < ActionController::Base
 
   private
     def content_api_options
-      api_options = CONTENT_API_CREDENTIALS.dup
-      if ENV["GOVUK_WEBSITE_ROOT"]
-        api_options.merge!(web_urls_relative_to: ENV["GOVUK_WEBSITE_ROOT"])
-      end
-      api_options
+      CONTENT_API_CREDENTIALS.merge(
+        web_urls_relative_to: Plek.current.website_root
+      )
     end
 end

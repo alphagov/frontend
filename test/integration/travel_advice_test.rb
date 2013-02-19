@@ -81,6 +81,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Turks and Caicos Islands")
       end
 
+      within 'aside' do
+        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
+      end
+
       within '.page-navigation' do
         link_titles = page.all('.part-title').map(&:text)
         assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], link_titles
@@ -108,8 +112,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("h3", :text => "This is the summary")
       end
 
-      within '.meta-data' do
-        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
+      within '.article-container' do
         assert ! page.has_selector?('.modified-date')
       end
 
@@ -237,31 +240,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
       end
-
-      within '.meta-data' do
-        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/luxembourg/print")
-      end
     end
 
-    should "display the print view correctly" do
-      visit "/foreign-travel-advice/luxembourg/print"
-      assert_equal 200, page.status_code
-
-      within 'section[role=main]' do
-        assert page.has_selector?('h1', :text => "Luxembourg travel advice")
-
-        section_titles = page.all('article h1').map(&:text)
-        assert_equal ['Summary'], section_titles
-
-        within 'article#summary' do
-          assert page.has_selector?("h1", :text => "Summary")
-          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-          assert page.has_content?("Updated: 31 January 2013")
-          assert page.has_content?("There are no travel restrictions in place for Luxembourg.")
-          assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
-        end
-      end
-    end
   end
 
   should "return a not found response for a country which does not exist" do
@@ -283,6 +263,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Turks and Caicos Islands")
       end
 
+      within 'aside' do
+        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
+      end
+
       within '.page-navigation' do
         within 'li.active' do
           assert page.has_content?("Summary")
@@ -298,10 +282,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Updated: 16 January 2013")
 
         assert page.has_content?("This is the summary")
-      end
-
-      within '.meta-data' do
-        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
       end
     end
   end

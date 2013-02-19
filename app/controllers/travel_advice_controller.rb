@@ -3,17 +3,19 @@ class TravelAdviceController < ApplicationController
   before_filter { set_expiry(5.minutes) }
 
   def index
-    @countries = content_api.countries['results']
-    sorted_countries = sort_countries_by_date(@countries)
+    @artefact = content_api.artefact('foreign-travel-advice')
+    unless @artefact
+      logger.warn("Failed to fetch artefact foreign-travel-advice from Content API. Response code: 404")
+      error_404
+      return
+    end
+    set_slimmer_artefact_headers(@artefact)
 
-    @recently_updated = sorted_countries.take(5)
-    @publication = OpenStruct.new(:type => 'travel-advice')
+    @publication = TravelAdviceIndexPresenter.new(@artefact)
 
     respond_to do |format|
       format.html
-      format.atom do
-        @countries = sorted_countries
-      end
+      format.atom
       format.json { redirect_to "/api/foreign-travel-advice.json" }
     end
   end
@@ -55,11 +57,5 @@ class TravelAdviceController < ApplicationController
     publication = PublicationPresenter.new(artefact)
 
     return [publication, artefact]
-  end
-
-  def sort_countries_by_date(countries)
-    countries.sort do |x, y|
-      y['updated_at'] <=> x['updated_at']
-    end
   end
 end

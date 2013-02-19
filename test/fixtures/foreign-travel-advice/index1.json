@@ -1,0 +1,62 @@
+{
+  "_response_info": {
+      "status": "ok"
+  },
+  "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice",
+  "title": "Foreign travel advice",
+  "format": "custom-application",
+  "updated_at": "2013-02-14T15:23:25+00:00",
+  "details": {
+      "need_id": "133",
+      "business_proposition": false,
+      "description": "",
+      "language": "en",
+      "countries": [
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Faruba.json",
+              "name": "Aruba",
+              "identifier": "aruba",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/aruba",
+              "updated_at": "2013-02-20T11:31:08+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fcongo.json",
+              "name": "Congo",
+              "identifier": "congo",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/congo",
+              "updated_at": "2013-02-03T11:31:08+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fgermany.json",
+              "name": "Germany",
+              "identifier": "germany",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/germany",
+              "updated_at": "2013-02-02T11:31:08+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Firan.json",
+              "name": "Iran",
+              "identifier": "iran",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/iran",
+              "updated_at": "2013-02-02T11:31:08+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fportugal.json",
+              "name": "Portugal",
+              "identifier": "portugal",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/portugal",
+              "updated_at": "2013-02-22T11:31:08+00:00"
+          },
+          {
+              "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2Fturks-and-caicos-islands.json",
+              "name": "Turks and Caicos Islands",
+              "identifier": "turks-and-caicos-islands",
+              "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands",
+              "updated_at": "2013-02-19T11:31:08+00:00"
+          }
+      ]
+  },
+  "tags": [ ],
+  "related": [ ]
+}

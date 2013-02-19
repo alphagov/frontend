@@ -9,6 +9,7 @@ class TravelAdviceController < ApplicationController
       error_404
       return
     end
+    set_slimmer_artefact_headers(@artefact)
 
     @countries = @artefact["details"]["countries"]
     sorted_countries = sort_countries_by_date(@countries)

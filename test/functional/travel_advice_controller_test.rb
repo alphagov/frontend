@@ -5,8 +5,8 @@ class TravelAdviceControllerTest < ActionController::TestCase
   context "GET index" do
     context "given countries exist" do
       setup do
-        json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
-        @index_artefact = GdsApi::Response.new(stub("HTTP_Response", :code => 200, :body => json_data))
+        @json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
+        @index_artefact = GdsApi::Response.new(stub("HTTP_Response", :code => 200, :body => @json_data))
         GdsApi::ContentApi.any_instance.stubs(:artefact).with('foreign-travel-advice').returns(@index_artefact)
       end
 
@@ -21,6 +21,12 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
         get :index
         assert_equal @index_artefact, assigns(:artefact)
+      end
+
+      should "send the artefact to slimmer" do
+        get :index
+
+        assert_equal JSON.dump(@index_artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
       end
 
       should "assign a collection of countries in the given order" do

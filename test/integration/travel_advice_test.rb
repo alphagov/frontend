@@ -48,6 +48,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(".article-container #test-report_a_problem")
       end # within #content
+
+      assert page.has_selector?("#test-related")
     end
 
     context "filtering countries" do

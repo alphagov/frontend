@@ -127,7 +127,7 @@ GEM
     mustache (0.99.4)
     nokogiri (1.5.5)
     null_logger (0.0.1)
-    plek (1.1.0)
+    plek (1.2.0)
       builder
     poltergeist (0.7.0)
       capybara (~> 1.1)
@@ -265,7 +265,7 @@ DEPENDENCIES
   lograge (~> 0.1.0)
   mocha
   mustache
-  plek (= 1.1.0)
+  plek (= 1.2.0)
   poltergeist (= 0.7.0)
   rails (= 3.2.12)
   rails-i18n!

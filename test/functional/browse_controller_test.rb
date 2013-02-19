@@ -11,17 +11,13 @@ class BrowseControllerTest < ActionController::TestCase
     stub_request(:get, url).to_return(:status => 404, :body => body.to_json, :headers => {})
   end
 
-  def setup
-    # Stub out the content API client to make sure we are providing a
+  setup do
+    # Stub out the website_root to make sure we are providing a
     # consistent root for the site URL, regardless of environment.
     #
     # The website root is hard-coded in the test helpers, so it gets hard-coded
     # here too.
-    api_client = GdsApi::ContentApi.new(
-      Plek.current.find("contentapi"),
-      web_urls_relative_to: "http://www.test.gov.uk"
-    )
-    BrowseController.any_instance.stubs(:content_api).returns(api_client)
+    Plek.any_instance.stubs(:website_root).returns("http://www.test.gov.uk")
   end
 
   context "GET index" do

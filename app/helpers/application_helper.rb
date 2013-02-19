@@ -14,24 +14,28 @@ module ApplicationHelper
     html_classes = []
 
     if publication
-      if publication.type
-        html_classes << publication.type
-      end
+      if publication.respond_to?(:wrapper_classes)
+        html_classes = publication.wrapper_classes
+      else
+        if publication.type
+          html_classes << publication.type
+        end
 
-      if request.format.video?
-        html_classes << "video-guide"
-      end
+        if request.format.video?
+          html_classes << "video-guide"
+        end
 
-      if services.include? publication.type
-        html_classes << "service"
-      end
+        if services.include? publication.type
+          html_classes << "service"
+        end
 
-      if answers.include? publication.type
-        html_classes << "answer"
-      end
+        if answers.include? publication.type
+          html_classes << "answer"
+        end
 
-      if guides.include? publication.type
-        html_classes << "guide"
+        if guides.include? publication.type
+          html_classes << "guide"
+        end
       end
     end
 

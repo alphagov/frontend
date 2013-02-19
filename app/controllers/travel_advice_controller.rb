@@ -11,11 +11,12 @@ class TravelAdviceController < ApplicationController
     end
     set_slimmer_artefact_headers(@artefact)
 
+    @publication = TravelAdviceIndexPresenter.new(@artefact)
+
     @countries = @artefact["details"]["countries"]
     sorted_countries = sort_countries_by_date(@countries)
 
     @recently_updated = sorted_countries.take(5)
-    @publication = OpenStruct.new(:type => 'travel-advice')
 
     respond_to do |format|
       format.html

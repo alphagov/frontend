@@ -18,6 +18,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit '/foreign-travel-advice'
       assert_equal 200, page.status_code
 
+      assert page.has_selector?("#wrapper.travel-advice.guide")
+
       within '#content' do
         within 'header' do
           assert page.has_content?("Quick answer")

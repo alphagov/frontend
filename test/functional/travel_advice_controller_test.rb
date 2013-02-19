@@ -6,7 +6,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
     context "given countries exist" do
       setup do
         @json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
-        @index_artefact = GdsApi::Response.new(stub("HTTP_Response", :code => 200, :body => @json_data))
+        @index_artefact = GdsApi::ContentApi::Response.new(
+          stub("HTTP_Response", :code => 200, :body => @json_data),
+          :web_urls_relative_to => "https://www.gov.uk"
+        )
         GdsApi::ContentApi.any_instance.stubs(:artefact).with('foreign-travel-advice').returns(@index_artefact)
       end
 

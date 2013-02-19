@@ -7,6 +7,6 @@ module TravelAdviceHelper
   end
 
   def readable_time(time)
-    time.strftime("%e %B %Y")
+    Time.parse(time).strftime("%e %B %Y")
   end
 end

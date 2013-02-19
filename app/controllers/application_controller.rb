@@ -92,8 +92,10 @@ class ApplicationController < ActionController::Base
 
   private
     def content_api_options
-      CONTENT_API_CREDENTIALS.merge(
-        web_urls_relative_to: Plek.current.website_root
-      )
+      options = CONTENT_API_CREDENTIALS
+      unless request.format == :atom
+        options = options.merge(web_urls_relative_to: Plek.current.website_root)
+      end
+      options
     end
 end

@@ -1,8 +1,12 @@
-<%= javascript_include_tag "views/travel-advice.js", :defer => "defer" %>
+<% content_for :extra_headers do %>
+  <%= javascript_include_tag "views/travel-advice.js", :defer => "defer" %>
+  <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
+<% end %>
+
 <section id="content" class="group">
   <header class="page-header group">
     <hgroup>
-      <h1><span>Quick answer</span>Foreign travel advice</h1>
+      <h1><%= @publication.title %></h1>
     </hgroup>
   </header>
 

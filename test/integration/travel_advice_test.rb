@@ -18,11 +18,15 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit '/foreign-travel-advice'
       assert_equal 200, page.status_code
 
+      within 'head' do
+        assert page.has_selector?("title", :text => "Foreign travel advice")
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']")
+      end
+
       assert page.has_selector?("#wrapper.travel-advice.guide")
 
       within '#content' do
         within 'header' do
-          assert page.has_content?("Quick answer")
           assert page.has_content?("Foreign travel advice")
         end
 

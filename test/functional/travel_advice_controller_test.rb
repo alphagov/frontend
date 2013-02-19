@@ -29,14 +29,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_equal JSON.dump(@index_artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
       end
 
-      should "assign a collection of countries in the given order" do
-        get :index
-
-        assert_not_nil assigns(:countries)
-        assert_equal 3, assigns(:countries).length
-        assert_equal ["Luxembourg", "Portugal", "Syria"], assigns(:countries).map {|c| c['name'] }
-      end
-
       should "render the index template" do
         get :index
 
@@ -58,12 +50,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
       context "requesting atom" do
         setup do
           get :index, :format => 'atom'
-        end
-
-        should "order the countries by date" do
-          assert_not_nil assigns(:countries)
-          assert_equal 3, assigns(:countries).length
-          assert_equal ["Syria", "Luxembourg", "Portugal"], assigns(:countries).map {|c| c['name'] }
         end
 
         should "return an aggregate of country atom feeds" do

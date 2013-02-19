@@ -13,16 +13,9 @@ class TravelAdviceController < ApplicationController
 
     @publication = TravelAdviceIndexPresenter.new(@artefact)
 
-    @countries = @artefact["details"]["countries"]
-    sorted_countries = sort_countries_by_date(@countries)
-
-    @recently_updated = sorted_countries.take(5)
-
     respond_to do |format|
       format.html
-      format.atom do
-        @countries = sorted_countries
-      end
+      format.atom
       format.json { redirect_to "/api/foreign-travel-advice.json" }
     end
   end
@@ -64,11 +57,5 @@ class TravelAdviceController < ApplicationController
     publication = PublicationPresenter.new(artefact)
 
     return [publication, artefact]
-  end
-
-  def sort_countries_by_date(countries)
-    countries.sort do |x, y|
-      y['updated_at'] <=> x['updated_at']
-    end
   end
 end

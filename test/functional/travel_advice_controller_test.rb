@@ -29,6 +29,13 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_equal JSON.dump(@index_artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
       end
 
+      should "set other slimmer headers" do
+        get :index
+
+        assert_equal 'custom-application', @response.headers["X-Slimmer-Format"]
+        assert_equal '1', @response.headers["X-Slimmer-Beta"]
+      end
+
       should "render the index template" do
         get :index
 
@@ -150,6 +157,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
           get :country, :country_slug => "turks-and-caicos-islands"
 
           assert_equal "travel-advice", @response.headers["X-Slimmer-Format"]
+          assert_equal '1', @response.headers["X-Slimmer-Beta"]
         end
 
         should "set the artefact in the header" do

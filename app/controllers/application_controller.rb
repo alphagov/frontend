@@ -45,8 +45,9 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def set_slimmer_artefact_headers(artefact)
-      set_slimmer_headers(format: artefact["format"])
+    def set_slimmer_artefact_headers(artefact, slimmer_headers = {})
+      slimmer_headers[:format] ||= artefact["format"]
+      set_slimmer_headers(slimmer_headers)
       set_slimmer_artefact(artefact)
     end
 

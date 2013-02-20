@@ -9,6 +9,12 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include GdsApi::TestHelpers::ContentApi
 
+  def setup
+    super
+    # Stub website_root to match test fixtures
+    Plek.any_instance.stubs(:website_root).returns("https://www.gov.uk")
+  end
+
   def teardown
     Capybara.use_default_driver
     WebMock.reset!

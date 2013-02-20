@@ -20,7 +20,7 @@ gem 'rummageable', '0.5.0'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.9.5'
+  gem 'slimmer', '3.11.0'
 end
 
 if ENV['CDN_DEV']

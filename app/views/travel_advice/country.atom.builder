@@ -8,6 +8,8 @@ atom_feed(:root_url => @publication.web_url) do |feed|
               :id => "tag:www.gov.uk,2005:/travel-advice/#{@publication.country['slug']}/#{@publication.updated_at}",
               :url => @publication.web_url) do |entry|
     entry.title(@publication.title)
-    entry.summary(strip_tags(@publication.summary))
+    entry.summary(:type => :xhtml) do |summary|
+      summary << @publication.change_description
+    end
   end
 end

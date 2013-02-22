@@ -73,31 +73,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
   context "GET country" do
     context "given a valid country" do
       setup do
-        @artefact = {
-          "title" => "Turks and Caicos Islands",
-          "web_url" => "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands",
-          "updated_at" => Date.parse("16 March 2013"),
-          "format" => "travel-advice",
-          "details" => {
-            "language" => "en",
-            "parts" => [
-              {
-                "title" => "Summary",
-                "body" => "<h1>Summary</h1>",
-                "slug" => "summary"
-              },
-              {
-                "title" => "Advice",
-                "body" => "<h1>Advice</h1>",
-                "slug" => "advice"
-              }
-            ],
-            "country" => {
-              "name" => "Turks and Caicos Islands",
-              "slug" => "turks-and-caicos-islands"
-            }
-          }
-        }
+        @artefact = JSON.parse(File.read(Rails.root.join('test/fixtures/foreign-travel-advice/turks-and-caicos-islands.json')))
         content_api_has_an_artefact "foreign-travel-advice/turks-and-caicos-islands", @artefact
       end
 
@@ -126,7 +102,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
         assert_not_nil assigns(:publication)
         assert assigns(:publication).is_a?(PublicationPresenter)
-        assert_equal "Turks and Caicos Islands", assigns(:publication).title
+        assert_equal "Turks and Caicos Islands extra special travel advice", assigns(:publication).title
       end
 
       should "render the country template" do
@@ -191,9 +167,9 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       context "requesting a part" do
         should "select a given part if it exists" do
-          get :country, :country_slug => "turks-and-caicos-islands", :part => "advice"
+          get :country, :country_slug => "turks-and-caicos-islands", :part => "page-two"
 
-          assert_equal "advice", assigns(:part).slug
+          assert_equal "page-two", assigns(:part).slug
           assert assigns(:part).is_a?(PartPresenter)
           assert response.success?
         end

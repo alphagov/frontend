@@ -36,7 +36,7 @@ else
 end
 
 gem "addressable"
-gem 'exception_notification'
+gem 'exception_notification', '3.0.1'
 
 group :assets do
   gem 'govuk_frontend_toolkit', '0.10.0'

@@ -127,24 +127,6 @@ class TransactionPresenterTest < ActiveSupport::TestCase
           assert ! @presenter.open_in_new_window?
         end
       end
-
-      context "restricted window transactions" do
-        should "load restricted window transactions from file" do
-          expected_transactions = [ "restricted-window-example" ]
-
-          assert_equal expected_transactions, @presenter.restricted_window_transactions
-        end
-
-        should "load transaction in new window if slug is in list" do
-          @transaction.stubs(:slug).returns("restricted-window-example")
-          assert @presenter.open_in_restricted_window?
-        end
-
-        should "not load transaction in new window if slug is not in list" do
-          @transaction.stubs(:slug).returns("example-slug-two")
-          assert ! @presenter.open_in_restricted_window?
-        end
-      end
     end
   end
 end

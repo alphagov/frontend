@@ -28,15 +28,7 @@ class TransactionPresenter
     new_window_transactions.include? @transaction.slug
   end
 
-  def open_in_restricted_window?
-    restricted_window_transactions.include? @transaction.slug
-  end
-
   def new_window_transactions
     @new_window_transactions ||= JSON.parse( File.open( @new_window_transactions_file ).read )["new-window"]
-  end
-
-  def restricted_window_transactions
-    @restricted_window_transactions ||= JSON.parse( File.open( @new_window_transactions_file ).read )["restricted-window"]
   end
 end

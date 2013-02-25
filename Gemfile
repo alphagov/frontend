@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-source 'https://gems.gemfury.com/vo6ZrmjBQu5szyywDszE/'
+source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 group :router do
   gem 'router-client', '2.0.3', require: 'router/client'

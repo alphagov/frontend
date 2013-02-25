@@ -1,10 +1,7 @@
 class TransactionPresenter
 
-  attr_accessor :new_window_transactions_file
-
   def initialize(transaction)
     @transaction = transaction
-    @new_window_transactions_file = Rails.root.join('lib','data','new_window_transactions.json')
   end
 
   def multiple_more_information_sections?
@@ -25,10 +22,20 @@ class TransactionPresenter
   end
 
   def open_in_new_window?
-    new_window_transactions.include? @transaction.slug
+    self.class.new_window_transactions.include? @transaction.slug
   end
 
-  def new_window_transactions
-    @new_window_transactions ||= JSON.parse( File.open( @new_window_transactions_file ).read )["new-window"]
+  # attr_accessor stuff to allow overriding the data file in tests
+  @new_window_transactions_file = Rails.root.join('lib','data','new_window_transactions.json')
+  class << self
+    attr_reader :new_window_transactions_file
+  end
+  def self.new_window_transactions_file=(file)
+    @new_window_transactions_file = file
+    @new_window_transactions = nil
+  end
+
+  def self.new_window_transactions
+    @new_window_transactions ||= JSON.parse( File.read( @new_window_transactions_file ) )["new-window"]
   end
 end

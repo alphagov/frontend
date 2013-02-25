@@ -17,6 +17,7 @@
       "avoid_all_travel_to_parts",
       "avoid_all_but_essential_travel_to_whole_country"
     ],
+    "change_description": "<p>The issue with the Knights of Ni has been resolved.</p>\n",
     "country": {
         "name": "Turks and Caicos Islands",
         "slug": "turks-and-caicos-islands"

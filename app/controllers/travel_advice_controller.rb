@@ -54,7 +54,7 @@ class TravelAdviceController < ApplicationController
     params[:slug] = "foreign-travel-advice/" + country
 
     artefact = fetch_artefact
-    publication = PublicationPresenter.new(artefact)
+    publication = TravelAdviceCountryPresenter.new(artefact)
 
     return [publication, artefact]
   end

@@ -161,6 +161,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Avoid all but essential travel to the whole country")
         end
 
+        assert page.has_selector?("img[src='https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg']")
+        within ".form-download" do
+          assert page.has_link?("Download map (PDF)", :href => "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000002/cookie-monster.pdf")
+        end
+
         assert page.has_selector?("h3", :text => "This is the summary")
       end
 

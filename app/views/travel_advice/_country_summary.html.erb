@@ -17,4 +17,15 @@
   <p>There are no travel restrictions in place for <%= publication.country['name'] %>.</p>
 <% end %>
 
+<% if publication.image %>
+  <p>
+    <img src="<%= publication.image.web_url %>"/>
+  </p>
+<% end %>
+<% if publication.document %>
+  <div class="form-download">
+    <a href="<%= publication.document.web_url %>">Download map (PDF)</a>
+  </div>
+<% end %>
+
 <%= raw publication.summary %>

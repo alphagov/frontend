@@ -101,7 +101,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         get :country, :country_slug => "turks-and-caicos-islands"
 
         assert_not_nil assigns(:publication)
-        assert assigns(:publication).is_a?(PublicationPresenter)
+        assert assigns(:publication).is_a?(TravelAdviceCountryPresenter)
         assert_equal "Turks and Caicos Islands extra special travel advice", assigns(:publication).title
       end
 

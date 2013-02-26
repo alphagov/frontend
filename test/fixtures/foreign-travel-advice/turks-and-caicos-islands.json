@@ -22,6 +22,14 @@
         "name": "Turks and Caicos Islands",
         "slug": "turks-and-caicos-islands"
     },
+    "image": {
+      "web_url": "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg",
+      "content_type": "image/jpeg"
+    },
+    "document": {
+      "web_url": "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000002/cookie-monster.pdf",
+      "content_type": "application/pdf"
+    },
     "parts": [
       {
         "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands/page-two",

@@ -1,5 +1,6 @@
 class TravelAdviceController < ApplicationController
 
+  before_filter :validate_country_slug, :only => [:country]
   before_filter { set_expiry(5.minutes) }
 
   def index
@@ -49,6 +50,12 @@ class TravelAdviceController < ApplicationController
   end
 
   private
+
+  def validate_country_slug
+    if params[:country_slug].parameterize != params[:country_slug]
+      error 404
+    end
+  end
 
   def fetch_artefact_and_publication_for_country(country)
     params[:slug] = "foreign-travel-advice/" + country

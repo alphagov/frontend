@@ -111,11 +111,16 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '404', response.code
   end
 
-  test "should return a 404 if slug isn't URL friendly" do
-    content_api_does_not_have_an_artefact("a complicated slug & one that's not \"url safe\"")
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(:status => 404))
+  test "should return a 404 withoug calling content_api if slug isn't URL friendly" do
     get :publication, :slug => "a complicated slug & one that's not \"url safe\""
+    assert_equal "404", response.code
+    assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
+  end
+
+  test "should return a 404 without calling content_api if a slug has invalid UTF-8 chars in it" do
+    get :publication, :slug => "fco\xA0"
+    assert_equal "404", response.code
+    assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
   end
 
   test "should return a 404 if content_api returns a 404 (nil)" do

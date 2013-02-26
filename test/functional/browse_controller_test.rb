@@ -89,6 +89,34 @@ class BrowseControllerTest < ActionController::TestCase
 
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
+
+    should "handle unescaped section descriptions" do
+      section = {
+        slug: "education",
+        title: "Education and learning",
+        description: "Get help & support."
+      }
+      content_api_has_section(section)
+      content_api_has_subsections(section, ["alpha"])
+
+      get :section, section: "education"
+      assert_response :success
+      assert response.body.include? "Get help &amp; support."
+    end
+
+    should "handle unescaped subsection descriptions" do
+      subsection = {
+        slug: "education/science",
+        title: "For science!",
+        description: "Science & education & other good things."
+      }
+      content_api_has_section("education")
+      content_api_has_subsections("education", [subsection])
+
+      get :section, section: "education"
+      assert_response :success
+      assert response.body.include? "Science &amp; education &amp; other good things."
+    end
   end
 
   context "GET sub_section" do

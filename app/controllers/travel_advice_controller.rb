@@ -26,7 +26,8 @@ class TravelAdviceController < ApplicationController
     @edition = params[:edition]
 
     @publication, @artefact = fetch_artefact_and_publication_for_country(@country)
-    set_slimmer_artefact_headers(@artefact, :beta => '1')
+    set_slimmer_artefact_overriding_section(@artefact, :section_name => "Foreign travel advice", :section_link => "/foreign-travel-advice")
+    set_slimmer_headers(:format => @artefact["format"], :beta => '1')
 
     I18n.locale = :en # These pages haven't been localised yet.
 

@@ -12,7 +12,7 @@
       <% @categories.each do | category | %>
       <li>
         <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
-        <p><%= category.details.description.nil? ? nil : category.details.description.html_safe %></p>
+        <p><%= category.details.description %></p>
       </li>
       <% end %>
     </ul>

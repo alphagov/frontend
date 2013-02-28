@@ -47,6 +47,10 @@ group :assets do
   gem 'uglifier'
 end
 
+group :development do
+  gem 'quiet_assets'
+end
+
 group :test do
   gem "mocha", :require => false
   gem "webmock", :require => false

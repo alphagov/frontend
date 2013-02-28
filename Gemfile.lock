@@ -129,6 +129,8 @@ GEM
       http_parser.rb (~> 0.5.3)
       multi_json (~> 1.0)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -245,6 +247,7 @@ DEPENDENCIES
   mustache
   plek (= 1.2.0)
   poltergeist (= 0.7.0)
+  quiet_assets
   rails (= 3.2.12)
   rails-i18n!
   router-client (= 2.0.3)

@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   jQuery.expr[':'].contains = function(obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
@@ -29,7 +29,7 @@
     input.change(function() {
       var filter = $(this).val();
 
-      if (filter && filter.length > 0) {
+      if(filter && filter.length > 0) {
         listItems.show();
         listItems.filter(":not(:contains(" + filter + "))").hide();
         filterHeadings();

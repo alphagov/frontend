@@ -162,7 +162,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?("img[src='https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg']")
-        within ".form-download" do
+        within ".form-download p" do
           assert page.has_link?("Download map (PDF)", :href => "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000002/cookie-monster.pdf")
         end
 

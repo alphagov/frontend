@@ -90,6 +90,33 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
       end
 
+      should "hide the letter headings when no countries are shown under it" do
+        assert_equal 200, page.status_code
+
+        within "#country-filter" do
+          fill_in "country", :with => "z"
+        end
+
+        within "#content" do
+          assert page.has_selector?("#A", visible: false)
+          assert page.has_selector?("#P", visible: false)
+          assert page.has_selector?("#T", visible: false)
+        end
+      end
+
+      should "show the letter headings when there are countries underneath it" do
+        assert_equal 200, page.status_code
+
+        within "#country-filter" do
+          fill_in "country", :with => "Aruba"
+        end
+
+        within "#content" do
+          assert page.has_selector?("#A", visible: true)
+        end
+
+      end
+
       should "show only countries that match" do
         assert_equal 200, page.status_code
 

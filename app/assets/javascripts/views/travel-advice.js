@@ -3,17 +3,36 @@
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
-  var input = $("form#country-filter input#country");
-  var list = $("ul.countries li");
+  var headingHasVisibleCountries = function(headingFirstLetter) {
+    return $("section#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
+  };
 
-  $(input).change(function () {
+  var input = $("form#country-filter input#country");
+  var listItems = $("ul.countries li");
+  var countryHeadings = $(".inner section").not(":first").children("h1");
+
+  var filterHeadings = function() {
+    countryHeadings.each(function(index, elem) {
+      var $elem = $(elem),
+          header = $elem.text();
+      if(headingHasVisibleCountries(header)) {
+        $elem.show();
+      } else {
+        $elem.hide();
+      }
+    });
+  };
+
+  input.change(function () {
     var filter = $(this).val();
 
     if (filter && filter.length > 0) {
-      $(list).find("a:not(:contains(" + filter + "))").parent().hide();
-      $(list).find("a:contains(" + filter + ")").parent().show();
+      listItems.show();
+      listItems.filter(":not(:contains(" + filter + "))").hide();
+      filterHeadings();
     } else {
-      $(list).find("a").parent().show();
+      listItems.show();
+      countryHeadings.show();
     }
 
     return false;

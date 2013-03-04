@@ -91,8 +91,8 @@ class ApplicationController < ActionController::Base
       %w{answer business_support completed_transaction guide licence local_transaction place programme transaction travel-advice video}
     end
 
-    def validate_slug_param(param = :slug)
-      if params[param].parameterize != params[param]
+    def validate_slug_param(param_name = :slug)
+      if params[param_name].parameterize != params[param_name]
         error 404
       end
     rescue ArgumentError # Triggered by malformed UTF-8

@@ -139,12 +139,18 @@ class TravelAdviceControllerTest < ActionController::TestCase
           assert_equal '1', @response.headers["X-Slimmer-Beta"]
         end
 
-        should "set the artefact in the header" do
+        should "set the artefact in the header with a section added" do
           @controller.stubs(:render)
 
           get :country, :country_slug => "turks-and-caicos-islands"
 
-          assert_equal JSON.dump(@artefact), @response.headers["X-Slimmer-Artefact"]
+          header_artefact = JSON.parse(@response.headers["X-Slimmer-Artefact"])
+          assert_equal @artefact["title"], header_artefact["title"]
+          assert_equal @artefact["details"], header_artefact["details"]
+
+          section = header_artefact["tags"].first
+          assert_equal "Foreign travel advice", section["title"]
+          assert_equal "/foreign-travel-advice", section["content_with_tag"]["web_url"]
         end
       end
 

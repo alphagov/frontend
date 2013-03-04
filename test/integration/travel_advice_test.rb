@@ -155,6 +155,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("body.beta .beta-notice")
 
+      within '#global-breadcrumb nav' do
+        assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")
+        assert page.has_selector?("li:nth-child(2) a[href='/foreign-travel-advice']", :text => "Foreign travel advice")
+      end
+
       within '.page-header' do
         assert page.has_content?("Foreign travel advice")
         assert page.has_content?("Turks and Caicos Islands")

@@ -139,7 +139,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
           assert_equal '1', @response.headers["X-Slimmer-Beta"]
         end
 
-        should "set the artefact in the header with a ection added" do
+        should "set the artefact in the header with a section added" do
           @controller.stubs(:render)
 
           get :country, :country_slug => "turks-and-caicos-islands"

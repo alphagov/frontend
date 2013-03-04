@@ -123,6 +123,12 @@ class RootControllerTest < ActionController::TestCase
     assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
   end
 
+  test "should return a 404 without calling content_api if a slug has malformed UTF-8 chars in it" do
+    get :publication, :slug => "br54ba\x9CAQ\xC4\xFD\x928owse"
+    assert_equal "404", response.code
+    assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
+  end
+
   test "should return a 404 if content_api returns a 404 (nil)" do
     content_api_does_not_have_an_artefact("banana")
     prevent_implicit_rendering

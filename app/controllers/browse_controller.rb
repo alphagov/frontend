@@ -5,6 +5,8 @@ class BrowseController < ApplicationController
     error_404
   }
 
+  before_filter(:only => [:section, :sub_section]) { validate_slug_param(:section) }
+  before_filter(:only => [:sub_section]) { validate_slug_param(:sub_section) }
   before_filter :set_expiry
 
   def index

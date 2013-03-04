@@ -8,7 +8,7 @@ class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   before_filter :set_expiry, :only => [:index, :tour]
-  before_filter :validate_slug, :only => [:publication]
+  before_filter :validate_slug_param, :only => [:publication]
 
   PRINT_FORMATS = %w(guide programme)
 
@@ -130,12 +130,6 @@ class RootController < ApplicationController
   end
 
 protected
-
-  def validate_slug
-    if params[:slug].parameterize != params[:slug]
-      error 404
-    end
-  end
 
   def empty_part_list?
     @publication.parts and @publication.parts.empty?

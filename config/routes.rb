@@ -14,6 +14,7 @@ Frontend::Application.routes.draw do
   match "/help/accessibility" => redirect("/support/accessibility")
   match "/help/accessibility-policies" => redirect("/support/accessibility-policies")
   match "/help/cookies" => redirect("/support/cookies")
+  match "/help/browsers" => redirect("/support/browsers")
   match "/help/privacy-policy" => redirect("/support/privacy-policy")
   match "/help" => redirect("/support")
 

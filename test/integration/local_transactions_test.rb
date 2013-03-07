@@ -88,6 +88,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "display the authority name" do
         assert page.has_content?("service is provided by Westminster City Council")
+        assert page.has_link?("Westminster City Council", :href => "http://www.westminster.gov.uk/")
       end
 
       should "show a get started button which links to the interaction" do
@@ -208,6 +209,41 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
           assert page.has_content?("020 1234 567")
         end
       end
+    end
+  end
+
+  context "given a local authority with an empty url" do
+    setup do
+      content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
+        "details" => {
+          "local_authority" => {
+            "name" => "Westminster City Council",
+            "snac" => "00BK",
+            "tier" => "district",
+            "contact_address" => [
+              "123 Example Street",
+              "SW1A 1AA"
+            ],
+            "contact_url" => "",
+            "contact_phone" => "020 1234 567",
+            "contact_email" => "info@westminster.gov.uk",
+          },
+          "local_interaction" => nil
+        }
+      }))
+
+      visit '/pay-bear-tax'
+      fill_in 'postcode', :with => "SW1A 1AA"
+      click_button('Find')
+    end
+
+    should "display the authority name" do
+      assert page.has_content?("service is provided by Westminster City Council")
+    end
+
+    should "not link to the authority" do
+      assert page.has_no_link?("Westminster City Council")
+      assert page.has_no_content?("you could try the Westminster City Council website")
     end
   end
 

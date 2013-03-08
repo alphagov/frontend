@@ -40,20 +40,25 @@
 
         <% if @local_transaction_details['local_authority'] %>
           <% authority = @local_transaction_details['local_authority'] %>
-            <div class="contact vcard">
-              <p>This service is provided by
-                <% if authority['contact_url'].present? %>
-                  <a class="url fn org" rel="external" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a>
-                <% else %>
-                  <%= authority['name'] %>
-                <% end %>
-                <%= link_to '(change location)', publication_path(@publication.slug) %></p>
+          <div class="contact vcard">
+            <p>This service is provided by
+              <% if authority['contact_url'].present? %>
+                <a class="url fn org" rel="external" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a>
+              <% else %>
+                <%= authority['name'] %>
+              <% end %>
+              <%= link_to '(change location)', publication_path(@publication.slug) %>
+            </p>
 
-              <% unless @local_transaction_details['local_interaction'] %>
-                <% if authority['contact_address'] %><div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div><% end %>
+            <% unless @local_transaction_details['local_interaction'] %>
+              <% if authority['contact_address'] %>
+                <div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div>
+              <% end %>
+              <% if authority['contact_phone'].present? %>
                 <p class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></p>
               <% end %>
-            </div>
+            <% end %>
+          </div>
         <% end %>
 
         <section class="more">

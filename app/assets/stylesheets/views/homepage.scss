@@ -1,3 +1,5 @@
+@import '_shims.scss';
+
 .root-index {
   section#content {
     margin: 0 auto;
@@ -57,37 +59,31 @@
 
       li {
         @include core-19;
-        display: block;
-        border-bottom:1px solid $border-colour;
-        float: left;
-        clear: left;
+        @include inline-block;
+        border-top:1px solid $border-colour;
         width: 45.5%;
-        margin-left: 4.5%;
+        margin-left: 4.2%;
+        vertical-align: top;
+
+        @include ie(8) {
+          margin-left: 4.15%;
+        }
 
         @include media(desktop) {
 
-          &:nth-child(11n) {
-            border-bottom:none;
+          &:nth-child(2) {
+            border-top: none;
+          }
+
+          @include ie-lte(8) {
+            &.nth-child {
+              border-top: none;
+            }
           }
         }
 
-        &:nth-child(even) {
-          float: right;
-          clear: none;
-        }
-
-        @include ie-lte(8) {
-          display: inline;
-          min-height: 4.5em;
-          clear: none;
-        }
-
-        @include ie(6) {
-          height: 4.5em;
-        }
-
         @include media(mobile) {
-          float: none;
+          display: block;
           width: 100%;
           margin-left: 0;
 
@@ -101,7 +97,7 @@
           margin:0;
         }
 
-        &:last-child {
+        &:first-child {
           border:none;
         }
       }

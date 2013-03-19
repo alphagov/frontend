@@ -16,6 +16,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/foreign-travel-advice/luxembourg.atom']"
       assert page.has_xpath? ".//feed/entry", :count => 1
       assert page.has_xpath? ".//feed/entry/title", :text => "Luxembourg"
+      assert page.has_xpath? ".//feed/entry/id", :text => "tag:www.gov.uk,2005:/foreign-travel-advice/luxembourg/2013-01-31T11:35:17+00:00"
       assert page.has_xpath? ".//feed/entry/link[@href='https://www.gov.uk/foreign-travel-advice/luxembourg']"
       assert page.has_xpath? ".//feed/entry/summary[@type='xhtml']/div/p", :text => "The issue with the Knights of Ni has been resolved."
     end
@@ -37,18 +38,21 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry", :count => 3
 
       assert page.has_xpath? ".//feed/entry[1]/title", :text => "Syria"
+      assert page.has_xpath? ".//feed/entry[1]/id", :text => "tag:www.gov.uk,2005:/foreign-travel-advice/syria/2013-02-23T11:31:08+00:00"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/syria']"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/syria.atom']"
       assert page.has_xpath? ".//feed/entry[1]/updated", :text => "2013-02-23T11:31:08+00:00"
       assert page.has_xpath? ".//feed/entry[1]/summary[@type='xhtml']/div/div[@class='application-notice help-notice']/p", :text => "Serious problems in the country."
 
       assert page.has_xpath? ".//feed/entry[2]/title", :text => "Luxembourg"
+      assert page.has_xpath? ".//feed/entry[2]/id", :text => "tag:www.gov.uk,2005:/foreign-travel-advice/luxembourg/2013-01-15T16:48:54+00:00"
       assert page.has_xpath? ".//feed/entry[2]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/luxembourg']"
       assert page.has_xpath? ".//feed/entry[2]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/luxembourg.atom']"
       assert page.has_xpath? ".//feed/entry[2]/updated", :text => "2013-01-15T16:48:54+00:00"
       assert page.has_xpath? ".//feed/entry[2]/summary[@type='xhtml']/div/p", :text => "The issue with the Knights of Ni has been resolved."
 
       assert page.has_xpath? ".//feed/entry[3]/title", :text => "Portugal"
+      assert page.has_xpath? ".//feed/entry[3]/id", :text => "tag:www.gov.uk,2005:/foreign-travel-advice/portugal/2012-02-22T11:31:08+00:00"
       assert page.has_xpath? ".//feed/entry[3]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/portugal']"
       assert page.has_xpath? ".//feed/entry[3]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/portugal.atom']"
       assert page.has_xpath? ".//feed/entry[3]/updated", :text => "2012-02-22T11:31:08+00:00"

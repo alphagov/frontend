@@ -36,6 +36,8 @@
 
 <% content_for :extra_headers do %>
   <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
+  <%= auto_discovery_link_tag :atom, travel_advice_country_path(@publication.country['slug'], :format => :atom),
+    :title => "Recent updates for #{@publication.country['name']}" %>
   <%- if @part and @publication.has_previous_part?(@part) -%>
     <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
   <%- end -%>

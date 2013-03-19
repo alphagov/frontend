@@ -21,6 +21,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'head' do
         assert page.has_selector?("title", :text => "Foreign travel advice")
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']")
       end
 
       assert page.has_selector?("body.beta .beta-notice")
@@ -151,6 +152,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'head' do
         assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']")
       end
 
       assert page.has_selector?("body.beta .beta-notice")

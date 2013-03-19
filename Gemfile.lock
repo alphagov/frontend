@@ -114,7 +114,7 @@ GEM
       treetop (~> 1.4.8)
     metaclass (0.0.1)
     mime-types (1.21)
-    mocha (0.12.7)
+    mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.7.1)
     mustache (0.99.4)
@@ -243,7 +243,7 @@ DEPENDENCIES
   govuk_frontend_toolkit (= 0.10.0)
   launchy
   lograge (~> 0.1.0)
-  mocha
+  mocha (= 0.13.3)
   mustache
   plek (= 1.2.0)
   poltergeist (= 0.7.0)

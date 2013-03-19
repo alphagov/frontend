@@ -8,15 +8,11 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'test/unit'
-require 'mocha'
+require 'mocha/setup'
 require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
 
 require 'gds_api/test_helpers/content_api'
-
-Mocha::Integration.monkey_patches.each do |patch|
-  require patch
-end
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.

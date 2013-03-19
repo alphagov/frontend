@@ -10,7 +10,7 @@
 <% if publication.alert_status.present? %>
   <div class="application-notice help-notice">
     <% publication.alert_status.each do |alert| %>
-      <p><%= t "travel_advice.alert_status.#{alert}" %></p>
+      <p><%= raw t("travel_advice.alert_status.#{alert}") %></p>
     <% end %>
   </div>
 <% else %>

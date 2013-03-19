@@ -189,8 +189,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Updated: 16 January 2013")
 
         within '.application-notice.help-notice' do
-          assert page.has_content?("Avoid all travel to parts of the country")
-          assert page.has_content?("Avoid all but essential travel to the whole country")
+          assert page.has_content?("The FCO advise against all travel to parts of the country")
+          assert page.has_content?("The FCO advise against all but essential travel to the whole country")
+          assert page.has_selector?("abbr[title='Foreign and Commonwealth Office']", :text => "FCO", :count => 2)
         end
 
         assert page.has_selector?("img[src='https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg']")
@@ -279,8 +280,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 16 January 2013")
           within '.application-notice.help-notice' do
-            assert page.has_content?("Avoid all travel to parts of the country")
-            assert page.has_content?("Avoid all but essential travel to the whole country")
+            assert page.has_content?("The FCO advise against all travel to parts of the country")
+            assert page.has_content?("The FCO advise against all but essential travel to the whole country")
           end
           assert page.has_selector?("h3", :text => "This is the summary")
         end

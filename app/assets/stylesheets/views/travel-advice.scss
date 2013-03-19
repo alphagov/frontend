@@ -8,6 +8,11 @@
       li {
         list-style: none;
         padding-left: 0;
+        .meta{
+          @include core-16;
+          color: $grey-2;
+
+        }
       }
     }
 

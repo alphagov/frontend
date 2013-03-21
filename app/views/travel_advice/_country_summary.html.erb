@@ -13,8 +13,6 @@
       <p><%= raw t("travel_advice.alert_status.#{alert}") %></p>
     <% end %>
   </div>
-<% else %>
-  <p>There are no travel restrictions in place for <%= publication.country['name'] %>.</p>
 <% end %>
 
 <% if publication.image %>

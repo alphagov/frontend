@@ -23,11 +23,9 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
   end
 
   context "aggregate feed" do
-    setup do
-      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index2.json')
-    end
-
     should "display the list of countries as an atom feed" do
+      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index2.json')
+
       visit '/foreign-travel-advice.atom'
       assert_equal 200, page.status_code
 
@@ -57,6 +55,20 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry[3]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/portugal.atom']"
       assert page.has_xpath? ".//feed/entry[3]/updated", :text => "2012-02-22T11:31:08+00:00"
       assert page.has_xpath? ".//feed/entry[3]/summary[@type='xhtml']/div/p", :text => "Added information about sunburn risks."
+    end
+
+    should "only include the 20 most recently updated countries" do
+      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index_large.json')
+
+      visit '/foreign-travel-advice.atom'
+      assert_equal 200, page.status_code
+
+      assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
+
+      assert page.has_xpath? ".//feed/entry", :count => 20
+
+      assert page.has_xpath? ".//feed/entry[1]/title", :text => "First"
+      assert page.has_xpath? ".//feed/entry[20]/title", :text => "Twentieth"
     end
   end
 end

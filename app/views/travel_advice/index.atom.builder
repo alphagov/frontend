@@ -4,7 +4,7 @@ atom_feed(:root_url => "https://www.gov.uk/travel-advice") do |feed|
   feed.author do |author|
     author.name "GOV.UK"
   end
-  @publication.countries_by_date.each do |country|
+  @publication.countries_by_date.take(20).each do |country|
     feed.entry(country,
                :id => "#{country['web_url']}##{country['updated_at']}",
                :url => country['web_url']) do |entry|

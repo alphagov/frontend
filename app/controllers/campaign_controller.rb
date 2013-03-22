@@ -17,6 +17,10 @@ class CampaignController < ApplicationController
   def new_licence_rules
   end
 
+  def fire_kills
+
+  end
+
 protected
   def setup_slimmer_artefact
     set_slimmer_headers(format: 'campaign')

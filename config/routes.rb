@@ -34,6 +34,7 @@ Frontend::Application.routes.draw do
   match "/ukwelcomes", :to => "campaign#uk_welcomes"
   match "/sortmytax", :to => "campaign#sort_my_tax"
   match "/newlicencerules", :to => "campaign#new_licence_rules"
+  match "/knowbeforeyougo", :to => "campaign#know_before_you_go"
 
   # Jobssearch form override (English and Welsh variants)
   match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobsearch|chwilio-am-swydd)/}

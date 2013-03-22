@@ -10,11 +10,14 @@ class CampaignController < ApplicationController
 
   def uk_welcomes
   end
-  
+
   def sort_my_tax
   end
-  
+
   def new_licence_rules
+  end
+
+  def know_before_you_go
   end
 
 protected

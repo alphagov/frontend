@@ -32,6 +32,11 @@ class CampaignControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  should "load the firekills campaign" do
+    get :fire_kills
+    assert_response :success
+  end
+
   should "load the know before you go campaign" do
     get :know_before_you_go
     assert_response :success

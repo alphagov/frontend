@@ -17,6 +17,9 @@ class CampaignController < ApplicationController
   def new_licence_rules
   end
 
+  def fire_kills
+  end
+
   def know_before_you_go
   end
 

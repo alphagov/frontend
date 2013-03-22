@@ -1,6 +1,5 @@
 <aside>
   <div class="inner">
-
     <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
 
     <nav role="navigation" class="page-navigation">
@@ -35,7 +34,7 @@
     </nav>
   </div>
   <ul class="subscriptions">
-    <li><a href="" class="feed">Atom/RSS</a></li>
-    <li><a href="" class="email-alerts">Email alerts</a></li>
+    <li><%= link_to "Atom/RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
+    <li><a href="https://stage-public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts">Email alerts</a></li>
   </ul>
 </aside>

@@ -24,6 +24,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']")
       end
 
+      assert page.has_selector?("body.beta .beta-notice")
+
       assert page.has_selector?("#wrapper.travel-advice.guide")
 
       within '#content' do
@@ -152,6 +154,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']")
       end
+
+      assert page.has_selector?("body.beta .beta-notice")
 
       within '#global-breadcrumb nav' do
         assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")

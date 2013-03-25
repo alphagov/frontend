@@ -180,6 +180,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_link?("The Bridge of Death", :href => "/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death")
       end
 
+      within '.subscriptions' do
+        assert page.has_link?("Atom/RSS", :href => "/foreign-travel-advice/turks-and-caicos-islands.atom")
+      end
+
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 

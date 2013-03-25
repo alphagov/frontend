@@ -31,7 +31,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Foreign travel advice")
         end
 
-        within "#recently-updated" do
+        within "#recently-updated ul.updated-countries" do
           assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"],
                        page.all("li a").map(&:text)
           assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013",

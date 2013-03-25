@@ -21,7 +21,7 @@
             <li><%= link_to "Atom/RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
             <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external">Email alerts</a></li>
           </ul>
-          <ul>
+          <ul class="updated-countries">
             <% @publication.countries_recently_updated.each do |country| %>
             <li>
               <%= link_to country['name'], travel_advice_country_path(country['identifier']) %>

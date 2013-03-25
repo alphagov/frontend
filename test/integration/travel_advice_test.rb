@@ -31,7 +31,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Foreign travel advice")
         end
 
-        within "#recently-updated" do
+        within "#recently-updated ul.updated-countries" do
           assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"],
                        page.all("li a").map(&:text)
           assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013",
@@ -178,6 +178,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_link?("Page Two", :href => "/foreign-travel-advice/turks-and-caicos-islands/page-two")
         assert page.has_link?("The Bridge of Death", :href => "/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death")
+      end
+
+      within '.subscriptions' do
+        assert page.has_link?("Atom/RSS", :href => "/foreign-travel-advice/turks-and-caicos-islands.atom")
       end
 
       within 'article' do

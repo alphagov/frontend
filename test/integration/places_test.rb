@@ -72,7 +72,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Enter your postcode to find a passport interview office near you.")
     end
 
-    within ".find-nearest" do
+    within first(".find-nearest") do
       assert page.has_field?("Enter a UK postcode")
       assert page.has_button?("Find")
     end
@@ -111,7 +111,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         names = page.all("li p.adr span.fn").map(&:text)
         assert_equal ["London IPS Office", "Crawley IPS Office"], names
 
-        within 'li:first-child' do
+        within first('li:first-child') do
           assert page.has_content?("89 Eccleston Square")
           assert page.has_content?("London")
           assert page.has_content?("SW1V 1PN")
@@ -166,7 +166,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display the postcode form" do
-      within ".find-nearest" do
+      within first(".find-nearest") do
         assert page.has_field?("Enter a UK postcode")
         assert page.has_button?("Find")
       end

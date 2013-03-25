@@ -10,12 +10,12 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
 
     within 'head' do
-      assert page.has_selector?("title", :text => "Reduced Earnings Allowance - GOV.UK")
+      assert_equal "Reduced Earnings Allowance - GOV.UK", find("title").native.text
       assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/reduced-earnings-allowance.json']")
     end
 
     within '#content' do
-      within 'header' do
+      within first('header') do
         assert page.has_content?("Reduced Earnings Allowance")
         assert page.has_content?("Benefits & credits")
         assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
@@ -117,7 +117,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
 
     within '#content' do
-      within 'header' do
+      within first('header') do
         assert page.has_content?("Budd-daliadau a chredydau")
         assert page.has_content?("Reduced Earnings Allowance")
         assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
@@ -170,8 +170,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     visit "/reduced-earnings-allowance/print"
 
     within "section[role=main]" do
-      within "header h1" do
-        assert page.has_content?("Benefits & credits: Reduced Earnings Allowance")
+      within first("header") do
+        assert_equal "Benefits & credits: Reduced Earnings Allowance", find("h1").text
       end
 
       within "article#overview" do
@@ -181,7 +181,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
       within "article#what-youll-get" do
         assert page.has_selector?("header h1", :text => "Part 2: What you'll get")
-        assert page.has_selector?("p", :text => "£63.24 per week is the maximum rate. ")
+        assert_equal "£63.24 per week is the maximum rate.", first("p").text
       end
 
       within "article#eligibility" do
@@ -213,8 +213,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     visit "/reduced-earnings-allowance/print"
 
     within "section[role=main]" do
-      within "header h1" do
-        assert page.has_content?("Budd-daliadau a chredydau: Reduced Earnings Allowance")
+      within first("header") do
+        assert_equal "Budd-daliadau a chredydau: Reduced Earnings Allowance", find("h1").text
       end
 
       within "article#overview" do

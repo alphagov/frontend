@@ -11,7 +11,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Register to vote - GOV.UK")
+        assert_equal "Register to vote - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/register-to-vote.json']")
       end
 
@@ -92,7 +92,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Apply for your first provisional driving licence - GOV.UK")
+        assert_equal "Apply for your first provisional driving licence - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/apply-first-provisional-driving-licence.json']")
       end
 
@@ -166,7 +166,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Find a job with Universal Jobmatch - GOV.UK")
+        assert_equal "Find a job with Universal Jobmatch - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobsearch.json']")
       end
 

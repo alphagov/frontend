@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 protected
   def error_404; error 404; end
   def error_410; error 410; end
-  def error_503(e); error 503, e; end
+  def error_503(e); error(503, e); end
 
   def error(status_code, exception = nil)
     if exception

@@ -39,9 +39,12 @@
       }
 
       return false;
-
     }).keyup(function() {
       $(this).change();
+    }).keypress(function(event) {
+      if (event.which == 13) {
+        event.preventDefault();
+      }
     });
   });
 }(jQuery));

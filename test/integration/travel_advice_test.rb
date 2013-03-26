@@ -70,8 +70,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "not show any countries if none match" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "z"
         end
@@ -90,8 +88,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "hide the letter headings when no countries are shown under it" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "z"
         end
@@ -104,8 +100,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "show the letter headings when there are countries underneath it" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "Aruba"
         end
@@ -117,8 +111,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "show only countries that match" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "B"
         end
@@ -133,6 +125,38 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within "#T" do
           assert page.has_selector?("li", visible: false)
+        end
+      end
+
+      context "with the javascript driver" do
+        setup do
+          Capybara.current_driver = Capybara.javascript_driver
+          visit "/foreign-travel-advice"
+        end
+
+        should "not refresh page when hitting enter within the country filer" do
+          within "#country-filter" do
+            fill_in "country", :with => "Aruba"
+
+            page.execute_script %Q(
+              var country = jQuery("#country");
+              country.trigger(jQuery.Event("keydown", {which: $.ui.keyCode.ENTER}));
+            )
+          end
+
+          assert_equal "/foreign-travel-advice", current_path
+
+          within "#A" do
+            assert page.has_selector?("li", visible: true)
+          end
+
+          within "#P" do
+            assert page.has_selector?("li", visible: false)
+          end
+
+          within "#T" do
+            assert page.has_selector?("li", visible: false)
+          end
         end
       end
     end

@@ -1,4 +1,4 @@
-atom_feed(:root_url => travel_advice_url) do |feed|
+atom_feed(:root_url => travel_advice_url, :id => travel_advice_url) do |feed|
   feed.title("Travel Advice Summary")
   feed.updated(DateTime.parse(@publication.countries_by_date.first['updated_at']))
   feed.author do |author|

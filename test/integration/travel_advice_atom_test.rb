@@ -9,6 +9,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
+      assert page.has_xpath? ".//feed/id", :text => "https://www.gov.uk/foreign-travel-advice/luxembourg"
       assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
       assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/foreign-travel-advice/luxembourg.atom']"
       assert page.has_xpath? ".//feed/entry", :count => 1
@@ -40,6 +41,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       visit '/foreign-travel-advice.atom'
       assert_equal 200, page.status_code
 
+      assert page.has_xpath? ".//feed/id", :text => "http://www.example.com/foreign-travel-advice"
       assert page.has_xpath? ".//feed/title", :text => "Travel Advice Summary"
 
       assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/foreign-travel-advice.atom']"

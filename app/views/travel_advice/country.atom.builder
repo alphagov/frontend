@@ -1,4 +1,4 @@
-atom_feed(:root_url => @publication.web_url) do |feed|
+atom_feed(:root_url => @publication.web_url, :id => @publication.web_url) do |feed|
   feed.title("Travel Advice Summary")
   feed.updated @publication.updated_at
   feed.author do |author|

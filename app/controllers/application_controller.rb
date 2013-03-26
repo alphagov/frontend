@@ -15,21 +15,24 @@ class ApplicationController < ActionController::Base
   include GdsApi::Helpers
   include Slimmer::Headers
 
-  def error_404; error 404; end
-  def error_410; error 410; end
-  def error_503; error 503; end
-
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
   rescue_from RecordArchived, with: :error_410
   rescue_from UnsupportedArtefactFormat, with: :error_404
 
-  def error(status_code)
+protected
+  def error_404; error 404; end
+  def error_410; error 410; end
+  def error_503(e); error 503, e; end
+
+  def error(status_code, exception = nil)
+    if exception
+      ExceptionNotifier::Notifier.exception_notification(request.env, exception).deliver
+    end
     render status: status_code, text: "#{status_code} error"
   end
 
-protected
   def statsd
     @statsd ||= Statsd.new("localhost").tap do |c|
       c.namespace = ENV['GOVUK_STATSD_PREFIX'].to_s

@@ -12,7 +12,7 @@ atom_feed(:root_url => travel_advice_url) do |feed|
       entry.link(:rel => "self", :type => "application/atom+xml", :href => "#{country['web_url']}.atom")
       entry.updated(country['updated_at'])
       entry.summary(:type => :xhtml) do |summary|
-        summary << country['change_description']
+        summary << numericise_html_entities(country['change_description'])
       end
     end
   end

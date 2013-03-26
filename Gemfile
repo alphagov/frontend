@@ -16,6 +16,7 @@ gem 'plek', '1.2.0'
 gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'rummageable', '0.5.0'
+gem 'htmlentities', '4.3.1'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'

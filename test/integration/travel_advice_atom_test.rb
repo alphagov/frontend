@@ -3,11 +3,8 @@ require_relative '../integration_test_helper'
 class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
 
   context "on a single country page" do
-    setup do
-      setup_api_responses "foreign-travel-advice/luxembourg"
-    end
-
     should "display the atom feed for a country" do
+      setup_api_responses "foreign-travel-advice/luxembourg"
       visit "/foreign-travel-advice/luxembourg.atom"
 
       assert_equal 200, page.status_code
@@ -19,6 +16,20 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry/id", :text => "https://www.gov.uk/foreign-travel-advice/luxembourg#2013-01-31T11:35:17+00:00"
       assert page.has_xpath? ".//feed/entry/link[@href='https://www.gov.uk/foreign-travel-advice/luxembourg']"
       assert page.has_xpath? ".//feed/entry/summary[@type='xhtml']/div/p", :text => "The issue with the Knights of Ni has been resolved."
+    end
+
+    should "handle xhtml entities in a way that's valid in xml" do
+      setup_api_responses "foreign-travel-advice/afghanistan"
+
+      visit "/foreign-travel-advice/afghanistan.atom"
+
+      assert_equal 200, page.status_code
+
+      assert page.has_xpath? ".//feed/entry", :count => 1
+      assert page.has_xpath? ".//feed/entry/title", :text => "Afghanistan"
+
+      # 8220 and 8221 are the decimal versions of smart-quotes (&ldquo; and &rdquo;)
+      assert_match /Travel advice for Afghanistan has been updated\. &#8220;GOV\.UK&#8221;/, page.body
     end
   end
 

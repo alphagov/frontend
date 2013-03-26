@@ -1,5 +1,5 @@
 (function($) {
-  jQuery.expr[':'].contains = function(obj, index, meta){
+  $.expr[':'].contains = function(obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
@@ -39,9 +39,12 @@
       }
 
       return false;
-
     }).keyup(function() {
       $(this).change();
+    }).keypress(function(event) {
+      if (event.which == 13) {
+        event.preventDefault();
+      }
     });
   });
 }(jQuery));

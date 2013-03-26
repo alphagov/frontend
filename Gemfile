@@ -60,8 +60,8 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
-  gem 'capybara', '1.1.2'
-  gem 'poltergeist', '0.7.0'
+  gem 'capybara', '2.0.2'
+  gem 'poltergeist', '1.1.0'
   gem "launchy"
   gem "shoulda"
 end

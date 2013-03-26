@@ -19,7 +19,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Foreign travel advice")
+        assert_equal "Foreign travel advice - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']")
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']")
       end
@@ -35,7 +35,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"],
                        page.all("li a").map(&:text)
           assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013",
-                        "updated  3 February 2013", "updated  2 February 2013"],
+                        "updated 3 February 2013", "updated 2 February 2013"],
                        page.all("li span").map(&:text)
         end
 
@@ -148,7 +148,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
+        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']")
       end
@@ -212,7 +212,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
+        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
       end
 
@@ -241,7 +241,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
+        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
       end
 
@@ -311,7 +311,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Luxembourg travel advice")
+        assert_equal "Luxembourg travel advice - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/luxembourg.json']")
       end
 

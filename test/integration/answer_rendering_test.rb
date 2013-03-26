@@ -10,12 +10,12 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
 
     within 'head' do
-      assert page.has_selector?("title", :text => "VAT rates - GOV.UK")
-      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/vat-rates.json']")
+      assert_equal "VAT rates - GOV.UK", find("title").native.text
+      assert has_selector?("link[rel=alternate][type='application/json'][href='/api/vat-rates.json']")
     end
 
     within '#content' do
-      within 'header' do
+      within first('header') do
         assert page.has_content?("VAT rates")
         assert page.has_content?("Quick answer")
         assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
@@ -26,7 +26,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
           assert page.has_selector?(".highlight-answer p em", :text => "20%")
         end
 
-        assert page.has_selector?(".modified-date", :text => "Last updated:  2 October 2012")
+        assert_equal "Last updated: 2 October 2012", find(".modified-date").text
 
         assert page.has_selector?("#test-report_a_problem")
       end
@@ -54,7 +54,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
-        assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf:  2 Hydref 2012")
+        assert_equal "Diweddarwyd diwethaf: 2 Hydref 2012", find(".modified-date").text
       end
     end # within #content
   end

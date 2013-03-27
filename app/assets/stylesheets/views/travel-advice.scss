@@ -82,6 +82,10 @@
       list-style-image: none;
     }
 
+    @include media(mobile) {
+      padding-left: 1em;
+    }
+
     a {
       padding-left: 28px;
       height: 16px;
@@ -96,6 +100,7 @@
         background-image: image-url("travel-advice/mail-icon.png");
         @include device-pixel-ratio() {
           background-image: image-url("travel-advice/mail-icon-x2.png");
+          background-size: 20px 14px;
         }
       }
     }

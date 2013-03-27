@@ -95,7 +95,7 @@ protected
     if params[param_name].parameterize != params[param_name]
       error 404
     end
-  rescue ArgumentError # Triggered by malformed UTF-8
+  rescue StandardError # Triggered by trying to parameterize malformed UTF-8
     error 404
   end
 

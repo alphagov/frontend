@@ -8,6 +8,7 @@ class TravelAdviceIndexPresenter < PublicationPresenter
     def title
       self.name
     end
+    alias :country_name :title
   end
 
   def wrapper_classes

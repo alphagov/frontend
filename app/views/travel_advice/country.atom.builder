@@ -1,4 +1,4 @@
-atom_feed(:root_url => @publication.web_url) do |feed|
+atom_feed(:root_url => @publication.web_url, :id => @publication.web_url) do |feed|
   feed.title("Travel Advice Summary")
   feed.updated @publication.updated_at
   feed.author do |author|
@@ -9,7 +9,7 @@ atom_feed(:root_url => @publication.web_url) do |feed|
               :url => @publication.web_url) do |entry|
     entry.title(@publication.title)
     entry.summary(:type => :xhtml) do |summary|
-      summary << @publication.change_description
+      summary << numericise_html_entities(@publication.change_description)
     end
   end
 end

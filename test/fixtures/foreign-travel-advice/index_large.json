@@ -18,7 +18,7 @@
       "name": "First",
       "identifier": "1",
       "web_url": "https://www.gov.uk/foreign-travel-advice/1",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-21T13:59:15Z"
     },
     {
@@ -26,7 +26,7 @@
       "name": "2",
       "identifier": "2",
       "web_url": "https://www.gov.uk/foreign-travel-advice/2",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-20T13:59:15Z"
     },
     {
@@ -34,7 +34,7 @@
       "name": "3",
       "identifier": "3",
       "web_url": "https://www.gov.uk/foreign-travel-advice/3",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-19T13:59:15Z"
     },
     {
@@ -42,7 +42,7 @@
       "name": "4",
       "identifier": "4",
       "web_url": "https://www.gov.uk/foreign-travel-advice/4",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-18T13:59:15Z"
     },
     {
@@ -50,7 +50,7 @@
       "name": "5",
       "identifier": "5",
       "web_url": "https://www.gov.uk/foreign-travel-advice/5",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-17T13:59:15Z"
     },
     {
@@ -58,7 +58,7 @@
       "name": "6",
       "identifier": "6",
       "web_url": "https://www.gov.uk/foreign-travel-advice/6",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-16T13:59:15Z"
     },
     {
@@ -66,7 +66,7 @@
       "name": "7",
       "identifier": "7",
       "web_url": "https://www.gov.uk/foreign-travel-advice/7",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-15T13:59:15Z"
     },
     {
@@ -74,7 +74,7 @@
       "name": "8",
       "identifier": "8",
       "web_url": "https://www.gov.uk/foreign-travel-advice/8",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-14T13:59:15Z"
     },
     {
@@ -82,7 +82,7 @@
       "name": "9",
       "identifier": "9",
       "web_url": "https://www.gov.uk/foreign-travel-advice/9",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-13T13:59:15Z"
     },
     {
@@ -90,7 +90,7 @@
       "name": "10",
       "identifier": "10",
       "web_url": "https://www.gov.uk/foreign-travel-advice/10",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-12T13:59:15Z"
     },
     {
@@ -98,7 +98,7 @@
       "name": "11",
       "identifier": "11",
       "web_url": "https://www.gov.uk/foreign-travel-advice/11",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-11T13:59:15Z"
     },
     {
@@ -106,7 +106,7 @@
       "name": "12",
       "identifier": "12",
       "web_url": "https://www.gov.uk/foreign-travel-advice/12",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-10T13:59:15Z"
     },
     {
@@ -114,7 +114,7 @@
       "name": "13",
       "identifier": "13",
       "web_url": "https://www.gov.uk/foreign-travel-advice/13",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-09T13:59:15Z"
     },
     {
@@ -122,7 +122,7 @@
       "name": "14",
       "identifier": "14",
       "web_url": "https://www.gov.uk/foreign-travel-advice/14",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-08T13:59:15Z"
     },
     {
@@ -130,7 +130,7 @@
       "name": "15",
       "identifier": "15",
       "web_url": "https://www.gov.uk/foreign-travel-advice/15",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-07T13:59:15Z"
     },
     {
@@ -138,7 +138,7 @@
       "name": "16",
       "identifier": "16",
       "web_url": "https://www.gov.uk/foreign-travel-advice/16",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-06T13:59:15Z"
     },
     {
@@ -146,7 +146,7 @@
       "name": "17",
       "identifier": "17",
       "web_url": "https://www.gov.uk/foreign-travel-advice/17",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-05T13:59:15Z"
     },
     {
@@ -154,7 +154,7 @@
       "name": "18",
       "identifier": "18",
       "web_url": "https://www.gov.uk/foreign-travel-advice/18",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-04T13:59:15Z"
     },
     {
@@ -162,7 +162,7 @@
       "name": "19",
       "identifier": "19",
       "web_url": "https://www.gov.uk/foreign-travel-advice/19",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-03T13:59:15Z"
     },
     {
@@ -170,7 +170,7 @@
       "name": "Twentieth",
       "identifier": "20",
       "web_url": "https://www.gov.uk/foreign-travel-advice/20",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-02T13:59:15Z"
     },
     {
@@ -178,7 +178,7 @@
       "name": "21",
       "identifier": "21",
       "web_url": "https://www.gov.uk/foreign-travel-advice/21",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-03-01T13:59:15Z"
     },
     {
@@ -186,7 +186,7 @@
       "name": "22",
       "identifier": "22",
       "web_url": "https://www.gov.uk/foreign-travel-advice/22",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-02-28T13:59:15Z"
     },
     {
@@ -194,7 +194,7 @@
       "name": "23",
       "identifier": "23",
       "web_url": "https://www.gov.uk/foreign-travel-advice/23",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-02-27T13:59:15Z"
     },
     {
@@ -202,7 +202,7 @@
       "name": "24",
       "identifier": "24",
       "web_url": "https://www.gov.uk/foreign-travel-advice/24",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-02-26T13:59:15Z"
     },
     {
@@ -210,7 +210,7 @@
       "name": "25",
       "identifier": "25",
       "web_url": "https://www.gov.uk/foreign-travel-advice/25",
-      "change_description": "<p>Stuff</p>",
+      "change_description": "Stuff",
       "updated_at": "2013-02-25T13:59:15Z"
     }
     ]

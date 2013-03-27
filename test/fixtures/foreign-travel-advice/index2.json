@@ -18,7 +18,7 @@
               "name": "Luxembourg",
               "identifier": "luxembourg",
               "web_url": "https://www.gov.uk/foreign-travel-advice/luxembourg",
-              "change_description": "<p>The issue with the Knights of Ni has been resolved.</p>\n",
+              "change_description": "The issue with the Knights of Ni has been resolved.",
               "updated_at": "2013-01-15T16:48:54+00:00"
           },
           {
@@ -26,7 +26,7 @@
               "name": "Portugal",
               "identifier": "portugal",
               "web_url": "https://www.gov.uk/foreign-travel-advice/portugal",
-              "change_description": "<p>Added information about sunburn risks.</p>\n",
+              "change_description": "Added information about sunburn risks.",
               "updated_at": "2012-02-22T11:31:08+00:00"
           },
           {
@@ -34,7 +34,7 @@
               "name": "Syria",
               "identifier": "syria",
               "web_url": "https://www.gov.uk/foreign-travel-advice/syria",
-              "change_description": "<div class=\"application-notice help-notice\">\n<p>Serious problems in the country.</p>\n</div>\n",
+              "change_description": "Serious problems in the country.\n\nBad stuff is happening",
               "updated_at": "2013-02-23T11:31:08+00:00"
           }
       ]

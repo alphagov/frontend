@@ -27,7 +27,7 @@ protected
   def error_503(e); error(503, e); end
 
   def error(status_code, exception = nil)
-    if exception
+    if exception and Rails.application.config.middleware.detect{ |x| x.klass == ExceptionNotifier }
       ExceptionNotifier::Notifier.exception_notification(request.env, exception).deliver
     end
     render status: status_code, text: "#{status_code} error"

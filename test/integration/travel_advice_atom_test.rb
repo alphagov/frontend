@@ -19,7 +19,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry/summary[@type='xhtml']/div/p", :text => "The issue with the Knights of Ni has been resolved."
     end
 
-    should "handle xhtml entities in a way that's valid in xml" do
+    should "handle special chars in a way that's valid in xml" do
       setup_api_responses "foreign-travel-advice/afghanistan"
 
       visit "/foreign-travel-advice/afghanistan.atom"
@@ -29,8 +29,9 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry", :count => 1
       assert page.has_xpath? ".//feed/entry/title", :text => "Afghanistan"
 
+      # 233 is decimal version of eacute (é)
       # 8220 and 8221 are the decimal versions of smart-quotes (&ldquo; and &rdquo;)
-      assert_match /Travel advice for Afghanistan has been updated\. &#8220;GOV\.UK&#8221;/, page.body
+      assert_match /Travel advic&#233; for &quot;Afghanistan&quot; has been updated &amp; is better\. &#8220;GOV\.UK&#8221;/, page.body
     end
   end
 
@@ -54,7 +55,8 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry[1]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/syria']"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/syria.atom']"
       assert page.has_xpath? ".//feed/entry[1]/updated", :text => "2013-02-23T11:31:08+00:00"
-      assert page.has_xpath? ".//feed/entry[1]/summary[@type='xhtml']/div/div[@class='application-notice help-notice']/p", :text => "Serious problems in the country."
+      assert page.has_xpath? ".//feed/entry[1]/summary[@type='xhtml']/div/p", :text => "Serious problems in the country."
+      assert page.has_xpath? ".//feed/entry[1]/summary[@type='xhtml']/div/p", :text => "Bad stuff is happening"
 
       assert page.has_xpath? ".//feed/entry[2]/title", :text => "Luxembourg"
       assert page.has_xpath? ".//feed/entry[2]/id", :text => "https://www.gov.uk/foreign-travel-advice/luxembourg#2013-01-15T16:48:54+00:00"

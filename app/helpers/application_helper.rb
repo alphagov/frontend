@@ -1,3 +1,5 @@
+require 'htmlentities'
+
 module ApplicationHelper
   def page_title(artefact, publication=nil)
     if publication
@@ -46,5 +48,13 @@ module ApplicationHelper
     path = "/api/#{publication.slug}.json"
     path += "?edition=#{opts[:edition]}" if opts[:edition]
     path
+  end
+
+  # Convert entities in the form &ldquo; to numeric form (&#8220;)
+  # This is needed for inserting html snippets into xml documents (e.g. atom feeds) as
+  # XML only defines 5 named entities and any others are invalid.
+  def numericise_html_entities(string)
+    coder = HTMLEntities.new
+    string.gsub(/&[#0-9a-zA-Z]+;/) {|match| coder.encode(coder.decode(match), :decimal) }
   end
 end

@@ -82,6 +82,10 @@
       list-style-image: none;
     }
 
+    @include media(mobile) {
+      padding-left: 1em;
+    }
+
     a {
       padding-left: 28px;
       height: 16px;

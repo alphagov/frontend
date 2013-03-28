@@ -24,8 +24,8 @@
           <ul class="updated-countries">
             <% @publication.countries_recently_updated.each do |country| %>
             <li>
-              <%= link_to country['name'], travel_advice_country_path(country['identifier']) %>
-              <span class="meta">updated <%= readable_time(country['updated_at']) %></span>
+              <%= link_to country.name, travel_advice_country_path(country.identifier) %>
+              <span class="meta">updated <%= readable_time(country.updated_at) %></span>
             </li>
             <% end %>
           </ul>
@@ -43,7 +43,7 @@
             <h1><%= initial %></h1>
             <ul class="countries">
               <% countries.each do |country| %>
-                <li><%= link_to country['name'], travel_advice_country_path(country['identifier']) %></li>
+                <li><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
               <% end %>
             </ul>
           </section>

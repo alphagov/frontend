@@ -9,4 +9,8 @@ class TravelAdviceCountryPresenter < PublicationPresenter
   def document
     @document ||= OpenStruct.new(details["document"]) if details["document"]
   end
+
+  def country_name
+    country['name']
+  end
 end

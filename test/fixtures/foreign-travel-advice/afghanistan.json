@@ -18,7 +18,7 @@
             "avoid_all_travel_to_parts",
             "avoid_all_but_essential_travel_to_parts"
         ],
-        "change_description": "<p>Travel advice for Afghanistan has been updated. &ldquo;GOV.UK&rdquo;</p>\n",
+        "change_description": "Travel advicé for \"Afghanistan\" has been updated & is better. “GOV.UK”",
         "parts": [
             {
                 "web_url": "https://www.gov.uk/foreign-travel-advice/afghanistan/local-laws-and-customs",

@@ -1,3 +1,5 @@
+@import "_device-pixels.scss";
+
 .travel-advice {
   article {
     .list {
@@ -8,6 +10,11 @@
       li {
         list-style: none;
         padding-left: 0;
+        .meta{
+          @include core-16;
+          color: $grey-2;
+
+        }
       }
     }
 
@@ -65,5 +72,41 @@
 
   .meta-data .print-link {
     margin: 1em 0;
+  }
+
+  .subscriptions  {
+    list-style: none;
+    padding-left: 2em;
+
+    @include ie(6) {
+      list-style-image: none;
+    }
+
+    @include media(mobile) {
+      padding-left: 1em;
+    }
+
+    a {
+      padding-left: 28px;
+      height: 16px;
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+
+      &.feed {
+        background-image: image-url("travel-advice/feed-icon-black.png");
+      }
+
+      &.email-alerts {
+        background-image: image-url("travel-advice/mail-icon.png");
+        @include device-pixel-ratio() {
+          background-image: image-url("travel-advice/mail-icon-x2.png");
+          background-size: 20px 14px;
+        }
+      }
+    }
+  }
+
+  &#wrapper .article-container .subscriptions a:hover { 
+    color: #2E8ACA;
   }
 }

@@ -5,7 +5,7 @@ group :router do
   gem 'router-client', '2.0.3', require: 'router/client'
 end
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.3.1'
 gem 'mustache'
@@ -16,6 +16,7 @@ gem 'plek', '1.2.0'
 gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'rummageable', '0.5.0'
+gem 'htmlentities', '4.3.1'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
@@ -39,7 +40,7 @@ gem "addressable"
 gem 'exception_notification', '3.0.1'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.10.0'
+  gem 'govuk_frontend_toolkit', '0.15.0'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
@@ -52,7 +53,7 @@ group :development do
 end
 
 group :test do
-  gem "mocha", :require => false
+  gem "mocha", '0.13.3', :require => false
   gem "webmock", :require => false
   gem "ZenTest"
   gem "autotest-rails"
@@ -60,8 +61,8 @@ group :test do
   gem 'simplecov-rcov'
   gem 'ci_reporter'
   gem 'test-unit'
-  gem 'capybara', '1.1.2'
-  gem 'poltergeist', '0.7.0'
+  gem 'capybara', '2.0.2'
+  gem 'poltergeist', '1.1.0'
   gem "launchy"
   gem "shoulda"
 end

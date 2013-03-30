@@ -84,6 +84,9 @@ class BrowseControllerTest < ActionController::TestCase
       get :section, section: "br54ba\x9CAQ\xC4\xFD\x928owse" # Malformed UTF-8
       assert_equal "404", response.code
 
+      get :section, section: "\xE9\xF3(\xE9\xF3ges" # Differently Malformed UTF-8
+      assert_equal "404", response.code
+
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
 
@@ -188,6 +191,9 @@ class BrowseControllerTest < ActionController::TestCase
       get :sub_section, section: "br54ba\x9CAQ\xC4\xFD\x928owse", sub_section: "foo" # Malformed UTF-8
       assert_equal "404", response.code
 
+      get :sub_section, section: "\xE9\xF3(\xE9\xF3ges", sub_section: "foo" # Differently Malformed UTF-8
+      assert_equal "404", response.code
+
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
 
@@ -206,6 +212,9 @@ class BrowseControllerTest < ActionController::TestCase
       assert_equal "404", response.code
 
       get :sub_section, section: "foo", sub_section: "br54ba\x9CAQ\xC4\xFD\x928owse" # Malformed UTF-8
+      assert_equal "404", response.code
+
+      get :sub_section, section: "foo", sub_section: "\xE9\xF3(\xE9\xF3ges" # Differently Malformed UTF-8
       assert_equal "404", response.code
 
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})

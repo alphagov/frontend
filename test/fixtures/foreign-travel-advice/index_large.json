@@ -1,0 +1,220 @@
+{
+  "_response_info": {
+    "status": "ok"
+  },
+  "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice",
+  "title": "Foreign travel advice",
+  "format": "custom-application",
+  "updated_at": "2013-02-14T15:23:25+00:00",
+  "details": {
+    "need_id": "133",
+    "business_proposition": false,
+    "description": "",
+    "language": "en",
+    "countries": [
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F1",
+      "name": "First",
+      "identifier": "1",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/1",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-21T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F2",
+      "name": "2",
+      "identifier": "2",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/2",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-20T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F3",
+      "name": "3",
+      "identifier": "3",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/3",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-19T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F4",
+      "name": "4",
+      "identifier": "4",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/4",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-18T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F5",
+      "name": "5",
+      "identifier": "5",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/5",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-17T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F6",
+      "name": "6",
+      "identifier": "6",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/6",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-16T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F7",
+      "name": "7",
+      "identifier": "7",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/7",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-15T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F8",
+      "name": "8",
+      "identifier": "8",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/8",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-14T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F9",
+      "name": "9",
+      "identifier": "9",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/9",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-13T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F10",
+      "name": "10",
+      "identifier": "10",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/10",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-12T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F11",
+      "name": "11",
+      "identifier": "11",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/11",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-11T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F12",
+      "name": "12",
+      "identifier": "12",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/12",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-10T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F13",
+      "name": "13",
+      "identifier": "13",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/13",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-09T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F14",
+      "name": "14",
+      "identifier": "14",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/14",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-08T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F15",
+      "name": "15",
+      "identifier": "15",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/15",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-07T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F16",
+      "name": "16",
+      "identifier": "16",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/16",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-06T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F17",
+      "name": "17",
+      "identifier": "17",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/17",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-05T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F18",
+      "name": "18",
+      "identifier": "18",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/18",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-04T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F19",
+      "name": "19",
+      "identifier": "19",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/19",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-03T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F20",
+      "name": "Twentieth",
+      "identifier": "20",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/20",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-02T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F21",
+      "name": "21",
+      "identifier": "21",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/21",
+      "change_description": "Stuff",
+      "updated_at": "2013-03-01T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F22",
+      "name": "22",
+      "identifier": "22",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/22",
+      "change_description": "Stuff",
+      "updated_at": "2013-02-28T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F23",
+      "name": "23",
+      "identifier": "23",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/23",
+      "change_description": "Stuff",
+      "updated_at": "2013-02-27T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F24",
+      "name": "24",
+      "identifier": "24",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/24",
+      "change_description": "Stuff",
+      "updated_at": "2013-02-26T13:59:15Z"
+    },
+    {
+      "id": "https://contentapi.production.alphagov.co.uk/foreign-travel-advice%2F25",
+      "name": "25",
+      "identifier": "25",
+      "web_url": "https://www.gov.uk/foreign-travel-advice/25",
+      "change_description": "Stuff",
+      "updated_at": "2013-02-25T13:59:15Z"
+    }
+    ]
+  },
+  "tags": [ ],
+  "related": [ ]
+}

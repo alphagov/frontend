@@ -19,11 +19,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Foreign travel advice")
+        assert_equal "Foreign travel advice - GOV.UK", find("title").native.text
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']")
       end
-
-      assert page.has_selector?("body.beta .beta-notice")
 
       assert page.has_selector?("#wrapper.travel-advice.guide")
 
@@ -32,11 +31,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Foreign travel advice")
         end
 
-        within "#recently-updated" do
+        within "#recently-updated ul.updated-countries" do
           assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"],
                        page.all("li a").map(&:text)
           assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013",
-                        "updated  3 February 2013", "updated  2 February 2013"],
+                        "updated 3 February 2013", "updated 2 February 2013"],
                        page.all("li span").map(&:text)
         end
 
@@ -71,8 +70,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "not show any countries if none match" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "z"
         end
@@ -91,8 +88,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "hide the letter headings when no countries are shown under it" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "z"
         end
@@ -105,8 +100,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "show the letter headings when there are countries underneath it" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "Aruba"
         end
@@ -118,8 +111,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       should "show only countries that match" do
-        assert_equal 200, page.status_code
-
         within "#country-filter" do
           fill_in "country", :with => "B"
         end
@@ -136,6 +127,38 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("li", visible: false)
         end
       end
+
+      context "with the javascript driver" do
+        setup do
+          Capybara.current_driver = Capybara.javascript_driver
+          visit "/foreign-travel-advice"
+        end
+
+        should "not refresh page when hitting enter within the country filer" do
+          within "#country-filter" do
+            fill_in "country", :with => "Aruba"
+
+            page.execute_script %Q(
+              var country = jQuery("#country");
+              country.trigger(jQuery.Event("keydown", {which: $.ui.keyCode.ENTER}));
+            )
+          end
+
+          assert_equal "/foreign-travel-advice", current_path
+
+          within "#A" do
+            assert page.has_selector?("li", visible: true)
+          end
+
+          within "#P" do
+            assert page.has_selector?("li", visible: false)
+          end
+
+          within "#T" do
+            assert page.has_selector?("li", visible: false)
+          end
+        end
+      end
     end
   end
 
@@ -149,11 +172,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
+        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
+        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']")
       end
-
-      assert page.has_selector?("body.beta .beta-notice")
 
       within '#global-breadcrumb nav' do
         assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")
@@ -182,6 +204,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_link?("The Bridge of Death", :href => "/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death")
       end
 
+      within '.subscriptions' do
+        assert page.has_link?("Atom/RSS", :href => "/foreign-travel-advice/turks-and-caicos-islands.atom")
+      end
+
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 
@@ -189,8 +215,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Updated: 16 January 2013")
 
         within '.application-notice.help-notice' do
-          assert page.has_content?("Avoid all travel to parts of the country")
-          assert page.has_content?("Avoid all but essential travel to the whole country")
+          assert page.has_content?("The FCO advise against all travel to parts of the country")
+          assert page.has_content?("The FCO advise against all but essential travel to the whole country")
+          assert page.has_selector?("abbr[title='Foreign and Commonwealth Office']", :text => "FCO", :count => 2)
         end
 
         assert page.has_selector?("img[src='https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg']")
@@ -209,8 +236,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
+        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
       end
 
       within '.page-header' do
@@ -238,8 +265,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fturks-and-caicos-islands.json']")
+        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
       end
 
       within '.page-header' do
@@ -279,8 +306,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 16 January 2013")
           within '.application-notice.help-notice' do
-            assert page.has_content?("Avoid all travel to parts of the country")
-            assert page.has_content?("Avoid all but essential travel to the whole country")
+            assert page.has_content?("The FCO advise against all travel to parts of the country")
+            assert page.has_content?("The FCO advise against all but essential travel to the whole country")
           end
           assert page.has_selector?("h3", :text => "This is the summary")
         end
@@ -308,8 +335,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
 
       within 'head' do
-        assert page.has_selector?("title", :text => "Luxembourg travel advice")
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice%2Fluxembourg.json']")
+        assert_equal "Luxembourg travel advice - GOV.UK", find("title").native.text
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/luxembourg.json']")
       end
 
       within '.page-header' do
@@ -324,8 +351,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 31 January 2013")
-
-        assert page.has_content?("There are no travel restrictions in place for Luxembourg.")
 
         assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
       end

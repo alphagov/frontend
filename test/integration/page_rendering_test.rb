@@ -2,16 +2,63 @@ require_relative '../integration_test_helper'
 
 class PageRenderingTest < ActionDispatch::IntegrationTest
 
-  test "returns 503 if backend times out" do
-    stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_timeout
-    visit "/my-item"
-    assert_equal 503, page.status_code
-  end
+  context "backend error handling" do
+    context "backend timeout" do
+      setup do
+        stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_timeout
+      end
 
-  test "returns 503 if backend unavailable" do
-    stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_return(:status => 500)
-    visit "/my-item"
-    assert_equal 503, page.status_code
+      should "return 503 if backend times out" do
+        visit "/my-item"
+        assert_equal 503, page.status_code
+      end
+
+      should "notify of the exception" do
+        visit "/my-item"
+        assert ! ActionMailer::Base.deliveries.empty?
+        mail = ActionMailer::Base.deliveries.last
+        assert_match /GdsApi::TimedOutException/, mail.body
+        assert_match %r{http://www.example.com/my-item}, mail.body
+      end
+    end
+
+    context "backend 500 error" do
+      setup do
+        stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_return(:status => 500)
+      end
+
+      should "return 503" do
+        visit "/my-item"
+        assert_equal 503, page.status_code
+      end
+
+      should "notify of the exception" do
+        visit "/my-item"
+        assert ! ActionMailer::Base.deliveries.empty?
+        mail = ActionMailer::Base.deliveries.last
+        assert_match /GdsApi::HTTPErrorResponse/, mail.body
+        assert_match %r{http://www.example.com/my-item}, mail.body
+      end
+    end
+
+    context "backend connection refused" do
+      setup do
+        stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_raise(Errno::ECONNREFUSED)
+      end
+
+      should "return 503 if backend connection is refused" do
+        visit "/my-item"
+        assert_equal 503, page.status_code
+      end
+
+      should "notify of the exception" do
+        visit "/my-item"
+        assert ! ActionMailer::Base.deliveries.empty?
+        mail = ActionMailer::Base.deliveries.last
+        assert_match /GdsApi::EndpointNotFound/, mail.body
+        assert_match %r{http://www.example.com/my-item}, mail.body
+      end
+    end
   end
 
   test "completed transaction request" do

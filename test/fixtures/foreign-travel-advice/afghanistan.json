@@ -1,0 +1,82 @@
+{
+    "_response_info": {
+        "status": "ok"
+    },
+    "id": "https://www.gov.uk/api/foreign-travel-advice%2Fafghanistan.json",
+    "web_url": "https://www.gov.uk/foreign-travel-advice/afghanistan",
+    "title": "Afghanistan travel advice",
+    "format": "travel-advice",
+    "updated_at": "2013-03-26T11:38:09+00:00",
+    "details": {
+        "need_id": null,
+        "business_proposition": false,
+        "description": "Latest travel advice for Afghanistan including safety and security, entry requirements, travel warnings and health",
+        "language": "en",
+        "need_extended_font": false,
+        "summary": "<p>The Foreign and Commonwealth Office (FCO) advise against all or all but essential travel to different parts of the country according to provincial region:</p>\n\n<p><strong>Kabul</strong> </p>\n\n<ul>\n <li>\n <p>The FCO advise against all travel to the Surobi, Paghman, Musayhi, Khak-e Jabbar and Chahar Asyab Districts of Kabul province. </p>\n </li>\n <li>\n <p>The FCO advise against all but essential travel to the city of Kabul. </p>\n </li>\n</ul>\n\n<p><strong>Northern Afghanistan</strong></p>\n\n<ul>\n <li>\n <p>The FCO advise against all travel to Balkh, Kunduz, Badakhshan and the Baghlan-e Jadid District of Baghlan. </p>\n </li>\n <li>\n <p>The FCO advise against all but essential travel to Takhar, Faryab, Jawzjan, Samangan, Sari Pul and the remainder of Baghlan. </p>\n </li>\n</ul>\n\n<p><strong>Eastern Afghanistan</strong></p>\n\n<ul>\n <li>\n <p>The FCO advise against all travel to Ghazni, Kapisa, Khost, Kunar, Laghman, Logar, Nangarhar, Nuristan, Paktika, Wardak and Paktya. </p>\n </li>\n <li>\n <p>The FCO advise against all but essential travel to Bamiyan, Parwan and Panjshir . </p>\n </li>\n</ul>\n\n<p><strong>Southern Afghanistan</strong> </p>\n\n<ul>\n <li>The FCO advise against all travel to Helmand, Kandahar, Nimroz, Uruzgan and Zabul. </li>\n</ul>\n\n<p><strong>Western Afghanistan</strong> </p>\n\n<ul>\n <li>\n <p>The FCO advise against all travel to Badghis and Farah, and the Shindand and Gozarah Districts of Herat province. </p>\n </li>\n <li>\n <p>The FCO advise against all but essential travel to Dai Kundi, Ghor and remaining districts in Herat. </p>\n </li>\n</ul>\n\n<p>There is a high threat from terrorism and specific methods of attack are evolving and increasing in sophistication. There is a high threat of kidnapping throughout the country. See <a href=\"/foreign-travel-advice/afghanistan/terrorism\" title=\"Terrorism\">Terrorism</a> </p>\n\n<p>As insurgents attempt to destabilise the ongoing transition of security to Afghan National Security Forces it is likely that attacks across Afghanistan will continue. If you travel to Afghanistan you should have adequate and continuous professional close security arrangements and review them regularly. </p>\n\n<p>In March 2012 an Afghan government-controlled security force, the Afghan Public Protection Force (APPF), took over provision of most commercial security services in Afghanistan from private security companies. Only embassies and other accredited diplomatic missions are now allowed to use private security companies. </p>\n\n<p>Take out comprehensive travel and medical <a href=\"https://www.gov.uk/foreign-travel-insurance\">insurance</a> before you travel.</p>\n",
+        "alert_status": [
+            "avoid_all_travel_to_parts",
+            "avoid_all_but_essential_travel_to_parts"
+        ],
+        "change_description": "Travel advicé for \"Afghanistan\" has been updated & is better. “GOV.UK”",
+        "parts": [
+            {
+                "web_url": "https://www.gov.uk/foreign-travel-advice/afghanistan/local-laws-and-customs",
+                "slug": "local-laws-and-customs",
+                "order": 1,
+                "title": "Local laws and customs",
+                "body": "\n<p>Afghanistan is an Islamic country. You should respect local traditions, customs, laws and religions at all times. Be particularly careful during the holy month of Ramadan or if you intend to visit religious areas. </p>\n\n<p>Homosexuality is illegal. </p>\n\n<p>It is forbidden to seek to convert Muslims to other faiths. </p>\n\n<p>You are not allowed to use, or bring into the country narcotics, alcohol and pork products. </p>\n\n<p>Photographing government buildings, military installations and palaces is not allowed. Avoid photographing local people without their agreement.</p>\n"
+            },
+            {
+                "web_url": "https://www.gov.uk/foreign-travel-advice/afghanistan/entry-requirements",
+                "slug": "entry-requirements",
+                "order": 2,
+                "title": "Entry requirements",
+                "body": "<h3>Visas</h3>\n\n<p>British nationals must get a visa before travelling to Afghanistan. You can’t get a visa on arrival. For further information contact the Embassy of the <a rel=\"external\" href=\"http://afghanistanembassy.org.uk/\">Islamic Republic of Afghanistan</a> in London. </p>\n\n<h3>Passport validity</h3>\n\n<p>Your passport should be valid for a minimum period of 6 months from the date of entry into Afghanistan.</p>\n\n<h3>UK Emergency Travel Documents</h3>\n\n<p>UK Emergency Travel Documents (ETDs) are not valid for entry into Afghanistan. However, ETDs are accepted for exit from Afghanistan. </p>\n\n<h3>Yellow fever</h3>\n\n<p>Yellow Fever vaccination is required for travellers arriving from <a rel=\"external\" href=\"http://www.who.int/ith/chapters/ith2012en_annexes.pdf\" title=\"WHO Yellow Fever Country Regulations\">countries with risk</a> of yellow fever transmission. </p>\n\n<h3>Travelling with children</h3>\n\n<p>If you are travelling alone with a child you may need to produce documentary evidence of parental responsibility. The FCO does not allow staff based in Afghanistan to travel with their partners or children. For further information on exactly what is required at immigration contact the Embassy of the <a rel=\"external\" href=\"http://afghanistanembassy.org.uk/\">Islamic Republic of Afghanistan</a> in London.</p>\n"
+            },
+            {
+                "web_url": "https://www.gov.uk/foreign-travel-advice/afghanistan/terrorism",
+                "slug": "terrorism",
+                "order": 3,
+                "title": "Terrorism",
+                "body": "<p>There is a high threat from <a href=\"https://www.gov.uk/reduce-your-risk-from-terrorism-while-abroad\" title=\"Terrorism\">terrorism.</a> Threats are issued on an almost daily basis. Terrorists and insurgents conduct frequent and widespread lethal attacks against British and coalition armed forces, political and civilian targets, and those working in the humanitarian and reconstruction fields. </p>\n\n<p>Attacks include bombs (roadside and other), suicide bombs (either on foot or by vehicle), indirect fire (rockets and mortars), direct fire (shootings and rocket propelled grenades), kidnappings and violent crime.</p>\n\n<p>There are large amounts of unexploded bombs and land mines (both anti-tank and anti-personnel) throughout the country.</p>\n\n<p>You should be particularly vigilant in and around landmark locations and places where large public crowds can gather. Hotels used by the government of Afghanistan and western nationals, ministries, military establishments and religious sites have been attacked and further attacks are possible. Avoid regular visits to public places frequented by foreigners, including hotels, restaurants, shops and market places, especially at times of day when they are particularly busy and congested. The British Embassy does not allow official visitors to stay in any hotel overnight, and has placed less well protected restaurants off limits to staff. </p>\n\n<p>Further attacks are likely along the Jalalabad Road, the Airport Road, the Wardak road and near to Kabul airport. Take great care if you intend to use the Jalalabad and Airport roads. Avoid travelling at night and between the hours of 07:00 and 09:00 if possible.</p>\n\n<h3>Kidnap</h3>\n\n<p>The risk of being kidnapped throughout Afghanistan remains a constant threat. You should take the utmost care, vary routines and avoid setting regular patterns of movement. You should take professional security advice while in the country. Outside Kabul you should consider the use of permanent armed protection and armoured vehicles. Previous kidnaps involving British nationals have occurred in Badakhshan, Kunar, Kunduz and near the border with Pakistan. </p>\n\n<p>The long-standing policy of the British government is not to make substantive concessions to hostage-takers. The British government considers that paying ransoms and releasing prisoners increases the risk of further hostage taking.</p>\n"
+            }
+        ],
+        "image": {
+            "web_url": "https://assets.digital.cabinet-office.gov.uk/media/513b76bc40f0b66b67000002/111017_Afghanistan_jpeg.jpg",
+            "content_type": "image/jpeg"
+        },
+        "document": {
+            "web_url": "https://assets.digital.cabinet-office.gov.uk/media/513b76bc40f0b66b67000003/111017_Afghanistan_pdf.pdf",
+            "content_type": "application/pdf"
+        },
+        "country": {
+            "name": "Afghanistan",
+            "slug": "afghanistan"
+        }
+    },
+    "tags": [ ],
+    "related": [
+        {
+            "id": "https://www.gov.uk/api/renew-adult-passport.json",
+            "web_url": "https://www.gov.uk/renew-adult-passport",
+            "title": "Renew or replace your adult passport",
+            "format": "answer",
+            "updated_at": "2013-03-26T13:50:19+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/hand-luggage-restrictions.json",
+            "web_url": "https://www.gov.uk/hand-luggage-restrictions",
+            "title": "Hand luggage restrictions at UK airports",
+            "format": "guide",
+            "updated_at": "2013-03-15T18:42:43+00:00"
+        },
+        {
+            "id": "https://www.gov.uk/api/driving-abroad.json",
+            "web_url": "https://www.gov.uk/driving-abroad",
+            "title": "Driving abroad",
+            "format": "answer",
+            "updated_at": "2013-03-15T18:40:16+00:00"
+        }
+    ]
+}

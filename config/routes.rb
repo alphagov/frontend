@@ -23,7 +23,7 @@ Frontend::Application.routes.draw do
   match "/tour", to: "root#tour"
   match "/exit", :to => "exit#exit"
 
-  match '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice_country
+  match '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
   with_options(:to => "travel_advice#country") do |country|
     country.match "/foreign-travel-advice/:country_slug/print", :format => :print
     country.match "/foreign-travel-advice/:country_slug(/:part)", :as => :travel_advice_country
@@ -34,12 +34,13 @@ Frontend::Application.routes.draw do
   match "/ukwelcomes", :to => "campaign#uk_welcomes"
   match "/sortmytax", :to => "campaign#sort_my_tax"
   match "/newlicencerules", :to => "campaign#new_licence_rules"
+  match "/firekills", :to => "campaign#fire_kills"
+  match "/knowbeforeyougo", :to => "campaign#know_before_you_go"
 
   # Jobssearch form override (English and Welsh variants)
   match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobsearch|chwilio-am-swydd)/}
 
   with_options(as: "publication", to: "root#publication") do |pub|
-    pub.match ":slug/video", format: :video
     pub.match ":slug/print", format: :print
     pub.match ":slug/:part/:interaction", as: :licence_authority_action
     pub.match ":slug(/:part)"

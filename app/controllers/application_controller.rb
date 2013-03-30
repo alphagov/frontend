@@ -51,22 +51,33 @@ class ApplicationController < ActionController::Base
       set_slimmer_artefact(artefact)
     end
 
-    def fetch_artefact(snac = nil, location = nil)
+    def artefact_options(snac, location, edition)
       options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
       if location
         options[:latitude]  = location.lat
         options[:longitude] = location.lon
       end
-      artefact = content_api.artefact(params[:slug], options)
+      options
+    end
+
+    def verify_format_supported?(artefact)
+      unless supported_artefact_formats.include?(artefact['format'])
+        raise UnsupportedArtefactFormat
+      end
+    end
+
+    def fetch_artefact(snac = nil, location = nil)
+      edition = params[:edition] # TODO: This should be handed into this method
+      slug    = params[:slug]    # TODO: This should be handed into this method
+      artefact = content_api.artefact(slug, artefact_options(snac, location, edition))
 
       unless artefact
         logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
         raise RecordNotFound
       end
 
-      unless supported_artefact_formats.include?(artefact['format'])
-        raise UnsupportedArtefactFormat
-      end
+      verify_format_supported?(artefact)
+
       artefact
     rescue GdsApi::HTTPErrorResponse => e
       if e.code == 410

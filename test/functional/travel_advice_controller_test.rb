@@ -10,7 +10,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
           stub("HTTP_Response", :code => 200, :body => @json_data),
           :web_urls_relative_to => "https://www.gov.uk"
         )
-        GdsApi::ContentApi.any_instance.stubs(:artefact).with('foreign-travel-advice').returns(@index_artefact)
+        @controller.stubs(:fetch_artefact).returns(@index_artefact)
       end
 
       should "be a successful request" do
@@ -20,7 +20,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
 
       should "make a request to the content api for the travel advice top-level artefact" do
-        GdsApi::ContentApi.any_instance.expects(:artefact).with('foreign-travel-advice').returns(@index_artefact)
+        @controller.expects(:fetch_artefact).returns(@index_artefact)
 
         get :index
         assert_equal @index_artefact, assigns(:artefact)

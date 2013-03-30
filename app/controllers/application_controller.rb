@@ -48,7 +48,8 @@ class ApplicationController < ActionController::Base
     end
 
     def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
-      ArtefactRetriever.new(content_api, Rails.logger, statsd).fetch_artefact(slug, edition, snac, location)
+      ArtefactRetriever.new(content_api, Rails.logger, statsd).
+        fetch_artefact(slug, edition, snac, location)
     end
 
     def content_api

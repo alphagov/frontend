@@ -1,4 +1,7 @@
 class ArtefactRetriever
+  class UnsupportedArtefactFormat < StandardError; end
+  class RecordArchived < StandardError; end
+
   attr_accessor :supported_formats, :content_api, :logger, :statsd
 
   def initialize(content_api, logger, statsd, supported_formats = nil)

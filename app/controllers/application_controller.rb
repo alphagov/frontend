@@ -4,12 +4,6 @@ require 'gds_api/content_api'
 class RecordNotFound < StandardError
 end
 
-class RecordArchived < StandardError
-end
-
-class UnsupportedArtefactFormat < StandardError
-end
-
 require 'artefact_retriever'
 
 class ApplicationController < ActionController::Base
@@ -27,8 +21,8 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
-  rescue_from RecordArchived, with: :error_410
-  rescue_from UnsupportedArtefactFormat, with: :error_404
+  rescue_from ArtefactRetriever::RecordArchived, with: :error_410
+  rescue_from ArtefactRetriever::UnsupportedArtefactFormat, with: :error_404
 
   def error(status_code)
     render status: status_code, text: "#{status_code} error"

@@ -55,7 +55,7 @@ class TravelAdviceController < ApplicationController
   def fetch_artefact_and_publication_for_country(country)
     params[:slug] = "foreign-travel-advice/" + country
 
-    artefact = fetch_artefact
+    artefact = fetch_artefact(params[:slug], params[:edition])
     publication = TravelAdviceCountryPresenter.new(artefact)
 
     return [publication, artefact]

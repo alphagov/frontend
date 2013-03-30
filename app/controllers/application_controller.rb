@@ -53,9 +53,7 @@ class ApplicationController < ActionController::Base
       set_slimmer_artefact(artefact)
     end
 
-    def fetch_artefact(snac = nil, location = nil)
-      edition = params[:edition] # TODO: This should be handed into this method
-      slug    = params[:slug]    # TODO: This should be handed into this method
+    def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
       ArtefactRetriever.new(content_api).fetch_artefact(slug, edition, snac, location)
     end
 

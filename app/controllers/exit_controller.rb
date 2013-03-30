@@ -7,7 +7,7 @@ class ExitController < ApplicationController
     raise RecordNotFound unless params[:slug] and params[:format]
     raise RecordNotFound unless params[:format] == 'transaction'
 
-    publication = fetch_artefact
+    publication = fetch_artefact(params[:slug], params[:edition])
 
     raise RecordNotFound unless publication and publication.details and publication.details.link
 

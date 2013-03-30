@@ -1,8 +1,10 @@
 class ArtefactRetriever
-  attr_accessor :supported_formats, :content_api
+  attr_accessor :supported_formats, :content_api, :logger, :statsd
 
-  def initialize(content_api, supported_formats = nil)
+  def initialize(content_api, logger, statsd, supported_formats = nil)
     self.content_api = content_api
+    self.logger = logger
+    self.statsd = statsd
     self.supported_formats = supported_formats ||
       %w{answer business_support completed_transaction guide licence
          local_transaction place programme transaction travel-advice video}

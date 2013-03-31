@@ -9,7 +9,7 @@ class LicenceDetailsFromArtefact
   end
 
   def build_attributes
-    return false if missing_or_invalid_licence?(licence)
+    return false if missing_or_invalid_licence?
 
     licence_attributes = { 
       licence: licence,
@@ -45,7 +45,7 @@ class LicenceDetailsFromArtefact
       action.blank? || available_actions.include?(action)
     end
 
-    def missing_or_invalid_licence?(licence)
+    def missing_or_invalid_licence?
       licence.blank? || licence['error'].present?
     end
 

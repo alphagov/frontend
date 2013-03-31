@@ -157,7 +157,7 @@ protected
   end
 
   class LicenceDetails
-    def build(artefact, licence_authority_slug, snac_code, interaction = nil)
+    def from_artefact(artefact, licence_authority_slug, snac_code, interaction = nil)
       licence_attributes = { licence: artefact['details']['licence'] }
 
       return false if licence_attributes[:licence].blank? or licence_attributes[:licence]['error'].present?
@@ -197,7 +197,7 @@ protected
   end
 
   def licence_details(artefact, licence_authority_slug, snac_code)
-    LicenceDetails.new.build(artefact, licence_authority_slug, snac_code, params[:interaction])
+    LicenceDetails.new.from_artefact(artefact, licence_authority_slug, snac_code, params[:interaction])
   end
 
   def appropriate_snac_code_from_location(artefact, location)

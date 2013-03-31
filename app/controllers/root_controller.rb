@@ -2,7 +2,7 @@ require "slimmer/headers"
 require "authority_lookup"
 require "local_transaction_location_identifier"
 require "licence_location_identifier"
-require "licence_details"
+require "licence_details_from_artefact"
 
 class RootController < ApplicationController
   include RootHelper
@@ -158,7 +158,7 @@ protected
   end
 
   def licence_details(artefact, licence_authority_slug, snac_code)
-    LicenceDetails.new.from_artefact(artefact, licence_authority_slug, snac_code, params[:interaction])
+    LicenceDetailsFromArtefact.new(artefact, licence_authority_slug, snac_code, params[:interaction]).build_attributes
   end
 
   def appropriate_snac_code_from_location(artefact, location)

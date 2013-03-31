@@ -156,41 +156,48 @@ protected
     artefact['details'].slice('local_authority', 'local_service', 'local_interaction')
   end
 
-  def licence_details(artefact, licence_authority_slug, snac_code)
-    licence_attributes = { licence: artefact['details']['licence'] }
+  class LicenceDetails
+    def build(artefact, licence_authority_slug, snac_code, interaction = nil)
+      licence_attributes = { licence: artefact['details']['licence'] }
 
-    return false if licence_attributes[:licence].blank? or licence_attributes[:licence]['error'].present?
+      return false if licence_attributes[:licence].blank? or licence_attributes[:licence]['error'].present?
 
-    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
+      licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
 
-    if ! licence_attributes[:authority] and (snac_code.present? || licence_authority_slug.present?)
-      raise RecordNotFound
-    end
-
-    if licence_attributes[:authority]
-      licence_attributes[:action] = params[:interaction]
-      available_actions = licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]
-
-      if licence_attributes[:action] && ! available_actions.include?(licence_attributes[:action])
+      if ! licence_attributes[:authority] and (snac_code.present? || licence_authority_slug.present?)
         raise RecordNotFound
       end
+
+      if licence_attributes[:authority]
+        licence_attributes[:action] = interaction
+        available_actions = licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]
+
+        if licence_attributes[:action] && ! available_actions.include?(licence_attributes[:action])
+          raise RecordNotFound
+        end
+      end
+
+      return licence_attributes
     end
 
-    return licence_attributes
+    protected
+      def authority_for_licence(licence, licence_authority_slug, snac_code)
+        if licence["location_specific"]
+          if snac_code
+            licence['authorities'].first
+          end
+        else
+          if licence['authorities'].size == 1
+            licence['authorities'].first
+          elsif licence_authority_slug
+            licence['authorities'].select {|authority| authority['slug'] == licence_authority_slug }.first
+          end
+        end
+      end
   end
 
-  def authority_for_licence(licence, licence_authority_slug, snac_code)
-    if licence["location_specific"]
-      if snac_code
-        licence['authorities'].first
-      end
-    else
-      if licence['authorities'].size == 1
-        licence['authorities'].first
-      elsif licence_authority_slug
-        licence['authorities'].select {|authority| authority['slug'] == licence_authority_slug }.first
-      end
-    end
+  def licence_details(artefact, licence_authority_slug, snac_code)
+    LicenceDetails.new.build(artefact, licence_authority_slug, snac_code, params[:interaction])
   end
 
   def appropriate_snac_code_from_location(artefact, location)

@@ -1,6 +1,6 @@
 <aside>
   <div class="inner">
-    <% if [:programme, :guide, :'travel-advice'].include? @publication.type.to_sym %>
+    <% if [:programme, :guide, :'travel-advice'].include? @publication.format.to_sym %>
       <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
     <% end %>
 

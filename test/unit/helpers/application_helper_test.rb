@@ -37,17 +37,17 @@ class ApplicationHelperTest < ActionView::TestCase
   context "wrapper_class" do
     should "correctly identifies a video guide in the wrapper classes" do
       @helper.request.format.stubs(:video?).returns(true)
-      guide = OpenStruct.new(:type => 'guide')
+      guide = OpenStruct.new(:format => 'guide')
       assert @helper.wrapper_class(guide).split.include?('video-guide')
     end
 
     should "mark local transactions as a service" do
-      local_transaction = OpenStruct.new(:type => 'local_transaction')
+      local_transaction = OpenStruct.new(:format => 'local_transaction')
       assert @helper.wrapper_class(local_transaction).split.include?('service')
     end
 
     should "mark travel advice as a guide" do
-      travel_advice_edition = OpenStruct.new(:type => 'travel-advice')
+      travel_advice_edition = OpenStruct.new(:format => 'travel-advice')
       assert @helper.wrapper_class(travel_advice_edition).split.include?('guide')
     end
   end

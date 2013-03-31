@@ -17,23 +17,23 @@ module ApplicationHelper
       if publication.respond_to?(:wrapper_classes)
         html_classes = publication.wrapper_classes
       else
-        if publication.type
-          html_classes << publication.type
+        if publication.format
+          html_classes << publication.format
         end
 
         if request.format.video?
           html_classes << "video-guide"
         end
 
-        if services.include? publication.type
+        if services.include? publication.format
           html_classes << "service"
         end
 
-        if answers.include? publication.type
+        if answers.include? publication.format
           html_classes << "answer"
         end
 
-        if guides.include? publication.type
+        if guides.include? publication.format
           html_classes << "guide"
         end
       end

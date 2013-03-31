@@ -92,7 +92,7 @@ class RootController < ApplicationController
       redirect_to "/api/#{params[:slug]}.json" and return
     end
 
-    case @publication.type
+    case @publication.format
     when "licence"
       @licence_details = licence_details(@artefact, authority_slug, snac)
     when "local_transaction"
@@ -110,12 +110,12 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render @publication.type
+        render @publication.format
       end
       format.print do
-        if PRINT_FORMATS.include?(@publication.type)
+        if PRINT_FORMATS.include?(@publication.format)
           set_slimmer_headers template: "print"
-          render @publication.type
+          render @publication.format
         else
           error_404
         end

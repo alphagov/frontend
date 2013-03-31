@@ -34,7 +34,7 @@ class PublicationPresenter
     end
   end
 
-  def type
+  def format
     artefact["format"]
   end
 

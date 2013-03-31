@@ -34,7 +34,7 @@ class RootController < ApplicationController
     assert_found(@publication)
 
     if request.format.json?
-      redirect_to "/api/#{params[:slug]}.json" and return
+      redirect_to "/api/#{params[:slug]}.json", status: :moved_permanently and return
     end
 
     set_expiry

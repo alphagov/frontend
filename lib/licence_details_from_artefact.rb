@@ -22,7 +22,7 @@ class LicenceDetailsFromArtefact
       raise RecordNotFound
     end
 
-    return licence_attributes
+    licence_attributes
   end
 
   protected

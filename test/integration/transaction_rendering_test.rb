@@ -159,6 +159,13 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
   context "Jobsearch special case" do
 
+    should "redirect JSON requests to the correct API URL" do
+      setup_api_responses('jobsearch')
+      get "/jobsearch.json"
+      assert_equal 301, response.code.to_i
+      assert_redirected_to "/api/jobsearch.json"
+    end
+
     should "render the jobsearch page correctly" do
       setup_api_responses('jobsearch')
       visit "/jobsearch"

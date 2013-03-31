@@ -38,7 +38,7 @@ Frontend::Application.routes.draw do
   match "/knowbeforeyougo", :to => "campaign#know_before_you_go"
 
   # Jobssearch form override (English and Welsh variants)
-  match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobsearch|chwilio-am-swydd)/}
+  match "/:slug(.:format)" => "root#jobsearch", :constraints => {:slug => /(jobsearch|chwilio-am-swydd)/}
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.match ":slug/print", format: :print

@@ -58,7 +58,7 @@ class LicenceDetailsFromArtefact
         if licence['authorities'].size == 1
           licence['authorities'].first
         elsif licence_authority_slug
-          licence['authorities'].select { |authority| authority['slug'] == licence_authority_slug }.first
+          licence['authorities'].detect { |authority| authority['slug'] == licence_authority_slug }
         end
       end
     end

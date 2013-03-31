@@ -26,7 +26,6 @@ class LicenceDetailsFromArtefact
   end
 
   protected
-
     def location_specific?
       licence["location_specific"]
     end
@@ -49,6 +48,13 @@ class LicenceDetailsFromArtefact
       licence.blank? || licence['error'].present?
     end
 
+    # TODO: Review this logic and see if we can simplify
+    # This logic is overly complex but without a full set of data to run against
+    # it I'm nervous about changing it.
+    # In particular it would be good to know:
+    #  * How often do we not have a licence_authority_slug?
+    #  * Do we ever have a scenario where there's only one licence authority but its
+    #    slug doesn't match licence_authority_slug?
     def authority_for_licence
       if location_specific?
         if snac_code

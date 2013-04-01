@@ -45,6 +45,10 @@ class PublicationPresenter
     @current_part = find_part(part)
   end
 
+  def current_part_number
+    parts.index(current_part) + 1
+  end
+
   def parts
     @parts ||= build_parts
   end
@@ -66,6 +70,29 @@ class PublicationPresenter
 
   def empty_part_list?
     parts && parts.empty?
+  end
+
+  def has_parts?
+    parts && parts.any?
+  end
+
+  # Overriding methods from GdsApi::PartMethods
+  def has_previous_part?
+    index = part_index(current_part.slug)
+    !! (index && index > 0)
+  end
+
+  def previous_part
+    part_at(current_part, -1)
+  end
+
+  def has_next_part?
+    index = part_index(current_part.slug)
+    !! (index && (index + 1) < parts.length)
+  end
+
+  def next_part
+    part_at(current_part, 1)
   end
 
   def slug

@@ -9,6 +9,7 @@ class RootController < ApplicationController
 
   before_filter :set_expiry, :only => [:index, :tour]
   before_filter :validate_slug_param, :only => [:publication]
+  rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
 
@@ -25,46 +26,11 @@ class RootController < ApplicationController
   end
 
   def jobsearch
-    error_404 and return if request.format.nil?
-
-    artefact = fetch_artefact
-    set_slimmer_artefact_headers(artefact)
-
-    @publication = PublicationPresenter.new(artefact)
-    assert_found(@publication)
-
-    if request.format.json?
-      redirect_to "/api/#{params[:slug]}.json" and return
-    end
-
-    set_expiry
-
-    I18n.locale = @publication.language if @publication.language
-
-  rescue RecordNotFound
-    set_expiry(10.minutes)
-    error 404
+    prepare_publication_and_environment
   end
 
   def publication
-    error_404 and return if request.format.nil?
-
-    if params[:slug] == 'done' and params[:part].present?
-      params[:slug] += "/#{params[:part]}"
-      params[:part] = nil
-    end
-
-    unless params[:postcode].blank?
-      @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
-    end
-
-    artefact = fetch_artefact(nil, @location)
-    set_slimmer_artefact_headers(artefact)
-
-    @publication = PublicationPresenter.new(artefact)
-    assert_found(@publication)
-
-    I18n.locale = @publication.language if @publication.language
+    prepare_publication_and_environment
 
     if ['licence','local_transaction'].include? artefact['format']
       if @location
@@ -99,8 +65,6 @@ class RootController < ApplicationController
       @local_transaction_details = local_transaction_details(artefact, authority_slug, snac)
     end
 
-    set_expiry if params.exclude?('edition') and request.get?
-
     @publication.current_part = params[:part]
     @edition = params[:edition]
 
@@ -120,12 +84,40 @@ class RootController < ApplicationController
         render :json => @publication.to_json
       end
     end
-  rescue RecordNotFound
+  end
+
+protected
+
+  def cacheable_404
     set_expiry(10.minutes)
     error 404
   end
 
-protected
+  # This is a method littered with side effects. It pulls together
+  # some work that was duplicated in other methods, but in the process
+  # sets instance variables and changes global state.
+  def prepare_publication_and_environment
+    raise RecordNotFound if request.format.nil?
+
+    if params[:slug] == 'done' and params[:part].present?
+      params[:slug] += "/#{params[:part]}"
+      params[:part] = nil
+    end
+
+    unless params[:postcode].blank?
+      @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
+    end
+
+    artefact = fetch_artefact(nil, @location)
+    set_slimmer_artefact_headers(artefact)
+
+    @publication = PublicationPresenter.new(artefact)
+    assert_found(@publication)
+
+    I18n.locale = @publication.language if @publication.language
+    set_expiry if params.exclude?('edition') and request.get?
+  end
+
   def part_requested_but_no_parts?
     params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
   end

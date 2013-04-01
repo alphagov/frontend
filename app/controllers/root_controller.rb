@@ -26,6 +26,7 @@ class RootController < ApplicationController
   end
 
   def jobsearch
+    redirect_to "/api/#{params[:slug]}.json" and return if request.format.json?
     prepare_publication_and_environment
   end
 
@@ -38,31 +39,28 @@ class RootController < ApplicationController
         redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
+      elsif params[:part]
+        snac = AuthorityLookup.find_snac(params[:part])
+        authority_slug = params[:part]
+
+        if request.format.json?
+          redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+        end
+
+        # Fetch the artefact again, for the snac we have
+        # This returns additional data based on format and location
+        updated_artefact = fetch_artefact(snac) if snac
+        assert_found(updated_artefact)
+        @publication = PublicationPresenter.new(updated_artefact)
       end
-
-      snac = AuthorityLookup.find_snac(params[:part])
-      authority_slug = params[:part]
-
-      if request.format.json?
-        redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
-      end
-
-      # Fetch the artefact again, for the snac we have
-      # This returns additional data based on format and location
-      artefact = fetch_artefact(snac) if snac
+      
+      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
     elsif part_requested_but_no_parts? || @publication.empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
       redirect_to publication_path(:slug => @publication.slug) and return
     elsif request.format.json? && @publication.format != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return
-    end
-
-    case @publication.format
-    when "licence"
-      @licence_details = licence_details(@publication.artefact, authority_slug, snac)
-    when "local_transaction"
-      @local_transaction_details = local_transaction_details(@publication.artefact, authority_slug, snac)
     end
 
     @publication.current_part = params[:part]
@@ -87,6 +85,15 @@ class RootController < ApplicationController
   end
 
 protected
+
+  def prepare_interaction_details(publication, authority_slug, snac)
+    case publication.format
+    when "licence"
+      licence_details(publication.artefact, authority_slug, snac)
+    when "local_transaction"
+      local_transaction_details(publication.artefact, authority_slug, snac)
+    end
+  end
 
   def cacheable_404
     set_expiry(10.minutes)

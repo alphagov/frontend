@@ -88,7 +88,7 @@ class LocalTransactionsTest < ActionController::TestCase
       should "assign local transaction information" do
         get :publication, slug: "send-a-bear-to-your-local-council", part: "staffordshire-moorlands"
 
-        assert_equal "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks", assigns(:local_transaction_details)["local_interaction"]["url"]
+        assert_equal "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks", assigns(:interaction_details)["local_interaction"]["url"]
       end
     end
 

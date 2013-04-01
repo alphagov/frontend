@@ -1,4 +1,4 @@
-<section id="content" role="main" class="group <%= "multi-page" if @licence_details and @licence_details[:authority] %>">
+<section id="content" role="main" class="group <%= "multi-page" if @interaction_details and @interaction_details[:authority] %>">
 
   <header class="page-header group">
     <hgroup>
@@ -10,7 +10,7 @@
 
     <% if ! @publication.continuation_link.blank? %>
       <%= render :partial => 'licences/continues_on' %>
-    <% elsif @licence_details and @licence_details[:authority] %>
+    <% elsif @interaction_details and @interaction_details[:authority] %>
       <%= render :partial => 'licences/authority' %>
     <% else %>
       <%= render :partial => 'licences/introduction', :publication => @licence %>

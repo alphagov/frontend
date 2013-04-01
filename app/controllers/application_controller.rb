@@ -57,6 +57,7 @@ protected
       options[:latitude]  = location.lat
       options[:longitude] = location.lon
     end
+
     artefact = content_api.artefact(params[:slug], options)
 
     unless artefact

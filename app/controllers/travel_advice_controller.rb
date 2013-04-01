@@ -4,15 +4,15 @@ class TravelAdviceController < ApplicationController
   before_filter { set_expiry(5.minutes) }
 
   def index
-    @artefact = content_api.artefact('foreign-travel-advice')
-    unless @artefact
+    artefact = content_api.artefact('foreign-travel-advice')
+    unless artefact
       logger.warn("Failed to fetch artefact foreign-travel-advice from Content API. Response code: 404")
       error_404
       return
     end
-    set_slimmer_artefact_headers(@artefact)
+    set_slimmer_artefact_headers(artefact)
 
-    @publication = TravelAdviceIndexPresenter.new(@artefact)
+    @publication = TravelAdviceIndexPresenter.new(artefact)
 
     respond_to do |format|
       format.html
@@ -25,9 +25,9 @@ class TravelAdviceController < ApplicationController
     @country = params[:country_slug].dup
     @edition = params[:edition]
 
-    @publication, @artefact = fetch_artefact_and_publication_for_country(@country)
-    set_slimmer_artefact_overriding_section(@artefact, :section_name => "Foreign travel advice", :section_link => "/foreign-travel-advice")
-    set_slimmer_headers(:format => @artefact["format"])
+    @publication = fetch_publication_for_country(@country)
+    set_slimmer_artefact_overriding_section(@publication.artefact, :section_name => "Foreign travel advice", :section_link => "/foreign-travel-advice")
+    set_slimmer_headers(:format => @publication.artefact["format"])
 
     I18n.locale = :en # These pages haven't been localised yet.
 
@@ -51,12 +51,8 @@ class TravelAdviceController < ApplicationController
 
   private
 
-  def fetch_artefact_and_publication_for_country(country)
+  def fetch_publication_for_country(country)
     params[:slug] = "foreign-travel-advice/" + country
-
-    artefact = fetch_artefact
-    publication = TravelAdviceCountryPresenter.new(artefact)
-
-    return [publication, artefact]
+    TravelAdviceCountryPresenter.new(fetch_artefact)
   end
 end

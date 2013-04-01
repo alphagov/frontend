@@ -375,9 +375,9 @@ class RootControllerTest < ActionController::TestCase
         assert_response :success
       end
 
-      should "loads the correct artefact" do
+      should "loads the correct details" do
         get :jobsearch, :slug => "jobs-jobsearch"
-        assert_equal "Universal Jobsearch", assigns(:artefact)['title']
+        assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "initialize a publication object" do

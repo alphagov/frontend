@@ -23,7 +23,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
         GdsApi::ContentApi.any_instance.expects(:artefact).with('foreign-travel-advice').returns(@index_artefact)
 
         get :index
-        assert_equal @index_artefact, assigns(:artefact)
       end
 
       should "send the artefact to slimmer" do

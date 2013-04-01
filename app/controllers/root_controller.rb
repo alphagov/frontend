@@ -27,10 +27,10 @@ class RootController < ApplicationController
   def jobsearch
     error_404 and return if request.format.nil?
 
-    @artefact = fetch_artefact
-    set_slimmer_artefact_headers(@artefact)
+    artefact = fetch_artefact
+    set_slimmer_artefact_headers(artefact)
 
-    @publication = PublicationPresenter.new(@artefact)
+    @publication = PublicationPresenter.new(artefact)
     assert_found(@publication)
 
     if request.format.json?
@@ -58,17 +58,17 @@ class RootController < ApplicationController
       @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
     end
 
-    @artefact = fetch_artefact(nil, @location)
-    set_slimmer_artefact_headers(@artefact)
+    artefact = fetch_artefact(nil, @location)
+    set_slimmer_artefact_headers(artefact)
 
-    @publication = PublicationPresenter.new(@artefact)
+    @publication = PublicationPresenter.new(artefact)
     assert_found(@publication)
 
     I18n.locale = @publication.language if @publication.language
 
-    if ['licence','local_transaction'].include? @artefact['format']
+    if ['licence','local_transaction'].include? artefact['format']
       if @location
-        snac = appropriate_snac_code_from_location(@artefact, @location)
+        snac = appropriate_snac_code_from_location(artefact, @location)
         redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
@@ -83,20 +83,20 @@ class RootController < ApplicationController
 
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
-      @artefact = fetch_artefact(snac) if snac
+      artefact = fetch_artefact(snac) if snac
     elsif part_requested_but_no_parts? || @publication.empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
       redirect_to publication_path(:slug => @publication.slug) and return
-    elsif request.format.json? && @artefact['format'] != 'place'
+    elsif request.format.json? && artefact['format'] != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return
     end
 
     case @publication.format
     when "licence"
-      @licence_details = licence_details(@artefact, authority_slug, snac)
+      @licence_details = licence_details(artefact, authority_slug, snac)
     when "local_transaction"
-      @local_transaction_details = local_transaction_details(@artefact, authority_slug, snac)
+      @local_transaction_details = local_transaction_details(artefact, authority_slug, snac)
     end
 
     set_expiry if params.exclude?('edition') and request.get?

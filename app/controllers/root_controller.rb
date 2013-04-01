@@ -32,9 +32,9 @@ class RootController < ApplicationController
   def publication
     prepare_publication_and_environment
 
-    if ['licence','local_transaction'].include? artefact['format']
+    if ['licence', 'local_transaction'].include?(@publication.format)
       if @location
-        snac = appropriate_snac_code_from_location(artefact, @location)
+        snac = appropriate_snac_code_from_location(@publication.artefact, @location)
         redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
@@ -54,15 +54,15 @@ class RootController < ApplicationController
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
       redirect_to publication_path(:slug => @publication.slug) and return
-    elsif request.format.json? && artefact['format'] != 'place'
+    elsif request.format.json? && @publication.format != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return
     end
 
     case @publication.format
     when "licence"
-      @licence_details = licence_details(artefact, authority_slug, snac)
+      @licence_details = licence_details(@publication.artefact, authority_slug, snac)
     when "local_transaction"
-      @local_transaction_details = local_transaction_details(artefact, authority_slug, snac)
+      @local_transaction_details = local_transaction_details(@publication.artefact, authority_slug, snac)
     end
 
     @publication.current_part = params[:part]

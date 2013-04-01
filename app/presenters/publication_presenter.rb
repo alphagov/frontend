@@ -35,7 +35,7 @@ class PublicationPresenter
   end
 
   def format
-    artefact["format"]
+    @artefact["format"]
   end
 
   def current_part=(part_slug)

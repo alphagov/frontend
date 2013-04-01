@@ -15,12 +15,12 @@
     <article role="article" class="group">
       <div class="inner">
 
-        <% if @part %>
+        <% if @publication.current_part %>
           <header>
-            <h1><%= @part.title %></h1>
+            <h1><%= @publication.current_part.title %></h1>
           </header>
 
-          <%= raw @part.body %>
+          <%= raw @publication.current_part.body %>
         <% else %><%# The summary page %>
           <%= render :partial => "country_summary", :locals => {:publication => @publication} %>
         <% end %>
@@ -38,10 +38,10 @@
   <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
   <%= auto_discovery_link_tag :atom, travel_advice_country_path(@publication.country['slug'], :format => :atom),
     :title => "Recent updates for #{@publication.country['name']}" %>
-  <%- if @part and @publication.has_previous_part?(@part) -%>
-    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
+  <%- if @publication.current_part and @publication.has_previous_part?(@publication.current_part) -%>
+    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@publication.current_part).slug,@edition) %>" />
   <%- end -%>
-  <%- if @part and @publication.has_next_part?(@part) -%>
-    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@part).slug,@edition) %>" />
+  <%- if @publication.current_part and @publication.has_next_part?(@publication.current_part) -%>
+    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@publication.current_part).slug,@edition) %>" />
   <%- end -%>
 <% end %>

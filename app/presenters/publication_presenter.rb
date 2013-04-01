@@ -3,7 +3,7 @@ class PublicationPresenter
 
   attr_reader :artefact
 
-  attr_accessor :places, :parts
+  attr_accessor :places, :parts, :current_part
 
   def initialize(artefact)
     @artefact = artefact
@@ -38,6 +38,13 @@ class PublicationPresenter
     artefact["format"]
   end
 
+  def current_part=(part_slug)
+    return unless parts && parts.any?
+
+    part = part_slug || parts.first.slug
+    @current_part = find_part(part)
+  end
+
   def parts
     @parts ||= build_parts
   end
@@ -55,6 +62,10 @@ class PublicationPresenter
 
   def find_part(slug)
     parts && parts.find { |part| part.slug == slug }
+  end
+
+  def empty_part_list?
+    parts && parts.empty?
   end
 
   def slug

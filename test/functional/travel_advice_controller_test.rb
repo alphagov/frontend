@@ -173,8 +173,9 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "select a given part if it exists" do
           get :country, :country_slug => "turks-and-caicos-islands", :part => "page-two"
 
-          assert_equal "page-two", assigns(:part).slug
-          assert assigns(:part).is_a?(PartPresenter)
+          assigned_part = assigns(:publication).current_part
+          assert_equal "page-two", assigned_part.slug
+          assert assigned_part.is_a?(PartPresenter)
           assert response.success?
         end
 

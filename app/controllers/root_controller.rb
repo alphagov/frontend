@@ -84,7 +84,7 @@ class RootController < ApplicationController
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
       @artefact = fetch_artefact(snac) if snac
-    elsif part_requested_but_no_parts? || empty_part_list?
+    elsif part_requested_but_no_parts? || @publication.empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
       redirect_to publication_path(:slug => @publication.slug) and return
@@ -101,11 +101,7 @@ class RootController < ApplicationController
 
     set_expiry if params.exclude?('edition') and request.get?
 
-    if @publication.parts
-      part = params.fetch(:part) { @publication.parts.first.slug }
-      @part = @publication.find_part(part)
-    end
-
+    @publication.current_part = params[:part]
     @edition = params[:edition]
 
     respond_to do |format|
@@ -130,11 +126,6 @@ class RootController < ApplicationController
   end
 
 protected
-
-  def empty_part_list?
-    @publication.parts and @publication.parts.empty?
-  end
-
   def part_requested_but_no_parts?
     params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
   end

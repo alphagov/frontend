@@ -32,9 +32,8 @@ class TravelAdviceController < ApplicationController
     I18n.locale = :en # These pages haven't been localised yet.
 
     if params[:part].present?
-      @part = @publication.find_part(params[:part])
-
-      unless @part
+      @publication.current_part = params[:part]
+      unless @publication.current_part
         redirect_to travel_advice_country_path(@country) and return
       end
     end

@@ -16,10 +16,10 @@
       <div class="inner">
 
         <header>
-          <h1><span><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, @part) %><span class="visuallyhidden">:</span> </span><%= @part.title %></h1>
+          <h1><span><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, @publication.current_part) %><span class="visuallyhidden">:</span> </span><%= @publication.current_part.title %></h1>
         </header>
 
-        <%= raw @part.body %>
+        <%= raw @publication.current_part.body %>
 
         <%= render :partial => "guide_pagination" %>
       </div>
@@ -33,11 +33,11 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
-  <link rel="canonical" href="<%= part_path(@publication.slug, @part.slug,@edition) %>" />
-  <%- if @publication.has_previous_part?(@part) -%>
-    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@part).slug,@edition) %>" />
+  <link rel="canonical" href="<%= part_path(@publication.slug, @publication.current_part.slug,@edition) %>" />
+  <%- if @publication.has_previous_part?(@publication.current_part) -%>
+    <link rel="prev" href="<%= part_path(@publication.slug, @publication.part_before(@publication.current_part).slug,@edition) %>" />
   <%- end -%>
-  <%- if @publication.has_next_part?(@part) -%>
-    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@part).slug,@edition) %>" />
+  <%- if @publication.has_next_part?(@publication.current_part) -%>
+    <link rel="next" href="<%= part_path(@publication.slug, @publication.part_after(@publication.current_part).slug,@edition) %>" />
   <%- end -%>
 <% end %>

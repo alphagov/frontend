@@ -11,15 +11,14 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
 
     context "countries" do
       should "return the countries in the same order as in the JSON" do
-        assert_equal 6, @presenter.countries.length
-        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Turks and Caicos Islands"], @presenter.countries.map {|c| c.name }
+        assert_equal 7, @presenter.countries.length
+        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Spain", "Turks and Caicos Islands"], @presenter.countries.map {|c| c.name }
       end
     end
 
     context "countries_by_date" do
       should "return countries ordered by last_updated most recent first" do
-        assert_equal 6, @presenter.countries_by_date.length
-        assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany", "Iran"], @presenter.countries_by_date.map {|c| c.name }
+        assert_equal ["Spain", "Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany", "Iran"], @presenter.countries_by_date.map {|c| c.name }
       end
 
       should "memoize the result" do
@@ -32,7 +31,7 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
     context "countries_recently_updated" do
       should "return the 5 most recently updated countries" do
         assert_equal 5, @presenter.countries_recently_updated.length
-        assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"], @presenter.countries_recently_updated.map {|c| c.name }
+        assert_equal ["Spain", "Portugal", "Aruba", "Turks and Caicos Islands", "Congo"], @presenter.countries_recently_updated.map {|c| c.name }
       end
     end
   end

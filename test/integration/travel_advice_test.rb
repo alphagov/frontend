@@ -32,15 +32,13 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
 
         within "#recently-updated ul.updated-countries" do
-          assert_equal ["Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany"],
-                       page.all("li a").map(&:text)
-          assert_equal ["updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013",
-                        "updated 3 February 2013", "updated 2 February 2013"],
+          assert_equal ["Spain", "Portugal", "Aruba", "Turks and Caicos Islands", "Congo"], page.all("li a").map(&:text)
+          assert_equal ["updated 23 February 2013", "updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013", "updated 3 February 2013"],
                        page.all("li span").map(&:text)
         end
 
 
-        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Turks and Caicos Islands"], page.all("ul.countries li a").map(&:text)
+        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Spain", "Turks and Caicos Islands"], page.all("ul.countries li a").map(&:text)
         within ".list#A" do
           assert page.has_link?("Aruba", :href => "/foreign-travel-advice/aruba")
         end
@@ -124,6 +122,21 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
 
         within "#T" do
+          assert page.has_selector?("li", visible: false)
+        end
+      end
+
+      should "support searching by a synonym" do
+        within "#country-filter" do
+          fill_in "country", :with => "Ib"
+        end
+
+          # search for Ibiza, Spain should be visible
+        within "#S" do
+          assert page.has_selector?("li", visible: true)
+        end
+
+        within "#A" do
           assert page.has_selector?("li", visible: false)
         end
       end

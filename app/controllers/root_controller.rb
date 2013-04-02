@@ -49,7 +49,7 @@ class RootController < ApplicationController
 
         # Fetch the artefact again, for the snac we have
         # This returns additional data based on format and location
-        updated_artefact = fetch_artefact(snac) if snac
+        updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
         assert_found(updated_artefact)
         @publication = PublicationPresenter.new(updated_artefact)
       end
@@ -115,7 +115,7 @@ protected
       @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
     end
 
-    artefact = fetch_artefact(nil, @location)
+    artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
     set_slimmer_artefact_headers(artefact)
 
     @publication = PublicationPresenter.new(artefact)

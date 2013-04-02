@@ -27,7 +27,7 @@ class RootController < ApplicationController
   def jobsearch
     error_404 and return if request.format.nil?
 
-    @artefact = fetch_artefact
+    @artefact = fetch_artefact(params[:slug], params[:edition])
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)
@@ -58,7 +58,7 @@ class RootController < ApplicationController
       @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
     end
 
-    @artefact = fetch_artefact(nil, @location)
+    @artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)
@@ -83,7 +83,7 @@ class RootController < ApplicationController
 
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
-      @artefact = fetch_artefact(snac) if snac
+      @artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
     elsif part_requested_but_no_parts? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?

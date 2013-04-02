@@ -34,10 +34,6 @@ class RootController < ApplicationController
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
 
-    if request.format.json?
-      redirect_to "/api/#{params[:slug]}.json" and return
-    end
-
     set_expiry
 
     I18n.locale = @publication.language if @publication.language

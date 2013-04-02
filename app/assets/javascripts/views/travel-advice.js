@@ -22,6 +22,10 @@
     if(filter && filter.length > 0) {
       listItems.show();
       listItems.filter(":not(:contains(" + filter + "))").hide();
+      var synonym = findSynonym(filter);
+      if(synonym) {
+        listItems.filter(":contains(" + synonym + ")").show();
+      }
       filterHeadings();
     } else {
       listItems.show();
@@ -30,43 +34,31 @@
   };
 
   var findSynonym = function(search) {
-    console.log("called", search);
-    // - United States -> USA
-    // - America -> USA
-    // - Dubai -> United Arab Emirates
-    // - UAE -> United Arab Emirates
-    // - East Timor -> Timor-Leste
-    // - Ivory Coast -> Côte d'Ivoire
-    // - PNG -> Papua New Guinea
-    // - Ibiza -> Spain
     var country_synonyms = {
       "USA": "United States",
       "America": "United States",
       "Dubai": "United Arab Emirates",
-      "UAE": "United Arab Emirates"
+      "UAE": "United Arab Emirates",
+      "East Timor": "Timor-Leste",
+      "Ivory Coast": "Côte d'Ivoire",
+      "PNG": "Papua New Guinea",
+      "Ibiza": "Spain"
     };
-    if(search.length > 1) {
-      for(var prop in country_synonyms) {
-        console.log("search", search, "prop", prop);
-        if(prop.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-          console.log("found", prop);
-          filterListItems(country_synonyms[prop]);
-          break;
-        }
+
+    for(var prop in country_synonyms) {
+      if(prop.toLowerCase().indexOf(search.toLowerCase()) > -1) {
+        return country_synonyms[prop];
       }
     }
+    return false;
   }
-
 
 
   input.change(function(e) {
     var filter = $(this).val();
-
     filterListItems(filter);
     findSynonym(filter);
-
     e.preventDefault();
-
   }).keyup(function() {
     $(this).change();
   }).keypress(function(event) {

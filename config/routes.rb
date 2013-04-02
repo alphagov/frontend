@@ -38,10 +38,12 @@ Frontend::Application.routes.draw do
   match "/knowbeforeyougo", :to => "campaign#know_before_you_go"
 
   # Jobssearch form override (English and Welsh variants)
-  match "/:slug" => "root#jobsearch", :constraints => {:slug => /(jobsearch|chwilio-am-swydd)/}
+  constraints(:slug => /(jobsearch|chwilio-am-swydd)/) do
+    match "/:slug.json"      => redirect("/api/%{slug}.json")
+    match "/:slug(.:format)" => "root#jobsearch"
+  end
 
   with_options(as: "publication", to: "root#publication") do |pub|
-    pub.match ":slug/video", format: :video
     pub.match ":slug/print", format: :print
     pub.match ":slug/:part/:interaction", as: :licence_authority_action
     pub.match ":slug(/:part)"

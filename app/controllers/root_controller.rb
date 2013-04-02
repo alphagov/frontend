@@ -2,6 +2,7 @@ require "slimmer/headers"
 require "authority_lookup"
 require "local_transaction_location_identifier"
 require "licence_location_identifier"
+require "licence_details_from_artefact"
 
 class RootController < ApplicationController
   include RootHelper
@@ -27,15 +28,11 @@ class RootController < ApplicationController
   def jobsearch
     error_404 and return if request.format.nil?
 
-    @artefact = fetch_artefact
+    @artefact = fetch_artefact(params[:slug], params[:edition])
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)
     assert_found(@publication)
-
-    if request.format.json?
-      redirect_to "/api/#{params[:slug]}.json" and return
-    end
 
     set_expiry
 
@@ -58,7 +55,7 @@ class RootController < ApplicationController
       @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
     end
 
-    @artefact = fetch_artefact(nil, @location)
+    @artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
     set_slimmer_artefact_headers(@artefact)
 
     @publication = PublicationPresenter.new(@artefact)
@@ -83,7 +80,7 @@ class RootController < ApplicationController
 
       # Fetch the artefact again, for the snac we have
       # This returns additional data based on format and location
-      @artefact = fetch_artefact(snac) if snac
+      @artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
     elsif part_requested_but_no_parts? || empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
@@ -157,40 +154,7 @@ protected
   end
 
   def licence_details(artefact, licence_authority_slug, snac_code)
-    licence_attributes = { licence: artefact['details']['licence'] }
-
-    return false if licence_attributes[:licence].blank? or licence_attributes[:licence]['error'].present?
-
-    licence_attributes[:authority] = authority_for_licence(licence_attributes[:licence], licence_authority_slug, snac_code)
-
-    if ! licence_attributes[:authority] and (snac_code.present? || licence_authority_slug.present?)
-      raise RecordNotFound
-    end
-
-    if licence_attributes[:authority]
-      licence_attributes[:action] = params[:interaction]
-      available_actions = licence_attributes[:authority]['actions'].keys + ["apply","renew","change"]
-
-      if licence_attributes[:action] && ! available_actions.include?(licence_attributes[:action])
-        raise RecordNotFound
-      end
-    end
-
-    return licence_attributes
-  end
-
-  def authority_for_licence(licence, licence_authority_slug, snac_code)
-    if licence["location_specific"]
-      if snac_code
-        licence['authorities'].first
-      end
-    else
-      if licence['authorities'].size == 1
-        licence['authorities'].first
-      elsif licence_authority_slug
-        licence['authorities'].select {|authority| authority['slug'] == licence_authority_slug }.first
-      end
-    end
+    LicenceDetailsFromArtefact.new(artefact, licence_authority_slug, snac_code, params[:interaction]).build_attributes
   end
 
   def appropriate_snac_code_from_location(artefact, location)

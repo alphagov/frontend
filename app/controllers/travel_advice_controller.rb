@@ -12,6 +12,10 @@ class TravelAdviceController < ApplicationController
     respond_to do |format|
       format.html
       format.atom
+      # TODO: Doing a static redirect to the API URL here means that an API call
+      #       and a variety of other logic will have been executed unnecessarily.
+      #       We should move this to the top of the method or out to routes.rb for
+      #       efficiency.
       format.json { redirect_to "/api/foreign-travel-advice.json" }
     end
   end

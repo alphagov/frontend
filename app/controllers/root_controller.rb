@@ -151,7 +151,7 @@ protected
   end
 
   def identifier_class_for_format(format)
-    case artefact['format']
+    case format
       when "licence" then LicenceLocationIdentifier
       when "local_transaction" then LocalTransactionLocationIdentifier
       else raise(Exception, "No location identifier available for #{format}")
@@ -167,7 +167,7 @@ protected
     }
 
     identifier_class = identifier_class_for_format(publication.format)
-    identifier_class.find_snac(geostack, artefact)
+    identifier_class.find_snac(geostack, publication.artefact)
   end
 
   def slug_for_snac_code(snac)

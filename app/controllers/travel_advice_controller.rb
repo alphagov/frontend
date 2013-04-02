@@ -4,13 +4,8 @@ class TravelAdviceController < ApplicationController
   before_filter { set_expiry(5.minutes) }
 
   def index
-    artefact = content_api.artefact('foreign-travel-advice')
-    unless artefact
-      logger.warn("Failed to fetch artefact foreign-travel-advice from Content API. Response code: 404")
-      error_404
-      return
-    end
-    set_slimmer_artefact_headers(artefact)
+    artefact = fetch_artefact('foreign-travel-advice')
+    set_slimmer_artefact_headers(artefact, :beta => '1')
 
     @publication = TravelAdviceIndexPresenter.new(artefact)
 
@@ -52,7 +47,7 @@ class TravelAdviceController < ApplicationController
   private
 
   def fetch_publication_for_country(country)
-    params[:slug] = "foreign-travel-advice/" + country
-    TravelAdviceCountryPresenter.new(fetch_artefact)
+    artefact = fetch_artefact("foreign-travel-advice/" + country, params[:edition])
+    TravelAdviceCountryPresenter.new(artefact)
   end
 end

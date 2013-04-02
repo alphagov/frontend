@@ -399,11 +399,6 @@ class RootControllerTest < ActionController::TestCase
         get :jobsearch, :slug => "jobs-jobsearch"
         assert_template "jobsearch"
       end
-
-      should "redirect to the api for json format" do
-        get :jobsearch, :slug => "jobs-jobsearch", :format => :json
-        assert_redirected_to "/api/jobs-jobsearch.json"
-      end
     end
 
     context "given a welsh version exists" do

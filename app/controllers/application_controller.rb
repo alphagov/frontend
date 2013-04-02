@@ -4,11 +4,7 @@ require 'gds_api/content_api'
 class RecordNotFound < StandardError
 end
 
-class RecordArchived < StandardError
-end
-
-class UnsupportedArtefactFormat < StandardError
-end
+require 'artefact_retriever'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
@@ -18,8 +14,8 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
-  rescue_from RecordArchived, with: :error_410
-  rescue_from UnsupportedArtefactFormat, with: :error_404
+  rescue_from ArtefactRetriever::RecordArchived, with: :error_410
+  rescue_from ArtefactRetriever::UnsupportedArtefactFormat, with: :error_404
 
 protected
   def error_404; error 404; end
@@ -51,34 +47,9 @@ protected
     set_slimmer_artefact(artefact)
   end
 
-  def fetch_artefact(snac = nil, location = nil)
-    options = { snac: snac, edition: params[:edition] }.delete_if { |k,v| v.blank? }
-    if location
-      options[:latitude]  = location.lat
-      options[:longitude] = location.lon
-    end
-
-    artefact = content_api.artefact(params[:slug], options)
-
-    unless artefact
-      logger.warn("Failed to fetch artefact #{params[:slug]} from Content API. Response code: 404")
-      raise RecordNotFound
-    end
-
-    unless supported_artefact_formats.include?(artefact['format'])
-      raise UnsupportedArtefactFormat
-    end
-    artefact
-  rescue GdsApi::HTTPErrorResponse => e
-    if e.code == 410
-      raise RecordArchived
-    elsif e.code >= 500
-      statsd.increment("content_api_error")
-    end
-    raise
-  rescue URI::InvalidURIError
-    logger.warn("Failed to fetch artefact from Content API.")
-    raise RecordNotFound
+  def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
+    ArtefactRetriever.new(content_api, Rails.logger, statsd).
+      fetch_artefact(slug, edition, snac, location)
   end
 
   def content_api
@@ -86,10 +57,6 @@ protected
       Plek.current.find("contentapi"),
       content_api_options
     )
-  end
-
-  def supported_artefact_formats
-    %w{answer business_support completed_transaction guide licence local_transaction place programme transaction travel-advice video}
   end
 
   def validate_slug_param(param_name = :slug)

@@ -39,8 +39,8 @@ Frontend::Application.routes.draw do
 
   # Jobssearch form override (English and Welsh variants)
   constraints(:slug => /(jobsearch|chwilio-am-swydd)/) do
-    match "/:slug.json" => redirect("/api/%{slug}.json")
-    match "/:slug" => "root#jobsearch"
+    match "/:slug.json"      => redirect("/api/%{slug}.json")
+    match "/:slug(.:format)" => "root#jobsearch"
   end
 
   with_options(as: "publication", to: "root#publication") do |pub|

@@ -35,7 +35,7 @@ class RootController < ApplicationController
 
     if ['licence', 'local_transaction'].include?(@publication.format)
       if @location
-        snac = appropriate_snac_code_from_location(@publication.artefact, @location)
+        snac = appropriate_snac_code_from_location(@publication, @location)
         redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
@@ -150,13 +150,15 @@ protected
     LicenceDetailsFromArtefact.new(artefact, licence_authority_slug, snac_code, params[:interaction]).build_attributes
   end
 
-  def appropriate_snac_code_from_location(artefact, location)
-    identifier_class = case artefact['format']
-                       when "licence" then LicenceLocationIdentifier
-                       when "local_transaction" then LocalTransactionLocationIdentifier
-                       else raise(Exception, "No location identifier available for #{artefact['format']}")
-                       end
+  def identifier_class_for_format(format)
+    case artefact['format']
+      when "licence" then LicenceLocationIdentifier
+      when "local_transaction" then LocalTransactionLocationIdentifier
+      else raise(Exception, "No location identifier available for #{format}")
+    end
+  end
 
+  def appropriate_snac_code_from_location(publication, location)
     # map to legacy geostack format
     geostack = {
       "council" => location.areas.map {|area|
@@ -164,6 +166,7 @@ protected
       }
     }
 
+    identifier_class = identifier_class_for_format(publication.format)
     identifier_class.find_snac(geostack, artefact)
   end
 

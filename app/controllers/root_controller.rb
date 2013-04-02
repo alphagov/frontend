@@ -106,14 +106,8 @@ protected
   def prepare_publication_and_environment
     raise RecordNotFound if request.format.nil?
 
-    if params[:slug] == 'done' and params[:part].present?
-      params[:slug] += "/#{params[:part]}"
-      params[:part] = nil
-    end
-
-    unless params[:postcode].blank?
-      @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
-    end
+    handle_done_slugs
+    setup_location(params[:postcode])
 
     artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
     set_slimmer_artefact_headers(artefact)
@@ -123,6 +117,20 @@ protected
 
     I18n.locale = @publication.language if @publication.language
     set_expiry if params.exclude?('edition') and request.get?
+  end
+
+  # TODO: Can we replace this method with smarter routing?
+  def handle_done_slugs
+    if params[:slug] == 'done' and params[:part].present?
+      params[:slug] += "/#{params[:part]}"
+      params[:part] = nil
+    end
+  end
+
+  def setup_location(postcode)
+    if postcode.present?
+      @location = Frontend.mapit_api.location_for_postcode(postcode)
+    end
   end
 
   def part_requested_but_no_parts?

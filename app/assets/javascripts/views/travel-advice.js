@@ -18,25 +18,29 @@
     });
   };
 
+
   var filterListItems = function(filter) {
+    listItems.each(function(i, item) {
+      var $item = $(item);
+      var link = $item.children("a");
+      $item.html(link);
+    }).show();
     if(filter && filter.length > 0) {
-      listItems.show();
       listItems.filter(":not(:contains(" + filter + "))").hide();
       var synonym = findSynonym(filter);
-      if(synonym) {
-        listItems.filter(":contains(" + synonym + ")").show();
+      if(synonym && synonym.country) {
+        listItems.filter(":contains(" + synonym.country + ")").show().append("(" + synonym.synonym + ")");
       }
       filterHeadings();
     } else {
-      listItems.show();
       countryHeadings.show();
     }
   };
 
   var findSynonym = function(search) {
     var country_synonyms = {
-      "USA": "United States",
-      "America": "United States",
+      "United States": "USA",
+      "America": "USA",
       "Dubai": "United Arab Emirates",
       "UAE": "United Arab Emirates",
       "East Timor": "Timor-Leste",
@@ -47,7 +51,10 @@
 
     for(var prop in country_synonyms) {
       if(prop.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-        return country_synonyms[prop];
+        return {
+          synonym: prop,
+          country: country_synonyms[prop]
+        };
       }
     }
     return false;

@@ -1,4 +1,5 @@
 (function($) {
+  $(".countries-wrapper").attr("aria-live", "polite");
   $.expr[':'].contains = function(obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };

@@ -21,6 +21,7 @@
 
 
   var filterListItems = function(filter) {
+    filterHeadings();
     listItems.each(function(i, item) {
       var $item = $(item);
       var link = $item.children("a");
@@ -28,10 +29,14 @@
     }).show();
     if(filter && filter.length > 0) {
       listItems.filter(":not(:contains(" + filter + "))").hide();
-      var synonym = findSynonym(filter);
-      if(synonym && synonym.country) {
-        listItems.filter(":contains(" + synonym.country + ")").show().append("(" + synonym.synonym + ")");
-      }
+      var synonyms = findSynonym(filter);
+      $.each(synonyms, function(i, match) {
+        if(match.countries.length) {
+          $.each(match.countries, function(i, country) {
+            listItems.filter(":hidden").filter(":contains(" + country + ")").show().append("(" + match.synonym + ")");
+          });
+        }
+      });
       filterHeadings();
     } else {
       countryHeadings.show();
@@ -39,7 +44,7 @@
   };
 
   var findSynonym = function(search) {
-    var country_synonyms = {
+    var countrySynonyms = {
       "United States": "USA",
       "America": "USA",
       "Dubai": "United Arab Emirates",
@@ -47,18 +52,20 @@
       "East Timor": "Timor-Leste",
       "Ivory Coast": "Côte d'Ivoire",
       "PNG": "Papua New Guinea",
-      "Ibiza": "Spain"
+      "Ibiza": "Spain",
+      "Borneo": ["Indonesia", "Malaysia", "Brunei"]
     };
 
-    for(var prop in country_synonyms) {
+    var foundSynonyms = [];
+    for(var prop in countrySynonyms) {
       if(prop.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-        return {
+        foundSynonyms.push({
           synonym: prop,
-          country: country_synonyms[prop]
-        };
+          countries: $.isArray(countrySynonyms[prop]) ? countrySynonyms[prop] : [countrySynonyms[prop]]
+        });
       }
     }
-    return false;
+    return foundSynonyms;
   }
 
 

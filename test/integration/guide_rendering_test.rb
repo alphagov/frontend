@@ -112,7 +112,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
 
     within '#wrapper' do
-      assert page.has_selector?("#content.single-part")
+      assert page.has_selector?("#content.single-page")
       within '#content .article-container' do
         assert page.has_no_xpath?("./aside")
         assert page.has_no_xpath?("./article/div/header")

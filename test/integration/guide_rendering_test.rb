@@ -114,8 +114,9 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within '#wrapper' do
       assert page.has_selector?("#content.single-part")
       within '#content .article-container' do
-        assert page.has_no_selector?("> aside")
-        assert page.has_no_selector?("> article .inner footer")
+        assert page.has_no_xpath?("./aside")
+        assert page.has_no_xpath?("./article/div/header")
+        assert page.has_no_xpath?("./article/div/footer")
       end
     end
   end

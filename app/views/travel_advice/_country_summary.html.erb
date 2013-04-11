@@ -1,6 +1,8 @@
+<% if publication.parts.present? then %>
 <header>
   <h1>Summary</h1>
 </header>
+<% end %>
 
 <ul class="country-metadata">
   <li>Still current at: <%= Date.today.strftime("%e %B %Y") %></li>

@@ -37,17 +37,18 @@
             <input id="country" name="country" type="text" />
           </fieldset>
         </form>
-
-        <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
-          <section id="<%= initial %>" class="list">
-            <h1><%= initial %></h1>
-            <ul class="countries">
-              <% countries.each do |country| %>
-                <li><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
-              <% end %>
-            </ul>
-          </section>
-        <% end %>
+        <div class="countries-wrapper">
+          <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
+            <section id="<%= initial %>" class="list">
+              <h1><%= initial %></h1>
+              <ul class="countries">
+                <% countries.each do |country| %>
+                  <li><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
+                <% end %>
+              </ul>
+            </section>
+          <% end %>
+        </div>
       </div>
     </article>
 

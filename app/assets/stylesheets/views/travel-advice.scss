@@ -6,13 +6,22 @@
       ul {
         padding-left: 0;
       }
+      ul.countries {
+        li {
+          a {
+            margin-right: 10px;
+
+          }
+          color: $grey-1;
+        }
+      }
 
       li {
         list-style: none;
         padding-left: 0;
         .meta{
           @include core-16;
-          color: $grey-2;
+          color: $grey-1;
 
         }
       }

@@ -105,6 +105,22 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  should "render a programme with a single part correctly" do
+    setup_api_responses('warm-front-scheme')
+    visit "/warm-front-scheme"
+
+    assert_equal 200, page.status_code
+
+    within '#wrapper' do
+      assert page.has_selector?("#content.single-page")
+      within '#content .article-container' do
+        assert page.has_no_xpath?("./aside")
+        assert page.has_no_xpath?("./article/div/header")
+        assert page.has_no_xpath?("./article/div/footer")
+      end
+    end
+  end
+
   should "render a Welsh programme correctly" do
     # Note, this is using an english piece of content set to Welsh
     # This is fine because we're testing the page furniture, not the rendering of the content.

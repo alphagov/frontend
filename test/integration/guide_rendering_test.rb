@@ -106,8 +106,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
   end
 
   should "render a guide with a single part correctly" do
-    setup_api_responses('enhanced-rider-scheme')
-    visit "/enhanced-rider-scheme"
+    setup_api_responses('building-regulations-competent-person-schemes')
+    visit "/building-regulations-competent-person-schemes"
 
     assert_equal 200, page.status_code
 

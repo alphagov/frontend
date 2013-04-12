@@ -224,8 +224,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within 'article' do
         assert page.has_selector?("h1", :text => "Summary")
 
-        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Updated: 16 January 2013")
+        within '.country-metadata' do
+          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
+          assert page.has_content?("Updated: 16 January 2013")
+          assert page.has_selector?("p", :text => "The issue with the Knights of Ni has been resolved.")
+        end
 
         within '.application-notice.help-notice' do
           assert page.has_content?("The FCO advise against all travel to parts of the country")

@@ -1,9 +1,13 @@
 Frontend::Application.routes.draw do
   match "/homepage" => redirect("/")
+  match "/search.json" => redirect { |params,req| "/api/search.json?q=#{req.query_parameters['q']}" }
   match "/search" => "search#index", as: :search
   match "/search/opensearch" => "search#opensearch"
+  match "/browse.json" => redirect("/api/tags.json?type=section&root_sections=true")
   match "/browse" => "browse#index", to: "browse#index"
+  match "/browse/:section.json" => redirect("/api/tags.json?type=section&parent_id=%{section}")
   match "/browse/:section", as: "browse", to: "browse#section"
+  match "/browse/:section/:sub_section.json" => redirect("/api/with_tag.json?tag=%{section}%%2F%{sub_section}")
   match "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
 
   # Crude way of handling the situation described at

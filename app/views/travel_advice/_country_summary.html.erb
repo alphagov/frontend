@@ -5,7 +5,7 @@
 <ul class="country-metadata">
   <li><div class="label">Still current at:</div> <%= Date.today.strftime("%e %B %Y") %></li>
   <li><div class="label">Updated:</div> <%= publication.updated_at.strftime("%e %B %Y") %></li>
-  <li><div class="label">Description:</div> <%= simple_format publication.change_description %></li>
+  <li><%= simple_format publication.change_description %></li>
 </ul>
 
 <% if publication.alert_status.present? %>

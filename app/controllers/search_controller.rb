@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
 
+  before_filter :redirect_json_requests, only: [:index]
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
   before_filter :set_results_tab, only: [:index]
@@ -33,6 +34,12 @@ class SearchController < ApplicationController
   end
 
   protected
+
+  def redirect_json_requests
+    if request.format == :json
+      redirect_to "/api/search.json?q=#{params[:q]}"
+    end
+  end
 
   def grouped_mainstream_results
     @_grouped_mainstream_results ||= begin

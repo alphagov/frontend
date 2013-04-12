@@ -54,6 +54,13 @@ class BrowseControllerTest < ActionController::TestCase
       assert_response :success
       assert response.body.include? "Get help &amp; support."
     end
+
+    should "redirect to the public_api when json requested" do
+      content_api_has_root_sections(["crime-and-justice"])
+      get :index, :format => :json
+
+      assert_redirected_to "/api/tags.json?type=section&root_sections=true"
+    end
   end
 
   context "GET section" do
@@ -132,6 +139,14 @@ class BrowseControllerTest < ActionController::TestCase
       get :section, section: "education"
       assert_response :success
       assert response.body.include? "Science &amp; education &amp; other good things."
+    end
+
+    should "redirect to the public_api when json requested" do
+      content_api_has_section("crime-and-justice")
+      content_api_has_subsections("crime-and-justice", ["alpha"])
+      get :section, section: "crime-and-justice", :format => :json
+
+      assert_redirected_to "/api/tags.json?type=section&parent_id=crime-and-justice"
     end
   end
 
@@ -234,6 +249,14 @@ class BrowseControllerTest < ActionController::TestCase
       get :sub_section, section: "crime-and-justice", sub_section: "judges"
 
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
+
+    should "redirect to the public_api when json requested" do
+      content_api_has_section("crime-and-justice/judges", "crime-and-justice")
+      content_api_has_artefacts_in_a_section("crime-and-justice/judges", ["judge-dredd"])
+      get :sub_section, section: "crime-and-justice", sub_section: "judges", format: :json
+
+      assert_redirected_to "/api/with_tag.json?tag=crime-and-justice%2Fjudges"
     end
   end
 end

@@ -41,5 +41,5 @@
 
 <% content_for :body_classes do %>full-width<% end %>
 <% content_for :extra_headers do %>
-<link rel="alternate" type="application/json" href="/api/with_tag.json?tag=<%= CGI.escape(@tag_id) %>">
+<link rel="alternate" type="application/json" href="<%= @api_path %>">
 <% end %>

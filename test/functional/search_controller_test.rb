@@ -295,4 +295,16 @@ class SearchControllerTest < ActionController::TestCase
       assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
     end
   end
+
+  context "JSON requests" do
+    should "redirect to the public API for the search term" do
+      get :index, :q => "something", :format => :json
+      assert_redirected_to "/api/search.json?q=something"
+    end
+
+    should "redirect to the public API with no search term" do
+      get :index, :format => :json
+      assert_redirected_to "/api/search.json?q="
+    end
+  end
 end

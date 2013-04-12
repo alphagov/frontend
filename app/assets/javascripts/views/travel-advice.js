@@ -53,6 +53,7 @@
       "Ivory Coast": "Côte d'Ivoire",
       "PNG": "Papua New Guinea",
       "Ibiza": "Spain",
+      "Mallorca": "Spain",
       "Borneo": ["Indonesia", "Malaysia", "Brunei"]
     };
 

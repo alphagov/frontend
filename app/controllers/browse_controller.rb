@@ -14,6 +14,11 @@ class BrowseController < ApplicationController
     @categories = content_api.root_sections.results.sort_by { |category| category.title }
     options = {title: "browse", section_name: "Browse", section_link: "/browse"}
     set_slimmer_artefact_headers(options)
+    @api_path = "/api/tags.json?type=section&root_sections=true"
+    respond_to do |format|
+      format.json { redirect_to @api_path }
+      format.all
+    end
   end
 
   def section
@@ -24,6 +29,11 @@ class BrowseController < ApplicationController
     @sub_categories = response.results.sort_by { |category| category.title }
     setup_page_title(@category.title)
     set_slimmer_artefact_headers
+    @api_path = "/api/tags.json?type=section&parent_id=#{ params[:section] }"
+    respond_to do |format|
+      format.json { redirect_to @api_path }
+      format.all
+    end
   end
 
   def sub_section
@@ -39,6 +49,11 @@ class BrowseController < ApplicationController
     setup_page_title(@sub_category.title)
     options = {title: "browse", section_name: @category.title, section_link: "/browse/#{params[:section]}"}
     set_slimmer_artefact_headers(options)
+    @api_path = "/api/with_tag.json?tag=#{ CGI.escape(@tag_id) }"
+    respond_to do |format|
+      format.json { redirect_to @api_path }
+      format.all
+    end
   end
 
 protected

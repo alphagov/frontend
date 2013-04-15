@@ -1,0 +1,69 @@
+{
+   "_response_info":{
+      "status":"ok"
+   },
+   "id":"https://www.gov.uk/api/building-regulations-competent-person-schemes.json",
+   "web_url":"https://www.gov.uk/building-regulations-competent-person-schemes",
+   "title":"Competent person scheme",
+   "format":"guide",
+   "updated_at":"2013-04-04T16:06:21+01:00",
+   "details":{
+      "need_id":"B1086",
+      "business_proposition":true,
+      "description":"Join a competent person scheme to self-certify certain types of building work instead of getting building regulations approval from a council or inspector - how this works, how to join, current schemes",
+      "language":"en",
+      "need_extended_font":false,
+      "alternative_title":"",
+      "video_summary":"",
+      "video_url":"",
+      "parts":[
+         {
+            "web_url":"https://www.gov.uk/building-regulations-competent-person-schemes/overview",
+            "slug":"overview",
+            "order":1,
+            "title":"Overview",
+            "body":"<p>You can join a competent person scheme to self-certify certain <a href=\"/competent-person-scheme-current-schemes-and-how-schemes-are-authorised#types-of-building-work\" title=\"Competent person schemes: current schemes and types of building work covered\">types of building work</a> if you work in the building trade as an installer. This is instead of getting building regulations approval.  </p>\n\n<p>This means:</p>\n\n<ul>\n  <li>you don&rsquo;t have to use a local council or approved building inspector to check your work</li>\n  <li>your customers benefit from lower prices as there are no building control fees</li>\n</ul>\n\n<div class=\"application-notice info-notice\">\n<p>Membership is voluntary - you can still use local councils and building inspectors if you prefer.</p>\n</div>\n\n<p>Competent person scheme operators and installers must follow certain rules to make sure that their work complies with building regulations.</p>\n\n<div class=\"form-download\">\n<p><a href=\"/government/uploads/system/uploads/attachment_data/file/34846/2156713_1_.pdf\" title=\"Download 'Competent person schemes - conditions of authorisation' (PDF, 60KB)\">Download ‘Competent person schemes - conditions of authorisation’ (PDF, 60KB)</a></p>\n</div>\n\n<h2>How to join a scheme</h2>\n\n<p>Contact one of the <a href=\"/competent-person-scheme-current-schemes-and-how-schemes-are-authorised#current-schemes\" title=\"list of competent person schemes and the types of building work they cover\">relevant schemes</a>. They each have different application processes, rules and fees. </p>\n\n<p>You&rsquo;ll be assessed to make sure you meet the level of competence required before you&rsquo;re approved. There will be ongoing inspections of your work to make sure standards are met if you become a member.</p>\n\n<h2>Current schemes and how schemes are authorised</h2>\n\n<p>You can find a list of <a href=\"/competent-person-scheme-current-schemes-and-how-schemes-are-authorised#current-schemes\" title=\"current competent person schemes\">current competent person schemes</a>, and contact the relevant scheme for details about joining. </p>\n\n<p>You can also find out more about <a href=\"/competent-person-scheme-current-schemes-and-how-schemes-are-authorised#how-schemes-are-authorised\" title=\"how schemes are authorised\">how schemes are authorised</a>.</p>\n"
+         }
+      ]
+   },
+   "tags":[
+      {
+         "title":"Planning permission and building regulations",
+         "id":"https://www.gov.uk/api/tags/sections/housing%2Fplanning-permission.json",
+         "web_url":null,
+         "details":{
+            "description":"Applying for planning permission, conservation areas and planning decisions",
+            "short_description":null,
+            "type":"section"
+         },
+         "content_with_tag":{
+            "id":"https://www.gov.uk/api/with_tag.json?section=housing%2Fplanning-permission",
+            "web_url":"https://www.gov.uk/browse/housing/planning-permission"
+         },
+         "parent":{
+            "title":"Housing and local services",
+            "id":"https://www.gov.uk/api/tags/sections/housing.json",
+            "web_url":null,
+            "details":{
+               "description":"Your legal obligations and rights when renting, buying or owning a home, plus information about Council Tax, what to do if you're homeless and where to get help if you have a housing dispute.",
+               "short_description":null,
+               "type":"section"
+            },
+            "content_with_tag":{
+               "id":"https://www.gov.uk/api/with_tag.json?section=housing",
+               "web_url":"https://www.gov.uk/browse/housing"
+            },
+            "parent":null
+         }
+      }
+   ],
+   "related":[
+      {
+         "id":"https://www.gov.uk/api/building-regulations-approval.json",
+         "web_url":"https://www.gov.uk/building-regulations-approval",
+         "title":"Building regulations approval",
+         "format":"answer",
+         "updated_at":"2013-04-04T15:40:28+01:00"
+      }
+   ]
+}

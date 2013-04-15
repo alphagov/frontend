@@ -1,0 +1,95 @@
+{
+   "_response_info":{
+      "status":"ok"
+   },
+   "id":"https://www.gov.uk/api/warm-front-scheme.json",
+   "web_url":"https://www.gov.uk/warm-front-scheme",
+   "title":"Warm Front Scheme",
+   "format":"programme",
+   "updated_at":"2013-04-04T16:05:09+01:00",
+   "details":{
+      "need_id":"57",
+      "business_proposition":false,
+      "description":"Applications for the Warm Front Scheme ended on 19 January 2013 - any existing applications will still be processed",
+      "language":"en",
+      "need_extended_font":false,
+      "alternative_title":"Energy saving grants for home heating and insulation",
+      "parts":[
+         {
+            "web_url":"https://www.gov.uk/warm-front-scheme/overview",
+            "slug":"overview",
+            "order":1,
+            "title":"Overview",
+            "body":"\n<div class=\"application-notice info-notice\">\n<p>The Warm Front Scheme ended on 19 January 2013. You can’t apply for it now but existing applications will still be processed.</p>\n</div>\n\n<p>The scheme provided grants to improve the heating and/or insulation in your home.</p>\n\n<h2>If you’ve already applied</h2>\n\n<p>If you qualify, a Warm Front surveyor will check your home to see what’s needed. A Warm Front approved company then carries out the work.</p>\n\n<h2>Problems with Warm Front equipment</h2>\n\n<p>Contact Carillion Energy Services if you’ve got a problem with your Warm Front equipment.</p>\n\n<div class=\"contact\">\n<p><strong>Carillion Energy Services</strong><br />\n<a href=\"&#109;&#097;&#105;&#108;&#116;&#111;:&#099;&#117;&#115;&#116;&#111;&#109;&#101;&#114;&#046;&#109;&#097;&#110;&#097;&#103;&#101;&#109;&#101;&#110;&#116;&#064;&#099;&#097;&#114;&#105;&#108;&#108;&#105;&#111;&#110;&#112;&#108;&#099;&#046;&#099;&#111;&#109;\">&#099;&#117;&#115;&#116;&#111;&#109;&#101;&#114;&#046;&#109;&#097;&#110;&#097;&#103;&#101;&#109;&#101;&#110;&#116;&#064;&#099;&#097;&#114;&#105;&#108;&#108;&#105;&#111;&#110;&#112;&#108;&#099;&#046;&#099;&#111;&#109;</a><br />\n<strong>Telephone:</strong> 0800 316 2805<br />\n<strong>Minicom:</strong> 0800 072 0156<br />\n<strong>Fax:</strong> 0191 247 3801<br />\nMonday to Friday, 8am to 6pm<br />\nSaturday 9am to 5pm</p>\n</div>\n\n<div class=\"address\"><div class=\"adr org fn\"><p>\n\nCarillion Energy Services  \n<br />Customer Management Team   \n<br />Freepost NEA 12054   \n<br />Newcastle Upon Tyne   \n<br />NE2 1BR   \n<br />\n</p></div></div>\n\n<h2>Complaints about Warm Front</h2>\n\n<p>First, complain to Carillion Energy Services. If you’re not happy with their response, contact the <a rel=\"external\" href=\"http://www.decc.gov.uk/en/content/cms/about/contact_us/contact_us.aspx\" title=\"contact the Department of Energy and Climate Change\">Department of Energy and Climate Change.</a></p>\n\n<h2>Other available support</h2>\n<p>Call the <a rel=\"external\" href=\"http://www.energysavingtrust.org.uk/Organisations/Government/Energy-Saving-Advice-Service\" title=\"Energy Saving Advice Service\">Energy Saving Advice Service (ESAS)</a> to find out about other support available for improving the energy efficiency of your home or business.</p>\n\n<div class=\"contact\">\n<p><strong>Energy Saving Advice Service (ESAS)</strong></p>\n\n<p>0300 123 1234</p>\n</div>\n"
+         }
+      ]
+   },
+   "tags":[
+      {
+         "title":"Heating and housing benefits",
+         "id":"https://www.gov.uk/api/tags/sections/benefits%2Fheating.json",
+         "web_url":null,
+         "details":{
+            "description":"Includes Winter Fuel Payment and Cold Weather Payment",
+            "short_description":null,
+            "type":"section"
+         },
+         "content_with_tag":{
+            "id":"https://www.gov.uk/api/with_tag.json?section=benefits%2Fheating",
+            "web_url":"https://www.gov.uk/browse/benefits/heating"
+         },
+         "parent":{
+            "title":"Benefits",
+            "id":"https://www.gov.uk/api/tags/sections/benefits.json",
+            "web_url":null,
+            "details":{
+               "description":"Includes tax credits, eligibility and appeals",
+               "short_description":"",
+               "type":"section"
+            },
+            "content_with_tag":{
+               "id":"https://www.gov.uk/api/with_tag.json?section=benefits",
+               "web_url":"https://www.gov.uk/browse/benefits"
+            },
+            "parent":null
+         }
+      }
+   ],
+   "related":[
+      {
+         "id":"https://www.gov.uk/api/benefits-adviser.json",
+         "web_url":"https://www.gov.uk/benefits-adviser",
+         "title":"Benefits adviser",
+         "format":"transaction",
+         "updated_at":"2013-04-04T16:18:00+01:00"
+      },
+      {
+         "id":"https://www.gov.uk/api/cold-weather-payment.json",
+         "web_url":"https://www.gov.uk/cold-weather-payment",
+         "title":"Cold Weather Payment",
+         "format":"programme",
+         "updated_at":"2013-04-10T08:56:32+01:00"
+      },
+      {
+         "id":"https://www.gov.uk/api/green-deal-energy-saving-measures.json",
+         "web_url":"https://www.gov.uk/green-deal-energy-saving-measures",
+         "title":"Green Deal: energy saving for your home or business",
+         "format":"guide",
+         "updated_at":"2013-04-04T16:08:25+01:00"
+      },
+      {
+         "id":"https://www.gov.uk/api/the-warm-home-discount-scheme.json",
+         "web_url":"https://www.gov.uk/the-warm-home-discount-scheme",
+         "title":"The Warm Home Discount scheme",
+         "format":"programme",
+         "updated_at":"2013-04-11T11:41:17+01:00"
+      },
+      {
+         "id":"https://www.gov.uk/api/winter-fuel-payment.json",
+         "web_url":"https://www.gov.uk/winter-fuel-payment",
+         "title":"Winter Fuel Payment",
+         "format":"programme",
+         "updated_at":"2013-04-01T00:00:32+01:00"
+      }
+   ]
+}

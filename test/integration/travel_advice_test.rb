@@ -363,7 +363,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert ! page.has_selector?('.page-navigation')
 
       within 'article' do
-        assert page.has_selector?("h1", :text => "Summary")
+        assert page.has_no_selector?("h1", :text => "Summary")
 
         assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
         assert page.has_content?("Updated: 31 January 2013")

@@ -6,6 +6,8 @@ class SearchController < ApplicationController
   before_filter :set_expiry
   before_filter :set_results_tab, only: [:index]
 
+  rescue_from GdsApi::Rummager::SearchServiceError, with: :error_503
+
   def index
     @search_term = params[:q]
 
@@ -28,8 +30,6 @@ class SearchController < ApplicationController
     if @all_results.empty?
       render action: 'no_results' and return
     end
-  rescue GdsApi::Rummager::SearchServiceError
-    error_503 and return
   end
 
   protected

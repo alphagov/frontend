@@ -295,4 +295,11 @@ class SearchControllerTest < ActionController::TestCase
       assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
     end
   end
+
+  test "should handle service errors with a 503" do
+    Frontend.mainstream_search_client.stubs(:search).raises(GdsApi::Rummager::SearchServiceError)
+    get :index, {q: "badness"}
+
+    assert_response 503
+  end
 end

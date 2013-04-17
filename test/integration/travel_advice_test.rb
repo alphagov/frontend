@@ -226,7 +226,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         within '.country-metadata' do
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-          assert page.has_content?("Updated: 16 January 2013")
+          assert page.has_content?("Updated: 24 March 2013")
           assert page.has_selector?("p", :text => "The issue with the Knights of Ni has been resolved.")
         end
 
@@ -320,7 +320,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         within 'article#summary' do
           assert page.has_selector?("h1", :text => "Summary")
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-          assert page.has_content?("Updated: 16 January 2013")
+          assert page.has_content?("Updated: 24 March 2013")
           within '.application-notice.help-notice' do
             assert page.has_content?("The FCO advise against all travel to parts of the country")
             assert page.has_content?("The FCO advise against all but essential travel to the whole country")
@@ -340,6 +340,21 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "a country updated before 20th March 2013" do
+    setup do
+      setup_api_responses "foreign-travel-advice/luxembourg"
+    end
+
+    should "not display the change description" do
+      visit "/foreign-travel-advice/luxembourg"
+
+      within 'article .country-metadata' do
+        assert page.has_no_content?("The issue with the Knights of Ni has been resolved.")
+      end
+    end
+  end
+
 
   context "a country with no parts" do
     setup do
@@ -409,7 +424,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Summary")
 
         assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Updated: 16 January 2013")
+        assert page.has_content?("Updated: 24 March 2013")
 
         assert page.has_content?("This is the summary")
       end

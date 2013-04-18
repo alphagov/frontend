@@ -28,8 +28,8 @@
           </ul>
 
           <ul class="subscriptions">
-            <li><%= link_to "Atom/RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
-            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external">Email alerts</a></li>
+            <li><%= link_to "Subscribe via RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
+            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external">Subscribe to Email alerts</a></li>
           </ul>
         </section>
 

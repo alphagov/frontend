@@ -315,7 +315,7 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render).with("answer")
     get :publication, :slug => "c-slug", :part => "b"
-    assert_equal "BB", assigns["part"].name
+    assert_equal "BB", assigns["publication"].current_part.name
   end
 
   test "should work with place editions" do
@@ -375,9 +375,9 @@ class RootControllerTest < ActionController::TestCase
         assert_response :success
       end
 
-      should "loads the correct artefact" do
+      should "loads the correct details" do
         get :jobsearch, :slug => "jobs-jobsearch"
-        assert_equal "Universal Jobsearch", assigns(:artefact)['title']
+        assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "initialize a publication object" do

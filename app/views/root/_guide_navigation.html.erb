@@ -1,14 +1,14 @@
 <% if @publication.parts.size > 1 then %>
 <aside>
   <div class="inner">
-    <% if [:programme, :guide, :'travel-advice'].include? @publication.type.to_sym %>
+    <% if [:programme, :guide, :'travel-advice'].include? @publication.format.to_sym %>
       <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
     <% end %>
 
     <nav role="navigation" class="page-navigation">
       <ol>
         <% @publication.parts.each do |nav_part| %>
-          <% if @part == nav_part %>
+          <% if @publication.current_part == nav_part %>
             <li class="active">
               <span class="part-label"><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, nav_part) %><span class="visuallyhidden">:</span></span> <span class="part-title"><%= nav_part.title %></span>
             </li>

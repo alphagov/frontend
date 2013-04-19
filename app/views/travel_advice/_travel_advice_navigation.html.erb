@@ -4,7 +4,7 @@
 
     <nav role="navigation" class="page-navigation">
       <ol>
-        <% if @part %>
+        <% if @publication.current_part %>
           <li>
             <%= link_to part_path(@publication.slug, nil, @edition), :title => "Summary" do %>
               <span class="part-title">Summary</span>
@@ -18,7 +18,7 @@
           </li>
         <% end %>
         <% (@publication.parts || []).each do |nav_part| %>
-          <% if @part == nav_part %>
+          <% if @publication.current_part == nav_part %>
             <li class="active">
               <span class="part-title"><%= nav_part.title %></span>
             </li>

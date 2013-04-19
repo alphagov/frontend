@@ -10,6 +10,7 @@ class RootController < ApplicationController
 
   before_filter :set_expiry, :only => [:index, :tour]
   before_filter :validate_slug_param, :only => [:publication]
+  rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
 
@@ -26,93 +27,53 @@ class RootController < ApplicationController
   end
 
   def jobsearch
-    error_404 and return if request.format.nil?
-
-    @artefact = fetch_artefact(params[:slug], params[:edition])
-    set_slimmer_artefact_headers(@artefact)
-
-    @publication = PublicationPresenter.new(@artefact)
-    assert_found(@publication)
-
-    set_expiry
-
-    I18n.locale = @publication.language if @publication.language
-
-  rescue RecordNotFound
-    set_expiry(10.minutes)
-    error 404
+    prepare_publication_and_environment
   end
 
   def publication
-    error_404 and return if request.format.nil?
+    prepare_publication_and_environment
 
-    if params[:slug] == 'done' and params[:part].present?
-      params[:slug] += "/#{params[:part]}"
-      params[:part] = nil
-    end
-
-    unless params[:postcode].blank?
-      @location = Frontend.mapit_api.location_for_postcode(params[:postcode])
-    end
-
-    @artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
-    set_slimmer_artefact_headers(@artefact)
-
-    @publication = PublicationPresenter.new(@artefact)
-    assert_found(@publication)
-
-    I18n.locale = @publication.language if @publication.language
-
-    if ['licence','local_transaction'].include? @artefact['format']
+    if ['licence', 'local_transaction'].include?(@publication.format)
       if @location
-        snac = appropriate_snac_code_from_location(@artefact, @location)
+        snac = appropriate_snac_code_from_location(@publication, @location)
         redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
+      elsif params[:part]
+        snac = AuthorityLookup.find_snac(params[:part])
+        authority_slug = params[:part]
+
+        if request.format.json?
+          redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+        end
+
+        # Fetch the artefact again, for the snac we have
+        # This returns additional data based on format and location
+        updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
+        assert_found(updated_artefact)
+        @publication = PublicationPresenter.new(updated_artefact)
       end
 
-      snac = AuthorityLookup.find_snac(params[:part])
-      authority_slug = params[:part]
-
-      if request.format.json?
-        redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
-      end
-
-      # Fetch the artefact again, for the snac we have
-      # This returns additional data based on format and location
-      @artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
-    elsif part_requested_but_no_parts? || empty_part_list?
+      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
+    elsif part_requested_but_no_parts? || @publication.empty_part_list?
       raise RecordNotFound
     elsif @publication.parts && part_requested_but_not_found?
       redirect_to publication_path(:slug => @publication.slug) and return
-    elsif request.format.json? && @artefact['format'] != 'place'
+    elsif request.format.json? && @publication.format != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return
     end
 
-    case @publication.type
-    when "licence"
-      @licence_details = licence_details(@artefact, authority_slug, snac)
-    when "local_transaction"
-      @local_transaction_details = local_transaction_details(@artefact, authority_slug, snac)
-    end
-
-    set_expiry if params.exclude?('edition') and request.get?
-
-    if @publication.parts
-      part = params.fetch(:part) { @publication.parts.first.slug }
-      @part = @publication.find_part(part)
-    end
-
+    @publication.current_part = params[:part]
     @edition = params[:edition]
 
     respond_to do |format|
       format.html do
-        render @publication.type
+        render @publication.format
       end
       format.print do
-        if PRINT_FORMATS.include?(@publication.type)
+        if PRINT_FORMATS.include?(@publication.format)
           set_slimmer_headers template: "print"
-          render @publication.type
+          render @publication.format
         else
           error_404
         end
@@ -121,15 +82,55 @@ class RootController < ApplicationController
         render :json => @publication.to_json
       end
     end
-  rescue RecordNotFound
-    set_expiry(10.minutes)
-    error 404
   end
 
 protected
 
-  def empty_part_list?
-    @publication.parts and @publication.parts.empty?
+  def prepare_interaction_details(publication, authority_slug, snac)
+    case publication.format
+    when "licence"
+      licence_details(publication.artefact, authority_slug, snac)
+    when "local_transaction"
+      local_transaction_details(publication.artefact, authority_slug, snac)
+    end
+  end
+
+  def cacheable_404
+    set_expiry(10.minutes)
+    error 404
+  end
+
+  # This is a method littered with side effects. It pulls together
+  # some work that was duplicated in other methods, but in the process
+  # sets instance variables and changes global state.
+  def prepare_publication_and_environment
+    raise RecordNotFound if request.format.nil?
+
+    handle_done_slugs
+    setup_location(params[:postcode])
+
+    artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
+    set_slimmer_artefact_headers(artefact)
+
+    @publication = PublicationPresenter.new(artefact)
+    assert_found(@publication)
+
+    I18n.locale = @publication.language if @publication.language
+    set_expiry if params.exclude?('edition') and request.get?
+  end
+
+  # TODO: Can we replace this method with smarter routing?
+  def handle_done_slugs
+    if params[:slug] == 'done' and params[:part].present?
+      params[:slug] += "/#{params[:part]}"
+      params[:part] = nil
+    end
+  end
+
+  def setup_location(postcode)
+    if postcode.present?
+      @location = Frontend.mapit_api.location_for_postcode(postcode)
+    end
   end
 
   def part_requested_but_no_parts?
@@ -157,13 +158,15 @@ protected
     LicenceDetailsFromArtefact.new(artefact, licence_authority_slug, snac_code, params[:interaction]).build_attributes
   end
 
-  def appropriate_snac_code_from_location(artefact, location)
-    identifier_class = case artefact['format']
-                       when "licence" then LicenceLocationIdentifier
-                       when "local_transaction" then LocalTransactionLocationIdentifier
-                       else raise(Exception, "No location identifier available for #{artefact['format']}")
-                       end
+  def identifier_class_for_format(format)
+    case format
+      when "licence" then LicenceLocationIdentifier
+      when "local_transaction" then LocalTransactionLocationIdentifier
+      else raise(Exception, "No location identifier available for #{format}")
+    end
+  end
 
+  def appropriate_snac_code_from_location(publication, location)
     # map to legacy geostack format
     geostack = {
       "council" => location.areas.map {|area|
@@ -171,7 +174,8 @@ protected
       }
     }
 
-    identifier_class.find_snac(geostack, artefact)
+    identifier_class = identifier_class_for_format(publication.format)
+    identifier_class.find_snac(geostack, publication.artefact)
   end
 
   def slug_for_snac_code(snac)

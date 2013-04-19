@@ -3,7 +3,7 @@ class PublicationPresenter
 
   attr_reader :artefact
 
-  attr_accessor :places, :parts
+  attr_accessor :places, :parts, :current_part
 
   def initialize(artefact)
     @artefact = artefact
@@ -34,8 +34,19 @@ class PublicationPresenter
     end
   end
 
-  def type
-    artefact["format"]
+  def format
+    @artefact["format"]
+  end
+
+  def current_part=(part_slug)
+    return unless parts && parts.any?
+
+    part = part_slug || parts.first.slug
+    @current_part = find_part(part)
+  end
+
+  def current_part_number
+    parts.index(current_part) + 1
   end
 
   def parts
@@ -55,6 +66,33 @@ class PublicationPresenter
 
   def find_part(slug)
     parts && parts.find { |part| part.slug == slug }
+  end
+
+  def empty_part_list?
+    parts && parts.empty?
+  end
+
+  def has_parts?
+    parts && parts.any?
+  end
+
+  # Overriding methods from GdsApi::PartMethods
+  def has_previous_part?
+    index = part_index(current_part.slug)
+    !! (index && index > 0)
+  end
+
+  def previous_part
+    part_at(current_part, -1)
+  end
+
+  def has_next_part?
+    index = part_index(current_part.slug)
+    !! (index && (index + 1) < parts.length)
+  end
+
+  def next_part
+    part_at(current_part, 1)
   end
 
   def slug

@@ -10,6 +10,7 @@ class RootController < ApplicationController
 
   before_filter :set_expiry, :only => [:index, :tour]
   before_filter :validate_slug_param, :only => [:publication]
+  before_filter :block_empty_format, :only => [:jobsearch, :show]
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
@@ -100,27 +101,28 @@ protected
     error 404
   end
 
+  def block_empty_format
+    raise RecordNotFound if request.format.nil?
+  end
+
   # This is a method with several side effects. It pulls together
   # some work that was duplicated in other methods, but in the process
   # changes a variety of aspects of global state
   def prepare_publication_and_environment
-    raise RecordNotFound if request.format.nil?
-
     location = setup_location(params[:postcode])
-
     artefact = fetch_artefact(params[:slug], params[:edition], nil, location)
-    set_slimmer_artefact_headers(artefact)
-
     publication = PublicationPresenter.new(artefact)
+
     assert_found(publication)
 
+    set_slimmer_artefact_headers(artefact)
     I18n.locale = publication.language if publication.language
     set_expiry if params.exclude?('edition') and request.get?
 
     return publication, location
   end
 
-  def setup_location(postcode)
+  def fetch_location(postcode)
     if postcode.present?
       Frontend.mapit_api.location_for_postcode(postcode)
     end

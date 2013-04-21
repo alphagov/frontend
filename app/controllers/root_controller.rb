@@ -107,7 +107,7 @@ protected
     raise RecordNotFound if request.format.nil?
 
     handle_done_slugs
-    setup_location(params[:postcode])
+    @location = setup_location(params[:postcode])
 
     artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
     set_slimmer_artefact_headers(artefact)
@@ -129,7 +129,7 @@ protected
 
   def setup_location(postcode)
     if postcode.present?
-      @location = Frontend.mapit_api.location_for_postcode(postcode)
+      Frontend.mapit_api.location_for_postcode(postcode)
     end
   end
 

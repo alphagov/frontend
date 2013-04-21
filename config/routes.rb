@@ -48,6 +48,7 @@ Frontend::Application.routes.draw do
   end
 
   with_options(as: "publication", to: "root#publication") do |pub|
+    pub.match "*slug", constraints: { slug: /^done\// }
     pub.match ":slug/print", format: :print
     pub.match ":slug/:part/:interaction", as: :licence_authority_action
     pub.match ":slug(/:part)"

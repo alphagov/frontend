@@ -106,7 +106,6 @@ protected
   def prepare_publication_and_environment
     raise RecordNotFound if request.format.nil?
 
-    handle_done_slugs
     location = setup_location(params[:postcode])
 
     artefact = fetch_artefact(params[:slug], params[:edition], nil, location)
@@ -119,14 +118,6 @@ protected
     set_expiry if params.exclude?('edition') and request.get?
 
     return publication, location
-  end
-
-  # TODO: Can we replace this method with smarter routing?
-  def handle_done_slugs
-    if params[:slug] == 'done' and params[:part].present?
-      params[:slug] += "/#{params[:part]}"
-      params[:part] = nil
-    end
   end
 
   def setup_location(postcode)

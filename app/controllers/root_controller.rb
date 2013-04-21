@@ -27,11 +27,11 @@ class RootController < ApplicationController
   end
 
   def jobsearch
-    prepare_publication_and_environment
+    @publication, _ = prepare_publication_and_environment
   end
 
   def publication
-    prepare_publication_and_environment
+    @publication, @location = prepare_publication_and_environment
 
     if ['licence', 'local_transaction'].include?(@publication.format)
       if @location
@@ -100,23 +100,25 @@ protected
     error 404
   end
 
-  # This is a method littered with side effects. It pulls together
+  # This is a method with several side effects. It pulls together
   # some work that was duplicated in other methods, but in the process
-  # sets instance variables and changes global state.
+  # changes a variety of aspects of global state
   def prepare_publication_and_environment
     raise RecordNotFound if request.format.nil?
 
     handle_done_slugs
-    @location = setup_location(params[:postcode])
+    location = setup_location(params[:postcode])
 
-    artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
+    artefact = fetch_artefact(params[:slug], params[:edition], nil, location)
     set_slimmer_artefact_headers(artefact)
 
-    @publication = PublicationPresenter.new(artefact)
-    assert_found(@publication)
+    publication = PublicationPresenter.new(artefact)
+    assert_found(publication)
 
-    I18n.locale = @publication.language if @publication.language
+    I18n.locale = publication.language if publication.language
     set_expiry if params.exclude?('edition') and request.get?
+
+    return publication, location
   end
 
   # TODO: Can we replace this method with smarter routing?

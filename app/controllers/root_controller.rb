@@ -105,22 +105,30 @@ protected
     raise RecordNotFound if request.format.nil?
   end
 
-  # This is a method with several side effects. It pulls together
-  # some work that was duplicated in other methods, but in the process
-  # changes a variety of aspects of global state
   def prepare_publication_and_environment
-    location = setup_location(params[:postcode])
-    artefact = fetch_artefact(params[:slug], params[:edition], nil, location)
-    publication = PublicationPresenter.new(artefact)
+    publication, location = publication_and_location(
+      params[:postcode], params[:slug], params[:edition]
+    )
 
     assert_found(publication)
-
-    set_slimmer_artefact_headers(artefact)
-    I18n.locale = publication.language if publication.language
-    set_expiry if params.exclude?('edition') and request.get?
+    set_headers_from_publication(publication)
 
     return publication, location
   end
+
+  def set_headers_from_publication(publication)
+    set_slimmer_artefact_headers(publication.artefact)
+    I18n.locale = publication.language if publication.language
+    set_expiry if params.exclude?('edition') and request.get?
+  end
+
+  def publication_and_location(postcode, slug, edition)
+    location    = fetch_location(postcode)
+    artefact    = fetch_artefact(slug], edition, nil, location)
+    publication = PublicationPresenter.new(artefact)
+    return publication, location
+  end
+
 
   def fetch_location(postcode)
     if postcode.present?

@@ -21,7 +21,7 @@
 
 
   var doesSynonymMatch = function(elem, synonym) {
-    var synonyms = $(elem).data("synonyms").split(",");
+    var synonyms = $(elem).data("synonyms").split("|");
     var result = false;
     for(var syn in synonyms) {
       if(synonyms[syn].toLowerCase().indexOf(synonym.toLowerCase()) > -1) {

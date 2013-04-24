@@ -5,7 +5,7 @@ $(function() {
     GOVUK.performance.stageprompt
         .setup({
             analyticsFunction: function(msg) {
-                _gaq.push(['_trackEvent', msg, '', '']);
+                _gaq.push(['_trackEvent', msg, 'n/a', undefined, undefined, true]);
             }
         });
 });

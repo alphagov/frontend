@@ -43,7 +43,7 @@
               <h1><%= initial %></h1>
               <ul class="countries">
                 <% countries.each do |country| %>
-                  <li><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
+                  <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
                 <% end %>
               </ul>
             </section>

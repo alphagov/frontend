@@ -20,6 +20,17 @@
   };
 
 
+  var doesSynonymMatch = function(elem, synonym) {
+    var synonyms = $(elem).data("synonyms").split("|");
+    var result = false;
+    for(var syn in synonyms) {
+      if(synonyms[syn].toLowerCase().indexOf(synonym.toLowerCase()) > -1) {
+        result = synonyms[syn];
+      }
+    };
+    return result;
+  };
+
   var filterListItems = function(filter) {
     filterHeadings();
     listItems.each(function(i, item) {
@@ -27,14 +38,15 @@
       var link = $item.children("a");
       $item.html(link);
     }).show();
+
+    filter = $.trim(filter);
     if(filter && filter.length > 0) {
       listItems.filter(":not(:contains(" + filter + "))").hide();
-      var synonyms = findSynonym(filter);
-      $.each(synonyms, function(i, match) {
-        if(match.countries.length) {
-          $.each(match.countries, function(i, country) {
-            listItems.filter(":hidden").filter(":contains(" + country + ")").show().append("(" + match.synonym + ")");
-          });
+      listItems.each(function(i, item) {
+        var $listItem = $(item);
+        var synonym = doesSynonymMatch(item, filter);
+        if(synonym) {
+          $listItem.show().append("(" + synonym + ")");
         }
       });
       filterHeadings();
@@ -43,37 +55,10 @@
     }
   };
 
-  var findSynonym = function(search) {
-    var countrySynonyms = {
-      "United States": "USA",
-      "America": "USA",
-      "Dubai": "United Arab Emirates",
-      "UAE": "United Arab Emirates",
-      "East Timor": "Timor-Leste",
-      "Ivory Coast": "Côte d'Ivoire",
-      "PNG": "Papua New Guinea",
-      "Ibiza": "Spain",
-      "Mallorca": "Spain",
-      "Borneo": ["Indonesia", "Malaysia", "Brunei"]
-    };
-
-    var foundSynonyms = [];
-    for(var prop in countrySynonyms) {
-      if(prop.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-        foundSynonyms.push({
-          synonym: prop,
-          countries: $.isArray(countrySynonyms[prop]) ? countrySynonyms[prop] : [countrySynonyms[prop]]
-        });
-      }
-    }
-    return foundSynonyms;
-  }
-
 
   input.change(function(e) {
     var filter = $(this).val();
     filterListItems(filter);
-    findSynonym(filter);
     e.preventDefault();
   }).keyup(function() {
     $(this).change();

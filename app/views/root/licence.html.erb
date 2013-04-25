@@ -1,3 +1,7 @@
+<% content_for :extra_javascript do %>
+    <%= javascript_include_tag "licensing-journey" %>
+<% end %>
+
 <section id="content" role="main" class="group <%= "multi-page" if @interaction_details and @interaction_details[:authority] %>">
 
   <header class="page-header group">

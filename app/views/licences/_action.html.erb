@@ -19,7 +19,7 @@
 
     <%= simple_format link['introduction'] %>
 
-    <p><%= link_to "Apply online", link['url'], :class => "button" %></p>
+    <p><%= link_to "Apply online", link['url'], :class => "button", :'data-journey' => "licensingUserJourney:start" %></p>
   </section>
   <% end %>
 <% else %>
@@ -37,4 +37,3 @@
     </div>
   <% end %>
 <% end %>
-

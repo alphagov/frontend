@@ -59,6 +59,7 @@ module Frontend
       media-player-loader.js
       media-player.css
       tour.js
+      licensing-journey.js
       application.css
       application-ie6.css
       application-ie7.css

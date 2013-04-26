@@ -124,7 +124,7 @@ protected
 
   def publication_and_location(postcode, slug, edition)
     location    = fetch_location(postcode)
-    artefact    = fetch_artefact(slug], edition, nil, location)
+    artefact    = fetch_artefact(slug, edition, nil, location)
     publication = PublicationPresenter.new(artefact)
     return publication, location
   end

@@ -277,19 +277,19 @@
       text-indent:-9999px;
       overflow: hidden;
       height:300px;
-      background-image: image-url('homepage/govuk-960px.jpg');
+      background-image: image-url('homepage/ig-960px.jpg');
       background-position: top left;
       background-repeat: no-repeat;
 
       @media(max-width: 935px) {
         height:470px;
-        background-image: image-url('homepage/govuk-935px.jpg');
+        background-image: image-url('homepage/ig-935px.jpg');
         background-position: bottom right;
       }
 
       @media(max-width: 500px) {
         height:272px;
-        background-image: image-url('homepage/govuk-500px.jpg');
+        background-image: image-url('homepage/ig-500px.jpg');
         background-position: bottom right;
       }
     }

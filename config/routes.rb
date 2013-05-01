@@ -50,7 +50,10 @@ Frontend::Application.routes.draw do
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.get ":slug/print", format: :print
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
-    pub.get ":slug(/:part)"
+
+    # Our approach to providing local transaction information currently
+    # requires that this support get and post
+    pub.match ":slug(/:part)", :via => [:get, :post]
   end
 
   root :to => 'root#index', :via => :get

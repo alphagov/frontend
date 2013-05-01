@@ -290,16 +290,16 @@
         height:450px;
         background-image: image-url('homepage/ig-935px.jpg');
         background-position: bottom right;
-        text-align:right;
-        padding-right:5.5em;
+        text-align:left;
+        padding-left:12em;
       }
 
       @media(max-width: 500px) {
         height:257px;
         background-image: image-url('homepage/ig-500px.jpg');
         background-position: bottom right;
-        text-align:right;
-        padding-right:1em;
+        text-align:left;
+        padding-left:8em;
       }
     }
     a:hover{

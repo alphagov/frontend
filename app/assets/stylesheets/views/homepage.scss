@@ -273,25 +273,35 @@
     }
 
     a{
+      @include core-24;
+      font-weight:bold;
+      color: $black;
+      text-decoration:none;
       display:block;
-      text-indent:-9999px;
+      text-align:left;
+      padding-left:1em;
+      padding-top:0.65em;
       overflow: hidden;
       height:300px;
-      background-image: image-url('homepage/govuk-960px.jpg');
+      background-image: image-url('homepage/ig-960px.jpg');
       background-position: top left;
       background-repeat: no-repeat;
-
       @media(max-width: 935px) {
-        height:470px;
-        background-image: image-url('homepage/govuk-935px.jpg');
+        height:450px;
+        background-image: image-url('homepage/ig-935px.jpg');
         background-position: bottom right;
+        padding-left:12em;
       }
 
       @media(max-width: 500px) {
-        height:272px;
-        background-image: image-url('homepage/govuk-500px.jpg');
+        height:257px;
+        background-image: image-url('homepage/ig-500px.jpg');
         background-position: bottom right;
+        padding-left:8em;
       }
+    }
+    a:hover{
+      color:$black;
     }
   }
 }

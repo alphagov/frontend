@@ -10,7 +10,7 @@ class RootController < ApplicationController
 
   before_filter :set_expiry, :only => [:index, :tour]
   before_filter :validate_slug_param, :only => [:publication]
-  before_filter :block_empty_format, :only => [:jobsearch, :show]
+  before_filter :block_empty_format, :only => [:jobsearch, :publication]
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)

@@ -273,25 +273,37 @@
     }
 
     a{
+      @include core-24;
+      font-weight:bold;
+      color: $black;
+      text-decoration:none;
       display:block;
-      text-indent:-9999px;
+      text-align:left;
+      padding-left:1em;
+      padding-top:1em;
       overflow: hidden;
       height:300px;
       background-image: image-url('homepage/ig-960px.jpg');
       background-position: top left;
       background-repeat: no-repeat;
-
       @media(max-width: 935px) {
-        height:470px;
+        height:450px;
         background-image: image-url('homepage/ig-935px.jpg');
         background-position: bottom right;
+        text-align:right;
+        padding-right:1em;
       }
 
       @media(max-width: 500px) {
-        height:272px;
+        height:252px;
         background-image: image-url('homepage/ig-500px.jpg');
         background-position: bottom right;
+        text-align:right;
+        padding-right:1em;
       }
+    }
+    a:hover{
+      color:$black;
     }
   }
 }

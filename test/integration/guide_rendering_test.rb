@@ -3,13 +3,6 @@ require_relative '../integration_test_helper'
 
 class GuideRenderingTest < ActionDispatch::IntegrationTest
 
-  should "404 when asked for unrecognised format" do
-    content_api_has_an_artefact("a-slug")
-
-    visit "/a-slug.123"
-    assert_equal '404', response.code
-  end
-
   should "render a guide correctly" do
     setup_api_responses('data-protection')
     visit "/data-protection"

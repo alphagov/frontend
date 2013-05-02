@@ -10,6 +10,7 @@ class RootController < ApplicationController
 
   before_filter :set_expiry, :only => [:index, :tour]
   before_filter :validate_slug_param, :only => [:publication]
+  before_filter :block_empty_format, :only => [:jobsearch, :publication]
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
@@ -27,11 +28,11 @@ class RootController < ApplicationController
   end
 
   def jobsearch
-    prepare_publication_and_environment
+    @publication, _ = prepare_publication_and_environment
   end
 
   def publication
-    prepare_publication_and_environment
+    @publication, @location = prepare_publication_and_environment
 
     if ['licence', 'local_transaction'].include?(@publication.format)
       if @location
@@ -100,36 +101,38 @@ protected
     error 404
   end
 
-  # This is a method littered with side effects. It pulls together
-  # some work that was duplicated in other methods, but in the process
-  # sets instance variables and changes global state.
-  def prepare_publication_and_environment
+  def block_empty_format
     raise RecordNotFound if request.format.nil?
+  end
 
-    handle_done_slugs
-    setup_location(params[:postcode])
+  def prepare_publication_and_environment
+    publication, location = publication_and_location(
+      params[:postcode], params[:slug], params[:edition]
+    )
 
-    artefact = fetch_artefact(params[:slug], params[:edition], nil, @location)
-    set_slimmer_artefact_headers(artefact)
+    assert_found(publication)
+    set_headers_from_publication(publication)
 
-    @publication = PublicationPresenter.new(artefact)
-    assert_found(@publication)
+    return publication, location
+  end
 
-    I18n.locale = @publication.language if @publication.language
+  def set_headers_from_publication(publication)
+    set_slimmer_artefact_headers(publication.artefact)
+    I18n.locale = publication.language if publication.language
     set_expiry if params.exclude?('edition') and request.get?
   end
 
-  # TODO: Can we replace this method with smarter routing?
-  def handle_done_slugs
-    if params[:slug] == 'done' and params[:part].present?
-      params[:slug] += "/#{params[:part]}"
-      params[:part] = nil
-    end
+  def publication_and_location(postcode, slug, edition)
+    location    = fetch_location(postcode)
+    artefact    = fetch_artefact(slug, edition, nil, location)
+    publication = PublicationPresenter.new(artefact)
+    return publication, location
   end
 
-  def setup_location(postcode)
+
+  def fetch_location(postcode)
     if postcode.present?
-      @location = Frontend.mapit_api.location_for_postcode(postcode)
+      Frontend.mapit_api.location_for_postcode(postcode)
     end
   end
 

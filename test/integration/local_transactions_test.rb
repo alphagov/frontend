@@ -276,5 +276,4 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
     end
   end
-
 end

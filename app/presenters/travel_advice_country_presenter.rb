@@ -13,4 +13,9 @@ class TravelAdviceCountryPresenter < PublicationPresenter
   def country_name
     country['name']
   end
+
+  def reviewed_at
+    date = self.details["reviewed_at"]
+    DateTime.parse(date) if date
+  end
 end

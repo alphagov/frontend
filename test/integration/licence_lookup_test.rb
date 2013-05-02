@@ -94,11 +94,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Westminster")
       end
 
-      should "show licence actions for apply, renew and change" do
+      should "show available licence actions" do
         within("#content nav") do
           assert page.has_link? "How to apply", :href => '/licence-to-kill/westminster/apply'
           assert page.has_link? "How to renew", :href => '/licence-to-kill/westminster/renew'
-          assert page.has_link? "How to change", :href => '/licence-to-kill/westminster/change'
         end
       end
 
@@ -117,20 +116,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         end
       end
 
-      context "when visiting an action for which there are no links" do
-        setup do
-          click_link "How to change"
-        end
-
-        should "display contact details for the local authority" do
-          # assert page.has_content? "contact your local authority"
-          assert page.has_content? "Westminster City Hall"
-        end
-      end
-
       should "return a 404 for an invalid action" do
         visit "/licence-to-kill/westminster/blah"
+        assert_equal 404, page.status_code
 
+        visit "/licence-to-kill/westminster/change"
         assert_equal 404, page.status_code
       end
 

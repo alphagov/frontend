@@ -9,7 +9,7 @@
         <% else %>
           <li class="active">Overview</li>
         <% end %>
-        <% (@interaction_details[:authority]['actions'].keys + ['apply','renew','change']).uniq.each do |action| %>
+        <% @interaction_details[:authority]['actions'].keys.uniq.each do |action| %>
           <% if @interaction_details[:action] == action %>
             <li class="active"><%= "How to #{action}" %></li>
           <% else %>

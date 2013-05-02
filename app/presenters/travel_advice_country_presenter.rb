@@ -18,4 +18,8 @@ class TravelAdviceCountryPresenter < PublicationPresenter
     date = self.details["reviewed_at"]
     DateTime.parse(date) if date
   end
+
+  def last_updated_or_reviewed_at
+    reviewed_at || updated_at
+  end
 end

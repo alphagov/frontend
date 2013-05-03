@@ -8,6 +8,7 @@
   "format": "travel-advice",
   "updated_at": "2013-04-22T14:25:51+00:00",
   "details": {
+    "reviewed_at": "2013-04-23T14:25:51+00:00",
     "need_id": null,
     "business_proposition": false,
     "description": "",

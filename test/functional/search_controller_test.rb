@@ -326,5 +326,15 @@ class SearchControllerTest < ActionController::TestCase
 
       assert_select "#top-results a[href='/c']"
     end
+
+    should "include the top result in the total result count" do
+      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
+      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+
+      get :index, q: "search-term", top_result: "1"
+
+      assert_select "label", text: /3 results for/
+    end
   end
 end

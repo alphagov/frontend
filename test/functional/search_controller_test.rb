@@ -336,5 +336,10 @@ class SearchControllerTest < ActionController::TestCase
 
       assert_select "label", text: /3 results for/
     end
+
+    should "add a hidden field to the form so that it's retained on next search" do
+      get :index, q: "search-term", top_result: "1"
+      assert_select "#content form[role=search] input[name=top_result][value=1]"
+    end
   end
 end

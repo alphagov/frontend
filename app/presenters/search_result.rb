@@ -21,7 +21,7 @@ class SearchResult
 
   PASS_THROUGH_KEYS = [
     :presentation_format, :link, :title, :description,
-    :format, :humanized_format
+    :format, :humanized_format, :es_score
   ]
   PASS_THROUGH_KEYS.each do |key|
     define_method key do

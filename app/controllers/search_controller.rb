@@ -22,6 +22,12 @@ class SearchController < ApplicationController
       @government_results = retrieve_government_results(@search_term)
 
       @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
+      if params[:top_result].present?
+        @top_result = @all_results.max_by(&:es_score)
+        [@mainstream_results, @detailed_guidance_results, @government_results, @recommended_link_results].each do |result_array|
+          result_array.delete(@top_result)
+        end
+      end
       @count_results = @mainstream_results + @detailed_guidance_results + @government_results
     end
 

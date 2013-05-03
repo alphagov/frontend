@@ -19,7 +19,7 @@ class TravelAdviceCountryPresenter < PublicationPresenter
     DateTime.parse(date) if date
   end
 
-  def last_updated_or_reviewed_at
+  def last_reviewed_or_updated_at
     reviewed_at || updated_at
   end
 end

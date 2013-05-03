@@ -6,7 +6,8 @@
 
 <ul class="country-metadata">
   <li><div class="label">Still current at:</div> <%= Date.today.strftime("%e %B %Y") %></li>
-  <li><div class="label">Updated:</div> <%= publication.updated_at.strftime("%e %B %Y") %></li>
+  <li><div class="label">Updated:</div> <%= publication.last_reviewed_or_updated_at.strftime("%e %B %Y") %></li>
+
   <%# Don't show change description for countries that haven't been updated before this was
       added to this view as the descriptions aren't very useful to users. %>
   <%- if publication.updated_at > Date.civil(2013, 04, 22) -%>

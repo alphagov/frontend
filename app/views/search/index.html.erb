@@ -1,6 +1,14 @@
 <section id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
 
+  <% if @top_result %>
+    <div id="top-results">
+      <ul class="results-list">
+        <%= render partial: "result", locals: { result: @top_result } %>
+      </ul>
+    </div>
+  <% end %>
+
   <div id="search-results-tabs">
     <% if [(@mainstream_results + @recommended_link_results), @detailed_guidance_results, @government_results].reject(&:blank?).count > 1 %>
       <nav class="js-tabs nav-tabs" role="navigation">

@@ -11,6 +11,15 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.stubs(:government_search_client).returns(government_client)
   end
 
+  def a_search_result(slug, score)
+    {
+      "title" => slug.titleize,
+      "description" => "Description for #{slug}",
+      "link" => "/#{slug}",
+      "es_score" => score
+    }
+  end
+
   setup do
     stub_client
   end
@@ -301,5 +310,52 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "badness"}
 
     assert_response 503
+  end
+
+  context "no top_result parameter" do
+    should "leave the highest scored result where it is" do
+      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
+      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+
+      get :index, q: "search-term"
+
+      assert_select "#top-results", count: 0
+
+      assert_select "a[href='#mainstream-results']", text: "General results (1)"
+      assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
+      assert_select "a[href='#government-results']", text: "Inside Government (1)"
+    end
+  end
+
+  context "?top_result=1" do
+    should "remove the highest scored result from the three tabs and display above all others" do
+      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
+      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+
+      get :index, q: "search-term", top_result: "1"
+
+      assert_select "a[href='#mainstream-results']", text: "General results (1)"
+      assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
+      assert_select "a[href='#government-results']", count: 0
+
+      assert_select "#top-results a[href='/c']"
+    end
+
+    should "include the top result in the total result count" do
+      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
+      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+
+      get :index, q: "search-term", top_result: "1"
+
+      assert_select "label", text: /3 results for/
+    end
+
+    should "add a hidden field to the form so that it's retained on next search" do
+      get :index, q: "search-term", top_result: "1"
+      assert_select "#content form[role=search] input[name=top_result][value=1]"
+    end
   end
 end

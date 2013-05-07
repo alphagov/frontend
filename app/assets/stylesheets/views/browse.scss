@@ -1,17 +1,23 @@
+html, #wrapper {
+  background-color: transparent;
+}
+
 .category-page {
 
   header.page-header {
 
     hgroup {
       padding-bottom: 0;
+      padding: 2rem 3rem;
 
       @include media(mobile) {
         padding: 1em 1em 0 1em;
       }
 
       h1 {
-        @include core-48;
+        @include bold-48;
         width: 75%;
+        padding: 2rem 0;
 
         @include media(mobile) {
           width: auto;
@@ -30,7 +36,12 @@
   .browse-container {
     background-color: #fff;
     min-height: 35em;
-    padding: 0 2em 2em 2em;
+    padding: 0 3rem 4.5rem 3rem;
+
+    h2 {
+      @include bold-19;
+      margin-bottom: 0;
+    }
 
     @include media(mobile) {
       padding: 0 1em 2em 1em;
@@ -42,7 +53,7 @@
     }
 
     .category-description {
-      margin-bottom: 2em;
+      margin-bottom: 4.5rem;
       width: 65.5%;
 
       @include media(mobile) {
@@ -95,10 +106,9 @@
 
       li {
         list-style: none;
-        margin-bottom: 1em;
+        margin-bottom: 2.5rem;
 
         p {
-          @include core-16;
           margin: 0;
           word-wrap: break-word;
         }
@@ -138,7 +148,6 @@
         }
 
         li {
-          border-top: solid 1px $border-colour;
           float: left;
           margin-right: 3.5%;
           margin-bottom: 1.5em;

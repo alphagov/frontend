@@ -11,7 +11,7 @@ html, #wrapper {
       padding: 2rem 3rem;
 
       @include media(mobile) {
-        padding: 1em 1em 0 1em;
+        padding: 1.5rem 1.5rem 0 1.5rem;
       }
 
       h1 {
@@ -35,21 +35,21 @@ html, #wrapper {
 
   .browse-container {
     background-color: #fff;
-    min-height: 35em;
+    min-height: 50rem;
     padding: 0 3rem 4.5rem 3rem;
 
-    h2 {
+    h2, h3 {
       @include bold-19;
       margin-bottom: 0;
     }
 
     @include media(mobile) {
-      padding: 0 1em 2em 1em;
+      padding: 0 1.5rem 3rem 1.5rem;
       min-height: auto;
     }
 
     @include ie-lte(8) {
-      padding: 0 3.5% 2em;
+      padding: 0 3.5% 3rem;
     }
 
     .category-description {
@@ -57,7 +57,7 @@ html, #wrapper {
       width: 65.5%;
 
       @include media(mobile) {
-        margin-bottom: 1em;
+        margin-bottom: 1.5rem;
         width: auto;
       }
 
@@ -69,11 +69,11 @@ html, #wrapper {
 
     .detailed-guidance {
       border: solid 4px #2B8CC4;
-      padding: 1em 1em;
-      margin-top: 2em;
+      padding: 1.5rem 1.5rem;
+      margin-top: 3rem;
 
       h2 {
-        padding: 0 (16/24 * 1em); // heading is 24, base is 16
+        padding: 0 (16/24 * 1.5rem); // heading is 24, base is 16
       }
 
       li {
@@ -86,11 +86,11 @@ html, #wrapper {
         }
 
         h3 {
-          padding: 0 (16/19 * 1em); // this heading is 19, base is 16
+          padding: 0 (16/19 * 1.5rem); // this heading is 19, base is 16
         }
 
         p {
-          padding: 0 1em;
+          padding: 0 1.5rem;
         }
 
         &:nth-child(odd) {
@@ -101,7 +101,7 @@ html, #wrapper {
     }
 
     ul {
-      margin: 0;
+      margin: 0 -2rem;
       padding: 0;
 
       li {
@@ -115,12 +115,12 @@ html, #wrapper {
       }
 
       &.categories {
-        padding: 1em 0 0 0;
+        padding: 1.5rem 0 0 0;
         width: 100%;
 
         li {
-          margin: 0 -2em;
-          padding: 1em 2em;
+          margin: 0 -3rem;
+          padding: 1.5rem 3rem;
 
           h2 {
             margin: 0;
@@ -144,21 +144,22 @@ html, #wrapper {
         padding: 0;
 
         @include ie-lte(8) {
-          margin: 0 -2em;
+          margin: 0 -3rem;
         }
 
         li {
           float: left;
-          margin-right: 3.5%;
-          margin-bottom: 1.5em;
-          width: 31%;
+          padding: 1rem 0 2.5rem 2rem;
+          margin-bottom: 0;
+          width: 30%;
 
           &:nth-child(3n) {
-            margin-right: 0;
+            padding-right: 2rem;
           }
 
           &:nth-child(3n+1) {
             clear: left;
+            padding-left: 2rem;
           }
 
           @include media(mobile) {
@@ -180,16 +181,24 @@ html, #wrapper {
             display: inline;
             zoom: 1;
           }
+
+          &:nth-child(6n+1), &:nth-child(6n+2), &:nth-child(6n+3) {
+            background-color: #eaedef;
+          }
+
+          &:nth-child(6n+4), &:nth-child(6n+5), &:nth-child(6n+6) {
+            background-color: $highlight-colour;
+          }
         }
       }
 
       &.content-list {
-        padding: 1em 0 0 0;
+        padding: 0.5rem 0 0 0;
         width: 100%;
 
         li {
-          margin: 0 -2em;
-          padding: 0.5em 2em 1em;
+          margin: 0 -2rem;
+          padding: 0.5rem 2rem 1em;
 
           h3, p {
             width: 65.5%;
@@ -200,6 +209,10 @@ html, #wrapper {
           }
 
           &:nth-child(odd) {
+            background-color: #eaedef;
+          }
+
+          &:nth-child(even) {
             background-color: $highlight-colour;
           }
         }

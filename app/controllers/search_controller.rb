@@ -15,6 +15,11 @@ class SearchController < ApplicationController
       render action: 'no_search_term' and return
     end
 
+    @display_score = false
+    if Rails.env.development?
+      @display_score = true
+    end
+
     if @search_term.present?
       @mainstream_results = mainstream_results
       @recommended_link_results = grouped_mainstream_results[:recommended_link]

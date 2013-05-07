@@ -54,4 +54,3 @@ end
 
 class GovernmentResult < SearchResult
 end
-

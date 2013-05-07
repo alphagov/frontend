@@ -21,6 +21,11 @@
       <li>
         <%= result.format.humanize %>
       </li>
+      <% if @display_score %>
+      <li>
+        <%= result.es_score %>
+      </li>
+      <% end %>
     </ul>
   <% end %>
 </li>

@@ -101,12 +101,12 @@ html, #wrapper {
     }
 
     ul {
-      margin: 0 -2rem;
+      margin: 0;
       padding: 0;
 
       li {
         list-style: none;
-        margin-bottom: 2.5rem;
+        margin-bottom: 3rem;
 
         p {
           margin: 0;
@@ -133,10 +133,6 @@ html, #wrapper {
               width: auto;
             }
           }
-
-          &:nth-child(odd) {
-            background-color: $highlight-colour;
-          }
         }
       }
 
@@ -149,17 +145,16 @@ html, #wrapper {
 
         li {
           float: left;
-          padding: 1rem 0 2.5rem 2rem;
-          margin-bottom: 0;
-          width: 30%;
+          margin-right: 3.5%;
+          margin-bottom: 3rem;
+          width: 31%;
 
           &:nth-child(3n) {
-            padding-right: 2rem;
+            margin-right: 0;
           }
 
           &:nth-child(3n+1) {
             clear: left;
-            padding-left: 2rem;
           }
 
           @include media(mobile) {
@@ -181,14 +176,6 @@ html, #wrapper {
             display: inline;
             zoom: 1;
           }
-
-          &:nth-child(6n+1), &:nth-child(6n+2), &:nth-child(6n+3) {
-            background-color: #eaedef;
-          }
-
-          &:nth-child(6n+4), &:nth-child(6n+5), &:nth-child(6n+6) {
-            background-color: $highlight-colour;
-          }
         }
       }
 
@@ -206,14 +193,6 @@ html, #wrapper {
             @include media(mobile) {
               width: auto;
             }
-          }
-
-          &:nth-child(odd) {
-            background-color: #eaedef;
-          }
-
-          &:nth-child(even) {
-            background-color: $highlight-colour;
           }
         }
       }

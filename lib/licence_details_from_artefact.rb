@@ -35,7 +35,7 @@ class LicenceDetailsFromArtefact
     end
 
     def licence_action(interaction, authority_actions)
-      available_actions = authority_actions + ["apply", "renew", "change"]
+      available_actions = authority_actions
       raise RecordNotFound unless appropriate_action_available?(interaction, available_actions)
       interaction
     end

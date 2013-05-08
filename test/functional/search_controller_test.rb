@@ -111,8 +111,6 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "search-term"
     assert_select "a[href='#mainstream-results']", text: "General results (3)"
     assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
-    # Temporarily, Government results only visible with parameter
-    get :index, q: "search-term", government: "1"
     assert_select "a[href='#government-results']", text: "Inside Government (2)"
   end
 
@@ -273,7 +271,7 @@ class SearchControllerTest < ActionController::TestCase
 
     Frontend.mainstream_search_client.stubs(:search).returns([normal_result, inside_government_link])
 
-    get :index, { q: "bleh", government: "1" }
+    get :index, { q: "bleh" }
     assert_select '#mainstream-results li:first-child a', text: "QUEUE JUMPER"
     assert_select '#mainstream-results li:nth-child(2) a', text: 'BORING'
   end

@@ -1,6 +1,6 @@
 <% if @publication.parts.size > 1 then %>
 <footer>
-  <nav class="pagination" role="navigation">
+  <nav class="pagination" role="navigation" aria-label="Pagination">
     <ul class="group">
       <%- if @publication.has_parts? -%>
         <%- if @publication.has_previous_part? -%>

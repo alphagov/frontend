@@ -22,7 +22,6 @@ class SearchController < ApplicationController
       @government_results = retrieve_government_results(@search_term)
 
       @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
-      @count_results = @mainstream_results + @detailed_guidance_results + @government_results
       if feature_enabled?(:top_result)
         @top_result = @all_results.max_by(&:es_score)
         [@mainstream_results, @detailed_guidance_results, @government_results, @recommended_link_results].each do |result_array|
@@ -31,7 +30,7 @@ class SearchController < ApplicationController
       end
     end
 
-    fill_in_slimmer_headers(@all_results)
+    fill_in_slimmer_headers(@all_results.size)
 
     if @all_results.empty?
       render action: 'no_results' and return
@@ -82,9 +81,9 @@ class SearchController < ApplicationController
     res.map { |r| GovernmentResult.new(r) }
   end
 
-  def fill_in_slimmer_headers(result_set)
+  def fill_in_slimmer_headers(result_count)
     set_slimmer_headers(
-      result_count: result_set.length,
+      result_count: result_count,
       format:       "search",
       section:      "search",
       proposition:  "citizen"

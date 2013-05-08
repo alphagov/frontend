@@ -83,10 +83,10 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "div#mainstream-results.single-item-pane", 0 
   end
 
-  test "should only count non-recommended results in total" do
+  test "should include recommended results in total" do
     Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
     get :index, q: "search-term"
-    assert_select "label", text: /45 results for/
+    assert_select "label", text: /65 results for/
   end
 
   test "should display just tab page of results if we have results from a single index" do

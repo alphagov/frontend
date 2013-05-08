@@ -116,6 +116,14 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "a[href='#government-results']", text: "Inside Government (2)"
   end
 
+  test "should include recommend links in the mainstream tab counts" do
+    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(1, {}) + Array.new(1, {format: 'recommended-link'}))
+    # Need results in multiple tabs to see any tabs
+    Frontend.government_search_client.stubs(:search).returns([{}])
+    get :index, q: "search-term"
+    assert_select "a[href='#mainstream-results']", text: "General results (2)"
+  end
+
   test "should display a link to the documents matching our search criteria" do
     client = stub("search", search: [{"title" => "document-title", "link" => "/document-slug"}])
     Frontend.stubs(:mainstream_search_client).returns(client)

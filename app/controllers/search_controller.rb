@@ -23,7 +23,7 @@ class SearchController < ApplicationController
 
       @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
       @count_results = @mainstream_results + @detailed_guidance_results + @government_results
-      if params[:top_result].present?
+      if feature_enabled?(:top_result)
         @top_result = @all_results.max_by(&:es_score)
         [@mainstream_results, @detailed_guidance_results, @government_results, @recommended_link_results].each do |result_array|
           result_array.delete(@top_result)
@@ -98,5 +98,9 @@ class SearchController < ApplicationController
   def set_results_tab
     tabs =  %w{ government-results detailed-results mainstream-results }
     @results_tab = tabs.include?(params[:tab]) ? params[:tab] : nil
+  end
+
+  def feature_enabled?(feature_name)
+    PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT || params[feature_name].present?
   end
 end

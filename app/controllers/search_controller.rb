@@ -13,9 +13,7 @@ class SearchController < ApplicationController
 
     if @search_term.blank?
       render action: 'no_search_term' and return
-    end
-
-    if @search_term.present?
+    else
       @mainstream_results = mainstream_results
       @recommended_link_results = grouped_mainstream_results[:recommended_link]
       @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)

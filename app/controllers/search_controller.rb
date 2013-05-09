@@ -20,10 +20,15 @@ class SearchController < ApplicationController
 
       if feature_enabled?("combine")
         detailed_results = retrieve_detailed_guidance_results(@search_term)
+        # hackily downweight detailed results to prevent them swamping mainstream results
+        adjusted_detailed_results = detailed_results.map do |detailed_result|
+          detailed_result.result["es_score"] = detailed_result.result["es_score"] * 0.8
+          detailed_result
+        end
         @streams << SearchStream.new(
           "services-information",
           "Services, information and guidance",
-          merge_result_sets(mainstream_results, detailed_results),
+          merge_result_sets(mainstream_results, adjusted_detailed_results),
           recommended_link_results
         )
         @streams << SearchStream.new(

@@ -1,5 +1,6 @@
 <form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2 js-search-hash" role="search">
   <%= hidden_field_tag(:top_result, params[:top_result]) if params[:top_result] %>
+  <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
   <%= hidden_field_tag :tab, @results_tab if @results_tab %>
   <fieldset>
     <legend class="visuallyhidden">Search gov.uk</legend>

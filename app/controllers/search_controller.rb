@@ -117,7 +117,8 @@ class SearchController < ApplicationController
   end
 
   def merge_result_sets(*result_sets)
-    result_sets.flatten(1).sort_by(&:es_score)
+    # .sort_by(&:es_score) will return it back to front
+    result_sets.flatten(1).sort_by(&:es_score).reverse
   end
 
   def fill_in_slimmer_headers(result_count)

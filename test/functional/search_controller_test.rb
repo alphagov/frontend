@@ -356,4 +356,15 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "#content form[role=search] input[name=top_result][value=1]"
     end
   end
+
+  context "?combine=1" do
+    should "merge mainstream and detailed results in one tab" do
+      Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+      Frontend.government_search_client.stubs(:search).returns([{}, {}])
+      get :index, { q: "tax", combine: "1" }
+      assert_select "a[href='#services-information-results']", text: "Services, information and guidance (4)"
+      assert_select "a[href='#government-results']", text: "Policies, departments and announcements (2)"
+    end
+  end
 end

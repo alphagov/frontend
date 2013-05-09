@@ -18,22 +18,37 @@ class SearchController < ApplicationController
 
       recommended_link_results = grouped_mainstream_results[:recommended_link]
 
-      @streams << SearchStream.new(
-        "mainstream",
-        "General results",
-        mainstream_results,
-        recommended_link_results
-      )
-      @streams << SearchStream.new(
-        "detailed",
-        "Detailed guidance",
-        retrieve_detailed_guidance_results(@search_term)
-      )
-      @streams << SearchStream.new(
-        "government",
-        "Inside Government",
-        retrieve_government_results(@search_term)
-      )
+      if feature_enabled?("combine")
+        detailed_results = retrieve_detailed_guidance_results(@search_term)
+        @streams << SearchStream.new(
+          "services-information",
+          "Services, information and guidance",
+          merge_result_sets(mainstream_results, detailed_results),
+          recommended_link_results
+        )
+        @streams << SearchStream.new(
+          "government",
+          "Policies, departments and announcements",
+          retrieve_government_results(@search_term)
+        )
+      else
+        @streams << SearchStream.new(
+          "mainstream",
+          "General results",
+          mainstream_results,
+          recommended_link_results
+        )
+        @streams << SearchStream.new(
+          "detailed",
+          "Detailed guidance",
+          retrieve_detailed_guidance_results(@search_term)
+        )
+        @streams << SearchStream.new(
+          "government",
+          "Inside Government",
+          retrieve_government_results(@search_term)
+        )
+      end
 
       @result_count = @streams.map { |s| s.total_size }.sum
       if feature_enabled?("top_result")
@@ -99,6 +114,10 @@ class SearchController < ApplicationController
   def retrieve_government_results(term)
     res = Frontend.government_search_client.search(term)
     res.map { |r| GovernmentResult.new(r) }
+  end
+
+  def merge_result_sets(*result_sets)
+    result_sets.flatten(1).sort_by(&:es_score)
   end
 
   def fill_in_slimmer_headers(result_count)

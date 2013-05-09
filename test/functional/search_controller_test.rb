@@ -74,13 +74,13 @@ class SearchControllerTest < ActionController::TestCase
   test "should display single result with specific class name attribute" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}])
     get :index, q: "search-term"
-    assert_select "div#mainstream-results.single-item-pane" 
+    assert_select "div#mainstream-results.single-item-pane"
   end
 
   test "should display multiple results without class name for single result set" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"
-    assert_select "div#mainstream-results.single-item-pane", 0 
+    assert_select "div#mainstream-results.single-item-pane", 0
   end
 
   test "should include recommended results in total" do
@@ -195,10 +195,11 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should return unlimited results" do
     Frontend.mainstream_search_client.stubs(:search).returns(Array.new(75, {}))
+    # Force tabs to be displayed so the selector can work
+    Frontend.government_search_client.stubs(:search).returns([{}])
 
     get :index, q: "Test"
-
-    assert_equal 75, assigns[:mainstream_results].length
+    assert_select "a[href='#mainstream-results']", text: "General results (75)"
   end
 
   test "should show the phrase searched for" do
@@ -207,15 +208,6 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "Test"
 
     assert_select 'input[value=Test]'
-  end
-
-  test "should split mainstream into internal and external" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
-
-    get :index, q: "Test"
-
-    assert_equal 45, assigns[:mainstream_results].length
-    assert_equal 20, assigns[:recommended_link_results].length
   end
 
   test "should_show_external_links_with_a_separate_list_class" do

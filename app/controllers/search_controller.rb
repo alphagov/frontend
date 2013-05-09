@@ -13,26 +13,46 @@ class SearchController < ApplicationController
 
     if @search_term.blank?
       render action: 'no_search_term' and return
-    end
+    else
+      @streams = []
 
-    if @search_term.present?
-      @mainstream_results = mainstream_results
-      @recommended_link_results = grouped_mainstream_results[:recommended_link]
-      @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
-      @government_results = retrieve_government_results(@search_term)
+      recommended_link_results = grouped_mainstream_results[:recommended_link]
 
-      @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
-      if feature_enabled?(:top_result)
-        @top_result = @all_results.max_by(&:es_score)
-        [@mainstream_results, @detailed_guidance_results, @government_results, @recommended_link_results].each do |result_array|
-          result_array.delete(@top_result)
-        end
+      @streams << SearchStream.new(
+        "mainstream",
+        "General results",
+        mainstream_results,
+        recommended_link_results
+      )
+      @streams << SearchStream.new(
+        "detailed",
+        "Detailed guidance",
+        retrieve_detailed_guidance_results(@search_term)
+      )
+      @streams << SearchStream.new(
+        "government",
+        "Inside Government",
+        retrieve_government_results(@search_term)
+      )
+
+      @result_count = @streams.map { |s| s.total_size }.sum
+      if feature_enabled?("top_result")
+        # Pull out the best (first) result from across all the streams.
+        #
+        # We need to explicitly exclude empty streams, because streams with
+        # only recommended results in them will still be in the list.
+        non_empty_streams = @streams.reject { |s| s.results.empty? }
+        best_stream = non_empty_streams.max_by { |s| s.results.first.es_score }
+        @top_result = best_stream.results.shift if best_stream
       end
+
+      # Don't display any streams (tabs) that are now empty
+      @streams.select! { |stream| stream.anything_to_show? }
     end
 
-    fill_in_slimmer_headers(@all_results.size)
+    fill_in_slimmer_headers(@result_count)
 
-    if @all_results.empty?
+    if @result_count == 0
       render action: 'no_results' and return
     end
   end

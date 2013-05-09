@@ -4,7 +4,13 @@
   <li class="section-<%= result.section %> type-<%= result.format %>">
 <% end %>
   <% if params[:debug_score] %>
-    <span style="color: red;"><small><%= result.es_score %></small></span>
+    <span style="color: red;">
+      <small>
+        <%= result.es_score %>
+        &nbsp;
+        <%= result.format %>
+      </small>
+    </span>
   <% end %>
   <p class="search-result-title">
     <a href="<%= result.link %>" title="View <%= result.title %>"<% if result.format == "recommended-link" %> rel="external"<% end %>>

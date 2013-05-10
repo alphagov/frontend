@@ -8,7 +8,7 @@
     return $("section#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
   };
 
-  var input = $("form#country-filter input#country"),
+  var input = $("#country-filter form input#country"),
       listItems = $("ul.countries li"),
       countryHeadings = $(".inner section").not(":first").children("h1");
 

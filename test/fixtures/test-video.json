@@ -14,7 +14,11 @@
         "overview": "overview",
         "video_summary": "summary",
         "video_url": "http://www.youtube.com/watch?v=fLreo24WYeQ",
-        "body": "<h2 id=\"video-description\">Video description</h2>\n<p>blah</p>\n"
+        "body": "<h2 id=\"video-description\">Video description</h2>\n<p>blah</p>\n",
+        "caption_file": {
+            "web_url": "https://www.example.org/test.xml",
+            "content_type": "application/xml"
+        }
     },
     "tags": [],
     "related": []

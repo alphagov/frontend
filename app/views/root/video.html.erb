@@ -20,6 +20,9 @@
         <% if @publication.video_embed_url %>
           <figure class="media-player-wrapper" id="video">
             <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
+            <% if @publication.caption_file %>
+            <a class="captions" href="<%= @publication.caption_file["web_url"] %>" style="display:none;">Captions</a>
+            <% end %>
           </figure>
           <p><a href="<%= @publication.video_embed_url %>" title="Watch the video on YouTube" rel="external">Watch on YouTube</a></p>
         <% end %>

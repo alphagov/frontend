@@ -123,6 +123,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     within '#content' do
       assert page.has_content?("This is the video summary")
       assert page.has_selector?("figure#video a[href='https://www.youtube.com/watch?v=fLreo24WYeQ']")
+      assert page.has_selector?("a[href='https://www.example.org/test.xml']")
       assert page.has_content?("Video description")
     end
     assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")

@@ -26,7 +26,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should ask the user to enter a search term if none was given" do
     get :index, q: ""
-    assert_select "label", %{What are you looking for?}
+    assert_select "label", %{Search GOV.UK}
     assert_select "form[action=?]", search_path do
       assert_select "input[name=q]"
     end
@@ -34,7 +34,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should inform the user that we didn't find any documents matching the search term" do
     get :index, q: "search-term"
-    assert_select "h1", text: %Q{Sorry, but there are no results for 'search-term'}
+    assert_select ".no-results h2", text: %Q{0 results for &ldquo;search-term&rdquo;}
   end
 
   test "should pass our query parameter in to the search client" do

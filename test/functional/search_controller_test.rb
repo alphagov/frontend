@@ -133,7 +133,7 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li:first-child', text: "Life in the UK"
+    assert_select '.meta .section', text: "Life in the UK"
   end
 
   test "should include sub-sections in results" do
@@ -147,8 +147,8 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li:first-child', text: "Life in the UK"
-    assert_select '.result-meta li:nth-child(2)', text: 'Test thing'
+    assert_select '.meta .section', text: "Life in the UK"
+    assert_select '.meta .subsection', text: 'Test thing'
   end
 
   test "should include sub-sub-sections in results" do
@@ -163,9 +163,9 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li:first-child', text: "Life in the UK"
-    assert_select '.result-meta li:nth-child(2)', text: 'Test thing'
-    assert_select '.result-meta li:nth-child(3)', text: 'Sub section'
+    assert_select '.meta .section', text: "Life in the UK"
+    assert_select '.meta .subsection', text: 'Test thing'
+    assert_select '.meta .subsubsection', text: 'Sub section'
   end
 
   test "should return unlimited results" do
@@ -273,8 +273,8 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bleh"}
 
     assert_response :success
-    assert_select 'li.type-guide.external ul.result-meta' do
-      assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+    assert_select 'li.type-guide.external .meta' do
+      assert_select '.url', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
     end
   end
 

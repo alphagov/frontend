@@ -52,25 +52,6 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
-  test "should display the number of results" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    get :index, q: "search-term"
-    assert_select "label", text: /3 results for/
-  end
-
-  test "should display correct count for combined results" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
-    get :index, q: "search-term"
-    assert_select "label", text: /4 results for/
-  end
-
-  test "should use correct pluralisation for a single result" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}])
-    get :index, q: "search-term"
-    assert_select "label", text: /1 result for/
-  end
-
   test "should display single result with specific class name attribute" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}])
     get :index, q: "search-term"
@@ -81,12 +62,6 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"
     assert_select "div#mainstream-results.single-item-pane", 0
-  end
-
-  test "should include recommended results in total" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
-    get :index, q: "search-term"
-    assert_select "label", text: /65 results for/
   end
 
   test "should display just tab page of results if we have results from a single index" do
@@ -339,16 +314,6 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "a[href='#government-results']", count: 0
 
       assert_select "#top-results a[href='/c']"
-    end
-
-    should "include the top result in the total result count" do
-      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
-      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
-
-      get :index, q: "search-term", top_result: "1"
-
-      assert_select "label", text: /3 results for/
     end
 
     should "add a hidden field to the form so that it's retained on next search" do

@@ -42,4 +42,8 @@ class CampaignControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  should "load the business support campaign" do
+    get :business_support
+    assert_response :success
+  end
 end

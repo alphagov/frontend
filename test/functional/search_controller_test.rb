@@ -26,7 +26,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should ask the user to enter a search term if none was given" do
     get :index, q: ""
-    assert_select "label", %{What are you looking for?}
+    assert_select "label", %{Search GOV.UK}
     assert_select "form[action=?]", search_path do
       assert_select "input[name=q]"
     end
@@ -34,7 +34,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should inform the user that we didn't find any documents matching the search term" do
     get :index, q: "search-term"
-    assert_select "h1", text: %Q{Sorry, but there are no results for 'search-term'}
+    assert_select ".no-results h2", text: %Q{0 results for &ldquo;search-term&rdquo;}
   end
 
   test "should pass our query parameter in to the search client" do
@@ -52,25 +52,6 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
-  test "should display the number of results" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    get :index, q: "search-term"
-    assert_select "label", text: /3 results for/
-  end
-
-  test "should display correct count for combined results" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
-    get :index, q: "search-term"
-    assert_select "label", text: /4 results for/
-  end
-
-  test "should use correct pluralisation for a single result" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}])
-    get :index, q: "search-term"
-    assert_select "label", text: /1 result for/
-  end
-
   test "should display single result with specific class name attribute" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}])
     get :index, q: "search-term"
@@ -81,12 +62,6 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     get :index, q: "search-term"
     assert_select "div#mainstream-results.single-item-pane", 0
-  end
-
-  test "should include recommended results in total" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(45, {}) + Array.new(20, {format: 'recommended-link'}))
-    get :index, q: "search-term"
-    assert_select "label", text: /65 results for/
   end
 
   test "should display just tab page of results if we have results from a single index" do
@@ -158,7 +133,7 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li:first-child', text: "Life in the UK"
+    assert_select '.meta .section', text: "Life in the UK"
   end
 
   test "should include sub-sections in results" do
@@ -172,8 +147,8 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li:first-child', text: "Life in the UK"
-    assert_select '.result-meta li:nth-child(2)', text: 'Test thing'
+    assert_select '.meta .section', text: "Life in the UK"
+    assert_select '.meta .subsection', text: 'Test thing'
   end
 
   test "should include sub-sub-sections in results" do
@@ -188,9 +163,9 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
     get :index, {q: "bob"}
 
-    assert_select '.result-meta li:first-child', text: "Life in the UK"
-    assert_select '.result-meta li:nth-child(2)', text: 'Test thing'
-    assert_select '.result-meta li:nth-child(3)', text: 'Sub section'
+    assert_select '.meta .section', text: "Life in the UK"
+    assert_select '.meta .subsection', text: 'Test thing'
+    assert_select '.meta .subsubsection', text: 'Sub section'
   end
 
   test "should return unlimited results" do
@@ -298,8 +273,8 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bleh"}
 
     assert_response :success
-    assert_select 'li.type-guide.external ul.result-meta' do
-      assert_select 'li', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+    assert_select 'li.type-guide.external .meta' do
+      assert_select '.url', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
     end
   end
 
@@ -341,16 +316,6 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "#top-results a[href='/c']"
     end
 
-    should "include the top result in the total result count" do
-      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
-      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
-
-      get :index, q: "search-term", top_result: "1"
-
-      assert_select "label", text: /3 results for/
-    end
-
     should "add a hidden field to the form so that it's retained on next search" do
       get :index, q: "search-term", top_result: "1"
       assert_select "#content form[role=search] input[name=top_result][value=1]"
@@ -371,16 +336,16 @@ class SearchControllerTest < ActionController::TestCase
       Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("high", 10)])
       Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("low", 5)])
       get :index, { q: "tax", combine: "1" }
-      assert_select 'li:first-child  .search-result-title a[href=/high]'
-      assert_select 'li:nth-child(2) .search-result-title a[href=/low]'
+      assert_select 'li:first-child  h3 a[href=/high]'
+      assert_select 'li:nth-child(2) h3 a[href=/low]'
     end
 
     should "hackily downweight detailed results to prevent them from swamping better mainstream results" do
       Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("mainstream", 100)])
       Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("detailed", 101)])
       get :index, { q: "tax", combine: "1" }
-      assert_select 'li:first-child  .search-result-title a[href=/mainstream]'
-      assert_select 'li:nth-child(2) .search-result-title a[href=/detailed]'
+      assert_select 'li:first-child  h3 a[href=/mainstream]'
+      assert_select 'li:nth-child(2) h3 a[href=/detailed]'
     end
   end
 end

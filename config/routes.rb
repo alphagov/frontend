@@ -40,6 +40,7 @@ Frontend::Application.routes.draw do
   get "/newlicencerules", :to => "campaign#new_licence_rules"
   get "/firekills", :to => "campaign#fire_kills"
   get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
+  get "/businesssupport", :to => "campaign#business_support"
 
   # Jobssearch form override (English and Welsh variants)
   constraints(:slug => /(jobsearch|chwilio-am-swydd)/) do

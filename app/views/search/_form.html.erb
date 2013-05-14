@@ -1,8 +1,7 @@
 <form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2 js-search-hash" role="search">
-  <% if params[:government] %>
-    <%= hidden_field_tag :government, params[:government] %>
-  <% end %>
   <%= hidden_field_tag(:top_result, params[:top_result]) if params[:top_result] %>
+  <%= hidden_field_tag(:combine, params[:combine]) if params[:combine] %>
+  <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
   <%= hidden_field_tag :tab, @results_tab if @results_tab %>
   <fieldset class="search-input">
     <label for="search-main">

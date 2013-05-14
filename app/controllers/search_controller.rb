@@ -13,27 +13,66 @@ class SearchController < ApplicationController
 
     if @search_term.blank?
       render action: 'no_search_term' and return
-    end
+    else
+      @streams = []
 
-    if @search_term.present?
-      @mainstream_results = mainstream_results
-      @recommended_link_results = grouped_mainstream_results[:recommended_link]
-      @detailed_guidance_results = retrieve_detailed_guidance_results(@search_term)
-      @government_results = retrieve_government_results(@search_term)
+      recommended_link_results = grouped_mainstream_results[:recommended_link]
 
-      @all_results = @mainstream_results + @detailed_guidance_results + @government_results + @recommended_link_results
-      @count_results = @mainstream_results + @detailed_guidance_results + @government_results
-      if params[:top_result].present?
-        @top_result = @all_results.max_by(&:es_score)
-        [@mainstream_results, @detailed_guidance_results, @government_results, @recommended_link_results].each do |result_array|
-          result_array.delete(@top_result)
+      if feature_enabled?("combine")
+        detailed_results = retrieve_detailed_guidance_results(@search_term)
+        # hackily downweight detailed results to prevent them swamping mainstream results
+        adjusted_detailed_results = detailed_results.map do |detailed_result|
+          detailed_result.result["es_score"] = detailed_result.result["es_score"] * 0.8
+          detailed_result
         end
+        @streams << SearchStream.new(
+          "services-information",
+          "Services, information and guidance",
+          merge_result_sets(mainstream_results, adjusted_detailed_results),
+          recommended_link_results
+        )
+        @streams << SearchStream.new(
+          "government",
+          "Policies, departments and announcements",
+          retrieve_government_results(@search_term)
+        )
+      else
+        @streams << SearchStream.new(
+          "mainstream",
+          "General results",
+          mainstream_results,
+          recommended_link_results
+        )
+        @streams << SearchStream.new(
+          "detailed",
+          "Detailed guidance",
+          retrieve_detailed_guidance_results(@search_term)
+        )
+        @streams << SearchStream.new(
+          "government",
+          "Inside Government",
+          retrieve_government_results(@search_term)
+        )
       end
+
+      @result_count = @streams.map { |s| s.total_size }.sum
+      if feature_enabled?("top_result")
+        # Pull out the best (first) result from across all the streams.
+        #
+        # We need to explicitly exclude empty streams, because streams with
+        # only recommended results in them will still be in the list.
+        non_empty_streams = @streams.reject { |s| s.results.empty? }
+        best_stream = non_empty_streams.max_by { |s| s.results.first.es_score }
+        @top_result = best_stream.results.shift if best_stream
+      end
+
+      # Don't display any streams (tabs) that are now empty
+      @streams.select! { |stream| stream.anything_to_show? }
     end
 
-    fill_in_slimmer_headers(@all_results)
+    fill_in_slimmer_headers(@result_count)
 
-    if @all_results.empty?
+    if @result_count == 0
       render action: 'no_results' and return
     end
   end
@@ -82,9 +121,14 @@ class SearchController < ApplicationController
     res.map { |r| GovernmentResult.new(r) }
   end
 
-  def fill_in_slimmer_headers(result_set)
+  def merge_result_sets(*result_sets)
+    # .sort_by(&:es_score) will return it back to front
+    result_sets.flatten(1).sort_by(&:es_score).reverse
+  end
+
+  def fill_in_slimmer_headers(result_count)
     set_slimmer_headers(
-      result_count: result_set.length,
+      result_count: result_count,
       format:       "search",
       section:      "search",
       proposition:  "citizen"
@@ -98,5 +142,9 @@ class SearchController < ApplicationController
   def set_results_tab
     tabs =  %w{ government-results detailed-results mainstream-results }
     @results_tab = tabs.include?(params[:tab]) ? params[:tab] : nil
+  end
+
+  def feature_enabled?(feature_name)
+    PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT || params[feature_name].present?
   end
 end

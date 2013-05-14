@@ -284,11 +284,19 @@
       overflow: hidden;
       height:300px;
       background-image: image-url('homepage/ig-960px.jpg');
+      @include device-pixel-ratio() {
+        background-image: image-url('homepage/ig-960px-2x.jpg');
+        background-size: 960px 299px;
+      }
       background-position: top left;
       background-repeat: no-repeat;
       @media(max-width: 935px) {
         height:450px;
         background-image: image-url('homepage/ig-935px.jpg');
+        @include device-pixel-ratio() {
+          background-image: image-url('homepage/ig-935px-2x.jpg');
+          background-size: 935px 469px;
+        }
         background-position: bottom right;
         padding-left:12em;
       }
@@ -296,6 +304,10 @@
       @media(max-width: 500px) {
         height:257px;
         background-image: image-url('homepage/ig-500px.jpg');
+        @include device-pixel-ratio() {
+          background-image: image-url('homepage/ig-500px-2x.jpg');
+          background-size: 500px 272px;
+        }
         background-position: bottom right;
         padding-left:8em;
       }

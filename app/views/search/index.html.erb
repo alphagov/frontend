@@ -12,22 +12,12 @@
 
   <div id="search-results-tabs">
     <h2 class="visuallyhidden">All results</h2>
-    <% if [(@mainstream_results + @recommended_link_results), @detailed_guidance_results, @government_results].reject(&:blank?).count > 1 %>
+    <% if @streams.count > 1 %>
       <nav class="js-tabs nav-tabs" role="navigation">
         <ul id="search-index-navigation">
-          <% if (@mainstream_results + @recommended_link_results).any? %>
+          <% @streams.each do |stream| %>
             <li>
-              <a href="#mainstream-results">General results (<%= @mainstream_results.length %>)</a>
-            </li>
-          <% end %>
-          <% if @detailed_guidance_results.any? %>
-            <li>
-              <a href="#detailed-results">Detailed guidance (<%= @detailed_guidance_results.length %>)</a>
-            </li>
-          <% end %>
-          <% if @government_results.any? %>
-            <li>
-              <a href="#government-results">Inside Government (<%= @government_results.length %>)</a>
+              <a href="#<%= stream.key %>-results"><%= stream.title %> (<%= stream.total_size %>)</a>
             </li>
           <% end %>
         </ul>
@@ -35,37 +25,21 @@
     <% end %>
 
     <div class="search-container group js-tab-content tab-content">
-      <% if @mainstream_results.any? or @recommended_link_results.any? %>
-        <div id="mainstream-results" class="js-tab-pane tab-pane <%= (@mainstream_results + @recommended_link_results).length == 1 ? ' single-item-pane' : ''%>">
-          <% if @recommended_link_results.any? %>
-            <div class="recommended-links">
-              <h2>Other sites that may be useful</h2>
-              <ul class="results-list">
-                <%= render collection: @recommended_link_results, partial: "result" %>
-              </ul>
-            </div>
-          <% end %>
-          <% if @mainstream_results.any? %>
-            <ul class="results-list internal-links">
-              <%= render collection: @mainstream_results, partial: "result" %>
+      <% @streams.each do |stream| %>
+        <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
+        <% if stream.recommended.any? %>
+          <div class="recommended-links">
+            <h2>Other sites that may be useful</h2>
+            <ul class="results-list">
+              <%= render collection: stream.recommended, partial: "result" %>
             </ul>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% if @detailed_guidance_results.any? %>
-        <div id="detailed-results" class="js-tab-pane tab-pane">
-          <ul class="results-list">
-            <%= render collection: @detailed_guidance_results, partial: "result" %>
+          </div>
+        <% end %>
+        <% if stream.total_size > 0 %>
+          <ul class="results-list internal-links">
+            <%= render collection: stream.results, partial: "result" %>
           </ul>
-        </div>
-      <% end %>
-
-      <% if @government_results.any? %>
-        <div id="government-results" class="js-tab-pane tab-pane">
-          <ul class="results-list">
-            <%= render collection: @government_results, partial: "result" %>
-          </ul>
+        <% end %>
         </div>
       <% end %>
     </div>

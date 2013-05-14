@@ -28,11 +28,11 @@ namespace :panopticon do
         :description => "HMRC is closing in on undeclared income."
       }),
       RegisterableCampaign.new({
-          :title => "Changes to driving licence rules from January 2013",
-          :slug => "newlicencerules",
-          :need_id => "B1111",
-          :description => "New driving licence rules from January 2013."
-        })
+        :title => "Changes to driving licence rules from January 2013",
+        :slug => "newlicencerules",
+        :need_id => "B1111",
+        :description => "New driving licence rules from January 2013."
+      })
     ]
 
     campaigns.each do |campaign|

@@ -3,7 +3,21 @@
 <% else %>
   <li class="section-<%= result.section %> type-<%= result.format %>">
 <% end %>
-  <h3><a href="<%= result.link %>" title="View <%= result.title %>"<% if result.format == "recommended-link" %> rel="external"<% end %>><%= result.title %></a></h3>
+  <% if params[:debug_score] %>
+    <span style="color: red;">
+      <small>
+        <%= result.es_score %>
+        &nbsp;
+        <%= result.format %>
+      </small>
+    </span>
+  <% end %>
+
+  <h3>
+    <a href="<%= result.link %>" title="View <%= result.title %>"<% if result.format == "recommended-link" %> rel="external"<% end %>>
+      <%= result.title %>
+    </a>
+  </h3>
   <% if result.format == "recommended-link" %>
     <p class="meta">
       <span class="visuallyhidden">Part of </span>

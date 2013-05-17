@@ -277,6 +277,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         should "redirect to the authority slug" do
           assert_equal "/licence-to-turn-off-a-telescreen/miniluv", current_path
         end
+
+        should "display interactions for licence" do
+          click_on "How to apply"
+          assert page.has_link? "Apply online", :href => '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+        end
       end
     end
   end
@@ -322,6 +327,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         within("#content nav") do
           assert page.has_link? "How to apply", :href => '/licence-to-turn-off-a-telescreen/miniluv/apply'
         end
+      end
+
+      should "display the interactions for licence" do
+        click_on "How to apply"
+        assert page.has_link? "Apply online", :href => '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
       end
     end
   end

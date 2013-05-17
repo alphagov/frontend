@@ -41,18 +41,21 @@ class RootController < ApplicationController
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
       elsif params[:part]
-        snac = AuthorityLookup.find_snac(params[:part])
         authority_slug = params[:part]
+        
+        unless non_location_specific_licence_present?(@publication) 
+          snac = AuthorityLookup.find_snac(params[:part])
+        
+          if request.format.json?
+            redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+          end
 
-        if request.format.json?
-          redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+          # Fetch the artefact again, for the snac we have
+          # This returns additional data based on format and location
+          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
+          assert_found(updated_artefact)
+          @publication = PublicationPresenter.new(updated_artefact)
         end
-
-        # Fetch the artefact again, for the snac we have
-        # This returns additional data based on format and location
-        updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
-        assert_found(updated_artefact)
-        @publication = PublicationPresenter.new(updated_artefact)
       end
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
@@ -187,5 +190,9 @@ protected
 
   def assert_found(obj)
     raise RecordNotFound unless obj
+  end
+
+  def non_location_specific_licence_present?(publication)
+    publication.format == 'licence' and publication.details['licence'] and !publication.details['licence']['location_specific']
   end
 end

@@ -53,5 +53,29 @@ class SearchResult
 end
 
 class GovernmentResult < SearchResult
+  PASS_THROUGH_KEYS = [:public_timestamp, :organisations, :location, :display_type, :topics]
+
+  PASS_THROUGH_KEYS.each do |key|
+    define_method key do
+      result[key.to_s]
+    end
+  end
+
+  def display_timestamp
+    self.public_timestamp.to_date.strftime("%e %B %Y")
+  end
+
+  def display_topics
+    self.topics.to_s
+  end
+
+  def departments
+    self.organisations[0]
+  end
+
+  def location
+    locations = ['UK']
+    locations.length > 1 ? 'multiple locations' : locations[0]
+  end
 end
 

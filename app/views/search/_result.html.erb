@@ -23,6 +23,7 @@
       <span class="visuallyhidden">Part of </span>
       <span class="url"><%= truncate(result.link, :length => 48) %></span>
     </p>
+    <p><%= result.description %></p>
   <% elsif (result.format == 'detailed_guidance' && result.section) || result.section %>
     <p class="meta crumbtrail">
       <span class="visuallyhidden">Part of </span>
@@ -30,12 +31,30 @@
       <% if result.subsection %><span class="visuallyhidden">, </span><span class="subsection"><%= result.formatted_subsection_name %></span><% end %>
       <% if result.subsubsection %><span class="visuallyhidden">, </span><span class="subsubsection"><%= result.formatted_subsubsection_name %></span><% end %>
     </p>
+    <p><%= result.description %></p>
   <% elsif result.is_a?(GovernmentResult) && result.format %>
-    <p class="meta crumbtrail">
-      <span class="visuallyhidden">Part of </span>
-      <span class="section">Government</span>
-      <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
-    </p>        
+    <ul class="attributes">
+      <% if result.public_timestamp.present? %>
+        <li>
+          <abbr title="<%= result.public_timestamp %>">
+            <%= result.display_timestamp %>
+          </abbr>
+        </li>
+      <% end %>
+      <% if result.departments.present? %>
+        <li>
+          <abbr title="<%= result.departments %>">
+            <%= result.departments %>
+          </abbr>
+        </li>
+      <% end %>
+      <% if result.display_topics.present? %>
+        <li><%= result.display_topics %></li>
+      <% end %>
+      <% if result.location.present? %>
+        <li><%= result.location %></li>
+      <% end %>
+    </ul>
+    <p><strong><%= result.display_type %></strong> <%= result.description %></p>
   <% end %>
-  <p><%= result.description %></p>
 </li>

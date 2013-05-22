@@ -70,7 +70,9 @@ class GovernmentResult < SearchResult
   end
 
   def departments
-    self.organisations[0]
+    if self.organisations.present?
+      self.organisations[0]
+    end
   end
 
   def location

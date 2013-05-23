@@ -55,6 +55,12 @@
         <li><%= result.location %></li>
       <% end %>
     </ul>
-    <p><strong><%= result.display_type %></strong> <%= result.description %></p>
+    
+      <p>
+        <% if result.display_type.present? %>
+          <strong><%= result.display_type %>: </strong>
+        <% end %>
+        <%= result.description %>
+      </p>
   <% end %>
 </li>

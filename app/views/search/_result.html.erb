@@ -36,23 +36,29 @@
     <ul class="attributes">
       <% if result.public_timestamp.present? %>
         <li>
-          <abbr title="<%= result.public_timestamp %>">
-            <%= result.display_timestamp %>
-          </abbr>
+          <span class="visuallyhidden">Published on: </span>
+          <%= result.display_timestamp %>
         </li>
       <% end %>
       <% if result.departments.present? %>
         <li>
+          <span class="visuallyhidden">Department: </span>
           <abbr title="<%= result.departments %>">
             <%= result.departments %>
           </abbr>
         </li>
       <% end %>
       <% if result.display_topics.present? %>
-        <li><%= result.display_topics %></li>
+        <li>
+          <span class="visuallyhidden">Topic: </span>
+          <%= result.display_topics %>
+        </li>
       <% end %>
       <% if result.location.present? %>
-        <li><%= result.location %></li>
+        <li>
+          <span class="visuallyhidden">Location: </span>
+          <%= result.location %>
+        </li>
       <% end %>
     </ul>
     

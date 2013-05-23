@@ -69,9 +69,12 @@ class GovernmentResult < SearchResult
     self.topics.to_s
   end
 
-  def departments
+  def display_departments
     if self.organisations.present?
-      self.organisations[0]
+      titles = self.organisations.map do |organisation|
+        organisation["title"]
+      end
+      titles.join(",")
     end
   end
 

@@ -78,9 +78,9 @@ class GovernmentResult < SearchResult
   end
 
   def display_departments
-    if self.organisations.present?
-      titles = self.organisations.map do |organisation|
-        organisation["title"]
+    if has_departments?
+      titles = self.organisations.map do |dept|
+        dept["title"]
       end
       titles.join(",")
     end

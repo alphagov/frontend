@@ -61,6 +61,14 @@ class GovernmentResult < SearchResult
     end
   end
 
+  def has_departments?
+    if self.organisations.present? and self.organisations.count > 0
+      true
+    else
+      false
+    end
+  end
+
   def display_timestamp
     self.public_timestamp.to_date.strftime("%e %B %Y")
   end

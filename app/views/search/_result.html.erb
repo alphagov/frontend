@@ -40,7 +40,7 @@
           <%= result.display_timestamp %>
         </li>
       <% end %>
-      <% if result.organisations.present? %>
+      <% if result.has_departments? %>
         <li>
           <span class="visuallyhidden">Departments: </span>
             <%= result.display_departments %>

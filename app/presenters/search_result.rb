@@ -85,7 +85,7 @@ class GovernmentResult < SearchResult
       titles = self.organisations.map do |dept|
         dept["title"]
       end
-      titles.join(",")
+      titles.join(", ")
     end
   end
 

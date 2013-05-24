@@ -74,7 +74,10 @@ class GovernmentResult < SearchResult
   end
 
   def display_topics
-    self.topics.to_s
+    topic_titles = self.topics.map do |topic|
+      topic["title"]
+    end
+    topic_titles.join(",")
   end
 
   def display_departments

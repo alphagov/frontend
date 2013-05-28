@@ -10,6 +10,21 @@
   }
 }
 
+.organisation-logo-dbs {
+  background: image-url('campaign/disclosure/ho_crest_18px.png') no-repeat 8px 0;
+  border-left: 2px solid #000;
+  span {
+    padding-top: 30px;
+    padding-top: 4rem;
+  }
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 2) {
+  .organisation-logo-dbs {
+    background: image-url('campaign/disclosure/ho_crest_18px_x2.png') no-repeat 8px 0;
+  }
+}
+
 
 /* temp extra styles for jobsearch */
 .jobsearch-form label input {

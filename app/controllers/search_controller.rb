@@ -5,6 +5,7 @@ class SearchController < ApplicationController
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
   before_filter :set_results_tab, only: [:index]
+  helper_method :feature_enabled?
 
   rescue_from GdsApi::Rummager::SearchServiceError, with: :error_503
 

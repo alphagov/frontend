@@ -19,15 +19,15 @@ class SearchResult
     @result = result.stringify_keys!
   end
 
-  PASS_THROUGH_KEYS = [
-    :presentation_format, :link, :title, :description,
-    :format, :humanized_format, :es_score
-  ]
-  PASS_THROUGH_KEYS.each do |key|
-    define_method key do
-      result[key.to_s]
+  def self.result_accessor(*keys)
+    keys.each do |key|
+      define_method key do
+        result[key.to_s]
+      end
     end
   end
+
+  result_accessor :presentation_format, :link, :title, :description, :format, :humanized_format, :es_score
 
   # Avoid the mundanity of creating these all by hand by making
   # dynamic method and accessors.
@@ -53,45 +53,72 @@ class SearchResult
 end
 
 class GovernmentResult < SearchResult
-  PASS_THROUGH_KEYS = [:public_timestamp, :organisations, :location, :display_type, :topics]
+  result_accessor :public_timestamp, :display_type
 
-  PASS_THROUGH_KEYS.each do |key|
-    define_method key do
-      result[key.to_s]
+  def fetch_multi_valued_field(field_name)
+    if result[field_name].present?
+      result[field_name].reject(&:blank?)
+    else
+      []
     end
   end
 
+  def departments
+    fetch_multi_valued_field("organisations")
+  end
+
   def has_departments?
-    if self.organisations.present? and self.organisations.count > 0
-      true
-    else
-      false
-    end
+    departments.any?
+  end
+
+  def topics
+    fetch_multi_valued_field("topics")
+  end
+
+  def has_topics?
+    topics.any?
+  end
+
+  def world_locations
+    fetch_multi_valued_field("world_locations")
+  end
+
+  def has_world_locations?
+    world_locations.any?
+  end
+
+  def document_series
+    fetch_multi_valued_field("document_series")
+  end
+
+  def has_document_series?
+    document_series.any?
   end
 
   def display_timestamp
     self.public_timestamp.to_date.strftime("%e %B %Y")
   end
 
+  def display(multi_valued_field)
+    multi_valued_field.map do |field|
+      field["acronym"] || field["title"] || field["slug"]
+    end.join(", ")
+  end
+
   def display_topics
-    topic_titles = self.topics.map do |topic|
-      topic["title"]
-    end
-    topic_titles.join(",")
+    display(topics)
   end
 
   def display_departments
-    if has_departments?
-      titles = self.organisations.map do |dept|
-        dept["title"]
-      end
-      titles.join(", ")
-    end
+    display(departments)
   end
 
-  def location
-    locations = ['UK']
-    locations.length > 1 ? 'multiple locations' : locations[0]
+  def display_world_locations
+    display(world_locations)
+  end
+
+  def display_document_series
+    display(document_series)
   end
 end
 

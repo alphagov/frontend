@@ -42,13 +42,14 @@
                   </div>  
                 </section>
               <% end -%>
-              <% if @publication.min_value.present? and @publication.max_value.present? and 
+              <% if @publication.min_value.present? and @publication.max_value.present? and
                   @publication.max_value.to_i > 0 %>
                 <section>
                   <h2>How much you can get</h2>
-                  <div class="support-detail">&pound;<%= 
-                    @publication.min_value.to_i == 0 ? '1' : @publication.min_value 
-                  %> - &pound;<%= @publication.max_value %></div>  
+                  <div class="support-detail">
+                    <%= number_to_currency([@publication.min_value, 1].max, { precision: 0, unit: "£" }) %>
+                    - <%= number_to_currency(@publication.max_value, { precision: 0, unit: "£" }) %>
+                  </div>
                 </section>
               <% end %>
               <% if @publication.max_employees.present? and @publication.max_employees.to_i > 0 %>

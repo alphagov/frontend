@@ -1,6 +1,5 @@
-<% if feature_enabled?("metadata") %>
-  <% content_for :body_classes do %>search<% end %>
-<% end %>
+<% content_for :body_classes do %>search<% end %>
+
 
 <section id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
@@ -14,27 +13,52 @@
     </div>
   <% end %>
 
-  <div id="search-results-tabs">
-    <h2 class="visuallyhidden">All results</h2>
-    <% if @streams.count > 1 %>
-      <nav class="search-navigation js-tabs" role="navigation">
-        <% if @streams.count == 2 %>
-          <ul id="search-index-navigation" class="two-tabs">
-        <% else %>
-          <ul id="search-index-navigation">
-        <% end %>
-          <% @streams.each_with_index do |stream, index| %>
-            <li <% if index == 0%>class="active"<% end %>>
-              <a href="#<%= stream.key %>-results">
-                <span class="count"><%= stream.total_size %> </span>
-                <span class="visuallyhidden">results in </span>
-                <span class="label"><%= stream.title.html_safe %></span>
-              </a>
-            </li>
+
+  <% if feature_enabled?("shouty-tabs") %>
+    <div id="search-results-tabs" class="shouty-tabs">
+      <h2 class="visuallyhidden">All results</h2>
+      <% if @streams.count > 1 %>
+        <nav class="search-navigation js-tabs" role="navigation">
+          <% if @streams.count == 2 %>
+            <ul id="search-index-navigation" class="two-tabs">
+          <% else %>
+            <ul id="search-index-navigation">
           <% end %>
-        </ul>
-      </nav>
-    <% end %>
+            <% @streams.each_with_index do |stream, index| %>
+              <li <% if index == 0%>class="active"<% end %>>
+                <a href="#<%= stream.key %>-results">
+                  <span class="count"><%= stream.total_size %> </span>
+                  <span class="visuallyhidden">results in </span>
+                  <span class="label"><%= stream.title.html_safe %></span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      <% end %>
+  <% else %>
+    <div id="search-results-tabs">
+      <h2 class="visuallyhidden">All results</h2>
+      <% if @streams.count > 1 %>
+        <nav class="search-navigation js-tabs nav-tabs" role="navigation">
+          <% if @streams.count == 2 %>
+            <ul id="search-index-navigation" class="two-tabs">
+          <% else %>
+            <ul id="search-index-navigation">
+          <% end %>
+            <% @streams.each_with_index do |stream, index| %>
+              <li <% if index == 0%>class="active"<% end %>>
+                <a href="#<%= stream.key %>-results">
+                  <span class="count"><%= stream.total_size %> </span>
+                  <span class="visuallyhidden">results in </span>
+                  <span class="label"><%= stream.title.html_safe %></span>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+      <% end %>
+  <% end %>
 
     <div class="search-container group js-tab-content tab-content">
       <% @streams.each do |stream| %>

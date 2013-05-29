@@ -1,5 +1,227 @@
+@import "media-down";
+
 .root-tour {
   .media-player-wrapper {
     min-height: 425px;
+  }
+}
+
+.tour {
+  input[type="search"] {
+    width: 10em;
+  }
+
+  header.page-header {
+    hgroup {
+      padding-bottom: 0;
+      padding-left:0;
+
+      h1 {
+        @include core-48;
+        width: 90%;
+        margin-bottom:0.5em;
+
+        @include media-down(mobile) {
+          width: auto;
+        }
+      }
+
+      h2 {
+        @include core-24;
+        color: inherit;
+        margin: 0;
+      }
+    }
+  }
+
+  .tour-container {
+    background-color: #fff;
+    min-height: 35em;
+    padding: 0 2em 2em 2em;
+
+    #inside-government{
+      border-top:1px solid $grey-3;
+      margin-top:2em;
+    }
+
+    .tour-video {
+      width: 625px;
+      float:left;
+      margin-bottom:1.5em;
+
+      @include media-down(mobile) {
+        width: auto;
+        float: none;
+      }
+
+      #govuk-tour-video {
+        width: 625px;
+
+        @include media-down(mobile) {
+          width: 320px;
+        }
+
+      }
+
+      figure {
+        margin-bottom:1em;
+      }
+
+      figcaption {
+        clear:both;
+
+        .video-transcript {
+          margin-top:1em;
+
+          .js-enabled & {
+            display:none;
+          }
+
+          p {
+            margin-bottom:0.5em;
+          }
+        }
+
+        p {
+          margin-top:0;
+          margin-bottom:0;
+        }
+
+        a {
+          @include core-16;
+
+          &[rel="external"] {
+            @include external-link-16;
+
+            @include media-down(mobile) {
+              @include external-link-14;
+            }
+          }
+        }
+      }
+    }
+
+    form {
+      margin-left:-0.5em;
+    }
+
+    .tour-intro {
+      float: right;
+      width: 31%;
+      margin-top: -1.3em;
+
+      @include media-down(mobile) {
+        float: right;
+        width: 100%;
+        margin-top: 0;
+      }
+
+      @include ie-lte(7) {
+        width: 27%;
+      }
+    }
+
+    .category-description {
+      margin-bottom: 2em;
+      width: 65.5%;
+
+      @include media-down(mobile) {
+        margin-bottom: 1em;
+        width: auto;
+      }
+
+      p {
+        @include core-16;
+        margin: 0;
+      }
+
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin-bottom: 1em;
+        padding-left:0;
+
+        h2 {
+          margin-bottom:0.55em;
+          margin-top:0.5em;
+        }
+
+        p {
+          @include core-16;
+          margin: 0 0 1em 0;
+          word-wrap: break-word;
+          padding-right:1em;
+        }
+
+        form {
+          padding-top:1em;
+
+          @include ie-lte(7) {
+            margin-left:0;
+          }
+        }
+
+        a[rel="external"] {
+          @include external-link-16;
+        }
+      }
+
+      &.tour-topics {
+        padding: 0;
+        clear: both;
+
+        li {
+          border-top: solid 1px $grey-3;
+          float: left;
+          margin-right: 3.5%;
+          margin-bottom: 1.5em;
+          width: 30%;
+          padding-bottom: 1.5em;
+
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+
+          &:nth-child(3n+1) {
+            clear: left;
+          }
+
+          @include media-down(mobile) {
+            float: none;
+            margin-right: 0;
+            width: auto;
+          }
+
+          @include ie-lte(8) {
+            float: none;
+            display: inline-block;
+            vertical-align: top;
+            width: 30.5%;
+
+            &.last {
+              width: 30%;
+              margin-right: 0;
+            }
+          }
+
+          @include ie-lte(7) {
+            min-height: 9em;
+            display: inline;
+            zoom: 1;
+            width: 33%;
+            margin-right: 3.5%;
+
+            &.last {
+              width: 27%;
+            }
+          }
+        }
+      }
+    }
   }
 }

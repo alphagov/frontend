@@ -89,7 +89,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Business support example"
     assert page.has_content? "Provides UK businesses with free, quick and easy access to a directory of approved finance suppliers"
     assert page.has_content? "How much you can get"
-    assert_match /1 -.*?20000000/, page.text
+    assert_match /1 -.*?20,000,000/, page.text
     assert page.has_content? "Eligibility"
     assert page.has_content? "Will depend on the individual provider."
     assert page.has_link? "Find out more", href: "http://www.businessfinanceforyou.co.uk/finance-finder"

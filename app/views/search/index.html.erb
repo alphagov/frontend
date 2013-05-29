@@ -49,9 +49,7 @@
             <% @streams.each_with_index do |stream, index| %>
               <li <% if index == 0%>class="active"<% end %>>
                 <a href="#<%= stream.key %>-results">
-                  <span class="count"><%= stream.total_size %> </span>
-                  <span class="visuallyhidden">results in </span>
-                  <span class="label"><%= stream.title.html_safe %></span>
+                  <span class="label"><%= stream.title.html_safe %> (<%= stream.total_size %>)</span>
                 </a>
               </li>
             <% end %>

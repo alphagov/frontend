@@ -1,3 +1,7 @@
+<% if feature_enabled?("metadata") %>
+  <% content_for :body_classes do %>search<% end %>
+<% end %>
+
 <section id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
 

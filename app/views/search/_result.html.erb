@@ -33,17 +33,6 @@
   <% elsif result.is_a?(GovernmentResult) && result.format %>
     <% if feature_enabled?("metadata") %>
       <ul class="attributes">
-        <% if result.display_type.present? %>
-          <li>
-            <%= result.display_type %>
-          </li>
-        <% end %>
-        <% if result.has_document_series? %>
-          <li>
-            <span class="visuallyhidden">Document series: </span>
-            <%= result.display_document_series %>
-          </li>
-        <% end %>
         <% if result.public_timestamp.present? %>
           <li>
             <span class="visuallyhidden">Published on: </span>
@@ -54,6 +43,17 @@
           <li>
             <span class="visuallyhidden">Departments: </span>
               <%= result.display_departments %>
+          </li>
+        <% end %>
+        <% if result.display_type.present? %>
+          <li>
+            <%= result.display_type %>
+          </li>
+        <% end %>
+        <% if result.has_document_series? %>
+          <li>
+            <span class="visuallyhidden">Document series: </span>
+            <%= result.display_document_series %>
           </li>
         <% end %>
         <% if result.has_topics? %>

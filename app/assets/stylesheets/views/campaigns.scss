@@ -1,5 +1,4 @@
 @import "_conditionals";
-@import "media-down";
 
 section.campaign {
   &#content {
@@ -9,10 +8,10 @@ section.campaign {
 
   article.campaign,
   #extra-links {
-    max-width: 662px;
+    width: auto;
 
-    @include media-down(mobile) {
-      width: auto;
+    @include media($size: desktop) {
+      max-width: 662px;
     }
 
    @include ie(6) {
@@ -71,19 +70,13 @@ section.campaign {
       @include core-48;
 
       float: left;
-      padding: 0 0 0.4em 0;
-      margin: 0.833em 0 0.312em;
-      max-width: 700px;
+      width: auto;
+      margin: 0.5em 0.5em 0;
 
-      @include media($max-width: 900px, $ignore-for-ie: true) {
+      @include media($size: desktop, $ignore-for-ie: true) {
         width: 70%;
-        margin-left: 0.333em;
-      }
-
-      @include media-down(mobile) {
-        padding: 0.5em;
         margin-left: 0;
-        width: auto;
+        margin-bottom: 0.5em;
       }
 
       @include ie-lte(7) {
@@ -156,7 +149,7 @@ section.campaign {
       margin: 0;
       padding: 0;
     }
-    
+
     a[rel="external"] {
       @include external-link-16;
     }
@@ -164,21 +157,23 @@ section.campaign {
 }
 
 .organisation {
-  float: right;
-  padding: 2.5em 2em 1em 0;
+  float: left;
+  margin: 1em 0 1em 1em;
+  padding: 0;
 
-  @include media-down(mobile) {
-    float: left;
-    margin: 0em 0 1em 1em;
-    padding: 0;
+  @include media($size: tablet) {
+    margin-left: 1.5em;
+  }
+
+  @include media($size: desktop) {
+    margin-top: 2em;
+    float: right;
   }
 
   a.organisation-logo {
     span {
-      @include media-down(mobile) {
-        top: 0;
-        position: static;
-      }
+      top: 0;
+      position: static;
     }
   }
 }
@@ -188,12 +183,9 @@ article.campaign {
   height: auto;
   min-height: 0;
   padding: 2.25em 2em 1em 0;
+  margin-right: 0;
 
-  @include media-down (tablet) {
-    margin-right: 0;
-  }
-
-  @include media ($max-width: 900px, $ignore-for-ie: true) {
+  @include media($max-width: 900px, $ignore-for-ie: true) {
     padding-left: 1em;
     padding-right: 1em;
   }

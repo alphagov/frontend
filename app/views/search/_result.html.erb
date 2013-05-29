@@ -31,11 +31,51 @@
       <% if result.subsubsection %><span class="visuallyhidden">, </span><span class="subsubsection"><%= result.formatted_subsubsection_name %></span><% end %>
     </p>
   <% elsif result.is_a?(GovernmentResult) && result.format %>
-    <p class="meta crumbtrail">
-      <span class="visuallyhidden">Part of </span>
-      <span class="section">Government</span>
-      <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
-    </p>        
+    <% if feature_enabled?("metadata") %>
+      <ul class="attributes">
+        <% if result.display_type.present? %>
+          <li>
+            <%= result.display_type %>
+          </li>
+        <% end %>
+        <% if result.has_document_series? %>
+          <li>
+            <span class="visuallyhidden">Document series: </span>
+            <%= result.display_document_series %>
+          </li>
+        <% end %>
+        <% if result.public_timestamp.present? %>
+          <li>
+            <span class="visuallyhidden">Published on: </span>
+            <%= result.display_timestamp %>
+          </li>
+        <% end %>
+        <% if result.has_departments? %>
+          <li>
+            <span class="visuallyhidden">Departments: </span>
+              <%= result.display_departments %>
+          </li>
+        <% end %>
+        <% if result.has_topics? %>
+          <li>
+            <span class="visuallyhidden">Topic: </span>
+            <%= result.display_topics %>
+          </li>
+        <% end %>
+        <% if result.has_world_locations? %>
+          <li>
+            <span class="visuallyhidden">Location: </span>
+            <%= result.display_world_locations %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p class="meta crumbtrail">
+        <span class="visuallyhidden">Part of </span>
+        <span class="section">Government</span>
+        <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
+      </p>
+    <% end %>
   <% end %>
   <p><%= result.description %></p>
 </li>

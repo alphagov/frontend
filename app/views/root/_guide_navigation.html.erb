@@ -1,26 +1,22 @@
 <% if @publication.parts.size > 1 then %>
 <aside>
   <div class="inner">
-    <% if [:programme, :guide, :'travel-advice'].include? @publication.format.to_sym %>
-      <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
-    <% end %>
-
     <nav role="navigation" class="page-navigation">
-      <ol>
-        <% @publication.parts.each do |nav_part| %>
-          <% if @publication.current_part == nav_part %>
-            <li class="active">
-              <span class="part-label"><!--<%= t 'formats.guide.part' %>--><%= part_number(@publication.parts, nav_part) %>.<span class="visuallyhidden">:</span></span><span class="part-title"><%= nav_part.title %></span>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" do %>
-                <span class="part-label"><!--<%= t 'formats.guide.part' %>--><%= part_number(@publication.parts, nav_part) %>.<span class="visuallyhidden">:</span></span><span class="part-title"><%= nav_part.title %></span>
-              <% end %>
-            </li>
+      <% @publication.parts.each_slice((@publication.parts.size/2).ceil).with_index do |parts,i| %>
+        <ol<%= " start=\"#{(@publication.parts.size/2).ceil + 1}\"".html_safe if i == 1 %>>
+          <% parts.each do |nav_part| %>
+            <% if @publication.current_part == nav_part %>
+              <li class="active">
+                <%= nav_part.title %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to nav_part.title, part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" %>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ol>
+        </ol>
+      <% end %>
     </nav>
   </div>
 </aside>

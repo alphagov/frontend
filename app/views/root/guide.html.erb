@@ -26,6 +26,11 @@
         <%= render :partial => "guide_pagination" %>
       </div>
     </article>
+
+    <% if [:programme, :guide, :'travel-advice'].include? @publication.format.to_sym %>
+      <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
+    <% end %>
+    
     <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
 
   </div>

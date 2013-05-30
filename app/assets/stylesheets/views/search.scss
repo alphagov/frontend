@@ -1,0 +1,273 @@
+@mixin search-meta-data {
+  color: $grey-4;
+}
+
+.search {
+  padding-bottom: 30px;
+  background: $white;
+
+  @include media(tablet) {
+    padding-bottom: 60px;
+  }
+
+  h1 {
+    @include core-19;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  .search-header {
+    position: relative;
+    margin: 0;
+    padding: 10px 15px 15px;
+    overflow: visible;
+
+    @include media(tablet) {
+      padding: 20px 30px 30px;
+      width: 66.666%;
+    }
+
+    .search-input {
+      position: static;
+      margin: 0;
+      padding: 0 50px 0 0;
+
+      @include ie(7) {
+        padding-right: 62px;
+      }
+    }
+
+    .search-submit {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      height: 50px;
+      width: 50px;
+      overflow: visible;
+
+      @include media(tablet) {
+        bottom: 30px;
+        right: 30px;
+      }
+    }
+
+    input {
+      @include core-19;
+      @include box-sizing(border-box);
+      width: 100%;
+      margin: 0;
+      padding: 0 0 0 10px;
+      display: block;
+      height: 50px;
+      border-right: none;
+      line-height: 48px!important;
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+
+      @include ie-lte(7) {
+        height: 48px;
+        margin-bottom: -1px;
+      }
+    }
+
+    button {
+      @include border-radius(0);
+      @include box-shadow(none);
+      position: absolute;
+      z-index: 4;
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      border: none;
+      overflow: hidden;
+      text-indent: -5000px;
+      color: $white;
+      background-color: #28a197;
+      background-image: image-url("search/search-button.png");
+      background-repeat: no-repeat;
+      background-position: -12.5% 50%;
+
+      &:hover {
+        background-color: #3ABAA8;
+      }
+    }
+  }
+
+  .results-list {
+    list-style: none;
+    margin: 0;
+    padding: 15px 15px 0;
+
+    @include media(tablet) {
+      padding: 30px 30px 0;
+    }
+
+    li {
+      max-width: 32.5em;
+      margin: 0;
+      padding: 0 0 15px;
+
+      @include media(tablet) {
+        padding: 0 0 25px;
+      }
+
+      @include ie(6) {
+        width: 32.5em;
+      }
+    }
+
+    h3 {
+      @include core-19;
+      margin: 0;
+
+      a {
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          color: $link-colour;
+          text-decoration: underline;
+        }
+      }
+
+      a[rel="external"]::after {
+        content: "\A0\A0\A0\A0\A0\A0";
+      }
+    }
+
+    ul.attributes {
+      padding: 0;
+      margin: 2px 0 2px 0;
+
+      li {
+        @include search-meta-data;
+        display: inline;
+        padding: 0 0 0 0;
+
+        &:after {
+          content:',';
+          position: relative;
+          left: -3px;
+        }
+
+        &:last-child::after {
+          content:'';
+        }
+      }
+    }
+
+    p {
+      @include core-16;
+      margin: 0;
+      padding: 2px 0 0;
+
+      &.meta {
+        color: $grey-4;
+
+        .subsection,
+        .subsubsection {
+          background: transparent image-url("search/separator.png") 0 40% no-repeat;
+          padding-left: 15px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  #top-results {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    background: $white;
+
+    .results-list {
+      padding-top: 0;
+    }
+  }
+
+  .no-results {
+    overflow: hidden;
+    margin: 0;
+    padding: 0 15px 40px;
+
+    @include media(tablet) {
+      padding: 0 30px 70px;
+    }
+
+    h2 {
+      @include core-36;
+      font-weight: bold;
+    }
+  }
+
+  .recommended-links {
+    @include media(tablet) {
+      float: right;
+      display: inline;
+      width: 33.333%;
+    }
+
+    h2 {
+      @include core-16;
+      padding: 15px 15px 0;
+
+      @include media(tablet) {
+        padding: 30px 30px 0;
+      }
+    }
+
+    .results-list {
+      padding-top: 0;
+    }
+  }
+
+  .nav-tabs {
+    @include media(tablet) {
+      margin: 0;
+      padding: 0 30px;
+    }
+
+    ul {
+      margin: 0;
+    }
+
+    .active {
+      a {
+        outline: none;
+      }
+    }
+  }
+
+  .tab-content {
+    margin: 0;
+
+    .inner {
+      padding: 0;
+    }
+  }
+
+  .tab-pane {
+    padding: 0;
+  }
+}
+
+.search-launcher {
+  padding-top: 30px;
+  padding-bottom: 130px;
+
+  @include media(tablet) {
+    padding-top: 40px;
+    padding-bottom: 300px;
+
+    h1 {
+      @include core-48;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+  }
+}

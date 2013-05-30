@@ -1,5 +1,3 @@
-@import "media-down";
-
 .root-tour {
   .media-player-wrapper {
     min-height: 425px;
@@ -18,11 +16,11 @@
 
       h1 {
         @include core-48;
-        width: 90%;
-        margin-bottom:0.5em;
+        width: auto;
+        margin-bottom: 0.5em;
 
-        @include media-down(mobile) {
-          width: auto;
+        @include media($size: desktop) {
+          width: 90%;
         }
       }
 
@@ -45,22 +43,21 @@
     }
 
     .tour-video {
-      width: 625px;
-      float:left;
-      margin-bottom:1.5em;
+      width: auto;
+      float: none;
 
-      @include media-down(mobile) {
-        width: auto;
-        float: none;
+      @include media($size: desktop) {
+        width: 625px;
+        float:left;
+        margin-bottom:1.5em;
       }
 
       #govuk-tour-video {
-        width: 625px;
+        width: 320px;
 
-        @include media-down(mobile) {
-          width: 320px;
+        @include media($size: desktop) {
+          width: 625px;
         }
-
       }
 
       figure {
@@ -91,10 +88,10 @@
           @include core-16;
 
           &[rel="external"] {
-            @include external-link-16;
+            @include external-link-14;
 
-            @include media-down(mobile) {
-              @include external-link-14;
+            @include media($size: desktop) {
+              @include external-link-16;
             }
           }
         }
@@ -106,14 +103,13 @@
     }
 
     .tour-intro {
-      float: right;
-      width: 31%;
-      margin-top: -1.3em;
+      width: 100%;
+      margin-top: 0;
 
-      @include media-down(mobile) {
+      @include media($size: desktop) {
         float: right;
-        width: 100%;
-        margin-top: 0;
+        width: 31%;
+        margin-top: -1.3em;
       }
 
       @include ie-lte(7) {
@@ -122,12 +118,12 @@
     }
 
     .category-description {
-      margin-bottom: 2em;
-      width: 65.5%;
+      margin-bottom: 1em;
+      width: auto;
 
-      @include media-down(mobile) {
-        margin-bottom: 1em;
-        width: auto;
+      @include media($size: desktop) {
+        margin-bottom: 2em;
+        width: 65.5%;
       }
 
       p {
@@ -172,15 +168,15 @@
       }
 
       &.tour-topics {
+        margin: 0;
         padding: 0;
         clear: both;
 
         li {
           border-top: solid 1px $grey-3;
-          float: left;
-          margin-right: 3.5%;
-          margin-bottom: 1.5em;
-          width: 30%;
+          float: none;
+          margin: 0;
+          width: auto;
           padding-bottom: 1.5em;
 
           &:nth-child(3n) {
@@ -191,10 +187,11 @@
             clear: left;
           }
 
-          @include media-down(mobile) {
-            float: none;
-            margin-right: 0;
-            width: auto;
+          @include media($size: desktop) {
+            float: left;
+            margin-right: 3.5%;
+            margin-bottom: 1.5em;
+            width: 30%;
           }
 
           @include ie-lte(8) {

@@ -1,4 +1,227 @@
-@import "_conditionals.scss";
+@import "_conditionals";
+
+section.campaign {
+  &#content {
+    background-color: #fff;
+    padding-bottom: 3em;
+  }
+
+  article.campaign,
+  #extra-links {
+    width: auto;
+
+    @include media($size: desktop) {
+      max-width: 662px;
+    }
+
+   @include ie(6) {
+      width: 662px;
+    }
+  }
+
+  article.campaign {
+    clear: both;
+  }
+
+  #extra-links {
+    margin: 1.5em 0 0;
+    padding-top: 1.5em;
+    overflow: hidden;
+    border-top: solid 1px $grey-3;
+
+    @include ie(6) {
+      width:928px;
+    }
+
+    header p {
+      font-size: 24px;
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      font-weight: normal;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  #landing {
+    position: relative;
+    float: none;
+    display: block;
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #fff;
+
+    @include ie-lte(7) {
+      width: 960px;
+    }
+
+    h1,
+    h2 {
+      color: $text-colour;
+    }
+
+    h1 {
+      @include core-48;
+
+      float: left;
+      width: auto;
+      margin: 0.5em 0.5em 0;
+
+      @include media($size: desktop, $ignore-for-ie: true) {
+        width: 70%;
+        margin-left: 0;
+        margin-bottom: 0.5em;
+      }
+
+      @include ie-lte(7) {
+        margin-left: 0.666em;
+      }
+
+      @include ie(6) {
+        display: inline;
+        width: 700px;
+      }
+    }
+  }
+}
+
+.campaign-image {
+  position: relative;
+  clear: both;
+  width: 100%;
+  height: 300px;
+
+  @include media ($max-width: 900px, $ignore-for-ie: true) {
+    position: static;
+    height: auto;
+  }
+
+  #banner {
+    display: block;
+    text-indent: -9999px;
+    width: 100%;
+    height: 300px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+    background-size:cover;
+
+    @include media($min-width: 0px) {
+      min-height: 270px;
+      margin: 0;
+    }
+
+    @include media($min-width: 500px) {
+      height: 566px;
+    }
+
+    @include media($min-width: 900px) {
+      height: 300px;
+    }
+  }
+
+  .campaign-links {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    width: 240px;
+    background-color: #fff;
+
+    @include media ($max-width: 900px, $ignore-for-ie: true) {
+      position: static;
+      width: auto;
+      padding: 2em 1em 0;
+    }
+
+    h2 {
+      margin: 0;
+      padding-bottom: 0.5em;
+    }
+
+    nav {
+      margin: 0;
+      padding: 0;
+    }
+
+    a[rel="external"] {
+      @include external-link-16;
+    }
+  }
+}
+
+.organisation {
+  float: left;
+  margin: 1em 0 1em 1em;
+  padding: 0;
+
+  @include media($size: tablet) {
+    margin-left: 1.5em;
+  }
+
+  @include media($size: desktop) {
+    margin-top: 2em;
+    float: right;
+  }
+
+  a.organisation-logo {
+    span {
+      top: 0;
+      position: static;
+    }
+  }
+}
+
+article.campaign {
+  float: none;
+  height: auto;
+  min-height: 0;
+  padding: 2.25em 2em 1em 0;
+  margin-right: 0;
+
+  @include media($max-width: 900px, $ignore-for-ie: true) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  @include ie(8) {
+    margin: 0;
+  }
+
+  @include ie-lte(8) {
+    padding-right: 0;
+  }
+
+  @include ie-lte(7) {
+    margin: 0 2em;
+  }
+
+  h2:first-child,
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+ul.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include ie(6) {
+    list-style-image: none;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
 
 .organisation {
   .eugo {

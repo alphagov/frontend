@@ -81,6 +81,7 @@ section.campaign {
 
       @include ie-lte(7) {
         margin-left: 0.666em;
+        margin-bottom: 1em;
       }
 
       @include ie(6) {
@@ -168,6 +169,11 @@ section.campaign {
   @include media($size: desktop) {
     margin-top: 2em;
     float: right;
+  }
+
+  @include ie-lte(7) {
+    margin-top: 1em;
+    margin-right: 2em;
   }
 
   a.organisation-logo {

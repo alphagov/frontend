@@ -13,6 +13,7 @@
   div#homepage {
     background-color:#fff;
     padding: 0 2em;
+    margin-top:1em;
     min-height:26em;
     overflow: visible;
 
@@ -112,7 +113,7 @@
       padding: 0;
 
       h1 {
-        @include core-48;
+        @include bold-48;
         padding-top: 0;
         padding-bottom:0.25em;
       }

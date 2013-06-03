@@ -285,6 +285,20 @@ class SearchControllerTest < ActionController::TestCase
     assert_response 503
   end
 
+  context "organisation filter" do
+    should "appear on the government tab" do
+      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+      get :index, { q: "moon" }
+      assert_select "#government-results form#government-filter"
+    end
+
+    should "list organistions split into ministerial departments and others"
+
+    should "retain tab parameter"
+
+    should "let you filter results by organisation"
+  end
+
   context "no top_result parameter" do
     should "leave the highest scored result where it is" do
       Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])

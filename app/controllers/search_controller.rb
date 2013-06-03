@@ -63,8 +63,15 @@ class SearchController < ApplicationController
         # We need to explicitly exclude empty streams, because streams with
         # only recommended results in them will still be in the list.
         non_empty_streams = @streams.reject { |s| s.results.empty? }
-        best_stream = non_empty_streams.max_by { |s| s.results.first.es_score }
-        @top_result = best_stream.results.shift if best_stream
+        all_results_ordered = non_empty_streams.inject([]) do |accumulator, stream|
+          accumulator + stream.results
+        end.sort_by(&:es_score).reverse
+        @top_results = all_results_ordered[0..2]
+        @top_results.each do |result_to_remove|
+          non_empty_streams.detect do |stream|
+            stream.results.delete(result_to_remove)
+          end
+        end
       end
 
       # Don't display any streams (tabs) that are now empty

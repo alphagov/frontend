@@ -159,12 +159,12 @@ class SearchController < ApplicationController
   def ministerial_departments
     organisations.select do |organisation|
       organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
-    end
+    end.sort_by { |organisation| organisation["title"] }
   end
 
   def other_organisations
     organisations.reject do |organisation|
       organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
-    end
+    end.sort_by { |organisation| organisation["title"] }
   end
 end

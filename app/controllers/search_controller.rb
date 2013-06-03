@@ -7,7 +7,7 @@ class SearchController < ApplicationController
   before_filter :set_results_tab, only: [:index]
   helper_method :feature_enabled?
 
-  rescue_from GdsApi::Rummager::SearchServiceError, with: :error_503
+  rescue_from GdsApi::BaseError, with: :error_503
 
   def index
     @search_term = params[:q]

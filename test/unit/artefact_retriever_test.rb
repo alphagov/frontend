@@ -12,7 +12,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
 
   should "be able to fetch an artefact" do
     json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
-    index_artefact = GdsApi::ContentApi::Response.new(
+    index_artefact = GdsApi::Response.new(
       stub("HTTP_Response", :code => 200, :body => json_data),
       :web_urls_relative_to => "https://www.gov.uk"
     )
@@ -33,7 +33,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
     temp['format'] = 'something bad'
     tampered_json_data = JSON.dump(temp)
 
-    index_artefact = GdsApi::ContentApi::Response.new(
+    index_artefact = GdsApi::Response.new(
       stub("HTTP_Response", :code => 200, :body => tampered_json_data),
       :web_urls_relative_to => "https://www.gov.uk"
     )

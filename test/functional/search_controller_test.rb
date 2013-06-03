@@ -279,7 +279,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should handle service errors with a 503" do
-    Frontend.mainstream_search_client.stubs(:search).raises(GdsApi::Rummager::SearchServiceError)
+    Frontend.mainstream_search_client.stubs(:search).raises(GdsApi::BaseError)
     get :index, {q: "badness"}
 
     assert_response 503

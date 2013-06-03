@@ -286,15 +286,22 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   context "organisation filter" do
-    should "appear on the government tab" do
+    setup do
+      # Need to have some results for the tab to appear
       Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+    end
+
+    should "appear on the government tab" do
       get :index, { q: "moon" }
       assert_select "#government-results form#government-filter"
     end
 
     should "list organistions split into ministerial departments and others"
 
-    should "retain tab parameter"
+    should "retain tab parameter" do
+      get :index, { q: "moon", tab: "government-results" }
+      assert_select "form#government-filter input[name=tab][value=government-results]"
+    end
 
     should "let you filter results by organisation"
   end

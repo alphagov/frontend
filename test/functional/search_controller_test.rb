@@ -67,14 +67,6 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "div#mainstream-results.single-item-pane", 0
   end
 
-  test "should display just tab page of results if we have results from a single index" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    Frontend.detailed_guidance_search_client.stubs(:search).returns([])
-    Frontend.government_search_client.stubs(:search).returns([])
-    get :index, q: "search-term"
-    assert_select 'nav.js-tabs', count: 0
-  end
-
   test "should display tabs when there are mixed results" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
@@ -380,7 +372,7 @@ class SearchControllerTest < ActionController::TestCase
 
       assert_select "a[href='#mainstream-results']", text: "General results (1)"
       assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
-      assert_select "a[href='#government-results']", count: 0
+      assert_select "a[href='#government-results']", text: "Inside Government (0)"
 
       assert_select "#top-results a[href='/c']"
     end

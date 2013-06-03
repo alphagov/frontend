@@ -66,9 +66,6 @@ class SearchController < ApplicationController
         best_stream = non_empty_streams.max_by { |s| s.results.first.es_score }
         @top_result = best_stream.results.shift if best_stream
       end
-
-      # Don't display any streams (tabs) that are now empty
-      @streams.select! { |stream| stream.anything_to_show? }
     end
 
     fill_in_slimmer_headers(@result_count)

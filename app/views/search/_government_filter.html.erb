@@ -6,12 +6,16 @@
     <option value="">All</option>
     <optgroup label="Ministerial departments">
       <% ministerial_departments.each do |organisation| %>
-        <option value="<%= organisation["slug"] %>"><%= organisation["title"] %></option>
+        <option value="<%= organisation["slug"] %>" <%= (params[:organisation] == organisation["slug"]) ? "selected=selected" : "" %>>
+          <%= organisation["title"] %>
+        </option>
       <% end %>
     </optgroup>
     <optgroup label="Other stuff">
       <% other_organisations.each do |organisation| %>
-        <option value="<%= organisation["slug"] %>"><%= organisation["title"] %></option>
+        <option value="<%= organisation["slug"] %>" <%= (params[:organisation] == organisation["slug"]) ? "selected=selected" : "" %>>
+          <%= organisation["title"] %>
+        </option>
       <% end %>
     </optgroup>
   </select>

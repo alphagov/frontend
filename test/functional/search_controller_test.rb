@@ -303,6 +303,11 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "form#government-filter input[name=tab][value=government-results]"
     end
 
+    should "select the current organisation in the dropdown" do
+      get :index, { q: "moon", organisation: "ministry-of-defence" }
+      assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
+    end
+
     should "let you filter results by organisation"
   end
 

@@ -323,6 +323,11 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "select#organisation-filter optgroup[label='Others'] option[value=agency-of-awesome]"
     end
 
+    should "new searches should retain the organisation filter" do
+      get :index, { q: "moon", organisation: "ministry-of-defence" }
+      assert_select "#content form[role=search] input[name=organisation][value=ministry-of-defence][type=hidden]"
+    end
+
     should "retain tab parameter" do
       get :index, { q: "moon", tab: "government-results" }
       assert_select "form#government-filter input[name=tab][value=government-results]"

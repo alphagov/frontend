@@ -9,6 +9,9 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.stubs(:detailed_guidance_search_client).returns(detailed_client)
     government_client = stub("search", search: [])
     Frontend.stubs(:government_search_client).returns(government_client)
+
+    organisations_client = stub("search", organisations: { "total" => 0, "results" => [] })
+    Frontend.stubs(:organisations_search_client).returns(organisations_client)
   end
 
   def a_search_result(slug, score)
@@ -296,7 +299,29 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "#government-results form#government-filter"
     end
 
-    should "list organistions split into ministerial departments and others"
+    should "list organisations split into ministerial departments and others" do
+      organisations = [
+        {
+          "link"              => "/government/organisations/ministry-of-defence",
+          "title"             => "Ministry of Defence",
+          "acronym"           => "MOD",
+          "organisation_type" => "Ministerial department",
+          "slug"              => "ministry-of-defence"
+        },
+        {
+          "link"              => "/government/organisations/agency-of-awesome",
+          "title"             => "Agency of Awesome",
+          "acronym"           => "AoA",
+          "slug"              => "agency-of-awesome"
+        }
+      ]
+      Frontend.organisations_search_client
+          .expects(:organisations)
+          .returns({ "results" => organisations })
+      get :index, { q: "sun" }
+      assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
+      assert_select "select#organisation-filter optgroup[label='Others'] option[value=agency-of-awesome]"
+    end
 
     should "retain tab parameter" do
       get :index, { q: "moon", tab: "government-results" }
@@ -304,6 +329,13 @@ class SearchControllerTest < ActionController::TestCase
     end
 
     should "select the current organisation in the dropdown" do
+      Frontend.organisations_search_client.stubs(:organisations).returns({ "total" => 0, "results" => [{
+          "link"              => "/government/organisations/ministry-of-defence",
+          "title"             => "Ministry of Defence",
+          "acronym"           => "MOD",
+          "organisation_type" => "Ministerial department",
+          "slug"              => "ministry-of-defence"
+        }] })
       get :index, { q: "moon", organisation: "ministry-of-defence" }
       assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
     end

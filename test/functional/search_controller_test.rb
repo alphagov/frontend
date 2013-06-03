@@ -308,7 +308,13 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
     end
 
-    should "let you filter results by organisation"
+    should "let you filter results by organisation" do
+      Frontend.government_search_client
+          .expects(:search)
+          .with("moon", organisation_slug: "ministry-of-defence")
+          .returns([])
+      get :index, { q: "moon", organisation: "ministry-of-defence" }
+    end
   end
 
   context "no top_result parameter" do

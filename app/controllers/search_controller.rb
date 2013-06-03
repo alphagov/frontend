@@ -118,7 +118,9 @@ class SearchController < ApplicationController
   end
 
   def retrieve_government_results(term)
-    res = Frontend.government_search_client.search(term)
+    extra_parameters = {}
+    extra_parameters[:organisation_slug] = params[:organisation] if params[:organisation]
+    res = Frontend.government_search_client.search(term, extra_parameters)
     res.map { |r| GovernmentResult.new(r) }
   end
 

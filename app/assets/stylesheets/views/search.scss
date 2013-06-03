@@ -212,6 +212,9 @@ body.search {
     label {
       @include core-19;
     }
+    select#organisation-filter {
+      width: 328px;
+    }
   }
 
   .results-list {

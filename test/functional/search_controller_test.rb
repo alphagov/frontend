@@ -67,11 +67,32 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "div#mainstream-results.single-item-pane", 0
   end
 
-  test "should display tabs when there are mixed results" do
+  test "should display tabs when there are results in one or more tab" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
     get :index, q: "search-term"
     assert_select "nav.js-tabs"
+  end
+
+  test "should display no tabs when there are no results" do
+    get :index, q: "search-term"
+    assert_select "nav.js-tabs", count: 0
+  end
+
+  context "tab parameter is set, another tab has results" do
+    should "focus on that tab, even if it has no results" do
+      Frontend.mainstream_search_client.stubs(:search).returns([{}])
+      get :index, { q: "spoon", tab: "government-results" }
+      assert_select "li.active a[href=#government-results]"
+    end
+  end
+
+  context "one tab has results, the other doesn't. no tab parameter supplied" do
+    should "should focus on the tab with results" do
+      Frontend.government_search_client.stubs(:search).returns([{}])
+      get :index, { q: "spoon" }
+      assert_select "li.active a[href=#government-results]"
+    end
   end
 
   test "should display index count on respective tab" do

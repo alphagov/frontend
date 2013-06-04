@@ -4,7 +4,6 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
-  before_filter :set_results_tab, only: [:index]
   helper_method :feature_enabled?, :ministerial_departments, :other_organisations
 
   rescue_from GdsApi::BaseError, with: :error_503
@@ -69,6 +68,8 @@ class SearchController < ApplicationController
     end
 
     fill_in_slimmer_headers(@result_count)
+
+    @active_stream = active_stream(@streams)
 
     if @result_count == 0
       render action: 'no_results' and return
@@ -139,9 +140,21 @@ class SearchController < ApplicationController
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
   end
 
-  def set_results_tab
+  def selected_tab
     tabs =  %w{ government-results detailed-results mainstream-results }
-    @results_tab = tabs.include?(params[:tab]) ? params[:tab] : nil
+    tabs.include?(params[:tab]) ? params[:tab] : nil
+  end
+
+  def active_stream(streams)
+    active_stream = streams.detect do |stream|
+      stream_key_as_tab_name = "#{stream.key}-results"
+      if selected_tab
+        stream_key_as_tab_name == selected_tab
+      else
+        stream.anything_to_show?
+      end
+    end
+    active_stream || streams.first
   end
 
   def feature_enabled?(feature_name)

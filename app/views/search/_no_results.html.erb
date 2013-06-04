@@ -1,0 +1,17 @@
+<div class="no-results">
+  <h2>
+    <% if context.present? %>
+      0 results in <%= context %> for &ldquo;<%= @search_term %>&rdquo;
+    <% else %>
+      0 results for &ldquo;<%= @search_term %>&rdquo;
+    <% end %>
+  </h2>
+
+  <p>Please try</p>
+
+  <ul>
+    <li>Searching again using different words</li>
+    <li>Browsing from the <a href="/">GOV.UK home page</a></li>
+    <li>Visiting the <a href="/support"> support pages</a> if you need more assistance</li>
+  </ul>
+</div>

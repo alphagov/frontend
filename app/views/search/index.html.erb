@@ -79,6 +79,9 @@
             <%= render collection: stream.results, partial: "result" %>
           </ul>
         <% end %>
+        <% unless stream.anything_to_show? %>
+          <%= render partial: "no_results", locals: { context: stream.title } %>
+        <% end %>
         </div>
       <% end %>
     </div>

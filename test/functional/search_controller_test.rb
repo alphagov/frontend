@@ -79,6 +79,15 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "nav.js-tabs", count: 0
   end
 
+  context "one tab has results, the others do not" do
+    should "display the 'no results' html in the tabs without results" do
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+      get :index, q: "search-term"
+      assert_select "nav.js-tabs"
+      assert_select "#mainstream-results .no-results", /0 results in General/
+    end
+  end
+
   context "tab parameter is set, another tab has results" do
     should "focus on that tab, even if it has no results" do
       Frontend.mainstream_search_client.stubs(:search).returns([{}])

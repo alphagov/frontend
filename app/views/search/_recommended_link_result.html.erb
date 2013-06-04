@@ -1,0 +1,21 @@
+  <li class="type-guide external">
+  <% if params[:debug_score] %>
+    <span style="color: red;">
+      <small>
+        <%= result.es_score %>
+        &nbsp;
+        <%= result.format %>
+      </small>
+    </span>
+  <% end %>
+
+  <h3>
+    <a href="<%= result.link %>" title="View <%= result.title %>" rel="external">
+      <%= result.title %>
+    </a>
+  </h3>
+  <p class="meta">
+    <span class="visuallyhidden">Part of </span>
+    <span class="url"><%= truncate(result.link, :length => 48) %></span>
+  </p>
+  <p><%= result.description %></p>

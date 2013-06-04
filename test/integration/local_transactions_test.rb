@@ -1,4 +1,4 @@
-require 'integration_test_helper'
+require_relative '../integration_test_helper'
 require 'gds_api/test_helpers/mapit'
 
 class LocalTransactionsTest < ActionDispatch::IntegrationTest
@@ -275,5 +275,19 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_no_content?("Telephone")
       end
     end
+  end
+
+  should "gracefully handle missing snac in mapit data" do
+    mapit_has_a_postcode_and_areas("AL10 9AB", [51.75287647301734, -0.24217323267679933], [
+      { "name" => "Welwyn Hatfield Borough Council", "type" => "DIS" },
+    ])
+
+    visit '/pay-bear-tax'
+    fill_in 'postcode', :with => "AL10 9AB"
+    click_button('Find')
+
+    assert_current_url "/pay-bear-tax"
+    # TODO: refine this wording
+    assert page.has_content?("Sorry, there was a problem looking up the local authority for your postcode.")
   end
 end

@@ -328,8 +328,8 @@ class SearchControllerTest < ActionController::TestCase
       Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
       Frontend.government_search_client.stubs(:search).returns([{}, {}])
       get :index, { q: "tax", combine: "1" }
-      assert_select "a[href='#services-information-results']", text: "Services, information and guidance (4)"
-      assert_select "a[href='#government-results']", text: "Policies, departments and announcements (2)"
+      assert_select "a[href='#services-information-results']", text: "Services (4)"
+      assert_select "a[href='#government-results']", text: "Departments (2)"
     end
 
     should "correctly sort the merged mainstream and detailed results" do
@@ -346,6 +346,18 @@ class SearchControllerTest < ActionController::TestCase
       get :index, { q: "tax", combine: "1" }
       assert_select 'li:first-child  h3 a[href=/mainstream]'
       assert_select 'li:nth-child(2) h3 a[href=/detailed]'
+    end
+  end
+
+  context "?shouty-tabs=1" do
+    should "display tabs without the number of results for each" do
+      Frontend.mainstream_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
+      Frontend.government_search_client.stubs(:search).returns([{}, {}])
+      get :index, { q: "tax", "shouty-tabs" => "1" }
+      assert_select "a[href='#mainstream-results']", text: "General results"
+      assert_select "a[href='#detailed-results']", text: "Detailed guidance"
+      assert_select "a[href='#government-results']", text: "Inside Government"
     end
   end
 end

@@ -39,27 +39,15 @@
             <%= result.display_timestamp %>
           </li>
         <% end %>
-        <% if result.has_departments? %>
-          <li>
-            <span class="visuallyhidden">Departments: </span>
-              <%= result.display_departments %>
-          </li>
-        <% end %>
         <% if result.display_type.present? %>
           <li>
             <%= result.display_type %>
           </li>
         <% end %>
-        <% if result.has_document_series? %>
+        <% if result.has_departments? %>
           <li>
-            <span class="visuallyhidden">Document series: </span>
-            <%= result.display_document_series %>
-          </li>
-        <% end %>
-        <% if result.has_topics? %>
-          <li>
-            <span class="visuallyhidden">Topic: </span>
-            <%= result.display_topics %>
+            <span class="visuallyhidden">Departments: </span>
+              <%= result.display_departments %>
           </li>
         <% end %>
         <% if result.has_world_locations? %>

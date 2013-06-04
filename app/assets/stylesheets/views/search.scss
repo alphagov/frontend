@@ -247,11 +247,12 @@ body.search {
     }
 
     .attributes {
-      padding: 0;
+      @include core-14;
+      color: $secondary-text-colour;
+      padding: 2px 0 3px;
       margin: 0;
 
       li {
-        @include core-16;
         display: inline;
         padding: 0;
 
@@ -273,6 +274,8 @@ body.search {
       padding: 0;
 
       &.meta {
+        @include core-14;
+        padding: 2px 0 3px;
         word-wrap: break-word;
         color: $secondary-text-colour;
 

@@ -118,13 +118,15 @@ body.search {
       }
 
       a {
+        @include core-24; 
+        font-weight: bold;
         display: block;
         overflow: hidden;
         margin: 5px 5px 6px;
-        padding: 4px 4px;
+        padding: 5px 4px 4px;
         text-decoration: none;
-        background: $border-colour;
-        border: 1px solid $border-colour;
+        background: $panel-colour;
+        border: 1px solid $panel-colour;
         border-bottom: none;
 
         &:hover,
@@ -135,7 +137,7 @@ body.search {
         }
 
         @include media(tablet) {
-          padding: 9px 14px 9px 9px;
+          padding: 11px 14px 9px 9px;
         }
 
         @include ie(6) {
@@ -145,12 +147,12 @@ body.search {
 
       li.active a {
         background: $white;
-        padding: 9px 9px 10px;
+        padding: 10px 9px 10px;
         margin: 0;
         border-color: $border-colour;
 
         @include media(tablet) {
-          padding: 14px 19px 15px 14px;
+          padding: 16px 19px 15px 14px;
         }
 
         &:focus {
@@ -160,27 +162,6 @@ body.search {
         .label {
           text-decoration: none;
         }
-      }
-
-      .count {
-        @include core-24;
-        margin-top: -0.1em;
-        float: left;
-        padding-right: 8px;
-        font-weight: bold;
-
-        @include media(tablet) {
-          @include core-36;
-          margin-top: 0;
-          padding-right: 10px;
-          font-weight: bold;
-        }
-      }
-
-      .label {
-        @include core-14;
-        float: left;
-        font-weight: bold;
       }
 
       &.two-tabs li {
@@ -260,11 +241,12 @@ body.search {
     }
 
     .attributes {
-      padding: 0;
+      @include core-14;
+      color: $secondary-text-colour;
+      padding: 2px 0 3px;
       margin: 0;
 
       li {
-        @include core-16;
         display: inline;
         padding: 0;
 
@@ -286,6 +268,8 @@ body.search {
       padding: 0;
 
       &.meta {
+        @include core-14;
+        padding: 2px 0 3px;
         word-wrap: break-word;
         color: $secondary-text-colour;
 

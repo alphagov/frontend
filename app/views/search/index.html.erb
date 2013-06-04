@@ -4,11 +4,13 @@
 <section id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
 
-  <% if @top_result %>
+  <% if @top_results %>
     <div id="top-results">
       <h2 class="visuallyhidden">Top result</h2>
       <ul class="results-list">
-        <%= render partial: "result", locals: { result: @top_result } %>
+        <% @top_results.each_with_index do |top_result, index| %>
+        <%= render partial: "result", locals: { result: top_result } %>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -27,9 +29,7 @@
             <% @streams.each do |stream| %>
               <li <% if @active_stream == stream %>class="active"<% end %>>
                 <a href="#<%= stream.key %>-results">
-                  <span class="count"><%= stream.total_size %> </span>
-                  <span class="visuallyhidden">results in </span>
-                  <span class="label"><%= stream.title.html_safe %></span>
+                  <%= stream.title.html_safe %>
                 </a>
               </li>
             <% end %>

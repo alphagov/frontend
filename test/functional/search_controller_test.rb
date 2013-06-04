@@ -393,17 +393,19 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   context "?top_result=1" do
-    should "remove the highest scored result from the three tabs and display above all others" do
+    should "remove the highest 3 scored results from the three tabs and display above all others" do
       Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
       Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
       Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
 
       get :index, q: "search-term", top_result: "1"
 
-      assert_select "a[href='#mainstream-results']", text: "General results (1)"
-      assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
+      assert_select "a[href='#mainstream-results']", text: "General results (0)"
+      assert_select "a[href='#detailed-results']", text: "Detailed guidance (0)"
       assert_select "a[href='#government-results']", text: "Inside Government (0)"
 
+      assert_select "#top-results a[href='/a']"
+      assert_select "#top-results a[href='/b']"
       assert_select "#top-results a[href='/c']"
     end
 
@@ -417,10 +419,10 @@ class SearchControllerTest < ActionController::TestCase
     should "merge mainstream and detailed results in one tab" do
       Frontend.mainstream_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
       Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
-      Frontend.government_search_client.stubs(:search).returns([{}, {}])
+      Frontend.government_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }])
       get :index, { q: "tax", combine: "1" }
-      assert_select "a[href='#services-information-results']", text: "Services, information and guidance (4)"
-      assert_select "a[href='#government-results']", text: "Policies, departments and announcements (2)"
+      assert_select "a[href='#services-information-results']", text: "Services (4)"
+      assert_select "a[href='#government-results']", text: "Departments (2)"
     end
 
     should "correctly sort the merged mainstream and detailed results" do
@@ -437,6 +439,18 @@ class SearchControllerTest < ActionController::TestCase
       get :index, { q: "tax", combine: "1" }
       assert_select 'li:first-child  h3 a[href=/mainstream]'
       assert_select 'li:nth-child(2) h3 a[href=/detailed]'
+    end
+  end
+
+  context "?shouty-tabs=1" do
+    should "display tabs without the number of results for each" do
+      Frontend.mainstream_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
+      Frontend.government_search_client.stubs(:search).returns([{}, {}])
+      get :index, { q: "tax", "shouty-tabs" => "1" }
+      assert_select "a[href='#mainstream-results']", text: "General results"
+      assert_select "a[href='#detailed-results']", text: "Detailed guidance"
+      assert_select "a[href='#government-results']", text: "Inside Government"
     end
   end
 end

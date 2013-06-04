@@ -64,7 +64,7 @@ class SearchController < ApplicationController
         # only recommended results in them will still be in the list.
         non_empty_streams = @streams.reject { |s| s.results.empty? }
         best_stream = non_empty_streams.max_by { |s| s.results.first.es_score }
-        @top_result = best_stream.results.shift if best_stream
+        @top_result = best_stream.results.first if best_stream
       end
 
       # Don't display any streams (tabs) that are now empty

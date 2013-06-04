@@ -27,13 +27,13 @@ class AuthorityLookup
   def self.find_code(type, slug)
     self.load_authorities unless self.authorities
     return self.authorities[slug][type] if self.authorities[slug]
-    return false
+    nil
   end
 
   def self.find_slug_from_code(type, code)
     self.load_authorities unless self.authorities
     self.authorities.select do |slug, codes|
       codes[type] == code.to_s
-    end.keys.first || false
+    end.keys.first
   end
 end

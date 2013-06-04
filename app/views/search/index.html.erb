@@ -61,8 +61,10 @@
     <div class="search-container group js-tab-content tab-content">
       <% @streams.each do |stream| %>
         <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
-        <% if stream.key == "government" %>
-          <%= render partial: "government_filter" %>
+        <% if feature_enabled?("organisation-filter") %>
+          <% if stream.key == "government" %>
+            <%= render partial: "government_filter" %>
+          <% end %>
         <% end %>
         <% if stream.recommended.any? %>
           <div class="recommended-links">

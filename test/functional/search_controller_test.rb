@@ -287,7 +287,7 @@ class SearchControllerTest < ActionController::TestCase
     end
 
     should "appear on the government tab" do
-      get :index, { q: "moon" }
+      get :index, { q: "moon", "organisation-filter" => 1 }
       assert_select "#government-results form#government-filter"
     end
 
@@ -310,18 +310,18 @@ class SearchControllerTest < ActionController::TestCase
       Frontend.organisations_search_client
           .expects(:organisations)
           .returns({ "results" => organisations })
-      get :index, { q: "sun" }
+      get :index, { q: "sun", "organisation-filter" => 1 }
       assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
       assert_select "select#organisation-filter optgroup[label='Others'] option[value=agency-of-awesome]"
     end
 
     should "new searches should retain the organisation filter" do
-      get :index, { q: "moon", organisation: "ministry-of-defence" }
+      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
       assert_select "#content form[role=search] input[name=organisation][value=ministry-of-defence][type=hidden]"
     end
 
     should "retain tab parameter" do
-      get :index, { q: "moon", tab: "government-results" }
+      get :index, { q: "moon", tab: "government-results", "organisation-filter" => 1 }
       assert_select "form#government-filter input[name=tab][value=government-results]"
     end
 
@@ -333,7 +333,7 @@ class SearchControllerTest < ActionController::TestCase
           "organisation_type" => "Ministerial department",
           "slug"              => "ministry-of-defence"
         }] })
-      get :index, { q: "moon", organisation: "ministry-of-defence" }
+      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
       assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
     end
 
@@ -342,7 +342,7 @@ class SearchControllerTest < ActionController::TestCase
           .expects(:search)
           .with("moon", organisation_slug: "ministry-of-defence")
           .returns([])
-      get :index, { q: "moon", organisation: "ministry-of-defence" }
+      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
     end
   end
 

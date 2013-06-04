@@ -4,11 +4,13 @@
 <section id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
 
-  <% if @top_result %>
+  <% if @top_results %>
     <div id="top-results">
       <h2 class="visuallyhidden">Top result</h2>
       <ul class="results-list">
-        <%= render partial: "result", locals: { result: @top_result } %>
+        <% @top_results.each_with_index do |top_result, index| %>
+        <%= render partial: "result", locals: { result: top_result } %>
+        <% end %>
       </ul>
     </div>
   <% end %>

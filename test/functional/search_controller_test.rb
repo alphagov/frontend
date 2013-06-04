@@ -374,6 +374,16 @@ class SearchControllerTest < ActionController::TestCase
           .returns([])
       get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
     end
+
+    context "filter applied, but no search results in any tab" do
+      should "force the tabs to be displayed, so that you can see a filter is active" do
+        # TODO see if we can remove the stub from the context setup up a level
+        Frontend.government_search_client.stubs(:search).returns([])
+        get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+        assert_select "nav.js-tabs"
+        assert_select "a[href='#government-results']", text: "Inside Government (0)"
+      end
+    end
   end
 
   context "no top_result parameter" do

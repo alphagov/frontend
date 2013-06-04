@@ -78,7 +78,10 @@ class SearchController < ApplicationController
 
     @active_stream = active_stream(@streams)
 
-    if @result_count == 0
+    # We want to show the tabs if there's a filter in place
+    # because there might be results with the filter turned off, but you can't
+    # do that if the filter-form/tabs aren't displayed
+    if (@result_count == 0) && params[:organisation].blank?
       render action: 'no_results' and return
     end
   end

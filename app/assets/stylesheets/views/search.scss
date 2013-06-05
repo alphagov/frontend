@@ -240,6 +240,22 @@ body.search {
       }
     }
 
+    .sections {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+
+      li {
+        margin: 0;
+        padding: 0;
+        float: left;
+        width: 50%;
+        @include media(tablet) {
+          width: 40%;
+        }
+      }
+    }
+
     .attributes {
       @include core-14;
       color: $secondary-text-colour;

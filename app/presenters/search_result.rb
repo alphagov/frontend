@@ -27,7 +27,7 @@ class SearchResult
     end
   end
 
-  result_accessor :presentation_format, :link, :title, :description, :format, :humanized_format, :es_score
+  result_accessor :presentation_format, :link, :title, :description, :indexable_content, :format, :humanized_format, :es_score
 
   # Avoid the mundanity of creating these all by hand by making
   # dynamic method and accessors.

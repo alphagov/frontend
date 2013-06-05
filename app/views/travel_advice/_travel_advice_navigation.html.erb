@@ -32,9 +32,12 @@
         </ol>
       <% end %>
     </nav>
-  </div>
-  <ul class="subscriptions">
+
+    <ul class="subscriptions">
     <li><%= link_to "Atom/RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
     <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts">Email alerts</a></li>
-  </ul>
+    </ul>
+
+  </div>
+  
 </aside>

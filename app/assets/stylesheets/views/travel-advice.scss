@@ -90,6 +90,16 @@
     margin: 1em 0;
   }
 
+  aside {
+    .page-navigation {
+      
+      li {
+        list-style:none;
+        margin-left: 0;
+      }
+    }
+  }
+
   .subscriptions  {
     list-style: none;
     // padding-left: 2em;

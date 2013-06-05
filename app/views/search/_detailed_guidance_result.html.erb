@@ -1,4 +1,4 @@
-  <li class="section-<%= result.section %> type-<%= result.format %>">
+<li class="section-<%= result.section %> type-<%= result.format %>">
   <%= render partial: "result_debug_score", locals: { result: result } %>
 
   <h3>
@@ -14,3 +14,4 @@
       <% if result.subsubsection %><span class="visuallyhidden">, </span><span class="subsubsection"><%= result.formatted_subsubsection_name %></span><% end %>
     </p>
   <p><%= result.description %></p>
+</li>

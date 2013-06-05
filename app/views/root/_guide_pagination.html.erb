@@ -19,7 +19,7 @@
             <%= link_to next_part_path(@publication, @publication.current_part, @edition), :title => t('formats.guide.navigate_to_next_part'), :rel => "next" do %>
               <span class="pagination-label">Next<!--<%= t 'formats.guide.part' %>--><!--<%= part_number(@publication.parts, @publication.part_after(@publication.current_part)) %>--></span> <span class="pagination-part-title"><%= @publication.part_after(@publication.current_part).title %></span>
             <% end %>
-          </li>
+          </li>`
         <%- else -%>
           <!-- <li class="last">
             <span><%= t 'formats.guide.at_end_of_guide' %></span>

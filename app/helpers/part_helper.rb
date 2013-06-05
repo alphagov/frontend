@@ -23,4 +23,13 @@ module PartHelper
     Rails.logger.info "#{e.message} : #{parts.inspect} : #{part.inspect}"
     "-"
   end
+
+  def parts_group_size(publication)
+    size = publication.parts.size.to_f/2
+    if size < 2
+      3
+    else
+      size.ceil
+    end
+  end
 end

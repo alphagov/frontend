@@ -1,13 +1,5 @@
   <li class="section-<%= result.section %> type-<%= result.format %>">
-  <% if params[:debug_score] %>
-    <span style="color: red;">
-      <small>
-        <%= result.es_score %>
-        &nbsp;
-        <%= result.format %>
-      </small>
-    </span>
-  <% end %>
+  <%= render partial: "result_debug_score", locals: { result: result } %>
 
   <h3>
     <a href="<%= result.link %>" title="View <%= result.title %>">

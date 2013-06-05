@@ -6,17 +6,7 @@
 
   <div class="search-container group">
 
-    <div class="no-results">
-      <h2>0 results for &ldquo;<%= @search_term %>&rdquo;</h2>
-
-        <p>Please try</p>
-
-          <ul>
-            <li>Searching again using different words</li>
-            <li>Browsing from the <a href="/">GOV.UK home page</a></li>
-            <li>Visiting the <a href="/support"> support pages</a> if you need more assistance</li>
-          </ul>
-    </div>
+  <%= render partial: "no_results", locals: { context: nil } %>
 
   </div>
 </section>

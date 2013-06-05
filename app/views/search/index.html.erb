@@ -26,8 +26,8 @@
           <% else %>
             <ul id="search-index-navigation">
           <% end %>
-            <% @streams.each_with_index do |stream, index| %>
-              <li <% if index == 0%>class="active"<% end %>>
+            <% @streams.each do |stream| %>
+              <li <% if @active_stream == stream %>class="active"<% end %>>
                 <a href="#<%= stream.key %>-results">
                   <%= stream.title.html_safe %>
                 </a>
@@ -46,8 +46,8 @@
           <% else %>
             <ul id="search-index-navigation">
           <% end %>
-            <% @streams.each_with_index do |stream, index| %>
-              <li <% if index == 0%>class="active"<% end %>>
+            <% @streams.each do |stream| %>
+              <li <% if @active_stream == stream %>class="active"<% end %>>
                 <a href="#<%= stream.key %>-results">
                   <span class="label"><%= stream.title.html_safe %> (<%= stream.total_size %>)</span>
                 </a>
@@ -61,6 +61,11 @@
     <div class="search-container group js-tab-content tab-content">
       <% @streams.each do |stream| %>
         <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
+        <% if feature_enabled?("organisation-filter") %>
+          <% if stream.key == "government" %>
+            <%= render partial: "government_filter" %>
+          <% end %>
+        <% end %>
         <% if stream.recommended.any? %>
           <div class="recommended-links">
             <h2>Other sites that may be useful</h2>
@@ -73,6 +78,9 @@
           <ul class="results-list internal-links">
             <%= render collection: stream.results, partial: "result" %>
           </ul>
+        <% end %>
+        <% unless stream.anything_to_show? %>
+          <%= render partial: "no_results", locals: { context: stream.title } %>
         <% end %>
         </div>
       <% end %>

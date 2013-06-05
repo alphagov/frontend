@@ -185,6 +185,19 @@ body.search {
     border-top: 1px solid $border-colour;
   }
 
+  .search-filter {
+    padding: 30px 30px 0;
+    label, select {
+      margin-right: 1em;
+    }
+    label {
+      @include core-19;
+    }
+    select#organisation-filter {
+      width: 328px;
+    }
+  }
+
   .results-list {
     list-style: none;
     margin: 0;
@@ -295,6 +308,10 @@ body.search {
       @include core-36;
       font-weight: bold;
     }
+  }
+
+  #search-results-tabs .no-results {
+    padding-top: 15px;
   }
 
   .recommended-links {

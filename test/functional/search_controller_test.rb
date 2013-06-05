@@ -9,6 +9,9 @@ class SearchControllerTest < ActionController::TestCase
     Frontend.stubs(:detailed_guidance_search_client).returns(detailed_client)
     government_client = stub("search", search: [])
     Frontend.stubs(:government_search_client).returns(government_client)
+
+    organisations_client = stub("search", organisations: { "total" => 0, "results" => [] })
+    Frontend.stubs(:organisations_search_client).returns(organisations_client)
   end
 
   def a_search_result(slug, score)
@@ -64,19 +67,41 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "div#mainstream-results.single-item-pane", 0
   end
 
-  test "should display just tab page of results if we have results from a single index" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    Frontend.detailed_guidance_search_client.stubs(:search).returns([])
-    Frontend.government_search_client.stubs(:search).returns([])
-    get :index, q: "search-term"
-    assert_select 'nav.js-tabs', count: 0
-  end
-
-  test "should display tabs when there are mixed results" do
+  test "should display tabs when there are results in one or more tab" do
     Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
     Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
     get :index, q: "search-term"
     assert_select "nav.js-tabs"
+  end
+
+  test "should display no tabs when there are no results" do
+    get :index, q: "search-term"
+    assert_select "nav.js-tabs", count: 0
+  end
+
+  context "one tab has results, the others do not" do
+    should "display the 'no results' html in the tabs without results" do
+      Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+      get :index, q: "search-term"
+      assert_select "nav.js-tabs"
+      assert_select "#mainstream-results .no-results", /0 results in General/
+    end
+  end
+
+  context "tab parameter is set, another tab has results" do
+    should "focus on that tab, even if it has no results" do
+      Frontend.mainstream_search_client.stubs(:search).returns([{}])
+      get :index, { q: "spoon", tab: "government-results" }
+      assert_select "li.active a[href=#government-results]"
+    end
+  end
+
+  context "one tab has results, the other doesn't. no tab parameter supplied" do
+    should "should focus on the tab with results" do
+      Frontend.government_search_client.stubs(:search).returns([{}])
+      get :index, { q: "spoon" }
+      assert_select "li.active a[href=#government-results]"
+    end
   end
 
   test "should display index count on respective tab" do
@@ -285,6 +310,82 @@ class SearchControllerTest < ActionController::TestCase
     assert_response 503
   end
 
+  context "organisation filter" do
+    setup do
+      # Need to have some results for the tab to appear
+      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+    end
+
+    should "appear on the government tab" do
+      get :index, { q: "moon", "organisation-filter" => 1 }
+      assert_select "#government-results form#government-filter"
+    end
+
+    should "list organisations split into ministerial departments and others" do
+      organisations = [
+        {
+          "link"              => "/government/organisations/ministry-of-defence",
+          "title"             => "Ministry of Defence",
+          "acronym"           => "MOD",
+          "organisation_type" => "Ministerial department",
+          "slug"              => "ministry-of-defence"
+        },
+        {
+          "link"              => "/government/organisations/agency-of-awesome",
+          "title"             => "Agency of Awesome",
+          "acronym"           => "AoA",
+          "slug"              => "agency-of-awesome"
+        }
+      ]
+      Frontend.organisations_search_client
+          .expects(:organisations)
+          .returns({ "results" => organisations })
+      get :index, { q: "sun", "organisation-filter" => 1 }
+      assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
+      assert_select "select#organisation-filter optgroup[label='Others'] option[value=agency-of-awesome]"
+    end
+
+    should "new searches should retain the organisation filter" do
+      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+      assert_select "#content form[role=search] input[name=organisation][value=ministry-of-defence][type=hidden]"
+    end
+
+    should "retain tab parameter" do
+      get :index, { q: "moon", tab: "government-results", "organisation-filter" => 1 }
+      assert_select "form#government-filter input[name=tab][value=government-results]"
+    end
+
+    should "select the current organisation in the dropdown" do
+      Frontend.organisations_search_client.stubs(:organisations).returns({ "total" => 0, "results" => [{
+          "link"              => "/government/organisations/ministry-of-defence",
+          "title"             => "Ministry of Defence",
+          "acronym"           => "MOD",
+          "organisation_type" => "Ministerial department",
+          "slug"              => "ministry-of-defence"
+        }] })
+      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+      assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
+    end
+
+    should "let you filter results by organisation" do
+      Frontend.government_search_client
+          .expects(:search)
+          .with("moon", organisation_slug: "ministry-of-defence")
+          .returns([])
+      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+    end
+
+    context "filter applied, but no search results in any tab" do
+      should "force the tabs to be displayed, so that you can see a filter is active" do
+        # TODO see if we can remove the stub from the context setup up a level
+        Frontend.government_search_client.stubs(:search).returns([])
+        get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+        assert_select "nav.js-tabs"
+        assert_select "a[href='#government-results']", text: "Inside Government (0)"
+      end
+    end
+  end
+
   context "no top_result parameter" do
     should "leave the highest scored result where it is" do
       Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
@@ -309,9 +410,9 @@ class SearchControllerTest < ActionController::TestCase
 
       get :index, q: "search-term", top_result: "1"
 
-      assert_select "a[href='#mainstream-results']", count: 0
-      assert_select "a[href='#detailed-results']", count: 0
-      assert_select "a[href='#government-results']", count: 0
+      assert_select "a[href='#mainstream-results']", text: "General results (0)"
+      assert_select "a[href='#detailed-results']", text: "Detailed guidance (0)"
+      assert_select "a[href='#government-results']", text: "Inside Government (0)"
 
       assert_select "#top-results a[href='/a']"
       assert_select "#top-results a[href='/b']"

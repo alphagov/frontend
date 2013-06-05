@@ -4,8 +4,7 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
-  before_filter :set_results_tab, only: [:index]
-  helper_method :feature_enabled?
+  helper_method :feature_enabled?, :ministerial_departments, :other_organisations
 
   rescue_from GdsApi::BaseError, with: :error_503
 
@@ -73,14 +72,16 @@ class SearchController < ApplicationController
           end
         end
       end
-
-      # Don't display any streams (tabs) that are now empty
-      @streams.select! { |stream| stream.anything_to_show? }
     end
 
     fill_in_slimmer_headers(@result_count)
 
-    if @result_count == 0
+    @active_stream = active_stream(@streams)
+
+    # We want to show the tabs if there's a filter in place
+    # because there might be results with the filter turned off, but you can't
+    # do that if the filter-form/tabs aren't displayed
+    if (@result_count == 0) && params[:organisation].blank?
       render action: 'no_results' and return
     end
   end
@@ -125,7 +126,9 @@ class SearchController < ApplicationController
   end
 
   def retrieve_government_results(term)
-    res = Frontend.government_search_client.search(term)
+    extra_parameters = {}
+    extra_parameters[:organisation_slug] = params[:organisation] if params[:organisation]
+    res = Frontend.government_search_client.search(term, extra_parameters)
     res.map { |r| GovernmentResult.new(r) }
   end
 
@@ -147,12 +150,41 @@ class SearchController < ApplicationController
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
   end
 
-  def set_results_tab
+  def selected_tab
     tabs =  %w{ government-results detailed-results mainstream-results }
-    @results_tab = tabs.include?(params[:tab]) ? params[:tab] : nil
+    tabs.include?(params[:tab]) ? params[:tab] : nil
+  end
+
+  def active_stream(streams)
+    active_stream = streams.detect do |stream|
+      stream_key_as_tab_name = "#{stream.key}-results"
+      if selected_tab
+        stream_key_as_tab_name == selected_tab
+      else
+        stream.anything_to_show?
+      end
+    end
+    active_stream || streams.first
   end
 
   def feature_enabled?(feature_name)
     PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT || params[feature_name].present?
+  end
+
+  def organisations
+    @_organisations ||= Frontend.organisations_search_client.organisations["results"] || []
+  end
+
+  MINISTERIAL_DEPARTMENT_TYPE = "Ministerial department"
+  def ministerial_departments
+    organisations.select do |organisation|
+      organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
+    end.sort_by { |organisation| organisation["title"] }
+  end
+
+  def other_organisations
+    organisations.reject do |organisation|
+      organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
+    end.sort_by { |organisation| organisation["title"] }
   end
 end

@@ -1,0 +1,9 @@
+  <% if params[:debug_score] %>
+    <span style="color: red;">
+      <small>
+        <%= result.es_score %>
+        &nbsp;
+        <%= result.format %>
+      </small>
+    </span>
+  <% end %>

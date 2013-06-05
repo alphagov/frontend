@@ -1,69 +1,9 @@
-<% if result.format == "recommended-link" %>
-  <li class="type-guide external">
-<% else %>
-  <li class="section-<%= result.section %> type-<%= result.format %>">
-<% end %>
-  <% if params[:debug_score] %>
-    <span style="color: red;">
-      <small>
-        <%= result.es_score %>
-        &nbsp;
-        <%= result.format %>
-      </small>
-    </span>
-  <% end %>
-
-  <h3>
-    <a href="<%= result.link %>" title="View <%= result.title %>"<% if result.format == "recommended-link" %> rel="external"<% end %>>
-      <%= result.title %>
-    </a>
-  </h3>
   <% if result.format == "recommended-link" %>
-    <p class="meta">
-      <span class="visuallyhidden">Part of </span>
-      <span class="url"><%= truncate(result.link, :length => 48) %></span>
-    </p>
-  <% elsif (result.format == 'detailed_guidance' && result.section) || result.section %>
-    <p class="meta crumbtrail">
-      <span class="visuallyhidden">Part of </span>
-      <span class="section"><%= result.formatted_section_name %></span>
-      <% if result.subsection %><span class="visuallyhidden">, </span><span class="subsection"><%= result.formatted_subsection_name %></span><% end %>
-      <% if result.subsubsection %><span class="visuallyhidden">, </span><span class="subsubsection"><%= result.formatted_subsubsection_name %></span><% end %>
-    </p>
+  <%= render partial: "recommended_link_result", locals: { result: result } %>
+  <% elsif (result.format == 'detailed_guidance' && result.section) %>
+  <%= render partial: "detailed_guidance_result", locals: { result: result } %>
+  <% elsif result.section %>
+  <%= render partial: "general_result", locals: { result: result } %>
   <% elsif result.is_a?(GovernmentResult) && result.format %>
-    <% if feature_enabled?("metadata") %>
-      <ul class="attributes">
-        <% if result.public_timestamp.present? %>
-          <li>
-            <span class="visuallyhidden">Published on: </span>
-            <%= result.display_timestamp %>
-          </li>
-        <% end %>
-        <% if result.display_type.present? %>
-          <li>
-            <%= result.display_type %>
-          </li>
-        <% end %>
-        <% if result.has_departments? %>
-          <li>
-            <span class="visuallyhidden">Departments: </span>
-              <%= result.display_departments %>
-          </li>
-        <% end %>
-        <% if result.has_world_locations? %>
-          <li>
-            <span class="visuallyhidden">Location: </span>
-            <%= result.display_world_locations %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p class="meta crumbtrail">
-        <span class="visuallyhidden">Part of </span>
-        <span class="section">Government</span>
-        <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
-      </p>
-    <% end %>
+  <%= render partial: "inside_government_result", locals: { result: result } %>
   <% end %>
-  <p><%= result.description %></p>
-</li>

@@ -1,0 +1,42 @@
+  <li class="section-<%= result.section %> type-<%= result.format %>">
+  <%= render partial: "result_debug_score", locals: { result: result } %>
+
+    <h3>
+      <a href="<%= result.link %>" title="View <%= result.title %>">
+        <%= result.title %>
+      </a>
+    </h3>
+    <% if feature_enabled?("metadata") %>
+    <ul class="attributes">
+      <% if result.public_timestamp.present? %>
+        <li>
+          <span class="visuallyhidden">Published on: </span>
+          <%= result.display_timestamp %>
+        </li>
+      <% end %>
+      <% if result.display_type.present? %>
+        <li>
+          <%= result.display_type %>
+        </li>
+      <% end %>
+      <% if result.has_departments? %>
+        <li>
+          <span class="visuallyhidden">Departments: </span>
+            <%= result.display_departments %>
+        </li>
+      <% end %>
+      <% if result.has_world_locations? %>
+        <li>
+          <span class="visuallyhidden">Location: </span>
+          <%= result.display_world_locations %>
+        </li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p class="meta crumbtrail">
+      <span class="visuallyhidden">Part of </span>
+      <span class="section">Government</span>
+      <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
+    </p>
+    <% end %>
+    <p><%= result.description %></p>

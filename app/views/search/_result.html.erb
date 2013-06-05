@@ -1,9 +1,9 @@
-  <% if result.format == "recommended-link" %>
+<% if result.format == "recommended-link" %>
   <%= render partial: "recommended_link_result", locals: { result: result } %>
-  <% elsif (result.format == 'detailed_guidance' && result.section) %>
+<% elsif (result.format == 'detailed_guidance' && result.section) %>
   <%= render partial: "detailed_guidance_result", locals: { result: result } %>
-  <% elsif result.section %>
-  <%= render partial: "general_result", locals: { result: result } %>
-  <% elsif result.is_a?(GovernmentResult) && result.format %>
+<% elsif result.is_a?(GovernmentResult) && result.format %>
   <%= render partial: "inside_government_result", locals: { result: result } %>
-  <% end %>
+<% else %>
+  <%= render partial: "general_result", locals: { result: result } %>
+<% end %>

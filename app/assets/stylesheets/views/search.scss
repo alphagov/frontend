@@ -224,6 +224,7 @@ body.search {
     h3 {
       @include core-24;
       margin: 0;
+      padding-bottom: 2px;
 
       a {
         font-weight: bold;
@@ -260,7 +261,7 @@ body.search {
     .attributes {
       @include core-14;
       color: $secondary-text-colour;
-      padding: 2px 0 3px;
+      padding: 0 0 3px;
       margin: 0;
 
       li {
@@ -286,7 +287,7 @@ body.search {
 
       &.meta {
         @include core-14;
-        padding: 2px 0 3px;
+        padding: 0 0 3px;
         word-wrap: break-word;
         color: $secondary-text-colour;
 

@@ -431,8 +431,8 @@ class SearchControllerTest < ActionController::TestCase
       Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
       Frontend.government_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }])
       get :index, { q: "tax", combine: "1" }
-      assert_select "a[href='#services-information-results']", text: "Services (4)"
-      assert_select "a[href='#government-results']", text: "Departments (2)"
+      assert_select "a[href='#services-information-results']", text: "Services and information (4)"
+      assert_select "a[href='#government-results']", text: "Departments and policy (2)"
     end
 
     should "correctly sort the merged mainstream and detailed results" do

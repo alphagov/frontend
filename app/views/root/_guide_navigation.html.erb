@@ -2,8 +2,8 @@
 <aside>
   <div class="inner">
     <nav role="navigation" class="page-navigation">
-      <% @publication.parts.each_slice(parts_group_size(@publication)).with_index do |parts,i| %>
-        <ol<%= " start=\"#{parts_group_size(@publication) + 1}\"".html_safe if i == 1 %>>
+      <% @publication.parts.each_slice(parts_group_size(@publication.parts)).with_index do |parts,i| %>
+        <ol<%= " start=\"#{parts_group_size(@publication.parts) + 1}\"".html_safe if i == 1 %>>
           <% parts.each do |nav_part| %>
             <% if @publication.current_part == nav_part %>
               <li class="active">

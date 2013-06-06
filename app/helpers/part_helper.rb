@@ -24,8 +24,8 @@ module PartHelper
     "-"
   end
 
-  def parts_group_size(publication)
-    size = publication.parts.size.to_f/2
+  def parts_group_size(parts)
+    size = parts.length.to_f/2
     if size < 2
       3
     else

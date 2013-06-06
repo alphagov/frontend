@@ -22,4 +22,12 @@ class TravelAdviceCountryPresenter < PublicationPresenter
   def last_reviewed_or_updated_at
     reviewed_at || updated_at
   end
+
+  def navigation_parts
+    nav_parts = [ { slug: nil, title: 'Summary' } ]
+    parts.map do |part|
+      nav_parts << { slug: part.slug, title: part.title }
+    end
+    nav_parts
+  end
 end

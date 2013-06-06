@@ -241,13 +241,14 @@ body.search {
     }
 
     .sections {
+      @include core-16;
       margin: 0;
       padding: 0;
       overflow: hidden;
 
       li {
         margin: 0;
-        padding: 0;
+        padding: 3px 0 2px;
         float: left;
         width: 50%;
         @include media(tablet) {

@@ -9,22 +9,40 @@
 
   <% if feature_enabled?("metadata") %>
     <% case result.format %>
+    <% when 'document_series' then %>
+      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+    <% when 'minister' then %>
+      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#responsibilities">Responsibilities</a></li>
+        <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
+      </ul> 
     <% when 'organisation' then %>
-      <p>The home of <%= result.title %> on GOV.UK</p>
+      <p>The home of <%= result.title %> on GOV.UK. <%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
       <ul class="sections">
         <li><a href="<%= result.link %>/about">What we do</a></li>
         <li><a href="<%= result.link %>#policies">Policies</a></li>
         <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
         <li><a href="<%= result.link %>#ministers">Ministers</a></li>
-       </ul> 
-    <% when 'minister' then %>
-      <p><%= truncate(result.indexable_content, length: 150, separator: " ") %></p>
+      </ul> 
+    <% when 'person' then %>
+      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
       <ul class="sections">
-        <li><a href="<%= result.link %>/#responsibilities">Responsibilities</a></li>
-        <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
-       </ul> 
-    <% else %>
-      OTHER FORMAT: <%= result.format %>
+        <li><a href="<%= result.link %>#biography">Biography</a></li>
+        <li><a href="<%= result.link %>#current-roles">Roles</a></li>
+      </ul> 
+    <% when 'world_location' then %>
+      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#worldwide-priorities">Priorities</a></li>
+        <li><a href="<%= result.link %>#organisations">Organisations in <%= result.title %></a></li>
+      </ul> 
+    <% when 'worldwide_organisation' then %>
+      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#our-services">Services</a></li>
+        <li><a href="<%= result.link %>#contact-us">Contact details</a></li>
+      </ul> 
     <% end %>
     <ul class="attributes">
       <% if result.public_timestamp.present? %>

@@ -293,6 +293,12 @@ body.search {
     .results-list {
       padding-top: 0;
     }
+      
+    .crumbtrail,
+    .attributes {
+      display: none;  
+    }
+
   }
 
   .no-results {

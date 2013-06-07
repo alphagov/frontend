@@ -16,7 +16,7 @@
       <button type="submit" class="button">Search</button>
     </fieldset>
   </div>
-  <% if @spelling_suggestion %>
+  <% if feature_enabled?("spelling_suggestion") && @spelling_suggestion %>
     <fieldset class="spelling-suggestion">
       <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion) %>
       </p>

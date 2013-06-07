@@ -312,12 +312,14 @@ class SearchControllerTest < ActionController::TestCase
     assert_response 503
   end
 
-  context "spelling suggestions returned" do
-    should "display a link to the first suggestion from mainstream" do
-      stub_results("mainstream", [], ["afghanistan"])
-      get :index, { q: "afgananinanistan" }
+  context "?spelling_suggestion=1" do
+    context "spelling suggestions returned" do
+      should "display a link to the first suggestion from mainstream" do
+        stub_results("mainstream", [], ["afghanistan"])
+        get :index, { q: "afgananinanistan", spelling_suggestion: "1" }
 
-      assert_select ".spelling-suggestion a[href=/search?q=afghanistan]", 'afghanistan'
+        assert_select ".spelling-suggestion a[href=/search?q=afghanistan]", 'afghanistan'
+      end
     end
   end
 

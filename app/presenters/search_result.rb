@@ -63,6 +63,12 @@ class GovernmentResult < SearchResult
     end
   end
 
+  def display_links?
+    ! %w{
+      /government/organisations/deputy-prime-ministers-office
+      /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
+  end
+
   def departments
     fetch_multi_valued_field("organisations")
   end

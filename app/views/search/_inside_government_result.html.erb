@@ -18,13 +18,15 @@
         <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
       </ul> 
     <% when 'organisation' then %>
-      <p>The home of <%= result.title %> on GOV.UK. <%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
-      <ul class="sections">
-        <li><a href="<%= result.link %>/about">What we do</a></li>
-        <li><a href="<%= result.link %>#policies">Policies</a></li>
-        <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
-        <li><a href="<%= result.link %>#ministers">Ministers</a></li>
-      </ul> 
+      <p>The home of <%= result.title %> on GOV.UK. <%= result.display_a_summary %></p>
+      <% if result.display_links? %>
+        <ul class="sections">
+          <li><a href="<%= result.link %>/about">What we do</a></li>
+          <li><a href="<%= result.link %>#policies">Policies</a></li>
+          <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
+          <li><a href="<%= result.link %>#ministers">Ministers</a></li>
+        </ul>
+      <% end %>
     <% when 'person' then %>
       <p><%= result.display_a_summary %></p>
       <ul class="sections">

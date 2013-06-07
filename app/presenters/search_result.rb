@@ -53,7 +53,7 @@ class SearchResult
 end
 
 class GovernmentResult < SearchResult
-  result_accessor :public_timestamp, :display_type
+  result_accessor :public_timestamp, :display_type, :indexable_content
 
   def fetch_multi_valued_field(field_name)
     if result[field_name].present?
@@ -61,6 +61,12 @@ class GovernmentResult < SearchResult
     else
       []
     end
+  end
+
+  def display_links?
+    ! %w{
+      /government/organisations/deputy-prime-ministers-office
+      /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
   end
 
   def departments
@@ -119,6 +125,11 @@ class GovernmentResult < SearchResult
 
   def display_document_series
     display(document_series)
+  end
+
+  def display_a_summary
+    return unless self.indexable_content.present?
+    self.indexable_content.truncate(120, :seperator => " ")
   end
 end
 

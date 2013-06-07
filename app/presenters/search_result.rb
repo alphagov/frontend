@@ -27,7 +27,7 @@ class SearchResult
     end
   end
 
-  result_accessor :presentation_format, :link, :title, :description, :indexable_content, :format, :humanized_format, :es_score
+  result_accessor :presentation_format, :link, :title, :description, :format, :humanized_format, :es_score
 
   # Avoid the mundanity of creating these all by hand by making
   # dynamic method and accessors.
@@ -53,7 +53,7 @@ class SearchResult
 end
 
 class GovernmentResult < SearchResult
-  result_accessor :public_timestamp, :display_type
+  result_accessor :public_timestamp, :display_type, :indexable_content
 
   def fetch_multi_valued_field(field_name)
     if result[field_name].present?
@@ -119,6 +119,11 @@ class GovernmentResult < SearchResult
 
   def display_document_series
     display(document_series)
+  end
+
+  def display_a_summary
+    return unless self.indexable_content.present?
+    self.indexable_content.truncate(120, :seperator => " ")
   end
 end
 

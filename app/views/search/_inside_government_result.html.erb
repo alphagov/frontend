@@ -10,9 +10,9 @@
   <% if feature_enabled?("metadata") %>
     <% case result.format %>
     <% when 'document_series' then %>
-      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <p><%= result.display_a_summary %></p>
     <% when 'minister' then %>
-      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <p><%= result.display_a_summary %></p>
       <ul class="sections">
         <li><a href="<%= result.link %>#responsibilities">Responsibilities</a></li>
         <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
@@ -26,19 +26,19 @@
         <li><a href="<%= result.link %>#ministers">Ministers</a></li>
       </ul> 
     <% when 'person' then %>
-      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <p><%= result.display_a_summary %></p>
       <ul class="sections">
         <li><a href="<%= result.link %>#biography">Biography</a></li>
         <li><a href="<%= result.link %>#current-roles">Roles</a></li>
       </ul> 
     <% when 'world_location' then %>
-      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <p><%= result.display_a_summary %></p>
       <ul class="sections">
         <li><a href="<%= result.link %>#worldwide-priorities">Priorities</a></li>
         <li><a href="<%= result.link %>#organisations">Organisations in <%= result.title %></a></li>
       </ul> 
     <% when 'worldwide_organisation' then %>
-      <p><%= truncate(result.indexable_content, length: 120, separator: " ") %></p>
+      <p><%= result.display_a_summary %></p>
       <ul class="sections">
         <li><a href="<%= result.link %>#our-services">Services</a></li>
         <li><a href="<%= result.link %>#contact-us">Contact details</a></li>

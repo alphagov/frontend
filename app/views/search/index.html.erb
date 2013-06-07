@@ -58,13 +58,15 @@
       <% end %>
   <% end %>
 
-    <div class="search-container group js-tab-content tab-content">
+    <div class="search-container group js-tab-content tab-content ">
       <% @streams.each do |stream| %>
         <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
         <% if feature_enabled?("organisation-filter") %>
-          <% if stream.key == "government" %>
-            <%= render partial: "government_filter" %>
-          <% end %>
+          <div class="filters">
+            <% if stream.key == "government" %>
+              <%= render partial: "government_filter" %>
+            <% end %>
+          </div>
         <% end %>
         <% if stream.recommended.any? %>
           <div class="recommended-links">
@@ -74,6 +76,7 @@
             </ul>
           </div>
         <% end %>
+        <% if feature_enabled?("organisation-filter") %><div class="results"><% end %>
         <% if stream.total_size > 0 %>
           <ul class="results-list internal-links">
             <%= render collection: stream.results, partial: "result" %>
@@ -82,6 +85,7 @@
         <% unless stream.anything_to_show? %>
           <%= render partial: "no_results", locals: { context: stream.title } %>
         <% end %>
+        <% if feature_enabled?("organisation-filter") %></div><% end %>
         </div>
       <% end %>
     </div>

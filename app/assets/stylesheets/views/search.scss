@@ -186,15 +186,41 @@ body.search {
   }
 
   .search-filter {
-    padding: 30px 30px 0;
+    padding: 15px 15px 0;
+    @include media(tablet) {
+      padding: 30px 30px 0;
+    }
     label, select {
       margin-right: 1em;
     }
     label {
-      @include core-19;
+      display: block;
+      @include core-14;
+      font-weight: bold;
+      padding-top: 8px;
+      padding-bottom: 4px;
     }
-    select#organisation-filter {
-      width: 328px;
+    select {
+      margin-bottom: 15px;
+      width: 100%;
+      @include media(tablet) {
+        @include core-14;
+        border: 1px solid #555;
+        padding: 5px 20px 5px 10px;
+        background: #fff;
+        background-image: image-url('search/dropdown-arrow-small.png');
+        background-repeat: no-repeat;
+        background-position: right center;
+        border-color: $border-colour;
+        @include box-shadow(1px 1px 1px #fff);
+        @include border-radius(5px);
+        @include appearance(none);
+      }
+    }
+    button {
+      @include core-16;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
     }
   }
 
@@ -294,6 +320,19 @@ body.search {
       padding-top: 0;
     }
   }
+  
+  #government-results-enhanced {
+    @include media(tablet) {
+      .filters {
+        width: 33%;
+        float: left;
+      }
+      .results {
+        width: 66%;
+        float: left;
+      }
+    }
+  }
 
   .no-results {
     overflow: hidden;
@@ -311,7 +350,7 @@ body.search {
   }
 
   #search-results-tabs .no-results {
-    padding-top: 15px;
+    padding-top: 40px;
   }
 
   .recommended-links {

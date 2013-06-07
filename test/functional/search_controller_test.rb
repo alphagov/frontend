@@ -12,10 +12,11 @@ class SearchControllerTest < ActionController::TestCase
     }
   end
 
-  def stub_results(index_name, search_results = [])
+  def stub_results(index_name, search_results = [], spelling_suggestions = [])
     response_body = {
       "total" => search_results.size,
-      "results" => search_results
+      "results" => search_results,
+      "spelling_suggestions" => spelling_suggestions
     }
     client = stub("search #{index_name}", search: response_body)
     Frontend.stubs(:"#{index_name}_search_client").returns(client)
@@ -309,6 +310,15 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "badness"}
 
     assert_response 503
+  end
+
+  context "spelling suggestions returned" do
+    should "display a link to the first suggestion from mainstream" do
+      stub_results("mainstream", [], ["afghanistan"])
+      get :index, { q: "afgananinanistan" }
+
+      assert_select ".spelling-suggestion a[href=/search?q=afghanistan]", 'afghanistan'
+    end
   end
 
   context "organisation filter" do

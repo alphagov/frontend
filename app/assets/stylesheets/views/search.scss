@@ -30,6 +30,10 @@ body.search {
       width: 66.666%;
     }
 
+    .searchfield {
+      position: relative;
+    }
+
     .search-input {
       position: static;
       margin: 0;
@@ -42,16 +46,11 @@ body.search {
 
     .search-submit {
       position: absolute;
-      bottom: 15px;
-      right: 15px;
+      bottom: 0;
+      right: 0;
       height: 50px;
       width: 50px;
       overflow: visible;
-
-      @include media(tablet) {
-        bottom: 30px;
-        right: 30px;
-      }
     }
 
     input {
@@ -96,6 +95,12 @@ body.search {
       &:hover {
         background-color: #3ABAA8;
       }
+    }
+
+    .spelling-suggestion p {
+      @include core-16;
+      margin: 0;
+      padding: 10px 0 0;
     }
   }
 

@@ -55,6 +55,8 @@ class SearchController < ApplicationController
         )
       end
 
+      @spelling_suggestion = Frontend.mainstream_search_client.search(@search_term, response_style: "hash")["spelling_suggestions"].first
+
       @result_count = @streams.map { |s| s.total_size }.sum
       if feature_enabled?("top_result")
         all_results_ordered = merge_result_sets(*@streams.map(&:results))

@@ -1,17 +1,25 @@
 <form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2 js-search-hash" role="search">
   <%= render partial: "hidden_form_tags" %>
   <%= hidden_field_tag(:organisation, params[:organisation]) if params[:organisation] %>
-  <fieldset class="search-input">
-    <label for="search-main">
-      <%- if @search_term.present? -%>
-        <h1>Search results for <span class="visuallyhidden">&ldquo;<%= @search_term %>&rdquo;</span></h1>
-      <%- else -%>
-        <h1>Search GOV.UK</h1>
-      <%- end -%>
-    </label>
-    <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
-  </fieldset>
-  <fieldset class="search-submit">
-    <button type="submit" class="button">Search</button>
-  </fieldset>
+  <div class="searchfield">
+    <fieldset class="search-input">
+      <label for="search-main">
+        <%- if @search_term.present? -%>
+          <h1>Search results for <span class="visuallyhidden">&ldquo;<%= @search_term %>&rdquo;</span ></h1>
+        <%- else -%>
+          <h1>Search GOV.UK</h1>
+        <%- end -%>
+      </label>
+      <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
+    </fieldset>
+    <fieldset class="search-submit">
+      <button type="submit" class="button">Search</button>
+    </fieldset>
+  </div>
+  <% if @spelling_suggestion %>
+    <fieldset class="spelling-suggestion">
+      <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion) %>
+      </p>
+    </fieldset>
+  <% end %>
 </form>

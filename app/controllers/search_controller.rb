@@ -57,17 +57,10 @@ class SearchController < ApplicationController
 
       @result_count = @streams.map { |s| s.total_size }.sum
       if feature_enabled?("top_result")
-        # Pull out the best (first) result from across all the streams.
-        #
-        # We need to explicitly exclude empty streams, because streams with
-        # only recommended results in them will still be in the list.
-        non_empty_streams = @streams.reject { |s| s.results.empty? }
-        all_results_ordered = non_empty_streams.inject([]) do |accumulator, stream|
-          accumulator + stream.results
-        end.sort_by(&:es_score).reverse
+        all_results_ordered = merge_result_sets(*@streams.map(&:results))
         @top_results = all_results_ordered[0..2]
         @top_results.each do |result_to_remove|
-          non_empty_streams.detect do |stream|
+          @streams.detect do |stream|
             stream.results.delete(result_to_remove)
           end
         end

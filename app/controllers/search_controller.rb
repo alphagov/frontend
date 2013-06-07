@@ -27,13 +27,13 @@ class SearchController < ApplicationController
         end
         @streams << SearchStream.new(
           "services-information",
-          "Services",
+          "Services and information",
           merge_result_sets(mainstream_results, adjusted_detailed_results),
           recommended_link_results
         )
         @streams << SearchStream.new(
           "government",
-          "Departments",
+          "Departments and policy",
           retrieve_government_results(@search_term)
         )
       else

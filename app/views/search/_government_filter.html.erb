@@ -1,9 +1,9 @@
 <form id="government-filter" method="get" action="" class="search-filter">
   <%= hidden_field_tag(:q, params[:q]) %>
   <%= render partial: "hidden_form_tags" %>
-  <label for="organisation-filter">Organisation:</label>
+  <label for="organisation-filter">Show results from </label>
   <select name="organisation" id="organisation-filter">
-    <option value="">All</option>
+    <option value="">All organisations</option>
     <optgroup label="Ministerial departments">
       <% ministerial_departments.each do |organisation| %>
         <option value="<%= organisation["slug"] %>" <%= (params[:organisation] == organisation["slug"]) ? "selected=selected" : "" %>>
@@ -20,6 +20,6 @@
     </optgroup>
   </select>
   <button type="submit" class="button">
-    Filter results
+    Refresh results
   </button>
 </form>

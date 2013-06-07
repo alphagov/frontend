@@ -1,12 +1,51 @@
 <li class="section-<%= result.section %> type-<%= result.format %>">
   <%= render partial: "result_debug_score", locals: { result: result } %>
 
-    <h3>
-      <a href="<%= result.link %>" title="View <%= result.title %>">
-        <%= result.title %>
-      </a>
-    </h3>
-    <% if feature_enabled?("metadata") %>
+  <h3>
+    <a href="<%= result.link %>" title="View <%= result.title %>">
+      <%= result.title %>
+    </a>
+  </h3>
+
+  <% if feature_enabled?("metadata") %>
+    <% case result.format %>
+    <% when 'document_series' then %>
+      <p><%= result.display_a_summary %></p>
+    <% when 'minister' then %>
+      <p><%= result.display_a_summary %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#responsibilities">Responsibilities</a></li>
+        <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
+      </ul> 
+    <% when 'organisation' then %>
+      <p>The home of <%= result.title %> on GOV.UK. <%= result.display_a_summary %></p>
+      <% if result.display_links? %>
+        <ul class="sections">
+          <li><a href="<%= result.link %>/about">What we do</a></li>
+          <li><a href="<%= result.link %>#policies">Policies</a></li>
+          <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
+          <li><a href="<%= result.link %>#ministers">Ministers</a></li>
+        </ul>
+      <% end %>
+    <% when 'person' then %>
+      <p><%= result.display_a_summary %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#biography">Biography</a></li>
+        <li><a href="<%= result.link %>#current-roles">Roles</a></li>
+      </ul> 
+    <% when 'world_location' then %>
+      <p><%= result.display_a_summary %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#worldwide-priorities">Priorities</a></li>
+        <li><a href="<%= result.link %>#organisations">Organisations in <%= result.title %></a></li>
+      </ul> 
+    <% when 'worldwide_organisation' then %>
+      <p><%= result.display_a_summary %></p>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#our-services">Services</a></li>
+        <li><a href="<%= result.link %>#contact-us">Contact details</a></li>
+      </ul> 
+    <% end %>
     <ul class="attributes">
       <% if result.public_timestamp.present? %>
         <li>
@@ -32,12 +71,13 @@
         </li>
       <% end %>
     </ul>
-    <% else %>
+  <% else %>
     <p class="meta crumbtrail">
       <span class="visuallyhidden">Part of </span>
       <span class="section">Government</span>
       <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
     </p>
-    <% end %>
-    <p><%= result.description %></p>
+  <% end %>
+
+  <p><%= result.description %></p>
 </li>

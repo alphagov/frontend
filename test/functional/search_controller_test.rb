@@ -13,7 +13,11 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   def stub_results(index_name, search_results = [])
-    client = stub("search #{index_name}", search: search_results)
+    response_body = {
+      "total" => search_results.size,
+      "results" => search_results
+    }
+    client = stub("search #{index_name}", search: response_body)
     Frontend.stubs(:"#{index_name}_search_client").returns(client)
   end
 
@@ -40,7 +44,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should pass our query parameter in to the search client" do
-    Frontend.mainstream_search_client.expects(:search).with("search-term", nil).returns([]).once
+    Frontend.mainstream_search_client.expects(:search).with("search-term", response_style: "hash").returns("results" => []).once
     get :index, q: "search-term"
   end
 
@@ -367,8 +371,8 @@ class SearchControllerTest < ActionController::TestCase
     should "let you filter results by organisation" do
       Frontend.government_search_client
           .expects(:search)
-          .with("moon", organisation_slug: "ministry-of-defence")
-          .returns([])
+          .with("moon", organisation_slug: "ministry-of-defence", response_style: "hash")
+          .returns("results" => [])
       get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
     end
 

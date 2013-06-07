@@ -116,20 +116,20 @@ class SearchController < ApplicationController
   end
 
   def retrieve_mainstream_results(term)
-    res = Frontend.mainstream_search_client.search(term)
-    res.map { |r| SearchResult.new(r) }
+    res = Frontend.mainstream_search_client.search(term, response_style: "hash")
+    res["results"].map { |r| SearchResult.new(r) }
   end
 
   def retrieve_detailed_guidance_results(term)
-    res = Frontend.detailed_guidance_search_client.search(term)
-    res.map { |r| SearchResult.new(r) }
+    res = Frontend.detailed_guidance_search_client.search(term, response_style: "hash")
+    res["results"].map { |r| SearchResult.new(r) }
   end
 
   def retrieve_government_results(term)
-    extra_parameters = {}
+    extra_parameters = { response_style: "hash" }
     extra_parameters[:organisation_slug] = params[:organisation] if params[:organisation]
     res = Frontend.government_search_client.search(term, extra_parameters)
-    res.map { |r| GovernmentResult.new(r) }
+    res["results"].map { |r| GovernmentResult.new(r) }
   end
 
   def merge_result_sets(*result_sets)

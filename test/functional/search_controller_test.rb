@@ -2,17 +2,6 @@
 require "test_helper"
 
 class SearchControllerTest < ActionController::TestCase
-  def stub_client
-    mainstream_client = stub("search", search: [])
-    Frontend.stubs(:mainstream_search_client).returns(mainstream_client)
-    detailed_client = stub("search", search: [])
-    Frontend.stubs(:detailed_guidance_search_client).returns(detailed_client)
-    government_client = stub("search", search: [])
-    Frontend.stubs(:government_search_client).returns(government_client)
-
-    organisations_client = stub("search", organisations: { "total" => 0, "results" => [] })
-    Frontend.stubs(:organisations_search_client).returns(organisations_client)
-  end
 
   def a_search_result(slug, score)
     {
@@ -23,8 +12,18 @@ class SearchControllerTest < ActionController::TestCase
     }
   end
 
+  def stub_results(index_name, search_results = [])
+    client = stub("search #{index_name}", search: search_results)
+    Frontend.stubs(:"#{index_name}_search_client").returns(client)
+  end
+
   setup do
-    stub_client
+    stub_results("mainstream", [])
+    stub_results("detailed_guidance", [])
+    stub_results("government", [])
+
+    organisations_client = stub("search", organisations: { "total" => 0, "results" => [] })
+    Frontend.stubs(:organisations_search_client).returns(organisations_client)
   end
 
   test "should ask the user to enter a search term if none was given" do
@@ -46,7 +45,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should include link to JSON version in HTML header" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    stub_results("mainstream", [{}, {}, {}])
     get :index, q: "search-term"
     assert_select 'head link[rel=alternate]' do |elements|
       assert elements.any? { |element|
@@ -56,20 +55,20 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display single result with specific class name attribute" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}])
+    stub_results("mainstream", [{}])
     get :index, q: "search-term"
     assert_select "div#mainstream-results.single-item-pane"
   end
 
   test "should display multiple results without class name for single result set" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
+    stub_results("mainstream", [{}, {}, {}])
     get :index, q: "search-term"
     assert_select "div#mainstream-results.single-item-pane", 0
   end
 
   test "should display tabs when there are results in one or more tab" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+    stub_results("mainstream", [{}, {}, {}])
+    stub_results("government", [{}])
     get :index, q: "search-term"
     assert_select "nav.js-tabs"
   end
@@ -81,7 +80,7 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the others do not" do
     should "display the 'no results' html in the tabs without results" do
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
+      stub_results("detailed_guidance", [{}])
       get :index, q: "search-term"
       assert_select "nav.js-tabs"
       assert_select "#mainstream-results .no-results", /0 results in General/
@@ -90,7 +89,7 @@ class SearchControllerTest < ActionController::TestCase
 
   context "tab parameter is set, another tab has results" do
     should "focus on that tab, even if it has no results" do
-      Frontend.mainstream_search_client.stubs(:search).returns([{}])
+      stub_results("mainstream", [{}])
       get :index, { q: "spoon", tab: "government-results" }
       assert_select "li.active a[href=#government-results]"
     end
@@ -98,16 +97,16 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the other doesn't. no tab parameter supplied" do
     should "should focus on the tab with results" do
-      Frontend.government_search_client.stubs(:search).returns([{}])
+      stub_results("government", [{}])
       get :index, { q: "spoon" }
       assert_select "li.active a[href=#government-results]"
     end
   end
 
   test "should display index count on respective tab" do
-    Frontend.mainstream_search_client.stubs(:search).returns([{}, {}, {}])
-    Frontend.detailed_guidance_search_client.stubs(:search).returns([{}])
-    Frontend.government_search_client.stubs(:search).returns([{}, {}])
+    stub_results("mainstream", [{}, {}, {}])
+    stub_results("detailed_guidance", [{}])
+    stub_results("government", [{}, {}])
     get :index, q: "search-term"
     assert_select "a[href='#mainstream-results']", text: "General results (3)"
     assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
@@ -115,23 +114,21 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should include recommend links in the mainstream tab counts" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(1, {}) + Array.new(1, {format: 'recommended-link'}))
+    stub_results("mainstream", Array.new(1, {}) + Array.new(1, {format: 'recommended-link'}))
     # Need results in multiple tabs to see any tabs
-    Frontend.government_search_client.stubs(:search).returns([{}])
+    stub_results("government", [{}])
     get :index, q: "search-term"
     assert_select "a[href='#mainstream-results']", text: "General results (2)"
   end
 
   test "should display a link to the documents matching our search criteria" do
-    client = stub("search", search: [{"title" => "document-title", "link" => "/document-slug"}])
-    Frontend.stubs(:mainstream_search_client).returns(client)
+    stub_results("mainstream", [{"title" => "document-title", "link" => "/document-slug"}])
     get :index, q: "search-term"
     assert_select "a[href='/document-slug']", text: "document-title"
   end
 
   test "should set the class of the result according to the format" do
-    client = stub("search", search: [{"title" => "title", "link" => "/slug", "highlight" => "", "format" => "publication"}])
-    Frontend.stubs(:mainstream_search_client).returns(client)
+    stub_results("mainstream", [{"title" => "title", "link" => "/slug", "highlight" => "", "format" => "publication"}])
     get :index, q: "search-term"
     assert_select ".results-list .type-publication"
   end
@@ -142,7 +139,7 @@ class SearchControllerTest < ActionController::TestCase
       "description" => "DESCRIPTION",
       "link" => "/URL"
     }
-    Frontend.mainstream_search_client.stubs(:search).returns([result_without_section])
+    stub_results("mainstream", [result_without_section])
     assert_nothing_raised do
       get :index, {q: "bob"}
     end
@@ -155,7 +152,7 @@ class SearchControllerTest < ActionController::TestCase
       "link" => "/url",
       "section" => "life-in-the-uk"
     }
-    Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
+    stub_results("mainstream", [result_with_section])
     get :index, {q: "bob"}
 
     assert_select '.meta .section', text: "Life in the UK"
@@ -169,7 +166,7 @@ class SearchControllerTest < ActionController::TestCase
       "section" => "life-in-the-uk",
       "subsection" => "test-thing"
     }
-    Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
+    stub_results("mainstream", [result_with_section])
     get :index, {q: "bob"}
 
     assert_select '.meta .section', text: "Life in the UK"
@@ -185,7 +182,7 @@ class SearchControllerTest < ActionController::TestCase
       "subsection" => "test-thing",
       "subsubsection" => "sub-section"
     }
-    Frontend.mainstream_search_client.stubs(:search).returns([result_with_section])
+    stub_results("mainstream", [result_with_section])
     get :index, {q: "bob"}
 
     assert_select '.meta .section', text: "Life in the UK"
@@ -194,16 +191,16 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should return unlimited results" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(75, {}))
+    stub_results("mainstream", Array.new(75, {}))
     # Force tabs to be displayed so the selector can work
-    Frontend.government_search_client.stubs(:search).returns([{}])
+    stub_results("government", [{}])
 
     get :index, q: "Test"
     assert_select "a[href='#mainstream-results']", text: "General results (75)"
   end
 
   test "should show the phrase searched for" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(75, {}))
+    stub_results("mainstream", Array.new(75, {}))
 
     get :index, q: "Test"
 
@@ -219,7 +216,7 @@ class SearchControllerTest < ActionController::TestCase
       "format" => "recommended-link"
     }
 
-    Frontend.mainstream_search_client.stubs(:search).returns([external_document])
+    stub_results("mainstream", [external_document])
 
     get :index, {q: "bleh"}
     assert_select ".recommended-links li.external" do
@@ -236,7 +233,7 @@ class SearchControllerTest < ActionController::TestCase
       "format" => "recommended-link"
     }
 
-    Frontend.mainstream_search_client.stubs(:search).returns([external_document])
+    stub_results("mainstream", [external_document])
 
     get :index, {q: "bleh"}
     assert_select ".recommended-links li.external" do
@@ -261,7 +258,7 @@ class SearchControllerTest < ActionController::TestCase
       "section" => "Inside Government"
     }
 
-    Frontend.mainstream_search_client.stubs(:search).returns([normal_result, inside_government_link])
+    stub_results("mainstream", [normal_result, inside_government_link])
 
     get :index, { q: "bleh" }
     assert_select '#mainstream-results li:first-child a', text: "QUEUE JUMPER"
@@ -277,7 +274,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "result count header with results" do
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(15, {}))
+    stub_results("mainstream", Array.new(15, {}))
 
     get :index, {q: "bob"}
 
@@ -293,7 +290,7 @@ class SearchControllerTest < ActionController::TestCase
       "format" => "recommended-link"
     }
 
-    Frontend.mainstream_search_client.stubs(:search).returns(Array.new(1, external_link))
+    stub_results("mainstream", Array.new(1, external_link))
 
     get :index, {q: "bleh"}
 
@@ -313,7 +310,7 @@ class SearchControllerTest < ActionController::TestCase
   context "organisation filter" do
     setup do
       # Need to have some results for the tab to appear
-      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+      stub_results("government", [a_search_result("c", 3)])
     end
 
     should "appear on the government tab" do
@@ -378,7 +375,7 @@ class SearchControllerTest < ActionController::TestCase
     context "filter applied, but no search results in any tab" do
       should "force the tabs to be displayed, so that you can see a filter is active" do
         # TODO see if we can remove the stub from the context setup up a level
-        Frontend.government_search_client.stubs(:search).returns([])
+        stub_results("government", [])
         get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
         assert_select "nav.js-tabs"
         assert_select "a[href='#government-results']", text: "Inside Government (0)"
@@ -388,9 +385,9 @@ class SearchControllerTest < ActionController::TestCase
 
   context "no top_result parameter" do
     should "leave the highest scored result where it is" do
-      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
-      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+      stub_results("mainstream", [a_search_result("a", 1)])
+      stub_results("detailed_guidance", [a_search_result("b", 2)])
+      stub_results("government", [a_search_result("c", 3)])
 
       get :index, q: "search-term"
 
@@ -404,9 +401,9 @@ class SearchControllerTest < ActionController::TestCase
 
   context "?top_result=1" do
     should "remove the highest 3 scored results from the three tabs and display above all others" do
-      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("a", 1)])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("b", 2)])
-      Frontend.government_search_client.stubs(:search).returns([a_search_result("c", 3)])
+      stub_results("mainstream", [a_search_result("a", 1)])
+      stub_results("detailed_guidance", [a_search_result("b", 2)])
+      stub_results("government", [a_search_result("c", 3)])
 
       get :index, q: "search-term", top_result: "1"
 
@@ -427,25 +424,25 @@ class SearchControllerTest < ActionController::TestCase
 
   context "?combine=1" do
     should "merge mainstream and detailed results in one tab" do
-      Frontend.mainstream_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
-      Frontend.government_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }])
+      stub_results("mainstream", [{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
+      stub_results("detailed_guidance", [{ "es_score" => 1 }])
+      stub_results("government", [{ "es_score" => 1 }, { "es_score" => 1 }])
       get :index, { q: "tax", combine: "1" }
       assert_select "a[href='#services-information-results']", text: "Services (4)"
       assert_select "a[href='#government-results']", text: "Departments (2)"
     end
 
     should "correctly sort the merged mainstream and detailed results" do
-      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("high", 10)])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("low", 5)])
+      stub_results("mainstream", [a_search_result("high", 10)])
+      stub_results("detailed_guidance", [a_search_result("low", 5)])
       get :index, { q: "tax", combine: "1" }
       assert_select 'li:first-child  h3 a[href=/high]'
       assert_select 'li:nth-child(2) h3 a[href=/low]'
     end
 
     should "hackily downweight detailed results to prevent them from swamping better mainstream results" do
-      Frontend.mainstream_search_client.stubs(:search).returns([a_search_result("mainstream", 100)])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([a_search_result("detailed", 101)])
+      stub_results("mainstream", [a_search_result("mainstream", 100)])
+      stub_results("detailed_guidance", [a_search_result("detailed", 101)])
       get :index, { q: "tax", combine: "1" }
       assert_select 'li:first-child  h3 a[href=/mainstream]'
       assert_select 'li:nth-child(2) h3 a[href=/detailed]'
@@ -454,9 +451,9 @@ class SearchControllerTest < ActionController::TestCase
 
   context "?shouty-tabs=1" do
     should "display tabs without the number of results for each" do
-      Frontend.mainstream_search_client.stubs(:search).returns([{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
-      Frontend.detailed_guidance_search_client.stubs(:search).returns([{ "es_score" => 1 }])
-      Frontend.government_search_client.stubs(:search).returns([{}, {}])
+      stub_results("mainstream", [{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
+      stub_results("detailed_guidance", [{ "es_score" => 1 }])
+      stub_results("government", [{}, {}])
       get :index, { q: "tax", "shouty-tabs" => "1" }
       assert_select "a[href='#mainstream-results']", text: "General results"
       assert_select "a[href='#detailed-results']", text: "Detailed guidance"

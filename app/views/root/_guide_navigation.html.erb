@@ -7,7 +7,7 @@
           <% parts.each do |nav_part| %>
             <% if @publication.current_part == nav_part %>
               <li class="active">
-                <%= nav_part.title %>
+                <span><%= nav_part.title %></span>
               </li>
             <% else %>
               <li>

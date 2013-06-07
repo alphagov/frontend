@@ -3,7 +3,7 @@ $(function() {
       $searchForm = $('.js-search-hash');
 
   if($tabs.length > 0){
-    $tabs.tabs({ 'defaultTab' : getDefaultSearchTab() });
+    $tabs.tabs({ 'defaultTab' : getDefaultSearchTab(), scrollOnload: true });
   }
 
   function getDefaultSearchTab(){

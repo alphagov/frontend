@@ -203,6 +203,7 @@ body.search {
     select {
       margin-bottom: 15px;
       width: 100%;
+      max-width: 500px;
       @include media(tablet) {
         @include core-14;
         border: 1px solid #555;

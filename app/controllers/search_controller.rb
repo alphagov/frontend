@@ -48,16 +48,14 @@ class SearchController < ApplicationController
       # result count needs to incorporate the top result size.
       @result_count = @streams.map { |s| s.total_size }.sum
 
-      if feature_enabled?("top_result")
-        top_result_sets = @streams.reject { |s| s.key == "government" }.map(&:results)
-        top_result_sets << unfiltered_government_results
+      top_result_sets = @streams.reject { |s| s.key == "government" }.map(&:results)
+      top_result_sets << unfiltered_government_results
 
-        all_results_ordered = merge_result_sets(*top_result_sets)
-        @top_results = all_results_ordered[0..2]
-        @top_results.each do |result_to_remove|
-          @streams.detect do |stream|
-            stream.results.delete(result_to_remove)
-          end
+      all_results_ordered = merge_result_sets(*top_result_sets)
+      @top_results = all_results_ordered[0..2]
+      @top_results.each do |result_to_remove|
+        @streams.detect do |stream|
+          stream.results.delete(result_to_remove)
         end
       end
     end

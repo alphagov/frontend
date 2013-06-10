@@ -59,7 +59,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display single result with specific class name attribute" do
-    stub_results("mainstream", [{}])
+    stub_results("mainstream", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
     get :index, q: "search-term"
     assert_select "div#services-information-results.single-item-pane"
   end
@@ -101,7 +101,8 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the other doesn't. no tab parameter supplied" do
     should "should focus on the tab with results" do
-      stub_results("government", [{}])
+      # 4 results. Subtract 3 for top results leaves you one inside the tab
+      stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
       get :index, { q: "spoon" }
       assert_select "li.active a[href=#government-results]"
     end
@@ -177,12 +178,14 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should return unlimited results" do
-    stub_results("mainstream", Array.new(75, {}))
-    # Force tabs to be displayed so the selector can work
-    stub_results("government", [{}])
+    results = []
+    75.times do |n|
+      results << a_search_result("result-#{n}")
+    end
+    stub_results("mainstream", results)
 
     get :index, q: "Test"
-    assert_select "#services-information-results h3 a", count: 75
+    assert_select "#services-information-results h3 a", count: 72 # 75 -3 top results
   end
 
   test "should show the phrase searched for" do
@@ -346,22 +349,7 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
-  context "no top_result parameter" do
-    should "leave the highest scored result where it is" do
-      stub_results("mainstream", [a_search_result("a", 1)])
-      stub_results("detailed_guidance", [a_search_result("b", 2)])
-      stub_results("government", [a_search_result("c", 3)])
-
-      get :index, q: "search-term"
-
-      assert_select "#top-results", count: 0
-
-      assert_select "#services-information-results h3 a", count: 2
-      assert_select "#government-results h3 a", count: 1
-    end
-  end
-
-  context "?top_result=1" do
+  context "top results" do
     should "remove the highest 3 scored results from the three tabs and display above all others" do
       stub_results("mainstream", [a_search_result("a", 1)])
       stub_results("detailed_guidance", [a_search_result("b", 2)])
@@ -375,11 +363,6 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "#top-results a[href='/a']"
       assert_select "#top-results a[href='/b']"
       assert_select "#top-results a[href='/c']"
-    end
-
-    should "add a hidden field to the form so that it's retained on next search" do
-      get :index, q: "search-term", top_result: "1"
-      assert_select "#content form[role=search] input[name=top_result][value=1]"
     end
 
     should "extract top results from unfiltered government results" do
@@ -438,10 +421,10 @@ class SearchControllerTest < ActionController::TestCase
   should "merge mainstream and detailed results in one tab" do
     stub_results("mainstream", [{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
     stub_results("detailed_guidance", [{ "es_score" => 1 }])
-    stub_results("government", [{ "es_score" => 1 }, { "es_score" => 1 }])
+    # Let the government results be used for top_results
+    stub_results("government", [a_search_result("x", 10), a_search_result("y", 10), a_search_result("z", 10)])
     get :index, { q: "tax" }
     assert_select "#services-information-results h3 a", count: 4
-    assert_select "#government-results h3 a", count: 2
   end
 
   should "correctly sort the merged mainstream and detailed results" do

@@ -121,6 +121,7 @@ class SearchController < ApplicationController
   def retrieve_government_results(term)
     extra_parameters = { response_style: "hash" }
     extra_parameters[:organisation_slug] = params[:organisation] if params[:organisation]
+    extra_parameters[:minimum_should_match] = "1" if feature_enabled?(:minimum_should_match)
     res = Frontend.government_search_client.search(term, extra_parameters)
     res["results"].map { |r| GovernmentResult.new(r) }
   end

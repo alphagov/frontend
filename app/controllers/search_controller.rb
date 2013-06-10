@@ -167,7 +167,11 @@ class SearchController < ApplicationController
   end
 
   def feature_enabled?(feature_name)
-    PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT || params[feature_name].present?
+    if params[feature_name].present?
+      params[feature_name] =~ /^1|true|yes/
+    else
+      PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT
+    end
   end
 
   def organisations

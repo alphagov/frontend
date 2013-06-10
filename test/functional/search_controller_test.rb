@@ -331,7 +331,7 @@ class SearchControllerTest < ActionController::TestCase
         stub_results("mainstream", [], ["afghanistan"])
         get :index, { q: "afgananinanistan", spelling_suggestion: "1" }
 
-        assert_select ".spelling-suggestion a[href=/search?q=afghanistan]", 'afghanistan'
+        assert_select ".spelling-suggestion a", 'afghanistan'
       end
     end
   end

@@ -104,22 +104,19 @@ class SearchController < ApplicationController
         else
           if result.format == 'recommended-link'
             :recommended_link
-          elsif result.format == 'inside-government-link'
-            :inside_government_link
           else
             :everything_else
           end
         end
       end
       grouped_results[:recommended_link] ||= []
-      grouped_results[:inside_government_link] ||= []
       grouped_results[:everything_else] ||= []
       grouped_results
     end
   end
 
   def mainstream_results
-    @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
+    grouped_mainstream_results[:everything_else]
   end
 
   def retrieve_mainstream_results(term)

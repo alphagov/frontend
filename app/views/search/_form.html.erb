@@ -18,7 +18,7 @@
   </div>
   <% if feature_enabled?("spelling_suggestion") && @spelling_suggestion %>
     <fieldset class="spelling-suggestion">
-      <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion) %>
+      <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion, tab: params[:tab], spelling_suggestion: params[:spelling_suggestion]) %>
       </p>
     </fieldset>
   <% end %>

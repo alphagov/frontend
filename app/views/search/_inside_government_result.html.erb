@@ -9,7 +9,11 @@
 
   <% if feature_enabled?("metadata") %>
     <% case result.format %>
+    <% when 'corporate_information_page' then %>
+      <p class="attributes">Corporate information</p>
+      <p><%= result.display_a_summary %></p>
     <% when 'document_series' then %>
+      <p class="attributes">Document series</p>
       <p><%= result.display_a_summary %></p>
     <% when 'minister' then %>
       <p><%= result.display_a_summary %></p>

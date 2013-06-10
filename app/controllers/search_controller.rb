@@ -26,42 +26,23 @@ class SearchController < ApplicationController
         unfiltered_government_results = government_results
       end
 
-      if feature_enabled?("combine")
-        detailed_results = retrieve_detailed_guidance_results(@search_term)
-        # hackily downweight detailed results to prevent them swamping mainstream results
-        adjusted_detailed_results = detailed_results.map do |detailed_result|
-          detailed_result.result["es_score"] = detailed_result.result["es_score"] * 0.8
-          detailed_result
-        end
-        @streams << SearchStream.new(
-          "services-information",
-          "Services and information",
-          merge_result_sets(mainstream_results, adjusted_detailed_results),
-          recommended_link_results
-        )
-        @streams << SearchStream.new(
-          "government",
-          "Departments and policy",
-          government_results
-        )
-      else
-        @streams << SearchStream.new(
-          "mainstream",
-          "General results",
-          mainstream_results,
-          recommended_link_results
-        )
-        @streams << SearchStream.new(
-          "detailed",
-          "Detailed guidance",
-          retrieve_detailed_guidance_results(@search_term)
-        )
-        @streams << SearchStream.new(
-          "government",
-          "Inside Government",
-          government_results
-        )
+      detailed_results = retrieve_detailed_guidance_results(@search_term)
+      # hackily downweight detailed results to prevent them swamping mainstream results
+      adjusted_detailed_results = detailed_results.map do |detailed_result|
+        detailed_result.result["es_score"] = detailed_result.result["es_score"] * 0.8
+        detailed_result
       end
+      @streams << SearchStream.new(
+        "services-information",
+        "Services and information",
+        merge_result_sets(mainstream_results, adjusted_detailed_results),
+        recommended_link_results
+      )
+      @streams << SearchStream.new(
+        "government",
+        "Departments and policy",
+        government_results
+      )
 
       # This needs to be done before top result extraction, otherwise the
       # result count needs to incorporate the top result size.

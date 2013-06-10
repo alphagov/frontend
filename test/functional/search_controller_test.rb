@@ -3,7 +3,7 @@ require "test_helper"
 
 class SearchControllerTest < ActionController::TestCase
 
-  def a_search_result(slug, score)
+  def a_search_result(slug, score=1)
     {
       "title" => slug.titleize,
       "description" => "Description for #{slug}",
@@ -61,13 +61,13 @@ class SearchControllerTest < ActionController::TestCase
   test "should display single result with specific class name attribute" do
     stub_results("mainstream", [{}])
     get :index, q: "search-term"
-    assert_select "div#mainstream-results.single-item-pane"
+    assert_select "div#services-information-results.single-item-pane"
   end
 
   test "should display multiple results without class name for single result set" do
     stub_results("mainstream", [{}, {}, {}])
     get :index, q: "search-term"
-    assert_select "div#mainstream-results.single-item-pane", 0
+    assert_select "div#services-information-results.single-item-pane", 0
   end
 
   test "should display tabs when there are results in one or more tab" do
@@ -84,10 +84,10 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the others do not" do
     should "display the 'no results' html in the tabs without results" do
-      stub_results("detailed_guidance", [{}])
+      stub_results("government", [{}])
       get :index, q: "search-term"
       assert_select "nav.js-tabs"
-      assert_select "#mainstream-results .no-results", /0 results in General/
+      assert_select "#services-information-results .no-results", /0 results in Services and information/
     end
   end
 
@@ -108,13 +108,12 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display index count on respective tab" do
-    stub_results("mainstream", [{}, {}, {}])
-    stub_results("detailed_guidance", [{}])
-    stub_results("government", [{}, {}])
+    stub_results("mainstream", [a_search_result("a"), a_search_result("b"), a_search_result("c")])
+    stub_results("detailed_guidance", [a_search_result("q")])
+    stub_results("government", [a_search_result("x"), a_search_result("y")])
     get :index, q: "search-term"
-    assert_select "a[href='#mainstream-results']", text: "General results (3)"
-    assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
-    assert_select "a[href='#government-results']", text: "Inside Government (2)"
+    assert_select "a[href='#services-information-results']", text: "Services and information (4)"
+    assert_select "a[href='#government-results']", text: "Departments and policy (2)"
   end
 
   test "should include recommend links in the mainstream tab counts" do
@@ -122,7 +121,7 @@ class SearchControllerTest < ActionController::TestCase
     # Need results in multiple tabs to see any tabs
     stub_results("government", [{}])
     get :index, q: "search-term"
-    assert_select "a[href='#mainstream-results']", text: "General results (2)"
+    assert_select "a[href='#services-information-results']", text: "Services and information (2)"
   end
 
   test "should display a link to the documents matching our search criteria" do
@@ -200,7 +199,7 @@ class SearchControllerTest < ActionController::TestCase
     stub_results("government", [{}])
 
     get :index, q: "Test"
-    assert_select "a[href='#mainstream-results']", text: "General results (75)"
+    assert_select "a[href='#services-information-results']", text: "Services and information (75)"
   end
 
   test "should show the phrase searched for" do
@@ -359,7 +358,7 @@ class SearchControllerTest < ActionController::TestCase
         stub_results("government", [])
         get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
         assert_select "nav.js-tabs"
-        assert_select "a[href='#government-results']", text: "Inside Government (0)"
+        assert_select "a[href='#government-results']", text: "Departments and policy (0)"
       end
     end
   end
@@ -374,9 +373,8 @@ class SearchControllerTest < ActionController::TestCase
 
       assert_select "#top-results", count: 0
 
-      assert_select "a[href='#mainstream-results']", text: "General results (1)"
-      assert_select "a[href='#detailed-results']", text: "Detailed guidance (1)"
-      assert_select "a[href='#government-results']", text: "Inside Government (1)"
+      assert_select "a[href='#services-information-results']", text: "Services and information (2)"
+      assert_select "a[href='#government-results']", text: "Departments and policy (1)"
     end
   end
 
@@ -388,9 +386,8 @@ class SearchControllerTest < ActionController::TestCase
 
       get :index, q: "search-term", top_result: "1"
 
-      assert_select "a[href='#mainstream-results']", text: "General results (0)"
-      assert_select "a[href='#detailed-results']", text: "Detailed guidance (0)"
-      assert_select "a[href='#government-results']", text: "Inside Government (0)"
+      assert_select "a[href='#services-information-results']", text: "Services and information (0)"
+      assert_select "a[href='#government-results']", text: "Departments and policy (0)"
 
       assert_select "#top-results a[href='/a']"
       assert_select "#top-results a[href='/b']"
@@ -455,31 +452,29 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
-  context "?combine=1" do
-    should "merge mainstream and detailed results in one tab" do
-      stub_results("mainstream", [{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
-      stub_results("detailed_guidance", [{ "es_score" => 1 }])
-      stub_results("government", [{ "es_score" => 1 }, { "es_score" => 1 }])
-      get :index, { q: "tax", combine: "1" }
-      assert_select "a[href='#services-information-results']", text: "Services and information (4)"
-      assert_select "a[href='#government-results']", text: "Departments and policy (2)"
-    end
+  should "merge mainstream and detailed results in one tab" do
+    stub_results("mainstream", [{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
+    stub_results("detailed_guidance", [{ "es_score" => 1 }])
+    stub_results("government", [{ "es_score" => 1 }, { "es_score" => 1 }])
+    get :index, { q: "tax" }
+    assert_select "a[href='#services-information-results']", text: "Services and information (4)"
+    assert_select "a[href='#government-results']", text: "Departments and policy (2)"
+  end
 
-    should "correctly sort the merged mainstream and detailed results" do
-      stub_results("mainstream", [a_search_result("high", 10)])
-      stub_results("detailed_guidance", [a_search_result("low", 5)])
-      get :index, { q: "tax", combine: "1" }
-      assert_select 'li:first-child  h3 a[href=/high]'
-      assert_select 'li:nth-child(2) h3 a[href=/low]'
-    end
+  should "correctly sort the merged mainstream and detailed results" do
+    stub_results("mainstream", [a_search_result("high", 10)])
+    stub_results("detailed_guidance", [a_search_result("low", 5)])
+    get :index, { q: "tax" }
+    assert_select 'li:first-child  h3 a[href=/high]'
+    assert_select 'li:nth-child(2) h3 a[href=/low]'
+  end
 
-    should "hackily downweight detailed results to prevent them from swamping better mainstream results" do
-      stub_results("mainstream", [a_search_result("mainstream", 100)])
-      stub_results("detailed_guidance", [a_search_result("detailed", 101)])
-      get :index, { q: "tax", combine: "1" }
-      assert_select 'li:first-child  h3 a[href=/mainstream]'
-      assert_select 'li:nth-child(2) h3 a[href=/detailed]'
-    end
+  should "hackily downweight detailed results to prevent them from swamping better mainstream results" do
+    stub_results("mainstream", [a_search_result("mainstream", 100)])
+    stub_results("detailed_guidance", [a_search_result("detailed", 101)])
+    get :index, { q: "tax" }
+    assert_select 'li:first-child  h3 a[href=/mainstream]'
+    assert_select 'li:nth-child(2) h3 a[href=/detailed]'
   end
 
   context "?shouty-tabs=1" do
@@ -488,9 +483,8 @@ class SearchControllerTest < ActionController::TestCase
       stub_results("detailed_guidance", [{ "es_score" => 1 }])
       stub_results("government", [{}, {}])
       get :index, { q: "tax", "shouty-tabs" => "1" }
-      assert_select "a[href='#mainstream-results']", text: "General results"
-      assert_select "a[href='#detailed-results']", text: "Detailed guidance"
-      assert_select "a[href='#government-results']", text: "Inside Government"
+      assert_select "a[href='#services-information-results']", text: "Services and information"
+      assert_select "a[href='#government-results']", text: "Departments and policy"
     end
   end
 end

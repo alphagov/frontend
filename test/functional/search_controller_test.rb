@@ -280,7 +280,7 @@ class SearchControllerTest < ActionController::TestCase
     end
 
     should "appear on the government tab" do
-      get :index, { q: "moon", "organisation-filter" => 1 }
+      get :index, { q: "moon" }
       assert_select "#government-results form#government-filter"
     end
 
@@ -303,18 +303,18 @@ class SearchControllerTest < ActionController::TestCase
       Frontend.organisations_search_client
           .expects(:organisations)
           .returns({ "results" => organisations })
-      get :index, { q: "sun", "organisation-filter" => 1 }
+      get :index, { q: "sun" }
       assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
       assert_select "select#organisation-filter optgroup[label='Others'] option[value=agency-of-awesome]"
     end
 
     should "new searches should retain the organisation filter" do
-      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+      get :index, { q: "moon", organisation: "ministry-of-defence" }
       assert_select "#content form[role=search] input[name=organisation][value=ministry-of-defence][type=hidden]"
     end
 
     should "retain tab parameter" do
-      get :index, { q: "moon", tab: "government-results", "organisation-filter" => 1 }
+      get :index, { q: "moon", tab: "government-results" }
       assert_select "form#government-filter input[name=tab][value=government-results]"
     end
 
@@ -326,7 +326,7 @@ class SearchControllerTest < ActionController::TestCase
           "organisation_type" => "Ministerial department",
           "slug"              => "ministry-of-defence"
         }] })
-      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+      get :index, { q: "moon", organisation: "ministry-of-defence" }
       assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
     end
 
@@ -335,14 +335,14 @@ class SearchControllerTest < ActionController::TestCase
           .expects(:search)
           .with("moon", organisation_slug: "ministry-of-defence", response_style: "hash")
           .returns("results" => [])
-      get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+      get :index, { q: "moon", organisation: "ministry-of-defence" }
     end
 
     context "filter applied, but no search results in any tab" do
       should "force the tabs to be displayed, so that you can see a filter is active" do
         # TODO see if we can remove the stub from the context setup up a level
         stub_results("government", [])
-        get :index, { q: "moon", organisation: "ministry-of-defence", "organisation-filter" => 1 }
+        get :index, { q: "moon", organisation: "ministry-of-defence" }
         assert_select "nav.js-tabs"
         assert_select "#government-results h3 a", count: 0
       end

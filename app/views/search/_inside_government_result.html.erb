@@ -7,81 +7,73 @@
     </a>
   </h3>
 
-  <% if feature_enabled?("metadata") %>
-    <% case result.format %>
-    <% when 'corporate_information_page' then %>
-      <p class="attributes">Corporate information</p>
-      <p><%= result.display_a_summary %></p>
-    <% when 'document_series' then %>
-      <p class="attributes">Document series</p>
-      <p><%= result.display_a_summary %></p>
-    <% when 'minister' then %>
-      <p><%= result.display_a_summary %></p>
-      <ul class="sections">
-        <li><a href="<%= result.link %>#responsibilities">Responsibilities</a></li>
-        <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
-      </ul> 
-    <% when 'organisation' then %>
-      <p>The home of <%= result.title %> on GOV.UK. <%= result.display_a_summary %></p>
-      <% if result.display_links? %>
-        <ul class="sections">
-          <li><a href="<%= result.link %>#topics">What we do</a></li>
-          <li><a href="<%= result.link %>#policies">Policies</a></li>
-          <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
-          <li><a href="<%= result.link %>#ministers">Ministers</a></li>
-        </ul>
-      <% end %>
-    <% when 'person' then %>
-      <p><%= result.display_a_summary %></p>
-      <ul class="sections">
-        <li><a href="<%= result.link %>#biography">Biography</a></li>
-        <li><a href="<%= result.link %>#current-roles">Roles</a></li>
-      </ul> 
-    <% when 'world_location' then %>
-      <p><%= result.display_a_summary %></p>
-      <ul class="sections">
-        <li><a href="<%= result.link %>#worldwide-priorities">Priorities</a></li>
-        <li><a href="<%= result.link %>#organisations">Organisations in <%= result.title %></a></li>
-      </ul> 
-    <% when 'worldwide_organisation' then %>
-      <p><%= result.display_a_summary %></p>
-      <ul class="sections">
-        <li><a href="<%= result.link %>#our-services">Services</a></li>
-        <li><a href="<%= result.link %>#contact-us">Contact details</a></li>
-      </ul> 
-    <% end %>
-    <ul class="attributes">
-      <% if result.public_timestamp.present? %>
-        <li>
-          <span class="visuallyhidden">Published on: </span>
-          <%= result.display_timestamp %>
-        </li>
-      <% end %>
-      <% if result.display_type.present? %>
-        <li>
-          <%= result.display_type %>
-        </li>
-      <% end %>
-      <% if result.has_departments? %>
-        <li>
-          <span class="visuallyhidden">Departments: </span>
-            <%= result.display_departments %>
-        </li>
-      <% end %>
-      <% if result.has_world_locations? %>
-        <li>
-          <span class="visuallyhidden">Location: </span>
-          <%= result.display_world_locations %>
-        </li>
-      <% end %>
+  <% case result.format %>
+  <% when 'corporate_information_page' then %>
+    <p class="attributes">Corporate information</p>
+    <p><%= result.display_a_summary %></p>
+  <% when 'document_series' then %>
+    <p class="attributes">Document series</p>
+    <p><%= result.display_a_summary %></p>
+  <% when 'minister' then %>
+    <p><%= result.display_a_summary %></p>
+    <ul class="sections">
+      <li><a href="<%= result.link %>#responsibilities">Responsibilities</a></li>
+      <li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
     </ul>
-  <% else %>
-    <p class="meta crumbtrail">
-      <span class="visuallyhidden">Part of </span>
-      <span class="section">Government</span>
-      <span class="visuallyhidden">, </span><span class="subsection"><%= result.format.humanize %></span>
-    </p>
+  <% when 'organisation' then %>
+    <p>The home of <%= result.title %> on GOV.UK. <%= result.display_a_summary %></p>
+    <% if result.display_links? %>
+      <ul class="sections">
+        <li><a href="<%= result.link %>#topics">What we do</a></li>
+        <li><a href="<%= result.link %>#policies">Policies</a></li>
+        <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
+        <li><a href="<%= result.link %>#ministers">Ministers</a></li>
+      </ul>
+    <% end %>
+  <% when 'person' then %>
+    <p><%= result.display_a_summary %></p>
+    <ul class="sections">
+      <li><a href="<%= result.link %>#biography">Biography</a></li>
+      <li><a href="<%= result.link %>#current-roles">Roles</a></li>
+    </ul> 
+  <% when 'world_location' then %>
+    <p><%= result.display_a_summary %></p>
+    <ul class="sections">
+      <li><a href="<%= result.link %>#worldwide-priorities">Priorities</a></li>
+      <li><a href="<%= result.link %>#organisations">Organisations in <%= result.title %></a></li>
+    </ul> 
+  <% when 'worldwide_organisation' then %>
+    <p><%= result.display_a_summary %></p>
+    <ul class="sections">
+      <li><a href="<%= result.link %>#our-services">Services</a></li>
+      <li><a href="<%= result.link %>#contact-us">Contact details</a></li>
+    </ul> 
   <% end %>
+  <ul class="attributes">
+    <% if result.public_timestamp.present? %>
+      <li>
+        <span class="visuallyhidden">Published on: </span>
+        <%= result.display_timestamp %>
+      </li>
+    <% end %>
+    <% if result.display_type.present? %>
+      <li>
+        <%= result.display_type %>
+      </li>
+    <% end %>
+    <% if result.has_departments? %>
+      <li>
+        <span class="visuallyhidden">Departments: </span>
+          <%= result.display_departments %>
+      </li>
+    <% end %>
+    <% if result.has_world_locations? %>
+      <li>
+        <span class="visuallyhidden">Location: </span>
+        <%= result.display_world_locations %>
+      </li>
+    <% end %>
+  </ul>
 
   <p><%= result.description %></p>
 </li>

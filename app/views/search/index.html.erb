@@ -16,47 +16,25 @@
   <% end %>
 
 
-  <% if feature_enabled?("shouty-tabs") %>
-    <div id="search-results-tabs" class="shouty-tabs">
-      <h2 class="visuallyhidden">All results</h2>
-      <% if @streams.count > 1 %>
-        <nav class="search-navigation js-tabs" role="navigation">
-          <% if @streams.count == 2 %>
-            <ul id="search-index-navigation" class="two-tabs">
-          <% else %>
-            <ul id="search-index-navigation">
+  <div id="search-results-tabs" class="shouty-tabs">
+    <h2 class="visuallyhidden">All results</h2>
+    <% if @streams.count > 1 %>
+      <nav class="search-navigation js-tabs" role="navigation">
+        <% if @streams.count == 2 %>
+          <ul id="search-index-navigation" class="two-tabs">
+        <% else %>
+          <ul id="search-index-navigation">
+        <% end %>
+          <% @streams.each do |stream| %>
+            <li <% if @active_stream == stream %>class="active"<% end %>>
+              <a href="#<%= stream.key %>-results">
+                <%= stream.title.html_safe %>
+              </a>
+            </li>
           <% end %>
-            <% @streams.each do |stream| %>
-              <li <% if @active_stream == stream %>class="active"<% end %>>
-                <a href="#<%= stream.key %>-results">
-                  <%= stream.title.html_safe %>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </nav>
-      <% end %>
-  <% else %>
-    <div id="search-results-tabs">
-      <h2 class="visuallyhidden">All results</h2>
-      <% if @streams.count > 1 %>
-        <nav class="search-navigation js-tabs nav-tabs" role="navigation">
-          <% if @streams.count == 2 %>
-            <ul id="search-index-navigation" class="two-tabs">
-          <% else %>
-            <ul id="search-index-navigation">
-          <% end %>
-            <% @streams.each do |stream| %>
-              <li <% if @active_stream == stream %>class="active"<% end %>>
-                <a href="#<%= stream.key %>-results">
-                  <span class="label"><%= stream.title.html_safe %> (<%= stream.total_size %>)</span>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </nav>
-      <% end %>
-  <% end %>
+        </ul>
+      </nav>
+    <% end %>
 
     <div class="search-container group js-tab-content tab-content ">
       <% @streams.each do |stream| %>

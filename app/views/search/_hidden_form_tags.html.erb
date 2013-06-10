@@ -1,4 +1,5 @@
 <%= hidden_field_tag(:top_result, params[:top_result]) if params[:top_result] %>
 <%= hidden_field_tag(:combine, params[:combine]) if params[:combine] %>
 <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
+<%= hidden_field_tag(:spelling_suggestion, params[:spelling_suggestion]) if params[:spelling_suggestion] %>
 <%= hidden_field_tag :tab, "#{@active_stream.key}-results" if @active_stream %>

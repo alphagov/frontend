@@ -7,10 +7,12 @@
           <% parts.each do |nav_part| %>
             <% if @publication.current_part == nav_part %>
               <li class="active">
+                <span class="part-number"><%= @publication.parts.find_index(nav_part) + 1 %>.</span>
                 <span><%= nav_part.title %></span>
               </li>
             <% else %>
               <li>
+                <span class="part-number"><%= @publication.parts.find_index(nav_part) + 1 %>.</span>
                 <%= link_to nav_part.title, part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" %>
               </li>
             <% end %>

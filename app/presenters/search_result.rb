@@ -19,6 +19,10 @@ class SearchResult
     @result = result.stringify_keys!
   end
 
+  def ==(other)
+    other.respond_to?(:link) && (link == other.link)
+  end
+
   def self.result_accessor(*keys)
     keys.each do |key|
       define_method key do

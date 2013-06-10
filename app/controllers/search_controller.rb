@@ -18,6 +18,14 @@ class SearchController < ApplicationController
 
       recommended_link_results = grouped_mainstream_results[:recommended_link]
 
+      if params[:organisation]
+        government_results = retrieve_government_results(@search_term, params[:organisation])
+        unfiltered_government_results = retrieve_government_results(@search_term)
+      else
+        government_results = retrieve_government_results(@search_term)
+        unfiltered_government_results = government_results
+      end
+
       if feature_enabled?("combine")
         detailed_results = retrieve_detailed_guidance_results(@search_term)
         # hackily downweight detailed results to prevent them swamping mainstream results
@@ -34,7 +42,7 @@ class SearchController < ApplicationController
         @streams << SearchStream.new(
           "government",
           "Departments and policy",
-          retrieve_government_results(@search_term)
+          government_results
         )
       else
         @streams << SearchStream.new(
@@ -51,13 +59,19 @@ class SearchController < ApplicationController
         @streams << SearchStream.new(
           "government",
           "Inside Government",
-          retrieve_government_results(@search_term)
+          government_results
         )
       end
 
+      # This needs to be done before top result extraction, otherwise the
+      # result count needs to incorporate the top result size.
       @result_count = @streams.map { |s| s.total_size }.sum
+
       if feature_enabled?("top_result")
-        all_results_ordered = merge_result_sets(*@streams.map(&:results))
+        top_result_sets = @streams.reject { |s| s.key == "government" }.map(&:results)
+        top_result_sets << unfiltered_government_results
+
+        all_results_ordered = merge_result_sets(*top_result_sets)
         @top_results = all_results_ordered[0..2]
         @top_results.each do |result_to_remove|
           @streams.detect do |stream|
@@ -118,9 +132,9 @@ class SearchController < ApplicationController
     res["results"].map { |r| SearchResult.new(r) }
   end
 
-  def retrieve_government_results(term)
+  def retrieve_government_results(term, organisation = nil)
     extra_parameters = extra_search_parameters
-    extra_parameters[:organisation_slug] = params[:organisation] if params[:organisation]
+    extra_parameters[:organisation_slug] = organisation if organisation
     res = Frontend.government_search_client.search(term, extra_parameters)
     res["results"].map { |r| GovernmentResult.new(r) }
   end

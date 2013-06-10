@@ -165,9 +165,7 @@ body.search {
       }
 
       &.two-tabs li {
-        @include media(tablet) {
-          width: 50%;
-        }
+        width: 50%;
 
         @include media(desktop) {
           width: auto;

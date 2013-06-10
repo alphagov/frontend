@@ -220,6 +220,17 @@ body.search {
         width: 32.5em;
       }
     }
+    
+    li.external {
+      border: 1px solid $panel-colour;
+      background: $panel-colour;
+      padding: 9px;
+      margin-bottom: 15px;
+
+      @include media(tablet) {
+        padding: 14px;
+      }
+    }
 
     h3 {
       @include core-24;

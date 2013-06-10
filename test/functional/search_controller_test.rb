@@ -15,9 +15,11 @@ class SearchControllerTest < ActionController::TestCase
   def stub_results(index_name, search_results = [], spelling_suggestions = [])
     response_body = {
       "total" => search_results.size,
-      "results" => search_results,
-      "spelling_suggestions" => spelling_suggestions
+      "results" => search_results
     }
+    unless spelling_suggestions.nil?
+      response_body["spelling_suggestions"] = spelling_suggestions
+    end
     client = stub("search #{index_name}", search: response_body)
     Frontend.stubs(:"#{index_name}_search_client").returns(client)
   end
@@ -313,6 +315,17 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   context "?spelling_suggestion=1" do
+    context "spelling suggestions NOT returned" do
+      should "display a link to the first suggestion from mainstream" do
+        # temporary backwards compatibility with pre-suggestive rummager
+        stub_results("mainstream", [], nil)
+        get :index, { q: "afgananinanistan", spelling_suggestion: "1" }
+
+        assert_response :ok
+        assert_select ".spelling-suggestion", count: 0
+      end
+    end
+
     context "spelling suggestions returned" do
       should "display a link to the first suggestion from mainstream" do
         stub_results("mainstream", [], ["afghanistan"])

@@ -56,7 +56,9 @@ class SearchController < ApplicationController
       end
 
       if feature_enabled?("spelling_suggestion")
-        @spelling_suggestion = Frontend.mainstream_search_client.search(@search_term, response_style: "hash")["spelling_suggestions"].first
+        if raw_mainstream_results(@search_term)["spelling_suggestions"]
+          @spelling_suggestion = raw_mainstream_results(@search_term)["spelling_suggestions"].first
+        end
       end
 
       @result_count = @streams.map { |s| s.total_size }.sum
@@ -112,10 +114,17 @@ class SearchController < ApplicationController
     @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
   end
 
+  def raw_mainstream_results(term)
+    @_raw_mainstream_results ||= begin
+      Frontend.mainstream_search_client.search(term, response_style: "hash")
+    end
+  end
+
   def retrieve_mainstream_results(term)
-    res = Frontend.mainstream_search_client.search(term, response_style: "hash")
+    res = raw_mainstream_results(term)
     res["results"].map { |r| SearchResult.new(r) }
   end
+
 
   def retrieve_detailed_guidance_results(term)
     res = Frontend.detailed_guidance_search_client.search(term, response_style: "hash")

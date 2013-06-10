@@ -450,6 +450,32 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "#top-results a[href='/a']"
       assert_select "#top-results a[href='/b']", count: 0
     end
+
+    should "not show duplicate results in a filtered tab" do
+      unfiltered_body = {
+        "total" => 1,
+        "results" => [a_search_result("a", 1)]
+      }
+      filtered_body = {
+        "total" => 1,
+        "results" => [a_search_result("a", 1), a_search_result("b", 1)]
+      }
+      government_client = stub("search government") do
+        expects(:search)
+          .with("search-term", response_style: "hash")
+          .returns(unfiltered_body)
+        expects(:search)
+          .with("search-term", organisation_slug: "bob", response_style: "hash")
+          .returns(filtered_body)
+      end
+
+      Frontend.stubs(:government_search_client).returns(government_client)
+
+      get :index, q: "search-term", top_result: "1", organisation: "bob"
+
+      assert_select "#top-results a[href='/a']"
+      assert_select "#government-results a[href='/a']", count: 0
+    end
   end
 
   context "?combine=1" do

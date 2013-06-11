@@ -81,7 +81,7 @@
       }
       p {
         @include core-16;
-        margin-top: 0.5em;
+        // margin-top: 0.5em;
       }
     }
   }
@@ -90,9 +90,33 @@
     margin: 1em 0;
   }
 
+  aside {
+    .page-navigation {
+      
+      li {
+        list-style:none;
+        margin-left: 0;
+      }
+    }
+  }
+
   .subscriptions  {
     list-style: none;
-    padding-left: 2em;
+    margin:0;
+    padding: 2em 0 0 0;
+    display: block;
+    width:100%;
+    clear: both;
+
+    li {
+      margin-bottom: 0.25em;
+      display: block;
+      float:left;
+    }
+
+    li:first-child {
+      margin-right:1.5em;
+    }
 
     @include ie(6) {
       list-style-image: none;

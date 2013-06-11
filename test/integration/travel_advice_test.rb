@@ -200,8 +200,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Turks and Caicos Islands")
       end
 
-      within 'aside' do
-        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
+      within 'article' do
+        assert page.has_link?("Print entire guide", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
       end
 
       within '.page-navigation' do
@@ -408,8 +408,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Turks and Caicos Islands")
       end
 
-      within 'aside' do
-        assert page.has_link?("Printer friendly page", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
+      within 'article' do
+        assert page.has_link?("Print entire guide", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
       end
 
       within '.page-navigation' do

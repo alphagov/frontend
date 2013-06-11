@@ -1,11 +1,11 @@
 <div id="report-a-problem"></div>
 
 <div class="meta-data group">
-  <div class="inner">
+  <!-- <div class="inner"> -->
     <% if publication.updated_at %>
       <p class="modified-date"><%= t 'common.last_updated' %>: <%= l publication.updated_at, :format => '%e %B %Y' %></p>
     <% end %>
-  </div>
+  <!-- </div> -->
 </div>
 
 <% if api_links.any? %>

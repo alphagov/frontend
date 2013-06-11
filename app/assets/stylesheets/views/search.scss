@@ -89,12 +89,12 @@ section.search {
       overflow: hidden;
       text-indent: -5000px;
       color: $white;
-      background-color: #28a197;
+      background-color: $light-blue;
       background-image: image-url("search/search-button.png");
       background-repeat: no-repeat;
       background-position: -12.5% 50%;
       &:hover {
-        background-color: #3ABAA8;
+        background-color: darken($light-blue, 5%);
       }
     }
   }

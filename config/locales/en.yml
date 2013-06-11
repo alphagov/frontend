@@ -8,7 +8,7 @@ en:
     guide:
       name: "Guide"
       part: "Part"
-      printer_friendly_page: "Printer friendly page"
+      printer_friendly_page: "Print entire guide"
       at_beginning_of_guide: "You are at the beginning of this guide"
       at_end_of_guide: "You have reached the end of this guide"
       navigate_to_previous_part: "Navigate to previous part"
@@ -17,6 +17,7 @@ en:
       notes: "Notes"
     programme:
       name: "Benefits & credits"
+      printer_friendly_page: "Print entire guide"
     transaction:
       name: "Service"
       start_now: "Start now"

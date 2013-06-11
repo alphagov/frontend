@@ -1,40 +1,36 @@
 <aside>
   <div class="inner">
-    <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
-
     <nav role="navigation" class="page-navigation">
-      <ol>
-        <% if @publication.current_part %>
-          <li>
-            <%= link_to part_path(@publication.slug, nil, @edition), :title => "Summary" do %>
-              <span class="part-title">Summary</span>
-              <span class="part-description">Current travel advice</span>
+      <% @publication.navigation_parts.each_slice(parts_group_size(@publication.navigation_parts)).with_index do |parts,i| %>
+        <ol<%= " start=\"#{parts_group_size(@publication.navigation_parts) + 1}\"".html_safe if i == 1 %>>
+          <% parts.each do |nav_part| %>
+            <% if (@publication.current_part.nil? && nav_part[:slug] == nil) || (@publication.current_part && @publication.current_part.slug == nav_part[:slug]) %>
+              <li class="active">
+                <span class="part-title"><%= nav_part[:title] %></span>
+                <% if nav_part[:slug].nil? %>
+                  <span class="part-description">Current travel advice</span>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to part_path(@publication.slug, nav_part[:slug], @edition), :title => nav_part[:title] do %>
+                  <span class="part-title"><%= nav_part[:title] %></span>
+                  <% if nav_part[:slug].nil? %>
+                    <span class="part-description">Current travel advice</span>
+                  <% end %>
+                <% end %>
+              </li>
             <% end %>
-          </li>
-        <% else %>
-          <li class="active">
-            <span class="part-title">Summary</span>
-            <span class="part-description">Current travel advice</span>
-          </li>
-        <% end %>
-        <% (@publication.parts || []).each do |nav_part| %>
-          <% if @publication.current_part == nav_part %>
-            <li class="active">
-              <span class="part-title"><%= nav_part.title %></span>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to part_path(@publication.slug, nav_part.slug, @edition), :title => nav_part.title do %>
-                <span class="part-title"><%= nav_part.title %></span>
-              <% end %>
-            </li>
           <% end %>
-        <% end %>
-      </ol>
+        </ol>
+      <% end %>
     </nav>
-  </div>
-  <ul class="subscriptions">
+
+    <ul class="subscriptions">
     <li><%= link_to "Atom/RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
     <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts">Email alerts</a></li>
-  </ul>
+    </ul>
+
+  </div>
+  
 </aside>

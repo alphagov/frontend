@@ -17,13 +17,16 @@
 
         <% if @publication.parts.size > 1 %>
         <header>
-          <h1><span><%= t 'formats.guide.part' %> <%= @publication.current_part_number %><span class="visuallyhidden">:</span> </span><%= @publication.current_part.title %></h1>
+          <h1><%= @publication.current_part_number %>. <%= @publication.current_part.title %></h1>
         </header>
         <% end %>
 
         <%= raw @publication.current_part.body %>
 
         <%= render :partial => "guide_pagination" %>
+        <% if [:programme, :guide, :'travel-advice'].include? @publication.format.to_sym %>
+      <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
+    <% end %>
       </div>
     </article>
     <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>

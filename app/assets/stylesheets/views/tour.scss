@@ -35,7 +35,11 @@
   .tour-container {
     background-color: #fff;
     min-height: 35em;
-    padding: 0 2em 2em 2em;
+    padding: 0 1em 2em;
+
+    @include media(desktop) {
+      padding: 0 2em 2em 2em;
+    }
 
     #inside-government{
       border-top:1px solid $grey-3;

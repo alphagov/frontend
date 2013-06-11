@@ -8,7 +8,6 @@
     "web_url": "https://www.gov.uk/child-tax-credit",
     "details": {
         "need_id": null,
-        "business_proposition": false,
         "format": "Guide",
         "alternative_title": "",
         "overview": "If you are responsible for at least one child, you may be eligible for Child Tax Credit - what you might get, how to claim, information if your child is disabled",
@@ -95,8 +94,7 @@
             "id": "https://contentapi.preview.alphagov.co.uk/qualify-tax-credits-quick-questionnaire.json",
             "web_url": "https://www.gov.uk/qualify-tax-credits-quick-questionnaire",
             "details": {
-                "need_id": "559",
-                "business_proposition": false
+                "need_id": "559"
             }
         },
         {
@@ -105,8 +103,7 @@
             "id": "https://contentapi.preview.alphagov.co.uk/tax-credits-calculator.json",
             "web_url": "https://www.gov.uk/tax-credits-calculator",
             "details": {
-                "need_id": "696",
-                "business_proposition": false
+                "need_id": "696"
             }
         },
         {
@@ -115,8 +112,7 @@
             "id": "https://contentapi.preview.alphagov.co.uk/claim-tax-credits.json",
             "web_url": "https://www.gov.uk/claim-tax-credits",
             "details": {
-                "need_id": "2053",
-                "business_proposition": false
+                "need_id": "2053"
             }
         },
         {
@@ -125,8 +121,7 @@
             "id": "https://contentapi.preview.alphagov.co.uk/working-tax-credit.json",
             "web_url": "https://www.gov.uk/working-tax-credit",
             "details": {
-                "need_id": null,
-                "business_proposition": false
+                "need_id": null
             }
         },
         {
@@ -135,8 +130,7 @@
             "id": "https://contentapi.preview.alphagov.co.uk/adi-check-test-what-to-expect.json",
             "web_url": "https://www.gov.uk/adi-check-test-what-to-expect",
             "details": {
-                "need_id": "B129",
-                "business_proposition": true
+                "need_id": "B129"
             }
         }
     ]

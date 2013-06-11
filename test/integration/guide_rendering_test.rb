@@ -24,21 +24,21 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
-          assert_equal ['Part 1: The Data Protection Act', 'Part 2: Find out what data an organisation has about you', 'Part 3: Make a complaint'], part_titles
+          assert_equal ['1. The Data Protection Act', '2. Find out what data an organisation has about you', '3. Make a complaint'], part_titles
 
-          assert page.has_link?("Part 2: Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
-          assert page.has_link?("Part 3: Make a complaint", :href => "/data-protection/make-a-complaint")
+          assert page.has_link?("Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
+          assert page.has_link?("Make a complaint", :href => "/data-protection/make-a-complaint")
         end
 
         within 'article' do
-          within('header') { assert page.has_content?("Part 1: The Data Protection Act") }
+          within('header') { assert page.has_content?("1. The Data Protection Act") }
 
           assert page.has_selector?("ul li", :text => "used fairly and lawfully")
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
             assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to next part']",
-                                      :text => "Part 2 Find out what data an organisation has about you")
+                                      :text => "Find out what data an organisation has about you")
+            assert_equal 1, page.all('li').count
           end
         end
 
@@ -58,22 +58,22 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within '#content .article-container' do
       within 'aside nav' do
         part_titles = page.all('li').map(&:text).map(&:strip)
-        assert_equal ['Part 1: The Data Protection Act', 'Part 2: Find out what data an organisation has about you', 'Part 3: Make a complaint'], part_titles
+        assert_equal ['1. The Data Protection Act', '2. Find out what data an organisation has about you', '3. Make a complaint'], part_titles
 
-        assert page.has_link?("Part 1: The Data Protection Act", :href => "/data-protection/the-data-protection-act")
-        assert page.has_link?("Part 3: Make a complaint", :href => "/data-protection/make-a-complaint")
+        assert page.has_link?("The Data Protection Act", :href => "/data-protection/the-data-protection-act")
+        assert page.has_link?("Make a complaint", :href => "/data-protection/make-a-complaint")
       end
 
       within 'article' do
-        within('header') { assert page.has_content?("Part 2: Find out what data an organisation has about you") }
+        within('header') { assert page.has_content?("2. Find out what data an organisation has about you") }
 
         assert page.has_selector?("h2", :text => "When information can be withheld")
 
         within 'footer nav.pagination' do
           assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/the-data-protection-act'][title='Navigate to previous part']",
-                                    :text => "Part 1 The Data Protection Act")
+                                    :text => "The Data Protection Act")
           assert page.has_selector?("li.next a[rel=next][href='/data-protection/make-a-complaint'][title='Navigate to next part']",
-                                    :text => "Part 3 Make a complaint")
+                                    :text => "Make a complaint")
         end
       end
     end
@@ -85,21 +85,21 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within '#content .article-container' do
       within 'aside nav' do
         part_titles = page.all('li').map(&:text).map(&:strip)
-        assert_equal ['Part 1: The Data Protection Act', 'Part 2: Find out what data an organisation has about you', 'Part 3: Make a complaint'], part_titles
+        assert_equal ['1. The Data Protection Act', '2. Find out what data an organisation has about you', '3. Make a complaint'], part_titles
 
-        assert page.has_link?("Part 1: The Data Protection Act", :href => "/data-protection/the-data-protection-act")
-        assert page.has_link?("Part 2: Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
+        assert page.has_link?("The Data Protection Act", :href => "/data-protection/the-data-protection-act")
+        assert page.has_link?("Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
       end
 
       within 'article' do
-        within('header') { assert page.has_content?("Part 3: Make a complaint") }
+        within('header') { assert page.has_content?("3. Make a complaint") }
 
         assert page.has_selector?("p strong", :text => "ICO helpline")
 
         within 'footer nav.pagination' do
           assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to previous part']",
-                                    :text => "Part 2 Find out what data an organisation has about you")
-          assert page.has_selector?("li.last", :text => "You have reached the end of this guide")
+                                    :text => "Find out what data an organisation has about you")
+            assert_equal 1, page.all('li').count
         end
       end
     end
@@ -141,19 +141,19 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
-          assert_equal ['Rhan 1: The Data Protection Act', 'Rhan 2: Find out what data an organisation has about you', 'Rhan 3: Make a complaint'], part_titles
+          assert_equal ['1. The Data Protection Act', '2. Find out what data an organisation has about you', '3. Make a complaint'], part_titles
 
-          assert page.has_link?("Rhan 2: Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
-          assert page.has_link?("Rhan 3: Make a complaint", :href => "/data-protection/make-a-complaint")
+          assert page.has_link?("Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you")
+          assert page.has_link?("Make a complaint", :href => "/data-protection/make-a-complaint")
         end
 
         within 'article' do
-          within('header') { assert page.has_content?("Rhan 1: The Data Protection Act") }
+          within('header') { assert page.has_content?("1. The Data Protection Act") }
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau’r canllaw hwn")
             assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Llywio i’r rhan nesaf']",
-                                      :text => "Rhan 2 Find out what data an organisation has about you")
+                                      :text => "Find out what data an organisation has about you")
+            assert_equal 1, page.all('li').count
           end
         end
 
@@ -168,12 +168,12 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     within '#content .article-container' do
       within 'article' do
-        within('header') { assert page.has_content?("Rhan 3: Make a complaint") }
+        within('header') { assert page.has_content?("3. Make a complaint") }
 
         within 'footer nav.pagination' do
           assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Llywio i’r rhan flaenorol']",
-                                    :text => "Rhan 2 Find out what data an organisation has about you")
-          assert page.has_selector?("li.last", :text => "Rydych wedi cyrraedd diwedd y canllaw hwn")
+                                    :text => "Find out what data an organisation has about you")
+          assert_equal 1, page.all('li').count
         end
       end
     end
@@ -189,17 +189,17 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within "article#the-data-protection-act" do
-        assert page.has_selector?("header h1", :text => "Part 1: The Data Protection Act")
+        assert page.has_selector?("header h1", :text => "1. The Data Protection Act")
         assert page.has_selector?("ul li", :text => "used fairly and lawfully")
       end
 
       within "article#find-out-what-data-an-organisation-has-about-you" do
-        assert page.has_selector?("header h1", :text => "Part 2: Find out what data an organisation has about you")
+        assert page.has_selector?("header h1", :text => "2. Find out what data an organisation has about you")
         assert page.has_selector?("h2", :text => "When information can be withheld")
       end
 
       within "article#make-a-complaint" do
-        assert page.has_selector?("header h1", :text => "Part 3: Make a complaint")
+        assert page.has_selector?("header h1", :text => "3. Make a complaint")
         assert page.has_selector?("p strong", :text => "ICO helpline")
       end
 
@@ -223,15 +223,15 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within "article#the-data-protection-act" do
-        assert page.has_selector?("header h1", :text => "Rhan 1: The Data Protection Act")
+        assert page.has_selector?("header h1", :text => "1. The Data Protection Act")
       end
 
       within "article#find-out-what-data-an-organisation-has-about-you" do
-        assert page.has_selector?("header h1", :text => "Rhan 2: Find out what data an organisation has about you")
+        assert page.has_selector?("header h1", :text => "2. Find out what data an organisation has about you")
       end
 
       within "article#make-a-complaint" do
-        assert page.has_selector?("header h1", :text => "Rhan 3: Make a complaint")
+        assert page.has_selector?("header h1", :text => "3. Make a complaint")
       end
 
       assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
@@ -257,25 +257,25 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
-          assert_equal ['Part 1: The Data Protection Act', 'Part 2: Find out what data an organisation has about you', 'Part 3: Make a complaint'], part_titles
+          assert_equal ['1. The Data Protection Act', '2. Find out what data an organisation has about you', '3. Make a complaint'], part_titles
 
-          assert page.has_link?("Part 2: Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1")
-          assert page.has_link?("Part 3: Make a complaint", :href => "/data-protection/make-a-complaint?edition=1")
+          assert page.has_link?("Find out what data an organisation has about you", :href => "/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1")
+          assert page.has_link?("Make a complaint", :href => "/data-protection/make-a-complaint?edition=1")
         end
 
         within 'article' do
-          within('header') { assert page.has_content?("Part 1: The Data Protection Act") }
+          within('header') { assert page.has_content?("1. The Data Protection Act") }
 
           assert page.has_selector?("ul li", :text => "used fairly and lawfully")
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
             assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1'][title='Navigate to next part']",
-                                      :text => "Part 2 Find out what data an organisation has about you")
+                                      :text => "Find out what data an organisation has about you")
+            assert_equal 1, page.all('li').count
           end
         end
 
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Printer entire guide")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Print entire guide")
       end
     end # within #content
   end

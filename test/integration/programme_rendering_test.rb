@@ -24,26 +24,26 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
-          assert_equal ['Part 1: Overview', "Part 2: What you'll get", 'Part 3: Eligibility', 'Part 4: How to claim', 'Part 5: Further information'], part_titles
+          assert_equal ['1. Overview', "2. What you'll get", '3. Eligibility', '4. How to claim', '5. Further information'], part_titles
 
-          assert page.has_link?("Part 2: What you'll get", :href => "/reduced-earnings-allowance/what-youll-get")
-          assert page.has_link?("Part 5: Further information", :href => "/reduced-earnings-allowance/further-information")
+          assert page.has_link?("What you'll get", :href => "/reduced-earnings-allowance/what-youll-get")
+          assert page.has_link?("Further information", :href => "/reduced-earnings-allowance/further-information")
         end
 
         within 'article' do
-          within('header') { assert page.has_content?("Part 1: Overview") }
+          within('header') { assert page.has_content?("1. Overview") }
 
           assert page.has_selector?("h2", :text => "Effect on other benefits")
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "You are at the beginning of this guide")
             assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to next part']",
-                                      :text => "Part 2 What you'll get")
+                                      :text => "What you'll get")
+            assert_equal 1, page.all('li').count
           end
         end
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Printer entire guide")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Print entire guide")
 
         assert page.has_selector?("#test-report_a_problem")
       end
@@ -58,22 +58,22 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     within '#content .article-container' do
       within 'aside nav' do
         part_titles = page.all('li').map(&:text).map(&:strip)
-        assert_equal ['Part 1: Overview', "Part 2: What you'll get", 'Part 3: Eligibility', 'Part 4: How to claim', 'Part 5: Further information'], part_titles
+        assert_equal ['1. Overview', "2. What you'll get", '3. Eligibility', '4. How to claim', '5. Further information'], part_titles
 
-        assert page.has_link?("Part 1: Overview", :href => "/reduced-earnings-allowance/overview")
-        assert page.has_link?("Part 4: How to claim", :href => "/reduced-earnings-allowance/how-to-claim")
+        assert page.has_link?("Overview", :href => "/reduced-earnings-allowance/overview")
+        assert page.has_link?("How to claim", :href => "/reduced-earnings-allowance/how-to-claim")
       end
 
       within 'article' do
-        within('header') { assert page.has_content?("Part 3: Eligibility") }
+        within('header') { assert page.has_content?("3. Eligibility") }
 
         assert page.has_selector?("h2", :text => "Going abroad")
 
         within 'footer nav.pagination' do
           assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to previous part']",
-                                    :text => "Part 2 What you'll get")
+                                    :text => "What you'll get")
           assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to next part']",
-                                    :text => "Part 4 How to claim")
+                                    :text => "How to claim")
         end
       end
     end
@@ -85,21 +85,21 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     within '#content .article-container' do
       within 'aside nav' do
         part_titles = page.all('li').map(&:text).map(&:strip)
-        assert_equal ['Part 1: Overview', "Part 2: What you'll get", 'Part 3: Eligibility', 'Part 4: How to claim', 'Part 5: Further information'], part_titles
+        assert_equal ['1. Overview', "2. What you'll get", '3. Eligibility', '4. How to claim', '5. Further information'], part_titles
 
-        assert page.has_link?("Part 1: Overview", :href => "/reduced-earnings-allowance/overview")
-        assert page.has_link?("Part 3: Eligibility", :href => "/reduced-earnings-allowance/eligibility")
+        assert page.has_link?("Overview", :href => "/reduced-earnings-allowance/overview")
+        assert page.has_link?("Eligibility", :href => "/reduced-earnings-allowance/eligibility")
       end
 
       within 'article' do
-        within('header') { assert page.has_content?("Part 5: Further information") }
+        within('header') { assert page.has_content?("5. Further information") }
 
         assert page.has_selector?("h3", :text => "Scotland, North West England, East of England, South East England and London")
 
         within 'footer nav.pagination' do
           assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to previous part']",
-                                    :text => "Part 4 How to claim")
-          assert page.has_selector?("li.last", :text => "You have reached the end of this guide")
+                                    :text => "How to claim")
+          assert_equal 1, page.all('li').count
         end
       end
     end
@@ -142,19 +142,19 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
-          assert_equal ['Rhan 1: Overview', "Rhan 2: What you'll get", 'Rhan 3: Eligibility', 'Rhan 4: How to claim', 'Rhan 5: Further information'], part_titles
+          assert_equal ['1. Overview', "2. What you'll get", '3. Eligibility', '4. How to claim', '5. Further information'], part_titles
 
-          assert page.has_link?("Rhan 2: What you'll get", :href => "/reduced-earnings-allowance/what-youll-get")
-          assert page.has_link?("Rhan 5: Further information", :href => "/reduced-earnings-allowance/further-information")
+          assert page.has_link?("What you'll get", :href => "/reduced-earnings-allowance/what-youll-get")
+          assert page.has_link?("Further information", :href => "/reduced-earnings-allowance/further-information")
         end
 
         within 'article' do
-          within('header') { assert page.has_content?("Rhan 1: Overview") }
+          within('header') { assert page.has_content?("1. Overview") }
 
           within 'footer nav.pagination' do
-            assert page.has_selector?("li.first", :text => "Rydych chi ar ddechrau’r canllaw hwn")
             assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Llywio i’r rhan nesaf']",
-                                      :text => "Rhan 2 What you'll get")
+                                      :text => "What you'll get")
+            assert_equal 1, page.all('li').count
           end
         end
 
@@ -170,12 +170,12 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     within '#content .article-container' do
 
       within 'article' do
-        within('header') { assert page.has_content?("Rhan 5: Further information") }
+        within('header') { assert page.has_content?("5. Further information") }
 
         within 'footer nav.pagination' do
           assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Llywio i’r rhan flaenorol']",
-                                    :text => "Rhan 4 How to claim")
-          assert page.has_selector?("li.last", :text => "Rydych wedi cyrraedd diwedd y canllaw hwn")
+                                    :text => "How to claim")
+          assert_equal 1, page.all('li').count
         end
       end
     end
@@ -191,27 +191,27 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within "article#overview" do
-        assert page.has_selector?("header h1", :text => "Part 1: Overview")
+        assert page.has_selector?("header h1", :text => "1. Overview")
         assert page.has_selector?("h2", :text => "Effect on other benefits")
       end
 
       within "article#what-youll-get" do
-        assert page.has_selector?("header h1", :text => "Part 2: What you'll get")
+        assert page.has_selector?("header h1", :text => "2. What you'll get")
         assert_equal "£63.24 per week is the maximum rate.", first("p").text
       end
 
       within "article#eligibility" do
-        assert page.has_selector?("header h1", :text => "Part 3: Eligibility")
+        assert page.has_selector?("header h1", :text => "3. Eligibility")
         assert page.has_selector?("h2", :text => "Going abroad")
       end
 
       within "article#how-to-claim" do
-        assert page.has_selector?("header h1", :text => "Part 4: How to claim")
+        assert page.has_selector?("header h1", :text => "4. How to claim")
         assert page.has_selector?("p", :text => "Claim straight away or you might lose benefit.")
       end
 
       within "article#further-information" do
-        assert page.has_selector?("header h1", :text => "Part 5: Further information")
+        assert page.has_selector?("header h1", :text => "5. Further information")
         assert page.has_selector?("h3", :text => "Scotland, North West England, East of England, South East England and London")
       end
 
@@ -234,23 +234,23 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within "article#overview" do
-        assert page.has_selector?("header h1", :text => "Rhan 1: Overview")
+        assert page.has_selector?("header h1", :text => "1. Overview")
       end
 
       within "article#what-youll-get" do
-        assert page.has_selector?("header h1", :text => "Rhan 2: What you'll get")
+        assert page.has_selector?("header h1", :text => "2. What you'll get")
       end
 
       within "article#eligibility" do
-        assert page.has_selector?("header h1", :text => "Rhan 3: Eligibility")
+        assert page.has_selector?("header h1", :text => "3. Eligibility")
       end
 
       within "article#how-to-claim" do
-        assert page.has_selector?("header h1", :text => "Rhan 4: How to claim")
+        assert page.has_selector?("header h1", :text => "4. How to claim")
       end
 
       within "article#further-information" do
-        assert page.has_selector?("header h1", :text => "Rhan 5: Further information")
+        assert page.has_selector?("header h1", :text => "5. Further information")
       end
 
       assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 12 Tachwedd 2012")

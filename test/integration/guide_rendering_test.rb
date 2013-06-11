@@ -43,7 +43,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Printer friendly page")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Print entire guide")
 
         assert page.has_selector?("#test-report_a_problem")
       end
@@ -275,7 +275,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
           end
         end
 
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Printer friendly page")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Printer entire guide")
       end
     end # within #content
   end

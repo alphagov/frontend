@@ -6,7 +6,7 @@
 <% @publication.parts.each do |part| %>
 <article id="<%= part.slug %>">
   <header>
-    <h1><%= t 'formats.guide.part' %> <%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
+    <h1><%= part_number(@publication.parts, part) %>: <%= part.title %></h1>
   </header>
 
   <%= raw part.body %>

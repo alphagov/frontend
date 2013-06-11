@@ -44,7 +44,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should pass our query parameter in to the search client" do
-    Frontend.mainstream_search_client.expects(:search).with("search-term", response_style: "hash").returns("results" => []).once
+    Frontend.mainstream_search_client.expects(:search).with("search-term", response_style: "hash", minimum_should_match: "1").returns("results" => []).once
     get :index, q: "search-term"
   end
 
@@ -333,7 +333,7 @@ class SearchControllerTest < ActionController::TestCase
     should "let you filter results by organisation" do
       Frontend.government_search_client
           .expects(:search)
-          .with("moon", organisation_slug: "ministry-of-defence", response_style: "hash")
+          .with("moon", organisation_slug: "ministry-of-defence", response_style: "hash", minimum_should_match: "1")
           .returns("results" => [])
       get :index, { q: "moon", organisation: "ministry-of-defence" }
     end
@@ -376,10 +376,10 @@ class SearchControllerTest < ActionController::TestCase
       }
       government_client = stub("search government") do
         expects(:search)
-          .with("search-term", response_style: "hash")
+          .with("search-term", response_style: "hash", minimum_should_match: "1")
           .returns(unfiltered_body)
         expects(:search)
-          .with("search-term", organisation_slug: "bob", response_style: "hash")
+          .with("search-term", organisation_slug: "bob", response_style: "hash", minimum_should_match: "1")
           .returns(filtered_body)
       end
 
@@ -402,10 +402,10 @@ class SearchControllerTest < ActionController::TestCase
       }
       government_client = stub("search government") do
         expects(:search)
-          .with("search-term", response_style: "hash")
+          .with("search-term", response_style: "hash", minimum_should_match: "1")
           .returns(unfiltered_body)
         expects(:search)
-          .with("search-term", organisation_slug: "bob", response_style: "hash")
+          .with("search-term", organisation_slug: "bob", response_style: "hash", minimum_should_match: "1")
           .returns(filtered_body)
       end
 

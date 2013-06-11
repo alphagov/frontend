@@ -116,8 +116,7 @@ class SearchController < ApplicationController
   end
 
   def extra_search_parameters
-    extra_parameters = { response_style: "hash" }
-    extra_parameters[:minimum_should_match] = "1" if feature_enabled?(:minimum_should_match)
+    extra_parameters = { response_style: "hash",  minimum_should_match: "1" }
     extra_parameters
   end
 

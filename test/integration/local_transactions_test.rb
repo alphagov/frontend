@@ -287,7 +287,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     click_button('Find')
 
     assert_current_url "/pay-bear-tax"
-    # TODO: refine this wording
-    assert page.has_content?("Sorry, there was a problem looking up the local authority for your postcode.")
+    assert page.has_content?("Sorry, we can't find the local authority for your postcode. Try using the local council directory.")
   end
 end

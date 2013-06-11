@@ -41,7 +41,7 @@ class RootController < ApplicationController
         if snac
           redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
         else
-          @location_error = "Sorry, there was a problem looking up the local authority for your postcode."
+          @location_error = "formats.local_transaction.no_local_authority_html"
         end
       elsif params[:authority] && params[:authority][:slug].present?
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return

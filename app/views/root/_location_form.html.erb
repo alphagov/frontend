@@ -8,6 +8,8 @@
 
       <% if params[:postcode] and @location.nil? %>
       <div class="location_error error-notification">Please enter a valid full UK postcode.</div>
+      <% elsif @location_error %>
+      <div class="location_error error-notification"><%= t @location_error %></div>
       <% end %>
 
       <div class="ask_location">

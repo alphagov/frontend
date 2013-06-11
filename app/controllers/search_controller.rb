@@ -18,41 +18,12 @@ class SearchController < ApplicationController
 
       recommended_link_results = grouped_mainstream_results[:recommended_link]
 
-      if feature_enabled?("combine")
-        detailed_results = retrieve_detailed_guidance_results(@search_term)
-        # hackily downweight detailed results to prevent them swamping mainstream results
-        adjusted_detailed_results = detailed_results.map do |detailed_result|
-          detailed_result.result["es_score"] = detailed_result.result["es_score"] * 0.8
-          detailed_result
-        end
-        @streams << SearchStream.new(
-          "services-information",
-          "Services and information",
-          merge_result_sets(mainstream_results, adjusted_detailed_results),
-          recommended_link_results
-        )
-        @streams << SearchStream.new(
-          "government",
-          "Departments and policy",
-          retrieve_government_results(@search_term)
-        )
+      if params[:organisation]
+        government_results = retrieve_government_results(@search_term, params[:organisation])
+        unfiltered_government_results = retrieve_government_results(@search_term)
       else
-        @streams << SearchStream.new(
-          "mainstream",
-          "General results",
-          mainstream_results,
-          recommended_link_results
-        )
-        @streams << SearchStream.new(
-          "detailed",
-          "Detailed guidance",
-          retrieve_detailed_guidance_results(@search_term)
-        )
-        @streams << SearchStream.new(
-          "government",
-          "Inside Government",
-          retrieve_government_results(@search_term)
-        )
+        government_results = retrieve_government_results(@search_term)
+        unfiltered_government_results = government_results
       end
 
       if feature_enabled?("spelling_suggestion")
@@ -61,14 +32,36 @@ class SearchController < ApplicationController
         end
       end
 
+      detailed_results = retrieve_detailed_guidance_results(@search_term)
+      # hackily downweight detailed results to prevent them swamping mainstream results
+      adjusted_detailed_results = detailed_results.map do |detailed_result|
+        detailed_result.result["es_score"] = detailed_result.result["es_score"] * 0.8
+        detailed_result
+      end
+      @streams << SearchStream.new(
+        "services-information",
+        "Services and information",
+        merge_result_sets(mainstream_results, adjusted_detailed_results),
+        recommended_link_results
+      )
+      @streams << SearchStream.new(
+        "government",
+        "Departments and policy",
+        government_results
+      )
+
+      # This needs to be done before top result extraction, otherwise the
+      # result count needs to incorporate the top result size.
       @result_count = @streams.map { |s| s.total_size }.sum
-      if feature_enabled?("top_result")
-        all_results_ordered = merge_result_sets(*@streams.map(&:results))
-        @top_results = all_results_ordered[0..2]
-        @top_results.each do |result_to_remove|
-          @streams.detect do |stream|
-            stream.results.delete(result_to_remove)
-          end
+
+      top_result_sets = @streams.reject { |s| s.key == "government" }.map(&:results)
+      top_result_sets << unfiltered_government_results
+
+      all_results_ordered = merge_result_sets(*top_result_sets)
+      @top_results = all_results_ordered[0..2]
+      @top_results.each do |result_to_remove|
+        @streams.detect do |stream|
+          stream.results.delete(result_to_remove)
         end
       end
     end
@@ -96,27 +89,24 @@ class SearchController < ApplicationController
         else
           if result.format == 'recommended-link'
             :recommended_link
-          elsif result.format == 'inside-government-link'
-            :inside_government_link
           else
             :everything_else
           end
         end
       end
       grouped_results[:recommended_link] ||= []
-      grouped_results[:inside_government_link] ||= []
       grouped_results[:everything_else] ||= []
       grouped_results
     end
   end
 
   def mainstream_results
-    @mainstream_results = grouped_mainstream_results[:inside_government_link] + grouped_mainstream_results[:everything_else]
+    grouped_mainstream_results[:everything_else]
   end
 
   def raw_mainstream_results(term)
     @_raw_mainstream_results ||= begin
-      Frontend.mainstream_search_client.search(term, response_style: "hash")
+      Frontend.mainstream_search_client.search(term, extra_search_parameters)
     end
   end
 
@@ -127,15 +117,20 @@ class SearchController < ApplicationController
 
 
   def retrieve_detailed_guidance_results(term)
-    res = Frontend.detailed_guidance_search_client.search(term, response_style: "hash")
+    res = Frontend.detailed_guidance_search_client.search(term, extra_search_parameters)
     res["results"].map { |r| SearchResult.new(r) }
   end
 
-  def retrieve_government_results(term)
-    extra_parameters = { response_style: "hash" }
-    extra_parameters[:organisation_slug] = params[:organisation] if params[:organisation]
+  def retrieve_government_results(term, organisation = nil)
+    extra_parameters = extra_search_parameters
+    extra_parameters[:organisation_slug] = organisation if organisation
     res = Frontend.government_search_client.search(term, extra_parameters)
     res["results"].map { |r| GovernmentResult.new(r) }
+  end
+
+  def extra_search_parameters
+    extra_parameters = { response_style: "hash",  minimum_should_match: "1" }
+    extra_parameters
   end
 
   def merge_result_sets(*result_sets)
@@ -174,7 +169,11 @@ class SearchController < ApplicationController
   end
 
   def feature_enabled?(feature_name)
-    PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT || params[feature_name].present?
+    if params[feature_name].present?
+      params[feature_name] =~ /^1|true|yes/
+    else
+      PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT
+    end
   end
 
   def organisations

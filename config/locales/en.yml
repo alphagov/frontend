@@ -17,6 +17,7 @@ en:
       notes: "Notes"
     programme:
       name: "Benefits & credits"
+      printer_friendly_page: "Print entire guide"
     transaction:
       name: "Service"
       start_now: "Start now"

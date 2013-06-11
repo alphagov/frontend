@@ -43,7 +43,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Printer friendly page")
+        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Printer entire guide")
 
         assert page.has_selector?("#test-report_a_problem")
       end

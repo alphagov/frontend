@@ -11,7 +11,6 @@ GEM
   remote: https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/
   specs:
     PriorityQueue (0.1.2)
-    ZenTest (4.8.2)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
       mail (~> 2.5.3)
@@ -41,8 +40,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
-    autotest-rails (4.1.2)
-      ZenTest (~> 4.5)
     aws-ses (0.4.4)
       builder
       mail (> 2.2.5)
@@ -227,9 +224,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest
   addressable
-  autotest-rails
   aws-ses
   capybara (= 2.0.2)
   cdn_helpers (= 0.9)

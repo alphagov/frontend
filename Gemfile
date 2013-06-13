@@ -55,8 +55,6 @@ end
 group :test do
   gem "mocha", '0.13.3', :require => false
   gem "webmock", :require => false
-  gem "ZenTest"
-  gem "autotest-rails"
   gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'ci_reporter'

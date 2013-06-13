@@ -131,17 +131,15 @@ class GovernmentResult < SearchResult
     display(document_series)
   end
 
-   def display_a_description
+  def display_a_description
     if self.description.present?
       self.description.truncate(150, :seperator => " ")
+    elsif self.indexable_content.present?
+      self.indexable_content.truncate(150, :seperator => " ")
     else
-      display_a_summary
+      nil
     end
   end
 
-  def display_a_summary
-    return unless self.indexable_content.present?
-    self.indexable_content.truncate(150, :seperator => " ")
-  end
 end
 

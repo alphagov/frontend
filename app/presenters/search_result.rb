@@ -124,7 +124,11 @@ class GovernmentResult < SearchResult
   end
 
   def display_world_locations
-    display(world_locations)
+    if world_locations.length > 1
+      "multiple locations"
+    else
+      display(world_locations)
+    end
   end
 
   def display_document_series

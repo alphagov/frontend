@@ -42,18 +42,18 @@
             </fieldset>
           </form>
         </section>
-        <div class="countries-wrapper">
+        <section class="countries-wrapper">
           <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
-            <section id="<%= initial %>" class="list">
-              <h1><%= initial %></h1>
+            <div id="<%= initial %>" class="list">
+              <h1><span class="visuallyhidden">Countries starting with </span><%= initial %></h1>
               <ul class="countries">
                 <% countries.each do |country| %>
                   <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
                 <% end %>
               </ul>
-            </section>
+            </div>
           <% end %>
-        </div>
+        </section>
       </div>
     </article>
 

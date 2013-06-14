@@ -6,29 +6,17 @@
         <%- if @publication.has_previous_part? -%>
           <li class="previous">
             <%= link_to previous_part_path(@publication, @publication.current_part, @edition), :title => t('formats.guide.navigate_to_previous_part'), :rel => "prev" do %>
-              <span class="pagination-label">Previous <!--<%= t 'formats.guide.part' %>--> <!--<%= part_number(@publication.parts, @publication.part_before(@publication.current_part)) %>--></span> <span class="pagination-part-title"><%= @publication.part_before(@publication.current_part).title %></span>
+              <span class="pagination-label">Previous </span> <span class="pagination-part-title"><%= @publication.part_before(@publication.current_part).title %></span>
             <% end %>
           </li>
-        <%- else -%>
-          <!-- <li class="first">
-            <span><%= t 'formats.guide.at_beginning_of_guide' %></span>
-          </li> -->
         <%- end -%>
         <%- if @publication.has_next_part? -%>
           <li class="next">
             <%= link_to next_part_path(@publication, @publication.current_part, @edition), :title => t('formats.guide.navigate_to_next_part'), :rel => "next" do %>
-              <span class="pagination-label">Next<!--<%= t 'formats.guide.part' %>--><!--<%= part_number(@publication.parts, @publication.part_after(@publication.current_part)) %>--></span> <span class="pagination-part-title"><%= @publication.part_after(@publication.current_part).title %></span>
+              <span class="pagination-label">Next</span> <span class="pagination-part-title"><%= @publication.part_after(@publication.current_part).title %></span>
             <% end %>
           </li>
-        <%- else -%>
-          <!-- <li class="last">
-            <span><%= t 'formats.guide.at_end_of_guide' %></span>
-          </li> -->
         <%- end -%>
-      <%- else -%>
-        <!-- <li class="last">
-          <span><%= t 'formats.guide.at_end_of_guide' %></span>
-        </li> -->
       <%- end -%>
     </ul>
   </nav>

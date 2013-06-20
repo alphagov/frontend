@@ -65,14 +65,14 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display multiple results without class name for single result set" do
-    stub_results("mainstream", [{}, {}, {}])
+    stub_results("mainstream", [a_search_result("a"), a_search_result("b")])
     get :index, q: "search-term"
     assert_select "div#services-information-results.single-item-pane", 0
   end
 
   test "should display tabs when there are results in one or more tab" do
-    stub_results("mainstream", [{}, {}, {}])
-    stub_results("government", [{}])
+    stub_results("mainstream", [a_search_result("a")])
+    stub_results("government", [a_search_result("b")])
     get :index, q: "search-term"
     assert_select "nav.js-tabs"
   end
@@ -84,7 +84,7 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the others do not" do
     should "display the 'no results' html in the tabs without results" do
-      stub_results("government", [{}])
+      stub_results("government", [a_search_result("a")])
       get :index, q: "search-term"
       assert_select "nav.js-tabs"
       assert_select "#services-information-results .no-results", /0 results in Services and information/
@@ -325,6 +325,7 @@ class SearchControllerTest < ActionController::TestCase
           "acronym"           => "MOD",
           "organisation_type" => "Ministerial department",
           "slug"              => "ministry-of-defence"
+
         }] })
       get :index, { q: "moon", organisation: "ministry-of-defence" }
       assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
@@ -441,5 +442,13 @@ class SearchControllerTest < ActionController::TestCase
     get :index, { q: "tax" }
     assert_select 'li:first-child  h3 a[href=/mainstream]'
     assert_select 'li:nth-child(2) h3 a[href=/detailed]'
+  end
+
+  should "hackily downweight government results to allow mainstream/detailed results to rank better" do
+    stub_results("mainstream", [a_search_result("mainstream", 100)])
+    stub_results("government", [a_search_result("government", 101)])
+    get :index, { q: "tax" }
+    assert_select 'li:first-child  h3 a[href=/mainstream]'
+    assert_select 'li:nth-child(2) h3 a[href=/government]'
   end
 end

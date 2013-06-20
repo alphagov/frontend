@@ -4,6 +4,8 @@
         <%= result.es_score %>
         &nbsp;
         <%= result.format %>
+        &nbsp;
+        <%= result.is_a?(GovernmentResult) ? "government" : "" %>
       </small>
     </span>
   <% end %>

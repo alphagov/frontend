@@ -448,7 +448,7 @@ class SearchControllerTest < ActionController::TestCase
     stub_results("mainstream", [a_search_result("mainstream", 100)])
     stub_results("government", [a_search_result("government", 101)])
     get :index, { q: "tax" }
-    assert_select 'li:first-child  h3 a[href=/mainstream]'
-    assert_select 'li:nth-child(2) h3 a[href=/government]'
+    assert_select '#top-results li:first-child  h3 a[href=/mainstream]'
+    assert_select '#top-results li:nth-child(2) h3 a[href=/government]'
   end
 end

@@ -445,10 +445,11 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   should "hackily downweight government results to allow mainstream/detailed results to rank better" do
-    stub_results("mainstream", [a_search_result("mainstream", 100)])
+    stub_results("mainstream", [a_search_result("mainstream-a", 100), a_search_result("mainstream-b", 1)])
     stub_results("government", [a_search_result("government", 101)])
     get :index, { q: "tax" }
-    assert_select '#top-results li:first-child  h3 a[href=/mainstream]'
+    assert_select '#top-results li:first-child  h3 a[href=/mainstream-a]'
     assert_select '#top-results li:nth-child(2) h3 a[href=/government]'
+    assert_select '#top-results li:nth-child(3) h3 a[href=/mainstream-b]'
   end
 end

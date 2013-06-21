@@ -1,3 +1,5 @@
+require 'indexable_support_page_set'
+
 namespace :rummager do
   desc "Reindex search engine"
   task :index => :environment do
@@ -8,7 +10,9 @@ namespace :rummager do
       "link" => "/help",
       "indexable_content" => "help assistance",
     }]
-    # puts "Looking for rummager at: #{Rummageable.host}"
-    Rummageable.index documents
+
+    support_pages = IndexableSupportPageSet.new.pages.map(&:to_hash)
+    documents = documents + support_pages
+    Rummageable.index(documents)
   end
 end

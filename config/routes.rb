@@ -41,7 +41,6 @@ Frontend::Application.routes.draw do
   get "/firekills", :to => "campaign#fire_kills"
   get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
   get "/businesssupport", :to => "campaign#business_support"
-  get "/disclosure", :to => "campaign#disclosure"
 
   # Temporary redirect that will be replaced with a campaign before long
   get "/unimoney" => redirect("/student-finance", :status => 302)

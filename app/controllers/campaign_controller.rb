@@ -26,9 +26,6 @@ class CampaignController < ApplicationController
   def business_support
   end
 
-  def disclosure
-  end
-
 protected
   def setup_slimmer_artefact
     set_slimmer_headers(format: 'campaign')

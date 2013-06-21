@@ -7,9 +7,16 @@ class IndexableSupportPageSetTest < ActiveSupport::TestCase
     assert pages.size > 0, "No pages found. Suspicious."
     pages.each do |page|
       hash = page.to_hash
-      ["title", "format", "link", "indexable_content"].each do |field| #"description"
+      ["title", "format", "link", "description", "indexable_content"].each do |field|
         assert_not_nil(hash[field], "Didn't get a #{field} for #{page.filename}")
       end
     end
+  end
+
+  should "exclude the index page as it's unlikely to be helpful as a search result" do
+    pages = IndexableSupportPageSet.new.pages
+    assert pages.size > 0, "No pages found. Suspicious."
+    links = pages.map(&:link)
+    assert links.exclude?("/support/index"), "Shouldn't have found the index page"
   end
 end

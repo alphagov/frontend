@@ -5,7 +5,7 @@ class IndexableSupportPage
 
   def initialize(filename)
     @filename = filename
-    @io = File.read(filename)
+    @file_contents = File.read(filename)
   end
 
   def title
@@ -55,6 +55,6 @@ class IndexableSupportPage
 
 private
   def html
-    @_html ||= Nokogiri::HTML.parse(@io)
+    @_html ||= Nokogiri::HTML.parse(@file_contents)
   end
 end

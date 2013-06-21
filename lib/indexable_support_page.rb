@@ -1,6 +1,8 @@
 require "nokogiri"
 
 class IndexableSupportPage
+  attr_reader :filename
+
   def initialize(filename)
     @filename = filename
     @io = File.read(filename)

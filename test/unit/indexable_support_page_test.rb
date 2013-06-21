@@ -22,6 +22,12 @@ class IndexableSupportPageTest < ActiveSupport::TestCase
     assert_equal "support_page", isp.format
   end
 
+  should "use 'Support' for the section" do
+    filename = "#{Rails.root}/app/views/support/about-govuk.html.erb"
+    isp = IndexableSupportPage.new(filename)
+    assert_equal "Support", isp.section
+  end
+
   should "use the filename without extension for the link" do
     filename = "#{Rails.root}/app/views/support/about-govuk.html.erb"
     isp = IndexableSupportPage.new(filename)

@@ -25,6 +25,10 @@ class IndexableSupportPage
     "support_page"
   end
 
+  def section
+    "Support"
+  end
+
   def link
      basename = File.basename(@filename)
      filename_without_extensions = basename.gsub(/(\.erb|\.html\.erb)$/, "")
@@ -43,6 +47,7 @@ class IndexableSupportPage
       "title" => title,
       "description" => description,
       "format" => format,
+      "section" => section,
       "link" => link,
       "indexable_content" => indexable_content
     }

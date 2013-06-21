@@ -41,7 +41,6 @@ Frontend::Application.routes.draw do
   get "/firekills", :to => "campaign#fire_kills"
   get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
   get "/businesssupport", :to => "campaign#business_support"
-  get "/disclosure", :to => "campaign#disclosure"
 
   # Jobssearch form override (English and Welsh variants)
   constraints(:slug => /(jobsearch|chwilio-am-swydd)/) do

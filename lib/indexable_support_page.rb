@@ -13,8 +13,12 @@ class IndexableSupportPage
   end
 
   def description
-    # Not yet implemented, intention is to use a meta-description
-    nil
+    meta_description = html.at_css("meta[name=description]")
+    if meta_description
+      meta_description.attr("content")
+    else
+      nil
+    end
   end
 
   def format

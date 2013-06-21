@@ -9,12 +9,11 @@ class IndexableSupportPageTest < ActiveSupport::TestCase
     assert_equal "About GOV.UK", isp.title
   end
 
-  should "use the meta description for the description"
-
-  should "fallback to blank when no meta description" do
+  should "use the meta description for the description" do
     filename = "#{Rails.root}/app/views/support/about-govuk.html.erb"
     isp = IndexableSupportPage.new(filename)
-    assert_equal nil, isp.description
+    expected = "GOV.UK linking policy, data sets, analytics and monitoring and republishing information on GOV.UK under the Open Goverment Licence"
+    assert_equal expected, isp.description
   end
 
   should "use 'support_page' for format" do

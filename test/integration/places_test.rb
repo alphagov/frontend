@@ -1,4 +1,4 @@
-require 'integration_test_helper'
+require_relative '../integration_test_helper'
 require 'gds_api/test_helpers/mapit'
 
 class PlacesTest < ActionDispatch::IntegrationTest
@@ -72,7 +72,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Enter your postcode to find a passport interview office near you.")
     end
 
-    within first(".find-nearest") do
+    within ".find-location-for-service" do
       assert page.has_field?("Enter a UK postcode")
       assert page.has_button?("Find")
     end
@@ -166,7 +166,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display the postcode form" do
-      within first(".find-nearest") do
+      within ".find-location-for-service" do
         assert page.has_field?("Enter a UK postcode")
         assert page.has_button?("Find")
       end

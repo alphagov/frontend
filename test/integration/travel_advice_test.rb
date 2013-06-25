@@ -18,10 +18,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit '/foreign-travel-advice'
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Foreign travel advice - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']")
-        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Foreign travel advice", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']", :visible => :all)
       end
 
       assert page.has_selector?("#wrapper.travel-advice.guide")
@@ -148,6 +148,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
 
         should "not refresh page when hitting enter within the country filer" do
+          # For some reason PhantomJS isn't executing this script at the top of the <body> element,
+          # so we have to repeat it here.
+          page.execute_script %Q(document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');)
+
           within "#country-filter" do
             fill_in "country", :with => "Aruba"
 
@@ -184,10 +188,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit "/foreign-travel-advice/turks-and-caicos-islands"
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
-        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']", :visible => :all)
       end
 
       within '#global-breadcrumb nav' do
@@ -251,9 +255,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within('.page-navigation') { click_on "Page Two" }
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']", :visible => :all)
       end
 
       within '.page-header' do
@@ -280,9 +284,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within('.page-navigation') { click_on "The Bridge of Death" }
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Turks and Caicos Islands extra special travel advice - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']", :visible => :all)
       end
 
       within '.page-header' do
@@ -365,9 +369,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit "/foreign-travel-advice/luxembourg"
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Luxembourg travel advice - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/luxembourg.json']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Luxembourg travel advice", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/luxembourg.json']", :visible => :all)
       end
 
       within '.page-header' do

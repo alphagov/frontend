@@ -10,9 +10,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Register to vote - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/register-to-vote.json']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Register to vote - GOV.UK", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/register-to-vote.json']", :visible => :all)
       end
 
       within '#content' do
@@ -91,9 +91,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Apply for your first provisional driving licence - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/apply-first-provisional-driving-licence.json']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Apply for your first provisional driving licence - GOV.UK", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/apply-first-provisional-driving-licence.json']", :visible => :all)
       end
 
       within '#content .article-container section.more' do
@@ -172,9 +172,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head' do
-        assert_equal "Find a job with Universal Jobmatch - GOV.UK", find("title").native.text
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobsearch.json']")
+      within 'head', :visible => :all do
+        assert page.has_selector?("title", :text => "Find a job with Universal Jobmatch - GOV.UK", :visible => :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobsearch.json']", :visible => :all)
       end
 
       within '#content' do

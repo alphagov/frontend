@@ -9,13 +9,13 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, page.status_code
 
-    within 'head' do
-      assert_equal "Data protection - GOV.UK", find("title").native.text
-      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/data-protection.json']")
+    within 'head', :visible => :all do
+      assert page.has_selector?("title", :text => "Data protection - GOV.UK", :visible => :all)
+      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/data-protection.json']", :visible => :all)
     end
 
     within '#content' do
-      within first('header') do
+      within 'header.page-header' do
         assert page.has_content?("Data protection")
         assert page.has_content?("Guide")
         assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
@@ -132,7 +132,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
 
     within '#content' do
-      within first('header') do
+      within 'header.page-header' do
         assert page.has_content?("Canllaw")
         assert page.has_content?("Data protection")
         assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
@@ -184,8 +184,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     visit "/data-protection/print"
 
     within "section[role=main]" do
-      within first("header") do
-        assert page.has_selector?("h1", :text => "Data protection, a guide from GOV.UK")
+      within first("header h1") do
+        assert page.has_content?("Data protection, a guide from GOV.UK")
       end
 
       within "article#the-data-protection-act" do
@@ -245,12 +245,12 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, page.status_code
 
-    within 'head' do
-      assert_equal "Data protection - GOV.UK", find("title").native.text
+    within 'head', :visible => :all do
+      assert page.has_selector?("title", :text => "Data protection - GOV.UK", :visible => :all)
     end
 
     within '#content' do
-      within first('header') do
+      within 'header.page-header' do
         assert page.has_content?("Data protection")
       end
 

@@ -33,24 +33,27 @@
           </ul>
         </section>
 
-        <form id="country-filter">
-          <fieldset>
-            <label for="country">Which country or territory are you looking for?</label>
-            <input id="country" name="country" type="text" />
-          </fieldset>
-        </form>
-        <div class="countries-wrapper">
+        <section id="country-filter">
+          <form>
+            <fieldset>
+              <h1>Which country or territory are you looking for?</h1>
+              <label for="country">Country or territory</label>
+              <input id="country" name="country" type="text" />
+            </fieldset>
+          </form>
+        </section>
+        <section class="countries-wrapper">
           <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
-            <section id="<%= initial %>" class="list">
-              <h1><%= initial %></h1>
+            <div id="<%= initial %>" class="list">
+              <h1><span class="visuallyhidden">Countries starting with </span><%= initial %></h1>
               <ul class="countries">
                 <% countries.each do |country| %>
                   <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
                 <% end %>
               </ul>
-            </section>
+            </div>
           <% end %>
-        </div>
+        </section>
       </div>
     </article>
 

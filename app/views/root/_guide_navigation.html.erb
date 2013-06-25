@@ -1,7 +1,7 @@
 <% if @publication.parts.size > 1 then %>
 <aside>
   <div class="inner">
-    <nav role="navigation" class="page-navigation">
+    <nav role="navigation" class="page-navigation" aria-label="parts to this guide">
       <% @publication.parts.each_slice(parts_group_size(@publication.parts)).with_index do |parts,i| %>
         <ol<%= " start=\"#{parts_group_size(@publication.parts) + 1}\"".html_safe if i == 1 %>>
           <% parts.each do |nav_part| %>

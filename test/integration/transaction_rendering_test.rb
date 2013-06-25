@@ -31,7 +31,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           end
 
           within 'section.more' do
-            assert page.has_no_selector?('nav.nav-tabs')
+            assert page.has_no_selector?('div.nav-tabs')
 
             assert page.has_selector?('h1', :text => "What you need to know")
 
@@ -98,7 +98,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       within '#content .article-container section.more' do
         expected = ['Before you start', 'What you need to know', 'Other ways to apply']
-        tabs = page.all('nav.nav-tabs li').map(&:text)
+        tabs = page.all('div.nav-tabs li').map(&:text)
         assert_equal expected, tabs
 
         within '.tab-content' do
@@ -136,7 +136,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       within '#content .article-container section.more' do
         expected = ['Cyn i chi ddechrau', 'Yr hyn mae angen i chi ei wybod', 'Ffyrdd eraill o wneud cais']
-        tabs = page.all('nav.nav-tabs li').map(&:text)
+        tabs = page.all('div.nav-tabs li').map(&:text)
         assert_equal expected, tabs
       end
     end
@@ -201,7 +201,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
           within 'section.more' do
             expected = ['Before you start', 'Other ways to apply']
-            tabs = page.all('nav.nav-tabs li').map(&:text)
+            tabs = page.all('div.nav-tabs li').map(&:text)
             assert_equal expected, tabs
 
             within '.tab-content' do
@@ -258,7 +258,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
           within 'section.more' do
             expected = ['Cyn i chi ddechrau', 'Ffyrdd eraill o wneud cais']
-            tabs = page.all('nav.nav-tabs li').map(&:text)
+            tabs = page.all('div.nav-tabs li').map(&:text)
             assert_equal expected, tabs
           end
 

@@ -1,2 +1,3 @@
 <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
+<%= hidden_field_tag(:spelling_suggestion, params[:spelling_suggestion]) if params[:spelling_suggestion] %>
 <%= hidden_field_tag :tab, "#{@active_stream.key}-results" if @active_stream %>

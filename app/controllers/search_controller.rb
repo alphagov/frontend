@@ -26,6 +26,12 @@ class SearchController < ApplicationController
         unfiltered_government_results = government_results
       end
 
+      if feature_enabled?("spelling_suggestion")
+        if raw_mainstream_results(@search_term)["spelling_suggestions"]
+          @spelling_suggestion = raw_mainstream_results(@search_term)["spelling_suggestions"].first
+        end
+      end
+
       detailed_results = retrieve_detailed_guidance_results(@search_term)
       # hackily downweight detailed results to prevent them swamping mainstream results
       adjusted_detailed_results = multiply_result_scores(detailed_results, 0.8)
@@ -97,10 +103,17 @@ class SearchController < ApplicationController
     grouped_mainstream_results[:everything_else]
   end
 
+  def raw_mainstream_results(term)
+    @_raw_mainstream_results ||= begin
+      Frontend.mainstream_search_client.search(term, extra_search_parameters)
+    end
+  end
+
   def retrieve_mainstream_results(term)
-    res = Frontend.mainstream_search_client.search(term, extra_search_parameters)
+    res = raw_mainstream_results(term)
     res["results"].map { |r| SearchResult.new(r) }
   end
+
 
   def retrieve_detailed_guidance_results(term)
     res = Frontend.detailed_guidance_search_client.search(term, extra_search_parameters)

@@ -12,6 +12,11 @@ class SearchControllerTest < ActionController::TestCase
     }
   end
 
+  # spelling_suggestions - an array of string spelling suggestions.
+  #                        Defaults to empty list.
+  #                        Explicitly passing "nil" means they key is excluded,
+  #                        Which allows testing against Rummager before the
+  #                        feature was added.
   def stub_results(index_name, search_results = [], spelling_suggestions = [])
     response_body = {
       "total" => search_results.size,
@@ -278,7 +283,7 @@ class SearchControllerTest < ActionController::TestCase
 
   context "?spelling_suggestion=1" do
     context "spelling suggestions NOT returned" do
-      should "display a link to the first suggestion from mainstream" do
+      should "not display a spelling suggestion link" do
         # temporary backwards compatibility with pre-suggestive rummager
         stub_results("mainstream", [], nil)
         get :index, { q: "afgananinanistan", spelling_suggestion: "1" }

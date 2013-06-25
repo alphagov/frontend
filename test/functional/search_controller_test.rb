@@ -74,7 +74,7 @@ class SearchControllerTest < ActionController::TestCase
     stub_results("mainstream", [a_search_result("a")])
     stub_results("government", [a_search_result("b")])
     get :index, q: "search-term"
-    assert_select "nav.js-tabs"
+    assert_select "div.js-tabs"
   end
 
   test "should display no tabs when there are no results" do
@@ -86,7 +86,7 @@ class SearchControllerTest < ActionController::TestCase
     should "display the 'no results' html in the tabs without results" do
       stub_results("government", [a_search_result("a")])
       get :index, q: "search-term"
-      assert_select "nav.js-tabs"
+      assert_select "div.js-tabs"
       assert_select "#services-information-results .no-results", /0 results in Services and information/
     end
   end
@@ -344,7 +344,7 @@ class SearchControllerTest < ActionController::TestCase
         # TODO see if we can remove the stub from the context setup up a level
         stub_results("government", [])
         get :index, { q: "moon", organisation: "ministry-of-defence" }
-        assert_select "nav.js-tabs"
+        assert_select "div.js-tabs"
         assert_select "#government-results h3 a", count: 0
       end
     end

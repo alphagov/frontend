@@ -1,10 +1,10 @@
-<nav class="js-tabs nav-tabs">
+<div class="js-tabs nav-tabs">
   <ul>
     <% if presenter.before_you_start? %><li class="active"><a href="#before-you-start"><%= t 'formats.transaction.before_you_start' %></a></li><% end %>
     <% if presenter.what_you_need_to_know? %><li><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></li><% end %>
     <% if presenter.other_ways_to_apply? %><li><a href="#other-ways-to-apply"><%= t 'formats.transaction.other_ways_to_apply' %></a></li><% end %>
   </ul>
-</nav>
+</div>
 
 <div class="js-tab-content tab-content">
   <% if presenter.before_you_start? %>

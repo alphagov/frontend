@@ -8,7 +8,6 @@
     "format": "transaction",
     "details": {
         "need_id": "1957",
-        "business_proposition": false,
         "description": "Apply for your first provisional driving licence online to drive a car, moped or motorcycle",
         "language": "en",
         "alternative_title": "",
@@ -93,7 +92,6 @@
             "format": "transaction",
             "details": {
                 "need_id": "849",
-                "business_proposition": false,
                 "description": "Apply online to renew the photo on your driving licence, full or provisional"
             },
             "updated_at": "2012-11-19T11:26:38+00:00"
@@ -105,7 +103,6 @@
             "format": "answer",
             "details": {
                 "need_id": "1971",
-                "business_proposition": false,
                 "description": "The rules for driving or riding before you've passed your test and got a full licence"
             },
             "updated_at": "2012-11-02T17:27:20+00:00"
@@ -117,7 +114,6 @@
             "format": "transaction",
             "details": {
                 "need_id": "857",
-                "business_proposition": false,
                 "description": "Track your driving licence application if you've already made an online application"
             },
             "updated_at": "2012-10-22T15:19:07+00:00"
@@ -129,7 +125,6 @@
             "format": "answer",
             "details": {
                 "need_id": "1624",
-                "business_proposition": false,
                 "description": "You may be able to get provisional entitlement to higher category vehicles, and automatic entitlement to lower categories if you pass a higher category driving test"
             },
             "updated_at": "2012-11-01T16:37:05+00:00"
@@ -141,7 +136,6 @@
             "format": "answer",
             "details": {
                 "need_id": "B180",
-                "business_proposition": true,
                 "description": "There are different fees if you want to renew, exchange or amend your driving licence, full or provisional - or get a duplicate if yours has been lost, stolen or damaged"
             },
             "updated_at": "2012-11-27T12:32:18+00:00"

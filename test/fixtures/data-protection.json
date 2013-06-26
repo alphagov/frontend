@@ -8,7 +8,6 @@
     "format": "guide",
     "details": {
         "need_id": "636",
-        "business_proposition": false,
         "description": "The Data Protection Act (DPA) controls how personal information can be used and your rights to ask for information about yourself",
         "language": "en",
         "alternative_title": "",
@@ -78,7 +77,6 @@
             "format": "answer",
             "details": {
                 "need_id": "353",
-                "business_proposition": false,
                 "description": "Personal data an employer can keep about an employee, and employee rights to see this information under data protection rules"
             },
             "updated_at": "2012-10-22T15:23:09+00:00"

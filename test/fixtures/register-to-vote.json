@@ -8,7 +8,6 @@
     "format": "transaction",
     "details": {
         "need_id": "692",
-        "business_proposition": false,
         "description": "Get the right form to register to vote depending on your circumstances",
         "language": "en",
         "alternative_title": "",
@@ -62,7 +61,6 @@
             "format": "answer",
             "details": {
                 "need_id": "1877",
-                "business_proposition": false,
                 "description": "Find out how to get on the electoral register (also known as the electoral roll) and what it's used for"
             },
             "updated_at": "2012-10-22T15:12:49+00:00"
@@ -74,7 +72,6 @@
             "format": "local_transaction",
             "details": {
                 "need_id": "170",
-                "business_proposition": false,
                 "description": "Councils carry out consultations to help plan, manage and deliver services. Have your say about local issues by responding to consultations run by your council"
             },
             "updated_at": "2012-10-22T15:18:55+00:00"
@@ -86,7 +83,6 @@
             "format": "local_transaction",
             "details": {
                 "need_id": "2114",
-                "business_proposition": false,
                 "description": "If you are unable to vote, you can ask someone to vote for you, and tell them who to vote for - contact your council for more information"
             },
             "updated_at": "2012-10-22T15:18:36+00:00"

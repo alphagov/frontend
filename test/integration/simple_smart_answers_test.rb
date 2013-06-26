@@ -39,4 +39,96 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert page.has_selector?("#test-related")
   end
+
+  without_javascript do
+    should "handle the flow correctly" do
+      visit "/the-bridge-of-death"
+
+      click_on "Start now"
+
+      assert_current_url "/the-bridge-of-death/y"
+
+      assert page.has_selector?("head meta[name=robots][content=noindex]", :visible => :all)
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "1" }
+          assert_page_has_content "What...is your name?"
+        end
+        within '.question-body' do
+          assert page.has_field?("Sir Lancelot of Camelot", :type => 'radio', :with => "sir-lancelot-of-camelot")
+          assert page.has_field?("Sir Robin of Camelot", :type => 'radio', :with => "sir-robin-of-camelot")
+          assert page.has_field?("Sir Galahad of Camelot", :type => 'radio', :with => "sir-galahad-of-camelot")
+          # Assert they're in the correct order
+          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+          assert_equal ["Sir Lancelot of Camelot", "Sir Robin of Camelot", "Sir Galahad of Camelot"], options
+        end
+      end
+
+      choose "Sir Lancelot of Camelot"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
+
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death') }
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/?previous_response=sir-lancelot-of-camelot") }
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "2" }
+          assert_page_has_content "What...is your favorite colour?"
+        end
+        within '.question-body' do
+          assert page.has_field?("Blue", :type => 'radio', :with => "blue")
+          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :with => "blue-no-yelloooooooooooooooowww")
+          # Assert they're in the correct order
+          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+          assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
+        end
+      end
+
+      choose "Blue"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
+
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death') }
+        within 'ol li.done:nth-child(1)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/?previous_response=sir-lancelot-of-camelot") }
+        end
+        within 'ol li.done:nth-child(2)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "2" }
+            assert_page_has_content "What...is your favorite colour?"
+          end
+          within('.answer') { assert_page_has_content "Blue" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
+        end
+      end
+
+      within '.outcome' do
+        within '.result-info' do
+          within('h2.result-title') { assert_page_has_content "Right, off you go." }
+          assert_page_has_content "Oh! Well, thank you. Thank you very much."
+        end
+      end
+
+      assert page.has_selector?("#content .article-container #test-report_a_problem")
+    end
+  end
 end

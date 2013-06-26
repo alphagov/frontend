@@ -15,7 +15,7 @@
       {
         "kind": "question",
         "slug": "what-is-your-name",
-        "title": "What is your name?",
+        "title": "What...is your name?",
         "body": "\n",
         "options": [
           {
@@ -38,7 +38,7 @@
       {
         "kind": "question",
         "slug": "what-is-the-capital-of-assyria",
-        "title": "What is the capital of Assyria?",
+        "title": "What...is the capital of Assyria?",
         "body": "\n",
         "options": [
           {
@@ -51,7 +51,7 @@
       {
         "kind": "question",
         "slug": "what-is-your-favorite-colour",
-        "title": "What is your favorite colour?",
+        "title": "What...is your favorite colour?",
         "body": "\n",
         "options": [
           {
@@ -70,7 +70,7 @@
         "kind": "outcome",
         "slug": "right-off-you-go",
         "title": "Right, off you go.",
-        "body": "<p>Oh! Well, thank you. Thank you very much</p>\n",
+        "body": "<p>Oh! Well, thank you. Thank you very much.</p>\n",
         "options": [ ]
       },
       {

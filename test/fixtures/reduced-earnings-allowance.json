@@ -8,7 +8,6 @@
     "format": "programme",
     "details": {
         "need_id": "49",
-        "business_proposition": false,
         "description": "Reduced Earnings Allowance can help if your income falls because of a work-related accident or disease - what you'll get, eligibility and how to claim",
         "language": "en",
         "alternative_title": "",
@@ -148,7 +147,6 @@
             "format": "programme",
             "details": {
                 "need_id": "47",
-                "business_proposition": false,
                 "description": "Statutory Sick Pay is money you get when you're off work due to sickness - what you'll get, eligibility, how to claim"
             },
             "updated_at": "2012-10-22T15:25:57+00:00"
@@ -160,7 +158,6 @@
             "format": "programme",
             "details": {
                 "need_id": "1033",
-                "business_proposition": false,
                 "description": "You might get Industrial Injuries Disablement Benefit (IIDB) if you're ill or disabled from an accident or disease caused by work - what you'll get, eligibility, how to claim"
             },
             "updated_at": "2012-11-07T15:45:16+00:00"

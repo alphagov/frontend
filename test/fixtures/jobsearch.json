@@ -8,7 +8,6 @@
     "format": "transaction",
     "details": {
         "need_id": "125",
-        "business_proposition": false,
         "description": "Find a job using the Universal Jobmatch service - jobseekers can match their CV and skills to jobs posted by companies",
         "language": "en",
         "alternative_title": "Universal Jobmatch job search and matching",
@@ -60,7 +59,6 @@
             "format": "guide",
             "details": {
                 "need_id": "B696",
-                "business_proposition": true,
                 "description": "How to become an apprentice – qualifications, pay and training, take on an apprentice - funding, employer grants and NAS "
             },
             "updated_at": "2012-11-05T15:02:28+00:00"
@@ -72,7 +70,6 @@
             "format": "guide",
             "details": {
                 "need_id": "2585",
-                "business_proposition": false,
                 "description": "Support and services from Jobcentre Plus to help you leave benefits and start work - work programme, work clubs, starting a business, volunteering, work experience, help with drug or alcohol problems, support for carers"
             },
             "updated_at": "2012-11-29T10:58:48+00:00"
@@ -84,7 +81,6 @@
             "format": "answer",
             "details": {
                 "need_id": "2640",
-                "business_proposition": false,
                 "description": "Help and advice on finding a job including where to look and safety when looking for a job "
             },
             "updated_at": "2012-11-01T11:47:40+00:00"

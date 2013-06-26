@@ -60,6 +60,32 @@ class ActionDispatch::IntegrationTest
       assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
     end
   end
+
+  def self.with_javascript
+    context "with javascript" do
+      setup do
+        Capybara.current_driver = Capybara.javascript_driver
+      end
+
+      yield
+    end
+  end
+
+  def self.without_javascript
+    context "without javascript" do
+      yield
+    end
+  end
+
+  def self.with_and_without_javascript
+    without_javascript do
+      yield
+    end
+
+    with_javascript do
+      yield
+    end
+  end
 end
 
 Capybara.javascript_driver = :poltergeist

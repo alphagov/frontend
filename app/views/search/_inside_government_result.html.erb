@@ -54,8 +54,14 @@
         <li><a href="<%= result.link %>#policies">Policies</a></li>
         <li><a href="<%= result.link %>#org-contacts">Contact details</a></li>
         <li><a href="<%= result.link %>#ministers">Ministers</a></li>
-      </ul>
+			</ul> 
     <% end %>
+	<% when 'minister' then %>
+		<p><%= truncate(result.indexable_content, length: 150, separator: " ") %></p>
+		<ul class="sections">
+			<li><a href="<%= result.link %>/#responsibilities">Responsibilities</a></li>
+			<li><a href="<%= result.link %>#current-role-holder">Current role holder</a></li>
+		</ul> 
   <% when 'person' then %>
     <p><%= result.display_a_description %></p>
     <ul class="sections">

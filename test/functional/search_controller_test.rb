@@ -48,7 +48,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should inform the user that we didn't find any documents matching the search term" do
     get :index, q: "search-term"
-    assert_select ".no-results h2", text: %Q{0 results for &ldquo;search-term&rdquo;}
+    assert_select ".no-results h2", text: %Q{No results for &ldquo;search-term&rdquo;}
   end
 
   test "should pass our query parameter in to the search client" do
@@ -95,7 +95,7 @@ class SearchControllerTest < ActionController::TestCase
       stub_results("government", [a_search_result("a")])
       get :index, q: "search-term"
       assert_select "div.js-tabs"
-      assert_select "#services-information-results .no-results", /0 results in Services and information/
+      assert_select "#services-information-results .no-results", /No results in Services and information/
     end
   end
 

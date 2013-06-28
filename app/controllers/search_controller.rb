@@ -152,7 +152,8 @@ class SearchController < ApplicationController
 
   # The tab that the user has clicked on. We should remember this.
   def selected_tab
-    tabs =  %w{ government-results detailed-results mainstream-results }
+    # This list would be more robust if it were built from the streams
+    tabs =  %w{ government-results services-information-results }
     tabs.include?(params[:tab]) ? params[:tab] : nil
   end
 

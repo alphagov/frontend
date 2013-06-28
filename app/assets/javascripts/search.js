@@ -17,10 +17,14 @@ $(function() {
   }
 
   if($searchForm.length){
-    $tabs.on('tabChanged', updateSearchForm);
+    $tabs.on('tabChanged', updateSearchForms);
   }
 
-  function updateSearchForm(e, hash){
+  // Update the forms so that the selected tab is remembered for the next search.
+  // This function applies to any form with the "tab" hidden input in it:
+  //   * form at the top
+  //   * government filtering form
+  function updateSearchForms(e, hash){
     if(typeof hash !== 'undefined'){
       var $selectedTab = $('input[name=tab]');
 

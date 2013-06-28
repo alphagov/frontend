@@ -8,10 +8,10 @@ $(function() {
 
   function getDefaultSearchTabIndex(){
     var tabIds = $('.search-navigation a').map(function(i, el){
-          return $(el).attr('href').split('#').pop();
-        }),
-        $defaultTab = $('input[name=tab]'),
-        selectedTab = $.inArray($defaultTab.val(), tabIds);
+      return $(el).attr('href').split('#').pop();
+    });
+    $defaultTab = $('input[name=tab]');
+    selectedTab = $.inArray($defaultTab.val(), tabIds);
 
     return selectedTab > -1 ? selectedTab : 0;
   }

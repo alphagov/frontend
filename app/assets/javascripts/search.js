@@ -7,7 +7,7 @@ $(function() {
   }
 
   function getDefaultSearchTabIndex(){
-    var tabIds = $('.nav-tabs a').map(function(i, el){
+    var tabIds = $('.search-navigation a').map(function(i, el){
           return $(el).attr('href').split('#').pop();
         }),
         $defaultTab = $('input[name=tab]'),

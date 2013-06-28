@@ -3,10 +3,10 @@ $(function() {
       $searchForm = $('.js-search-hash');
 
   if($tabs.length > 0){
-    $tabs.tabs({ 'defaultTab' : getDefaultSearchTab(), scrollOnload: true });
+    $tabs.tabs({ 'defaultTab' : getDefaultSearchTabIndex(), scrollOnload: true });
   }
 
-  function getDefaultSearchTab(){
+  function getDefaultSearchTabIndex(){
     var tabIds = $('.nav-tabs a').map(function(i, el){
           return $(el).attr('href').split('#').pop();
         }),

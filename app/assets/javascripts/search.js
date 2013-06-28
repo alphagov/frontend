@@ -3,15 +3,15 @@ $(function() {
       $searchForm = $('.js-search-hash');
 
   if($tabs.length > 0){
-    $tabs.tabs({ 'defaultTab' : getDefaultSearchTabIndex(), scrollOnload: true });
+    $tabs.tabs({ 'defaultTab' : getSelectedSearchTabIndex(), scrollOnload: true });
   }
 
-  function getDefaultSearchTabIndex(){
+  function getSelectedSearchTabIndex(){
     var tabIds = $('.search-navigation a').map(function(i, el){
       return $(el).attr('href').split('#').pop();
     });
-    $defaultTab = $('input[name=tab]');
-    selectedTab = $.inArray($defaultTab.val(), tabIds);
+    $selectedTab = $('input[name=tab]');
+    selectedTab = $.inArray($selectedTab.val(), tabIds);
 
     return selectedTab > -1 ? selectedTab : 0;
   }
@@ -22,14 +22,14 @@ $(function() {
 
   function updateSearchForm(e, hash){
     if(typeof hash !== 'undefined'){
-      var $defaultTab = $('input[name=tab]');
+      var $selectedTab = $('input[name=tab]');
 
-      if($defaultTab.length === 0){
-        $defaultTab = $('<input type="hidden" name="tab">');
-        $searchForm.prepend($defaultTab);
+      if($selectedTab.length === 0){
+        $selectedTab = $('<input type="hidden" name="tab">');
+        $searchForm.prepend($selectedTab);
       }
 
-      $defaultTab.val(hash);
+      $selectedTab.val(hash);
     }
   }
 });

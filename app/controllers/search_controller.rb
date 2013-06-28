@@ -150,11 +150,16 @@ class SearchController < ApplicationController
     set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
   end
 
+  # The tab that the user has clicked on. We should remember this.
   def selected_tab
     tabs =  %w{ government-results detailed-results mainstream-results }
     tabs.include?(params[:tab]) ? params[:tab] : nil
   end
 
+  # The tab that should be selected.
+  # If the user has selected a tab, use that one.
+  # Otherwise, select the first tab with results.
+  # If there are no results, select the first tab.
   def active_stream(streams)
     active_stream = streams.detect do |stream|
       stream_key_as_tab_name = "#{stream.key}-results"

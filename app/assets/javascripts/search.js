@@ -6,14 +6,22 @@ $(function() {
     $tabs.tabs({ 'defaultTab' : getSelectedSearchTabIndex(), scrollOnload: true });
   }
 
+  // Returns the index of the tab, or defaults to 0 (ie the first tab)
+  //
+  // To do this, it looks at which tab has the "active" class.
+  // This might be the one that the user has selected, or one that the server
+  // has defaulted to (eg the first tab might have no results, so we'd set the
+  // second one as active)
   function getSelectedSearchTabIndex(){
     var tabIds = $('.search-navigation a').map(function(i, el){
       return $(el).attr('href').split('#').pop();
     });
-    $selectedTab = $('input[name=tab]');
-    selectedTab = $.inArray($selectedTab.val(), tabIds);
 
-    return selectedTab > -1 ? selectedTab : 0;
+    var activeTabId = $(".search-navigation li.active a").first()
+                        .attr("href").replace("#", "");
+
+    var tabIndex = $.inArray(activeTabId, tabIds);
+    return tabIndex > -1 ? tabIndex : 0;
   }
 
   if($searchForm.length){

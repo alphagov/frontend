@@ -4,7 +4,7 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
-  helper_method :feature_enabled?, :ministerial_departments, :other_organisations
+  helper_method :feature_enabled?, :ministerial_departments, :other_organisations, :selected_tab
 
   rescue_from GdsApi::BaseError, with: :error_503
 

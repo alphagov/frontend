@@ -4,7 +4,7 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
-  helper_method :feature_enabled?, :ministerial_departments, :other_organisations
+  helper_method :ministerial_departments, :other_organisations
 
   rescue_from GdsApi::BaseError, with: :error_503
 
@@ -26,10 +26,8 @@ class SearchController < ApplicationController
         unfiltered_government_results = government_results
       end
 
-      if feature_enabled?("spelling_suggestion")
-        if raw_mainstream_results(@search_term)["spelling_suggestions"]
-          @spelling_suggestion = raw_mainstream_results(@search_term)["spelling_suggestions"].first
-        end
+      if raw_mainstream_results(@search_term)["spelling_suggestions"]
+        @spelling_suggestion = raw_mainstream_results(@search_term)["spelling_suggestions"].first
       end
 
       detailed_results = retrieve_detailed_guidance_results(@search_term)

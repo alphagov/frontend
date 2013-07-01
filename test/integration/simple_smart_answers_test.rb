@@ -48,7 +48,17 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert_current_url "/the-bridge-of-death/y"
 
-      assert page.has_selector?("head meta[name=robots][content=noindex]", :visible => :all)
+      within 'head', :visible => :all do
+        assert page.has_selector?('title', :text => "The Bridge of Death - GOV.UK", :visible => :all)
+        assert page.has_selector?("meta[name=robots][content=noindex]", :visible => :all)
+      end
+
+      within '#content' do
+        within 'header.page-header' do
+          assert_page_has_content("The Bridge of Death")
+          assert_page_has_content("Quick answer")
+        end
+      end
 
       within '.current-question' do
         within 'h2' do
@@ -130,5 +140,9 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("#content .article-container #test-report_a_problem")
     end
-  end
+
+    should "handle invalid responses correctly"
+
+    should "allow changing an answer"
+  end # without javascript
 end

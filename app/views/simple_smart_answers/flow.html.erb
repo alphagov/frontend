@@ -1,2 +1,22 @@
-<h1>SimpleSmartAnswers#flow</h1>
-<p>Find me in app/views/simple_smart_answers/flow.html.erb</p>
+<% content_for :extra_headers do %>
+  <meta name="robots" content="noindex" />
+<% end %>
+
+<section id="content">
+  <header class="page-header group">
+    <hgroup>
+      <h1>
+        <span>Quick answer </span>
+        <%= @publication.title %>
+      </h1>
+    </hgroup>
+  </header>
+
+
+  <div class="step current">
+    <div class="current-question">
+      <h2><span class="question-number"><%= @flow_state.current_question_number %></span> <%= @flow_state.current_node.title %></h2>
+
+    </div>
+  </div>
+</section>

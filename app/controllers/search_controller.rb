@@ -165,14 +165,6 @@ class SearchController < ApplicationController
     active_stream || streams.first
   end
 
-  def feature_enabled?(feature_name)
-    if params[feature_name].present?
-      params[feature_name] =~ /^1|true|yes/
-    else
-      PROTOTYPE_FEATURES_ENABLED_BY_DEFAULT
-    end
-  end
-
   def organisations
     @_organisations ||= Frontend.organisations_search_client.organisations["results"] || []
   end

@@ -10,7 +10,7 @@
 
   var input = $("#country-filter form input#country"),
       listItems = $("ul.countries li"),
-      countryHeadings = $(".inner section div").children("h1");
+      countryHeadings = $(".inner section.countries-wrapper div").children("h2");
 
   var filterHeadings = function() {
     countryHeadings.each(function(index, elem) {
@@ -32,6 +32,9 @@
   };
 
   var filterListItems = function(filter) {
+    var itemsToHide,
+        itemsShowing;
+
     filterHeadings();
     listItems.each(function(i, item) {
       var $item = $(item);
@@ -41,7 +44,9 @@
 
     filter = $.trim(filter);
     if(filter && filter.length > 0) {
-      listItems.filter(":not(:contains(" + filter + "))").hide();
+      itemsToHide = listItems.filter(":not(:contains(" + filter + "))");
+      itemsToHide.hide();
+      itemsShowing = listItems.length - itemsToHide.length;
       listItems.each(function(i, item) {
         var $listItem = $(item);
         var synonym = doesSynonymMatch(item, filter);
@@ -52,9 +57,14 @@
       filterHeadings();
     } else {
       countryHeadings.show();
+      itemsShowing = listItems.length;
     }
+    $(document).trigger("countrieslist", { "count" : itemsShowing });
   };
 
+  var updateCounter = function (e, eData) {
+    $(".country-count .js-filter-count").text(eData.count);
+  };
 
   input.change(function(e) {
     var filter = $(this).val();
@@ -67,4 +77,5 @@
       event.preventDefault();
     }
   });
+  $(document).bind("countrieslist", updateCounter);
 }(jQuery));

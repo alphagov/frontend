@@ -15,28 +15,31 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
       context "without any form submission params" do
         setup do
-          @stub_flow_state = OpenStruct.new
+          @stub_flow_state = OpenStruct.new(
+            :completed_questions => [],
+            :current_node => OpenStruct.new(:kind => "question", :options => [])
+          )
           SimpleSmartAnswers::Flow.any_instance.stubs(:state_for_responses).returns(@stub_flow_state)
         end
 
         should "calculate the flow state with no responses" do
           flow = mock("SimpleSmartAnswers::Flow")
           SimpleSmartAnswers::Flow.expects(:new).with(["some nodes"]).returns(flow)
-          flow.expects(:state_for_responses).with([]).returns(:some_state)
+          flow.expects(:state_for_responses).with([]).returns(@stub_flow_state)
 
           get :flow, :slug => "the-bridge-of-death"
 
-          assert_equal :some_state, assigns[:flow_state]
+          assert_equal @stub_flow_state, assigns[:flow_state]
         end
 
         should "calculate the flow state for the given responses" do
-          flow = mock("SimpleSmartAnswers::Flow")
+          flow = stub("SimpleSmartAnswers::Flow")
           SimpleSmartAnswers::Flow.expects(:new).with(["some nodes"]).returns(flow)
-          flow.expects(:state_for_responses).with(["foo", "bar"]).returns(:some_state)
+          flow.expects(:state_for_responses).with(["foo", "bar"]).returns(@stub_flow_state)
 
           get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar"
 
-          assert_equal :some_state, assigns[:flow_state]
+          assert_equal @stub_flow_state, assigns[:flow_state]
         end
 
         should "render the flow template" do

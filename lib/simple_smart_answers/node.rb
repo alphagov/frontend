@@ -14,6 +14,10 @@ module SimpleSmartAnswers
 
     attr_reader :kind, :slug, :title, :body, :options
 
+    def outcome?
+      @kind == "outcome"
+    end
+
     def next_node_for_response(response_slug)
       option = @options.find { |o| o.slug == response_slug }
       raise InvalidResponse if option.nil?

@@ -13,6 +13,16 @@ module SimpleSmartAnswers
       assert_equal "<p>This is question 1</p>", node.body
     end
 
+    context "outcome?" do
+      should "be true for an outcome node" do
+        assert_true Node.new(:a_flow, "kind" => "outcome").outcome?
+      end
+
+      should "be false for a question node" do
+        assert_false Node.new(:a_flow, "kind" => "question").outcome?
+      end
+    end
+
     context "options" do
       setup do
         @flow = stub("Flow", :node_for_slug => :a_node)

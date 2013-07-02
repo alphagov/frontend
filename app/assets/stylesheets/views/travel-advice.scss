@@ -104,41 +104,6 @@
     margin: 1em 0;
   }
 
-  aside {
-    .page-navigation {
-      
-      li {
-        list-style:none;
-        margin-left: 0;
-      }
-      
-      @include media(mobile) {
-        li,
-        ol[start] li,
-        li a,
-        li span {
-          margin-left: 0;
-        }
-
-        li.active {
-          border-top: solid 1px #a1acb2;
-          margin: 0;
-          padding: 1em;
-        }
-
-        li a {
-          padding-left: 1em;
-        }
-
-        li span {
-          display: block;
-          padding: 0;
-          border-top: none;
-        }
-      }
-    }
-  }
-
   .subscriptions  {
     float: right;
     text-align: right;
@@ -189,6 +154,48 @@
           }
         }
       }
+    }
+  }
+
+  aside {
+    .page-navigation {
+      
+      li {
+        list-style:none;
+        margin-left: 0;
+      }
+      
+      @include media(mobile) {
+        li,
+        ol[start] li,
+        li a,
+        li span {
+          margin-left: 0;
+        }
+
+        li.active {
+          border-top: solid 1px #a1acb2;
+          margin: 0;
+          padding: 1em;
+        }
+
+        li a {
+          padding-left: 1em;
+        }
+
+        li span {
+          display: block;
+          padding: 0;
+          border-top: none;
+        }
+      }
+    }
+    .subscriptions  {
+      padding-top: 2em;
+      clear: left;
+      float: none;
+      text-align: left;
+      width: auto;
     }
   }
 

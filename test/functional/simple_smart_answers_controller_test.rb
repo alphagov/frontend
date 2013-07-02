@@ -50,9 +50,30 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
 
       context "with form submission params" do
+        setup do
+          @stub_flow_state = OpenStruct.new(
+            :completed_questions => [],
+            :current_node => OpenStruct.new(:kind => "question", :options => [])
+          )
+          @stub_flow_state.stubs(:add_response)
+          SimpleSmartAnswers::Flow.any_instance.stubs(:state_for_responses).returns(@stub_flow_state)
+        end
 
-        should "redirect to the canonical path for the responses"
+        should "add the given response to the state" do
+          @stub_flow_state.expects(:add_response).with('baz')
+          get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar", :response => "baz"
+        end
 
+        should "redirect to the canonical path for the resulting state" do
+          # We've stubbed the flow, so it will ignore the actual request params.
+          @stub_flow_state.completed_questions << stub("Response", :slug => "foo")
+          @stub_flow_state.completed_questions << stub("Response", :slug => "bar")
+          @stub_flow_state.completed_questions << stub("Response", :slug => "baz")
+
+          get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar", :response => "baz"
+
+          assert_redirected_to :action => :flow, :slug => "the-bridge-of-death", :responses => "foo/bar/baz"
+        end
       end
     end
 
@@ -79,5 +100,4 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       assert_equal 503, response.status
     end
   end
-
 end

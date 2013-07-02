@@ -51,7 +51,7 @@ Frontend::Application.routes.draw do
     get "/:slug(.:format)" => "root#jobsearch"
   end
 
-  get ":slug/y(/*responses)" => "simple_smart_answers#flow"
+  get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
 
   with_options(as: "publication", to: "root#publication") do |pub|
     pub.get "*slug", slug: %r{done/.+}

@@ -15,7 +15,7 @@
         "kind": "question",
         "slug": "what-is-your-name",
         "title": "What...is your name?",
-        "body": "\n",
+        "body": "<p class=\"small\">It's the old man from Scene 24!!</p>\n",
         "options": [
           {
             "label": "Sir Lancelot of Camelot",

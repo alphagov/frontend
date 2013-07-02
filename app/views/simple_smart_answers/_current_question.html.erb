@@ -4,6 +4,8 @@
 
     <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions), :method => :get do %>
       <div class="question-body">
+        <%= raw question.body %>
+
         <% if @flow_state.error? %>
           <p class="error-message" role="alert">Please answer this question</p>
         <% end %>

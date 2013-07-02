@@ -65,6 +65,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           within('.question-number') { assert_page_has_content "1" }
           assert_page_has_content "What...is your name?"
         end
+        assert_page_has_content "It's the old man from Scene 24!!"
         within '.question-body' do
           assert page.has_field?("Sir Lancelot of Camelot", :type => 'radio', :with => "sir-lancelot-of-camelot")
           assert page.has_field?("Sir Robin of Camelot", :type => 'radio', :with => "sir-robin-of-camelot")

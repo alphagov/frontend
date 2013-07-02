@@ -2,10 +2,12 @@ require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
 
+  before_filter :setup_edition
+
   rescue_from RecordNotFound, with: :cacheable_404
 
   def flow
-    artefact = fetch_artefact(params[:slug])
+    artefact = fetch_artefact(params[:slug], @edition)
     @publication = PublicationPresenter.new(artefact)
     cacheable_404 and return unless @publication.format == "simple_smart_answer"
 
@@ -21,11 +23,16 @@ class SimpleSmartAnswersController < ApplicationController
 
   private
 
+  def setup_edition
+    @edition = params[:edition].to_i
+    @edition = nil if @edition < 1
+  end
+
   helper_method :smart_answer_path_for_responses, :change_completed_question_path
 
   def smart_answer_path_for_responses(responses, extra_params = {})
     responses_as_string = responses.any? ? responses.map(&:slug).join("/") : nil
-    smart_answer_flow_path extra_params.merge(:slug => @publication.slug, :responses => responses_as_string)
+    smart_answer_flow_path extra_params.merge(:slug => @publication.slug, :responses => responses_as_string, :edition => @edition)
   end
 
   def change_completed_question_path(question_number)

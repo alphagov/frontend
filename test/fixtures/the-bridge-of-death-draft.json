@@ -1,0 +1,134 @@
+{
+  "_response_info": {
+    "status": "ok"
+  },
+  "related_external_links": [ ],
+  "details": {
+    "need_id": "1234",
+    "description": null,
+    "language": "en",
+    "need_extended_font": false,
+    "body": "<h2>STOP!</h2>\n\n<p>He who would cross the Bridge of Death<br />\nMust answer me<br />\nThese questions three<br />\nEre the other side he see.</p>\n",
+    "alternative_title": null,
+      "nodes": [
+      {
+        "kind": "question",
+        "slug": "what-is-your-name",
+        "title": "What...is your name?",
+        "body": "<p class=\"small\">It's the old man from Scene 24!!</p>\n",
+        "options": [
+          {
+            "label": "Sir Lancelot of Camelot",
+            "slug": "sir-lancelot-of-camelot",
+            "next": "what-is-your-favorite-colour"
+          },
+          {
+            "label": "Sir Robin of Camelot",
+            "slug": "sir-robin-of-camelot",
+            "next": "what-is-the-capital-of-assyria"
+          },
+          {
+            "label": "Sir Galahad of Camelot",
+            "slug": "sir-galahad-of-camelot",
+            "next": "what-is-your-favorite-colour"
+          },
+          {
+            "label": "King Arthur of the Britons!",
+            "slug": "king-arthur-of-the-britons",
+            "next": "what-is-your-favorite-colour"
+          }
+        ]
+      },
+      {
+        "kind": "question",
+        "slug": "what-is-the-capital-of-assyria",
+        "title": "What...is the capital of Assyria?",
+        "body": "\n",
+        "options": [
+          {
+            "label": "I don't know THAT!!",
+            "slug": "i-don-t-know-that",
+            "next": "arrrrrghhhh"
+          }
+        ]
+      },
+      {
+        "kind": "question",
+        "slug": "what-is-your-favorite-colour",
+        "title": "What...is your favorite colour?",
+        "body": "\n",
+        "options": [
+          {
+            "label": "Blue",
+            "slug": "blue",
+            "next": "right-off-you-go"
+          },
+          {
+            "label": "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!",
+            "slug": "blue-no-yelloooooooooooooooowww",
+            "next": "arrrrrghhhh"
+          }
+        ]
+      },
+      {
+        "kind": "outcome",
+        "slug": "right-off-you-go",
+        "title": "Right, off you go.",
+        "body": "<p>Oh! Well, thank you. Thank you very much.</p>\n",
+        "options": [ ]
+      },
+      {
+        "kind": "outcome",
+        "slug": "arrrrrghhhh",
+        "title": "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!",
+        "body": "\n",
+        "options": [ ]
+      }
+    ]
+  },
+  "tags": [
+    {
+      "title": "Fictional",
+      "id": "https://www.gov.uk/api/tags/sections/bridges%2Ffictional.json",
+      "web_url": null,
+      "details": {
+        "description": null,
+        "short_description": null,
+        "type": "section"
+      },
+      "content_with_tag": {
+        "id": "https://www.gov.uk/api/with_tag.json?section=bridges%2Ffictional",
+        "web_url": "https://www.dev.gov.uk/browse/bridges/fictional"
+      },
+      "parent": {
+        "title": "Bridges",
+        "id": "https://www.gov.uk/api/tags/sections/bridges.json",
+        "web_url": null,
+        "details": {
+          "description": null,
+          "short_description": null,
+          "type": "section"
+        },
+        "content_with_tag": {
+          "id": "https://www.gov.uk/api/with_tag.json?section=bridges",
+          "web_url": "https://www.dev.gov.uk/browse/bridges"
+        },
+        "parent": null
+      }
+    }
+  ],
+  "related": [ 
+    {
+      "id": "https://www.gov.uk/api/the-gorge-of-eternal-peril.json",
+      "web_url": "https://www.gov.uk/the-gorge-of-eternal-peril",
+      "title": "The Gorge of Eternal Peril",
+      "format": "answer",
+      "updated_at": "2013-06-07T11:28:30+01:00"
+    }
+  ],
+  "id": "https://www.gov.uk/api/the-bridge-of-death.json",
+  "web_url": "https://www.gov.uk/the-bridge-of-death",
+  "title": "The Bridge of Death",
+  "format": "simple_smart_answer",
+  "updated_at": "2013-06-25T11:59:04+01:00"
+}

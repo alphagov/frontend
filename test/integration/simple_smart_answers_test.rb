@@ -288,5 +288,102 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_page_has_content "Right, off you go"
 
     end
+
+    should "allow previewing a draft version" do
+      content_api_has_a_draft_artefact "the-bridge-of-death", 2, content_api_response("the-bridge-of-death-draft")
+
+      visit "/the-bridge-of-death?edition=2"
+
+      click_on "Start now"
+
+      assert_current_url "/the-bridge-of-death/y?edition=2"
+
+      within '#content' do
+        within 'header.page-header' do
+          assert_page_has_content("The Bridge of Death")
+          assert_page_has_content("Quick answer")
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "1" }
+          assert_page_has_content "What...is your name?"
+        end
+        assert_page_has_content "It's the old man from Scene 24!!"
+        within '.question-body' do
+          assert page.has_field?("Sir Lancelot of Camelot", :type => 'radio', :with => "sir-lancelot-of-camelot")
+          assert page.has_field?("Sir Robin of Camelot", :type => 'radio', :with => "sir-robin-of-camelot")
+          assert page.has_field?("Sir Galahad of Camelot", :type => 'radio', :with => "sir-galahad-of-camelot")
+          assert page.has_field?("King Arthur of the Britons!", :type => 'radio', :with => "king-arthur-of-the-britons")
+          # Assert they're in the correct order
+          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+          assert_equal ["Sir Lancelot of Camelot", "Sir Robin of Camelot", "Sir Galahad of Camelot", "King Arthur of the Britons!"], options
+        end
+      end
+
+      choose "King Arthur of the Britons!"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/king-arthur-of-the-britons?edition=2"
+
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death?edition=2') }
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "King Arthur of the Britons!" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?edition=2&previous_response=king-arthur-of-the-britons") }
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "2" }
+          assert_page_has_content "What...is your favorite colour?"
+        end
+        within '.question-body' do
+          assert page.has_field?("Blue", :type => 'radio', :with => "blue")
+          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :with => "blue-no-yelloooooooooooooooowww")
+          # Assert they're in the correct order
+          options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+          assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
+        end
+      end
+
+      choose "Blue"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/king-arthur-of-the-britons/blue?edition=2"
+
+      within '.done-questions' do
+        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death?edition=2') }
+        within 'ol li.done:nth-child(1)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "King Arthur of the Britons!" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?edition=2&previous_response=king-arthur-of-the-britons") }
+        end
+        within 'ol li.done:nth-child(2)' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "2" }
+            assert_page_has_content "What...is your favorite colour?"
+          end
+          within('.answer') { assert_page_has_content "Blue" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/king-arthur-of-the-britons?edition=2&previous_response=blue") }
+        end
+      end
+
+      within '.outcome' do
+        within '.result-info' do
+          within('h2.result-title') { assert_page_has_content "Right, off you go." }
+          assert_page_has_content "Oh! Well, thank you. Thank you very much."
+        end
+      end
+    end
   end # without javascript
 end

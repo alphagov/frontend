@@ -3,10 +3,10 @@ module SimpleSmartAnswers
     def initialize(flow, initial_node)
       @flow = flow
       @current_node = initial_node
-      @responses = []
+      @completed_questions = []
     end
 
-    attr_reader :current_node
+    attr_reader :current_node, :completed_questions
 
     def process_responses(responses)
       responses.each do |response|
@@ -16,14 +16,14 @@ module SimpleSmartAnswers
     end
 
     def add_response(response_slug)
-      next_node = @current_node.next_node_for_response(response_slug)
-      @responses << response_slug
-      @current_node = next_node
+      response = @current_node.process_response(response_slug)
+      @current_node = response.next_node
+      @completed_questions << response
       self
     end
 
     def current_question_number
-      @responses.size + 1
+      @completed_questions.size + 1
     end
   end
 end

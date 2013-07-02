@@ -15,7 +15,7 @@ module SimpleSmartAnswers
 
     context "options" do
       setup do
-        @flow = stub("Flow", :node_for_slug => nil)
+        @flow = stub("Flow", :node_for_slug => :a_node)
         @node = Node.new(@flow, "kind" => "question", "slug" => "question-1", "options" => [
           {
             "label" => "Option 1",
@@ -36,28 +36,32 @@ module SimpleSmartAnswers
       end
 
       should "construct options" do
-        assert_equal 3, @node.options.size
         assert_equal ["Option 1", "Option 3", "Option 2"], @node.options.map(&:label)
         assert_equal %w(option-1 option-3 option-2), @node.options.map(&:slug)
-        assert_equal %w(question-2 question-3 question-2), @node.options.map(&:next)
+        assert_equal %w(question-2 question-3 question-2), @node.options.map(&:next_node_slug)
+        assert_equal @node, @node.options.first.question
       end
 
-      context "next_node_for_response" do
-        should "return the next node slug for the given response" do
-          @flow.expects(:node_for_slug).with("question-2").returns(:question_2_node)
-          assert_equal :question_2_node, @node.next_node_for_response("option-2")
+      context "process_response" do
+        should "return the matching option instance" do
+          assert_equal "Option 2", @node.process_response('option-2').label
         end
 
-        should "raise InvalidResponse if the next points to a non-existent node" do
-          @flow.expects(:node_for_slug).with("question-2").returns(nil)
+        should "populate the next_node on the returned option" do
+          @flow.stubs(:node_for_slug).with('question-2').returns(:question_2_node)
+          assert_equal :question_2_node, @node.process_response('option-2').next_node
+        end
+
+        should "raise InvalidResponse if no option matches" do
           assert_raise InvalidResponse do
-            @node.next_node_for_response("option-2")
+            @node.process_response('option-4')
           end
         end
 
-        should "raise InvalidResponse if given an invalid response" do
+        should "raise InvalidResponse if option points to a non-existent node" do
+          @flow.stubs(:node_for_slug).with('question-2').returns(nil)
           assert_raise InvalidResponse do
-            @node.next_node_for_response("option-4")
+            @node.process_response('option-2')
           end
         end
       end

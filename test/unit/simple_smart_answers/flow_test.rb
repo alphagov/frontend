@@ -117,6 +117,12 @@ module SimpleSmartAnswers
 
         assert_equal "question-2", state.current_node.slug
         assert_equal 2, state.current_question_number
+
+        assert_equal 1, state.completed_questions.size
+        answer1 = state.completed_questions.first
+        assert_equal "Option 1", answer1.label
+        assert_equal "option-1", answer1.slug
+        assert_equal "Question 1", answer1.question.title
       end
     end
   end

@@ -221,5 +221,11 @@ class TravelAdviceControllerTest < ActionController::TestCase
       assert response.not_found?
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
+
+    should "return a 404 without querying content_api for a part slug with malformed UTF-8 chars in it" do
+      get :country, :country_slug => "aruba", :part => "br54ba\x9CAQ\xC4\xFD\x928owse"
+      assert response.not_found?
+      assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
+    end
   end
 end

@@ -182,10 +182,109 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!"
     end
 
-    context "handling invalid responses" do
-      should "handle invalid url param correctly"
+    should "handle invalid responses in the url param correctly" do
+      visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/ultramarine"
 
-      should "handle invalid form submissions correctly"
+      within '.done-questions' do
+        assert page.has_selector?('li.done', :count => 1)
+
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          assert_page_has_content "What...is your favorite colour?"
+        end
+        within '.question-body' do
+          assert page.has_selector?(".error-message", :text => "Please answer this question")
+        end
+      end
+
+      choose "Blue"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
+
+      assert page.has_selector?('.done-questions li.done', :count => 2)
+      assert_page_has_content "Right, off you go"
+    end
+
+    should "handle invalid form submissions correctly" do
+      visit "/the-bridge-of-death/y/sir-lancelot-of-camelot?response=ultramarine"
+
+      within '.done-questions' do
+        assert page.has_selector?('li.done', :count => 1)
+
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "2" }
+          assert_page_has_content "What...is your favorite colour?"
+        end
+        within '.question-body' do
+          assert page.has_selector?(".error-message", :text => "Please answer this question")
+        end
+      end
+
+      choose "Blue"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
+
+      assert page.has_selector?('.done-questions li.done', :count => 2)
+      assert_page_has_content "Right, off you go"
+
+    end
+
+    should "handle invalid url params combined with form submissions correctly" do
+      visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/ultramarine?response=blue"
+
+      within '.done-questions' do
+        assert page.has_selector?('li.done', :count => 1)
+
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "2" }
+          assert_page_has_content "What...is your favorite colour?"
+        end
+        within '.question-body' do
+          assert page.has_selector?(".error-message", :text => "Please answer this question")
+        end
+      end
+
+      choose "Blue"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
+
+      assert page.has_selector?('.done-questions li.done', :count => 2)
+      assert_page_has_content "Right, off you go"
 
     end
   end # without javascript

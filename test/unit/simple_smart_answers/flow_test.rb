@@ -124,6 +124,17 @@ module SimpleSmartAnswers
         assert_equal "option-1", answer1.slug
         assert_equal "Question 1", answer1.question.title
       end
+
+      should "stop processing and set error flag on invalid response" do
+        state = @flow.state_for_responses(["option-1", "fooey", "option-2"])
+
+        assert state.error?
+        assert_equal "question-2", state.current_node.slug
+        assert_equal 2, state.current_question_number
+
+        assert_equal 1, state.completed_questions.size
+        assert_equal "option-1", state.completed_questions.first.slug
+      end
     end
   end
 end

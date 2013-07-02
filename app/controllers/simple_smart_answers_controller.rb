@@ -13,9 +13,9 @@ class SimpleSmartAnswersController < ApplicationController
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
     @flow_state = @flow.state_for_responses(responses)
 
-    if params[:response]
+    if params[:response] and ! @flow_state.error?
       @flow_state.add_response(params[:response])
-      redirect_to smart_answer_path_for_responses(@flow_state.completed_questions)
+      redirect_to smart_answer_path_for_responses(@flow_state.completed_questions) unless @flow_state.error?
     end
   end
 

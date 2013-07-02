@@ -9,70 +9,101 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       setup do
         artefact = artefact_for_slug('the-bridge-of-death')
         artefact["format"] = "simple_smart_answer"
-        artefact["details"]["nodes"] = ["some nodes"]
+        @node_details = [
+          {
+            "kind" => "question",
+            "slug" => "question-1",
+            "title" => "Question 1",
+            "body" => "<p>This is question 1</p>",
+            "options" => [
+              {"label" => "Option 1", "slug" => "option-1", "next" => "question-2"},
+              {"label" => "Option 2", "slug" => "option-2", "next" => "outcome-1"},
+              {"label" => "Option 3", "slug" => "option-3", "next" => "outcome-2"},
+            ],
+          },
+          {
+            "kind" => "question",
+            "slug" => "question-2",
+            "title" => "Question 2",
+            "body" => "<p>This is question 2</p>",
+            "options" => [
+              {"label" => "Option 1", "slug" => "option-1", "next" => "outcome-1"},
+              {"label" => "Option 2", "slug" => "option-2", "next" => "outcome-2"},
+            ],
+          },
+          {
+            "kind" => "outcome",
+            "slug" => "outcome-1",
+            "title" => "Outcome 1",
+            "body" => "<p>This is outcome 1</p>",
+          },
+          {
+            "kind" => "outcome",
+            "slug" => "outcome-2",
+            "title" => "Outcome 2",
+            "body" => "<p>This is outcome 2</p>",
+          },
+        ]
+        artefact["details"]["nodes"] = @node_details
         content_api_has_an_artefact('the-bridge-of-death', artefact)
       end
 
-      context "without any form submission params" do
-        setup do
-          @stub_flow_state = OpenStruct.new(
-            :completed_questions => [],
-            :current_node => OpenStruct.new(:kind => "question", :options => [])
-          )
-          SimpleSmartAnswers::Flow.any_instance.stubs(:state_for_responses).returns(@stub_flow_state)
-        end
+      should "calculate the flow state with no responses" do
+        flow = SimpleSmartAnswers::Flow.new(@node_details)
+        state = flow.state_for_responses([])
+        SimpleSmartAnswers::Flow.expects(:new).with(@node_details).returns(flow)
+        flow.expects(:state_for_responses).with([]).returns(state)
 
-        should "calculate the flow state with no responses" do
-          flow = mock("SimpleSmartAnswers::Flow")
-          SimpleSmartAnswers::Flow.expects(:new).with(["some nodes"]).returns(flow)
-          flow.expects(:state_for_responses).with([]).returns(@stub_flow_state)
+        get :flow, :slug => "the-bridge-of-death"
 
-          get :flow, :slug => "the-bridge-of-death"
+        assert_equal state, assigns[:flow_state]
+      end
 
-          assert_equal @stub_flow_state, assigns[:flow_state]
-        end
+      should "calculate the flow state for the given responses" do
+        flow = SimpleSmartAnswers::Flow.new(@node_details)
+        state = flow.state_for_responses(["foo", "bar"])
+        SimpleSmartAnswers::Flow.expects(:new).with(@node_details).returns(flow)
+        flow.expects(:state_for_responses).with(["foo", "bar"]).returns(state)
 
-        should "calculate the flow state for the given responses" do
-          flow = stub("SimpleSmartAnswers::Flow")
-          SimpleSmartAnswers::Flow.expects(:new).with(["some nodes"]).returns(flow)
-          flow.expects(:state_for_responses).with(["foo", "bar"]).returns(@stub_flow_state)
+        get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar"
 
-          get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar"
+        assert_equal state, assigns[:flow_state]
+      end
 
-          assert_equal @stub_flow_state, assigns[:flow_state]
-        end
+      should "render the flow template" do
+        get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar"
 
-        should "render the flow template" do
-          get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar"
-
-          assert_template "flow"
-        end
+        assert_template "flow"
       end
 
       context "with form submission params" do
-        setup do
-          @stub_flow_state = OpenStruct.new(
-            :completed_questions => [],
-            :current_node => OpenStruct.new(:kind => "question", :options => [])
-          )
-          @stub_flow_state.stubs(:add_response)
-          SimpleSmartAnswers::Flow.any_instance.stubs(:state_for_responses).returns(@stub_flow_state)
-        end
-
         should "add the given response to the state" do
-          @stub_flow_state.expects(:add_response).with('baz')
-          get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar", :response => "baz"
+          get :flow, :slug => "the-bridge-of-death", :responses => "option-1", :response => "option-1"
+
+          state = assigns[:flow_state]
+          assert_equal ['option-1', 'option-1'], state.completed_questions.map(&:slug)
         end
 
         should "redirect to the canonical path for the resulting state" do
-          # We've stubbed the flow, so it will ignore the actual request params.
-          @stub_flow_state.completed_questions << stub("Response", :slug => "foo")
-          @stub_flow_state.completed_questions << stub("Response", :slug => "bar")
-          @stub_flow_state.completed_questions << stub("Response", :slug => "baz")
+          get :flow, :slug => "the-bridge-of-death", :responses => "option-1", :response => "option-2"
 
-          get :flow, :slug => "the-bridge-of-death", :responses => "foo/bar", :response => "baz"
+          assert_redirected_to :action => :flow, :slug => "the-bridge-of-death", :responses => "option-1/option-2"
+        end
 
-          assert_redirected_to :action => :flow, :slug => "the-bridge-of-death", :responses => "foo/bar/baz"
+        should "not redirect if the form submission results in an error" do
+          get :flow, :slug => "the-bridge-of-death", :responses => "option-1", :response => "fooey"
+
+          assert_equal 200, response.status
+          assert_template "flow"
+          assert_equal 'question-2', assigns[:flow_state].current_node.slug
+        end
+
+        should "not process form param with invalid url params" do
+          get :flow, :slug => "the-bridge-of-death", :responses => "fooey", :response => "option-1"
+
+          assert_equal 200, response.status
+          assert_template "flow"
+          assert_equal 'question-1', assigns[:flow_state].current_node.slug
         end
       end
     end

@@ -27,4 +27,8 @@ class SimpleSmartAnswersController < ApplicationController
     responses_as_string = responses.any? ? responses.map(&:slug).join("/") : nil
     smart_answer_flow_path extra_params.merge(:slug => @publication.slug, :responses => responses_as_string)
   end
+
+  def change_completed_question_path(question_number)
+    smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], :previous_response => @flow_state.completed_questions[question_number].slug)
+  end
 end

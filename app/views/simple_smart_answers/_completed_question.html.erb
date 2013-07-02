@@ -5,6 +5,6 @@
 
   <div class="answer"><%= completed_question.label %></div>
   <p class="undo">
-    <%= link_to "Change this answer", '#' %>
+    <%= link_to "Change this answer", change_completed_question_path(completed_question_counter) %>
   </p>
 </li>

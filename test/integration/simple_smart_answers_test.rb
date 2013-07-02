@@ -88,7 +88,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
       end
 
@@ -119,7 +119,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do

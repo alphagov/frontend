@@ -8,7 +8,7 @@
           <% question.options.each do |option| %>
             <li>
               <label for="response_<%= option.slug %>">
-                <%= radio_button_tag "response", option.slug, false, :id => "response_#{ option.slug }" %>
+                <%= radio_button_tag "response", option.slug, (option.slug == params[:previous_response]), :id => "response_#{ option.slug }" %>
                 <%= option.label %>
               </label>
             </li>

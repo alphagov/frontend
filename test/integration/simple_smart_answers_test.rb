@@ -141,8 +141,52 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#content .article-container #test-report_a_problem")
     end
 
-    should "handle invalid responses correctly"
+    should "allow changing an answer" do
+      visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-    should "allow changing an answer"
+      within '.done-questions ol li.done:nth-child(2)' do
+        click_on "Change this answer"
+      end
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot", :ignore_query => true
+
+      within '.done-questions' do
+        assert page.has_selector?('li.done', :count => 1)
+
+        within 'ol li.done' do
+          within 'h3' do
+            within('.question-number') { assert_page_has_content "1" }
+            assert_page_has_content "What...is your name?"
+          end
+          within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
+          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        end
+      end
+
+      within '.current-question' do
+        within 'h2' do
+          within('.question-number') { assert_page_has_content "2" }
+          assert_page_has_content "What...is your favorite colour?"
+        end
+        within '.question-body' do
+          assert page.has_field?("Blue", :type => 'radio', :with => "blue", :checked => true)
+        end
+      end
+
+      choose "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"
+      click_on "Next step"
+
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue-no-yelloooooooooooooooowww"
+
+
+      assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!"
+    end
+
+    context "handling invalid responses" do
+      should "handle invalid url param correctly"
+
+      should "handle invalid form submissions correctly"
+
+    end
   end # without javascript
 end

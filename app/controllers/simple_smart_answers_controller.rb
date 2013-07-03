@@ -2,8 +2,8 @@ require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
 
-  before_filter :setup_edition
   before_filter :set_expiry
+  before_filter :setup_edition
 
   rescue_from RecordNotFound, with: :cacheable_404
 
@@ -28,7 +28,11 @@ class SimpleSmartAnswersController < ApplicationController
 
   def setup_edition
     @edition = params[:edition].to_i
-    @edition = nil if @edition < 1
+    if @edition > 0
+      expires_now # Prevent caching when previewing
+    else
+      @edition = nil
+    end
   end
 
   helper_method :smart_answer_path_for_responses, :change_completed_question_path

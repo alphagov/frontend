@@ -1,0 +1,32 @@
+<div class="step current">
+  <div class="current-question">
+    <h2><span class="question-number"><%= @flow_state.current_question_number %></span> <%= question.title %></h2>
+
+    <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions), :method => :get do %>
+      <div class="question-body">
+        <%= raw question.body %>
+
+        <% if @flow_state.error? %>
+          <p class="error-message" role="alert">Please answer this question</p>
+        <% end %>
+        <ul class="options">
+          <% question.options.each do |option| %>
+            <li>
+              <label for="response_<%= option.slug %>">
+                <%= radio_button_tag "response", option.slug, (option.slug == params[:previous_response]), :id => "response_#{ option.slug }" %>
+                <%= option.label %>
+              </label>
+            </li>
+          <% end %>
+        </ul>
+
+      </div>
+
+      <div class="next-question">
+        <button type="submit" class="medium button">Next step</button>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+

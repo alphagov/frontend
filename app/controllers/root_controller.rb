@@ -104,11 +104,6 @@ protected
     end
   end
 
-  def cacheable_404
-    set_expiry(10.minutes)
-    error 404
-  end
-
   def block_empty_format
     raise RecordNotFound if request.format.nil?
   end

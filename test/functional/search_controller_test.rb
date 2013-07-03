@@ -96,6 +96,24 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "div.js-tabs", count: 0
   end
 
+  context "active tab" do
+    context "no tab parameter given" do
+      should "not 'remember' the tab we've defaulted to for the user" do
+        get :index, q: "search-term"
+        assert_select "form.search-header input[name=tab]"
+        assert_select "form.search-header input[name=tab][value=*]", count: 0
+      end
+    end
+
+    context "tab parameter given" do
+      should "remember the tab the user has chosen" do
+        get :index, q: "search-term", tab: "government-results"
+        assert_select "form.search-header input[name=tab]"
+        assert_select "form.search-header input[name=tab][value='government-results']"
+      end
+    end
+  end
+
   context "one tab has results, the others do not" do
     should "display the 'no results' html in the tabs without results" do
       # Three results to fill up the top-results, one to be displayed in the tab

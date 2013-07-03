@@ -20,6 +20,8 @@ class SimpleSmartAnswersController < ApplicationController
       @flow_state.add_response(params[:response])
       redirect_to smart_answer_path_for_responses(@flow_state.completed_questions) unless @flow_state.error?
     end
+
+    set_slimmer_artefact_headers(artefact)
   end
 
   private

@@ -7,8 +7,8 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
   context "GET 'flow'" do
     context "for a simple_smart_answer slug" do
       setup do
-        artefact = artefact_for_slug('the-bridge-of-death')
-        artefact["format"] = "simple_smart_answer"
+        @artefact = artefact_for_slug('the-bridge-of-death')
+        @artefact["format"] = "simple_smart_answer"
         @node_details = [
           {
             "kind" => "question",
@@ -44,8 +44,8 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
             "body" => "<p>This is outcome 2</p>",
           },
         ]
-        artefact["details"]["nodes"] = @node_details
-        content_api_has_an_artefact('the-bridge-of-death', artefact)
+        @artefact["details"]["nodes"] = @node_details
+        content_api_has_an_artefact('the-bridge-of-death', @artefact)
       end
 
       should "calculate the flow state with no responses" do
@@ -80,6 +80,12 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         get :flow, :slug => "the-bridge-of-death", :responses => "option-1/option-2"
 
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+
+      should "send the artefact to Slimmer" do
+        get :flow, :slug => "the-bridge-of-death", :responses => "option-1/option-2"
+
+        assert_equal JSON.dump(@artefact), response.headers["X-Slimmer-Artefact"]
       end
 
       context "with form submission params" do

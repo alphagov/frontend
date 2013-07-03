@@ -17,6 +17,11 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/the-bridge-of-death.json']", :visible => :all)
     end
 
+    within '#global-breadcrumb' do
+      assert_page_has_content "Bridges"
+      assert_page_has_content "Fictional"
+    end
+
     within '#content' do
       within 'header.page-header' do
         assert_page_has_content("The Bridge of Death")
@@ -51,6 +56,11 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within 'head', :visible => :all do
         assert page.has_selector?('title', :text => "The Bridge of Death - GOV.UK", :visible => :all)
         assert page.has_selector?("meta[name=robots][content=noindex]", :visible => :all)
+      end
+
+      within '#global-breadcrumb' do
+        assert_page_has_content "Bridges"
+        assert_page_has_content "Fictional"
       end
 
       within '#content' do

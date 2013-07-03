@@ -1,4 +1,7 @@
 (function($) {
+  var countryWasClicked = false;
+      enterKeyCode = 13;
+
   $(".countries-wrapper").attr("aria-live", "polite");
   $.expr[':'].contains = function(obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
@@ -66,16 +69,15 @@
     $(".country-count .js-filter-count").text(eData.count);
   };
 
-  input.change(function(e) {
+  input.keyup(function() {
     var filter = $(this).val();
+
     filterListItems(filter);
-    e.preventDefault();
-  }).keyup(function() {
-    $(this).change();
   }).keypress(function(event) {
-    if (event.which == 13) {
+    if (event.which == enterKeyCode) {
       event.preventDefault();
     }
-  });
+  })
+
   $(document).bind("countrieslist", updateCounter);
 }(jQuery));

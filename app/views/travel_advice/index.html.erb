@@ -1,5 +1,5 @@
 <% content_for :extra_headers do %>
-  <%= javascript_include_tag "views/travel-advice.js", :defer => "defer" %>
+  <%= javascript_include_tag "views/travel-advice.js" %>
   <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>

@@ -1,0 +1,10 @@
+<li class="done">
+  <h3 class="question">
+    <span class="question-number"><%= completed_question_counter + 1 %></span><%= completed_question.question.title %>
+  </h3>
+
+  <div class="answer"><%= completed_question.label %></div>
+  <p class="undo">
+    <%= link_to "Change this answer", change_completed_question_path(completed_question_counter) %>
+  </p>
+</li>

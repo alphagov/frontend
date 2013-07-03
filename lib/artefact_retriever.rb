@@ -10,8 +10,8 @@ class ArtefactRetriever
     self.statsd = statsd
     self.supported_formats = supported_formats ||
       %w{answer business_support completed_transaction guide licence
-         local_transaction place programme transaction travel-advice video
-         custom-application}
+         local_transaction place programme simple_smart_answer transaction 
+         travel-advice video custom-application}
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil, location = nil)

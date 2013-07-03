@@ -29,6 +29,11 @@ protected
     render status: status_code, text: "#{status_code} error"
   end
 
+  def cacheable_404
+    set_expiry(10.minutes)
+    error 404
+  end
+
   def statsd
     @statsd ||= Statsd.new("localhost").tap do |c|
       c.namespace = ENV['GOVUK_STATSD_PREFIX'].to_s

@@ -1,0 +1,29 @@
+<% content_for :extra_headers do %>
+  <meta name="robots" content="noindex" />
+<% end %>
+
+<section id="content">
+  <header class="page-header group">
+    <hgroup>
+      <h1>
+        <span>Quick answer </span>
+        <%= @publication.title %>
+      </h1>
+    </hgroup>
+  </header>
+
+  <% if @flow_state.completed_questions.any? %>
+    <div class="done-questions">
+      <div class="start-again"><%= link_to "Start again", publication_path(@publication.slug, :edition => @edition) %></div>
+      <ol>
+        <%= render :partial => "completed_question", :collection => @flow_state.completed_questions %>
+      </ol>
+    </div>
+  <% end %>
+
+  <% if @flow_state.current_node.outcome? %>
+    <%= render :partial => "outcome", :object => @flow_state.current_node %>
+  <% else %>
+    <%= render :partial => "current_question", :locals => {:question => @flow_state.current_node } %>
+  <% end %>
+</section>

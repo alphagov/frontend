@@ -67,10 +67,10 @@ protected
   def validate_slug_param(param_name = :slug)
     param_to_use = params[param_name].sub(/done\//, '')
     if param_to_use.parameterize != param_to_use
-      error 404
+      cacheable_404
     end
   rescue StandardError # Triggered by trying to parameterize malformed UTF-8
-    error 404
+    cacheable_404
   end
 
 private

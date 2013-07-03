@@ -204,27 +204,31 @@ class TravelAdviceControllerTest < ActionController::TestCase
       assert response.not_found?
     end
 
-    should "return a 404 without querying content_api for an invalid country slug" do
+    should "return a cacheable 404 without querying content_api for an invalid country slug" do
       get :country, :country_slug => "this is not & a valid slug"
       assert response.not_found?
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
 
-    should "return a 404 without querying content_api for a country slug with invalid UTF-8 chars in it" do
+    should "return a cacheable 404 without querying content_api for a country slug with invalid UTF-8 chars in it" do
       get :country, :country_slug => "aruba\xA0"
       assert response.not_found?
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
 
-    should "return a 404 without querying content_api for a country slug with malformed UTF-8 chars in it" do
+    should "return a cacheable 404 without querying content_api for a country slug with malformed UTF-8 chars in it" do
       get :country, :country_slug => "br54ba\x9CAQ\xC4\xFD\x928owse"
       assert response.not_found?
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
 
-    should "return a 404 without querying content_api for a part slug with malformed UTF-8 chars in it" do
+    should "return a cacheable 404 without querying content_api for a part slug with malformed UTF-8 chars in it" do
       get :country, :country_slug => "aruba", :part => "br54ba\x9CAQ\xC4\xFD\x928owse"
       assert response.not_found?
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
   end

@@ -74,18 +74,22 @@ class BrowseControllerTest < ActionController::TestCase
       assert_response 404
     end
 
-    should "404 without calling content_api if the section slug is invalid" do
+    should "return a cacheable 404 without calling content_api if the section slug is invalid" do
       get :section, section: "this & that"
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :section, section: "fco\xA0" # Invalid UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :section, section: "br54ba\x9CAQ\xC4\xFD\x928owse" # Malformed UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :section, section: "\xE9\xF3(\xE9\xF3ges" # Differently Malformed UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
@@ -181,18 +185,22 @@ class BrowseControllerTest < ActionController::TestCase
       assert_response 404
     end
 
-    should "404 without calling content_api if the section slug is invalid" do
+    should "return a cacheable 404 without calling content_api if the section slug is invalid" do
       get :sub_section, section: "this & that", sub_section: "foo"
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :sub_section, section: "fco\xA0", sub_section: "foo" # Invalid UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :sub_section, section: "br54ba\x9CAQ\xC4\xFD\x928owse", sub_section: "foo" # Malformed UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :sub_section, section: "\xE9\xF3(\xE9\xF3ges", sub_section: "foo" # Differently Malformed UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
@@ -204,18 +212,22 @@ class BrowseControllerTest < ActionController::TestCase
       assert_response 404
     end
 
-    should "404 without calling content_api if the sub section slug is invalid" do
+    should "return a cacheable 404 without calling content_api if the sub section slug is invalid" do
       get :sub_section, section: "foo", sub_section: "this & that"
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :sub_section, section: "foo", sub_section: "fco\xA0" # Invalid UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :sub_section, section: "foo", sub_section: "br54ba\x9CAQ\xC4\xFD\x928owse" # Malformed UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       get :sub_section, section: "foo", sub_section: "\xE9\xF3(\xE9\xF3ges" # Differently Malformed UTF-8
       assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
 
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end

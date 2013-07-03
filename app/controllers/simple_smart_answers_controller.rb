@@ -2,6 +2,7 @@ require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
 
+  before_filter :validate_slug_param
   before_filter :set_expiry
   before_filter :setup_edition
 

@@ -18,7 +18,7 @@
 
   <div id="search-results-tabs" class="shouty-tabs">
     <h2 class="visuallyhidden">All results</h2>
-    <% if @streams.count > 1 %>
+    <% if show_tabs?(@streams) %>
       <div class="search-navigation js-tabs">
       <% if @streams.count == 2 %>
         <ul id="search-index-navigation" class="two-tabs">
@@ -36,35 +36,37 @@
       </div>
     <% end %>
 
-    <div class="search-container group js-tab-content tab-content ">
-      <% @streams.each do |stream| %>
-        <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
-        <div class="filters">
-          <% if stream.key == "government" %>
-            <%= render partial: "government_filter" %>
+    <% if show_tabs?(@streams) %>
+      <div class="search-container group js-tab-content tab-content ">
+        <% @streams.each do |stream| %>
+          <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
+          <div class="filters">
+            <% if stream.key == "government" %>
+              <%= render partial: "government_filter" %>
+            <% end %>
+          </div>
+          <% if stream.recommended.any? %>
+            <div class="recommended-links">
+              <h2>Other sites that may be useful</h2>
+              <ul class="results-list">
+                <%= render collection: stream.recommended, partial: "result" %>
+              </ul>
+            </div>
           <% end %>
-        </div>
-        <% if stream.recommended.any? %>
-          <div class="recommended-links">
-            <h2>Other sites that may be useful</h2>
-            <ul class="results-list">
-              <%= render collection: stream.recommended, partial: "result" %>
+          <div class="results">
+          <% if stream.total_size > 0 %>
+            <ul class="results-list internal-links">
+              <%= render collection: stream.results, partial: "result" %>
             </ul>
+          <% end %>
+          <% unless stream.anything_to_show? %>
+            <%= render partial: "no_results", locals: { context: stream.title } %>
+          <% end %>
+          </div>
           </div>
         <% end %>
-        <div class="results">
-        <% if stream.total_size > 0 %>
-          <ul class="results-list internal-links">
-            <%= render collection: stream.results, partial: "result" %>
-          </ul>
-        <% end %>
-        <% unless stream.anything_to_show? %>
-          <%= render partial: "no_results", locals: { context: stream.title } %>
-        <% end %>
-        </div>
-        </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </section>
 

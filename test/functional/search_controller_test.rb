@@ -79,8 +79,8 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display tabs when there are results in one or more tab" do
-    stub_results("mainstream", [a_search_result("a")])
-    stub_results("government", [a_search_result("b")])
+    stub_results("mainstream", [a_search_result("a"), a_search_result("b"), a_search_result("c")])
+    stub_results("government", [a_search_result("x")])
     get :index, q: "search-term"
     assert_select "div.js-tabs"
   end
@@ -90,9 +90,16 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "div.js-tabs", count: 0
   end
 
+  test "should not display tabs there are only top-results" do
+    stub_results("mainstream", [a_search_result("a")])
+    get :index, q: "search-term"
+    assert_select "div.js-tabs", count: 0
+  end
+
   context "one tab has results, the others do not" do
     should "display the 'no results' html in the tabs without results" do
-      stub_results("government", [a_search_result("a")])
+      # Three results to fill up the top-results, one to be displayed in the tab
+      stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
       get :index, q: "search-term"
       assert_select "div.js-tabs"
       assert_select "#services-information-results .no-results", /No results in Services and information/
@@ -101,7 +108,9 @@ class SearchControllerTest < ActionController::TestCase
 
   context "tab parameter is set, another tab has results" do
     should "focus on that tab, even if it has no results" do
-      stub_results("mainstream", [{}])
+      stub_results("mainstream", [a_search_result("x")])
+      # Three results to fill top-results, one to force the tab to be displayed
+      stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
       get :index, { q: "spoon", tab: "government-results" }
       assert_select "li.active a[href=#government-results]"
     end
@@ -305,8 +314,12 @@ class SearchControllerTest < ActionController::TestCase
 
   context "organisation filter" do
     setup do
-      # Need to have some results for the tab to appear
-      stub_results("government", [a_search_result("c", 3)])
+      # Need to have 4+ results for the tab to appear
+      stub_results("government", [
+          a_search_result("c", 3),
+          a_search_result("d", 3),
+          a_search_result("e", 3),
+          a_search_result("f", 3)])
     end
 
     should "appear on the government tab" do
@@ -373,6 +386,16 @@ class SearchControllerTest < ActionController::TestCase
       should "force the tabs to be displayed, so that you can see a filter is active" do
         # TODO see if we can remove the stub from the context setup up a level
         stub_results("government", [])
+        get :index, { q: "moon", organisation: "ministry-of-defence" }
+        assert_select "div.js-tabs"
+        assert_select "#government-results h3 a", count: 0
+      end
+    end
+
+    context "filter applied, but only top-results, therefore no results in tabs" do
+      should "force the tabs to be displayed, so that you can see a filter is active" do
+        # TODO see if we can remove the stub from the context setup up a level
+        stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c")])
         get :index, { q: "moon", organisation: "ministry-of-defence" }
         assert_select "div.js-tabs"
         assert_select "#government-results h3 a", count: 0

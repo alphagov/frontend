@@ -76,6 +76,12 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         assert_template "flow"
       end
 
+      should "set cache control headers" do
+        get :flow, :slug => "the-bridge-of-death", :responses => "option-1/option-2"
+
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+
       context "with form submission params" do
         should "add the given response to the state" do
           get :flow, :slug => "the-bridge-of-death", :responses => "option-1", :response => "option-1"
@@ -88,6 +94,12 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :flow, :slug => "the-bridge-of-death", :responses => "option-1", :response => "option-2"
 
           assert_redirected_to :action => :flow, :slug => "the-bridge-of-death", :responses => "option-1/option-2"
+        end
+
+        should "set cache control headers when redirecting" do
+          get :flow, :slug => "the-bridge-of-death", :responses => "option-1", :response => "option-2"
+
+          assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
         end
 
         should "not redirect if the form submission results in an error" do

@@ -3,6 +3,7 @@ require 'simple_smart_answers/flow'
 class SimpleSmartAnswersController < ApplicationController
 
   before_filter :setup_edition
+  before_filter :set_expiry
 
   rescue_from RecordNotFound, with: :cacheable_404
 

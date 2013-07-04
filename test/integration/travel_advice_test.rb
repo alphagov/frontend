@@ -31,14 +31,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Foreign travel advice")
         end
 
-        within "#recently-updated ul.updated-countries" do
-          assert_equal ["Spain", "Portugal", "Aruba", "Turks and Caicos Islands", "Congo"], page.all("li a").map(&:text)
-          assert_equal ["updated 23 February 2013", "updated 22 February 2013", "updated 20 February 2013", "updated 19 February 2013", "updated 3 February 2013"],
-                       page.all("li span").map(&:text)
-        end
-
+        assert page.has_selector?("#country-filter")
 
         assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Spain", "Turks and Caicos Islands"], page.all("ul.countries li a").map(&:text)
+
         within ".list#A" do
           assert page.has_link?("Aruba", :href => "/foreign-travel-advice/aruba")
         end
@@ -56,125 +52,36 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("#test-related")
     end
+  end
 
-    context "filtering countries" do
-      setup do
-        visit '/foreign-travel-advice'
+  context "with the javascript driver" do
+    setup do
+      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index1.json')
+      Capybara.current_driver = Capybara.javascript_driver
+    end
+
+    should "load the page and perform filtering correctly" do
+      visit "/foreign-travel-advice"
+      assert_equal 200, page.status_code
+
+      # For some reason PhantomJS isn't executing this script at the top of the <body> element,
+      # so we have to repeat it here.
+      page.execute_script %Q(document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');)
+
+      assert page.has_selector?("#country-filter")
+
+      within "#country-filter" do
+        fill_in "country", :with => "Aruba"
       end
 
-      should "have a visible visible form" do
-        assert_equal 200, page.status_code
-        assert page.has_selector?("#country-filter", visible: true)
+      within ".countries-wrapper" do
+        assert page.has_selector?("#A li")
+        assert page.has_no_selector?("#P li")
+        assert page.has_no_selector?("#T li")
       end
 
-      should "not show any countries if none match" do
-        within "#country-filter" do
-          fill_in "country", :with => "z"
-        end
-
-        within "#A" do
-          assert page.has_selector?("li", visible: false)
-        end
-
-        within "#P" do
-          assert page.has_selector?("li", visible: false)
-        end
-
-        within "#T" do
-          assert page.has_selector?("li", visible: false)
-        end
-      end
-
-      should "hide the letter headings when no countries are shown under it" do
-        within "#country-filter" do
-          fill_in "country", :with => "z"
-        end
-
-        within "#content" do
-          assert page.has_selector?("#A", visible: false)
-          assert page.has_selector?("#P", visible: false)
-          assert page.has_selector?("#T", visible: false)
-        end
-      end
-
-      should "show the letter headings when there are countries underneath it" do
-        within "#country-filter" do
-          fill_in "country", :with => "Aruba"
-        end
-
-        within "#content" do
-          assert page.has_selector?("#A", visible: true)
-        end
-
-      end
-
-      should "show only countries that match" do
-        within "#country-filter" do
-          fill_in "country", :with => "B"
-        end
-
-        within "#A" do
-          assert page.has_selector?("li", visible: true)
-        end
-
-        within "#P" do
-          assert page.has_selector?("li", visible: false)
-        end
-
-        within "#T" do
-          assert page.has_selector?("li", visible: false)
-        end
-      end
-
-      should "support searching by a synonym" do
-        within "#country-filter" do
-          fill_in "country", :with => "Ib"
-        end
-
-          # search for Ibiza, Spain should be visible
-        within "#S" do
-          assert page.has_selector?("li", visible: true)
-        end
-
-        within "#A" do
-          assert page.has_selector?("li", visible: false)
-        end
-      end
-
-      context "with the javascript driver" do
-        setup do
-          Capybara.current_driver = Capybara.javascript_driver
-          visit "/foreign-travel-advice"
-        end
-
-        should "not refresh page when hitting enter within the country filer" do
-          # For some reason PhantomJS isn't executing this script at the top of the <body> element,
-          # so we have to repeat it here.
-          page.execute_script %Q(document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');)
-
-          within "#country-filter" do
-            fill_in "country", :with => "Aruba"
-
-            page.execute_script %Q(
-              var country = jQuery("#country");
-              country.trigger(jQuery.Event("keydown", {which: $.ui.keyCode.ENTER}));
-            )
-          end
-
-          assert_equal "/foreign-travel-advice", current_path
-
-          within "#A" do
-            assert page.has_selector?("li", visible: true)
-          end
-
-          within "#P" do
-            assert page.has_selector?("li", visible: false)
-          end
-
-          within "#T" do
-            assert page.has_selector?("li", visible: false)
-          end
-        end
+      within ".country-count" do
+        assert page.has_selector?(".js-filter-count", :text => "1")
       end
     end
   end
@@ -222,7 +129,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       end
 
       within '.subscriptions' do
-        assert page.has_link?("Atom/RSS", :href => "/foreign-travel-advice/turks-and-caicos-islands.atom")
+        assert page.has_link?("RSS", :href => "/foreign-travel-advice/turks-and-caicos-islands.atom")
       end
 
       within 'article' do

@@ -3,9 +3,8 @@ require 'gds_api/content_api'
 
 GdsApi::Base.logger = Logger.new(Rails.root.join("log/#{Rails.env}.api_client.log"))
 
-# Disable API cache (actually set TTL to 1 second, which is effectively the same)
 # This file is overwritten on deployment, so this only applies to development.
-GdsApi::Base.default_options = {:cache_ttl => 1}
+GdsApi::Base.default_options = { disable_cache: true }
 
 Frontend.detailed_guidance_content_api = GdsApi::ContentApi.new("#{Plek.current.find('whitehall')}/api/specialist/")
 

@@ -110,6 +110,17 @@
     width: 49%;
     padding-top: 1em;
 
+    @include media-down(tablet) {
+      float: none;
+      text-align: left;
+      width: auto;
+      padding-top: 0;
+
+      ul li:first-child {
+        margin-left: 0;
+      }
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -130,10 +141,6 @@
 
       @include ie(6) {
         list-style-image: none;
-      }
-
-      @include media(mobile) {
-        padding-left: 1em;
       }
 
       a {
@@ -212,9 +219,11 @@
     }
 
     p.country-count {
-      @include core-48;
-      font-weight: 600;
       margin: 0;
+      span.js-filter-count {
+        @include core-48;
+        font-weight: 600;
+      }
     }
     
     .list {}

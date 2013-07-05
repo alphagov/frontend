@@ -66,7 +66,16 @@
   };
 
   var updateCounter = function (e, eData) {
-    $(".country-count .js-filter-count").text(eData.count);
+    var $counter = $(".country-count"),
+        results;
+
+    $counter.find(".js-filter-count").text(eData.count);
+    if (eData.count == 0) { // this is intentional type-conversion
+      results = document.createTextNode(' results');
+      $counter[0].appendChild(results);
+    } else {
+      $counter.html($counter.html().replace(/\sresults$/, ''));
+    }
   };
 
   input.keyup(function() {

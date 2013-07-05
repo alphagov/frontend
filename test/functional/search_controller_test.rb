@@ -308,12 +308,12 @@ class SearchControllerTest < ActionController::TestCase
     assert_response 503
   end
 
-  context "?spelling_suggestion=1" do
+  context "spelling suggestions" do
     context "spelling suggestions NOT returned" do
       should "not display a spelling suggestion link" do
         # temporary backwards compatibility with pre-suggestive rummager
         stub_results("mainstream", [], nil)
-        get :index, { q: "afgananinanistan", spelling_suggestion: "1" }
+        get :index, { q: "afgananinanistan" }
 
         assert_response :ok
         assert_select ".spelling-suggestion", count: 0
@@ -323,7 +323,7 @@ class SearchControllerTest < ActionController::TestCase
     context "spelling suggestions returned" do
       should "display a link to the first suggestion from mainstream" do
         stub_results("mainstream", [], ["afghanistan"])
-        get :index, { q: "afgananinanistan", spelling_suggestion: "1" }
+        get :index, { q: "afgananinanistan" }
 
         assert_select ".spelling-suggestion a", 'afghanistan'
       end

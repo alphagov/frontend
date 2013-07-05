@@ -5,18 +5,15 @@
     hgroup {
       padding-bottom: 0;
       padding: 20px 30px;
-      padding: 2rem 3rem;
 
       @include media(mobile) {
         padding: 15px 15px 0 15px;
-        padding: 1.5rem 1.5rem 0 1.5rem;
       }
 
       h1 {
         @include bold-48;
         width: 75%;
         padding: 20px 0;
-        padding: 2rem 0;
 
         @include media(mobile) {
           width: auto;
@@ -35,9 +32,7 @@
   .browse-container {
     background-color: #fff;
     min-height: 500px;
-    min-height: 50rem;
     padding: 0 30px 45px 3px;
-    padding: 0 3rem 4.5rem 3rem;
 
     h2, h3 {
       @include bold-19;
@@ -46,23 +41,19 @@
 
     @include media(mobile) {
       padding: 0 15px 30px 15px;
-      padding: 0 1.5rem 3rem 1.5rem;
       min-height: auto;
     }
 
     @include ie-lte(8) {
       padding: 0 3.5% 30px;
-      padding: 0 3.5% 3rem;
     }
 
     .category-description {
       margin-bottom: 45px;
-      margin-bottom: 4.5rem;
       width: 65.5%;
 
       @include media(mobile) {
         margin-bottom: 15px;
-        margin-bottom: 1.5rem;
         width: auto;
       }
 
@@ -75,13 +66,10 @@
     .detailed-guidance {
       border: solid 4px #2B8CC4;
       padding: 15px;
-      padding: 1.5rem;
       margin-top: 30px;
-      margin-top: 3rem;
 
       h2 {
         padding: 0 (16/24 * 15px); // heading is 24, base is 16
-        padding: 0 (16/24 * 1.5rem); // heading is 24, base is 16
       }
 
       li {
@@ -95,12 +83,10 @@
 
         h3 {
           padding: 0 (16/19 * 15px); // this heading is 19, base is 16
-          padding: 0 (16/19 * 1.5rem); // this heading is 19, base is 16
         }
 
         p {
           padding: 0 15px;
-          padding: 0 1.5rem;
         }
 
         &:nth-child(odd) {
@@ -117,7 +103,6 @@
       li {
         list-style: none;
         margin-bottom: 30px;
-        margin-bottom: 3rem;
 
         p {
           margin: 0;
@@ -127,14 +112,11 @@
 
       &.categories {
         padding: 15px 0 0 0;
-        padding: 1.5rem 0 0 0;
         width: 100%;
 
         li {
           margin: 0 -30px;
           padding: 15px 30px;
-          margin: 0 -3rem;
-          padding: 1.5rem 3rem;
 
           h2 {
             margin: 0;
@@ -155,14 +137,12 @@
 
         @include ie-lte(8) {
           margin: 0 -30px;
-          margin: 0 -3rem;
         }
 
         li {
           float: left;
           margin-right: 3.5%;
           margin-bottom: 30px;
-          margin-bottom: 3rem;
           width: 31%;
 
           &:nth-child(3n) {
@@ -197,14 +177,11 @@
 
       &.content-list {
         padding: 5px 0 0 0;
-        padding: 0.5rem 0 0 0;
         width: 100%;
 
         li {
           margin: 0 -20px;
           padding: 5px 20px 10px;
-          margin: 0 -2rem;
-          padding: 0.5rem 2rem 1em;
 
           h3, p {
             width: 65.5%;

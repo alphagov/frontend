@@ -231,6 +231,25 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "ul.attributes li", /CO/
   end
 
+  should "provide an abbr tag to explain organisation abbreviations" do
+    result_with_organisation = {
+      "title" => "Something by the Cabinet Office",
+      "format" => "something",
+      "es_score" => 0.1,
+      "organisations" => [
+        {
+          "acronym" => "CO",
+          "title" => "Cabinet Office",
+          "slug" => "cabinet-office"
+        }
+      ]
+    }
+    stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), result_with_organisation])
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li abbr[title='Cabinet Office']", text: "CO"
+  end
+
   test "should return unlimited results" do
     results = []
     75.times do |n|

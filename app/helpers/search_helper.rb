@@ -5,7 +5,7 @@ module SearchHelper
 
   def display_organisations(organisations)
     organisations.map do |organisation|
-      if organisation["acronym"]
+      if organisation["acronym"] && (organisation["acronym"] != organisation["title"])
         content_tag("abbr", title: organisation["title"]) do
           organisation["acronym"]
         end

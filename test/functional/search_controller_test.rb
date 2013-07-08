@@ -253,6 +253,20 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "ul.attributes li abbr[title='Cabinet Office']", text: "CO"
   end
 
+  should "not provide an abbr tag when the organisation title is the acronym" do
+    results = [
+      a_search_result("a"),
+      a_search_result("b"),
+      a_search_result("c"),
+      result_with_organisation("Home Office", "Home Office", "home-office")
+    ]
+    stub_results("government", results)
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li abbr[title='Home Office']", count: 0
+    assert_select "ul.attributes li", /Home Office/
+  end
+
   test "should return unlimited results" do
     results = []
     75.times do |n|

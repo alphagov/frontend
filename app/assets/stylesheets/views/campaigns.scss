@@ -35,7 +35,6 @@ section.campaign {
 
     header p {
       font-size: 24px;
-      font-size: 2.4rem;
     }
 
     h2 {
@@ -245,7 +244,6 @@ ul.links {
   border-left: 2px solid #000;
   span {
     padding-top: 30px;
-    padding-top: 4rem;
   }
   @include device-pixel-ratio() {
     background: image-url('campaign/disclosure/ho_crest_18px_x2.png') no-repeat 8px 0;

@@ -115,7 +115,7 @@ class SearchControllerTest < ActionController::TestCase
     context "no tab parameter given" do
       should "not 'remember' the tab we've defaulted to for the user" do
         get :index, q: "search-term"
-        assert_select "form.search-header input[name=tab]"
+        assert_select "form.search-header input[name=tab]", count: 0
         assert_select "form.search-header input[name=tab][value=*]", count: 0
       end
     end

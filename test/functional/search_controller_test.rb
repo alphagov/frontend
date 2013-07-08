@@ -12,6 +12,21 @@ class SearchControllerTest < ActionController::TestCase
     }
   end
 
+  def result_with_organisation(acronym, title, slug)
+    {
+      "title" => "Something by #{title}",
+      "format" => "something",
+      "es_score" => 0.1,
+      "organisations" => [
+        {
+          "acronym" => acronym,
+          "title" => title,
+          "slug" => slug
+        }
+      ]
+    }
+  end
+
   # spelling_suggestions - an array of string spelling suggestions.
   #                        Defaults to empty list.
   #                        Explicitly passing "nil" means they key is excluded,
@@ -210,6 +225,46 @@ class SearchControllerTest < ActionController::TestCase
     assert_select '.meta .section', text: "Life in the UK"
     assert_select '.meta .subsection', text: 'Test thing'
     assert_select '.meta .subsubsection', text: 'Sub section'
+  end
+
+  should "include organisations where available" do
+    results = [
+      a_search_result("a"),
+      a_search_result("b"),
+      a_search_result("c"),
+      result_with_organisation("CO", "Cabinet Office", "cabinet-office")
+    ]
+    stub_results("government", results)
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li", /CO/
+  end
+
+  should "provide an abbr tag to explain organisation abbreviations" do
+    results = [
+      a_search_result("a"),
+      a_search_result("b"),
+      a_search_result("c"),
+      result_with_organisation("CO", "Cabinet Office", "cabinet-office")
+    ]
+    stub_results("government", results)
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li abbr[title='Cabinet Office']", text: "CO"
+  end
+
+  should "not provide an abbr tag when the organisation title is the acronym" do
+    results = [
+      a_search_result("a"),
+      a_search_result("b"),
+      a_search_result("c"),
+      result_with_organisation("Home Office", "Home Office", "home-office")
+    ]
+    stub_results("government", results)
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li abbr[title='Home Office']", count: 0
+    assert_select "ul.attributes li", /Home Office/
   end
 
   test "should return unlimited results" do

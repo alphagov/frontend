@@ -15,12 +15,12 @@ class GovernmentResult < SearchResult
       /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
   end
 
-  def departments
+  def organisations
     fetch_multi_valued_field("organisations")
   end
 
-  def has_departments?
-    departments.any?
+  def has_organisations?
+    organisations.any?
   end
 
   def topics
@@ -69,8 +69,8 @@ class GovernmentResult < SearchResult
     display(topics)
   end
 
-  def display_departments
-    display(departments)
+  def display_organisations
+    display(organisations)
   end
 
   def display_world_locations

@@ -1,5 +1,5 @@
 (function($) {
-  var countryWasClicked = false;
+  var countryWasClicked = false,
       enterKeyCode = 13;
 
   $(".countries-wrapper").attr("aria-live", "polite");
@@ -7,15 +7,15 @@
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
-  var headingHasVisibleCountries = function(headingFirstLetter) {
-    return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
-  };
-
   var input = $("#country-filter form input#country"),
       listItems = $("ul.countries li"),
       countryHeadings = $(".inner section.countries-wrapper div").children("h2");
 
   var filterHeadings = function() {
+    var headingHasVisibleCountries = function(headingFirstLetter) {
+      return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
+    };
+
     countryHeadings.each(function(index, elem) {
       var $elem = $(elem), header = $elem.text().match(/[A-Z]{1}$/)[0];
       headingHasVisibleCountries(header) ? $elem.show() : $elem.hide();

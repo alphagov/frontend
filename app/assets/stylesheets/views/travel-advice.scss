@@ -203,6 +203,10 @@
       float: none;
       text-align: left;
       width: auto;
+
+      a[rel=external] {
+        @include external-link-16;
+      }
     }
   }
 

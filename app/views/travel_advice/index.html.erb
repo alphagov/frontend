@@ -1,5 +1,5 @@
 <% content_for :extra_headers do %>
-  <%= javascript_include_tag "views/travel-advice.js", :defer => "defer" %>
+  <%= javascript_include_tag "views/travel-advice.js" %>
   <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
@@ -15,24 +15,6 @@
     <article role="article" class="group">
       <div class="inner">
 
-        <section id="recently-updated" class="list">
-          <h1>Recently updated</h1>
-          
-          <ul class="updated-countries">
-            <% @publication.countries_recently_updated.each do |country| %>
-            <li>
-              <%= link_to country.name, travel_advice_country_path(country.identifier) %>
-              <span class="meta">updated <%= readable_time(country.updated_at) %></span>
-            </li>
-            <% end %>
-          </ul>
-
-          <ul class="subscriptions">
-            <li><%= link_to "Subscribe via RSS", publication_path(@publication.slug, format: "atom"), :class => "feed" %></li>
-            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external">Subscribe to email alerts</a></li>
-          </ul>
-        </section>
-
         <section id="country-filter">
           <form>
             <fieldset>
@@ -42,16 +24,28 @@
             </fieldset>
           </form>
         </section>
+        <section class="subscriptions">
+          <h1 class="visuallyhidden">Subscriptions</h1>
+          <ul>
+            <li><%= link_to "RSS", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
+            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external" title="Subscribe to email alerts">email alerts</a></li>
+          </ul>
+        </section>
         <section class="countries-wrapper">
+          <h1>Countries or territories</h1>       
+          <p class="country-count">
+            <span class="js-filter-count"><%= @publication.countries.length %></span>
+            <span class="visuallyhidden">Countries or territories</span>
+          </p>
           <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
-            <div id="<%= initial %>" class="list">
-              <h1><span class="visuallyhidden">Countries starting with </span><%= initial %></h1>
-              <ul class="countries">
-                <% countries.each do |country| %>
-                  <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
-                <% end %>
-              </ul>
-            </div>
+          <div id="<%= initial %>" class="list">
+            <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
+            <ul class="countries">
+              <% countries.each do |country| %>
+                <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
+              <% end %>
+            </ul>
+          </div>
           <% end %>
         </section>
       </div>

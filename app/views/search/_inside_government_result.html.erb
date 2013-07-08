@@ -22,7 +22,7 @@
     <% if result.has_organisations? %>
       <li>
         <span class="visuallyhidden">Departments: </span>
-          <%= result.display_organisations %>
+        <%= display_organisations(result.organisations) %>
       </li>
     <% end %>
     <% if result.has_world_locations? %>

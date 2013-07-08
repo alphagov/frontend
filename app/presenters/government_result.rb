@@ -53,24 +53,12 @@ class GovernmentResult < SearchResult
 
   def display(multi_valued_field)
     multi_valued_field.map do |field|
-      if field["acronym"]
-        """
-<abbr title='#{ERB::Util.html_escape(field["title"])}'>
-  #{field["acronym"]}
-</abbr>
-        """
-      else
-        field["title"] || field["slug"]
-      end
-    end.join(", ").html_safe
+      field["acronym"] || field["title"] || field["slug"]
+    end.join(", ")
   end
 
   def display_topics
     display(topics)
-  end
-
-  def display_organisations
-    display(organisations)
   end
 
   def display_world_locations

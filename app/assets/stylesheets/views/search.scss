@@ -123,7 +123,7 @@ section.search {
       }
 
       a {
-        @include core-24; 
+        @include core-24;
         font-weight: bold;
         display: block;
         overflow: hidden;
@@ -355,7 +355,7 @@ section.search {
       
     .crumbtrail,
     .attributes {
-      display: none;  
+      display: none;
     }
 
   }
@@ -384,6 +384,10 @@ section.search {
 
     h2 {
       @include core-36;
+      font-weight: bold;
+    }
+    h3 {
+      @include core-27;
       font-weight: bold;
     }
   }

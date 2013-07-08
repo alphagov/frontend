@@ -1,6 +1,6 @@
 <%- presenter = TransactionPresenter.new(@publication) -%>
 
-<section id="content" role="main" class="group">
+<main id="content" role="main" class="group">
 
   <header class="page-header group">
     <hgroup>
@@ -38,6 +38,6 @@
   <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
 </div>
 
-</section>
+</main>
 
 <div id="related-items"></div>

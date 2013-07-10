@@ -267,6 +267,32 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "ul.attributes li", /Home Office/
   end
 
+  should "remove the acronym from the title if it is present" do
+    results = [
+      a_search_result("a"),
+      a_search_result("b"),
+      a_search_result("c"),
+      result_with_organisation("MoD", "Ministry of Defence (MoD)", "ministry-of-defence")
+    ]
+    stub_results("government", results)
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li abbr[title='Ministry of Defence']", text: "MoD"
+  end
+
+  should "leave other bracketed parts of the title" do
+    results = [
+      a_search_result("a"),
+      a_search_result("b"),
+      a_search_result("c"),
+      result_with_organisation("FEE", "Forest Enterprise (England) (FEE)", "forest-enterprise-england")
+    ]
+    stub_results("government", results)
+    get :index, { q: "bob" }
+
+    assert_select "ul.attributes li abbr[title='Forest Enterprise (England)']", text: "FEE"
+  end
+
   test "should return unlimited results" do
     results = []
     75.times do |n|

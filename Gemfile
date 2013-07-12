@@ -40,7 +40,7 @@ gem "addressable"
 gem 'exception_notification', '3.0.1'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.20.0'
+  gem 'govuk_frontend_toolkit', '0.32.0'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem "therubyracer", "~> 0.9.4"

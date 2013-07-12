@@ -1,320 +1,475 @@
-@import '_shims.scss';
+// Remove search from the top bar as we have one in the content.
+body.homepage {
+  #search {
+    display: none;
+  }
+}
 
 .root-index {
-  section#content {
-    margin: 0 auto;
+  // Generic objects for the homepage
+  .inner-block {
+    @include media(tablet){
+      margin: 0 30px;
+      &.floated-children {
+        margin: 0 15px;
+      }
+    }
   }
 
-  .main-campaign,
-  .minor-campaigns {
-    clear:both;
+  .floated-inner-block {
+    margin: 0 15px;
   }
 
-  div#homepage {
-    background-color:#fff;
-    padding: 0 2em;
-    margin-top:1em;
-    min-height:26em;
-    overflow: visible;
+  section {
+    clear: both;
+  }
 
-    @include media(mobile) {
-      overflow: auto;
-      padding: 0 1em;
+  hr {
+    margin: 45px 15px 30px;
+    clear: both;
+    border: 5px solid $black;
+    border-width: 5px 0 0;
+
+    @include media(tablet){
+      margin: 45px 30px;
     }
+  }
 
-    header hgroup {
-      padding: 0;
-      margin-right: 0;
-    }
-
-    .homepage-categories {
-      padding-top: 0;
+  .single-column-heading {
+    @include media(desktop){
+      width: 33.33%;
       float: left;
-      width: 69%;
-      margin-right: 0;
-      margin-bottom: 1em;
+    }
+    h2 {
+      @include core-36;
+      font-weight: bold;
+      padding: 0 15px;
+      margin: 0;
+    }
+  }
 
-      @include media(mobile) {
-        float: none;
-        width: 100%;
+  .promo-image {
+    margin-right: 0;
+    margin-bottom: 30px;
+    min-height: 0;
+    position: static;
+
+    @include media(tablet){
+      width: 33.33%;
+      float: left;
+    }
+    .promo-content {
+      padding: 0 15px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    h3 {
+      @include core-24;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    p {
+      @include core-16;
+      margin: 0;
+    }
+  }
+
+
+  .homepage-top {
+    @extend %contain-floats;
+    text-align: center;
+    background: $mainstream-brand;
+    color: $white;
+
+    .homepage-top-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      text-align: left;
+    }
+  }
+
+  .welcome-block {
+    .welcome-text {
+      @include media(tablet){
+        float: left;
+        width: 66.66%;
+      }
+    }
+    .content-links {
+      @include media(tablet){
+        float: left;
+        width: 33.33%;
+      }
+    }
+
+    h1 {
+      @include core-48;
+      font-weight: bold;
+      padding: 30px 0 15px;
+    }
+    p {
+      margin: 0;
+
+      &.simpler {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    }
+    form#header-search {
+      padding-bottom: 20px;
+
+      .header-search-content {
+        @extend %contain-floats;
+        position: relative;
+        background: #fff;
+      }
+      label {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        text-indent: 15px;
+        overflow: hidden;
+        display: block;
+        margin-right: 10px;
+        color: $secondary-text-colour;
+
+        .js-enabled & {
+          float: none;
+          position: absolute;
+          left: 0;
+          top: 1px;
+          z-index: 1;
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+      input {
+        @include box-sizing(border-box);
+        float: left;
+        width: 50%;
+        min-width: 0;
+        display: block;
+        margin: 0;
+        border: 0;
+        height: 40px;
+        padding: 6px 0;
+        @include ie-lte(7){
+          height: 28px;
+        }
+        @include appearance(none);
+      }
+
+      input#header-search-text {
+        @include core-19($line-height: (28/19), $line-height-640: (28/16));
+        position: relative;
+        padding: 6px;
+        z-index: 3;
+        background: transparent;
+
+        &.focus,
+        &:focus {
+          background: #fff;
+        }
+
+        @include ie-lte(7){
+          padding-left: 0;
+        }
+        .js-enabled & {
+          width: 86%;
+          @include calc(width, "100% - 37px");
+        }
+      }
+
+      input.submit {
+        position: absolute;
+        z-index: 4;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+
+        border: 1px solid $black;
+        border-width: 0 0 0 1px;
+        @include ie-lte(7){
+          border-width: 1px;
+        }
+        border-left-color: #222;
+        @include border-radius(0);
+
+        overflow: hidden;
+        text-indent: -5000px;
+
+        color: $white;
+        background: $black url("homepage/search-button.png") no-repeat 2px 50%;
+
+        @include device-pixel-ratio() {
+          background-size: 52.5px 35px;
+          background-position: 115% 50%;
+        }
+
+        @include ie-lte(7) {
+          background-image: none;
+          width: auto;
+        }
+
+        &:hover {
+          background-color: lighten($black, 5%);
+        }
+      }
+      &.js-visible { display: block; }
+    }
+    .content-links-inner {
+      padding-bottom: 20px;
+
+      @include media(tablet){
+        background: $black;
+        padding: 20px 20px 10px;
+        margin-top: 30px;
+        margin-bottom: -30px;
       }
 
       h2 {
-        @include core-16;
-
-        @include media(mobile) {
-          @include core-19;
-        }
+        @include core-19;
+        font-weight: bold;
+        margin: 0;
       }
-    }
-
-    .categories-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      @include media(mobile) {
-        border-top:1px solid $border-colour;
-        margin-bottom: 1em;
+      ul {
+        margin: 0;
+        padding: 0;
       }
-
       li {
         @include core-19;
-        @include inline-block;
-        border-top:1px solid $border-colour;
-        width: 45.5%;
-        margin-left: 4.2%;
-        vertical-align: top;
+        list-style: none;
+        margin: 5px 0;
 
-        @include ie(8) {
-          margin-left: 4.15%;
+        @include media(tablet){
+          margin: 10px 0;
+        }
+      }
+      a {
+        &:link,
+        &:visited {
+          color: $white;
         }
 
-        @include media(desktop) {
-
-          &:nth-child(2) {
-            border-top: none;
-          }
-
-          @include ie-lte(8) {
-            &.nth-child {
-              border-top: none;
-            }
-          }
-        }
-
-        @include media(mobile) {
-          display: block;
-          width: 100%;
-          margin-left: 0;
-
-          &:nth-child(even) {
-            float: none;
-          }
-        }
-        p{
-          @include core-16;
-          padding:0 0 0.85em 0;
-          margin:0;
-        }
-
-        &:first-child {
-          border:none;
+        &:active,
+        &:hover,
+        &:focus {
+          color: darken($white, 20%);
         }
       }
     }
   }
+  .homepage-content {
+    @extend %contain-floats;
+    text-align: center;
 
-  header.intro {
-    padding-top: 0;
+    .homepage-content-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      text-align: left;
+    }
+  }
+  .services-block {
+    padding-top: 20px;
+    @include media(tablet){
+      padding-top: 40px;
+    }
 
-    .strap {
-      margin-right: 0;
-      padding: 0;
+    .two-column-heading {
+      @include media(tablet){
+        width: 66.66%;
+        float: left;
+      }
+      h2 {
+        @include core-36;
+        font-weight: bold;
+        padding: 0 15px;
+        margin: 15px 0;
+      }
+    }
+    .replaces {
+      @extend %contain-floats;
 
-      h1 {
-        @include bold-48;
-        padding-top: 0;
-        padding-bottom:0.25em;
+      @include media(tablet){
+        width: 33.33%;
+        float: right;
       }
       p {
-        @include core-19;
-        margin-top: 0;
-      }
-    }
-
-    .replaces {
-      margin-bottom: 0.5em;
-    }
-
-    p {
-      @include core-16;
-    }
-
-    ul{
-      list-style-type:none;
-      padding:0;
-      margin:0 0 2em 0;
-    }
-    ul li{
-      display:inline;
-      padding-right:1em;
-    }
-  }
-
-  .homepage-section {
-    min-height:0;
-    border-bottom:none;
-    margin:0;
-    padding-top:1em;
-    width:31%;
-    float:left;
-    margin-top: 1em;
-
-    h1{
-      padding: 0 0 5px 0;
-    }
-
-    p {
-      @include core-16;
-    }
-
-    @include media(mobile) {
-      float: none;
-      width: 100%;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  .minor-campaigns .homepage-section {
-    margin-right: 3.5%;
-
-    @include media(mobile) {
-      margin-right: 0;
-    }
-  }
-
-  .minor-campaigns article{
-    margin-top:1em;
-    border-bottom:none;
-    border-top: 4px solid $turquoise;
-
-    &.most-popular{
-      ul{
-        list-style: none;
-        list-style-image: none;
-        padding-left: 0;
-        li{
-          @include core-16;
-          margin-left: 0;
-          padding-left: 0;
-          padding-bottom:0.5em;
-
-          
-        }
-      }
-    }
-
-    &.inside-gov{
-      background-color: $black;
-      border:none;
-      margin-right: 0;
-      
-      .inner {
-        margin-top: 5px;
-        padding: 0 1em 1em 1em;
-      }
-
-      p{
-        @include core-16;
-        color:#fff;
-      }
-
-      a{
-        color:#fff;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-      
-      header{
-        background-image: image-url("homepage/homepage-cabinet.jpg");
-        background-position: bottom left;
-        background-repeat: no-repeat;
-        margin: 0 -1em 1em -1em;
-        padding: 0 1em;
-        padding-bottom:138px;
-        
-        h1, p{
-          @include core-19;
-          color:#fff;
-          padding: 0 0 10px 0;
-          margin:0;
-        }
-
-        h1{
-          @include bold-24;
-        }
-      }
-    }
-
-    &.mini-promo{
-
-      img {
-        margin: 0.75em 0 0 0;
-        width: 100%;
-      }
-
-      .highlighted-event {
+        @include core-14;
+        padding: 0 15px;
         margin: 0;
-        padding: 1em 2em 0.2em 2em;
+        color: $secondary-text-colour;
+      }
+      ul {
+        margin: 0;
+        padding: 0 15px;
+      }
+      li {
+        line-height: 30px;
+        display: block;
+        float: left;
+        padding-right: 10px;
+        img {
+          vertical-align: bottom;
+        }
+      }
+    }
+    .categories-list {
+      @extend %contain-floats;
+      clear: both;
+      margin: 0;
+      padding: 10px 0 0;
 
-        a{
+      li {
+        margin: 0 0 15px;
+        padding: 0;
+        list-style: none;
+
+        @include media(desktop){
+          float: left;
+          width: 33.33%;
+        }
+        &.nth-child {
+          clear: left;
+        }
+
+        h2, p {
+          margin: 0;
+          padding: 0 15px;
+        }
+        h2 {
+          @include core-19;
+          font-weight: bold;
+        }
+        p {
+          @include core-16;
+        }
+      }
+    }
+  }
+
+  .departments-and-policy {
+    .departments-intro {
+      @include media(desktop){
+        width: 66.66%;
+        float: left;
+      }
+      p {
+        @include core-24;
+        margin: 10px 0 20px;
+      }
+    }
+    .large-numbers {
+      clear: both;
+      @extend %contain-floats;
+      padding: 30px 0;
+
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        @include media(desktop){
+          width: 25%;
+          float: left;
+        }
+        a {
+          padding: 0 15px;
+          display: block;
           text-decoration: none;
-          color:#fff;
-
-          &:hover {
-            text-decoration: underline;
-          }
-
         }
+        strong {
+          @include core-80;
+          font-weight: bold;
+          display: block;
+        }
+      }
+    }
+    .departments-promo-sections {
+      @extend %contain-floats;
+      padding: 30px 0 0;
+    }
+  }
+
+  .popular-content {
+    @extend %contain-floats;
+
+    .most-active {
+      @include media(tablet){
+        width: 33.33%;
+        float: left;
+      }
+      .floated-inner-block {
+        background: $panel-colour;
+      }
+      h3 {
+        @include core-24;
+        font-weight: bold;
+        margin: 0;
+        padding: 15px 15px 0;
+      }
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 5px 15px 0;
+        @include core-16;
+
+        span {
+          display: inline-block;
+          min-width: 25px;
+        }
+        a {
+          font-weight: bold;
+        }
+      }
+      p {
+        @include core-16;
+        margin: 0;
+        padding: 15px;
+        font-weight: bold;
       }
     }
   }
 
-  .main-campaign{
-    margin: 0;
+  .more-on-govuk {
+    @extend %contain-floats;
+    padding: 0 0 30px;
 
-    @include media(mobile) {
-      margin:0 -1em;
+    h2 {
+      @include core-36;
+      font-weight: bold;
+      margin: 0 15px 20px;
     }
+    article {
+      margin-right: 0;
+      min-height: 0;
+      position: static;
 
-    a{
-      @include core-24;
-      font-weight:bold;
-      color: $black;
-      text-decoration:none;
-      display:block;
-      text-align:left;
-      padding-left:1em;
-      padding-top:0.65em;
-      overflow: hidden;
-      height:300px;
-      background-image: image-url('homepage/ig-960px.jpg');
-      @include device-pixel-ratio() {
-        background-image: image-url('homepage/ig-960px-2x.jpg');
-        background-size: 960px 299px;
+      @include media(tablet){
+        float: left;
+        width: 50%;
       }
-      background-position: top left;
-      background-repeat: no-repeat;
-      @media(max-width: 935px) {
-        height:450px;
-        background-image: image-url('homepage/ig-935px.jpg');
-        @include device-pixel-ratio() {
-          background-image: image-url('homepage/ig-935px-2x.jpg');
-          background-size: 935px 469px;
-        }
-        background-position: bottom right;
-        padding-left:12em;
+      &.clear-promo {
+        clear: left;
       }
 
-      @media(max-width: 500px) {
-        height:257px;
-        background-image: image-url('homepage/ig-500px.jpg');
-        @include device-pixel-ratio() {
-          background-image: image-url('homepage/ig-500px-2x.jpg');
-          background-size: 500px 272px;
-        }
-        background-position: bottom right;
-        padding-left:8em;
+      h3 {
+        @include core-19;
+        font-weight: bold;
+        margin: 0;
       }
-    }
-    a:hover{
-      color:$black;
+      p {
+        margin: 0 0 20px;
+      }
     }
   }
+
 }

@@ -20,22 +20,22 @@
           {
             "label": "Sir Lancelot of Camelot",
             "slug": "sir-lancelot-of-camelot",
-            "next": "what-is-your-favorite-colour"
+            "next_node": "what-is-your-favorite-colour"
           },
           {
             "label": "Sir Robin of Camelot",
             "slug": "sir-robin-of-camelot",
-            "next": "what-is-the-capital-of-assyria"
+            "next_node": "what-is-the-capital-of-assyria"
           },
           {
             "label": "Sir Galahad of Camelot",
             "slug": "sir-galahad-of-camelot",
-            "next": "what-is-your-favorite-colour"
+            "next_node": "what-is-your-favorite-colour"
           },
           {
             "label": "King Arthur of the Britons!",
             "slug": "king-arthur-of-the-britons",
-            "next": "what-is-your-favorite-colour"
+            "next_node": "what-is-your-favorite-colour"
           }
         ]
       },
@@ -48,7 +48,7 @@
           {
             "label": "I don't know THAT!!",
             "slug": "i-don-t-know-that",
-            "next": "arrrrrghhhh"
+            "next_node": "arrrrrghhhh"
           }
         ]
       },
@@ -61,12 +61,12 @@
           {
             "label": "Blue",
             "slug": "blue",
-            "next": "right-off-you-go"
+            "next_node": "right-off-you-go"
           },
           {
             "label": "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!",
             "slug": "blue-no-yelloooooooooooooooowww",
-            "next": "arrrrrghhhh"
+            "next_node": "arrrrrghhhh"
           }
         ]
       },

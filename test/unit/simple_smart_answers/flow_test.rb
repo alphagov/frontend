@@ -65,17 +65,17 @@ module SimpleSmartAnswers
               {
                 "label" => "Option 1",
                 "slug" => "option-1",
-                "next" => "question-2",
+                "next_node" => "question-2",
               },
               {
                 "label" => "Option 2",
                 "slug" => "option-2",
-                "next" => "outcome-1",
+                "next_node" => "outcome-1",
               },
               {
                 "label" => "Option 3",
                 "slug" => "option-3",
-                "next" => "outcome-2",
+                "next_node" => "outcome-2",
               },
             ],
           },
@@ -88,12 +88,12 @@ module SimpleSmartAnswers
               {
                 "label" => "Option 1",
                 "slug" => "option-1",
-                "next" => "outcome-1",
+                "next_node" => "outcome-1",
               },
               {
                 "label" => "Option 2",
                 "slug" => "option-2",
-                "next" => "outcome-2",
+                "next_node" => "outcome-2",
               },
             ],
           },

@@ -1,6 +1,6 @@
 Frontend::Application.routes.draw do
   get "/homepage" => redirect("/")
-  get "/search.json" => redirect { |params,req| "/api/search.json?q=#{req.query_parameters['q']}" }
+  get "/search.json" => redirect { |params,req| "/api/search.json?q=#{CGI.escape(req.query_parameters['q'] || '')}" }
   get "/search" => "search#index", as: :search
   get "/search/opensearch" => "search#opensearch"
   get "/browse.json" => redirect("/api/tags.json?type=section&root_sections=true")

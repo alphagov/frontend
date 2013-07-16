@@ -385,6 +385,9 @@ body.homepage {
       ol {
         margin: 0;
         padding: 0;
+        @include ie-lte(7){
+          width: 988px; // because 990px/4 is not a round number
+        }
       }
       li {
         list-style: none;

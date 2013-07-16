@@ -18,8 +18,8 @@ class SearchController < ApplicationController
 
       recommended_link_results = grouped_mainstream_results[:recommended_link]
 
-      if params[:organisation]
-        government_results = retrieve_government_results(@search_term, params[:organisation])
+      if params[:organisation].present? || params[:sort].present?
+        government_results = retrieve_government_results(@search_term, params[:organisation], params[:sort])
         unfiltered_government_results = retrieve_government_results(@search_term)
       else
         government_results = retrieve_government_results(@search_term)
@@ -118,9 +118,10 @@ class SearchController < ApplicationController
     res["results"].map { |r| SearchResult.new(r) }
   end
 
-  def retrieve_government_results(term, organisation = nil)
+  def retrieve_government_results(term, organisation = nil, sort = nil)
     extra_parameters = extra_search_parameters
     extra_parameters[:organisation_slug] = organisation if organisation
+    extra_parameters[:sort] = sort if sort.present?
     res = Frontend.government_search_client.search(term, extra_parameters)
     res["results"].map { |r| GovernmentResult.new(r) }
   end

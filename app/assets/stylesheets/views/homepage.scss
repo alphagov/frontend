@@ -90,6 +90,9 @@ body.homepage {
       max-width: 1020px;
       margin: 0 auto;
       text-align: left;
+      @include ie-lte(8){
+        width: 1020px;
+      }
     }
   }
 
@@ -276,6 +279,9 @@ body.homepage {
       max-width: 1020px;
       margin: 0 auto;
       text-align: left;
+      @include ie-lte(8){
+        width: 1020px;
+      }
     }
   }
   .services-block {

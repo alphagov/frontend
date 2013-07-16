@@ -3,6 +3,9 @@ body.homepage {
   #search {
     display: none;
   }
+  #global-header .search-toggle {
+    display: none;
+  }
 }
 
 .root-index {
@@ -44,7 +47,7 @@ body.homepage {
       @include core-36;
       font-weight: bold;
       padding: 0 15px;
-      margin: 0;
+      margin: 0 0 10px;
     }
   }
 
@@ -196,10 +199,10 @@ body.homepage {
           border-width: 1px;
         }
         border-left-color: #222;
-        @include border-radius(0);
 
         overflow: hidden;
         text-indent: -5000px;
+        cursor: pointer;
 
         color: $white;
         background: $black url("homepage/search-button.png") no-repeat 2px 50%;
@@ -287,7 +290,10 @@ body.homepage {
         @include core-36;
         font-weight: bold;
         padding: 0 15px;
-        margin: 15px 0;
+        margin: 20px 0 0;
+        @include media(tablet){
+          margin: 15px 0;
+        }
       }
     }
     .replaces {
@@ -446,7 +452,10 @@ body.homepage {
     h2 {
       @include core-36;
       font-weight: bold;
-      margin: 0 15px 20px;
+      margin: 0 15px 10px;
+      @include media(tablet){
+        margin: 0 15px 20px;
+      }
     }
     article {
       margin-right: 0;

@@ -380,7 +380,9 @@ body.homepage {
     .large-numbers {
       clear: both;
       @extend %contain-floats;
-      padding: 30px 0;
+      @include media(tablet){
+        padding: 30px 0;
+      }
 
       ol {
         margin: 0;
@@ -391,9 +393,11 @@ body.homepage {
       }
       li {
         list-style: none;
-        @include media(desktop){
+        margin: 20px 0;
+        @include media(tablet){
           width: 25%;
           float: left;
+          margin: 0;
         }
         a {
           padding: 0 15px;
@@ -401,9 +405,17 @@ body.homepage {
           text-decoration: none;
         }
         strong {
-          @include core-80;
+          // Manually setting font-size rather than using the mixins size so we
+          // because the layout doesn't really work otherwise
+          font-size: 53px;
+          line-height: (55 / 53);
           font-weight: bold;
           display: block;
+
+          @include media(desktop){
+            font-size: 80px;
+            line-height: (80 / 80)
+          }
         }
       }
     }

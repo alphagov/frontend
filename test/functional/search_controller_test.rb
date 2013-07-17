@@ -484,7 +484,6 @@ class SearchControllerTest < ActionController::TestCase
 
     should "default the sort to relevance (blank value)" do
       get :index, q: "glass"
-
       assert_select "input[name=sort][value=''][checked]"
     end
 
@@ -495,7 +494,6 @@ class SearchControllerTest < ActionController::TestCase
 
     should "remember the choice in the main search form" do
       get :index, q: "glass", sort: "public_timestamp"
-
       assert_select "form.search-header input[name=sort][value='public_timestamp']"
     end
 

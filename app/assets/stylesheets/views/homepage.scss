@@ -202,6 +202,7 @@ body.homepage {
           border-width: 1px;
         }
         border-left-color: #222;
+        @include border-radius(0);
 
         overflow: hidden;
         text-indent: -5000px;
@@ -482,7 +483,7 @@ body.homepage {
 
   .more-on-govuk {
     @extend %contain-floats;
-    padding: 0 0 30px;
+    padding: 0 0 60px;
 
     h2 {
       @include core-36;

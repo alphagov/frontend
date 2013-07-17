@@ -83,7 +83,7 @@ body.homepage {
   .homepage-top {
     @extend %contain-floats;
     text-align: center;
-    background: $mainstream-brand;
+    background: $homepage-top-colour;
     color: $white;
 
     .homepage-top-inner {

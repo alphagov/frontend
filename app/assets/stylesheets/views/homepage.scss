@@ -395,9 +395,10 @@ body.homepage {
       li {
         list-style: none;
         margin: 20px 0;
+        width: 50%;
+        float: left;
         @include media(tablet){
           width: 25%;
-          float: left;
           margin: 0;
         }
         a {

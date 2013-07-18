@@ -2,7 +2,8 @@
   <div class="current-question">
     <h2><span class="question-number"><%= @flow_state.current_question_number %></span> <%= question.title %></h2>
 
-    <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions), :method => :get do %>
+    <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, :edition => nil), :method => :get do %>
+      <%= hidden_field_tag :edition, @edition if @edition.present? %>
       <div class="question-body">
         <%= raw question.body %>
 

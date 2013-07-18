@@ -456,7 +456,7 @@ body.homepage {
       }
       ol {
         margin: 0;
-        padding: 0;
+        padding: 0 0 15px;
       }
       li {
         list-style: none;
@@ -471,12 +471,6 @@ body.homepage {
         a {
           font-weight: bold;
         }
-      }
-      p {
-        @include core-16;
-        margin: 0;
-        padding: 15px;
-        font-weight: bold;
       }
     }
   }

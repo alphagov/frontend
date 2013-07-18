@@ -38,9 +38,10 @@ class SimpleSmartAnswersController < ApplicationController
 
   helper_method :smart_answer_path_for_responses, :change_completed_question_path
 
-  def smart_answer_path_for_responses(responses, extra_params = {})
+  def smart_answer_path_for_responses(responses, extra_attrs = {})
     responses_as_string = responses.any? ? responses.map(&:slug).join("/") : nil
-    smart_answer_flow_path extra_params.merge(:slug => @publication.slug, :responses => responses_as_string, :edition => @edition)
+    attrs = {:slug => @publication.slug, :responses => responses_as_string, :edition => @edition}.merge(extra_attrs)
+    smart_answer_flow_path attrs
   end
 
   def change_completed_question_path(question_number)

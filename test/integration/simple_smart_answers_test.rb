@@ -45,6 +45,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert page.has_selector?("#test-related")
   end
 
+  # This should be with_and_without_javascript when the AJAX variant is implemented
   without_javascript do
     should "handle the flow correctly" do
       visit "/the-bridge-of-death"
@@ -298,7 +299,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_page_has_content "Right, off you go"
 
     end
+  end # without javascript
 
+  # Capybara with rack-test behaves differently to real browsers when handling method=get
+  # forms with get params in the action URL.  Real browsers remove the get params, and replace them
+  # with the form values.  Capybara merges them together, causing this test to give a false positive.
+  #
+  # Poltergeist does the right thing.
+  with_javascript do
     should "allow previewing a draft version" do
       content_api_has_a_draft_artefact "the-bridge-of-death", 2, content_api_response("the-bridge-of-death-draft")
 
@@ -330,6 +338,9 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Sir Lancelot of Camelot", "Sir Robin of Camelot", "Sir Galahad of Camelot", "King Arthur of the Britons!"], options
         end
+
+        # Ensure the edition param isn't added to the form URL as it needs to be in a hidden field.
+        assert_equal "/the-bridge-of-death/y", page.find('form')["action"]
       end
 
       choose "King Arthur of the Britons!"
@@ -395,5 +406,5 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         end
       end
     end
-  end # without javascript
+  end # with javascript
 end

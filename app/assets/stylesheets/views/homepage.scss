@@ -83,12 +83,13 @@ body.homepage {
 
 
   .homepage-top {
-    @extend %contain-floats;
     text-align: center;
+    overflow: hidden;
     background: $homepage-top-colour;
     color: $white;
 
     .homepage-top-inner {
+      position: relative;
       max-width: 1020px;
       margin: 0 auto;
       text-align: left;
@@ -101,13 +102,14 @@ body.homepage {
   .welcome-block {
     .welcome-text {
       @include media(tablet){
-        float: left;
         width: 66.66%;
       }
     }
     .content-links {
       @include media(tablet){
-        float: left;
+        position: absolute;
+        top: 0;
+        left: 66%;
         width: 33.33%;
       }
     }
@@ -115,7 +117,7 @@ body.homepage {
     h1 {
       @include core-48;
       font-weight: bold;
-      padding: 30px 0 15px;
+      padding: 25px 0 15px;
     }
     p {
       margin: 0;
@@ -236,7 +238,7 @@ body.homepage {
         background: $black;
         padding: 15px 20px 5px;
         margin-top: 30px;
-        margin-bottom: -30px;
+        min-height: 20em;
         @include ie-lte(7){
           margin-bottom: 0;
         }

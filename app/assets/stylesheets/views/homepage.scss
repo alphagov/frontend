@@ -414,7 +414,7 @@ body.homepage {
         }
         strong {
           // Manually setting font-size rather than using the mixins size so we
-          // because the layout doesn't really work otherwise
+          // because the layout doesnt really work otherwise
           font-size: 53px;
           line-height: (55 / 53);
           font-weight: bold;
@@ -466,9 +466,11 @@ body.homepage {
       li {
         list-style: none;
         margin: 0;
-        padding: 10px 0 0;
-        @include core-16;
-
+        padding: 5px 0 0;
+        @include core-19;
+        a {
+          font-weight: bold;
+        }
         span {
           display: inline-block;
           min-width: 25px;

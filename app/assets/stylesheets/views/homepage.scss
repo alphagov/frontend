@@ -28,13 +28,13 @@ body.homepage {
   }
 
   hr {
-    margin: 45px 15px 30px;
+    margin: 30px 15px 15px;
     clear: both;
     border: 5px solid $black;
     border-width: 5px 0 0;
 
     @include media(tablet){
-      margin: 45px 30px;
+      margin: 60px 30px 30px;
     }
   }
 
@@ -67,6 +67,8 @@ body.homepage {
     img {
       width: 100%;
       height: auto;
+      display: block;
+      margin-bottom: 15px;
     }
     h3 {
       @include core-24;
@@ -124,7 +126,7 @@ body.homepage {
       }
     }
     form#header-search {
-      padding-bottom: 20px;
+      padding-bottom: 30px;
 
       .header-search-content {
         @extend %contain-floats;
@@ -232,7 +234,7 @@ body.homepage {
 
       @include media(tablet){
         background: $black;
-        padding: 20px 20px 10px;
+        padding: 15px 20px 5px;
         margin-top: 30px;
         margin-bottom: -30px;
         @include ie-lte(7){
@@ -243,7 +245,7 @@ body.homepage {
       h2 {
         @include core-19;
         font-weight: bold;
-        margin: 0;
+        margin: 0 0 15px;
       }
       ul {
         margin: 0;
@@ -286,9 +288,9 @@ body.homepage {
     }
   }
   .services-block {
-    padding-top: 20px;
+    padding-top: 15px;
     @include media(tablet){
-      padding-top: 40px;
+      padding-top: 30px;
     }
 
     .two-column-heading {
@@ -302,7 +304,7 @@ body.homepage {
         padding: 0 15px;
         margin: 20px 0 0;
         @include media(tablet){
-          margin: 15px 0;
+          margin: 15px 0 25px;
         }
       }
     }
@@ -310,6 +312,7 @@ body.homepage {
       @extend %contain-floats;
 
       @include media(tablet){
+        padding-top: 10px;
         width: 33.33%;
         float: right;
       }
@@ -405,6 +408,7 @@ body.homepage {
           padding: 0 15px;
           display: block;
           text-decoration: none;
+          line-height: 1.25;
         }
         strong {
           // Manually setting font-size rather than using the mixins size so we
@@ -446,14 +450,11 @@ body.homepage {
       @include media(desktop){
         width: 33.33%;
       }
-      .floated-inner-block {
-        background: $panel-colour;
-      }
       h3 {
-        @include core-24;
+        @include core-19;
         font-weight: bold;
         margin: 0;
-        padding: 15px 15px 0;
+        padding: 0 0 5px;
       }
       .most-active-content {
         margin: 0;
@@ -462,15 +463,12 @@ body.homepage {
       li {
         list-style: none;
         margin: 0;
-        padding: 8px 15px 0;
+        padding: 10px 0 0;
         @include core-16;
 
         span {
           display: inline-block;
           min-width: 25px;
-        }
-        a {
-          font-weight: bold;
         }
       }
     }

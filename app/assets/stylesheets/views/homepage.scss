@@ -433,6 +433,7 @@ body.homepage {
 
   .popular-content {
     @extend %contain-floats;
+    margin-bottom: 60px;
 
     .promo-image {
       @include media(tablet){
@@ -473,41 +474,4 @@ body.homepage {
       }
     }
   }
-
-  .more-on-govuk {
-    @extend %contain-floats;
-    padding: 0 0 60px;
-
-    h2 {
-      @include core-36;
-      font-weight: bold;
-      margin: 0 15px 10px;
-      @include media(tablet){
-        margin: 0 15px 20px;
-      }
-    }
-    article {
-      margin-right: 0;
-      min-height: 0;
-      position: static;
-
-      @include media(tablet){
-        float: left;
-        width: 50%;
-      }
-      &.clear-promo {
-        clear: left;
-      }
-
-      h3 {
-        @include core-19;
-        font-weight: bold;
-        margin: 0;
-      }
-      p {
-        margin: 0 0 20px;
-      }
-    }
-  }
-
 }

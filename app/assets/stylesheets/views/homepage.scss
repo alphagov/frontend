@@ -450,14 +450,11 @@ body.homepage {
       @include media(desktop){
         width: 33.33%;
       }
-      .floated-inner-block {
-        background: $panel-colour;
-      }
       h3 {
         @include core-19;
         font-weight: bold;
         margin: 0;
-        padding: 15px 20px 5px;
+        padding: 0 0 5px;
       }
       .most-active-content {
         margin: 0;
@@ -466,7 +463,7 @@ body.homepage {
       li {
         list-style: none;
         margin: 0;
-        padding: 10px 20px 0;
+        padding: 10px 0 0;
         @include core-16;
 
         span {

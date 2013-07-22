@@ -83,13 +83,14 @@ body.homepage {
 
 
   .homepage-top {
+    @extend %contain-floats;
     text-align: center;
-    overflow: hidden;
     background: $homepage-top-colour;
     color: $white;
 
     .homepage-top-inner {
       position: relative;
+      overflow: hidden;
       max-width: 1020px;
       margin: 0 auto;
       text-align: left;
@@ -241,6 +242,9 @@ body.homepage {
         min-height: 20em;
         @include ie-lte(7){
           margin-bottom: 0;
+        }
+        @include ie(6) {
+          height: 20em;
         }
       }
 

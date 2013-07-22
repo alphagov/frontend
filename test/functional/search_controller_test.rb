@@ -476,6 +476,54 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
+  context "sorting results" do
+    setup do
+      # Ensure tabs are displayed
+      stub_results("mainstream", [a_search_result("a", 3), a_search_result("b", 3), a_search_result("c", 3), a_search_result("d", 3)])
+    end
+
+    should "default the sort to relevance (blank value)" do
+      get :index, q: "glass"
+      assert_select "input[name=sort][value=''][checked]"
+    end
+
+    should "reflect the choice in the filter form" do
+      get :index, q: "glass", sort: "public_timestamp"
+      assert_select "input[name=sort][value='public_timestamp'][checked]"
+    end
+
+    should "remember the choice in the main search form" do
+      get :index, q: "glass", sort: "public_timestamp"
+      assert_select "form.search-header input[name=sort][value='public_timestamp']"
+    end
+
+    should "allow sorting by public_timestamp" do
+      search_results = [
+        a_search_result("new", 1),
+        a_search_result("old", 2)
+      ]
+      response_body = {
+        "total" => search_results.size,
+        "results" => search_results
+      }
+      client = mock("search government")
+      # Once for the tab contents, once for the top results
+      client.expects(:search)
+            .with('glass', response_style: 'hash', minimum_should_match: '1', sort: "public_timestamp")
+            .returns(response_body)
+      client.expects(:search)
+            .with('glass', response_style: 'hash', minimum_should_match: '1')
+            .returns(response_body)
+      Frontend.stubs(:government_search_client).returns(client)
+
+      get :index, q: "glass", sort: "public_timestamp"
+
+      # Check that they've come out in the order returned by Rummager
+      assert_select '#government-results li:first-child  h3 a[href=/new]'
+      assert_select '#government-results li:nth-child(2) h3 a[href=/old]'
+    end
+  end
+
   context "top results" do
     should "remove the highest 3 scored results from the three tabs and display above all others" do
       stub_results("mainstream", [a_search_result("a", 1)])

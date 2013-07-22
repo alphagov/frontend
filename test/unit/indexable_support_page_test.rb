@@ -43,6 +43,6 @@ class IndexableSupportPageTest < ActiveSupport::TestCase
   should "use the text of the page with erb and HTML removed for indexable_content" do
     filename = "#{Rails.root}/app/views/support/about-govuk.html.erb"
     isp = IndexableSupportPage.new(filename)
-    assert_match(/^About GOV.UK\s+On this page:/m, isp.indexable_content)
+    assert_match(/^\s+About GOV.UK\s+On this page:/m, isp.indexable_content)
   end
 end

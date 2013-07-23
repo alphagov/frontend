@@ -27,13 +27,21 @@ class TravelAdviceController < ApplicationController
 
     @publication = fetch_publication_for_country(@country)
 
-    index_tag = slimmer_section_tag_for_details(
+    tags = @publication.artefact.to_hash["tags"]
+    section_tag = tags.find {|t| t["details"]["type"] == "section" }
+
+    combined_tags = slimmer_section_tag_for_details(
       :section_name => "Foreign travel advice",
       :section_link => "/foreign-travel-advice"
-    )
-    index_tag["parent"] = @publication.artefact.to_hash["tags"][0]
+    ).merge("parent" => section_tag)
 
-    set_slimmer_artefact_headers(@publication.artefact.to_hash.merge('tags' => [index_tag]))
+    if section_tag.present?
+      tags[tags.index(section_tag)] = combined_tags
+    else
+      tags << combined_tags
+    end
+
+    set_slimmer_artefact_headers(@publication.artefact.to_hash.merge('tags' => tags))
 
     I18n.locale = :en # These pages haven't been localised yet.
 

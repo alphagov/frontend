@@ -149,6 +149,18 @@ class TravelAdviceControllerTest < ActionController::TestCase
           assert_equal "Foreign travel advice", section["title"]
           assert_equal "/foreign-travel-advice", section["content_with_tag"]["web_url"]
         end
+
+        should "pass-through the primary section from the api" do
+          @controller.stubs(:render)
+
+          get :country, :country_slug => "turks-and-caicos-islands"
+
+          header_artefact = JSON.parse(@response.headers["X-Slimmer-Artefact"])
+
+          parent = header_artefact["tags"].first["parent"]
+          assert_equal "Travel abroad", parent["title"]
+          assert_equal "https://www.gov.uk/browse/abroad/travel-abroad", parent["content_with_tag"]["web_url"]
+        end
       end
 
       should "return a print format" do

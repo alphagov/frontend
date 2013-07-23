@@ -26,8 +26,14 @@ class TravelAdviceController < ApplicationController
     @edition = params[:edition]
 
     @publication = fetch_publication_for_country(@country)
-    set_slimmer_artefact_overriding_section(@publication.artefact, :section_name => "Foreign travel advice", :section_link => "/foreign-travel-advice")
-    set_slimmer_headers(:format => @publication.artefact["format"])
+
+    index_tag = slimmer_section_tag_for_details(
+      :section_name => "Foreign travel advice",
+      :section_link => "/foreign-travel-advice"
+    )
+    index_tag["parent"] = @publication.artefact.to_hash["tags"][0]
+
+    set_slimmer_artefact_headers(@publication.artefact.to_hash.merge('tags' => [index_tag]))
 
     I18n.locale = :en # These pages haven't been localised yet.
 

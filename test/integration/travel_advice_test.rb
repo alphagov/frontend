@@ -222,7 +222,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit "/foreign-travel-advice/turks-and-caicos-islands/print"
       assert_equal 200, page.status_code
 
-      within 'section[role=main]' do
+      within 'main[role=main]' do
         assert page.has_selector?('h1', :text => "Turks and Caicos Islands travel advice")
 
         section_titles = page.all('article h1').map(&:text)

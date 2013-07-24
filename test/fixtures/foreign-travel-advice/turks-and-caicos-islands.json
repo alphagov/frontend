@@ -47,6 +47,36 @@
       }
     ]
   },
-  "tags": [],
+  "tags": [
+    {
+      "title": "Travel abroad",
+      "id": "https://www.gov.uk/api/tags/sections/abroad%2Ftravel-abroad.json",
+      "web_url": null,
+      "details": {
+          "description": "Includes the latest travel advice by country, your rights at the airport and getting help abroad",
+          "short_description": null,
+          "type": "section"
+      },
+      "content_with_tag": {
+          "id": "https://www.gov.uk/api/with_tag.json?section=abroad%2Ftravel-abroad",
+          "web_url": "https://www.gov.uk/browse/abroad/travel-abroad"
+      },
+      "parent": {
+          "title": "Passports, travel and living abroad",
+          "id": "https://www.gov.uk/api/tags/sections/abroad.json",
+          "web_url": null,
+          "details": {
+              "description": "Includes renewing passports and travel advice by country",
+              "short_description": null,
+              "type": "section"
+          },
+          "content_with_tag": {
+              "id": "https://www.gov.uk/api/with_tag.json?section=abroad",
+              "web_url": "https://www.gov.uk/browse/abroad"
+          },
+          "parent": null
+      }
+    }
+  ],
   "related": []
 }

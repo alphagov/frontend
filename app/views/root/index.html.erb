@@ -43,7 +43,7 @@
   <div id="homepage" class="homepage-content">
     <div class="homepage-content-inner">
 
-      <section class="services-block" id="services-and-information">
+      <section class="services-block" aria-labelledby="services-and-information-label" id="services-and-information">
         <div class="inner-block floated-children">
           <div class="replaces">
             <p>This website replaces</p>
@@ -53,7 +53,7 @@
             </ul>
           </div>
           <div class="two-column-heading">
-            <h2>Services and information</h2>
+            <h2 id="services-and-information-label">Services and information</h2>
           </div>
           <ul class="categories-list">
             <li>
@@ -114,10 +114,10 @@
 
       <hr id="departments-and-policy" />
   
-      <section class="departments-and-policy">
+      <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">
         <div class="inner-block floated-children">
           <div class="single-column-heading">
-            <h2>Departments and&nbsp;policy</h2>
+            <h2 id="departments-and-policy-label">Departments and&nbsp;policy</h2>
           </div>
           <div class="departments-intro">
             <div class="floated-inner-block">
@@ -147,39 +147,39 @@
           <div class="departments-promo-sections">
             <article class="promo-image">
               <div class="promo-content">
-                <%= image_tag 'homepage/cabinet-office.jpg', alt: '' %>
-                <h3>How government works</h3>
+                <a href="/government/how-government-works"><%= image_tag 'homepage/cabinet-office.jpg', alt: 'How government works' %></a>
+                <h3 id="how-government-works-label">How government works</h3>
                 <p>
                   In the UK, the Prime Minister leads the government with the
                   support of the cabinet and ministers. You can find out who runs
                   government and how government is run, as well as learning about
                   the history of government.
                 </p>
-                <p><a href="/government/how-government-works">Read more</a></p>
+                <p><a href="/government/how-government-works" aria-describedby="how-government-works-label">Read more</a></p>
               </div>
             </article>
             <article class="promo-image">
               <div class="promo-content">
-                <%= image_tag 'homepage/library-girl.jpg', alt: '' %>
-                <h3>Get involved</h3>
+                <a href="/government/get-involved"><%= image_tag 'homepage/library-girl.jpg', alt: 'Get involved' %></a>
+                <h3 id="get-involved-label">Get involved</h3>
                 <p>
                   Find out how you can engage with government directly, and take
                   part locally, nationally or internationally. You can also read
                   policies about how government is increasing participation.
                 </p>
-                <p><a href="/government/get-involved">Read more</a></p>
+                <p><a href="/government/get-involved" aria-describedby="get-involved-label">Find out more</a></p>
               </div>
             </article>
             <article class="promo-image">
               <div class="promo-content">
-                <%= image_tag 'homepage/worldwide.jpg', alt: '' %>
-                <h3>Worldwide</h3>
+                <a href="/government/world"><%= image_tag 'homepage/worldwide.jpg', alt: 'Worldwide' %></a>
+                <h3 id="worldwide-label">Worldwide</h3>
                 <p>
                   Find out what the UK government is doing in over 200 world
                   locations. You can read the priorities for each location and
                   get embassy information and contact details.
                 </p>
-                <p><a href="/government/world">Read more</a></p>
+                <p><a href="/government/world" aria-describedby="worldwide-label">See all locations</a></p>
               </div>
             </article>
           </div>
@@ -188,10 +188,10 @@
 
       <hr id="more-on-govuk" />
 
-      <section class="popular-content">
+      <section class="popular-content" aria-labelledby="more-on-govuk-label">
         <div class="inner-block floated-children">
           <div class="single-column-heading">
-            <h2>More on GOV.UK</h2>
+            <h2 id="more-on-govuk-label">More on GOV.UK</h2>
           </div>
           <div class="most-active">
             <div class="floated-inner-block">

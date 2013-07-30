@@ -67,7 +67,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should pass our query parameter in to the search client" do
-    Frontend.mainstream_search_client.expects(:search).with("search-term", response_style: "hash", minimum_should_match: "1").returns("results" => []).once
+    Frontend.mainstream_search_client.expects(:search).with("search-term").returns("results" => []).once
     get :index, q: "search-term"
   end
 
@@ -450,7 +450,7 @@ class SearchControllerTest < ActionController::TestCase
     should "let you filter results by organisation" do
       Frontend.government_search_client
           .expects(:search)
-          .with("moon", organisation_slug: "ministry-of-defence", response_style: "hash", minimum_should_match: "1")
+          .with("moon", organisation_slug: "ministry-of-defence")
           .returns("results" => [])
       get :index, { q: "moon", organisation: "ministry-of-defence" }
     end
@@ -509,10 +509,10 @@ class SearchControllerTest < ActionController::TestCase
       client = mock("search government")
       # Once for the tab contents, once for the top results
       client.expects(:search)
-            .with('glass', response_style: 'hash', minimum_should_match: '1', sort: "public_timestamp")
+            .with('glass', sort: "public_timestamp")
             .returns(response_body)
       client.expects(:search)
-            .with('glass', response_style: 'hash', minimum_should_match: '1')
+            .with('glass', {})
             .returns(response_body)
       Frontend.stubs(:government_search_client).returns(client)
 
@@ -551,10 +551,10 @@ class SearchControllerTest < ActionController::TestCase
       }
       government_client = stub("search government") do
         expects(:search)
-          .with("search-term", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", {})
           .returns(unfiltered_body)
         expects(:search)
-          .with("search-term", organisation_slug: "bob", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", organisation_slug: "bob")
           .returns(filtered_body)
       end
 
@@ -577,10 +577,10 @@ class SearchControllerTest < ActionController::TestCase
       }
       government_client = stub("search government") do
         expects(:search)
-          .with("search-term", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", {})
           .returns(unfiltered_body)
         expects(:search)
-          .with("search-term", organisation_slug: "bob", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", organisation_slug: "bob")
           .returns(filtered_body)
       end
 

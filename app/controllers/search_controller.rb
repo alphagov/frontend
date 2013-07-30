@@ -103,7 +103,7 @@ class SearchController < ApplicationController
 
   def raw_mainstream_results(term)
     @_raw_mainstream_results ||= begin
-      Frontend.mainstream_search_client.search(term, extra_search_parameters)
+      Frontend.mainstream_search_client.search(term)
     end
   end
 
@@ -114,21 +114,16 @@ class SearchController < ApplicationController
 
 
   def retrieve_detailed_guidance_results(term)
-    res = Frontend.detailed_guidance_search_client.search(term, extra_search_parameters)
+    res = Frontend.detailed_guidance_search_client.search(term)
     res["results"].map { |r| SearchResult.new(r) }
   end
 
   def retrieve_government_results(term, organisation = nil, sort = nil)
-    extra_parameters = extra_search_parameters
+    extra_parameters = {}
     extra_parameters[:organisation_slug] = organisation if organisation
     extra_parameters[:sort] = sort if sort.present?
     res = Frontend.government_search_client.search(term, extra_parameters)
     res["results"].map { |r| GovernmentResult.new(r) }
-  end
-
-  def extra_search_parameters
-    extra_parameters = { response_style: "hash",  minimum_should_match: "1" }
-    extra_parameters
   end
 
   def merge_result_sets(*result_sets)

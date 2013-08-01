@@ -1,9 +1,9 @@
 <main id="content" role="main" class="group <%= @publication.parts.present? ? "multi" : "single" %>-page">
 
   <header class="page-header group">
-    <hgroup>
+    <div>
       <h1><span>Foreign travel advice </span><%= @publication.country['name'] %></h1>
-    </hgroup>
+    </div>
     <a class="skip-to-related" href="#related"><%= t 'common.not_what_youre_looking_for' %> ↓</a>
   </header>
 

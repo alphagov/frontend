@@ -67,7 +67,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should pass our query parameter in to the search client" do
-    Frontend.mainstream_search_client.expects(:search).with("search-term", response_style: "hash", minimum_should_match: "1").returns("results" => []).once
+    Frontend.mainstream_search_client.expects(:search).with("search-term").returns("results" => []).once
     get :index, q: "search-term"
   end
 
@@ -450,7 +450,7 @@ class SearchControllerTest < ActionController::TestCase
     should "let you filter results by organisation" do
       Frontend.government_search_client
           .expects(:search)
-          .with("moon", organisation_slug: "ministry-of-defence", response_style: "hash", minimum_should_match: "1")
+          .with("moon", organisation_slug: "ministry-of-defence")
           .returns("results" => [])
       get :index, { q: "moon", organisation: "ministry-of-defence" }
     end
@@ -473,6 +473,54 @@ class SearchControllerTest < ActionController::TestCase
         assert_select "div.js-tabs"
         assert_select "#government-results h3 a", count: 0
       end
+    end
+  end
+
+  context "sorting results" do
+    setup do
+      # Ensure tabs are displayed
+      stub_results("mainstream", [a_search_result("a", 3), a_search_result("b", 3), a_search_result("c", 3), a_search_result("d", 3)])
+    end
+
+    should "default the sort to relevance (blank value)" do
+      get :index, q: "glass"
+      assert_select "input[name=sort][value=''][checked]"
+    end
+
+    should "reflect the choice in the filter form" do
+      get :index, q: "glass", sort: "public_timestamp"
+      assert_select "input[name=sort][value='public_timestamp'][checked]"
+    end
+
+    should "remember the choice in the main search form" do
+      get :index, q: "glass", sort: "public_timestamp"
+      assert_select "form.search-header input[name=sort][value='public_timestamp']"
+    end
+
+    should "allow sorting by public_timestamp" do
+      search_results = [
+        a_search_result("new", 1),
+        a_search_result("old", 2)
+      ]
+      response_body = {
+        "total" => search_results.size,
+        "results" => search_results
+      }
+      client = mock("search government")
+      # Once for the tab contents, once for the top results
+      client.expects(:search)
+            .with('glass', sort: "public_timestamp")
+            .returns(response_body)
+      client.expects(:search)
+            .with('glass', {})
+            .returns(response_body)
+      Frontend.stubs(:government_search_client).returns(client)
+
+      get :index, q: "glass", sort: "public_timestamp"
+
+      # Check that they've come out in the order returned by Rummager
+      assert_select '#government-results li:first-child  h3 a[href=/new]'
+      assert_select '#government-results li:nth-child(2) h3 a[href=/old]'
     end
   end
 
@@ -503,10 +551,10 @@ class SearchControllerTest < ActionController::TestCase
       }
       government_client = stub("search government") do
         expects(:search)
-          .with("search-term", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", {})
           .returns(unfiltered_body)
         expects(:search)
-          .with("search-term", organisation_slug: "bob", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", organisation_slug: "bob")
           .returns(filtered_body)
       end
 
@@ -529,10 +577,10 @@ class SearchControllerTest < ActionController::TestCase
       }
       government_client = stub("search government") do
         expects(:search)
-          .with("search-term", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", {})
           .returns(unfiltered_body)
         expects(:search)
-          .with("search-term", organisation_slug: "bob", response_style: "hash", minimum_should_match: "1")
+          .with("search-term", organisation_slug: "bob")
           .returns(filtered_body)
       end
 

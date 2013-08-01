@@ -12,7 +12,7 @@ gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
 
-gem 'plek', '1.2.0'
+gem 'plek', '1.4.0'
 gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'rummageable', '0.5.0'
@@ -21,7 +21,7 @@ gem 'htmlentities', '4.3.1'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.17.0'
+  gem 'slimmer', '3.19.0'
 end
 
 if ENV['CDN_DEV']
@@ -40,7 +40,7 @@ gem "addressable"
 gem 'exception_notification', '3.0.1'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.20.0'
+  gem 'govuk_frontend_toolkit', '0.32.2'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem "therubyracer", "~> 0.9.4"

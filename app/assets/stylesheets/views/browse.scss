@@ -2,7 +2,7 @@
 
   header.page-header {
 
-    hgroup {
+    div {
       padding-bottom: 0;
       padding: 20px 30px;
 
@@ -32,7 +32,7 @@
   .browse-container {
     background-color: #fff;
     min-height: 500px;
-    padding: 0 30px 45px 3px;
+    padding: 0 30px 45px 30px;
 
     h2, h3 {
       @include bold-19;

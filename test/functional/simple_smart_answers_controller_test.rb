@@ -16,9 +16,9 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
             "title" => "Question 1",
             "body" => "<p>This is question 1</p>",
             "options" => [
-              {"label" => "Option 1", "slug" => "option-1", "next" => "question-2"},
-              {"label" => "Option 2", "slug" => "option-2", "next" => "outcome-1"},
-              {"label" => "Option 3", "slug" => "option-3", "next" => "outcome-2"},
+              {"label" => "Option 1", "slug" => "option-1", "next_node" => "question-2"},
+              {"label" => "Option 2", "slug" => "option-2", "next_node" => "outcome-1"},
+              {"label" => "Option 3", "slug" => "option-3", "next_node" => "outcome-2"},
             ],
           },
           {
@@ -27,8 +27,8 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
             "title" => "Question 2",
             "body" => "<p>This is question 2</p>",
             "options" => [
-              {"label" => "Option 1", "slug" => "option-1", "next" => "outcome-1"},
-              {"label" => "Option 2", "slug" => "option-2", "next" => "outcome-2"},
+              {"label" => "Option 1", "slug" => "option-1", "next_node" => "outcome-1"},
+              {"label" => "Option 2", "slug" => "option-2", "next_node" => "outcome-2"},
             ],
           },
           {

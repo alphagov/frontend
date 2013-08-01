@@ -193,18 +193,28 @@ section.search {
     @include media(tablet) {
       padding: 30px 30px 0;
     }
+    .sort-by {
+      label {
+        font-weight: normal;
+      }
+      h3 {
+        display: inline;
+        font-size: 14px;
+        font-weight: bold;
+        padding-right: 14px;
+      }
+    }
     label, select {
       margin-right: 1em;
     }
     label {
-      display: block;
       @include core-14;
       font-weight: bold;
       padding-top: 8px;
       padding-bottom: 4px;
     }
     select {
-      margin-bottom: 23px;
+      margin-bottom: 10px;
       width: 100%;
       max-width: 500px;
       @include media(tablet) {
@@ -225,6 +235,7 @@ section.search {
       @include core-16;
       font-weight: bold;
       -webkit-font-smoothing: antialiased;
+      margin-top: 23px
     }
   }
 

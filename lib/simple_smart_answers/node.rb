@@ -33,7 +33,7 @@ module SimpleSmartAnswers
         :question => self,
         :label => details["label"],
         :slug => details["slug"],
-        :next_node_slug => details["next"],
+        :next_node_slug => details["next_node"],
       })
     end
   end

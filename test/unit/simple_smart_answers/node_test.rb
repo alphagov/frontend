@@ -30,17 +30,17 @@ module SimpleSmartAnswers
           {
             "label" => "Option 1",
             "slug" => "option-1",
-            "next" => "question-2",
+            "next_node" => "question-2",
           },
           {
             "label" => "Option 3",
             "slug" => "option-3",
-            "next" => "question-3",
+            "next_node" => "question-3",
           },
           {
             "label" => "Option 2",
             "slug" => "option-2",
-            "next" => "question-2",
+            "next_node" => "question-2",
           },
         ])
       end

@@ -19,6 +19,19 @@
       <% end %>
     </optgroup>
   </select>
+
+  <fieldset class="sort-by">
+    <h3>Sort by</h3>
+    <label>
+      <%= radio_button_tag "sort", "", params[:sort].blank? %>
+      relevance
+    </label>
+    <label>
+      <%= radio_button_tag "sort", "public_timestamp", params[:sort] == "public_timestamp" %>
+      date
+    </label>
+  </fieldset>
+
   <button type="submit" class="button">
     Refresh results
   </button>

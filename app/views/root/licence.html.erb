@@ -1,4 +1,4 @@
-<section id="content" role="main" class="group <%= "multi-page" if @interaction_details and @interaction_details[:authority] %>">
+<main id="content" role="main" class="group <%= "multi-page" if @interaction_details and @interaction_details[:authority] %>">
 
   <header class="page-header group">
     <div>
@@ -18,4 +18,4 @@
 
     <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
   </div>
-</section>
+</main>

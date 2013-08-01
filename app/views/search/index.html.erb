@@ -1,7 +1,7 @@
 <% content_for :body_classes do %>search<% end %>
 
 
-<section id="content" role="main" class="group search ancillary">
+<main id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
 
   <% if @top_results %>
@@ -68,7 +68,7 @@
       </div>
     <% end %>
   </div>
-</section>
+</main>
 
 <h3 class="visuallyhidden">No more results for <span class="visuallyhidden">&ldquo;<%= @search_term %>&rdquo;</span>. <a href="#search-main">Try a different search?</a></h3>
 

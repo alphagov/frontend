@@ -1,7 +1,7 @@
 <% content_for :body_classes do %>search<% end %>
 
 
-<section id="content" role="main" class="group ancillary search no-results">
+<main id="content" role="main" class="group ancillary search no-results">
   <%= render partial: 'form' %>
 
   <div class="search-container group">
@@ -9,5 +9,5 @@
   <%= render partial: "no_results", locals: { context: nil } %>
 
   </div>
-</section>
+</main>
 <% content_for :title, "#{@search_term} - Search - GOV.UK" %>

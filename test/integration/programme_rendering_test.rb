@@ -185,7 +185,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance/print"
 
-    within "section[role=main]" do
+    within "main[role=main]" do
       within first("header h1") do
         assert page.has_content?("Benefits & credits: Reduced Earnings Allowance")
       end
@@ -228,7 +228,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
     visit "/reduced-earnings-allowance/print"
 
-    within "section[role=main]" do
+    within "main[role=main]" do
       within first("header h1") do
         assert page.has_content?("Budd-daliadau a chredydau: Reduced Earnings Allowance")
       end

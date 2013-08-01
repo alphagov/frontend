@@ -183,7 +183,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     setup_api_responses('data-protection')
     visit "/data-protection/print"
 
-    within "section[role=main]" do
+    within "main[role=main]" do
       within first("header h1") do
         assert page.has_content?("Data protection, a guide from GOV.UK")
       end
@@ -216,7 +216,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     visit "/data-protection/print"
 
-    within "section[role=main]" do
+    within "main[role=main]" do
       within first("header") do
         within('h1') { assert page.has_content?("Data protection, canllaw gan GOV.UK") }
         assert page.has_content?("Nodiadau")

@@ -2,6 +2,7 @@ Frontend::Application.routes.draw do
   get "/homepage" => redirect("/")
   get "/search.json" => redirect { |params,req| "/api/search.json?q=#{CGI.escape(req.query_parameters['q'] || '')}" }
   get "/search" => "search#index", as: :search
+  post "/search" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent non-GET requests for /search blowing up in the publication handlers below
   get "/search/opensearch" => "search#opensearch"
   get "/browse.json" => redirect("/api/tags.json?type=section&root_sections=true")
   get "/browse" => "browse#index", to: "browse#index"

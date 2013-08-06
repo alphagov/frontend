@@ -18,4 +18,9 @@ class SearchTest < ActionDispatch::IntegrationTest
       assert_redirected_to "/api/search.json?q="
     end
   end
+
+  should "return a 405 for POST requests to /search" do
+    post "/search?q=foo"
+    assert_equal 405, response.status
+  end
 end

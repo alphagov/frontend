@@ -17,18 +17,20 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
       :web_urls_relative_to => "https://www.gov.uk"
     )
     @content_api.expects(:artefact).with('foreign-travel-advice', {}).returns(index_artefact)
-    @retriever.fetch_artefact('foreign-travel-advice')
-  end
-
-  should "raise a RecordNotFound if no artefact is returned" do
-    assert_raises RecordNotFound do
-      @content_api.expects(:artefact).with('foreign-travel-advice', {}).returns(nil)
+    assert_nothing_raised do
       @retriever.fetch_artefact('foreign-travel-advice')
     end
   end
 
+  should "raise a RecordNotFound if no artefact is returned" do
+    assert_raises RecordNotFound do
+      @content_api.expects(:artefact).with('beekeeping', {}).returns(nil)
+      @retriever.fetch_artefact('beekeeping')
+    end
+  end
+
   should "raise an UnsupportedArtefactFormat exception if we get a bad format" do
-    json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
+    json_data = File.read(Rails.root.join('test/fixtures/jobsearch.json'))
     temp = JSON.parse(json_data)
     temp['format'] = 'something bad'
     tampered_json_data = JSON.dump(temp)
@@ -39,8 +41,8 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
     )
 
     assert_raises ArtefactRetriever::UnsupportedArtefactFormat do
-      @content_api.expects(:artefact).with('foreign-travel-advice', {}).returns(index_artefact)
-      @retriever.fetch_artefact('foreign-travel-advice')
+      @content_api.expects(:artefact).with('jobsearch', {}).returns(index_artefact)
+      @retriever.fetch_artefact('jobsearch')
     end
   end
 end

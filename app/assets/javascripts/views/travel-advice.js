@@ -22,7 +22,6 @@
     });
   };
 
-
   var doesSynonymMatch = function(elem, synonym) {
     var synonyms = $(elem).data("synonyms").split("|");
     var result = false;
@@ -36,7 +35,8 @@
 
   var filterListItems = function(filter) {
     var itemsToHide,
-        itemsShowing;
+        itemsShowing,
+        synonymMatch = false;
 
     filterHeadings();
     listItems.each(function(i, item) {
@@ -54,9 +54,13 @@
         var $listItem = $(item);
         var synonym = doesSynonymMatch(item, filter);
         if(synonym) {
+          synonymMatch = true;
           $listItem.show().append("(" + synonym + ")");
         }
       });
+      if(synonymMatch) {
+        itemsShowing = listItems.find(":visible").length;
+      }
       filterHeadings();
     } else {
       countryHeadings.show();

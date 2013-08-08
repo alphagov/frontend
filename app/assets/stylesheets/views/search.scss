@@ -263,9 +263,9 @@ main.search {
     }
     
     li.external {
-      border: 1px solid $panel-colour;
+      border: 1px solid $border-colour;
       padding: 9px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
 
       @include media(tablet) {
         padding: 14px;

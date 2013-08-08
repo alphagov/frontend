@@ -5,6 +5,9 @@ class CampaignController < ApplicationController
   before_filter :setup_slimmer_artefact
   before_filter :set_expiry
 
+  def unimoney
+  end
+
   def workplace_pensions
   end
 

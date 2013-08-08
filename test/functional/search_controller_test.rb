@@ -298,27 +298,9 @@ class SearchControllerTest < ActionController::TestCase
     stub_results("mainstream", [external_document])
 
     get :index, {q: "bleh"}
-    assert_select ".recommended-links li.external" do
+    assert_select "li.external" do
       assert_select "a[rel=external]", "A title"
     end
-  end
-
-  test "should show external links in a separate column" do
-    external_document = {
-      "title" => "A title",
-      "description" => "This is a description",
-      "link" => "http://twitter.com",
-      "section" => "driving",
-      "format" => "recommended-link"
-    }
-
-    stub_results("mainstream", [external_document])
-
-    get :index, {q: "bleh"}
-    assert_select ".recommended-links li.external" do
-      assert_select "a[rel=external]", "A title"
-    end
-    assert_select '.internal-links li.external', count: 0
   end
 
   test "should send analytics headers for citizen proposition" do

@@ -407,33 +407,6 @@ main.search {
     padding-top: 40px;
   }
 
-  .recommended-links {
-    overflow: hidden;
-
-    @include media(tablet) {
-      float: right;
-      display: inline;
-      width: 33.333%;
-    }
-
-    h2 {
-      @include core-16;
-      padding: 15px 15px 10px;
-
-      @include media(tablet) {
-        padding: 30px 30px 10px;
-      }
-    }
-
-    h3 {
-      @include core-19;
-    }
-
-    .results-list {
-      padding-top: 0;
-    }
-  }
-
   .nav-tabs {
     @include media(tablet) {
       margin: 0;

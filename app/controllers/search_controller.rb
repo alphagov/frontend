@@ -16,8 +16,6 @@ class SearchController < ApplicationController
     else
       @streams = []
 
-      recommended_link_results = grouped_mainstream_results[:recommended_link]
-
       if params[:organisation].present? || params[:sort].present?
         government_results = retrieve_government_results(@search_term, params[:organisation], params[:sort])
         unfiltered_government_results = retrieve_government_results(@search_term)
@@ -37,8 +35,7 @@ class SearchController < ApplicationController
       @streams << SearchStream.new(
         "services-information",
         "Services and information",
-        merge_result_sets(mainstream_results, adjusted_detailed_results),
-        recommended_link_results
+        merge_result_sets(retrieve_mainstream_results(@search_term), adjusted_detailed_results)
       )
       @streams << SearchStream.new(
         "government",
@@ -48,7 +45,7 @@ class SearchController < ApplicationController
 
       # This needs to be done before top result extraction, otherwise the
       # result count needs to incorporate the top result size.
-      @result_count = @streams.map { |s| s.total_size }.sum
+      @result_count = @streams.map { |s| s.results.size }.sum
 
       top_result_sets = @streams.reject { |s| s.key == "government" }.map(&:results)
       # Hackily downweight government results to stop them from swamping mainstream in top results
@@ -76,30 +73,6 @@ class SearchController < ApplicationController
   end
 
   protected
-
-  def grouped_mainstream_results
-    @_grouped_mainstream_results ||= begin
-      results = retrieve_mainstream_results(@search_term)
-      grouped_results = results.group_by do |result|
-        if !result.respond_to?(:format)
-          :everything_else
-        else
-          if result.format == 'recommended-link'
-            :recommended_link
-          else
-            :everything_else
-          end
-        end
-      end
-      grouped_results[:recommended_link] ||= []
-      grouped_results[:everything_else] ||= []
-      grouped_results
-    end
-  end
-
-  def mainstream_results
-    grouped_mainstream_results[:everything_else]
-  end
 
   def raw_mainstream_results(term)
     @_raw_mainstream_results ||= begin

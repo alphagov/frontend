@@ -334,7 +334,43 @@ class SearchControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_select 'li.type-guide.external .meta' do
-      assert_select '.url', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+      assert_select '.url', {count: 1, text: "www.weally.weally.long.url.com/weaseling/abou..."}
+    end
+  end
+
+  test "should remove the scheme from external URLs" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "http://www.badgers.com/badgers",
+      "format" => "recommended-link"
+    }
+
+    stub_results("mainstream", Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external .meta' do
+      assert_select '.url', {count: 1, text: "www.badgers.com/badgers"}
+    end
+  end
+
+  test "should remove the scheme from HTTPS URLs" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "https://www.badgers.com/badgers",
+      "format" => "recommended-link"
+    }
+
+    stub_results("mainstream", Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external .meta' do
+      assert_select '.url', {count: 1, text: "www.badgers.com/badgers"}
     end
   end
 

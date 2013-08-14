@@ -298,27 +298,9 @@ class SearchControllerTest < ActionController::TestCase
     stub_results("mainstream", [external_document])
 
     get :index, {q: "bleh"}
-    assert_select ".recommended-links li.external" do
+    assert_select "li.external" do
       assert_select "a[rel=external]", "A title"
     end
-  end
-
-  test "should show external links in a separate column" do
-    external_document = {
-      "title" => "A title",
-      "description" => "This is a description",
-      "link" => "http://twitter.com",
-      "section" => "driving",
-      "format" => "recommended-link"
-    }
-
-    stub_results("mainstream", [external_document])
-
-    get :index, {q: "bleh"}
-    assert_select ".recommended-links li.external" do
-      assert_select "a[rel=external]", "A title"
-    end
-    assert_select '.internal-links li.external', count: 0
   end
 
   test "should send analytics headers for citizen proposition" do
@@ -352,7 +334,43 @@ class SearchControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_select 'li.type-guide.external .meta' do
-      assert_select '.url', {count: 1, text: "http://www.weally.weally.long.url.com/weaseli..."}
+      assert_select '.url', {count: 1, text: "www.weally.weally.long.url.com/weaseling/abou..."}
+    end
+  end
+
+  test "should remove the scheme from external URLs" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "http://www.badgers.com/badgers",
+      "format" => "recommended-link"
+    }
+
+    stub_results("mainstream", Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external .meta' do
+      assert_select '.url', {count: 1, text: "www.badgers.com/badgers"}
+    end
+  end
+
+  test "should remove the scheme from HTTPS URLs" do
+    external_link = {
+      "title" => "A title",
+      "description" => "This is a description",
+      "link" => "https://www.badgers.com/badgers",
+      "format" => "recommended-link"
+    }
+
+    stub_results("mainstream", Array.new(1, external_link))
+
+    get :index, {q: "bleh"}
+
+    assert_response :success
+    assert_select 'li.type-guide.external .meta' do
+      assert_select '.url', {count: 1, text: "www.badgers.com/badgers"}
     end
   end
 

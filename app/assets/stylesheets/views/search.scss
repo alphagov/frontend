@@ -263,10 +263,9 @@ main.search {
     }
     
     li.external {
-      border: 1px solid $panel-colour;
-      background: $panel-colour;
+      border: 1px solid $border-colour;
       padding: 9px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
 
       @include media(tablet) {
         padding: 14px;
@@ -405,33 +404,6 @@ main.search {
 
   #search-results-tabs .no-results {
     padding-top: 40px;
-  }
-
-  .recommended-links {
-    overflow: hidden;
-
-    @include media(tablet) {
-      float: right;
-      display: inline;
-      width: 33.333%;
-    }
-
-    h2 {
-      @include core-16;
-      padding: 15px 15px 10px;
-
-      @include media(tablet) {
-        padding: 30px 30px 10px;
-      }
-    }
-
-    h3 {
-      @include core-19;
-    }
-
-    .results-list {
-      padding-top: 0;
-    }
   }
 
   .nav-tabs {

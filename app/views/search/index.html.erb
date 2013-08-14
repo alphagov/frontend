@@ -39,22 +39,14 @@
     <% if show_tabs?(@streams) %>
       <div class="search-container group js-tab-content tab-content ">
         <% @streams.each do |stream| %>
-          <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.total_size == 1 ? ' single-item-pane' : '' %>">
+          <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.results.size == 1 ? ' single-item-pane' : '' %>">
           <div class="filters">
             <% if stream.key == "government" %>
               <%= render partial: "government_filter" %>
             <% end %>
           </div>
-          <% if stream.recommended.any? %>
-            <div class="recommended-links">
-              <h2>Other sites that may be useful</h2>
-              <ul class="results-list">
-                <%= render collection: stream.recommended, partial: "result" %>
-              </ul>
-            </div>
-          <% end %>
           <div class="results">
-          <% if stream.total_size > 0 %>
+          <% if stream.results.size > 0 %>
             <ul class="results-list internal-links">
               <%= render collection: stream.results, partial: "result" %>
             </ul>

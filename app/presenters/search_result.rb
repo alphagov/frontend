@@ -1,4 +1,6 @@
 class SearchResult
+  SCHEME_PATTERN = %r{^https?://}
+
   SECTION_NAME_TRANSLATION = {
     "life-in-the-uk" => "Life in the UK",
     "council-tax" => "Council Tax",
@@ -43,6 +45,12 @@ class SearchResult
     define_method key do
       result[key]
     end
+  end
+
+  # External links have a truncated version of their URLs displayed on the
+  # results page, but there's little benefit to displaying the URL scheme
+  def display_link
+    link.sub(SCHEME_PATTERN, '').truncate(48)
   end
 
   protected

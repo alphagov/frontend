@@ -11,7 +11,7 @@ class ArtefactRetriever
     self.supported_formats = supported_formats ||
       %w{answer business_support completed_transaction guide licence
          local_transaction place programme simple_smart_answer transaction 
-         travel-advice video custom-application}
+         travel-advice video}
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
@@ -22,7 +22,10 @@ class ArtefactRetriever
       raise RecordNotFound
     end
 
-    verify_format_supported?(artefact)
+    # The foreign-travel-advice override is necessary because it has a format of custom-application
+    # and we don't want to add custom-application to supported formats, otherwise we get errors if
+    # requests for other custom-applications hit frontend (e.g. business support finder on private-frontend).
+    verify_format_supported?(artefact) unless slug == 'foreign-travel-advice'
 
     artefact
   rescue GdsApi::HTTPErrorResponse => e

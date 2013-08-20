@@ -26,7 +26,10 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           within 'section.intro' do
             assert page.has_selector?("p", :text => "You have to fill out the form online, print it off and send it to your local electoral registration office.")
 
-            assert page.has_link?("Start now", :href => "http://www.aboutmyvote.co.uk/")
+            start_link = find_link("Start now")
+            assert_equal "http://www.aboutmyvote.co.uk/", start_link["href"]
+            assert_equal "register-to-vote", start_link["data-transaction-slug"]
+
             assert page.has_content?("on the Electoral Commission website")
           end
 

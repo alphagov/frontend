@@ -16,12 +16,12 @@ Frontend::Application.routes.draw do
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }
 
   get "/help/feedback" => redirect("/feedback") # Handled by feedback app
-  get "/help/accessibility" => redirect("/support/accessibility")
-  get "/help/accessibility-policies" => redirect("/support/accessibility-policies")
-  get "/help/cookies" => redirect("/support/cookies")
-  get "/help/browsers" => redirect("/support/browsers")
-  get "/help/privacy-policy" => redirect("/support/privacy-policy")
-  get "/help" => redirect("/support")
+  get "/help/accessibility" => redirect("/support/accessibility", :status => 302)
+  get "/help/accessibility-policies" => redirect("/support/accessibility-policies", :status => 302)
+  get "/help/cookies" => redirect("/support/cookies", :status => 302)
+  get "/help/browsers" => redirect("/support/browsers", :status => 302)
+  get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
+  get "/help" => redirect("/support", :status => 302)
 
   get "/support(/:action)", to: "support"
 

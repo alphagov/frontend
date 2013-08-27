@@ -77,18 +77,25 @@ nav.help-contents {
   }
 }
 
+.js-enabled .help-page .report-a-problem-container {
+  display: block;
+
+  @include media(mobile) {
+    padding: 0.5em;
+  }
+
+  div {
+    text-align: left;
+  }
+}
+
 form.help-form {
-  padding: 1em 1em 2em 2em;
   position: relative;
   width: auto;
 
-  @include media(mobile) {
-    padding-left: 1em;
-  }
-
   .inner {
     border-top: 1px solid #dee0e2;
-    padding: 1em 0;
+    padding: 0.5em;
   }
 
   label, input, h2 {
@@ -102,11 +109,13 @@ form.help-form {
 
   input {
     display: block;
-    margin: 5px 0 20px;
+    margin: 0.2em 0;
     width: 400px;
 
     @include media(mobile) {
       width: auto;
+      margin-bottom: 0;
     }
   }
 }
+

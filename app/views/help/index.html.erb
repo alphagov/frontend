@@ -1,0 +1,84 @@
+<% content_for :title, "Help using GOV.UK - Help Pages - GOV.UK" %>
+
+<main id="content" role="main" class="group help-page">
+  <header class="page-header group">
+    <div class="full-width">
+      <h1>Help using GOV.UK</h1>
+    </div>
+  </header>
+
+  <div class="article-container">
+    <nav role="navigation" class="help-contents group">
+      <div class="inner">
+        <p>Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use.</p>
+        <ul>
+          <li>
+            <a href="/help/about-govuk">About GOV.UK</a>
+            <p>Information about the website and the team that built it</p>
+          </li>
+          <li>
+            <a href="/help/cookies">Cookies</a>
+            <p>How cookies are used on GOV.UK and each cookie’s purpose</p>
+          </li>
+          <li>
+            <a href="/help/browsers">Browsers</a>
+            <p>Information about browsers and how to upgrade yours</p>
+          </li>
+          <li>
+            <a href="/help/privacy-policy">Privacy policy</a>
+            <p>GOV.UK’s approach to users’ privacy</p>
+          </li>
+          <li>
+            <a href="/help/accessibility">Accessibility</a>
+            <p>Details of accessibility and help using the internet</p>
+          </li>
+          <li>
+            <a href="/help/terms-conditions">Terms and conditions</a>
+            <p>Information about the use of GOV.UK and liability</p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <form class="help-form" accept-charset="UTF-8" action="/feedback" method="post">
+      <div class="inner">
+        <h2>If you can’t find what you were looking for, help us improve GOV.UK by telling us:</h2>
+
+        <p class="visuallyhidden">If you can’t find what you were looking for, help us improve GOV.UK by telling us what you were looking for.</p>
+
+        <label for="what_doing">
+          What you were looking for
+          <input id="what_doing" name="what_doing" type="text" />
+        </label>
+
+        <input type="hidden" id="what_wrong" name="what_wrong" value="broken link (404)" />
+
+        <input type="hidden" name="utf8" value="✓" />
+        <button name="commit" type="submit" class="button">Send</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- related -->
+  <div class="related-positioning">
+    <div class="related-container">
+      <div class="related" id="related">
+        <div class="inner group">
+          <h2 id="parent-section">Want to contact us directly?</h2>
+          <nav role="navigation" aria-labelledby="parent-section">
+            <ul>
+              <li>
+                <a href="/feedback/contact">Contact us</a>
+              </li>
+               <li>
+                <a href="/feedback/foi">Make a Freedom of Information Request</a>
+              </li>
+            </ul>
+          </nav>
+          <a class="return-to-top" href="#content">Return to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end related -->
+</main>

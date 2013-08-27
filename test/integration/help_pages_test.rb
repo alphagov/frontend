@@ -43,4 +43,23 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#test-related")
     end
   end
+
+  context "rendering the help index page" do
+
+    should "render the help index page correctly" do
+      visit "/help"
+
+      within '#global-breadcrumb' do
+        assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")
+        assert page.has_selector?("li:nth-child(2) a[href='/help']", :text => "Help")
+      end
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Help using GOV.UK")
+        end
+      end
+    end
+
+  end
 end

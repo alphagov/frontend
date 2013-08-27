@@ -1,0 +1,79 @@
+@import "_device-pixels.scss";
+@import "_shims.scss";
+
+/* Extend page header for wide format page */
+main.help-page {
+  header.page-header div {
+    margin-right: 0;
+    h1 {
+      padding-bottom: 0;
+    }
+
+    @include media(mobile) {
+      padding-left: 1em;
+    }
+  }
+}
+
+nav.help-contents {
+  min-height: 30em;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  .inner {
+    padding: 0 0 2em 2em;
+    width: auto;
+
+    p {
+      margin-bottom: 0.75em;
+      padding-bottom: 1.5em;
+    }
+
+    @include media(mobile) {
+      padding: 0 1em 1em;
+
+      p {
+        padding-bottom: 1em;
+      }
+    }
+  }
+
+  ul {
+    @extend %contain-floats;
+
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    display: block;
+    float: left;
+    margin-bottom: 0;
+    margin-right: 2.5%;
+    width: 48.75%;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    @include media-down(tablet) {
+      width: auto;
+      margin: 0;
+      float: none;
+    }
+
+    a {
+      @include core-24;
+      @include bold-24;
+
+      margin-top: 0;
+      margin-bottom: 0;
+      text-decoration: none;
+    }
+
+    p {
+      margin-top: 0.2em;
+    }
+  }
+}
+

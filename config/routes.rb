@@ -24,7 +24,7 @@ Frontend::Application.routes.draw do
   #get "/help/cookies" => redirect("/support/cookies", :status => 302)
   #get "/help/browsers" => redirect("/support/browsers", :status => 302)
   #get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
-  get "/help" => redirect("/support", :status => 302)
+  get "/help", to: "help#index"
 
   get "/support(/:action)", to: "support"
 

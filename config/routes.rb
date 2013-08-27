@@ -16,9 +16,6 @@ Frontend::Application.routes.draw do
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }
 
   get "/help", to: "help#index"
-
-  get "/support(/:action)", to: "support"
-
   get "/tour", to: "root#tour"
   get "/exit", :to => "exit#exit"
 

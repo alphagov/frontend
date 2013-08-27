@@ -304,6 +304,21 @@ class RootControllerTest < ActionController::TestCase
 
       assert_equal JSON.dump(artefact_data), @response.headers["X-Slimmer-Artefact"]
     end
+
+    should "fudge the section for help pages" do
+      artefact_data = artefact_for_slug('slug')
+      artefact_data["format"] = "help_page"
+      content_api_has_an_artefact("slug", artefact_data)
+      @controller.stubs(:render)
+
+      get :publication, :slug => "slug"
+
+      slimmer_artefact = JSON.parse(@response.headers["X-Slimmer-Artefact"])
+      slimmer_section = slimmer_artefact["tags"][0]
+      assert_equal "section", slimmer_section["details"]["type"]
+      assert_equal "Help", slimmer_section["title"]
+      assert_equal "/help", slimmer_section["content_with_tag"]["web_url"]
+    end
   end
 
   test "objects should have specified parts selected" do

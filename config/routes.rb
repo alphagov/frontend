@@ -16,11 +16,14 @@ Frontend::Application.routes.draw do
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }
 
   get "/help/feedback" => redirect("/feedback") # Handled by feedback app
-  get "/help/accessibility" => redirect("/support/accessibility", :status => 302)
+
+  # Disable some of these redirects to allow the content to work.
+  # This will be cleaned up as part of https://www.pivotaltracker.com/story/show/53786969
+  #get "/help/accessibility" => redirect("/support/accessibility", :status => 302)
   get "/help/accessibility-policies" => redirect("/support/accessibility-policies", :status => 302)
-  get "/help/cookies" => redirect("/support/cookies", :status => 302)
-  get "/help/browsers" => redirect("/support/browsers", :status => 302)
-  get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
+  #get "/help/cookies" => redirect("/support/cookies", :status => 302)
+  #get "/help/browsers" => redirect("/support/browsers", :status => 302)
+  #get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
   get "/help" => redirect("/support", :status => 302)
 
   get "/support(/:action)", to: "support"
@@ -53,7 +56,7 @@ Frontend::Application.routes.draw do
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
 
   with_options(as: "publication", to: "root#publication") do |pub|
-    pub.get "*slug", slug: %r{done/.+}
+    pub.get "*slug", slug: %r{(done|help)/.+}
     pub.get ":slug/print", format: :print
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
 

@@ -1,0 +1,22 @@
+{
+  "id": "https://www.gov.uk/api/help%2Fcookies.json",
+  "web_url": "https://www.gov.uk/help/cookies",
+  "title": "Cookies",
+  "format": "help_page",
+  "updated_at": "2013-08-23T16:24:49+01:00",
+  "tags": [ ],
+  "related": [ ],
+  "details": {
+    "need_id": "123",
+    "business_proposition": false,
+    "description": "",
+    "language": "en",
+    "need_extended_font": false,
+    "alternative_title": "",
+    "body": "<p>This is the page about cookies.</p>\n"
+  },
+  "related_external_links": [ ],
+  "_response_info": {
+    "status": "ok"
+  }
+}

@@ -49,7 +49,11 @@ protected
   def set_slimmer_artefact_headers(artefact, slimmer_headers = {})
     slimmer_headers[:format] ||= artefact["format"]
     set_slimmer_headers(slimmer_headers)
-    set_slimmer_artefact(artefact)
+    if artefact["format"] == "help_page"
+      set_slimmer_artefact_overriding_section(artefact, :section_name => "Help", :section_link => "/help")
+    else
+      set_slimmer_artefact(artefact)
+    end
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
@@ -65,7 +69,7 @@ protected
   end
 
   def validate_slug_param(param_name = :slug)
-    param_to_use = params[param_name].sub(/done\//, '')
+    param_to_use = params[param_name].sub(/(done|help)\//, '')
     if param_to_use.parameterize != param_to_use
       cacheable_404
     end

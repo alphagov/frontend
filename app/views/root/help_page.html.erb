@@ -1,0 +1,17 @@
+<main id="content" role="main" class="group">
+  <header class="page-header group">
+    <div>
+      <h1><span>Help</span> <%= @publication.title %></h1>
+    </div>
+    <a class="skip-to-related" href="#related"><%= t 'common.not_what_youre_looking_for' %> ↓</a>
+  </header>
+	<div class="article-container group">
+    <article role="article" class="group">
+      <div class="inner">
+        <%= raw @publication.body %>
+      </div>
+    </article>
+    <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+  </div>
+</main>
+<div id="related-items"></div>

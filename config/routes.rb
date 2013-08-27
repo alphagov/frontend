@@ -16,11 +16,14 @@ Frontend::Application.routes.draw do
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }
 
   get "/help/feedback" => redirect("/feedback") # Handled by feedback app
-  get "/help/accessibility" => redirect("/support/accessibility", :status => 302)
+
+  # Disable some of these redirects to allow the content to work.
+  # This will be cleaned up as part of https://www.pivotaltracker.com/story/show/53786969
+  #get "/help/accessibility" => redirect("/support/accessibility", :status => 302)
   get "/help/accessibility-policies" => redirect("/support/accessibility-policies", :status => 302)
-  get "/help/cookies" => redirect("/support/cookies", :status => 302)
-  get "/help/browsers" => redirect("/support/browsers", :status => 302)
-  get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
+  #get "/help/cookies" => redirect("/support/cookies", :status => 302)
+  #get "/help/browsers" => redirect("/support/browsers", :status => 302)
+  #get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
   get "/help" => redirect("/support", :status => 302)
 
   get "/support(/:action)", to: "support"

@@ -111,11 +111,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert_equal 404, page.status_code
   end
 
-  test "rendering a help page" do
-    visit "/help/accessibility"
-    assert_equal 200, page.status_code
-  end
-
   test "viewing a video answer page" do
     setup_api_responses('test-video')
     visit "/test-video"

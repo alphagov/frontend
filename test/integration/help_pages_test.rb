@@ -58,6 +58,8 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         within 'header' do
           assert page.has_content?("Help using GOV.UK")
         end
+
+        assert page.has_selector?('#test-report_a_problem')
       end
     end
 

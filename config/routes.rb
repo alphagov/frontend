@@ -15,19 +15,7 @@ Frontend::Application.routes.draw do
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }
 
-  get "/help/feedback" => redirect("/feedback") # Handled by feedback app
-
-  # Disable some of these redirects to allow the content to work.
-  # This will be cleaned up as part of https://www.pivotaltracker.com/story/show/53786969
-  #get "/help/accessibility" => redirect("/support/accessibility", :status => 302)
-  get "/help/accessibility-policies" => redirect("/support/accessibility-policies", :status => 302)
-  #get "/help/cookies" => redirect("/support/cookies", :status => 302)
-  #get "/help/browsers" => redirect("/support/browsers", :status => 302)
-  #get "/help/privacy-policy" => redirect("/support/privacy-policy", :status => 302)
   get "/help", to: "help#index"
-
-  get "/support(/:action)", to: "support"
-
   get "/tour", to: "root#tour"
   get "/exit", :to => "exit#exit"
 

@@ -213,7 +213,9 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return 404 if part requested but publication has no parts" do
-    content_api_has_an_artefact("a-slug", {'format' => 'answer'})
+    content_api_has_an_artefact("a-slug", {
+      'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => []}
+    })
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(:status => 404))
@@ -223,6 +225,16 @@ class RootControllerTest < ActionController::TestCase
   test "should redirect to base url if bad part requested of multi-part guide" do
     content_api_has_an_artefact("a-slug", {
       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]}
+    })
+    prevent_implicit_rendering
+    get :publication, :slug => "a-slug", :part => "information"
+    assert_response :redirect
+    assert_redirected_to '/a-slug'
+  end
+
+  test "should redirect to base url if part requested for non-parted format" do
+    content_api_has_an_artefact("a-slug", {
+      'web_url' => 'http://example.org/a-slug', 'format' => 'answer', "details" => {'body' => 'An answer'}
     })
     prevent_implicit_rendering
     get :publication, :slug => "a-slug", :part => "information"

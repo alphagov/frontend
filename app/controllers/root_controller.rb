@@ -64,9 +64,9 @@ class RootController < ApplicationController
       end
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
-    elsif part_requested_but_no_parts? || @publication.empty_part_list?
+    elsif @publication.empty_part_list?
       raise RecordNotFound
-    elsif @publication.parts && part_requested_but_not_found?
+    elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
       redirect_to publication_path(:slug => @publication.slug) and return
     elsif request.format.json? && @publication.format != 'place'
       redirect_to "/api/#{params[:slug]}.json" and return

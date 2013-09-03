@@ -175,7 +175,7 @@ body.homepage {
         @include appearance(none);
       }
 
-      input#header-search-text {
+      input#site-search-text {
         @include core-19($line-height: (28/19), $line-height-640: (28/16));
         position: relative;
         padding: 6px;

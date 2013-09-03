@@ -31,10 +31,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_equal JSON.dump(@index_artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
       end
 
-      should "set other slimmer headers" do
+      should "set slimmer format to travel-advice" do
         get :index
 
-        assert_equal 'custom-application', @response.headers["X-Slimmer-Format"]
+        assert_equal 'travel-advice', @response.headers["X-Slimmer-Format"]
       end
 
       should "render the index template" do

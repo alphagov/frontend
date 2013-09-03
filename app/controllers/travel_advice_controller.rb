@@ -6,7 +6,7 @@ class TravelAdviceController < ApplicationController
 
   def index
     artefact = fetch_artefact('foreign-travel-advice')
-    set_slimmer_artefact_headers(artefact)
+    set_slimmer_artefact_headers(artefact, :format => 'travel-advice')
 
     @publication = TravelAdviceIndexPresenter.new(artefact)
 

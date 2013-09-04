@@ -12,7 +12,11 @@
   header.page-header {
     div {
       padding-bottom: 0;
-      padding-left:0;
+
+      body.full-width & {
+        padding-left: 0;
+        padding-right: 0;
+      }
 
       h1 {
         @include core-48;
@@ -36,10 +40,10 @@
   .tour-container {
     background-color: #fff;
     min-height: 35em;
-    padding: 0 1em 2em;
+    padding: 0 15px 2em;
 
     @include media(desktop) {
-      padding: 0 2em 2em 2em;
+      padding: 0 2em 30px;
     }
 
     #inside-government{

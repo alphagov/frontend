@@ -1,20 +1,6 @@
 @import "_device-pixels.scss";
 @import "_shims.scss";
 
-/* Extend page header for wide format page */
-main.help-page {
-  header.page-header div {
-    margin-right: 0;
-    h1 {
-      padding-bottom: 0;
-    }
-
-    @include media(mobile) {
-      padding-left: 1em;
-    }
-  }
-}
-
 nav.help-contents {
   min-height: 30em;
   position: relative;
@@ -76,4 +62,3 @@ nav.help-contents {
     }
   }
 }
-

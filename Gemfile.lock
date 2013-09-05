@@ -148,10 +148,6 @@ GEM
     router-client (2.0.3)
       builder
       null_logger
-    rummageable (0.5.0)
-      json
-      plek (>= 0.5.0)
-      rest-client
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -231,7 +227,6 @@ DEPENDENCIES
   rails (= 3.2.13)
   rails-i18n!
   router-client (= 2.0.3)
-  rummageable (= 0.5.0)
   sass (= 3.2.1)
   sass-rails (~> 3.2.3)
   shoulda

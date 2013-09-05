@@ -1,5 +1,5 @@
 namespace :rummager do
-  task :index do
-    # No-op until the deploy hooks have been removed
+  task :index => "panopticon:register" do
+    # Placeholder until the deploy scripts have been updated
   end
 end

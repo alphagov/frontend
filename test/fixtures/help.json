@@ -1,0 +1,20 @@
+{
+  "id": "https://www.gov.uk/api/help.json",
+  "web_url": "https://www.gov.uk/help",
+  "title": "Help using GOV.UK",
+  "format": "custom-application",
+  "updated_at": "2013-09-05T09:02:05+01:00",
+  "tags": [ ],
+  "related": [ ],
+  "details": {
+    "need_id": "",
+    "business_proposition": false,
+    "description": "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use.",
+    "language": "en",
+    "need_extended_font": false
+  },
+  "related_external_links": [ ],
+  "_response_info": {
+    "status": "ok"
+  }
+}

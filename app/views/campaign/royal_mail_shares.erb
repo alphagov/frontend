@@ -1,0 +1,56 @@
+<% content_for :title, "Royal Mail Share Offer - GOV.UK" %>
+<main id="content" role="main" class="group campaign">
+  <section id="landing">
+    <h1>Royal Mail Share Offer</h1>
+
+    <div class="campaign-image">
+      <span class="image-scope">
+        <style scoped>
+          /* fall-back styles for browsers without media query support (IE6-8) */
+          #banner {
+            background-image: url('<%= image_path "campaign/royal_mail_shares/960px.jpg" %>');
+          }
+
+          /* small image for mobile */
+          @media (min-width: 0px) {
+            #banner {
+              background-image: url('<%= image_path "campaign/royal_mail_shares/320px.jpg" %>');
+            }
+          }
+
+          /* medium image for tablets */
+          @media (min-width: 500px) {
+            #banner {
+              background-image: url('<%= image_path "campaign/royal_mail_shares/768px.jpg" %>');
+            }
+          }
+
+          /* large image for desktop */
+          @media (min-width: 900px) {
+            #banner {
+              background-image: url('<%= image_path "campaign/royal_mail_shares/960px.jpg" %>');
+            }
+          }
+        </style>
+        <span id="banner" role="presentation">The Royal Mail Share Offer</span>
+      </span>
+    </div>
+
+    <article class="campaign transaction">
+      <p>The government is planning to sell some of its shares in Royal Mail, which is intended to be listed on the London Stock Exchange.</p>
+
+      <p>Here you can find out information about the Royal Mail Share Offer and how, if you are located in the United Kingdom, you can take part.</p>
+
+      <p class="get-started group">
+        <a class="button" rel="external" href="https://royalmailshares.service.gov.uk/">Start now</a>
+        <span class="destination"> on the Royal Mail Share Offer website.</span>
+      </p>
+
+      <p>This is an advertisement and is not a prospectus for the purposes of EU Directive 2003/71/EC or Part VI of the Financial Services and Markets Act 2000. Investors should not subscribe for or purchase any securities referred to in this advertisement except on the basis of information contained in the prospectus in its final form to be published by Royal Mail Limited (to be renamed Royal Mail plc) in due course. Copies of the prospectus will, following publication, be available online at www.gov.uk/royalmailshares.</p>
+
+      <p>General information about the offer can be found at www.gov.uk/royalmailshares or by calling the helpline on 0330 123 0147. This advertisement does not constitute an offer or recommendation concerning the securities referred to in this advertisement. The price and value of securities can go down as well as up. Past performance is not a guide to future performance.</p>
+
+      <p>Before purchasing any securities referred to in this advertisement, persons viewing this advertisement should make sure that they fully understand and accept the risks which are set out in the prospectus referred to above. Potential investors should consult an independent professional advisor as to the suitability of the securities referred to in this advertisement for the person concerned.</p>
+    </article>
+  </section>
+</main>

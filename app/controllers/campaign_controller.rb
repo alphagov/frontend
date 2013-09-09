@@ -32,6 +32,9 @@ class CampaignController < ApplicationController
   def britain_is_great
   end
 
+  def royal_mail_shares
+  end
+
 protected
   def setup_slimmer_artefact
     set_slimmer_headers(format: 'campaign')

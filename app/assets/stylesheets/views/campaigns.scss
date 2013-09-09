@@ -70,7 +70,7 @@ main.campaign {
       font-weight: 600;
 
       float: left;
-      width: auto;
+      width: 100%;
       margin: 0.5em 0.5em 0;
 
       @include media($size: desktop, $ignore-for-ie: true) {
@@ -82,6 +82,7 @@ main.campaign {
       @include ie-lte(7) {
         margin-left: 0.666em;
         margin-bottom: 1em;
+        width: auto;
       }
 
       @include ie(6) {

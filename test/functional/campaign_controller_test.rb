@@ -46,4 +46,44 @@ class CampaignControllerTest < ActionController::TestCase
     get :business_support
     assert_response :success
   end
+
+  context "the royal_mail_shares campaign" do
+
+    context "before the start date" do
+      setup do
+        Timecop.freeze(CampaignController::ROYAL_MAIL_SHARES_START - 40.minutes)
+      end
+
+      should "return a 404" do
+        get :royal_mail_shares
+        assert_response :missing
+      end
+
+      should "not set the cache headers" do
+        get :royal_mail_shares
+        assert_nil response.headers["Cache-Control"]
+      end
+
+      should "show the page when given 'show_me_the_page' query param" do
+        get :royal_mail_shares, :show_me_the_page => "1"
+        assert_response :success
+      end
+    end
+
+    context "after the start time" do
+      setup do
+        Timecop.freeze(CampaignController::ROYAL_MAIL_SHARES_START + 5.minutes)
+      end
+
+      should "show the page" do
+        get :royal_mail_shares
+        assert_response :success
+      end
+
+      should "set the cache headers" do
+        get :royal_mail_shares
+        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      end
+    end
+  end
 end

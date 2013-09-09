@@ -64,4 +64,5 @@ group :test do
   gem 'poltergeist', '1.3.0'
   gem "launchy"
   gem "shoulda"
+  gem "timecop", "0.6.3"
 end

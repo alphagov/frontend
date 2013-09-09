@@ -35,6 +35,7 @@ Frontend::Application.routes.draw do
     routes.get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
     routes.get "/businesssupport", :to => "campaign#business_support"
     routes.get "/unimoney", :to => "campaign#unimoney"
+    routes.get "/britainisgreat", :to => "campaign#britain_is_great"
   end
 
   # Jobssearch form override (English and Welsh variants)

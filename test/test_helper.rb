@@ -11,6 +11,7 @@ require 'test/unit'
 require 'mocha/setup'
 require 'webmock/test_unit'
 WebMock.disable_net_connect!(:allow_localhost => true)
+require 'timecop'
 
 require 'gds_api/test_helpers/content_api'
 
@@ -22,4 +23,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   include GdsApi::TestHelpers::ContentApi
+
+  teardown do
+    Timecop.return
+  end
 end

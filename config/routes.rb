@@ -26,14 +26,16 @@ Frontend::Application.routes.draw do
   end
 
   # Campaign pages.
-  get "/workplacepensions", :to => "campaign#workplace_pensions"
-  get "/ukwelcomes", :to => "campaign#uk_welcomes"
-  get "/sortmytax", :to => "campaign#sort_my_tax"
-  get "/newlicencerules", :to => "campaign#new_licence_rules"
-  get "/firekills", :to => "campaign#fire_kills"
-  get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
-  get "/businesssupport", :to => "campaign#business_support"
-  get "/unimoney", :to => "campaign#unimoney"
+  with_options :format => false do |routes|
+    routes.get "/workplacepensions", :to => "campaign#workplace_pensions"
+    routes.get "/ukwelcomes", :to => "campaign#uk_welcomes"
+    routes.get "/sortmytax", :to => "campaign#sort_my_tax"
+    routes.get "/newlicencerules", :to => "campaign#new_licence_rules"
+    routes.get "/firekills", :to => "campaign#fire_kills"
+    routes.get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
+    routes.get "/businesssupport", :to => "campaign#business_support"
+    routes.get "/unimoney", :to => "campaign#unimoney"
+  end
 
   # Jobssearch form override (English and Welsh variants)
   constraints(:slug => /(jobsearch|chwilio-am-swydd)/) do

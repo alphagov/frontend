@@ -207,6 +207,10 @@
       a[rel=external] {
         @include external-link-16;
       }
+
+      @include media-down(mobile) {
+        padding-left: 1em;
+      }
     }
   }
 

@@ -116,7 +116,8 @@ main.campaign {
     background-size:cover;
 
     @include media($min-width: 0px) {
-      min-height: 270px;
+      height: auto;
+      min-height: 236px;
       margin: 0;
     }
 

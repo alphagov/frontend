@@ -17,7 +17,6 @@ Frontend::Application.routes.draw do
 
   get "/help", to: "help#index"
   get "/tour", to: "root#tour"
-  get "/exit", :to => "exit#exit"
 
   get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
   with_options(:to => "travel_advice#country") do |country|

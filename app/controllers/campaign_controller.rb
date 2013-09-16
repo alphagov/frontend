@@ -32,9 +32,6 @@ class CampaignController < ApplicationController
   def britain_is_great
   end
 
-  def voluntary_disclosure_health_wellbeing
-  end
-
   ROYAL_MAIL_SHARES_START = Time.zone.parse("2013-09-12T07:00:00+01:00")
   # This campaign has to be live on this date, and not before
   def royal_mail_shares

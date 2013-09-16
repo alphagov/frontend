@@ -47,11 +47,6 @@ class CampaignControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  should "load the voluntary disclosure campaign" do
-    get :voluntary_disclosure_health_wellbeing
-    assert_response :success
-  end
-
   context "the royal_mail_shares campaign" do
 
     context "before the start date" do

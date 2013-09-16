@@ -65,4 +65,5 @@ group :test do
   gem "launchy"
   gem "shoulda"
   gem "timecop", "0.6.3"
+  gem "test_track", github: 'episko/test_track'
 end

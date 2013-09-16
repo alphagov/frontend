@@ -62,5 +62,7 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)", :via => [:get, :post]
   end
 
+  Track::Engine => "test" if Rails.env.test?
+
   root :to => 'root#index', :via => :get
 end

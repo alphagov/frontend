@@ -10,13 +10,17 @@ $(function(){
   /* get all the sections */
   var sections = $(".tabs-panel"),
     i = sections.length,
-    last = $(".tabs-panel:last").attr("id").split("-enhanced")[0],
+    last = $(".tabs-panel:last"),
     j,
     id,
     ul,
     navid,
     sectionTitle,
     nav;
+
+    if (!last.length) { return false; }
+
+    last = last.attr("id").split("-enhanced")[0];
 
     last = "<li><a href='#"+last+"'>No thanks, just tell me how to claim</a></li>"
 

@@ -37,7 +37,8 @@ namespace :test do
       end
     end
 
-    runner = "http://127.0.0.1:#{test_port}/test/jasmine"
+    # runner = "http://127.0.0.1:#{test_port}/test/jasmine"
+    runner = Rails.root.join('test', 'javascripts', 'support', 'TestRunner.html')
     phantom_driver = Rails.root.join('test', 'javascripts', 'support', 'run_jasmine_test.js')
 
     command = "phantomjs #{phantom_driver} #{runner}"

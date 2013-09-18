@@ -32,4 +32,8 @@ Frontend::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.assets.paths << Rails.root.join("test/javascripts") 
 end
+
+require "slimmer/test"

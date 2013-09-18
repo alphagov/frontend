@@ -1,9 +1,11 @@
-require 'socket'
 
 namespace :test do
 
   desc "Run javascript tests"
   task :javascript => :environment do
+    require 'socket'
+    require 'open3'
+
     phantomjs_requirement = Gem::Requirement.new(">= 1.3.0")
     phantomjs_version = Gem::Version.new(`phantomjs --version`.match(/\d+\.\d+\.\d+/)[0]) rescue Gem::Version.new("0.0.0")
     unless phantomjs_requirement.satisfied_by?(phantomjs_version)
@@ -18,8 +20,15 @@ namespace :test do
     if File.exists?(pid_file)
       STDERR.puts "It looks like the javascript test server is running with pid #{File.read(pid_file)}."
       STDERR.puts "Please kill the server, remove the pid file from #{pid_file} and re-run this task:"
-      STDERR.puts "  $ kill -KILL `cat #{pid_file}` && rm #{pid_file}"
+      STDERR.puts "  $ kill -INT `cat #{pid_file}`"
       exit 1
+    end
+
+    at_exit do
+      if pid_file.exist?
+        puts "Stopping the server"
+        Process.kill("INT", pid_file.read.to_i)
+      end
     end
 
     puts "Starting the test server on port #{test_port}"
@@ -37,31 +46,18 @@ namespace :test do
       end
     end
 
-    # runner = "http://127.0.0.1:#{test_port}/test/jasmine"
     runner = Rails.root.join('test', 'javascripts', 'support', 'TestRunner.html')
     phantom_driver = Rails.root.join('test', 'javascripts', 'support', 'run_jasmine_test.js')
 
     command = "phantomjs #{phantom_driver} #{runner}"
 
-    IO.popen(command) do |test|
-      puts test.read
+    exit_status = 0
+    Open3.popen2e(command) do |stdin, output, wait_thr|
+      output.each {|line| puts line }
+      exit_status = wait_thr.value.exitstatus
     end
-
-    # grab the exit status of phantomjs
-    # this will be the result of the tests
-    # it is important to grab it before we
-    # exit the server otherwise $? will be overwritten.
-    test_result = $?.exitstatus
-
-    puts "Stopping the server"
-    if File.exist?(pid_file)
-      `kill -KILL #{File.read(pid_file)}`
-      `rm #{pid_file}`
-    end
-
-    exit test_result
+    exit exit_status
   end
-
 end
 
 task :default => "test:javascript"

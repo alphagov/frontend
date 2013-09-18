@@ -35,5 +35,3 @@ Frontend::Application.configure do
 
   config.assets.paths << Rails.root.join("test/javascripts") 
 end
-
-require "slimmer/test"

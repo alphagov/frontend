@@ -1,20 +1,36 @@
-(function($) {
-  var countryWasClicked = false,
-      enterKeyCode = 13;
+(function() {
+  "use strict"
+  var root = this,
+      $ = root.jQuery;
 
-  $(".countries-wrapper").attr("aria-live", "polite");
+  if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
+
   $.expr[':'].contains = function(obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
-  var input = $("#country-filter form input#country"),
-      listItems = $("ul.countries li"),
-      countryHeadings = $(".inner section.countries-wrapper div").children("h2");
+  var countryFilter = function(input) {
+    var enterKeyCode = 13,
+        filterInst = this;
 
-  var filterHeadings = function() {
+    input.keyup(function() {
+      var filter = $(this).val();
+
+      filterInst.filterListItems(filter);
+    }).keypress(function(event) {
+      if (event.which == enterKeyCode) {
+        event.preventDefault();
+      }
+    });
+
+    $(".countries-wrapper").attr("aria-live", "polite");
+    $(document).bind("countrieslist", this.updateCounter);
+  };
+
+  countryFilter.prototype.filterHeadings = function(countryHeadings) {
     var headingHasVisibleCountries = function(headingFirstLetter) {
-      return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
-    };
+          return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
+        };
 
     countryHeadings.each(function(index, elem) {
       var $elem = $(elem), header = $elem.text().match(/[A-Z]{1}$/)[0];
@@ -22,7 +38,7 @@
     });
   };
 
-  var doesSynonymMatch = function(elem, synonym) {
+  countryFilter.prototype.doesSynonymMatch = function(elem, synonym) {
     var synonyms = $(elem).data("synonyms").split("|");
     var result = false;
     for(var syn in synonyms) {
@@ -33,12 +49,15 @@
     return result;
   };
 
-  var filterListItems = function(filter) {
-    var itemsToHide,
+  countryFilter.prototype.filterListItems = function(filter) {
+    var countryHeadings = $(".inner section.countries-wrapper div").children("h2"),
+        listItems = $("ul.countries li"),
+        itemsToHide,
         itemsShowing,
-        synonymMatch = false;
+        synonymMatch = false,
+        filterInst = this;
 
-    filterHeadings();
+    this.filterHeadings(countryHeadings);
     listItems.each(function(i, item) {
       var $item = $(item);
       var link = $item.children("a");
@@ -52,7 +71,7 @@
       itemsShowing = listItems.length - itemsToHide.length;
       listItems.each(function(i, item) {
         var $listItem = $(item);
-        var synonym = doesSynonymMatch(item, filter);
+        var synonym = filterInst.doesSynonymMatch(item, filter);
         if(synonym) {
           synonymMatch = true;
           $listItem.show().append("(" + synonym + ")");
@@ -61,7 +80,7 @@
       if(synonymMatch) {
         itemsShowing = listItems.find(":visible").length;
       }
-      filterHeadings();
+      this.filterHeadings(countryHeadings);
     } else {
       countryHeadings.show();
       itemsShowing = listItems.length;
@@ -69,7 +88,7 @@
     $(document).trigger("countrieslist", { "count" : itemsShowing });
   };
 
-  var updateCounter = function (e, eData) {
+  countryFilter.prototype.updateCounter = function (e, eData) {
     var $counter = $(".country-count"),
         results;
 
@@ -81,15 +100,9 @@
     }
   };
 
-  input.keyup(function() {
-    var filter = $(this).val();
+  GOVUK.countryFilter = countryFilter;
 
-    filterListItems(filter);
-  }).keypress(function(event) {
-    if (event.which == enterKeyCode) {
-      event.preventDefault();
-    }
-  })
-
-  $(document).bind("countrieslist", updateCounter);
-}(jQuery));
+  $("#country-filter form input#country").map(function(idx, input) { 
+      new GOVUK.countryFilter($(input)); 
+  });
+}).call(this);

@@ -51,12 +51,13 @@ namespace :test do
 
     command = "phantomjs #{phantom_driver} #{runner}"
 
-    exit_status = 0
+    success = true
     Open3.popen2e(command) do |stdin, output, wait_thr|
       output.each {|line| puts line }
-      exit_status = wait_thr.value.exitstatus
+      success = wait_thr.value.exitstatus == 0
     end
-    exit exit_status
+
+    abort "Javascript tests failed." unless success
   end
 end
 

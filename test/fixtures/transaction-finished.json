@@ -1,0 +1,29 @@
+{
+    "id": "https://www.gov.uk/api/transaction-finished.json",
+    "web_url": "https://www.gov.uk/transaction-finished",
+    "format": "completed_transaction",
+    "updated_at": "2013-09-16T10:55:05+01:00",
+    "tags": [ ],
+    "related": [
+    {
+        "id": "https://www.gov.uk/api/jobsearch.json",
+        "web_url": "https://www.gov.uk/jobsearch",
+        "title": "Find a job with Universal Jobmatch",
+        "format": "transaction",
+        "updated_at": "2013-09-19T09:17:01+01:00",
+        "group": "other"
+    },
+    {
+        "id": "https://www.gov.uk/api/renew-adult-passport.json",
+        "web_url": "https://www.gov.uk/renew-adult-passport",
+        "title": "Renew or replace your adult passport",
+        "format": "answer",
+        "updated_at": "2013-07-24T15:13:36+01:00",
+        "group": "other"
+    }
+    ],
+    "related_external_links": [ ],
+    "_response_info": {
+        "status": "ok"
+    }
+}

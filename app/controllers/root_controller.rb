@@ -31,6 +31,10 @@ class RootController < ApplicationController
     @publication, _ = prepare_publication_and_environment
   end
 
+  def legacy_completed_transaction
+    @publication, _ = prepare_publication_and_environment
+  end
+
   def publication
     @publication, @location = prepare_publication_and_environment
 

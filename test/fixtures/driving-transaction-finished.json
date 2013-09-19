@@ -1,0 +1,29 @@
+{
+    "id": "https://www.gov.uk/api/driving-transaction-finished.json",
+    "web_url": "https://www.gov.uk/driving-transaction-finished",
+    "format": "completed_transaction",
+    "updated_at": "2013-09-16T10:55:30+01:00",
+    "tags": [ ],
+    "related": [
+    {
+        "id": "https://www.gov.uk/api/apply-for-a-vehicle-identity-check-vic.json",
+        "web_url": "https://www.gov.uk/apply-for-a-vehicle-identity-check-vic",
+        "title": "Apply for a Vehicle Identity Check (VIC) online",
+        "format": "transaction",
+        "updated_at": "2013-05-30T17:38:14+01:00",
+        "group": "other"
+   },
+   {
+       "id": "https://www.gov.uk/api/apply-hgv-vehicle-licence-tax-disc-form-v85.json",
+       "web_url": "https://www.gov.uk/apply-hgv-vehicle-licence-tax-disc-form-v85",
+       "title": "Apply for a HGV vehicle licence (tax disc) - form V85",
+       "format": "answer",
+       "updated_at": "2013-07-01T09:55:40+01:00",
+       "group": "other"
+   }
+   ],
+   "related_external_links": [ ],
+   "_response_info": {
+       "status": "ok"
+   }
+}

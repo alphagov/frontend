@@ -1,0 +1,35 @@
+<main id="content" role="main" class="group">
+  <header class="page-header group">
+    <div>
+      <h1>
+        <span>Service</span>
+        <h1>
+          <%- if params[:slug] == 'transaction-finished' %>
+            Your transaction is finished
+          <% else %>
+            Thank you
+          <% end %>
+        </h1>
+    </div>
+  </header>
+  <div class="article-container group">
+      <article role="article" class="group">
+        <div class="inner">
+          <p>Please join the NHS Organ Donor Register.</p>
+          <p>If you needed an organ transplant would you have one? If so please help others.</p>
+          <p>
+            <a rel="external" href="https://www.organdonation.nhs.uk/how_to_become_a_donor/registration/consent.asp?campaign=2244&amp;v=7" title="Register to become an organ donor" class="button">Join</a>
+            or
+            <a rel="external" href="http://www.organdonation.nhs.uk/how_to_become_a_donor/questions/index.asp?campaign=2244&amp;v=7" title="Learn more about organ donation">Find out more</a>
+          </p>
+       </div>
+     </article>
+    <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+  </div>
+</main>
+
+<div id="related-items"></div>
+
+<% content_for :extra_headers do %>
+<meta name="robots" content="noindex, nofollow" />
+<% end %>

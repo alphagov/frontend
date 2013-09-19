@@ -44,6 +44,12 @@ Frontend::Application.routes.draw do
     get "/:slug(.:format)" => "root#jobsearch"
   end
 
+  # Transaction finished pages
+  constraints(slug: /(transaction-finished|driving-transaction-finished)/) do
+    get "/:slug.json"      => redirect("/api/%{slug}.json")
+    get "/:slug(.:format)" => "root#legacy_completed_transaction"
+  end
+
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
 
   with_options(as: "publication", to: "root#publication") do |pub|

@@ -15,7 +15,7 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
   should "render the organisation name and crest" do
     organisation_link = page.find(".organisation a.organisation-logo-single-identity")   
     assert_equal "Cabinet Office", organisation_link.text
-    assert_equal "https://www.gov.uk/government/organisations/cabinet-office", organisation_link['href']
+    assert_equal "http://www.example.com/government/organisations/cabinet-office", organisation_link['href']
   end
 
   should "render the campaign title" do
@@ -23,7 +23,7 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
   end
 
   should "render the campaign banner image" do
-    assert_match "http://static.dev.gov.uk/media/52380a1e686c82231f000003/britain-is-great.jpg",
+    assert_match "http://www.example.com/media/52380a1e686c82231f000003/britain-is-great.jpg",
       page.find(".campaign-image .image-scope style").native.children.to_s
   end
 

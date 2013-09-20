@@ -16,7 +16,7 @@ class ArtefactRetriever
 
   def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
     artefact = content_api.artefact(slug, artefact_options(snac, location, edition))
- 
+
     unless artefact
       logger.warn("Failed to fetch artefact #{slug} from Content API. Response code: 404")
       raise RecordNotFound

@@ -9,10 +9,11 @@
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
-  var countryFilter = function(input) {
+  var CountryFilter = function(input) {
     var enterKeyCode = 13,
         filterInst = this;
 
+    this.container = input.closest('.inner');
     input.keyup(function() {
       var filter = $(this).val();
 
@@ -23,11 +24,11 @@
       }
     });
 
-    $(".countries-wrapper").attr("aria-live", "polite");
+    $(".countries-wrapper", this.container).attr("aria-live", "polite");
     $(document).bind("countrieslist", this.updateCounter);
   };
 
-  countryFilter.prototype.filterHeadings = function(countryHeadings) {
+  CountryFilter.prototype.filterHeadings = function(countryHeadings) {
     var headingHasVisibleCountries = function(headingFirstLetter) {
           return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
         };
@@ -38,7 +39,7 @@
     });
   };
 
-  countryFilter.prototype.doesSynonymMatch = function(elem, synonym) {
+  CountryFilter.prototype.doesSynonymMatch = function(elem, synonym) {
     var synonyms = $(elem).data("synonyms").split("|");
     var result = false;
     for(var syn in synonyms) {
@@ -49,9 +50,9 @@
     return result;
   };
 
-  countryFilter.prototype.filterListItems = function(filter) {
-    var countryHeadings = $(".inner section.countries-wrapper div").children("h2"),
-        listItems = $("ul.countries li"),
+  CountryFilter.prototype.filterListItems = function(filter) {
+    var countryHeadings = $("section.countries-wrapper div", this.container).children("h2"),
+        listItems = $("ul.countries li", this.container),
         itemsToHide,
         itemsShowing,
         synonymMatch = false,
@@ -88,7 +89,7 @@
     $(document).trigger("countrieslist", { "count" : itemsShowing });
   };
 
-  countryFilter.prototype.updateCounter = function (e, eData) {
+  CountryFilter.prototype.updateCounter = function (e, eData) {
     var $counter = $(".country-count"),
         results;
 
@@ -100,7 +101,7 @@
     }
   };
 
-  GOVUK.countryFilter = countryFilter;
+  GOVUK.countryFilter = CountryFilter;
 
   $("#country-filter form input#country").map(function(idx, input) { 
       new GOVUK.countryFilter($(input)); 

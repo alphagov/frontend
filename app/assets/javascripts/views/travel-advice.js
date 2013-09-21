@@ -29,8 +29,10 @@
   };
 
   CountryFilter.prototype.filterHeadings = function(countryHeadings) {
-    var headingHasVisibleCountries = function(headingFirstLetter) {
-          return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
+    var filterInst = this,
+        headingHasVisibleCountries = function(headingFirstLetter) {
+          var countries = $("#" + headingFirstLetter.toUpperCase(), filterInst.container).find("li");
+          return countries.map(function() { if (this.style.display === 'none') { return this; }}).length < countries.length;
         };
 
     countryHeadings.each(function(index, elem) {
@@ -79,7 +81,7 @@
         }
       });
       if(synonymMatch) {
-        itemsShowing = listItems.find(":visible").length;
+        itemsShowing = listItems.map(function () { if (this.style.display !== 'none') { return this; }}).length;
       }
       this.filterHeadings(countryHeadings);
     } else {

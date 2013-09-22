@@ -92,7 +92,7 @@
   };
 
   CountryFilter.prototype.updateCounter = function (e, eData) {
-    var $counter = $(".country-count"),
+    var $counter = $(".country-count", this.container),
         results;
 
     $counter.find(".js-filter-count").text(eData.count);

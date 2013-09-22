@@ -1,71 +1,81 @@
 // Foreign travel advice tests
 var GOVUK_test = {
   countryFilter: {
-    categories: { 
-      allWithCountries: '<section><div id="W" class="list">' +
-        '<h2>' +
-        '<span class="visuallyhidden">Countries starting with </span>W</h2>' +
-        '<ul class="countries">' +
-        '<li data-synonyms=""><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
-        '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '<div id="Y" class="list">' +
-        '<h2>' +
-        '<span class="visuallyhidden">Countries starting with </span>Y</h2>' +
-        '<ul class="countries">' +
-        '<li data-synonyms=""><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '<div id="Z" class="list">' +
-        '<h2>' +
-        '<span class="visuallyhidden">Countries starting with </span>Z</h2>' +
-        '<ul class="countries">' +
-        '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
-        '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
-        '</ul>' +
-        '</div></section>',
-      twoWithoutCountries: '<section><div id="W" class="list">' +
-        '<h2>' +
-        '<span class="visuallyhidden">Countries starting with </span>W</h2>' +
-        '<ul class="countries">' +
-        '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
-        '<li data-synonyms="Sahel" style="display:none"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '<div id="Y" class="list">' +
-        '<h2>' +
-        '<span class="visuallyhidden">Countries starting with </span>Y</h2>' +
-        '<ul class="countries">' +
-        '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
-        '</ul>' +
-        '</div>' +
-        '<div id="Z" class="list">' +
-        '<h2>' +
-        '<span class="visuallyhidden">Countries starting with </span>Z</h2>' +
-        '<ul class="countries">' +
-        '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
-        '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
-        '</ul>' +
-        '</div></section>'
-    },
-    synonyms: {
-      noSynonyms: '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>',
-      withSaharaSynonym: '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>',
-      withUSASynonym: '<li data-synonyms="United States|America|arctic" style="display: list-item;"><a href="/foreign-travel-advice/usa">USA</a></li>'
-    }
-  } 
+    threeCategories: '<div id="W" class="list">' +
+      '<h2>' +
+      '<span class="visuallyhidden">Countries starting with </span>W</h2>' +
+      '<ul class="countries">' +
+      '<li data-synonyms=""><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
+      '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
+      '</ul>' +
+      '</div>' +
+      '<div id="Y" class="list">' +
+      '<h2>' +
+      '<span class="visuallyhidden">Countries starting with </span>Y</h2>' +
+      '<ul class="countries">' +
+      '<li data-synonyms=""><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
+      '</ul>' +
+      '</div>' +
+      '<div id="Z" class="list">' +
+      '<h2>' +
+      '<span class="visuallyhidden">Countries starting with </span>Z</h2>' +
+      '<ul class="countries">' +
+      '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
+      '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
+      '</ul>' +
+      '</div>'
+  }
 };
+
+GOVUK_test.countryFilter.categories = { 
+  allWithCountries: '<section class="countries-wrapper">' + GOVUK_test.countryFilter.threeCategories + '</section>',
+  twoWithoutCountries: '<section><div id="W" class="list">' +
+    '<h2>' +
+    '<span class="visuallyhidden">Countries starting with </span>W</h2>' +
+    '<ul class="countries">' +
+    '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
+    '<li data-synonyms="Sahel" style="display:none"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
+    '</ul>' +
+    '</div>' +
+    '<div id="Y" class="list">' +
+    '<h2>' +
+    '<span class="visuallyhidden">Countries starting with </span>Y</h2>' +
+    '<ul class="countries">' +
+    '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
+    '</ul>' +
+    '</div>' +
+    '<div id="Z" class="list">' +
+    '<h2>' +
+    '<span class="visuallyhidden">Countries starting with </span>Z</h2>' +
+    '<ul class="countries">' +
+    '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
+    '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
+    '</ul>' +
+    '</div></section>'
+};
+
+GOVUK_test.countryFilter.synonyms = {
+  noSynonyms: '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>',
+  withSaharaSynonym: '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>',
+  withUSASynonym: '<li data-synonyms="United States|America|arctic" style="display: list-item;"><a href="/foreign-travel-advice/usa">USA</a></li>'
+};
+
+GOVUK_test.countryFilter.countryCounter = '<p class="country-count"><span class="js-filter-count"></span></p>';
 
 describe("CountryFilter", function () {
   var $input,
       filter;
 
-  describe("Creating a CountryFilter instance", function () {
-    beforeEach(function () {
-      $input = $('<input />');
-    });
+  beforeEach(function () {
+    $input = $('<input />');
+  });
 
+  afterEach(function () {
+    filter = null;
+    $(document).unbind('countrieslist');
+  });
+
+  describe("Creating a CountryFilter instance", function () {
     it("Should require a parameter for its constructor", function () {
       var createAFilterNoParam = function () {
             filter = new GOVUK.countryFilter();
@@ -130,7 +140,6 @@ describe("CountryFilter", function () {
     it("Should set aria attributes on div.countries-wrapper", function () {
       var $container = $("<div class='inner' />"),
           $countriesWrapper = $("<div class='countries-wrapper' />");
-      $input = $("<input />");
 
       $container
         .append($input)
@@ -206,6 +215,82 @@ describe("CountryFilter", function () {
           synonym = 'Sahel';
       result = filter.doesSynonymMatch(element, synonym);
       expect(result).toBe(false);
+    });
+  });
+
+  describe("CountryFilter.updateCounter", function () {
+    var $counter;
+
+    beforeEach(function () {
+      $container = $('<div class="inner">' + GOVUK_test.countryFilter.countryCounter + '</div>').append($input);
+      filter = new GOVUK.countryFilter($input);
+      $counter = $(".country-count", filter.container)
+    });
+
+    it("Should make the counter text match the sent number", function () {
+      filter.updateCounter({}, { 'count': 27 });
+      
+      expect($counter.find('.js-filter-count').text()).toBe('27');
+    });
+
+    it("Should add the word 'results' to the end of the count number if it is 0", function () {
+      filter.updateCounter({}, { 'count': 0 });
+
+      expect($counter.text().match(/results$/)).not.toBeNull();
+    });
+
+    it("Should remove the word 'results' from the end of the count number once it changes from 0", function () {
+      filter.updateCounter({}, { 'count': 0 });
+      filter.updateCounter({}, { 'count': 27 });
+
+      expect($counter.text().match(/results$/)).toBeNull();
+    });
+  });
+
+  describe("CountryFilter.filterListItems", function () {
+    var $countries,
+        $container,
+        filterListItems = GOVUK.countryFilter.prototype.filterListItems,
+        trigger = $.fn.trigger;
+
+    beforeEach(function () {
+      $countries = $(GOVUK_test.countryFilter.categories.allWithCountries);
+      $counter = $(GOVUK_test.countryFilter.countryCounter);
+      $container = $('<div class="inner"></div>')
+        .append($input)
+        .append($countries)
+        .append($counter);
+      $.fn.trigger = jasmine.createSpy('triggerSpy');
+      filter = new GOVUK.countryFilter($input);
+      filter.filterHeadings = jasmine.createSpy('filterHeadings');
+      spyOn(filter, 'doesSynonymMatch').andCallThrough();
+    });
+
+    afterEach(function () {
+      $.fn.trigger = trigger;
+    });
+
+    it("Should call filterHeadings", function () {
+      filter.filterListItems('Yem');
+      expect(filter.filterHeadings).toHaveBeenCalled();
+    });
+
+    it("Should call jQuery's trigger method with the string 'countrieslist' and an { count: 1 } object", function () {
+      filter.filterListItems('Yem');
+      expect($.fn.trigger).toHaveBeenCalledWith('countrieslist', { count: 1 });
+    });
+
+    it("Should call synonymDoesMatch", function () {
+      filter.filterListItems('Yem');
+      expect(filter.doesSynonymMatch).toHaveBeenCalled();
+    });
+
+    it("Should only have one country visible for the 'Yem' search term", function () {
+      var visibleCountries;
+
+      filter.filterListItems('Yem');
+      visibleCountries = $countries.find('ul.countries li').map(function () { if (this.style.display !== 'none') return this; });
+      expect(visibleCountries.length).toEqual(1);
     });
   });
 });

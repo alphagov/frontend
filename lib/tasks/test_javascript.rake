@@ -14,7 +14,6 @@ namespace :test do
       exit 1
     end
 
-    test_port = 3100
     pid_file = Rails.root.join('tmp', 'pids', 'javascript_tests.pid')
 
     if File.exists?(pid_file)
@@ -31,14 +30,14 @@ namespace :test do
       end
     end
 
-    puts "Starting the test server on port #{test_port}"
-    `cd #{Rails.root} && INCLUDE_JS_TEST_ASSETS=1 script/rails server -p #{test_port} --daemon --environment=test --pid=#{pid_file}`
+    puts "Starting the test server on port 3150"
+    `cd #{Rails.root} && INCLUDE_JS_TEST_ASSETS=1 script/rails server -p 3150 --daemon --environment=test --pid=#{pid_file}`
 
     puts "Waiting for the server to come up"
     not_connected = true
     while (not_connected) do
       begin
-        TCPSocket.new("127.0.0.1", test_port)
+        TCPSocket.new("127.0.0.1", 3150)
         not_connected = false
         puts "Server is up and ready"
       rescue Errno::ECONNREFUSED

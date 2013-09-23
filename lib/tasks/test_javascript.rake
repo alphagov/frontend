@@ -32,7 +32,7 @@ namespace :test do
     end
 
     puts "Starting the test server on port #{test_port}"
-    `cd #{Rails.root} && script/rails server -p #{test_port} --daemon --environment=test --pid=#{pid_file}`
+    `cd #{Rails.root} && INCLUDE_JS_TEST_ASSETS=1 script/rails server -p #{test_port} --daemon --environment=test --pid=#{pid_file}`
 
     puts "Waiting for the server to come up"
     not_connected = true

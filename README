@@ -15,7 +15,7 @@ The tests in [test/javascripts](https://github.com/alphagov/frontend/tree/set-up
 
 To run them in a browser on your local machine (useful for breakpointing):
 
-1. run `bundle exec script/rails server -p 3150 --environment=test` on your vm
+1. run `INCLUDE_JS_TEST_ASSETS=1 bundle exec script/rails server -p 3150 --environment=test` on your vm
 2. open the `LocalTestRunner.html` (as a static file) in your browser.
 
 This relies on you being able to access the above server on `http://www.dev.gov.uk:3150`.

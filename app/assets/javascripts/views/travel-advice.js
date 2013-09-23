@@ -1,20 +1,39 @@
-(function($) {
-  var countryWasClicked = false,
-      enterKeyCode = 13;
+(function() {
+  "use strict"
+  var root = this,
+      $ = root.jQuery;
 
-  $(".countries-wrapper").attr("aria-live", "polite");
+  if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
+
   $.expr[':'].contains = function(obj, index, meta){
     return (obj.textContent || obj.innerText || "").toUpperCase().indexOf(meta[3].toUpperCase()) >= 0;
   };
 
-  var input = $("#country-filter form input#country"),
-      listItems = $("ul.countries li"),
-      countryHeadings = $(".inner section.countries-wrapper div").children("h2");
+  var CountryFilter = function(input) {
+    var enterKeyCode = 13,
+        filterInst = this;
 
-  var filterHeadings = function() {
-    var headingHasVisibleCountries = function(headingFirstLetter) {
-      return $("#" + headingFirstLetter.toUpperCase()).find("li:visible").length > 0;
-    };
+    this.container = input.closest('.inner');
+    input.keyup(function() {
+      var filter = $(this).val();
+
+      filterInst.filterListItems(filter);
+    }).keypress(function(event) {
+      if (event.which == enterKeyCode) {
+        event.preventDefault();
+      }
+    });
+
+    $(".countries-wrapper", this.container).attr("aria-live", "polite");
+    $(document).bind("countrieslist", this.updateCounter);
+  };
+
+  CountryFilter.prototype.filterHeadings = function(countryHeadings) {
+    var filterInst = this,
+        headingHasVisibleCountries = function(headingFirstLetter) {
+          var countries = $("#" + headingFirstLetter.toUpperCase(), filterInst.container).find("li");
+          return countries.map(function() { if (this.style.display === 'none') { return this; }}).length < countries.length;
+        };
 
     countryHeadings.each(function(index, elem) {
       var $elem = $(elem), header = $elem.text().match(/[A-Z]{1}$/)[0];
@@ -22,7 +41,7 @@
     });
   };
 
-  var doesSynonymMatch = function(elem, synonym) {
+  CountryFilter.prototype.doesSynonymMatch = function(elem, synonym) {
     var synonyms = $(elem).data("synonyms").split("|");
     var result = false;
     for(var syn in synonyms) {
@@ -33,12 +52,15 @@
     return result;
   };
 
-  var filterListItems = function(filter) {
-    var itemsToHide,
+  CountryFilter.prototype.filterListItems = function(filter) {
+    var countryHeadings = $("section.countries-wrapper div", this.container).children("h2"),
+        listItems = $("ul.countries li", this.container),
+        itemsToHide,
         itemsShowing,
-        synonymMatch = false;
+        synonymMatch = false,
+        filterInst = this;
 
-    filterHeadings();
+    this.filterHeadings(countryHeadings);
     listItems.each(function(i, item) {
       var $item = $(item);
       var link = $item.children("a");
@@ -52,16 +74,16 @@
       itemsShowing = listItems.length - itemsToHide.length;
       listItems.each(function(i, item) {
         var $listItem = $(item);
-        var synonym = doesSynonymMatch(item, filter);
+        var synonym = filterInst.doesSynonymMatch(item, filter);
         if(synonym) {
           synonymMatch = true;
           $listItem.show().append("(" + synonym + ")");
         }
       });
       if(synonymMatch) {
-        itemsShowing = listItems.find(":visible").length;
+        itemsShowing = listItems.map(function () { if (this.style.display !== 'none') { return this; }}).length;
       }
-      filterHeadings();
+      this.filterHeadings(countryHeadings);
     } else {
       countryHeadings.show();
       itemsShowing = listItems.length;
@@ -69,8 +91,8 @@
     $(document).trigger("countrieslist", { "count" : itemsShowing });
   };
 
-  var updateCounter = function (e, eData) {
-    var $counter = $(".country-count"),
+  CountryFilter.prototype.updateCounter = function (e, eData) {
+    var $counter = $(".country-count", this.container),
         results;
 
     $counter.find(".js-filter-count").text(eData.count);
@@ -81,15 +103,9 @@
     }
   };
 
-  input.keyup(function() {
-    var filter = $(this).val();
+  GOVUK.countryFilter = CountryFilter;
 
-    filterListItems(filter);
-  }).keypress(function(event) {
-    if (event.which == enterKeyCode) {
-      event.preventDefault();
-    }
-  })
-
-  $(document).bind("countrieslist", updateCounter);
-}(jQuery));
+  $("#country-filter form input#country").map(function(idx, input) { 
+      new GOVUK.countryFilter($(input)); 
+  });
+}).call(this);

@@ -285,12 +285,25 @@ describe("CountryFilter", function () {
       expect(filter.doesSynonymMatch).toHaveBeenCalled();
     });
 
+    it("Should call synonymDoesMatch for each list item", function () {
+      filter.filterListItems('Yem');
+      expect(filter.doesSynonymMatch.callCount).toEqual(5);
+    });
+
     it("Should only have one country visible for the 'Yem' search term", function () {
       var visibleCountries;
 
       filter.filterListItems('Yem');
       visibleCountries = $countries.find('ul.countries li').map(function () { if (this.style.display !== 'none') return this; });
       expect(visibleCountries.length).toEqual(1);
+    });
+
+    it("Should only have one country visible for the 'Z' search term", function () {
+      var visibleCountries;
+
+      filter.filterListItems('Z');
+      visibleCountries = $countries.find('ul.countries li').map(function () { if (this.style.display !== 'none') return this; });
+      expect(visibleCountries.length).toEqual(2);
     });
   });
 });

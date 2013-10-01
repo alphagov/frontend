@@ -223,10 +223,10 @@
     </div>
   </div>
 </main>
-<%= image_tag "homepage/base-js-test.gif", :alt => "", :role => "presentation", :style => "position: absolute; left: -9999em; height: 0px; width: 0px;" %>
+<%= image_tag "homepage/base-js.gif", :alt => "", :role => "presentation", :style => "position: absolute; left: -9999em; height: 0px; width: 0px;" %>
 <script type="text/javascript">
-(function(){$("#wrapper").append($("<img src='frontend/homepage/with-js.gif' alt='' role='presentation' />").attr("style","position : absolute; left : -9999em; height : 0px; width : 0px;"))})();
+(function(){var a=document.createElement("img");a.src="frontend/homepage/with-js.gif";a.alt="";a.role="presentation";a.style.position="absolute";a.style.left="-9999em";a.style.height="0px";a.style.width="0px";document.getElementById("wrapper").appendChild(a)})();
 </script>
 <noscript>
-  <%= image_tag "homepage/without-js.gif", :alt => "", :role => "presentation", :style => "position: absolute; left: -9999em; height: 0px; width: 0px;" %>
+<%= image_tag "homepage/without-js.gif", :alt => "", :role => "presentation", :style => "position: absolute; left: -9999em; height: 0px; width: 0px;" %>
 </noscript>

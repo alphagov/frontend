@@ -52,6 +52,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("#test-related")
     end
+
+    should "return a 405 for POST requests" do
+      post "/foreign-travel-advice"
+      assert_equal 405, response.status
+    end
   end
 
   context "with the javascript driver" do

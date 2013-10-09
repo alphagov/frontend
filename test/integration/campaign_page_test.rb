@@ -8,10 +8,10 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
     visit "/britain-is-great"
     
     assert_equal 200, page.status_code
-    
-    organisation_link = page.find(".organisation a.organisation-logo-single-identity")   
-    
-    assert_equal "Cabinet Office", organisation_link.text
+
+    organisation_link = page.find(".organisation a.organisation-logo-single-identity")
+
+    assert_equal "Department for Transport", organisation_link.text
     assert_equal "http://www.example.com/government/organisations/cabinet-office", organisation_link['href']
 
     assert_equal "Britain is GREAT - GOV.UK", page.title

@@ -21,7 +21,7 @@ class CampaignHelperTest < ActionView::TestCase
   end
 
   test "formatted_organisation_name" do
-    assert_equal "Cabinet Office", formatted_organisation_name(@model)
+    assert_equal "Department for <br/>Transport", formatted_organisation_name(@model)
   end
 
   test "organisation_url" do

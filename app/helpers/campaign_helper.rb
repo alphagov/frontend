@@ -6,7 +6,8 @@ module CampaignHelper
   end
 
   def formatted_organisation_name(publication)
-    organisation_attr(publication, 'formatted_name')
+    organisation_name = organisation_attr(publication, 'formatted_name') || ""
+    ERB::Util.html_escape(organisation_name).strip.gsub(/(?:\r?\n)/, "<br/>").html_safe
   end
 
   def organisation_url(publication)

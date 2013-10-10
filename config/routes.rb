@@ -17,7 +17,6 @@ Frontend::Application.routes.draw do
 
   get "/help", to: "help#index"
   get "/tour", to: "root#tour"
-  get "/exit", :to => "exit#exit"
 
   get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
   post "/foreign-travel-advice" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent POST requests for /foreign-travel-advice blowing up in the publication handlers below

@@ -11,6 +11,9 @@ Frontend::Application.routes.draw do
   get "/browse/:section/:sub_section.json" => redirect("/api/with_tag.json?tag=%{section}%%2F%{sub_section}")
   get "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
 
+  # new business browse page
+  get "/business" => "browse#section", :section => "business"
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }

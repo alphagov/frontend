@@ -30,15 +30,7 @@ Frontend::Application.routes.draw do
 
   # Campaign pages.
   with_options :format => false do |routes|
-    routes.get "/workplacepensions", :to => "campaign#workplace_pensions"
     routes.get "/ukwelcomes", :to => "campaign#uk_welcomes"
-    routes.get "/sortmytax", :to => "campaign#sort_my_tax"
-    routes.get "/newlicencerules", :to => "campaign#new_licence_rules"
-    routes.get "/firekills", :to => "campaign#fire_kills"
-    routes.get "/knowbeforeyougo", :to => "campaign#know_before_you_go"
-    routes.get "/unimoney", :to => "campaign#unimoney"
-    routes.get "/britainisgreat", :to => "campaign#britain_is_great"
-    routes.get "/royalmailshares", :to => "campaign#royal_mail_shares"
   end
 
   # Jobssearch form override (English and Welsh variants)

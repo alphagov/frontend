@@ -18,4 +18,19 @@ class BrowseTest < ActionDispatch::IntegrationTest
       assert_redirected_to "/api/with_tag.json?tag=crime-and-justice%2Fjudges"
     end
   end
+
+  context "business browse page" do
+    setup do
+      content_api_has_section('business')
+      content_api_has_subsections('business', ['business'])
+    end
+    should "render the popular pages navigation" do
+      visit '/business'
+      assert_equal 200,  page.status_code
+      within('nav.popular') do
+        assert page.find('h1', :text => 'Popular pages')
+        assert page.find('h2', :text => 'Trade tariff')
+      end
+    end
+  end
 end

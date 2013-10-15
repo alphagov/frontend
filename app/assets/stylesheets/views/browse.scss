@@ -53,13 +53,18 @@
       padding-top: 1em;
       padding-bottom: 1em;
       margin-bottom: 1em;
-      
+     
       h1 {
-        float: left;  
+        @include media(desktop) {
+          float: left;  
+        }
       }
 
       ul {
-        margin-left: 20.5em;
+        @include media(desktop){
+          margin-left: 20.5em;
+        }
+
         display: block;
 
         li {

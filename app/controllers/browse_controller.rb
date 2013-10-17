@@ -24,6 +24,7 @@ class BrowseController < ApplicationController
     @sub_categories = response.results.sort_by { |category| category.title }
     setup_page_title(@category.title)
     set_slimmer_artefact_headers
+    render_section_view
   end
 
   def sub_section
@@ -60,4 +61,11 @@ protected
     end
   end
 
+  def render_section_view
+    if params[:section] == 'business'
+      render :business
+    else
+      render :section
+    end
+  end
 end

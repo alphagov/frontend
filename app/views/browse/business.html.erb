@@ -1,0 +1,57 @@
+<% content_for :title do %><%= @page_title %><% end %>
+
+<main id="content" role="main" class="group category-page">
+  <header class="page-header group">
+    <div class="full-width">
+      <h1><%= @category.title %></h1>
+    </div>
+  </header>
+
+  <div class="browse-container full-width business-browse">
+
+    <nav class="popular">
+      <h1>Popular pages</h1>
+      <ul>
+        <li>
+          <h2><a href="/trade-tariff">Trade tariff</a></h2>
+          <p>Use this tool to search for import and export commodity codes and for tax, duty and licenses that apply to your goods.</p>
+        </li>
+        <li>
+          <h2><a href="/starting-up-a-business">Start your own business</a></h2>
+          <ul>
+            <li><a href="/starting-up-a-business">Start with an idea</a></li>
+            <li><a href="/starting-up-a-business/get-funding">Get funding</a></li>
+            <li><a href="/starting-up-a-business/research-your-market">Research your market</a></li>
+            <li><a href="/starting-up-a-business/develop-and-plan">Develop and plan</a></li>
+            <li><a href="/starting-up-a-business/find-partners-suppliers-and-premises">Find partners, suppliers and premises</a></li>
+            <li><a href="/starting-up-a-business/set-up-your-business">Set up your business</a></li>
+          </ul>
+        </li>
+        <li>
+          <h2><a href="/register-for-self-assessment">Register for self assessment</a></h2>
+          <p>Register for Self Assessment - forms including SA1, SA400, SA401, deadlines and your Unique Taxpayer Reference (UTR) number.</p>
+        </li>
+        <li>
+          <h2><a href="/business-finance-support-finder">Business finance and support finder</a></h2>
+          <p>Find business finance, support, grants and loans.</p>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="find-out-more">
+      <h1>Find out more about...</h1>
+      <ul>
+        <% @sub_categories.each do |category|%>
+        <li>
+          <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</main>
+
+<% content_for :body_classes do %>full-width<% end %>
+<% content_for :extra_headers do %>
+<link rel="alternate" type="application/json" href="/api/tags.json?type=section&amp;parent_id=<%= params[:section] %>">
+<% end %>

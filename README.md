@@ -2,16 +2,16 @@ Front-end (and preview) app for single domain.
 
 This serves documents from publisher & campaign pages as well as the following:
 
-* /browse URLs
-* /search URLs
-* /tour
-* /foreign-travel-advice
+* `/browse` URLs
+* `/search` URLs
+* `/tour`
+* `/foreign-travel-advice`
 
-This is a basic list. For a full overview, see (config/routes.rb)[https://github.com/alphagov/frontend/blob/master/config/routes.rb]
+This is a basic list. For a full overview, see [config/routes.rb](https://github.com/alphagov/frontend/blob/master/config/routes.rb)
 
 ## JavaScript unit testing
 
-The tests in [test/javascripts](https://github.com/alphagov/frontend/tree/set-up-js-testing/test/javascripts) will be run as part of the `test:javascript` task. 
+The tests in [test/javascripts](https://github.com/alphagov/frontend/tree/set-up-js-testing/test/javascripts) will be run as part of the `test:javascript` task.
 
 To run them in a browser on your local machine (useful for breakpointing):
 

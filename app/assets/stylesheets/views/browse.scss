@@ -202,16 +202,8 @@
       border-bottom: 1px solid $border-colour;
 
       p {
-        color: #454A4C;
+        color: darken($grey-1, 15%);
         font-size: 1em;
-        
-        a {
-          color: #454A4C;
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
       }
     }
 
@@ -256,7 +248,7 @@
               margin-bottom: 0;
 
               a {
-                color: #454A4C;
+                color: darken($grey-1, 15%);
                 text-decoration: none;
               }
               a:hover {

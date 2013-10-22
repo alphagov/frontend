@@ -19,17 +19,44 @@ class BrowseTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "business browse page" do
-    setup do
+  context "custom business browse page" do
+    should "render the popular pages and find out more navigations" do
       content_api_has_section('business')
-      content_api_has_subsections('business', ['business'])
-    end
-    should "render the popular pages navigation" do
+      content_api_has_subsections('business', ['monkeybusiness'])
+      
       visit '/business'
       assert_equal 200,  page.status_code
+
       within('nav.popular') do
         assert page.find('h1', :text => 'Popular pages')
         assert page.find('h2', :text => 'Trade tariff')
+      end
+      within('nav.find-out-more') do
+        assert page.find('h1', :text => 'Find out more about...')
+        assert page.find('h2', :text => 'Monkeybusiness')
+      end
+    end
+  end
+
+  context "a browse page for a section" do
+    should "show a standard section header and sub category list" do
+      content_api_has_section('driving')
+      content_api_has_subsections('driving', ['Roads'])
+
+      visit '/browse/driving'
+      assert_equal 200, page.status_code
+
+      assert_raises Capybara::ElementNotFound do
+        page.find('nav.popular')
+        page.find('nav.find-out-more')
+      end
+
+      within('.page-header') do
+        assert page.find('h1', :text => 'Driving')
+      end
+
+      within('.browse-container .sub-categories') do
+        assert page.find('h2', :text => 'Roads')
       end
     end
   end

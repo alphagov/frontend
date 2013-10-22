@@ -8,13 +8,9 @@
   </header>
 
   <div class="browse-container full-width group">
-  <% if params[:section] == 'business' -%>
-    <%= render :partial => 'business' %>
-  <% else -%>
     <div class="category-description">
       <p><%= @category.details.description %></p>
     </div>
-  <% end -%>
     <ul class="sub-categories group">
       <% @sub_categories.each do |category|%>
       <li>

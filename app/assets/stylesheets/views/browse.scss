@@ -47,64 +47,6 @@
     @include ie-lte(8) {
       padding: 0 3.5% 30px;
     }
-    .popular {
-      border-top: 1px solid $border-colour;
-      border-bottom: 1px solid $border-colour;
-      padding-top: 1em;
-      padding-bottom: 1em;
-      margin-bottom: 1em;
-     
-      h1 {
-        @include media(desktop) {
-          float: left;  
-        }
-      }
-
-      ul {
-        @include media(desktop){
-          margin-left: 20.5em;
-        }
-
-        display: block;
-
-        li {
-          margin-bottom: 1.5em;
-          
-          ul {
-            display: inline-block;
-            margin: 0;
-            list-style: none;
-
-            li {
-              display: inline-block;
-              margin-right: 10px;
-              margin-bottom: 0;
-
-              a {
-                color: #454A4C;
-                text-decoration: none;
-              }
-              a:hover {
-                text-decoration: underline;
-              }
-            }
-          }
-
-          p {
-            color: #454A4C;
-            font-size: 1em;
-            
-            a {
-              color: #454A4C;
-              text-decoration: none;
-            }
-            a:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-    }
 
     .category-description {
       margin-bottom: 45px;
@@ -246,6 +188,72 @@
 
             @include media(mobile) {
               width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .business-browse {
+    
+    .popular {
+      border-top: 1px solid $border-colour;
+      border-bottom: 1px solid $border-colour;
+
+      p {
+        color: darken($grey-1, 15%);
+        font-size: 1em;
+      }
+    }
+
+    .find-out-more {
+      li {
+        margin-bottom: 0;
+      }
+    }
+
+    nav {
+      padding-top: 1em;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+      
+      h1 {
+        font-size: 1.25em;
+
+        @include media(desktop) {
+          float: left;  
+          font-size: 1.5em;
+        }
+      }
+
+      ul {
+        display: block;
+
+        @include media(desktop){
+          margin-left: 20.5em;
+        }
+
+        li {
+          margin-bottom: 1.5em;
+          
+          ul {
+            display: inline-block;
+            margin: 0;
+            list-style: none;
+
+            li {
+              display: inline-block;
+              margin-right: 10px;
+              margin-bottom: 0;
+
+              a {
+                color: darken($grey-1, 15%);
+                text-decoration: none;
+              }
+              a:hover {
+                text-decoration: underline;
+              }
             }
           }
         }

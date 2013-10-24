@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alphagov/frontend.png)](https://travis-ci.org/alphagov/frontend)
+
 Front-end (and preview) app for single domain.
 
 This serves documents from publisher & campaign pages as well as the following:

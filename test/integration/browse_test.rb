@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require_relative '../integration_test_helper'
 
 class BrowseTest < ActionDispatch::IntegrationTest
@@ -23,7 +25,7 @@ class BrowseTest < ActionDispatch::IntegrationTest
     should "render the popular pages and find out more navigations" do
       content_api_has_section('business')
       content_api_has_subsections('business', ['monkeybusiness'])
-      
+
       visit '/business'
       assert_equal 200,  page.status_code
 
@@ -32,7 +34,7 @@ class BrowseTest < ActionDispatch::IntegrationTest
         assert page.find('h2', :text => 'Trade tariff')
       end
       within('nav.find-out-more') do
-        assert page.find('h1', :text => 'Find out more about...')
+        assert page.find('h1', :text => 'Find out more about…')
         assert page.find('h2', :text => 'Monkeybusiness')
       end
     end

@@ -34,7 +34,7 @@ class BrowseTest < ActionDispatch::IntegrationTest
         assert page.find('h2', :text => 'Trade tariff')
       end
       within('nav.find-out-more') do
-        assert page.find('h1', :text => 'Find out more about…')
+        assert page.find('h1', :text => 'Find out more about:')
         assert page.find('h2', :text => 'Monkeybusiness')
       end
     end

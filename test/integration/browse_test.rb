@@ -37,6 +37,8 @@ class BrowseTest < ActionDispatch::IntegrationTest
         assert page.find('h1', :text => 'Find out more about:')
         assert page.find('h2', :text => 'Monkeybusiness')
       end
+
+      assert page.has_selector?('#test-report_a_problem')
     end
   end
 

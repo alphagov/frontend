@@ -9,8 +9,10 @@ namespace :panopticon do
     registerer = GdsApi::Panopticon::Registerer.new(:owning_app => "frontend")
 
     record = OpenStruct.new(
-      :slug => 'help', 
-      :title => "Help using GOV.UK", 
+      :slug => 'help',
+      :title => "Help using GOV.UK",
+      :paths => ["/help", "/help.json"],
+      :prefixes => [],
       :description => "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use.",
       :state => "live")
     registerer.register(record)

@@ -1,42 +1,33 @@
 namespace :router do
   task :router_environment do
-    Bundler.require :router, :default
+    require 'plek'
+    require 'gds_api/router'
 
-    require 'logger'
-    @logger = Logger.new STDOUT
-    @logger.level = Logger::DEBUG
-
-    @router = Router::Client.new :logger => @logger
+    @router_api = GdsApi::Router.new(Plek.current.find('router-api'))
   end
 
-  task :register_application => :router_environment do
-    platform = ENV['FACTER_govuk_platform']
-    url = "frontend.#{platform}.alphagov.co.uk/"
-    @router.applications.update application_id: "frontend", backend_url: url
+  task :register_backend => :router_environment do
+    @router_api.add_backend('frontend', Plek.current.find('frontend', :force_http => true) + "/")
   end
 
   task :register_routes => :router_environment do
-    # Remove rummager route for browse
-    @router.routes.delete '/browse'
-    @router.routes.update application_id: "frontend", route_type: :prefix,
-      incoming_path: "/browse"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/search"
-
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/locator.json"
-    @router.routes.update application_id: "frontend", route_type: :prefix,
-      incoming_path: "/places"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/google7623855bb2e66cde.html"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/homepage"
-    @router.routes.update application_id: "frontend", route_type: :full,
-      incoming_path: "/tour"
+    routes = [
+      %w(/ exact),
+      %w(/browse prefix),
+      %w(/browse.json exact),
+      %w(/business exact),
+      %w(/search exact),
+      %w(/search.json exact),
+      %w(/homepage exact),
+      %w(/tour exact),
+      %w(/ukwelcomes exact),
+    ]
+    routes.each do |path, type|
+      @router_api.add_route(path, type, 'frontend', :skip_commit => true)
+    end
+    @router_api.commit_routes
   end
 
-  desc "Register frontend application and routes with the router (run this task on server in cluster)"
-  task :register => [ :register_application, :register_routes ]
+  desc "Register frontend application and routes with the router"
+  task :register => [ :register_backend, :register_routes ]
 end

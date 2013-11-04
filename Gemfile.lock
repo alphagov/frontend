@@ -145,9 +145,6 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    router-client (2.0.3)
-      builder
-      null_logger
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -227,7 +224,6 @@ DEPENDENCIES
   rack_strip_client_ip (= 0.0.1)
   rails (= 3.2.13)
   rails-i18n!
-  router-client (= 2.0.3)
   sass (= 3.2.1)
   sass-rails (~> 3.2.3)
   shoulda

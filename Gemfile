@@ -1,10 +1,6 @@
 source 'https://rubygems.org'
 source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
-group :router do
-  gem 'router-client', '2.0.3', require: 'router/client'
-end
-
 gem 'rails', '3.2.13'
 gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.6.3'
@@ -12,7 +8,7 @@ gem 'mustache'
 gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
 
-gem 'plek', '1.4.0'
+gem 'plek', '1.5.0'
 gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'htmlentities', '4.3.1'
@@ -32,7 +28,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '7.1.0'
+  gem 'gds-api-adapters', '7.18.0'
 end
 
 gem "addressable"

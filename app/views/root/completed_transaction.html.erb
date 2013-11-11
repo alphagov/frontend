@@ -2,13 +2,53 @@
 
   <header class="page-header group">
     <div>
-     <h1><span>Service</span> <%= @publication.title %></h1>
+     <h1><span>Service</span> Thank You</h1>
     </div>
   </header>
-  <div class="article-container group">
-      <article role="article" class="group">
-       <div class="inner">
-         <%= raw @publication.body %>
+  <div class="article-container group transaction-done">
+    <article role="article" class="group">
+      <div class="inner">
+
+        <form class="contact-form" action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
+          <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= @publication.slug %>" />
+          <fieldset>
+            <legend><h2>Overall, how did you feel about the service you received today?</h2></legend>
+            <br />
+            <input type="radio" name="service_feedback[service_satisfaction_rating]" id="very-satisfied" value="5">
+            <label for="very-satisfied">Very satisfied</label>
+            <br />
+            <input type="radio" name="service_feedback[service_satisfaction_rating]" id="satisfied" value="4">
+            <label for="satisfied">Satisfied</label>
+            <br />
+            <input type="radio" name="service_feedback[service_satisfaction_rating]" id="neither-satisfied-or-dissatisfied" value="3">
+            <label for="neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied</label>
+            <br />
+            <input type="radio" name="service_feedback[service_satisfaction_rating]" id="dissatisfied" value="2">
+            <label for="dissatisfied">Dissatisfied</label>
+            <br />
+            <input type="radio" name="service_feedback[service_satisfaction_rating]" id="very-dissatisfied" value="1">
+            <label for="very-dissatisfied">Very dissatisfied</label>
+          </fieldset>
+
+          <br />
+
+          <fieldset>
+            <legend><h2>How could we improve this service?</h2></legend>
+            <br />
+            <label for="improvement-comments" class="visuallyhidden">Your comments</label>
+            <textarea name="service_feedback[improvement_comments]" class="full-size counted" id="improvement-comments">
+            </textarea>
+             <p id="improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
+
+            <div id="transaction-completed-form-notice">
+              <p>Please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
+            </div>
+          </fieldset>
+          <br />
+          <p class="action group">
+            <button type="submit" class="button">Send feedback</button>
+          </p>
+        </form>
        </div>
      </article>
     <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
@@ -18,5 +58,8 @@
 <div id="related-items"></div>
 
 <% content_for :extra_headers do %>
-<meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="noindex, nofollow" />
+<% end %>
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag 'frontpage.js' %>
 <% end %>

@@ -18,6 +18,7 @@ namespace :router do
       %w(/business exact),
       %w(/search exact),
       %w(/search.json exact),
+      %w(/search/opensearch.xml exact),
       %w(/homepage exact),
       %w(/tour exact),
       %w(/ukwelcomes exact),

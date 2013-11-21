@@ -6,4 +6,9 @@ $(document).ready(function () {
   }
 
   $('form#completed-transaction-form').append('<input type="hidden" name="service_feedback[javascript_enabled]" value="true"/>');
+
+  $('#completed-transaction-form button.button').click(function() {
+    $(this).attr('disabled', 'disabled');
+    $(this).parents('form').submit();
+  });
 });

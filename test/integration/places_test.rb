@@ -64,7 +64,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
     visit '/passport-interview-office'
 
     within ".page-header" do
-      assert page.has_content?("Service")
       assert page.has_content?("Find a passport interview office")
     end
 

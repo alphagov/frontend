@@ -17,7 +17,6 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header.page-header' do
         assert page.has_content?("Reduced Earnings Allowance")
-        assert page.has_content?("Benefits & credits")
         assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
@@ -134,7 +133,6 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
     within '#content' do
       within 'header.page-header' do
-        assert page.has_content?("Budd-daliadau a chredydau")
         assert page.has_content?("Reduced Earnings Allowance")
         assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
       end

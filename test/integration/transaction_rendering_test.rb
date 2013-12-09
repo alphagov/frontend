@@ -18,7 +18,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Register to vote")
-          assert page.has_content?("Service")
           assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
         end
 
@@ -64,7 +63,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Register to vote")
-          assert page.has_content?("Gwasanaeth")
           assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
         end
 
@@ -181,7 +179,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert_equal 200, page.status_code
       within "#content" do
         within "header" do
-          assert page.has_content?("Service")
           assert page.has_content?("Your transaction is finished")
         end
         within '.article-container' do
@@ -225,7 +222,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       within '#content' do
         within 'header' do
-          assert page.has_content?("Service")
           assert page.has_content?("Find a job with Universal Jobmatch")
           assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
         end
@@ -284,7 +280,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       within '#content' do
         within 'header' do
-          assert page.has_content?("Gwasanaeth")
           assert page.has_content?("Find a job with Universal Jobmatch")
           assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
         end

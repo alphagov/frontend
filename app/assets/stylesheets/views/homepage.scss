@@ -217,7 +217,7 @@ body.homepage {
         cursor: pointer;
 
         color: $white;
-        background: $black url("homepage/search-button.png") no-repeat 2px 50%;
+        background: $black image-url("homepage/search-button.png") no-repeat 2px 50%;
 
         @include device-pixel-ratio() {
           background-size: 52.5px 35px;

@@ -459,16 +459,33 @@ body.homepage {
         font-weight: bold;
         text-decoration: none;
         text-align: center;
-        padding: 0.25em;
         margin-bottom: 15px;
 
+
+        p {
+          @include core-16;
+          font-weight:700;
+          padding-top: 1.25em;
+          padding-bottom: 1.25em;
+          margin-left: 2em;
+          margin-right: 2em;
+        }
+
         span {
-          @include core-36;
+          @include heading-48;
+          font-weight:700;
           display: block;
-          margin-top: 0.25em;
+          margin: 0.25em 0 0.25em 0;
+          padding:0;
 
           &:hover {
             text-decoration: underline;
+          }
+
+          @include media(desktop) {
+            @include core-36;
+            font-weight:700;
+            margin:0;
           }
         }
       }

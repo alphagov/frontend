@@ -462,14 +462,14 @@ body.homepage {
         padding: 0.25em;
         margin-bottom: 15px;
 
-        &:hover {
-          text-decoration: underline;
-        }
-
         span {
           @include core-36;
           display: block;
           margin-top: 0.25em;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

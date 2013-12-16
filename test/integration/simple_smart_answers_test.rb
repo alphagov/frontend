@@ -25,7 +25,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header.page-header' do
         assert_page_has_content("The Bridge of Death")
-        assert_page_has_content("Quick answer")
         assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
@@ -67,7 +66,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header.page-header' do
           assert_page_has_content("The Bridge of Death")
-          assert_page_has_content("Quick answer")
         end
       end
 
@@ -319,7 +317,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header.page-header' do
           assert_page_has_content("The Bridge of Death")
-          assert_page_has_content("Quick answer")
         end
       end
 

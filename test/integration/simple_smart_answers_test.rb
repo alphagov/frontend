@@ -66,7 +66,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header.page-header' do
           assert_page_has_content("The Bridge of Death")
-
         end
       end
 
@@ -318,7 +317,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header.page-header' do
           assert_page_has_content("The Bridge of Death")
-
         end
       end
 

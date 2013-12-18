@@ -9,7 +9,6 @@ gem 'aws-ses', :require => 'aws/ses'
 gem 'gelf'
 
 gem 'plek', '1.5.0'
-gem 'lograge', '~> 0.1.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'htmlentities', '4.3.1'
 
@@ -33,7 +32,7 @@ end
 
 gem "addressable"
 gem 'exception_notification', '3.0.1'
-gem 'logstasher', '0.2.5'
+gem 'logstasher', '0.4.0'
 
 gem 'rack_strip_client_ip', '0.0.1'
 

@@ -2,9 +2,10 @@ class TravelAdviceController < ApplicationController
 
   before_filter(:only => [:country]) { validate_slug_param(:country_slug) }
   before_filter(:only => [:country]) { validate_slug_param(:part) if params[:part] }
-  before_filter { set_expiry(5.minutes) }
 
   def index
+    set_expiry
+
     artefact = fetch_artefact('foreign-travel-advice')
     set_slimmer_artefact_headers(artefact, :format => 'travel-advice')
 
@@ -12,7 +13,7 @@ class TravelAdviceController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.atom
+      format.atom { set_expiry(5.minutes) }
       # TODO: Doing a static redirect to the API URL here means that an API call
       #       and a variety of other logic will have been executed unnecessarily.
       #       We should move this to the top of the method or out to routes.rb for
@@ -22,6 +23,8 @@ class TravelAdviceController < ApplicationController
   end
 
   def country
+    set_expiry(5.minutes)
+
     @country = params[:country_slug].dup
     @edition = params[:edition]
 

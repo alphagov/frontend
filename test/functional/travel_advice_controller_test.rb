@@ -43,16 +43,24 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_template "index"
       end
 
-      should "set expiry headers to 5 mins" do
+      should "set cache-control headers to 30 mins" do
         get :index
 
-        assert_equal "max-age=300, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=#{30.minutes.to_i}, public",  response.headers["Cache-Control"]
       end
 
-      should "redirect json requests to the api" do
-        get :index, format: 'json'
+      context "requesting json" do
+        setup do
+          get :index, format: 'json'
+        end
 
-        assert_redirected_to "/api/foreign-travel-advice.json"
+        should "redirect json requests to the api" do
+          assert_redirected_to "/api/foreign-travel-advice.json"
+        end
+
+        should "set cache-control headers to 30 mins" do
+          assert_equal "max-age=#{30.minutes.to_i}, public",  response.headers["Cache-Control"]
+        end
       end
 
       context "requesting atom" do
@@ -63,6 +71,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "return an aggregate of country atom feeds" do
           assert_equal 200, response.status
           assert_equal "application/atom+xml; charset=utf-8", response.headers["Content-Type"]
+        end
+
+        should "set cache-control headers to 5 mins" do
+          assert_equal "max-age=#{5.minutes.to_i}, public",  response.headers["Cache-Control"]
         end
       end
     end

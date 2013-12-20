@@ -11,6 +11,76 @@ body.homepage {
   }
 }
 
+@mixin campaign-styles($background, $foreground) {
+  background: $background;
+
+  h1,
+  p,
+  a {
+    color: $foreground;
+  }
+}
+
+#campaign {
+  &.black {
+    @include campaign-styles($black, $white);
+  }
+
+  &.red {
+    @include campaign-styles($red, $white);
+  }
+
+  &.green {
+    @include campaign-styles($turquoise, $white);
+  }
+
+  border: 5px solid $white;
+  border-width: 5px 0;
+
+  .campaign-inner {
+    @extend %contain-floats;
+
+    position: relative;
+    overflow: hidden;
+    // this is 1020 from .homepage-top-inner
+    // - the total padding and margin left/right
+    max-width: 960px;
+    margin: 15px auto;
+
+    @include media(mobile) {
+      padding: 0 15px; // this is to compensate for the more complex layout in welcome-block
+    }
+
+    @include ie-lte(8) {
+      width: 960px;
+    }
+
+    h1 {
+      @include bold-48;
+    }
+
+    p {
+      @include media(tablet) {
+        width: 66.66%; // this is the same as .welcome-text
+        float: left;
+      }
+    }
+
+    a {
+      // this is the same as .content-links
+      @include media(tablet) {
+        position: absolute;
+        bottom: 1em;
+        left: 66.66%;
+        width: 33.33%;
+        padding: 0 15px;
+        display: block;
+      }
+      @include core-19;
+    }
+  }
+}
+
 .root-index {
   // Generic objects for the homepage
   .inner-block {

@@ -32,7 +32,7 @@ end
 
 gem "addressable"
 gem 'exception_notification', '3.0.1'
-gem 'logstasher', '0.4.0'
+gem 'logstasher', '0.4.1'
 
 gem 'rack_strip_client_ip', '0.0.1'
 

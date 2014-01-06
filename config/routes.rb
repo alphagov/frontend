@@ -14,6 +14,9 @@ Frontend::Application.routes.draw do
   # new business browse page
   get "/business" => "browse#section", :section => "business"
 
+  get "/oil-and-gas" => "sectors#sector", :sector => "oil-and-gas"
+  get "/oil-and-gas(/:sub_sector)" => "sectors#sub_sector", :sector => "oil-and-gas"
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }

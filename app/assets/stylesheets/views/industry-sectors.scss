@@ -1,0 +1,17 @@
+.industry-sector-browse {
+
+  nav {
+    &.index-list {
+      border-top: 1px solid $border-colour;
+
+      ul li {
+        margin-bottom: 0;
+      }
+    }
+
+    &.guidance, &.topics {
+      @extend .index-list;
+    }
+  }
+
+}

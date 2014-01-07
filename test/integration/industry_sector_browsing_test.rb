@@ -22,20 +22,17 @@ class IndustrySectorBrowsingTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Guidance for the oil and gas industry")
     end
 
-    within "ul.sub-categories" do
+    within ".topics ul" do
       within "li:nth-child(1)" do
         assert page.has_link?("Wells")
-        assert page.has_content?("Wells, wells, wells.")
       end
 
       within "li:nth-child(2)" do
         assert page.has_link?("Fields")
-        assert page.has_content?("Fields, fields, fields.")
       end
 
       within "li:nth-child(3)" do
         assert page.has_link?("Offshore")
-        assert page.has_content?("Information about offshore oil and gas.")
       end
     end
   end
@@ -56,7 +53,7 @@ class IndustrySectorBrowsingTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Wells")
     end
 
-    within "ul.content-list" do
+    within ".guidance ul" do
       assert page.has_selector?("li", text: "A history of george orwell")
       assert page.has_selector?("li", text: "Guidance")
       assert page.has_selector?("li", text: "Wealth in the oil and gas sector")

@@ -3,21 +3,24 @@
 <main id="content" role="main" class="group category-page">
   <header class="page-header group">
     <div class="full-width">
-      <h1><%= @sector.title %></h1>
+      <h1><span>Specialist topic</span> <%= @sector.title %></h1>
     </div>
   </header>
 
-  <div class="browse-container full-width group">
+  <div class="browse-container full-width industry-sector-browse">
     <div class="category-description">
       <p><%= @sector.details.description %></p>
     </div>
-    <ul class="sub-categories group">
-      <% @child_tags.each do |category|%>
-      <li>
-        <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
-        <p><%= category.details.description %></p>
-      </li>
-      <% end %>
-    </ul>
+
+    <nav class="topics">
+      <h1>Topics</h1>
+      <ul>
+        <% @child_tags.each do |category|%>
+          <li>
+            <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 </main>

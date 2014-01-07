@@ -7,18 +7,20 @@
     </div>
   </header>
 
-  <div class="browse-container full-width group">
+  <div class="browse-container full-width industry-sector-browse">
+    <div class="category-description">
+      <p><%= @subcategory.details.description %></p>
+    </div>
 
-    <ul class="content-list group">
-    <% @results.each do |content| %>
-      <li>
-        <h3><a href="<%= content.web_url %>"><%= content.title %></a></h3>
-        <% if content.details.description.present? %>
-        <p><%= content.details.description %></p>
+    <nav class="guidance">
+      <h1>Guidance</h1>
+      <ul>
+        <% @results.each do |content| %>
+          <li>
+            <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
+          </li>
         <% end %>
-      </li>
-    <% end %>
-    </ul>
-
+      </ul>
+    </nav>
   </div>
 </main>

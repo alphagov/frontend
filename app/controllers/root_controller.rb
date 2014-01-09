@@ -18,8 +18,7 @@ class RootController < ApplicationController
   def index
     set_slimmer_headers(
       template: "homepage",
-      format: "homepage",
-      campaign_notification: true)
+      format: "homepage")
 
     # Only needed for Analytics
     set_slimmer_dummy_artefact(

@@ -45,7 +45,7 @@ class IndustrySectorBrowsingTest < ActionDispatch::IntegrationTest
     ]
 
     content_api_has_tag("industry_sectors", { slug: "oil-and-gas/wells", title: "Wells", description: "Wells, wells, wells." }, "oil-and-gas")
-    content_api_has_artefacts_in_a_tag("industry_sector", "oil-and-gas/wells", artefacts)
+    content_api_has_artefacts_with_a_tag("industry_sector", "oil-and-gas/wells", artefacts)
 
     visit "/oil-and-gas/wells"
 

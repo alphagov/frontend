@@ -3,14 +3,18 @@
 <main id="content" role="main" class="group category-page">
   <header class="page-header group">
     <div class="full-width">
-      <h1><%= @subcategory.title %></h1>
+      <h1><span>Specialist topic</span> <%= @subcategory.title %></h1>
     </div>
   </header>
 
   <div class="browse-container full-width industry-sector-browse">
-    <div class="category-description">
-      <p><%= @subcategory.details.description %></p>
-    </div>
+    <p class="this-is-a-beta"><span class="beta">beta</span> This is a 'beta' service - find out <a href="/help/beta">what this means for you</a></p>
+
+    <% if @subcategory.details.description.present? %>
+      <div class="category-description">
+        <p><%= @subcategory.details.description %></p>
+      </div>
+    <% end %>
 
     <nav class="guidance">
       <h1>Guidance</h1>

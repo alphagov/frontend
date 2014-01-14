@@ -26,6 +26,13 @@ class IndustrySectorsControllerTest < ActionController::TestCase
     end
   end
 
+  should "return a 404 status for GET sector with an invalid sector tag" do
+    api_returns_404_for("/tags/industry_sectors/oil-and-gas.json")
+    get :sector, sector: "oil-and-gas"
+
+    assert_equal 404, response.status
+  end
+
   context "GET subcategory with a valid sector tag and subcategory" do
     setup do
       artefacts = [
@@ -60,6 +67,13 @@ class IndustrySectorsControllerTest < ActionController::TestCase
 
       assert_equal "industry-sector", response.headers["X-Slimmer-Format"]
     end
+  end
+
+  should "return a 404 status for GET subcategory with an invalid subcategory tag" do
+    api_returns_404_for("/tags/industry_sectors/oil-and-gas%2Fcoal.json")
+    get :subcategory, sector: "oil-and-gas", subcategory: "coal"
+
+    assert_equal 404, response.status
   end
 
 end

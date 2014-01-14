@@ -1,16 +1,6 @@
 require_relative "../test_helper"
 
 class BrowseControllerTest < ActionController::TestCase
-  def api_returns_404_for(path)
-    body = {
-      "_response_info" => {
-        "status" => "not found"
-      }
-    }
-    url = "#{Plek.current.find("contentapi")}#{path}"
-    stub_request(:get, url).to_return(:status => 404, :body => body.to_json, :headers => {})
-  end
-
   setup do
     # Stub out the website_root to make sure we are providing a
     # consistent root for the site URL, regardless of environment.

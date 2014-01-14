@@ -15,6 +15,8 @@ require 'timecop'
 
 require 'gds_api/test_helpers/content_api'
 
+Dir[Rails.root.join('test/support/*.rb')].each { |f| require f }
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #

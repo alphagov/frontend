@@ -9,13 +9,14 @@ class IndustrySectorBrowsingTest < ActionDispatch::IntegrationTest
       { slug: "oil-and-gas/offshore", title: "Offshore", description: "Information about offshore oil and gas." },
     ]
 
-    content_api_has_tag("industry_sectors", { slug: "oil-and-gas", title: "Oil and Gas", description: "Guidance for the oil and gas industry" })
+    content_api_has_tag("industry_sectors", { slug: "oil-and-gas", title: "Oil and gas", description: "Guidance for the oil and gas industry" })
     content_api_has_child_tags("industry_sector", "oil-and-gas", subcategories)
 
     visit "/oil-and-gas"
+    assert page.has_title?("Oil and gas - GOV.UK")
 
     within "header.page-header" do
-      assert page.has_content?("Oil and Gas")
+      assert page.has_content?("Oil and gas")
     end
 
     within ".category-description" do
@@ -48,6 +49,8 @@ class IndustrySectorBrowsingTest < ActionDispatch::IntegrationTest
     content_api_has_artefacts_with_a_tag("industry_sector", "oil-and-gas/wells", artefacts)
 
     visit "/oil-and-gas/wells"
+
+    assert page.has_title?("Oil and gas: Wells - GOV.UK")
 
     within "header.page-header" do
       assert page.has_content?("Wells")

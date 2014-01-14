@@ -70,7 +70,7 @@
           }
 
           input {
-            display: inline-block;
+            display: block;
             border-color: #A6AAAC;
             margin: 0;
           }
@@ -198,6 +198,10 @@
       }
     }
     .subscriptions  {
+      p {
+        margin: 0;
+      }
+
       padding-top: 2em;
       clear: left;
       float: none;
@@ -237,7 +241,10 @@
     .list {}
 
     h2 {
-      font-weight: 400; 
+      @include core-48;
+      font-weight: 700;
+      margin-top: 1em;
+      margin-bottom: 0; 
     }
   }
 }

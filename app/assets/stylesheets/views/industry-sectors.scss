@@ -1,0 +1,35 @@
+.industry-sector-browse {
+
+  .this-is-a-beta {
+    clear: both;
+    margin:0;
+    @include copy-16;
+    margin-bottom: 12px;
+  }
+
+  span.beta {
+    display: inline-block;
+    background: #f47738;
+    color: #fff;
+    @include bold-16;
+    line-height:1;
+    text-transform: uppercase;
+    padding: 5px 5px 2px 6px;
+    margin-right:10px;
+  }
+
+  nav {
+    &.index-list {
+      border-top: 1px solid $border-colour;
+
+      ul li {
+        margin-bottom: 0;
+      }
+    }
+
+    &.guidance, &.topics {
+      @extend .index-list;
+    }
+  }
+
+}

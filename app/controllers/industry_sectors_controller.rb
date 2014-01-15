@@ -4,6 +4,7 @@ class IndustrySectorsController < ApplicationController
 
   before_filter(:only => [:sector, :subcategory]) { validate_slug_param(:sector) }
   before_filter(:only => [:subcategory]) { validate_slug_param(:subcategory) }
+  before_filter :set_expiry
 
   def sector
     @sector = content_api.tag(params[:sector], TAG_TYPE.pluralize)

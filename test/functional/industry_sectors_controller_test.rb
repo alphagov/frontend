@@ -24,6 +24,12 @@ class IndustrySectorsControllerTest < ActionController::TestCase
 
       assert_equal "industry-sector", response.headers["X-Slimmer-Format"]
     end
+
+    should "set expiry headers for 30 minutes" do
+      get :sector, sector: "oil-and-gas"
+
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+    end
   end
 
   should "return a 404 status for GET sector with an invalid sector tag" do
@@ -66,6 +72,12 @@ class IndustrySectorsControllerTest < ActionController::TestCase
       assert_equal "Oil and gas", primary_tag["title"] # lowercase due to the humanisation of slug in test helpers
 
       assert_equal "industry-sector", response.headers["X-Slimmer-Format"]
+    end
+
+    should "set expiry headers for 30 minutes" do
+      get :subcategory, sector: "oil-and-gas", subcategory: "wells"
+
+      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
   end
 

@@ -76,4 +76,46 @@ class IndustrySectorsControllerTest < ActionController::TestCase
     assert_equal 404, response.status
   end
 
+  context "invalid slugs" do
+    should "return a cacheable 404 without calling content_api if the sector slug is invalid" do
+      get :sector, sector: "this & that"
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
+
+      get :sector, sector: "fco\xA0" # Invalid UTF-8
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
+
+      get :sector, sector: "br54ba\x9CAQ\xC4\xFD\x928owse" # Malformed UTF-8
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
+
+      get :sector, sector: "\xE9\xF3(\xE9\xF3ges" # Differently Malformed UTF-8
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
+
+      assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
+    end
+
+    should "return a cacheable 404 without calling content_api if the sector subcategory slug is invalid" do
+      get :subcategory, sector: "oil-and-gas", subcategory: "this & that"
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
+
+      get :subcategory, sector: "oil-and-gas", subcategory: "fco\xA0" # Invalid UTF-8
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
+
+      get :subcategory, sector: "oil-and-gas", subcategory: "br54ba\x9CAQ\xC4\xFD\x928owse" # Malformed UTF-8
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
+
+      get :subcategory, sector: "oil-and-gas", subcategory: "\xE9\xF3(\xE9\xF3ges" # Differently Malformed UTF-8
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
+
+      assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
+    end
+  end
+
 end

@@ -2,6 +2,9 @@ class IndustrySectorsController < ApplicationController
 
   TAG_TYPE = "industry_sector"
 
+  before_filter(:only => [:sector, :subcategory]) { validate_slug_param(:sector) }
+  before_filter(:only => [:subcategory]) { validate_slug_param(:subcategory) }
+
   def sector
     @sector = content_api.tag(params[:sector], TAG_TYPE.pluralize)
     return error_404 unless @sector.present?

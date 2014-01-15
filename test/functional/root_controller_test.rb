@@ -359,13 +359,6 @@ class RootControllerTest < ActionController::TestCase
       get :index
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
-
-    should "have a slimmer set to load the campaign notification" do
-      get :index
-      assert_include response.headers, Slimmer::Headers::CAMPAIGN_NOTIFICATION
-      assert_equal "true", response.headers[Slimmer::Headers::CAMPAIGN_NOTIFICATION]
-      assert_response :success
-    end
   end
 
   context "loading the tour page" do

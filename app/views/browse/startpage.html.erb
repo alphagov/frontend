@@ -1,0 +1,143 @@
+<% content_for :title do %><%= @page_title %><% end %>
+
+<main id="content" role="main" class="group start-page">
+  
+  <header class="page-header group start-header full-width">
+    <div class="title">
+      <h1>Renew a tax disc</h1>
+    </div>
+
+    <nav class="popular-needs">
+      <ul class="top-tasks">
+        <li><a href="#TODO">Make a SORN declaration</a></li>
+        <li><a href="#TODO">Apply for an HGV vehicle tax disc</a></li>
+        <li><a href="#TODO">Read the guide on car tax</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- <p class="this-is-a-beta"><span class="beta">beta</span>This is a 'beta' service - find out <a href="#TODO">what this means for you</a></p> -->
+
+  <div class="start-container full-width start-page">
+
+    <section class="primary-apply">
+      <div class="eligibility-check">
+        
+        <h1>Before you start</h1>
+        <p>To be eligible to apply online you will need either:</p>
+        <ul>
+          <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
+          <li>the 11 digit reference number from your log book (V5C)</li>
+        </ul>
+
+        <form class="get-started" action="#TODO" method="#TODO">
+          <input type="submit" value="Apply now" class="button medium" />
+        </form>
+        <span class="destination"> on the DVLA website</span>
+
+      </div>
+
+      <div class="you-will-need">
+        <h2>You will need</h2>
+        <p>Tax disc renewal letter (V11)</p>
+        <%= image_tag 'start-pages/v11-diagram.png', alt: 'v11 diagram', width: '220' %>
+      </div>
+    </section>
+
+
+    <section class="secondary-apply">
+      <h1>Apply using the new service <span class="beta">beta</span></h1>
+      <p class="this-is-a-beta">This is a 'beta' service - find out <a href="#TODO">what this means for you</a></p>
+
+      <div class="application-details">
+        <h2>Before you start</h2>
+        <p>To apply using the new beta service you will need either:</p>
+        <ul>
+          <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
+          <li>the 11 digit reference number from your log book (V5C)</li>
+        </ul>
+
+        <form action="#TODO" method="#TODO">
+          <input type="submit" value="Apply now" class="button button-secondary" />
+        </form>
+
+        <!-- <details>
+          <summary>I don't have the renewal letter, just the V5C (log book)</summary>
+            <p>Hidden text</p>
+        </details> -->
+      </div>
+    </section>
+
+
+    <section class="offline-apply">
+      <h1>Other ways to apply</h1>
+      <div class="contacts">
+
+        <div class="by-phone">
+          <h2>By phone</h2>
+          <ul class="contact-numbers">
+            <li><span class="contact-type">Telephone:</span> 0300 123 4321</li>
+            <li><span class="contact-type">Textphone:</span> 0300 123 4321</li>
+          </ul>
+          
+          <div class="call-charges">
+            <p>Calls to 03 numbers cost approximately:</p>
+            <ul class="charges">
+              <li>2p to 10p from landlines</li>
+              <li>10p to 40p from mobile phones</li>
+            </ul>
+            <p>
+              <a href="https://www.gov.uk/call-charges">Find out more about call charges</a>
+            </p> 
+          </div> 
+        </div>  
+
+        <div class="at-post-office">
+          <h2>At the Post Office</h2>
+
+          <p>Take the following to any
+           <a href="http://www.postoffice.co.uk/branch-finder">Post Office</a>
+          </p>
+          <ul>
+            <li>completed V11 reminder</li>
+            <li>insurance certificate or cover note</li>
+            <li>MOT test certificate if required (must be valid when the tax disc starts)</li>
+            <li>the payment shown on the reminder</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="help-and-related-links">
+      <section class="help">
+        <h1>Help with tax discs</h1>
+        <ul>
+          <li>
+            <a href="TODO">Contact DVLA for questions about car tax</a>
+          </li>
+        </ul>
+      </section>
+
+
+      <section class="related-links">
+        <h1>Tax discs and car tax</h1>
+        <ul>
+          <li><a href="TODO">Make a SORN (Statutory Off Road Notification</a></li>
+          <li><a href="TODO">Calculate vehicle tax rates</a></li>
+          <li><a href="TODO">Apply for a duplicate tax disc</a></li>
+          <li><a href="TODO">Apply for an HGV vehicle licence (tax disc) - form V85</a></li>
+        </ul>
+      </section>
+    </section>
+
+
+  </div>
+
+  <div id="report-a-problem"></div>
+</main>
+
+<% content_for :body_classes do %>full-width<% end %>
+<% content_for :extra_headers do %>
+<link rel="alternate" type="application/json" href="/api/tags.json?type=section&amp;parent_id=<%= params[:section] %>">
+<% end %>

@@ -11,45 +11,53 @@
     </div>
   </header>
 
-  <div class="group">
+  <div class="travel-container full-width">
     <article role="article" class="group">
-      <div class="inner">
 
-        <section id="country-filter">
+      <section id="country-filter" class="group">
+        <div class="filter">
           <form>
             <fieldset>
-              <h1>Which country or territory are you looking for?</h1>
+              <h1>Search for a country or territory</h1>
               <label for="country">Country or territory</label>
               <input id="country" name="country" type="text" />
             </fieldset>
           </form>
-        </section>
+        </div>
+
         <div class="subscriptions">
           <h1 class="visuallyhidden">Subscriptions</h1>
-          <p>Get foreign travel advice updates</p>
+          <p>Get updates</p>
           <ul>
-            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external" title="Subscribe to email alerts">email</a></li>
+            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
             <li><%= link_to "feed", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
           </ul>
         </div>
-        <section class="countries-wrapper">
+
+      </section>
+        
+      <section class="countries-wrapper">
+        <div class="countries">
           <h1>Countries or territories</h1>       
           <p class="country-count">
             <span class="js-filter-count"><%= @publication.countries.length %></span>
             <span class="visuallyhidden">Countries or territories</span>
           </p>
+        </div>
+
+        <div class="countries-list">
           <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
-          <div id="<%= initial %>" class="list">
-            <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
-            <ul class="countries">
-              <% countries.each do |country| %>
-                <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
-              <% end %>
-            </ul>
-          </div>
+            <div id="<%= initial %>" class="list">
+              <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
+              <ul class="countries">
+               <% countries.each do |country| %>
+                  <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
-        </section>
-      </div>
+        </div>
+      </section>
     </article>
 
     <div id="report-a-problem"></div>

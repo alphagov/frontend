@@ -11,8 +11,8 @@
 
   .list {
     ul {
+      @include inline-block;
       padding-left: 0;
-      display: inline-block;
       width: 100%;
       border-bottom: 1px solid #ccc;
       padding-bottom: 20px;
@@ -128,7 +128,7 @@
       list-style: none;
       padding: 0;
       .label {
-        display: inline-block;
+        @include inline-block;
         width: 7em;
       }
       p {
@@ -161,7 +161,7 @@
     margin-top: 2em;
 
     p {
-      display: inline-block;
+      @include inline-block;
       margin-right: 0.5em;
       font-weight: 700;
     }
@@ -183,7 +183,7 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      display: inline-block;
+      @include inline-block;
 
       li {
         margin-bottom: 0.25em;

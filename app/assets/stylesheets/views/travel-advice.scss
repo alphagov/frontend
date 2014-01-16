@@ -145,6 +145,10 @@
 
  .subscriptions  {
 
+    text-align: right;
+    padding-top: 2em;
+    margin-top: 2em;
+
     @include media(desktop){
       width:50%;
       float:right;
@@ -154,11 +158,6 @@
         margin-left: 0;
       }
     }
-
-    @include core-14;
-    text-align: right;
-    padding-top: 2em;
-    margin-top: 2em;
 
     p {
       @include inline-block;
@@ -258,11 +257,16 @@
     }
     .subscriptions  {
       p {
-        @include core-14;
+        @include core-19;
         font-weight: 700;
         margin: 0;
         margin-right: 0.5em;
 
+      }
+
+      a {
+        @include core-19;
+        font-weight: 700;
       }
 
       padding-top: 2em;
@@ -270,10 +274,6 @@
       float: none;
       text-align: left;
       width: auto;
-
-      a[rel=external] {
-        @include external-link-16;
-      }
 
       @include media-down(mobile) {
         padding-left: 1em;

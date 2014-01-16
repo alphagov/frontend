@@ -1,5 +1,5 @@
 namespace :router do
-  task :router_environment do
+  task :router_environment => :environment do
     require 'plek'
     require 'gds_api/router'
 
@@ -23,6 +23,8 @@ namespace :router do
       %w(/tour exact),
       %w(/ukwelcomes exact),
     ]
+    routes << %w(/oil-and-gas prefix) if Frontend.industry_sectors_browse_enabled?
+
     routes.each do |path, type|
       @router_api.add_route(path, type, 'frontend', :skip_commit => true)
     end

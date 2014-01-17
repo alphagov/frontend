@@ -14,6 +14,7 @@ class RootController < ApplicationController
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
+  EXCEPTIONAL_FORMAT_SLUGS = ["tax-disc"]
 
   def index
     set_slimmer_headers(
@@ -50,10 +51,10 @@ class RootController < ApplicationController
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
       elsif params[:part]
         authority_slug = params[:part]
-        
-        unless non_location_specific_licence_present?(@publication) 
+
+        unless non_location_specific_licence_present?(@publication)
           snac = AuthorityLookup.find_snac(params[:part])
-        
+
           if request.format.json?
             redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
           end
@@ -80,7 +81,12 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render @publication.format
+        # render bespoke format for specific publications.
+        if EXCEPTIONAL_FORMAT_SLUGS.include?(params[:slug])
+          render params[:slug]
+        else
+          render @publication.format
+        end
       end
       format.print do
         if PRINT_FORMATS.include?(@publication.format)

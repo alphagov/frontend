@@ -308,4 +308,14 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       end # within #content
     end
   end
+  context "exceptional tax-disc start page format" do
+    should "render a bespoke view" do
+      setup_api_responses('tax-disc')
+      visit "/tax-disc"
+      assert_equal 200, page.status_code
+      within("div h1") do
+        assert page.has_content?("Car tax: get a tax disc for your vehicle")
+      end
+    end
+  end
 end

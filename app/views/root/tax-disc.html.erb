@@ -1,12 +1,8 @@
-<%- presenter = TransactionPresenter.new(@publication) -%>
-
-<% content_for :title do %><%= @page_title %><% end %>
-
 <main id="content" role="main" class="group start-page">
   
   <header class="page-header group start-header full-width">
     <div class="title">
-      <h1>Renew a tax disc <!--<%= @publication.title %>--></h1>
+      <h1>Renew a tax disc</h1>
     </div>
 
     <nav class="popular-needs">
@@ -128,14 +124,11 @@
         </ul>
       </section>
     </section>
-
-
   </div>
 
+  <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+  
   <div id="report-a-problem"></div>
 </main>
 
 <% content_for :body_classes do %>full-width<% end %>
-<% content_for :extra_headers do %>
-<link rel="alternate" type="application/json" href="/api/tags.json?type=section&amp;parent_id=<%= params[:section] %>">
-<% end %>

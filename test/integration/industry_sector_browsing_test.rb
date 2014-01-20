@@ -53,6 +53,7 @@ class IndustrySectorBrowsingTest < ActionDispatch::IntegrationTest
     assert page.has_title?("Oil and gas: Wells - GOV.UK")
 
     within "header.page-header" do
+      assert page.has_content?("Oil and gas")
       assert page.has_content?("Wells")
     end
 

@@ -21,7 +21,7 @@
       <ul>
         <% @results.each do |content| %>
           <li>
-            <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
+            <h2><a href="<%= content.web_url %>"><%= industry_sector_item_title(content.title, @sector) %></a></h2>
           </li>
         <% end %>
       </ul>

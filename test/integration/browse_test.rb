@@ -42,6 +42,26 @@ class BrowseTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "custom visas and immigration browse page" do
+    should "render the popular pages and find out more navigations" do
+      content_api_has_section('visas-immigration')
+      content_api_has_subsections('visas-immigration', ['Travel'])
+
+      visit '/visas-immigration'
+      assert_equal 200,  page.status_code
+
+      within('nav.popular') do
+        assert page.find('h1', :text => 'Popular pages')
+        assert page.find('h2', :text => 'Check if you need a UK visa')
+      end
+      within('ul.sub-categories') do
+        assert page.find('h2', :text => 'Travel')
+      end
+
+      assert page.has_selector?('#test-report_a_problem')
+    end
+  end
+
   context "a browse page for a section" do
     should "show a standard section header and sub category list" do
       content_api_has_section('driving')

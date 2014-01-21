@@ -200,12 +200,12 @@
     nav {
       padding-top: 1em;
       padding-bottom: 1em;
-      
+
       h1 {
         font-size: 1.25em;
 
         @include media(desktop) {
-          float: left;  
+          float: left;
           font-size: 1.5em;
         }
       }
@@ -219,7 +219,7 @@
 
         li {
           margin-bottom: 1.5em;
-          
+
           ul {
             display: inline-block;
             margin: 0;
@@ -249,6 +249,11 @@
         color: darken($grey-1, 15%);
         font-size: 1em;
       }
+    }
+
+    ul.sub-categories {
+      border-top: 1px solid $border-colour;
+      padding: 1em 0;
     }
 
     .getting-started {

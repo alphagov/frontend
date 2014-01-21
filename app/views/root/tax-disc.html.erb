@@ -1,5 +1,5 @@
 <main id="content" role="main" class="group start-page">
-  
+
   <header class="page-header group start-header full-width">
     <div class="title">
       <h1>Renew a tax disc</h1>
@@ -14,13 +14,11 @@
     </nav>
   </header>
 
-  <!-- <p class="this-is-a-beta"><span class="beta">beta</span>This is a 'beta' service - find out <a href="#TODO">what this means for you</a></p> -->
-
   <div class="start-container full-width start-page">
 
     <section class="primary-apply" aria-labelledby="primary-apply-label">
       <div class="eligibility-check">
-        
+
         <h1 id="primary-apply-label">Before you start</h1>
         <p>To be eligible to apply online you will need either:</p>
         <ul>
@@ -32,7 +30,7 @@
         <form class="get-started" action="https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro?skin=directgov" method="POST">
           <input type="submit" value="Apply now" class="button medium" />
         </form>
-        
+
 
       </div>
 
@@ -73,7 +71,7 @@
             <li><span class="contact-type">Telephone:</span> 0300 123 4321</li>
             <li><span class="contact-type">Textphone:</span> 0300 790 6201</li>
           </ul>
-          
+
           <div class="call-charges">
             <p>Calls to 03 numbers cost approximately:</p>
             <ul class="charges">
@@ -82,9 +80,9 @@
             </ul>
             <p>
               <a href="https://www.gov.uk/call-charges">Find out more about call charges</a>
-            </p> 
-          </div> 
-        </div>  
+            </p>
+          </div>
+        </div>
 
         <div class="at-post-office">
           <h2>At the Post Office</h2>
@@ -129,7 +127,7 @@
   </div>
 
   <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
-  
+
   <div id="report-a-problem"></div>
 </main>
 

@@ -144,17 +144,23 @@ class SearchController < ApplicationController
     @_organisations ||= Frontend.organisations_search_client.organisations["results"] || []
   end
 
+  def sorted_organisations
+    @_sorted_organisations ||= organisations.sort_by do |organisation|
+      organisation["title"]
+    end
+  end
+
   MINISTERIAL_DEPARTMENT_TYPE = "Ministerial department"
   def ministerial_departments
-    organisations.select do |organisation|
+    @_ministerial_departments ||= sorted_organisations.select do |organisation|
       organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
-    end.sort_by { |organisation| organisation["title"] }
+    end
   end
 
   def other_organisations
-    organisations.reject do |organisation|
+    @_other_organisations ||= sorted_organisations.reject do |organisation|
       organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
-    end.sort_by { |organisation| organisation["title"] }
+    end
   end
 
   def multiply_result_scores(result_set, multiply_by)

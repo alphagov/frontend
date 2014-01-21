@@ -439,7 +439,7 @@ class SearchControllerTest < ActionController::TestCase
           .returns({ "results" => organisations })
       get :index, { q: "sun" }
       assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
-      assert_select "select#organisation-filter optgroup[label='Others'] option[value=agency-of-awesome]"
+      assert_select "select#organisation-filter optgroup[label='Other departments &amp; public bodies'] option[value=agency-of-awesome]"
     end
 
     should "new searches should retain the organisation filter" do

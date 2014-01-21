@@ -11,7 +11,7 @@
         </option>
       <% end %>
     </optgroup>
-    <optgroup label="Others">
+    <optgroup label="Other departments &amp; public bodies">
       <% other_organisations.each do |organisation| %>
         <option value="<%= organisation["slug"] %>" <%= (params[:organisation] == organisation["slug"]) ? "selected=selected" : "" %>>
           <%= organisation["title"] %>

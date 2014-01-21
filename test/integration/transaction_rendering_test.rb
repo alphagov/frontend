@@ -313,8 +313,14 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       setup_api_responses('tax-disc')
       visit "/tax-disc"
       assert_equal 200, page.status_code
-      within("div h1") do
-        assert page.has_content?("Car tax: get a tax disc for your vehicle")
+      within("div.title h1") do
+        assert page.has_content?("Renew a tax disc")
+      end
+      within(".primary-apply") do
+        assert page.has_content?("Before you start")
+      end
+      within(".secondary-apply") do
+        assert page.has_content?("Apply using the new service")
       end
     end
   end

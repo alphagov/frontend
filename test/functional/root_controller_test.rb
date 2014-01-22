@@ -283,6 +283,20 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "DENY", @response.headers["X-Frame-Options"]
   end
 
+  test "Should not allow framing of local transaction pages" do
+    content_api_has_an_artefact("a-slug", {
+      'slug' => 'a-slug',
+      'web_url' => 'https://example.com/a-slug',
+      'format' => 'local_transaction',
+      'details' => {"expectations" => []},
+      'title' => 'A Test Transaction'
+    })
+
+    prevent_implicit_rendering
+    get :publication, :slug => 'a-slug'
+    assert_equal "DENY", @response.headers["X-Frame-Options"]
+  end
+
   context "setting the locale" do
     should "set the locale to the artefact's locale" do
       artefact = artefact_for_slug('slug')

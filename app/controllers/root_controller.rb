@@ -50,10 +50,10 @@ class RootController < ApplicationController
         redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
       elsif params[:part]
         authority_slug = params[:part]
-        
-        unless non_location_specific_licence_present?(@publication) 
+
+        unless non_location_specific_licence_present?(@publication)
           snac = AuthorityLookup.find_snac(params[:part])
-        
+
           if request.format.json?
             redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
           end
@@ -126,6 +126,7 @@ protected
     set_slimmer_artefact_headers(publication.artefact)
     I18n.locale = publication.language if publication.language
     set_expiry if params.exclude?('edition') and request.get?
+    deny_framing if deny_framing?(publication)
   end
 
   def publication_and_location(postcode, slug, edition)
@@ -197,5 +198,13 @@ protected
 
   def non_location_specific_licence_present?(publication)
     publication.format == 'licence' and publication.details['licence'] and !publication.details['licence']['location_specific']
+  end
+
+  def deny_framing
+    response.headers['X-Frame-Options'] = 'DENY'
+  end
+
+  def deny_framing?(publication)
+    ['transaction', 'local_transaction'].include? publication.format
   end
 end

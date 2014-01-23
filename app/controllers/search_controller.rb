@@ -4,7 +4,7 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: [:index]
   before_filter :set_expiry
-  helper_method :ministerial_departments, :other_organisations, :selected_tab
+  helper_method :ministerial_departments, :other_organisations, :closed_organisations, :selected_tab
 
   rescue_from GdsApi::BaseError, with: :error_503
 
@@ -150,15 +150,28 @@ class SearchController < ApplicationController
     end
   end
 
+  CLOSED_ORGANISATION_STATE = "closed"
+  def closed_organisations
+    @_closed_organisations ||= sorted_organisations.select do |organisation|
+      organisation["organisation_state"] == CLOSED_ORGANISATION_STATE
+    end
+  end
+
+  def open_organisations
+    @_open_organisations ||= sorted_organisations.reject do |organisation|
+      organisation["organisation_state"] == CLOSED_ORGANISATION_STATE
+    end
+  end
+
   MINISTERIAL_DEPARTMENT_TYPE = "Ministerial department"
   def ministerial_departments
-    @_ministerial_departments ||= sorted_organisations.select do |organisation|
+    @_ministerial_departments ||= open_organisations.select do |organisation|
       organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
     end
   end
 
   def other_organisations
-    @_other_organisations ||= sorted_organisations.reject do |organisation|
+    @_other_organisations ||= open_organisations.reject do |organisation|
       organisation["organisation_type"] == MINISTERIAL_DEPARTMENT_TYPE
     end
   end

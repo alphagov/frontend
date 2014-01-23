@@ -418,7 +418,7 @@ class SearchControllerTest < ActionController::TestCase
       assert_select "#government-results form#government-filter"
     end
 
-    should "list organisations split into ministerial departments and others" do
+    should "list organisations split into ministerial departments, others and closed" do
       organisations = [
         {
           "link"              => "/government/organisations/ministry-of-defence",
@@ -432,6 +432,13 @@ class SearchControllerTest < ActionController::TestCase
           "title"             => "Agency of Awesome",
           "acronym"           => "AoA",
           "slug"              => "agency-of-awesome"
+        },
+        {
+          "link"              => "/government/organisations/defunct-department",
+          "title"             => "Defunct Department",
+          "acronym"           => "DD",
+          "slug"              => "defunct-department",
+          "organisation_state" => "closed"
         }
       ]
       Frontend.organisations_search_client
@@ -440,6 +447,7 @@ class SearchControllerTest < ActionController::TestCase
       get :index, { q: "sun" }
       assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
       assert_select "select#organisation-filter optgroup[label='Other departments &amp; public bodies'] option[value=agency-of-awesome]"
+      assert_select "select#organisation-filter optgroup[label='Closed organisations'] option[value=defunct-department]"
     end
 
     should "new searches should retain the organisation filter" do

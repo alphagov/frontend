@@ -6,16 +6,17 @@
     <option value="">All organisations</option>
     <optgroup label="Ministerial departments">
       <% ministerial_departments.each do |organisation| %>
-        <option value="<%= organisation["slug"] %>" <%= (params[:organisation] == organisation["slug"]) ? "selected=selected" : "" %>>
-          <%= organisation["title"] %>
-        </option>
+        <%= render partial: 'government_filter_organisation', locals: { organisation: organisation } %>
       <% end %>
     </optgroup>
-    <optgroup label="Others">
+    <optgroup label="Other departments &amp; public bodies">
       <% other_organisations.each do |organisation| %>
-        <option value="<%= organisation["slug"] %>" <%= (params[:organisation] == organisation["slug"]) ? "selected=selected" : "" %>>
-          <%= organisation["title"] %>
-        </option>
+        <%= render partial: 'government_filter_organisation', locals: { organisation: organisation } %>
+      <% end %>
+    </optgroup>
+    <optgroup label="Closed organisations">
+      <% closed_organisations.each do |organisation| %>
+        <%= render partial: 'government_filter_organisation', locals: { organisation: organisation } %>
       <% end %>
     </optgroup>
   </select>

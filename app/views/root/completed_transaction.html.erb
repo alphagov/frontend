@@ -10,7 +10,7 @@
       <div class="inner">
 
         <form class="contact-form" action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
-          <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= @publication.slug %>" />
+          <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= @publication.slug.gsub("done/", "") %>" />
           <fieldset>
             <legend><h2>Overall, how did you feel about the service you received today?</h2></legend>
             <br />

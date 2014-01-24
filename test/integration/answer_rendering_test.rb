@@ -17,7 +17,6 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header' do
         assert page.has_content?("VAT rates")
-        assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -48,7 +47,6 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header' do
         assert page.has_content?("VAT rates")
-        assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do

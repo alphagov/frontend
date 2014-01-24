@@ -17,7 +17,6 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header.page-header' do
         assert page.has_content?("Data protection")
-        assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
       within '.article-container' do
@@ -133,7 +132,6 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header.page-header' do
         assert page.has_content?("Data protection")
-        assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
       end
 
       within '.article-container' do

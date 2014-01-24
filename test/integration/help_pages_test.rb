@@ -26,7 +26,6 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         within 'header' do
           assert page.has_content?("Cookies")
           assert page.has_content?("Help")
-          assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
         end
 
         within '.article-container' do

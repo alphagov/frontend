@@ -25,7 +25,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     within '#content' do
       within 'header.page-header' do
         assert_page_has_content("The Bridge of Death")
-        assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
       end
 
       within '.article-container' do

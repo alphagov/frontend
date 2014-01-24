@@ -18,7 +18,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Register to vote")
-          assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
         end
 
         within '.article-container' do
@@ -63,7 +62,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Register to vote")
-          assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
         end
 
         within '.article-container' do
@@ -223,7 +221,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Find a job with Universal Jobmatch")
-          assert page.has_link?("Not what you're looking for? ↓", :href => "#related")
         end
 
         within '.article-container' do
@@ -281,7 +278,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within '#content' do
         within 'header' do
           assert page.has_content?("Find a job with Universal Jobmatch")
-          assert page.has_link?("Ddim beth rydych chi’n chwilio amdano? ↓", :href => "#related")
         end
 
         within '.article-container' do

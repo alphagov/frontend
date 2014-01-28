@@ -3,10 +3,14 @@
 
 .travel-container {
   background-color: #fff;
-  padding: 0 15px 0 15px;
+  padding-right: 2em;
   
+  @include media(mobile) {
+	padding-right: 0em;
+  }
+
   @include media(desktop) {
-    padding: 0 30px 0 30px;
+	padding-right: 2em;
   }
 
   .list {

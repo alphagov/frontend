@@ -47,10 +47,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_link?("Turks and Caicos Islands", :href => "/foreign-travel-advice/turks-and-caicos-islands")
         end
 
-        assert page.has_selector?(".article-container #test-report_a_problem")
+        assert page.has_selector?(".travel-container #test-report_a_problem")
       end # within #content
-
-      assert page.has_selector?("#test-related")
     end
 
     should "return a 405 for POST requests" do

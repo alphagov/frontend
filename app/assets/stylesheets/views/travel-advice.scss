@@ -33,18 +33,36 @@
   .section-wrap {
     border-bottom: 1px solid $border-colour;
     padding: 0 0 0;
+    
+    @include media(desktop){
+      position: relative;
+      height: 137px;
+    }
+    
+    section {
+      @include media(desktop){
+      
+        position:absolute;
+        bottom: 0;
+        right:0;
+      }
+      position:relative;
+      display:block;
+      margin-top:0;
+    }
+    
+    #country-filter {
+      left:0;
+      width:47%;
+      margin-right:3%;
+      
+    }
+    
+    
   }
   
-  #country-filter {
-
-      @include media(desktop){
-        width:47%;
-        margin-right:3%;
-        float:left;
-    }
-    .subscriptions ul li:first-child {
-      margin-right: 0.3em;
-    }
+  .subscriptions ul li:first-child {
+    margin-right: 0.3em;
   }
 }
 

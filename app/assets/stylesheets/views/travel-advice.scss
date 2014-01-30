@@ -29,17 +29,18 @@
       }
     }
   }
-
-  #country-filter {
+  
+  .section-wrap {
     border-bottom: 1px solid $border-colour;
     padding: 0 0 0;
+  }
+  
+  #country-filter {
 
-    .filter {
       @include media(desktop){
         width:47%;
         margin-right:3%;
         float:left;
-      }
     }
     .subscriptions ul li:first-child {
       margin-right: 0.3em;

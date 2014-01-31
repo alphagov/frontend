@@ -40,25 +40,22 @@
     }
     
     section {
-      @include media(desktop){
-      
-        position:absolute;
-        bottom: 0;
-        right:0;
-      }
       position:relative;
       display:block;
       margin-top:0;
+      
+      @include media(desktop){
+        position:absolute;
+        bottom: 0;
+        right:0;
+      }       
     }
-    
+
     #country-filter {
       left:0;
       width:47%;
       margin-right:3%;
-      
     }
-    
-    
   }
   
   .subscriptions ul li:first-child {

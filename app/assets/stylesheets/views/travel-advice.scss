@@ -2,6 +2,7 @@
 @import "_shims.scss";
 
 .travel-container {
+  
   background-color: #fff;
   padding: 0 1em 0 1em;
   
@@ -64,6 +65,12 @@
 }
 
 .travel-advice {
+    main {
+        @include ie-lte(8) {
+          width: 960px;
+        }
+    }
+    
     .page-header div {
       margin-right: 0em;
     }
@@ -186,10 +193,6 @@
       margin-right: 0.5em;
       font-weight: 700;
     }
-
-
-
-    
 
     @include media-down(tablet) {
       // float: none;

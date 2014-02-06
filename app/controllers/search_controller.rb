@@ -86,8 +86,10 @@ class SearchController < ApplicationController
 
   # The tab that the user has clicked on. We should remember this.
   def selected_tab
-    # This list would be more robust if it were built from the streams
-    tabs =  %w{ departments-policy-results services-information-results }
+    # This list would be more robust if it were built from the streams,
+    # but then it doesn't work if, say, there is no search term and we haven't
+    # made a request to Rummager
+    tabs = %w{ departments-policy-results services-information-results }
     tabs.include?(params[:tab]) ? params[:tab] : nil
   end
 

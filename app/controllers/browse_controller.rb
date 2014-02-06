@@ -64,6 +64,8 @@ protected
   def render_section_view
     if params[:section] == 'business'
       render :business
+    elsif params[:section] == 'visas-immigration'
+      render 'visas-immigration'
     else
       render :section
     end

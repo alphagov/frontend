@@ -11,8 +11,9 @@ Frontend::Application.routes.draw do
   get "/browse/:section/:sub_section.json" => redirect("/api/with_tag.json?tag=%{section}%%2F%{sub_section}")
   get "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
 
-  # new business browse page
+  # new-style browse pages
   get "/business" => "browse#section", :section => "business"
+  get "/visas-immigration" => "browse#section", :section => "visas-immigration"
 
   if Frontend.industry_sectors_browse_enabled?
     get "/oil-and-gas" => "industry_sectors#sector", :sector => "oil-and-gas"

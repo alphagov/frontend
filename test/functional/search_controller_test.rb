@@ -483,6 +483,11 @@ class SearchControllerTest < ActionController::TestCase
         })
       end
 
+      should "not pass blank organisation values to search" do
+        # If this isn't filtered out, it'll break stubbing
+        get :index, q: "moon", organisation: ""
+      end
+
       should "appear on the government tab" do
         get :index, { q: "moon" }
         assert_select "#government-results form#government-filter"
@@ -610,6 +615,11 @@ class SearchControllerTest < ActionController::TestCase
       should "default the sort to relevance (blank value)" do
         get :index, q: "glass"
         assert_select "input[name=sort][value=''][checked]"
+      end
+
+      should "not pass on blank sort values to search" do
+        # If this isn't stripped out, it breaks the test stub
+        get :index, q: "glass", sort: ""
       end
     end
 

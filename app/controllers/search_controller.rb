@@ -18,7 +18,7 @@ class SearchController < ApplicationController
         "organisation_slug" => params[:organisation],
         "sort" => params[:sort]
       }
-      search_params.reject! { |k, v| v.nil? }
+      search_params.reject! { |k, v| v.blank? }
       search_response = search_client.search(@search_term, search_params)
 
       if search_response["spelling_suggestions"]

@@ -32,22 +32,58 @@ class SearchControllerTest < ActionController::TestCase
   #                        Explicitly passing "nil" means they key is excluded,
   #                        Which allows testing against Rummager before the
   #                        feature was added.
-  def stub_results(index_name, search_results = [], spelling_suggestions = [])
-    response_body = {
-      "total" => search_results.size,
-      "results" => search_results
+  def stub_combined_results(result_map, spelling_suggestions = [], parameters = {})
+    response_body = combined_response(result_map, spelling_suggestions)
+    Frontend.combined_search_client.stubs(:search)
+        .with(is_a(String), parameters)
+        .returns(response_body)
+  end
+
+  def stub_single_result(result)
+    stub_combined_results({
+      "top-results" => [result],
+      "services-information" => [],
+      "departments-policy" => []
+    })
+  end
+
+  def combined_response(result_map, spelling_suggestions = [])
+    titles = {
+      "top-results" => "Top results",
+      "services-information" => "Services and information",
+      "departments-policy" => "Departments and policy"
     }
+    response_body = {
+      "streams" => {}
+    }
+    result_map.each do |key, results|
+      response_body["streams"][key] = {
+        "results" => results,
+        "total" => results.count,
+        "title" => titles[key]
+      }
+    end
     unless spelling_suggestions.nil?
       response_body["spelling_suggestions"] = spelling_suggestions
     end
-    client = stub("search #{index_name}", search: response_body)
-    Frontend.stubs(:"#{index_name}_search_client").returns(client)
+
+    response_body
+  end
+
+  def no_results
+    combined_response({
+      "top-results" => [],
+      "services-information" => [],
+      "departments-policy" => []
+    })
   end
 
   setup do
-    stub_results("mainstream", [])
-    stub_results("detailed_guidance", [])
-    stub_results("government", [])
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => [],
+      "departments-policy" => []
+    })
 
     organisations_client = stub("search", organisations: { "total" => 0, "results" => [] })
     Frontend.stubs(:organisations_search_client).returns(organisations_client)
@@ -67,12 +103,15 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should pass our query parameter in to the search client" do
-    Frontend.mainstream_search_client.expects(:search).with("search-term").returns("results" => []).once
+    Frontend.combined_search_client.expects(:search)
+        .with("search-term", {})
+        .returns(no_results)
+        .once
     get :index, q: "search-term"
   end
 
   test "should include link to JSON version in HTML header" do
-    stub_results("mainstream", [{}, {}, {}])
+    stub_combined_results("top-results" => [{}])
     get :index, q: "search-term"
     assert_select 'head link[rel=alternate]' do |elements|
       assert elements.any? { |element|
@@ -82,20 +121,31 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display single result with specific class name attribute" do
-    stub_results("mainstream", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => [a_search_result("a")],
+      "departments-policy" => []
+    })
     get :index, q: "search-term"
     assert_select "div#services-information-results.single-item-pane"
   end
 
   test "should display multiple results without class name for single result set" do
-    stub_results("mainstream", [a_search_result("a"), a_search_result("b")])
+    stub_combined_results({
+      "top-results" => [a_search_result("a")],
+      "services-information" => [],
+      "departments-policy" => []
+    })
     get :index, q: "search-term"
     assert_select "div#services-information-results.single-item-pane", 0
   end
 
   test "should display tabs when there are results in one or more tab" do
-    stub_results("mainstream", [a_search_result("a"), a_search_result("b"), a_search_result("c")])
-    stub_results("government", [a_search_result("x")])
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => [a_search_result("a")],
+      "departments-policy" => [a_search_result("b")],
+    })
     get :index, q: "search-term"
     assert_select "div.js-tabs"
   end
@@ -106,7 +156,11 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should not display tabs there are only top-results" do
-    stub_results("mainstream", [a_search_result("a")])
+    stub_combined_results({
+      "top-results" => [a_search_result("a")],
+      "services-information" => [],
+      "departments-policy" => []
+    })
     get :index, q: "search-term"
     assert_select "div.js-tabs", count: 0
   end
@@ -131,8 +185,11 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the others do not" do
     should "display the 'no results' html in the tabs without results" do
-      # Three results to fill up the top-results, one to be displayed in the tab
-      stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
+      stub_combined_results({
+        "top-results" => [],
+        "services-information" => [],
+        "departments-policy" => [a_search_result("a")]
+      })
       get :index, q: "search-term"
       assert_select "div.js-tabs"
       assert_select "#services-information-results .no-results", /No results in Services and information/
@@ -141,9 +198,11 @@ class SearchControllerTest < ActionController::TestCase
 
   context "tab parameter is set, another tab has results" do
     should "focus on that tab, even if it has no results" do
-      stub_results("mainstream", [a_search_result("x")])
-      # Three results to fill top-results, one to force the tab to be displayed
-      stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
+      stub_combined_results({
+        "top-results" => [],
+        "services-information" => [a_search_result("a")],
+        "departments-policy" => [a_search_result("b")]
+      })
       get :index, { q: "spoon", tab: "government-results" }
       assert_select "li.active a[href=#government-results]"
     end
@@ -151,22 +210,34 @@ class SearchControllerTest < ActionController::TestCase
 
   context "one tab has results, the other doesn't. no tab parameter supplied" do
     should "should focus on the tab with results" do
-      # 4 results. Subtract 3 for top results leaves you one inside the tab
-      stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c"), a_search_result("d")])
+      stub_combined_results({
+        "top-results" => [],
+        "services-information" => [],
+        "departments-policy" => [a_search_result("b")]
+      })
       get :index, { q: "spoon" }
       assert_select "li.active a[href=#government-results]"
     end
   end
 
   test "should display a link to the documents matching our search criteria" do
-    stub_results("mainstream", [{"title" => "document-title", "link" => "/document-slug"}])
+    result = {"title" => "document-title", "link" => "/document-slug"}
+    stub_single_result(result)
+
     get :index, q: "search-term"
     assert_select "a[href='/document-slug']", text: "document-title"
   end
 
   test "should set the class of the result according to the format" do
-    stub_results("mainstream", [{"title" => "title", "link" => "/slug", "highlight" => "", "format" => "publication"}])
+    result = {
+      "title" => "title",
+      "link" => "/slug",
+      "highlight" => "",
+      "format" => "publication"
+    }
+    stub_single_result(result)
     get :index, q: "search-term"
+
     assert_select ".results-list .type-publication"
   end
 
@@ -176,7 +247,7 @@ class SearchControllerTest < ActionController::TestCase
       "description" => "DESCRIPTION",
       "link" => "/URL"
     }
-    stub_results("mainstream", [result_without_section])
+    stub_single_result(result_without_section)
     assert_nothing_raised do
       get :index, {q: "bob"}
     end
@@ -189,7 +260,7 @@ class SearchControllerTest < ActionController::TestCase
       "link" => "/url",
       "section" => "life-in-the-uk"
     }
-    stub_results("mainstream", [result_with_section])
+    stub_single_result(result_with_section)
     get :index, {q: "bob"}
 
     assert_select '.meta .section', text: "Life in the UK"
@@ -203,7 +274,7 @@ class SearchControllerTest < ActionController::TestCase
       "section" => "life-in-the-uk",
       "subsection" => "test-thing"
     }
-    stub_results("mainstream", [result_with_section])
+    stub_single_result(result_with_section)
     get :index, {q: "bob"}
 
     assert_select '.meta .section', text: "Life in the UK"
@@ -219,7 +290,7 @@ class SearchControllerTest < ActionController::TestCase
       "subsection" => "test-thing",
       "subsubsection" => "sub-section"
     }
-    stub_results("mainstream", [result_with_section])
+    stub_single_result(result_with_section)
     get :index, {q: "bob"}
 
     assert_select '.meta .section', text: "Life in the UK"
@@ -228,39 +299,36 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   should "include organisations where available" do
-    results = [
-      a_search_result("a"),
-      a_search_result("b"),
-      a_search_result("c"),
-      result_with_organisation("CO", "Cabinet Office", "cabinet-office")
-    ]
-    stub_results("government", results)
+    result = result_with_organisation("CO", "Cabinet Office", "cabinet-office")
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => [],
+      "departments-policy" => [result]
+    })
     get :index, { q: "bob" }
 
     assert_select "ul.attributes li", /CO/
   end
 
   should "provide an abbr tag to explain organisation abbreviations" do
-    results = [
-      a_search_result("a"),
-      a_search_result("b"),
-      a_search_result("c"),
-      result_with_organisation("CO", "Cabinet Office", "cabinet-office")
-    ]
-    stub_results("government", results)
+    result = result_with_organisation("CO", "Cabinet Office", "cabinet-office")
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => [],
+      "departments-policy" => [result]
+    })
     get :index, { q: "bob" }
 
     assert_select "ul.attributes li abbr[title='Cabinet Office']", text: "CO"
   end
 
   should "not provide an abbr tag when the organisation title is the acronym" do
-    results = [
-      a_search_result("a"),
-      a_search_result("b"),
-      a_search_result("c"),
-      result_with_organisation("Home Office", "Home Office", "home-office")
-    ]
-    stub_results("government", results)
+    result = result_with_organisation("Home Office", "Home Office", "home-office")
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => [],
+      "departments-policy" => [result]
+    })
     get :index, { q: "bob" }
 
     assert_select "ul.attributes li abbr[title='Home Office']", count: 0
@@ -272,14 +340,22 @@ class SearchControllerTest < ActionController::TestCase
     75.times do |n|
       results << a_search_result("result-#{n}")
     end
-    stub_results("mainstream", results)
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => results,
+      "departments-policy" => []
+    })
 
     get :index, q: "Test"
-    assert_select "#services-information-results h3 a", count: 72 # 75 -3 top results
+    assert_select "#services-information-results h3 a", count: 75
   end
 
   test "should show the phrase searched for" do
-    stub_results("mainstream", Array.new(75, {}))
+    stub_combined_results({
+      "top-results" => [],
+      "services-information" => Array.new(75, {}),
+      "departments-policy" => []
+    })
 
     get :index, q: "Test"
 
@@ -295,7 +371,7 @@ class SearchControllerTest < ActionController::TestCase
       "format" => "recommended-link"
     }
 
-    stub_results("mainstream", [external_document])
+    stub_single_result(external_document)
 
     get :index, {q: "bleh"}
     assert_select "li.external" do
@@ -311,8 +387,12 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal "0",       response.headers["X-Slimmer-Result-Count"]
   end
 
-  test "result count header with results" do
-    stub_results("mainstream", Array.new(15, {}))
+  test "display the total number of results" do
+    stub_combined_results({
+      "top-results" => Array.new(15, {}),
+      "services-information" => [],
+      "departments-policy" => []
+    })
 
     get :index, {q: "bob"}
 
@@ -327,8 +407,7 @@ class SearchControllerTest < ActionController::TestCase
       "section" => "driving",
       "format" => "recommended-link"
     }
-
-    stub_results("mainstream", Array.new(1, external_link))
+    stub_single_result(external_link)
 
     get :index, {q: "bleh"}
 
@@ -345,8 +424,7 @@ class SearchControllerTest < ActionController::TestCase
       "link" => "http://www.badgers.com/badgers",
       "format" => "recommended-link"
     }
-
-    stub_results("mainstream", Array.new(1, external_link))
+    stub_single_result(external_link)
 
     get :index, {q: "bleh"}
 
@@ -363,8 +441,7 @@ class SearchControllerTest < ActionController::TestCase
       "link" => "https://www.badgers.com/badgers",
       "format" => "recommended-link"
     }
-
-    stub_results("mainstream", Array.new(1, external_link))
+    stub_single_result(external_link)
 
     get :index, {q: "bleh"}
 
@@ -375,116 +452,123 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should handle service errors with a 503" do
-    Frontend.mainstream_search_client.stubs(:search).raises(GdsApi::BaseError)
+    Frontend.combined_search_client.stubs(:search).raises(GdsApi::BaseError)
     get :index, {q: "badness"}
 
     assert_response 503
   end
 
   context "spelling suggestions" do
-    context "spelling suggestions NOT returned" do
-      should "not display a spelling suggestion link" do
-        # temporary backwards compatibility with pre-suggestive rummager
-        stub_results("mainstream", [], nil)
-        get :index, { q: "afgananinanistan" }
+    should "display a link to the first suggestion from mainstream" do
+      no_results = {
+        "top-results" => [],
+        "services-information" => [],
+        "departments-policy" => []
+      }
+      stub_combined_results(no_results, ["afghanistan"])
 
-        assert_response :ok
-        assert_select ".spelling-suggestion", count: 0
-      end
-    end
+      get :index, { q: "afgananinanistan" }
 
-    context "spelling suggestions returned" do
-      should "display a link to the first suggestion from mainstream" do
-        stub_results("mainstream", [], ["afghanistan"])
-        get :index, { q: "afgananinanistan" }
-
-        assert_select ".spelling-suggestion a", 'afghanistan'
-      end
+      assert_select ".spelling-suggestion a", 'afghanistan'
     end
   end
 
   context "organisation filter" do
-    setup do
-      # Need to have 4+ results for the tab to appear
-      stub_results("government", [
-          a_search_result("c", 3),
-          a_search_result("d", 3),
-          a_search_result("e", 3),
-          a_search_result("f", 3)])
+    context "on an unfiltered request" do
+      setup do
+        stub_combined_results({
+          "top-results" => [],
+          "services-information" => [],
+          "departments-policy" => [a_search_result("f", 3)]
+        })
+      end
+
+      should "appear on the government tab" do
+        get :index, { q: "moon" }
+        assert_select "#government-results form#government-filter"
+      end
+
+      should "list organisations split into ministerial departments, others and closed" do
+        organisations = [
+          {
+            "link"              => "/government/organisations/ministry-of-defence",
+            "title"             => "Ministry of Defence",
+            "acronym"           => "MOD",
+            "organisation_type" => "Ministerial department",
+            "slug"              => "ministry-of-defence"
+          },
+          {
+            "link"              => "/government/organisations/agency-of-awesome",
+            "title"             => "Agency of Awesome",
+            "acronym"           => "AoA",
+            "slug"              => "agency-of-awesome"
+          },
+          {
+            "link"              => "/government/organisations/defunct-department",
+            "title"             => "Defunct Department",
+            "acronym"           => "DD",
+            "slug"              => "defunct-department",
+            "organisation_state" => "closed"
+          }
+        ]
+        Frontend.organisations_search_client
+            .expects(:organisations)
+            .returns({ "results" => organisations })
+        get :index, { q: "sun" }
+        assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
+        assert_select "select#organisation-filter optgroup[label='Other departments &amp; public bodies'] option[value=agency-of-awesome]"
+        assert_select "select#organisation-filter optgroup[label='Closed organisations'] option[value=defunct-department]"
+      end
+
+      should "retain tab parameter" do
+        get :index, { q: "moon", tab: "government-results" }
+        assert_select "form#government-filter input[name=tab][value=government-results]"
+      end
     end
 
-    should "appear on the government tab" do
-      get :index, { q: "moon" }
-      assert_select "#government-results form#government-filter"
-    end
-
-    should "list organisations split into ministerial departments, others and closed" do
-      organisations = [
-        {
-          "link"              => "/government/organisations/ministry-of-defence",
-          "title"             => "Ministry of Defence",
-          "acronym"           => "MOD",
-          "organisation_type" => "Ministerial department",
-          "slug"              => "ministry-of-defence"
-        },
-        {
-          "link"              => "/government/organisations/agency-of-awesome",
-          "title"             => "Agency of Awesome",
-          "acronym"           => "AoA",
-          "slug"              => "agency-of-awesome"
-        },
-        {
-          "link"              => "/government/organisations/defunct-department",
-          "title"             => "Defunct Department",
-          "acronym"           => "DD",
-          "slug"              => "defunct-department",
-          "organisation_state" => "closed"
-        }
-      ]
-      Frontend.organisations_search_client
-          .expects(:organisations)
-          .returns({ "results" => organisations })
-      get :index, { q: "sun" }
-      assert_select "select#organisation-filter optgroup[label='Ministerial departments'] option[value=ministry-of-defence]"
-      assert_select "select#organisation-filter optgroup[label='Other departments &amp; public bodies'] option[value=agency-of-awesome]"
-      assert_select "select#organisation-filter optgroup[label='Closed organisations'] option[value=defunct-department]"
-    end
-
-    should "new searches should retain the organisation filter" do
-      get :index, { q: "moon", organisation: "ministry-of-defence" }
-      assert_select "#content form[role=search] input[name=organisation][value=ministry-of-defence][type=hidden]"
-    end
-
-    should "retain tab parameter" do
-      get :index, { q: "moon", tab: "government-results" }
-      assert_select "form#government-filter input[name=tab][value=government-results]"
-    end
-
-    should "select the current organisation in the dropdown" do
-      Frontend.organisations_search_client.stubs(:organisations).returns({ "total" => 0, "results" => [{
-          "link"              => "/government/organisations/ministry-of-defence",
-          "title"             => "Ministry of Defence",
-          "acronym"           => "MOD",
-          "organisation_type" => "Ministerial department",
-          "slug"              => "ministry-of-defence"
-
-        }] })
-      get :index, { q: "moon", organisation: "ministry-of-defence" }
-      assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
-    end
-
-    should "let you filter results by organisation" do
-      Frontend.government_search_client
+    context "on a filtered request" do
+      setup do
+        search_response = combined_response({
+          "top-results" => [],
+          "services-information" => [],
+          "departments-policy" => [a_search_result("f", 3)]
+        })
+        Frontend.combined_search_client
           .expects(:search)
-          .with("moon", organisation_slug: "ministry-of-defence")
-          .returns("results" => [])
-      get :index, { q: "moon", organisation: "ministry-of-defence" }
+          .with("moon", "organisation_slug" => "ministry-of-defence")
+          .returns(search_response)
+        Frontend.organisations_search_client.stubs(:organisations).returns({ "total" => 0, "results" => [{
+            "link"              => "/government/organisations/ministry-of-defence",
+            "title"             => "Ministry of Defence",
+            "acronym"           => "MOD",
+            "organisation_type" => "Ministerial department",
+            "slug"              => "ministry-of-defence"
+
+          }] })
+      end
+
+      should "select the current organisation in the dropdown" do
+        get :index, { q: "moon", organisation: "ministry-of-defence" }
+        assert_select "select#organisation-filter option[value=ministry-of-defence][selected=selected]"
+      end
+
+      should "let you filter results by organisation" do
+        get :index, { q: "moon", organisation: "ministry-of-defence" }
+      end
+
+      should "retain the organisation filter in new searches" do
+        get :index, { q: "moon", organisation: "ministry-of-defence" }
+        assert_select "#content form[role=search] input[name=organisation][value=ministry-of-defence][type=hidden]"
+      end
     end
 
     context "filter applied, but no search results in any tab" do
       should "force the tabs to be displayed, so that you can see a filter is active" do
         # TODO see if we can remove the stub from the context setup up a level
-        stub_results("government", [])
+        Frontend.combined_search_client
+          .expects(:search)
+          .with("moon", "organisation_slug" => "ministry-of-defence")
+          .returns(no_results)
         get :index, { q: "moon", organisation: "ministry-of-defence" }
         assert_select "div.js-tabs"
         assert_select "#government-results h3 a", count: 0
@@ -494,7 +578,16 @@ class SearchControllerTest < ActionController::TestCase
     context "filter applied, but only top-results, therefore no results in tabs" do
       should "force the tabs to be displayed, so that you can see a filter is active" do
         # TODO see if we can remove the stub from the context setup up a level
-        stub_results("government", [a_search_result("a"), a_search_result("b"), a_search_result("c")])
+        results = [a_search_result("a"), a_search_result("b"), a_search_result("c")]
+        search_response = combined_response({
+          "top-results" => results,
+          "services-information" => [],
+          "departments-policy" => []
+        })
+        Frontend.combined_search_client
+          .expects(:search)
+          .with("moon", "organisation_slug" => "ministry-of-defence")
+          .returns(search_response)
         get :index, { q: "moon", organisation: "ministry-of-defence" }
         assert_select "div.js-tabs"
         assert_select "#government-results h3 a", count: 0
@@ -503,153 +596,44 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   context "sorting results" do
-    setup do
-      # Ensure tabs are displayed
-      stub_results("mainstream", [a_search_result("a", 3), a_search_result("b", 3), a_search_result("c", 3), a_search_result("d", 3)])
-    end
 
-    should "default the sort to relevance (blank value)" do
-      get :index, q: "glass"
-      assert_select "input[name=sort][value=''][checked]"
-    end
-
-    should "reflect the choice in the filter form" do
-      get :index, q: "glass", sort: "public_timestamp"
-      assert_select "input[name=sort][value='public_timestamp'][checked]"
-    end
-
-    should "remember the choice in the main search form" do
-      get :index, q: "glass", sort: "public_timestamp"
-      assert_select "form.search-header input[name=sort][value='public_timestamp']"
-    end
-
-    should "allow sorting by public_timestamp" do
-      search_results = [
-        a_search_result("new", 1),
-        a_search_result("old", 2)
-      ]
-      response_body = {
-        "total" => search_results.size,
-        "results" => search_results
-      }
-      client = mock("search government")
-      # Once for the tab contents, once for the top results
-      client.expects(:search)
-            .with('glass', sort: "public_timestamp")
-            .returns(response_body)
-      client.expects(:search)
-            .with('glass', {})
-            .returns(response_body)
-      Frontend.stubs(:government_search_client).returns(client)
-
-      get :index, q: "glass", sort: "public_timestamp"
-
-      # Check that they've come out in the order returned by Rummager
-      assert_select '#government-results li:first-child  h3 a[href=/new]'
-      assert_select '#government-results li:nth-child(2) h3 a[href=/old]'
-    end
-  end
-
-  context "top results" do
-    should "remove the highest 3 scored results from the three tabs and display above all others" do
-      stub_results("mainstream", [a_search_result("a", 1)])
-      stub_results("detailed_guidance", [a_search_result("b", 2)])
-      stub_results("government", [a_search_result("c", 3)])
-
-      get :index, q: "search-term", top_result: "1"
-
-      assert_select "#services-information-results h3 a", count: 0
-      assert_select "#government-results h3 a", count: 0
-
-      assert_select "#top-results a[href='/a']"
-      assert_select "#top-results a[href='/b']"
-      assert_select "#top-results a[href='/c']"
-    end
-
-    should "extract top results from unfiltered government results" do
-      unfiltered_body = {
-        "total" => 1,
-        "results" => [a_search_result("a", 1)]
-      }
-      filtered_body = {
-        "total" => 1,
-        "results" => [a_search_result("b", 1)]
-      }
-      government_client = stub("search government") do
-        expects(:search)
-          .with("search-term", {})
-          .returns(unfiltered_body)
-        expects(:search)
-          .with("search-term", organisation_slug: "bob")
-          .returns(filtered_body)
+    context "on an unsorted request" do
+      setup do
+        # Ensure tabs are displayed
+        stub_combined_results({
+          "top-results" => [],
+          "services-information" => [a_search_result("d", 3)],
+          "departments-policy" => [a_search_result("d", 3)]
+        })
       end
 
-      Frontend.stubs(:government_search_client).returns(government_client)
-
-      get :index, q: "search-term", top_result: "1", organisation: "bob"
-
-      assert_select "#top-results a[href='/a']"
-      assert_select "#top-results a[href='/b']", count: 0
+      should "default the sort to relevance (blank value)" do
+        get :index, q: "glass"
+        assert_select "input[name=sort][value=''][checked]"
+      end
     end
 
-    should "not show duplicate results in a filtered tab" do
-      unfiltered_body = {
-        "total" => 1,
-        "results" => [a_search_result("a", 1)]
-      }
-      filtered_body = {
-        "total" => 1,
-        "results" => [a_search_result("a", 1), a_search_result("b", 1)]
-      }
-      government_client = stub("search government") do
-        expects(:search)
-          .with("search-term", {})
-          .returns(unfiltered_body)
-        expects(:search)
-          .with("search-term", organisation_slug: "bob")
-          .returns(filtered_body)
+    context "on a sorted request" do
+      setup do
+        search_response = combined_response({
+          "top-results" => [],
+          "services-information" => [a_search_result("a")],
+          "departments-policy" => [a_search_result("a")]
+        })
+        Frontend.combined_search_client.expects(:search)
+            .with("glass", "sort" => "public_timestamp")
+            .returns(search_response)
       end
 
-      Frontend.stubs(:government_search_client).returns(government_client)
+      should "reflect the choice in the filter form" do
+        get :index, q: "glass", sort: "public_timestamp"
+        assert_select "input[name=sort][value='public_timestamp'][checked]"
+      end
 
-      get :index, q: "search-term", top_result: "1", organisation: "bob"
-
-      assert_select "#top-results a[href='/a']"
-      assert_select "#government-results a[href='/a']", count: 0
+      should "remember the choice in the main search form" do
+        get :index, q: "glass", sort: "public_timestamp"
+        assert_select "form.search-header input[name=sort][value='public_timestamp']"
+      end
     end
-  end
-
-  should "merge mainstream and detailed results in one tab" do
-    stub_results("mainstream", [{ "es_score" => 1 }, { "es_score" => 1 }, { "es_score" => 1 }])
-    stub_results("detailed_guidance", [{ "es_score" => 1 }])
-    # Let the government results be used for top_results
-    stub_results("government", [a_search_result("x", 10), a_search_result("y", 10), a_search_result("z", 10)])
-    get :index, { q: "tax" }
-    assert_select "#services-information-results h3 a", count: 4
-  end
-
-  should "correctly sort the merged mainstream and detailed results" do
-    stub_results("mainstream", [a_search_result("high", 10)])
-    stub_results("detailed_guidance", [a_search_result("low", 5)])
-    get :index, { q: "tax" }
-    assert_select 'li:first-child  h3 a[href=/high]'
-    assert_select 'li:nth-child(2) h3 a[href=/low]'
-  end
-
-  should "hackily downweight detailed results to prevent them from swamping better mainstream results" do
-    stub_results("mainstream", [a_search_result("mainstream", 100)])
-    stub_results("detailed_guidance", [a_search_result("detailed", 101)])
-    get :index, { q: "tax" }
-    assert_select 'li:first-child  h3 a[href=/mainstream]'
-    assert_select 'li:nth-child(2) h3 a[href=/detailed]'
-  end
-
-  should "hackily downweight government results to allow mainstream/detailed results to rank better" do
-    stub_results("mainstream", [a_search_result("mainstream-a", 100), a_search_result("mainstream-b", 1)])
-    stub_results("government", [a_search_result("government", 101)])
-    get :index, { q: "tax" }
-    assert_select '#top-results li:first-child  h3 a[href=/mainstream-a]'
-    assert_select '#top-results li:nth-child(2) h3 a[href=/government]'
-    assert_select '#top-results li:nth-child(3) h3 a[href=/mainstream-b]'
   end
 end

@@ -22,6 +22,7 @@ namespace :router do
       %w(/homepage exact),
       %w(/tour exact),
       %w(/ukwelcomes exact),
+      %w(/visas-immigration exact),
     ]
     routes << %w(/oil-and-gas prefix) if Frontend.industry_sectors_browse_enabled?
 

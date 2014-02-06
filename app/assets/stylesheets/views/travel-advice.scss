@@ -32,35 +32,49 @@
   }
   
   .section-wrap {
-    border-bottom: 1px solid $border-colour;
     padding: 0 0 0;
+    display: table-row;
     
-    @include media(desktop){
-      position: relative;
-      height: 137px;
+    @include media-down(tablet) {
+      display:block;
+      border-bottom: 1px solid $border-colour;
+    }
+    
+    @include ie-lte(7) {
+      display:block;
+      border-bottom: 1px solid $border-colour;
     }
     
     section {
-      position:relative;
-      display:block;
-      margin-top:0;
+      width:50%;
+      vertical-align:bottom;
+      display:table-cell;
+      border-bottom: 1px solid $border-colour;
       
-      @include media(desktop){
-        position:absolute;
-        bottom: 0;
-        right:0;
-      }       
+      @include media-down(tablet) {
+        display:block;
+        border-bottom: none;
+        width:100%;
+      }
+      
+      @include ie-lte(7) {
+        display:block;
+        border-bottom: none;
+      }
+      
     }
 
-    #country-filter {
-      left:0;
-      width:47%;
-      margin-right:3%;
-    }
   }
   
-  .subscriptions ul li:first-child {
-    margin-right: 0.3em;
+  .subscriptions {
+    text-align:right;
+    
+    @include ie-lte(7) {
+      text-align:left;
+    }
+    ul li:first-child {
+      margin-right: 0.3em;
+    }
   }
 }
 
@@ -125,7 +139,7 @@
         @include core-19;
 
         display: none;
-        margin: 1em 0;
+        margin: 0 0 1em 0;
 
         .js-enabled & {
           display: block;
@@ -174,14 +188,7 @@
 
  .subscriptions  {
 
-    text-align: right;
-    padding-top: 2em;
-    margin-top: 2em;
-
     @include media(desktop){
-      width:50%;
-      float:right;
-
       ul li:first-child {
         margin-right: 0;
         margin-left: 0;

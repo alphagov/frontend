@@ -32,16 +32,11 @@ class SearchController < ApplicationController
 
       response_streams = search_response["streams"].except("top-results")
       @streams = response_streams.map { |stream_key, stream_data|
-        key_id = case stream_key
-                 when "departments-policy"
-                   "government"
-                 else
-                   stream_key
-                 end
         SearchStream.new(
-          key_id,
+          stream_key,
           stream_data["title"],
-          stream_data["results"].map { |r| result_class(stream_key).new(r) }
+          stream_data["results"].map { |r| result_class(stream_key).new(r) },
+          stream_key == "departments-policy"
         )
       }
 
@@ -92,7 +87,7 @@ class SearchController < ApplicationController
   # The tab that the user has clicked on. We should remember this.
   def selected_tab
     # This list would be more robust if it were built from the streams
-    tabs =  %w{ government-results services-information-results }
+    tabs =  %w{ departments-policy-results services-information-results }
     tabs.include?(params[:tab]) ? params[:tab] : nil
   end
 

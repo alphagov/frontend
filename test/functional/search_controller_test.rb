@@ -176,9 +176,9 @@ class SearchControllerTest < ActionController::TestCase
 
     context "tab parameter given" do
       should "remember the tab the user has chosen" do
-        get :index, q: "search-term", tab: "government-results"
+        get :index, q: "search-term", tab: "departments-policy-results"
         assert_select "form.search-header input[name=tab]"
-        assert_select "form.search-header input[name=tab][value='government-results']"
+        assert_select "form.search-header input[name=tab][value='departments-policy-results']"
       end
     end
   end
@@ -203,8 +203,8 @@ class SearchControllerTest < ActionController::TestCase
         "services-information" => [a_search_result("a")],
         "departments-policy" => [a_search_result("b")]
       })
-      get :index, { q: "spoon", tab: "government-results" }
-      assert_select "li.active a[href=#government-results]"
+      get :index, { q: "spoon", tab: "departments-policy-results" }
+      assert_select "li.active a[href=#departments-policy-results]"
     end
   end
 
@@ -216,7 +216,7 @@ class SearchControllerTest < ActionController::TestCase
         "departments-policy" => [a_search_result("b")]
       })
       get :index, { q: "spoon" }
-      assert_select "li.active a[href=#government-results]"
+      assert_select "li.active a[href=#departments-policy-results]"
     end
   end
 
@@ -488,9 +488,9 @@ class SearchControllerTest < ActionController::TestCase
         get :index, q: "moon", organisation: ""
       end
 
-      should "appear on the government tab" do
+      should "appear on the departments and policy tab" do
         get :index, { q: "moon" }
-        assert_select "#government-results form#government-filter"
+        assert_select "#departments-policy-results form#government-filter"
       end
 
       should "list organisations split into ministerial departments, others and closed" do
@@ -526,8 +526,8 @@ class SearchControllerTest < ActionController::TestCase
       end
 
       should "retain tab parameter" do
-        get :index, { q: "moon", tab: "government-results" }
-        assert_select "form#government-filter input[name=tab][value=government-results]"
+        get :index, { q: "moon", tab: "departments-policy-results" }
+        assert_select "form#government-filter input[name=tab][value=departments-policy-results]"
       end
     end
 
@@ -576,7 +576,7 @@ class SearchControllerTest < ActionController::TestCase
           .returns(no_results)
         get :index, { q: "moon", organisation: "ministry-of-defence" }
         assert_select "div.js-tabs"
-        assert_select "#government-results h3 a", count: 0
+        assert_select "#departments-policy-results h3 a", count: 0
       end
     end
 
@@ -595,7 +595,7 @@ class SearchControllerTest < ActionController::TestCase
           .returns(search_response)
         get :index, { q: "moon", organisation: "ministry-of-defence" }
         assert_select "div.js-tabs"
-        assert_select "#government-results h3 a", count: 0
+        assert_select "#departments-policy-results h3 a", count: 0
       end
     end
   end

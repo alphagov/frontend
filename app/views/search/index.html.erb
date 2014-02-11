@@ -41,7 +41,7 @@
         <% @streams.each do |stream| %>
           <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.results.size == 1 ? ' single-item-pane' : '' %>">
           <div class="filters">
-            <% if stream.key == "government" %>
+            <% if stream.show_filter %>
               <%= render partial: "government_filter" %>
             <% end %>
           </div>

@@ -14,50 +14,34 @@ class SearchController < ApplicationController
     if @search_term.blank?
       render action: 'no_search_term' and return
     else
-      @streams = []
+      search_params = {
+        "organisation_slug" => params[:organisation],
+        "sort" => params[:sort]
+      }
+      search_params.reject! { |k, v| v.blank? }
+      search_response = search_client.search(@search_term, search_params)
 
-      if params[:organisation].present? || params[:sort].present?
-        government_results = retrieve_government_results(@search_term, params[:organisation], params[:sort])
-        unfiltered_government_results = retrieve_government_results(@search_term)
-      else
-        government_results = retrieve_government_results(@search_term)
-        unfiltered_government_results = government_results
+      if search_response["spelling_suggestions"]
+        @spelling_suggestion = search_response["spelling_suggestions"].first
       end
 
-      if raw_mainstream_results(@search_term)["spelling_suggestions"]
-        @spelling_suggestion = raw_mainstream_results(@search_term)["spelling_suggestions"].first
-      end
+      # This is the total number of results displayed on the page, not the
+      # total number of available results, hence counting up the result streams
+      # rather than taking their "total" attributes
+      @result_count = search_response["streams"].values.sum { |s| s["results"].count }
 
-      detailed_results = retrieve_detailed_guidance_results(@search_term)
-      # hackily downweight detailed results to prevent them swamping mainstream results
-      adjusted_detailed_results = multiply_result_scores(detailed_results, 0.8)
+      response_streams = search_response["streams"].except("top-results")
+      @streams = response_streams.map { |stream_key, stream_data|
+        SearchStream.new(
+          stream_key,
+          stream_data["title"],
+          stream_data["results"].map { |r| result_class(stream_key).new(r) },
+          stream_key == "departments-policy"
+        )
+      }
 
-      @streams << SearchStream.new(
-        "services-information",
-        "Services and information",
-        merge_result_sets(retrieve_mainstream_results(@search_term), adjusted_detailed_results)
-      )
-      @streams << SearchStream.new(
-        "government",
-        "Departments and policy",
-        government_results
-      )
-
-      # This needs to be done before top result extraction, otherwise the
-      # result count needs to incorporate the top result size.
-      @result_count = @streams.map { |s| s.results.size }.sum
-
-      top_result_sets = @streams.reject { |s| s.key == "government" }.map(&:results)
-      # Hackily downweight government results to stop them from swamping mainstream in top results
-      top_result_sets << multiply_result_scores(unfiltered_government_results, 0.6)
-
-      all_results_ordered = merge_result_sets(*top_result_sets)
-      @top_results = all_results_ordered[0..2]
-      @top_results.each do |result_to_remove|
-        @streams.detect do |stream|
-          stream.results.delete(result_to_remove)
-        end
-      end
+      top_result_stream = search_response["streams"]["top-results"]
+      @top_results = top_result_stream["results"].map { |r| GovernmentResult.new(r) }
     end
 
     fill_in_slimmer_headers(@result_count)
@@ -74,34 +58,17 @@ class SearchController < ApplicationController
 
   protected
 
-  def raw_mainstream_results(term)
-    @_raw_mainstream_results ||= begin
-      Frontend.mainstream_search_client.search(term)
+  def search_client
+    Frontend.combined_search_client
+  end
+
+  def result_class(stream_key)
+    case stream_key
+    when "departments-policy"
+      GovernmentResult
+    else
+      SearchResult
     end
-  end
-
-  def retrieve_mainstream_results(term)
-    res = raw_mainstream_results(term)
-    res["results"].map { |r| SearchResult.new(r) }
-  end
-
-
-  def retrieve_detailed_guidance_results(term)
-    res = Frontend.detailed_guidance_search_client.search(term)
-    res["results"].map { |r| SearchResult.new(r) }
-  end
-
-  def retrieve_government_results(term, organisation = nil, sort = nil)
-    extra_parameters = {}
-    extra_parameters[:organisation_slug] = organisation if organisation
-    extra_parameters[:sort] = sort if sort.present?
-    res = Frontend.government_search_client.search(term, extra_parameters)
-    res["results"].map { |r| GovernmentResult.new(r) }
-  end
-
-  def merge_result_sets(*result_sets)
-    # .sort_by(&:es_score) will return it back to front
-    result_sets.flatten(1).sort_by(&:es_score).reverse
   end
 
   def fill_in_slimmer_headers(result_count)
@@ -119,8 +86,10 @@ class SearchController < ApplicationController
 
   # The tab that the user has clicked on. We should remember this.
   def selected_tab
-    # This list would be more robust if it were built from the streams
-    tabs =  %w{ government-results services-information-results }
+    # This list would be more robust if it were built from the streams,
+    # but then it doesn't work if, say, there is no search term and we haven't
+    # made a request to Rummager
+    tabs = %w{ departments-policy-results services-information-results }
     tabs.include?(params[:tab]) ? params[:tab] : nil
   end
 

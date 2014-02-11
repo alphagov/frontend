@@ -138,7 +138,7 @@ describe("CountryFilter", function () {
     });
 
     it("Should set aria attributes on div.countries-wrapper", function () {
-      var $container = $("<div class='inner' />"),
+      var $container = $("<div class='travel-container' />"),
           $countriesWrapper = $("<div class='countries-wrapper' />");
 
       $container
@@ -176,7 +176,7 @@ describe("CountryFilter", function () {
       expect($headings.map(function () { if ($(this).css('display') !== 'none') { return this; }}).length).toEqual(3);
     });
 
-    it("Should make headings with their countries hidden invisible", function () {
+    it("Should make headings with no visible countries invisible by hiding the wrapper", function () {
       var $headings;
 
       $countries = $(GOVUK_test.countryFilter.categories.twoWithoutCountries);
@@ -185,7 +185,7 @@ describe("CountryFilter", function () {
       $headings = $countries.find('h2');
       
       filter.filterHeadings($headings);
-      expect($headings.map(function () { if ($(this).css('display') !== 'none') { return this; }}).length).toEqual(1);
+      expect($headings.map(function () { if ($(this).parent().css('display') !== 'none') { return this; }}).length).toEqual(1);
     });
   });
 
@@ -222,7 +222,7 @@ describe("CountryFilter", function () {
     var $counter;
 
     beforeEach(function () {
-      $container = $('<div class="inner">' + GOVUK_test.countryFilter.countryCounter + '</div>').append($input);
+      $container = $('<div class="travel-container">' + GOVUK_test.countryFilter.countryCounter + '</div>').append($input);
       filter = new GOVUK.countryFilter($input);
       $counter = $(".country-count", filter.container)
     });
@@ -256,7 +256,7 @@ describe("CountryFilter", function () {
     beforeEach(function () {
       $countries = $(GOVUK_test.countryFilter.categories.allWithCountries);
       $counter = $(GOVUK_test.countryFilter.countryCounter);
-      $container = $('<div class="inner"></div>')
+      $container = $('<div class="travel-container"></div>')
         .append($input)
         .append($countries)
         .append($counter);

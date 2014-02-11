@@ -13,7 +13,7 @@
     var enterKeyCode = 13,
         filterInst = this;
 
-    this.container = input.closest('.inner');
+    this.container = input.closest('.travel-container');
     input.keyup(function() {
       var filter = $(this).val();
 
@@ -36,8 +36,15 @@
         };
 
     countryHeadings.each(function(index, elem) {
-      var $elem = $(elem), header = $elem.text().match(/[A-Z]{1}$/)[0];
-      headingHasVisibleCountries(header) ? $elem.show() : $elem.hide();
+      var $elem = $(elem),
+          header = $elem.text().match(/[A-Z]{1}$/)[0];
+
+      if ( headingHasVisibleCountries(header) ) {
+        $elem.parent().show();
+      }
+      else {
+        $elem.parent().hide();
+      }
     });
   };
 

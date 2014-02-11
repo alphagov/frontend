@@ -4,55 +4,59 @@
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
-<section id="content" class="group">
+<main id="content" role='main' class="group full-width">
   <header class="page-header group">
     <div>
       <h1><%= @publication.title %></h1>
     </div>
   </header>
-
-  <div class="article-container group">
-    <article role="article" class="group">
-      <div class="inner">
-
-        <section id="country-filter">
+  
+  <div class="travel-container">
+    <div class='inner group'>
+      <div class='section-wrap group'>
+        <section id="country-filter" class="group">
           <form>
             <fieldset>
-              <h1>Which country or territory are you looking for?</h1>
-              <label for="country">Country or territory</label>
+              <h1>Search for a country or territory</h1>
+              <label class='visuallyhidden' for="country">Country or territory</label>
               <input id="country" name="country" type="text" />
             </fieldset>
           </form>
         </section>
         <section class="subscriptions">
           <h1 class="visuallyhidden">Subscriptions</h1>
+          <p>Get updates</p>
           <ul>
-            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" rel="external" title="Subscribe to email alerts">email alerts</a></li>
-            <li><%= link_to "RSS", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
+            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
+            <li><%= link_to "feed", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
           </ul>
         </section>
-        <section class="countries-wrapper">
+      </div>
+      <section class="countries-wrapper">
+        <div class="countries">
           <h1>Countries or territories</h1>       
           <p class="country-count">
             <span class="js-filter-count"><%= @publication.countries.length %></span>
             <span class="visuallyhidden">Countries or territories</span>
           </p>
-          <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
-          <div id="<%= initial %>" class="list">
-            <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
-            <ul class="countries">
-              <% countries.each do |country| %>
-                <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
-              <% end %>
-            </ul>
-          </div>
-          <% end %>
-        </section>
-      </div>
-    </article>
+        </div>
 
+        <div class="countries-list">
+          <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
+            <div id="<%= initial %>" class="list">
+              <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
+              <ul class="countries">
+                <% countries.each do |country| %>
+                  <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, travel_advice_country_path(country.identifier) %></li>
+                  <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </section>      
+    </div>
     <div id="report-a-problem"></div>
   </div>
-</section>
+  
+</main>
 
-<div id="related-items"></div>

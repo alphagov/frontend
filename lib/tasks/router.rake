@@ -20,11 +20,11 @@ namespace :router do
       %w(/search.json exact),
       %w(/search/opensearch.xml exact),
       %w(/homepage exact),
+      %w(/oil-and-gas prefix),
       %w(/tour exact),
       %w(/ukwelcomes exact),
       %w(/visas-immigration exact),
     ]
-    routes << %w(/oil-and-gas prefix) if Frontend.industry_sectors_browse_enabled?
 
     routes.each do |path, type|
       @router_api.add_route(path, type, 'frontend', :skip_commit => true)

@@ -1,6 +1,6 @@
 require_relative '../test_helper'
 
-class IndustrySectorsControllerTest < ActionController::TestCase
+class SpecialistSectorsControllerTest < ActionController::TestCase
 
   context "GET sector with a valid sector tag" do
     setup do
@@ -8,8 +8,8 @@ class IndustrySectorsControllerTest < ActionController::TestCase
         { slug: "oil-and-gas/wells", title: "Wells" },
       ]
 
-      content_api_has_tag("industry_sectors", { slug: "oil-and-gas", title: "Oil and Gas", description: "Guidance for the oil and gas industry" })
-      content_api_has_child_tags("industry_sector", "oil-and-gas", subcategories)
+      content_api_has_tag("specialist_sectors", { slug: "oil-and-gas", title: "Oil and Gas", description: "Guidance for the oil and gas industry" })
+      content_api_has_child_tags("specialist_sector", "oil-and-gas", subcategories)
     end
 
     should "request a tag from the Content API and assign it" do
@@ -22,7 +22,7 @@ class IndustrySectorsControllerTest < ActionController::TestCase
     should "set the correct slimmer headers" do
       get :sector, sector: "oil-and-gas"
 
-      assert_equal "industry-sector", response.headers["X-Slimmer-Format"]
+      assert_equal "specialist-sector", response.headers["X-Slimmer-Format"]
     end
 
     should "set expiry headers for 30 minutes" do
@@ -33,7 +33,7 @@ class IndustrySectorsControllerTest < ActionController::TestCase
   end
 
   should "return a 404 status for GET sector with an invalid sector tag" do
-    api_returns_404_for("/tags/industry_sectors/oil-and-gas.json")
+    api_returns_404_for("/tags/specialist_sectors/oil-and-gas.json")
     get :sector, sector: "oil-and-gas"
 
     assert_equal 404, response.status
@@ -45,8 +45,8 @@ class IndustrySectorsControllerTest < ActionController::TestCase
         "guidance-about-wells",
       ]
 
-      content_api_has_tag("industry_sectors", { slug: "oil-and-gas/wells", title: "Wells", description: "Things to do with wells" }, "oil-and-gas")
-      content_api_has_artefacts_with_a_tag("industry_sector", "oil-and-gas/wells", artefacts)
+      content_api_has_tag("specialist_sectors", { slug: "oil-and-gas/wells", title: "Wells", description: "Things to do with wells" }, "oil-and-gas")
+      content_api_has_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", artefacts)
     end
 
     should "request the tag from the Content API and assign it" do
@@ -71,7 +71,7 @@ class IndustrySectorsControllerTest < ActionController::TestCase
       assert_equal "/oil-and-gas", primary_tag["content_with_tag"]["web_url"]
       assert_equal "Oil and gas", primary_tag["title"] # lowercase due to the humanisation of slug in test helpers
 
-      assert_equal "industry-sector", response.headers["X-Slimmer-Format"]
+      assert_equal "specialist-sector", response.headers["X-Slimmer-Format"]
     end
 
     should "set expiry headers for 30 minutes" do
@@ -82,7 +82,7 @@ class IndustrySectorsControllerTest < ActionController::TestCase
   end
 
   should "return a 404 status for GET subcategory with an invalid subcategory tag" do
-    api_returns_404_for("/tags/industry_sectors/oil-and-gas%2Fcoal.json")
+    api_returns_404_for("/tags/specialist_sectors/oil-and-gas%2Fcoal.json")
     get :subcategory, sector: "oil-and-gas", subcategory: "coal"
 
     assert_equal 404, response.status

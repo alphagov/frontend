@@ -1,6 +1,6 @@
-class IndustrySectorsController < ApplicationController
+class SpecialistSectorsController < ApplicationController
 
-  TAG_TYPE = "industry_sector"
+  TAG_TYPE = "specialist_sector"
 
   before_filter(:only => [:sector, :subcategory]) { validate_slug_param(:sector) }
   before_filter(:only => [:subcategory]) { validate_slug_param(:subcategory) }
@@ -12,7 +12,7 @@ class IndustrySectorsController < ApplicationController
 
     @child_tags = content_api.child_tags(TAG_TYPE, params[:sector])
 
-    set_slimmer_headers(format: "industry-sector")
+    set_slimmer_headers(format: "specialist-sector")
   end
 
   def subcategory
@@ -25,7 +25,7 @@ class IndustrySectorsController < ApplicationController
     @results = content_api.sorted_by(@tag_id, "curated", TAG_TYPE).results
 
     set_slimmer_dummy_artefact(section_name: @sector.title, section_link: "/#{params[:sector]}")
-    set_slimmer_headers(format: "industry-sector")
+    set_slimmer_headers(format: "specialist-sector")
   end
 
 end

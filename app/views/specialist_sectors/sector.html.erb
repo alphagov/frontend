@@ -1,27 +1,27 @@
-<% content_for :title do %><%= @sector.title %>: <%= @subcategory.title %> - GOV.UK<% end %>
+<% content_for :title do %><%= @sector.title %> - GOV.UK<% end %>
 
 <main id="content" role="main" class="group category-page">
   <header class="page-header group">
     <div class="full-width">
-      <h1><span><%= @sector.title %></span> <%= @subcategory.title %></h1>
+      <h1><%= @sector.title %></h1>
     </div>
   </header>
 
-  <div class="browse-container full-width industry-sector-browse">
+  <div class="browse-container full-width specialist-sector-browse">
     <p class="this-is-a-beta"><span class="beta">beta</span> This is a 'beta' service - find out <a href="/help/beta">what this means for you</a></p>
 
-    <% if @subcategory.details.description.present? %>
+    <% if @sector.details.description.present? %>
       <div class="category-description">
-        <p><%= @subcategory.details.description %></p>
+        <p><%= @sector.details.description %></p>
       </div>
     <% end %>
 
-    <nav class="guidance">
-      <h1>Guidance</h1>
+    <nav class="topics">
+      <h1>Topics</h1>
       <ul>
-        <% @results.each do |content| %>
+        <% @child_tags.each do |category|%>
           <li>
-            <h2><a href="<%= content.web_url %>"><%= industry_sector_item_title(content.title, @sector) %></a></h2>
+            <h2><a href="<%= category.content_with_tag.web_url %>"><%= category.title %></a></h2>
           </li>
         <% end %>
       </ul>

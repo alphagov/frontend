@@ -15,10 +15,8 @@ Frontend::Application.routes.draw do
   get "/business" => "browse#section", :section => "business"
   get "/visas-immigration" => "browse#section", :section => "visas-immigration"
 
-  if Frontend.industry_sectors_browse_enabled?
-    get "/oil-and-gas" => "industry_sectors#sector", :sector => "oil-and-gas"
-    get "/oil-and-gas(/:subcategory)" => "industry_sectors#subcategory", :sector => "oil-and-gas"
-  end
+  get "/oil-and-gas" => "industry_sectors#sector", :sector => "oil-and-gas"
+  get "/oil-and-gas(/:subcategory)" => "industry_sectors#subcategory", :sector => "oil-and-gas"
 
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678

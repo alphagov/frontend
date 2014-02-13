@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 gem 'rails', '3.2.16'
 gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
@@ -37,7 +36,7 @@ gem 'logstasher', '0.4.1'
 gem 'rack_strip_client_ip', '0.0.1'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.36.0'
+  gem 'govuk_frontend_toolkit', '0.42.0'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem "therubyracer", "0.12.0"

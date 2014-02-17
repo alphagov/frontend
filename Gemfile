@@ -59,4 +59,5 @@ group :test do
   gem "launchy"
   gem "shoulda"
   gem "timecop", "0.6.3"
+  gem 'cucumber-rails', "1.4.0", :require => false
 end

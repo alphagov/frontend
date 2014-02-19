@@ -22,7 +22,7 @@ class SpecialistSectorsController < ApplicationController
     return error_404 unless @subcategory.present?
 
     @sector = @subcategory.parent
-    @results = content_api.sorted_by(@tag_id, "curated", TAG_TYPE).results
+    @groups = content_api.with_tag(@tag_id, TAG_TYPE, group_by: "format").grouped_results
 
     set_slimmer_dummy_artefact(section_name: @sector.title, section_link: "/#{params[:sector]}")
     set_slimmer_headers(format: "specialist-sector")

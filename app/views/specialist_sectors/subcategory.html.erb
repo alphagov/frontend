@@ -16,16 +16,18 @@
       </div>
     <% end %>
 
-    <nav class="guidance">
-      <h1>Guidance</h1>
-      <ul>
-        <% @results.each do |content| %>
-          <li>
-            <h2><a href="<%= content.web_url %>"><%= specialist_sector_item_title(content.title, @sector) %></a></h2>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
+    <% @groups.each do |group| %>
+      <nav class="index-list <%= group.name.parameterize %>">
+        <h1><%= group.name %></h1>
+        <ul>
+          <% group.items.each do |content| %>
+            <li>
+              <h2><a href="<%= content.web_url %>"><%= specialist_sector_item_title(content.title, @sector) %></a></h2>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    <% end %>
   </div>
 
   <div id="report-a-problem"></div>

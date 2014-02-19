@@ -7,7 +7,7 @@ class SpecialistSectorsController < ApplicationController
   before_filter :set_expiry
 
   def sector
-    @sector = content_api.tag(params[:sector], TAG_TYPE.pluralize)
+    @sector = content_api.tag(params[:sector], TAG_TYPE)
     return error_404 unless @sector.present?
 
     @child_tags = content_api.child_tags(TAG_TYPE, params[:sector])
@@ -18,7 +18,7 @@ class SpecialistSectorsController < ApplicationController
   def subcategory
     @tag_id = "#{params[:sector]}/#{params[:subcategory]}"
 
-    @subcategory = content_api.tag(@tag_id, TAG_TYPE.pluralize)
+    @subcategory = content_api.tag(@tag_id, TAG_TYPE)
     return error_404 unless @subcategory.present?
 
     @sector = @subcategory.parent

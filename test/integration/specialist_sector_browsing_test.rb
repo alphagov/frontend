@@ -9,7 +9,7 @@ class SpecialistSectorBrowsingTest < ActionDispatch::IntegrationTest
       { slug: "oil-and-gas/offshore", title: "Offshore", description: "Information about offshore oil and gas." },
     ]
 
-    content_api_has_tag("specialist_sectors", { slug: "oil-and-gas", title: "Oil and gas", description: "Guidance for the oil and gas industry" })
+    content_api_has_tag("specialist_sector", { slug: "oil-and-gas", title: "Oil and gas", description: "Guidance for the oil and gas industry" })
     content_api_has_child_tags("specialist_sector", "oil-and-gas", subcategories)
 
     visit "/oil-and-gas"
@@ -45,8 +45,8 @@ class SpecialistSectorBrowsingTest < ActionDispatch::IntegrationTest
       "wealth-in-the-oil-and-gas-sector"
     ]
 
-    content_api_has_tag("specialist_sectors", { slug: "oil-and-gas/wells", title: "Wells", description: "Wells, wells, wells." }, "oil-and-gas")
     content_api_has_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", artefacts)
+    content_api_has_tag("specialist_sector", { slug: "oil-and-gas/wells", title: "Wells", description: "Wells, wells, wells." }, "oil-and-gas")
 
     visit "/oil-and-gas/wells"
 

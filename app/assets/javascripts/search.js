@@ -44,4 +44,30 @@ $(function() {
       $selectedTab.val(hash);
     }
   }
+
+  (function trackSearchClicks(){
+    if($tabs.length === 0 || !GOVUK.cookie){
+      return false;
+    }
+    $('#services-information-results-enhanced a, #departments-policy-results-enhanced a, #top-results a').click(function(e){
+      var $link = $(e.target),
+          sublink = '',
+          position, href;
+
+      if($link.closest('ul').hasClass('sections')){
+        if($link.attr('href').indexOf('#') > -1){
+          sublink = '&sublink='+href.split('#')[1];
+        }
+        $link = $link.closest('ul');
+      }
+
+      position = $link.closest('li').index() + 1; // +1 so it isn't zero offset
+
+      if($link.closest('#top-results').length === 0){
+        position = position + 3; // to allow for the top results
+      }
+      GOVUK.cookie('search-click', 'position='+position+sublink);
+    });
+  }());
+
 });

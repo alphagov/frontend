@@ -14,6 +14,7 @@ class RootController < ApplicationController
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
+  EXCEPTIONAL_FORMAT_SLUGS = ["tax-disc"]
 
   def index
     set_slimmer_headers(
@@ -80,7 +81,12 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.html do
-        render @publication.format
+        # render bespoke format for specific publications.
+        if EXCEPTIONAL_FORMAT_SLUGS.include?(params[:slug])
+          render params[:slug]
+        else
+          render @publication.format
+        end
       end
       format.print do
         if PRINT_FORMATS.include?(@publication.format)

@@ -19,11 +19,21 @@
   }
 
   nav {
+    overflow: auto;
+
     &.index-list {
       border-top: 1px solid $border-colour;
 
       ul li {
-        margin-bottom: 0;
+        margin-bottom: 10px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      h2:first-of-type {
+        margin-top: 5px;
       }
     }
 

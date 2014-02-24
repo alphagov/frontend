@@ -9,7 +9,7 @@ class SpecialistSectorBrowsingTest < ActionDispatch::IntegrationTest
       { slug: "oil-and-gas/offshore", title: "Offshore", description: "Information about offshore oil and gas." },
     ]
 
-    content_api_has_tag("specialist_sectors", { slug: "oil-and-gas", title: "Oil and gas", description: "Guidance for the oil and gas industry" })
+    content_api_has_tag("specialist_sector", { slug: "oil-and-gas", title: "Oil and gas", description: "Guidance for the oil and gas industry" })
     content_api_has_child_tags("specialist_sector", "oil-and-gas", subcategories)
 
     visit "/oil-and-gas"
@@ -38,15 +38,21 @@ class SpecialistSectorBrowsingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  should "render an specialist sector sub-category and its artefacts" do
-    artefacts = [
-      "a-history-of-george-orwell",
-      "guidance-on-wellington-boot-regulations",
-      "wealth-in-the-oil-and-gas-sector"
-    ]
+  should "render an specialist sector sub-category and its artefacts in groups" do
+    grouped_artefacts = {
+      "Services" => [
+        "wealth-in-the-oil-and-gas-sector"
+      ],
+      "Guidance" => [
+        "guidance-on-wellington-boot-regulations"
+      ],
+      "Statistics" => [
+        "a-history-of-george-orwell"
+      ]
+    }
 
-    content_api_has_tag("specialist_sectors", { slug: "oil-and-gas/wells", title: "Wells", description: "Wells, wells, wells." }, "oil-and-gas")
-    content_api_has_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", artefacts)
+    content_api_has_tag("specialist_sector", { slug: "oil-and-gas/wells", title: "Wells", description: "Wells, wells, wells." }, "oil-and-gas")
+    content_api_has_grouped_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", "format", grouped_artefacts)
 
     visit "/oil-and-gas/wells"
 
@@ -57,10 +63,16 @@ class SpecialistSectorBrowsingTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Wells")
     end
 
-    within ".guidance ul" do
-      assert page.has_selector?("li", text: "A history of george orwell")
-      assert page.has_selector?("li", text: "Guidance")
+    within ".services ul" do
       assert page.has_selector?("li", text: "Wealth in the oil and gas sector")
+    end
+
+    within ".guidance ul" do
+      assert page.has_selector?("li", text: "Guidance on wellington boot regulations")
+    end
+
+    within ".statistics ul" do
+      assert page.has_selector?("li", text: "A history of george orwell")
     end
   end
 

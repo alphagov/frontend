@@ -8,7 +8,7 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
         { slug: "oil-and-gas/wells", title: "Wells" },
       ]
 
-      content_api_has_tag("specialist_sectors", { slug: "oil-and-gas", title: "Oil and Gas", description: "Guidance for the oil and gas industry" })
+      content_api_has_tag("specialist_sector", { slug: "oil-and-gas", title: "Oil and Gas", description: "Guidance for the oil and gas industry" })
       content_api_has_child_tags("specialist_sector", "oil-and-gas", subcategories)
     end
 
@@ -33,7 +33,7 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
   end
 
   should "return a 404 status for GET sector with an invalid sector tag" do
-    api_returns_404_for("/tags/specialist_sectors/oil-and-gas.json")
+    api_returns_404_for("/tags/specialist_sector/oil-and-gas.json")
     get :sector, sector: "oil-and-gas"
 
     assert_equal 404, response.status
@@ -41,12 +41,15 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
 
   context "GET subcategory with a valid sector tag and subcategory" do
     setup do
-      artefacts = [
-        "guidance-about-wells",
-      ]
+      grouped_artefacts = {
+        "Section" => [
+          "guidance-about-wells",
+          "something-else-about-wells"
+        ]
+      }
 
-      content_api_has_tag("specialist_sectors", { slug: "oil-and-gas/wells", title: "Wells", description: "Things to do with wells" }, "oil-and-gas")
-      content_api_has_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", artefacts)
+      content_api_has_tag("specialist_sector", { slug: "oil-and-gas/wells", title: "Wells", description: "Things to do with wells" }, "oil-and-gas")
+      content_api_has_grouped_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", "format", grouped_artefacts)
     end
 
     should "request the tag from the Content API and assign it" do
@@ -59,7 +62,9 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
     should "request and assign the artefacts for the tag from the Content API" do
       get :subcategory, sector: "oil-and-gas", subcategory: "wells"
 
-      assert_equal "Guidance about wells", assigns(:results).first.title
+      group = assigns(:groups).first
+      assert_equal "Section", group.name
+      assert_equal "Guidance about wells", group.items.first.title
     end
 
     should "set the correct slimmer headers" do
@@ -82,7 +87,7 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
   end
 
   should "return a 404 status for GET subcategory with an invalid subcategory tag" do
-    api_returns_404_for("/tags/specialist_sectors/oil-and-gas%2Fcoal.json")
+    api_returns_404_for("/tags/specialist_sector/oil-and-gas%2Fcoal.json")
     get :subcategory, sector: "oil-and-gas", subcategory: "coal"
 
     assert_equal 404, response.status

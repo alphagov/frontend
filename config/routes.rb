@@ -24,8 +24,10 @@ Frontend::Application.routes.draw do
   get "/business" => "browse#section", :section => "business"
   get "/visas-immigration" => "browse#section", :section => "visas-immigration"
 
-  get "/oil-and-gas" => "specialist_sectors#sector", :sector => "oil-and-gas"
-  get "/oil-and-gas(/:subcategory)" => "specialist_sectors#subcategory", :sector => "oil-and-gas"
+  constraints(sector: /(oil-and-gas|immigration-operational-guidance)/) do
+    get "/:sector" => "specialist_sectors#sector"
+    get "/:sector(/:subcategory)" => "specialist_sectors#subcategory"
+  end
 
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678

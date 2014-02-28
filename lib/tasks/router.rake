@@ -20,6 +20,7 @@ namespace :router do
       %w(/search.json exact),
       %w(/search/opensearch.xml exact),
       %w(/homepage exact),
+      %w(/immigration-operational-guidance prefix),
       %w(/oil-and-gas prefix),
       %w(/tour exact),
       %w(/ukwelcomes exact),

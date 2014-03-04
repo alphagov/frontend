@@ -52,7 +52,7 @@ $(function() {
     $('#services-information-results-enhanced a, #departments-policy-results-enhanced a, #top-results a').click(function(e){
       var $link = $(e.target),
           sublink = '',
-          gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3];
+          gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3],
           position, href;
 
       if($link.closest('ul').hasClass('sections')){

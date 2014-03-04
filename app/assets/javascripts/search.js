@@ -52,6 +52,7 @@ $(function() {
     $('#services-information-results-enhanced a, #departments-policy-results-enhanced a, #top-results a').click(function(e){
       var $link = $(e.target),
           sublink = '',
+          gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3];
           position, href;
 
       if($link.closest('ul').hasClass('sections')){
@@ -66,7 +67,8 @@ $(function() {
       if($link.closest('#top-results').length === 0){
         position = position + 3; // to allow for the top results
       }
-      GOVUK.cookie('search-click', 'position='+position+sublink);
+      gaParams[3] = 'position='+position+sublink;
+      GOVUK.cookie('ga_nextpage_params', gaParams.join(','));
     });
   }());
 

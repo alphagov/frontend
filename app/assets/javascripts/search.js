@@ -56,7 +56,8 @@ $(function() {
           position, href;
 
       if($link.closest('ul').hasClass('sections')){
-        if($link.attr('href').indexOf('#') > -1){
+        href = $link.attr('href');
+        if(href.indexOf('#') > -1){
           sublink = '&sublink='+href.split('#')[1];
         }
         $link = $link.closest('ul');

@@ -1,3 +1,5 @@
+require 'frontend'
+
 Frontend::Application.routes.draw do
   get "/homepage" => redirect("/")
   get "/search.json" => redirect { |params,req| "/api/search.json?q=#{CGI.escape(req.query_parameters['q'] || '')}" }
@@ -24,7 +26,7 @@ Frontend::Application.routes.draw do
   get "/business" => "browse#section", :section => "business"
   get "/visas-immigration" => "browse#section", :section => "visas-immigration"
 
-  constraints(sector: /(oil-and-gas|immigration-operational-guidance)/) do
+  constraints(proc {|req| Frontend.specialist_sectors.include?(req.params[:sector]) }) do
     get "/:sector" => "specialist_sectors#sector"
     get "/:sector(/:subcategory)" => "specialist_sectors#subcategory"
   end

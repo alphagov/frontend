@@ -464,7 +464,9 @@ body.homepage {
       clear: both;
       @extend %contain-floats;
       @include media(tablet){
-        padding: 30px 0;
+        padding: 0 0 30px 0;
+        float: left;
+        width: 33.33%;
       }
 
       ol {
@@ -477,12 +479,7 @@ body.homepage {
       li {
         list-style: none;
         margin: 20px 0;
-        width: 50%;
-        float: left;
-        @include media(tablet){
-          width: 25%;
-          margin: 0;
-        }
+
         a {
           padding: 0 15px;
           display: block;
@@ -499,14 +496,18 @@ body.homepage {
 
           @include media(desktop){
             font-size: 80px;
-            line-height: (80 / 80)
+            line-height: (80 / 80);
           }
+        }
+        &:first-child {
+          margin-top: 10px;
         }
       }
     }
     .departments-promo-sections {
       @extend %contain-floats;
-      padding: 30px 0 0;
+      clear: both;
+      padding: 0;
     }
   }
 

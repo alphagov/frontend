@@ -112,7 +112,7 @@
         </ul>
       </section>
 
-
+   
       <section class="related-links" aria-labelledby="related-links-label">
         <h1 id="related-links-label">Tax discs and car tax</h1>
         <ul>
@@ -123,9 +123,19 @@
         </ul>
       </section>
     </section>
+
+    <p id="perfomance-platform">
+      <%= image_tag 'start-pages/tax-disc/performance-icon.svg', alt: '', width: '25' %>
+      Find out <a href="https://www.gov.uk/performance/tax-disc">how this service is performing</a>
+    </p>
+
   </div>
 
+   
+ 
+
   <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
 
   <div id="report-a-problem"></div>
 </main>

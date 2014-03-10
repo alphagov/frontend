@@ -20,12 +20,15 @@ namespace :router do
       %w(/search.json exact),
       %w(/search/opensearch.xml exact),
       %w(/homepage exact),
-      %w(/immigration-operational-guidance prefix),
-      %w(/oil-and-gas prefix),
       %w(/tour exact),
       %w(/ukwelcomes exact),
       %w(/visas-immigration exact),
     ]
+
+    # add routes for specialist browse sectors
+    Frontend.specialist_sectors.each do |sector|
+      routes << %W{/#{sector} prefix}
+    end
 
     routes.each do |path, type|
       @router_api.add_route(path, type, 'frontend', :skip_commit => true)

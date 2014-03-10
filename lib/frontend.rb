@@ -8,6 +8,8 @@ module Frontend
     [
       "oil-and-gas",
       "immigration-operational-guidance",
+      "schools-colleges",
+      "childrens-services",
     ]
   end
 end

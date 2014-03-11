@@ -338,6 +338,14 @@ body.full-width .tax-disc-start header.page-header div {
   }
 }
 
+#tax-disc-perfomance-platform {
+  margin-top: 0;
+  @include core-16;
+  
+  img {
+    margin-right: 0.5em;
+  }
+}
 
 
 

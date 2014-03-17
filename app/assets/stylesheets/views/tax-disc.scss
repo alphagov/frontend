@@ -342,8 +342,24 @@ body.full-width .tax-disc-start header.page-header div {
   margin-top: 0;
   @include core-16;
   
-  img {
-    margin-right: 0.5em;
+  span {
+    
+    display:block;
+    width:25px;
+    height:15px;
+
+    img {
+      margin-right: 0.5em;
+    }
+
+    @include device-pixel-ratio() {
+      img {
+        display:none;
+      }
+
+      background:image-url("start-pages/tax-disc/performance-icon-2x.png") no-repeat;
+      background-size:100%;
+    }
   }
 }
 

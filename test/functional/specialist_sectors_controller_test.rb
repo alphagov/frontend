@@ -23,6 +23,7 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
       get :sector, sector: "oil-and-gas"
 
       assert_equal "specialist-sector", response.headers["X-Slimmer-Format"]
+      assert_equal "after:.page-header", response.headers["X-Slimmer-Beta-Label"]
     end
 
     should "set expiry headers for 30 minutes" do
@@ -77,6 +78,7 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
       assert_equal "Oil and gas", primary_tag["title"] # lowercase due to the humanisation of slug in test helpers
 
       assert_equal "specialist-sector", response.headers["X-Slimmer-Format"]
+      assert_equal "after:.page-header", response.headers["X-Slimmer-Beta-Label"]
     end
 
     should "set expiry headers for 30 minutes" do

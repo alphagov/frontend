@@ -10,6 +10,7 @@ module Frontend
       "immigration-operational-guidance",
       "schools-colleges",
       "childrens-services",
+      "pharmaceutical-industry",
     ]
   end
 end

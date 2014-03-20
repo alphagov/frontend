@@ -52,7 +52,6 @@ module Frontend
     config.assets.enabled = true
 
     config.assets.precompile += %w(
-      trackers/ab-testing.js
       views/travel-advice.js
       programmes.js
       frontend.js

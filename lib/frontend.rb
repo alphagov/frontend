@@ -11,6 +11,7 @@ module Frontend
       "schools-colleges",
       "childrens-services",
       "pharmaceutical-industry",
+      "environmental-management",
     ]
   end
 end

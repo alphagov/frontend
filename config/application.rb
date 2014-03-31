@@ -55,8 +55,6 @@ module Frontend
       views/travel-advice.js
       programmes.js
       frontend.js
-      media-player-loader.js
-      media-player.css
       tour.js
       application.css
       application-ie6.css

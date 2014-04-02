@@ -12,6 +12,7 @@ module Frontend
       "childrens-services",
       "pharmaceutical-industry",
       "environmental-management",
+      "running-charity",
     ]
   end
 end

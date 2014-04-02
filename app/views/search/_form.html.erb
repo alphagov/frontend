@@ -13,6 +13,9 @@
       </label>
       <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
     </fieldset>
+    <% if @ui.present? -%>
+      <input type="hidden" name="ui" value="<%= @ui %>" />
+    <%- end -%>
     <fieldset class="search-submit">
       <button type="submit" class="button">Search</button>
     </fieldset>

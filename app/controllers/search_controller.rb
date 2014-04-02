@@ -8,6 +8,9 @@ class SearchController < ApplicationController
 
   rescue_from GdsApi::BaseError, with: :error_503
 
+  DEFAULT_RESULTS_PER_PAGE = 50
+  MAX_RESULTS_PER_PAGE = 100
+
   def index
     @search_term = params[:q]
 
@@ -19,7 +22,7 @@ class SearchController < ApplicationController
         "sort" => params[:sort]
       }
       search_params.reject! { |k, v| v.blank? }
-      search_response = search_client.search(@search_term, search_params)
+      search_response = combined_search_client.search(@search_term, search_params)
 
       if search_response["spelling_suggestions"]
         @spelling_suggestion = search_response["spelling_suggestions"].first
@@ -56,10 +59,64 @@ class SearchController < ApplicationController
     end
   end
 
-  protected
+  def unified
+    @ui = :unified
+    @search_term = params[:q]
+
+    if @search_term.blank?
+      render action: 'no_search_term' and return
+    end
+
+    qp = request.query_parameters
+    search_params = {
+      start: qp["start"],
+      count: "#{requested_result_count}",
+      q: qp["q"],
+      filter_organisations: [*qp["filter_organisations"]],
+    }
+    search_response = search_client.unified_search(search_params)
+
+    if search_response["spelling_suggestions"]
+      @spelling_suggestion = search_response["spelling_suggestions"].first
+    end
+
+    @result_count = search_response["total"]
+    if (@result_count == 0)
+      render action: 'no_results' and return
+    end
+
+    @results = search_response["results"].map do |r|
+      if r["index"] == "government"
+        GovernmentResult.new(r)
+      else
+        SearchResult.new(r)
+      end
+    end
+
+    fill_in_slimmer_headers(@result_count)
+
+    @scope = ""
+  end
+
+protected
+
+  def requested_result_count
+    count = request.query_parameters["count"]
+    count = count.nil? ? 0 : count.to_i
+    if count <= 0
+      count = DEFAULT_RESULTS_PER_PAGE
+    elsif count > MAX_RESULTS_PER_PAGE
+      count = MAX_RESULTS_PER_PAGE
+    end
+    count
+  end
+
+  def combined_search_client
+    Frontend.combined_search_client
+  end
 
   def search_client
-    Frontend.combined_search_client
+    Frontend.search_client
   end
 
   def result_class(stream_key)

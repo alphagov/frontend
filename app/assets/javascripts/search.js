@@ -1,5 +1,6 @@
 $(function() {
   var $tabs = $('#search-results-tabs'),
+      $unified = $('#unified-results'),
       $searchForm = $('.js-search-hash');
 
   if($tabs.length > 0){
@@ -46,10 +47,10 @@ $(function() {
   }
 
   (function trackSearchClicks(){
-    if($tabs.length === 0 || !GOVUK.cookie){
+    if(($tabs.length === 0 && $unified.length === 0) || !GOVUK.cookie){
       return false;
     }
-    $('#services-information-results-enhanced a, #departments-policy-results-enhanced a, #top-results a').click(function(e){
+    $('#services-information-results-enhanced a, #departments-policy-results-enhanced a, #top-results a, #unified-results a').click(function(e){
       var $link = $(e.target),
           sublink = '',
           gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3],
@@ -65,7 +66,7 @@ $(function() {
 
       position = $link.closest('li').index() + 1; // +1 so it isn't zero offset
 
-      if($link.closest('#top-results').length === 0){
+      if($unified.length === 0 && $link.closest('#top-results').length === 0){
         position = position + 3; // to allow for the top results
       }
       gaParams[3] = 'position='+position+sublink;

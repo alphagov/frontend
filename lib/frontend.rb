@@ -13,6 +13,7 @@ module Frontend
       "pharmaceutical-industry",
       "environmental-management",
       "running-charity",
+      "competition",
     ]
   end
 end

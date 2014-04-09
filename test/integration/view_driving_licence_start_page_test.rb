@@ -21,14 +21,14 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       end
 
       within ".eligibility-check" do
-        assert page.has_selector?("h1", :text => "Use the new service")
+        assert page.has_selector?("h1", :text => "View the new service")
         assert page.has_link?("what this means for you", :href => "/help/beta")
         assert page.has_selector?("form.get-started[action='https://www.viewdrivingrecord.service.gov.uk'][method=POST]")
       end
 
       within ".secondary-apply" do
-        assert page.has_selector?("h1", :text => "Use the original service")
-        assert page.has_selector?(".destination", :text => "Apply on the DVLA website:")
+        assert page.has_selector?("h1", :text => "View using the original service")
+        assert page.has_selector?(".destination", :text => "View on the DVLA website:")
         assert page.has_selector?("form[action='https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&_pageLabel=GDR&_nfls=false%20'][method=POST]")
       end
 

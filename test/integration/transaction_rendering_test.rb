@@ -329,10 +329,10 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_content?("View your driving licence information")
       end
       within(".primary-apply") do
-        assert page.has_content?("Use the new service")
+        assert page.has_content?("View the new service")
       end
       within(".secondary-apply") do
-        assert page.has_content?("Use the original service")
+        assert page.has_content?("View using the original service")
       end
     end
   end

@@ -4,6 +4,28 @@
 <main id="content" role="main" class="group search ancillary">
   <%= render partial: 'form' %>
 
+  <div class="search-options">
+    <h2>Search options</h2>
+    <select multiple size=20>
+    <%= @facets["organisations"]["options"].each do |facet| %>
+      <option name="filter_organisations[]" value="{% facet['value']['slug'] %}">
+      <% if facet["value"]["acronym"] %>
+        <%= facet["value"]["title"] %> (<%= facet["value"]["acronym"] %>)
+      <% else %>
+        <%= facet["value"]["title"] %>
+      <% end %>
+      - <%= facet["documents"] %> documents</option>
+
+    <%- end -%>
+    </select>
+    <%- if @facets["organisations"]["missing_options"] > 0 -%>
+      <%= @facets["organisations"]["missing_options"] %> more
+    <%- end -%>
+  </div>
+
+  <div class="result-count">
+    You are viewing all <%= @result_count %> results found <%= @scope %>
+  </div>
   <div id="unified-results">
     <h2 class="visuallyhidden">Top result</h2>
     <ul class="results-list">

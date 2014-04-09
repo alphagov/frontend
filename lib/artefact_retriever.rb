@@ -15,12 +15,7 @@ class ArtefactRetriever
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
-    artefact = content_api.artefact(slug, artefact_options(snac, location, edition))
-
-    unless artefact
-      logger.warn("Failed to fetch artefact #{slug} from Content API. Response code: 404")
-      raise RecordNotFound
-    end
+    artefact = content_api.artefact!(slug, artefact_options(snac, location, edition))
 
     # The foreign-travel-advice override is necessary because it has a format of custom-application
     # and we don't want to add custom-application to supported formats, otherwise we get errors if
@@ -29,7 +24,10 @@ class ArtefactRetriever
 
     artefact
   rescue GdsApi::HTTPErrorResponse => e
-    if e.code == 410
+    if e.code == 404
+      logger.warn("Failed to fetch artefact #{slug} from Content API. Response code: 404")
+      raise RecordNotFound
+    elsif e.code == 410
       raise RecordArchived
     elsif e.code and e.code >= 500
       statsd.increment("content_api_error")

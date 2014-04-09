@@ -2,7 +2,7 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
 
-  before_filter :setup_slimmer_artefact, only: [:index]
+  before_filter :setup_slimmer_artefact, only: [:index, :unified]
   before_filter :set_expiry
   helper_method :ministerial_departments, :other_organisations, :closed_organisations, :selected_tab
 
@@ -62,17 +62,16 @@ class SearchController < ApplicationController
   def unified
     @ui = :unified
     @search_term = params[:q]
-
     if @search_term.blank?
       render action: 'no_search_term' and return
     end
 
     qp = request.query_parameters
     search_params = {
-      start: qp["start"],
+      start: qp[:start],
       count: "#{requested_result_count}",
-      q: qp["q"],
-      filter_organisations: [*qp["filter_organisations"]],
+      q: qp[:q],
+      filter_organisations: [*qp[:filter_organisations]],
     }
     search_response = search_client.unified_search(search_params)
 
@@ -94,8 +93,6 @@ class SearchController < ApplicationController
     end
 
     fill_in_slimmer_headers(@result_count)
-
-    @scope = ""
   end
 
 protected

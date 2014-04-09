@@ -438,9 +438,13 @@ body.homepage {
           margin: 0;
           padding: 0 15px;
         }
-        h2 {
+        h2, a {
           @include core-19;
           font-weight: bold;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
         }
         p {
           @include core-16;
@@ -588,6 +592,10 @@ body.homepage {
         @include core-19;
         a {
           font-weight: bold;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
         }
         span {
           display: inline-block;

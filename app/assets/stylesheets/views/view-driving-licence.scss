@@ -5,8 +5,8 @@
 // override mad declaration in static that applies styles to ANY div inside .page-header
 // about the least future-proof css evah.  :/
 
-#wrapper.service .tax-disc-start header.page-header div,
-body.full-width .tax-disc-start header.page-header div {
+#wrapper.service .view-driving-licence-start header.page-header div,
+body.full-width .view-driving-licence-start header.page-header div {
 
   padding:15px 0 0 0;
 
@@ -22,7 +22,7 @@ body.full-width .tax-disc-start header.page-header div {
 
 
 
-#content.tax-disc-start {
+#content.view-driving-licence-start {
   .start-header,
   .start-container {
     background-color: #fff;
@@ -33,6 +33,9 @@ body.full-width .tax-disc-start header.page-header div {
     }
   }
 
+  .start-page-description {
+    margin-bottom: 30px;
+  }
 
   ul {
     padding-left:20px;
@@ -251,50 +254,17 @@ body.full-width .tax-disc-start header.page-header div {
     @include copy-16;
   }
 
-  .contact-numbers {
-      padding-left: 0;
-      
-      li {
-        @include core-24;
-        font-weight: 700;
-        width: 100%;
-        float: left;
-        list-style: none;
-        padding-left: 0;
-        padding-bottom: 1em;
-
-        @include media(desktop) {
-          width: 50%;
-        }
-      }
-
-      .contact-type {
-        @include core-19;
-        font-weight: 400;
-        display:block;
-      }
+  span.beta {
+    display: inline-block;
+    background: #f47738;
+    color: #fff;
+    @include bold-16;
+    line-height:1;
+    text-transform: uppercase;
+    padding: 5px 5px 2px 6px;
+    vertical-align: middle;
+    margin-right:10px;
   }
-
-  .call-charges {
-    p {
-      @include core-14;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
-      margin-top: 0;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        @include core-14;
-        padding-left: 0;
-        margin-left: 0;
-      }
-    }
-  }
-
 
 
   .destination {
@@ -307,18 +277,16 @@ body.full-width .tax-disc-start header.page-header div {
     margin-top: 0;
   }
 
-  .by-phone {
+  .by-post {
     margin-top: 20px;
 
     @include media(desktop){
       margin-top: 0;
     }
-  }
-
-  .at-post-office {
-    margin-top: 40px;
-    @include media(desktop){
-      margin-top: 50px;
+    .address p {
+      @include core-16;
+      font-weight: 700;
+      margin: 40px 0 40px 0;
     }
   }
 
@@ -331,18 +299,3 @@ body.full-width .tax-disc-start header.page-header div {
     margin-top:0;
   }
 }
-
-#tax-disc-perfomance-platform {
-  margin-top: 0;
-  @include core-16;
-  
-  img {
-    margin-right: 0.5em;
-  }
-}
-
-
-
-
-
-

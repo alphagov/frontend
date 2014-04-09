@@ -14,7 +14,7 @@ class RootController < ApplicationController
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
-  EXCEPTIONAL_FORMAT_SLUGS = ["tax-disc"]
+  EXCEPTIONAL_FORMAT_SLUGS = %w(tax-disc view-driving-licence)
 
   def index
     set_slimmer_headers(

@@ -66,12 +66,11 @@ class SearchController < ApplicationController
       render action: 'no_search_term' and return
     end
 
-    qp = request.query_parameters
     search_params = {
-      start: qp[:start],
+      start: params[:start],
       count: "#{requested_result_count}",
-      q: qp[:q],
-      filter_organisations: [*qp[:filter_organisations]],
+      q: @search_term,
+      filter_organisations: [*params[:filter_organisations]],
     }
     search_response = search_client.unified_search(search_params)
 
@@ -84,11 +83,11 @@ class SearchController < ApplicationController
       render action: 'no_results' and return
     end
 
-    @results = search_response["results"].map do |r|
-      if r["index"] == "government"
-        GovernmentResult.new(r)
+    @results = search_response["results"].map do |result|
+      if result["index"] == "government"
+        GovernmentResult.new(result)
       else
-        SearchResult.new(r)
+        SearchResult.new(result)
       end
     end
 

@@ -340,26 +340,14 @@ body.full-width .tax-disc-start header.page-header div {
 
 #tax-disc-perfomance-platform {
   margin-top: 0;
+  padding-left: 35px;
   @include core-16;
-  
-  span {
-    
-    display:block;
-    width:25px;
-    height:15px;
 
-    img {
-      margin-right: 0.5em;
-    }
+  background:image-url("start-pages/tax-disc/performance-icon.png") no-repeat;
 
-    @include device-pixel-ratio() {
-      img {
-        display:none;
-      }
-
-      background:image-url("start-pages/tax-disc/performance-icon-2x.png") no-repeat;
-      background-size:100%;
-    }
+  @include device-pixel-ratio() {  
+    background: image-url("start-pages/tax-disc/performance-icon-2x.png") no-repeat;
+    background-size: 25px;
   }
 }
 

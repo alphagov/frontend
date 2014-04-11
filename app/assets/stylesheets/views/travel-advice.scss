@@ -97,7 +97,10 @@
         li {
           a {
             margin-right: 10px;
-
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
           }
           color: $grey-1;
         }

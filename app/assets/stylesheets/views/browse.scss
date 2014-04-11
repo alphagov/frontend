@@ -37,6 +37,14 @@
     h2, h3 {
       @include bold-19;
       margin-bottom: 0;
+      
+      a {
+        text-decoration: none;
+      }
+
+       a:hover {
+          text-decoration: underline;
+        }
     }
 
     @include media(mobile) {

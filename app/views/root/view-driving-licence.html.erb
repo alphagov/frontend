@@ -1,0 +1,127 @@
+<main id="content" role="main" class="view-driving-licence-start group start-page">
+  <header class="page-header group start-header full-width">
+    <div class="title">
+      <h1>View your driving licence information</h1>
+    </div>
+
+    <nav class="popular-needs">
+      <ul class="top-tasks">
+        <li><a href="/change-address-driving-licence">Change the address on your driving licence</a></li>
+        <li><a href="/driving-licence-categories">Driving licence categories</a></li>
+        <li><a href="/driving-licence-codes">Driving licence codes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="start-container full-width start-page">
+
+
+    <p class="start-page-description">Find out which vehicles you can drive, penalty points and when your licence expires.</p>
+
+    <section class="primary-apply" aria-labelledby="primary-apply-label">
+      <div class="eligibility-check">
+
+        <h1 id="primary-apply-label">View the new service <span class="beta">beta</span></h1>
+        <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+
+        <form class="get-started" action="https://www.viewdrivingrecord.service.gov.uk" method="POST">
+          <input type="submit" value="View now" class="button medium" />
+        </form>
+      </div>
+
+      <div class="you-will-need">
+        <h2>You will need</h2>
+        <ul>
+          <li>your driving licence number</li>
+          <li>your <a href="/lost-national-insurance-number">National Insurance number</a></li>
+          <li>the postcode on your driving licence</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="secondary-apply" aria-labelledby="secondary-apply-label">
+      <h1 id="secondary-apply-label">View using the original service</h1>
+
+      <div class="application-details">
+        <p class="opening">You'll need to have the following to use the original service:</p>
+        <ul>
+          <li>a <a href="/government-gateway">Government Gateway</a> account</li>
+          <li>a photocard licence that you applied for online (eg you applied for a <a href="/apply-first-provisional-driving-licence">provisional licence</a> or <a href="/apply-online-to-replace-a-driving-licence">replaced your licence</a> online)</li>
+        </ul>
+        <span class="destination">View on the DVLA website:</span>
+        <form action="https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&amp;_pageLabel=GDR&amp;_nfls=false%20" method="POST">
+          <input type="submit" value="View now" class="button button-secondary" />
+        </form>
+
+      </div>
+    </section>
+
+
+    <section class="offline-apply" aria-labelledby="offline-apply-label">
+      <h1 id="offline-apply-label">Other ways to apply</h1>
+      <div class="contacts">
+
+        <div class="by-post">
+          <h2>By post</h2>
+
+          <p>To see what information the DVLA holds on your driving licence you can either send <a href="/government/publications/d888-request-by-an-individual-for-information-from-their-driving-record">a request form</a> or a letter with the following information to the DVLA:</p>
+
+          <ul>
+            <li>your full name and address</li>
+            <li>your driver licence number (or your date of birth if you don’t know your driver number)</li>
+          </ul>
+          <p>You must include a cheque or postal order for £5 payable to ‘DVLA, Swansea’.</p>
+
+          <p>Send your request to:</p>
+
+          <div class="address">
+            <div class="adr org fn">
+              <p>
+                Driver Licence Validation Service<br/>
+                DVRE 5<br/>
+                D7<br/>
+                DVLA<br/>
+                Swansea<br/>
+                SA99 1AJ
+              </p>
+            </div>
+          </div>
+
+          <div class="application-notice info-notice">
+            <p>It’s a criminal offence to obtain someone else’s personal information without their permission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="help-and-related-links">
+      <section class="help" aria-labelledby="help-label">
+        <h1 id="help-label">Help with driving licences</h1>
+        <ul>
+          <li>
+            <a href="/contact-the-dvla">Contact DVLA for questions about driving licences</a>
+          </li>
+        </ul>
+      </section>
+
+
+      <section class="related-links" aria-labelledby="related-links-label">
+        <h1 id="related-links-label">Driving licences</h1>
+        <ul>
+          <li><a href="/change-address-driving-licence">Change the address on your driving licence</a></li>
+          <li><a href="/driving-licence-categories">Driving licence categories</a></li>
+          <li><a href="/driving-licence-codes">Driving licence codes</a></li>
+        </ul>
+      </section>
+    </section>
+
+  </div>
+
+  <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
+  <div id="report-a-problem"></div>
+</main>
+
+<% content_for :body_classes do %>full-width<% end %>

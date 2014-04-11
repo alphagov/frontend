@@ -9,7 +9,7 @@ class HelpControllerTest < ActionController::TestCase
         stub("HTTP_Response", :code => 200, :body => @json_data),
         :web_urls_relative_to => "https://www.gov.uk"
       )
-      GdsApi::ContentApi.any_instance.stubs(:artefact).returns(@artefact)
+      GdsApi::ContentApi.any_instance.stubs(:artefact!).returns(@artefact)
       #@controller.stubs(:fetch_artefact).returns(@index_artefact)
     end
 

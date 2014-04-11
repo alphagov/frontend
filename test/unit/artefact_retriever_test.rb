@@ -16,29 +16,29 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
       stub("HTTP_Response", :code => 200, :body => json_data),
       :web_urls_relative_to => "https://www.gov.uk"
     )
-    @content_api.expects(:artefact).with('foreign-travel-advice', {}).returns(index_artefact)
+    @content_api.expects(:artefact!).with('foreign-travel-advice', {}).returns(index_artefact)
     assert_nothing_raised do
       @retriever.fetch_artefact('foreign-travel-advice')
     end
   end
 
   should "raise a RecordNotFound if no artefact is returned" do
+    @content_api.expects(:artefact!).with('beekeeping', {}).raises(GdsApi::HTTPErrorResponse.new(404))
     assert_raises RecordNotFound do
-      @content_api.expects(:artefact).with('beekeeping', {}).returns(nil)
       @retriever.fetch_artefact('beekeeping')
     end
   end
 
   context "handling http errors" do
     should "raise a RecordArchived if a 410 status is returned" do
-      @content_api.expects(:artefact).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(410))
+      @content_api.expects(:artefact!).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(410))
       assert_raises ArtefactRetriever::RecordArchived do
         @retriever.fetch_artefact('fooey')
       end
     end
 
     should "re-raise a GdsApi::HttpErrorResponse on 5xx error" do
-      @content_api.expects(:artefact).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(503))
+      @content_api.expects(:artefact!).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(503))
       e = nil
       assert_raises GdsApi::HTTPErrorResponse do
         begin
@@ -54,7 +54,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
 
     should "handle non-HTTP level errors" do
       # e.g. tcp level errors that won't have a HTTP status code
-      @content_api.expects(:artefact).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(nil))
+      @content_api.expects(:artefact!).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(nil))
       assert_raises GdsApi::HTTPErrorResponse do
         @retriever.fetch_artefact('fooey')
       end
@@ -73,7 +73,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
     )
 
     assert_raises ArtefactRetriever::UnsupportedArtefactFormat do
-      @content_api.expects(:artefact).with('jobsearch', {}).returns(index_artefact)
+      @content_api.expects(:artefact!).with('jobsearch', {}).returns(index_artefact)
       @retriever.fetch_artefact('jobsearch')
     end
   end

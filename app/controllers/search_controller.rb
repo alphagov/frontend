@@ -2,51 +2,31 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
 
-  before_filter :setup_slimmer_artefact, only: [:index]
+  before_filter :setup_slimmer_artefact, only: [:index, :unified]
   before_filter :set_expiry
   helper_method :ministerial_departments, :other_organisations, :closed_organisations, :selected_tab
 
   rescue_from GdsApi::BaseError, with: :error_503
+
+  DEFAULT_RESULTS_PER_PAGE = 50
+  MAX_RESULTS_PER_PAGE = 100
 
   def index
     @search_term = params[:q]
 
     if @search_term.blank?
       render action: 'no_search_term' and return
-    else
-      search_params = {
-        "organisation_slug" => params[:organisation],
-        "sort" => params[:sort]
-      }
-      search_params.reject! { |k, v| v.blank? }
-      search_response = search_client.search(@search_term, search_params)
-
-      if search_response["spelling_suggestions"]
-        @spelling_suggestion = search_response["spelling_suggestions"].first
-      end
-
-      # This is the total number of results displayed on the page, not the
-      # total number of available results, hence counting up the result streams
-      # rather than taking their "total" attributes
-      @result_count = search_response["streams"].values.sum { |s| s["results"].count }
-
-      response_streams = search_response["streams"].except("top-results")
-      @streams = response_streams.map { |stream_key, stream_data|
-        SearchStream.new(
-          stream_key,
-          stream_data["title"],
-          stream_data["results"].map { |r| result_class(stream_key).new(r) },
-          stream_key == "departments-policy"
-        )
-      }
-
-      top_result_stream = search_response["streams"]["top-results"]
-      @top_results = top_result_stream["results"].map { |r| GovernmentResult.new(r) }
     end
 
-    fill_in_slimmer_headers(@result_count)
-
+    search_response = combined_search_client.search(@search_term, combined_search_params)
+    results = TabbedSearchResultsPresenter.new(search_response)
+    @spelling_suggestion = results.spelling_suggestion
+    @result_count = results.result_count
+    @streams = results.streams
+    @top_results = results.top_results
     @active_stream = active_stream(@streams)
+
+    fill_in_slimmer_headers(@result_count)
 
     # We want to show the tabs if there's a filter in place
     # because there might be results with the filter turned off, but you can't
@@ -56,19 +36,59 @@ class SearchController < ApplicationController
     end
   end
 
-  protected
+  def unified
+    @ui = :unified
+    @search_term = params[:q]
+    if @search_term.blank?
+      render action: 'no_search_term' and return
+    end
 
-  def search_client
+    search_params = {
+      start: params[:start],
+      count: "#{requested_result_count}",
+      q: @search_term,
+      filter_organisations: [*params[:filter_organisations]],
+    }
+    search_response = search_client.unified_search(search_params)
+
+    results = UnifiedSearchResultsPresenter.new(search_response)
+    @spelling_suggestion = results.spelling_suggestion
+    @result_count = results.result_count
+    @results = results.results
+
+    fill_in_slimmer_headers(@result_count)
+
+    if (@result_count == 0)
+      render action: 'no_results' and return
+    end
+  end
+
+protected
+
+  def combined_search_params
+    {
+      "organisation_slug" => params[:organisation],
+      "sort" => params[:sort],
+    }.reject { |_, v| v.blank? }
+  end
+
+  def requested_result_count
+    count = request.query_parameters["count"]
+    count = count.nil? ? 0 : count.to_i
+    if count <= 0
+      count = DEFAULT_RESULTS_PER_PAGE
+    elsif count > MAX_RESULTS_PER_PAGE
+      count = MAX_RESULTS_PER_PAGE
+    end
+    count
+  end
+
+  def combined_search_client
     Frontend.combined_search_client
   end
 
-  def result_class(stream_key)
-    case stream_key
-    when "departments-policy"
-      GovernmentResult
-    else
-      SearchResult
-    end
+  def search_client
+    Frontend.search_client
   end
 
   def fill_in_slimmer_headers(result_count)

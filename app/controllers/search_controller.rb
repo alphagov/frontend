@@ -51,19 +51,10 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    if search_response["spelling_suggestions"]
-      @spelling_suggestion = search_response["spelling_suggestions"].first
-    end
-
-    @result_count = search_response["total"]
-
-    @results = search_response["results"].map do |result|
-      if result["index"] == "government"
-        GovernmentResult.new(result)
-      else
-        SearchResult.new(result)
-      end
-    end
+    results = UnifiedSearchResultsPresenter.new(search_response)
+    @spelling_suggestion = results.spelling_suggestion
+    @result_count = results.result_count
+    @results = results.results
 
     fill_in_slimmer_headers(@result_count)
 

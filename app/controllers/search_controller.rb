@@ -16,40 +16,17 @@ class SearchController < ApplicationController
 
     if @search_term.blank?
       render action: 'no_search_term' and return
-    else
-      search_params = {
-        "organisation_slug" => params[:organisation],
-        "sort" => params[:sort]
-      }
-      search_params.reject! { |k, v| v.blank? }
-      search_response = combined_search_client.search(@search_term, search_params)
-
-      if search_response["spelling_suggestions"]
-        @spelling_suggestion = search_response["spelling_suggestions"].first
-      end
-
-      # This is the total number of results displayed on the page, not the
-      # total number of available results, hence counting up the result streams
-      # rather than taking their "total" attributes
-      @result_count = search_response["streams"].values.sum { |s| s["results"].count }
-
-      response_streams = search_response["streams"].except("top-results")
-      @streams = response_streams.map { |stream_key, stream_data|
-        SearchStream.new(
-          stream_key,
-          stream_data["title"],
-          stream_data["results"].map { |r| result_class(stream_key).new(r) },
-          stream_key == "departments-policy"
-        )
-      }
-
-      top_result_stream = search_response["streams"]["top-results"]
-      @top_results = top_result_stream["results"].map { |r| GovernmentResult.new(r) }
     end
 
-    fill_in_slimmer_headers(@result_count)
-
+    search_response = combined_search_client.search(@search_term, combined_search_params)
+    results = TabbedSearchResultsPresenter.new(search_response)
+    @spelling_suggestion = results.spelling_suggestion
+    @result_count = results.result_count
+    @streams = results.streams
+    @top_results = results.top_results
     @active_stream = active_stream(@streams)
+
+    fill_in_slimmer_headers(@result_count)
 
     # We want to show the tabs if there's a filter in place
     # because there might be results with the filter turned off, but you can't
@@ -79,9 +56,6 @@ class SearchController < ApplicationController
     end
 
     @result_count = search_response["total"]
-    if (@result_count == 0)
-      render action: 'no_results' and return
-    end
 
     @results = search_response["results"].map do |result|
       if result["index"] == "government"
@@ -92,9 +66,20 @@ class SearchController < ApplicationController
     end
 
     fill_in_slimmer_headers(@result_count)
+
+    if (@result_count == 0)
+      render action: 'no_results' and return
+    end
   end
 
 protected
+
+  def combined_search_params
+    {
+      "organisation_slug" => params[:organisation],
+      "sort" => params[:sort],
+    }.reject { |_, v| v.blank? }
+  end
 
   def requested_result_count
     count = request.query_parameters["count"]
@@ -113,15 +98,6 @@ protected
 
   def search_client
     Frontend.search_client
-  end
-
-  def result_class(stream_key)
-    case stream_key
-    when "departments-policy"
-      GovernmentResult
-    else
-      SearchResult
-    end
   end
 
   def fill_in_slimmer_headers(result_count)

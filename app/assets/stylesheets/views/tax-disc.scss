@@ -73,11 +73,7 @@ body.full-width .tax-disc-start header.page-header div {
         }
 
         span.beta {
-
-          margin-top: 5px;
-
           @include media(desktop) {
-            margin-top: 0;
             margin-left:10px;
           }
         }
@@ -249,6 +245,18 @@ body.full-width .tax-disc-start header.page-header div {
     margin-left: 30px;
     margin-bottom: 15px;
     @include copy-16;
+  }
+
+  span.beta {
+    display: inline-block;
+    background: #f47738;
+    color: #fff;
+    @include bold-16;
+    line-height:1;
+    text-transform: uppercase;
+    padding: 5px 5px 2px 6px;
+    vertical-align: middle;
+    margin-right:10px;
   }
 
   .contact-numbers {

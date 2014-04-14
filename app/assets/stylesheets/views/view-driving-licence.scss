@@ -76,11 +76,7 @@ body.full-width .view-driving-licence-start header.page-header div {
         }
 
         span.beta {
-
-          margin-top: 5px;
-
           @include media(desktop) {
-            margin-top: 0;
             margin-left:10px;
           }
         }

@@ -24,6 +24,12 @@
         <h1 id="primary-apply-label">View the new service <span class="beta">beta</span></h1>
         <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
 
+        <% # Note to future coders: this is a FORM because of Dragon Dictation -
+           # the users expect the button to actually be a button (rather than
+           # semantically a link), so we need to make it a button. This is a
+           # design/accessibility trade-off %>
+
+        <% # It's a GET because the downstream server 405s POSTs (as it should) %>
         <form class="get-started" action="https://www.viewdrivingrecord.service.gov.uk" method="GET">
           <input type="submit" value="View now" class="button medium" />
         </form>

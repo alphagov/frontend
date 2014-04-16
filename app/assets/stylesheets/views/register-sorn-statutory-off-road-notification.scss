@@ -1,0 +1,366 @@
+@import "design-patterns/_buttons";
+
+
+
+// override mad declaration in static that applies styles to ANY div inside .page-header
+// about the least future-proof css evah.  :/
+
+#wrapper.service .register-sorn-statutory-off-road-notification header.page-header div,
+body.full-width .register-sorn-statutory-off-road-notification header.page-header div {
+
+  padding:15px 0 0 0;
+
+  @include media(desktop) {
+    padding: 30px 0 0 0;
+  }
+
+  h1 {
+    padding-left:0;
+    max-width: 590px;
+  }
+}
+
+
+
+#content.register-sorn-statutory-off-road-notification {
+  .start-header,
+  .start-container {
+    background-color: #fff;
+    padding: 0 15px 0 15px;
+    
+    @include media(tablet) {
+      padding: 0 30px 0 30px;
+    }
+  }
+
+
+  ul {
+    padding-left:20px;
+
+    li {
+      padding:0;
+      @include core-19;
+      
+    }
+  }
+
+  li, p{
+    max-width:560px;
+  }
+
+  summary {
+    color:$link-colour;
+    text-decoration:underline;
+    margin: 20px 0 20px 0;
+  }
+
+  .start-page {
+      
+    section {
+      padding-top: 1em;
+      padding-bottom: 1em;
+      
+      h1,h2 {
+        margin:0;
+        padding:0;
+      }
+
+      h1 {
+        @include bold-24;
+
+        @include media(desktop) {
+          float: left; 
+        }
+
+        span.beta {
+          @include media(desktop) {
+            margin-left:10px;
+          }
+        }
+      }
+
+      h2 {
+        @include bold-19;
+
+        @include media(desktop) {
+          @include bold-24;
+        }
+      }
+
+      .eligibility-check {
+        @include media(desktop){
+          width: 65%;
+          margin-right:5%;
+          float:left;
+          margin-bottom: 42px;
+        }
+
+        h1 {
+          float: none;
+        }
+      }
+
+      .you-will-need {
+        display: none;
+
+        @include media(desktop){
+          display: block;
+          width:30%;
+          float:right;
+          margin-bottom: 42px;
+        }
+      }
+
+      .application-details,
+      .contacts {
+        display: block;
+
+        margin-left:0;
+
+        @include media($min-width:'769px'){
+          margin-left: 55%;
+        }
+
+        @include media($min-width:'831px'){
+          margin-left: 50%;
+        }
+      }
+
+      .help {
+        @include media(desktop){
+          width:47%;
+          margin-right:3%;
+          float:left;
+          margin-bottom: 42px;
+          border-top: 10px solid $light-blue;
+          padding-top: 1em; 
+          min-height:150px;
+        }
+      }
+      .related-links {
+        @include media(desktop){
+          width:50%;
+          float:right;
+          margin-bottom: 42px;
+          border-top: 10px solid $light-blue;
+          padding-top: 1em;
+          min-height:150px;
+        }
+      }
+    }
+
+    .primary-apply,
+    .secondary-apply,
+    .offline-apply {
+      clear:both;
+      border-top: 1px solid $border-colour;
+      margin-bottom:42px;
+
+      .this-is-a-beta {
+        margin:0;
+        padding-top:12px;
+        margin-bottom:20px;
+      }
+    }
+
+    .secondary-apply,
+    .offline-apply {
+      .this-is-a-beta {
+        max-width: 350px;
+
+        @include media(desktop){
+          float: left;
+        }
+      }
+    }
+
+    .help-and-related-links {
+      display:inline-block;
+      width: 100%;
+      clear:both;
+      float:none;
+      padding-top: 0;
+
+      h1 {
+        @include media(desktop) {
+          float: none;  
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding-left:0;
+
+        li {
+          @include core-16;
+          margin-bottom:10px;
+        }
+      }
+    }
+  }
+
+
+  .title {
+    @include media(desktop){
+      width:70%;
+      float:left;
+    }
+  }
+
+
+  nav.popular-needs {
+
+    display:none;
+
+    @include media(desktop){
+      display:block;
+      width:30%;
+      float:right;
+      padding-top:20px;
+    }
+
+    ul.top-tasks {
+      list-style: none;
+      padding-left:0;
+
+      li {
+        @include copy-16;
+        font-weight: 700;
+
+        a {
+          text-decoration:none;
+
+          &:hover {
+            text-decoration:underline;
+          }
+        }
+      }
+    }
+  }
+
+  .this-is-a-beta {
+    clear: both;
+    margin:0;
+    padding:0;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    @include copy-16;
+  }
+
+  span.beta {
+    display: inline-block;
+    background: #f47738;
+    color: #fff;
+    @include bold-16;
+    line-height:1;
+    text-transform: uppercase;
+    padding: 5px 5px 2px 6px;
+    vertical-align: middle;
+    margin-right:10px;
+  }
+
+  .contact-numbers {
+      padding-left: 0;
+      
+      li {
+        @include core-24;
+        font-weight: 700;
+        width: 100%;
+        float: left;
+        list-style: none;
+        padding-left: 0;
+        padding-bottom: 1em;
+
+        @include media(desktop) {
+          width: 50%;
+        }
+      }
+
+      .contact-type {
+        @include core-19;
+        font-weight: 400;
+        display:block;
+      }
+  }
+
+  .call-charges {
+    p {
+      @include core-14;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        @include core-14;
+        padding-left: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
+
+
+  .destination {
+    display: block;
+    margin-top:25px;
+    margin-bottom:5px;
+  }
+
+  form.get-started {
+    margin-top: 0;
+  }
+
+  .by-phone {
+    margin-top: 20px;
+
+    @include media(desktop){
+      margin-top: 0;
+    }
+  }
+
+  .by-post {
+    margin-top: 40px;
+
+    @include media(desktop){
+      margin-top: 50px;
+    }
+    .address p {
+      @include core-16;
+      font-weight: 700;
+      margin: 40px 0 40px 0;
+    }
+  }
+
+  .button-secondary{
+    @include button($grey-3);
+    font-weight:700;
+  }
+
+  .opening {
+    margin-top:0;
+  }
+}
+
+#tax-disc-perfomance-platform {
+  margin-top: 0;
+  padding-left: 35px;
+  @include core-16;
+
+  background:image-url("start-pages/tax-disc/performance-icon.png") no-repeat;
+
+  @include device-pixel-ratio() {  
+    background: image-url("start-pages/tax-disc/performance-icon-2x.png") no-repeat;
+    background-size: 25px;
+  }
+}
+
+
+
+
+
+

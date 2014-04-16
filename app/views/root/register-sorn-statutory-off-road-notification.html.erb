@@ -1,0 +1,149 @@
+<main id="content" role="main" class="register-sorn-statutory-off-road-notification group start-page">
+  <header class="page-header group start-header full-width">
+    <div class="title">
+      <h1>Make a SORN</h1>
+    </div>
+
+    <nav class="popular-needs">
+      <ul class="top-tasks">
+         <li><a href="/tax-disc">Renew a tax disc</a></li>
+        <li><a href="/get-vehicle-information-from-dvla">Get vehicle information from DVLA</a></li>
+        <li><a href="//apply-for-tax-disc-refund-form-v14">Apply for a tax disc refund (form V14)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="start-container full-width start-page">
+
+
+    <p class="start-page-description">Make a Statutory Off Road Notification (SORN) if you don’t use or keep your vehicle on a public road (eg you keep it in a garage, on a drive or on private land).</p>
+
+    <section class="primary-apply" aria-labelledby="primary-apply-label">
+      <div class="eligibility-check">
+
+        <h1 id="primary-apply-label">Before you start</h1>
+        <p>To apply online you'll need either:</p>
+        <ul>
+          <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
+          <li>the 11 digit reference number from your log book (V5C)</li>
+        </ul>
+
+        <span class="destination">Apply on the DVLA website:</span>
+        <form class="get-started" action="https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/sorn?execution=e1s1" method="POST">
+          <input type="submit" value="Apply now" class="button medium" />
+        </form>
+
+
+      </div>
+
+      <div class="you-will-need">
+        <h2>You will need</h2>
+        <p>Tax disc renewal letter (V11)</p>
+        <%= image_tag 'start-pages/tax-disc/v11-diagram.png', alt: 'Tax disc renewal letter (V11)', width: '220' %>
+      </div>
+    </section>
+
+
+    <section class="secondary-apply" aria-labelledby="secondary-apply-label">
+      <h1 id="secondary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
+      <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+
+      <div class="application-details">
+        <p class="opening">You'll need either:</p>
+        <ul>
+          <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
+          <li>the 11 digit reference number from your log book (V5C)</li>
+        </ul>
+
+        <form action="https://www.sorn.service.gov.uk" method="POST">
+          <input type="submit" value="Apply now" class="button button-secondary" />
+        </form>
+
+      </div>
+    </section>
+
+
+    <section class="offline-apply" aria-labelledby="offline-apply-label">
+      <h1 id="offline-apply-label">Other ways to apply</h1>
+      <div class="contacts">
+
+        <div class="by-phone">
+          <h2>By phone</h2>
+          <ul class="contact-numbers">
+            <li><span class="contact-type">Telephone:</span> 0300 123 4321</li>
+            <li><span class="contact-type">Textphone:</span> 0300 790 6201</li>
+          </ul>
+
+          <div class="call-charges">
+            <p>Calls to 03 numbers cost approximately:</p>
+            <ul class="charges">
+              <li>2p to 10p from landlines</li>
+              <li>10p to 40p from mobile phones</li>
+            </ul>
+            <p>
+              <a href="/call-charges">Find out more about call charges</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="by-post">
+          <h2>By Post</h2>
+
+          <p>Send your SORN application (form V890) to DVLA. You can make a SORN up to 2 calendar months in advance by post, but if you’re doing it this far in advance include a letter explaining why.
+          </p>
+
+          <div class="address">
+            <div class="adr org fn">
+              <p>
+                Driver Licence Validation Service<br/>
+                DVRE 5<br/>
+                D7<br/>
+                DVLA<br/>
+                Swansea<br/>
+                SA99 1AJ
+              </p>
+            </div>
+          </div>
+
+          <p>You must make a SORN by post if you’re:</p>
+          <ul>
+            <li>recently registered as the vehicle’s keeper and have received the V5C registration certificate in the current month</li>
+            <li>not yet registered as the vehicle’s keeper</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="help-and-related-links">
+      <section class="help" aria-labelledby="help-label">
+        <h1 id="help-label">Help with SORN</h1>
+        <ul>
+          <li>
+            <a href="/contact-the-dvla">Contact DVLA for questions about SORN</a>
+          </li>
+        </ul>
+      </section>
+
+
+      <section class="related-links" aria-labelledby="related-links-label">
+        <h1 id="related-links-label">Driving and Transport</h1>
+        <ul>
+          <li><a href="/tax-disc">Renew a tax disc</a></li>
+          <li><a href="/get-vehicle-information-from-dvla">Get vehicle information from DVLA</a></li>
+          <li><a href="//apply-for-tax-disc-refund-form-v14">Apply for a tax disc refund (form V14)</a></li>
+        </ul>
+      </section>
+    </section>
+
+    <p id="tax-disc-perfomance-platform">
+      Find out <a href="/performance/sorn">how this service is performing</a>
+    </p>
+  </div>
+
+  <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
+  <div id="report-a-problem"></div>
+</main>
+
+<% content_for :body_classes do %>full-width<% end %>

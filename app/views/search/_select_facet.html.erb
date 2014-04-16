@@ -1,0 +1,43 @@
+<form method="get" action="">
+  <% if @ui.present? -%>
+    <input type="hidden" name="ui" value="<%= @ui %>" />
+  <%- end -%>
+  <% if @search_term.present? -%>
+    <input type="hidden" name="q" value="<%= @search_term %>" />
+  <%- end -%>
+  <div class="filter checkbox-filter js-openable-filter<%=' closed' unless any_input_checked? %>" tabindex="0">
+    <div class="head">
+      <span class="legend">Organisation</span>
+      <div class="controls">
+        <a class="clear-selected<%=' js-hidden' unless any_input_checked? %>">clear</a>
+        <div class="toggle"></div>
+      </div>
+    </div>
+    <div class="checkbox-container" id="organisations-filter">
+      <ul>
+        <% facets['options'].each do | option | %>
+        <li>
+          <input type="checkbox" name="filter_organisations[]" value="<%= option['value']['slug'] %>" id="<%= option['value']['slug'] %>" <%= input_checked(option['value']['slug']) %>>
+          <label for='<%= option['value']['slug'] %>'>
+            <%= option["value"]["title"] %> 
+            (<%= option["documents"] %>)
+          </label>
+        </li>
+        <% end %>
+        <%- if @facets["organisations"]["missing_options"] > 0 -%>
+          <li>
+            <%= @facets["organisations"]["missing_options"] %> more
+          </li>
+        <%- end -%>
+      </ul>
+    </div>
+  </div>
+
+  <div class="actions">
+    <div id="filter-submit">
+      <div class="submit">
+        <input type="submit" value="Filter results" class="button" />
+      </div>
+    </div>
+  </div>
+</form> 

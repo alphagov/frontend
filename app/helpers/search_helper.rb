@@ -14,4 +14,17 @@ module SearchHelper
       end
     end.join(", ").html_safe
   end
+
+  def input_checked(value)
+    if params['filter_organisations'] && params['filter_organisations'].include?(value)
+      ' checked="checked"'
+    elsif params['filter_organisations'] == value
+      ' checked="checked"'
+    end
+  end
+
+  def any_input_checked?
+    params['filter_organisations']
+  end
+
 end

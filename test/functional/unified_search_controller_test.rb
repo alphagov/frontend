@@ -28,18 +28,31 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     }
   end
 
-  def stub_results(results, query = "search-term")
+  def stub_results(results, query = "search-term", organisations = [])
     response_body = response(results)
     parameters = {
       :start => nil,
       :count => '50',
       :q => query,
-      :filter_organisations => [],
+      :filter_organisations => organisations,
       :facet_organisations => '100',
     }
     Frontend.search_client.stubs(:unified_search)
         .with(parameters)
         .returns(response_body)
+  end
+
+  def expect_search_client_is_requested(organisations, query = "search-term")
+    parameters = {
+      :start => nil,
+      :count => '50',
+      :q => query,
+      :filter_organisations => organisations,
+      :facet_organisations => '100',
+    }
+    Frontend.search_client.expects(:unified_search)
+        .with(parameters)
+        .returns(response([]))
   end
 
   def stub_single_result(result)
@@ -203,6 +216,16 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
     assert_select "ul.attributes li abbr[title='Home Office']", count: 0
     assert_select "ul.attributes li", /Home Office/
+  end
+
+  should "filter by organisation" do
+    expect_search_client_is_requested(['ministry-of-silly-walks'])
+    get :unified, {q: "search-term", ui: "unified", filter_organisations: ["ministry-of-silly-walks"]}
+  end
+
+  should "filter by multiple organisations" do
+    expect_search_client_is_requested(['ministry-of-silly-walks', 'ministry-of-beer'])
+    get :unified, {q: "search-term", ui: "unified", filter_organisations: ["ministry-of-silly-walks", "ministry-of-beer"]}
   end
 
   test "should return unlimited results" do

@@ -1,3 +1,5 @@
+@import "measurements";
+
 body.search {
   #global-header #search,
   #global-breadcrumb {
@@ -435,6 +437,27 @@ main.search {
   .tab-pane {
     padding: 0;
   }
+}
+
+#unified-results {
+  float: right;
+  width: $two-thirds;
+}
+
+.result-count {
+  padding-left: 30px;
+}
+
+.filter-form {
+  float: left;
+  width: $one-third;
+  .filter {
+    margin: 0 30px;
+  }
+}
+
+.actions {
+  padding-left: 30px;
 }
 
 .search-launcher {

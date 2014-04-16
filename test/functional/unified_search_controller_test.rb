@@ -35,6 +35,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
       :count => '50',
       :q => query,
       :filter_organisations => [],
+      :facet_organisations => '100',
     }
     Frontend.search_client.stubs(:unified_search)
         .with(parameters)
@@ -49,7 +50,29 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     response_body = {
       "results" => results,
       "total" => results.count,
-    }
+      "facets" => {
+        "organisations" =>
+          {
+            "options" =>
+              [
+                {"value" =>
+                  {
+                    "slug" => "ministry-of-silly-walks",
+                    "link" => "/government/organisations/ministry-of-silly-walks",
+                    "title" => "Ministry of Silly Walks",
+                    "acronym" => "MOSW",
+                    "organisation_type" => "Ministerial department",
+                    "organisation_state" => "live"
+                  },
+                  "documents"=>12
+                }
+              ],
+            "documents_with_no_value"=>1619,
+            "total_options"=>139,
+            "missing_options"=>39,
+          }
+        }
+      }
   end
 
   def no_results

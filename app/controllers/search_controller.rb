@@ -63,6 +63,11 @@ class SearchController < ApplicationController
     if (@result_count == 0)
       render action: 'no_results' and return
     end
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
 protected

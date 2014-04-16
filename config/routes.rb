@@ -2,8 +2,8 @@ require 'frontend'
 
 Frontend::Application.routes.draw do
   get "/homepage" => redirect("/")
-  get "/search.json" => redirect { |params,req| "/api/search.json?q=#{CGI.escape(req.query_parameters['q'] || '')}" }
   get "/search" => "search#unified", as: :unified_search, constraints: lambda { |req| req.query_parameters['ui'] == 'unified'}
+  get "/search.json" => redirect { |params,req| "/api/search.json?q=#{CGI.escape(req.query_parameters['q'] || '')}" }
   get "/search" => "search#index", as: :search
   post "/search" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent non-GET requests for /search blowing up in the publication handlers below
   get "/search/opensearch" => "search#opensearch"

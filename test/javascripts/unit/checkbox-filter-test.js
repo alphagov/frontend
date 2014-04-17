@@ -37,12 +37,12 @@ describe('CheckboxFilter', function(){
   });
 
   it('should check the open status of the checkbox when it creates the facet', function(){
-    spyOn(GOVUK.CheckboxFilter.prototype, 'isOpen').and.returnValue(true);
+    spyOn(GOVUK.CheckboxFilter.prototype, 'isOpen').andReturn(true);
     spyOn(GOVUK.CheckboxFilter.prototype, 'setupHeight');
 
     filter = new GOVUK.CheckboxFilter({el:filterHTML});
 
-    expect(filter.setupHeight.calls.count()).toBe(1);
+    expect(filter.setupHeight.calls.length).toBe(1);
   });
 
   describe('open', function(){
@@ -58,7 +58,7 @@ describe('CheckboxFilter', function(){
       filterHTML.addClass('closed');
       spyOn(filter, "setupHeight");
       filter.open();
-      expect(filter.setupHeight.calls.count()).toBe(1);
+      expect(filter.setupHeight.calls.length).toBe(1);
     });
 
   });
@@ -134,7 +134,7 @@ describe('CheckboxFilter', function(){
 
       // Simulate keypress
       filterHTML.trigger('keypress');
-      expect(filter.checkForSpecialKeys.calls.count()).toBe(1);
+      expect(filter.checkForSpecialKeys.calls.length).toBe(1);
     });
 
   });
@@ -148,7 +148,7 @@ describe('CheckboxFilter', function(){
       // 13 is the return key
       filter.checkForSpecialKeys({keyCode:13});
 
-      expect(filter.toggleFinder.calls.count()).toBe(1);
+      expect(filter.toggleFinder.calls.length).toBe(1);
     });
 
     it ('should do nothing if the key is not return', function(){
@@ -156,7 +156,7 @@ describe('CheckboxFilter', function(){
       filter.listenForKeys();
 
       filter.checkForSpecialKeys({keyCode:11});
-      expect(filter.toggleFinder.calls.count()).toBe(0);
+      expect(filter.toggleFinder.calls.length).toBe(0);
     });
 
   });
@@ -169,7 +169,7 @@ describe('CheckboxFilter', function(){
       filter.stopListeningForKeys();
       // Simulate keypress
       filterHTML.trigger('keypress');
-      expect(filter.checkForSpecialKeys.calls.count()).toBe(0);
+      expect(filter.checkForSpecialKeys.calls.length).toBe(0);
     });
 
   });
@@ -193,14 +193,14 @@ describe('CheckboxFilter', function(){
       filterHTML.removeClass('closed');
       spyOn(filter, "close");
       filter.toggleFinder();
-      expect(filter.close.calls.count()).toBe(1);
+      expect(filter.close.calls.length).toBe(1);
     });
 
     it("should call open if the facet is currently closed", function(){
       filterHTML.addClass('closed');
       spyOn(filter, "open");
       filter.toggleFinder();
-      expect(filter.open.calls.count()).toBe(1);
+      expect(filter.open.calls.length).toBe(1);
     });
 
   });

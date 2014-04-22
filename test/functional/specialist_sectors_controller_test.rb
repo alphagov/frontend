@@ -42,15 +42,13 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
 
   context "GET subcategory with a valid sector tag and subcategory" do
     setup do
-      grouped_artefacts = {
-        "Section" => [
-          "guidance-about-wells",
-          "something-else-about-wells"
-        ]
-      }
+      artefacts = [
+        "guidance-about-wells",
+        "something-else-about-wells"
+      ]
 
       content_api_has_tag("specialist_sector", { slug: "oil-and-gas/wells", title: "Wells", description: "Things to do with wells" }, "oil-and-gas")
-      content_api_has_grouped_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", "format", grouped_artefacts)
+      content_api_has_artefacts_with_a_tag("specialist_sector", "oil-and-gas/wells", artefacts)
     end
 
     should "request the tag from the Content API and assign it" do
@@ -63,9 +61,8 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
     should "request and assign the artefacts for the tag from the Content API" do
       get :subcategory, sector: "oil-and-gas", subcategory: "wells"
 
-      group = assigns(:groups).first
-      assert_equal "Section", group.name
-      assert_equal "Guidance about wells", group.items.first.title
+      result = assigns(:results).first
+      assert_equal "Guidance about wells", result.title
     end
 
     should "set the correct slimmer headers" do

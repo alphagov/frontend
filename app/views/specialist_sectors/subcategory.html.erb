@@ -14,18 +14,16 @@
       </div>
     <% end %>
 
-    <% @groups.each do |group| %>
-      <nav class="index-list <%= group.name.parameterize %>">
-        <h1><%= group.name %></h1>
+      <nav class="index-list">
+        <h1>A-Z</h1>
         <ul>
-          <% group.items.each do |content| %>
+          <% @results.each do |content| %>
             <li>
-              <h2><a href="<%= content.web_url %>"><%= specialist_sector_item_title(content.title, @sector) %></a></h2>
+              <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
             </li>
           <% end %>
         </ul>
       </nav>
-    <% end %>
   </div>
 
   <div id="report-a-problem"></div>

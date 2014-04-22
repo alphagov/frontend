@@ -6,5 +6,4 @@ Feature: Browsing specialist sectors
   Scenario: viewing documents grouped by content format
     Given there are documents tagged to a specialist sector topic
     When I view the browse page for that topic
-    Then I see the documents grouped by document format
-      And I don't see headings for formats with no documents
+    Then I see the specialist sector documents

@@ -14,7 +14,7 @@ gem 'htmlentities', '4.3.1'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '3.28.1'
+  gem 'slimmer', '3.29.0'
 end
 
 if ENV['CDN_DEV']

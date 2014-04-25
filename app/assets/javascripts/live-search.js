@@ -31,37 +31,46 @@
     popState: function(event){
       liveSearch.state = event.originalEvent.state;
       liveSearch.updateResults();
+      liveSearch.restoreCheckboxes()
     },
     checkboxChange: function(){
       if(liveSearch.isNewState()){
         liveSearch.saveState();
+        history.pushState(liveSearch.state, '', window.location.pathname + "?" + $.param(liveSearch.state));
         liveSearch.updateResults();
+      }
+    },
+    cache: function(data){
+      if(typeof data === 'undefined'){
+        return liveSearch.resultCache[$.param(liveSearch.state)];
+      } else {
+        liveSearch.resultCache[$.param(liveSearch.state)] = data;
       }
     },
     saveInitalState: function(){
       liveSearch.saveState();
       var count = liveSearch.$resultCount.text().match(/^\s*([0-9]+)/);
-      liveSearch.resultCache[liveSearch.state] = {
+      liveSearch.cache({
         result_count: count ? count[1] : '',
         results: liveSearch.$results.html()
-      };
+      });
     },
     isNewState: function(){
-      return liveSearch.state !== liveSearch.$form.serialize();
+      return $.param(liveSearch.state) !== liveSearch.$form.serialize();
     },
     saveState: function(){
-      liveSearch.state = liveSearch.$form.serialize();
+      liveSearch.state = liveSearch.$form.serializeArray();
     },
     updateResults: function(){
-      if(typeof liveSearch.resultCache[liveSearch.state] === 'undefined'){
+      if(typeof liveSearch.cache() === 'undefined'){
         liveSearch.showLoadingIndicator();
         $.ajax({
           url: liveSearch.action,
           data: liveSearch.state,
         }).done(function(response){
-          liveSearch.resultCache[liveSearch.state] = response;
-          liveSearch.displayResults();
+          liveSearch.cache(response);
           liveSearch.hideLoadingIndicator();
+          liveSearch.displayResults();
         });
       } else {
         liveSearch.displayResults();
@@ -75,12 +84,28 @@
       liveSearch.$resultCount.text(liveSearch._resultCountText);
     },
     displayResults: function(){
-      var results = liveSearch.resultCache[liveSearch.state];
-      history.pushState(liveSearch.state, '', window.location.pathname + "?" + liveSearch.state);
+      var results = liveSearch.cache();
 
       liveSearch.$resultCount.text(results.result_count + ' found on GOV.UK');
       liveSearch.$results.html(results.results);
+    },
+    restoreCheckboxes: function(){
+      liveSearch.$form.find('input[type=checkbox]').each(function(i, el){
+        var $el = $(el)
+        $el.prop('checked', liveSearch.isCheckboxSelected($el.attr('name'), $el.attr('value')));
+      });
+    },
+    isCheckboxSelected: function(name, value){
+      var i, _i;
+      for(i=0,_i=liveSearch.state.length; i<_i; i++){
+        if(liveSearch.state[i].name === name && liveSearch.state[i].value === value){
+          return true;
+        }
+      }
+      return false;
     }
+
+
   };
   GOVUK.liveSearch = liveSearch;
 }());

@@ -34,25 +34,33 @@
         </fieldset>
       <% end %>
     </div>
-    <div class="filter-form">
-      <%= render partial: 'select_facet', locals: {facets: @facets["organisations"]} %>
-      <div class="submit js-live-search-fallback">
-        <input type="submit" class="button" value="Submit filters">
+
+    <div id="unified-results">
+      <div class="filter-form">
+        <div class="inner-block">
+          <p class="info">You can filter your results by organistion:</p>
+          <%= render partial: 'select_facet', locals: {facets: @facets["organisations"]} %>
+          <div class="submit js-live-search-fallback">
+            <input type="submit" class="button" value="Submit filters">
+          </div>
+        </div>
+      </div>
+
+      <div class="results-block">
+        <div class="inner-block">
+          <div class="result-count" id="js-live-search-result-count">
+            <%= @result_count %> results found on GOV.UK
+          </div>
+          <h2 class="visuallyhidden">Top result</h2>
+          <ul class="results-list" id="js-live-search-results">
+            <% @results.each_with_index do |result, index| %>
+              <%= render partial: "result", locals: { result: result } %>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </form>
-
-  <div id="unified-results">
-    <div class="result-count" id="js-live-search-result-count">
-      <%= @result_count %> results found on GOV.UK
-    </div>
-    <h2 class="visuallyhidden">Top result</h2>
-    <ul class="results-list" id="js-live-search-results">
-      <% @results.each_with_index do |result, index| %>
-        <%= render partial: "result", locals: { result: result } %>
-      <% end %>
-    </ul>
-  </div>
 </main>
 
 <h3 class="visuallyhidden">No more results for &ldquo;<%= @search_term %>&rdquo;. <a href="#search-main">Try a different search?</a></h3>

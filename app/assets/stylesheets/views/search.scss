@@ -440,26 +440,48 @@ main.search {
 }
 
 #unified-results {
-  float: right;
-  width: $two-thirds;
+  @extend %contain-floats;
+
+  @include media(tablet){
+    margin: 0 15px;
+  }
+
+  .inner-block {
+    padding: 0 15px;
+  }
+
+  .filter-form {
+    @include media(tablet){
+      float: left;
+      width: $one-third;
+    }
+
+    .info {
+      margin: 0 0 15px;
+    }
+    .submit {
+      .js-enabled & {
+        display: none;
+      }
+    }
+  }
+  .results-block {
+    @include media(tablet){
+      float: left;
+      width: $two-thirds;
+    }
+    .result-count {
+      padding: 0;
+    }
+    .results-list {
+      padding: 30px 0;
+    }
+
+  }
 }
 
 .result-count {
   padding-left: 30px;
-}
-
-.filter-form {
-  float: left;
-  width: $one-third;
-  .filter {
-    margin: 0 30px;
-  }
-  .submit {
-    margin: 0 30px;
-    .js-enabled & {
-      display: none;
-    }
-  }
 }
 
 .actions {

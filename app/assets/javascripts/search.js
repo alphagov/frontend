@@ -12,12 +12,7 @@ $(function() {
     $('.js-openable-filter').each(function(){
       new GOVUK.CheckboxFilter({el:$(this)});
     })
-
-    if (history.pushState) {
-      $('.filter-form .actions').hide();
-      filterByOrg();
-      removeOrgFilters();
-    };
+    GOVUK.liveSearch.init();
   };
 
   // Returns the index of the tab, or defaults to 0 (ie the first tab)
@@ -59,39 +54,6 @@ $(function() {
     }
   }
 
-  function filterByOrg(){
-    $('#organisations-filter input[type=checkbox]').change(function() {
-      var new_url = ""
-      if ($(this).attr('checked')) {
-        new_url = window.location.href + "&filter_organisations%5B%5D=" + $(this).val();
-        getOrgFilterResults(new_url);
-      } else{
-        org = ("&filter_organisations%5B%5D=" + $(this).val());
-        regex = new RegExp(org, "g");
-        new_url = window.location.href.replace(regex, "");
-        getOrgFilterResults(new_url);
-      };
-    });
-  }
-
-  function getOrgFilterResults(url) {
-    history.pushState(null, null, url);
-    url = url.replace('search', 'search.json');
-    $.ajax({
-      url: url,
-    }).done(function( data ) {
-      $('.result-count').text(data['result_count'] + ' found on GOV.UK');
-      $('.results-list').html(data['results']);
-    });
-  }
-
-  function removeOrgFilters() {
-    $('.clear-selected').click(function() {
-      var pattern = "&filter_organisations%5B%5D=[^&]*"
-      var regex = new RegExp(pattern, "g");
-      getOrgFilterResults(window.location.href.replace(regex, ""));
-    })
-  }
 
   (function trackSearchClicks(){
     if(($tabs.length === 0 && $unified.length === 0) || !GOVUK.cookie){

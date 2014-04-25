@@ -25,11 +25,6 @@ namespace :router do
       %w(/visas-immigration exact),
     ]
 
-    # add routes for specialist browse sectors
-    Frontend.specialist_sectors.each do |sector|
-      routes << %W{/#{sector} prefix}
-    end
-
     routes.each do |path, type|
       @router_api.add_route(path, type, 'frontend', :skip_commit => true)
     end

@@ -92,7 +92,7 @@
     this.$filter.find("input[type='checkbox']").prop({
       indeterminate: false,
       "checked": false
-    });
+    }).trigger('change');
     this.$checkboxResetter.addClass('js-hidden');
     return false;
   };

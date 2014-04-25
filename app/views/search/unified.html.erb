@@ -36,6 +36,9 @@
     </div>
     <div class="filter-form">
       <%= render partial: 'select_facet', locals: {facets: @facets["organisations"]} %>
+      <div class="submit js-live-search-fallback">
+        <input type="submit" class="button" value="Submit filters">
+      </div>
     </div>
   </form>
 

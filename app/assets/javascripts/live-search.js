@@ -26,6 +26,8 @@
           liveSearch.$form.on('change', 'input[type=checkbox]', liveSearch.checkboxChange);
           $(window).on('popstate', liveSearch.popState);
         }
+      } else {
+        $('.js-live-search-fallback').show();
       }
     },
     popState: function(event){

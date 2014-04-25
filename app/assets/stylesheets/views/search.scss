@@ -454,6 +454,12 @@ main.search {
   .filter {
     margin: 0 30px;
   }
+  .submit {
+    margin: 0 30px;
+    .js-enabled & {
+      display: none;
+    }
+  }
 }
 
 .actions {

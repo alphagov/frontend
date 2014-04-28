@@ -33,13 +33,18 @@
     popState: function(event){
       liveSearch.state = event.originalEvent.state;
       liveSearch.updateResults();
-      liveSearch.restoreCheckboxes()
+      liveSearch.restoreCheckboxes();
+      liveSearch.pageTrack();
+    },
+    pageTrack: function(){
+      window._gaq && _gaq.push && _gaq.push(['_trackPageview']);
     },
     checkboxChange: function(){
       if(liveSearch.isNewState()){
         liveSearch.saveState();
         history.pushState(liveSearch.state, '', window.location.pathname + "?" + $.param(liveSearch.state));
         liveSearch.updateResults();
+        liveSearch.pageTrack();
       }
     },
     cache: function(data){

@@ -52,7 +52,17 @@ describe("liveSearch", function(){
     expect(jQuery.ajax).not.toHaveBeenCalled();
   });
 
-  it("should request new results if they aren't in the cache", function(){
+  it("should return a promise like object if results are in the cache", function(){
+    GOVUK.liveSearch.resultCache["more=results"] = "exists";
+    GOVUK.liveSearch.state = { more: "results" };
+    spyOn(GOVUK.liveSearch, 'displayResults');
+    spyOn(jQuery, 'ajax');
+
+    var promise = GOVUK.liveSearch.updateResults();
+    expect(typeof promise.done).toBe('function');
+  });
+
+  it("should return a promise like object if results aren't in the cache", function(){
     GOVUK.liveSearch.state = { not: "cached" };
     spyOn(GOVUK.liveSearch, 'displayResults');
     var ajaxCallback = jasmine.createSpyObj('ajax', ['done']);
@@ -102,12 +112,16 @@ describe("liveSearch", function(){
     });
 
     it("should update save state and update results when checkbox is changed", function(){
-      spyOn(GOVUK.liveSearch, 'updateResults');
+      var promise = jasmine.createSpyObj('promise', ['done']);
+      spyOn(GOVUK.liveSearch, 'updateResults').andReturn(promise);
+      spyOn(GOVUK.liveSearch, 'pageTrack').andReturn(promise);
       $form.find('input').prop('checked', false);
 
       GOVUK.liveSearch.checkboxChange();
       expect(GOVUK.liveSearch.state).toEqual([]);
       expect(GOVUK.liveSearch.updateResults).toHaveBeenCalled();
+      promise.done.mostRecentCall.args[0]();
+      expect(GOVUK.liveSearch.pageTrack).toHaveBeenCalled();
     });
 
     it("should do nothing if state hasn't changed when a checkbox is changed", function(){

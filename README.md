@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/alphagov/frontend.png)](https://travis-ci.org/alphagov/frontend)
-
 [![Dependency Status](https://gemnasium.com/alphagov/frontend.png)](https://gemnasium.com/alphagov/frontend)
 
 Front-end (and preview) app for single domain.

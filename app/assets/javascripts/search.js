@@ -54,7 +54,6 @@ $(function() {
     }
   }
 
-
   (function trackSearchClicks(){
     if(($tabs.length === 0 && $unified.length === 0) || !GOVUK.cookie){
       return false;

@@ -31,10 +31,12 @@
       }
     },
     popState: function(event){
-      liveSearch.state = event.originalEvent.state;
-      liveSearch.updateResults();
-      liveSearch.restoreCheckboxes();
-      liveSearch.pageTrack();
+      if(event.originalEvent.state){
+        liveSearch.state = event.originalEvent.state;
+        liveSearch.updateResults();
+        liveSearch.restoreCheckboxes();
+        liveSearch.pageTrack();
+      }
     },
     pageTrack: function(){
       if(window._gaq && _gaq.push){
@@ -119,8 +121,6 @@
       }
       return false;
     }
-
-
   };
   GOVUK.liveSearch = liveSearch;
 }());

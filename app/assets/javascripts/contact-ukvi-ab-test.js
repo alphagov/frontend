@@ -1,17 +1,24 @@
 //= require govuk/multivariate-test
 
 $(function(){
+  var disclaimer = '<p>Because of high call volumes the UK Visas and Immigration contact centre is currently not accepting calls.</p>';
+  var replacePhoneNumberWithExplanation = function() {
+    $('.contact').
+      removeClass('contact').
+      addClass('application-notice info-notice').
+      html(disclaimer);
+  };
+
   GOVUK.hideContactCentrePhoneNumbers = function() {
     if (window.location.href.indexOf("/contact-ukvi/visas-and-settlement") > -1) {
-      $('.contact').
-        removeClass('contact').
-        addClass('application-notice info-notice').
-        html('<p>Because of high call volumes the UK Visas and Immigration contact centre is currently not accepting calls.</p>');
+      replacePhoneNumberWithExplanation();
     } else if (window.location.href.indexOf("/contact-ukvi/british-citizenship-and-nationality") > -1) {
       $('.contact').
-        html('<p><strong>Citizenship and nationality enquiries</strong><br><a href="mailto:ukbanationalityenquiries@ukba.gsi.gov.uk">ukbanationalityenquiries@ukba.gsi.gov.uk</a></p>');
+        html('<p><strong>Citizenship and nationality enquiries</strong><br><a href="mailto:ukbanationalityenquiries@ukba.gsi.gov.uk">ukbanationalityenquiries@ukba.gsi.gov.uk</a></p>').
+        after('<div class="application-notice info-notice">' + disclaimer + '</div>');
     } else if (window.location.href.indexOf("/contact-ukvi/european-nationals") > -1) {
-      $('.contact').hide();
+      $('.application-notice.info-notice:eq(1)').removeClass('application-notice info-notice');
+      replacePhoneNumberWithExplanation();
     };
   };
 

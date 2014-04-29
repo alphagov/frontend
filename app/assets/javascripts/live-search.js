@@ -101,9 +101,10 @@
       liveSearch.$resultCount.text(liveSearch._resultCountText);
     },
     displayResults: function(){
-      var results = liveSearch.cache();
+      var results = liveSearch.cache(),
+          count = (results.result_count == "1") ? "1 result" : results.result_count + " results";
 
-      liveSearch.$resultCount.text(results.result_count + ' found on GOV.UK');
+      liveSearch.$resultCount.text(count + ' found on GOV.UK');
       liveSearch.$results.html(results.results);
     },
     restoreCheckboxes: function(){

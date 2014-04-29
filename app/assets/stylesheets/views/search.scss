@@ -452,7 +452,7 @@ main.search {
 
   .filter-form {
     @include media(tablet){
-      float: right;
+      float: left;
       width: $one-third;
     }
 

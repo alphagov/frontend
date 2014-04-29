@@ -1,5 +1,6 @@
 # encoding: utf-8
 require "test_helper"
+require "json"
 
 class UnifiedSearchControllerTest < ActionController::TestCase
 
@@ -344,5 +345,21 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     get :unified, {q: "badness", ui: "unified"}
 
     assert_response 503
+  end
+
+  test "should render json results" do
+    stub_results(Array.new(15, {}), "bob")
+    get :unified, { q: "bob", ui: "unified", format: "json" }
+
+    json = JSON.parse(@response.body)
+    assert_equal json["result_count"], "15"
+  end
+
+  test "should render json with no results" do
+    stub_results(Array.new(0, {}), "bob")
+    get :unified, { q: "bob", ui: "unified", format: "json" }
+
+    json = JSON.parse(@response.body)
+    assert_equal json["result_count"], "0"
   end
 end

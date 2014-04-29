@@ -60,12 +60,10 @@ class SearchController < ApplicationController
 
     fill_in_slimmer_headers(@result_count)
 
-    if (@result_count == 0)
-      render action: 'no_results' and return
-    end
-
     respond_to do |format|
-      format.html
+      format.html do
+        render action: 'no_results' and return if (@result_count == 0)
+      end
       format.json
     end
   end

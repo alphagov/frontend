@@ -58,7 +58,7 @@ $(function() {
     if(($tabs.length === 0 && $unified.length === 0) || !GOVUK.cookie){
       return false;
     }
-    $('#services-information-results-enhanced a, #departments-policy-results-enhanced a, #top-results a, #unified-results a').click(function(e){
+    $('#services-information-results-enhanced, #departments-policy-results-enhanced, #top-results, #unified-results').on('click', 'a', function(e){
       var $link = $(e.target),
           sublink = '',
           gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3],

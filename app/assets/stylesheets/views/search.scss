@@ -1,3 +1,5 @@
+@import "measurements";
+
 body.search {
   #global-header #search,
   #global-breadcrumb {
@@ -435,6 +437,55 @@ main.search {
   .tab-pane {
     padding: 0;
   }
+}
+
+#unified-results {
+  @extend %contain-floats;
+
+  @include media(tablet){
+    margin: 0 15px;
+  }
+
+  .inner-block {
+    padding: 0 15px;
+  }
+
+  .filter-form {
+    @include media(tablet){
+      float: right;
+      width: $one-third;
+    }
+
+    .info {
+      margin: 0 0 15px;
+    }
+    .submit {
+      .js-enabled & {
+        display: none;
+      }
+    }
+  }
+  .results-block {
+    @include media(tablet){
+      float: left;
+      width: $two-thirds;
+    }
+    .result-count {
+      padding: 0;
+    }
+    .results-list {
+      padding: 30px 0;
+    }
+
+  }
+}
+
+.result-count {
+  padding-left: 30px;
+}
+
+.actions {
+  padding-left: 30px;
 }
 
 .search-launcher {

@@ -1,0 +1,6 @@
+<% #The line below this allows the call of .html.erb from inside a json file %>
+<% self.formats = [:html] %>
+{
+  "result_count": "<%= @result_count %>",
+  "results": "<%= j(render partial: 'result', collection: @results) %>"
+}

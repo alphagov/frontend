@@ -7,6 +7,14 @@ $(function() {
     $tabs.tabs({ 'defaultTab' : getSelectedSearchTabIndex(), scrollOnload: true });
   }
 
+  if ($unified.length > 0) {
+
+    $('.js-openable-filter').each(function(){
+      new GOVUK.CheckboxFilter({el:$(this)});
+    })
+    GOVUK.liveSearch.init();
+  };
+
   // Returns the index of the tab, or defaults to 0 (ie the first tab)
   //
   // To do this, it looks at which tab has the "active" class.

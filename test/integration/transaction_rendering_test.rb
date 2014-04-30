@@ -336,4 +336,20 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       end
     end
   end
+  context "exceptional check-vehicle-tax start page format" do
+    should "render a bespoke view" do
+      setup_api_responses('check-vehicle-tax')
+      visit "/check-vehicle-tax"
+      assert_equal 200, page.status_code
+      within("div.title h1") do
+        assert page.has_content?("Check if a vehicle is taxed")
+      end
+      within(".primary-apply") do
+        assert page.has_content?("Check using the new service")
+      end
+      within(".secondary-apply") do
+        assert page.has_content?("Check using the original service")
+      end
+    end
+  end
 end

@@ -5,8 +5,8 @@ class UnifiedSearchResultsPresenter
   end
 
   def spelling_suggestion
-    if search_response["spelling_suggestions"]
-      search_response["spelling_suggestions"].first
+    if search_response["suggested_queries"]
+      search_response["suggested_queries"].first
     end
   end
 

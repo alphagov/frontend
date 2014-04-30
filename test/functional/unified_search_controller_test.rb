@@ -29,8 +29,8 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     }
   end
 
-  def stub_results(results, query = "search-term", organisations = [])
-    response_body = response(results)
+  def stub_results(results, query = "search-term", organisations = [], suggestions = [])
+    response_body = response(results, suggestions)
     parameters = {
       :start => nil,
       :count => '50',
@@ -60,33 +60,33 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     stub_results([result])
   end
 
-  def response(results)
+  def response(results, suggestions=[])
     response_body = {
       "results" => results,
       "total" => results.count,
       "facets" => {
-        "organisations" =>
-          {
-            "options" =>
-              [
-                {"value" =>
-                  {
-                    "slug" => "ministry-of-silly-walks",
-                    "link" => "/government/organisations/ministry-of-silly-walks",
-                    "title" => "Ministry of Silly Walks",
-                    "acronym" => "MOSW",
-                    "organisation_type" => "Ministerial department",
-                    "organisation_state" => "live"
-                  },
-                  "documents"=>12
-                }
-              ],
-            "documents_with_no_value"=>1619,
-            "total_options"=>139,
-            "missing_options"=>39,
-          }
+        "organisations" => {
+          "options" =>
+            [
+              {"value" =>
+                {
+                  "slug" => "ministry-of-silly-walks",
+                  "link" => "/government/organisations/ministry-of-silly-walks",
+                  "title" => "Ministry of Silly Walks",
+                  "acronym" => "MOSW",
+                  "organisation_type" => "Ministerial department",
+                  "organisation_state" => "live"
+                },
+                "documents"=>12
+              }
+            ],
+          "documents_with_no_value"=>1619,
+          "total_options"=>139,
+          "missing_options"=>39,
         }
-      }
+      },
+      "suggested_queries" => suggestions
+    }
   end
 
   def no_results
@@ -227,6 +227,16 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   should "filter by multiple organisations" do
     expect_search_client_is_requested(['ministry-of-silly-walks', 'ministry-of-beer'])
     get :unified, {q: "search-term", ui: "unified", filter_organisations: ["ministry-of-silly-walks", "ministry-of-beer"]}
+  end
+
+  should "suggest the first alternative query" do
+    suggestions = ["cats","dogs"]
+    results = [ a_search_result('something') ]
+
+    stub_results(results, "search-term", [], suggestions)
+
+    get :unified, q: "search-term", ui: "unified"
+    assert_select ".spelling-suggestion", text: "Did you mean cats"
   end
 
   test "should return unlimited results" do

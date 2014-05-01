@@ -92,7 +92,7 @@ body.full-width .view-driving-licence-start header.page-header div {
 
       .eligibility-check {
         @include media(desktop){
-          width: 65%;
+          width: 45%;
           margin-right:5%;
           float:left;
           margin-bottom: 42px;
@@ -104,11 +104,16 @@ body.full-width .view-driving-licence-start header.page-header div {
       }
 
       .you-will-need {
-        display: none;
+        margin-top: 1.5em;
+
+        ul {
+          margin-bottom: 0;
+        }
 
         @include media(desktop){
           display: block;
-          width:30%;
+          margin-top: 0;
+          width:50%;
           float:right;
           margin-bottom: 42px;
         }
@@ -292,6 +297,8 @@ body.full-width .view-driving-licence-start header.page-header div {
   }
 
   .opening {
-    margin-top:0;
+    @include media(desktop){
+      margin-top: 0;
+    }
   }
 }

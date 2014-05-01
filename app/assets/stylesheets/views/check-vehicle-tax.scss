@@ -92,7 +92,7 @@ body.full-width .check-vehicle-tax-start header.page-header div {
 
       .eligibility-check {
         @include media(desktop){
-          width: 65%;
+          width: 45%;
           margin-right:5%;
           float:left;
           margin-bottom: 42px;
@@ -108,7 +108,7 @@ body.full-width .check-vehicle-tax-start header.page-header div {
 
         @include media(desktop){
           display: block;
-          width:30%;
+          width:50%;
           float:right;
           margin-bottom: 42px;
         }

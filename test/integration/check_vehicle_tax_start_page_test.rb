@@ -38,7 +38,7 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
       end
 
       within ".related-links" do
-        assert page.has_selector?("h1", :text => "Driving licences")
+        assert page.has_selector?("h1", :text => "Tax discs, car tax and SORN")
         assert page.has_link?("Car tax: get a tax disc for your vehicle", :href => "/tax-disc")
         assert page.has_link?("Make a SORN (Statutory Off Road Notification)", :href => "/register-sorn-statutory-off-road-notification")
         assert page.has_link?("Report an untaxed vehicle", :href => "/report-untaxed-vehicle")

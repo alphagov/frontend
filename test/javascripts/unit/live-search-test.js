@@ -90,6 +90,19 @@ describe("liveSearch", function(){
     expect(GOVUK.liveSearch.hideLoadingIndicator).toHaveBeenCalled();
   });
 
+  it("should show error indicator when error loading new results", function(){
+    GOVUK.liveSearch.state = { not: "cached" };
+    spyOn(GOVUK.liveSearch, 'displayResults');
+    spyOn(GOVUK.liveSearch, 'showLoadingIndicator');
+    spyOn(GOVUK.liveSearch, 'hideLoadingIndicator');
+    var ajaxCallback = jasmine.createSpyObj('ajax', ['done', 'error']);
+    spyOn(jQuery, 'ajax').andReturn(ajaxCallback);
+
+    GOVUK.liveSearch.updateResults();
+    ajaxCallback.error.mostRecentCall.args[0]()
+    expect(GOVUK.liveSearch.showErrorIndicator).toHaveBeenCalled();
+  });
+
   it("should return cache items for current state", function(){
     GOVUK.liveSearch.state = { not: "cached" };
     expect(GOVUK.liveSearch.cache()).toBe(undefined);

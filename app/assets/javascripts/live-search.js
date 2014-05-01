@@ -86,6 +86,8 @@
           liveSearch.cache(response);
           liveSearch.hideLoadingIndicator();
           liveSearch.displayResults();
+        }).error(function(){
+          liveSearch.showErrorIndicator();
         });
       } else {
         liveSearch.displayResults();
@@ -99,6 +101,9 @@
     },
     hideLoadingIndicator: function(){
       liveSearch.$resultCount.text(liveSearch._resultCountText);
+    },
+    showErrorIndicator: function(){
+      liveSearch.$resultCount.text('Error. Please try modifying your search and trying again');
     },
     displayResults: function(){
       var results = liveSearch.cache(),

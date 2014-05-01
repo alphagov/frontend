@@ -104,10 +104,15 @@ body.full-width .check-vehicle-tax-start header.page-header div {
       }
 
       .you-will-need {
-        display: none;
+        margin-top: 1.5em;
+
+        ul {
+          margin-bottom: 0;
+        }
 
         @include media(desktop){
           display: block;
+          margin-top: 0;
           width:50%;
           float:right;
           margin-bottom: 42px;
@@ -271,25 +276,14 @@ body.full-width .check-vehicle-tax-start header.page-header div {
     margin-top: 0;
   }
 
-  .by-post {
-    margin-top: 20px;
-
-    @include media(desktop){
-      margin-top: 0;
-    }
-    .address p {
-      @include core-16;
-      font-weight: 700;
-      margin: 40px 0 40px 0;
-    }
-  }
-
   .button-secondary{
     @include button($grey-3);
     font-weight:700;
   }
 
   .opening {
-    margin-top:0;
+     @include media(desktop){
+      margin-top: 0;
+    }
   }
 }

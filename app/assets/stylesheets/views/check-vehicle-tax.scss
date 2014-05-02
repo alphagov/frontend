@@ -1,0 +1,289 @@
+@import "design-patterns/_buttons";
+
+
+
+// override mad declaration in static that applies styles to ANY div inside .page-header
+// about the least future-proof css evah.  :/
+
+#wrapper.service .check-vehicle-tax-start header.page-header div,
+body.full-width .check-vehicle-tax-start header.page-header div {
+
+  padding:15px 0 0 0;
+
+  @include media(desktop) {
+    padding: 30px 0 0 0;
+  }
+
+  h1 {
+    padding-left:0;
+    max-width: 590px;
+  }
+}
+
+
+
+#content.check-vehicle-tax-start {
+  .start-header,
+  .start-container {
+    background-color: #fff;
+    padding: 0 15px 0 15px;
+
+    @include media(tablet) {
+      padding: 0 30px 0 30px;
+    }
+  }
+
+  .start-page-description {
+    margin-bottom: 30px;
+  }
+
+  ul {
+    padding-left:20px;
+
+    li {
+      padding:0;
+      @include core-19;
+
+    }
+  }
+
+  li, p{
+    max-width:560px;
+  }
+
+  summary {
+    color:$link-colour;
+    text-decoration:underline;
+    margin: 20px 0 20px 0;
+  }
+
+  .start-page {
+
+    section {
+      padding-top: 1em;
+      padding-bottom: 1em;
+
+      h1,h2 {
+        margin:0;
+        padding:0;
+      }
+
+      h1 {
+        @include bold-24;
+
+        @include media(desktop) {
+          float: left;
+        }
+
+        span.beta {
+          @include media(desktop) {
+            margin-left:10px;
+          }
+        }
+      }
+
+      h2 {
+        @include bold-19;
+
+        @include media(desktop) {
+          @include bold-24;
+        }
+      }
+
+      .eligibility-check {
+        @include media(desktop){
+          width: 45%;
+          margin-right:5%;
+          float:left;
+          margin-bottom: 42px;
+        }
+
+        h1 {
+          float: none;
+        }
+      }
+
+      .you-will-need {
+        margin-top: 1.5em;
+
+        ul {
+          margin-bottom: 0;
+        }
+
+        @include media(desktop){
+          display: block;
+          margin-top: 0;
+          width:50%;
+          float:right;
+          margin-bottom: 42px;
+        }
+      }
+
+      .application-details,
+      .contacts {
+        display: block;
+
+        margin-left:0;
+
+        @include media($min-width:'769px'){
+          margin-left: 55%;
+        }
+
+        @include media($min-width:'831px'){
+          margin-left: 50%;
+        }
+      }
+
+      .help {
+        @include media(desktop){
+          width:47%;
+          margin-right:3%;
+          float:left;
+          margin-bottom: 42px;
+          border-top: 10px solid $light-blue;
+          padding-top: 1em;
+          min-height:150px;
+        }
+      }
+      .related-links {
+        @include media(desktop){
+          width:50%;
+          float:right;
+          margin-bottom: 42px;
+          border-top: 10px solid $light-blue;
+          padding-top: 1em;
+          min-height:150px;
+        }
+      }
+    }
+
+    .primary-apply,
+    .secondary-apply {
+      clear:both;
+      border-top: 1px solid $border-colour;
+      margin-bottom:42px;
+
+      .this-is-a-beta {
+        margin:0;
+        padding-top:12px;
+        margin-bottom:20px;
+      }
+    }
+
+    .secondary-apply {
+      .this-is-a-beta {
+        max-width: 350px;
+
+        @include media(desktop){
+          float: left;
+        }
+      }
+    }
+
+    .help-and-related-links {
+      display:inline-block;
+      width: 100%;
+      clear:both;
+      float:none;
+      padding-top: 0;
+
+      h1 {
+        @include media(desktop) {
+          float: none;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding-left:0;
+
+        li {
+          @include core-16;
+          margin-bottom:10px;
+        }
+      }
+    }
+  }
+
+
+  .title {
+    @include media(desktop){
+      width:70%;
+      float:left;
+    }
+  }
+
+
+  nav.popular-needs {
+
+    display:none;
+
+    @include media(desktop){
+      display:block;
+      width:30%;
+      float:right;
+      padding-top:20px;
+    }
+
+    ul.top-tasks {
+      list-style: none;
+      padding-left:0;
+
+      li {
+        @include copy-16;
+        font-weight: 700;
+
+        a {
+          text-decoration:none;
+
+          &:hover {
+            text-decoration:underline;
+          }
+        }
+      }
+    }
+  }
+
+  .this-is-a-beta {
+    clear: both;
+    margin:0;
+    padding:0;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    @include copy-16;
+  }
+
+  span.beta {
+    display: inline-block;
+    background: #f47738;
+    color: #fff;
+    @include bold-16;
+    line-height:1;
+    text-transform: uppercase;
+    padding: 5px 5px 2px 6px;
+    vertical-align: middle;
+    margin-right:10px;
+  }
+
+
+  .destination {
+    display: block;
+    margin-top:25px;
+    margin-bottom:5px;
+  }
+
+  form.get-started {
+    margin-top: 0;
+  }
+
+  .button-secondary{
+    @include button($grey-3);
+    font-weight:700;
+  }
+
+  .opening {
+     @include media(desktop){
+      margin-top: 0;
+    }
+  }
+}

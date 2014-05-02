@@ -5,4 +5,6 @@
 //= require checkbox-filter
 //= require support
 //= require live-search
+//= require shared_mustache
+//= require templates
 //= require search

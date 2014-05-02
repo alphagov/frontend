@@ -50,15 +50,7 @@
 
       <div class="results-block">
         <div class="inner-block">
-          <div class="result-count" id="js-live-search-result-count">
-            <%= pluralize(@result_count, 'result') %> found on GOV.UK
-          </div>
-          <h2 class="visuallyhidden">Top result</h2>
-          <ul class="results-list" id="js-live-search-results">
-            <% @results.each_with_index do |result, index| %>
-              <%= render partial: "result", locals: { result: result } %>
-            <% end %>
-          </ul>
+          <%= render_mustache('results_block', @results.to_hash) %>
         </div>
       </div>
     </div>

@@ -15,10 +15,11 @@ class SearchResult
     "Inside Government" => "Inside Government"
   }
 
-  attr_accessor :result
+  attr_accessor :result, :debug
 
-  def initialize(result)
+  def initialize(result, debug)
     @result = result.stringify_keys!
+    @debug = debug
   end
 
   def ==(other)
@@ -51,6 +52,24 @@ class SearchResult
   # results page, but there's little benefit to displaying the URL scheme
   def display_link
     link.sub(SCHEME_PATTERN, '').truncate(48)
+  end
+
+  def to_hash
+    out = {
+      debug: debug,
+      title: title,
+      link: link,
+      description: description,
+      external: format == "recommended-link",
+      display_link: display_link,
+      section: section,
+      formatted_section_name: (formatted_section_name if section),
+      formatted_subsection_name: (formatted_subsection_name if subsection),
+      formatted_subsubsection_name: (formatted_subsubsection_name if subsubsection),
+      attributes: [],
+      es_score: es_score,
+      format: format
+    }
   end
 
   protected

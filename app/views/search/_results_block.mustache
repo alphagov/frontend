@@ -61,5 +61,16 @@
   </ul>
 {{/results_any?}}
 {{^results_any?}}
-  <h1>No results</h1>
+  <div class="zero-results">
+    <h2>Please try:</h2>
+    <ul>
+      <li>searching again using different words</li>
+      <li>removing your filters</li>
+    </ul>
+    <h2>Older content</h2>
+    <p>
+      Not all government content published before 2010 is on GOV.UK.
+      To find older content try searching <a href="http://webarchive.nationalarchives.gov.uk/adv_search/?query={{query}}">The National Archives</a>.
+    </p>
+  </div>
 {{/results_any?}}

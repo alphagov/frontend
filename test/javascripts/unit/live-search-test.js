@@ -1,12 +1,19 @@
 describe("liveSearch", function(){
-  var $form, $results, $count, _supportHistory;
+  var $form, $results, _supportHistory;
+  var dummyResponse = {
+    "query":"fiddle",
+    "result_count":"1 result",
+    "results_any?":true,
+    "results":[
+      {"title":"my-title","link":"my-link","description":"my-description"}
+    ]
+  };
 
   beforeEach(function () {
     $form = $('<form action="/somewhere" class="js-live-search-form"><input type="checkbox" name="field" value="sheep" checked></form>');
-    $results = $('<div id="js-live-search-results">my result list</div>');
-    $count = $('<div id="js-live-search-result-count">294 results</div>');
+    $results = $('<div class="js-live-search-results-block">my result list</div>');
 
-    $('body').append($form).append($results).append($count);
+    $('body').append($form).append($results);
 
     _supportHistory = GOVUK.support.history;
     GOVUK.support.history = function(){ return true; };
@@ -16,7 +23,6 @@ describe("liveSearch", function(){
   afterEach(function(){
     $form.remove();
     $results.remove();
-    $count.remove();
 
     GOVUK.support.history = _supportHistory;
   });
@@ -100,15 +106,8 @@ describe("liveSearch", function(){
   describe('with relevent dom nodes set', function(){
     beforeEach(function(){
       GOVUK.liveSearch.$form = $form;
-      GOVUK.liveSearch.$results = $results;
-      GOVUK.liveSearch.$resultCount = $count;
+      GOVUK.liveSearch.$resultsBlock = $results;
       GOVUK.liveSearch.state = { field: "sheep" };
-    });
-
-    it("should save inital state to cache", function(){
-      GOVUK.liveSearch.saveInitalState();
-      expect(GOVUK.liveSearch.resultCache['field=sheep'].result_count).toBe('294');
-      expect(GOVUK.liveSearch.resultCache['field=sheep'].results).toBe('my result list');
     });
 
     it("should update save state and update results when checkbox is changed", function(){
@@ -132,15 +131,12 @@ describe("liveSearch", function(){
     });
 
     it("should display results from the cache", function(){
-      GOVUK.liveSearch.resultCache["the=first"] = {
-        results: "my new results list",
-        result_count: "a count of results"
-      };
+      GOVUK.liveSearch.resultCache["the=first"] = dummyResponse;
       GOVUK.liveSearch.state = { the: "first" };
       GOVUK.liveSearch.displayResults();
 
-      expect($results.text()).toBe('my new results list');
-      expect($count.text()).toMatch(/^a count of results/);
+      expect($results.find('h3').text()).toBe('my-title');
+      expect($results.find('#js-live-search-result-count').text()).toMatch(/^\s+1 result/);
     });
 
     it("should restore checkbox values", function(){

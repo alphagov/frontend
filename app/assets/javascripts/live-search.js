@@ -9,19 +9,17 @@
     resultCache: {},
 
     $form: false,
-    $results: false,
     $resultCount: false,
 
     init: function(){
       if(GOVUK.support.history()){
         liveSearch.$form = $('.js-live-search-form');
         if(liveSearch.$form){
-          liveSearch.$results = $('#js-live-search-results');
-          liveSearch.$resultCount = $('#js-live-search-result-count');
+          liveSearch.$resultsBlock = $('.js-live-search-results-block');
 
           liveSearch.action = liveSearch.$form.attr('action') + '.json';
 
-          liveSearch.saveInitalState();
+          liveSearch.saveState();
 
           liveSearch.$form.on('change', 'input[type=checkbox]', liveSearch.checkboxChange);
           $(window).on('popstate', liveSearch.popState);
@@ -62,14 +60,6 @@
         liveSearch.resultCache[$.param(liveSearch.state)] = data;
       }
     },
-    saveInitalState: function(){
-      liveSearch.saveState();
-      var count = liveSearch.$resultCount.text().match(/^\s*([0-9]+)/);
-      liveSearch.cache({
-        result_count: count ? count[1] : '',
-        results: liveSearch.$results.html()
-      });
-    },
     isNewState: function(){
       return $.param(liveSearch.state) !== liveSearch.$form.serialize();
     },
@@ -94,6 +84,7 @@
       }
     },
     showLoadingIndicator: function(){
+      liveSearch.$resultCount = $('#js-live-search-result-count');
       liveSearch._resultCountText = liveSearch.$resultCount.text();
       liveSearch.$resultCount.text('Loading...');
     },
@@ -101,11 +92,9 @@
       liveSearch.$resultCount.text(liveSearch._resultCountText);
     },
     displayResults: function(){
-      var results = liveSearch.cache(),
-          count = (results.result_count == "1") ? "1 result" : results.result_count + " results";
+      var results = liveSearch.cache();
 
-      liveSearch.$resultCount.text(count + ' found on GOV.UK');
-      liveSearch.$results.html(results.results);
+      liveSearch.$resultsBlock.mustache('search/_results_block', results);
     },
     restoreCheckboxes: function(){
       liveSearch.$form.find('input[type=checkbox]').each(function(i, el){

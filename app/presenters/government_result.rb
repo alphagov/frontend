@@ -9,9 +9,7 @@ class GovernmentResult < SearchResult
       attribute: attribute,
       sections: sections,
       sections_present?: sections.present?,
-      government: true,
-      timestamp: display_type
-
+      government: true
     })
   end
 

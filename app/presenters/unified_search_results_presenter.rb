@@ -1,13 +1,16 @@
 class UnifiedSearchResultsPresenter
+  include ActionView::Helpers::TextHelper
 
-  def initialize(search_response, debug)
+  def initialize(search_response, query, debug)
     @search_response = search_response
+    @query = query
     @debug = debug
   end
 
   def to_hash
     {
-      result_count: result_count,
+      query: query,
+      result_count: pluralize(result_count, "result"),
       results_any?: results.any?,
       results: results.map { |result| result.to_hash }
     }
@@ -35,6 +38,6 @@ class UnifiedSearchResultsPresenter
 
   private
 
-  attr_reader :search_response, :debug
+  attr_reader :search_response, :debug, :query
 
 end

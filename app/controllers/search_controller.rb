@@ -52,7 +52,7 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    @results = UnifiedSearchResultsPresenter.new(search_response, params[:debug_score])
+    @results = UnifiedSearchResultsPresenter.new(search_response, @search_term, params[:debug_score])
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 
@@ -60,7 +60,9 @@ class SearchController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json
+      format.json do
+        render json: @results
+      end
     end
   end
 

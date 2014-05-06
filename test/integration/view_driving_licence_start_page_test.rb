@@ -7,7 +7,7 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
 
       setup_api_responses('view-driving-licence')
       visit "/view-driving-licence"
-      
+
       assert_equal 200, page.status_code
 
       within '.start-header', :visible => :all do
@@ -23,7 +23,7 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       within ".eligibility-check" do
         assert page.has_selector?("h1", :text => "View the new service")
         assert page.has_link?("what this means for you", :href => "/help/beta")
-        assert page.has_selector?("form.get-started[action='https://www.viewdrivingrecord.service.gov.uk'][method=GET]")
+        assert page.has_selector?("form.get-started[action='https://www.viewdrivingrecord.service.gov.uk/'][method=GET]")
       end
 
       within ".secondary-apply" do

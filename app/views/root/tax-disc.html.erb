@@ -2,7 +2,7 @@
 
   <header class="page-header group start-header full-width">
     <div class="title">
-      <h1>Renew a tax disc</h1>
+      <h1><%= @publication.title %></h1>
     </div>
 
     <nav class="popular-needs">
@@ -27,7 +27,7 @@
         </ul>
 
         <span class="destination">Apply on the DVLA website:</span>
-        <form class="get-started" action="https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro?skin=directgov" method="POST">
+        <form class="get-started" action="<%= @publication.link %>" method="POST">
           <input type="submit" value="Apply now" class="button medium" />
         </form>
 

@@ -1,0 +1,82 @@
+<% places ||= [] %>
+<% places.each do |place| %>
+  <li>
+    <div class="place group">
+      <div class="information">
+        <div class="address vcard">
+          <div class="adr org fn">
+
+            <p class="adr">
+              <% if place["name"].present? %>
+              <span class="fn"><%= place["name"] %></span><span class="visuallyhidden">,</span>
+              <% end %>
+
+              <% if place["address"].present? %>
+                <br /><span class="street-address"><%= place["address"] %></span><span class="visuallyhidden">,</span>
+              <% end %>
+
+              <% if place["town"].present? %>
+                <br /><span class="locality"><%= place["town"] %></span><span class="visuallyhidden">,</span>
+              <% end %>
+
+              <% if place["postcode"].present? %>
+                <br /><span class="postal-code"><%= place["postcode"] %></span>
+              <% end %>
+            </p>
+
+            <% if place["location"].present? %>
+              <ul class="view-maps">
+                <li><a href="https://maps.google.com/maps?z=16&amp;ie=UTF8&amp;q=loc:<%= place["location"]["latitude"] %>%2C<%= place["location"]["longitude"] %>&amp;ll=<%= place["location"]["latitude"] %>%2C<%= place["location"]["longitude"] %>">View on Google Maps</a></li>
+                <li><a href="http://www.openstreetmap.org/index.html?mlat=<%= place["location"]["latitude"] %>&amp;mlon=<%= place["location"]["longitude"] %>&amp;zoom=16">View on Open Street Map</a></li>
+              </ul>
+            <% end %>
+
+            <div class="additional-information">
+              <% if place["url"].present? %>
+                <p class="url">
+                  Website: <a href="<%= place["url"] %>"><%= place["text"] %></a>
+                </p>
+              <% end %>
+
+              <% if place["email"].present? %>
+                <p>
+                  Email: <a href="mailto:<%= place["email"] %>"><%= place["email"] %></a>
+                </p>
+              <% end %>
+
+              <% if place["phone"].present? %>
+                <p>
+                  Phone: <a class="tel" href="tel://<%= place["phone"] %>"><%= place["phone"] %></a>
+                </p>
+              <% end %>
+
+              <% if place["fax"].present? %>
+                <p>
+                  Fax: <a class="tel" href="tel://<%= place["fax"] %>"><%= place["fax"] %></a>
+                </p>
+              <% end %>
+
+              <% if place["text_phone"].present? %>
+                <p>
+                  Text Phone: <a class="tel" href="tel://<%= place["text_phone"] %>"><%= place["text_phone"] %></a>
+                </p>
+              <% end %>
+
+              <% if place["general_notes"].present? %>
+                <p>
+                  <%= place["general_notes"] %>
+                </p>
+              <% end %>
+
+              <% if place["access_notes"].present? %>
+                <p>
+                  <%= place["access_notes"] %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>

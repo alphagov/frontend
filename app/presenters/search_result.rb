@@ -51,7 +51,7 @@ class SearchResult
   # External links have a truncated version of their URLs displayed on the
   # results page, but there's little benefit to displaying the URL scheme
   def display_link
-    link.sub(SCHEME_PATTERN, '').truncate(48)
+    link.sub(SCHEME_PATTERN, '').truncate(48) if link
   end
 
   def to_hash

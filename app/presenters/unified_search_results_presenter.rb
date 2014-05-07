@@ -10,7 +10,8 @@ class UnifiedSearchResultsPresenter
   def to_hash
     {
       query: query,
-      result_count: pluralize(result_count, "result"),
+      result_count: result_count,
+      result_count_string: pluralize(result_count, "result"),
       results_any?: results.any?,
       results: results.map { |result| result.to_hash }
     }

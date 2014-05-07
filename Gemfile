@@ -9,6 +9,7 @@ gem 'gelf'
 gem 'plek', '1.5.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'htmlentities', '4.3.1'
+gem 'shared_mustache', '0.0.3'
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
@@ -39,7 +40,6 @@ group :assets do
   gem 'govuk_frontend_toolkit', '0.42.0'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
-  gem 'shared_mustache', '0.0.3'
   gem "therubyracer", "0.12.0"
   gem 'uglifier'
 end

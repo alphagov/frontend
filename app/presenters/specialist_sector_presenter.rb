@@ -1,4 +1,12 @@
-module SpecialistSectorsHelper
+class SpecialistSectorPresenter
+  attr_reader :artefact, :sector
+
+  delegate :web_url, to: :artefact
+
+  def initialize(artefact, sector)
+    @artefact = artefact
+    @sector = sector
+  end
 
   # This strips away the initial part of an item title if it contains the
   # title of the current specialist sector to remove any duplication. The
@@ -6,13 +14,15 @@ module SpecialistSectorsHelper
   #
   # eg. "Oil and gas: wells" -> "Wells"
   #
-  def specialist_sector_item_title(title, sector)
+  def title
     pattern = /\A#{Regexp.escape(sector.title)}: /
 
-    if title =~ pattern
-      title = title.sub(pattern, '')
+    if artefact.title =~ pattern
+      title = artefact.title.sub(pattern, '')
       title[0] = title[0].upcase
+      title
+    else
+      artefact.title
     end
-    title
   end
 end

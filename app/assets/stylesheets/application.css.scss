@@ -6,6 +6,7 @@
 @import "_colours";
 @import "_css3";
 @import "design-patterns/media-player";
+@import "design-patterns/_buttons";
 
 // local styleguide includes
 @import "styleguide/_conditionals.css.scss";
@@ -17,6 +18,7 @@
 // View stylesheets
 @import "views/browse";
 @import "views/campaigns";
+@import "views/check-vehicle-tax";
 @import "views/completed-transaction.scss";
 @import "views/homepage";
 @import "views/specialist-sectors";

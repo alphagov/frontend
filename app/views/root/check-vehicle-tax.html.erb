@@ -1,0 +1,95 @@
+<main id="content" role="main" class="check-vehicle-tax-start group start-page">
+  <header class="page-header group start-header full-width">
+    <div class="title">
+      <h1><%= @publication.title %></h1>
+    </div>
+
+    <nav class="popular-needs">
+      <ul class="top-tasks">
+        <li><a href="/tax-disc">Renew a tax disc</a></li>
+        <li><a href="/register-sorn-statutory-off-road-notification">Make a SORN declaration</a></li>
+        <li><a href="/report-untaxed-vehicle">Report an untaxed vehicle</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="start-container full-width start-page">
+
+    <%= raw @publication.introduction %>
+
+    <section class="primary-apply" aria-labelledby="primary-apply-label">
+      <div class="eligibility-check">
+
+        <h1 id="primary-apply-label">Check using the new service <span class="beta">beta</span></h1>
+        <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+
+        <% # Note to future coders: this is a FORM because of Dragon Dictation -
+           # the users expect the button to actually be a button (rather than
+           # semantically a link), so we need to make it a button. This is a
+           # design/accessibility trade-off
+        %>
+
+        <form class="get-started" action="<%= @publication.link %>" method="POST">
+          <input type="submit" value="Check now" class="button medium" />
+        </form>
+      </div>
+
+      <div class="you-will-need">
+        <h2>You'll need</h2>
+        <ul>
+          <li>the registration number of the vehicle</li>
+          <li>the make of the vehicle</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="secondary-apply" aria-labelledby="secondary-apply-label">
+      <h1 id="secondary-apply-label">Check using the original service</h1>
+
+      <div class="application-details">
+        <p class="opening">You'll need:</p>
+        <ul>
+          <li>the registration number of the vehicle</li>
+          <li>the make of the vehicle</li>
+        </ul>
+        <p>When you get to the DVLA’s vehicle online service, click on the ‘Vehicle enquiry’ tab.</p>
+        <span class="destination">Check on the DVLA website:</span>
+        <form action="https://www.taxdisc.direct.gov.uk/" method="POST">
+          <input type="submit" value="Check now" class="button button-secondary" />
+        </form>
+
+      </div>
+    </section>
+
+    <section class="help-and-related-links">
+      <section class="help" aria-labelledby="help-label">
+        <h1 id="help-label">Help with tax discs</h1>
+        <ul>
+          <li>
+            <a href="/contact-the-dvla">Contact DVLA for questions about car tax</a>
+          </li>
+        </ul>
+      </section>
+
+
+      <section class="related-links" aria-labelledby="related-links-label">
+        <h1 id="related-links-label">Tax discs, car tax and SORN</h1>
+        <ul>
+          <li><a href="/tax-disc">Car tax: get a tax disc for your vehicle</a></li>
+          <li><a href="/register-sorn-statutory-off-road-notification">Make a SORN (Statutory Off Road Notification)</a></li>
+          <li><a href="/report-untaxed-vehicle">Report an untaxed vehicle</a></li>
+          <li><a href="/vehicle-exempt-from-car-tax">Vehicles exempt from vehicle tax</a></li>
+        </ul>
+
+      </section>
+    </section>
+
+  </div>
+
+  <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
+  <div id="report-a-problem"></div>
+</main>
+
+<% content_for :body_classes do %>full-width<% end %>

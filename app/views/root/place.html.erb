@@ -26,7 +26,7 @@
             <section class="places">
               <h2>Results near <strong><%= @location.postcode %></strong>:</h2>
               <ol id="options" class="places">
-                <%= mustache_partial '_option.html', { 'options' => @publication.places } %>
+                <%= render :partial => 'option', :locals => { :places => @publication.places } %>
               </ol>
             </section>
           <% else %>

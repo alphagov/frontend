@@ -1,7 +1,7 @@
 <main id="content" role="main" class="view-driving-licence-start group start-page">
   <header class="page-header group start-header full-width">
     <div class="title">
-      <h1>View your driving licence information</h1>
+      <h1><%= @publication.title %></h1>
     </div>
 
     <nav class="popular-needs">
@@ -15,8 +15,7 @@
 
   <div class="start-container full-width start-page">
 
-
-    <p class="start-page-description">Find out which vehicles you can drive, penalty points and when your licence expires.</p>
+    <%= raw @publication.introduction %>
 
     <section class="primary-apply" aria-labelledby="primary-apply-label">
       <div class="eligibility-check">
@@ -30,13 +29,13 @@
            # design/accessibility trade-off %>
 
         <% # It's a GET because the downstream server 405s POSTs (as it should) %>
-        <form class="get-started" action="https://www.viewdrivingrecord.service.gov.uk" method="GET">
+        <form class="get-started" action="<%= @publication.link %>" method="GET">
           <input type="submit" value="View now" class="button medium" />
         </form>
       </div>
 
       <div class="you-will-need">
-        <h2>You will need</h2>
+        <h2>You'll need</h2>
         <ul>
           <li>your driving licence number</li>
           <li>your <a href="/lost-national-insurance-number">National Insurance number</a></li>

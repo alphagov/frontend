@@ -109,7 +109,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   test "should inform the user that we didn't find any documents matching the search term" do
     stub_results([])
     get :unified, { q: "search-term", ui: "unified" }
-    assert_select ".no-results h2", text: %Q{No results for &ldquo;search-term&rdquo;}
+    assert_select ".zero-results h2"
   end
 
   test "should pass our query parameter in to the search client" do
@@ -122,19 +122,6 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     stub_single_result(result)
     get :unified, {q: "search-term", ui: "unified"}
     assert_select "a[href='/document-slug']", text: "document-title"
-  end
-
-  test "should set the class of the result according to the format" do
-    result = {
-      "title" => "title",
-      "link" => "/slug",
-      "highlight" => "",
-      "format" => "publication"
-    }
-    stub_single_result(result)
-    get :unified, { q: "search-term", ui: "unified" }
-
-    assert_select ".results-list .type-publication"
   end
 
   test "should_not_blow_up_with_a_result_wihout_a_section" do
@@ -311,7 +298,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     get :unified, {q: "bleh", ui: "unified"}
 
     assert_response :success
-    assert_select "li.type-guide.external .meta" do
+    assert_select "li.external .meta" do
       assert_select ".url", {count: 1, text: "www.weally.weally.long.url.com/weaseling/abou..."}
     end
   end
@@ -328,7 +315,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     get :unified, {q: "bleh", ui: "unified"}
 
     assert_response :success
-    assert_select "li.type-guide.external .meta" do
+    assert_select "li.external .meta" do
       assert_select ".url", {count: 1, text: "www.badgers.com/badgers"}
     end
   end
@@ -345,7 +332,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     get :unified, {q: "bleh", ui: "unified"}
 
     assert_response :success
-    assert_select "li.type-guide.external .meta" do
+    assert_select "li.external .meta" do
       assert_select ".url", {count: 1, text: "www.badgers.com/badgers"}
     end
   end
@@ -362,7 +349,9 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     get :unified, { q: "bob", ui: "unified", format: "json" }
 
     json = JSON.parse(@response.body)
-    assert_equal json["result_count"], "15"
+    assert_equal json["result_count"], 15
+    assert_equal json["result_count_string"], "15 results"
+    assert_equal json["results"].length, 15
   end
 
   test "should render json with no results" do
@@ -370,6 +359,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     get :unified, { q: "bob", ui: "unified", format: "json" }
 
     json = JSON.parse(@response.body)
-    assert_equal json["result_count"], "0"
+    assert_equal json["result_count"], 0
+    assert_equal json["results"].length, 0
   end
 end

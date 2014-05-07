@@ -52,19 +52,17 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    results = UnifiedSearchResultsPresenter.new(search_response)
+    @results = UnifiedSearchResultsPresenter.new(search_response, @search_term, params[:debug_score])
     @facets = search_response["facets"]
-    @spelling_suggestion = results.spelling_suggestion
-    @result_count = results.result_count
-    @results = results.results
+    @spelling_suggestion = @results.spelling_suggestion
 
-    fill_in_slimmer_headers(@result_count)
+    fill_in_slimmer_headers(@results.result_count)
 
     respond_to do |format|
-      format.html do
-        render action: 'no_results' and return if (@result_count == 0)
+      format.html
+      format.json do
+        render json: @results
       end
-      format.json
     end
   end
 

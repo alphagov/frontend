@@ -19,6 +19,7 @@
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication) %>">
       <%= yield %>
+      <%= render_mustache_templates if Rails.env.development? %>
     </div>
   </body>
 </html>

@@ -478,6 +478,14 @@ main.search {
     }
 
   }
+  .zero-results {
+    h2 {
+      @include bold-24;
+    }
+    ul, p {
+      margin-top: 0;
+    }
+  }
 }
 
 .result-count {

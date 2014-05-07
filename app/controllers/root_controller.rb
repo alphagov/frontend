@@ -5,7 +5,6 @@ require "licence_location_identifier"
 require "licence_details_from_artefact"
 
 class RootController < ApplicationController
-  include RootHelper
   include ActionView::Helpers::TextHelper
 
   before_filter :set_expiry, :only => [:index, :tour]

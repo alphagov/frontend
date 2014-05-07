@@ -78,6 +78,29 @@ offering...}
     assert_nil result.sections
   end
 
+  should "return sections for some format types" do
+    minister_results               = GovernmentResult.new({ "format" => "minister" })
+    organisation_results           = GovernmentResult.new({ "format" => "organisation" })
+    person_results                 = GovernmentResult.new({ "format" => "person" })
+    world_location_results         = GovernmentResult.new({ "format" => "world_location" })
+    worldwide_organisation_results = GovernmentResult.new({ "format" => "worldwide_organisation" })
+    mainstream_results             = GovernmentResult.new({ "format" => "mainstream" })
+
+    assert_equal 2, minister_results.sections.length
+    assert_equal 4, organisation_results.sections.length
+    assert_equal 2, person_results.sections.length
+    assert_equal 2, world_location_results.sections.length
+    assert_equal 2, worldwide_organisation_results.sections.length
+
+    assert_equal nil, mainstream_results.sections
+  end
+
+  should "return sections in correct format" do
+    minister_results = GovernmentResult.new({ "format" => "minister" })
+
+    assert_equal [:hash, :title], minister_results.sections.first.keys
+  end
+
   should "return description for detailed guides" do
     result = GovernmentResult.new({
       "format" => "detailed_guidance",

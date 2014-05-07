@@ -130,5 +130,4 @@ offering...}
     assert_equal result1.description, 'my-description'
     assert_equal result2.description, 'my-indexable-content'
   end
-
 end

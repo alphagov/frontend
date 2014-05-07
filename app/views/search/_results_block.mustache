@@ -35,13 +35,13 @@
           </p>
         {{/section}}
 
-        {{#attributes_any?}}
+        {{#metadata_any?}}
           <ul class="attributes">
-            {{#attributes}}
+            {{#metadata}}
               <li> {{{.}}} </li>
-            {{/attributes}}
+            {{/metadata}}
           </ul>
-        {{/attributes_any?}}
+        {{/metadata_any?}}
 
         <p>{{description}}</p>
 

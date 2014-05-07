@@ -4,8 +4,8 @@ class GovernmentResult < SearchResult
 
   def to_hash
     super.merge({
-      attributes: attributes,
-      attributes_any?: attributes.any?,
+      metadata: metadata,
+      metadata_any?: metadata.any?,
       sections: sections,
       sections_present?: sections.present?,
       government: true
@@ -18,7 +18,7 @@ class GovernmentResult < SearchResult
       /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
   end
 
-  def attributes
+  def metadata
     out = []
     out << display_timestamp if public_timestamp.present?
     if display_type.present?

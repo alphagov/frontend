@@ -55,6 +55,21 @@ offering...}
     assert_equal result.attributes, [ '14 October 2014', 'my-display-type', 'org-1', 'France' ]
   end
 
+  should "return format for corporate information pages in attributes" do
+    result = GovernmentResult.new({
+      "format" => "corporate_information"
+    })
+    assert_equal result.attributes, [ 'Corporate information' ]
+  end
+
+  should "return only display type for corporate information pages if it is present in attributes" do
+    result = GovernmentResult.new({
+      "display_type" => "my-display-type",
+      "format" => "corporate_information"
+    })
+    assert_equal result.attributes, [ "my-display-type" ]
+  end
+
   should "not return sections for deputy prime ministers office" do
     result = GovernmentResult.new({
       "format" => "organisation",

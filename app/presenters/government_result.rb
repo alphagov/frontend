@@ -6,7 +6,6 @@ class GovernmentResult < SearchResult
     super.merge({
       attributes: attributes,
       attributes_any?: attributes.any?,
-      attribute: attribute,
       sections: sections,
       sections_present?: sections.present?,
       government: true
@@ -22,19 +21,14 @@ class GovernmentResult < SearchResult
   def attributes
     out = []
     out << display_timestamp if public_timestamp.present?
-    out << display_type if display_type.present?
+    if display_type.present?
+      out << display_type
+    elsif %w{ corporate_information document_series }.include?(format)
+      out << format.humanize
+    end
     out << display_organisations(organisations) if organisations.any?
     out << display_world_locations if world_locations.any?
     out
-  end
-
-  def attribute
-    case format
-    when "corporate_information" then
-      "Corporate information"
-    when "document_series" then
-      "Document series"
-    end
   end
 
   def sections

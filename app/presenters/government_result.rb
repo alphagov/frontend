@@ -138,7 +138,7 @@ class GovernmentResult < SearchResult
     end
   end
 
-  private
+private
 
   def display(multi_valued_field)
     multi_valued_field.map do |field|
@@ -163,5 +163,4 @@ class GovernmentResult < SearchResult
       end
     end.join(", ")
   end
-
 end

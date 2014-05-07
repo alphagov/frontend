@@ -17,7 +17,7 @@ class SearchResult
 
   attr_accessor :result, :debug
 
-  def initialize(result, debug)
+  def initialize(result, debug=false)
     @result = result.stringify_keys!
     @debug = debug
   end

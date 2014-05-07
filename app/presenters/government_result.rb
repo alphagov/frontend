@@ -24,7 +24,7 @@ class GovernmentResult < SearchResult
     out << display_timestamp if public_timestamp.present?
     out << display_type if display_type.present?
     out << display_organisations(organisations) if organisations.any?
-    out << world_locations if world_locations.any?
+    out << display_world_locations if world_locations.any?
     out
   end
 

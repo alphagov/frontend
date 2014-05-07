@@ -44,4 +44,53 @@ offering...}
     assert result.has_world_locations?
     assert_equal "multiple locations", result.display_world_locations
   end
+
+  should "return valid attributes" do
+    result = GovernmentResult.new({
+      "public_timestamp" => "2014-10-14",
+      "display_type" => "my-display-type",
+      "organisations" => [ { "slug" => "org-1" } ],
+      "world_locations" => [ {"title" => "France", "slug" => "france"} ]
+    })
+    assert_equal result.attributes, [ '14 October 2014', 'my-display-type', 'org-1', 'France' ]
+  end
+
+  should "not return sections for deputy prime ministers office" do
+    result = GovernmentResult.new({
+      "format" => "organisation",
+      "link" => "/government/organisations/deputy-prime-ministers-office",
+    })
+    assert_nil result.sections
+  end
+
+  should "return description for detailed guides" do
+    result = GovernmentResult.new({
+      "format" => "detailed_guidance",
+      "description" => "my-description"
+    })
+    assert_equal result.description, 'my-description'
+  end
+
+  should "return description for organisation" do
+    result = GovernmentResult.new({
+      "format" => "organisation",
+      "title" => "my-title",
+      "description" => "my-description"
+    })
+    assert_equal result.description, 'The home of my-title on GOV.UK. my-description'
+  end
+
+  should "return description for other formats" do
+    result1 = GovernmentResult.new({
+      "format" => "my-new-format",
+      "description" => "my-description"
+    })
+    result2 = GovernmentResult.new({
+      "format" => "my-new-format",
+      "indexable_content" => "my-indexable-content"
+    })
+    assert_equal result1.description, 'my-description'
+    assert_equal result2.description, 'my-indexable-content'
+  end
+
 end

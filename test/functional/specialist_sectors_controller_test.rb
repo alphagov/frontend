@@ -43,8 +43,8 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
   context "GET subcategory with a valid sector tag and subcategory" do
     setup do
       artefacts = [
+        "something-else-about-wells",
         "guidance-about-wells",
-        "something-else-about-wells"
       ]
 
       content_api_has_tag("specialist_sector", { slug: "oil-and-gas/wells", title: "Wells", description: "Things to do with wells" }, "oil-and-gas")
@@ -83,6 +83,13 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
 
       assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
     end
+
+    should "return results in alphabetical order by title" do
+      get :subcategory, sector: "oil-and-gas", subcategory: "wells"
+
+      assert_equal ['Guidance about wells', 'Something else about wells'], assigns(:results).map(&:title)
+    end
+
   end
 
   should "return a 404 status for GET subcategory with an invalid subcategory tag" do

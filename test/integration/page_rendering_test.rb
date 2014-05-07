@@ -12,14 +12,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
         visit "/my-item"
         assert_equal 503, page.status_code
       end
-
-      should "notify of the exception" do
-        visit "/my-item"
-        assert ! ActionMailer::Base.deliveries.empty?
-        mail = ActionMailer::Base.deliveries.last
-        assert_match /GdsApi::TimedOutException/, mail.body
-        assert_match %r{http://www.example.com/my-item}, mail.body
-      end
     end
 
     context "backend 500 error" do
@@ -31,14 +23,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
         visit "/my-item"
         assert_equal 503, page.status_code
       end
-
-      should "notify of the exception" do
-        visit "/my-item"
-        assert ! ActionMailer::Base.deliveries.empty?
-        mail = ActionMailer::Base.deliveries.last
-        assert_match /GdsApi::HTTPErrorResponse/, mail.body
-        assert_match %r{http://www.example.com/my-item}, mail.body
-      end
     end
 
     context "backend connection refused" do
@@ -49,14 +33,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
       should "return 503 if backend connection is refused" do
         visit "/my-item"
         assert_equal 503, page.status_code
-      end
-
-      should "notify of the exception" do
-        visit "/my-item"
-        assert ! ActionMailer::Base.deliveries.empty?
-        mail = ActionMailer::Base.deliveries.last
-        assert_match /GdsApi::EndpointNotFound/, mail.body
-        assert_match %r{http://www.example.com/my-item}, mail.body
       end
     end
   end

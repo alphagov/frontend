@@ -89,7 +89,6 @@ class SpecialistSectorsControllerTest < ActionController::TestCase
 
       assert_equal ['Guidance about wells', 'Something else about wells'], assigns(:results).map(&:title)
     end
-
   end
 
   should "return a 404 status for GET subcategory with an invalid subcategory tag" do

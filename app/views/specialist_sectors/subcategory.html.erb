@@ -14,16 +14,16 @@
       </div>
     <% end %>
 
-      <nav class="index-list">
-        <h1>A-Z</h1>
-        <ul>
-          <% @results.each do |content| %>
-            <li>
-              <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
-            </li>
-          <% end %>
-        </ul>
-      </nav>
+    <nav class="index-list">
+      <h1>A-Z</h1>
+      <ul>
+        <% @results.each do |content| %>
+          <li>
+            <h2><a href="<%= content.web_url %>"><%= content.title %></a></h2>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 
   <div id="report-a-problem"></div>

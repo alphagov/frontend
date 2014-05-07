@@ -55,7 +55,7 @@ class SearchResult
   end
 
   def to_hash
-    out = {
+    {
       debug: debug,
       title: title,
       link: link,

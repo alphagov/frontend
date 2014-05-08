@@ -14,12 +14,13 @@ class RootController < ApplicationController
 
   PRINT_FORMATS = %w(guide programme)
 
-  EXCEPTIONAL_FORMAT_SLUGS = [
-    "check-vehicle-tax",
-    "register-sorn-statutory-off-road-notification",
-    "tax-disc",
-    "view-driving-licence"
-  ]
+  EXCEPTIONAL_FORMAT_SLUGS = %w(
+    check-vehicle-tax
+    make-a-sorn
+    register-sorn-statutory-off-road-notification
+    tax-disc
+    view-driving-licence
+  )
 
   def index
     set_slimmer_headers(

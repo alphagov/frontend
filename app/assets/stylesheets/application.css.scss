@@ -18,14 +18,17 @@
 // View stylesheets
 @import "views/browse";
 @import "views/campaigns";
-@import "views/check-vehicle-tax";
 @import "views/completed-transaction.scss";
 @import "views/homepage";
 @import "views/tour";
 @import "views/travel-advice";
 @import "views/search";
 @import "views/help";
+@import "views/checkbox-filter";
+
+// exceptional format overrides
+@import "views/register-sorn-statutory-off-road-notification";
+@import "views/make-a-sorn";
 @import "views/tax-disc";
 @import "views/view-driving-licence";
-@import "views/checkbox-filter";
-@import "views/register-sorn-statutory-off-road-notification";
+@import "views/check-vehicle-tax";

@@ -1,31 +1,29 @@
 require_relative '../integration_test_helper'
 
 class TaxDiscPageTest < ActionDispatch::IntegrationTest
-  context "rendering the register-sorn-statutory-off-road-notification page" do
+  context "rendering the make-a-sorn page" do
 
-    should "render the register-sorn-statutory-off-road-notification start page correctly" do
+    should "render the make-a-sorn start page correctly" do
 
-      weird problem - tests failing
-
-      # setup_api_responses('register-sorn-statutory-off-road-notification')
-      visit "/register-sorn-statutory-off-road-notification"
+      setup_api_responses('make-a-sorn')
+      visit "/make-a-sorn"
       
       assert_equal 200, page.status_code
 
       within '.start-header', :visible => :all do
-        assert page.has_selector?(".title", :text => "Make a PORN")
+        assert page.has_selector?(".title", :text => "Make a SORN")
       end
 
       within '.top-tasks' do
         assert page.has_link?("Renew a tax disc", :href => "/tax-disc")
         assert page.has_link?("Get vehicle information from DVLA", :href => "/get-vehicle-information-from-dvla")
-        assert page.has_link?("Apply for a tax disc refund (form V14)", :href => "/apply-for-tax-disc-refund-form-v14")
+        assert page.has_link?("SORN (Statutory Off Road Notification)", :href => "/sorn-statutory-off-road-notification")
       end
 
       within ".eligibility-check" do
         assert page.has_selector?("h1", :text => "Before you start")
         assert page.has_selector?(".destination", :text => "Apply on the DVLA website:")
-        assert page.has_selector?("form.get-started[action='https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/sorn?execution=e1s1'][method=POST]")
+        assert page.has_selector?("form.get-started[action='https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro'][method=POST]")
       end
 
       within ".secondary-apply" do
@@ -52,6 +50,7 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       within ".related-links" do
         assert page.has_link?("Renew a tax disc", :href => "/tax-disc")
         assert page.has_link?("Get vehicle information from DVLA", :href => "/get-vehicle-information-from-dvla")
+        assert page.has_link?("SORN (Statutory Off Road Notification)", :href => "/sorn-statutory-off-road-notification")
         assert page.has_link?("Apply for a tax disc refund (form V14)", :href => "/apply-for-tax-disc-refund-form-v14")
       end
     end

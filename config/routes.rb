@@ -27,11 +27,6 @@ Frontend::Application.routes.draw do
   get "/business" => "browse#section", :section => "business"
   get "/visas-immigration" => "browse#section", :section => "visas-immigration"
 
-  constraints(proc {|req| Frontend.specialist_sectors.include?(req.params[:sector]) }) do
-    get "/:sector" => "specialist_sectors#sector"
-    get "/:sector(/:subcategory)" => "specialist_sectors#subcategory"
-  end
-
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }

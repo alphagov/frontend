@@ -26,16 +26,6 @@ namespace :test do
     puts "Compiling the mustache templates"
     Rake::Task["shared_mustache:compile"].invoke
 
-    at_exit do
-      if pid_file.exist?
-        puts "Stopping the server"
-        Process.kill("INT", pid_file.read.to_i)
-      end
-
-      puts "Removing compiled mustache templates"
-      Rake::Task["shared_mustache:clean"].invoke
-    end
-
     puts "Starting the test server on port 3150"
     `cd #{Rails.root} && INCLUDE_JS_TEST_ASSETS=1 script/rails server -p 3150 --daemon --environment=test --pid=#{pid_file}`
 
@@ -56,13 +46,23 @@ namespace :test do
 
     command = "phantomjs #{phantom_driver} #{runner}"
 
-    success = true
+    exit_status = 0
     Open3.popen2e(command) do |stdin, output, wait_thr|
       output.each {|line| puts line }
-      success = wait_thr.value.exitstatus == 0
+      exit_status = wait_thr.value.exitstatus
     end
 
-    abort "Javascript tests failed." unless success
+    puts "Javascript tests failed." unless exit_status == 0
+
+    if pid_file.exist?
+      puts "Stopping the server"
+      Process.kill("INT", pid_file.read.to_i)
+    end
+
+    puts "Removing compiled mustache templates"
+    Rake::Task["shared_mustache:clean"].invoke
+
+    exit exit_status
   end
 end
 

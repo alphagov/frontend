@@ -2,7 +2,8 @@ describe("liveSearch", function(){
   var $form, $results, _supportHistory;
   var dummyResponse = {
     "query":"fiddle",
-    "result_count":"1 result",
+    "result_count_string":"1 result",
+    "result_count":1,
     "results_any?":true,
     "results":[
       {"title":"my-title","link":"my-link","description":"my-description"}

@@ -72,7 +72,8 @@ describe("liveSearch", function(){
   it("should return a promise like object if results aren't in the cache", function(){
     GOVUK.liveSearch.state = { not: "cached" };
     spyOn(GOVUK.liveSearch, 'displayResults');
-    var ajaxCallback = jasmine.createSpyObj('ajax', ['done']);
+    var ajaxCallback = jasmine.createSpyObj('ajax', ['done', 'error']);
+    ajaxCallback.done.andReturn(ajaxCallback);
     spyOn(jQuery, 'ajax').andReturn(ajaxCallback);
 
     GOVUK.liveSearch.updateResults();
@@ -88,7 +89,8 @@ describe("liveSearch", function(){
     spyOn(GOVUK.liveSearch, 'displayResults');
     spyOn(GOVUK.liveSearch, 'showLoadingIndicator');
     spyOn(GOVUK.liveSearch, 'hideLoadingIndicator');
-    var ajaxCallback = jasmine.createSpyObj('ajax', ['done']);
+    var ajaxCallback = jasmine.createSpyObj('ajax', ['done', 'error']);
+    ajaxCallback.done.andReturn(ajaxCallback);
     spyOn(jQuery, 'ajax').andReturn(ajaxCallback);
 
     GOVUK.liveSearch.updateResults();
@@ -100,9 +102,9 @@ describe("liveSearch", function(){
   it("should show error indicator when error loading new results", function(){
     GOVUK.liveSearch.state = { not: "cached" };
     spyOn(GOVUK.liveSearch, 'displayResults');
-    spyOn(GOVUK.liveSearch, 'showLoadingIndicator');
-    spyOn(GOVUK.liveSearch, 'hideLoadingIndicator');
+    spyOn(GOVUK.liveSearch, 'showErrorIndicator');
     var ajaxCallback = jasmine.createSpyObj('ajax', ['done', 'error']);
+    ajaxCallback.done.andReturn(ajaxCallback);
     spyOn(jQuery, 'ajax').andReturn(ajaxCallback);
 
     GOVUK.liveSearch.updateResults();

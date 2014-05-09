@@ -1,8 +1,8 @@
 // override mad declaration in static that applies styles to ANY div inside .page-header
 // about the least future-proof css evah.  :/
 
-#wrapper.service .register-sorn-statutory-off-road-notification header.page-header div,
-body.full-width .register-sorn-statutory-off-road-notification header.page-header div {
+#wrapper.service .make-a-sorn header.page-header div,
+body.full-width .make-a-sorn header.page-header div {
 
   padding:15px 0 0 0;
 
@@ -18,7 +18,7 @@ body.full-width .register-sorn-statutory-off-road-notification header.page-heade
 
 
 
-#content.register-sorn-statutory-off-road-notification {
+#content.make-a-sorn {
   .start-header,
   .start-container {
     background-color: #fff;

@@ -17,7 +17,6 @@ class RootController < ApplicationController
   EXCEPTIONAL_FORMAT_SLUGS = %w(
     check-vehicle-tax
     make-a-sorn
-    register-sorn-statutory-off-road-notification
     tax-disc
     view-driving-licence
   )

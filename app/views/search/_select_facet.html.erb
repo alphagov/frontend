@@ -13,7 +13,7 @@
         <input type="checkbox" name="filter_organisations[]" value="<%= option['value']['slug'] %>" id="<%= option['value']['slug'] %>" <%= input_checked(option['value']['slug']) %>>
         <label for='<%= option['value']['slug'] %>'>
           <%= option["value"]["title"] %>
-          (<%= option["documents"] %>)
+          (<%= number_with_delimiter(option["documents"]) %>)
         </label>
       </li>
       <% end %>

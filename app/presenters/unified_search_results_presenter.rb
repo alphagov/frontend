@@ -1,5 +1,6 @@
 class UnifiedSearchResultsPresenter
   include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::NumberHelper
 
   def initialize(search_response, query, debug)
     @search_response = search_response
@@ -11,7 +12,7 @@ class UnifiedSearchResultsPresenter
     {
       query: query,
       result_count: result_count,
-      result_count_string: pluralize(result_count, "result"),
+      result_count_string: pluralize(number_with_delimiter(result_count), "result"),
       results_any?: results.any?,
       results: results.map { |result| result.to_hash }
     }

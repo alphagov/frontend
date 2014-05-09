@@ -37,7 +37,7 @@ gem 'airbrake', '3.1.15'
 gem 'rack_strip_client_ip', '0.0.1'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '0.42.0'
+  gem 'govuk_frontend_toolkit', '1.1.0'
   gem 'sass', "3.2.1"
   gem 'sass-rails', "  ~> 3.2.3"
   gem "therubyracer", "0.12.0"

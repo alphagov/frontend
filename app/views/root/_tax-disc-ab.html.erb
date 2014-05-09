@@ -8,7 +8,7 @@
       <li>the 11 digit reference number from your log book (V5C)</li>
     </ul>
 
-    <form class="get-started" action="https://www.taxdisc.service.gov.uk/" method="POST">
+    <form class="get-started" action="<%= external_link_url('https://www.taxdisc.service.gov.uk/') %>">
       <input value="Apply now" class="button medium" type="submit">
     </form>
   </div>
@@ -28,7 +28,7 @@
       <li>the 11 digit reference number from your log book (V5C)</li>
     </ul>
     <span class="destination">Apply on the DVLA website:</span>
-    <form action="<%= @publication.link %>" method="POST">
+    <form action="<%= external_link_url(@publication.link) %>">
       <input value="Apply now" class="button button-secondary" type="submit">
     </form>
   </div>

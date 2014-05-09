@@ -39,7 +39,7 @@
       <div class="filter-form">
         <% if @facets["organisations"]["options"].any? %>
           <div class="inner-block">
-            <p class="info">You can filter your results by organisation:</p>
+            <p class="info">Filter by:</p>
             <%= render partial: 'select_facet', locals: {facets: @facets["organisations"]} %>
             <div class="submit js-live-search-fallback">
               <input type="submit" class="button" value="Submit filters">

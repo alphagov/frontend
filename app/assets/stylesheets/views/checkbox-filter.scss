@@ -1,10 +1,6 @@
 @import "helpers/not-ie-conditional";
 @import "measurements";
 
-$gutter: 60px;
-$gutter-one-third: $gutter/3;
-$gutter-two-thirds: $gutter-one-third*2;
-
 .filter-form,
 .filtered-results {
   @include media(tablet) {
@@ -120,7 +116,7 @@ $gutter-two-thirds: $gutter-one-third*2;
     position:relative;
     padding: 5px;
     background-color: $white;
-    height:200px;
+    height:300px;
     overflow-y:scroll;
     overflow-x:hidden;
 

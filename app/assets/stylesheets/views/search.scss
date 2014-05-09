@@ -1,6 +1,7 @@
 @import "measurements";
 
-body.search {
+body.search,
+body.unified-search {
   #global-header #search,
   #global-breadcrumb {
     display: none;

@@ -346,9 +346,13 @@ body.homepage {
         }
 
         &:active,
-        &:hover,
-        &:focus {
+        &:hover {
           color: darken($white, 20%);
+        }
+
+        &:focus {
+          // Manually fix the most embarassing :focus contast issue, needs a wider fix
+          color: $black;
         }
       }
     }

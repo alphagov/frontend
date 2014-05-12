@@ -99,7 +99,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   end
 
   test "should ask the user to enter a search term if none was given" do
-    get :unified, { q: "", ui: "unified" }
+    get :unified, { q: "" }
     assert_select "label", %{Search GOV.UK}
     assert_select "form[action=?]", search_path do
       assert_select "input[name=q]"
@@ -108,19 +108,19 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
   test "should inform the user that we didn't find any documents matching the search term" do
     stub_results([])
-    get :unified, { q: "search-term", ui: "unified" }
+    get :unified, { q: "search-term" }
     assert_select ".zero-results h2"
   end
 
   test "should pass our query parameter in to the search client" do
     stub_results([])
-    get :unified, q: "search-term", ui: "unified"
+    get :unified, q: "search-term"
   end
 
   test "should display a link to the documents matching our search criteria" do
     result = {"title" => "document-title", "link" => "/document-slug"}
     stub_single_result(result)
-    get :unified, {q: "search-term", ui: "unified"}
+    get :unified, {q: "search-term"}
     assert_select "a[href='/document-slug']", text: "document-title"
   end
 
@@ -132,7 +132,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     }
     stub_results([result_without_section], "bob")
     assert_nothing_raised do
-      get :unified, { q: "bob", ui: "unified" }
+      get :unified, { q: "bob" }
     end
   end
 
@@ -144,7 +144,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
       "section" => "life-in-the-uk"
     }
     stub_results([result_with_section], "bob")
-    get :unified, {q: "bob", ui: "unified"}
+    get :unified, {q: "bob"}
 
     assert_select ".meta .section", text: "Life in the UK"
   end
@@ -158,7 +158,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
       "subsection" => "test-thing"
     }
     stub_results([result_with_section], "bob")
-    get :unified, {q: "bob", ui: "unified"}
+    get :unified, {q: "bob"}
 
     assert_select ".meta .section", text: "Life in the UK"
     assert_select ".meta .subsection", text: "Test thing"
@@ -174,7 +174,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
       "subsubsection" => "sub-section"
     }
     stub_results([result_with_section], "bob")
-    get :unified, {q: "bob", ui: "unified"}
+    get :unified, {q: "bob"}
 
     assert_select ".meta .section", text: "Life in the UK"
     assert_select ".meta .subsection", text: "Test thing"
@@ -184,7 +184,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   should "include organisations where available" do
     result = result_with_organisation("CO", "Cabinet Office", "cabinet-office")
     stub_results([result], "bob")
-    get :unified, { q: "bob" , ui: "unified"}
+    get :unified, { q: "bob" }
 
     assert_select "ul.attributes li", /CO/
   end
@@ -192,7 +192,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   should "provide an abbr tag to explain organisation abbreviations" do
     result = result_with_organisation("CO", "Cabinet Office", "cabinet-office")
     stub_results([result], "bob")
-    get :unified, { q: "bob" , ui: "unified"}
+    get :unified, { q: "bob" }
 
     assert_select "ul.attributes li abbr[title='Cabinet Office']", text: "CO"
   end
@@ -200,7 +200,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   should "not provide an abbr tag when the organisation title is the acronym" do
     result = result_with_organisation("Home Office", "Home Office", "home-office")
     stub_results([result], "bob")
-    get :unified, { q: "bob" , ui: "unified"}
+    get :unified, { q: "bob" }
 
     assert_select "ul.attributes li abbr[title='Home Office']", count: 0
     assert_select "ul.attributes li", /Home Office/
@@ -208,12 +208,12 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
   should "filter by organisation" do
     expect_search_client_is_requested(['ministry-of-silly-walks'])
-    get :unified, {q: "search-term", ui: "unified", filter_organisations: ["ministry-of-silly-walks"]}
+    get :unified, {q: "search-term", filter_organisations: ["ministry-of-silly-walks"]}
   end
 
   should "filter by multiple organisations" do
     expect_search_client_is_requested(['ministry-of-silly-walks', 'ministry-of-beer'])
-    get :unified, {q: "search-term", ui: "unified", filter_organisations: ["ministry-of-silly-walks", "ministry-of-beer"]}
+    get :unified, {q: "search-term", filter_organisations: ["ministry-of-silly-walks", "ministry-of-beer"]}
   end
 
   should "suggest the first alternative query" do
@@ -222,7 +222,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
     stub_results(results, "search-term", [], suggestions)
 
-    get :unified, q: "search-term", ui: "unified"
+    get :unified, q: "search-term"
     assert_select ".spelling-suggestion", text: "Did you mean cats"
   end
 
@@ -233,14 +233,14 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     end
     stub_results(results, "Test")
 
-    get :unified, {q: "Test", ui: "unified"}
+    get :unified, {q: "Test"}
     assert_select "#unified-results h3 a", count: 75
   end
 
   test "should show the phrase searched for" do
     stub_results(Array.new(75, {}), "Test")
 
-    get :unified, q: "Test", ui: "unified"
+    get :unified, q: "Test"
 
     assert_select "input[value=Test]"
   end
@@ -256,7 +256,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
     stub_results([external_document], "bleh")
 
-    get :unified, {q: "bleh", ui: "unified"}
+    get :unified, {q: "bleh"}
     assert_select "li.external" do
       assert_select "a[rel=external]", "A title"
     end
@@ -270,7 +270,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
       "format" => "publication"
     }
     stub_results([result], "bob")
-    get :unified, {q: "bob", ui: "unified"}
+    get :unified, {q: "bob"}
     assert_equal "search",  @response.headers["X-Slimmer-Section"]
     assert_equal "search",  @response.headers["X-Slimmer-Format"]
     assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
@@ -280,7 +280,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
   test "display the total number of results" do
     stub_results(Array.new(15, {}), "bob")
 
-    get :unified, {q: "bob", ui: "unified"}
+    get :unified, {q: "bob"}
 
     assert_equal "15", @response.headers["X-Slimmer-Result-Count"]
   end
@@ -295,7 +295,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     }
     stub_results([external_link], "bleh")
 
-    get :unified, {q: "bleh", ui: "unified"}
+    get :unified, {q: "bleh"}
 
     assert_response :success
     assert_select "li.external .meta" do
@@ -312,7 +312,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     }
     stub_results([external_link], "bleh")
 
-    get :unified, {q: "bleh", ui: "unified"}
+    get :unified, {q: "bleh"}
 
     assert_response :success
     assert_select "li.external .meta" do
@@ -329,7 +329,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     }
     stub_results([external_link], "bleh")
 
-    get :unified, {q: "bleh", ui: "unified"}
+    get :unified, {q: "bleh"}
 
     assert_response :success
     assert_select "li.external .meta" do
@@ -339,14 +339,14 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
   test "should handle service errors with a 503" do
     Frontend.search_client.stubs(:unified_search).raises(GdsApi::BaseError)
-    get :unified, {q: "badness", ui: "unified"}
+    get :unified, {q: "badness"}
 
     assert_response 503
   end
 
   test "should render json results" do
     stub_results(Array.new(15, {}), "bob")
-    get :unified, { q: "bob", ui: "unified", format: "json" }
+    get :unified, { q: "bob", format: "json" }
 
     json = JSON.parse(@response.body)
     assert_equal json["result_count"], 15
@@ -356,7 +356,7 @@ class UnifiedSearchControllerTest < ActionController::TestCase
 
   test "should render json with no results" do
     stub_results(Array.new(0, {}), "bob")
-    get :unified, { q: "bob", ui: "unified", format: "json" }
+    get :unified, { q: "bob", format: "json" }
 
     json = JSON.parse(@response.body)
     assert_equal json["result_count"], 0

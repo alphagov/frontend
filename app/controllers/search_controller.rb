@@ -12,6 +12,7 @@ class SearchController < ApplicationController
   MAX_RESULTS_PER_PAGE = 100
 
   def index
+    @ui = :old
     @search_term = params[:q]
 
     if @search_term.blank?
@@ -37,7 +38,6 @@ class SearchController < ApplicationController
   end
 
   def unified
-    @ui = :unified
     @search_term = params[:q]
     if @search_term.blank?
       render action: 'no_search_term' and return

@@ -29,7 +29,7 @@
       </div>
       <% if @spelling_suggestion %>
         <fieldset class="spelling-suggestion">
-          <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion, spelling_suggestion: params[:spelling_suggestion], ui: 'unified') %>
+          <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion, spelling_suggestion: params[:spelling_suggestion]) %>
           </p>
         </fieldset>
       <% end %>
@@ -60,4 +60,3 @@
 </main>
 
 <h3 class="visuallyhidden">No more results for &ldquo;<%= @search_term %>&rdquo;. <a href="#search-main">Try a different search?</a></h3>
-

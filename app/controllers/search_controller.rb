@@ -52,7 +52,7 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    @results = UnifiedSearchResultsPresenter.new(search_response, @search_term, params[:debug_score])
+    @results = UnifiedSearchResultsPresenter.new(search_response, @search_term, params)
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 

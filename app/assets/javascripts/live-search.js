@@ -6,6 +6,7 @@
   var liveSearch = {
     action: false,
     state: false,
+    previousState: false,
     resultCache: {},
 
     $form: false,
@@ -30,7 +31,7 @@
     },
     popState: function(event){
       if(event.originalEvent.state){
-        liveSearch.state = event.originalEvent.state;
+        liveSearch.saveState(state);
         liveSearch.updateResults();
         liveSearch.restoreCheckboxes();
         liveSearch.pageTrack();
@@ -63,8 +64,12 @@
     isNewState: function(){
       return $.param(liveSearch.state) !== liveSearch.$form.serialize();
     },
-    saveState: function(){
-      liveSearch.state = liveSearch.$form.serializeArray();
+    saveState: function(state){
+      if(typeof state === 'undefined'){
+        state = liveSearch.$form.serializeArray();
+      }
+      liveSearch.previousState = liveSearch.state;
+      liveSearch.state = state;
     },
     updateResults: function(){
       if(typeof liveSearch.cache() === 'undefined'){
@@ -99,7 +104,14 @@
     displayResults: function(){
       var results = liveSearch.cache();
 
-      liveSearch.$resultsBlock.mustache('search/_results_block', results);
+      if(liveSearch.searchTermValue(liveSearch.previousState) === liveSearch.searchTermValue(liveSearch.state)){
+        liveSearch.$resultsBlock.find('.js-live-search-results-list').mustache('search/_results_list', results);
+      } else {
+        liveSearch.$resultsBlock.mustache('search/_results_block', results);
+        liveSearch.$resultsBlock.find('.js-openable-filter').each(function(){
+          new GOVUK.CheckboxFilter({el:$(this)});
+        })
+      }
     },
     restoreCheckboxes: function(){
       liveSearch.$form.find('input[type=checkbox]').each(function(i, el){
@@ -112,6 +124,18 @@
       for(i=0,_i=liveSearch.state.length; i<_i; i++){
         if(liveSearch.state[i].name === name && liveSearch.state[i].value === value){
           return true;
+        }
+      }
+      return false;
+    },
+    searchTermValue: function(state){
+      if(!state){
+        return false
+      }
+      var i, _i;
+      for(i=0,_i=state.length; i<_i; i++){
+        if(state[i].name === 'q'){
+          return state[i].value;
         }
       }
       return false;

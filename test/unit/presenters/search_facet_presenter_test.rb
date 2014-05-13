@@ -11,10 +11,11 @@ class SearchFacetPresenterTest < ActiveSupport::TestCase
         "documents" => 1114
       } ]
     }, ['department-for-education'])
-    assert_equal 'department-for-education', facet.to_hash[0][:slug]
-    assert_equal 'Department for Education', facet.to_hash[0][:title]
-    assert_equal '1,114', facet.to_hash[0][:count]
-    assert_equal true, facet.to_hash[0][:checked]
+    assert_equal true, facet.to_hash[:any?]
+    assert_equal 'department-for-education', facet.to_hash[:options][0][:slug]
+    assert_equal 'Department for Education', facet.to_hash[:options][0][:title]
+    assert_equal '1,114', facet.to_hash[:options][0][:count]
+    assert_equal true, facet.to_hash[:options][0][:checked]
   end
 
   should "work out which items are checked" do
@@ -33,9 +34,9 @@ class SearchFacetPresenterTest < ActiveSupport::TestCase
         "documents" => 1114
       }  ]
     }, ['department-for-education'])
-    assert_equal 'department-for-education', facet.to_hash[0][:slug]
-    assert_equal true, facet.to_hash[0][:checked]
-    assert_equal 'department-for-transport', facet.to_hash[1][:slug]
-    assert_equal false, facet.to_hash[1][:checked]
+    assert_equal 'department-for-education', facet.to_hash[:options][0][:slug]
+    assert_equal true, facet.to_hash[:options][0][:checked]
+    assert_equal 'department-for-transport', facet.to_hash[:options][1][:slug]
+    assert_equal false, facet.to_hash[:options][1][:checked]
   end
 end

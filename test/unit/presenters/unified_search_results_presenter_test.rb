@@ -30,7 +30,7 @@ class UnifiedSearchResultsPresenterTest < ActiveSupport::TestCase
     }, 'my-query', {})
 
     assert results.to_hash[:filter_fields]["organisations"]
-    assert_equal 1, results.to_hash[:filter_fields]["organisations"].length
-    assert_equal "Department for Education", results.to_hash[:filter_fields]["organisations"][0][:title]
+    assert_equal 1, results.to_hash[:filter_fields]["organisations"][:options].length
+    assert_equal "Department for Education", results.to_hash[:filter_fields]["organisations"][:options][0][:title]
   end
 end

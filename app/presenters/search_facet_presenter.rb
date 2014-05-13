@@ -8,14 +8,17 @@ class SearchFacetPresenter
   end
 
   def to_hash
-    @facet["options"].map do |option|
-      {
-        slug: option['value']['slug'],
-        title: option['value']['title'],
-        count: number_with_delimiter(option['documents']),
-        checked: option_checked(option)
-      }
-    end
+    {
+      any?: @selected.any?,
+      options: @facet["options"].map do |option|
+        {
+          slug: option['value']['slug'],
+          title: option['value']['title'],
+          count: number_with_delimiter(option['documents']),
+          checked: option_checked(option)
+        }
+      end
+    }
   end
 
 private

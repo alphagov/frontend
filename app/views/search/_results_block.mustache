@@ -2,22 +2,22 @@
   <div class="filter-form">
     <div class="inner-block">
       <p class="info">Filter by:</p>
-      <div class="filter checkbox-filter js-openable-filter {{#closed}}closed{{/closed}}" tabindex="0">
+      <div class="filter checkbox-filter js-openable-filter {{^organisations.any?}}closed{{/organisations.any?}}" tabindex="0">
         <div class="head">
           <span class="legend">Organisations</span>
           <div class="controls">
-            <a class="clear-selected {{#closed}} js-hidden{{/closed}}">Remove filters</a>
+            <a class="clear-selected {{^organisations.any?}} js-hidden{{/organisations.any?}}">Remove filters</a>
             <div class="toggle"></div>
           </div>
         </div>
         <div class="checkbox-container" id="organisations-filter">
           <ul>
-            {{#organisations}}
+            {{#organisations.options}}
               <li>
                 <input type="checkbox" name="filter_organisations[]" value="{{slug}}" id="{{slug}}" {{#checked}}checked{{/checked}}>
                 <label for='{{slug}}'>{{title}} ({{count}})</label>
               </li>
-            {{/organisations}}
+            {{/organisations.options}}
           </ul>
         </div>
       </div>

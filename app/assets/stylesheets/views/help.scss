@@ -1,5 +1,6 @@
 @import "_device-pixels.scss";
 @import "_shims.scss";
+@import "_grid_layout.scss";
 
 nav.help-contents {
   min-height: 30em;
@@ -13,40 +14,21 @@ nav.help-contents {
 
     p {
       margin-bottom: 0.75em;
-      padding-bottom: 1.5em;
     }
 
     @include media(mobile) {
       padding: 0 1em 1em;
-
-      p {
-        padding-bottom: 1em;
-      }
     }
   }
 
   ul {
-    @extend %contain-floats;
-
     margin: 0;
     padding: 0;
+    margin-top: 4em;
   }
   ul li {
     display: block;
-    float: left;
-    margin-bottom: 0;
-    margin-right: 2.5%;
-    width: 48.75%;
-
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-
-    @include media-down(tablet) {
-      width: auto;
-      margin: 0;
-      float: none;
-    }
+    margin-bottom: 2em;
 
     a {
       @include core-24;
@@ -60,5 +42,13 @@ nav.help-contents {
     p {
       margin-top: 0.2em;
     }
+  }
+}
+
+header.page-header {
+  @include outer-block;
+  
+  div.inner {
+    @include inner-block;
   }
 }

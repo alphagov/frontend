@@ -1,0 +1,73 @@
+<div class="result-count" id="js-live-search-result-count">
+  {{ result_count_string }} found
+</div>
+
+{{#results_any?}}
+  <ul class="results-list" id="js-live-search-results">
+    {{#results}}
+      <li{{#external}} class="external"{{/external}}>
+        {{#debug}}
+          <span style="color: red;">
+            {{es_score}} {{format}} {{#government}}government{{/government}}
+          </span>
+        {{/debug}}
+
+        <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
+
+        {{#external}}
+          <p class="meta">
+            <span class="visuallyhidden">Part of </span>
+            <span class="url">{{ display_link }}</span>
+          </p>
+        {{/external}}
+
+        {{#section}}
+          <p class="meta crumbtrail">
+            <span class="visuallyhidden">Part of </span>
+            <span class="section">{{formatted_section_name}}</span>
+            {{#formatted_subsection_name}}
+              <span class="visuallyhidden">, </span>
+              <span class="subsection">{{ formatted_subsection_name }}</span>
+            {{/formatted_subsection_name}}
+            {{#formatted_subsubsection_name}}
+              <span class="visuallyhidden">, </span>
+              <span class="subsubsection">{{ formatted_subsubsection_name }}</span>
+            {{/formatted_subsubsection_name}}
+          </p>
+        {{/section}}
+
+        {{#metadata_any?}}
+          <ul class="attributes">
+            {{#metadata}}
+              <li> {{{.}}} </li>
+            {{/metadata}}
+          </ul>
+        {{/metadata_any?}}
+
+        <p>{{description}}</p>
+
+        {{#sections_present?}}
+          <ul class="sections">
+            {{#sections}}
+              <li><a href="{{link}}#{{hash}}">{{title}}</a></li>
+            {{/sections}}
+          </ul>
+        {{/sections_present?}}
+      </li>
+    {{/results}}
+  </ul>
+{{/results_any?}}
+{{^results_any?}}
+  <div class="zero-results">
+    <h2>Please try:</h2>
+    <ul>
+      <li>searching again using different words</li>
+      <li>removing your filters</li>
+    </ul>
+    <h2>Older content</h2>
+    <p>
+      Not all government content published before 2010 is on GOV.UK.
+      To find older content try searching <a href="http://webarchive.nationalarchives.gov.uk/adv_search/?query={{query}}">The National Archives</a>.
+    </p>
+  </div>
+{{/results_any?}}

@@ -12,7 +12,7 @@ describe("liveSearch", function(){
 
   beforeEach(function () {
     $form = $('<form action="/somewhere" class="js-live-search-form"><input type="checkbox" name="field" value="sheep" checked></form>');
-    $results = $('<div class="js-live-search-results-block">my result list</div>');
+    $results = $('<div class="js-live-search-results-block"><div class="js-live-search-results-list">my result list</div></div>');
 
     $('body').append($form).append($results);
 
@@ -46,6 +46,14 @@ describe("liveSearch", function(){
     $form.find('input').prop('checked', false);
     GOVUK.liveSearch.saveState();
     expect(GOVUK.liveSearch.state).toEqual([]);
+  });
+
+  it("should update state to passed in state", function(){
+    GOVUK.liveSearch.init();
+    expect(GOVUK.liveSearch.state).toEqual([{name: 'field', value: 'sheep'}]);
+    $form.find('input').prop('checked', false);
+    GOVUK.liveSearch.saveState({ my: "new", state: "object"});
+    expect(GOVUK.liveSearch.state).toEqual({ my: "new", state: "object"});
   });
 
   it("should not request new results if they are in the cache", function(){
@@ -117,6 +125,14 @@ describe("liveSearch", function(){
     expect(GOVUK.liveSearch.cache()).toBe(undefined);
     GOVUK.liveSearch.cache('something in the cache');
     expect(GOVUK.liveSearch.cache()).toBe('something in the cache');
+  });
+
+  it("should return the search term from a state object", function(){
+    var state = [{ name: "q", value: "my-search-term" }, { name: "other", value: "something" }];
+
+    expect(GOVUK.liveSearch.searchTermValue(state)).toBe('my-search-term');
+    expect(GOVUK.liveSearch.searchTermValue(false)).toBe(false);
+    expect(GOVUK.liveSearch.searchTermValue(null)).toBe(false);
   });
 
   describe('with relevent dom nodes set', function(){

@@ -35,24 +35,8 @@
       <% end %>
     </div>
 
-    <div id="unified-results">
-      <div class="filter-form">
-        <% if @facets["organisations"]["options"].any? %>
-          <div class="inner-block">
-            <p class="info">Filter by:</p>
-            <%= render partial: 'select_facet', locals: {facets: @facets["organisations"]} %>
-            <div class="submit js-live-search-fallback">
-              <input type="submit" class="button" value="Submit filters">
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <div class="results-block">
-        <div class="inner-block js-live-search-results-block">
-          <%= render_mustache('results_block', @results.to_hash) %>
-        </div>
-      </div>
+    <div id="unified-results" class="js-live-search-results-block">
+      <%= render_mustache('results_block', @results.to_hash) %>
     </div>
   </form>
 

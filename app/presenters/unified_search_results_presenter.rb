@@ -2,10 +2,11 @@ class UnifiedSearchResultsPresenter
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::NumberHelper
 
-  def initialize(search_response, query, debug)
+  def initialize(search_response, query, params)
     @search_response = search_response
     @query = query
-    @debug = debug
+    @debug = params[:debug_score]
+    @params = params
   end
 
   def to_hash
@@ -14,8 +15,18 @@ class UnifiedSearchResultsPresenter
       result_count: result_count,
       result_count_string: pluralize(number_with_delimiter(result_count), "result"),
       results_any?: results.any?,
-      results: results.map { |result| result.to_hash }
+      results: results.map { |result| result.to_hash },
+      filter_fields: filter_fields
     }
+  end
+
+  def filter_fields
+    filters = search_response["facets"].map do |key, value|
+      facet_params = @params["filter_#{key.pluralize}"] || []
+      facet = SearchFacetPresenter.new(value, facet_params)
+      [key, facet.to_hash]
+    end
+    Hash[filters]
   end
 
   def spelling_suggestion

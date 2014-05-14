@@ -39,7 +39,7 @@ class SearchController < ApplicationController
 
   def unified
     @search_term = params[:q]
-    if @search_term.blank?
+    if @search_term.blank? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
 

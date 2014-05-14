@@ -106,6 +106,13 @@ class UnifiedSearchControllerTest < ActionController::TestCase
     end
   end
 
+  test "should not raise an error responding to a json request with no search term" do
+    stub_results([], '')
+    assert_nothing_raised do
+      get :unified, { q: "", format: :json }
+    end
+  end
+
   test "should inform the user that we didn't find any documents matching the search term" do
     stub_results([])
     get :unified, { q: "search-term" }

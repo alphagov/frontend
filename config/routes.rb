@@ -3,7 +3,6 @@ require 'frontend'
 Frontend::Application.routes.draw do
   get "/homepage" => redirect("/")
 
-  get "/search" => "search#index", as: :old_search, constraints: lambda { |req| req.query_parameters['ui'] == 'old' }
   get "/search" => "search#unified", as: :search
   post "/search" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent non-GET requests for /search blowing up in the publication handlers below
   get "/search/opensearch" => "search#opensearch"

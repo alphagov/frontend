@@ -2,7 +2,7 @@ require "slimmer/headers"
 
 class SearchController < ApplicationController
 
-  before_filter :setup_slimmer_artefact, only: :unified
+  before_filter :setup_slimmer_artefact, only: :index
   before_filter :set_expiry
 
   rescue_from GdsApi::BaseError, with: :error_503
@@ -10,7 +10,7 @@ class SearchController < ApplicationController
   DEFAULT_RESULTS_PER_PAGE = 50
   MAX_RESULTS_PER_PAGE = 100
 
-  def unified
+  def index
     @search_term = params[:q]
     if @search_term.blank? && params[:format] != "json"
       render action: 'no_search_term' and return
@@ -25,7 +25,7 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    @results = UnifiedSearchResultsPresenter.new(search_response, @search_term, params)
+    @results = SearchResultsPresenter.new(search_response, @search_term, params)
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 

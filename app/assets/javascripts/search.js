@@ -1,7 +1,7 @@
 $(function() {
-  var $unified = $('#unified-results');
+  var $searchResults = $('#results');
 
-  if ($unified.length > 0) {
+  if ($searchResults.length > 0) {
     $('.js-openable-filter').each(function(){
       new GOVUK.CheckboxFilter({el:$(this)});
     })
@@ -9,10 +9,10 @@ $(function() {
   };
 
   (function trackSearchClicks(){
-    if($unified.length === 0 || !GOVUK.cookie){
+    if($searchResults.length === 0 || !GOVUK.cookie){
       return false;
     }
-    $unified.on('click', 'a', function(e){
+    $searchResults.on('click', 'a', function(e){
       var $link = $(e.target),
           sublink = '',
           gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3],

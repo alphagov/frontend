@@ -1,6 +1,6 @@
 @import "measurements";
 
-body.unified-search {
+body.search {
   #global-header #search,
   #global-breadcrumb {
     display: none;
@@ -105,7 +105,7 @@ main.search {
     }
   }
 
-  #unified-results {
+  #results {
     @extend %contain-floats;
 
     @include media(tablet){

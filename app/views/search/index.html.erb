@@ -1,5 +1,5 @@
 <% content_for :title, "#{@search_term} - Search - GOV.UK" %>
-<% content_for :body_classes, "unified-search" %>
+<% content_for :body_classes, "search" %>
 <% content_for :extra_headers do %>
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
 <% end %>
@@ -35,7 +35,7 @@
       <% end %>
     </div>
 
-    <div id="unified-results" class="js-live-search-results-block">
+    <div id="results" class="js-live-search-results-block">
       <%= render_mustache('results_block', @results.to_hash) %>
     </div>
   </form>

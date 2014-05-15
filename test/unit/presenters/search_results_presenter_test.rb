@@ -1,8 +1,8 @@
 require_relative "../../test_helper"
 
-class UnifiedSearchResultsPresenterTest < ActiveSupport::TestCase
+class SearchResultsPresenterTest < ActiveSupport::TestCase
   should "return an appropriate hash" do
-    results = UnifiedSearchResultsPresenter.new({
+    results = SearchResultsPresenter.new({
       "total" => 1,
       "results" => [ { "index" => "mainstream" } ],
       "facets" => []
@@ -14,7 +14,7 @@ class UnifiedSearchResultsPresenterTest < ActiveSupport::TestCase
   end
 
   should "return an entry for a facet" do
-    results = UnifiedSearchResultsPresenter.new({
+    results = SearchResultsPresenter.new({
       "results" => [],
       "facets" => {
         "organisations" => {

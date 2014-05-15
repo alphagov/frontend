@@ -1,6 +1,5 @@
 @import "measurements";
 
-body.search,
 body.unified-search {
   #global-header #search,
   #global-breadcrumb {
@@ -10,7 +9,6 @@ body.unified-search {
 
 main.search {
   padding-bottom: 30px;
-  background: $white;
 
   @include media(tablet) {
     padding-bottom: 60px;
@@ -107,397 +105,162 @@ main.search {
     }
   }
 
-  #search-results-tabs.shouty-tabs {
-    #search-index-navigation {
-      position: relative;
-      top: 1px;
-      margin: 0;
+  #unified-results {
+    @extend %contain-floats;
+
+    @include media(tablet){
+      margin: 0 15px;
+    }
+
+    .inner-block {
       padding: 0 15px;
+    }
 
-      @include media(tablet) {
-        padding: 0 30px;
-      }
-
-      li {
-        margin: 0;
+    .filter-form {
+      @include media(tablet){
         float: left;
-        display: inline;
-        list-style: none;
+        width: $one-third;
       }
 
-      a {
-        @include core-24;
-        font-weight: bold;
-        display: block;
-        overflow: hidden;
-        margin: 5px 5px 6px;
-        padding: 5px 4px 4px;
-        text-decoration: none;
-        background: $panel-colour;
-        border: 1px solid $panel-colour;
-        border-bottom: none;
+      .info {
+        margin: 0 0 15px;
+      }
+      .submit {
+        .js-enabled & {
+          display: none;
+        }
+      }
+    }
+    .results-block {
+      @include media(tablet){
+        float: left;
+        width: $two-thirds;
+      }
+      .result-count {
+        padding: 0;
+      }
+      .results-list {
+        padding: 30px 0;
+        list-style: none;
+        margin: 0;
 
-        &:hover,
-        &:focus {
-          .label {
-            text-decoration: underline;
+        li {
+          max-width: 32.5em;
+          margin: 0;
+          padding: 0 0 15px;
+
+          @include media(tablet) {
+            padding: 0 0 25px;
+          }
+
+          @include ie(6) {
+            width: 32.5em;
           }
         }
 
-        @include media(tablet) {
-          padding: 11px 14px 9px 9px;
+        li.external {
+          border: 1px solid $border-colour;
+          padding: 9px;
+          margin-bottom: 25px;
+
+          @include media(tablet) {
+            padding: 14px;
+          }
         }
 
-        @include ie(6) {
-          float: left;
-        }
-      }
+        h3 {
+          @include core-24;
+          margin: 0;
+          padding-bottom: 2px;
 
-      li.active a {
-        background: $white;
-        padding: 10px 9px 10px;
-        margin: 0;
-        border-color: $border-colour;
+          a {
+            font-weight: bold;
+            text-decoration: none;
 
-        @include media(tablet) {
-          padding: 16px 19px 15px 14px;
-        }
+            &:hover, &:focus {
+              color: $link-colour;
+              text-decoration: underline;
+            }
+          }
 
-        &:focus {
-          outline: none;
-        }
-
-        .label {
-          text-decoration: none;
-        }
-      }
-
-      &.two-tabs li {
-        width: 50%;
-
-        @include media(desktop) {
-          width: auto;
-          min-width: 33.333%;
+          a[rel="external"]::after {
+            content: "\A0\A0\A0\A0\A0\A0";
+          }
         }
 
-        @include ie(7) {
-          min-width: 0%;
+        .sections {
+          @include core-16;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+
+          li {
+            margin: 0;
+            padding: 3px 0 2px;
+            float: left;
+            width: 50%;
+            @include media(tablet) {
+              width: 40%;
+            }
+          }
         }
-      }
-    }
-  }
 
-  .tab-content .tab-pane {
-    border-top: 1px solid $border-colour;
-  }
+        .attributes {
+          @include core-14;
+          color: $secondary-text-colour;
+          padding: 0 0 3px;
+          margin: 0;
 
-  .search-filter {
-    padding: 15px 15px 0;
-    @include media(tablet) {
-      padding: 30px 30px 0;
-    }
-    .sort-by {
-      label {
-        font-weight: normal;
-      }
-      h3 {
-        display: inline;
-        font-size: 14px;
-        font-weight: bold;
-        padding-right: 14px;
-      }
-    }
-    label, select {
-      margin-right: 1em;
-    }
-    label {
-      @include core-14;
-      font-weight: bold;
-      padding-top: 8px;
-      padding-bottom: 4px;
-    }
-    select {
-      margin-bottom: 10px;
-      width: 100%;
-      max-width: 500px;
-      @include media(tablet) {
-        @include core-14;
-        border: 1px solid #555;
-        padding: 5px 20px 5px 10px;
-        background: #fff;
-        background-image: image-url('search/dropdown-arrow-small.png');
-        background-repeat: no-repeat;
-        background-position: right center;
-        border-color: $border-colour;
-        @include box-shadow(1px 1px 1px #fff);
-        @include border-radius(5px);
-        @include appearance(none);
-      }
-    }
-    button {
-      @include core-16;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      margin-top: 23px
-    }
-  }
+          li {
+            display: inline;
+            padding: 0;
 
-  .results-list {
-    list-style: none;
-    margin: 0;
-    padding: 15px 15px 0;
+            &:after {
+              content:',';
+              position: relative;
+              left: -0.25em;
+            }
 
-    @include media(tablet) {
-      padding: 30px 30px 0;
-    }
+            &:last-child::after {
+              content:'';
+            }
+          }
+        }
 
-    li {
-      max-width: 32.5em;
-      margin: 0;
-      padding: 0 0 15px;
+        p {
+          @include core-16;
+          margin: 0;
+          padding: 0;
 
-      @include media(tablet) {
-        padding: 0 0 25px;
-      }
+          &.meta {
+            @include core-14;
+            padding: 0 0 3px;
+            word-wrap: break-word;
+            color: $secondary-text-colour;
 
-      @include ie(6) {
-        width: 32.5em;
-      }
-    }
-    
-    li.external {
-      border: 1px solid $border-colour;
-      padding: 9px;
-      margin-bottom: 25px;
-
-      @include media(tablet) {
-        padding: 14px;
-      }
-    }
-
-    h3 {
-      @include core-24;
-      margin: 0;
-      padding-bottom: 2px;
-
-      a {
-        font-weight: bold;
-        text-decoration: none;
-
-        &:hover, &:focus {
-          color: $link-colour;
-          text-decoration: underline;
+            .subsection,
+            .subsubsection {
+              background: transparent image-url("search/separator.png") 0 40% no-repeat;
+              padding-left: 15px;
+              margin-left: 5px;
+            }
+          }
         }
       }
 
-      a[rel="external"]::after {
-        content: "\A0\A0\A0\A0\A0\A0";
+    }
+    .zero-results {
+      h2 {
+        @include bold-24;
       }
-    }
-
-    .sections {
-      @include core-16;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-
-      li {
-        margin: 0;
-        padding: 3px 0 2px;
-        float: left;
-        width: 50%;
-        @include media(tablet) {
-          width: 40%;
-        }
+      ul, p {
+        margin-top: 0;
       }
-    }
-
-    .attributes {
-      @include core-14;
-      color: $secondary-text-colour;
-      padding: 0 0 3px;
-      margin: 0;
-
-      li {
-        display: inline;
-        padding: 0;
-
-        &:after {
-          content:',';
-          position: relative;
-          left: -0.25em;
-        }
-
-        &:last-child::after {
-          content:'';
-        }
-      }
-    }
-
-    p {
-      @include core-16;
-      margin: 0;
-      padding: 0;
-
-      &.meta {
-        @include core-14;
-        padding: 0 0 3px;
-        word-wrap: break-word;
-        color: $secondary-text-colour;
-
-        .subsection,
-        .subsubsection {
-          background: transparent image-url("search/separator.png") 0 40% no-repeat;
-          padding-left: 15px;
-          margin-left: 5px;
-        }
-      }
-    }
-  }
-
-  #top-results {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    clear: both;
-    background: $white;
-
-    .results-list {
-      padding-top: 0;
-    }
-      
-    .crumbtrail,
-    .attributes {
-      display: none;
-    }
-
-  }
-  
-  #departments-policy-results-enhanced {
-    @include media(tablet) {
-      .filters {
-        width: 33%;
-        float: left;
-      }
-      .results {
-        width: 66%;
-        float: left;
-      }
-    }
-  }
-
-  .no-results {
-    overflow: hidden;
-    margin: 0;
-    padding: 0 15px 40px;
-
-    @include media(tablet) {
-      padding: 0 30px 70px;
-    }
-
-    h2 {
-      @include core-36;
-      font-weight: bold;
-    }
-    h3 {
-      @include core-27;
-      font-weight: bold;
-    }
-  }
-
-  #search-results-tabs .no-results {
-    padding-top: 40px;
-  }
-
-  .nav-tabs {
-    @include media(tablet) {
-      margin: 0;
-      padding: 0 30px;
-    }
-
-    ul {
-      margin: 0;
-    }
-
-    .active {
-      a {
-        outline: none;
-      }
-    }
-  }
-
-  .tab-content {
-    clear: both;
-    margin: 0;
-
-    .inner {
-      padding: 0;
-    }
-  }
-
-  .tab-pane {
-    padding: 0;
-  }
-}
-
-#unified-results {
-  @extend %contain-floats;
-
-  @include media(tablet){
-    margin: 0 15px;
-  }
-
-  .inner-block {
-    padding: 0 15px;
-  }
-
-  .filter-form {
-    @include media(tablet){
-      float: left;
-      width: $one-third;
-    }
-
-    .info {
-      margin: 0 0 15px;
-    }
-    .submit {
-      .js-enabled & {
-        display: none;
-      }
-    }
-  }
-  .results-block {
-    @include media(tablet){
-      float: left;
-      width: $two-thirds;
-    }
-    .result-count {
-      padding: 0;
-    }
-    .results-list {
-      padding: 30px 0;
-    }
-
-  }
-  .zero-results {
-    h2 {
-      @include bold-24;
-    }
-    ul, p {
-      margin-top: 0;
     }
   }
 }
 
-.result-count {
-  padding-left: 30px;
-}
-
-.actions {
-  padding-left: 30px;
-}
-
-.search-launcher {
+main.no-results-term {
   padding-top: 30px;
   padding-bottom: 130px;
 

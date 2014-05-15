@@ -1,6 +1,6 @@
 class GovernmentResult < SearchResult
   include ERB::Util
-  result_accessor :public_timestamp, :display_type, :indexable_content
+  result_accessor :display_type
 
   def to_hash
     super.merge({
@@ -12,22 +12,16 @@ class GovernmentResult < SearchResult
     })
   end
 
-  def display_links?
-    ! %w{
-      /government/organisations/deputy-prime-ministers-office
-      /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
-  end
-
   def metadata
     out = []
-    out << display_timestamp if public_timestamp.present?
+    out << public_timestamp if public_timestamp.present?
     if display_type.present?
       out << display_type
     elsif %w{ corporate_information document_series }.include?(format)
       out << format.humanize
     end
-    out << display_organisations(organisations) if organisations.any?
-    out << display_world_locations if world_locations.any?
+    out << organisations if organisations.present?
+    out << world_locations if world_locations.present?
     out
   end
 
@@ -39,7 +33,7 @@ class GovernmentResult < SearchResult
         { hash: 'current-role-holder', title: 'Current role holder' },
       ]
     when 'organisation' then
-      if display_links?
+      if organisation_with_jump_links?
         [
           { hash: 'topics', title: 'What we do' },
           { hash: 'policies', title: 'Policies' },
@@ -65,85 +59,44 @@ class GovernmentResult < SearchResult
     end
   end
 
-  def organisations
-    fetch_multi_valued_field("organisations")
-  end
-
-  def has_organisations?
-    organisations.any?
-  end
-
-  def topics
-    fetch_multi_valued_field("topics")
-  end
-
-  def has_topics?
-    topics.any?
-  end
-
-  def world_locations
-    fetch_multi_valued_field("world_locations")
-  end
-
-  def has_world_locations?
-    world_locations.any?
-  end
-
-  def document_series
-    fetch_multi_valued_field("document_series")
-  end
-
-  def has_document_series?
-    document_series.any?
-  end
-
-  def display_timestamp
-    self.public_timestamp.to_date.strftime("%e %B %Y")
-  end
-
-
-  def display_topics
-    display(topics)
-  end
-
-  def display_world_locations
-    if world_locations.length > 1
-      "multiple locations"
-    else
-      display(world_locations)
-    end
-  end
-
-  def display_document_series
-    display(document_series)
+  def public_timestamp
+    result["public_timestamp"].to_date.strftime("%e %B %Y") if result["public_timestamp"]
   end
 
   def description
-    if format == "detailed_guidance"
-      result["description"]
-    elsif format == "organisation"
-      "The home of #{title} on GOV.UK. #{display_a_description}"
-    else
-      display_a_description
-    end
-  end
-
-  def display_a_description
+    description = nil
     if result["description"].present?
-      result["description"].truncate(215, :separator => " ")
+      description = result["description"]
     elsif result["indexable_content"].present?
-      result["indexable_content"].truncate(215, :separator => " ")
+      description = result["indexable_content"]
+    end
+
+    description = description.truncate(215, :separator => " ") if description
+
+    if format == "organisation"
+      "The home of #{title} on GOV.UK. #{description}"
     else
-      nil
+      description
     end
   end
 
 private
 
-  def display(multi_valued_field)
-    multi_valued_field.map do |field|
-      field["acronym"] || field["title"] || field["slug"]
-    end.join(", ")
+  def world_locations
+    locations = fetch_multi_valued_field("world_locations")
+    if locations.length > 1
+      "multiple locations"
+    elsif locations.length == 1
+      locations.map do |field|
+        field["acronym"] || field["title"] || field["slug"]
+      end.join(", ")
+    end
+  end
+
+  def organisation_with_jump_links?
+    ! %w{
+      /government/organisations/deputy-prime-ministers-office
+      /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
   end
 
   def fetch_multi_valued_field(field_name)
@@ -154,8 +107,8 @@ private
     end
   end
 
-  def display_organisations(organisations)
-    organisations.map do |organisation|
+  def organisations
+    fetch_multi_valued_field("organisations").map do |organisation|
       if organisation["acronym"] && (organisation["acronym"] != organisation["title"])
         "<abbr title='#{h(organisation["title"])}'>#{h(organisation["acronym"])}</abbr>"
       else

@@ -155,6 +155,29 @@ body.homepage {
       @include core-16;
       margin: 0;
     }
+
+    .promo-text-cta a {
+      display: block;
+      margin-bottom: 15px;
+      padding: 3em .5em;
+
+      color: $white;
+      background: $homepage-top-colour;
+      text-align: center;
+      text-decoration: none;
+
+      @include bold-19;
+
+      .date {
+        display: block;
+        margin-top: 15px;
+        @include bold-48;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
 

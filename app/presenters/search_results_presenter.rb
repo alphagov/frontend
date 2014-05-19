@@ -1,4 +1,4 @@
-class UnifiedSearchResultsPresenter
+class SearchResultsPresenter
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::NumberHelper
 

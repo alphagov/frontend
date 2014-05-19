@@ -1,71 +1,46 @@
-<% content_for :body_classes do %>search<% end %>
-
-
-<main id="content" role="main" class="group search ancillary">
-  <%= render partial: 'form' %>
-
-  <% if @top_results %>
-    <div id="top-results">
-      <h2 class="visuallyhidden">Top result</h2>
-      <ul class="results-list">
-        <% @top_results.each_with_index do |top_result, index| %>
-        <%= render partial: "result", locals: { result: top_result } %>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div id="search-results-tabs" class="shouty-tabs">
-    <h2 class="visuallyhidden">All results</h2>
-    <% if show_tabs?(@streams) %>
-      <div class="search-navigation js-tabs">
-      <% if @streams.count == 2 %>
-        <ul id="search-index-navigation" class="two-tabs">
-      <% else %>
-        <ul id="search-index-navigation">
-      <% end %>
-        <% @streams.each do |stream| %>
-          <li <% if @active_stream == stream %>class="active"<% end %>>
-            <a href="#<%= stream.key %>-results">
-              <%= stream.title.html_safe %>
-            </a>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <% if show_tabs?(@streams) %>
-      <div class="search-container group js-tab-content tab-content ">
-        <% @streams.each do |stream| %>
-          <div id="<%= stream.key %>-results" class="js-tab-pane tab-pane <%= stream.results.size == 1 ? ' single-item-pane' : '' %>">
-          <div class="filters">
-            <% if stream.show_filter %>
-              <%= render partial: "government_filter" %>
-            <% end %>
-          </div>
-          <div class="results">
-          <% if stream.results.size > 0 %>
-            <ul class="results-list internal-links">
-              <%= render collection: stream.results, partial: "result" %>
-            </ul>
-          <% end %>
-          <% unless stream.anything_to_show? %>
-            <%= render partial: "no_results", locals: { context: stream.title } %>
-          <% end %>
-          </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</main>
-
-<h3 class="visuallyhidden">No more results for <span class="visuallyhidden">&ldquo;<%= @search_term %>&rdquo;</span>. <a href="#search-main">Try a different search?</a></h3>
-
+<% content_for :title, "#{@search_term} - Search - GOV.UK" %>
+<% content_for :body_classes, "search" %>
 <% content_for :extra_headers do %>
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
 <% end %>
 
-<% content_for :title, "#{@search_term} - Search - GOV.UK" %>
+<main id="content" role="main" class="group search">
+  <form action="/search" method="get" accept-charset="utf-8" role="search" class="js-live-search-form">
+    <div class="search-header">
+      <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
+      <%= hidden_field_tag(:spelling_suggestion, params[:spelling_suggestion]) if params[:spelling_suggestion] %>
+      <div class="searchfield">
+        <fieldset class="search-input">
+          <label for="search-main">
+            <%- if @search_term.present? -%>
+              <h1>Search results for <span class="visuallyhidden">&ldquo;<%= @search_term %>&rdquo;</span ></h1>
+            <%- else -%>
+              <h1>Search GOV.UK</h1>
+            <%- end -%>
+          </label>
+          <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
+        </fieldset>
+        <% if @ui.present? -%>
+          <input type="hidden" name="ui" value="<%= @ui %>" />
+        <%- end -%>
+        <fieldset class="search-submit">
+          <button type="submit" class="button">Search</button>
+        </fieldset>
+      </div>
+      <% if @spelling_suggestion %>
+        <fieldset class="spelling-suggestion">
+          <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion, spelling_suggestion: params[:spelling_suggestion]) %>
+          </p>
+        </fieldset>
+      <% end %>
+    </div>
+
+    <div id="results" class="js-live-search-results-block">
+      <%= render_mustache('results_block', @results.to_hash) %>
+    </div>
+  </form>
+
+  <div id="report-a-problem"></div>
+</main>
+
+<h3 class="visuallyhidden">No more results for &ldquo;<%= @search_term %>&rdquo;. <a href="#search-main">Try a different search?</a></h3>

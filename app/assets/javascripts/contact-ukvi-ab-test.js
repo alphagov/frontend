@@ -26,17 +26,11 @@ $(function(){
      window.location.href.indexOf("/contact-ukvi/british-citizenship-and-nationality") > -1 ||
      window.location.href.indexOf("/contact-ukvi/european-nationals") > -1 ) {
     new GOVUK.MultivariateTest({
-      name: 'contact_ukvi_visas_and_settlement_contact_centre',
+      name: 'contact_ukvi_visas_and_settlement_contact_centre_50_50',
       customVarIndex: 13,
       cohorts: {
         control: { callback: function() {} },
-        /* because GOVUK.MultivariateTest isn't able to weight the variants,
-        in order to get an 80/20 traffic distribution, the 80% variant needs to be
-        present 4 times */
-        hide_number1: { callback: GOVUK.hideContactCentrePhoneNumbers },
-        hide_number2: { callback: GOVUK.hideContactCentrePhoneNumbers },
-        hide_number3: { callback: GOVUK.hideContactCentrePhoneNumbers },
-        hide_number4: { callback: GOVUK.hideContactCentrePhoneNumbers },
+        hide_number: { callback: GOVUK.hideContactCentrePhoneNumbers }
       }
     });
   }

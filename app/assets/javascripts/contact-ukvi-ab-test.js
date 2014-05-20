@@ -1,42 +1,45 @@
 //= require govuk/multivariate-test
-
+/*jslint browser: true,
+ indent: 2,
+ white: true
+*/
+/*global $, GOVUK */
 $(function(){
-  var disclaimer = '<p>Because of high call volumes the UK Visas and Immigration contact centre is currently not accepting calls.</p>';
-  var replacePhoneNumberWithExplanation = function() {
-    $('.contact').
-      removeClass('contact').
-      addClass('application-notice info-notice').
-      html(disclaimer);
-  };
+  "use strict";
+
+  function pathInLocation(path) {
+    return (window.location.href.indexOf(path) > -1);
+  }
+
+  function replaceContactDetails() {
+    var textToReplaceWith;
+    if (pathInLocation("/contact-ukvi/british-citizenship-and-nationality")) {
+      textToReplaceWith = '<p><strong>Citizenship and nationality enquiries</strong><br><a href="mailto:ukbanationalityenquiries@ukba.gsi.gov.uk">ukbanationalityenquiries@ukba.gsi.gov.uk</a></p>';
+    }
+    else if (pathInLocation('/contact-ukvi/european-nationals')) {
+      textToReplaceWith = '<p>You may be able to find the information you need on GOV.UK about <a href="/browse/visas-immigration/eu-eea-commonwealth">EU, EEA and Commonwealth citizens</a>.';
+    }
+    else if (pathInLocation('/contact-ukvi/visas-and-settlement')) {
+      textToReplaceWith = '<p>You may be able to find the information you need on GOV.UK about <a href="/check-uk-visa">visas eligibility</a> and <a href="/browse/visas-immigration/settling-in-the-uk">settlement</a>.</p>';
+    }
+    if (textToReplaceWith) {
+      $('.contact').removeClass('contact').html(textToReplaceWith);
+    }
+  }
 
   GOVUK.hideContactCentrePhoneNumbers = function() {
-    if (window.location.href.indexOf("/contact-ukvi/visas-and-settlement") > -1) {
-      replacePhoneNumberWithExplanation();
-    } else if (window.location.href.indexOf("/contact-ukvi/british-citizenship-and-nationality") > -1) {
-      $('.contact').
-        html('<p><strong>Citizenship and nationality enquiries</strong><br><a href="mailto:ukbanationalityenquiries@ukba.gsi.gov.uk">ukbanationalityenquiries@ukba.gsi.gov.uk</a></p>').
-        after('<div class="application-notice info-notice">' + disclaimer + '</div>');
-    } else if (window.location.href.indexOf("/contact-ukvi/european-nationals") > -1) {
-      $('.application-notice.info-notice:eq(1)').removeClass('application-notice info-notice');
-      replacePhoneNumberWithExplanation();
-    };
+    replaceContactDetails();
   };
 
-  if(window.location.href.indexOf("/contact-ukvi/visas-and-settlement") > -1 ||
-     window.location.href.indexOf("/contact-ukvi/british-citizenship-and-nationality") > -1 ||
-     window.location.href.indexOf("/contact-ukvi/european-nationals") > -1 ) {
+  if(pathInLocation("/contact-ukvi/visas-and-settlement") ||
+     pathInLocation("/contact-ukvi/british-citizenship-and-nationality") ||
+     pathInLocation("/contact-ukvi/european-nationals") ) {
     new GOVUK.MultivariateTest({
-      name: 'contact_ukvi_visas_and_settlement_contact_centre',
+      name: 'contact_ukvi_visas_and_settlement_contact_centre_50_50',
       customVarIndex: 13,
       cohorts: {
         control: { callback: function() {} },
-        /* because GOVUK.MultivariateTest isn't able to weight the variants,
-        in order to get an 80/20 traffic distribution, the 80% variant needs to be
-        present 4 times */
-        hide_number1: { callback: GOVUK.hideContactCentrePhoneNumbers },
-        hide_number2: { callback: GOVUK.hideContactCentrePhoneNumbers },
-        hide_number3: { callback: GOVUK.hideContactCentrePhoneNumbers },
-        hide_number4: { callback: GOVUK.hideContactCentrePhoneNumbers },
+        hide_number: { callback: GOVUK.hideContactCentrePhoneNumbers }
       }
     });
   }

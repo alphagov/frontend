@@ -6,29 +6,29 @@
 /*global $, GOVUK */
 $(function(){
   "use strict";
-  var disclaimer = '<p>Because of high call volumes the UK Visas and Immigration contact centre is currently not accepting calls.</p>',
-  replacePhoneNumberWithExplanation = function() {
-    $('.contact').
-      removeClass('contact').
-      addClass('application-notice info-notice').
-      html(disclaimer);
-  };
 
   function pathInLocation(path) {
     return (window.location.href.indexOf(path) > -1);
   }
 
-  GOVUK.hideContactCentrePhoneNumbers = function() {
-    if (pathInLocation("/contact-ukvi/visas-and-settlement")) {
-      replacePhoneNumberWithExplanation();
-    } else if (pathInLocation("/contact-ukvi/british-citizenship-and-nationality")) {
-      $('.contact').
-        html('<p><strong>Citizenship and nationality enquiries</strong><br><a href="mailto:ukbanationalityenquiries@ukba.gsi.gov.uk">ukbanationalityenquiries@ukba.gsi.gov.uk</a></p>').
-        after('<div class="application-notice info-notice">' + disclaimer + '</div>');
-    } else if (pathInLocation("/contact-ukvi/european-nationals")) {
-      $('.application-notice.info-notice:eq(1)').removeClass('application-notice info-notice');
-      replacePhoneNumberWithExplanation();
+  function replaceContactDetails() {
+    var textToReplaceWith;
+    if (pathInLocation("/contact-ukvi/british-citizenship-and-nationality")) {
+      textToReplaceWith = '<p><strong>Citizenship and nationality enquiries</strong><br><a href="mailto:ukbanationalityenquiries@ukba.gsi.gov.uk">ukbanationalityenquiries@ukba.gsi.gov.uk</a></p>';
     }
+    else if (pathInLocation('/contact-ukvi/european-nationals')) {
+      textToReplaceWith = '<p>You may be able to find the information you need on GOV.UK about <a href="/browse/visas-immigration/eu-eea-commonwealth">EU, EEA and Commonwealth citizens</a>.';
+    }
+    else if (pathInLocation('/contact-ukvi/visas-and-settlement')) {
+      textToReplaceWith = '<p>You may be able to find the information you need on GOV.UK about <a href="/check-uk-visa">visas eligibility</a> and <a href="/browse/visas-immigration/settling-in-the-uk">settlement</a>.</p>';
+    }
+    if (textToReplaceWith) {
+      $('.contact').removeClass('contact').html(textToReplaceWith);
+    }
+  }
+
+  GOVUK.hideContactCentrePhoneNumbers = function() {
+    replaceContactDetails();
   };
 
   if(pathInLocation("/contact-ukvi/visas-and-settlement") ||

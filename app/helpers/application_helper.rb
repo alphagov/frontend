@@ -47,4 +47,8 @@ module ApplicationHelper
     path += "?edition=#{opts[:edition]}" if opts[:edition]
     path
   end
+
+  def external_link_url(url)
+    "/g?url=#{CGI.escape(url)}"
+  end
 end

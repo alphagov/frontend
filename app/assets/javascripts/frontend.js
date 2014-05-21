@@ -2,7 +2,6 @@
 //= require transactions
 //= require media-player-loader
 //= require contact-ukvi-ab-test
-//= require tax-disc-ab-test
 //= require checkbox-filter
 //= require support
 //= require live-search

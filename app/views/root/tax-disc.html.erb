@@ -27,7 +27,8 @@
         </ul>
 
         <span class="destination">Apply on the DVLA website:</span>
-        <form class="get-started" action="<%= @publication.link %>" method="POST">
+        <form class="get-started" action="/g">
+          <input type="hidden" name="url" value="<%= @publication.link %>" />
           <input type="submit" value="Apply now" class="button medium" />
         </form>
 
@@ -53,7 +54,8 @@
           <li>the 11 digit reference number from your log book (V5C)</li>
         </ul>
 
-        <form action="https://www.taxdisc.service.gov.uk" method="POST">
+        <form action="/g">
+          <input type="hidden" name="url" value="https://www.taxdisc.service.gov.uk" />
           <input type="submit" value="Apply now" class="button button-secondary" />
         </form>
 

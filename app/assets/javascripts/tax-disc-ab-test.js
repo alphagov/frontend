@@ -17,15 +17,15 @@ $(function () {
       name: 'tax-disc',
       customVarIndex: 20,
       cohorts: {
-        control1: { callback: function () { } },
-        control2: { callback: function () { } },
-        control3: { callback: function () { } },
-        control4: { callback: function () { } },
-        control5: { callback: function () { } },
-        control6: { callback: function () { } },
-        control7: { callback: function () { } },
-        control8: { callback: function () { } },
-        control9: { callback: function () { } },
+        tax_disc_beta_control1: { callback: function () { } },
+        tax_disc_beta_control2: { callback: function () { } },
+        tax_disc_beta_control3: { callback: function () { } },
+        tax_disc_beta_control4: { callback: function () { } },
+        tax_disc_beta_control5: { callback: function () { } },
+        tax_disc_beta_control6: { callback: function () { } },
+        tax_disc_beta_control7: { callback: function () { } },
+        tax_disc_beta_control8: { callback: function () { } },
+        tax_disc_beta_control9: { callback: function () { } },
         tax_disc_beta1: { callback: GOVUK.taxDiscBetaPrimary }
       }
     });

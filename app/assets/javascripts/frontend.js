@@ -7,4 +7,5 @@
 //= require live-search
 //= require shared_mustache
 //= require templates
+//= require track-external-links
 //= require search

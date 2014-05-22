@@ -33,4 +33,9 @@ $(function() {
     });
   }());
 
+  (function trackExternalSearchClicks(){
+    if($searchResults.length > 0){
+      new GOVUK.TrackExternalLinks($searchResults);
+    }
+  }());
 });

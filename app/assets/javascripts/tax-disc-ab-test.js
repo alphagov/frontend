@@ -21,11 +21,6 @@ $(function () {
         tax_disc_beta_control2: { callback: function () { } },
         tax_disc_beta_control3: { callback: function () { } },
         tax_disc_beta_control4: { callback: function () { } },
-        tax_disc_beta_control5: { callback: function () { } },
-        tax_disc_beta_control6: { callback: function () { } },
-        tax_disc_beta_control7: { callback: function () { } },
-        tax_disc_beta_control8: { callback: function () { } },
-        tax_disc_beta_control9: { callback: function () { } },
         tax_disc_beta1: { callback: GOVUK.taxDiscBetaPrimary }
       }
     });

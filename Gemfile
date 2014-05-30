@@ -5,7 +5,7 @@ gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch 
 gem 'unicorn', '4.6.3'
 gem 'gelf'
 
-gem 'plek', '1.5.0'
+gem 'plek', '1.7.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'htmlentities', '4.3.1'
 gem 'shared_mustache', '0.1.2'

@@ -1,16 +1,21 @@
 // BASE Stylesheet
 
 // govuk_frontend_toolkit mixins
-@import "_conditionals";
-@import "_typography";
-@import "_colours";
-@import "_css3";
+@import "colours";
+@import "conditionals";
+@import "css3";
+@import "device-pixels";
+@import "grid_layout";
+@import "measurements";
+@import "shims";
+@import "typography";
 @import "design-patterns/media-player";
-@import "design-patterns/_buttons";
+@import "design-patterns/buttons";
 
 // local styleguide includes
-@import "styleguide/_conditionals.css.scss";
-@import "styleguide/_colours.scss";
+@import "styleguide/colours";
+@import "styleguide/conditionals";
+@import "styleguide/not-ie-conditional";
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/player-container";
@@ -18,7 +23,7 @@
 // View stylesheets
 @import "views/browse";
 @import "views/campaigns";
-@import "views/completed-transaction.scss";
+@import "views/completed-transaction";
 @import "views/homepage";
 @import "views/tour";
 @import "views/travel-advice";

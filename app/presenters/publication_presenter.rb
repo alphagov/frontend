@@ -5,8 +5,9 @@ class PublicationPresenter
 
   attr_accessor :places, :parts, :current_part
 
-  def initialize(artefact)
+  def initialize(artefact, places = nil)
     @artefact = artefact
+    @places = places if places
   end
 
   PASS_THROUGH_KEYS = [
@@ -100,14 +101,12 @@ class PublicationPresenter
   end
 
   def places
-    if details && details["places"]
-      details["places"].map do |place| 
+    if @places
+      @places.map do |place| 
         place['text']    = place['url'].truncate(36) if place['url']
         place['address'] = [place['address1'], place['address2']].compact.map(&:strip).join(", ")
         place
       end
-    else
-      []
     end
   end
 

@@ -21,10 +21,10 @@
           </div>
         </section>
 
-        <% if @location.present? %>
+        <% if @postcode.present? and !@publication.places.nil? %>
           <% if @publication.places.any? %>
             <section class="places">
-              <h2>Results near <strong><%= @location.postcode %></strong>:</h2>
+              <h2>Results near <strong><%= @postcode %></strong>:</h2>
               <ol id="options" class="places">
                 <%= render :partial => 'option', :locals => { :places => @publication.places } %>
               </ol>

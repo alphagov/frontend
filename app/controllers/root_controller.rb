@@ -33,17 +33,19 @@ class RootController < ApplicationController
   end
 
   def jobsearch
-    @publication, _ = prepare_publication_and_environment
+    @publication = prepare_publication_and_environment
   end
 
   def legacy_completed_transaction
-    @publication, _ = prepare_publication_and_environment
+    @publication = prepare_publication_and_environment
   end
 
   def publication
-    @publication, @location = prepare_publication_and_environment
+    @publication = prepare_publication_and_environment
+    @postcode = params[:postcode]
 
     if ['licence', 'local_transaction'].include?(@publication.format)
+      @location = fetch_location @postcode
       if @location
         snac = appropriate_snac_code_from_location(@publication, @location)
 
@@ -123,14 +125,14 @@ protected
   end
 
   def prepare_publication_and_environment
-    publication, location = publication_and_location(
+    publication = publication_with_places(
       params[:postcode], params[:slug], params[:edition]
     )
 
     assert_found(publication)
     set_headers_from_publication(publication)
 
-    return publication, location
+    return publication
   end
 
   def set_headers_from_publication(publication)
@@ -140,18 +142,26 @@ protected
     deny_framing if deny_framing?(publication)
   end
 
-  def publication_and_location(postcode, slug, edition)
-    location    = fetch_location(postcode)
-    artefact    = fetch_artefact(slug, edition, nil, location)
-    publication = PublicationPresenter.new(artefact)
-    return publication, location
+  def publication_with_places(postcode, slug, edition)
+    artefact = fetch_artefact(slug, edition, nil)
+    places = fetch_places(artefact, postcode)
+    publication = PublicationPresenter.new(artefact, places)
+    return publication
   end
-
 
   def fetch_location(postcode)
     if postcode.present?
       Frontend.mapit_api.location_for_postcode(postcode)
     end
+  end
+
+  def fetch_places(artefact, postcode)
+    if postcode.present? and artefact.format == 'place'
+      Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode)
+    end
+  rescue GdsApi::HTTPErrorResponse => e
+    # allow 400 errors, as they can be invalid postcodes people have entered
+    raise unless e.code == 400
   end
 
   def part_requested_but_no_parts?

@@ -1,5 +1,6 @@
 require_relative '../integration_test_helper'
 require 'gds_api/test_helpers/mapit'
+require 'gds_api/test_helpers/imminence'
 
 class PlacesTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
@@ -19,8 +20,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     })
     content_api_has_an_artefact('passport-interview-office', @artefact)
 
-    @artefact_with_places = @artefact.dup
-    @artefact_with_places['details']['places'] = [
+    @places = [
       {
         "access_notes" => "The London Passport Office is fully accessible to wheelchair users. ",
         "address1" => nil,
@@ -89,8 +89,8 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode" do
     setup do
-      stub_request(:get, GdsApi::TestHelpers::ContentApi::CONTENT_API_ENDPOINT + "/passport-interview-office.json?latitude=51.5010096&longitude=-0.1415871").
-        to_return(:body => @artefact_with_places.to_json, :status => 200)
+      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=5&postcode=SW1A%201AA").
+        to_return(:body => @places.to_json, :status => 200)
 
       visit "/passport-interview-office"
       fill_in "Enter a UK postcode", :with => "SW1A 1AA"
@@ -127,11 +127,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode with no nearby places" do
     setup do
-      @artefact_with_no_places = @artefact.dup
-      @artefact_with_no_places['details']['places'] = []
+      @places = []
 
-      stub_request(:get, GdsApi::TestHelpers::ContentApi::CONTENT_API_ENDPOINT + "/passport-interview-office.json?latitude=51.5010096&longitude=-0.1415871").
-        to_return(:body => @artefact_with_no_places.to_json, :status => 200)
+      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=5&postcode=SW1A%201AA").
+        to_return(:body => @places.to_json, :status => 200)
 
       visit "/passport-interview-office"
       fill_in "Enter a UK postcode", :with => "SW1A 1AA"
@@ -149,7 +148,8 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given an invalid postcode" do
     setup do
-      mapit_does_not_have_a_postcode("SW1A 2AA")
+      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=5&postcode=SW1A%202AA").
+        to_return(:status => 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a UK postcode", :with => "SW1A 2AA"

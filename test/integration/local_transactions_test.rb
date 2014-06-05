@@ -14,7 +14,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       "title" => "Pay your bear tax",
       "format" => "local_transaction",
       "details" => {
-        "format" => "LocalTrasnaction",
+        "format" => "LocalTransaction",
         "introduction" => "Information about paying local tax on owning or looking after a bear.",
         "local_service" => {
           "description" => "Find out about paying your bear tax",

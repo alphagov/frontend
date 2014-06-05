@@ -18,9 +18,6 @@ $(function () {
       customVarIndex: 20,
       cohorts: {
         tax_disc_beta_control1: { callback: function () { } },
-        tax_disc_beta_control2: { callback: function () { } },
-        tax_disc_beta_control3: { callback: function () { } },
-        tax_disc_beta_control4: { callback: function () { } },
         tax_disc_beta1: { callback: GOVUK.taxDiscBetaPrimary }
       }
     });

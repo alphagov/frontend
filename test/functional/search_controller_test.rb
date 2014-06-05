@@ -37,6 +37,7 @@ class SearchControllerTest < ActionController::TestCase
       :q => query,
       :filter_organisations => organisations,
       :facet_organisations => '100',
+      :debug => nil,
     }
     Frontend.search_client.stubs(:unified_search)
         .with(parameters)
@@ -50,6 +51,7 @@ class SearchControllerTest < ActionController::TestCase
       :q => query,
       :filter_organisations => organisations,
       :facet_organisations => '100',
+      :debug => nil,
     }
     Frontend.search_client.expects(:unified_search)
         .with(parameters)

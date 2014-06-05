@@ -22,6 +22,7 @@ class SearchController < ApplicationController
       q: @search_term,
       filter_organisations: [*params[:filter_organisations]],
       facet_organisations: "100",
+      debug: params[:debug],
     }
     search_response = search_client.unified_search(search_params)
 

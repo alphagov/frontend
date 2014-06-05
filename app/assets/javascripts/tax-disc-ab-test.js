@@ -14,11 +14,11 @@ $(function () {
 
   if(window.location.href.indexOf("/tax-disc") > -1) {
     new GOVUK.MultivariateTest({
-      name: 'tax-disc',
+      name: 'tax-disc-50-50',
       customVarIndex: 20,
       cohorts: {
-        tax_disc_beta_control1: { callback: function () { } },
-        tax_disc_beta1: { callback: GOVUK.taxDiscBetaPrimary }
+        tax_disc_beta_control: { callback: function () { } },
+        tax_disc_beta: { callback: GOVUK.taxDiscBetaPrimary }
       }
     });
   }

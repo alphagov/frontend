@@ -66,12 +66,10 @@ main.campaign {
     h1 {
       @include core-48;
       font-weight: 600;
-
-      float: left;
-      width: 100%;
       margin: 0.5em 0.5em 0;
 
       @include media($size: desktop, $ignore-for-ie: true) {
+        float: left;
         width: 70%;
         margin-left: 0;
         margin-bottom: 0.5em;

@@ -1,61 +1,18 @@
 main.campaign {
-  &#content {
-    background-color: #fff;
-    padding-bottom: 3em;
-  }
-
-  article.campaign,
-  #extra-links {
-    width: auto;
-
-    @include media($size: desktop) {
-      max-width: 662px;
-    }
-
-   @include ie(6) {
-      width: 662px;
-    }
-  }
-
-  article.campaign {
-    clear: both;
-  }
-
-  #extra-links {
-    margin: 1.5em 0 0;
-    padding-top: 1.5em;
-    overflow: hidden;
-    border-top: solid 1px $grey-3;
-
-    @include ie(6) {
-      width:928px;
-    }
-
-    header p {
-      font-size: 24px;
-    }
-
-    h2 {
-      font-weight: normal;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-  }
-
   #landing {
     position: relative;
     float: none;
     display: block;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0 1em;
     background-color: #fff;
 
     @include ie-lte(7) {
       width: 960px;
+    }
+
+    @include media(mobile) {
+      margin: 0 $gutter;
     }
 
     h1,
@@ -66,12 +23,11 @@ main.campaign {
     h1 {
       @include core-48;
       font-weight: 600;
-      margin: 0.5em 0.5em 0;
+      margin: 0.5em 0 0;
 
       @include media($size: desktop, $ignore-for-ie: true) {
         float: left;
         width: 70%;
-        margin-left: 0;
         margin-bottom: 0.5em;
       }
 
@@ -87,177 +43,183 @@ main.campaign {
       }
     }
   }
-}
 
-.campaign-image {
-  position: relative;
-  clear: both;
-  width: 100%;
-  height: 300px;
+  .organisation {
+    float: left;
+    margin: 1em 0 1em 0;
+    padding: 0;
 
-  @include media ($max-width: 900px, $ignore-for-ie: true) {
-    position: static;
-    height: auto;
+    @include media($size: desktop) {
+      margin-left: 1.5em;
+      margin-top: 2em;
+      float: right;
+    }
+
+    @include ie-lte(7) {
+      margin-top: 1em;
+      margin-right: 2em;
+    }
+
+    a.organisation-logo {
+      span {
+        top: 0;
+        position: static;
+      }
+    }
   }
 
-  #banner {
-    display: block;
-    text-indent: -9999px;
+  .campaign-image {
+    position: relative;
+    clear: both;
     width: 100%;
     height: 300px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    -moz-background-size:cover;
-    -webkit-background-size:cover;
-    background-size:cover;
-
-    @include media($min-width: 0px) {
-      height: auto;
-      min-height: 236px;
-      margin: 0;
-    }
-
-    @include media($min-width: 500px) {
-      height: 566px;
-    }
-
-    @include media($min-width: 900px) {
-      height: 300px;
-    }
-  }
-
-  .campaign-links {
-    position: absolute;
-    right: 2em;
-    bottom: 2em;
-    width: 240px;
-    background-color: #fff;
 
     @include media ($max-width: 900px, $ignore-for-ie: true) {
       position: static;
-      width: auto;
-      padding: 2em 1em 0;
+      height: auto;
     }
 
-    h2 {
+    #banner {
+      display: block;
+      text-indent: -9999px;
+      width: 100%;
+      height: 300px;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      -moz-background-size:cover;
+      -webkit-background-size:cover;
+      background-size:cover;
+    }
+
+    .campaign-links {
+      position: absolute;
+      right: 2em;
+      bottom: 2em;
+      width: 240px;
+      background-color: #fff;
+
+      @include media ($max-width: 900px, $ignore-for-ie: true) {
+        position: static;
+        width: auto;
+        padding: 2em 1em 0;
+      }
+
+      h2 {
+        margin: 0;
+        padding-bottom: 0.5em;
+      }
+
+      nav {
+        margin: 0;
+        padding: 0;
+      }
+
+      a[rel="external"] {
+        @include external-link-16;
+      }
+    }
+  }
+
+  &#content {
+    background-color: #fff;
+    padding-bottom: 3em;
+  }
+
+  article.campaign {
+    width: auto;
+
+    @include media($size: desktop) {
+      max-width: 662px;
+    }
+
+    @include ie(6) {
+      width: 662px;
+    }
+  }
+
+  article.campaign {
+    clear: both;
+  }
+
+  article.campaign {
+    float: none;
+    height: auto;
+    min-height: 0;
+    padding: 2.25em 0 1em 0;
+    margin-right: 0;
+
+    @include media(tablet) {
+      padding: 2.25em 2em 1em 0;
+    }
+
+    @include ie(8) {
       margin: 0;
-      padding-bottom: 0.5em;
     }
 
-    nav {
+    @include ie-lte(8) {
+      padding-right: 0;
+    }
+
+    @include ie-lte(7) {
+      margin: 0 2em;
+    }
+
+    h2:first-child,
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+
+  ul.links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include ie(6) {
+      list-style-image: none;
+    }
+
+    li {
       margin: 0;
       padding: 0;
     }
+  }
 
-    a[rel="external"] {
-      @include external-link-16;
+  .organisation {
+    .eugo {
+      display: block;
+      text-indent: -9999px;
+      background-image: image-url('campaign/uk-welcomes/eugo-logo.png');
+      width: 137px;
+      height: 85px;
     }
   }
-}
 
-.organisation {
-  float: left;
-  margin: 1em 0 1em 1em;
-  padding: 0;
-
-  @include media($size: tablet) {
-    margin-left: 1.5em;
-  }
-
-  @include media($size: desktop) {
-    margin-top: 2em;
-    float: right;
-  }
-
-  @include ie-lte(7) {
-    margin-top: 1em;
-    margin-right: 2em;
-  }
-
-  a.organisation-logo {
+  .organisation-logo-dbs {
+    background: image-url('campaign/disclosure/ho_crest_18px.png') no-repeat 8px 0;
+    border-left: 2px solid #000;
     span {
-      top: 0;
-      position: static;
+      padding-top: 30px;
+    }
+    @include device-pixel-ratio() {
+      background: image-url('campaign/disclosure/ho_crest_18px_x2.png') no-repeat 8px 0;
+    }
+  }
+
+  /* temp extra styles for jobsearch */
+  .jobsearch-form label input {
+    display: block;
+    background-color: #f9f9f9;
+    border: 1px inset #e2e2e2;
+    font-size: 1em;
+    line-height: 1.2;
+    padding: 0.3em 0 0.1em 0.4em;
+    margin-left:0;
+    @include ie-lte(7){
+      margin-left:1em;
     }
   }
 }
 
-article.campaign {
-  float: none;
-  height: auto;
-  min-height: 0;
-  padding: 2.25em 2em 1em 0;
-  margin-right: 0;
 
-  @include media($max-width: 900px, $ignore-for-ie: true) {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
 
-  @include ie(8) {
-    margin: 0;
-  }
-
-  @include ie-lte(8) {
-    padding-right: 0;
-  }
-
-  @include ie-lte(7) {
-    margin: 0 2em;
-  }
-
-  h2:first-child,
-  p:first-child {
-    margin-top: 0;
-  }
-}
-
-ul.links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  @include ie(6) {
-    list-style-image: none;
-  }
-
-  li {
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.organisation {
-  .eugo {
-    display: block;
-    text-indent: -9999px;
-    background-image: image-url('campaign/uk-welcomes/eugo-logo.png');
-    width: 137px;
-    height: 85px;
-  }
-}
-
-.organisation-logo-dbs {
-  background: image-url('campaign/disclosure/ho_crest_18px.png') no-repeat 8px 0;
-  border-left: 2px solid #000;
-  span {
-    padding-top: 30px;
-  }
-  @include device-pixel-ratio() {
-    background: image-url('campaign/disclosure/ho_crest_18px_x2.png') no-repeat 8px 0;
-  }
-}
-
-/* temp extra styles for jobsearch */
-.jobsearch-form label input {
-  display: block;
-  background-color: #f9f9f9;
-  border: 1px inset #e2e2e2;
-  font-size: 1em;
-  line-height: 1.2;
-  padding: 0.3em 0 0.1em 0.4em;
-  margin-left:0;
-  @include ie-lte(7){
-    margin-left:1em;
-  }
-}

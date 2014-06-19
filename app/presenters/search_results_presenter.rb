@@ -16,7 +16,8 @@ class SearchResultsPresenter
       result_count_string: pluralize(number_with_delimiter(result_count), "result"),
       results_any?: results.any?,
       results: results.map { |result| result.to_hash },
-      filter_fields: filter_fields
+      filter_fields: filter_fields,
+      debug: @debug,
     }
   end
 

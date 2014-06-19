@@ -1,4 +1,5 @@
 class SearchResult
+  include ActionView::Helpers::NumberHelper
   SCHEME_PATTERN = %r{^https?://}
 
   SECTION_NAME_TRANSLATION = {
@@ -67,12 +68,16 @@ class SearchResult
       formatted_subsection_name: (formatted_subsection_name if subsection),
       formatted_subsubsection_name: (formatted_subsubsection_name if subsubsection),
       attributes: [],
-      es_score: es_score,
+      es_score: formatted_es_score,
       format: format
     }
   end
 
   protected
+
+  def formatted_es_score
+    number_with_precision(es_score * 1000, significant: true, precision: 4) if es_score
+  end
 
   def mapped_name(var)
     return SECTION_NAME_TRANSLATION[var] ? SECTION_NAME_TRANSLATION[var] : false

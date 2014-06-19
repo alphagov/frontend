@@ -3,16 +3,23 @@
 </div>
 
 {{#results_any?}}
-  <ul class="results-list" id="js-live-search-results">
+  <ul class="results-list{{#debug}} debug{{/debug}}" id="js-live-search-results">
     {{#results}}
       <li{{#external}} class="external"{{/external}}>
         {{#debug}}
-          <span style="color: red;">
-            {{es_score}} {{format}} {{#government}}government{{/government}}
-          </span>
         {{/debug}}
 
         <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
+
+        {{#debug}}
+          <p class="debug-link">
+            {{link}}
+          </p>
+          <p class="debug-info">
+            {{es_score}}<br />
+            {{#government}}government{{/government}} {{format}}
+          </p>
+        {{/debug}}
 
         {{#external}}
           <p class="meta">

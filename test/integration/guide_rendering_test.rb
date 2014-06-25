@@ -181,7 +181,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     within "main[role=main]" do
       within first("header h1") do
-        assert page.has_content?("Data protection, a guide from GOV.UK")
+        assert page.has_content?("Data protection")
       end
 
       within "article#the-data-protection-act" do
@@ -214,7 +214,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     within "main[role=main]" do
       within first("header") do
-        within('h1') { assert page.has_content?("Data protection, canllaw gan GOV.UK") }
+        within('h1') { assert page.has_content?("Data protection") }
         assert page.has_content?("Nodiadau")
       end
 

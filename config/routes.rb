@@ -15,17 +15,6 @@ Frontend::Application.routes.draw do
   get '/browse/visas-immigration/your-visa' => redirect('/browse/visas-immigration/after-youve-applied')
   get '/browse/visas-immigration/family-visas' => redirect('/browse/visas-immigration')
 
-  get "/browse.json" => redirect("/api/tags.json?type=section&root_sections=true")
-  get "/browse" => "browse#index", to: "browse#index"
-  get "/browse/:section.json" => redirect("/api/tags.json?type=section&parent_id=%{section}")
-  get "/browse/:section", as: "browse", to: "browse#section"
-  get "/browse/:section/:sub_section.json" => redirect("/api/with_tag.json?tag=%{section}%%2F%{sub_section}")
-  get "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
-
-  # new-style browse pages
-  get "/business" => "browse#section", :section => "business"
-  get "/visas-immigration" => "browse#section", :section => "visas-immigration"
-
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }

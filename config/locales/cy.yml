@@ -12,7 +12,6 @@ cy:
       at_end_of_guide: "Rydych wedi cyrraedd diwedd y canllaw hwn"
       navigate_to_previous_part: "Llywio i’r rhan flaenorol"
       navigate_to_next_part: "Llywio i’r rhan nesaf"
-      a_guide_from_govuk: "canllaw gan GOV.UK"
       notes: "Nodiadau"
     programme:
       name: "Budd-daliadau a chredydau"

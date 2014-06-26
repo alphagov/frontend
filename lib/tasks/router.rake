@@ -13,16 +13,12 @@ namespace :router do
   task :register_routes => :router_environment do
     routes = [
       %w(/ exact),
-      %w(/browse prefix),
-      %w(/browse.json exact),
-      %w(/business exact),
       %w(/search exact),
       %w(/search.json exact),
       %w(/search/opensearch.xml exact),
       %w(/homepage exact),
       %w(/tour exact),
       %w(/ukwelcomes exact),
-      %w(/visas-immigration exact),
     ]
 
     routes.each do |path, type|

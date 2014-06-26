@@ -67,7 +67,6 @@
         synonymMatch = false,
         filterInst = this;
 
-    this.filterHeadings(countryHeadings);
     listItems.each(function(i, item) {
       var $item = $(item);
       var link = $item.children("a");
@@ -90,11 +89,13 @@
       if(synonymMatch) {
         itemsShowing = listItems.map(function () { if (this.style.display !== 'none') { return this; }}).length;
       }
-      this.filterHeadings(countryHeadings);
     } else {
       countryHeadings.show();
       itemsShowing = listItems.length;
     }
+
+    this.filterHeadings(countryHeadings);
+
     $(document).trigger("countrieslist", { "count" : itemsShowing });
   };
 

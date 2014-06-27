@@ -22,4 +22,8 @@ Frontend::Application.configure do
   #config.assets.compress = true
   #config.assets.digest = true
   config.assets.debug = true
+
+  if ENV['GOVUK_ASSET_ROOT'].present?
+    config.asset_host = ENV['GOVUK_ASSET_ROOT']
+  end
 end

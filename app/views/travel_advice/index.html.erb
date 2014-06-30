@@ -10,7 +10,7 @@
       <h1><%= @publication.title %></h1>
     </div>
   </header>
-  
+
   <div class="travel-container">
     <div class='inner group'>
       <div class='section-wrap group'>
@@ -27,14 +27,14 @@
           <h1 class="visuallyhidden">Subscriptions</h1>
           <p>Get updates</p>
           <ul>
-            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
+            <li><a href="https://public.govdelivery.com/accounts/UKGOVUKFO/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
             <li><%= link_to "feed", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
           </ul>
         </section>
       </div>
       <section class="countries-wrapper">
         <div class="countries">
-          <h1>Countries or territories</h1>       
+          <h1>Countries or territories</h1>
           <p class="country-count">
             <span class="js-filter-count"><%= @publication.countries.length %></span>
             <span class="visuallyhidden">Countries or territories</span>
@@ -53,10 +53,9 @@
             </div>
           <% end %>
         </div>
-      </section>      
+      </section>
     </div>
     <div id="report-a-problem"></div>
   </div>
-  
-</main>
 
+</main>

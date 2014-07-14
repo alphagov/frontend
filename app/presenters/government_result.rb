@@ -32,15 +32,6 @@ class GovernmentResult < SearchResult
         { hash: 'responsibilities', title: 'Responsibilities' },
         { hash: 'current-role-holder', title: 'Current role holder' },
       ]
-    when 'organisation' then
-      if organisation_with_jump_links?
-        [
-          { hash: 'topics', title: 'What we do' },
-          { hash: 'policies', title: 'Policies' },
-          { hash: 'org-contacts', title: 'Contact details' },
-          { hash: 'ministers', title: 'Ministers' },
-        ]
-      end
     when 'person' then
       [
         { hash: 'biography', title: 'Biography' },
@@ -91,12 +82,6 @@ private
         field["acronym"] || field["title"] || field["slug"]
       end.join(", ")
     end
-  end
-
-  def organisation_with_jump_links?
-    ! %w{
-      /government/organisations/deputy-prime-ministers-office
-      /government/organisations/prime-ministers-office-10-downing-street}.include?(self.link)
   end
 
   def fetch_multi_valued_field(field_name)

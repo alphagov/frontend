@@ -85,7 +85,7 @@ offering...}
     mainstream_results             = GovernmentResult.new({ "format" => "mainstream" })
 
     assert_equal 2, minister_results.sections.length
-    assert_equal 4, organisation_results.sections.length
+    assert_equal nil, organisation_results.sections
     assert_equal 2, person_results.sections.length
     assert_equal 2, world_location_results.sections.length
     assert_equal 2, worldwide_organisation_results.sections.length

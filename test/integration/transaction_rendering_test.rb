@@ -352,4 +352,24 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "start page which should have cross domain analytics" do
+    should "include cross domain analytics javascript" do
+      setup_api_responses('register-to-vote')
+      visit "/register-to-vote"
+
+      assert_equal 200, page.status_code
+      assert page.has_selector?("#transaction_cross_domain_analytics", :visible => :all)
+    end
+  end
+
+  context "start page format which shouldn't have cross domain analytics" do
+    should "not include cross domain analytics javascript" do
+      setup_api_responses('check-vehicle-tax')
+      visit "/check-vehicle-tax"
+
+      assert_equal 200, page.status_code
+      assert page.has_no_selector?("#transaction_cross_domain_analytics", :visible => :all)
+    end
+  end
 end

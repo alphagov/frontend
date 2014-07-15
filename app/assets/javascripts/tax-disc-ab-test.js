@@ -17,8 +17,8 @@ $(function () {
       name: 'tax-disc-beta',
       customVarIndex: 20,
       cohorts: {
-        tax_disc_beta_control: { weight: 50, callback: function () { } }, //50%
-        tax_disc_beta: { weight: 50, callback: GOVUK.taxDiscBetaPrimary } //50%
+        tax_disc_beta_control: { weight: 1, callback: function () { } }, //~100%
+        tax_disc_beta: { weight: 0, callback: GOVUK.taxDiscBetaPrimary } //~0%
       }
     });
   }

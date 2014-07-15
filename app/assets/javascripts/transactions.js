@@ -5,7 +5,9 @@ $(document).ready(function () {
     $container.tabs();
   }
 
-  $('form#completed-transaction-form').append('<input type="hidden" name="service_feedback[javascript_enabled]" value="true"/>');
+  $('form#completed-transaction-form').
+    append('<input type="hidden" name="service_feedback[javascript_enabled]" value="true"/>').
+    append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
 
   $('#completed-transaction-form button.button').click(function() {
     $(this).attr('disabled', 'disabled');

@@ -20,14 +20,14 @@
     <section class="primary-apply" aria-labelledby="primary-apply-label">
       <div class="eligibility-check">
 
-        <h1 id="primary-apply-label">Before you start</h1>
+        <h1 id="primary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
+        <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
         <p>To apply online you'll need either:</p>
         <ul>
           <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
           <li>the 11 digit reference number from your log book (V5C)</li>
         </ul>
 
-        <span class="destination">Apply on the DVLA website:</span>
         <form class="get-started" action="<%= @publication.link %>" method="POST">
           <input type="submit" value="Apply now" class="button medium" />
         </form>
@@ -42,8 +42,7 @@
 
 
     <section class="secondary-apply" aria-labelledby="secondary-apply-label">
-      <h1 id="secondary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
-      <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+      <h1 id="secondary-apply-label">Apply using the original service</h1>
 
       <div class="application-details">
         <p class="opening">You'll need either:</p>
@@ -52,7 +51,7 @@
           <li>the 11 digit reference number from your log book (V5C)</li>
         </ul>
 
-        <form action="https://www.sorn.service.gov.uk" method="POST">
+        <form action="https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro" method="POST">
           <input type="submit" value="Apply now" class="button button-secondary" />
         </form>
 

@@ -29,6 +29,27 @@ class SearchControllerTest < ActionController::TestCase
     }
   end
 
+  def rummager_result_fields
+    %w{
+      description
+      display_type
+      document_series
+      format
+      link
+      organisations
+      organisation_state
+      public_timestamp
+      section
+      slug
+      specialist_sectors
+      subsection
+      subsubsection
+      title
+      topics
+      world_locations
+    }
+  end
+
   def stub_results(results, query = "search-term", organisations = [], suggestions = [])
     response_body = response(results, suggestions)
     parameters = {
@@ -36,6 +57,7 @@ class SearchControllerTest < ActionController::TestCase
       :count => '50',
       :q => query,
       :filter_organisations => organisations,
+      :fields => rummager_result_fields,
       :facet_organisations => '100',
       :debug => nil,
     }
@@ -50,6 +72,7 @@ class SearchControllerTest < ActionController::TestCase
       :count => '50',
       :q => query,
       :filter_organisations => organisations,
+      :fields => rummager_result_fields,
       :facet_organisations => '100',
       :debug => nil,
     }

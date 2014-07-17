@@ -58,8 +58,6 @@ class GovernmentResult < SearchResult
     description = nil
     if result["description"].present?
       description = result["description"]
-    elsif result["indexable_content"].present?
-      description = result["indexable_content"]
     end
 
     description = description.truncate(215, :separator => " ") if description

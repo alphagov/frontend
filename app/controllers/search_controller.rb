@@ -21,6 +21,24 @@ class SearchController < ApplicationController
       count: "#{requested_result_count}",
       q: @search_term,
       filter_organisations: [*params[:filter_organisations]],
+      fields: %w{
+        description
+        display_type
+        document_series
+        format
+        link
+        organisations
+        organisation_state
+        public_timestamp
+        section
+        slug
+        specialist_sectors
+        subsection
+        subsubsection
+        title
+        topics
+        world_locations
+      },
       facet_organisations: "100",
       debug: params[:debug],
     }

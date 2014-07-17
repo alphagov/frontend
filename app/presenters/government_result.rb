@@ -50,6 +50,14 @@ class GovernmentResult < SearchResult
     end
   end
 
+  def title
+    if format == 'organisation' && result["organisation_state"] == 'closed'
+      "Closed organisation: " + result["title"]
+    else
+      result["title"]
+    end
+  end
+
   def public_timestamp
     result["public_timestamp"].to_date.strftime("%e %B %Y") if result["public_timestamp"]
   end
@@ -58,14 +66,12 @@ class GovernmentResult < SearchResult
     description = nil
     if result["description"].present?
       description = result["description"]
-    elsif result["indexable_content"].present?
-      description = result["indexable_content"]
     end
 
     description = description.truncate(215, :separator => " ") if description
 
-    if format == "organisation"
-      "The home of #{title} on GOV.UK. #{description}"
+    if format == "organisation" && result["organisation_state"] != 'closed'
+      "The home of #{result["title"]} on GOV.UK. #{description}"
     else
       description
     end

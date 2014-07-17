@@ -117,15 +117,21 @@ offering...}
   end
 
   should "return description for other formats" do
-    result1 = GovernmentResult.new({
+    result = GovernmentResult.new({
       "format" => "my-new-format",
       "description" => "my-description"
     })
-    result2 = GovernmentResult.new({
-      "format" => "my-new-format",
-      "indexable_content" => "my-indexable-content"
+    assert_equal result.description, 'my-description'
+  end
+
+  should "mark titles of closed organisations as being closed" do
+    result = GovernmentResult.new({
+      "format" => "organisation",
+      "organisation_state" => "closed",
+      "title" => "my-title",
+      "description" => "my-description",
     })
-    assert_equal result1.description, 'my-description'
-    assert_equal result2.description, 'my-indexable-content'
+    assert_equal result.title, 'Closed organisation: my-title'
+    assert_equal result.description, 'my-description'
   end
 end

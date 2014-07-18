@@ -35,6 +35,11 @@
      </div>
    </article>
   <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
+  <%# Enable cross-domain analytics for IER (register to vote) only - not generalised yet %>
+  <% if @publication.slug == 'register-to-vote' %>
+    <%= render :partial => 'transaction_cross_domain_analytics', :locals => { :ga_account_code => 'UA-23066786-5' } %>
+  <% end %>
 </div>
 
 </main>

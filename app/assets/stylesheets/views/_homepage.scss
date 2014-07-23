@@ -445,24 +445,22 @@ body.homepage {
         }
       }
     }
-    .categories-list {
+    .categories-lists {
       @extend %contain-floats;
       clear: both;
+    }
+    .categories-list {
       margin: 0;
       padding: 10px 0 0;
+      @include media(tablet){
+        float: left;
+        width: $one-third;
+      }
 
       li {
         margin: 0 0 15px;
         padding: 0;
         list-style: none;
-
-        @include media(desktop){
-          float: left;
-          width: 33.33%;
-        }
-        &.nth-child {
-          clear: left;
-        }
 
         h2, p {
           margin: 0;
@@ -474,6 +472,7 @@ body.homepage {
         }
         p {
           @include core-16;
+          min-height: 40px;
         }
       }
     }

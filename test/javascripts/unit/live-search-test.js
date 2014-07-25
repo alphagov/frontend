@@ -28,7 +28,7 @@ describe("liveSearch", function(){
     GOVUK.support.history = _supportHistory;
   });
 
-  it("should save inital state", function(){
+  it("should save initial state", function(){
     GOVUK.liveSearch.init();
     expect(GOVUK.liveSearch.state).toEqual([{name: 'field', value: 'sheep'}]);
   });
@@ -147,7 +147,7 @@ describe("liveSearch", function(){
     expect(GOVUK.liveSearch.checkOrganisationLimit(event)).toBe(false);
   });
 
-  describe('with relevent dom nodes set', function(){
+  describe('with relevant dom nodes set', function(){
     beforeEach(function(){
       GOVUK.liveSearch.$form = $form;
       GOVUK.liveSearch.$resultsBlock = $results;

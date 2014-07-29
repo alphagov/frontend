@@ -205,21 +205,4 @@ main.campaign {
       background: image-url('campaign/disclosure/ho_crest_18px_x2.png') no-repeat 8px 0;
     }
   }
-
-  /* temp extra styles for jobsearch */
-  .jobsearch-form label input {
-    display: block;
-    background-color: #f9f9f9;
-    border: 1px inset #e2e2e2;
-    font-size: 1em;
-    line-height: 1.2;
-    padding: 0.3em 0 0.1em 0.4em;
-    margin-left:0;
-    @include ie-lte(7){
-      margin-left:1em;
-    }
-  }
 }
-
-
-

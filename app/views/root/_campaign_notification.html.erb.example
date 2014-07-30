@@ -1,7 +1,7 @@
 <% # This is an example homepage campaign.
    # Overwrite `_campaign_notification.html.erb` with the contents of this to
    # surface the campaign %>
-<div id="campaign" class="green"> <% # or red or black %>
+<div id="campaign" class="green"> <%# or red or black %>
   <div class="campaign-inner">
     <h1>The heading notification</h1>
     <p>

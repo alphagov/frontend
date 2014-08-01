@@ -160,7 +160,7 @@ body.homepage {
     .promo-text-cta a {
       display: block;
       margin-bottom: 15px;
-      padding: 3em .5em;
+      padding: 1.5em .75em 2em;
 
       color: $white;
       background: $homepage-top-colour;
@@ -169,10 +169,10 @@ body.homepage {
 
       @include bold-19;
 
-      .date {
+      .main-text{
         display: block;
         margin-top: 15px;
-        @include bold-48;
+        @include bold-36;
       }
 
       &:hover {

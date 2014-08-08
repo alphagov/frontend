@@ -7,25 +7,6 @@ Frontend::Application.routes.draw do
   post "/search" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent non-GET requests for /search blowing up in the publication handlers below
   get "/search/opensearch" => "search#opensearch"
 
-  # Redirects for visas-immigration section changes.
-  # TODO: Move these into the router
-  get '/browse/visas-immigration/visit-visas' => redirect('/browse/visas-immigration/short-visit-visas')
-  get '/browse/visas-immigration/working-visas' => redirect('/browse/visas-immigration/work-visas')
-  get '/browse/visas-immigration/employers-sponsorship' => redirect('/browse/visas-immigration/sponsoring-workers-students')
-  get '/browse/visas-immigration/your-visa' => redirect('/browse/visas-immigration/after-youve-applied')
-  get '/browse/visas-immigration/family-visas' => redirect('/browse/visas-immigration')
-
-  get "/browse.json" => redirect("/api/tags.json?type=section&root_sections=true")
-  get "/browse" => "browse#index", to: "browse#index"
-  get "/browse/:section.json" => redirect("/api/tags.json?type=section&parent_id=%{section}")
-  get "/browse/:section", as: "browse", to: "browse#section"
-  get "/browse/:section/:sub_section.json" => redirect("/api/with_tag.json?tag=%{section}%%2F%{sub_section}")
-  get "/browse/:section/:sub_section", as: "browse", to: "browse#sub_section"
-
-  # new-style browse pages
-  get "/business" => "browse#section", :section => "business"
-  get "/visas-immigration" => "browse#section", :section => "visas-immigration"
-
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }

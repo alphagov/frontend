@@ -128,6 +128,8 @@ private
     # if start is zero, then we must be on the first page
     return 1 if requested_start == 0
 
+    # eg. when start = 50 and count = 10:
+    #          (50 / 10) + 1 = page 6
     (requested_start.to_f / requested_count.to_f).ceil + 1
   end
 

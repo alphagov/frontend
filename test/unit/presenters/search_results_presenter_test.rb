@@ -128,6 +128,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       }
       presenter = SearchResultsPresenter.new(response, 'my-query', params)
 
+      # with a start value of 25 and a count of 50, this could incorrectly
+      # calculate 25-50 and link to 'start=-25'. here, we assert that 'start=0'
       assert presenter.has_previous_page?
       assert_equal '/search?q=my-query&start=0', presenter.previous_page_link
       assert_equal '1 of 4', presenter.previous_page_label

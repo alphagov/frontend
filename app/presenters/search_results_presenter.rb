@@ -13,7 +13,7 @@ class SearchResultsPresenter
     {
       query: query,
       result_count: result_count,
-      result_count_string: pluralize(number_with_delimiter(result_count), "result"),
+      result_count_string: result_count_string,
       results_any?: results.any?,
       results: results.map { |result| result.to_hash },
       filter_fields: filter_fields,
@@ -38,6 +38,10 @@ class SearchResultsPresenter
 
   def result_count
     search_response["total"]
+  end
+
+  def result_count_string
+    pluralize(number_with_delimiter(result_count), "result")
   end
 
   def results

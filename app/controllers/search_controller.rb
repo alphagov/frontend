@@ -17,7 +17,7 @@ class SearchController < ApplicationController
     end
 
     search_params = {
-      start: params[:start],
+      start: valid_start_param,
       count: "#{requested_result_count}",
       q: @search_term,
       filter_organisations: [*params[:filter_organisations]],
@@ -46,6 +46,7 @@ class SearchController < ApplicationController
 
     presented_params = params.merge(
       count: requested_result_count,
+      start: valid_start_param,
     )
     @results = SearchResultsPresenter.new(search_response, @search_term, presented_params)
     @facets = search_response["facets"]
@@ -72,6 +73,12 @@ protected
       count = MAX_RESULTS_PER_PAGE
     end
     count
+  end
+
+  def valid_start_param
+    if params[:start]
+      params[:start].to_i < 0 ? 0 : params[:start].to_i
+    end
   end
 
   def search_client

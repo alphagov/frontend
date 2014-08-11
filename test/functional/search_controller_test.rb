@@ -66,9 +66,9 @@ class SearchControllerTest < ActionController::TestCase
         .returns(response_body)
   end
 
-  def expect_search_client_is_requested(organisations, query = "search-term")
+  def expect_search_client_is_requested(organisations, query = "search-term", options = {})
     parameters = {
-      :start => nil,
+      :start => options[:start],
       :count => '50',
       :q => query,
       :filter_organisations => organisations,
@@ -288,12 +288,18 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test 'should link to the previous page' do
-    stub_results(Array.new(50, {}), 'Test', [], [], start: '50', total: 100)
+    stub_results(Array.new(50, {}), 'Test', [], [], start: 50, total: 100)
 
     get :index, q: 'Test', start: 50
 
     assert_select 'li.previous', /Previous page/
     assert_select 'li.previous', /1 of 2/
+  end
+
+  test 'should default to 0 given a negative start parameter' do
+    expect_search_client_is_requested([], 'Test', start: 0)
+
+    get :index, q: 'Test', start: -1
   end
 
   test "should_show_external_links_with_a_separate_list_class" do

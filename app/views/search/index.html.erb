@@ -36,6 +36,7 @@
     </div>
 
     <div id="results" class="js-live-search-results-block">
+      <div aria-live="assertive" class='js-aria-live-count visuallyhidden'><%= @results.result_count %> found</div>
       <%= render_mustache('results_block', @results.to_hash) %>
     </div>
   </form>

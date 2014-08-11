@@ -3,11 +3,16 @@ class SearchResultsPresenter
   include ActionView::Helpers::NumberHelper
   include Rails.application.routes.url_helpers
 
+  class NegativeStartValue < StandardError; end
+  class NegativeCountValue < StandardError; end
+
   def initialize(search_response, query, params)
     @search_response = search_response
     @query = query
     @debug = params[:debug_score]
     @params = params
+
+    validate_params
   end
 
   def to_hash
@@ -58,14 +63,11 @@ class SearchResultsPresenter
   end
 
   def has_next_page?
-    requested_start >= 0 &&
-      requested_count >= 0 &&
-      (requested_start + requested_count) < result_count
+    (requested_start + requested_count) < result_count
   end
 
   def has_previous_page?
-    requested_start > 0 &&
-      requested_count >= 0
+    requested_start > 0
   end
 
   def next_page_link
@@ -95,6 +97,11 @@ class SearchResultsPresenter
 private
 
   attr_reader :search_response, :debug, :query, :params
+
+  def validate_params
+    raise NegativeStartValue if requested_start < 0
+    raise NegativeCountValue if requested_count < 0
+  end
 
   def requested_count
     params[:count].to_i

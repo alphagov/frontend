@@ -89,19 +89,16 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       assert_equal nil, presenter.previous_page_label
     end
 
-    should 'not have a previous or next page when start < 1' do
+    should 'raise an exception if start < 1' do
       response = { 'total' => 200 }
       params = {
         count: 50,
         start: -1,
       }
-      presenter = SearchResultsPresenter.new(response, 'my-query', params)
 
-      assert ! presenter.has_previous_page?
-      assert ! presenter.has_next_page?
-
-      assert_equal nil, presenter.previous_page_link
-      assert_equal nil, presenter.next_page_link
+      assert_raise SearchResultsPresenter::NegativeStartValue do
+        SearchResultsPresenter.new(response, 'my-query', params)
+      end
     end
 
     should 'not have a previous or next page when count < 1' do
@@ -110,13 +107,10 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
         count: -50,
         start: 100,
       }
-      presenter = SearchResultsPresenter.new(response, 'my-query', params)
 
-      assert ! presenter.has_previous_page?
-      assert ! presenter.has_next_page?
-
-      assert_equal nil, presenter.previous_page_link
-      assert_equal nil, presenter.next_page_link
+      assert_raise SearchResultsPresenter::NegativeCountValue do
+        SearchResultsPresenter.new(response, 'my-query', params)
+      end
     end
 
     should 'link to a start_at value of 0 when less than zero' do

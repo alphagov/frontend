@@ -44,7 +44,10 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    @results = SearchResultsPresenter.new(search_response, @search_term, params)
+    presented_params = params.merge(
+      count: requested_result_count,
+    )
+    @results = SearchResultsPresenter.new(search_response, @search_term, presented_params)
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 

@@ -12,9 +12,9 @@ describe("liveSearch", function(){
 
   beforeEach(function () {
     $form = $('<form action="/somewhere" class="js-live-search-form"><input type="checkbox" name="field" value="sheep" checked></form>');
-    $results = $('<div class="js-live-search-results-block"><div class="js-live-search-results-list">my result list</div></div>');
-
-    $('body').append($form).append($results);
+    $results = $('<div class="js-live-search-results-block"><div class="result-count"></div><div class="js-live-search-results-list">my result list</div></div>');
+    $arialivetext = $('<div class="js-aria-live-count">10 results</div>');
+    $('body').append($form).append($results).append($arialivetext);
 
     _supportHistory = GOVUK.support.history;
     GOVUK.support.history = function(){ return true; };
@@ -24,7 +24,7 @@ describe("liveSearch", function(){
   afterEach(function(){
     $form.remove();
     $results.remove();
-
+    $arialivetext.remove();
     GOVUK.support.history = _supportHistory;
   });
 
@@ -191,6 +191,23 @@ describe("liveSearch", function(){
       GOVUK.liveSearch.state = [ ];
       GOVUK.liveSearch.restoreCheckboxes();
       expect($form.find('input').prop('checked')).toBe(false);
+    });
+
+    it ("display results should call updateAriaLiveCount when the results have been loaded", function(){
+      spyOn(GOVUK.liveSearch, 'updateAriaLiveCount');
+
+      GOVUK.liveSearch.displayResults();
+      expect(GOVUK.liveSearch.updateAriaLiveCount).toHaveBeenCalled();
+
+    });
+
+    it ("updateAriaLiveCount should change the text of the aria-live region to match the result count", function(){
+      var oldCount = '1 search result',
+          newCount = '70 search results';
+
+      GOVUK.liveSearch.$resultsBlock.find('.result-count').text(newCount);
+      GOVUK.liveSearch.updateAriaLiveCount();
+      expect(GOVUK.liveSearch.$ariaLiveResultCount.text()).toBe(newCount);
     });
   });
 });

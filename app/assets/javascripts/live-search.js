@@ -11,10 +11,12 @@
 
     $form: false,
     $resultCount: false,
+    $ariaLiveResultCount: false,
 
     init: function(){
       if(GOVUK.support.history()){
         liveSearch.$form = $('.js-live-search-form');
+        liveSearch.$ariaLiveResultCount = $('.js-aria-live-count');
         if(liveSearch.$form){
           liveSearch.$resultsBlock = $('.js-live-search-results-block');
 
@@ -129,6 +131,7 @@
           new GOVUK.CheckboxFilter({el:$(this)});
         })
       }
+      liveSearch.updateAriaLiveCount();
     },
     restoreCheckboxes: function(){
       liveSearch.$form.find('input[type=checkbox]').each(function(i, el){
@@ -156,6 +159,9 @@
         }
       }
       return false;
+    },
+    updateAriaLiveCount: function(){
+      liveSearch.$ariaLiveResultCount.text(liveSearch.$resultsBlock.find('.result-count').text());
     }
   };
   GOVUK.liveSearch = liveSearch;

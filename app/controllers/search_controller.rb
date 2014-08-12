@@ -17,7 +17,7 @@ class SearchController < ApplicationController
     end
 
     search_params = {
-      start: valid_start_param,
+      start: params[:start],
       count: "#{requested_result_count}",
       q: @search_term,
       filter_organisations: [*params[:filter_organisations]],
@@ -44,11 +44,7 @@ class SearchController < ApplicationController
     }
     search_response = search_client.unified_search(search_params)
 
-    presented_params = params.merge(
-      count: requested_result_count,
-      start: valid_start_param,
-    )
-    @results = SearchResultsPresenter.new(search_response, @search_term, presented_params)
+    @results = SearchResultsPresenter.new(search_response, @search_term, params)
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 
@@ -73,12 +69,6 @@ protected
       count = MAX_RESULTS_PER_PAGE
     end
     count
-  end
-
-  def valid_start_param
-    if params[:start]
-      params[:start].to_i < 0 ? 0 : params[:start].to_i
-    end
   end
 
   def search_client

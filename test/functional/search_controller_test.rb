@@ -288,7 +288,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test 'should link to the previous page' do
-    stub_results(Array.new(50, {}), 'Test', [], [], start: 50, total: 100)
+    stub_results(Array.new(50, {}), 'Test', [], [], start: '50', total: 100)
 
     get :index, q: 'Test', start: 50
 
@@ -297,7 +297,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test 'should default to 0 given a negative start parameter' do
-    expect_search_client_is_requested([], 'Test', start: 0)
+    expect_search_client_is_requested([], 'Test', start: '0')
 
     get :index, q: 'Test', start: -1
   end

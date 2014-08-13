@@ -76,8 +76,9 @@ protected
   end
 
   def valid_start_param
-    if params[:start]
-      params[:start].to_i < 0 ? 0 : params[:start].to_i
+    if params[:start] && start = params[:start].to_i
+      start = 0 if start < 0
+      start.to_s
     end
   end
 

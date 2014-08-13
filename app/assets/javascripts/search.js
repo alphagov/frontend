@@ -1,5 +1,5 @@
 $(function() {
-  var $searchResults = $('#results');
+  var $searchResults = $('#results .results-list');
 
   if ($searchResults.length > 0) {
     $('.js-openable-filter').each(function(){

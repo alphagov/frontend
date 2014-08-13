@@ -63,6 +63,26 @@
       </li>
     {{/results}}
   </ul>
+
+  <ul class="previous-next-navigation">
+    {{#has_previous_page?}}
+      <li class="previous">
+        <a href="{{previous_page_link}}">
+          Previous <span class="visuallyhidden">page</span>
+          <span class="page-numbers">{{previous_page_label}}</span>
+        </a>
+      </li>
+    {{/has_previous_page?}}
+
+    {{#has_next_page?}}
+      <li class="next">
+        <a href="{{next_page_link}}">
+          Next <span class="visuallyhidden">page</span>
+          <span class="page-numbers">{{next_page_label}}</span>
+        </a>
+      </li>
+    {{/has_next_page?}}
+  </ul>
 {{/results_any?}}
 {{^results_any?}}
   <div class="zero-results">

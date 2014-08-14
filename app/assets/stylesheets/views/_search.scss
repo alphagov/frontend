@@ -144,12 +144,19 @@ main.search {
 
         &.debug {
           list-style: decimal;
+          .sections {
+            list-style: none;
+          }
           .debug-link {
             color: green;
             word-wrap: break-word;
           }
           .debug-info {
             color: red;
+            span {
+              display: inline-block;
+              min-width: 150px;
+            }
           }
         }
         li {

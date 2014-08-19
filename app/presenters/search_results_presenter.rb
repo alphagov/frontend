@@ -30,6 +30,7 @@ class SearchResultsPresenter
       next_page_label: next_page_label,
       previous_page_link: previous_page_link,
       previous_page_label: previous_page_label,
+      first_result_number: (requested_start+1),
     }
   end
 

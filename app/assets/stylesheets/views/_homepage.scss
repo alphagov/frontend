@@ -349,22 +349,23 @@ body.homepage {
       }
 
       h2 {
-        @include core-19;
-        font-weight: bold;
-        margin: 0 0 15px;
+        @include core-14;
+        margin: 0;
+        @include media($min-width: 1010px){
+          margin: 5px 0 0;
+        }
       }
       ul {
         margin: 0;
         padding: 0;
+        @include media($min-width: 1010px){
+          margin: 10px 0 0;
+        }
       }
       li {
-        @include core-19;
+        @include bold-16;
         list-style: none;
         margin: 5px 0;
-
-        @include media(tablet){
-          margin: 10px 0;
-        }
       }
       a {
         &:link,

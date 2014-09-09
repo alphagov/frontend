@@ -6,6 +6,7 @@
     "web_url": "https://www.gov.uk/register-to-vote",
     "title": "Register to vote",
     "format": "transaction",
+    "in_beta": true,
     "details": {
         "need_id": "692",
         "description": "Get the right form to register to vote depending on your circumstances",

@@ -21,6 +21,10 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end
 
         within '.article-container' do
+          within '.beta-label' do
+            assert page.has_link?("find out what this means", :href => "/help/beta")
+          end
+
           within 'section.intro' do
             assert page.has_selector?("p", :text => "You have to fill out the form online, print it off and send it to your local electoral registration office.")
 

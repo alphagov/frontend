@@ -125,5 +125,6 @@
   "web_url": "https://www.gov.uk/the-bridge-of-death",
   "title": "The Bridge of Death",
   "format": "simple_smart_answer",
+  "in_beta": true,
   "updated_at": "2013-06-25T11:59:04+01:00"
 }

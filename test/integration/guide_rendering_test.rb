@@ -251,6 +251,11 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
+        within 'div.beta-label' do
+          assert page.has_link?("find out what this means", :href => "/help/beta")
+        end
+
+
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
           assert_equal ['1. The Data Protection Act', '2. Find out what data an organisation has about you', '3. Make a complaint'], part_titles

@@ -13,6 +13,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     @artefact = artefact_for_slug('pay-bear-tax').merge({
       "title" => "Pay your bear tax",
       "format" => "local_transaction",
+      "in_beta" => true,
       "details" => {
         "format" => "LocalTransaction",
         "introduction" => "Information about paying local tax on owning or looking after a bear.",
@@ -64,6 +65,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "display the page content" do
         assert page.has_content? "Pay your bear tax"
         assert page.has_content? "owning or looking after a bear"
+        assert page.has_content? "This part of GOV.UK is being rebuilt"
       end
 
       should "ask for a postcode" do

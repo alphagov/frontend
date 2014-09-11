@@ -6,6 +6,7 @@
     "web_url": "https://www.gov.uk/reduced-earnings-allowance",
     "title": "Reduced Earnings Allowance",
     "format": "programme",
+    "in_beta": true,
     "details": {
         "need_id": "49",
         "description": "Reduced Earnings Allowance can help if your income falls because of a work-related accident or disease - what you'll get, eligibility and how to claim",

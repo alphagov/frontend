@@ -3,6 +3,7 @@
   "web_url": "http://www.example.com/britain-is-great",
   "title": "Britain is GREAT",
   "format": "campaign",
+  "in_beta": true,
   "updated_at": "2013-09-17T12:37:40+01:00",
   "tags": [],
   "related": [],

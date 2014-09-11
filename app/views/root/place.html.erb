@@ -5,16 +5,18 @@
        <h1><%= @publication.title %></h1>
     </div>
   </header>
-	<div class="article-container group">
-	 	<article role="article" class="group">
-	    <div class="inner">
+  <div class="article-container group">
+    <%= render :partial => 'beta_label' if @publication.in_beta %>
+    <article role="article" class="group">
 
-	      <section class="intro">
-  	      <div class="get-started-intro">
+      <div class="inner">
 
-  	        <div class="find-nearest">
+        <section class="intro">
+          <div class="get-started-intro">
 
-    	        <%= raw @publication.introduction %>
+            <div class="find-nearest">
+
+              <%= raw @publication.introduction %>
 
               <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
             </div>
@@ -52,11 +54,11 @@
 
       </div>
 
-		</article>
+    </article>
     <%= render 'publication_metadata', :publication => @publication, :api_links => {
       'application/json' => publication_path(@publication.slug, :edition => @edition, :format => :json)
     } %>
-	</div>
+  </div>
 </main>
 
 <div id="related-items"></div>

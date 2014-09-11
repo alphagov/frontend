@@ -6,6 +6,7 @@
     "web_url": "https://www.gov.uk/data-protection",
     "title": "Data protection",
     "format": "guide",
+    "in_beta": true,
     "details": {
         "need_id": "636",
         "description": "The Data Protection Act (DPA) controls how personal information can be used and your rights to ask for information about yourself",

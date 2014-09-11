@@ -11,6 +11,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     @artefact = artefact_for_slug('passport-interview-office').merge({
       "title" => "Find a passport interview office",
       "format" => "place",
+      "in_beta" => true,
       "details" => {
         "description" => "Find a passport interview office",
         "place_type" => "find-passport-offices",
@@ -65,6 +66,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     within ".page-header" do
       assert page.has_content?("Find a passport interview office")
+    end
+
+    within '.beta-label' do
+      assert page.has_link?("find out what this means", :href => "/help/beta")
     end
 
     within ".intro" do

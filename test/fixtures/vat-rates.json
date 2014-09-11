@@ -6,6 +6,7 @@
     "web_url": "https://www.gov.uk/vat-rates",
     "title": "VAT rates",
     "format": "answer",
+    "in_beta": true,
     "details": {
         "need_id": "1870",
         "description": "Current VAT rates - standard 20% and rates for reduced rate and zero-rated items",

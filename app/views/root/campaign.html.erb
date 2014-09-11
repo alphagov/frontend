@@ -7,6 +7,12 @@
       <a href="<%= organisation_url(@publication) %>" class="organisation-logo organisation-logo-<%= organisation_crest(@publication) %> <%= organisation_brand_colour(@publication) %>"><%= formatted_organisation_name(@publication) %></a>
     </div>
     <% end %>
+
+    <div class="campaign-beta-label">
+      <%= render :partial => 'beta_label' if @publication.in_beta %>
+    </div>
+
+
     <div class="campaign-image">
       <span class="image-scope">
         <style scoped>

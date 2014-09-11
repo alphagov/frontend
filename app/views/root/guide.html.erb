@@ -7,6 +7,8 @@
   </header>
 
   <div class="article-container group">
+    <%= render :partial => 'beta_label' if @publication.in_beta %>
+
     <%= render :partial => "guide_navigation" %>
 
     <article role="article" class="group">

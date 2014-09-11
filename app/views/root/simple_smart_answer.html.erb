@@ -6,6 +6,8 @@
     </div>
   </header>
   <div class="article-container group">
+    <%= render :partial => 'beta_label' if @publication.in_beta %>
+
     <article role="article" class="group">
       <div class="inner">
         <div class="intro">

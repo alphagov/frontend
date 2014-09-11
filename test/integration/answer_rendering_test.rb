@@ -20,9 +20,12 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
+
         within 'article' do
           assert page.has_selector?(".highlight-answer p em", :text => "20%")
         end
+
+        assert page.has_link?("find out what this means", :href => "/help/beta")
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 2 October 2012")
 

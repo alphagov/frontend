@@ -20,6 +20,10 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
+        within 'div.beta-label' do
+          assert page.has_link?("find out what this means", :href => "/help/beta")
+        end
+
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)
           assert_equal ['1. Overview', "2. What you'll get", '3. Eligibility', '4. How to claim', '5. Further information'], part_titles

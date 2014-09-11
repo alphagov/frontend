@@ -23,6 +23,13 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
     assert_equal "Business", page.find('article.campaign h2:nth-of-type(1)').text
     assert_equal "Tourism", page.find('article.campaign h2:nth-of-type(2)').text
     assert_equal "Education", page.find('article.campaign h2:nth-of-type(3)').text
+
+
+    within '.campaign-beta-label' do
+      assert page.has_link?("find out what this means", :href => "/help/beta")
+    end
+
+
   end
 
 end

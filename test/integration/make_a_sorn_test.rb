@@ -15,7 +15,7 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       end
 
       within '.top-tasks' do
-        assert page.has_link?("Renew a tax disc", :href => "/tax-disc")
+        assert page.has_link?("Renew vehicle tax", :href => "/tax-disc")
         assert page.has_link?("Get vehicle information from DVLA", :href => "/get-vehicle-information-from-dvla")
         assert page.has_link?("SORN (Statutory Off Road Notification)", :href => "/sorn-statutory-off-road-notification")
       end
@@ -47,10 +47,10 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       end
 
       within ".related-links" do
-        assert page.has_link?("Renew a tax disc", :href => "/tax-disc")
+        assert page.has_link?("Renew vehicle tax", :href => "/tax-disc")
         assert page.has_link?("Get vehicle information from DVLA", :href => "/get-vehicle-information-from-dvla")
         assert page.has_link?("SORN (Statutory Off Road Notification)", :href => "/sorn-statutory-off-road-notification")
-        assert page.has_link?("Apply for a tax disc refund (form V14)", :href => "/apply-for-tax-disc-refund-form-v14")
+        assert page.has_link?("Apply for a vehicle tax refund (form V14)", :href => "/apply-for-tax-disc-refund-form-v14")
       end
     end
   end

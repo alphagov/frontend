@@ -16,7 +16,7 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
 
       within '.top-tasks' do
         assert page.has_link?("Make a SORN declaration", :href => "/register-sorn-statutory-off-road-notification")
-        assert page.has_link?("Apply for an HGV vehicle tax disc", :href => "/apply-hgv-vehicle-licence-tax-disc-form-v85")
+        assert page.has_link?("Apply for HGV vehicle tax", :href => "/apply-hgv-vehicle-licence-tax-disc-form-v85")
         assert page.has_link?("Calculate vehicle tax rates", :href => "/calculate-vehicle-tax-rates")
       end
 
@@ -48,16 +48,15 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       end
 
       within ".help-and-related-links" do
-        assert page.has_selector?("h1", :text => "Help with tax discs")
+        assert page.has_selector?("h1", :text => "Help with car tax")
         assert page.has_link?("Contact DVLA for questions about car tax", :href => "/contact-the-dvla")
       end
 
       within ".related-links" do
-        assert page.has_selector?("h1", :text => "Tax discs and car tax")
+        assert page.has_selector?("h1", :text => "Vehicle tax (tax disc)")
         assert page.has_link?("Make a SORN (Statutory Off Road Notification)", :href => "/register-sorn-statutory-off-road-notification")
         assert page.has_link?("Calculate vehicle tax rates", :href => "/calculate-vehicle-tax-rates")
-        assert page.has_link?("Apply for a duplicate tax disc", :href => "/apply-duplicate-tax-disc")
-        assert page.has_link?("Apply for an HGV vehicle licence (tax disc) - form V85", :href => "/apply-hgv-vehicle-licence-tax-disc-form-v85")
+        assert page.has_link?("Apply for HGV vehicle tax", :href => "/apply-hgv-vehicle-licence-tax-disc-form-v85")
       end
     end
   end

@@ -15,7 +15,7 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
       end
 
       within '.top-tasks' do
-        assert page.has_link?("Renew a tax disc", :href => "/tax-disc")
+        assert page.has_link?("Renew vehicle tax (tax disc)", :href => "/tax-disc")
         assert page.has_link?("Make a SORN declaration", :href => "/register-sorn-statutory-off-road-notification")
         assert page.has_link?("Report an untaxed vehicle", :href => "/report-untaxed-vehicle")
       end
@@ -33,13 +33,13 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
       end
 
       within ".help-and-related-links" do
-        assert page.has_selector?("h1", :text => "Help with tax discs")
+        assert page.has_selector?("h1", :text => "Help with vehicle tax")
         assert page.has_link?("Contact DVLA for questions about car tax", :href => "/contact-the-dvla")
       end
 
       within ".related-links" do
-        assert page.has_selector?("h1", :text => "Tax discs, car tax and SORN")
-        assert page.has_link?("Car tax: get a tax disc for your vehicle", :href => "/tax-disc")
+        assert page.has_selector?("h1", :text => "Vehicle tax and SORN")
+        assert page.has_link?("Renew vehicle tax (tax disc)", :href => "/tax-disc")
         assert page.has_link?("Make a SORN (Statutory Off Road Notification)", :href => "/register-sorn-statutory-off-road-notification")
         assert page.has_link?("Report an untaxed vehicle", :href => "/report-untaxed-vehicle")
         assert page.has_link?("Vehicles exempt from vehicle tax", :href => "/vehicle-exempt-from-car-tax")

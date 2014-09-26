@@ -8,7 +8,7 @@
     <nav class="popular-needs">
       <ul class="top-tasks">
         <li><a href="/register-sorn-statutory-off-road-notification">Make a <abbr title="Statutory off road notice">SORN</abbr> declaration</a></li>
-        <li><a href="/apply-hgv-vehicle-licence-tax-disc-form-v85">Apply for an <abbr title="Heavy goods vehicle">HGV</abbr> vehicle tax disc</a></li>
+        <li><a href="/apply-hgv-vehicle-licence-tax-disc-form-v85">Apply for <abbr title="Heavy goods vehicle">HGV</abbr> vehicle tax</a></li>
         <li><a href="/calculate-vehicle-tax-rates">Calculate vehicle tax rates</a></li>
       </ul>
     </nav>
@@ -21,10 +21,8 @@
 
         <h1 id="primary-apply-label">Before you start</h1>
         <p>To apply online you'll need either:</p>
-        <ul>
-          <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
-          <li>the 11 digit reference number from your log book (V5C)</li>
-        </ul>
+
+        <%= render 'tax_disc_requirements' %>
 
         <span class="destination">Apply on the DVLA website:</span>
         <form class="get-started" action="/g">
@@ -37,7 +35,7 @@
 
       <div class="you-will-need">
         <h2>You will need</h2>
-        <p>Tax disc renewal letter (V11)</p>
+        <p>Vehicle tax renewal letter (V11)</p>
         <%= image_tag 'start-pages/tax-disc/v11-diagram.png', alt: 'Tax disc renewal letter (V11)', width: '220' %>
       </div>
     </section>
@@ -49,10 +47,8 @@
 
       <div class="application-details">
         <p class="opening">You'll need either:</p>
-        <ul>
-          <li>the 16 digit reference number from your tax disc renewal letter (V11)</li>
-          <li>the 11 digit reference number from your log book (V5C)</li>
-        </ul>
+
+        <%= render 'tax_disc_requirements' %>
 
         <form action="/g">
           <input type="hidden" name="url" value="https://www.taxdisc.service.gov.uk" />
@@ -89,11 +85,11 @@
         <div class="at-post-office">
           <h2>At the Post Office</h2>
 
-          <p>Go to your local <a href="http://www.postoffice.co.uk/branch-finder">Post Office</a>. You'll need to take:
+          <p>Go to your local <a href="http://www.postoffice.co.uk/branch-finder">Post Office</a> that deals with vehicle tax. You'll need to take:
           </p>
           <ul>
             <li>completed V11 reminder (or your V5C)</li>
-            <li>MOT test certificate if required (must be valid when the tax disc starts)</li>
+            <li>MOT test certificate if required (must be valid when the tax starts)</li>
             <li>the payment shown on the reminder</li>
           </ul>
           <div class="application-notice info-notice">
@@ -106,7 +102,7 @@
 
     <section class="help-and-related-links">
       <section class="help" aria-labelledby="help-label">
-        <h1 id="help-label">Help with tax discs</h1>
+        <h1 id="help-label">Help with car tax</h1>
         <ul>
           <li>
             <a href="/contact-the-dvla">Contact DVLA for questions about car tax</a>
@@ -116,12 +112,11 @@
 
 
       <section class="related-links" aria-labelledby="related-links-label">
-        <h1 id="related-links-label">Tax discs and car tax</h1>
+        <h1 id="related-links-label">Vehicle tax (tax disc)</h1>
         <ul>
           <li><a href="/register-sorn-statutory-off-road-notification">Make a SORN (Statutory Off Road Notification)</a></li>
           <li><a href="/calculate-vehicle-tax-rates">Calculate vehicle tax rates</a></li>
-          <li><a href="/apply-duplicate-tax-disc">Apply for a duplicate tax disc</a></li>
-          <li><a href="/apply-hgv-vehicle-licence-tax-disc-form-v85">Apply for an HGV vehicle licence (tax disc) - form V85</a></li>
+          <li><a href="/apply-hgv-vehicle-licence-tax-disc-form-v85">Apply for HGV vehicle tax</a></li>
         </ul>
       </section>
     </section>

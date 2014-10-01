@@ -20,19 +20,19 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Calculate vehicle tax rates", :href => "/calculate-vehicle-tax-rates")
       end
 
-      within ".eligibility-check" do
-        assert page.has_selector?("h1", :text => "Before you start")
-        assert page.has_selector?(".destination", :text => "Apply on the DVLA website:")
-        assert page.has_selector?("form.get-started[action='/g']")
-        assert page.has_selector?("form.get-started input[type='hidden'][name='url'][value='https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro?skin=directgov']")
-      end
+      # within ".eligibility-check" do
+      #   assert page.has_selector?("h1", :text => "Before you start")
+      #   assert page.has_selector?(".destination", :text => "Apply on the DVLA website:")
+      #   assert page.has_selector?("form.get-started[action='/g']")
+      #   assert page.has_selector?("form.get-started input[type='hidden'][name='url'][value='https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro?skin=directgov']")
+      # end
 
-      within ".secondary-apply" do
-        assert page.has_selector?("h1", :text => "Apply using the new service")
-        assert page.has_link?("what this means for you", :href => "/help/beta")
-        assert page.has_selector?("form[action='/g']")
-        assert page.has_selector?("form input[type='hidden'][name='url'][value='https://www.taxdisc.service.gov.uk']")
-      end
+      # within ".secondary-apply" do
+      #   assert page.has_selector?("h1", :text => "Apply using the new service")
+      #   assert page.has_link?("what this means for you", :href => "/help/beta")
+      #   assert page.has_selector?("form[action='/g']")
+      #   assert page.has_selector?("form input[type='hidden'][name='url'][value='https://www.taxdisc.service.gov.uk']")
+      # end
 
       within ".offline-apply" do
         assert page.has_selector?("h1", :text => "Other ways to apply")

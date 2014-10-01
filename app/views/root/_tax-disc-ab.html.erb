@@ -1,4 +1,4 @@
-<script id="beta-primary" type="text/html">
+<script id="beta-available" type="text/html">
   <div class="eligibility-check">
     <h1 id="secondary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
     <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
@@ -18,17 +18,23 @@
     <%= image_tag 'start-pages/tax-disc/v11-diagram.png', alt: 'Tax disc renewal letter (V11)', width: '220' %>
   </div>
 </script>
-<script id="dvla-secondary" type="text/html">
-  <h1 id="secondary-apply-label">Apply using the original service</h1>
-  <div class="application-details">
-    <p class="opening">You'll need either:</p>
+<script id="beta-offline" type="text/html">
+  <div class="eligibility-check">
+    <h1 id="secondary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
+    <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+    <p style="display: block;width: 100%;">To apply online you'll need either:</p>
 
     <%= render 'tax_disc_requirements' %>
+    <div class="application-notice help-notice" style="border: 5px solid #005ea5; padding: 0 15px; margin-top: 30px;">
+      <p><strong>This service is currently unavailable due to unprecedented demand across DVLA's online services.</strong></p>
 
-    <span class="destination">Apply on the DVLA website:</span>
-    <form action="/g">
-      <input type="hidden" name="url" value="<%= @publication.link %>" />
-      <input value="Apply now" class="button button-secondary" type="submit">
-    </form>
+      <p><strong>Please try again later today or use the automated phone service on 0300 1234321.</strong></p>
+    </div>
+  </div>
+
+  <div class="you-will-need">
+    <h2>You will need</h2>
+    <p>Vehicle tax renewal letter (V11)</p>
+    <%= image_tag 'start-pages/tax-disc/v11-diagram.png', alt: 'Tax disc renewal letter (V11)', width: '220' %>
   </div>
 </script>

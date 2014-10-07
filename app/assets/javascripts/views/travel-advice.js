@@ -18,6 +18,7 @@
       var filter = $(this).val();
 
       filterInst.filterListItems(filter);
+      filterInst.track(filter);
     }).keypress(function(event) {
       if (event.which == enterKeyCode) {
         event.preventDefault();
@@ -27,6 +28,7 @@
     $(".countries-wrapper", this.container).attr("aria-live", "polite");
     $(document).bind("countrieslist", this.updateCounter);
   };
+
 
   CountryFilter.prototype.filterHeadings = function(countryHeadings) {
     var filterInst = this,
@@ -109,6 +111,18 @@
       results = document.createTextNode(' results');
       $counter[0].appendChild(results);
     }
+  };
+
+  CountryFilter.prototype._trackTimeout = false;
+
+  CountryFilter.prototype.track = function(search) {
+    clearTimeout(this._trackTimeout);
+    this._trackTimeout = root.setTimeout(function(){
+      var pagePath = window.location.pathname.split('/').pop();
+      if (pagePath) {
+        window._gaq && _gaq.push(['_trackEvent', 'searchBoxFilter', search, pagePath, 0, true]);
+      }
+    }, 1000);
   };
 
   GOVUK.countryFilter = CountryFilter;

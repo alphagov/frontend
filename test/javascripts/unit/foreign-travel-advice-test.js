@@ -137,6 +137,32 @@ describe("CountryFilter", function () {
       expect(validEventMock.preventDefault).toHaveBeenCalled();
     });
 
+    it("Should track search input via timeouts", function () {
+
+      runs(function() {
+        window._gaq = window._gaq || { push : function(args) {} };
+
+        filter = new GOVUK.countryFilter($input);
+
+        expect(filter._trackTimeout).toBeFalsy();
+
+        spyOn(filter, "filterListItems");
+        spyOn(filter, "track");
+        spyOn(window._gaq, "push");
+
+        $input.keyup();
+
+        expect(filter.track).toHaveBeenCalled();
+      });
+
+      waits(1001);
+
+      runs(function() {
+        expect(window._gaq.push).toHaveBeenCalled();
+      });
+
+    });
+
     it("Should set aria attributes on div.countries-wrapper", function () {
       var $container = $("<div class='travel-container' />"),
           $countriesWrapper = $("<div class='countries-wrapper' />");

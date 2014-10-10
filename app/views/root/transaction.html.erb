@@ -42,6 +42,9 @@
   <%# Enable cross-domain analytics for IER (register to vote) only - not generalised yet %>
   <% if @publication.slug == 'register-to-vote' %>
     <%= render :partial => 'transaction_cross_domain_analytics', :locals => { :ga_account_code => 'UA-23066786-5' } %>
+  <%# Enable cross-domain analytics for Civil claims - still not worth generalising yet %>
+  <% elsif @publication.slug == 'accelerated-possession-eviction' %>
+    <%= render :partial => 'transaction_cross_domain_analytics', :locals => { :ga_account_code => 'UA-37377084-12' } %>
   <% end %>
 </div>
 

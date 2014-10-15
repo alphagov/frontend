@@ -43,8 +43,9 @@ namespace :test do
 
     runner = Rails.root.join('test', 'javascripts', 'support', 'TestRunner.html')
     phantom_driver = Rails.root.join('test', 'javascripts', 'support', 'run_jasmine_test.js')
+    phantom_options = '--ssl-protocol=TLSv1' 
 
-    command = "phantomjs #{phantom_driver} #{runner}"
+    command = "phantomjs #{phantom_options} #{phantom_driver} #{runner}"
 
     exit_status = 0
     Open3.popen2e(command) do |stdin, output, wait_thr|

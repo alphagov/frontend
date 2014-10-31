@@ -53,6 +53,8 @@ main.search {
     }
 
     input {
+      -webkit-appearance: none;
+      border-radius: 0;
       @include core-19;
       @include box-sizing(border-box);
       width: 100%;
@@ -63,10 +65,6 @@ main.search {
       border-color: $border-colour;
       border-right: none;
       line-height: 48px!important;
-
-      &::-webkit-search-cancel-button {
-        -webkit-appearance: none;
-      }
 
       @include ie-lte(7) {
         height: 48px;

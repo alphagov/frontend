@@ -88,11 +88,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert_equal "/pay-bear-tax/westminster", current_path
       end
 
-      should "display the authority name" do
-        assert page.has_content?("service is provided by Westminster City Council")
-        assert page.has_link?("Westminster City Council", :href => "http://www.westminster.gov.uk/")
-      end
-
       should "show a get started button which links to the interaction" do
         assert page.has_link?("Start now", :href => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
       end

@@ -40,14 +40,7 @@
         <% if @interaction_details['local_authority'] %>
           <% authority = @interaction_details['local_authority'] %>
           <div class="contact vcard">
-            <p>This service is provided by
-              <% if authority['contact_url'].present? %>
-                <a class="url fn org" rel="external" href="<%= authority['contact_url'] %>"><%= authority['name'] %></a>
-              <% else %>
-                <%= authority['name'] %>
-              <% end %>
-              <%= link_to '(change location)', publication_path(@publication.slug) %>
-            </p>
+            <p><%= link_to '(change location)', publication_path(@publication.slug) %></p>
 
             <% unless @interaction_details['local_interaction'] %>
               <% if authority['contact_address'] %>

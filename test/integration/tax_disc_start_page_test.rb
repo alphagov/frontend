@@ -27,13 +27,6 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("form.get-started input[type='hidden'][name='url'][value='https://www.taxdisc.service.gov.uk']")
       end
 
-      within ".secondary-apply" do
-        assert page.has_selector?("h1", :text => "Apply using the original service")
-        assert page.has_selector?(".destination", :text => "Apply on the DVLA website:")
-        assert page.has_selector?("form[action='/g']")
-        assert page.has_selector?("form input[type='hidden'][name='url'][value='https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro?skin=directgov']")
-      end
-
       within ".offline-apply" do
         assert page.has_selector?("h1", :text => "Other ways to apply")
         assert page.has_selector?("li", :text => "0300 123 4321")

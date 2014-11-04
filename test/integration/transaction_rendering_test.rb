@@ -317,9 +317,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Renew a tax disc")
       end
       within(".primary-apply") do
-        assert page.has_content?("Before you start")
-      end
-      within(".secondary-apply") do
         assert page.has_content?("Apply using the new service")
       end
     end

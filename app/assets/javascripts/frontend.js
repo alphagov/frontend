@@ -1,7 +1,6 @@
 // Frontend manifest
 //= require transactions
 //= require media-player-loader
-//= require tax-disc-ab-test
 //= require checkbox-filter
 //= require support
 //= require live-search

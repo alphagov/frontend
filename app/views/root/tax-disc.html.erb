@@ -19,14 +19,14 @@
     <section class="primary-apply" aria-labelledby="primary-apply-label">
       <div class="eligibility-check">
 
-        <h1 id="primary-apply-label">Before you start</h1>
+        <h1 id="primary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
+        <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
         <p>To apply online you'll need either:</p>
 
         <%= render 'tax_disc_requirements' %>
 
-        <span class="destination">Apply on the DVLA website:</span>
         <form class="get-started" action="/g">
-          <input type="hidden" name="url" value="<%= @publication.link %>" />
+          <input type="hidden" name="url" value="https://www.taxdisc.service.gov.uk" />
           <input type="submit" value="Apply now" class="button medium" />
         </form>
 
@@ -42,16 +42,16 @@
 
 
     <section class="secondary-apply" aria-labelledby="secondary-apply-label">
-      <h1 id="secondary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
-      <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+      <h1 id="secondary-apply-label">Apply using the original service</h1>
 
       <div class="application-details">
         <p class="opening">You'll need either:</p>
 
         <%= render 'tax_disc_requirements' %>
 
+        <span class="destination">Apply on the DVLA website:</span>
         <form action="/g">
-          <input type="hidden" name="url" value="https://www.taxdisc.service.gov.uk" />
+          <input type="hidden" name="url" value="<%= @publication.link %>" />
           <input type="submit" value="Apply now" class="button button-secondary" />
         </form>
 

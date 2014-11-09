@@ -464,11 +464,11 @@ body.homepage {
         padding: 0;
         list-style: none;
 
-        h2, p {
+        h3, p {
           margin: 0;
           padding: 0 15px;
         }
-        h2 {
+        h3 {
           @include core-19;
           font-weight: bold;
         }

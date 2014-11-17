@@ -19,12 +19,16 @@
     <section class="primary-apply" aria-labelledby="primary-apply-label">
       <div class="eligibility-check">
 
-        <h1 id="primary-apply-label">Before you start</h1>
+        <h1 id="primary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
+        <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
         <p>To apply online you'll need either:</p>
 
-        <%= render 'tax_disc_requirements' %>
+        <ul>
+          <li>the 16 digit reference number on your vehicle tax renewal letter (V11)</li>
+          <li>the 11 digit reference number on your log book (V5C)</li>
+          <li>the 12 digit reference number on your New Keeper Supplement (V5C/2) if you've just bought the vehicle</li>
+        </ul>
 
-        <span class="destination">Apply on the DVLA website:</span>
         <form class="get-started" action="/g">
           <input type="hidden" name="url" value="<%= @publication.link %>" />
           <input type="submit" value="Apply now" class="button medium" />
@@ -39,25 +43,6 @@
         <%= image_tag 'start-pages/tax-disc/v11-diagram.png', alt: 'Tax disc renewal letter (V11)', width: '220' %>
       </div>
     </section>
-
-
-    <section class="secondary-apply" aria-labelledby="secondary-apply-label">
-      <h1 id="secondary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
-      <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
-
-      <div class="application-details">
-        <p class="opening">You'll need either:</p>
-
-        <%= render 'tax_disc_requirements' %>
-
-        <form action="/g">
-          <input type="hidden" name="url" value="https://www.taxdisc.service.gov.uk" />
-          <input type="submit" value="Apply now" class="button button-secondary" />
-        </form>
-
-      </div>
-    </section>
-
 
     <section class="offline-apply" aria-labelledby="offline-apply-label">
       <h1 id="offline-apply-label">Other ways to apply</h1>
@@ -130,5 +115,4 @@
 
   <div id="report-a-problem"></div>
 </main>
-<%= render :partial => 'tax-disc-ab' %>
 <% content_for :body_classes do %>full-width<% end %>

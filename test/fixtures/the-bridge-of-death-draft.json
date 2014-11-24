@@ -9,7 +9,6 @@
     "language": "en",
     "need_extended_font": false,
     "body": "<h2>STOP!</h2>\n\n<p>He who would cross the Bridge of Death<br />\nMust answer me<br />\nThese questions three<br />\nEre the other side he see.</p>\n",
-    "alternative_title": null,
       "nodes": [
       {
         "kind": "question",

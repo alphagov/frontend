@@ -10,7 +10,6 @@
         "need_id": "125",
         "description": "Find a job using the Universal Jobmatch service - jobseekers can match their CV and skills to jobs posted by companies",
         "language": "en",
-        "alternative_title": "Universal Jobmatch job search and matching",
         "more_information": "\n<div class=\"application-notice info-notice\">\n<p>Universal Jobmatch has replaced the Jobcentre Plus job search tool.</p>\n</div>\n\n<p>Use JobCentre Online to <a rel=\"external\" href=\"http://www.jobcentreonline.com/JCOLFront/Home.aspx\" title=\"Jobcentre Online NI\">search for jobs in Northern Ireland.</a></p>\n",
         "introduction": "<p>Register or sign in to Universal Jobmatch and search for full or part-time jobs in Great Britain and abroad by location, title, or type of work. The Universal Jobmatch service lets you create an online CV and automatically match it to available jobs.</p>\n\n<div class=\"application-notice info-notice\">\n<p>You may have difficulties using this service while it’s being improved - if you’re affected, please try again later.</p>\n</div>\n",
         "will_continue_on": "Universal Jobmatch",

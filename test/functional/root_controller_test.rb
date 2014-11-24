@@ -88,7 +88,6 @@ class RootControllerTest < ActionController::TestCase
       "format" => "guide",
       "details" => {
         "parts" => [],
-        "alternative_title" => "",
         "overview" => ""
       }
     })

@@ -7,7 +7,6 @@
     "id": "https://contentapi.preview.alphagov.co.uk/licence-generic.json",
     "web_url": "https://www.gov.uk/licence-generic",
     "details": {
-        "alternative_title": "Alternative title",
         "overview": "This is an example licence.",
         "licence_identifier": "AB1234",
         "licence_overview": "<h2 id=\"licence-overview-copy\">Licence overview copy</h2>\n",

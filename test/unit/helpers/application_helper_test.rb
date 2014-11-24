@@ -22,13 +22,6 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_no_match %r{\|\s*\|}, @helper.page_title(dummy_publication)
   end
 
-  test "the page title does not includes the publication alternative title if one's set" do
-    publication = OpenStruct.new(alternative_title: 'I am an alternative', title: 'I am not')
-    title = @helper.page_title(publication)
-    assert_no_match %r{I am an alternative}, title
-    assert_match %r{I am not}, title
-  end
-
   test "the page title doesn't blow up if the publication titles are nil" do
     publication = OpenStruct.new(title: nil)
     assert @helper.page_title(publication)

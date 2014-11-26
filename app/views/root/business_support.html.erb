@@ -18,7 +18,7 @@
           <p id="get-started" class="get-started group">
             <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">Find out more</a>
             <% if @publication.will_continue_on.present? %>
-              <span class="destination"> on the <%= @publication.will_continue_on %></span>
+              <span class="destination"> on <%= @publication.will_continue_on %></span>
             <% end %>
           </p>
         </section>

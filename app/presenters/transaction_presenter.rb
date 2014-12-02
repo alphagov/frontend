@@ -14,7 +14,7 @@ class TransactionPresenter
   end
 
   def what_you_need_to_know?
-    @transaction.minutes_to_complete.present? || @transaction.expectations.any?
+    @transaction.minutes_to_complete.present? || @transaction.need_to_know.present?
   end
 
   def other_ways_to_apply?

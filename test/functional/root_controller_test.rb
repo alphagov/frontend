@@ -273,7 +273,7 @@ class RootControllerTest < ActionController::TestCase
       'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',
       'format' => 'transaction',
-      'details' => {"expectations" => []},
+      'details' => {"need_to_know" => ""},
       'title' => 'A Test Transaction'
     })
 
@@ -287,7 +287,7 @@ class RootControllerTest < ActionController::TestCase
       'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',
       'format' => 'local_transaction',
-      'details' => {"expectations" => []},
+      'details' => {"need_to_know" => ""},
       'title' => 'A Test Transaction'
     })
 
@@ -436,7 +436,7 @@ class RootControllerTest < ActionController::TestCase
           'slug' => 'jobs-jobsearch',
           'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
           'format' => 'transaction',
-          'details' => {"expectations" => []},
+          'details' => {"need_to_know" => ""},
           'title' => 'Universal Jobsearch'
         }
         content_api_has_an_artefact("jobs-jobsearch", @details)
@@ -479,7 +479,7 @@ class RootControllerTest < ActionController::TestCase
           'id' => 'https://www.gov.uk/api/jobs-jobsearch-welsh.json',
           'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch-welsh',
           'format' => 'transaction',
-          'details' => {"expectations" => [], "language" => "cy"},
+          'details' => {"need_to_know" => "", "language" => "cy"},
           'title' => 'Universal Jobsearch'
         }
         content_api_has_an_artefact("jobs-jobsearch-welsh", @details)

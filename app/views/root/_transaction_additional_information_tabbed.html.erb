@@ -15,7 +15,7 @@
 
   <% if presenter.what_you_need_to_know? %>
     <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-      <%= render :partial => 'transaction_expectations', :locals => { :transaction => transaction } %>
+      <%= render :partial => 'transaction_need_to_know', :locals => { :transaction => transaction } %>
     </div>
   <% end %>
 

@@ -38,15 +38,7 @@
           <section class="more">
             <div class="further_information">
               <h2>Further information</h2>
-
-              <% if @publication.expectations and @publication.expectations.any? %>
-                <ul class="helpers group">
-                  <% @publication.expectations.each do |e| %>
-                    <li><%= e %></li>
-                  <% end %>
-                </ul>
-              <% end %>
-
+              <%= raw @publication.need_to_know %>
               <%= raw @publication.more_information %>
             </div>
           </section>

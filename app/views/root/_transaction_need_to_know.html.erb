@@ -3,7 +3,5 @@
     <li><%= t 'formats.transaction.takes_around_n_minutes', :count => transaction.minutes_to_complete %></li>
   <% end %>
 
-  <% transaction.expectations.each do |e| %>
-    <li><%= e %></li>
-  <% end %>
+  <%= raw transaction.need_to_know %>
 </ul>

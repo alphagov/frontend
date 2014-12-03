@@ -55,19 +55,13 @@
 
         <section class="more">
 
-          <% if @publication.expectations.present? %>
+        <% if @publication.need_to_know.present? %>
           <h2>What you need to know</h2>
-
+          <%= raw @publication.need_to_know %>
+        <% end %>
           <div class="more">
-            <ul class="helpers group">
-              <% @publication.expectations.each do |e| %>
-                <li><%= e %></li>
-              <% end %>
-            </ul>
-
             <%= raw @publication.more_information %>
           </div>
-          <% end %>
         </section>
 
       </div>

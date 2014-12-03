@@ -16,11 +16,7 @@
         "link": "https://motoring.direct.gov.uk/service/DvoConsumer.portal?_nfpb=true&_pageLabel=FAP&_nfls=false",
         "alternate_methods": "<p>You can apply by post by completing a D1 application form, which you can get from the <a rel=\"external\" href=\"https://www.dvla.gov.uk/dvla/onlineservices/order_forms.aspx?ext=dg\" title=\"DVLA form ordering service\"><abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> form ordering service</a> or from a Post Office.</p>\n\n<p>You&rsquo;ll also need to include:</p>\n\n<ul>\n <li>\n <p>original documentation confirming your identity</p>\n </li>\n <li>\n <p>a colour <a href=\"/photos-for-passports\" title=\"Passport photo requirements\">passport-style photograph</a> </p>\n </li>\n <li>\n <p>the fee of £50 by cheque or postal order payable to <abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr> (do not send cash) </p>\n </li>\n</ul>\n\n<p>Send your completed application and payment to <abbr title=\"Driver and Vehicle Licensing Agency\">DVLA</abbr>, Swansea, SA99 1AD.</p>\n\n",
         "minutes_to_complete": "",
-        "expectations": [
-            "Proof of identification required",
-            "3 years of address details required",
-            "Debit or credit card required"
-        ]
+        "need_to_know": "<ul>\n<li>Proof of identification required</li>\n <li>3 years of address details required</li>\n<li>Debit or credit card required</li></ul>\n\n"
     },
     "updated_at": "2012-11-16T15:34:57+00:00",
     "tags": [

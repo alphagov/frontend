@@ -15,7 +15,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       "details" => {
         "description" => "Find a passport interview office",
         "place_type" => "find-passport-offices",
-        "expectations" => [ "Proof of identification required" ],
+        "need_to_know" => "<ul><li>Proof of identification required</li></ul>",
         "introduction" =>  "<p>Enter your postcode to find a passport interview office near you.</p>"
       }
     })

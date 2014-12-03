@@ -3,7 +3,7 @@ require_relative '../integration_test_helper'
 
 class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
-  context "a transaction with expectations but no 'before you start' and 'other ways to apply'" do
+  context "a transaction with need_to_know but no 'before you start' and 'other ways to apply'" do
     should "render the main information" do
       setup_api_responses('register-to-vote')
       visit "/register-to-vote"
@@ -40,8 +40,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
             assert page.has_selector?('h1', :text => "What you need to know")
 
-            expectations = page.all('#what-you-need-to-know li').map(&:text)
-            assert_equal ['Takes around 10 minutes', 'Includes offline steps'], expectations
+            need_to_know = page.all('#what-you-need-to-know li').map(&:text)
+            assert_equal ['Takes around 10 minutes', 'Includes offline steps'], need_to_know
           end
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
@@ -77,8 +77,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           within 'section.more' do
             assert page.has_selector?('h1', :text => "Yr hyn mae angen i chi ei wybod")
 
-            expectations = page.all('#what-you-need-to-know li').map(&:text)
-            assert_equal ["Mae’n cymryd tua 10 munud", 'Includes offline steps'], expectations
+            need_to_know = page.all('#what-you-need-to-know li').map(&:text)
+            assert_equal ["Mae’n cymryd tua 10 munud", 'Includes offline steps'], need_to_know
           end
 
           assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
@@ -114,8 +114,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           within '#what-you-need-to-know' do
             assert page.has_no_selector?('h1')
 
-            expectations = page.all('li').map(&:text)
-            assert_equal ['Proof of identification required', '3 years of address details required', 'Debit or credit card required'], expectations
+            need_to_know = page.all('li').map(&:text)
+            assert_equal ['Proof of identification required', '3 years of address details required', 'Debit or credit card required'], need_to_know
           end
 
           within '#other-ways-to-apply' do

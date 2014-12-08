@@ -21,7 +21,7 @@
         <% if @interaction_details['local_interaction'] %>
 
           <p id="get-started" class="get-started group">
-             <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button">
+             <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button" role="button">
                Start now
              </a>
              <span class="destination"> on <%= @interaction_details['local_authority']['name'] %></span>

@@ -12,17 +12,17 @@
     <article role="article" class="group">
 
       <div class="inner">
-        
+
         <section class="intro">
           <div class="get-started-intro"><%= raw @publication.short_description %></div>
           <p id="get-started" class="get-started group">
-            <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank">Find out more</a>
+            <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank" role="button">Find out more</a>
             <% if @publication.will_continue_on.present? %>
               <span class="destination"> on <%= @publication.will_continue_on %></span>
             <% end %>
           </p>
         </section>
-        
+
         <section class="more">
 
           <div class="js-tabs nav-tabs">
@@ -41,7 +41,7 @@
                   <h2>Organiser</h2>
                   <div class="support-detail">
                     <%= @publication.organiser %>
-                  </div>  
+                  </div>
                 </section>
               <% end -%>
               <% if @publication.min_value.present? and @publication.max_value.present? and

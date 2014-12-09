@@ -18,6 +18,7 @@ class RootController < ApplicationController
     check-vehicle-tax
     make-a-sorn
     tax-disc
+    vehicle-tax
     view-driving-licence
   )
 

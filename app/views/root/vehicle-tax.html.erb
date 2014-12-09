@@ -1,0 +1,118 @@
+<main id="content" role="main" class="vehicle-tax-start group start-page">
+
+  <header class="page-header group start-header full-width">
+    <div class="title">
+      <h1><%= @publication.title %></h1>
+    </div>
+
+    <nav class="popular-needs">
+      <ul class="top-tasks">
+        <li><a href="/register-sorn-statutory-off-road-notification">Make a <abbr title="Statutory off road notice">SORN</abbr> declaration</a></li>
+        <li><a href="/apply-hgv-vehicle-licence-tax-disc-form-v85">Apply for <abbr title="Heavy goods vehicle">HGV</abbr> vehicle tax</a></li>
+        <li><a href="/calculate-vehicle-tax-rates">Calculate vehicle tax rates</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="start-container full-width start-page">
+
+    <section class="primary-apply" aria-labelledby="primary-apply-label">
+      <div class="eligibility-check">
+
+        <h1 id="primary-apply-label">Apply using the new service <span class="beta">beta</span></h1>
+        <p class="this-is-a-beta">This is a 'beta' service - find out <a href="/help/beta">what this means for you</a>.</p>
+        <p>To apply online you'll need either:</p>
+
+        <ul>
+          <li>the 16 digit reference number on your vehicle tax renewal letter (V11)</li>
+          <li>the 11 digit reference number on your log book (V5C)</li>
+          <li>the 12 digit reference number on your New Keeper Supplement (V5C/2) if you've just bought the vehicle</li>
+        </ul>
+
+        <form class="get-started" action="/g">
+          <input type="hidden" name="url" value="<%= @publication.link %>" />
+          <input type="submit" value="Apply now" class="button medium" role="button" />
+        </form>
+
+
+      </div>
+
+      <div class="you-will-need">
+        <h2>You will need</h2>
+        <p>Vehicle tax renewal letter (V11)</p>
+        <%= image_tag 'start-pages/tax-disc/v11-diagram.png', alt: 'Tax disc renewal letter (V11)', width: '220' %>
+      </div>
+    </section>
+
+    <section class="offline-apply" aria-labelledby="offline-apply-label">
+      <h1 id="offline-apply-label">Other ways to apply</h1>
+      <div class="contacts">
+
+        <div class="by-phone">
+          <h2>By phone</h2>
+          <ul class="contact-numbers">
+            <li><span class="contact-type">Telephone:</span> 0300 123 4321</li>
+            <li><span class="contact-type">Textphone:</span> 0300 790 6201</li>
+          </ul>
+
+          <div class="call-charges">
+            <p>Calls to 03 numbers cost approximately:</p>
+            <ul class="charges">
+              <li>2p to 10p from landlines</li>
+              <li>10p to 40p from mobile phones</li>
+            </ul>
+            <p>
+              <a href="/call-charges">Find out more about call charges</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="at-post-office">
+          <h2>At the Post Office</h2>
+
+          <p>Go to your local <a href="http://www.postoffice.co.uk/branch-finder">Post Office</a> that deals with vehicle tax. You'll need to take:
+          </p>
+          <ul>
+            <li>completed V11 reminder (or your V5C)</li>
+            <li>MOT test certificate if required (must be valid when the tax starts)</li>
+            <li>the payment shown on the reminder</li>
+          </ul>
+          <div class="application-notice info-notice">
+            <p>In <a href="http://www.nidirect.gov.uk/insurance-and-mot-needed-to-tax-your-vehicle">Northern Ireland</a> you'll also need an insurance certificate or cover note.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="help-and-related-links">
+      <section class="help" aria-labelledby="help-label">
+        <h1 id="help-label">Help with car tax</h1>
+        <ul>
+          <li>
+            <a href="/contact-the-dvla">Contact DVLA for questions about car tax</a>
+          </li>
+        </ul>
+      </section>
+
+
+      <section class="related-links" aria-labelledby="related-links-label">
+        <h1 id="related-links-label">Vehicle tax (tax disc)</h1>
+        <ul>
+          <li><a href="/register-sorn-statutory-off-road-notification">Make a SORN (Statutory Off Road Notification)</a></li>
+          <li><a href="/calculate-vehicle-tax-rates">Calculate vehicle tax rates</a></li>
+          <li><a href="/apply-hgv-vehicle-licence-tax-disc-form-v85">Apply for HGV vehicle tax</a></li>
+        </ul>
+      </section>
+    </section>
+
+    <p id="vehicle-tax-perfomance-platform">
+      Find out <a href="/performance/tax-disc">how this service is performing</a>
+    </p>
+  </div>
+
+  <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
+
+  <div id="report-a-problem"></div>
+</main>
+<% content_for :body_classes do %>full-width<% end %>

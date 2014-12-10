@@ -15,7 +15,7 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
       end
 
       within '.top-tasks' do
-        assert page.has_link?("Renew vehicle tax (tax disc)", :href => "/tax-disc")
+        assert page.has_link?("Renew vehicle tax (tax disc)", :href => "/vehicle-tax")
         assert page.has_link?("Make a SORN declaration", :href => "/register-sorn-statutory-off-road-notification")
         assert page.has_link?("Report an untaxed vehicle", :href => "/report-untaxed-vehicle")
       end
@@ -39,7 +39,7 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
 
       within ".related-links" do
         assert page.has_selector?("h1", :text => "Vehicle tax and SORN")
-        assert page.has_link?("Renew vehicle tax (tax disc)", :href => "/tax-disc")
+        assert page.has_link?("Renew vehicle tax (tax disc)", :href => "/vehicle-tax")
         assert page.has_link?("Make a SORN (Statutory Off Road Notification)", :href => "/register-sorn-statutory-off-road-notification")
         assert page.has_link?("Report an untaxed vehicle", :href => "/report-untaxed-vehicle")
         assert page.has_link?("Vehicles exempt from vehicle tax", :href => "/vehicle-exempt-from-car-tax")

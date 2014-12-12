@@ -26,12 +26,6 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("form.get-started[action='https://www.vehicleenquiry.service.gov.uk'][method=POST]")
       end
 
-      within ".secondary-apply" do
-        assert page.has_selector?("h1", :text => "Check using the original service")
-        assert page.has_selector?(".destination", :text => "Check on the DVLA website:")
-        assert page.has_selector?("form[action='https://www.taxdisc.direct.gov.uk/'][method=POST]")
-      end
-
       within ".help-and-related-links" do
         assert page.has_selector?("h1", :text => "Help with vehicle tax")
         assert page.has_link?("Contact DVLA for questions about car tax", :href => "/contact-the-dvla")

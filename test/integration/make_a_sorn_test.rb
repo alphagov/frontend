@@ -26,11 +26,6 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("form.get-started[action='https://www.sorn.service.gov.uk'][method=POST]")
       end
 
-      within ".secondary-apply" do
-        assert page.has_selector?("h1", :text => "Apply using the original service")
-        assert page.has_selector?("form[action='https://www.taxdisc.direct.gov.uk/EvlPortalApp/app/home/intro'][method=POST]")
-      end
-
       within ".offline-apply" do
         assert page.has_selector?("h1", :text => "Other ways to apply")
         assert page.has_selector?("li", :text => "0300 123 4321")

@@ -346,9 +346,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       within(".primary-apply") do
         assert page.has_content?("Check using the new service")
       end
-      within(".secondary-apply") do
-        assert page.has_content?("Check using the original service")
-      end
     end
   end
 

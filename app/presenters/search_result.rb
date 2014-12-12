@@ -35,7 +35,7 @@ class SearchResult
     end
   end
 
-  result_accessor :link, :title, :description, :format, :es_score
+  result_accessor :link, :title, :format, :es_score
 
   # Avoid the mundanity of creating these all by hand by making
   # dynamic method and accessors.
@@ -73,7 +73,19 @@ class SearchResult
     }
   end
 
-  protected
+  def description
+    description = result["description"]
+    if description.present?
+      description
+    else
+      case result["format"]
+      when "specialist_sector"
+        "Everything on GOV.UK about #{result["title"]}"
+      end
+    end
+  end
+
+protected
 
   def formatted_es_score
     number_with_precision(es_score * 1000, significant: true, precision: 4) if es_score

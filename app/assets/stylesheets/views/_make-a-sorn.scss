@@ -65,7 +65,7 @@ body.full-width .make-a-sorn header.page-header div {
         @include bold-24;
 
         @include media(desktop) {
-          float: left; 
+          float: left;
         }
 
         span.beta {
@@ -110,7 +110,6 @@ body.full-width .make-a-sorn header.page-header div {
         }
       }
 
-      .application-details,
       .contacts {
         display: block;
 
@@ -132,7 +131,7 @@ body.full-width .make-a-sorn header.page-header div {
           float:left;
           margin-bottom: 42px;
           border-top: 10px solid $light-blue;
-          padding-top: 1em; 
+          padding-top: 1em;
           min-height:150px;
         }
       }
@@ -149,7 +148,6 @@ body.full-width .make-a-sorn header.page-header div {
     }
 
     .primary-apply,
-    .secondary-apply,
     .offline-apply {
       clear:both;
       border-top: 1px solid $border-colour;
@@ -162,7 +160,6 @@ body.full-width .make-a-sorn header.page-header div {
       }
     }
 
-    .secondary-apply,
     .offline-apply {
       .this-is-a-beta {
         max-width: 350px;
@@ -182,7 +179,7 @@ body.full-width .make-a-sorn header.page-header div {
 
       h1 {
         @include media(desktop) {
-          float: none;  
+          float: none;
         }
       }
 
@@ -302,14 +299,6 @@ body.full-width .make-a-sorn header.page-header div {
     }
   }
 
-
-
-  .destination {
-    display: block;
-    margin-top:25px;
-    margin-bottom:5px;
-  }
-
   form.get-started {
     margin-top: 0;
   }
@@ -339,10 +328,6 @@ body.full-width .make-a-sorn header.page-header div {
     @include button($grey-3);
     font-weight:700;
   }
-
-  .opening {
-    margin-top:0;
-  }
 }
 
 #tax-disc-perfomance-platform {
@@ -352,7 +337,7 @@ body.full-width .make-a-sorn header.page-header div {
 
   background:image-url("start-pages/vehicle-tax/performance-icon.png") no-repeat;
 
-  @include device-pixel-ratio() {  
+  @include device-pixel-ratio() {
     background: image-url("start-pages/vehicle-tax/performance-icon-2x.png") no-repeat;
     background-size: 25px;
   }

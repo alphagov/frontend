@@ -68,7 +68,7 @@ body.full-width .view-driving-licence-start header.page-header div {
         @include bold-24;
 
         @include media(desktop) {
-          float: left; 
+          float: left;
         }
       }
 
@@ -109,7 +109,6 @@ body.full-width .view-driving-licence-start header.page-header div {
         }
       }
 
-      .application-details,
       .contacts {
         display: block;
 
@@ -131,7 +130,7 @@ body.full-width .view-driving-licence-start header.page-header div {
           float:left;
           margin-bottom: 42px;
           border-top: 10px solid $light-blue;
-          padding-top: 1em; 
+          padding-top: 1em;
           min-height:150px;
         }
       }
@@ -163,7 +162,7 @@ body.full-width .view-driving-licence-start header.page-header div {
 
       h1 {
         @include media(desktop) {
-          float: none;  
+          float: none;
         }
       }
 
@@ -218,12 +217,6 @@ body.full-width .view-driving-licence-start header.page-header div {
     }
   }
 
-  .destination {
-    display: block;
-    margin-top:25px;
-    margin-bottom:5px;
-  }
-
   form.get-started {
     margin-top: 0;
   }
@@ -238,12 +231,6 @@ body.full-width .view-driving-licence-start header.page-header div {
       @include core-16;
       font-weight: 700;
       margin: 40px 0 40px 0;
-    }
-  }
-
-  .opening {
-    @include media(desktop){
-      margin-top: 0;
     }
   }
 }

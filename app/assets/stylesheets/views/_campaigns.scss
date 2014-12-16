@@ -4,7 +4,7 @@ main.campaign {
     float: none;
     display: block;
     max-width: 960px;
-    margin: 0 1em;
+    margin: 0 32px;
     background-color: #fff;
 
     @include ie-lte(7) {
@@ -12,7 +12,7 @@ main.campaign {
     }
 
     @include media(mobile) {
-      margin: 0 $gutter;
+      margin: 0 1em;
     }
 
     h1,

@@ -8,7 +8,7 @@ class SearchResultTest < ActiveSupport::TestCase
 
   should "display a generic description for topics which are missing them" do
     result = SearchResult.new("format" => "specialist_sector", "title" => "VAT")
-    assert_equal "Everything on GOV.UK about VAT", result.description
+    assert_equal "List of information about VAT", result.description
   end
 
   should "not display a generic description for other formats which are missing them" do

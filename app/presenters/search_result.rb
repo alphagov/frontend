@@ -80,7 +80,7 @@ class SearchResult
     else
       case result["format"]
       when "specialist_sector"
-        "Everything on GOV.UK about #{result["title"]}"
+        "List of information about #{result["title"]}"
       end
     end
   end

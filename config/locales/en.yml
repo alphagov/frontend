@@ -23,7 +23,6 @@ en:
       before_you_start: "Before you start"
       what_you_need_to_know: "What you need to know"
       other_ways_to_apply: "Other ways to apply"
-      takes_around_n_minutes: "Takes around %{count} minutes"
       jobsearch:
         job_title: "Job title"
         town_place_postcode: "Postcode, town or place"

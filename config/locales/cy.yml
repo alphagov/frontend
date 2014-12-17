@@ -22,7 +22,6 @@ cy:
       before_you_start: "Cyn i chi ddechrau"
       what_you_need_to_know: "Yr hyn mae angen i chi ei wybod"
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
-      takes_around_n_minutes: "Mae’n cymryd tua %{count} munud"
       jobsearch:
         job_title: "Teitl swydd"
         town_place_postcode: "Cod post, Tref neu lle"

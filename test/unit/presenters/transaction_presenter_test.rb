@@ -60,17 +60,11 @@ class TransactionPresenterTest < ActiveSupport::TestCase
 
   context "what_you_need_to_know?" do
     setup do
-      @transaction.stubs(:minutes_to_complete).returns("")
       @transaction.stubs(:need_to_know).returns("")
     end
 
     should "be true if transaction has need_to_know text" do
       @transaction.stubs(:need_to_know).returns("something")
-      assert @presenter.what_you_need_to_know?
-    end
-
-    should "be true if transaction has specified minutes to complete" do
-      @transaction.stubs(:minutes_to_complete).returns("10")
       assert @presenter.what_you_need_to_know?
     end
 

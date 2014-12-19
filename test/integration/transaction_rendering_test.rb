@@ -41,7 +41,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert page.has_selector?('h1', :text => "What you need to know")
 
             need_to_know = page.all('#what-you-need-to-know li').map(&:text)
-            assert_equal ['Takes around 10 minutes', 'Includes offline steps'], need_to_know
+            assert_equal ['Includes offline steps'], need_to_know
           end
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
@@ -78,7 +78,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert page.has_selector?('h1', :text => "Yr hyn mae angen i chi ei wybod")
 
             need_to_know = page.all('#what-you-need-to-know li').map(&:text)
-            assert_equal ["Mae’n cymryd tua 10 munud", 'Includes offline steps'], need_to_know
+            assert_equal ['Includes offline steps'], need_to_know
           end
 
           assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")

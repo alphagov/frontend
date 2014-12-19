@@ -13,6 +13,9 @@ class SearchParameters
   EXTERNAL_TO_INTERNAL_FIELDS = {
     "topics" => "specialist_sectors",
   }
+  INTERNAL_TO_EXTERNAL_FIELDS = {
+    "specialist_sectors" => "topics",
+  }
 
   def initialize(params)
     @params = enforce_bounds(params)
@@ -77,7 +80,7 @@ class SearchParameters
       debug: params[:debug],
     }
     active_facet_fields.each { |field|
-      internal = internal_field_name(field)
+      internal = SearchParameters::internal_field_name(field)
       result["filter_#{internal}".to_sym] = filter(field)
       result["facet_#{internal}".to_sym] = "100"
     }
@@ -90,13 +93,17 @@ class SearchParameters
     }
   end
 
+  def self.external_field_name(field)
+    INTERNAL_TO_EXTERNAL_FIELDS.fetch(field, field)
+  end
+
+  def self.internal_field_name(field)
+    EXTERNAL_TO_INTERNAL_FIELDS.fetch(field, field)
+  end
+
 private
 
   attr_reader :params
-
-  def internal_field_name(field)
-    EXTERNAL_TO_INTERNAL_FIELDS.fetch(field, field)
-  end
 
   def enforce_bounds(params)
     params.merge(

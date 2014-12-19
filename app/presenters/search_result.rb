@@ -65,6 +65,11 @@ class SearchResult
       title: title,
       link: link,
       description: description,
+      examples_present?: result["examples"].present?,
+      examples: result["examples"],
+      suggested_filter_present?: result["suggested_filter"].present?,
+      suggested_filter_title: suggested_filter_title,
+      suggested_filter_link: suggested_filter_link,
       external: format == "recommended-link",
       display_link: display_link,
       section: section,
@@ -90,6 +95,27 @@ class SearchResult
   end
 
 protected
+
+  def suggested_filter_title
+    suggested_filter = result["suggested_filter"]
+    if suggested_filter
+      count = suggested_filter["count"]
+      name = suggested_filter["name"]
+      %{All #{count} results in "#{name}"}
+    end
+  end
+
+  def suggested_filter_link
+    suggested_filter = result["suggested_filter"]
+    if suggested_filter
+      field = suggested_filter["field"]
+      value = suggested_filter["value"]
+      external = SearchParameters::external_field_name(field)
+      @search_parameters.build_link(
+        "filter_#{external}" => value
+      )
+    end
+  end
 
   def formatted_es_score
     number_with_precision(es_score * 1000, significant: true, precision: 4) if es_score

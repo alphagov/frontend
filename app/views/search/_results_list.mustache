@@ -57,6 +57,30 @@
             {{/sections}}
           </ul>
         {{/sections_present?}}
+
+        {{#examples_present?}}
+          <ul class="examples">
+            {{#examples}}
+              <li>
+                <h4><a href="{{link}}">{{title}}</a></h4>
+                <p>{{description}}</p>
+              </li>
+            {{/examples}}
+
+            {{#suggested_filter_present?}}
+              <li>
+                <h4 class="see-all"><a href="{{suggested_filter_link}}">{{suggested_filter_title}}</a><h4>
+              </li>
+            {{/suggested_filter_present?}}
+          </ul>
+        {{/examples_present?}}
+
+        {{^examples_present?}}
+          {{#suggested_filter_present?}}
+            <h4 class="see-all"><a href="{{suggested_filter_link}}">{{suggested_filter_title}}</a><h4>
+          {{/suggested_filter_present?}}
+        {{/examples_present?}}
+
       </li>
     {{/results}}
   </ol>

@@ -169,6 +169,44 @@ main.search {
           @include ie(6) {
             width: 32.5em;
           }
+
+          .examples {
+            padding-left: 15px;
+            border-left: 1px solid grey;
+
+            li {
+              max-width: 32.5em;
+              margin: 0;
+              padding: 0 0 15px;
+
+              p {
+                @include core-14;
+              }
+
+            }
+
+            li:last-child {
+              padding: 0;
+            }
+          }
+
+          h4 {
+            @include core-14;
+            margin: 0;
+
+            a {
+              font-weight: bold;
+              text-decoration: none;
+
+              &:hover, &:focus {
+                color: $link-colour;
+                text-decoration: underline;
+              }
+            }
+          }
+          h4.see-all a {
+            text-decoration: underline;
+          }
         }
 
         li.external {

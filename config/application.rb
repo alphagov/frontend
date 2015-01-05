@@ -53,7 +53,6 @@ module Frontend
 
     config.assets.precompile += %w(
       views/travel-advice.js
-      programmes.js
       frontend.js
       tour.js
       application.css

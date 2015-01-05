@@ -84,5 +84,6 @@
             },
             "updated_at": "2012-10-22T15:18:36+00:00"
         }
-    ]
+    ],
+    "downtime_message":"This service will be unavailable between 3pm on 10 October and 6pm on 11 October"
 }

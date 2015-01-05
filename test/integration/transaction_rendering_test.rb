@@ -368,4 +368,16 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_no_selector?("#transaction_cross_domain_analytics", :visible => :all)
     end
   end
+
+  context "when downtime is scheduled" do
+    should "display downtime message in callout" do
+      setup_api_responses('register-to-vote')
+      visit "/register-to-vote"
+
+      assert_equal 200, page.status_code
+      within('.help-notice') do
+        assert page.has_content?("This service will be unavailable between 3pm on 10 October and 6pm on 11 October")
+      end
+    end
+  end
 end

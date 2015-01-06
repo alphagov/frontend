@@ -3,12 +3,12 @@
 </div>
 
 {{#results_any?}}
-  <ol class="results-list{{#debug}} debug{{/debug}}" id="js-live-search-results" start="{{first_result_number}}">
+  <ol class="results-list{{#debug_score}} debug{{/debug_score}}" id="js-live-search-results" start="{{first_result_number}}">
     {{#results}}
       <li{{#external}} class="external"{{/external}}>
         <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
 
-        {{#debug}}
+        {{#debug_score}}
           <p class="debug-link">
             {{link}}
           </p>
@@ -16,7 +16,7 @@
             <span>Score: {{es_score}}</span>
             <span>Format: {{#government}}government{{/government}} {{format}}</span>
           </p>
-        {{/debug}}
+        {{/debug_score}}
 
         {{#external}}
           <p class="meta">

@@ -53,7 +53,7 @@ class SearchControllerTest < ActionController::TestCase
   def stub_results(results, query = "search-term", organisations = [], suggestions = [], options = {})
     response_body = response(results, suggestions, options)
     parameters = {
-      :start => options[:start],
+      :start => options[:start] || '0',
       :count => '50',
       :q => query,
       :filter_organisations => organisations,
@@ -68,7 +68,7 @@ class SearchControllerTest < ActionController::TestCase
 
   def expect_search_client_is_requested(organisations, query = "search-term", options = {})
     parameters = {
-      :start => options[:start],
+      :start => options[:start] || '0',
       :count => '50',
       :q => query,
       :filter_organisations => organisations,

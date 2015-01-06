@@ -29,7 +29,7 @@ en:
         skills: "Skills (optional)"
         search: "Search"
     local_transaction:
-      no_local_authority_html: "Sorry, we can't find the local authority for your postcode. Try using <a href='/find-your-local-council'>the local council directory</a>."
+      no_local_authority_html: "Sorry, we can't find the local council for your postcode. Try using <a href='/find-your-local-council'>the local council directory</a>."
   travel_advice:
     alert_status:
       avoid_all_but_essential_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to parts of the country.

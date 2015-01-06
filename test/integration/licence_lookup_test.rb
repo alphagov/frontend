@@ -186,10 +186,10 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       content_api_has_an_artefact("licence-to-kill", artefact)
     end
 
-    should "show message to contact local authority" do
+    should "show message to contact local council" do
       visit '/licence-to-kill'
 
-      assert page.has_content?('contact your local authority')
+      assert page.has_content?('Contact your local council')
     end
   end
 
@@ -352,11 +352,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", artefact)
     end
 
-    should "show message to contact local authority" do
+    should "show message to contact local council" do
       visit '/licence-to-kill/south-ribble'
 
       assert page.status_code == 200
-      assert page.has_content?('contact your local authority')
+      assert page.has_content?('Contact your local council')
     end
   end
 
@@ -410,9 +410,9 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       assert page.status_code == 200
     end
 
-    should "show message to contact local authority" do
+    should "show message to contact local council" do
       visit '/licence-to-kill'
-      assert page.has_content?('contact your local authority')
+      assert page.has_content?('Contact your local council')
     end
   end
 

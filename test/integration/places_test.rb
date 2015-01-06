@@ -77,7 +77,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     within ".find-location-for-service" do
-      assert page.has_field?("Enter a UK postcode")
+      assert page.has_field?("Enter your postcode (UK only)")
       assert page.has_button?("Find")
     end
 
@@ -98,7 +98,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         to_return(:body => @places.to_json, :status => 200)
 
       visit "/passport-interview-office"
-      fill_in "Enter a UK postcode", :with => "SW1A 1AA"
+      fill_in "Enter your postcode (UK only)", :with => "SW1A 1AA"
       click_on "Find"
     end
 
@@ -138,7 +138,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         to_return(:body => @places.to_json, :status => 200)
 
       visit "/passport-interview-office"
-      fill_in "Enter a UK postcode", :with => "SW1A 1AA"
+      fill_in "Enter your postcode (UK only)", :with => "SW1A 1AA"
       click_on "Find"
     end
 
@@ -157,7 +157,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         to_return(:status => 400)
 
       visit "/passport-interview-office"
-      fill_in "Enter a UK postcode", :with => "SW1A 2AA"
+      fill_in "Enter your postcode (UK only)", :with => "SW1A 2AA"
       click_on "Find"
     end
 
@@ -171,7 +171,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "display the postcode form" do
       within ".find-location-for-service" do
-        assert page.has_field?("Enter a UK postcode")
+        assert page.has_field?("Enter your postcode (UK only)")
         assert page.has_button?("Find")
       end
     end

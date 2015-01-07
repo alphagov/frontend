@@ -32,6 +32,19 @@ class RootController < ApplicationController
       section_url: "/")
   end
 
+  def random_page
+    # Redirect to a random GOV.UK page, for fun.
+    base_url = "https://www.gov.uk/api/artefacts.json"
+    total_pages = JSON.parse(RestClient.get(base_url).body)['pages']
+
+    random_page_number = Random.rand(1..total_pages)
+
+    random_page = RestClient.get("#{base_url}?page=#{random_page_number}")
+    result = JSON.parse(random_page)['results'].shuffle.first['web_url']
+
+    redirect_to result.gsub("https://www.gov.uk","#{Plek.current.find('www')}")
+  end
+
   def jobsearch
     @publication = prepare_publication_and_environment
   end

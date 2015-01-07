@@ -34,6 +34,11 @@ class RootController < ApplicationController
 
   def random_page
     # Redirect to a random GOV.UK page, for fun.
+
+    # Disable caching for this route to ensure that users actually
+    # get a random page every time.
+    expires_now
+
     base_url = "https://www.gov.uk/api/artefacts.json"
     total_pages = JSON.parse(RestClient.get(base_url).body)['pages']
 

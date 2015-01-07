@@ -19,6 +19,7 @@ namespace :router do
       %w(/homepage exact),
       %w(/tour exact),
       %w(/ukwelcomes exact),
+      %w(/random exact),
     ]
 
     routes.each do |path, type|

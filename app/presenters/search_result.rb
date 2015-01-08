@@ -16,11 +16,11 @@ class SearchResult
     "Inside Government" => "Inside Government"
   }
 
-  attr_accessor :result, :debug
+  attr_accessor :result
 
-  def initialize(result, debug=false)
+  def initialize(search_parameters, result)
+    @search_parameters = search_parameters
     @result = result.stringify_keys!
-    @debug = debug
   end
 
   def ==(other)
@@ -55,9 +55,13 @@ class SearchResult
     link.sub(SCHEME_PATTERN, '').truncate(48) if link
   end
 
+  def debug_score
+    @search_parameters.debug_score
+  end
+
   def to_hash
     {
-      debug: debug,
+      debug_score: debug_score,
       title: title,
       link: link,
       description: description,

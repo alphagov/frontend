@@ -53,7 +53,7 @@ class SearchControllerTest < ActionController::TestCase
   def stub_results(results, query = "search-term", organisations = [], suggestions = [], options = {})
     response_body = response(results, suggestions, options)
     parameters = {
-      :start => options[:start],
+      :start => options[:start] || '0',
       :count => '50',
       :q => query,
       :filter_organisations => organisations,
@@ -68,8 +68,8 @@ class SearchControllerTest < ActionController::TestCase
 
   def expect_search_client_is_requested(organisations, query = "search-term", options = {})
     parameters = {
-      :start => options[:start],
-      :count => '50',
+      :start => options[:start] || '0',
+      :count => options[:count] || '50',
       :q => query,
       :filter_organisations => organisations,
       :fields => rummager_result_fields,
@@ -86,7 +86,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   def response(results, suggestions=[], options={})
-    response_body = {
+    {
       "results" => results,
       "total" => results.count,
       "facets" => {
@@ -300,6 +300,24 @@ class SearchControllerTest < ActionController::TestCase
     expect_search_client_is_requested([], 'Test', start: '0')
 
     get :index, q: 'Test', start: -1
+  end
+
+  test 'should default to 50 given a negative count parameter' do
+    expect_search_client_is_requested([], 'Test', count: '50')
+
+    get :index, q: 'Test', count: -1
+  end
+
+  test 'should default to 50 given a zero count parameter' do
+    expect_search_client_is_requested([], 'Test', count: '50')
+
+    get :index, q: 'Test', count: -1
+  end
+
+  test 'should request at most 100 results' do
+    expect_search_client_is_requested([], 'Test', count: '100')
+
+    get :index, q: 'Test', count: 1000
   end
 
   test "should_show_external_links_with_a_separate_list_class" do

@@ -7,48 +7,17 @@ class SearchController < ApplicationController
 
   rescue_from GdsApi::BaseError, with: :error_503
 
-  DEFAULT_RESULTS_PER_PAGE = 50
-  MAX_RESULTS_PER_PAGE = 100
-
   def index
-    @search_term = params[:q]
-    if @search_term.blank? && params[:format] != "json"
+    search_params = SearchParameters.new(params)
+
+    if search_params.no_search? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
 
-    search_params = {
-      start: valid_start_param,
-      count: "#{requested_result_count}",
-      q: @search_term,
-      filter_organisations: [*params[:filter_organisations]],
-      fields: %w{
-        description
-        display_type
-        document_series
-        format
-        link
-        organisations
-        organisation_state
-        public_timestamp
-        section
-        slug
-        specialist_sectors
-        subsection
-        subsubsection
-        title
-        topics
-        world_locations
-      },
-      facet_organisations: "100",
-      debug: params[:debug],
-    }
-    search_response = search_client.unified_search(search_params)
+    search_response = search_client.unified_search(search_params.rummager_parameters)
 
-    presented_params = params.merge(
-      count: requested_result_count,
-      start: valid_start_param,
-    )
-    @results = SearchResultsPresenter.new(search_response, @search_term, presented_params)
+    @search_term = search_params.search_term
+    @results = SearchResultsPresenter.new(search_response, search_params)
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 
@@ -63,24 +32,6 @@ class SearchController < ApplicationController
   end
 
 protected
-
-  def requested_result_count
-    count = request.query_parameters["count"]
-    count = count.nil? ? 0 : count.to_i
-    if count <= 0
-      count = DEFAULT_RESULTS_PER_PAGE
-    elsif count > MAX_RESULTS_PER_PAGE
-      count = MAX_RESULTS_PER_PAGE
-    end
-    count
-  end
-
-  def valid_start_param
-    if params[:start] && start = params[:start].to_i
-      start = 0 if start < 0
-      start.to_s
-    end
-  end
 
   def search_client
     Frontend.search_client

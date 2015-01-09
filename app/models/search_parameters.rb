@@ -51,6 +51,7 @@ class SearchParameters
         display_type
         document_series
         format
+        last_update
         link
         organisations
         organisation_state

@@ -141,10 +141,23 @@ describe("liveSearch", function(){
     spyOn(GOVUK.liveSearch.$form, 'serializeArray').andReturn(orgList);
     spyOn(window, 'alert');
     var event = jasmine.createSpyObj('event', ['preventDefault']);
-    expect(GOVUK.liveSearch.checkOrganisationLimit(event)).toBe(true);
+    expect(GOVUK.liveSearch.checkFilterLimit(event)).toBe(true);
 
     orgList.push( { name: 'filter_organisations[]' } );
-    expect(GOVUK.liveSearch.checkOrganisationLimit(event)).toBe(false);
+    expect(GOVUK.liveSearch.checkFilterLimit(event)).toBe(false);
+  });
+
+  it("should only allow 15 filters in total to be selected", function(){
+    var orgList = [];
+    for(var i=0;i<4;i++){ orgList.push( { name: 'filter_specialist_sectors[]' } ); }
+    for(var i=0;i<10;i++){ orgList.push( { name: 'filter_organisations[]' } ); }
+    spyOn(GOVUK.liveSearch.$form, 'serializeArray').andReturn(orgList);
+    spyOn(window, 'alert');
+    var event = jasmine.createSpyObj('event', ['preventDefault']);
+    expect(GOVUK.liveSearch.checkFilterLimit(event)).toBe(true);
+
+    orgList.push( { name: 'filter_organisations[]' } );
+    expect(GOVUK.liveSearch.checkFilterLimit(event)).toBe(false);
   });
 
   describe('with relevant dom nodes set', function(){

@@ -29,9 +29,34 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       }
     }, SearchParameters.new({q: 'my-query'}))
 
-    assert results.to_hash[:filter_fields]["organisations"]
-    assert_equal 1, results.to_hash[:filter_fields]["organisations"][:options].length
-    assert_equal "Department for Education", results.to_hash[:filter_fields]["organisations"][:options][0][:title]
+    assert_equal 1, results.to_hash[:filter_fields].length
+    assert_equal "organisations", results.to_hash[:filter_fields][0][:field]
+    assert_equal "Organisations", results.to_hash[:filter_fields][0][:field_title]
+    assert_equal 1, results.to_hash[:filter_fields][0][:options][:options].length
+    assert_equal "Department for Education", results.to_hash[:filter_fields][0][:options][:options][0][:title]
+  end
+
+  should "map specialist_sector field in return facets to topics" do
+    results = SearchResultsPresenter.new({
+      "results" => [],
+      "facets" => {
+        "specialist_sectors" => {
+          "options" => [ {
+            "value" => {
+              "link" => "/business-tax/vat",
+              "title" => "VAT"
+            },
+            "documents" => 114
+          } ]
+        }
+      }
+    }, SearchParameters.new({q: 'my-query'}))
+
+    assert_equal 1, results.to_hash[:filter_fields].length
+    assert_equal "topics", results.to_hash[:filter_fields][0][:field]
+    assert_equal "Topics", results.to_hash[:filter_fields][0][:field_title]
+    assert_equal 1, results.to_hash[:filter_fields][0][:options][:options].length
+    assert_equal "VAT", results.to_hash[:filter_fields][0][:options][:options][0][:title]
   end
 
   context 'pagination' do

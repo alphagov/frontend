@@ -270,6 +270,18 @@ class SearchControllerTest < ActionController::TestCase
     assert_select ".spelling-suggestion", text: "Did you mean cats"
   end
 
+  should "preserve filters when suggesting spellings" do
+    suggestions = ["cats"]
+    results = [ a_search_result('something') ]
+
+    stub_results(results, "search-term", ["hm-revenue-customs"], suggestions)
+
+    get :index, q: "search-term", filter_organisations: ["hm-revenue-customs"]
+    assert_select ".spelling-suggestion", text: "Did you mean cats"
+    assert_select %{.spelling-suggestion a[href*="filter_organisations%5B%5D=hm-revenue-customs"]}
+  end
+
+
   test "should return unlimited results" do
     results = []
     75.times do |n|

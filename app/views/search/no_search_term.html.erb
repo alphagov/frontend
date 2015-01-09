@@ -1,8 +1,6 @@
-<% content_for :body_classes do %>search<% end %>
+<% content_for :body_classes, "search" %>
+<% content_for :title, "Search - GOV.UK" %>
 
-
-<main id="content" role="main" class="group ancillary search no-results-term">
+<main id="content" role="main" class="search no-results-term">
   <%= render partial: 'form' %>
 </main>
-
-<% content_for :title, "Search - GOV.UK" %>

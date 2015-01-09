@@ -76,6 +76,10 @@ class SearchControllerTest < ActionController::TestCase
       :facet_organisations => '100',
       :debug => nil,
     }
+    if options[:specialist_sectors]
+      parameters[:filter_specialist_sectors] = options[:specialist_sectors]
+      parameters[:facet_specialist_sectors] = "100"
+    end
     Frontend.search_client.expects(:unified_search)
         .with(parameters)
         .returns(response([]))
@@ -247,6 +251,13 @@ class SearchControllerTest < ActionController::TestCase
   should "filter by multiple organisations" do
     expect_search_client_is_requested(['ministry-of-silly-walks', 'ministry-of-beer'])
     get :index, {q: "search-term", filter_organisations: ["ministry-of-silly-walks", "ministry-of-beer"]}
+  end
+
+  should "filter by topic (using specialist_sectors internal field)" do
+    expect_search_client_is_requested([], "a query",
+      specialist_sectors: ["business-tax/vat"],
+    )
+    get :index, {q: "a query", filter_topics: ["business-tax/vat"]}
   end
 
   should "suggest the first alternative query" do

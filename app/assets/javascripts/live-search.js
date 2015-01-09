@@ -47,7 +47,7 @@
     },
     checkboxChange: function(e){
       var pageUpdated;
-      if(liveSearch.checkOrganisationLimit(e) && liveSearch.isNewState()){
+      if(liveSearch.checkFilterLimit(e) && liveSearch.isNewState()){
         liveSearch.saveState();
         pageUpdated = liveSearch.updateResults();
         pageUpdated.done(function(){
@@ -56,19 +56,19 @@
         });
       }
     },
-    checkOrganisationLimit: function(e){
+    checkFilterLimit: function(e){
       var newState = liveSearch.$form.serializeArray(),
-          orgCount = 0,
+          filterCount = 0,
           i, _i;
 
       for(i=0,_i=newState.length; i<_i; i++){
-        if(newState[i].name === 'filter_organisations[]'){
-          orgCount = orgCount + 1;
+        if(newState[i].name.lastIndexOf('filter_', 0) === 0){
+          filterCount = filterCount + 1;
         }
       }
-      if(orgCount >= 15){
+      if(filterCount >= 15){
         $(e.target).prop('checked', false);
-        alert('You can only filter by 15 organisations at once. Please remove an organisation from your filters before adding one');
+        alert('You can only apply 15 filters at once. Please remove a filter before adding one');
         return false;
       }
       return true;

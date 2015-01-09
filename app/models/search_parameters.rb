@@ -5,6 +5,14 @@ class SearchParameters
 
   DEFAULT_RESULTS_PER_PAGE = 50
   MAX_RESULTS_PER_PAGE = 100
+  ALWAYS_FACET_FIELDS = %w{organisations}
+  ALLOWED_FACET_FIELDS = %w{organisations topics}
+
+  # specialist_sectors will be renamed to topics at some point.  To avoid
+  # people ever seeing the old name, we map it here, and back again in the presenter.
+  EXTERNAL_TO_INTERNAL_FIELDS = {
+    "topics" => "specialist_sectors",
+  }
 
   def initialize(params)
     @params = enforce_bounds(params)
@@ -30,6 +38,10 @@ class SearchParameters
     [*(params["filter_#{field}"] || [])]
   end
 
+  def filtered_by?(field)
+    ! filter(field).empty?
+  end
+
   def debug_score
     params[:debug_score]
   end
@@ -40,12 +52,10 @@ class SearchParameters
   end
 
   def rummager_parameters
-    {
+    result = {
       start: start.to_s,
       count: count.to_s,
       q: search_term,
-      filter_organisations: filter(:organisations),
-      facet_organisations: "100",
       fields: %w{
         description
         display_type
@@ -66,11 +76,27 @@ class SearchParameters
       },
       debug: params[:debug],
     }
+    active_facet_fields.each { |field|
+      internal = internal_field_name(field)
+      result["filter_#{internal}".to_sym] = filter(field)
+      result["facet_#{internal}".to_sym] = "100"
+    }
+    result
+  end
+
+  def active_facet_fields
+    ALLOWED_FACET_FIELDS.select { |field|
+      ALWAYS_FACET_FIELDS.include?(field) || filtered_by?(field)
+    }
   end
 
 private
 
   attr_reader :params
+
+  def internal_field_name(field)
+    EXTERNAL_TO_INTERNAL_FIELDS.fetch(field, field)
+  end
 
   def enforce_bounds(params)
     params.merge(

@@ -48,9 +48,20 @@ class SearchResultsPresenter
     end
   end
 
+  SpellingSuggestion = Struct.new(:query, :link)
+
   def spelling_suggestion
-    if search_response["suggested_queries"]
-      search_response["suggested_queries"].first
+    queries = search_response["suggested_queries"]
+    if queries.present?
+      SpellingSuggestion.new(
+        queries.first,
+        search_parameters.build_link(
+          q: queries.first,
+
+          # Record original query, for analytics
+          o: search_parameters.search_term,
+        ),
+      )
     end
   end
 

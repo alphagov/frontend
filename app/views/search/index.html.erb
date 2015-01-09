@@ -8,7 +8,7 @@
   <form action="/search" method="get" accept-charset="utf-8" role="search" class="js-live-search-form">
     <div class="search-header">
       <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
-      <%= hidden_field_tag(:spelling_suggestion, params[:spelling_suggestion]) if params[:spelling_suggestion] %>
+      <%= hidden_field_tag(:debug, params[:debug]) if params[:debug] %>
       <div class="searchfield">
         <fieldset class="search-input">
           <label for="search-main">
@@ -29,7 +29,7 @@
       </div>
       <% if @spelling_suggestion %>
         <fieldset class="spelling-suggestion">
-          <p>Did you mean <%= link_to "#{@spelling_suggestion}", search_path(q: @spelling_suggestion, spelling_suggestion: params[:spelling_suggestion]) %>
+          <p>Did you mean <%= link_to "#{@spelling_suggestion.query}", @spelling_suggestion.link %>
           </p>
         </fieldset>
       <% end %>

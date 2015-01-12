@@ -38,7 +38,7 @@ class SearchResultTest < ActiveSupport::TestCase
       }).to_hash
     assert_equal false, result[:examples_present?]
     assert_equal true, result[:suggested_filter_present?]
-    assert_equal "/search?filter_topics=business-tax%2Fvat&start=0", result[:suggested_filter_link]
+    assert_equal "/search?filter_topics=business-tax%2Fvat", result[:suggested_filter_link]
     assert_equal %{All 42 results in "VAT"}, result[:suggested_filter_title]
   end
 end

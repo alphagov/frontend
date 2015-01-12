@@ -143,6 +143,12 @@ private
     unless custom_count_value?(combined_params[:count])
       combined_params.delete(:count)
     end
+
+    # don't include the start parameter if it's zero
+    if combined_params[:start] == 0
+      combined_params.delete(:start)
+    end
+
     combined_params
   end
 

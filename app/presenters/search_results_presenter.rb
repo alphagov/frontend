@@ -71,12 +71,16 @@ class SearchResultsPresenter
   end
 
   def results
-    search_response["results"].map do |result|
-      if result["index"] == "government"
-        GovernmentResult.new(search_parameters, result)
-      else
-        SearchResult.new(search_parameters, result)
-      end
+    search_response["results"].map { |result| build_result(result) }
+  end
+
+  def build_result(result)
+    if result["document_type"] && result["document_type"] != "edition"
+      NonEditionResult.new(search_parameters, result)
+    elsif result["index"] == "government"
+      GovernmentResult.new(search_parameters, result)
+    else
+      SearchResult.new(search_parameters, result)
     end
   end
 

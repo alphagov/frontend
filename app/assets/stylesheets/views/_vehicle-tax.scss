@@ -23,9 +23,28 @@ body.full-width .vehicle-tax-start header.page-header div {
   .start-container {
     background-color: #fff;
     padding: 0 15px 0 15px;
-    
+
     @include media(tablet) {
       padding: 0 30px 0 30px;
+    }
+  }
+
+  .help-notice {
+    background:none;
+    background: image-url("icon-important.png") no-repeat scroll 0 0.5em;
+
+    @include device-pixel-ratio() {
+      background-image: image-url("icon-important-2x.png");
+      background-size: 34px 34px;
+    }
+
+    p {
+      font-weight:600;
+      padding-left: 2.5em;
+
+      a {
+        font-weight:600;
+      }
     }
   }
 
@@ -36,7 +55,7 @@ body.full-width .vehicle-tax-start header.page-header div {
     li {
       padding:0;
       @include core-19;
-      
+
     }
   }
 
@@ -51,11 +70,11 @@ body.full-width .vehicle-tax-start header.page-header div {
   }
 
   .start-page {
-      
+
     section {
       padding-top: 1em;
       padding-bottom: 1em;
-      
+
       h1,h2 {
         margin:0;
         padding:0;
@@ -254,7 +273,7 @@ body.full-width .vehicle-tax-start header.page-header div {
 
   .contact-numbers {
       padding-left: 0;
-      
+
       li {
         @include core-24;
         font-weight: 700;

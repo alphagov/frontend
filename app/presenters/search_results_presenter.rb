@@ -7,9 +7,6 @@ class SearchResultsPresenter
     "organisations" => "Organisations",
     "specialist_sectors" => "Topics",
   }
-  INTERNAL_TO_EXTERNAL_FIELDS = {
-    "specialist_sectors" => "topics",
-  }
 
   def initialize(search_response, search_parameters)
     @search_response = search_response
@@ -37,7 +34,7 @@ class SearchResultsPresenter
 
   def filter_fields
     search_response["facets"].map do |field, value|
-      external = external_field_name(field)
+      external = SearchParameters::external_field_name(field)
       facet_params = search_parameters.filter(external)
       facet = SearchFacetPresenter.new(value, facet_params)
       {
@@ -119,10 +116,6 @@ class SearchResultsPresenter
 private
 
   attr_reader :search_parameters, :search_response
-
-  def external_field_name(field)
-    INTERNAL_TO_EXTERNAL_FIELDS.fetch(field, field)
-  end
 
   def next_page_start
     if has_next_page?

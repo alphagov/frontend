@@ -1,4 +1,7 @@
-.root-tour {
+#content.tour {
+  width: auto;
+  float: none;
+
   .media-player-wrapper {
     min-height: 425px;
   }
@@ -40,10 +43,10 @@
   .tour-container {
     background-color: #fff;
     min-height: 35em;
-    padding: 0 15px 2em;
+    padding: 0;
 
     @include media(desktop) {
-      padding: 0 2em 30px;
+      padding: 0 0 30px;
     }
 
     #inside-government{

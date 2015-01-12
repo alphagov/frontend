@@ -9,9 +9,10 @@ body.homepage {
   #global-header-bar {
     display: none;
   }
+  #wrapper,
   #content {
+    margin: 0;
     max-width: 100%;
-    width: auto;
   }
 }
 

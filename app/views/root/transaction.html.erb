@@ -16,7 +16,7 @@
 
       <section class="intro">
         <div class="get-started-intro"><%= raw @publication.introduction %></div>
-        <% if downtime_message = @publication.downtime_message %>
+        <% if @publication.downtime && downtime_message = @publication.downtime['message'] %>
           <div class="application-notice help-notice">
             <p><strong><%= downtime_message %></strong></p>
           </div>

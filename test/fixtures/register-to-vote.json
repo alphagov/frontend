@@ -16,7 +16,10 @@
         "will_continue_on": "the Electoral Commission website",
         "link": "http://www.aboutmyvote.co.uk/",
         "alternate_methods": "\n",
-        "need_to_know": "<ul><li>Includes offline steps</li></ul>"
+        "need_to_know": "<ul><li>Includes offline steps</li></ul>",
+        "downtime": {
+            "message": "This service will be unavailable between 3pm on 10 October and 6pm on 11 October"
+        }
     },
     "updated_at": "2012-10-22T15:13:13+00:00",
     "tags": [
@@ -84,6 +87,5 @@
             },
             "updated_at": "2012-10-22T15:18:36+00:00"
         }
-    ],
-    "downtime_message":"This service will be unavailable between 3pm on 10 October and 6pm on 11 October"
+    ]
 }

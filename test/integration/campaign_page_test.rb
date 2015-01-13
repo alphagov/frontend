@@ -1,12 +1,12 @@
 require_relative '../integration_test_helper'
 
 class CampaignPageTest < ActionDispatch::IntegrationTest
-  
+
   should "render a campaign page correctly" do
 
     setup_api_responses('britain-is-great')
     visit "/britain-is-great"
-    
+
     assert_equal 200, page.status_code
 
     organisation_link = page.find(".organisation a.organisation-logo-single-identity")

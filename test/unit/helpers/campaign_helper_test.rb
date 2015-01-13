@@ -33,7 +33,7 @@ class CampaignHelperTest < ActionView::TestCase
   end
 
   test "organisation_brand_colour" do
-    assert_equal "cabinet-office", organisation_brand_colour(@model) 
+    assert_equal "cabinet-office", organisation_brand_colour(@model)
   end
 
 end

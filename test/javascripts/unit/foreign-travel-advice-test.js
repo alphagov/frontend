@@ -27,7 +27,7 @@ var GOVUK_test = {
   }
 };
 
-GOVUK_test.countryFilter.categories = { 
+GOVUK_test.countryFilter.categories = {
   allWithCountries: '<section class="countries-wrapper">' + GOVUK_test.countryFilter.threeCategories + '</section>',
   twoWithoutCountries: '<section><div id="W" class="list">' +
     '<h2>' +
@@ -83,7 +83,7 @@ describe("CountryFilter", function () {
           createAFilterWithParam = function () {
             filter = new GOVUK.countryFilter($input);
           };
-    
+
       expect(createAFilterNoParam).toThrow();
       expect(createAFilterWithParam).not.toThrow();
     });
@@ -99,7 +99,7 @@ describe("CountryFilter", function () {
 
     it("Should have the correct properties applied to it", function () {
       filter = new GOVUK.countryFilter($input);
-      
+
       expect(filter.container).toBeDefined();
     });
 
@@ -179,9 +179,9 @@ describe("CountryFilter", function () {
       var $temp = $;
 
       $.fn.bind = jasmine.createSpy('bindSpy');
-      
+
       filter = new GOVUK.countryFilter($input);
-      
+
       expect($.fn.bind).toHaveBeenCalledWith("countrieslist", filter.updateCounter);
       $.fn.bind = $temp.fn.bind;
     });
@@ -209,7 +209,7 @@ describe("CountryFilter", function () {
       filter = new GOVUK.countryFilter($input);
       filter.container = $countries;
       $headings = $countries.find('h2');
-      
+
       filter.filterHeadings($headings);
       expect($headings.map(function () { if ($(this).parent().css('display') !== 'none') { return this; }}).length).toEqual(1);
     });
@@ -255,7 +255,7 @@ describe("CountryFilter", function () {
 
     it("Should make the counter text match the sent number", function () {
       filter.updateCounter({}, { 'count': 27 });
-      
+
       expect($counter.find('.js-filter-count').text()).toBe('27');
     });
 

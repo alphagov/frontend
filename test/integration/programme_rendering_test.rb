@@ -56,7 +56,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     within('#content aside nav') { click_on "Eligibility" }
 
     assert_current_url "/reduced-earnings-allowance/eligibility"
-    
+
     within '#content .article-container' do
       within 'aside nav' do
         part_titles = page.all('li').map(&:text).map(&:strip)

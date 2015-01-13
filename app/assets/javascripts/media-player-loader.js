@@ -1,6 +1,6 @@
 jQuery(function($) {
     var $yt_links = $("figure a[href*='https://www.youtube.com/watch']");
-    
+
     // Create players for our youtube links
     $.each($yt_links, function(i) {
         var $holder = $('<span />');

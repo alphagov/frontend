@@ -1,8 +1,8 @@
 .travel-container {
-  
+
   background-color: #fff;
   padding: 0 1em 0 1em;
-  
+
   @include media(mobile) {
     padding: 0em;
   }
@@ -27,45 +27,45 @@
       }
     }
   }
-  
+
   .section-wrap {
     padding: 0 0 0;
     display: table-row;
-    
+
     @include media-down(tablet) {
       display:block;
       border-bottom: 1px solid $border-colour;
     }
-    
+
     @include ie-lte(7) {
       display:block;
       border-bottom: 1px solid $border-colour;
     }
-    
+
     section {
       width:50%;
       vertical-align:bottom;
       display:table-cell;
       border-bottom: 1px solid $border-colour;
-      
+
       @include media-down(tablet) {
         display:block;
         border-bottom: none;
         width:100%;
       }
-      
+
       @include ie-lte(7) {
         display:block;
         border-bottom: none;
       }
-      
+
     }
 
   }
-  
+
   .subscriptions {
     text-align:right;
-    
+
     @include ie-lte(7) {
       text-align:left;
     }
@@ -81,11 +81,11 @@
           width: 960px;
         }
     }
-    
+
     .full-width .page-header div {
       margin-right: 0em;
     }
-    
+
     .list {
       ul {
         padding-left: 0;
@@ -181,7 +181,7 @@
   .meta-data .print-link {
     margin: 1em 0;
   }
-  
+
 
  .subscriptions  {
 
@@ -204,7 +204,7 @@
       width: auto;
       padding-top: 0;
 
-      
+
     }
 
     ul {
@@ -253,12 +253,12 @@
 
   aside {
     .page-navigation {
-      
+
       li {
         list-style:none;
         margin-left: 0;
       }
-      
+
       @include media(mobile) {
         li,
         ol[start] li,
@@ -349,7 +349,7 @@
         font-weight: 700;
       }
     }
-    
+
     h2 {
       @include core-80;
       font-weight: 700;

@@ -23,7 +23,7 @@ module CampaignHelper
   end
 
 private
-  
+
   def organisation_attr(publication, attr_name)
     if org_attrs = publication.details['organisation']
       org_attrs[attr_name]

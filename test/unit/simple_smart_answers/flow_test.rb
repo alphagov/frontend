@@ -2,7 +2,7 @@ require_relative '../../test_helper'
 
 module SimpleSmartAnswers
   class FlowTest < ActiveSupport::TestCase
-    
+
     context "finding nodes" do
       setup do
         @nodes = [
@@ -41,7 +41,7 @@ module SimpleSmartAnswers
         assert node.is_a?(Node)
         assert_equal "Question 2", node.title
       end
-      
+
       should "return nil if none match" do
         assert_nil @flow.node_for_slug('question-3')
       end

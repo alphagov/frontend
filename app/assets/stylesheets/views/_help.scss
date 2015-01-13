@@ -45,7 +45,7 @@ main.help-page {
 
   header.page-header {
     @include outer-block;
-    
+
     div.inner {
       @include inner-block;
     }

@@ -127,7 +127,7 @@
 
   GOVUK.countryFilter = CountryFilter;
 
-  $("#country-filter form input#country").map(function(idx, input) { 
-      new GOVUK.countryFilter($(input)); 
+  $("#country-filter form input#country").map(function(idx, input) {
+      new GOVUK.countryFilter($(input));
   });
 }).call(this);

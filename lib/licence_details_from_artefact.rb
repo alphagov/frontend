@@ -11,7 +11,7 @@ class LicenceDetailsFromArtefact
   def build_attributes
     return false if missing_or_invalid_licence?
 
-    licence_attributes = { 
+    licence_attributes = {
       licence: licence,
       authority: authority_for_licence
     }

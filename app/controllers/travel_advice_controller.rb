@@ -12,7 +12,7 @@ class TravelAdviceController < ApplicationController
     @publication = TravelAdviceIndexPresenter.new(artefact)
 
     respond_to do |format|
-      format.html
+      format.html { render locals: { full_width: true } }
       format.atom { set_expiry(5.minutes) }
       # TODO: Doing a static redirect to the API URL here means that an API call
       #       and a variety of other logic will have been executed unnecessarily.

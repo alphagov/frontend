@@ -75,7 +75,9 @@ class SearchResultsPresenter
   end
 
   def build_result(result)
-    if result["document_type"] && result["document_type"] != "edition"
+    if result["document_type"] == "group"
+      GroupResult.new(search_parameters, result)
+    elsif result["document_type"] && result["document_type"] != "edition"
       NonEditionResult.new(search_parameters, result)
     elsif result["index"] == "government"
       GovernmentResult.new(search_parameters, result)

@@ -1,0 +1,2 @@
+class GroupResult < SearchResult
+end

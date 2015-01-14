@@ -208,4 +208,18 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       assert_equal '/search?count=88&q=my-query&start=88', presenter.next_page_link
     end
   end
+
+  context 'grouping' do
+    should "not have metadata for group results" do
+      results = SearchResultsPresenter.new({
+        "total" => 1,
+        "results" => [ { "document_type" => "group" } ],
+        "facets" => []
+      }, SearchParameters.new({q: 'my-query'}))
+      rlist = results.to_hash[:results]
+      assert_equal 1, rlist.size
+      assert_equal nil, rlist[0][:metadata]
+      assert ! rlist[0][:metadata_any?]
+    end
+  end
 end

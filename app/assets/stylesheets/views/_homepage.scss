@@ -12,6 +12,7 @@ body.homepage {
   #wrapper,
   #content {
     margin: 0;
+    width: auto; // needed for IE overides
     max-width: 100%;
   }
 }

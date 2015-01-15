@@ -23,7 +23,6 @@ class RootController < ApplicationController
 
   FULL_WIDTH_FORMATS = %w{
     campaign
-    tour
   }
 
   def index
@@ -36,6 +35,10 @@ class RootController < ApplicationController
       section_name: "homepage",
       section_url: "/")
 
+    render locals: { full_width: true }
+  end
+
+  def tour
     render locals: { full_width: true }
   end
 

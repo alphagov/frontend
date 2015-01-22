@@ -7,6 +7,7 @@ require "licence_details_from_artefact"
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
+  before_filter :set_content_security_policy, :only => [:index]
   before_filter :set_expiry, :only => [:index, :tour]
   before_filter :validate_slug_param, :only => [:publication]
   before_filter :block_empty_format, :only => [:jobsearch, :publication]

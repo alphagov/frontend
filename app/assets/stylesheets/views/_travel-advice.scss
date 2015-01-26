@@ -1,16 +1,4 @@
 .travel-container {
-
-  background-color: #fff;
-  padding: 0 1em 0 1em;
-
-  @include media(mobile) {
-    padding: 0em;
-  }
-
-  @include media(desktop) {
-    padding: 0 1em;
-  }
-
   .list {
     ul {
       @include inline-block;

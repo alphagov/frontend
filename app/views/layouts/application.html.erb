@@ -18,7 +18,9 @@
 
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication) %>">
-      <%= yield %>
+      <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>
+        <%= yield %>
+      <% unless local_assigns.include?(:full_width) %></div><% end %>
       <%= render_mustache_templates if Rails.env.development? %>
     </div>
   </body>

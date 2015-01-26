@@ -3,12 +3,7 @@
 
 #wrapper.service .vehicle-tax-start header.page-header div,
 body.full-width .vehicle-tax-start header.page-header div {
-
-  padding:15px 0 0 0;
-
-  @include media(desktop) {
-    padding: 30px 0 0 0;
-  }
+  padding: 0;
 
   h1 {
     padding-left:0;
@@ -22,11 +17,7 @@ body.full-width .vehicle-tax-start header.page-header div {
   .start-header,
   .start-container {
     background-color: #fff;
-    padding: 0 15px 0 15px;
-
-    @include media(tablet) {
-      padding: 0 30px 0 30px;
-    }
+    padding: 0;
   }
 
 

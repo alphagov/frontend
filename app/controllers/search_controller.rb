@@ -24,7 +24,7 @@ class SearchController < ApplicationController
     fill_in_slimmer_headers(@results.result_count)
 
     respond_to do |format|
-      format.html
+      format.html { render locals: { full_width: true } }
       format.json do
         render json: @results
       end

@@ -21,6 +21,10 @@ class RootController < ApplicationController
     view-driving-licence
   )
 
+  FULL_WIDTH_FORMATS = %w{
+    campaign
+  }
+
   def index
     set_slimmer_headers(
       template: "homepage",
@@ -30,6 +34,12 @@ class RootController < ApplicationController
     set_slimmer_dummy_artefact(
       section_name: "homepage",
       section_url: "/")
+
+    render locals: { full_width: true }
+  end
+
+  def tour
+    render locals: { full_width: true }
   end
 
   def jobsearch
@@ -90,7 +100,9 @@ class RootController < ApplicationController
       format.html do
         # render bespoke format for specific publications.
         if EXCEPTIONAL_FORMAT_SLUGS.include?(params[:slug])
-          render params[:slug]
+          render params[:slug], locals: { full_width: true }
+        elsif FULL_WIDTH_FORMATS.include?(@publication.format)
+          render @publication.format, locals: { full_width: true }
         else
           render @publication.format
         end

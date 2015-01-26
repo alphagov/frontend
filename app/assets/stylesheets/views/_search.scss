@@ -21,11 +21,11 @@ main.search {
   .search-header {
     position: relative;
     margin: 0;
-    padding: 10px 15px 15px;
+    padding: 10px 0 15px;
     overflow: visible;
 
     @include media(tablet) {
-      padding: 20px 30px 30px;
+      padding: 20px 0 30px;
       width: 66.666%;
     }
 
@@ -105,11 +105,13 @@ main.search {
     @extend %contain-floats;
 
     @include media(tablet){
-      margin: 0 15px;
+      margin: 0 -15px;
     }
 
     .inner-block {
-      padding: 0 15px;
+      @include media(tablet){
+        padding: 0 15px;
+      }
     }
 
     .filter-form {

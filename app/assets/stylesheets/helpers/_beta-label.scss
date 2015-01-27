@@ -1,0 +1,5 @@
+.beta-label-wrapper {
+  @include media(tablet){
+    margin: 0 0 20px;
+  }
+}

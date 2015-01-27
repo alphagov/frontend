@@ -35,7 +35,6 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 23 August 2013")
 
-          assert page.has_selector?("#test-report_a_problem")
         end
       end # within #content
 
@@ -55,12 +54,8 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")
       end
 
-      within '#content' do
-        within 'header' do
-          assert page.has_content?("Help using GOV.UK")
-        end
-
-        assert page.has_selector?('#test-report_a_problem')
+      within '#content header' do
+        assert page.has_content?("Help using GOV.UK")
       end
     end
 

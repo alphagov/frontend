@@ -43,7 +43,6 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
         assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Print entire guide")
 
-        assert page.has_selector?("#test-report_a_problem")
       end
     end # within #content
 
@@ -251,10 +250,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
-        within 'div.beta-label' do
-          assert page.has_link?("find out what this means", :href => "/help/beta")
-        end
-
+        assert page.has_selector?(shared_component_selector('beta_label'))
 
         within 'aside nav' do
           part_titles = page.all('li').map(&:text).map(&:strip)

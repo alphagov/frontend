@@ -68,9 +68,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Find a passport interview office")
     end
 
-    within '.beta-label' do
-      assert page.has_link?("find out what this means", :href => "/help/beta")
-    end
+    assert page.has_selector?(shared_component_selector('beta_label'))
 
     within ".intro" do
       assert page.has_content?("Enter your postcode to find a passport interview office near you.")

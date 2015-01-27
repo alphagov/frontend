@@ -72,7 +72,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
         assert page.has_content? "Licence to kill"
         assert page.has_content? "You only live twice, Mr Bond."
-        assert page.has_link?("find out what this means", :href => "/help/beta")
+        assert page.has_selector?(shared_component_selector('beta_label'))
       end
 
       should "not show a postcode error" do

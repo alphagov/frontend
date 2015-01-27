@@ -21,9 +21,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end
 
         within '.article-container' do
-          within '.beta-label' do
-            assert page.has_link?("find out what this means", :href => "/help/beta")
-          end
+          assert page.has_selector?(shared_component_selector('beta_label'))
 
           within 'section.intro' do
             assert page.has_selector?("p", :text => "You have to fill out the form online, print it off and send it to your local electoral registration office.")
@@ -45,8 +43,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           end
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
-
-          assert page.has_selector?("#test-report_a_problem")
         end
       end # within #content
 
@@ -259,8 +255,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           end
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 20 November 2012")
-
-          assert page.has_selector?("#test-report_a_problem")
         end
       end # within #content
 

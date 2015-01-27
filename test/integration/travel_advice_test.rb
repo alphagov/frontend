@@ -46,8 +46,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         within ".list#T" do
           assert page.has_link?("Turks and Caicos Islands", :href => "/foreign-travel-advice/turks-and-caicos-islands")
         end
-
-        assert page.has_selector?(".travel-container #test-report_a_problem")
       end # within #content
     end
 

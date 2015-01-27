@@ -102,8 +102,6 @@
   </div>
 
   <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
-
-  <div id="report-a-problem"></div>
 </main>
 
 <% content_for :body_classes do %>full-width<% end %>

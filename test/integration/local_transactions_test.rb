@@ -65,8 +65,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "display the page content" do
         assert page.has_content? "Pay your bear tax"
         assert page.has_content? "owning or looking after a bear"
-        assert page.has_content? "This part of GOV.UK is being rebuilt"
+        assert page.has_selector?(shared_component_selector('beta_label'))
       end
+
 
       should "ask for a postcode" do
         assert page.has_field? "postcode"

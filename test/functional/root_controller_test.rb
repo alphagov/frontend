@@ -502,4 +502,19 @@ class RootControllerTest < ActionController::TestCase
       end
     end
   end
+
+  test 'random page route' do
+    results = { "results" => [
+                              { "web_url" => "https://www.gov.uk/bereavement-allowance" },
+                              { "web_url" => "https://www.gov.uk/book-life-in-uk-test" }
+                             ]
+              }
+    stub_request(:get, "https://www.gov.uk/api/artefacts.json").to_return(:status => 200, :body => '{ "pages": 2 }')
+    stub_request(:get, %r{https://www.gov.uk/api/artefacts.json\?page=.}).to_return(:status => 200, :body => results.to_json)
+    get :random_page
+
+    expected_urls = ["#{Plek.new.website_root}/bereavement-allowance", "#{Plek.new.website_root}/book-life-in-uk-test"]
+    assert_response :redirect
+    assert_include(expected_urls, response.redirect_url)
+  end
 end

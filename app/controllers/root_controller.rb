@@ -47,7 +47,7 @@ class RootController < ApplicationController
     random_page = RestClient.get("#{base_url}?page=#{random_page_number}")
     result = JSON.parse(random_page)['results'].shuffle.first['web_url']
 
-    redirect_to result.gsub("https://www.gov.uk","#{Plek.current.find('www')}")
+    redirect_to result.gsub("https://www.gov.uk","#{Plek.new.website_root}")
   end
 
   def jobsearch

@@ -52,7 +52,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/licence-generic"
     assert_equal 200, page.status_code
     assert page.has_content?("Licence overview copy"), %(expected there to be content Licence overview copy in #{page.text.inspect})
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   test "viewing a business support page" do
@@ -71,7 +70,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     assert page.has_link? "Find out more", href: "http://www.businessfinanceforyou.co.uk/finance-finder"
     assert page.has_content? "What you need to know"
     assert page.has_content? "Additional information"
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 
   # Crude way of handling the situation described at
@@ -97,6 +95,5 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("figure#video a[href='https://www.example.org/test.xml']", :visible => :all)
       assert page.has_content?("Video description")
     end
-    assert page.has_selector?("#wrapper #content .article-container #test-report_a_problem")
   end
 end

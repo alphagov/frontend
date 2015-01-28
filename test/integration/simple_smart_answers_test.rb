@@ -33,13 +33,9 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert page.has_link?("Start now", :href => "/the-bridge-of-death/y")
         end
 
-        within '.beta-label' do
-          assert page.has_link?("find out what this means", :href => "/help/beta")
-        end
-
+        assert page.has_selector?(shared_component_selector('beta_label'))
         within(".modified-date") { assert_page_has_content "Last updated: 25 June 2013" }
 
-        assert page.has_selector?("#test-report_a_problem")
       end
     end # within #content
 
@@ -149,8 +145,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "Oh! Well, thank you. Thank you very much."
         end
       end
-
-      assert page.has_selector?("#content .article-container #test-report_a_problem")
     end
 
     should "allow changing an answer" do

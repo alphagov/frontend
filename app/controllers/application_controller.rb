@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers
   include Slimmer::Headers
+  include Slimmer::SharedTemplates
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503

@@ -14,6 +14,7 @@ WebMock.disable_net_connect!(:allow_localhost => true)
 require 'timecop'
 
 require 'gds_api/test_helpers/content_api'
+require 'slimmer/test_helpers/shared_templates'
 
 Dir[Rails.root.join('test/support/*.rb')].each { |f| require f }
 
@@ -25,6 +26,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   include GdsApi::TestHelpers::ContentApi
+  include Slimmer::TestHelpers::SharedTemplates
 
   teardown do
     Timecop.return

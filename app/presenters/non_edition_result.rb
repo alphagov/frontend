@@ -35,6 +35,8 @@ private
     overrides = {
       "aaib_report" => "AAIB report",
       "cma_case" => "CMA case",
+      "hmrc_manual" => "HMRC internal manual",
+      "hmrc_manual_section" => "HMRC internal manual section",
       "maib_report" => "MAIB report",
       "raib_report" => "RAIB report",
     }

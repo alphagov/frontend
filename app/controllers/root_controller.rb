@@ -42,6 +42,24 @@ class RootController < ApplicationController
     render locals: { full_width: true }
   end
 
+  def random_page
+    # Redirect to a random GOV.UK page, for fun.
+
+    # Disable caching for this route to ensure that users actually
+    # get a random page every time.
+    expires_now
+
+    base_url = "https://www.gov.uk/api/artefacts.json"
+    total_pages = JSON.parse(RestClient.get(base_url).body)['pages']
+
+    random_page_number = Random.rand(1..total_pages)
+
+    random_page = RestClient.get("#{base_url}?page=#{random_page_number}")
+    result = JSON.parse(random_page)['results'].shuffle.first['web_url']
+
+    redirect_to result.gsub("https://www.gov.uk","#{Plek.new.website_root}")
+  end
+
   def jobsearch
     @publication = prepare_publication_and_environment
   end

@@ -1,38 +1,22 @@
-<main id="content" role="main" class="group">
-
-  <header class="page-header group">
-    <div>
-      <h1><span>Guide</span> <%= @publication.title %></h1>
-    </div>
-  </header>
-
-  <div class="article-container group">
-    <%= render :partial => 'beta_label' if @publication.in_beta %>
-    <article role="article" class="group">
-      <div class="inner">
-
-        <div class="summary">
-          <p><%= @publication.video_summary %></p>
-        </div>
-
-        <% if @publication.video_embed_url %>
-          <figure class="media-player-wrapper" id="video">
-            <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
-            <% if @publication.caption_file %>
-            <a class="captions" href="<%= @publication.caption_file["web_url"] %>" style="display:none;">Captions</a>
-            <% end %>
-          </figure>
-          <p><a href="<%= @publication.video_embed_url %>" title="Watch the video on YouTube" rel="external">Watch on YouTube</a></p>
-        <% end %>
-
-        <%= raw @publication.body %>
-      </div>
-    </article>
-
-    <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_path(@publication.slug, :edition => @video, :format => :json) } %>
-
+<%= render layout: 'base_page', locals: {
+  context: "Guide",
+  title: @publication.title,
+  publication: @publication,
+  edition: @video,
+} do %>
+  <div class="summary">
+    <p><%= @publication.video_summary %></p>
   </div>
 
-</main>
+  <% if @publication.video_embed_url %>
+    <figure class="media-player-wrapper" id="video">
+      <a href="<%= @publication.video_embed_url %>">Watch <%= @publication.title %></a>
+      <% if @publication.caption_file %>
+      <a class="captions" href="<%= @publication.caption_file["web_url"] %>" style="display:none;">Captions</a>
+      <% end %>
+    </figure>
+    <p><a href="<%= @publication.video_embed_url %>" title="Watch the video on YouTube" rel="external">Watch on YouTube</a></p>
+  <% end %>
 
-<div id="related-items"></div>
+  <%= raw @publication.body %>
+<% end %>

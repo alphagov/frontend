@@ -1,95 +1,81 @@
-<main id="content" role="main" class="group">
+<%= render layout: 'base_page', locals: {
+  title: @publication.title,
+  publication: @publication,
+  edition: @edition,
+  show_related_items: false,
+} do %>
+  <section class="intro">
+    <div class="get-started-intro"><%= raw @publication.short_description %></div>
+    <p id="get-started" class="get-started group">
+      <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank" role="button">Find out more</a>
+      <% if @publication.will_continue_on.present? %>
+        <span class="destination"> on <%= @publication.will_continue_on %></span>
+      <% end %>
+    </p>
+  </section>
 
-  <header class="page-header group">
-    <div>
-      <h1><%= @publication.title %></h1>
+  <section class="more">
+
+    <div class="js-tabs nav-tabs">
+      <ul>
+        <li class="active"><a href="#what-you-need-to-know">What you need to know</a></li>
+        <li><a href="#additional-information">Additional information</a></li>
+      </ul>
     </div>
-  </header>
 
-  <div class="article-container group">
-    <%= render :partial => 'beta_label' if @publication.in_beta %>
+    <div class="js-tab-content tab-content">
 
-    <article role="article" class="group">
+      <article class="js-tab-pane tab-pane what-you-need-to-know" id="what-you-need-to-know">
+        <p>Find out what you can get and if your business is eligible</p>
+        <% if @publication.organiser.present? -%>
+          <section>
+            <h2>Organiser</h2>
+            <div class="support-detail">
+              <%= @publication.organiser %>
+            </div>
+          </section>
+        <% end -%>
+        <% if @publication.min_value.present? and @publication.max_value.present? and
+            @publication.max_value.to_i > 0 %>
+          <section>
+            <h2>How much you can get</h2>
+            <div class="support-detail">
+              <%= number_to_currency([@publication.min_value, 1].max, { precision: 0, unit: "£" }) %>
+              - <%= number_to_currency(@publication.max_value, { precision: 0, unit: "£" }) %>
+            </div>
+          </section>
+        <% end %>
+        <% if @publication.max_employees.present? and @publication.max_employees.to_i > 0 %>
+          <section>
+            <h2>Maximum employees</h2>
+            <div class="support-detail"><%= @publication.max_employees %></div>
+          </section>
+        <% end %>
+        <% if @publication.eligibility.present? %>
+          <section>
+            <h2>Eligibility</h2>
+            <div class="support-detail"><%= raw @publication.eligibility %></div>
+            </section>
+        <% end %>
+        <% if @publication.evaluation.present? %>
+          <section>
+            <h2>Evaluation</h2>
+            <div class="support-detail"><%= raw @publication.evaluation %></div>
+          </section>
+        <% end %>
+        <% if @publication.additional_information.present? %>
+          <section>
+            <h2>Additional information</h2>
+            <div class="support-detail"><%= raw @publication.additional_information %></div>
+          </section>
+        <% end %>
+      </article>
 
-      <div class="inner">
-
-        <section class="intro">
-          <div class="get-started-intro"><%= raw @publication.short_description %></div>
-          <p id="get-started" class="get-started group">
-            <a href="<%= @publication.continuation_link %>" rel="external" class="button" target="_blank" role="button">Find out more</a>
-            <% if @publication.will_continue_on.present? %>
-              <span class="destination"> on <%= @publication.will_continue_on %></span>
-            <% end %>
-          </p>
+      <article class="js-tab-pane tab-pane" id="additional-information">
+        <section class="long-description">
+          <%= raw @publication.body %>
         </section>
-
-        <section class="more">
-
-          <div class="js-tabs nav-tabs">
-            <ul>
-              <li class="active"><a href="#what-you-need-to-know">What you need to know</a></li>
-              <li><a href="#additional-information">Additional information</a></li>
-            </ul>
-          </div>
-
-          <div class="js-tab-content tab-content">
-
-            <article class="js-tab-pane tab-pane what-you-need-to-know" id="what-you-need-to-know">
-              <p>Find out what you can get and if your business is eligible</p>
-              <% if @publication.organiser.present? -%>
-                <section>
-                  <h2>Organiser</h2>
-                  <div class="support-detail">
-                    <%= @publication.organiser %>
-                  </div>
-                </section>
-              <% end -%>
-              <% if @publication.min_value.present? and @publication.max_value.present? and
-                  @publication.max_value.to_i > 0 %>
-                <section>
-                  <h2>How much you can get</h2>
-                  <div class="support-detail">
-                    <%= number_to_currency([@publication.min_value, 1].max, { precision: 0, unit: "£" }) %>
-                    - <%= number_to_currency(@publication.max_value, { precision: 0, unit: "£" }) %>
-                  </div>
-                </section>
-              <% end %>
-              <% if @publication.max_employees.present? and @publication.max_employees.to_i > 0 %>
-                <section>
-                  <h2>Maximum employees</h2>
-                  <div class="support-detail"><%= @publication.max_employees %></div>
-                </section>
-              <% end %>
-              <% if @publication.eligibility.present? %>
-                <section>
-                  <h2>Eligibility</h2>
-                  <div class="support-detail"><%= raw @publication.eligibility %></div>
-                  </section>
-              <% end %>
-              <% if @publication.evaluation.present? %>
-                <section>
-                  <h2>Evaluation</h2>
-                  <div class="support-detail"><%= raw @publication.evaluation %></div>
-                </section>
-              <% end %>
-              <% if @publication.additional_information.present? %>
-                <section>
-                  <h2>Additional information</h2>
-                  <div class="support-detail"><%= raw @publication.additional_information %></div>
-                </section>
-              <% end %>
-            </article>
-
-            <article class="js-tab-pane tab-pane" id="additional-information">
-              <section class="long-description">
-                <%= raw @publication.body %>
-              </section>
-            </article>
-          </div>
-        </section>
-      </div>
-    </article>
-    <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
-  </div>
-
-</main>
+      </article>
+    </div>
+  </section>
+<% end %>

@@ -41,6 +41,28 @@ protected
     end
   end
 
+  def set_content_security_policy
+    return unless Frontend::Application.config.enable_csp
+
+    asset_hosts = "#{Plek.current.find('static')} #{Plek.current.asset_root}"
+
+    # Our Content-Security-Policy directives use 'unsafe-inline' for scripts and
+    # styles because current browsers (Chrome 39 and Firefox 35) only support the
+    # CSP 1 spec, which does not provide support for whitelisting assets with
+    # hash digests.
+
+    default_src = "default-src #{asset_hosts}"
+    script_src = "script-src #{asset_hosts} *.google-analytics.com 'unsafe-inline'"
+    style_src = "style-src #{asset_hosts} 'unsafe-inline'"
+    img_src = "img-src #{asset_hosts} *.google-analytics.com"
+    font_src = "font-src #{asset_hosts} data:"
+    report_uri = "report-uri #{Plek.current.website_root}/e"
+
+    csp_header = "#{default_src}; #{script_src}; #{style_src}; #{img_src}; #{font_src}; #{report_uri}"
+
+    headers['Content-Security-Policy-Report-Only'] = csp_header
+  end
+
   def set_expiry(duration = 30.minutes)
     unless Rails.env.development?
       expires_in(duration, :public => true)

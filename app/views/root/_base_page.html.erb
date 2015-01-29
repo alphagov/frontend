@@ -1,0 +1,25 @@
+<main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %>">
+  <header class="page-header">
+    <div>
+      <h1>
+        <% if local_assigns.include?(:context) %><span><%= context %></span><% end %>
+        <%= title %>
+      </h1>
+    </div>
+  </header>
+  <div class="article-container group">
+    <%= render :partial => 'beta_label' if publication.in_beta %>
+
+    <article role="article" class="group">
+      <div class="inner">
+        <%= yield %>
+      </div>
+    </article>
+    <% json_link ||= publication_api_path(publication, :edition => edition)  %>
+    <%= render 'publication_metadata', :publication => publication, :api_links => { 'application/json' => json_link } %>
+  </div>
+</main>
+
+<% if local_assigns.fetch(:show_related_items, true) %>
+  <div id="related-items"></div>
+<% end %>

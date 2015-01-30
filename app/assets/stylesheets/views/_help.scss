@@ -7,15 +7,14 @@ main.help-page {
     z-index: 1;
 
     .inner {
-      padding: 0 0 2em 2em;
-      width: auto;
+      padding: 0 0 2em;
 
       p {
         margin-bottom: 0.75em;
       }
 
       @include media(mobile) {
-        padding: 0 1em 1em;
+        padding: 0 1em;
       }
     }
 
@@ -40,14 +39,6 @@ main.help-page {
       p {
         margin-top: 0.2em;
       }
-    }
-  }
-
-  header.page-header {
-    @include outer-block;
-
-    div.inner {
-      @include inner-block;
     }
   }
 }

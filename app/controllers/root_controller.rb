@@ -50,15 +50,18 @@ class RootController < ApplicationController
     # new content.
     expires_in 5.seconds
 
-    base_url = "https://www.gov.uk/api/artefacts.json"
-    total_pages = JSON.parse(RestClient.get(base_url).body)['pages']
+    base_url = Plek.new.find('search') + "/unified_search.json"
+    total_documents = JSON.parse(RestClient.get("#{base_url}?count=0"))['total']
 
-    random_page_number = Random.rand(1..total_pages)
+    random_page_number = Random.rand(0..total_documents-1)
 
-    random_page = RestClient.get("#{base_url}?page=#{random_page_number}")
-    result = JSON.parse(random_page)['results'].shuffle.first['web_url']
+    random_document = RestClient.get("#{base_url}?count=1&fields=link&start=#{random_page_number}")
+    result = JSON.parse(random_document)['results'][0]['link']
 
-    redirect_to result.gsub("https://www.gov.uk","#{Plek.new.website_root}")
+    # Some paths don't have leading slashes, so add them.
+    result = "/#{result}" unless result.starts_with?("/")
+
+    redirect_to Plek.new.website_root + result
   end
 
   def jobsearch

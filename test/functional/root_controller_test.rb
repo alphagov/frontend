@@ -510,12 +510,13 @@ class RootControllerTest < ActionController::TestCase
 
   test 'random page route' do
     results = { "results" => [
-                              { "web_url" => "https://www.gov.uk/bereavement-allowance" },
-                              { "web_url" => "https://www.gov.uk/book-life-in-uk-test" }
+                              { "link" => "/bereavement-allowance" },
+                              { "link" => "/book-life-in-uk-test" }
                              ]
               }
-    stub_request(:get, "https://www.gov.uk/api/artefacts.json").to_return(:status => 200, :body => '{ "pages": 2 }')
-    stub_request(:get, %r{https://www.gov.uk/api/artefacts.json\?page=.}).to_return(:status => 200, :body => results.to_json)
+    stub_request(:get, "#{Plek.new.find('search')}/unified_search.json?count=0").to_return(:status => 200, :body => '{ "total": 2 }')
+    stub_request(:get, %r{#{Plek.new.find('search')}/unified_search.json\?count=1&fields=link&start=.}).to_return(:status => 200,
+                                                                                                      :body   => results.to_json)
     get :random_page
 
     expected_urls = ["#{Plek.new.website_root}/bereavement-allowance", "#{Plek.new.website_root}/book-life-in-uk-test"]

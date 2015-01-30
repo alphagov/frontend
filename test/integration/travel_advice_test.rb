@@ -114,9 +114,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Turks and Caicos Islands")
       end
 
-      within 'article' do
-        assert page.has_link?("Print entire guide", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
-      end
+      assert page.has_link?("Print entire guide", :href => "/foreign-travel-advice/turks-and-caicos-islands/print")
 
       within '.page-navigation' do
         link_titles = page.all('.part-title').map(&:text)
@@ -135,28 +133,26 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_link?("RSS", :href => "/foreign-travel-advice/turks-and-caicos-islands.atom")
       end
 
-      within 'article' do
-        assert page.has_selector?("h1", :text => "Summary")
+      assert page.has_selector?("h1", :text => "Summary")
 
-        within '.country-metadata' do
-          assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-          assert page.has_content?("Updated: 23 April 2013")
-          assert page.has_selector?("p", :text => "The issue with the Knights of Ni has been resolved.")
-        end
-
-        within '.application-notice.help-notice' do
-          assert page.has_content?("The FCO advise against all travel to parts of the country")
-          assert page.has_content?("The FCO advise against all but essential travel to the whole country")
-          assert page.has_selector?("abbr[title='Foreign and Commonwealth Office']", :text => "FCO", :count => 2)
-        end
-
-        assert page.has_selector?("img[src='https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg']")
-        within ".form-download" do
-          assert page.has_link?("Download map (PDF)", :href => "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000002/cookie-monster.pdf")
-        end
-
-        assert page.has_selector?("h3", :text => "This is the summary")
+      within '.country-metadata' do
+        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
+        assert page.has_content?("Updated: 23 April 2013")
+        assert page.has_selector?("p", :text => "The issue with the Knights of Ni has been resolved.")
       end
+
+      within '.application-notice.help-notice' do
+        assert page.has_content?("The FCO advise against all travel to parts of the country")
+        assert page.has_content?("The FCO advise against all but essential travel to the whole country")
+        assert page.has_selector?("abbr[title='Foreign and Commonwealth Office']", :text => "FCO", :count => 2)
+      end
+
+      assert page.has_selector?("img[src='https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg']")
+      within ".form-download" do
+        assert page.has_link?("Download map (PDF)", :href => "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000002/cookie-monster.pdf")
+      end
+
+      assert page.has_selector?("h3", :text => "This is the summary")
 
       within '.article-container' do
         assert ! page.has_selector?('.modified-date')
@@ -186,10 +182,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_link?("The Bridge of Death", :href => "/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death")
       end
 
-      within 'article' do
-        assert page.has_selector?("h1", :text => "Page Two")
-        assert page.has_selector?("li", :text => "We're all going on a summer holiday,")
-      end
+      assert page.has_selector?("h1", :text => "Page Two")
+      assert page.has_selector?("li", :text => "We're all going on a summer holiday,")
 
       within('.page-navigation') { click_on "The Bridge of Death" }
       assert_equal 200, page.status_code
@@ -215,10 +209,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         end
       end
 
-      within 'article' do
-        assert page.has_selector?("h1", :text => "The Bridge of Death")
-        assert page.has_selector?("li", :text => "What...is your quest?")
-      end
+      assert page.has_selector?("h1", :text => "The Bridge of Death")
+      assert page.has_selector?("li", :text => "What...is your quest?")
     end
 
     should "display the print view of a country page" do
@@ -229,9 +221,9 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?('h1', :text => "Turks and Caicos Islands travel advice")
 
         section_titles = page.all('article h1').map(&:text)
-        assert_equal ['Summary', 'Page Two', 'The Bridge of Death'], section_titles
+        assert_equal ['Page Two', 'The Bridge of Death'], section_titles
 
-        within 'article#summary' do
+        within '#summary' do
           assert page.has_selector?("h1", :text => "Summary")
           assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
           assert page.has_content?("Updated: 23 April 2013")
@@ -242,12 +234,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("h3", :text => "This is the summary")
         end
 
-        within 'article#page-two' do
+        within '#page-two' do
           assert page.has_selector?("h1", :text => "Page Two")
           assert page.has_selector?("li", :text => "We're all going on a summer holiday,")
         end
 
-        within 'article#the-bridge-of-death' do
+        within '#the-bridge-of-death' do
           assert page.has_selector?("h1", :text => "The Bridge of Death")
           assert page.has_selector?("li", :text => "What...is your quest?")
         end
@@ -263,7 +255,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     should "not display the change description" do
       visit "/foreign-travel-advice/luxembourg"
 
-      within 'article .country-metadata' do
+      within '.country-metadata' do
         assert page.has_no_content?("The issue with the Knights of Ni has been resolved.")
       end
     end
@@ -291,14 +283,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert ! page.has_selector?('.page-navigation')
 
-      within 'article' do
-        assert page.has_no_selector?("h1", :text => "Summary")
+      assert page.has_no_selector?("h1", :text => "Summary")
 
-        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Updated: 31 January 2013")
+      assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
+      assert page.has_content?("Updated: 31 January 2013")
 
-        assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
-      end
+      assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
     end
 
   end
@@ -322,9 +312,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Turks and Caicos Islands")
       end
 
-      within 'article' do
-        assert page.has_link?("Print entire guide", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
-      end
+      assert page.has_link?("Print entire guide", :href => "/foreign-travel-advice/turks-and-caicos-islands/print?edition=1")
 
       within '.page-navigation' do
         within 'li.active' do
@@ -334,14 +322,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Page Two", :href => "/foreign-travel-advice/turks-and-caicos-islands/page-two?edition=1")
       end
 
-      within 'article' do
-        assert page.has_content?("Summary")
+      assert page.has_content?("Summary")
 
-        assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
-        assert page.has_content?("Updated: 23 April 2013")
+      assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
+      assert page.has_content?("Updated: 23 April 2013")
 
-        assert page.has_content?("This is the summary")
-      end
+      assert page.has_content?("This is the summary")
     end
   end
 end

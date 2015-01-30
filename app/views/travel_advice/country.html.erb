@@ -9,7 +9,7 @@
   <div class="article-container group">
     <%= render :partial => "travel_advice_navigation" if @publication.parts.present? %>
 
-    <article role="article" class="group">
+    <div class="content-block">
       <div class="inner">
 
         <% if @publication.current_part %>
@@ -25,7 +25,7 @@
         <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
       </div>
 
-    </article>
+    </div>
   </div>
 
 </main>

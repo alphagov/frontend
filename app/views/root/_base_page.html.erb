@@ -10,11 +10,11 @@
   <div class="article-container group">
     <%= render :partial => 'beta_label' if publication.in_beta %>
 
-    <article role="article" class="group">
+    <div class="content-block">
       <div class="inner">
         <%= yield %>
       </div>
-    </article>
+    </div>
     <% json_link ||= publication_api_path(publication, :edition => edition)  %>
     <%= render 'publication_metadata', :publication => publication, :api_links => { 'application/json' => json_link } %>
   </div>

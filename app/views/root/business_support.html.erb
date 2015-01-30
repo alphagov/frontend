@@ -25,7 +25,7 @@
 
     <div class="js-tab-content tab-content">
 
-      <article class="js-tab-pane tab-pane what-you-need-to-know" id="what-you-need-to-know">
+      <div class="js-tab-pane tab-pane what-you-need-to-know" id="what-you-need-to-know">
         <p>Find out what you can get and if your business is eligible</p>
         <% if @publication.organiser.present? -%>
           <section>
@@ -69,13 +69,13 @@
             <div class="support-detail"><%= raw @publication.additional_information %></div>
           </section>
         <% end %>
-      </article>
+      </div >
 
-      <article class="js-tab-pane tab-pane" id="additional-information">
+      <div class="js-tab-pane tab-pane" id="additional-information">
         <section class="long-description">
           <%= raw @publication.body %>
         </section>
-      </article>
+      </div>
     </div>
   </section>
 <% end %>

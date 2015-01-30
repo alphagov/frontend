@@ -9,5 +9,5 @@ export GOVUK_APP_DOMAIN=dev.gov.uk
 
 bundle install --path "${HOME}/bundles/${JOB_NAME}" --deployment
 bundle exec rake stats
-bundle exec rake ci:setup:testunit test
+bundle exec rake ci:setup:testunit default
 bundle exec rake assets:precompile

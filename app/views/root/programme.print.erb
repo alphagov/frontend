@@ -4,7 +4,7 @@
 </header>
 
 <% @publication.parts.each do |part| %>
-<article id="<%= part.slug %>">
+<article id="<%= part.slug %>" class="content-block">
   <header>
     <h1><%= part_number(@publication.parts, part) %>. <%= part.title %></h1>
   </header>

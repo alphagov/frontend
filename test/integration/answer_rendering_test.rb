@@ -21,9 +21,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
 
       within '.article-container' do
 
-        within 'article' do
-          assert page.has_selector?(".highlight-answer p em", :text => "20%")
-        end
+        assert page.has_selector?(".highlight-answer p em", :text => "20%")
 
         assert page.has_selector?(shared_component_selector('beta_label'))
 

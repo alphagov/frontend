@@ -124,7 +124,7 @@ main.campaign {
     }
   }
 
-  article.campaign {
+  .campaign {
     width: auto;
 
     @include media($size: desktop) {
@@ -136,11 +136,11 @@ main.campaign {
     }
   }
 
-  article.campaign {
+  .campaign {
     clear: both;
   }
 
-  article.campaign {
+  .campaign {
     float: none;
     height: auto;
     min-height: 0;

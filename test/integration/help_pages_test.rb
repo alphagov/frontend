@@ -29,9 +29,7 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         end
 
         within '.article-container' do
-          within 'article' do
-            assert page.has_selector?("p", :text => "This is the page about cookies.")
-          end
+          assert page.has_selector?("p", :text => "This is the page about cookies.")
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 23 August 2013")
 

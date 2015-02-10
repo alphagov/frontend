@@ -46,10 +46,6 @@ class RootController < ApplicationController
   def random_page
     # Redirect to a random GOV.UK page, for fun.
 
-    # Cache the page for 5 seconds - this won't affect users seeing
-    # new content.
-    expires_in 5.seconds
-
     base_url = Plek.new.find('search') + "/unified_search.json"
     total_documents = JSON.parse(RestClient.get("#{base_url}?count=0"))['total']
 
@@ -61,6 +57,7 @@ class RootController < ApplicationController
     # Some paths don't have leading slashes, so add them.
     result = "/#{result}" unless result.starts_with?("/")
 
+    expires_in(5.seconds, :public => true)
     redirect_to Plek.new.website_root + result
   end
 

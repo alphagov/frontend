@@ -529,5 +529,10 @@ class RootControllerTest < ActionController::TestCase
       assert_response :redirect
       assert_include(expected_urls, response.redirect_url)
     end
+
+    should "be cacheable long enough to discourage bots and short enough that users don't notice" do
+      get :random_page
+      assert_equal "max-age=5, public", response.headers["Cache-Control"]
+    end
   end
 end

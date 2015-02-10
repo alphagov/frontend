@@ -508,19 +508,26 @@ class RootControllerTest < ActionController::TestCase
     end
   end
 
-  test 'random page route' do
-    results = { "results" => [
-                              { "link" => "/bereavement-allowance" },
-                              { "link" => "/book-life-in-uk-test" }
-                             ]
-              }
-    stub_request(:get, "#{Plek.new.find('search')}/unified_search.json?count=0").to_return(:status => 200, :body => '{ "total": 2 }')
-    stub_request(:get, %r{#{Plek.new.find('search')}/unified_search.json\?count=1&fields=link&start=.}).to_return(:status => 200,
-                                                                                                      :body   => results.to_json)
-    get :random_page
+  context "random page route" do
+    setup do
+      results = { "results" => [
+          { "link" => "/bereavement-allowance" },
+          { "link" => "/book-life-in-uk-test" },
+      ]}
 
-    expected_urls = ["#{Plek.new.website_root}/bereavement-allowance", "#{Plek.new.website_root}/book-life-in-uk-test"]
-    assert_response :redirect
-    assert_include(expected_urls, response.redirect_url)
+      stub_request(:get, "#{Plek.new.find('search')}/unified_search.json?count=0").to_return(:status => 200, :body => '{ "total": 2 }')
+      stub_request(:get, %r{#{Plek.new.find('search')}/unified_search.json\?count=1&fields=link&start=.}).to_return(:status => 200, :body => results.to_json)
+    end
+
+    should "redirect to one of the pages returned by search" do
+      get :random_page
+
+      expected_urls = [
+        "#{Plek.new.website_root}/bereavement-allowance",
+        "#{Plek.new.website_root}/book-life-in-uk-test",
+      ]
+      assert_response :redirect
+      assert_include(expected_urls, response.redirect_url)
+    end
   end
 end

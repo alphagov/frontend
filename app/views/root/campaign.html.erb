@@ -1,51 +1,24 @@
 <% content_for :title, page_title(@publication) %>
+<div class="header-context group"><!-- deliberately empty, which removes the breadcrumb from the head of the page --></div>
+
 <main id="content" role="main" class="group campaign">
   <section id="landing">
-    <h1><%= @publication.title %></h1>
-    <% if @publication.details['organisation'] %>
-    <div class="organisation">
-      <a href="<%= organisation_url(@publication) %>" class="organisation-logo organisation-logo-<%= organisation_crest(@publication) %> <%= organisation_brand_colour(@publication) %>"><%= formatted_organisation_name(@publication) %></a>
+    <div class="campaign-image">
+      <img src="<%= campaign_image_url(@publication, 'large') %>">
     </div>
-    <% end %>
+
+    <h1><%= @publication.title %></h1>
 
     <div class="campaign-beta-label">
       <%= render :partial => 'beta_label' if @publication.in_beta %>
     </div>
 
-
-    <div class="campaign-image">
-      <span class="image-scope">
-        <style scoped>
-          /* fall-back styles for browsers without media query support (IE6-8) */
-          #banner {
-            background-image: url('<%= campaign_image_url(@publication, 'large') %>');
-          }
-
-          /* small image for mobile */
-          @media (min-width: 0px) {
-            #banner {
-              background-image: url('<%= campaign_image_url(@publication, 'small') %>');
-            }
-          }
-
-          /* medium image for tablets */
-          @media (min-width: 500px) {
-            #banner {
-              background-image: url('<%= campaign_image_url(@publication, 'medium') %>');
-            }
-          }
-
-          /* large image for desktop */
-          @media (min-width: 900px) {
-            #banner {
-              background-image: url('<%= campaign_image_url(@publication, 'large') %>');
-            }
-          }
-        </style>
-        <span id="banner" role="presentation"></span>
-      </span>
-    </div>
-    <div class="content-block campaign">
+    <div class="campaign content-block">
+      <% if @publication.details['organisation'] %>
+        <div class="organisation">
+          <a href="<%= organisation_url(@publication) %>" class="organisation-logo organisation-logo-<%= organisation_crest(@publication) %> <%= organisation_brand_colour(@publication) %>"><%= formatted_organisation_name(@publication) %></a>
+        </div>
+      <% end %>
       <%= raw @publication.body %>
     </div>
   </section>

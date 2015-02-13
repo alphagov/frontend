@@ -5,18 +5,10 @@ main.campaign {
   }
 
   #landing {
-    position: relative;
-    float: none;
-    display: block;
     margin: 0;
-    background-color: #fff;
 
     @include ie-lte(7) {
       width: 960px;
-    }
-
-    @include media(mobile) {
-      margin: 0 1em;
     }
 
     h1,
@@ -25,14 +17,14 @@ main.campaign {
     }
 
     h1 {
-      @include core-48;
+      @include bold-36;
       font-weight: 600;
       margin: 0.5em 0 0;
+      text-align: center;
 
       @include media($size: desktop, $ignore-for-ie: true) {
-        float: left;
-        width: 70%;
-        margin-bottom: 0.5em;
+        font-size: 80px; // this is to improve design and layout as advised by Mark Hurrell and Guy Moorehouse
+        margin-bottom: $gutter*2;
       }
 
       @include ie-lte(7) {
@@ -49,13 +41,11 @@ main.campaign {
   }
 
   .organisation {
-    float: left;
-    margin: 1em 0 1em 0;
+    margin: $gutter 0;
     padding: 0;
 
-    @include media($size: desktop) {
-      margin-left: 1.5em;
-      margin-top: 2em;
+    @include media(tablet) {
+      margin: 0 0 $gutter $gutter;
       float: right;
     }
 
@@ -75,80 +65,24 @@ main.campaign {
   .campaign-image {
     position: relative;
     clear: both;
-    width: 100%;
-    height: 300px;
+    width: $full-width;
 
-    @include media ($max-width: 900px, $ignore-for-ie: true) {
-      position: static;
-      height: auto;
-    }
-
-    #banner {
-      display: block;
-      text-indent: -9999px;
-      width: 100%;
-      height: 300px;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      -moz-background-size:cover;
-      -webkit-background-size:cover;
-      background-size:cover;
-    }
-
-    .campaign-links {
-      position: absolute;
-      right: 2em;
-      bottom: 2em;
-      width: 240px;
-      background-color: #fff;
-
-      @include media ($max-width: 900px, $ignore-for-ie: true) {
-        position: static;
-        width: auto;
-        padding: 2em 1em 0;
-      }
-
-      h2 {
-        margin: 0;
-        padding-bottom: 0.5em;
-      }
-
-      nav {
-        margin: 0;
-        padding: 0;
-      }
-
-      a[rel="external"] {
-        @include external-link-16;
-      }
-    }
-  }
-
-  .campaign {
-    width: auto;
-
-    @include media($size: desktop) {
-      max-width: 662px;
-    }
-
-    @include ie(6) {
-      width: 662px;
+    img {
+      max-width: $full-width;
     }
   }
 
   .campaign {
     clear: both;
-  }
 
-  .campaign {
-    float: none;
-    height: auto;
-    min-height: 0;
-    padding: 2.25em 0 1em 0;
-    margin-right: 0;
+    @include media($size: desktop) {
+      max-width: $three-quarters;
+      position: relative;
+      margin: 0 auto;
+    }
 
-    @include media(tablet) {
-      padding: 2.25em 2em 1em 0;
+    @include ie(6) {
+      width: 662px;
     }
 
     @include ie(8) {
@@ -166,21 +100,6 @@ main.campaign {
     h2:first-child,
     p:first-child {
       margin-top: 0;
-    }
-  }
-
-  ul.links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include ie(6) {
-      list-style-image: none;
-    }
-
-    li {
-      margin: 0;
-      padding: 0;
     }
   }
 

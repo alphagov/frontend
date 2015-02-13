@@ -17,9 +17,6 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
     assert_equal "Britain is GREAT - GOV.UK", page.title
     assert_equal "Britain is GREAT", page.find("section#landing h1").text
 
-    assert_match "http://www.example.com/media/52380a1e686c82231f000003/britain-is-great.jpg",
-      page.find(".campaign-image .image-scope style").native.children.to_s
-
     assert_equal "Business", page.find('.campaign h2:nth-of-type(1)').text
     assert_equal "Tourism", page.find('.campaign h2:nth-of-type(2)').text
     assert_equal "Education", page.find('.campaign h2:nth-of-type(3)').text

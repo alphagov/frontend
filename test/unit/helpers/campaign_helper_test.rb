@@ -1,4 +1,5 @@
 require 'test_helper'
+require "ostruct"
 
 class CampaignHelperTest < ActionView::TestCase
   include CampaignHelper
@@ -34,6 +35,56 @@ class CampaignHelperTest < ActionView::TestCase
 
   test "organisation_brand_colour" do
     assert_equal "cabinet-office", organisation_brand_colour(@model)
+  end
+
+  context "has_organisation?" do
+    context "when publication does not have organisation details" do
+      setup do
+        @publication = OpenStruct.new(details: {})
+      end
+
+      should "return false" do
+        assert_equal false, has_organisation?(@publication)
+      end
+    end
+
+    context "when publication has organisation details with values" do
+      setup do
+        @publication = OpenStruct.new(
+          details: {
+            "organisation" => {
+              "formatted_name" => "Department for \nTransport",
+              "url" => "http://www.example.com/government/organisations/cabinet-office",
+              "brand_colour" => "cabinet-office",
+              "crest" => "single-identity",
+            }
+          }
+        )
+      end
+
+      should "return true" do
+        assert_equal true, has_organisation?(@publication)
+      end
+    end
+
+    context "when publication has organisation details without values" do
+      setup do
+        @publication = OpenStruct.new(
+          details: {
+            "organisation" => {
+              "formatted_name" => "",
+              "url" => "",
+              "brand_colour" => "",
+              "crest" => "",
+            }
+          }
+        )
+      end
+
+      should "return false" do
+        assert_equal false, has_organisation?(@publication)
+      end
+    end
   end
 
 end

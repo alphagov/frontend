@@ -14,7 +14,7 @@
     </div>
 
     <div class="campaign content-block">
-      <% if @publication.details['organisation'] %>
+      <% if has_organisation?(@publication) %>
         <div class="organisation">
           <a href="<%= organisation_url(@publication) %>" class="organisation-logo organisation-logo-<%= organisation_crest(@publication) %> <%= organisation_brand_colour(@publication) %>"><%= formatted_organisation_name(@publication) %></a>
         </div>

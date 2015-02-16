@@ -6,27 +6,30 @@ module CampaignHelper
   end
 
   def formatted_organisation_name(publication)
-    organisation_name = organisation_attr(publication, 'formatted_name') || ""
+    organisation_name = organisation_attributes(publication).fetch("formatted_name", "")
     ERB::Util.html_escape(organisation_name).strip.gsub(/(?:\r?\n)/, "<br/>").html_safe
   end
 
   def organisation_url(publication)
-    organisation_attr(publication, 'url')
+    organisation_attributes(publication)["url"]
   end
 
   def organisation_crest(publication)
-    organisation_attr(publication, 'crest')
+    organisation_attributes(publication)["crest"]
   end
 
   def organisation_brand_colour(publication)
-    organisation_attr(publication, 'brand_colour')
+    organisation_attributes(publication)["brand_colour"]
+  end
+
+  def has_organisation?(publication)
+    organisation_attributes(publication).any? { |key, value|
+      value.present?
+    }
   end
 
 private
-
-  def organisation_attr(publication, attr_name)
-    if org_attrs = publication.details['organisation']
-      org_attrs[attr_name]
-    end
+  def organisation_attributes(publication)
+    publication.details.fetch("organisation", {})
   end
 end

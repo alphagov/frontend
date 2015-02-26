@@ -120,7 +120,7 @@
     this._trackTimeout = root.setTimeout(function(){
       var pagePath = window.location.pathname.split('/').pop();
       if (pagePath) {
-        window._gaq && _gaq.push(['_trackEvent', 'searchBoxFilter', search, pagePath, 0, true]);
+        GOVUK.analytics.trackEvent('searchBoxFilter', search, {label: pagePath, nonInteraction: true});
       }
     }, 1000);
   };

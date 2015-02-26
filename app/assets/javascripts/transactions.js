@@ -7,7 +7,7 @@
   window.GOVUK.Transactions = {
     trackStartPageTabs : function (e) {
       var pagePath = e.target.href;
-      _gaq.push(['_trackEvent', 'startpages', 'tab', pagePath, 0, true]);
+      GOVUK.analytics.trackEvent('startpages', 'tab', {label: pagePath, nonInteraction: true});
     }
   };
 

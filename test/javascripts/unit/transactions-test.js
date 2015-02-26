@@ -1,6 +1,3 @@
-// Stub analytics
-var _gaq = { push : function(args) { } };
-
 describe("Transactions", function () {
 
   describe("trackStartPageTabs", function () {
@@ -16,16 +13,17 @@ describe("Transactions", function () {
     });
 
     it("pushes a page path including anchor", function () {
-      spyOn(_gaq, 'push');
+      GOVUK.analytics = GOVUK.analytics || { trackEvent : function(args) {} };
+      spyOn(GOVUK.analytics, 'trackEvent');
 
       window.GOVUK.Transactions.trackStartPageTabs({ target : { href : location.href + '#foo' } });
 
-      expect(_gaq.push).toHaveBeenCalled();
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalled();
 
-      var calledWith = _gaq.push.mostRecentCall.args[0];
-      expect(calledWith[1]).toEqual('startpages');
-      expect(calledWith[2]).toEqual('tab');
-      expect(calledWith[3]).toEqual(location.href + "#foo");
+      var calledWith = GOVUK.analytics.trackEvent.mostRecentCall.args;
+      expect(calledWith[0]).toEqual('startpages');
+      expect(calledWith[1]).toEqual('tab');
+      expect(calledWith[2]).toEqual({label: location.href + "#foo", nonInteraction: true});
     });
 
   });

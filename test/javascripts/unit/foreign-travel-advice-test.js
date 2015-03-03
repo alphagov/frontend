@@ -140,7 +140,7 @@ describe("CountryFilter", function () {
     it("Should track search input via timeouts", function () {
 
       runs(function() {
-        window._gaq = window._gaq || { push : function(args) {} };
+        GOVUK.analytics = GOVUK.analytics || { trackEvent : function(args) {} };
 
         filter = new GOVUK.countryFilter($input);
 
@@ -148,7 +148,7 @@ describe("CountryFilter", function () {
 
         spyOn(filter, "filterListItems");
         spyOn(filter, "track");
-        spyOn(window._gaq, "push");
+        spyOn(GOVUK.analytics, "trackEvent");
 
         $input.keyup();
 
@@ -158,7 +158,7 @@ describe("CountryFilter", function () {
       waits(1001);
 
       runs(function() {
-        expect(window._gaq.push).toHaveBeenCalled();
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalled();
       });
 
     });

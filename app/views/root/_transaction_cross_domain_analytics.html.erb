@@ -1,18 +1,16 @@
 <script id="transaction_cross_domain_analytics">
-  (function(i,s,o,g,r,a,m){
-      i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  if (typeof window.ga === "function") {
+    ga('create', '<%= ga_account_code %>', 'auto', {'name': 'transactionTracker'});
 
-  ga('create', '<%= ga_account_code %>', 'auto', {'name': 'transactionTracker'});
+    // Load the plugin.
+    ga('require', 'linker');
+    ga('transactionTracker.require', 'linker');
 
-  // Load the plugin.
-  ga('require', 'linker');
-  ga('transactionTracker.require', 'linker');
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['service.gov.uk']);
+    ga('transactionTracker.linker:autoLink', ['service.gov.uk']);
 
-  // Define which domains to autoLink.
-  ga('linker:autoLink', ['service.gov.uk']);
-  ga('transactionTracker.linker:autoLink', ['service.gov.uk']);
-
-  ga('transactionTracker.send', 'pageview');
+    ga('transactionTracker.set', 'anonymizeIp', true);
+    ga('transactionTracker.send', 'pageview');
+  }
 </script>

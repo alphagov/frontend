@@ -4,6 +4,7 @@ class SearchController < ApplicationController
 
   before_filter :setup_slimmer_artefact, only: :index
   before_filter :set_expiry
+  before_filter :remove_search_box
 
   rescue_from GdsApi::BaseError, with: :error_503
 
@@ -35,6 +36,10 @@ protected
 
   def search_client
     Frontend.search_client
+  end
+
+  def remove_search_box
+    set_slimmer_headers(remove_search: true)
   end
 
   def fill_in_slimmer_headers(result_count)

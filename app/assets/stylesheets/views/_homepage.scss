@@ -1,11 +1,5 @@
 // Remove search from the top bar as we have one in the content.
 body.homepage {
-  #search {
-    display: none;
-  }
-  #global-header .search-toggle {
-    display: none;
-  }
   #global-header-bar {
     display: none;
   }

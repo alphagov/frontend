@@ -8,6 +8,19 @@
   publication: @publication,
   edition: @edition,
 } do %>
+  <% if promote_organ_donor_registration? %>
+    <div id="organ-donor-registration-promotion">
+      <p>
+        Sign up to the NHS Organ Donor Register and help save the lives of people in need of transplants.
+      </p>
+      <p>
+        <%= link_to 'Register now', organ_donor_registration_attributes['organ_donor_registration_url'],
+              title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
+      </p>
+    </div>
+    <h2 class="satisfaction-survey-heading">Satisfaction survey</h2>
+  <% end %>
+
   <form class="contact-form" action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
     <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= @publication.slug.gsub("done/", "") %>" />
     <input type="hidden" id="service_done_page_url" name="service_feedback[url]" value="<%= @publication.web_url %>" />

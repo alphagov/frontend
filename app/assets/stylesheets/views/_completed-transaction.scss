@@ -1,4 +1,14 @@
 .transaction-done {
+  #organ-donor-registration-promotion {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d5d5d5;
+    margin-bottom: 30px;
+  }
+
+  .satisfaction-survey-heading {
+     margin-bottom: 30px;
+  }
+
   form {
     @include core-19;
 

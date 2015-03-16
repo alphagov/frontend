@@ -29,7 +29,9 @@ class RootController < ApplicationController
   def index
     set_slimmer_headers(
       template: "homepage",
-      format: "homepage")
+      format: "homepage",
+      remove_search: true,
+    )
 
     # Only needed for Analytics
     set_slimmer_dummy_artefact(

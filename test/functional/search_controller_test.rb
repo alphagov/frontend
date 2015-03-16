@@ -361,7 +361,7 @@ class SearchControllerTest < ActionController::TestCase
     end
   end
 
-  test "should send analytics headers for citizen proposition" do
+  test "should send analytics headers" do
     result = {
       "title" => "title",
       "link" => "/slug",
@@ -372,7 +372,6 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bob"}
     assert_equal "search",  @response.headers["X-Slimmer-Section"]
     assert_equal "search",  @response.headers["X-Slimmer-Format"]
-    assert_equal "citizen", @response.headers["X-Slimmer-Proposition"]
     assert_equal "1",       @response.headers["X-Slimmer-Result-Count"]
   end
 

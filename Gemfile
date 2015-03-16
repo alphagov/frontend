@@ -13,7 +13,7 @@ gem 'shared_mustache', '0.1.3'
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'
 else
-  gem 'slimmer', '6.0.0'
+  gem 'slimmer', '8.0.0'
 end
 
 if ENV['CDN_DEV']

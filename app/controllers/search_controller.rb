@@ -42,7 +42,6 @@ protected
       result_count: result_count,
       format:       "search",
       section:      "search",
-      proposition:  "citizen"
     )
   end
 

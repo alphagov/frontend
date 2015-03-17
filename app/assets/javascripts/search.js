@@ -29,7 +29,6 @@ $(function() {
     $searchResults.on('click', 'a', function(e){
       var $link = $(e.target),
           sublink = '',
-          gaParams = ['_setCustomVar', 21, 'searchPosition', '', 3],
           position, href, startAt;
 
       if($link.closest('ul').hasClass('sections')){
@@ -42,9 +41,7 @@ $(function() {
 
       startAt = getStartAtValue();
       position = $link.closest('li').index() + startAt + 1; // +1 so it isn't zero offset
-
-      gaParams[3] = 'position='+position+sublink;
-      GOVUK.cookie('ga_nextpage_params', gaParams.join(','));
+      GOVUK.analytics.callOnNextPage('setSearchPositionDimension', 'position=' + position + sublink);
     });
   }());
 

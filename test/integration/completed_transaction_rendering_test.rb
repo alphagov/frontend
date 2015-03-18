@@ -13,8 +13,8 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
       within '.content-block' do
-        assert page.has_no_text?("Sign up to the NHS Organ Donor Register and help save the lives of people in need of transplants.")
-        assert page.has_no_link?("Register now")
+        assert page.has_no_text?("If you needed an organ transplant would you have one? If so please help others.")
+        assert page.has_no_link?("Join")
       end
     end
 
@@ -32,8 +32,8 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
       within '.content-block' do
-        assert page.has_text?("Sign up to the NHS Organ Donor Register and help save the lives of people in need of transplants.")
-        assert page.has_link?("Register now", href: "/organ-donor-registration-url")
+        assert page.has_text?("If you needed an organ transplant would you have one? If so please help others.")
+        assert page.has_link?("Join", href: "/organ-donor-registration-url")
         within 'h2.satisfaction-survey-heading' do
           assert page.has_text?("Satisfaction survey")
         end

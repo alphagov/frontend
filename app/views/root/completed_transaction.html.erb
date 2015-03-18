@@ -10,11 +10,10 @@
 } do %>
   <% if promote_organ_donor_registration? %>
     <div id="organ-donor-registration-promotion">
+      <p>Please join the NHS Organ Donor Register.</p>
+      <p>If you needed an organ transplant would you have one? If so please help others.</p>
       <p>
-        Sign up to the NHS Organ Donor Register and help save the lives of people in need of transplants.
-      </p>
-      <p>
-        <%= link_to 'Register now', organ_donor_registration_attributes['organ_donor_registration_url'],
+        <%= link_to 'Join', organ_donor_registration_attributes['organ_donor_registration_url'],
               title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
       </p>
     </div>

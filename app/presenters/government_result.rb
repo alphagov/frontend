@@ -8,7 +8,9 @@ class GovernmentResult < SearchResult
       metadata_any?: metadata.any?,
       sections: sections,
       sections_present?: sections.present?,
-      government: true
+      government: true,
+      historic?: historic?,
+      government_name: government_name
     })
   end
 
@@ -75,6 +77,14 @@ class GovernmentResult < SearchResult
     else
       description
     end
+  end
+
+  def historic?
+    result['is_historic']
+  end
+
+  def government_name
+    result['government_name']
   end
 
 private

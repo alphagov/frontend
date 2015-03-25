@@ -135,4 +135,22 @@ offering...}
     assert_equal result.title, 'Closed organisation: my-title'
     assert_equal result.description, 'my-description'
   end
+
+  should "have a government name when in history mode" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "is_historic" => true,
+      "government_name" => "XXXX to YYYY Example government",
+    })
+    assert_equal result.historic?, true
+    assert_equal result.government_name, "XXXX to YYYY Example government"
+  end
+
+  should "have a government name when not in history mode" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "is_historic" => false,
+      "government_name" => "XXXX to YYYY Example government",
+    })
+    assert_equal result.historic?, false
+    assert_equal result.government_name, "XXXX to YYYY Example government"
+  end
 end

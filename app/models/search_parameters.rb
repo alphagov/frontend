@@ -64,6 +64,8 @@ class SearchParameters
         display_type
         document_series
         format
+        government_name
+        is_historic
         last_update
         link
         organisations

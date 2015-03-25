@@ -48,6 +48,14 @@
           </ul>
         {{/metadata_any?}}
 
+        {{#historic?}}
+          {{#government_name}}
+          <p class="historic">
+            First published during the {{government_name}}
+          </p>
+          {{/government_name}}
+        {{/historic?}}
+
         <p>{{description}}</p>
 
         {{#sections_present?}}

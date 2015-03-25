@@ -284,12 +284,15 @@ main.search {
           margin: 0;
           padding: 0;
 
+          &.historic,
           &.meta {
             @include core-14;
             padding: 0 0 3px;
             word-wrap: break-word;
             color: $secondary-text-colour;
+          }
 
+          &.meta {
             .subsection,
             .subsubsection {
               background: transparent image-url("search/separator.png") 0 40% no-repeat;

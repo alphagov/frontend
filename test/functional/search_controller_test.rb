@@ -53,17 +53,7 @@ class SearchControllerTest < ActionController::TestCase
 
   def stub_results(results, query = "search-term", organisations = [], suggestions = [], options = {})
     response_body = response(results, suggestions, options)
-    parameters = {
-      :start => options[:start] || '0',
-      :count => '50',
-      :q => query,
-      :filter_organisations => organisations,
-      :fields => rummager_result_fields,
-      :facet_organisations => '100',
-      :debug => nil,
-    }
-    Frontend.search_client.stubs(:unified_search)
-        .with(parameters)
+    Frontend.search_client.stubs(:search)
         .returns(response_body)
   end
 
@@ -81,8 +71,7 @@ class SearchControllerTest < ActionController::TestCase
       parameters[:filter_specialist_sectors] = options[:specialist_sectors]
       parameters[:facet_specialist_sectors] = "100"
     end
-    Frontend.search_client.expects(:unified_search)
-        .with(parameters)
+    Frontend.search_client.expects(:search)
         .returns(response([]))
   end
 
@@ -436,7 +425,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should handle service errors with a 503" do
-    Frontend.search_client.stubs(:unified_search).raises(GdsApi::BaseError)
+    Frontend.search_client.stubs(:search).raises(GdsApi::BaseError)
     get :index, {q: "badness"}
 
     assert_response 503

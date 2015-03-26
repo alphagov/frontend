@@ -133,7 +133,7 @@ class SearchResultsPresenter
 
   def scope_title
      if is_scoped_to_manual?
-       "this manual"
+       search_response[:scope][:title]
      end
    end
 
@@ -179,6 +179,6 @@ private
   end
 
   def is_scoped_to_manual?
-    search_response["facets"]["manual"].present?
+    search_response[:scope].present?
   end
 end

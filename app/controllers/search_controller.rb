@@ -14,8 +14,7 @@ class SearchController < ApplicationController
     if search_params.no_search? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
-
-    search_response = search_client.unified_search(search_params.rummager_parameters)
+    search_response = search_client.search(search_params)
 
     @search_term = search_params.search_term
     @results = SearchResultsPresenter.new(search_response, search_params)

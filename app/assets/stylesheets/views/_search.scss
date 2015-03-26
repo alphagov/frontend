@@ -136,6 +136,14 @@ main.search {
       .result-count {
         padding: 0;
       }
+      .scoped-result-count {
+        @include media(tablet){
+          font-size:21px;
+        }
+        a {
+          @include copy-16;
+        }
+      }
       .results-list {
         padding: 30px 0;
         list-style: none;

@@ -29,6 +29,8 @@ class SearchResultsPresenter
       previous_page_link: previous_page_link,
       previous_page_label: previous_page_label,
       first_result_number: (search_parameters.start + 1),
+      is_scoped?: is_scoped?,
+      scope_title: scope_title,
     }
   end
 
@@ -128,6 +130,12 @@ class SearchResultsPresenter
   def is_scoped?
     is_scoped_to_manual?
   end
+
+  def scope_title
+     if is_scoped_to_manual?
+       "this manual"
+     end
+   end
 
 private
 

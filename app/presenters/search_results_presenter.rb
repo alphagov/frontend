@@ -128,14 +128,14 @@ class SearchResultsPresenter
   end
 
   def is_scoped?
-    is_scoped_to_manual?
+    search_response[:scope].present?
   end
 
   def scope_title
-     if is_scoped_to_manual?
-       "this manual"
-     end
-   end
+    if is_scoped?
+      search_response[:scope][:title]
+    end
+  end
 
 private
 
@@ -176,9 +176,5 @@ private
 
   def previous_page_number
     current_page_number - 1
-  end
-
-  def is_scoped_to_manual?
-    search_response["facets"]["manual"].present?
   end
 end

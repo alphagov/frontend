@@ -29,19 +29,25 @@ class SearchResultsPresenter
       previous_page_link: previous_page_link,
       previous_page_label: previous_page_label,
       first_result_number: (search_parameters.start + 1),
+      is_scoped?: is_scoped?,
+      scope_title: scope_title,
     }
   end
 
   def filter_fields
-    search_response["facets"].map do |field, value|
-      external = SearchParameters::external_field_name(field)
-      facet_params = search_parameters.filter(external)
-      facet = SearchFacetPresenter.new(value, facet_params)
-      {
-        field: external,
-        field_title: FACET_TITLES.fetch(field, field),
-        options: facet.to_hash,
-      }
+    if is_scoped?
+      []
+    else
+      search_response["facets"].map do |field, value|
+        external = SearchParameters::external_field_name(field)
+        facet_params = search_parameters.filter(external)
+        facet = SearchFacetPresenter.new(value, facet_params)
+        {
+          field: external,
+          field_title: FACET_TITLES.fetch(field, field),
+          options: facet.to_hash,
+        }
+      end
     end
   end
 
@@ -75,7 +81,9 @@ class SearchResultsPresenter
   end
 
   def build_result(result)
-    if result["document_type"] == "group"
+    if is_scoped?
+      ScopedResult.new(search_parameters, result)
+    elsif result["document_type"] == "group"
       GroupResult.new(search_parameters, result)
     elsif result["document_type"] && result["document_type"] != "edition"
       NonEditionResult.new(search_parameters, result)
@@ -119,6 +127,16 @@ class SearchResultsPresenter
     end
   end
 
+  def is_scoped?
+    is_scoped_to_manual?
+  end
+
+  def scope_title
+     if is_scoped_to_manual?
+       search_response[:scope][:title]
+     end
+   end
+
 private
 
   attr_reader :search_parameters, :search_response
@@ -158,5 +176,9 @@ private
 
   def previous_page_number
     current_page_number - 1
+  end
+
+  def is_scoped_to_manual?
+    search_response[:scope].present?
   end
 end

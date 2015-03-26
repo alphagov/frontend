@@ -5,7 +5,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
     results = SearchResultsPresenter.new({
       "total" => 1,
       "results" => [ { "index" => "mainstream" } ],
-      "facets" => []
+      "facets" => {}
     }, SearchParameters.new({q: 'my-query'}))
     assert_equal 'my-query', results.to_hash[:query]
     assert_equal 1, results.to_hash[:result_count]
@@ -121,7 +121,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
         start: -1,
       })
 
-      assert_equal 0, params.start 
+      assert_equal 0, params.start
       presenter = SearchResultsPresenter.new(response, params)
       assert ! presenter.has_previous_page?
       assert_equal nil, presenter.previous_page_link
@@ -138,7 +138,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
         start: 100,
       })
 
-      assert_equal 50, params.count 
+      assert_equal 50, params.count
       presenter = SearchResultsPresenter.new(response, params)
       assert presenter.has_previous_page?
       assert_equal '/search?start=50', presenter.previous_page_link
@@ -214,7 +214,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       results = SearchResultsPresenter.new({
         "total" => 1,
         "results" => [ { "document_type" => "group" } ],
-        "facets" => []
+        "facets" => {}
       }, SearchParameters.new({q: 'my-query'}))
       rlist = results.to_hash[:results]
       assert_equal 1, rlist.size

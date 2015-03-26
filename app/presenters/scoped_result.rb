@@ -1,0 +1,2 @@
+class ScopedResult < SearchResult
+end

@@ -1,5 +1,12 @@
-<div class="result-count" id="js-live-search-result-count" aria-hidden='true'>
-  {{ result_count_string }} found
+<div class="result-count {{#is_scoped?}} scoped-result-count {{/is_scoped?}}" id="js-live-search-result-count" aria-hidden='true'>
+  {{#is_scoped?}}
+    <strong>{{ result_count_string }} found in</strong><br>
+    {{scope_title}}<br>
+    <a href='/search?q={{query}}'>Display results from all of GOV.UK</a>
+  {{/is_scoped?}}
+  {{^is_scoped?}}
+    {{ result_count_string }} found
+  {{/is_scoped?}}
 </div>
 
 {{#results_any?}}

@@ -35,6 +35,8 @@ class SearchControllerTest < ActionController::TestCase
       display_type
       document_series
       format
+      government_name
+      is_historic
       last_update
       link
       organisations
@@ -206,6 +208,54 @@ class SearchControllerTest < ActionController::TestCase
     assert_select ".meta .section", text: "Life in the UK"
     assert_select ".meta .subsection", text: "Test thing"
     assert_select ".meta .subsubsection", text: "Sub section"
+  end
+
+  test "should apply history mode to historic result" do
+    historic_result = {
+      "title" => "TITLE1",
+      "description" => "DESCRIPTION",
+      "is_historic" => true,
+      "government_name" => "XXXX to YYYY Example government",
+      "link" => "/url",
+      "index" => "government"
+    }
+
+    stub_results([historic_result], "bob")
+    get :index, {q: "bob"}
+
+    assert_select ".historic", text: /XXXX to YYYY Example government/
+  end
+
+  test "should not apply history mode to non historic result" do
+    historic_result = {
+      "title" => "TITLE1",
+      "description" => "DESCRIPTION",
+      "is_historic" => false,
+      "government_name" => nil,
+      "link" => "/url",
+      "index" => "government"
+    }
+
+    stub_results([historic_result], "bob")
+    get :index, {q: "bob"}
+
+    assert_select ".historic", 0
+  end
+
+  test "should not apply history mode to historic result without government name" do
+    historic_result = {
+      "title" => "TITLE1",
+      "description" => "DESCRIPTION",
+      "is_historic" => true,
+      "government_name" => nil,
+      "link" => "/url",
+      "index" => "government"
+    }
+
+    stub_results([historic_result], "bob")
+    get :index, {q: "bob"}
+
+    assert_select ".historic", 0
   end
 
   should "include organisations where available" do

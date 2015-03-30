@@ -31,9 +31,10 @@ private
     def scope_info
       if is_scoped? && scope_object.present?
         {
-          scope: {
-            title: scope_object.title,
+          "scope" => {
+            "title" => scope_object.title,
           },
+          "unscoped_results" => unscoped_results,
         }
       else
         {}
@@ -53,7 +54,15 @@ private
     end
 
     def scope_object_link
-      params.filter('manual').first
+      @scope_object_link ||= params.filter('manual').first
+    end
+
+    def unscoped_results
+      @unscoped_results ||= api.unified_search(unscoped_rummager_request).to_hash
+    end
+
+    def unscoped_rummager_request
+      rummager_params.except(:filter_manual).merge(count: "3", reject_manual: scope_object_link)
     end
   end
 end

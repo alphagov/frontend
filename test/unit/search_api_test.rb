@@ -33,7 +33,7 @@ class SearchAPITest < ActiveSupport::TestCase
       @search_params.expects(:filter).with('manual').returns([@manual_link])
       @manual_search_response = stub(results:  [stub(title: @manual_title)])
 
-      @rummager_api.expects(:unified_search).with(filter_link: @manual_link, count: 1, fields: %w{title}).returns(@manual_search_response)
+      @rummager_api.expects(:unified_search).with(filter_link: @manual_link, count: "1", fields: %w{title}).returns(@manual_search_response)
     end
 
     should "returns search results from rummager" do

@@ -33,7 +33,7 @@ private
         {
           scope: {
             title: scope_object.title,
-          }
+          },
         }
       else
         {}
@@ -45,7 +45,7 @@ private
     end
 
     def scope_object
-      @scope_object ||= api.unified_search(filter_link: scope_object_link, count: 1, fields: %w{title}).results.first
+      @scope_object ||= api.unified_search(filter_link: scope_object_link, count: "1", fields: %w{title}).results.first
     end
 
     def is_scoped?

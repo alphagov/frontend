@@ -35,18 +35,18 @@ class SearchResult
     end
   end
 
-  result_accessor :link, :title, :format, :es_score
+  result_accessor :link, :title, :format, :es_score, :section, :subsection, :subsubsection
 
-  # Avoid the mundanity of creating these all by hand by making
-  # dynamic method and accessors.
-  %w(section subsection subsubsection).each do |key|
-    define_method "formatted_#{key}_name" do
-      mapped_name(send(key)) || humanized_name(send(key))
-    end
+  def formatted_section_name
+    mapped_name(section) || humanized_name(section)
+  end
 
-    define_method key do
-      result[key]
-    end
+  def formatted_subsection_name
+    mapped_name(subsection) || humanized_name(subsection)
+  end
+
+  def formatted_subsubsection_name
+    mapped_name(subsubsection) || humanized_name(subsubsection)
   end
 
   # External links have a truncated version of their URLs displayed on the

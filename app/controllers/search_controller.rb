@@ -17,7 +17,13 @@ class SearchController < ApplicationController
     search_response = search_client.search(search_params)
 
     @search_term = search_params.search_term
-    @results = SearchResultsPresenter.new(search_response, search_params)
+
+    if (search_response["scope"].present?)
+      @results = ScopedSearchResultsPresenter.new(search_response, search_params)
+    else
+      @results = SearchResultsPresenter.new(search_response, search_params)
+    end
+
     @facets = search_response["facets"]
     @spelling_suggestion = @results.spelling_suggestion
 

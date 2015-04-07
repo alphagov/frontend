@@ -17,7 +17,7 @@ class SearchResultsPresenter
     {
       query: search_parameters.search_term,
       result_count: result_count,
-      result_count_string: result_count_string,
+      result_count_string: result_count_string(result_count),
       results_any?: results.any?,
       results: results.map { |result| result.to_hash },
       filter_fields: filter_fields,
@@ -29,25 +29,19 @@ class SearchResultsPresenter
       previous_page_link: previous_page_link,
       previous_page_label: previous_page_label,
       first_result_number: (search_parameters.start + 1),
-      is_scoped?: is_scoped?,
-      scope_title: scope_title,
     }
   end
 
   def filter_fields
-    if is_scoped?
-      []
-    else
-      search_response["facets"].map do |field, value|
-        external = SearchParameters::external_field_name(field)
-        facet_params = search_parameters.filter(external)
-        facet = SearchFacetPresenter.new(value, facet_params)
-        {
-          field: external,
-          field_title: FACET_TITLES.fetch(field, field),
-          options: facet.to_hash,
-        }
-      end
+    search_response["facets"].map do |field, value|
+      external = SearchParameters::external_field_name(field)
+      facet_params = search_parameters.filter(external)
+      facet = SearchFacetPresenter.new(value, facet_params)
+      {
+        field: external,
+        field_title: FACET_TITLES.fetch(field, field),
+        options: facet.to_hash,
+      }
     end
   end
 
@@ -72,8 +66,8 @@ class SearchResultsPresenter
     search_response["total"].to_i
   end
 
-  def result_count_string
-    pluralize(number_with_delimiter(result_count), "result")
+  def result_count_string(count)
+    pluralize(number_with_delimiter(count), "result")
   end
 
   def results
@@ -81,9 +75,7 @@ class SearchResultsPresenter
   end
 
   def build_result(result)
-    if is_scoped?
-      ScopedResult.new(search_parameters, result)
-    elsif result["document_type"] == "group"
+    if result["document_type"] == "group"
       GroupResult.new(search_parameters, result)
     elsif result["document_type"] && result["document_type"] != "edition"
       NonEditionResult.new(search_parameters, result)
@@ -124,16 +116,6 @@ class SearchResultsPresenter
   def previous_page_label
     if has_previous_page?
       "#{previous_page_number} of #{total_pages}"
-    end
-  end
-
-  def is_scoped?
-    search_response[:scope].present?
-  end
-
-  def scope_title
-    if is_scoped?
-      search_response[:scope][:title]
     end
   end
 

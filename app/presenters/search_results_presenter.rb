@@ -19,7 +19,7 @@ class SearchResultsPresenter
       result_count: result_count,
       result_count_string: result_count_string(result_count),
       results_any?: results.any?,
-      results: results.map { |result| result.to_hash },
+      results: results,
       filter_fields: filter_fields,
       debug_score: search_parameters.debug_score,
       has_next_page?: has_next_page?,
@@ -71,7 +71,7 @@ class SearchResultsPresenter
   end
 
   def results
-    search_response["results"].map { |result| build_result(result) }
+    search_response["results"].map { |result| build_result(result).to_hash }
   end
 
   def build_result(result)

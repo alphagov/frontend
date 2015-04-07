@@ -2,7 +2,9 @@
   {{#is_scoped?}}
     <strong>{{ result_count_string }} found in</strong><br>
     {{scope_title}}<br>
-    <a href='/search?q={{query}}'>Display results from all of GOV.UK</a>
+    {{#unscoped_results_any?}}
+      <a href='/search?q={{query}}'>Display {{unscoped_result_count}} from all of GOV.UK</a>
+    {{/unscoped_results_any?}}
   {{/is_scoped?}}
   {{^is_scoped?}}
     {{ result_count_string }} found
@@ -12,7 +14,12 @@
 {{#results_any?}}
   <ol class="results-list{{#debug_score}} debug{{/debug_score}}" id="js-live-search-results" start="{{first_result_number}}">
     {{#results}}
-      {{>search/_result}}
+      {{#is_multiple_results}}
+        {{>search/_sublist}}
+      {{/is_multiple_results}}
+      {{^is_multiple_results}}
+        {{>search/_result}}
+      {{/is_multiple_results}}
     {{/results}}
   </ol>
 

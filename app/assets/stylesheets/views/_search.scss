@@ -228,6 +228,20 @@ main.search {
           }
         }
 
+        li.descoped-results {
+          border-left: 4px solid $govuk-blue;
+          padding: $gutter-half 0 0 $gutter-half;
+          margin-bottom: $gutter;
+
+          .descope-message {
+            @include core-16;
+          }
+
+          ol {
+            padding: $gutter-half 0 0;
+          }
+        }
+
         h3 {
           @include core-24;
           margin: 0;

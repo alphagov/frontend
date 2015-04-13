@@ -5,7 +5,7 @@ class SearchAPITest < ActiveSupport::TestCase
 
   setup do
     @rummager_api = stub
-    @rummager_params = stub
+    @rummager_params = stub(except: {})
     @search_params = stub(rummager_parameters: @rummager_params)
     @search_api = SearchAPI.new(@rummager_api)
     @search_results = stub
@@ -24,26 +24,35 @@ class SearchAPITest < ActiveSupport::TestCase
     end
   end
 
-  context "given an search scoped to a manual" do
+  context "given a search scoped to a manual" do
     setup do
       @manual_link = 'manual/manual-name'
       @manual_title = 'Manual Title'
 
+      @govuk_result_title = "GOV.UK result"
+
       @search_params.expects(:filtered_by?).with('manual').returns(true)
       @search_params.expects(:filter).with('manual').returns([@manual_link])
       @manual_search_response = stub(results:  [stub(title: @manual_title)])
+      @unscoped_search_response = stub(to_hash: {title: @govuk_result_title})
 
-      @rummager_api.expects(:unified_search).with(filter_link: @manual_link, count: 1, fields: %w{title}).returns(@manual_search_response)
+      @rummager_api.expects(:unified_search).with(count: "3", reject_manual: @manual_link).returns(@unscoped_search_response)
+      @rummager_api.expects(:unified_search).with(filter_link: @manual_link, count: "1", fields: %w{title}).returns(@manual_search_response)
     end
 
-    should "returns search results from rummager" do
+    should "return search results from rummager" do
       search_response = @search_api.search(@search_params)
       assert_equal(@search_results, search_response.fetch(:results))
     end
 
-    should "returns manual from rummager" do
+    should "return manual from rummager" do
       search_response = @search_api.search(@search_params)
-      assert_equal({title: @manual_title}, search_response.fetch(:scope))
+      assert_equal({ "title" => @manual_title }, search_response.fetch("scope"))
+    end
+
+    should "return three results for the whole of gov.uk from rummager" do
+      search_response = @search_api.search(@search_params)
+      assert_equal({ title: @govuk_result_title }, search_response.fetch("unscoped_results"))
     end
   end
 end

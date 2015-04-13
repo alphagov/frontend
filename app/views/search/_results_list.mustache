@@ -2,7 +2,9 @@
   {{#is_scoped?}}
     <strong>{{ result_count_string }} found in</strong><br>
     {{scope_title}}<br>
-    <a href='/search?q={{query}}'>Display results from all of GOV.UK</a>
+    {{#unscoped_results_any?}}
+      <a href='/search?q={{query}}'>Display {{unscoped_result_count}} from all of GOV.UK</a>
+    {{/unscoped_results_any?}}
   {{/is_scoped?}}
   {{^is_scoped?}}
     {{ result_count_string }} found
@@ -12,91 +14,12 @@
 {{#results_any?}}
   <ol class="results-list{{#debug_score}} debug{{/debug_score}}" id="js-live-search-results" start="{{first_result_number}}">
     {{#results}}
-      <li{{#external}} class="external"{{/external}}>
-        <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
-
-        {{#debug_score}}
-          <p class="debug-link">
-            {{link}}
-          </p>
-          <p class="debug-info">
-            <span>Score: {{es_score}}</span>
-            <span>Format: {{#government}}government{{/government}} {{format}}</span>
-          </p>
-        {{/debug_score}}
-
-        {{#external}}
-          <p class="meta">
-            <span class="visuallyhidden">Part of </span>
-            <span class="url">{{ display_link }}</span>
-          </p>
-        {{/external}}
-
-        {{#section}}
-          <p class="meta crumbtrail">
-            <span class="visuallyhidden">Part of </span>
-            <span class="section">{{formatted_section_name}}</span>
-            {{#formatted_subsection_name}}
-              <span class="visuallyhidden">, </span>
-              <span class="subsection">{{ formatted_subsection_name }}</span>
-            {{/formatted_subsection_name}}
-            {{#formatted_subsubsection_name}}
-              <span class="visuallyhidden">, </span>
-              <span class="subsubsection">{{ formatted_subsubsection_name }}</span>
-            {{/formatted_subsubsection_name}}
-          </p>
-        {{/section}}
-
-        {{#metadata_any?}}
-          <ul class="attributes">
-            {{#metadata}}
-              <li> {{{.}}} </li>
-            {{/metadata}}
-          </ul>
-        {{/metadata_any?}}
-
-        {{#historic?}}
-          {{#government_name}}
-          <p class="historic">
-            First published during the {{government_name}}
-          </p>
-          {{/government_name}}
-        {{/historic?}}
-
-        <p>{{description}}</p>
-
-        {{#sections_present?}}
-          <ul class="sections">
-            {{#sections}}
-              <li><a href="{{link}}#{{hash}}">{{title}}</a></li>
-            {{/sections}}
-          </ul>
-        {{/sections_present?}}
-
-        {{#examples_present?}}
-          <ul class="examples">
-            {{#examples}}
-              <li>
-                <h4><a href="{{link}}">{{title}}</a></h4>
-                <p>{{description}}</p>
-              </li>
-            {{/examples}}
-
-            {{#suggested_filter_present?}}
-              <li>
-                <h4 class="see-all"><a href="{{suggested_filter_link}}">{{suggested_filter_title}}</a><h4>
-              </li>
-            {{/suggested_filter_present?}}
-          </ul>
-        {{/examples_present?}}
-
-        {{^examples_present?}}
-          {{#suggested_filter_present?}}
-            <h4 class="see-all"><a href="{{suggested_filter_link}}">{{suggested_filter_title}}</a><h4>
-          {{/suggested_filter_present?}}
-        {{/examples_present?}}
-
-      </li>
+      {{#is_multiple_results}}
+        {{>search/_sublist}}
+      {{/is_multiple_results}}
+      {{^is_multiple_results}}
+        {{>search/_result}}
+      {{/is_multiple_results}}
     {{/results}}
   </ol>
 

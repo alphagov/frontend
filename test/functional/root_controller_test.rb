@@ -110,22 +110,8 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '404', response.code
   end
 
-  test "should return a cacheable 404 withoug calling content_api if slug isn't URL friendly" do
+  test "should return a cacheable 404 without calling content_api if slug isn't URL friendly" do
     get :publication, :slug => "a complicated slug & one that's not \"url safe\""
-    assert_equal "404", response.code
-    assert_equal "max-age=600, public",  response.headers["Cache-Control"]
-    assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
-  end
-
-  test "should return a cacheable 404 without calling content_api if a slug has invalid UTF-8 chars in it" do
-    get :publication, :slug => "fco\xA0"
-    assert_equal "404", response.code
-    assert_equal "max-age=600, public",  response.headers["Cache-Control"]
-    assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
-  end
-
-  test "should return a cacheable 404 without calling content_api if a slug has malformed UTF-8 chars in it" do
-    get :publication, :slug => "br54ba\x9CAQ\xC4\xFD\x928owse"
     assert_equal "404", response.code
     assert_equal "max-age=600, public",  response.headers["Cache-Control"]
     assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})

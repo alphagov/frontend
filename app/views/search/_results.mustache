@@ -1,0 +1,99 @@
+{{#results}}
+  {{#is_multiple_results}}
+    <li class='descoped-results'>
+      <div class='descope-message'>
+        <a href='/search?q={{query}}'>Display {{unscoped_result_count}} from all of GOV.UK</a>
+      </div>
+      <ol>
+        {{>search/_results}}
+      </ol>
+    </li>
+  {{/is_multiple_results}}
+  {{^is_multiple_results}}
+    <li{{#external}} class="external"{{/external}}>
+      <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
+
+      {{#debug_score}}
+        <p class="debug-link">
+          {{link}}
+        </p>
+        <p class="debug-info">
+          <span>Score: {{es_score}}</span>
+          <span>Format: {{#government}}government{{/government}} {{format}}</span>
+        </p>
+      {{/debug_score}}
+
+      {{#external}}
+        <p class="meta">
+          <span class="visuallyhidden">Part of </span>
+          <span class="url">{{ display_link }}</span>
+        </p>
+      {{/external}}
+
+      {{#section}}
+        <p class="meta crumbtrail">
+          <span class="visuallyhidden">Part of </span>
+          <span class="section">{{formatted_section_name}}</span>
+          {{#formatted_subsection_name}}
+            <span class="visuallyhidden">, </span>
+            <span class="subsection">{{ formatted_subsection_name }}</span>
+          {{/formatted_subsection_name}}
+          {{#formatted_subsubsection_name}}
+            <span class="visuallyhidden">, </span>
+            <span class="subsubsection">{{ formatted_subsubsection_name }}</span>
+          {{/formatted_subsubsection_name}}
+        </p>
+      {{/section}}
+
+      {{#metadata_any?}}
+        <ul class="attributes">
+          {{#metadata}}
+            <li> {{{.}}} </li>
+          {{/metadata}}
+        </ul>
+      {{/metadata_any?}}
+
+      {{#historic?}}
+        {{#government_name}}
+        <p class="historic">
+          First published during the {{government_name}}
+        </p>
+        {{/government_name}}
+      {{/historic?}}
+
+      <p>{{description}}</p>
+
+      {{#sections_present?}}
+        <ul class="sections">
+          {{#sections}}
+            <li><a href="{{link}}#{{hash}}">{{title}}</a></li>
+          {{/sections}}
+        </ul>
+      {{/sections_present?}}
+
+      {{#examples_present?}}
+        <ul class="examples">
+          {{#examples}}
+            <li>
+              <h4><a href="{{link}}">{{title}}</a></h4>
+              <p>{{description}}</p>
+            </li>
+          {{/examples}}
+
+          {{#suggested_filter_present?}}
+            <li>
+              <h4 class="see-all"><a href="{{suggested_filter_link}}">{{suggested_filter_title}}</a><h4>
+            </li>
+          {{/suggested_filter_present?}}
+        </ul>
+      {{/examples_present?}}
+
+      {{^examples_present?}}
+        {{#suggested_filter_present?}}
+          <h4 class="see-all"><a href="{{suggested_filter_link}}">{{suggested_filter_title}}</a><h4>
+        {{/suggested_filter_present?}}
+      {{/examples_present?}}
+
+    </li>
+  {{/is_multiple_results}}
+{{/results}}

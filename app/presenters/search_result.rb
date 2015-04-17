@@ -78,7 +78,8 @@ class SearchResult
       formatted_subsubsection_name: (formatted_subsubsection_name if subsubsection),
       attributes: [],
       es_score: formatted_es_score,
-      format: format
+      format: format,
+      is_multiple_results: false,
     }
   end
 

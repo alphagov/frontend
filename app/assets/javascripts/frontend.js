@@ -8,3 +8,4 @@
 //= require templates
 //= require track-external-links
 //= require search
+//= require help-aa-test

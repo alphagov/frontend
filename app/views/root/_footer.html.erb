@@ -1,4 +1,9 @@
 <footer>
+  <% if @publication.has_parts? %>
+    <%= render partial: 'govuk_component/previous_and_next_navigation',
+               locals: previous_and_next_links(@publication, @edition) %>
+  <% end %>
+
   <% if [:programme, :guide, :'travel-advice'].include? @publication.format.to_sym %>
     <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
   <% end %>

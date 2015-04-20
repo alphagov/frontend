@@ -10,8 +10,8 @@ en:
       printer_friendly_page: "Print entire guide"
       at_beginning_of_guide: "You are at the beginning of this guide"
       at_end_of_guide: "You have reached the end of this guide"
-      navigate_to_previous_part: "Navigate to previous part"
-      navigate_to_next_part: "Navigate to next part"
+      navigate_to_previous_part: "Previous"
+      navigate_to_next_part: "Next"
       notes: "Notes"
     programme:
       name: "Benefits & credits"

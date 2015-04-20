@@ -47,4 +47,30 @@ module ApplicationHelper
     path += "?edition=#{opts[:edition]}" if opts[:edition]
     path
   end
+
+  def previous_and_next_links(publication, edition)
+    siblings = {}
+
+    if publication.has_previous_part?
+      siblings.merge!(
+        previous_page: {
+          "title" => t('formats.guide.navigate_to_previous_part'),
+          "url" => previous_part_path(publication, publication.current_part, edition),
+          "label" => publication.part_before(publication.current_part).title
+        }
+      )
+    end
+
+    if publication.has_next_part?
+      siblings.merge!(
+        next_page: {
+          "title" => t('formats.guide.navigate_to_next_part'),
+          "url" => next_part_path(publication, publication.current_part, edition),
+          "label" => publication.part_after(publication.current_part).title
+        }
+      )
+    end
+
+    siblings
+  end
 end

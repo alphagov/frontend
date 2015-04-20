@@ -62,6 +62,11 @@ class ActionDispatch::IntegrationTest
     end
   end
 
+  def assert_govuk_component_present(options)
+    component = find("test-govuk-component[data-template='#{options[:template]}']")
+    yield JSON.parse(component.text())
+  end
+
   # Adapted from http://www.elabs.se/blog/53-why-wait_until-was-removed-from-capybara
   def wait_until
     if Capybara.current_driver == Capybara.javascript_driver

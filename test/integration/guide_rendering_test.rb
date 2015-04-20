@@ -32,13 +32,14 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?("ul li", :text => "used fairly and lawfully")
 
-        within 'footer nav.pagination' do
-          assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to next part']",
-                                    :text => "Find out what data an organisation has about you")
-          assert_equal 1, page.all('li').count
-        end
-
         assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
+      end
+
+      assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+        assert_equal 'Next', data["next_page"]["title"]
+        assert_equal '/data-protection/find-out-what-data-an-organisation-has-about-you', data["next_page"]["url"]
+        assert_equal "Find out what data an organisation has about you", data["next_page"]["label"]
+        assert_nil data["previous_page"]
       end
     end # within #content
 
@@ -62,18 +63,20 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within('header') { assert page.has_content?("2. Find out what data an organisation has about you") }
 
       assert page.has_selector?("h2", :text => "When information can be withheld")
-
-      within 'footer nav.pagination' do
-        assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/the-data-protection-act'][title='Navigate to previous part']",
-                                  :text => "The Data Protection Act")
-        assert page.has_selector?("li.next a[rel=next][href='/data-protection/make-a-complaint'][title='Navigate to next part']",
-                                  :text => "Make a complaint")
-      end
     end
 
-    within('#content footer .pagination') { click_on "Make a complaint" }
+    assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+      assert_equal 'Previous', data["previous_page"]["title"]
+      assert_equal '/data-protection/the-data-protection-act', data["previous_page"]["url"]
+      assert_equal "The Data Protection Act", data["previous_page"]["label"]
 
-    assert_current_url "/data-protection/make-a-complaint"
+      assert_equal 'Next', data["next_page"]["title"]
+      assert_equal '/data-protection/make-a-complaint', data["next_page"]["url"]
+      assert_equal "Make a complaint", data["next_page"]["label"]
+    end
+
+    # the next button isn't rendered during test so we simulate a click
+    visit "/data-protection/make-a-complaint"
 
     within '#content .article-container' do
       within 'aside nav' do
@@ -87,12 +90,13 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within('header') { assert page.has_content?("3. Make a complaint") }
 
       assert page.has_selector?("p strong", :text => "ICO helpline")
+    end
 
-      within 'footer nav.pagination' do
-        assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to previous part']",
-                                  :text => "Find out what data an organisation has about you")
-          assert_equal 1, page.all('li').count
-      end
+    assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+      assert_equal 'Previous', data["previous_page"]["title"]
+      assert_equal '/data-protection/find-out-what-data-an-organisation-has-about-you', data["previous_page"]["url"]
+      assert_equal "Find out what data an organisation has about you", data["previous_page"]["label"]
+      assert_nil data["next_page"]
     end
   end
 
@@ -138,13 +142,14 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
         within('header') { assert page.has_content?("1. The Data Protection Act") }
 
-        within 'footer nav.pagination' do
-          assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Llywio i’r rhan nesaf']",
-                                    :text => "Find out what data an organisation has about you")
-          assert_equal 1, page.all('li').count
-        end
-
         assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
+      end
+
+      assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+        assert_equal 'Llywio i’r rhan nesaf', data["next_page"]["title"]
+        assert_equal '/data-protection/find-out-what-data-an-organisation-has-about-you', data["next_page"]["url"]
+        assert_equal "Find out what data an organisation has about you", data["next_page"]["label"]
+        assert_nil data["previous_page"]
       end
     end # within #content
 
@@ -156,12 +161,13 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
     within '#content .article-container' do
       within('header') { assert page.has_content?("3. Make a complaint") }
+    end
 
-      within 'footer nav.pagination' do
-        assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Llywio i’r rhan flaenorol']",
-                                  :text => "Find out what data an organisation has about you")
-        assert_equal 1, page.all('li').count
-      end
+    assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+      assert_equal 'Llywio i’r rhan flaenorol', data["previous_page"]["title"]
+      assert_equal '/data-protection/find-out-what-data-an-organisation-has-about-you', data["previous_page"]["url"]
+      assert_equal "Find out what data an organisation has about you", data["previous_page"]["label"]
+      assert_nil data["next_page"]
     end
   end
 
@@ -254,12 +260,13 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         within('header') { assert page.has_content?("1. The Data Protection Act") }
 
         assert page.has_selector?("ul li", :text => "used fairly and lawfully")
+      end
 
-        within 'footer nav.pagination' do
-          assert page.has_selector?("li.next a[rel=next][href='/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1'][title='Navigate to next part']",
-                                    :text => "Find out what data an organisation has about you")
-          assert_equal 1, page.all('li').count
-        end
+      assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+        assert_equal 'Next', data["next_page"]["title"]
+        assert_equal '/data-protection/find-out-what-data-an-organisation-has-about-you?edition=1', data["next_page"]["url"]
+        assert_equal "Find out what data an organisation has about you", data["next_page"]["label"]
+        assert_nil data["previous_page"]
       end
 
       assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Print entire guide")

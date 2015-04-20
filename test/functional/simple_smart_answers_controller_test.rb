@@ -140,13 +140,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       assert_equal "max-age=600, public", response.headers["Cache-Control"]
     end
 
-    should "return a cacheable 404 without calling content_api if a slug has malformed UTF-8 chars in it" do
-      get :flow, :slug => "br54ba\x9CAQ\xC4\xFD\x928owse"
-      assert_equal 404, response.status
-      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
-      assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
-    end
-
     should "return a cacheable 404 if the slug isn't a simple_smart_answer" do
       content_api_has_an_artefact('vat')
 

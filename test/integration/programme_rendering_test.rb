@@ -41,10 +41,10 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Print entire guide")
-
       end
     end # within #content
+
+    assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Print entire guide")
 
     assert page.has_selector?("#test-related")
 
@@ -148,9 +148,10 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 12 Tachwedd 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Tudalen hawdd ei hargraffu")
       end
     end # within #content
+
+    assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Tudalen hawdd ei hargraffu")
 
     within('#content aside nav') { click_on "Further information" }
 

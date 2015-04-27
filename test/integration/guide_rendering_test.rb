@@ -39,10 +39,10 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Print entire guide")
-
       end
     end # within #content
+
+    assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Print entire guide")
 
     assert page.has_selector?("#test-related")
 
@@ -71,7 +71,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       end
     end
 
-    within('#content footer') { click_on "Make a complaint" }
+    within('#content footer .pagination') { click_on "Make a complaint" }
 
     assert_current_url "/data-protection/make-a-complaint"
 
@@ -145,9 +145,10 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Tudalen hawdd ei hargraffu")
       end
     end # within #content
+
+    assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Tudalen hawdd ei hargraffu")
 
     within('#content aside nav') { click_on "Make a complaint" }
 
@@ -259,9 +260,9 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
                                     :text => "Find out what data an organisation has about you")
           assert_equal 1, page.all('li').count
         end
-
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Print entire guide")
       end
+
+      assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print?edition=1']", :text => "Print entire guide")
     end # within #content
   end
 end

@@ -18,6 +18,8 @@
     <% json_link ||= publication_api_path(publication, :edition => edition)  %>
     <%= render 'publication_metadata', :publication => publication, :api_links => { 'application/json' => json_link } %>
   </div>
+
+  <%= render partial: 'footer' %>
 </main>
 
 <% if local_assigns.fetch(:show_related_items, true) %>

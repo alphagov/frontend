@@ -70,7 +70,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       presenter = SearchResultsPresenter.new(response, params)
 
       assert presenter.has_next_page?
-      assert_equal '/search?q=my-query&start=50', presenter.next_page_link
+      assert_equal '/search?count=50&q=my-query&start=50', presenter.next_page_link
       assert_equal '2 of 4', presenter.next_page_label
     end
 
@@ -97,7 +97,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       presenter = SearchResultsPresenter.new(response, params)
 
       assert presenter.has_previous_page?
-      assert_equal '/search?q=my-query&start=50', presenter.previous_page_link
+      assert_equal '/search?count=50&q=my-query&start=50', presenter.previous_page_link
       assert_equal '2 of 4', presenter.previous_page_label
     end
 
@@ -127,7 +127,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       assert_equal nil, presenter.previous_page_link
       assert_equal nil, presenter.previous_page_label
       assert presenter.has_next_page?
-      assert_equal '/search?start=50', presenter.next_page_link
+      assert_equal '/search?count=50&start=50', presenter.next_page_link
       assert_equal '2 of 4', presenter.next_page_label
     end
 
@@ -138,14 +138,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
         start: 100,
       })
 
-      assert_equal 50, params.count
-      presenter = SearchResultsPresenter.new(response, params)
-      assert presenter.has_previous_page?
-      assert_equal '/search?start=50', presenter.previous_page_link
-      assert_equal '2 of 4', presenter.previous_page_label
-      assert presenter.has_next_page?
-      assert_equal '/search?start=150', presenter.next_page_link
-      assert_equal '4 of 4', presenter.next_page_label
+      assert_equal SearchParameters::DEFAULT_RESULTS_PER_PAGE, params.count
     end
 
     should 'link to a start_at value of 0 when less than zero' do
@@ -161,7 +154,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       # calculate 25-50 and link to 'start=-25'. here, we assert that start=0
       # (so no start parameter is used).
       assert presenter.has_previous_page?
-      assert_equal '/search?q=my-query', presenter.previous_page_link
+      assert_equal '/search?count=50&q=my-query', presenter.previous_page_link
       assert_equal '1 of 4', presenter.previous_page_label
     end
 

@@ -3,7 +3,7 @@ class SearchParameters
 
   attr_reader :start, :count
 
-  DEFAULT_RESULTS_PER_PAGE = 50
+  DEFAULT_RESULTS_PER_PAGE = 20
   MAX_RESULTS_PER_PAGE = 100
   ALWAYS_FACET_FIELDS = %w{organisations}
   ALLOWED_FACET_FIELDS = %w{organisations topics manual}

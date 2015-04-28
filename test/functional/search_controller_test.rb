@@ -344,7 +344,7 @@ class SearchControllerTest < ActionController::TestCase
   test 'should link to the next page' do
     stub_results(Array.new(50, {}), 'Test', [], [], total: 100)
 
-    get :index, q: 'Test'
+    get :index, q: 'Test', count: 50
 
     assert_select 'li.next', /Next page/
     assert_select 'li.next', /2 of 2/
@@ -353,7 +353,7 @@ class SearchControllerTest < ActionController::TestCase
   test 'should link to the previous page' do
     stub_results(Array.new(50, {}), 'Test', [], [], start: '50', total: 100)
 
-    get :index, q: 'Test', start: 50
+    get :index, q: 'Test', start: 50, count: 50
 
     assert_select 'li.previous', /Previous page/
     assert_select 'li.previous', /1 of 2/

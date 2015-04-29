@@ -7,6 +7,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       "results" => [ { "index" => "mainstream" } ],
       "facets" => {}
     }, SearchParameters.new({q: 'my-query'}))
+
     assert_equal 'my-query', results.to_hash[:query]
     assert_equal 1, results.to_hash[:result_count]
     assert_equal '1 result', results.to_hash[:result_count_string]
@@ -112,33 +113,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       assert ! presenter.has_previous_page?
       assert_equal nil, presenter.previous_page_link
       assert_equal nil, presenter.previous_page_label
-    end
-
-    should 'start at 0 if start < 1' do
-      response = { 'total' => 200 }
-      params = SearchParameters.new({
-        count: 50,
-        start: -1,
-      })
-
-      assert_equal 0, params.start
-      presenter = SearchResultsPresenter.new(response, params)
-      assert ! presenter.has_previous_page?
-      assert_equal nil, presenter.previous_page_link
-      assert_equal nil, presenter.previous_page_label
       assert presenter.has_next_page?
       assert_equal '/search?count=50&start=50', presenter.next_page_link
       assert_equal '2 of 4', presenter.next_page_label
-    end
-
-    should 'have a default page size when count < 1' do
-      response = { 'total' => 200 }
-      params = SearchParameters.new({
-        count: -50,
-        start: 100,
-      })
-
-      assert_equal SearchParameters::DEFAULT_RESULTS_PER_PAGE, params.count
     end
 
     should 'link to a start_at value of 0 when less than zero' do

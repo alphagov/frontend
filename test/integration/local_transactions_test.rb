@@ -211,7 +211,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   end
 
   context "where a local authority does not have complete data" do
-    describe "an empty contact url" do
+    context "an empty contact url" do
       setup do
         content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
           "details" => {
@@ -234,10 +234,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         visit '/pay-bear-tax'
         fill_in 'postcode', :with => "SW1A 1AA"
         click_button('Find')
-      end
-
-      should "display the authority name" do
-        assert page.has_content?("service is provided by Westminster City Council")
       end
 
       should "not link to the authority" do

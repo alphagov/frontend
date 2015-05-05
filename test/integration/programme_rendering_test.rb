@@ -34,17 +34,18 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?("h2", :text => "Effect on other benefits")
 
-        within 'footer nav.pagination' do
-          assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to next part']",
-                                    :text => "What you'll get")
-          assert_equal 1, page.all('li').count
-        end
-
         assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Print entire guide")
+      end
 
+      assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+        assert_equal 'Next', data["next_page"]["title"]
+        assert_equal '/reduced-earnings-allowance/what-youll-get', data["next_page"]["url"]
+        assert_equal "What you'll get", data["next_page"]["label"]
+        assert_nil data["previous_page"]
       end
     end # within #content
+
+    assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Print entire guide")
 
     assert page.has_selector?("#test-related")
 
@@ -64,13 +65,16 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       within('header') { assert page.has_content?("3. Eligibility") }
 
       assert page.has_selector?("h2", :text => "Going abroad")
+    end
 
-      within 'footer nav.pagination' do
-        assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/what-youll-get'][title='Navigate to previous part']",
-                                  :text => "What you'll get")
-        assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to next part']",
-                                  :text => "How to claim")
-      end
+    assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+      assert_equal 'Previous', data["previous_page"]["title"]
+      assert_equal '/reduced-earnings-allowance/what-youll-get', data["previous_page"]["url"]
+      assert_equal "What you'll get", data["previous_page"]["label"]
+
+      assert_equal 'Next', data["next_page"]["title"]
+      assert_equal '/reduced-earnings-allowance/how-to-claim', data["next_page"]["url"]
+      assert_equal "How to claim", data["next_page"]["label"]
     end
 
     within('#content aside nav') { click_on "Further information" }
@@ -89,12 +93,13 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       within('header') { assert page.has_content?("5. Further information") }
 
       assert page.has_selector?("h3", :text => "Scotland, North West England, East of England, South East England and London")
+    end
 
-      within 'footer nav.pagination' do
-        assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Navigate to previous part']",
-                                  :text => "How to claim")
-        assert_equal 1, page.all('li').count
-      end
+    assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+      assert_equal 'Previous', data["previous_page"]["title"]
+      assert_equal '/reduced-earnings-allowance/how-to-claim', data["previous_page"]["url"]
+      assert_equal "How to claim", data["previous_page"]["label"]
+      assert_nil data["next_page"]
     end
   end
 
@@ -141,16 +146,20 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
         within('header') { assert page.has_content?("1. Overview") }
 
-        within 'footer nav.pagination' do
-          assert page.has_selector?("li.next a[rel=next][href='/reduced-earnings-allowance/what-youll-get'][title='Llywio i’r rhan nesaf']",
-                                    :text => "What you'll get")
-          assert_equal 1, page.all('li').count
-        end
-
         assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 12 Tachwedd 2012")
-        assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Tudalen hawdd ei hargraffu")
+      end
+
+      assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Tudalen hawdd ei hargraffu")
+
+      assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+        assert_equal 'Llywio i’r rhan nesaf', data["next_page"]["title"]
+        assert_equal '/reduced-earnings-allowance/what-youll-get', data["next_page"]["url"]
+        assert_equal "What you'll get", data["next_page"]["label"]
+        assert_nil data["previous_page"]
       end
     end # within #content
+
+    assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Tudalen hawdd ei hargraffu")
 
     within('#content aside nav') { click_on "Further information" }
 
@@ -159,12 +168,13 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     within '#content .article-container' do
 
       within('header') { assert page.has_content?("5. Further information") }
+    end
 
-      within 'footer nav.pagination' do
-        assert page.has_selector?("li.previous a[rel=prev][href='/reduced-earnings-allowance/how-to-claim'][title='Llywio i’r rhan flaenorol']",
-                                  :text => "How to claim")
-        assert_equal 1, page.all('li').count
-      end
+    assert_govuk_component_present(template: "govuk_component-previous_and_next_navigation") do |data|
+      assert_equal 'Llywio i’r rhan flaenorol', data["previous_page"]["title"]
+      assert_equal '/reduced-earnings-allowance/how-to-claim', data["previous_page"]["url"]
+      assert_equal "How to claim", data["previous_page"]["label"]
+      assert_nil data["next_page"]
     end
   end
 

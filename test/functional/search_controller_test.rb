@@ -383,7 +383,7 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: 'Test', count: 1000
   end
 
-  test "should_show_external_links_with_a_separate_list_class" do
+  test "should_show_external_links_with_rel_external" do
     external_document = {
       "title" => "A title",
       "description" => "This is a description",
@@ -395,7 +395,7 @@ class SearchControllerTest < ActionController::TestCase
     stub_results([external_document], "bleh")
 
     get :index, {q: "bleh"}
-    assert_select "li.external" do
+    assert_select ".results-list li" do
       assert_select "a[rel=external]", "A title"
     end
   end
@@ -435,7 +435,7 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bleh"}
 
     assert_response :success
-    assert_select "li.external .meta" do
+    assert_select ".results-list li .meta" do
       assert_select ".url", {count: 1, text: "www.weally.weally.long.url.com/weaseling/abou..."}
     end
   end
@@ -452,7 +452,7 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bleh"}
 
     assert_response :success
-    assert_select "li.external .meta" do
+    assert_select ".results-list li .meta" do
       assert_select ".url", {count: 1, text: "www.badgers.com/badgers"}
     end
   end
@@ -469,7 +469,7 @@ class SearchControllerTest < ActionController::TestCase
     get :index, {q: "bleh"}
 
     assert_response :success
-    assert_select "li.external .meta" do
+    assert_select ".results-list li .meta" do
       assert_select ".url", {count: 1, text: "www.badgers.com/badgers"}
     end
   end

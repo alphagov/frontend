@@ -90,22 +90,6 @@ body.full-width .check-vehicle-tax-start header.page-header div {
         }
       }
 
-      .you-will-need {
-        margin-top: 1.5em;
-
-        ul {
-          margin-bottom: 0;
-        }
-
-        @include media(desktop){
-          display: block;
-          margin-top: 0;
-          width:50%;
-          float:right;
-          margin-bottom: 42px;
-        }
-      }
-
       .contacts {
         display: block;
 

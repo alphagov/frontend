@@ -87,17 +87,6 @@ body.full-width .vehicle-tax-start header.page-header div {
         }
       }
 
-      .you-will-need {
-        display: none;
-
-        @include media(desktop){
-          display: block;
-          width:30%;
-          float:right;
-          margin-bottom: 42px;
-        }
-      }
-
       .contacts {
         display: block;
 
@@ -324,9 +313,3 @@ body.full-width .vehicle-tax-start header.page-header div {
     background-size: 25px;
   }
 }
-
-
-
-
-
-

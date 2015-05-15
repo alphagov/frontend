@@ -218,16 +218,6 @@ main.search {
           }
         }
 
-        li.external {
-          border: 1px solid $border-colour;
-          padding: 9px;
-          margin-bottom: 25px;
-
-          @include media(tablet) {
-            padding: 14px;
-          }
-        }
-
         li.descoped-results {
           border-left: 4px solid $govuk-blue;
           padding: $gutter-half 0 0 $gutter-half;

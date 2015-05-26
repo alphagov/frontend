@@ -5,7 +5,7 @@
       $ = root.jQuery;
 
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
-  if (typeof root.GOVUK.SearchAnalytics === 'undefined') { root.GOVUK.SearchAnalytics = {}; }
+  if (typeof root.GOVUK.Search === 'undefined') { root.GOVUK.Search = {}; }
 
   var extractSearchURLs = function ($searchResults) {
     if ($searchResults.length <= 0) {
@@ -31,5 +31,5 @@
     return $searchResults.children().map(extractSearchURL);
   };
 
-  GOVUK.SearchAnalytics.extractSearchURLs = extractSearchURLs;
+  GOVUK.Search.extractSearchURLs = extractSearchURLs;
 }).call(this);

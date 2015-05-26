@@ -1,4 +1,4 @@
-describe('Search Analytics', function () {
+describe('Search', function () {
   var $results;
 
   beforeEach(function () {
@@ -24,11 +24,11 @@ describe('Search Analytics', function () {
       });
 
       it('returns an empty array if no results found', function () {
-        expect(GOVUK.SearchAnalytics.extractSearchURLs([])).toEqual([]);
+        expect(GOVUK.Search.extractSearchURLs([])).toEqual([]);
       });
 
       it('extracts all search result URLs', function () {
-        var extractedURLs = GOVUK.SearchAnalytics.extractSearchURLs($resultsList);
+        var extractedURLs = GOVUK.Search.extractSearchURLs($resultsList);
 
         expect(extractedURLs.length).toEqual(2);
         expect(extractedURLs[0]).toEqual({
@@ -53,7 +53,7 @@ describe('Search Analytics', function () {
       });
 
       it('extracts all search results URLs including scoped results in order', function () {
-        var extractedURLs = GOVUK.SearchAnalytics.extractSearchURLs($resultsList);
+        var extractedURLs = GOVUK.Search.extractSearchURLs($resultsList);
 
         expect(extractedURLs.length).toEqual(2);
         expect(extractedURLs[0]).toEqual({

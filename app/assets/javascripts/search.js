@@ -41,6 +41,16 @@
     GOVUK.liveSearch.init();
   };
 
+  (function trackSearchResultURLs() {
+    var searchURLs = GOVUK.search.extractSearchURLs($searchResults);
+
+    if (searchURLs.length) {
+      GOVUK.analytics.trackEvent('search-results', 'pages', {
+        label: searchURLs,
+        nonInteraction: true
+      });
+    }
+  }());
 
   (function trackSearchClicks(){
     if($searchResults.length === 0 || !GOVUK.cookie){

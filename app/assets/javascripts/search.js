@@ -1,10 +1,14 @@
-$(function() {
-  var $searchResults = $('#results .results-list');
+(function() {
+  "use strict";
+
+  var root = this,
+      $ = root.jQuery,
+      $searchResults = $('#results .results-list');
 
   if ($searchResults.length > 0) {
     $('.js-openable-filter').each(function(){
       new GOVUK.CheckboxFilter({el:$(this)});
-    })
+    });
     GOVUK.liveSearch.init();
   };
 
@@ -24,7 +28,7 @@ $(function() {
 
   (function trackSearchClicks(){
     if($searchResults.length === 0 || !GOVUK.cookie){
-      return false;
+      return;
     }
     $searchResults.on('click', 'a', function(e){
       var $link = $(e.target),
@@ -50,4 +54,4 @@ $(function() {
       new GOVUK.TrackExternalLinks($searchResults);
     }
   }());
-});
+}).call(this);

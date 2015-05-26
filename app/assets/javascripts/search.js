@@ -52,6 +52,17 @@
     }
   }());
 
+  (function trackSpellingSuggestion() {
+    var $spellingSuggestion = $('.spelling-suggestion a');
+
+    if ($spellingSuggestion.length) {
+      GOVUK.analytics.trackEvent('spelling-suggestion', 'pages', {
+        label: $spellingSuggestion.text(),
+        nonInteraction: true
+      });
+    }
+  }());
+
   (function trackSearchClicks(){
     if($searchResults.length === 0 || !GOVUK.cookie){
       return;

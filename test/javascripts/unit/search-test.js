@@ -24,11 +24,11 @@ describe('Search', function () {
       });
 
       it('returns an empty array if no results found', function () {
-        expect(GOVUK.Search.extractSearchURLs([])).toEqual([]);
+        expect(GOVUK.search.extractSearchURLs([])).toEqual([]);
       });
 
       it('extracts all search result URLs', function () {
-        var extractedURLs = GOVUK.Search.extractSearchURLs($resultsList);
+        var extractedURLs = GOVUK.search.extractSearchURLs($resultsList);
 
         expect(extractedURLs.length).toEqual(2);
         expect(extractedURLs[0]).toEqual({
@@ -53,7 +53,7 @@ describe('Search', function () {
       });
 
       it('extracts all search results URLs including scoped results in order', function () {
-        var extractedURLs = GOVUK.Search.extractSearchURLs($resultsList);
+        var extractedURLs = GOVUK.search.extractSearchURLs($resultsList);
 
         expect(extractedURLs.length).toEqual(2);
         expect(extractedURLs[0]).toEqual({

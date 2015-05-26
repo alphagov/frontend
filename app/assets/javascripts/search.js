@@ -6,7 +6,7 @@
       $searchResults = $('#results .results-list');
 
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
-  if (typeof root.GOVUK.Search === 'undefined') { root.GOVUK.Search = {}; }
+  if (typeof root.GOVUK.search === 'undefined') { root.GOVUK.search = {}; }
 
   var extractSearchURLs = function ($searchResults) {
     if ($searchResults.length <= 0) {
@@ -32,7 +32,7 @@
     return $searchResults.children().map(extractSearchURL);
   };
 
-  GOVUK.Search.extractSearchURLs = extractSearchURLs;
+  GOVUK.search.extractSearchURLs = extractSearchURLs;
 
   if ($searchResults.length > 0) {
     $('.js-openable-filter').each(function(){
@@ -40,6 +40,7 @@
     });
     GOVUK.liveSearch.init();
   };
+
 
   (function trackSearchClicks(){
     if($searchResults.length === 0 || !GOVUK.cookie){

@@ -41,20 +41,6 @@
     GOVUK.liveSearch.init();
   };
 
-  var getStartAtValue = function() {
-    var queryString = window.location.search,
-        startAtRegex = /(&|\?)start=([0-9]+)(&|$)/,
-        startAt = 0,
-        matches;
-
-    matches = queryString.match(startAtRegex);
-
-    if (matches !== null) {
-      startAt = parseInt(matches[2], 10);
-    }
-    return startAt;
-  };
-
   (function trackSearchClicks(){
     if($searchResults.length === 0 || !GOVUK.cookie){
       return;
@@ -63,6 +49,20 @@
       var $link = $(e.target),
           sublink = '',
           position, href, startAt;
+
+      var getStartAtValue = function() {
+        var queryString = window.location.search,
+            startAtRegex = /(&|\?)start=([0-9]+)(&|$)/,
+            startAt = 0,
+            matches;
+
+        matches = queryString.match(startAtRegex);
+
+        if (matches !== null) {
+          startAt = parseInt(matches[2], 10);
+        }
+        return startAt;
+      };
 
       if($link.closest('ul').hasClass('sections')){
         href = $link.attr('href');

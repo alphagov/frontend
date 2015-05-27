@@ -35,19 +35,7 @@ class SearchResult
     end
   end
 
-  result_accessor :link, :title, :format, :es_score, :section, :subsection, :subsubsection
-
-  def formatted_section_name
-    mapped_name(section) || humanized_name(section)
-  end
-
-  def formatted_subsection_name
-    mapped_name(subsection) || humanized_name(subsection)
-  end
-
-  def formatted_subsubsection_name
-    mapped_name(subsubsection) || humanized_name(subsubsection)
-  end
+  result_accessor :link, :title, :format, :es_score
 
   # External links have a truncated version of their URLs displayed on the
   # results page, but there's little benefit to displaying the URL scheme
@@ -72,10 +60,6 @@ class SearchResult
       suggested_filter_link: suggested_filter_link,
       external: format == "recommended-link",
       display_link: display_link,
-      section: section,
-      formatted_section_name: (formatted_section_name if section),
-      formatted_subsection_name: (formatted_subsection_name if subsection),
-      formatted_subsubsection_name: (formatted_subsubsection_name if subsubsection),
       attributes: [],
       es_score: formatted_es_score,
       format: format,

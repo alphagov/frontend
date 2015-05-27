@@ -30,21 +30,6 @@
         </p>
       {{/external}}
 
-      {{#section}}
-        <p class="meta crumbtrail">
-          <span class="visuallyhidden">Part of </span>
-          <span class="section">{{formatted_section_name}}</span>
-          {{#formatted_subsection_name}}
-            <span class="visuallyhidden">, </span>
-            <span class="subsection">{{ formatted_subsection_name }}</span>
-          {{/formatted_subsection_name}}
-          {{#formatted_subsubsection_name}}
-            <span class="visuallyhidden">, </span>
-            <span class="subsubsection">{{ formatted_subsubsection_name }}</span>
-          {{/formatted_subsubsection_name}}
-        </p>
-      {{/section}}
-
       {{#metadata_any?}}
         <ul class="attributes">
           {{#metadata}}

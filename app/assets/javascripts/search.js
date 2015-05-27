@@ -45,7 +45,7 @@
     var searchURLs = GOVUK.search.extractSearchURLs($searchResults);
 
     if (searchURLs.length) {
-      GOVUK.analytics.trackEvent('search-results', 'pages', {
+      GOVUK.analytics.trackEvent('Search Results', 'Shown', {
         label: searchURLs,
         nonInteraction: true
       });
@@ -56,7 +56,7 @@
     var $spellingSuggestion = $('.spelling-suggestion a');
 
     if ($spellingSuggestion.length) {
-      GOVUK.analytics.trackEvent('spelling-suggestion', 'pages', {
+      GOVUK.analytics.trackEvent('Search suggestions', 'Shown', {
         label: $spellingSuggestion.text(),
         nonInteraction: true
       });

@@ -32,13 +32,12 @@
 
         if (foundURL.parents('.descoped-results').length) {
           return {
-            'href': foundURL.attr('href'),
-            'scoped': true
+            href: foundURL.attr('href'),
+            descoped: true
           };
         } else {
           return {
-            'href': foundURL.attr('href'),
-            'scoped': false
+            href: foundURL.attr('href')
           };
         }
       }

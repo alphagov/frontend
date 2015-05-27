@@ -94,9 +94,7 @@ private
     if locations.length > 1
       "multiple locations"
     elsif locations.length == 1
-      locations.map do |field|
-        field["acronym"] || field["title"] || field["slug"]
-      end.join(", ")
+      locations.first["acronym"] || locations.first["title"]
     end
   end
 

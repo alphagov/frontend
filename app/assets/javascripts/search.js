@@ -1,38 +1,36 @@
 (function() {
   "use strict";
 
-  var root = this,
-      $ = root.jQuery,
+  window.GOVUK = window.GOVUK || {};
+
+  var $ = window.jQuery,
       $searchResults = $('#results .results-list');
 
-  if (typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
-  if (typeof root.GOVUK.search === 'undefined') { root.GOVUK.search = {}; }
-
-  var extractSearchURLs = function ($searchResults) {
-    if ($searchResults.length <= 0) {
-      return [];
-    }
-
-    function extractSearchURL(index, element) {
-      var foundURL = $(element).find('h3 a');
-
-      if (foundURL.parents('.descoped-results').length) {
-        return {
-          'href': foundURL.attr('href'),
-          'scoped': true
-        };
-      } else {
-        return {
-          'href': foundURL.attr('href'),
-          'scoped': false
-        };
+  GOVUK.search = {
+    extractSearchURLs: function ($searchResults) {
+      if ($searchResults.length <= 0) {
+        return [];
       }
+
+      function extractSearchURL(index, element) {
+        var foundURL = $(element).find('h3 a');
+
+        if (foundURL.parents('.descoped-results').length) {
+          return {
+            'href': foundURL.attr('href'),
+            'scoped': true
+          };
+        } else {
+          return {
+            'href': foundURL.attr('href'),
+            'scoped': false
+          };
+        }
+      }
+
+      return $searchResults.children().map(extractSearchURL);
     }
-
-    return $searchResults.children().map(extractSearchURL);
   };
-
-  GOVUK.search.extractSearchURLs = extractSearchURLs;
 
   if ($searchResults.length > 0) {
     $('.js-openable-filter').each(function(){

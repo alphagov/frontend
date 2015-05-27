@@ -1,4 +1,4 @@
-describe('Search', function () {
+describe('GOVUK.search', function () {
   var $results;
 
   beforeEach(function () {
@@ -10,7 +10,7 @@ describe('Search', function () {
     $results.remove();
   });
 
-  describe('ExtractSearchURLs', function () {
+  describe('extractSearchURLs', function () {
     var $resultsList;
 
     describe('simple search results list', function () {

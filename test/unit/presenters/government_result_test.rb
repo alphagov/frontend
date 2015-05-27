@@ -43,6 +43,12 @@ offering...}
     assert_equal "multiple locations", result.metadata[0]
   end
 
+  should "not display locations when there is only a slug present" do
+    united_kingdom = { "slug" => "united_kingdom" }
+    result = GovernmentResult.new(SearchParameters.new({}), "world_locations" => [united_kingdom])
+    assert result.metadata.empty?
+  end
+
   should "return valid metadata" do
     result = GovernmentResult.new(SearchParameters.new({}), {
       "public_timestamp" => "2014-10-14",

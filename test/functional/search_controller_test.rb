@@ -153,63 +153,6 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "a[href='/document-slug']", text: "document-title"
   end
 
-  test "should_not_blow_up_with_a_result_wihout_a_section" do
-    result_without_section = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
-      "link" => "/URL"
-    }
-    stub_results([result_without_section], "bob")
-    assert_nothing_raised do
-      get :index, { q: "bob" }
-    end
-  end
-
-  test "should include sections in results" do
-    result_with_section = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
-      "link" => "/url",
-      "section" => "life-in-the-uk"
-    }
-    stub_results([result_with_section], "bob")
-    get :index, {q: "bob"}
-
-    assert_select ".meta .section", text: "Life in the UK"
-  end
-
-  test "should include sub-sections in results" do
-    result_with_section = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
-      "link" => "/url",
-      "section" => "life-in-the-uk",
-      "subsection" => "test-thing"
-    }
-    stub_results([result_with_section], "bob")
-    get :index, {q: "bob"}
-
-    assert_select ".meta .section", text: "Life in the UK"
-    assert_select ".meta .subsection", text: "Test thing"
-  end
-
-  test "should include sub-sub-sections in results" do
-    result_with_section = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
-      "link" => "/url",
-      "section" => "life-in-the-uk",
-      "subsection" => "test-thing",
-      "subsubsection" => "sub-section"
-    }
-    stub_results([result_with_section], "bob")
-    get :index, {q: "bob"}
-
-    assert_select ".meta .section", text: "Life in the UK"
-    assert_select ".meta .subsection", text: "Test thing"
-    assert_select ".meta .subsubsection", text: "Sub section"
-  end
-
   test "should apply history mode to historic result" do
     historic_result = {
       "title" => "TITLE1",

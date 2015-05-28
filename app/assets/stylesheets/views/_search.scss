@@ -303,15 +303,6 @@ main.search {
             word-wrap: break-word;
             color: $secondary-text-colour;
           }
-
-          &.meta {
-            .subsection,
-            .subsubsection {
-              background: transparent image-url("search/separator.png") 0 40% no-repeat;
-              padding-left: 15px;
-              margin-left: 5px;
-            }
-          }
         }
       }
 

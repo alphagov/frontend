@@ -326,10 +326,10 @@ body.full-width .make-a-sorn header.page-header div {
   padding-left: 35px;
   @include core-16;
 
-  background:image-url("start-pages/vehicle-tax/performance-icon.png") no-repeat;
+  background:image-url("start-pages/make-a-sorn/performance-icon.png") no-repeat;
 
   @include device-pixel-ratio() {
-    background: image-url("start-pages/vehicle-tax/performance-icon-2x.png") no-repeat;
+    background: image-url("start-pages/make-a-sorn/performance-icon-2x.png") no-repeat;
     background-size: 25px;
   }
 }

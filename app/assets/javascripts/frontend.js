@@ -1,10 +1,10 @@
 // Frontend manifest
-//= require checkbox-filter
-//= require live-search
+//= require transactions
 //= require media-player-loader
-//= require search
-//= require shared_mustache
+//= require checkbox-filter
 //= require support
+//= require live-search
+//= require shared_mustache
 //= require templates
 //= require track-external-links
-//= require transactions
+//= require search

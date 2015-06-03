@@ -25,17 +25,8 @@
     <%- else -%>
       <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @publication, :presenter => presenter } %>
     <%- end -%>
-
   </section>
-  <% #Enable cross-domain analytics for specific start pages based on slug
-    {
-      'register-to-vote' => 'UA-23066786-5',
-      'accelerated-possession-eviction' => 'UA-37377084-12',
-      'renewtaxcredits' => 'UA-43414424-1', # HMRC, https://www.pivotaltracker.com/n/projects/1261204
-    }.each do |slug, account_code|
-      if @publication.slug == slug %>
-        <%= render :partial => 'transaction_cross_domain_analytics', :locals => { :ga_account_code => account_code } %>
-      <% end
-    end
-  %>
+
+  <% tracker = cross_domain_tracker(@publication.slug) %>
+  <%= render :partial => 'transaction_cross_domain_analytics', :locals => { :tracker => tracker } if tracker %>
 <% end %>

@@ -12,7 +12,6 @@
       search.enableLiveSearchCheckbox($searchResults);
       search.trackExternalSearchClicks($searchResults);
       search.trackSearchClicks($searchResults);
-      search.trackSpellingSuggestions();
     },
     enableLiveSearchCheckbox: function ($searchResults) {
       if ($searchResults.length > 0) {
@@ -88,26 +87,6 @@
         position = $link.closest('li').index() + startAt + 1; // +1 so it isn't zero offset
         GOVUK.analytics.callOnNextPage('setSearchPositionDimension', 'position=' + position + sublink);
       });
-    },
-    trackSearchResultURLs: function () {
-      var searchURLs = search.extractSearchURLs($searchResults);
-
-      if (searchURLs.length) {
-        GOVUK.analytics.trackEvent('Search Results', 'Shown', {
-          label: searchURLs,
-          nonInteraction: true
-        });
-      }
-    },
-    trackSpellingSuggestions: function () {
-      var $spellingSuggestion = $('.spelling-suggestion a');
-
-      if ($spellingSuggestion.length) {
-        GOVUK.analytics.trackEvent('Search suggestions', 'Shown', {
-          label: $spellingSuggestion.text(),
-          nonInteraction: true
-        });
-      }
     }
   };
 

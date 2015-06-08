@@ -64,4 +64,23 @@ describe('GOVUK.search', function () {
       });
     });
   });
+
+  describe('extractSearchSuggestion', function () {
+    it('returns null when no spelling suggestion is found', function () {
+      expect(GOVUK.search.extractSearchSuggestion()).toEqual(null);
+    });
+
+    it('extracts the spelling suggestion if there is one', function () {
+      var $suggestion = $('<fieldset class="spelling-suggestion">' +
+                          '<p>Did you mean ' +
+                          '<a href="/search?o=testin&amp;q=testing">testing</a>' +
+                          '</p>' +
+                          '</fieldset>');
+      $results.append($suggestion);
+
+      expect(GOVUK.search.extractSearchSuggestion()).toEqual('testing');
+
+      $suggestion.remove();
+    });
+  });
 });

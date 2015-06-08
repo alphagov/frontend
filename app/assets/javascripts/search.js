@@ -21,6 +21,15 @@
         GOVUK.liveSearch.init();
       };
     },
+    extractSearchSuggestion: function () {
+      var $suggestion = $('.spelling-suggestion a');
+
+      if ($suggestion.length) {
+        return $suggestion.text();
+      } else {
+        return null;
+      }
+    },
     extractSearchURLs: function ($searchResults) {
       if ($searchResults.length <= 0) {
         return [];

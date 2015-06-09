@@ -18,7 +18,6 @@ class RootController < ApplicationController
   EXCEPTIONAL_FORMAT_SLUGS = %w(
     check-vehicle-tax
     make-a-sorn
-    view-driving-licence
   )
 
   FULL_WIDTH_FORMATS = %w{

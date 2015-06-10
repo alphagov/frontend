@@ -303,19 +303,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "exceptional view-driving-licence start page format" do
-    should "render a bespoke view" do
-      setup_api_responses('view-driving-licence')
-      visit "/view-driving-licence"
-      assert_equal 200, page.status_code
-      within("div.title h1") do
-        assert page.has_content?("View your driving licence information")
-      end
-      within(".primary-apply") do
-        assert page.has_content?("You'll need")
-      end
-    end
-  end
   context "exceptional check-vehicle-tax start page format" do
     should "render a bespoke view" do
       setup_api_responses('check-vehicle-tax')

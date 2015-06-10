@@ -7,12 +7,14 @@
 
   var search = {
     init: function () {
-      var $searchResults = $('#results .results-list');
+      if (window.location.pathname === "/search") {
+        var $searchResults = $('#results .results-list');
 
-      search.enableLiveSearchCheckbox($searchResults);
-      search.trackExternalSearchClicks($searchResults);
-      search.trackSearchClicks($searchResults);
-      search.trackSearchResultsAndSuggestions($searchResults);
+        search.enableLiveSearchCheckbox($searchResults);
+        search.trackExternalSearchClicks($searchResults);
+        search.trackSearchClicks($searchResults);
+        search.trackSearchResultsAndSuggestions($searchResults);
+      }
     },
     enableLiveSearchCheckbox: function ($searchResults) {
       if ($searchResults.length > 0) {

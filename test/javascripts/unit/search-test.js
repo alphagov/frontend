@@ -65,6 +65,60 @@ describe('GOVUK.search', function () {
     });
   });
 
+  describe('buildSearchResultsData', function () {
+    var $resultsList;
+
+    beforeEach(function () {
+      $resultsList = $('<ol class="results-list">' +
+                       '<li><h3><a href="guidance/content-design/what-is-content-design">Content design: planning, writing and managing content: What is content design?</a></h3></li>' +
+                       '<li class="descoped-results"><div class="descope-message"><a href="/search?q=design">Display 14,128 results from all of GOV.UK</a></div>' +
+                       '<ol><li><h3><a href="/search-registered-design">Search for a registered design</a></h3><p class="meta crumbtrail"><span class="visuallyhidden">Part of </span><span class="section">Business</span><span class="visuallyhidden">, </span><span class="subsection">Intellectual property</span></p><p>Find registered designs in the UK</p></li></ol>' +
+                       '</li>' +
+                       '</ol>');
+      $results.append($resultsList);
+    });
+
+    afterEach(function () {
+      $resultsList.remove();
+    });
+
+    describe('no suggestions present', function () {
+      it('returns an object with no urls present when there are no results', function () {
+        expect(GOVUK.search.buildSearchResultsData([])).toEqual({'urls': []});
+      });
+
+      it('associates the results urls into the result object', function () {
+        expect(GOVUK.search.buildSearchResultsData($resultsList))
+          .toEqual({'urls': [
+            {href: 'guidance/content-design/what-is-content-design'},
+            {href: '/search-registered-design', descoped : true}
+          ]});
+      });
+    });
+
+    describe('suggestions present', function () {
+      it('assigns the suggestions key when suggestions are present', function () {
+        var $suggestion = $('<fieldset class="spelling-suggestion">' +
+                            '<p>Did you mean ' +
+                            '<a href="/search?o=testin&amp;q=testing">testing</a>' +
+                            '</p>' +
+                            '</fieldset>');
+        $results.append($suggestion);
+
+        expect(GOVUK.search.buildSearchResultsData($resultsList))
+          .toEqual({
+            'urls': [
+              {href: 'guidance/content-design/what-is-content-design'},
+              {href: '/search-registered-design', descoped : true}
+            ],
+            'suggestion': 'testing'
+          });
+
+        $suggestion.remove();
+      });
+    });
+  });
+
   describe('extractSearchSuggestion', function () {
     it('returns null when no spelling suggestion is found', function () {
       expect(GOVUK.search.extractSearchSuggestion()).toEqual(null);

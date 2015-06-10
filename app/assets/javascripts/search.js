@@ -112,7 +112,8 @@
       }
 
       if (GOVUK.analytics !== undefined &&
-          GOVUK.analytics.trackEvent !== undefined) {
+          GOVUK.analytics.trackEvent !== undefined &&
+          $searchResults.length) {
         GOVUK.analytics.trackEvent('searchResults', 'resultsShown', {
           label: searchResultData,
           nonInteraction: true

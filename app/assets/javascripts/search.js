@@ -55,10 +55,12 @@
         var foundURL = $(element).find('h3 a');
 
         if (foundURL.parents('.descoped-results').length) {
-          return {
-            href: foundURL.attr('href'),
-            descoped: true
-          };
+          return $.makeArray(foundURL.map(function(index, item) {
+            return {
+              href: $(item).attr('href'),
+              descoped: true
+            };
+          }))
         } else {
           return {
             href: foundURL.attr('href')

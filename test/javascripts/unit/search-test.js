@@ -42,7 +42,13 @@ describe('GOVUK.search', function () {
 
     describe('search results with inlined descoped results', function () {
       beforeEach(function () {
-        $resultsList = $('<ol class="results-list"><li><h3><a href="guidance/content-design/what-is-content-design">Content design: planning, writing and managing content: What is content design?</a></h3></li><li class="descoped-results"><div class="descope-message"><a href="/search?q=design">Display 14,128 results from all of GOV.UK</a></div><ol><li><h3><a href="/search-registered-design">Search for a registered design</a></h3><p class="meta crumbtrail"><span class="visuallyhidden">Part of </span><span class="section">Business</span><span class="visuallyhidden">, </span><span class="subsection">Intellectual property</span></p><p>Find registered designs in the UK</p></li></ol></li></ol>');
+        $resultsList = $('<ol class="results-list">' +
+                         '<li><h3><a href="guidance/content-design/what-is-content-design">Content design: planning, writing and managing content: What is content design?</a></h3></li>' +
+                         '<li class="descoped-results"><div class="descope-message"><a href="/search?q=design">Display 14,128 results from all of GOV.UK</a></div><ol>' +
+                           '<li><h3><a href="/search-registered-design">Search for a registered design</a></h3><p class="meta crumbtrail"><span class="visuallyhidden">Part of </span><span class="section">Business</span><span class="visuallyhidden">, </span><span class="subsection">Intellectual property</span></p><p>Find registered designs in the UK</p></li>' +
+                           '<li><h3><a href="/another-design">Another design</a></h3><p class="meta crumbtrail"><span class="visuallyhidden">Part of </span><span class="section">Business</span><span class="visuallyhidden">, </span><span class="subsection">Intellectual property</span></p><p>Something about another design</p></li>' +
+                         '</ol></li>' +
+                         '<li><h3><a href="guidance/content-design/more-advice">More advice on content design</a></h3></li></ol>');
         $results.append($resultsList);
       });
 
@@ -53,7 +59,7 @@ describe('GOVUK.search', function () {
       it('extracts all search results URLs including descoped results in order', function () {
         var extractedURLs = GOVUK.search.extractSearchURLs($resultsList);
 
-        expect(extractedURLs.length).toEqual(2);
+        expect(extractedURLs.length).toEqual(4);
         expect(extractedURLs[0]).toEqual({
           href: 'guidance/content-design/what-is-content-design'
         });
@@ -61,6 +67,67 @@ describe('GOVUK.search', function () {
           href: '/search-registered-design',
           descoped: true
         });
+        expect(extractedURLs[2]).toEqual({
+          href: '/another-design',
+          descoped: true
+        });
+        expect(extractedURLs[3]).toEqual({
+          href: 'guidance/content-design/more-advice'
+        });
+      });
+    });
+  });
+
+  describe('buildSearchResultsData', function () {
+    var $resultsList;
+
+    beforeEach(function () {
+      $resultsList = $('<ol class="results-list">' +
+                       '<li><h3><a href="guidance/content-design/what-is-content-design">Content design: planning, writing and managing content: What is content design?</a></h3></li>' +
+                       '<li class="descoped-results"><div class="descope-message"><a href="/search?q=design">Display 14,128 results from all of GOV.UK</a></div>' +
+                       '<ol><li><h3><a href="/search-registered-design">Search for a registered design</a></h3><p class="meta crumbtrail"><span class="visuallyhidden">Part of </span><span class="section">Business</span><span class="visuallyhidden">, </span><span class="subsection">Intellectual property</span></p><p>Find registered designs in the UK</p></li></ol>' +
+                       '</li>' +
+                       '</ol>');
+      $results.append($resultsList);
+    });
+
+    afterEach(function () {
+      $resultsList.remove();
+    });
+
+    describe('no suggestions present', function () {
+      it('returns an object with no urls present when there are no results', function () {
+        expect(GOVUK.search.buildSearchResultsData([])).toEqual({'urls': []});
+      });
+
+      it('associates the results urls into the result object', function () {
+        expect(GOVUK.search.buildSearchResultsData($resultsList))
+          .toEqual({'urls': [
+            {href: 'guidance/content-design/what-is-content-design'},
+            {href: '/search-registered-design', descoped : true}
+          ]});
+      });
+    });
+
+    describe('suggestions present', function () {
+      it('assigns the suggestions key when suggestions are present', function () {
+        var $suggestion = $('<fieldset class="spelling-suggestion">' +
+                            '<p>Did you mean ' +
+                            '<a href="/search?o=testin&amp;q=testing">testing</a>' +
+                            '</p>' +
+                            '</fieldset>');
+        $results.append($suggestion);
+
+        expect(GOVUK.search.buildSearchResultsData($resultsList))
+          .toEqual({
+            'urls': [
+              {href: 'guidance/content-design/what-is-content-design'},
+              {href: '/search-registered-design', descoped : true}
+            ],
+            'suggestion': 'testing'
+          });
+
+        $suggestion.remove();
       });
     });
   });

@@ -14,6 +14,21 @@
       search.trackSearchClicks($searchResults);
       search.trackSearchResultsAndSuggestions($searchResults);
     },
+    buildSearchResultsData: function ($searchResults) {
+      var searchResultData = {'urls': []},
+          searchURLs = search.extractSearchURLs($searchResults),
+          searchSuggestion = search.extractSearchSuggestion();
+
+      if (searchURLs.length) {
+        searchResultData['urls'] = searchURLs.toArray();
+      }
+
+      if (searchSuggestion !== null) {
+        searchResultData['suggestion'] = searchSuggestion;
+      }
+
+      return searchResultData;
+    },
     enableLiveSearchCheckbox: function ($searchResults) {
       if ($searchResults.length > 0) {
         $('.js-openable-filter').each(function(){
@@ -40,10 +55,12 @@
         var foundURL = $(element).find('h3 a');
 
         if (foundURL.parents('.descoped-results').length) {
-          return {
-            href: foundURL.attr('href'),
-            descoped: true
-          };
+          return $.makeArray(foundURL.map(function(index, item) {
+            return {
+              href: $(item).attr('href'),
+              descoped: true
+            };
+          }))
         } else {
           return {
             href: foundURL.attr('href')
@@ -99,17 +116,7 @@
       });
     },
     trackSearchResultsAndSuggestions: function ($searchResults) {
-      var searchResultData = {'urls': []},
-          searchURLs = search.extractSearchURLs($searchResults),
-          searchSuggestion = search.extractSearchSuggestion();
-
-      if (searchURLs.length) {
-        searchResultData['urls'] = searchURLs;
-      }
-
-      if (searchSuggestion !== null) {
-        searchResultData['suggestion'] = searchSuggestion;
-      }
+      var searchResultData = search.buildSearchResultsData($searchResults);
 
       if (GOVUK.analytics !== undefined &&
           GOVUK.analytics.trackEvent !== undefined &&

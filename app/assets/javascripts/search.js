@@ -60,7 +60,7 @@
               href: $(item).attr('href'),
               descoped: true
             };
-          }))
+          }));
         } else {
           return {
             href: foundURL.attr('href')

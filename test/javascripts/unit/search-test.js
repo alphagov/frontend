@@ -150,4 +150,39 @@ describe('GOVUK.search', function () {
       $suggestion.remove();
     });
   });
+
+  describe('trackSearchResultsOnOrganisationFilter', function () {
+    var $resultsList;
+
+    beforeEach(function () {
+      $resultsList = $('<ol class="results-list">' +
+                       '<li><h3><a href="guidance/content-design/what-is-content-design">Content design: planning, writing and managing content: What is content design?</a></h3></li>' +
+                       '<li><h3><a href="guidance/content-design/research-and-evidence">Content design: planning, writing and managing content: Research and evidence</a></h3><p>Tools and evidence to back up content design decisions.</p></li>' +
+                       '</ol>');
+      $results.append($resultsList);
+    });
+
+    afterEach(function () {
+      $resultsList.remove();
+    });
+
+    it('fires an event when the results list is updated', function () {
+      var $searchResults = $('#results .results-list'),
+          updated = false;
+
+      spyOn(GOVUK.search, 'trackSearchResultsAndSuggestions');
+
+      GOVUK.search.trackSearchResultsAndSuggestionsOnPageTrack($searchResults);
+
+      expect(
+        GOVUK.search.trackSearchResultsAndSuggestions
+      ).not.toHaveBeenCalled();
+
+      $(document).trigger('liveSearch.pageTrack');
+
+      expect(
+        GOVUK.search.trackSearchResultsAndSuggestions
+      ).toHaveBeenCalled();
+    });
+  });
 });

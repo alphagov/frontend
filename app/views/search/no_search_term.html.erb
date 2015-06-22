@@ -2,5 +2,7 @@
 <% content_for :title, "Search - GOV.UK" %>
 
 <main id="content" role="main" class="search no-results-term">
-  <%= render partial: 'form' %>
+  <form action="/search" method="get" accept-charset="utf-8" class="search-header search-header-2" role="search">
+    <%= render 'search_field' %>
+  </form>
 </main>

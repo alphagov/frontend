@@ -13,6 +13,7 @@
       search.trackExternalSearchClicks($searchResults);
       search.trackSearchClicks($searchResults);
       search.trackSearchResultsAndSuggestions($searchResults);
+      search.trackSearchResultsAndSuggestionsOnPageTrack($searchResults);
     },
     buildSearchResultsData: function ($searchResults) {
       var searchResultData = {'urls': []},
@@ -60,7 +61,7 @@
               href: $(item).attr('href'),
               descoped: true
             };
-          }))
+          }));
         } else {
           return {
             href: foundURL.attr('href')
@@ -124,6 +125,14 @@
         GOVUK.analytics.trackEvent('searchResults', 'resultsShown', {
           label: JSON.stringify(searchResultData),
           nonInteraction: true
+        });
+      }
+    },
+    trackSearchResultsAndSuggestionsOnPageTrack: function ($searchResults) {
+      if ($searchResults.length) {
+        $(document).on('liveSearch.pageTrack', function () {
+          var $searchResults = $('#results .results-list');
+          search.trackSearchResultsAndSuggestions($searchResults);
         });
       }
     }

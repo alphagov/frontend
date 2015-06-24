@@ -42,6 +42,7 @@
     pageTrack: function(){
       GOVUK.analytics.setResultCountDimension(liveSearch.cache().result_count);
       GOVUK.analytics.trackPageview();
+      $(document).trigger("liveSearch.pageTrack");
     },
     checkboxChange: function(e){
       var pageUpdated;

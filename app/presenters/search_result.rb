@@ -1,6 +1,9 @@
+# coding: utf-8
 class SearchResult
   include ActionView::Helpers::NumberHelper
   SCHEME_PATTERN = %r{^https?://}
+  MAX_DESCRIPTION_LENGTH = 215
+  OMISSION_CHARACTER = '…'
 
   attr_accessor :result
 
@@ -56,7 +59,7 @@ class SearchResult
   def description
     description = result["description"]
     if description.present?
-      description
+      description.truncate(MAX_DESCRIPTION_LENGTH, :separator => " ", :omission => OMISSION_CHARACTER)
     else
       case result["format"]
       when "specialist_sector"

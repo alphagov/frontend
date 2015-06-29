@@ -13,8 +13,16 @@
 
 {{#results_any?}}
   <ol class="results-list{{#debug_score}} debug{{/debug_score}}" id="js-live-search-results" start="{{first_result_number}}">
-    {{>search/_results}}
+    {{#results}}
+      {{#is_multiple_results}}
+        {{>search/_sublist}}
+      {{/is_multiple_results}}
+      {{^is_multiple_results}}
+        {{>search/_result}}
+      {{/is_multiple_results}}
+    {{/results}}
   </ol>
+
   <ul class="previous-next-navigation">
     {{#has_previous_page?}}
       <li class="previous">

@@ -15,9 +15,17 @@
 
     <div class="campaign content-block">
       <% if has_organisation?(@publication) %>
-        <div class="organisation">
-          <a href="<%= organisation_url(@publication) %>" class="organisation-logo organisation-logo-<%= organisation_crest(@publication) %> <%= organisation_brand_colour(@publication) %>"><%= formatted_organisation_name(@publication) %></a>
-        </div>
+        <% if organisation_has_custom_logo?(@publication) %>
+          <div class="organisation">
+            <a href="<%= organisation_url(@publication) %>" class="custom-logo">
+              <%= image_tag "campaign/custom-logos/#{organisation_slug(@publication)}.png", alt: organisation_name(@publication) %>
+            </a>
+          </div>
+        <% else %>
+          <div class="organisation">
+            <a href="<%= organisation_url(@publication) %>" class="organisation-logo organisation-logo-<%= organisation_crest(@publication) %> <%= organisation_brand_colour(@publication) %>"><%= formatted_organisation_name(@publication) %></a>
+          </div>
+        <% end %>
       <% end %>
       <%= raw @publication.body %>
     </div>

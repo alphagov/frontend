@@ -54,6 +54,13 @@ main.campaign {
       margin-right: 2em;
     }
 
+    .custom-logo img {
+      max-width: 170px;
+      @include media(desktop){
+        max-width: 100%;
+      }
+    }
+
     a.organisation-logo {
       span {
         top: 0;

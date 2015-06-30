@@ -1,8 +1,16 @@
 module CampaignHelper
+  CUSTOM_LOGO_ORGANISATIONS = %w{
+    environment-agency
+  }
+
   def campaign_image_url(publication, size)
     if image_attrs = publication.details["#{size}_image"]
       image_attrs['web_url']
     end
+  end
+
+  def organisation_name(publication)
+    organisation_attributes(publication).fetch("formatted_name", "").gsub(/\s+/, ' ')
   end
 
   def formatted_organisation_name(publication)
@@ -12,6 +20,10 @@ module CampaignHelper
 
   def organisation_url(publication)
     organisation_attributes(publication)["url"]
+  end
+
+  def organisation_slug(publication)
+    organisation_url(publication).split('/').last
   end
 
   def organisation_crest(publication)
@@ -26,6 +38,10 @@ module CampaignHelper
     organisation_attributes(publication).any? { |key, value|
       value.present?
     }
+  end
+
+  def organisation_has_custom_logo?(publication)
+    CUSTOM_LOGO_ORGANISATIONS.include? organisation_slug(publication)
   end
 
 private

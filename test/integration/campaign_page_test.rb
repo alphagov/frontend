@@ -25,4 +25,20 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
 
   end
 
+  should "render a campaign page with a custom logo" do
+
+    setup_api_responses('floods-destroy')
+    visit "/floods-destroy"
+
+    assert_equal 200, page.status_code
+
+    organisation_link = page.find(".organisation a.custom-logo")
+
+    assert_equal "http://www.example.com/government/organisations/environment-agency", organisation_link['href']
+
+    assert_equal "/frontend/campaign/custom-logos/environment-agency.png", organisation_link.find('img')["src"]
+    assert_equal "Environment Agency", organisation_link.find('img')["alt"]
+  end
+
+
 end

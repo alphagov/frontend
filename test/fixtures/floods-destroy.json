@@ -1,0 +1,40 @@
+{
+  "id": "http://www.example.com/floods-destroy.json",
+  "web_url": "http://www.example.com/floods-destroy",
+  "title": "Floods destroy. Be prepared.",
+  "format": "campaign",
+  "in_beta": false,
+  "updated_at": "2013-09-17T12:37:40+01:00",
+  "tags": [],
+  "related": [],
+  "details": {
+    "need_id": "",
+    "business_proposition": false,
+    "description": "",
+    "language": "en",
+    "need_extended_font": false,
+    "body": "<p>One in 6 properties in England is at risk of flooding. This is only going to increase with a changing climate.</p>",
+    "small_image": {
+      "web_url": "http://www.example.com/media/52383e4b686c82308d000001/floods-destroy.jpg",
+      "content_type": "image/jpeg"
+    },
+    "medium_image": {
+      "web_url": "http://www.example.com/media/52380a1e686c82231f000005/floods-destroy.jpg",
+      "content_type": "image/jpeg"
+    },
+    "large_image": {
+      "web_url": "http://www.example.com/media/52380a1e686c82231f000003/floods-destroy.jpg",
+      "content_type": "image/jpeg"
+    },
+    "organisation": {
+      "formatted_name": "Environment\nAgency",
+      "url": "http://www.example.com/government/organisations/environment-agency",
+      "brand_colour": "environment-agency",
+      "crest": "single-identity"
+    }
+  },
+  "related_external_links": [],
+  "_response_info": {
+    "status": "ok"
+  }
+}

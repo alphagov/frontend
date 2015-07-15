@@ -13,18 +13,62 @@ describe('GOVUK.search', function () {
   describe('extractSearchURLs', function () {
     var $resultsList;
 
+    describe('no results found', function () {
+      beforeEach(function () {
+        GOVUK.analytics = GOVUK.analytics || { trackEvent : function(args) {} };
+        spyOn(GOVUK.analytics, 'trackEvent');
+        $resultsList = []
+        $results.append($resultsList);
+      });
+
+      it('returns an empty array if no results found', function () {
+        expect(GOVUK.search.extractSearchURLs($resultsList)).toEqual([]);
+      });
+
+      it('does not fire an event when trackSearchResultsAndSuggestions is called', function () {
+        var extractedURLs = GOVUK.search.extractSearchURLs($resultsList);
+        var $searchResults = $('#results .results-list');
+        GOVUK.search.trackSearchResultsAndSuggestions($searchResults);
+        expect(GOVUK.analytics.trackEvent).not.toHaveBeenCalled();
+      });
+
+      describe('suggestions present', function () {
+        beforeEach(function () {
+          var $suggestion = $('<fieldset class="spelling-suggestion">' +
+                              '<p>Did you mean ' +
+                              '<a href="/search?o=testin&amp;q=testing">testing</a>' +
+                              '</p>' +
+                              '</fieldset>');
+          $results.append($suggestion);
+        });
+
+        it('assigns the suggestions key when suggestions are present', function () {
+          expect(GOVUK.search.buildSearchResultsData($resultsList))
+            .toEqual({
+              'urls': [],
+              'suggestion': 'testing'
+          });
+        });
+
+        it('fires an event when trackSearchResultsAndSuggestions is called', function () {
+          var extractedURLs = GOVUK.search.extractSearchURLs($resultsList);
+          var $searchResults = $('#results .results-list');
+          GOVUK.search.trackSearchResultsAndSuggestions($searchResults);
+          expect(GOVUK.analytics.trackEvent).toHaveBeenCalled();
+        });
+      });
+    });
+
     describe('simple search results list', function () {
       beforeEach(function () {
+        GOVUK.analytics = GOVUK.analytics || { trackEvent : function(args) {} };
+        spyOn(GOVUK.analytics, 'trackEvent');
         $resultsList = $('<ol class="results-list"><li><h3><a href="guidance/content-design/what-is-content-design">Content design: planning, writing and managing content: What is content design?</a></h3></li><li><h3><a href="guidance/content-design/research-and-evidence">Content design: planning, writing and managing content: Research and evidence</a></h3><p>Tools and evidence to back up content design decisions.</p></li></ol>');
         $results.append($resultsList);
       });
 
       afterEach(function () {
         $resultsList.remove();
-      });
-
-      it('returns an empty array if no results found', function () {
-        expect(GOVUK.search.extractSearchURLs([])).toEqual([]);
       });
 
       it('extracts all search result URLs', function () {
@@ -37,6 +81,13 @@ describe('GOVUK.search', function () {
         expect(extractedURLs[1]).toEqual({
           href: 'guidance/content-design/research-and-evidence'
         });
+      });
+
+      it('fires an event when trackSearchResultsAndSuggestions is called', function () {
+        var extractedURLs = GOVUK.search.extractSearchURLs($resultsList);
+        var $searchResults = $('#results .results-list');
+        GOVUK.search.trackSearchResultsAndSuggestions($searchResults);
+        expect(GOVUK.analytics.trackEvent).toHaveBeenCalled();
       });
     });
 

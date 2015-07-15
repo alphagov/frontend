@@ -121,7 +121,7 @@
 
       if (GOVUK.analytics !== undefined &&
           GOVUK.analytics.trackEvent !== undefined &&
-          $searchResults.length) {
+          (searchResultData.urls.length || searchResultData.suggestion)) {
         GOVUK.analytics.trackEvent('searchResults', 'resultsShown', {
           label: JSON.stringify(searchResultData),
           nonInteraction: true

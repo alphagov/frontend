@@ -20,7 +20,8 @@ class PublicationPresenter
     :link, :will_continue_on, :more_information, :downtime, :presentation_toggles,
     :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
     :eligibility, :evaluation, :additional_information, :contact_details, :language, :country,
-    :alert_status, :change_description, :caption_file, :nodes, :large_image, :medium_image, :small_image
+    :alert_status, :change_description, :caption_file, :nodes, :large_image, :medium_image, :small_image,
+    :department_analytics_profile
   ]
 
   PASS_THROUGH_KEYS.each do |key|

@@ -27,6 +27,8 @@
     <%- end -%>
   </section>
 
-  <% tracker = cross_domain_tracker(@publication.slug) %>
-  <%= render :partial => 'transaction_cross_domain_analytics', :locals => { :tracker => tracker } if tracker %>
+  <% if @publication.department_analytics_profile %>
+    <%= render :partial => 'transaction_cross_domain_analytics',
+               :locals => { :tracker => @publication.department_analytics_profile } %>
+  <% end %>
 <% end %>

@@ -323,7 +323,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       visit "/register-to-vote"
 
       assert_equal 200, page.status_code
-      assert page.has_selector?("#transaction_cross_domain_analytics", :visible => :all)
+      assert_selector("#transaction_cross_domain_analytics", visible: :all, text: "UA-12345-6")
     end
   end
 

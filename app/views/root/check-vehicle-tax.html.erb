@@ -70,6 +70,10 @@
 
   <%= render 'publication_metadata', :publication => @publication, :api_links => { 'application/json' => publication_api_path(@publication, :edition => @edition) } %>
 
+  <% if @publication.department_analytics_profile.present? %>
+    <%= render :partial => 'transaction_cross_domain_analytics',
+               :locals => { :tracker => @publication.department_analytics_profile } %>
+  <% end %>
 </main>
 
 <% content_for :body_classes do %>full-width<% end %>

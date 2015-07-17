@@ -5,7 +5,8 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
 
     should "render the check-vehicle-tax start page correctly" do
 
-      setup_api_responses('check-vehicle-tax')
+      setup_api_responses('check-vehicle-tax',
+        deep_merge: {"details" => {"department_analytics_profile" => "UA-12345-6"}})
       visit "/check-vehicle-tax"
 
       assert_equal 200, page.status_code
@@ -38,6 +39,8 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Report an untaxed vehicle", :href => "/report-untaxed-vehicle")
         assert page.has_link?("Vehicles exempt from vehicle tax", :href => "/vehicle-exempt-from-car-tax")
       end
+
+      assert_selector("#transaction_cross_domain_analytics", visible: :all, text: "UA-12345-6")
     end
   end
 end

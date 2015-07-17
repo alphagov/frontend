@@ -5,7 +5,8 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
 
     should "render the make-a-sorn start page correctly" do
 
-      setup_api_responses('make-a-sorn')
+      setup_api_responses('make-a-sorn',
+        deep_merge: {"details" => {"department_analytics_profile" => "UA-12345-6"}})
       visit "/make-a-sorn"
 
       assert_equal 200, page.status_code
@@ -46,6 +47,8 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Get vehicle information from DVLA", :href => "/get-vehicle-information-from-dvla")
         assert page.has_link?("SORN (Statutory Off Road Notification)", :href => "/sorn-statutory-off-road-notification")
       end
+
+      assert_selector("#transaction_cross_domain_analytics", visible: :all, text: "UA-12345-6")
     end
   end
 end

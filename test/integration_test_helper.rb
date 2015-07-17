@@ -22,8 +22,9 @@ class ActionDispatch::IntegrationTest
 
   def content_api_response(slug, options = {})
     options[:file] ||= "#{slug}.json"
+    options[:deep_merge] ||= {}
     json = File.read(Rails.root.join("test/fixtures/#{options[:file]}"))
-    JSON.parse(json)
+    JSON.parse(json).deep_merge(options[:deep_merge])
   end
 
   def setup_api_responses(slug, options = {})

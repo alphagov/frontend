@@ -11,3 +11,11 @@
   <% end %>
 <% end %>
 <% end %>
+
+<% content_for :extra_headers do %>
+  <% if !publication.description.nil? && !publication.description.empty? %>
+<meta name="description" content="<%= publication.description %>" />
+  <% elsif !publication.short_description.nil? && !publication.short_description.empty? %>
+<meta name="description" content="<%= publication.short_description %>" />
+  <% end %>
+<% end %>

@@ -13,9 +13,9 @@
 <% end %>
 
 <% content_for :extra_headers do %>
-  <% if !publication.description.nil? && !publication.description.empty? %>
+  <% if publication.description.present? %>
 <meta name="description" content="<%= publication.description %>" />
-  <% elsif !publication.short_description.nil? && !publication.short_description.empty? %>
+  <% elsif publication.short_description.present? %>
 <meta name="description" content="<%= publication.short_description %>" />
   <% end %>
 <% end %>

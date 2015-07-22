@@ -31,12 +31,10 @@
       return searchResultData;
     },
     enableLiveSearchCheckbox: function ($searchResults) {
-      if ($searchResults.length > 0) {
-        $('.js-openable-filter').each(function(){
-          new GOVUK.CheckboxFilter({el:$(this)});
-        });
-        GOVUK.liveSearch.init();
-      };
+      $('.js-openable-filter').each(function(){
+        new GOVUK.CheckboxFilter({el:$(this)});
+      });
+      GOVUK.liveSearch.init();
     },
     extractSearchSuggestion: function () {
       var $suggestion = $('.spelling-suggestion a');

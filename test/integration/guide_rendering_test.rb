@@ -4,7 +4,7 @@ require_relative '../integration_test_helper'
 class GuideRenderingTest < ActionDispatch::IntegrationTest
 
   should "render a guide correctly" do
-    setup_api_responses('data-protection')
+    artefact = setup_api_responses('data-protection')
     visit "/data-protection"
 
     assert_equal 200, page.status_code
@@ -12,6 +12,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within 'head', :visible => :all do
       assert page.has_selector?("title", :text => "Data protection - GOV.UK", :visible => :all)
       assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/data-protection.json']", :visible => :all)
+      assert_equal(artefact['details']['description'],
+                   page.find("meta[@name='description']", visible: false)[:content])
     end
 
     within '#content' do

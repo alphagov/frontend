@@ -21,7 +21,7 @@ class PublicationPresenter
     :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
     :eligibility, :evaluation, :additional_information, :contact_details, :language, :country,
     :alert_status, :change_description, :caption_file, :nodes, :large_image, :medium_image, :small_image,
-    :department_analytics_profile
+    :department_analytics_profile, :description
   ]
 
   PASS_THROUGH_KEYS.each do |key|

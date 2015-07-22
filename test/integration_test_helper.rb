@@ -30,6 +30,7 @@ class ActionDispatch::IntegrationTest
   def setup_api_responses(slug, options = {})
     artefact = content_api_response(slug, options)
     content_api_has_an_artefact_with_optional_location(slug, artefact)
+    artefact
   end
 
   def content_api_has_an_artefact_with_optional_location(slug, body = artefact_for_slug(slug))

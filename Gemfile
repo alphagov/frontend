@@ -35,7 +35,9 @@ gem 'invalid_utf8_rejector', '0.0.1'
 gem 'rack_strip_client_ip', '0.0.1'
 
 group :assets do
-  gem 'govuk_frontend_toolkit', '3.4.1'
+  # Note that govuk_frontend_toolkit is only used here for SASS mixins and
+  # variables. Analytics and other javascript features are provided by static.  
+  gem 'govuk_frontend_toolkit', '~> 4.1.0'
   gem 'sass', "3.3.14"
   gem 'sass-rails', "3.2.6"
   gem "therubyracer", "0.12.2"

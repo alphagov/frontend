@@ -124,7 +124,8 @@
           (searchResultData.urls.length || searchResultData.suggestion)) {
         GOVUK.analytics.trackEvent('searchResults', 'resultsShown', {
           label: JSON.stringify(searchResultData),
-          nonInteraction: true
+          nonInteraction: true,
+          page: window.location.pathname + window.location.search
         });
       }
     },

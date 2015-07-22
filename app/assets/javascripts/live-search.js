@@ -41,7 +41,7 @@
     },
     pageTrack: function(){
       GOVUK.analytics.setResultCountDimension(liveSearch.cache().result_count);
-      GOVUK.analytics.trackPageview();
+      GOVUK.analytics.trackPageview(window.location.pathname + window.location.search);
       $(document).trigger("liveSearch.pageTrack");
     },
     checkboxChange: function(e){

@@ -31,7 +31,7 @@
       return searchResultData;
     },
     enableLiveSearchCheckbox: function ($searchResults) {
-      if ($searchResults.length > 0) {
+      if ($searchResults.length >= 0) {
         $('.js-openable-filter').each(function(){
           new GOVUK.CheckboxFilter({el:$(this)});
         });

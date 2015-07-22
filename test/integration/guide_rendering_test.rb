@@ -12,8 +12,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
     within 'head', :visible => :all do
       assert page.has_selector?("title", :text => "Data protection - GOV.UK", :visible => :all)
       assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/data-protection.json']", :visible => :all)
-      assert_equal(page.find("meta[@name='description']", visible: false)[:content],
-                   artefact['details']['description'])
+      assert_equal(artefact['details']['description'],
+                   page.find("meta[@name='description']", visible: false)[:content])
     end
 
     within '#content' do

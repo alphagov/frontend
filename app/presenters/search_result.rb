@@ -2,8 +2,6 @@
 class SearchResult
   include ActionView::Helpers::NumberHelper
   SCHEME_PATTERN = %r{^https?://}
-  MAX_DESCRIPTION_LENGTH = 215
-  OMISSION_CHARACTER = '…'
 
   attr_accessor :result
 
@@ -41,7 +39,7 @@ class SearchResult
       debug_score: debug_score,
       title: title,
       link: link,
-      description: description,
+      snippet: result["snippet"],
       examples_present?: result["examples"].present?,
       examples: result["examples"],
       suggested_filter_present?: result["suggested_filter"].present?,
@@ -54,18 +52,6 @@ class SearchResult
       format: format,
       is_multiple_results: false,
     }
-  end
-
-  def description
-    description = result["description"]
-    if description.present?
-      description.truncate(MAX_DESCRIPTION_LENGTH, :separator => " ", :omission => OMISSION_CHARACTER)
-    else
-      case result["format"]
-      when "specialist_sector"
-        "List of information about #{result["title"]}"
-      end
-    end
   end
 
 protected

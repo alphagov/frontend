@@ -4,9 +4,8 @@
   window.GOVUK = window.GOVUK || {};
 
   function CheckboxFilter(options){
-    var allowCollapsible = (typeof ieVersion == "undefined" || ieVersion > 7) ? true : false;
-
     this.$filter = options.el;
+
     this.$checkboxResetter = this.$filter.find('.clear-selected');
     this.$checkboxes = this.$filter.find("input[type='checkbox']");
 
@@ -20,13 +19,20 @@
       this.setupHeight();
     }
 
-    if(allowCollapsible){
+    if(this.allowCollapsible()){
       // set up open/close listeners
       this.$filter.find('.head').on('click', $.proxy(this.toggleFinder, this));
       this.$filter.on('focus', $.proxy(this.listenForKeys, this));
       this.$filter.on('blur', $.proxy(this.stopListeningForKeys, this));
     }
 
+  }
+
+  CheckboxFilter.prototype.allowCollapsible = function allowCollapsible(){
+    if this.$filter.find('.checkbox-container').children('ul').children('li'){
+      return false;
+    }
+    (typeof ieVersion == "undefined" || ieVersion > 7) ? return true : return false;
   }
 
   CheckboxFilter.prototype.setupHeight = function setupHeight(){

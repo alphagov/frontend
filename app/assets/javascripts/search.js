@@ -31,9 +31,11 @@
       return searchResultData;
     },
     enableLiveSearchCheckbox: function ($searchResults) {
-      $('.js-openable-filter').each(function(){
-        new GOVUK.CheckboxFilter({el:$(this)});
-      });
+      if($('.js-openable-filter input[type=checkbox]').length) {
+        $('.js-openable-filter').each(function(){
+          new GOVUK.CheckboxFilter({el:$(this)});
+        });
+      }
       GOVUK.liveSearch.init();
     },
     extractSearchSuggestion: function () {

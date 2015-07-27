@@ -260,48 +260,88 @@ describe('GOVUK.search', function () {
       '  </div>' +
       '</div>');
 
-      $filterHTML = $('<div class="filter checkbox-filter js-openable-filter " tabindex="0">' +
-      '  <div class="head">' +
-      '    <span class="legend">Organisations</span>' +
-      '    <div class="controls">' +
-      '      <a class="clear-selected ">Remove filters</a>' +
-      '      <div class="toggle"></div>' +
-      '    </div>' +
-      '  </div>' +
-      '  <div class="checkbox-container" id="organisations-filter">' +
-      '    <ul>' +
-      '      <li>' +
-      '        <input type="checkbox" name="filter_organisations[]" value="land-registry" id="land-registry" checked=""><label for="land-registry">Land Registry (0)</label>' +
-      '      </li>' +
-      '      <li>' +
-      '        <input type="checkbox" name="filter_organisations[]" value="uk-visas-and-immigration" id="uk-visas-and-immigration"><label for="uk-visas-and- +immigration">UK Visas and Immigration (356)</label>' +
-      '      </li>' +
-      '      <li>' +
-      '        <input type="checkbox" name="filter_organisations[]" value="home-office" id="home-office"><label for="home-office">Home Office (319)</label>' +
-      '      </li>' +
-      '    </ul>' +
-      '  </div>' +
-      '</div>');
-
-      $results.append($filterHTML);
       $results.append($resultsList);
-
-      GOVUK.search.enableLiveSearchCheckbox($results);
     });
 
     afterEach(function(){
-      $filterHTML.remove();
       $resultsList.remove();
     });
 
-    it('should clear the checkboxes when no results are present', function () {
-      // There should be one item checked.
-      expect($filterHTML.find(':checked').length).toBe(1);
+    describe('with organisation filters present', function () {
+      beforeEach(function () {
+        $filterHTML = $('<div class="filter checkbox-filter js-openable-filter " tabindex="0">' +
+                        '  <div class="head">' +
+                        '    <span class="legend">Organisations</span>' +
+                        '    <div class="controls">' +
+                        '      <a class="clear-selected ">Remove filters</a>' +
+                        '      <div class="toggle"></div>' +
+                        '    </div>' +
+                        '  </div>' +
+                        '  <div class="checkbox-container" id="organisations-filter">' +
+                        '    <ul>' +
+                        '      <li>' +
+                        '        <input type="checkbox" name="filter_organisations[]" value="land-registry" id="land-registry" checked=""><label for="land-registry">Land Registry (0)</label>' +
+                        '      </li>' +
+                        '      <li>' +
+                        '        <input type="checkbox" name="filter_organisations[]" value="uk-visas-and-immigration" id="uk-visas-and-immigration"><label for="uk-visas-and- +immigration">UK Visas and Immigration (356)</label>' +
+                        '      </li>' +
+                        '      <li>' +
+                        '        <input type="checkbox" name="filter_organisations[]" value="home-office" id="home-office"><label for="home-office">Home Office (319)</label>' +
+                        '      </li>' +
+                        '    </ul>' +
+                        '  </div>' +
+                        '</div>');
 
-      $('a.clear-selected').click();
+        $results.append($filterHTML);
 
-      // There should be no items checked
-      expect($filterHTML.find(':checked').length).toBe(0);
+        GOVUK.search.enableLiveSearchCheckbox($results);
+      });
+
+      afterEach(function () {
+        $filterHTML.remove();
+      });
+
+      it('should clear the checkboxes when no results are present', function () {
+        // There should be one item checked.
+        expect($filterHTML.find(':checked').length).toBe(1);
+
+        $('a.clear-selected').click();
+
+        // There should be no items checked
+        expect($filterHTML.find(':checked').length).toBe(0);
+      });
+    });
+
+    describe('without organisation filters present', function () {
+      beforeEach(function () {
+        $filterHTML = $('<div class="filter checkbox-filter js-openable-filter " tabindex="0">' +
+                        '  <div class="head">' +
+                        '    <span class="legend">Organisations</span>' +
+                        '    <div class="controls">' +
+                        '      <a class="clear-selected ">Remove filters</a>' +
+                        '      <div class="toggle"></div>' +
+                        '    </div>' +
+                        '  </div>' +
+                        '  <div class="checkbox-container" id="organisations-filter">' +
+                        '    <ul>' +
+                        '      <!-- No organisation filters present -->' +
+                        '    </ul>' +
+                        '  </div>' +
+                        '</div>');
+
+        $results.append($filterHTML);
+
+        spyOn(GOVUK, 'CheckboxFilter');
+        GOVUK.search.enableLiveSearchCheckbox($results);
+      });
+
+      afterEach(function () {
+        $filterHTML.remove();
+      });
+
+      it('should not fire the CheckboxFilter constructor', function () {
+        expect(GOVUK.CheckboxFilter).not.toHaveBeenCalled();
+      });
     });
   });
 });

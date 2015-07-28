@@ -13,7 +13,7 @@
         <ul class="options">
           <% question.options.each do |option| %>
             <li>
-              <label for="response_<%= option.slug %>">
+              <label for="response_<%= option.slug %>" class="selectable">
                 <%= radio_button_tag "response", option.slug, (option.slug == params[:previous_response]), :id => "response_#{ option.slug }" %>
                 <%= option.label %>
               </label>

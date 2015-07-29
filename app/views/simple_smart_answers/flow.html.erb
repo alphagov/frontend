@@ -2,7 +2,7 @@
   <meta name="robots" content="noindex" />
 <% end %>
 
-<section id="content">
+<main id="content">
   <header class="page-header group">
     <div>
       <h1>
@@ -25,4 +25,4 @@
   <% else %>
     <%= render :partial => "current_question", :locals => {:question => @flow_state.current_node } %>
   <% end %>
-</section>
+</main>

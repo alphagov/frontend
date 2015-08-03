@@ -57,8 +57,13 @@ class RootController < ApplicationController
     # Some paths don't have leading slashes, so add them.
     result = "/#{result}" unless result.starts_with?("/")
 
-    expires_in(5.seconds, :public => true)
-    redirect_to Plek.new.website_root + result
+    if result.starts_with?("/http")
+      expires_in(0.seconds, :public => true)
+      redirect_to Plek.new.website_root + random_path
+    else
+      expires_in(5.seconds, :public => true)
+      redirect_to Plek.new.website_root + result
+    end
   end
 
   def jobsearch

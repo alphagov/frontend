@@ -34,13 +34,13 @@
             <div class="additional-information">
               <% if place["url"].present? %>
                 <p class="url">
-                  Website: <a href="<%= place["url"] %>"><%= place["text"] %></a>
+                  <a href="<%= place["url"] %>"><%= place["text"] %></a>
                 </p>
               <% end %>
 
               <% if place["email"].present? %>
                 <p>
-                  Email: <a href="mailto:<%= place["email"] %>"><%= place["email"] %></a>
+                  <a href="mailto:<%= place["email"] %>"><%= place["email"] %></a>
                 </p>
               <% end %>
 

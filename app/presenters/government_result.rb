@@ -64,6 +64,21 @@ class GovernmentResult < SearchResult
     result["public_timestamp"].to_date.strftime("%e %B %Y") if result["public_timestamp"]
   end
 
+  def description
+    description = nil
+    if result["description"].present?
+      description = result["description"]
+    end
+
+    description = description.truncate(MAX_DESCRIPTION_LENGTH, :separator => " ", :omission => OMISSION_CHARACTER) if description
+
+    if format == "organisation" && result["organisation_state"] != 'closed'
+      "The home of #{result["title"]} on GOV.UK. #{description}"
+    else
+      description
+    end
+  end
+
   def historic?
     result['is_historic']
   end

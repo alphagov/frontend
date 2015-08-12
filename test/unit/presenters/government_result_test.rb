@@ -3,8 +3,34 @@ require_relative "../../test_helper"
 
 class GovernmentResultTest < ActiveSupport::TestCase
   should "display a description" do
-    result = GovernmentResult.new(SearchParameters.new({}), "snippet" => "I like pie.")
-    assert_equal "I like pie.", result.to_hash[:snippet]
+    result = GovernmentResult.new(SearchParameters.new({}), "description" => "I like pie.")
+    assert_equal "I like pie.", result.description
+  end
+
+  should "truncate descriptions at word boundaries" do
+    long_description = %Q{You asked me to oversee a strategic review of
+Directgov and to report to you by the end of September. I have undertaken this
+review in the context of my wider remit as UK Digital Champion which includes
+offering advice on "how efficiencies can best be realised through the online
+delivery of public services."}
+    truncated_description = %Q{You asked me to oversee a strategic review of
+Directgov and to report to you by the end of September. I have undertaken this
+review in the context of my wider remit as UK Digital Champion which includes
+offering…}
+    result = GovernmentResult.new(SearchParameters.new({}), "description" => long_description)
+    assert_equal truncated_description, result.description
+  end
+
+  should "truncate descriptions to a maximum of 215 characters" do
+    result = GovernmentResult.new(SearchParameters.new({}),
+                                  "description" => "Long description is long "*100)
+    assert(result.description.length <= 215)
+  end
+
+  should "end the description with ellipsis if truncated" do
+    result = GovernmentResult.new(SearchParameters.new({}),
+                                  "description" => "Long description is long "*100)
+    assert result.description.end_with?('…')
   end
 
   should "report a lack of location field as no locations" do
@@ -93,13 +119,40 @@ class GovernmentResultTest < ActiveSupport::TestCase
     assert_equal [:hash, :title], minister_results.sections.first.keys
   end
 
+  should "return description for detailed guides" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "format" => "detailed_guidance",
+      "description" => "my-description"
+    })
+    assert_equal result.description, 'my-description'
+  end
+
+  should "return description for organisation" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "format" => "organisation",
+      "title" => "my-title",
+      "description" => "my-description"
+    })
+    assert_equal result.description, 'The home of my-title on GOV.UK. my-description'
+  end
+
+  should "return description for other formats" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "format" => "my-new-format",
+      "description" => "my-description"
+    })
+    assert_equal result.description, 'my-description'
+  end
+
   should "mark titles of closed organisations as being closed" do
     result = GovernmentResult.new(SearchParameters.new({}), {
       "format" => "organisation",
       "organisation_state" => "closed",
       "title" => "my-title",
+      "description" => "my-description",
     })
     assert_equal result.title, 'Closed organisation: my-title'
+    assert_equal result.description, 'my-description'
   end
 
   should "have a government name when in history mode" do

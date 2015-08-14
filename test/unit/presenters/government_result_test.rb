@@ -136,6 +136,15 @@ offering…}
     assert_equal result.description, 'The home of my-title on GOV.UK. my-description'
   end
 
+  should "not prepend 'The home of' for descriptions that have it already" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "format" => "organisation",
+      "title" => "my-title",
+      "description" => "The home of my-title. Some description."
+    })
+    assert_equal result.description, 'The home of my-title. Some description.'
+  end
+
   should "return description for other formats" do
     result = GovernmentResult.new(SearchParameters.new({}), {
       "format" => "my-new-format",

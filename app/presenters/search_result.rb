@@ -60,11 +60,6 @@ class SearchResult
     description = result["description"]
     if description.present?
       description.truncate(MAX_DESCRIPTION_LENGTH, :separator => " ", :omission => OMISSION_CHARACTER)
-    else
-      case result["format"]
-      when "specialist_sector"
-        "List of information about #{result["title"]}"
-      end
     end
   end
 

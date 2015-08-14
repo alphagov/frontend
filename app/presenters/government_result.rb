@@ -72,7 +72,7 @@ class GovernmentResult < SearchResult
 
     description = description.truncate(MAX_DESCRIPTION_LENGTH, :separator => " ", :omission => OMISSION_CHARACTER) if description
 
-    if format == "organisation" && result["organisation_state"] != 'closed'
+    if format == "organisation" && result["organisation_state"] != 'closed' && !description.starts_with?('The home of')
       "The home of #{result["title"]} on GOV.UK. #{description}"
     else
       description

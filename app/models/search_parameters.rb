@@ -51,7 +51,7 @@ class SearchParameters
 
   # Build a link to a search results page.
   def build_link(extra = {})
-    search_path(combine_params(extra))
+    search_path(combine_params(extra).symbolize_keys)
   end
 
   def rummager_parameters

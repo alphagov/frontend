@@ -145,6 +145,15 @@ offering…}
     assert_equal result.description, 'The home of my-title. Some description.'
   end
 
+  should "handle nil descriptions for organisations" do
+    result = GovernmentResult.new(SearchParameters.new({}), {
+      "format" => "organisation",
+      "title" => "Ministry of Magic",
+      "description" => nil
+    })
+    assert_equal result.description, 'The home of Ministry of Magic on GOV.UK. '
+  end
+
   should "return description for other formats" do
     result = GovernmentResult.new(SearchParameters.new({}), {
       "format" => "my-new-format",

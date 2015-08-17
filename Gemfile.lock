@@ -45,7 +45,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.2)
+    addressable (2.3.8)
     airbrake (3.1.15)
       builder
       multi_json
@@ -69,7 +69,8 @@ GEM
     ci_reporter (1.7.3)
       builder (>= 2.1.2)
     coderay (1.1.0)
-    crack (0.3.1)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
     docile (1.1.5)
     domain_name (0.5.24)
@@ -175,6 +176,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    safe_yaml (1.0.4)
     sass (3.4.9)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -233,9 +235,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    webmock (1.8.11)
-      addressable (>= 2.2.7)
-      crack (>= 0.1.7)
+    webmock (1.21.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 

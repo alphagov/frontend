@@ -36,4 +36,8 @@ Frontend::Application.configure do
   if ENV['INCLUDE_JS_TEST_ASSETS']
     config.assets.paths << Rails.root.join("test/javascripts")
   end
+
+  config.eager_load = false
+
+  config.active_support.test_order = :sorted
 end

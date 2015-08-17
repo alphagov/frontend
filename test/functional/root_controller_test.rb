@@ -160,7 +160,7 @@ class RootControllerTest < ActionController::TestCase
             {'slug' => 'further-information', 'name' => 'BB'}
           ]}})
     get :publication, :slug => "zippy"
-    assert_false @response.body.include? "further-information"
+    refute @response.body.include? "further-information"
   end
 
   test "further information tab should not appear for programmes that don't have it" do
@@ -517,8 +517,8 @@ class RootControllerTest < ActionController::TestCase
         unexpected_urls = ["#{Plek.new.website_root}/http://www.wyreforestdc.gov.uk"]
 
         assert_response :redirect
-        assert_include(expected_urls, response.redirect_url)
-        assert_not_include(unexpected_urls, response.redirect_url)
+        assert_includes(expected_urls, response.redirect_url)
+        assert_not_includes(unexpected_urls, response.redirect_url)
       end
 
       should "be cacheable long enough to discourage bots and short enough that users don't notice" do

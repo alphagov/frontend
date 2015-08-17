@@ -421,45 +421,45 @@ class RootControllerTest < ActionController::TestCase
   end
 
   context "loading the jobsearch page" do
-    context "given an artefact for 'jobs-jobsearch' exists" do
+    context "given an artefact for 'jobsearch' exists" do
       setup do
         @details = {
-          'slug' => 'jobs-jobsearch',
-          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
+          'slug' => 'jobsearch',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobsearch',
           'format' => 'transaction',
           'details' => {"need_to_know" => ""},
           'title' => 'Universal Jobsearch'
         }
-        content_api_has_an_artefact("jobs-jobsearch", @details)
+        content_api_has_an_artefact("jobsearch", @details)
       end
 
       should "respond with success" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_response :success
       end
 
       should "loads the correct details" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "initialize a publication object" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "set correct slimmer artefact in headers" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_equal JSON.dump(@details), @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set correct expiry headers" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
       end
 
       should "render the jobsearch view" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_template "jobsearch"
       end
     end
@@ -467,28 +467,28 @@ class RootControllerTest < ActionController::TestCase
     context "given a welsh version exists" do
       setup do
         @details = {
-          'id' => 'https://www.gov.uk/api/jobs-jobsearch-welsh.json',
-          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch-welsh',
+          'id' => 'https://www.gov.uk/api/chwilio-am-swydd.json',
+          'web_url' => 'https://www.preview.alphagov.co.uk/chwilio-am-swydd',
           'format' => 'transaction',
           'details' => {"need_to_know" => "", "language" => "cy"},
           'title' => 'Universal Jobsearch'
         }
-        content_api_has_an_artefact("jobs-jobsearch-welsh", @details)
+        content_api_has_an_artefact("chwilio-am-swydd", @details)
       end
 
       should "set the locale to welsh" do
         I18n.expects(:locale=).with("cy")
-        get :jobsearch, :slug => "jobs-jobsearch-welsh"
+        get :jobsearch, :slug => "chwilio-am-swydd"
       end
     end
 
     context "given an artefact does not exist" do
       setup do
-        content_api_does_not_have_an_artefact('jobs-jobsearch')
+        content_api_does_not_have_an_artefact('jobsearch')
       end
 
       should "respond with 404" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, :slug => "jobsearch"
         assert_response :not_found
       end
     end

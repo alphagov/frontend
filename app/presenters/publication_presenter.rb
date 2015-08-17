@@ -1,3 +1,5 @@
+require 'gds_api/part_methods'
+
 class PublicationPresenter
   include GdsApi::PartMethods
 

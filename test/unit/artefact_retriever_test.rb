@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'application_controller'
 
 class ArtefactRetrieverTest < ActiveSupport::TestCase
   class DummyStatsd

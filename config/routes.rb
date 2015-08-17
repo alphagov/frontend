@@ -53,7 +53,7 @@ Frontend::Application.routes.draw do
 
     # Our approach to providing local transaction information currently
     # requires that this support get and post
-    pub.match ":slug(/:part)", :via => [:get, :post]
+    pub.match ":slug(/:part)", :via => [:get, :post], as: :publication
   end
 
   root :to => 'root#index', :via => :get

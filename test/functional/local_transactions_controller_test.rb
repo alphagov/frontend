@@ -3,7 +3,7 @@ require 'test_helper'
 require 'gds_api/part_methods'
 require 'gds_api/test_helpers/mapit'
 
-class LocalTransactionsTest < ActionController::TestCase
+class LocalTransactionsControllerTest < ActionController::TestCase
 
   tests RootController
   include GdsApi::TestHelpers::Mapit

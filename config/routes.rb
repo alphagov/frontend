@@ -46,7 +46,7 @@ Frontend::Application.routes.draw do
     get "test-for-content-store/*path" => "content_store#content_store_test"
   end
 
-  with_options(as: "publication", to: "root#publication") do |pub|
+  with_options(to: "root#publication") do |pub|
     pub.get "*slug", slug: %r{(done|help)/.+}
     pub.get ":slug/print", format: :print
     pub.get ":slug/:part/:interaction", as: :licence_authority_action

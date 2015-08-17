@@ -11,3 +11,4 @@ test/reports
 public/frontend
 .idea
 .sass-cache
+app/assets/javascripts/templates.js

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22'
+gem 'rails', '4.2.4'
 gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.6.3'
 gem 'gelf'
@@ -34,18 +34,7 @@ gem 'airbrake', '3.1.15'
 gem 'invalid_utf8_rejector', '0.0.1'
 gem 'rack_strip_client_ip', '0.0.1'
 
-group :assets do
-  # Note that govuk_frontend_toolkit is only used here for SASS mixins and
-  # variables. Analytics and other javascript features are provided by static.
-  gem 'govuk_frontend_toolkit', '~> 4.1.0'
-  gem 'sass', "3.3.14"
-  gem 'sass-rails', "3.2.6"
-  gem "therubyracer", "0.12.2"
-  gem 'uglifier'
-end
-
 group :development do
-  gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
@@ -54,13 +43,20 @@ group :development, :test do
   gem 'pry'
 end
 
+# Note that govuk_frontend_toolkit is only used here for SASS mixins and
+# variables. Analytics and other javascript features are provided by static.
+gem 'govuk_frontend_toolkit', '~> 4.1.0'
+gem 'sass', '3.4.9'
+gem 'sass-rails'
+gem "therubyracer", "0.12.2"
+gem 'uglifier'
+
 group :test do
-  gem "mocha", '0.13.3', :require => false
+  gem "mocha"
   gem "webmock", :require => false
   gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'ci_reporter'
-  gem 'test-unit'
   gem 'capybara', '2.1.0'
   gem 'poltergeist', '1.3.0'
   gem "launchy"

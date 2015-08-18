@@ -5,7 +5,7 @@ gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch 
 gem 'unicorn', '4.6.3'
 gem 'gelf'
 
-gem 'plek', '1.7.0'
+gem 'plek', '1.11.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'htmlentities', '4.3.1'
 gem 'shared_mustache', '1.0.0'
@@ -25,7 +25,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', :path => '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '20.1.1'
+  gem 'gds-api-adapters', '23.2.1'
 end
 
 gem "addressable"
@@ -36,7 +36,7 @@ gem 'rack_strip_client_ip', '0.0.1'
 
 group :assets do
   # Note that govuk_frontend_toolkit is only used here for SASS mixins and
-  # variables. Analytics and other javascript features are provided by static.  
+  # variables. Analytics and other javascript features are provided by static.
   gem 'govuk_frontend_toolkit', '~> 4.1.0'
   gem 'sass', "3.3.14"
   gem 'sass-rails', "3.2.6"

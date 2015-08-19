@@ -42,4 +42,7 @@
   <%- if @publication.current_part and @publication.has_next_part? -%>
     <link rel="next" href="<%= part_path(@publication.slug, @publication.next_part.slug, @edition) %>" />
   <%- end -%>
+  <% if @publication.description %>
+    <meta name="description" content="<%= @publication.description %>">
+  <% end %>
 <% end %>

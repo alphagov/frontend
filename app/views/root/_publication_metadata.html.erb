@@ -5,17 +5,17 @@
 </div>
 
 <% if api_links.any? %>
-<% content_for :extra_headers do %>
-  <% api_links.each do |type, href| %>
-<link rel="alternate" type="<%= type %>" href="<%= href %>">
+  <% content_for :extra_headers do %>
+    <% api_links.each do |type, href| %>
+      <link rel="alternate" type="<%= type %>" href="<%= href %>">
+    <% end %>
   <% end %>
-<% end %>
 <% end %>
 
 <% content_for :extra_headers do %>
   <% if publication.description.present? %>
-<meta name="description" content="<%= publication.description %>" />
+    <meta name="description" content="<%= publication.description %>" />
   <% elsif publication.short_description.present? %>
-<meta name="description" content="<%= publication.short_description %>" />
+    <meta name="description" content="<%= publication.short_description %>" />
   <% end %>
 <% end %>

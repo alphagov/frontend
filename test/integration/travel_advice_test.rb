@@ -100,6 +100,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("title", :text => "Turks and Caicos Islands extra special travel advice", :visible => :all)
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']", :visible => :all)
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']", :visible => :all)
+        assert page.has_selector?("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", :visible => false)
       end
 
       within '#global-breadcrumb nav' do

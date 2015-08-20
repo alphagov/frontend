@@ -66,7 +66,6 @@ class SearchParameters
         format
         government_name
         is_historic
-        last_update
         link
         organisations
         organisation_state

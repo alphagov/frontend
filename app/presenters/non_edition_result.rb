@@ -27,10 +27,6 @@ private
     public_timestamp && public_timestamp.to_date.strftime("%e %B %Y")
   end
 
-  def public_timestamp
-    result["public_timestamp"] || result["last_update"]
-  end
-
   def display_type
     overrides = {
       "aaib_report" => "AAIB report",

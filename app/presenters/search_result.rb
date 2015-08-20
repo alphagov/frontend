@@ -24,7 +24,7 @@ class SearchResult
     end
   end
 
-  result_accessor :link, :title, :format, :es_score
+  result_accessor :link, :title, :format, :es_score, :public_timestamp
 
   # External links have a truncated version of their URLs displayed on the
   # results page, but there's little benefit to displaying the URL scheme

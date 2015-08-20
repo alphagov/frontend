@@ -58,3 +58,8 @@
   </div>
 </main>
 
+<% content_for :extra_headers do %>
+  <% if @publication.description %>
+    <meta name="description" content="<%= @publication.description %>">
+  <% end %>
+<% end %>

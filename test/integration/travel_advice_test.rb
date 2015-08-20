@@ -22,6 +22,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("title", :text => "Foreign travel advice", :visible => :all)
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice.json']", :visible => :all)
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']", :visible => :all)
+        assert page.has_selector?("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", :visible => false)
       end
 
       assert page.has_selector?("#wrapper.travel-advice.guide")

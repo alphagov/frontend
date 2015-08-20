@@ -76,7 +76,6 @@ class SearchParameters
         subsection
         subsubsection
         title
-        topics
         world_locations
       },
       debug: params[:debug],

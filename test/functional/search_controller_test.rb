@@ -47,7 +47,6 @@ class SearchControllerTest < ActionController::TestCase
       subsection
       subsubsection
       title
-      topics
       world_locations
     }
   end

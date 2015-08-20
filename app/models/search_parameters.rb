@@ -49,6 +49,10 @@ class SearchParameters
     params[:debug_score]
   end
 
+  def enable_highlighting?
+    params[:enable_highlighting]
+  end
+
   # Build a link to a search results page.
   def build_link(extra = {})
     search_path(combine_params(extra))
@@ -61,6 +65,8 @@ class SearchParameters
       q: search_term,
       fields: %w{
         description
+        title_with_highlighting
+        description_with_highlighting
         display_type
         document_series
         format

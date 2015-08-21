@@ -1,4 +1,10 @@
 <% content_for :title, page_title(@publication) %>
+<% content_for :extra_headers do %>
+  <% if @publication.description.present? %>
+    <meta name='description' content="<%= @publication.description %>">
+  <% end %>
+<% end %>
+
 <div class="header-context group"><!-- deliberately empty, which removes the breadcrumb from the head of the page --></div>
 
 <main id="content" role="main" class="group campaign">

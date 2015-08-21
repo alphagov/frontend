@@ -70,11 +70,8 @@ class SearchParameters
         organisations
         organisation_state
         public_timestamp
-        section
         slug
         specialist_sectors
-        subsection
-        subsubsection
         title
         world_locations
       },

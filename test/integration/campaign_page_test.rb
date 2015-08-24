@@ -21,6 +21,8 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
     assert_equal "Tourism", page.find('.campaign h2:nth-of-type(2)').text
     assert_equal "Education", page.find('.campaign h2:nth-of-type(3)').text
 
+    assert_equal "Britain is GREAT campaign", page.find("meta[@name='description']", visible: false)[:content]
+
     assert page.has_selector?(shared_component_selector('beta_label'))
 
   end

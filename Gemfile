@@ -50,6 +50,10 @@ group :development do
   gem 'binding_of_caller'
 end
 
+group :development, :test do
+  gem 'pry'
+end
+
 group :test do
   gem "mocha", '0.13.3', :require => false
   gem "webmock", :require => false

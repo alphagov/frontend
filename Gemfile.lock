@@ -107,6 +107,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     metaclass (0.0.1)
+    method_source (0.8.2)
     mime-types (1.25.1)
     mocha (0.13.3)
       metaclass (~> 0.0.1)
@@ -121,6 +122,10 @@ GEM
       faye-websocket (>= 0.4.4, < 0.5.0)
       http_parser.rb (~> 0.5.3)
     polyglot (0.3.5)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     quiet_assets (1.0.1)
       railties (~> 3.1)
     rack (1.4.6)
@@ -183,6 +188,7 @@ GEM
       plek (>= 1.1.0)
       rack (>= 1.3.5)
       rest-client
+    slop (3.6.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -237,6 +243,7 @@ DEPENDENCIES
   mocha (= 0.13.3)
   plek (= 1.11.0)
   poltergeist (= 1.3.0)
+  pry
   quiet_assets
   rack_strip_client_ip (= 0.0.1)
   rails (= 3.2.22)

@@ -42,6 +42,12 @@ GEM
       builder
       multi_json
     arel (3.0.3)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -54,7 +60,9 @@ GEM
       nokogiri
     ci_reporter (1.7.3)
       builder (>= 2.1.2)
+    coderay (1.1.0)
     crack (0.3.1)
+    debug_inspector (0.0.2)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -214,6 +222,8 @@ PLATFORMS
 DEPENDENCIES
   addressable
   airbrake (= 3.1.15)
+  better_errors
+  binding_of_caller
   capybara (= 2.1.0)
   cdn_helpers (= 0.9)
   ci_reporter

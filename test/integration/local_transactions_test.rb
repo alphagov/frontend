@@ -126,6 +126,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "see an error message" do
         assert page.has_content? "Please enter a valid full UK postcode."
       end
+
+      should "re-populate the invalid input" do
+        assert page.has_field? "postcode", with: "Not valid"
+      end
     end
 
     context "when visiting the local transaction with a blank postcode" do

@@ -46,6 +46,12 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :development, :test do
+  gem 'pry'
 end
 
 group :test do

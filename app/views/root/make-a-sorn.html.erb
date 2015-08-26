@@ -120,7 +120,7 @@
 
   <% if @publication.department_analytics_profile.present? %>
     <%= render :partial => 'transaction_cross_domain_analytics',
-               :locals => { :tracker => @publication.department_analytics_profile } %>
+               :locals => { :transaction => @publication } %>
   <% end %>
 </main>
 

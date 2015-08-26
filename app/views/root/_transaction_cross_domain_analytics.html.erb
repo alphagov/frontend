@@ -1,5 +1,5 @@
 <script id="transaction_cross_domain_analytics">
   if (typeof GOVUK.analytics != "undefined") {
-    GOVUK.analytics.addLinkedTrackerDomain('<%= transaction.department_analytics_profile %>', 'transactionTracker', 'service.gov.uk');
+    GOVUK.analytics.addLinkedTrackerDomain('<%= transaction.department_analytics_profile %>', 'transactionTracker', '<%= URI.parse(transaction.link).host %>');
   }
 </script>

@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include GdsApi::Helpers
   include Slimmer::Headers
+  include Slimmer::Template
   include Slimmer::SharedTemplates
 
   rescue_from GdsApi::TimedOutException, with: :error_503
@@ -17,6 +18,8 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
   rescue_from ArtefactRetriever::RecordArchived, with: :error_410
   rescue_from ArtefactRetriever::UnsupportedArtefactFormat, with: :error_404
+
+  slimmer_template 'wrapper'
 
 protected
   def error_404; error 404; end

@@ -55,11 +55,14 @@ class TravelAdviceController < ApplicationController
       end
     end
 
+    request.variant = :print if params[:variant].to_s == "print"
+
     respond_to do |format|
-      format.html
       format.atom
-      format.print do
+      format.html.none
+      format.html.print do
         set_slimmer_headers template: "print"
+        render layout: "application.print"
       end
     end
   rescue RecordNotFound

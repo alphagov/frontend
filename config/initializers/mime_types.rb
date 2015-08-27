@@ -4,5 +4,4 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 Mime::Type.register_alias "text/html", :video
-Mime::Type.register_alias "text/html", :print
 Mime::Type.register_alias "text/html", :raw

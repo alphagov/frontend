@@ -184,10 +184,9 @@ class RootControllerTest < ActionController::TestCase
     content_api_has_an_artefact("a-slug")
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide")
-    get :publication, :slug => "a-slug", :format => "print"
-    # assert_template 'guide'
-    assert_equal "print", @request.format
+    @controller.expects(:render).with("guide", layout: "application.print")
+    get :publication, :slug => "a-slug", :variant => :print
+    assert_equal [:print], @request.variant
   end
 
   test "should return 404 when print view of a non-=supported format is requested" do

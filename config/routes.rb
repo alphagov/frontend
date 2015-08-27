@@ -19,7 +19,7 @@ Frontend::Application.routes.draw do
   get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
   post "/foreign-travel-advice" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent POST requests for /foreign-travel-advice blowing up in the publication handlers below
   with_options(:to => "travel_advice#country") do |country|
-    country.get "/foreign-travel-advice/:country_slug/print", :format => :print
+    country.get "/foreign-travel-advice/:country_slug/print", :variant => :print, :as => :travel_advice_country_print
     country.get "/foreign-travel-advice/:country_slug(/:part)", :as => :travel_advice_country
   end
 
@@ -48,7 +48,7 @@ Frontend::Application.routes.draw do
 
   with_options(to: "root#publication") do |pub|
     pub.get "*slug", slug: %r{(done|help)/.+}
-    pub.get ":slug/print", format: :print
+    pub.get ":slug/print", variant: :print
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
 
     # Our approach to providing local transaction information currently

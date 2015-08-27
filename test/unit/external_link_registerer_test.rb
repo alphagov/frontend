@@ -1,6 +1,6 @@
 require 'gds_api/external_link_tracker'
-require_relative "../test_helper"
-require_relative "../../lib/external_link_registerer"
+require "test_helper"
+require "external_link_registerer"
 
 class ExternalLinkRegistererTest < ActiveSupport::TestCase
   test "#register sends links to the external link tracker" do

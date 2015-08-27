@@ -1,4 +1,4 @@
-require_relative 'location_identifier'
+require 'location_identifier'
 
 class LocalTransactionLocationIdentifier < LocationIdentifier
   def self.find_snac(geostack, artefact)

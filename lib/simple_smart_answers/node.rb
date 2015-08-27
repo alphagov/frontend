@@ -1,4 +1,4 @@
-require_relative 'errors'
+require 'simple_smart_answers/errors'
 require 'ostruct'
 
 module SimpleSmartAnswers

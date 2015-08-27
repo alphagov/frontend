@@ -1,4 +1,4 @@
-require_relative '../integration_test_helper'
+require 'integration_test_helper'
 
 class TaxDiscPageTest < ActionDispatch::IntegrationTest
   context "rendering the make-a-sorn page" do

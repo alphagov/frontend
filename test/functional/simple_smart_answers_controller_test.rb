@@ -1,4 +1,4 @@
-require_relative '../test_helper'
+require 'test_helper'
 require 'gds_api/test_helpers/content_api'
 
 class SimpleSmartAnswersControllerTest < ActionController::TestCase

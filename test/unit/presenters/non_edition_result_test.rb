@@ -1,4 +1,4 @@
-require_relative "../../test_helper"
+require "test_helper"
 
 class NonEditionResultTest < ActiveSupport::TestCase
   should "return document_type as the format" do

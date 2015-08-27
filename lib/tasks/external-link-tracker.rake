@@ -1,5 +1,5 @@
 require "logger"
-require_relative "./../external_link_registerer"
+require "external_link_registerer"
 
 namespace :external_link_tracker do
   desc "Deploy the recommended links to external link tracker"

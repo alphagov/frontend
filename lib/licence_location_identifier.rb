@@ -1,4 +1,4 @@
-require_relative 'location_identifier'
+require 'location_identifier'
 
 class LicenceLocationIdentifier < LocationIdentifier
   # If the licence has an equivalent local service in the LGSL, try

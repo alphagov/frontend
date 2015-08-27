@@ -178,7 +178,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "return a print variant" do
         @controller.stubs(:render)
 
-        get :country, :country_slug => "turks-and-caicos-islands", :edition => "5", :variant => :print
+        get :country, country_slug: "turks-and-caicos-islands", edition: "5", variant: :print
 
         assert_equal [:print], @request.variant
         assert_equal "print", @response.headers["X-Slimmer-Template"]

@@ -185,7 +185,7 @@ class RootControllerTest < ActionController::TestCase
 
     prevent_implicit_rendering
     @controller.expects(:render).with("guide", layout: "application.print")
-    get :publication, :slug => "a-slug", :variant => :print
+    get :publication, slug: "a-slug", variant: :print
     assert_equal [:print], @request.variant
   end
 
@@ -433,32 +433,32 @@ class RootControllerTest < ActionController::TestCase
       end
 
       should "respond with success" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_response :success
       end
 
       should "loads the correct details" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "initialize a publication object" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "set correct slimmer artefact in headers" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal @details.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set correct expiry headers" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
       end
 
       should "render the jobsearch view" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_template "jobsearch"
       end
     end
@@ -477,7 +477,7 @@ class RootControllerTest < ActionController::TestCase
 
       should "set the locale to welsh" do
         I18n.expects(:locale=).with("cy")
-        get :jobsearch, :slug => "chwilio-am-swydd"
+        get :jobsearch, slug: "chwilio-am-swydd"
       end
     end
 
@@ -487,7 +487,7 @@ class RootControllerTest < ActionController::TestCase
       end
 
       should "respond with 404" do
-        get :jobsearch, :slug => "jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_response :not_found
       end
     end

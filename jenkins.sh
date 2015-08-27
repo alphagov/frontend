@@ -22,6 +22,8 @@ if [[ ${GIT_BRANCH} != "origin/master" ]]; then
     app test lib config
 fi
 
+rm -rf public/frontend
+
 bundle exec rake stats
 bundle exec rake ci:setup:testunit default
 bundle exec rake assets:precompile

@@ -59,7 +59,7 @@ module Frontend
     )
 
     # Path within public/ where assets are compiled to
-    config.assets.prefix = "frontend"
+    config.assets.prefix = "/frontend"
     config.assets.manifest = Rails.root.join 'public/frontend'
 
     # Paths used by helpers when generating links to assets

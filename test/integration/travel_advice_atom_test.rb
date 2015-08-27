@@ -29,9 +29,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry", :count => 1
       assert page.has_xpath? ".//feed/entry/title", :text => "Afghanistan"
 
-      # 233 is decimal version of eacute (é)
-      # 8220 and 8221 are the decimal versions of smart-quotes (&ldquo; and &rdquo;)
-      assert_match /Travel advic&#233; for &quot;Afghanistan&quot; has been updated &amp; is better\. &#8220;GOV\.UK&#8221;/, page.body
+      assert_match /Travel advicé for "Afghanistan" has been updated &amp; is better\. “GOV\.UK”/, page.body
     end
   end
 

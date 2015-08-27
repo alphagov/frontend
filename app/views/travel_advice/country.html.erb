@@ -22,7 +22,7 @@
           <%= render :partial => "country_summary", :locals => {:publication => @publication} %>
         <% end %>
 
-        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %></div>
+        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@publication.country['slug'], edition: @edition), rel: "nofollow" %></div>
       </div>
 
     </div>

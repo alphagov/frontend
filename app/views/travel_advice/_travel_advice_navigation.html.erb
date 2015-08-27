@@ -13,7 +13,7 @@
               </li>
             <% else %>
               <li>
-                <%= link_to part_path(@publication.slug, nav_part[:slug], @edition), :title => nav_part[:title] do %>
+                <%= link_to travel_advice_country_path(@publication.country['slug'], nav_part[:slug], edition: @edition), :title => nav_part[:title] do %>
                   <span class="part-title"><%= nav_part[:title] %></span>
                   <% if nav_part[:slug].nil? %>
                     <span class="part-description">Current travel advice</span>
@@ -31,7 +31,7 @@
       <p>Get updates</p>
       <ul>
         <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
-        <li><%= link_to "feed", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
+        <li><%= link_to "feed", travel_advice_country_path(@publication.country['slug'], format: :atom), :class => "feed", :title => "Subscribe via RSS" %></li>
       </ul>
     </section>
 

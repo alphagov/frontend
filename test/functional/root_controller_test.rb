@@ -326,7 +326,7 @@ class RootControllerTest < ActionController::TestCase
 
       get :publication, :slug => "slug"
 
-      assert_equal JSON.dump(artefact_data), @response.headers["X-Slimmer-Artefact"]
+      assert_equal artefact_data.to_json, @response.headers["X-Slimmer-Artefact"]
     end
 
     should "fudge the section for help pages" do
@@ -449,7 +449,7 @@ class RootControllerTest < ActionController::TestCase
 
       should "set correct slimmer artefact in headers" do
         get :jobsearch, :slug => "jobsearch"
-        assert_equal JSON.dump(@details), @response.headers["X-Slimmer-Artefact"]
+        assert_equal @details.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set correct expiry headers" do

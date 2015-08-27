@@ -28,7 +28,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "send the artefact to slimmer" do
         get :index
 
-        assert_equal JSON.dump(@index_artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
+        assert_equal @index_artefact.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set slimmer format to travel-advice" do

@@ -26,7 +26,7 @@ class SearchAPITest < ActiveSupport::TestCase
 
   context "given a search scoped to a manual" do
     setup do
-      @manual_link = 'manual/manual-name'
+      @manual_link = '/manual/manual-name'
       @manual_title = 'Manual Title'
 
       @govuk_result_title = "GOV.UK result"

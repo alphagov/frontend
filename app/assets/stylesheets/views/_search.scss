@@ -133,6 +133,24 @@ main.search {
         float: left;
         width: $two-thirds;
       }
+
+      mark {
+        background-color: rgba(255, 255, 140, 0.5);
+        color: inherit;
+      }
+
+      a:visited mark {
+        color: $link-visited-colour;
+      }
+
+      a:hover mark {
+        color: $link-colour;
+      }
+
+      a:active mark {
+        background-color: transparent;
+      }
+
       .result-count {
         padding: 0;
       }

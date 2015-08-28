@@ -39,11 +39,14 @@ class SearchResult
   def to_hash
     {
       debug_score: debug_score,
+      enable_highlighting: @search_parameters.enable_highlighting?,
       title: title,
       link: link,
       description: description,
       examples_present?: result["examples"].present?,
       examples: result["examples"],
+      description_with_highlighting: result["description_with_highlighting"],
+      title_with_highlighting: result["title_with_highlighting"],
       suggested_filter_present?: result["suggested_filter"].present?,
       suggested_filter_title: suggested_filter_title,
       suggested_filter_link: suggested_filter_link,

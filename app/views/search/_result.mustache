@@ -1,5 +1,11 @@
 <li>
-  <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
+  {{#enable_highlighting}}
+    <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{{title_with_highlighting}}}</a></h3>
+  {{/enable_highlighting}}
+
+  {{^enable_highlighting}}
+    <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{title}}</a></h3>
+  {{/enable_highlighting}}
 
   {{#debug_score}}
     <p class="debug-link">
@@ -34,7 +40,13 @@
     {{/government_name}}
   {{/historic?}}
 
-  <p>{{description}}</p>
+  {{#enable_highlighting}}
+    <p>{{{description_with_highlighting}}}</p>
+  {{/enable_highlighting}}
+
+  {{^enable_highlighting}}
+    <p>{{description}}</p>
+  {{/enable_highlighting}}
 
   {{#sections_present?}}
     <ul class="sections">

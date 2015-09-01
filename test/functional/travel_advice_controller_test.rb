@@ -1,4 +1,4 @@
-require_relative '../test_helper'
+require 'test_helper'
 
 class TravelAdviceControllerTest < ActionController::TestCase
 
@@ -28,7 +28,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "send the artefact to slimmer" do
         get :index
 
-        assert_equal JSON.dump(@index_artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
+        assert_equal @index_artefact.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set slimmer format to travel-advice" do
@@ -175,12 +175,12 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
       end
 
-      should "return a print format" do
+      should "return a print variant" do
         @controller.stubs(:render)
 
-        get :country, :country_slug => "turks-and-caicos-islands", :edition => "5", :format => "print"
+        get :country, country_slug: "turks-and-caicos-islands", edition: "5", variant: :print
 
-        assert_equal "print", @request.format
+        assert_equal [:print], @request.variant
         assert_equal "print", @response.headers["X-Slimmer-Template"]
       end
 

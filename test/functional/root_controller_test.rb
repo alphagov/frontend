@@ -1,4 +1,4 @@
-require_relative '../test_helper'
+require 'test_helper'
 
 class RootControllerTest < ActionController::TestCase
   def setup_this_answer
@@ -160,7 +160,7 @@ class RootControllerTest < ActionController::TestCase
             {'slug' => 'further-information', 'name' => 'BB'}
           ]}})
     get :publication, :slug => "zippy"
-    assert_false @response.body.include? "further-information"
+    refute @response.body.include? "further-information"
   end
 
   test "further information tab should not appear for programmes that don't have it" do
@@ -184,10 +184,9 @@ class RootControllerTest < ActionController::TestCase
     content_api_has_an_artefact("a-slug")
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide")
-    get :publication, :slug => "a-slug", :format => "print"
-    # assert_template 'guide'
-    assert_equal "print", @request.format
+    @controller.expects(:render).with("guide", layout: "application.print")
+    get :publication, slug: "a-slug", variant: :print
+    assert_equal [:print], @request.variant
   end
 
   test "should return 404 when print view of a non-=supported format is requested" do
@@ -327,7 +326,7 @@ class RootControllerTest < ActionController::TestCase
 
       get :publication, :slug => "slug"
 
-      assert_equal JSON.dump(artefact_data), @response.headers["X-Slimmer-Artefact"]
+      assert_equal artefact_data.to_json, @response.headers["X-Slimmer-Artefact"]
     end
 
     should "fudge the section for help pages" do
@@ -421,45 +420,45 @@ class RootControllerTest < ActionController::TestCase
   end
 
   context "loading the jobsearch page" do
-    context "given an artefact for 'jobs-jobsearch' exists" do
+    context "given an artefact for 'jobsearch' exists" do
       setup do
         @details = {
-          'slug' => 'jobs-jobsearch',
-          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch',
+          'slug' => 'jobsearch',
+          'web_url' => 'https://www.preview.alphagov.co.uk/jobsearch',
           'format' => 'transaction',
           'details' => {"need_to_know" => ""},
           'title' => 'Universal Jobsearch'
         }
-        content_api_has_an_artefact("jobs-jobsearch", @details)
+        content_api_has_an_artefact("jobsearch", @details)
       end
 
       should "respond with success" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_response :success
       end
 
       should "loads the correct details" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "initialize a publication object" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
       end
 
       should "set correct slimmer artefact in headers" do
-        get :jobsearch, :slug => "jobs-jobsearch"
-        assert_equal JSON.dump(@details), @response.headers["X-Slimmer-Artefact"]
+        get :jobsearch, slug: "jobsearch"
+        assert_equal @details.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set correct expiry headers" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
       end
 
       should "render the jobsearch view" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_template "jobsearch"
       end
     end
@@ -467,28 +466,28 @@ class RootControllerTest < ActionController::TestCase
     context "given a welsh version exists" do
       setup do
         @details = {
-          'id' => 'https://www.gov.uk/api/jobs-jobsearch-welsh.json',
-          'web_url' => 'https://www.preview.alphagov.co.uk/jobs-jobsearch-welsh',
+          'id' => 'https://www.gov.uk/api/chwilio-am-swydd.json',
+          'web_url' => 'https://www.preview.alphagov.co.uk/chwilio-am-swydd',
           'format' => 'transaction',
           'details' => {"need_to_know" => "", "language" => "cy"},
           'title' => 'Universal Jobsearch'
         }
-        content_api_has_an_artefact("jobs-jobsearch-welsh", @details)
+        content_api_has_an_artefact("chwilio-am-swydd", @details)
       end
 
       should "set the locale to welsh" do
         I18n.expects(:locale=).with("cy")
-        get :jobsearch, :slug => "jobs-jobsearch-welsh"
+        get :jobsearch, slug: "chwilio-am-swydd"
       end
     end
 
     context "given an artefact does not exist" do
       setup do
-        content_api_does_not_have_an_artefact('jobs-jobsearch')
+        content_api_does_not_have_an_artefact('jobsearch')
       end
 
       should "respond with 404" do
-        get :jobsearch, :slug => "jobs-jobsearch"
+        get :jobsearch, slug: "jobsearch"
         assert_response :not_found
       end
     end
@@ -517,8 +516,8 @@ class RootControllerTest < ActionController::TestCase
         unexpected_urls = ["#{Plek.new.website_root}/http://www.wyreforestdc.gov.uk"]
 
         assert_response :redirect
-        assert_include(expected_urls, response.redirect_url)
-        assert_not_include(unexpected_urls, response.redirect_url)
+        assert_includes(expected_urls, response.redirect_url)
+        assert_not_includes(unexpected_urls, response.redirect_url)
       end
 
       should "be cacheable long enough to discourage bots and short enough that users don't notice" do

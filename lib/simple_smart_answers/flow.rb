@@ -1,5 +1,5 @@
-require_relative 'node'
-require_relative 'state'
+require 'simple_smart_answers/node'
+require 'simple_smart_answers/state'
 
 module SimpleSmartAnswers
   class Flow

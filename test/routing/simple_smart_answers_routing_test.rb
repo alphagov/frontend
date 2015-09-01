@@ -1,4 +1,4 @@
-require_relative "../test_helper"
+require "test_helper"
 
 class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
   should "route the start page to the root controller" do

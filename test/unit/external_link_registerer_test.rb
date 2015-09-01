@@ -1,8 +1,8 @@
 require 'gds_api/external_link_tracker'
-require_relative "../test_helper"
-require_relative "../../lib/external_link_registerer"
+require "test_helper"
+require "external_link_registerer"
 
-class ExternalLinkRegistererTest < Test::Unit::TestCase
+class ExternalLinkRegistererTest < ActiveSupport::TestCase
   test "#register sends links to the external link tracker" do
 
     beta_tax_disc_service_url = 'https://www.taxdisc.service.gov.uk'

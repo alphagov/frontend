@@ -1,4 +1,4 @@
-require_relative '../test_helper'
+require 'test_helper'
 require 'gds_api/test_helpers/content_api'
 
 class SimpleSmartAnswersControllerTest < ActionController::TestCase
@@ -91,7 +91,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       should "send the artefact to Slimmer" do
         get :flow, :slug => "the-bridge-of-death", :responses => "option-1/option-2"
 
-        assert_equal JSON.dump(@artefact), response.headers["X-Slimmer-Artefact"]
+        assert_equal @artefact.to_json, response.headers["X-Slimmer-Artefact"]
       end
 
       context "with form submission params" do

@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'application_controller'
 
 class ArtefactRetrieverTest < ActiveSupport::TestCase
   class DummyStatsd
@@ -65,7 +66,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
     json_data = File.read(Rails.root.join('test/fixtures/jobsearch.json'))
     temp = JSON.parse(json_data)
     temp['format'] = 'something bad'
-    tampered_json_data = JSON.dump(temp)
+    tampered_json_data = temp.to_json
 
     index_artefact = GdsApi::Response.new(
       stub("HTTP_Response", :code => 200, :body => tampered_json_data),

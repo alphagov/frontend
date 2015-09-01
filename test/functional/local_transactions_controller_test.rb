@@ -3,8 +3,7 @@ require 'test_helper'
 require 'gds_api/part_methods'
 require 'gds_api/test_helpers/mapit'
 
-class LocalTransactionsTest < ActionController::TestCase
-
+class LocalTransactionsControllerTest < ActionController::TestCase
   tests RootController
   include GdsApi::TestHelpers::Mapit
 
@@ -19,7 +18,7 @@ class LocalTransactionsTest < ActionController::TestCase
           "local_service" => {
             "description" => "What could go wrong?",
             "lgsl_code" => "8342",
-            "providing_tier" => [ "district", "unitary" ]
+            "providing_tier" => %w(district unitary)
           }
         }
       }
@@ -38,7 +37,7 @@ class LocalTransactionsTest < ActionController::TestCase
       should "set correct expiry headers" do
         get :publication, slug: "send-a-bear-to-your-local-council"
 
-        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
     end
 
@@ -110,7 +109,7 @@ class LocalTransactionsTest < ActionController::TestCase
           "local_service" => {
             "description" => "Contact your council to dispatch Cousin Sven's bear enforcement squad in your area.",
             "lgsl_code" => "1234",
-            "providing_tier" => [ "district", "unitary" ]
+            "providing_tier" => %w(district unitary)
           },
           "local_interaction" => nil,
           "local_authority" => {

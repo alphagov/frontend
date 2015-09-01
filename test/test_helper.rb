@@ -7,9 +7,9 @@ SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'test/unit'
-require 'mocha/setup'
-require 'webmock/test_unit'
+require 'minitest/unit'
+require 'mocha/mini_test'
+require 'webmock/minitest'
 WebMock.disable_net_connect!(:allow_localhost => true)
 require 'timecop'
 

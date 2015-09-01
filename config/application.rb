@@ -6,10 +6,7 @@ require "rails/test_unit/railtie"
 require "sprockets/railtie"
 
 if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  # Bundler.require(:default, :assets, Rails.env)
+  Bundler.require(*Rails.groups)
 end
 
 module Frontend
@@ -21,7 +18,7 @@ module Frontend
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{config.root}/app/presenters)
+    config.autoload_paths += %W(#{config.root}/app/presenters #{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -62,7 +59,7 @@ module Frontend
     )
 
     # Path within public/ where assets are compiled to
-    config.assets.prefix = "frontend"
+    config.assets.prefix = "/frontend"
     config.assets.manifest = Rails.root.join 'public/frontend'
 
     # Paths used by helpers when generating links to assets

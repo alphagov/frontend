@@ -1,4 +1,4 @@
-require_relative '../integration_test_helper'
+require 'integration_test_helper'
 
 class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
   context "rendering the check-vehicle-tax page" do

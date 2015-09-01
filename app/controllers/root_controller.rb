@@ -120,8 +120,10 @@ class RootController < ApplicationController
     @publication.current_part = params[:part]
     @edition = params[:edition]
 
+    request.variant = :print if params[:variant].to_s == "print"
+
     respond_to do |format|
-      format.html do
+      format.html.none do
         # render bespoke format for specific publications.
         if EXCEPTIONAL_FORMAT_SLUGS.include?(params[:slug])
           render params[:slug], locals: { full_width: true }
@@ -131,10 +133,10 @@ class RootController < ApplicationController
           render @publication.format
         end
       end
-      format.print do
+      format.html.print do
         if PRINT_FORMATS.include?(@publication.format)
           set_slimmer_headers template: "print"
-          render @publication.format
+          render @publication.format, layout: "application.print"
         else
           error_404
         end

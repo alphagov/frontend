@@ -1,4 +1,4 @@
-require_relative '../../test_helper'
+require 'test_helper'
 
 module SimpleSmartAnswers
   class NodeTest < ActiveSupport::TestCase
@@ -15,11 +15,11 @@ module SimpleSmartAnswers
 
     context "outcome?" do
       should "be true for an outcome node" do
-        assert_true Node.new(:a_flow, "kind" => "outcome").outcome?
+        assert Node.new(:a_flow, "kind" => "outcome").outcome?
       end
 
       should "be false for a question node" do
-        assert_false Node.new(:a_flow, "kind" => "question").outcome?
+        refute Node.new(:a_flow, "kind" => "question").outcome?
       end
     end
 

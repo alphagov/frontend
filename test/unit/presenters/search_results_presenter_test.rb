@@ -1,4 +1,4 @@
-require_relative "../../test_helper"
+require "test_helper"
 
 class SearchResultsPresenterTest < ActiveSupport::TestCase
   should "return an appropriate hash" do

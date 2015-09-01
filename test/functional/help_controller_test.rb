@@ -1,4 +1,4 @@
-require_relative "../test_helper"
+require "test_helper"
 
 class HelpControllerTest < ActionController::TestCase
 
@@ -16,7 +16,7 @@ class HelpControllerTest < ActionController::TestCase
     should "send the artefact to slimmer" do
       get :index
 
-      assert_equal JSON.dump(@artefact.to_hash), @response.headers["X-Slimmer-Artefact"]
+      assert_equal @artefact.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
     end
 
     should "set the slimmer format" do

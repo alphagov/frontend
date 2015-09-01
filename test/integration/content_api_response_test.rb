@@ -1,4 +1,4 @@
-require_relative "../integration_test_helper"
+require "integration_test_helper"
 
 class ContentApiResponseTest < ActionDispatch::IntegrationTest
   def status_for_url(path, status)

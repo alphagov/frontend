@@ -28,6 +28,10 @@ class ActiveSupport::TestCase
   include GdsApi::TestHelpers::ContentApi
   include Slimmer::TestHelpers::SharedTemplates
 
+  setup do
+    I18n.locale = :en
+  end
+
   teardown do
     Timecop.return
   end

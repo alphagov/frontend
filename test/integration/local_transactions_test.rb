@@ -285,6 +285,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     click_button('Find')
 
     assert_current_url "/pay-bear-tax"
-    assert page.has_content?("Sorry, we can't find the local council for your postcode. Try using the local council directory.")
+    assert_selector(".location_error.error-notification", text: "Sorry, we can't find the local council for your postcode. Try using the local council directory.")
   end
 end

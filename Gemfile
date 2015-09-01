@@ -33,7 +33,6 @@ gem 'logstasher', '0.4.8'
 gem 'airbrake', '3.1.15'
 gem 'invalid_utf8_rejector', '0.0.1'
 gem 'rack_strip_client_ip', '0.0.1'
-gem 'govuk-lint'
 
 group :development do
   gem 'better_errors'
@@ -42,6 +41,7 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'govuk-lint', "~> 0.3.0"
 end
 
 # Note that govuk_frontend_toolkit is only used here for SASS mixins and
@@ -53,7 +53,7 @@ gem "therubyracer", "0.12.2"
 gem 'uglifier'
 
 group :test do
-  gem "mocha"
+  gem "mocha", "~> 1.1.0"
   gem "webmock", :require => false
   gem 'simplecov'
   gem 'simplecov-rcov'

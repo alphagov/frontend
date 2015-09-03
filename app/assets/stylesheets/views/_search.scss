@@ -135,8 +135,9 @@ main.search {
       }
 
       mark {
-        background-color: $focus-colour;
+        background-color: inherit;
         color: inherit;
+        font-weight: bold;
       }
 
       a:visited mark {

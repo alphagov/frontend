@@ -21,6 +21,14 @@ class SearchParameterTest < ActiveSupport::TestCase
     end
   end
 
+  context '#suggest' do
+    should "requests the spelling suggester by default" do
+      params = SearchParameters.new({})
+
+      assert_equal "spelling", params.rummager_parameters[:suggest]
+    end
+  end
+
   context '#start' do
     should 'start at 0 if start < 1' do
       params = SearchParameters.new(start: -1)

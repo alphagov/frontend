@@ -140,18 +140,6 @@ main.search {
         font-weight: bold;
       }
 
-      a:visited mark {
-        color: $link-visited-colour;
-      }
-
-      a:hover mark {
-        color: $link-colour;
-      }
-
-      a:active mark {
-        background-color: transparent;
-      }
-
       .result-count {
         padding: 0;
       }
@@ -232,6 +220,7 @@ main.search {
               }
             }
           }
+
           h4.see-all a {
             text-decoration: underline;
           }
@@ -260,7 +249,12 @@ main.search {
             font-weight: bold;
             text-decoration: none;
 
-            &:hover, &:focus {
+            &:visited mark {
+              color: $link-visited-colour;
+            }
+
+            &:hover, &:focus,
+            &:hover mark, &:focus mark {
               color: $link-colour;
               text-decoration: underline;
             }

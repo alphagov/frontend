@@ -54,24 +54,6 @@ class SearchControllerTest < ActionController::TestCase
         .returns(response_body)
   end
 
-  def expect_search_client_is_requested(organisations, query = "search-term", options = {})
-    parameters = {
-      :start => options[:start] || '0',
-      :count => options[:count] || '50',
-      :q => query,
-      :filter_organisations => organisations,
-      :fields => rummager_result_fields,
-      :facet_organisations => '100',
-      :debug => nil,
-    }
-    if options[:specialist_sectors]
-      parameters[:filter_specialist_sectors] = options[:specialist_sectors]
-      parameters[:facet_specialist_sectors] = "100"
-    end
-    Frontend.search_client.expects(:search)
-        .returns(response([]))
-  end
-
   def stub_single_result(result)
     stub_results([result])
   end
@@ -221,23 +203,6 @@ class SearchControllerTest < ActionController::TestCase
     assert_select "ul.attributes li", /Home Office/
   end
 
-  should "filter by organisation" do
-    expect_search_client_is_requested(['ministry-of-silly-walks'])
-    get :index, {q: "search-term", filter_organisations: ["ministry-of-silly-walks"]}
-  end
-
-  should "filter by multiple organisations" do
-    expect_search_client_is_requested(['ministry-of-silly-walks', 'ministry-of-beer'])
-    get :index, {q: "search-term", filter_organisations: ["ministry-of-silly-walks", "ministry-of-beer"]}
-  end
-
-  should "filter by topic (using specialist_sectors internal field)" do
-    expect_search_client_is_requested([], "a query",
-      specialist_sectors: ["business-tax/vat"],
-    )
-    get :index, {q: "a query", filter_topics: ["business-tax/vat"]}
-  end
-
   should "suggest the first alternative query" do
     suggestions = ["cats","dogs"]
     results = [ a_search_result('something') ]
@@ -295,30 +260,6 @@ class SearchControllerTest < ActionController::TestCase
 
     assert_select 'li.previous', /Previous page/
     assert_select 'li.previous', /1 of 2/
-  end
-
-  test 'should default to 0 given a negative start parameter' do
-    expect_search_client_is_requested([], 'Test', start: '0')
-
-    get :index, q: 'Test', start: -1
-  end
-
-  test 'should default to 50 given a negative count parameter' do
-    expect_search_client_is_requested([], 'Test', count: '50')
-
-    get :index, q: 'Test', count: -1
-  end
-
-  test 'should default to 50 given a zero count parameter' do
-    expect_search_client_is_requested([], 'Test', count: '50')
-
-    get :index, q: 'Test', count: -1
-  end
-
-  test 'should request at most 100 results' do
-    expect_search_client_is_requested([], 'Test', count: '100')
-
-    get :index, q: 'Test', count: 1000
   end
 
   test "should_show_external_links_with_rel_external" do

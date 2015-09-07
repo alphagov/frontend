@@ -6,8 +6,8 @@ class SearchControllerTest < ActionController::TestCase
 
   def a_search_result(slug, score=1)
     {
-      "title" => slug.titleize,
-      "description" => "Description for #{slug}",
+      "title_with_highlighting" => slug.titleize,
+      "description_with_highlighting" => "Description for #{slug}",
       "link" => "/#{slug}",
       "es_score" => score
     }
@@ -15,7 +15,7 @@ class SearchControllerTest < ActionController::TestCase
 
   def result_with_organisation(acronym, title, slug)
     {
-      "title" => "Something by #{title}",
+      "title_with_highlighting" => "Something by #{title}",
       "format" => "something",
       "es_score" => 0.1,
       "index" => "government",
@@ -31,7 +31,7 @@ class SearchControllerTest < ActionController::TestCase
 
   def rummager_result_fields
     %w{
-      description
+      description_with_highlighting
       display_type
       document_series
       format
@@ -43,7 +43,7 @@ class SearchControllerTest < ActionController::TestCase
       public_timestamp
       slug
       specialist_sectors
-      title
+      title_with_highlighting
       world_locations
     }
   end
@@ -124,7 +124,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display a link to the documents matching our search criteria" do
-    result = {"title" => "document-title", "link" => "/document-slug"}
+    result = {"title_with_highlighting" => "document-title", "link" => "/document-slug"}
     stub_single_result(result)
     get :index, {q: "search-term"}
     assert_select "a[href='/document-slug']", text: "document-title"
@@ -132,8 +132,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should apply history mode to historic result" do
     historic_result = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
+      "title_with_highlighting" => "TITLE1",
+      "description_with_highlighting" => "DESCRIPTION",
       "is_historic" => true,
       "government_name" => "XXXX to YYYY Example government",
       "link" => "/url",
@@ -148,8 +148,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should not apply history mode to non historic result" do
     historic_result = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
+      "title_with_highlighting" => "TITLE1",
+      "description_with_highlighting" => "DESCRIPTION",
       "is_historic" => false,
       "government_name" => nil,
       "link" => "/url",
@@ -164,8 +164,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should not apply history mode to historic result without government name" do
     historic_result = {
-      "title" => "TITLE1",
-      "description" => "DESCRIPTION",
+      "title_with_highlighting" => "TITLE1",
+      "description_with_highlighting" => "DESCRIPTION",
       "is_historic" => true,
       "government_name" => nil,
       "link" => "/url",
@@ -264,8 +264,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should_show_external_links_with_rel_external" do
     external_document = {
-      "title" => "A title",
-      "description" => "This is a description",
+      "title_with_highlighting" => "A title",
+      "description_with_highlighting" => "This is a description",
       "link" => "http://twitter.com",
       "section" => "driving",
       "format" => "recommended-link"
@@ -281,7 +281,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should send analytics headers" do
     result = {
-      "title" => "title",
+      "title_with_highlighting" => "title",
       "link" => "/slug",
       "highlight" => "",
       "format" => "publication"
@@ -303,8 +303,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "truncate long external URLs to a fixed length" do
     external_link = {
-      "title" => "A title",
-      "description" => "This is a description",
+      "title_with_highlighting" => "A title",
+      "description_with_highlighting" => "This is a description",
       "link" => "http://www.weally.weally.long.url.com/weaseling/about/the/world",
       "section" => "driving",
       "format" => "recommended-link"
@@ -321,8 +321,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should remove the scheme from external URLs" do
     external_link = {
-      "title" => "A title",
-      "description" => "This is a description",
+      "title_with_highlighting" => "A title",
+      "description_with_highlighting" => "This is a description",
       "link" => "http://www.badgers.com/badgers",
       "format" => "recommended-link"
     }
@@ -338,8 +338,8 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should remove the scheme from HTTPS URLs" do
     external_link = {
-      "title" => "A title",
-      "description" => "This is a description",
+      "title_with_highlighting" => "A title",
+      "description_with_highlighting" => "This is a description",
       "link" => "https://www.badgers.com/badgers",
       "format" => "recommended-link"
     }

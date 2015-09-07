@@ -6,7 +6,7 @@ describe("liveSearch", function(){
     "result_count":1,
     "results_any?":true,
     "results":[
-      {"title":"my-title","link":"my-link","description":"my-description"}
+      {"title_with_highlighting":"my-title","link":"my-link","description":"my-description"}
     ]
   };
 

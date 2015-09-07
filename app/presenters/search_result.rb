@@ -39,7 +39,6 @@ class SearchResult
   def to_hash
     {
       debug_score: debug_score,
-      enable_highlighting: @search_parameters.enable_highlighting?,
       title: title,
       link: link,
       description: description,

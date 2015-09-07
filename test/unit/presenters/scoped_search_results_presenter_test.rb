@@ -32,7 +32,6 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
                               start: 1,
                               count: 1,
                               build_link: 1,
-                              enable_highlighting?: false,
                               )
   end
 

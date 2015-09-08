@@ -60,7 +60,6 @@ class SearchParameters
       count: count.to_s,
       q: search_term,
       fields: %w{
-        description
         title_with_highlighting
         description_with_highlighting
         display_type

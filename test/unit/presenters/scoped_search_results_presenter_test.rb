@@ -5,27 +5,30 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
     @scope_title = stub
     @unscoped_result_count = stub
 
-    @scoped_results = [{"title"=> "scoped_result_1"},
-                       {"title"=> "scoped_result_2"},
-                       {"title"=> "scoped_result_3"},
-                       {"title"=> "scoped_result_4"},
-                       ]
-    @unscoped_results = [{"title"=> "unscoped_result_1"},
-                        {"title"=> "unscoped_result_2"},
-                        {"title"=> "unscoped_result_3"},
-                        ]
+    @scoped_results = [
+      { "title_with_highlighting" => "scoped_result_1" },
+      { "title_with_highlighting" => "scoped_result_2" },
+      { "title_with_highlighting" => "scoped_result_3" },
+      { "title_with_highlighting" => "scoped_result_4" },
+    ]
 
-    @search_response =  { "result_count" => "50",
-                          "results" => @scoped_results,
-                          "scope" => {
-                            "title" => @scope_title,
-                          },
-                          "unscoped_results" => {
-                            "total" => @unscoped_result_count,
-                            "results" => @unscoped_results,
-                          },
-                        }
+    @unscoped_results = [
+      { "title_with_highlighting" => "unscoped_result_1" },
+      { "title_with_highlighting" => "unscoped_result_2" },
+      { "title_with_highlighting" => "unscoped_result_3" },
+    ]
 
+    @search_response =  {
+      "result_count" => "50",
+      "results" => @scoped_results,
+      "scope" => {
+        "title" => @scope_title,
+      },
+      "unscoped_results" => {
+        "total" => @unscoped_result_count,
+        "results" => @unscoped_results,
+      },
+    }
 
     @search_parameters = stub(search_term: 'words',
                               debug_score: 1,
@@ -62,22 +65,25 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
       # and a flag `is_multiple_results` set to true.
       ##
 
-      simplified_expected_results_list = [{ "title"=> "scoped_result_1" },
-                               { "title"=> "scoped_result_2" },
-                               { "title"=> "scoped_result_3" },
-                               { "is_multiple_results" => true,
-                                 "results" => [{ "title"=> "unscoped_result_1" },
-                                               { "title"=> "unscoped_result_2" },
-                                               { "title"=> "unscoped_result_3" },
-                                              ]
-                                },
-                                { "title"=> "scoped_result_4" },
-                              ]
+      simplified_expected_results_list = [
+        { "title_with_highlighting" => "scoped_result_1" },
+        { "title_with_highlighting" => "scoped_result_2" },
+        { "title_with_highlighting" => "scoped_result_3" },
+        {
+          "is_multiple_results" => true,
+          "results" => [
+            { "title_with_highlighting" => "unscoped_result_1" },
+            { "title_with_highlighting" => "unscoped_result_2" },
+            { "title_with_highlighting" => "unscoped_result_3" },
+          ]
+        },
+        { "title_with_highlighting" => "scoped_result_4" },
+      ]
 
 
       # Scoped results
       simplified_expected_results_list[0..2].each_with_index do | result, i |
-        assert_equal result["title"], results[:results][i][:title]
+        assert_equal result["title_with_highlighting"], results[:results][i][:title_with_highlighting]
       end
 
       # Check un-scoped sub-list has flag
@@ -85,11 +91,11 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
 
       # iterate unscoped sublist of results
       simplified_expected_results_list[3]["results"].each_with_index do | result, i |
-        assert_equal result["title"], results[:results][3][:results][i][:title]
+        assert_equal result["title_with_highlighting"], results[:results][3][:results][i][:title_with_highlighting]
       end
 
       # check remaining result
-      assert_equal simplified_expected_results_list[4]["title"], results[:results][4][:title]
+      assert_equal simplified_expected_results_list[4]["title_with_highlighting"], results[:results][4][:title_with_highlighting]
     end
   end
 
@@ -103,7 +109,7 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
       results = ScopedSearchResultsPresenter.new(@search_response, @search_parameters).to_hash
 
       @scoped_results.each_with_index do | result, i |
-        assert_equal result["title"], results[:results][i][:title]
+        assert_equal result["title_with_highlighting"], results[:results][i][:title_with_highlighting]
       end
     end
 

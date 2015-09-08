@@ -52,30 +52,8 @@ class GovernmentResult < SearchResult
     end
   end
 
-  def title
-    if format == 'organisation' && result["organisation_state"] == 'closed'
-      "Closed organisation: " + result["title"]
-    else
-      result["title"]
-    end
-  end
-
   def public_timestamp
     result["public_timestamp"].to_date.strftime("%e %B %Y") if result["public_timestamp"]
-  end
-
-  def description
-    description = result["description"].to_s.truncate(
-      MAX_DESCRIPTION_LENGTH,
-      separator: " ",
-      omission: OMISSION_CHARACTER
-    )
-
-    if format == "organisation" && result["organisation_state"] != 'closed' && !description.starts_with?('The home of')
-      "The home of #{result["title"]} on GOV.UK. #{description}"
-    else
-      description
-    end
   end
 
   def historic?

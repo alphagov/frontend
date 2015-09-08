@@ -2,8 +2,6 @@
 class SearchResult
   include ActionView::Helpers::NumberHelper
   SCHEME_PATTERN = %r{^https?://}
-  MAX_DESCRIPTION_LENGTH = 215
-  OMISSION_CHARACTER = '…'
 
   attr_accessor :result
 
@@ -39,9 +37,7 @@ class SearchResult
   def to_hash
     {
       debug_score: debug_score,
-      title: title,
       link: link,
-      description: description,
       examples_present?: result["examples"].present?,
       examples: result["examples"],
       description_with_highlighting: result["description_with_highlighting"],
@@ -56,13 +52,6 @@ class SearchResult
       format: format,
       is_multiple_results: false,
     }
-  end
-
-  def description
-    description = result["description"]
-    if description.present?
-      description.truncate(MAX_DESCRIPTION_LENGTH, :separator => " ", :omission => OMISSION_CHARACTER)
-    end
   end
 
 protected

@@ -18,7 +18,9 @@ $(document).ready(function () {
   var $container = $('section.more');
 
   if ($container.find('.js-tabs').length) {
-    $container.tabs();
+    $container.tabs({
+      scrollOnload: true
+    });
   }
 
   $('form#completed-transaction-form').

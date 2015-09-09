@@ -84,7 +84,7 @@ GEM
       multi_json (~> 1.0)
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
-    gds-api-adapters (23.2.1)
+    gds-api-adapters (24.3.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -268,7 +268,7 @@ DEPENDENCIES
   capybara (= 2.1.0)
   cdn_helpers (= 0.9)
   ci_reporter
-  gds-api-adapters (= 23.2.1)
+  gds-api-adapters (= 24.3.0)
   gelf
   govuk-lint (~> 0.3.0)
   govuk_frontend_toolkit (~> 4.1.0)

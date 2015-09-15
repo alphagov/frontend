@@ -77,5 +77,10 @@ module Frontend
 
     # Disable Content Negotiation
     config.action_dispatch.ignore_accept_header = true
+
+    # Override Rails 4 default which restricts framing to SAMEORIGIN.
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWALL'
+    }
   end
 end

@@ -10,7 +10,6 @@
       var $searchResults = $('#results .results-list');
 
       search.enableLiveSearchCheckbox($searchResults);
-      search.trackExternalSearchClicks($searchResults);
       search.trackSearchClicks($searchResults);
       search.trackSearchResultsAndSuggestions($searchResults);
       search.trackSearchResultsAndSuggestionsOnPageTrack($searchResults);
@@ -70,11 +69,6 @@
       }
 
       return $searchResults.children().map(extractSearchURL);
-    },
-    trackExternalSearchClicks: function ($searchResults) {
-      if ($searchResults.length > 0) {
-        new GOVUK.TrackExternalLinks($searchResults);
-      }
     },
     trackSearchClicks: function ($searchResults) {
       if($searchResults.length === 0 || !GOVUK.cookie){

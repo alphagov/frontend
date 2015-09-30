@@ -54,11 +54,7 @@ private
     end
 
     def scope_object_link
-      @scope_object_link ||= with_leading_slash(params.filter('manual').first)
-    end
-
-    def with_leading_slash(slug)
-      slug.start_with?("/") ? slug : "/#{slug}"
+      @scope_object_link ||= params.filter('manual').first
     end
 
     def unscoped_results

@@ -79,8 +79,9 @@ class RootController < ApplicationController
     @publication = prepare_publication_and_environment
     @postcode = PostcodeSanitizer.sanitize(params[:postcode])
 
-    if ['licence', 'local_transaction'].include?(@publication.format)
-      @location = fetch_location(@postcode)
+    if @publication.format == 'licence'
+      @location = fetch_location @postcode
+
       if @location
         snac = appropriate_snac_code_from_location(@publication, @location)
 
@@ -107,6 +108,45 @@ class RootController < ApplicationController
           assert_found(updated_artefact)
           @publication = PublicationPresenter.new(updated_artefact)
         end
+      end
+
+      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
+    elsif @publication.format == 'local_transaction'
+      @location = fetch_location @postcode
+
+      if @location
+        # Valid postcode and matching location
+        snac = appropriate_snac_code_from_location(@publication, @location)
+
+        if snac
+          # Matching local authority and redirect to publication page
+          # with the local authority name. This is the 100% success state.
+          # The redirect below redirects back to this action with the `part`
+          redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
+        else
+          # No matching local authority.
+          # This points the user towards "Find your LA" which is an
+          # England only service
+          @postcode_error = "No matching local authority, sent user to 'Find your LA'."
+          @location_error = "formats.local_transaction.no_local_authority_html"
+        end
+      elsif params[:authority] && params[:authority][:slug].present?
+        return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
+      elsif params[:part]
+        # Link to local authority but no direct link to service
+        authority_slug = params[:part]
+
+        snac = AuthorityLookup.find_snac(params[:part])
+
+        if request.format.json?
+          redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+        end
+
+        # Fetch the artefact again, for the snac we have
+        # This returns additional data based on format and location
+        updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
+        assert_found(updated_artefact)
+        @publication = PublicationPresenter.new(updated_artefact)
       end
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)

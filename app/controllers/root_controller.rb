@@ -216,9 +216,7 @@ protected
   end
 
   def local_transaction_details(artefact, authority_slug, snac)
-    if !snac.present? and !authority_slug.blank?
-      raise RecordNotFound
-    end
+    raise RecordNotFound if snac.blank? && authority_slug.present?
 
     artefact['details'].slice('local_authority', 'local_service', 'local_interaction')
   end

@@ -249,21 +249,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "a country updated before 20th March 2013" do
-    setup do
-      setup_api_responses "foreign-travel-advice/luxembourg"
-    end
-
-    should "not display the change description" do
-      visit "/foreign-travel-advice/luxembourg"
-
-      within '.country-metadata' do
-        assert page.has_no_content?("The issue with the Knights of Ni has been resolved.")
-      end
-    end
-  end
-
-
   context "a country with no parts" do
     setup do
       setup_api_responses "foreign-travel-advice/luxembourg"

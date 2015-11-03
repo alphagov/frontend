@@ -76,6 +76,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "not show a postcode error" do
         assert !page.has_selector?(".location_error")
       end
+
+      should "show link to postcode_finder" do
+        assert page.has_selector?("a#postcode-finder-link")
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do

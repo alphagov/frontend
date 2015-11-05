@@ -3,6 +3,7 @@ require "authority_lookup"
 require "local_transaction_location_identifier"
 require "licence_location_identifier"
 require "licence_details_from_artefact"
+require "postcode_sanitizer"
 
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
@@ -76,10 +77,10 @@ class RootController < ApplicationController
 
   def publication
     @publication = prepare_publication_and_environment
-    @postcode = params[:postcode]
+    @postcode = PostcodeSanitizer.sanitize(params[:postcode])
 
     if ['licence', 'local_transaction'].include?(@publication.format)
-      @location = fetch_location @postcode
+      @location = fetch_location(@postcode)
       if @location
         snac = appropriate_snac_code_from_location(@publication, @location)
 
@@ -164,7 +165,7 @@ protected
 
   def prepare_publication_and_environment
     publication = publication_with_places(
-      params[:postcode], params[:slug], params[:edition]
+      PostcodeSanitizer.sanitize(params[:postcode]), params[:slug], params[:edition]
     )
 
     assert_found(publication)

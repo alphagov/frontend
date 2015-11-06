@@ -86,12 +86,12 @@ class RootController < ApplicationController
         snac = appropriate_snac_code_from_location(@publication, @location)
 
         if snac
-          redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
+          return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
         else
           @location_error = "formats.local_transaction.no_local_authority_html"
         end
       elsif params[:authority] && params[:authority][:slug].present?
-        redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
+        return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
       elsif params[:part]
         authority_slug = params[:part]
 
@@ -99,7 +99,7 @@ class RootController < ApplicationController
           snac = AuthorityLookup.find_snac(params[:part])
 
           if request.format.json?
-            redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+            return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
           end
 
           # Fetch the artefact again, for the snac we have
@@ -128,7 +128,7 @@ class RootController < ApplicationController
           # Matching local authority and redirect to publication page
           # with the local authority name. This is the 100% success state.
           # The redirect below redirects back to this action with the `part`
-          redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac)) && return
+          return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
         else
           # No matching local authority.
           # This points the user towards "Find your LA" which is an
@@ -145,7 +145,7 @@ class RootController < ApplicationController
           snac = AuthorityLookup.find_snac(params[:part])
 
           if request.format.json?
-            redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" && return
+            return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
           end
 
           # Fetch the artefact again, for the snac we have
@@ -162,9 +162,9 @@ class RootController < ApplicationController
     elsif @publication.empty_part_list?
       raise RecordNotFound
     elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
-      redirect_to publication_path(:slug => @publication.slug) and return
+      return redirect_to publication_path(slug: @publication.slug)
     elsif request.format.json? && @publication.format != 'place'
-      redirect_to "/api/#{params[:slug]}.json" and return
+      return redirect_to "/api/#{params[:slug]}.json"
     end
 
     @publication.current_part = params[:part]

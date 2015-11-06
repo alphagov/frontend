@@ -7,14 +7,21 @@
       <% end %>
 
       <% if @location_error %>
-      <div class="location_error error-notification"><%= t @location_error %></div>
+        <div class="location_error error-notification"><%= t @location_error %></div>
       <% elsif params[:postcode] and @publication.places.nil? %>
-      <div class="location_error error-notification">Please enter a valid full UK postcode.</div>
+        <div class="location_error error-notification">Please enter a valid full UK postcode.</div>
       <% end %>
 
       <div class="ask_location">
         <label for="postcode">Enter your postcode (UK only) <input class="postcode" id="postcode" name="postcode" type="text" placeholder="eg SW1A 2AA" value="<%= @postcode %>"></label>
         <button type="submit" class="button">Find</button>
+        <div>
+          <%= link_to "Find a postcode on Royal Mail's postcode finder",
+                      'http://www.royalmail.com/find-a-postcode',
+                      :target => "_blank",
+                      id: 'postcode-finder-link',
+                      rel: "external" %>
+        </div>
       </div>
     </fieldset>
   </form>

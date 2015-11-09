@@ -50,10 +50,10 @@ class LocalTransactionsControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10 4DB"
+          post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
         end
 
-        should "redirect to the slug for the appropriate authority tier" do
+        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
           assert_redirected_to "/send-a-bear-to-your-local-council/staffordshire-moorlands"
         end
       end

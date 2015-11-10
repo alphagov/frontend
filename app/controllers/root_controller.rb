@@ -80,10 +80,10 @@ class RootController < ApplicationController
     @postcode = PostcodeSanitizer.sanitize(params[:postcode])
 
     if @publication.format == 'licence'
-      @location = fetch_location @postcode
+      mapit_response = fetch_location(@postcode)
 
-      if !@location.nil? && !@location.try(:code)
-        snac = appropriate_snac_code_from_location(@publication, @location)
+      if mapit_response.location_found?
+        snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
 
         if snac
           return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
@@ -104,7 +104,7 @@ class RootController < ApplicationController
 
           # Fetch the artefact again, for the snac we have
           # This returns additional data based on format and location
-          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
+          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
           assert_found(updated_artefact)
           @publication = PublicationPresenter.new(updated_artefact)
         end
@@ -112,17 +112,16 @@ class RootController < ApplicationController
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
     elsif @publication.format == 'local_transaction'
-      @location = fetch_location @postcode
 
-      if @location.nil?
-        @postcode_error = "fullPostcodeNoMapitMatch"
-      elsif @location.try(:code) == 400
+      mapit_response = fetch_location(@postcode)
+
+      if mapit_response.invalid_postcode?
         @postcode_error = "invalidPostcodeFormat"
-      end
-
-      if !@location.nil? && !@location.try(:code)
+      elsif mapit_response.location_not_found?
+        @postcode_error = "fullPostcodeNoMapitMatch"
+      elsif mapit_response.location_found?
         # Valid postcode and matching location
-        snac = appropriate_snac_code_from_location(@publication, @location)
+        snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
 
         if snac
           # Matching local authority and redirect to publication page
@@ -150,7 +149,7 @@ class RootController < ApplicationController
 
           # Fetch the artefact again, for the snac we have
           # This returns additional data based on format and location
-          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
+          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
           assert_found(updated_artefact)
           @publication = PublicationPresenter.new(updated_artefact)
         end
@@ -240,11 +239,12 @@ protected
   def fetch_location(postcode)
     if postcode.present?
       begin
-        Frontend.mapit_api.location_for_postcode(postcode)
+        location = Frontend.mapit_api.location_for_postcode(postcode)
       rescue GdsApi::HTTPClientError => e
-        return e
+        error = e
       end
     end
+    MapitPostcodeResponse.new(postcode, location, error)
   end
 
   def fetch_places(artefact, postcode)

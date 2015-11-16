@@ -79,18 +79,19 @@ class RootController < ApplicationController
     @publication = prepare_publication_and_environment
     @postcode = PostcodeSanitizer.sanitize(params[:postcode])
 
-    if ['licence', 'local_transaction'].include?(@publication.format)
-      @location = fetch_location(@postcode)
-      if @location
-        snac = appropriate_snac_code_from_location(@publication, @location)
+    if @publication.format == 'licence'
+      mapit_response = fetch_location(@postcode)
+
+      if mapit_response.location_found?
+        snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
 
         if snac
-          redirect_to publication_path(:slug => params[:slug], :part => slug_for_snac_code(snac)) and return
+          return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
         else
           @location_error = "formats.local_transaction.no_local_authority_html"
         end
       elsif params[:authority] && params[:authority][:slug].present?
-        redirect_to publication_path(:slug => params[:slug], :part => CGI.escape(params[:authority][:slug])) and return
+        return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
       elsif params[:part]
         authority_slug = params[:part]
 
@@ -98,24 +99,71 @@ class RootController < ApplicationController
           snac = AuthorityLookup.find_snac(params[:part])
 
           if request.format.json?
-            redirect_to "/api/#{params[:slug]}.json?snac=#{snac}" and return
+            return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
           end
 
           # Fetch the artefact again, for the snac we have
           # This returns additional data based on format and location
-          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac, @location) if snac
+          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
           assert_found(updated_artefact)
           @publication = PublicationPresenter.new(updated_artefact)
         end
       end
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
+    elsif @publication.format == 'local_transaction'
+
+      mapit_response = fetch_location(@postcode)
+
+      if mapit_response.invalid_postcode?
+        @postcode_error = "invalidPostcodeFormat"
+      elsif mapit_response.location_not_found?
+        @postcode_error = "fullPostcodeNoMapitMatch"
+      elsif mapit_response.location_found?
+        # Valid postcode and matching location
+        snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
+
+        if snac
+          # Matching local authority and redirect to publication page
+          # with the local authority name. This is the 100% success state.
+          # The redirect below redirects back to this action with the `part`
+          return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
+        else
+          # No matching local authority.
+          # This points the user towards "Find your LA" which is an
+          # England only service
+          @postcode_error = "noLaMatchLinkToFindLa"
+          @location_error = "formats.local_transaction.no_local_authority_html"
+        end
+      elsif params[:authority] && params[:authority][:slug].present?
+        return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
+      elsif params[:part]
+        authority_slug = params[:part]
+
+        unless non_location_specific_licence_present?(@publication)
+          snac = AuthorityLookup.find_snac(params[:part])
+
+          if request.format.json?
+            return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
+          end
+
+          # Fetch the artefact again, for the snac we have
+          # This returns additional data based on format and location
+          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
+          assert_found(updated_artefact)
+          @publication = PublicationPresenter.new(updated_artefact)
+        end
+      end
+
+      Rails.logger.info(@postcode_error) if @postcode_error
+
+      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
     elsif @publication.empty_part_list?
       raise RecordNotFound
     elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
-      redirect_to publication_path(:slug => @publication.slug) and return
+      return redirect_to publication_path(slug: @publication.slug)
     elsif request.format.json? && @publication.format != 'place'
-      redirect_to "/api/#{params[:slug]}.json" and return
+      return redirect_to "/api/#{params[:slug]}.json"
     end
 
     @publication.current_part = params[:part]
@@ -190,8 +238,13 @@ protected
 
   def fetch_location(postcode)
     if postcode.present?
-      Frontend.mapit_api.location_for_postcode(postcode)
+      begin
+        location = Frontend.mapit_api.location_for_postcode(postcode)
+      rescue GdsApi::HTTPClientError => e
+        error = e
+      end
     end
+    MapitPostcodeResponse.new(postcode, location, error)
   end
 
   def fetch_places(artefact, postcode)

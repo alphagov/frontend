@@ -59,14 +59,14 @@
   </section>
 <% end %>
 
-<% if @postcode_error %>
+<% if @location_error && @location_error.postcode_error%>
   <script type="text/javascript">
       GOVUK.analytics.trackEvent(
         "userAlerts:LocalTransaction",
-        "postcodeErrorShown:<%= @postcode_error %>",
+        "postcodeErrorShown:<%= @location_error.postcode_error %>",
         {
-          label: "<%= t @location_error || 'Please enter a valid full UK postcode.' %>"
+          label: "<%= t @location_error.message %>"
         }
-      )
+      );
   </script>
 <% end %>

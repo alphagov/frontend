@@ -7,9 +7,13 @@
       <% end %>
 
       <% if @location_error %>
-        <div class="location_error error-notification"><%= t @location_error %></div>
+        <div class="location_error error-notification">
+          <%= t @location_error.message %>
+        </div>
       <% elsif params[:postcode] and @publication.places.nil? %>
-        <div class="location_error error-notification">Please enter a valid full UK postcode.</div>
+        <div class="location_error error-notification">
+          <%= t 'formats.local_transaction.invalid_postcode' %>
+        </div>
       <% end %>
 
       <div class="ask_location">

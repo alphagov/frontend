@@ -4,6 +4,7 @@ require "local_transaction_location_identifier"
 require "licence_location_identifier"
 require "licence_details_from_artefact"
 require "postcode_sanitizer"
+require "location_error"
 
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
@@ -88,7 +89,7 @@ class RootController < ApplicationController
         if snac
           return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
         else
-          @location_error = "formats.local_transaction.no_local_authority_html"
+          @location_error = LocationError.new(message = "formats.local_transaction.no_local_authority_html")
         end
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
@@ -116,9 +117,9 @@ class RootController < ApplicationController
       mapit_response = fetch_location(@postcode)
 
       if mapit_response.invalid_postcode?
-        @postcode_error = "invalidPostcodeFormat"
+        @location_error = LocationError.new("invalidPostcodeFormat")
       elsif mapit_response.location_not_found?
-        @postcode_error = "fullPostcodeNoMapitMatch"
+        @location_error = LocationError.new("fullPostcodeNoMapitMatch")
       elsif mapit_response.location_found?
         # Valid postcode and matching location
         snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
@@ -132,8 +133,7 @@ class RootController < ApplicationController
           # No matching local authority.
           # This points the user towards "Find your LA" which is an
           # England only service
-          @postcode_error = "noLaMatchLinkToFindLa"
-          @location_error = "formats.local_transaction.no_local_authority_html"
+          @location_error = LocationError.new("noLaMatchLinkToFindLa", "formats.local_transaction.no_local_authority_html")
         end
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
@@ -154,8 +154,6 @@ class RootController < ApplicationController
           @publication = PublicationPresenter.new(updated_artefact)
         end
       end
-
-      Rails.logger.info(@postcode_error) if @postcode_error
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
     elsif @publication.empty_part_list?

@@ -29,6 +29,7 @@ en:
         skills: "Skills (optional)"
         search: "Search"
     local_transaction:
+      invalid_postcode: "Please enter a valid full UK postcode."
       no_local_authority_html: "Sorry, we can't find the local council for your postcode. Try using <a href='/find-your-local-council'>the local council directory</a>."
   travel_advice:
     alert_status:

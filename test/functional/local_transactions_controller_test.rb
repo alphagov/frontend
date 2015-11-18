@@ -67,7 +67,8 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the invalid postcode error" do
-        assert_equal assigns(:postcode_error), "invalidPostcodeFormat"
+        location_error = assigns(:location_error)
+        assert_equal location_error.postcode_error, "invalidPostcodeFormat"
       end
     end
 
@@ -79,7 +80,8 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the invalid postcode error" do
-        assert_equal assigns(:postcode_error), "fullPostcodeNoMapitMatch"
+        location_error = assigns(:location_error)
+        assert_equal location_error.postcode_error, "fullPostcodeNoMapitMatch"
       end
     end
 
@@ -91,7 +93,8 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the missing local authority error" do
-        assert_equal "noLaMatchLinkToFindLa", assigns(:postcode_error)
+        location_error = assigns(:location_error)
+        assert_equal "noLaMatchLinkToFindLa", location_error.postcode_error
       end
     end
 

@@ -169,11 +169,20 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       content_api_has_an_artefact_with_snac_code('report-a-bear-on-a-local-road', "41UH", @artefact)
     end
 
-    should "show error message" do
-      get :publication, slug: "report-a-bear-on-a-local-road", part: "staffordshire-moorlands"
+    context "loading the local interaction" do
+      setup do
+        get :publication, slug: "report-a-bear-on-a-local-road", part: "staffordshire-moorlands"
+      end
 
-      assert response.ok?
-      assert response.body.include?("application-notice help-notice")
+      should "show error message" do
+        assert response.ok?
+        assert response.body.include?("application-notice help-notice")
+      end
+
+      should "log the missing interaction error" do
+        location_error = assigns(:location_error)
+        assert_equal "laMatchNoLink", location_error.postcode_error
+      end
     end
   end
 end

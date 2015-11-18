@@ -156,6 +156,10 @@ class RootController < ApplicationController
       end
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
+      if local_authority_match_but_no_interaction?(@interaction_details)
+        @location_error = error_for_missing_interaction(@interaction_details)
+      end
+
     elsif @publication.empty_part_list?
       raise RecordNotFound
     elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
@@ -315,5 +319,24 @@ protected
 
   def deny_framing?(publication)
     ['transaction', 'local_transaction'].include? publication.format
+  end
+
+  def local_authority_match_but_no_interaction?(interaction_details)
+    !interaction_details['local_interaction'] && interaction_details['local_authority']
+  end
+
+  def error_for_missing_interaction(interaction_details)
+    local_authority_name = interaction_details['local_authority']['name']
+    contact_url = interaction_details['local_authority']['contact_url']
+
+    message = "formats.local_transaction.no_local_interaction_html"
+    message_args = { local_authority_name: local_authority_name }
+
+    if contact_url.present?
+      message = "formats.local_transaction.no_local_interaction_with_link_html"
+      message_args.merge!({ contact_url: contact_url })
+    end
+
+    LocationError.new("laMatchNoLink", message, message_args)
   end
 end

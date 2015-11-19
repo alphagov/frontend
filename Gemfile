@@ -29,7 +29,7 @@ else
 end
 
 gem "addressable"
-gem 'logstasher', '0.4.8'
+gem 'logstasher', '0.6.2'
 gem 'airbrake', '3.1.15'
 gem 'invalid_utf8_rejector', '0.0.1'
 gem 'rack_strip_client_ip', '0.0.1'

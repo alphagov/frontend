@@ -5,11 +5,11 @@ class LocationError
     @postcode_error = postcode_error
     @message = message || 'formats.local_transaction.invalid_postcode'
     @message_args = message_args
-    log_error
+    send_error_notification(postcode_error) if postcode_error
   end
 
-  def log_error
-    Rails.logger.info(postcode_error) if postcode_error
+  def send_error_notification(error)
+    ActiveSupport::Notifications.instrument('postcode_error_notification', postcode_error: error)
   end
 
   def no_location_interaction?

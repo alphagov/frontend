@@ -31,6 +31,8 @@ en:
     local_transaction:
       invalid_postcode: "Please enter a valid full UK postcode."
       no_local_authority_html: "Sorry, we can't find the local council for your postcode. Try using <a href='/find-your-local-council'>the local council directory</a>."
+      no_local_interaction_html: "We don't have a direct link to this service from %{local_authority_name}"
+      no_local_interaction_with_link_html: "We don't have a direct link to this service from %{local_authority_name}, but you could try the <a href=%{contact_url} rel='external'>%{local_authority_name} website</a>."
   travel_advice:
     alert_status:
       avoid_all_but_essential_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to parts of the country.

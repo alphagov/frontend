@@ -204,6 +204,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_content?("We don't have a direct link to this service from Westminster City Council")
       end
 
+      should "link to the authority" do
+        assert page.has_link?("Westminster City Council")
+        assert page.has_content?("you could try the Westminster City Council website")
+      end
+
       should "show link to change location" do
         assert page.has_link?('(change location)')
       end

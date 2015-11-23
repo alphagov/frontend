@@ -21,10 +21,10 @@
        <span class="destination"> on <%= @interaction_details['local_authority']['name'] %></span>
     </p>
 
-  <% elsif @interaction_details['local_authority'] %>
+  <% elsif @location_error && @location_error.no_location_interaction? %>
 
     <div class="application-notice help-notice">
-      <p>We don't have a direct link to this service from <%= @interaction_details['local_authority']['name'] %><% if @interaction_details['local_authority']['contact_url'].present? %>, but you could try the <%= link_to @interaction_details['local_authority']['name'] + " website", @interaction_details['local_authority']['contact_url'], :rel => :external %><% end %>.</p>
+      <p><%= t(@location_error.message, @location_error.message_args) %></p>
     </div>
 
   <% else %>
@@ -65,7 +65,7 @@
         "userAlerts:LocalTransaction",
         "postcodeErrorShown:<%= @location_error.postcode_error %>",
         {
-          label: "<%= t @location_error.message %>"
+          label: "<%= t(@location_error.message, @location_error.message_args) %>"
         }
       );
   </script>

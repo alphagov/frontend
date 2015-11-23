@@ -6,4 +6,8 @@ if Object.const_defined?('LogStasher') && LogStasher.enabled
     fields[:govuk_request_id] = request.headers['GOVUK-Request-Id']
     fields[:varnish_id] = request.headers['X-Varnish']
   end
+
+  LogStasher.watch('postcode_error_notification') do |_name, _start, _finish, _id, payload, store|
+    store[:postcode_error] = payload[:postcode_error]
+  end
 end

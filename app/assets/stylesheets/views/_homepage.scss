@@ -39,21 +39,9 @@ body.homepage {
 
   .campaign-inner {
     @extend %contain-floats;
-
+    @extend %site-width-container;
     position: relative;
-    overflow: hidden;
-    // this is 1020 from .homepage-top-inner
-    // - the total padding and margin left/right
-    max-width: 960px;
-    margin: 15px auto;
-
-    @include media(mobile) {
-      padding: 0 15px; // this is to compensate for the more complex layout in welcome-block
-    }
-
-    @include ie-lte(8) {
-      width: 960px;
-    }
+    padding: 15px 0;
 
     h1 {
       @include bold-48;

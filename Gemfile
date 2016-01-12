@@ -67,4 +67,5 @@ group :test do
   gem "launchy"
   gem "shoulda"
   gem "timecop", "0.6.3"
+  gem 'govuk-content-schema-test-helpers'
 end

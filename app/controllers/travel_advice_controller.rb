@@ -6,10 +6,11 @@ class TravelAdviceController < ApplicationController
   def index
     set_expiry
 
-    artefact = fetch_artefact('foreign-travel-advice')
-    set_slimmer_artefact_headers(artefact, :format => 'travel-advice')
+    response = content_store.content_item("/foreign-travel-advice")
+    content_item = response.to_hash
 
-    @publication = TravelAdviceIndexPresenter.new(artefact)
+    @presenter = TravelAdviceIndexPresenter.new(content_item)
+    set_slimmer_artefact_headers(content_item, format: "travel-advice")
 
     respond_to do |format|
       format.html { render locals: { full_width: true } }

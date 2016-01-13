@@ -1,16 +1,17 @@
 require 'test_helper'
+require "gds_api/test_helpers/content_store"
 
 class TravelAdviceControllerTest < ActionController::TestCase
+  include GdsApi::TestHelpers::ContentStore
 
   context "GET index" do
     context "given countries exist" do
       setup do
-        @json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
-        @index_artefact = GdsApi::Response.new(
-          stub("HTTP_Response", :code => 200, :body => @json_data),
-          :web_urls_relative_to => "https://www.gov.uk"
-        )
-        @controller.stubs(:fetch_artefact).returns(@index_artefact)
+        json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+        @content_item = JSON.parse(json)
+        base_path = @content_item.fetch("base_path")
+
+        content_store_has_item(base_path, @content_item)
       end
 
       should "be a successful request" do
@@ -19,16 +20,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert response.success?
       end
 
-      should "make a request to the content api for the travel advice top-level artefact" do
-        @controller.expects(:fetch_artefact).returns(@index_artefact)
-
-        get :index
-      end
-
       should "send the artefact to slimmer" do
         get :index
 
-        assert_equal @index_artefact.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
+        assert_equal @content_item.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set slimmer format to travel-advice" do

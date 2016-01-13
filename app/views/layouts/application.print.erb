@@ -10,7 +10,7 @@
   <%= yield :extra_headers %>
 </head>
 <body>
-  <div id="wrapper" class="<%= wrapper_class(@publication) %>">
+  <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
     <main role="main">
       <%= yield %>
     </main>

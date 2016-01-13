@@ -23,7 +23,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "send the artefact to slimmer" do
         get :index
 
-        assert_equal @content_item.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
+        slimmer_header = @response.headers["X-Slimmer-Artefact"]
+        content_item = JSON.parse(slimmer_header)
+
+        assert_equal @content_item, content_item.except("tags")
       end
 
       should "set slimmer format to travel-advice" do

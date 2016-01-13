@@ -1,13 +1,13 @@
 <% content_for :extra_headers do %>
   <%= javascript_include_tag "views/travel-advice.js" %>
-  <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
+  <link rel="alternate" type="application/json" href="<%= publication_api_path(@presenter, :edition => @edition) %>" />
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
 <main id="content" role='main' class="group full-width">
   <header class="page-header group">
     <div>
-      <h1><%= @publication.title %></h1>
+      <h1><%= @presenter.title %></h1>
     </div>
   </header>
 
@@ -27,8 +27,8 @@
           <h1 class="visuallyhidden">Subscriptions</h1>
           <p>Get updates</p>
           <ul>
-            <li><a href="https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL" class="email-alerts" title="Subscribe to email alerts">email</a></li>
-            <li><%= link_to "feed", publication_path(@publication.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
+            <li><%= link_to "email", @presenter.subscription_url, class: "email-alerts", title: "Subscribe to email alerts" %></li>
+            <li><%= link_to "feed", publication_path(@presenter.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
           </ul>
         </section>
       </div>
@@ -36,13 +36,13 @@
         <div class="countries">
           <h1>Countries or territories</h1>
           <p class="country-count">
-            <span class="js-filter-count"><%= @publication.countries.length %></span>
+            <span class="js-filter-count"><%= @presenter.countries.length %></span>
             <span class="visuallyhidden">Countries or territories</span>
           </p>
         </div>
 
         <div class="countries-list">
-          <% group_by_initial_letter(@publication.countries).each do |initial,countries| %>
+          <% group_by_initial_letter(@presenter.countries).each do |initial,countries| %>
             <div id="<%= initial %>" class="list">
               <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
               <ul class="countries">
@@ -58,8 +58,10 @@
   </div>
 </main>
 
+<% content_for :title, @presenter.title %>
+
 <% content_for :extra_headers do %>
-  <% if @publication.description %>
-    <meta name="description" content="<%= @publication.description %>">
+  <% if @presenter.description %>
+    <meta name="description" content="<%= @presenter.description %>">
   <% end %>
 <% end %>

@@ -1,6 +1,8 @@
 require 'integration_test_helper'
+require "gds_api/test_helpers/content_store"
 
 class TravelAdviceTest < ActionDispatch::IntegrationTest
+  include GdsApi::TestHelpers::ContentStore
 
   # Necessary because Capybara's has_content? method normalizes spaces in the document
   # However, it doesn't normalize spaces in the query string, so if you're looking for a string
@@ -11,7 +13,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "travel advice index" do
     setup do
-      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index1.json')
+      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      content_item = JSON.parse(json)
+      base_path = content_item.fetch("base_path")
+
+      content_store_has_item(base_path, content_item)
     end
 
     should "display the list of countries" do
@@ -34,20 +40,26 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?("#country-filter")
 
-        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Spain", "Turks and Caicos Islands"], page.all("ul.countries li a").map(&:text)
+        names = page.all("ul.countries li a").map(&:text)
+        assert_equal ["Afghanistan", "Austria", "Finland", "India", "Malaysia", "Spain"], names
 
         within ".list#A" do
-          assert page.has_link?("Aruba", :href => "/foreign-travel-advice/aruba")
+          assert page.has_link?("Afghanistan", :href => "/foreign-travel-advice/afghanistan")
         end
 
-        within ".list#P" do
-          assert page.has_link?("Portugal", :href => "/foreign-travel-advice/portugal")
+        within ".list#M" do
+          assert page.has_link?("Malaysia", :href => "/foreign-travel-advice/malaysia")
         end
 
-        within ".list#T" do
-          assert page.has_link?("Turks and Caicos Islands", :href => "/foreign-travel-advice/turks-and-caicos-islands")
+        within ".list#S" do
+          assert page.has_link?("Spain", :href => "/foreign-travel-advice/spain")
         end
       end # within #content
+    end
+
+    should "set the slimmer #wrapper classes" do
+      visit '/foreign-travel-advice'
+      assert_equal "travel-advice guide", page.find("#wrapper")["class"]
     end
 
     should "return a 405 for POST requests" do
@@ -58,7 +70,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
   context "with the javascript driver" do
     setup do
-      setup_api_responses("foreign-travel-advice", :file => 'foreign-travel-advice/index1.json')
+      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      content_item = JSON.parse(json)
+      base_path = content_item.fetch("base_path")
+      content_store_has_item(base_path, content_item)
+
       Capybara.current_driver = Capybara.javascript_driver
     end
 
@@ -73,17 +89,19 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#country-filter")
 
       within "#country-filter" do
-        fill_in "country", :with => "Aruba"
+        fill_in "country", :with => "In"
       end
 
       within ".countries-wrapper" do
-        assert page.has_selector?("#A li")
-        assert page.has_no_selector?("#P li")
-        assert page.has_no_selector?("#T li")
+        assert page.has_selector?("#I li") # _In_dia
+        assert page.has_selector?("#F li") # F_in_land
+        assert page.has_selector?("#S li") # Spa_in_
+        assert page.has_no_selector?("#A li")
+        assert page.has_no_selector?("#M li")
       end
 
       within ".country-count" do
-        assert page.has_selector?(".js-filter-count", :text => "1")
+        assert page.has_selector?(".js-filter-count", :text => "3")
       end
     end
   end

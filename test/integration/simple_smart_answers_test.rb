@@ -333,7 +333,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         end
 
         # Ensure the edition param isn't added to the form URL as it needs to be in a hidden field.
-        assert_equal "/the-bridge-of-death/y", page.find('form')["action"]
+        assert_match %r(/the-bridge-of-death/y$), page.find('form')["action"]
       end
 
       choose "King Arthur of the Britons!"

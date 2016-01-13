@@ -1,37 +1,50 @@
 require 'test_helper'
 
 class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
-
   context "handling countries" do
     setup do
-      @json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index1.json'))
-      @artefact = GdsApi::Response.new(stub("HTTP_Response", :code => 200, :body => @json_data))
-      @presenter = TravelAdviceIndexPresenter.new(@artefact)
+      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      attributes = JSON.parse(json)
+      @presenter = TravelAdviceIndexPresenter.new(attributes)
     end
 
-    context "countries" do
+    should "set the index attributes correctly" do
+      assert_equal "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL", @presenter.subscription_url
+      assert_equal "Latest travel advice by country including safety and security, entry requirements, travel warnings and health", @presenter.description
+      assert_equal "foreign-travel-advice", @presenter.slug
+      assert_equal "Foreign travel advice", @presenter.title
+    end
+
+    should "set the country attrbutes correctly" do
+      country = @presenter.countries.first
+
+      assert_equal "Latest update: Summary - on 26 October 2015 a serious earthquake struck causing casualties around the country and affecting communications networks; if someone you know is likely to have been involved and you're unable to contact them, contact the British Embassy in Kabul", country.change_description
+      assert_equal "Afghanistan", country.name
+      assert_equal "Afghanistan", country.title
+      assert_equal [], country.synonyms
+      assert_equal "/foreign-travel-advice/afghanistan", country.web_url
+      assert_equal "afghanistan", country.identifier
+      assert_equal DateTime.new(2016, 1, 1), country.updated_at
+    end
+
+    context "#countries" do
       should "return the countries in the same order as in the JSON" do
-        assert_equal 7, @presenter.countries.length
-        assert_equal ["Aruba", "Congo", "Germany", "Iran", "Portugal", "Spain", "Turks and Caicos Islands"], @presenter.countries.map {|c| c.name }
+        names = @presenter.countries.map(&:name)
+        assert_equal %w(Afghanistan Austria Finland India Malaysia Spain), names
       end
     end
 
-    context "countries_by_date" do
-      should "return countries ordered by last_updated most recent first" do
-        assert_equal ["Spain", "Portugal", "Aruba", "Turks and Caicos Islands", "Congo", "Germany", "Iran"], @presenter.countries_by_date.map {|c| c.name }
-      end
-
-      should "memoize the result" do
-        first = @presenter.countries_by_date
-        @presenter.expects(:countries).never
-        assert_equal first, @presenter.countries_by_date
+    context "#countries_by_date" do
+      should "return the countries, ordered by updated_at descending" do
+        names = @presenter.countries_by_date.map(&:name)
+        assert_equal %w(Spain Malaysia India Finland Austria Afghanistan), names
       end
     end
 
-    context "countries_recently_updated" do
+    context "#countries_recently_updated" do
       should "return the 5 most recently updated countries" do
-        assert_equal 5, @presenter.countries_recently_updated.length
-        assert_equal ["Spain", "Portugal", "Aruba", "Turks and Caicos Islands", "Congo"], @presenter.countries_recently_updated.map {|c| c.name }
+        names = @presenter.countries_recently_updated.map(&:name)
+        assert_equal %w(Spain Malaysia India Finland Austria), names
       end
     end
   end

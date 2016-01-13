@@ -49,7 +49,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry", :count => 3
 
       assert page.has_xpath? ".//feed/entry[1]/title", :text => "Syria"
-      assert page.has_xpath? ".//feed/entry[1]/id", :text => "https://www.gov.uk/foreign-travel-advice/syria#2013-02-23T11:31:08+00:00"
+      assert page.has_xpath? ".//feed/entry[1]/id", :text => "http://frontend.dev.gov.uk/foreign-travel-advice/syria#2013-02-23T11:31:08+00:00"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/syria']"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/syria.atom']"
       assert page.has_xpath? ".//feed/entry[1]/updated", :text => "2013-02-23T11:31:08+00:00"

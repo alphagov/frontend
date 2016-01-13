@@ -15,14 +15,14 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
       assert_equal "Foreign travel advice", @presenter.title
     end
 
-    should "set the country attrbutes correctly" do
+    should "set the country attributes correctly" do
       country = @presenter.countries.first
 
       assert_equal "Latest update: Summary - on 26 October 2015 a serious earthquake struck causing casualties around the country and affecting communications networks; if someone you know is likely to have been involved and you're unable to contact them, contact the British Embassy in Kabul", country.change_description
       assert_equal "Afghanistan", country.name
       assert_equal "Afghanistan", country.title
       assert_equal [], country.synonyms
-      assert_equal "/foreign-travel-advice/afghanistan", country.web_url
+      assert_equal "http://www.dev.gov.uk/foreign-travel-advice/afghanistan", country.web_url
       assert_equal "afghanistan", country.identifier
       assert_equal DateTime.new(2016, 1, 1), country.updated_at
     end

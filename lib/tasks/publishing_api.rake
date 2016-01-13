@@ -3,7 +3,15 @@ namespace :publishing_api do
   task :publish_special_routes => :environment do
     require 'gds_api/publishing_api/special_route_publisher'
 
-    publisher = GdsApi::PublishingApi::SpecialRoutePublisher.new(logger: Logger.new(STDOUT))
+    publishing_api = GdsApi::PublishingApiV2.new(
+      Plek.new.find('publishing-api'),
+      bearer_token: ENV['PUBLISHING_API_BEARER_TOKEN'] || 'example'
+    )
+
+    publisher = GdsApi::PublishingApi::SpecialRoutePublisher.new(
+      logger: Logger.new(STDOUT),
+      publishing_api: publishing_api
+    )
 
     routes = [
       {

@@ -50,21 +50,21 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
 
       assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/foreign-travel-advice.atom']"
       assert page.has_xpath? ".//feed/link[@rel='alternate' and @type='text/html' and @href='http://www.example.com/foreign-travel-advice']"
-      assert page.has_xpath? ".//feed/updated", :text => "2016-01-06T00:00:00+00:00"
+      assert page.has_xpath? ".//feed/updated", :text => "2015-01-06T00:00:00+00:00"
       assert page.has_xpath? ".//feed/entry", :count => 6
 
       assert page.has_xpath? ".//feed/entry[1]/title", :text => "Spain"
-      assert page.has_xpath? ".//feed/entry[1]/id", :text => "https://www.gov.uk/foreign-travel-advice/spain#2016-01-06T00:00:00+00:00"
+      assert page.has_xpath? ".//feed/entry[1]/id", :text => "https://www.gov.uk/foreign-travel-advice/spain#2015-01-06T00:00:00+00:00"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/spain']"
       assert page.has_xpath? ".//feed/entry[1]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/spain.atom']"
-      assert page.has_xpath? ".//feed/entry[1]/updated", text: "2016-01-06T00:00:00+00:00"
+      assert page.has_xpath? ".//feed/entry[1]/updated", text: "2015-01-06T00:00:00+00:00"
       assert page.has_xpath? ".//feed/entry[1]/summary[@type='xhtml']/div/p", text: "Latest update: Summary – information and advice for Manchester City fans travelling to Seville"
 
       assert page.has_xpath? ".//feed/entry[2]/title", text: "Malaysia"
-      assert page.has_xpath? ".//feed/entry[2]/id", text: "https://www.gov.uk/foreign-travel-advice/malaysia#2016-01-05T00:00:00+00:00"
+      assert page.has_xpath? ".//feed/entry[2]/id", text: "https://www.gov.uk/foreign-travel-advice/malaysia#2015-01-05T00:00:00+00:00"
       assert page.has_xpath? ".//feed/entry[2]/link[@type='text/html' and @href='https://www.gov.uk/foreign-travel-advice/malaysia']"
       assert page.has_xpath? ".//feed/entry[2]/link[@type='application/atom+xml' and @href='https://www.gov.uk/foreign-travel-advice/malaysia.atom']"
-      assert page.has_xpath? ".//feed/entry[2]/updated", text: "2016-01-05T00:00:00+00:00"
+      assert page.has_xpath? ".//feed/entry[2]/updated", text: "2015-01-05T00:00:00+00:00"
       assert page.has_xpath? ".//feed/entry[2]/summary[@type='xhtml']/div/p", text: "Latest update: Summary - haze can cause disruption to local, regional air travel and to government and private schools"
     end
 

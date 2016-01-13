@@ -31,7 +31,7 @@ class TravelAdviceIndexPresenter
     def initialize(attributes)
       base_path = attributes.fetch("base_path")
 
-      updated_at = attributes["updated_at"]
+      updated_at = attributes["public_updated_at"]
       updated_at = DateTime.parse(updated_at) if updated_at
 
       self.change_description = attributes.fetch("change_description")

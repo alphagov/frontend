@@ -24,7 +24,7 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
       assert_equal [], country.synonyms
       assert_equal "http://www.dev.gov.uk/foreign-travel-advice/afghanistan", country.web_url
       assert_equal "afghanistan", country.identifier
-      assert_equal DateTime.new(2016, 1, 1), country.updated_at
+      assert_equal DateTime.new(2015, 1, 1), country.updated_at
     end
 
     context "#countries" do

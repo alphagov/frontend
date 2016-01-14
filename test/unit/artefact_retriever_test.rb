@@ -12,14 +12,14 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
   end
 
   should "be able to fetch an artefact" do
-    json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/index2.json'))
-    index_artefact = GdsApi::Response.new(
+    json_data = File.read(Rails.root.join('test/fixtures/register-to-vote.json'))
+    artefact = GdsApi::Response.new(
       stub("HTTP_Response", :code => 200, :body => json_data),
       :web_urls_relative_to => "https://www.gov.uk"
     )
-    @content_api.expects(:artefact!).with('foreign-travel-advice', {}).returns(index_artefact)
+    @content_api.expects(:artefact!).with('register-to-vote', {}).returns(artefact)
     assert_nothing_raised do
-      @retriever.fetch_artefact('foreign-travel-advice')
+      @retriever.fetch_artefact('register-to-vote')
     end
   end
 

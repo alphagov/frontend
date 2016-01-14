@@ -6,10 +6,12 @@ class TravelAdviceController < ApplicationController
   def index
     set_expiry
 
-    artefact = fetch_artefact('foreign-travel-advice')
-    set_slimmer_artefact_headers(artefact, :format => 'travel-advice')
+    response = content_store.content_item("/foreign-travel-advice")
+    content_item = response.to_hash
+    merge_hardcoded_breadcrumbs!(content_item)
 
-    @publication = TravelAdviceIndexPresenter.new(artefact)
+    @presenter = TravelAdviceIndexPresenter.new(content_item)
+    set_slimmer_artefact_headers(content_item, format: "travel-advice")
 
     respond_to do |format|
       format.html { render locals: { full_width: true } }
@@ -74,5 +76,27 @@ class TravelAdviceController < ApplicationController
   def fetch_publication_for_country(country)
     artefact = fetch_artefact("foreign-travel-advice/" + country, params[:edition])
     TravelAdviceCountryPresenter.new(artefact)
+  end
+
+  # This will soon be replaced by:
+  #
+  # https://trello.com/c/tomHUlp7/475-define-data-format-for-breadcrumbs
+  # https://trello.com/c/vm54jvVo/477-send-hard-coded-breadcrumbs-to-publishing-api
+  def merge_hardcoded_breadcrumbs!(content_item)
+    content_item.merge!(
+      "tags" => [{
+          "title" => "Travel abroad",
+          "web_url" => "/browse/abroad/travel-abroad",
+          "details" => { "type" => "section" },
+          "content_with_tag" => { "web_url" => "/browse/abroad/travel-abroad" },
+          "parent" => {
+            "web_url" => "/browse/abroad",
+            "title" => "Passports, travel and living abroad",
+            "details" => { "type" => "section" },
+            "content_with_tag" => { "web_url" => "/browse/abroad" },
+            "parent" => nil,
+          },
+      }]
+    )
   end
 end

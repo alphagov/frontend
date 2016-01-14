@@ -94,6 +94,12 @@ protected
     )
   end
 
+  def content_store
+    @content_store ||= GdsApi::ContentStore.new(
+      Plek.current.find("content-store")
+    )
+  end
+
   def validate_slug_param(param_name = :slug)
     param_to_use = params[param_name].sub(/(done|help)\//, '')
     if param_to_use.parameterize != param_to_use

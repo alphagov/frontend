@@ -15,6 +15,7 @@ require 'timecop'
 
 require 'gds_api/test_helpers/content_api'
 require 'slimmer/test_helpers/shared_templates'
+require 'govuk-content-schema-test-helpers'
 
 Dir[Rails.root.join('test/support/*.rb')].each { |f| require f }
 
@@ -34,5 +35,10 @@ class ActiveSupport::TestCase
 
   teardown do
     Timecop.return
+  end
+
+  GovukContentSchemaTestHelpers.configure do |config|
+    config.schema_type = 'frontend'
+    config.project_root = Rails.root
   end
 end

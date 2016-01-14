@@ -6,6 +6,7 @@ export FACTER_govuk_platform=test
 export RAILS_ENV=test
 export DISPLAY=":99"
 export GOVUK_APP_DOMAIN=dev.gov.uk
+export GOVUK_CONTENT_SCHEMAS_PATH=tmp/govuk-content-schemas
 
 bundle install --path "${HOME}/bundles/${JOB_NAME}" --deployment
 
@@ -23,6 +24,9 @@ if [[ ${GIT_BRANCH} != "origin/master" ]]; then
 fi
 
 rm -rf public/frontend
+rm -rf tmp/govuk-content-schemas
+
+git clone git@github.com:alphagov/govuk-content-schemas.git tmp/govuk-content-schemas
 
 bundle exec rake stats
 bundle exec rake ci:setup:testunit default

@@ -17,7 +17,9 @@
       <% end %>
 
       <div class="ask_location">
-        <label for="postcode">Enter your postcode (UK only) <input class="postcode" id="postcode" name="postcode" type="text" placeholder="eg SW1A 2AA" value="<%= @postcode %>"></label>
+        <p class="instruction"><label for="postcode">Enter a postcode</label></p>
+        <p>eg SW1A 2AA</p>
+        <input class="postcode" id="postcode" name="postcode" type="text" value="<%= @postcode %>">
         <button type="submit" class="button">Find</button>
         <div>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",

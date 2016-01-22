@@ -10,6 +10,7 @@ class TravelAdviceIndexPresenter
     country_data = details.fetch("countries")
 
     self.countries = country_data.map { |d| IndexCountry.new(d) }
+    self.countries = countries.sort_by(&:name)
     self.description = attributes.fetch("description")
     self.slug = attributes.fetch("base_path")[1..-1]
     self.title = attributes.fetch("title")

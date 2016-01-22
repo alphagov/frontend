@@ -15,6 +15,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     setup do
       json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
       content_item = JSON.parse(json)
+      content_item["details"]["countries"].reverse!
       base_path = content_item.fetch("base_path")
 
       content_store_has_item(base_path, content_item)
@@ -54,7 +55,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         within ".list#S" do
           assert page.has_link?("Spain", href: "/foreign-travel-advice/spain")
         end
-      end # within #content
+      end
+
+      group_headers = page.all(".list h2").map(&:text)
+      assert_equal group_headers.sort, group_headers
 
       within '#global-breadcrumb nav' do
         assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")

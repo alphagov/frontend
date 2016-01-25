@@ -89,7 +89,7 @@ class RootController < ApplicationController
         if snac
           return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
         else
-          @location_error = LocationError.new(message = "formats.local_transaction.no_local_authority_html")
+          @location_error = LocationError.new("noLaMatchLinkToFindLa")
         end
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
@@ -133,7 +133,7 @@ class RootController < ApplicationController
           # No matching local authority.
           # This points the user towards "Find your LA" which is an
           # England only service
-          @location_error = LocationError.new("noLaMatchLinkToFindLa", "formats.local_transaction.no_local_authority_html")
+          @location_error = LocationError.new("noLaMatchLinkToFindLa")
         end
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
@@ -166,6 +166,11 @@ class RootController < ApplicationController
       return redirect_to publication_path(slug: @publication.slug)
     elsif request.format.json? && @publication.format != 'place'
       return redirect_to "/api/#{params[:slug]}.json"
+    end
+
+    unless @location_error
+      # checking for empty postcode
+      @location_error = LocationError.new("invalidPostcodeFormat") if params[:postcode] && @publication.places.nil?
     end
 
     @publication.current_part = params[:part]
@@ -327,16 +332,18 @@ protected
 
   def error_for_missing_interaction(interaction_details)
     local_authority_name = interaction_details['local_authority']['name']
+    local_authority_name = 'council' if local_authority_name.blank?
+
     contact_url = interaction_details['local_authority']['contact_url']
 
-    message = "formats.local_transaction.no_local_interaction_html"
     message_args = { local_authority_name: local_authority_name }
 
     if contact_url.present?
-      message = "formats.local_transaction.no_local_interaction_with_link_html"
       message_args.merge!({ contact_url: contact_url })
-    end
 
-    LocationError.new("laMatchNoLink", message, message_args)
+      LocationError.new("laMatchNoLink", message_args)
+    else
+      LocationError.new("noLaMatchLinkToFindLa") # this to be improved in a future story
+    end
   end
 end

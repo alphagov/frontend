@@ -147,7 +147,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "Please enter a valid full UK postcode."
+        assert page.has_content? "This isn't a valid postcode."
       end
     end
 
@@ -166,7 +166,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "Please enter a valid full UK postcode."
+        assert page.has_content? "This isn't a valid postcode."
       end
     end
   end

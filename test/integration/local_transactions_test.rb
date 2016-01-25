@@ -94,7 +94,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show a get started button which links to the interaction" do
-        assert page.has_link?("Start now", :href => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
+        assert page.has_link?("Go to their website", href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
+      end
+
+      should "not show the transaction information" do
+        assert !page.has_content?("owning or looking after a bear")
       end
 
       should "not show a postcode error" do
@@ -102,11 +106,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show link to change location" do
-        assert page.has_link?('(change location)')
+        assert page.has_link?('Back')
+        assert !page.has_link?('(change location)')
       end
 
       should "not show any authority contact details" do
-        within('.contact') do
+        within('.inner') do
           assert !page.has_content?("123 Example Street")
           assert !page.has_content?("SW1A 1AA")
           assert !page.has_content?("020 1234 567")
@@ -128,7 +133,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "Please enter a valid full UK postcode."
+        assert page.has_content? "This isn't a valid postcode"
+      end
+
+      should "see the transaction information" do
+        assert page.has_content? "owning or looking after a bear"
       end
 
       should "re-populate the invalid input" do
@@ -148,7 +157,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "Please enter a valid full UK postcode."
+        assert page.has_content? "This isn't a valid postcode"
       end
     end
   end
@@ -204,13 +213,13 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_content?("We don't have a direct link to this service from Westminster City Council")
       end
 
-      should "link to the authority" do
-        assert page.has_link?("Westminster City Council")
-        assert page.has_content?("you could try the Westminster City Council website")
+      should "not show the transaction information" do
+        assert !page.has_content?("owning or looking after a bear")
       end
 
       should "show link to change location" do
         assert page.has_link?('(change location)')
+        assert !page.has_link?('Back')
       end
 
       should "show contact details for the authority" do
@@ -294,6 +303,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     click_button('Find')
 
     assert_current_url "/pay-bear-tax"
-    assert_selector(".location_error.error-notification", text: "Sorry, we can't find the local council for your postcode. Try using the local council directory.")
+    assert_selector(".error-summary", text: "We couldn't find a council for this postcode")
   end
 end

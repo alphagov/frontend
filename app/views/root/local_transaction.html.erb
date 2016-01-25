@@ -4,11 +4,19 @@
   edition: @edition,
   json_link: publication_path(@publication.slug, edition: @edition, format: :json, all: true),
 } do %>
-
+  <% authority = @interaction_details['local_authority'] %>
+  <% if !authority %>
+    <section class="intro">
+      <div class="get-started-intro">
+        <%= raw @publication.introduction %>
+      </div>
+    </section>
+  <% end %>
   <% if @interaction_details['local_interaction'] %>
+
     <div class="interaction">
       <p class="interaction-match">
-        We've matched this postcode to <span class="local-authority">the <%= @interaction_details['local_authority']['name'] %>.</span>
+        We've matched this postcode to <span class="local-authority">the <%= authority['name'] %>.</span>
       </p>
       <p id="get-started" class="get-started group">
         <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button" role="button">
@@ -27,10 +35,11 @@
     <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
   <% end %>
 
-  <% if @interaction_details['local_authority'] %>
-    <% authority = @interaction_details['local_authority'] %>
+  <% if authority %>
     <div class="contact vcard">
-      <p class="search-again"><%= link_to 'Back', publication_path(@publication.slug) %></p>
+      <% if @location_error %>
+      <p><%= link_to '(change location)', publication_path(@publication.slug) %></p>
+      <% end %>
 
       <% unless @interaction_details['local_interaction'] %>
         <% if authority['contact_address'] %>
@@ -43,9 +52,13 @@
     </div>
   <% end %>
 
+  <% if authority && !@location_error %>
+    <div class="search-again"><%= link_to 'Back', publication_path(@publication.slug), title: "Search again using a different postcode." %></div>
+  <% end %>
   <section class="more">
 
-  <% if @publication.need_to_know.present? %>
+
+  <% if !authority && @publication.need_to_know.present? %>
     <h2>What you need to know</h2>
     <%= raw @publication.need_to_know %>
   <% end %>

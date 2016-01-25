@@ -1,7 +1,7 @@
 class LocationErrorTest < ActiveSupport::TestCase
   context '#initialize' do
     should 'default to default message when no message given' do
-      error = LocationError.new(postcode_error = 'some_error', message = nil)
+      error = LocationError.new(postcode_error = 'some_error')
       assert_equal(error.message, 'formats.local_transaction.invalid_postcode')
     end
 

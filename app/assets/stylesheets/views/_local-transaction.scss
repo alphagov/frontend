@@ -1,0 +1,17 @@
+.interaction{
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+
+  .interaction-match{
+    @include core-36;
+  }
+
+  .local-authority{
+    font-weight: bold;
+  }
+}
+
+.search-again, .search-again a{
+  @include core-24;
+  margin-top: 2.5em;
+}

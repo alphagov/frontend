@@ -1,9 +1,24 @@
 class LocationError
-  attr_reader :postcode_error, :message, :message_args
+  attr_reader :postcode_error, :message, :sub_message, :message_args
 
-  def initialize(postcode_error = nil, message = nil, message_args = {})
+  def initialize(postcode_error = nil, message_args = {})
     @postcode_error = postcode_error
-    @message = message || 'formats.local_transaction.invalid_postcode'
+
+    case postcode_error
+    when 'fullPostcodeNoMapitMatch'
+      @message = 'formats.local_transaction.valid_postcode_no_match'
+      @sub_message = 'formats.local_transaction.valid_postcode_no_match_sub_html'
+    when 'noLaMatchLinkToFindLa'
+      @message = 'formats.local_transaction.no_local_authority'
+      @sub_message = 'formats.local_transaction.no_local_authority_sub_html'
+    when 'laMatchNoLink'
+      @message = 'formats.local_transaction.local_authority_no_service_url_html'
+      @sub_message = '' #not used in the markup for this case
+    else # e.g. 'invalidPostcodeFormat'
+      @message = 'formats.local_transaction.invalid_postcode'
+      @sub_message = 'formats.local_transaction.invalid_postcode_sub'
+    end
+
     @message_args = message_args
     send_error_notification(postcode_error) if postcode_error
   end

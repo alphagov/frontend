@@ -198,7 +198,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
     should "show error message" do
       assert response.ok?
-      assert response.body.include?("application-notice help-notice")
+      assert response.body.include?("Search")
     end
 
     should "expose the 'missing interaction' error to the view" do

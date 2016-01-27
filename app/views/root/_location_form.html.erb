@@ -1,4 +1,12 @@
 <div class="find-nearest">
+
+  <% if @location_error %>
+    <div class="error-summary">
+      <p class="instruction"><%= t @location_error.message, @location_error.message_args %></p>
+      <p><%= t @location_error.sub_message %></p>
+    </div>
+  <% end %>
+
   <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
     <fieldset>
       <legend class="visuallyhidden">Postcode lookup</legend>
@@ -6,18 +14,10 @@
         <input type="hidden" name="edition" value="<%= @edition %>">
       <% end %>
 
-      <% if @location_error %>
-        <div class="location_error error-notification">
-          <%= t @location_error.message %>
-        </div>
-      <% elsif params[:postcode] and @publication.places.nil? %>
-        <div class="location_error error-notification">
-          <%= t 'formats.local_transaction.invalid_postcode' %>
-        </div>
-      <% end %>
-
       <div class="ask_location">
-        <label for="postcode">Enter your postcode (UK only) <input class="postcode" id="postcode" name="postcode" type="text" placeholder="eg SW1A 2AA" value="<%= @postcode %>"></label>
+        <label class="instruction" for="postcode">Enter a postcode</label>
+        <p>eg SW1A 2AA</p>
+        <input class="postcode" id="postcode" name="postcode" type="text" value="<%= @postcode %>">
         <button type="submit" class="button">Find</button>
         <div>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",

@@ -1,0 +1,16 @@
+.find-nearest{
+  .instruction{
+    @include bold-24;
+  }
+
+  input{
+    margin-left: 0;
+  }
+
+  .error-summary {
+    border: 5px solid $red;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px 15px 15px 15px;
+  }
+}

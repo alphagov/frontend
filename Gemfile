@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.2'
-gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
+gem 'rails-i18n', '~> 4.0.8'
 gem 'unicorn', '4.6.3'
 gem 'gelf'
 

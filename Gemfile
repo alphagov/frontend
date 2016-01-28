@@ -5,7 +5,7 @@ gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch 
 gem 'unicorn', '4.6.3'
 gem 'gelf'
 
-gem 'nokogiri', '~> 1.6.6.4'
+gem 'nokogiri', '~> 1.6.7.2'
 
 gem 'plek', '1.11.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'

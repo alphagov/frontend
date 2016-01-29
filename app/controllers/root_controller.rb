@@ -338,10 +338,12 @@ protected
   end
 
   def error_for_missing_interaction(local_authority)
-    if local_authority.url.present?
-      LocationError.new("laMatchNoLink", { local_authority_name: local_authority.name })
-    else
-      LocationError.new("noLaMatchLinkToFindLa") # this to be improved in a future story
-    end
+    error_code =
+      if local_authority.url.present?
+        "laMatchNoLink"
+      else
+        "laMatchNoLinkNoAuthorityUrl"
+      end
+    LocationError.new(error_code, { local_authority_name: local_authority.name })
   end
 end

@@ -293,18 +293,21 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_no_link?("Go to their website")
       end
 
-      should "see an error message" do
-        assert page.has_content? "We couldn't find a council for this postcode."
+      should "show advisory message that we have no url" do
+        assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
       end
 
       should "not see the transaction information" do
         assert page.has_no_content? "owning or looking after a bear"
       end
 
-      should "present the form again" do
-        assert page.has_field? "postcode"
+      should "not present the form again" do
+        assert page.has_no_field? "postcode"
       end
 
+      should "show back link to go back and try a different postcode" do
+        assert page.has_link?('Back')
+      end
     end
   end
 

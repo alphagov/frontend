@@ -14,6 +14,9 @@ class LocationError
     when 'laMatchNoLink'
       @message = 'formats.local_transaction.local_authority_no_service_url_html'
       @sub_message = '' #not used in the markup for this case
+    when 'laMatchNoLinkNoAuthorityUrl'
+      @message = 'formats.local_transaction.local_authority_no_service_url_no_authority_link_html'
+      @sub_message = '' #not used in the markup for this case
     else # e.g. 'invalidPostcodeFormat'
       @message = 'formats.local_transaction.invalid_postcode'
       @sub_message = 'formats.local_transaction.invalid_postcode_sub'
@@ -28,6 +31,6 @@ class LocationError
   end
 
   def no_location_interaction?
-    postcode_error == "laMatchNoLink"
+    %w(laMatchNoLink laMatchNoLinkNoAuthorityUrl).include? postcode_error
   end
 end

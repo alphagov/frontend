@@ -28,11 +28,15 @@
         <p class="interaction-match">
           <%= t(@location_error.message, @location_error.message_args) %>
         </p>
-        <p id="get-started" class="get-started group">
-          <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
-            Go to their website
-          </a>
-        </p>
+        <% if @local_authority.url.present? %>
+          <p id="get-started" class="get-started group">
+            <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
+              Go to their website
+            </a>
+          </p>
+        <% else %>
+          <p>We don't have a link for their website. Try the <a href="http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1">local council search</a> instead.</p>
+        <% end %>
       </div>
     <% else %>
       <%= render :partial => 'location_form', :locals => {:format => 'service'} %>

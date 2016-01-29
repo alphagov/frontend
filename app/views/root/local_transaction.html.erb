@@ -4,8 +4,7 @@
   edition: @edition,
   json_link: publication_path(@publication.slug, edition: @edition, format: :json, all: true),
 } do %>
-  <% authority = @interaction_details['local_authority'] %>
-  <% if !authority %>
+  <% if @local_authority.nil? %>
     <section class="intro">
       <div class="get-started-intro">
         <%= raw @publication.introduction %>
@@ -13,10 +12,9 @@
     </section>
   <% end %>
   <% if @interaction_details['local_interaction'] %>
-
     <div class="interaction">
       <p class="interaction-match">
-        We've matched this postcode to <span class="local-authority">the <%= authority['name'] %>.</span>
+        We've matched this postcode to <span class="local-authority">the <%= @local_authority.name %>.</span>
       </p>
       <p id="get-started" class="get-started group">
         <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button" role="button">
@@ -24,41 +22,25 @@
         </a>
       </p>
     </div>
-
   <% elsif @location_error && @location_error.no_location_interaction? %>
-
-    <div class="application-notice help-notice">
-      <p><%= t(@location_error.message, @location_error.message_args) %></p>
+    <div class="interaction">
+      <p class="interaction-match">
+        <%= t(@location_error.message, @location_error.message_args) %>
+      </p>
+      <p id="get-started" class="get-started group">
+        <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
+          Go to their website
+        </a>
+      </p>
     </div>
-
   <% else %>
     <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
   <% end %>
-
-  <% if authority %>
-    <div class="contact vcard">
-      <% if @location_error %>
-      <p><%= link_to '(change location)', publication_path(@publication.slug) %></p>
-      <% end %>
-
-      <% unless @interaction_details['local_interaction'] %>
-        <% if authority['contact_address'] %>
-          <div class="adr"><%= simple_format authority['contact_address'].join("\n") %></div>
-        <% end %>
-        <% if authority['contact_phone'].present? %>
-          <p class="tel"><strong>Telephone:</strong> <span class="value"><%= authority['contact_phone'] %></span></p>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if authority && !@location_error %>
+  <% if @local_authority.present? %>
     <div class="search-again"><%= link_to 'Back', publication_path(@publication.slug), title: "Search again using a different postcode." %></div>
   <% end %>
   <section class="more">
-
-
-  <% if !authority && @publication.need_to_know.present? %>
+  <% if @local_authority.nil? && @publication.need_to_know.present? %>
     <h2>What you need to know</h2>
     <%= raw @publication.need_to_know %>
   <% end %>
@@ -67,7 +49,6 @@
     </div>
   </section>
 <% end %>
-
 <% if @location_error && @location_error.postcode_error%>
   <script type="text/javascript">
       GOVUK.analytics.trackEvent(

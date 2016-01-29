@@ -156,8 +156,11 @@ class RootController < ApplicationController
       end
 
       @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
-      if local_authority_match_but_no_interaction?(@interaction_details)
-        @location_error = error_for_missing_interaction(@interaction_details)
+      if local_authority_match?(@interaction_details)
+        @local_authority = LocalAuthorityPresenter.new(@interaction_details['local_authority'])
+        if no_interaction?(@interaction_details)
+          @location_error = error_for_missing_interaction(@local_authority)
+        end
       end
 
     elsif @publication.empty_part_list?
@@ -326,22 +329,17 @@ protected
     ['transaction', 'local_transaction'].include? publication.format
   end
 
-  def local_authority_match_but_no_interaction?(interaction_details)
-    !interaction_details['local_interaction'] && interaction_details['local_authority']
+  def local_authority_match?(interaction_details)
+    interaction_details['local_authority']
   end
 
-  def error_for_missing_interaction(interaction_details)
-    local_authority_name = interaction_details['local_authority']['name']
-    local_authority_name = 'council' if local_authority_name.blank?
+  def no_interaction?(interaction_details)
+    !interaction_details['local_interaction']
+  end
 
-    contact_url = interaction_details['local_authority']['contact_url']
-
-    message_args = { local_authority_name: local_authority_name }
-
-    if contact_url.present?
-      message_args.merge!({ contact_url: contact_url })
-
-      LocationError.new("laMatchNoLink", message_args)
+  def error_for_missing_interaction(local_authority)
+    if local_authority.url.present?
+      LocationError.new("laMatchNoLink", { local_authority_name: local_authority.name })
     else
       LocationError.new("noLaMatchLinkToFindLa") # this to be improved in a future story
     end

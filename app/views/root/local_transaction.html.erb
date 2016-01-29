@@ -15,7 +15,7 @@
     <% if @interaction_details['local_interaction'] %>
       <div class="interaction">
         <p class="interaction-match">
-          We've matched this postcode to <span class="local-authority">the <%= @local_authority.name %>.</span>
+          We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
         </p>
         <p id="get-started" class="get-started group">
           <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button" role="button">

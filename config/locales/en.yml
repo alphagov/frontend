@@ -35,7 +35,10 @@ en:
       valid_postcode_no_match_sub_html: "Try entering it again or <a href='http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1'>look up the council</a>."
       no_local_authority: "We couldn't find a council for this postcode."
       no_local_authority_sub_html: "Try <a href='http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1'>looking up the council</a>."
-      local_authority_no_service_url_html: "We don't have a direct link to this service from %{local_authority_name}, but you could try the <a href=%{contact_url} rel='external'>%{local_authority_name} website</a>."
+      local_authority_no_service_url_html: "Search the <span class='local-authority'>%{local_authority_name}</span> website for this service."
+      local_authority_starts_with_the_no_service_url_html: "Search <span class='local-authority'>%{local_authority_name}</span> website for this service."
+      local_authority_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
+      local_authority_starts_with_the_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
   travel_advice:
     alert_status:
       avoid_all_but_essential_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to parts of the country.

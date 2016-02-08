@@ -262,7 +262,8 @@ protected
       Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode, 10)
     end
   rescue GdsApi::HTTPErrorResponse => e
-    # allow 400 errors, as they can be invalid postcodes people have entered
+    # allow 400 errors, as they can be invalid postcodes or no locations found
+    @location_error = LocationError.new(e.error_details["error"]) unless e.error_details.nil?
     raise unless e.code == 400
   end
 

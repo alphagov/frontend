@@ -54,13 +54,5 @@
   </section>
 <% end %>
 <% if @location_error && @location_error.postcode_error %>
-  <script type="text/javascript">
-      GOVUK.analytics.trackEvent(
-        "userAlerts:LocalTransaction",
-        "postcodeErrorShown:<%= @location_error.postcode_error %>",
-        {
-          label: "<%= t(@location_error.message, @location_error.message_args) %>"
-        }
-      );
-  </script>
+  <%= render partial: 'ga_postcode_error_tracking', locals: { alert_type: 'LocalTransaction' } %>
 <% end %>

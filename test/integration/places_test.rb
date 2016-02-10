@@ -174,4 +174,20 @@ class PlacesTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "given a valid postcode with no locations returned" do
+    setup do
+      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=10&postcode=JE4%205TP").
+        to_return(body: {"error" => "validPostcodeNoLocation"}.to_json, status: 400)
+
+      visit "/passport-interview-office"
+      fill_in "Enter a postcode", with: "JE4 5TP"
+      click_on "Find"
+    end
+
+    should "display the 'no locations found' message" do
+      assert page.has_content?("We can't find this postcode.")
+      assert page.has_content?("This could be because it's a PO Box or outside mainland UK. Please try another postcode nearby.")
+    end
+  end
 end

@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  GOVUK.analytics.trackEvent(
+    "userAlerts:<%= alert_type %>",
+    "postcodeErrorShown:<%= @location_error.postcode_error %>",
+    {
+      label: "<%= t(@location_error.message, @location_error.message_args) %>"
+    }
+  );
+</script>

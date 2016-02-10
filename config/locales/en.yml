@@ -39,6 +39,9 @@ en:
       local_authority_starts_with_the_no_service_url_html: "Search <span class='local-authority'>%{local_authority_name}</span> website for this service."
       local_authority_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
       local_authority_starts_with_the_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
+    find_my_nearest:
+      valid_postcode_no_locations: "We can't find this postcode."
+      sub_message: "This could be because it's a PO Box or outside mainland UK. Please try another postcode nearby."
   travel_advice:
     alert_status:
       avoid_all_but_essential_travel_to_parts: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> advise against all but essential travel to parts of the country.

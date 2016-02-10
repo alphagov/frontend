@@ -20,5 +20,12 @@ class LocationErrorTest < ActiveSupport::TestCase
         error = LocationError.new
       end
     end
+
+    context 'when given a valid postcode with no location found' do
+      should 'send no location found error' do
+        error = LocationError.new('validPostcodeNoLocation')
+        assert_equal(error.message, 'formats.find_my_nearest.valid_postcode_no_locations')
+      end
+    end
   end
 end

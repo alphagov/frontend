@@ -250,7 +250,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         }))
 
         visit '/pay-bear-tax'
-        fill_in 'postcode', :with => "SW1A 1AA"
+        fill_in 'postcode', with: "SW1A 1AA"
         click_button('Find')
       end
 

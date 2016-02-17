@@ -22,9 +22,13 @@ class RootController < ApplicationController
     make-a-sorn
   )
 
-  FULL_WIDTH_FORMATS = %w{
+  FULL_WIDTH_FORMATS = %w(
     campaign
-  }
+  )
+
+  REPORT_CHILD_ABUSE = %w(
+    report-child-abuse-to-local-council
+  )
 
   def index
     set_slimmer_headers(
@@ -188,6 +192,9 @@ class RootController < ApplicationController
           render params[:slug], locals: { full_width: true }
         elsif FULL_WIDTH_FORMATS.include?(@publication.format)
           render @publication.format, locals: { full_width: true }
+        elsif REPORT_CHILD_ABUSE.include?(params[:slug])
+          render @publication.format,
+                  locals: { option_partial: "option_report_child_abuse", preposition: "for" }
         else
           render @publication.format
         end

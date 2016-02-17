@@ -10,7 +10,7 @@
 
         <%= raw @publication.introduction %>
 
-        <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+        <%= render partial: 'location_form', locals: { format: 'service' } %>
       </div>
     </div>
   </section>
@@ -18,9 +18,9 @@
   <% if @postcode.present? and !@publication.places.nil? %>
     <% if @publication.places.any? %>
       <section class="places">
-        <h2>Results near <strong><%= @postcode %></strong>:</h2>
+        <h2>Results <%= preposition ||= "near" %> <strong><%= @postcode %></strong>:</h2>
         <ol id="options" class="places">
-          <%= render :partial => 'option', :locals => { :places => @publication.places } %>
+          <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
         </ol>
       </section>
     <% else %>

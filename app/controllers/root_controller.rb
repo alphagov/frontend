@@ -17,18 +17,31 @@ class RootController < ApplicationController
 
   PRINT_FORMATS = %w(guide programme)
 
-  EXCEPTIONAL_FORMAT_SLUGS = %w(
-    check-vehicle-tax
-    make-a-sorn
-  )
-
-  FULL_WIDTH_FORMATS = %w(
-    campaign
-  )
-
-  REPORT_CHILD_ABUSE = %w(
-    report-child-abuse-to-local-council
-  )
+  CUSTOM_FORMATS = {
+    "report-child-abuse-to-local-council" => {
+      locals: {
+        option_partial: "option_report_child_abuse",
+        preposition: "for",
+      }
+    },
+    "check-vehicle-tax" => {
+      format: "check-vehicle-tax",
+      locals: {
+        full_width: true
+      }
+    },
+    "make-a-sorn" => {
+      format: "make-a-sorn",
+      locals: {
+        full_width: true
+      }
+    },
+    "campaign" => {
+      locals: {
+        full_width: true
+      }
+    }
+  }
 
   def index
     set_slimmer_headers(
@@ -187,14 +200,8 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.html.none do
-        # render bespoke format for specific publications.
-        if EXCEPTIONAL_FORMAT_SLUGS.include?(params[:slug])
-          render params[:slug], locals: { full_width: true }
-        elsif FULL_WIDTH_FORMATS.include?(@publication.format)
-          render @publication.format, locals: { full_width: true }
-        elsif REPORT_CHILD_ABUSE.include?(params[:slug])
-          render @publication.format,
-                  locals: { option_partial: "option_report_child_abuse", preposition: "for" }
+        if is_custom_format?
+          render custom_format_template, locals: custom_format_locals
         else
           render @publication.format
         end
@@ -353,5 +360,17 @@ protected
         "laMatchNoLinkNoAuthorityUrl"
       end
     LocationError.new(error_code, { local_authority_name: local_authority.name })
+  end
+
+  def is_custom_format?
+    CUSTOM_FORMATS.key?(params[:slug])
+  end
+
+  def custom_format_template
+    CUSTOM_FORMATS[params[:slug]].fetch(:format, @publication.format)
+  end
+
+  def custom_format_locals
+    CUSTOM_FORMATS[params[:slug]][:locals]
   end
 end

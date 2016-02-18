@@ -37,6 +37,4 @@
   <% end %>
 <% end %>
 
-<% if @location_error && @location_error.postcode_error %>
-  <%= render partial: 'ga_postcode_error_tracking', locals: { alert_type: 'place' } %>
-<% end %>
+<%= render partial: 'ga_postcode_error_tracking', locals: { alert_type: 'place' } %>

@@ -17,7 +17,11 @@
 
   <% if @postcode.present? and !@publication.places.nil? %>
     <% if @publication.places.any? %>
-      <section class="places">
+      <section class="places"
+               data-module="auto-track-event"
+               data-track-category="placeSearch"
+               data-track-action="postcodeResultShown"
+               data-track-label="<%= @publication.places.first["name"] %>">
         <h2>Results <%= preposition ||= "near" %> <strong><%= @postcode %></strong>:</h2>
         <ol id="options" class="places">
           <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>

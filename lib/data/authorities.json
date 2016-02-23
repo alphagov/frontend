@@ -2163,5 +2163,10 @@
     "name": "Belfast City Council",
     "ons": "95Z",
     "gss": null
+  },
+  "north-down-and-ards": {
+    "name": "North Down and Ards",
+    "ons": "N09000011",
+    "gss": "N09000011"
   }
 }

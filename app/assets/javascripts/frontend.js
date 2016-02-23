@@ -8,3 +8,4 @@
 //= require shared_mustache
 //= require templates
 //= require search
+//= require_tree ./modules

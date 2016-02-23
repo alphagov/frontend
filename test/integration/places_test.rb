@@ -128,6 +128,65 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
   end
 
+
+  context "given a valid postcode for report child abuse" do
+    setup do
+      mapit_has_a_postcode("N5 1QL", [51.5505284612, -0.100467152148])
+
+      @artefact_for_report_child_abuse = artefact_for_slug('report-child-abuse-to-local-council').merge({
+        "title" => "Find your local child social care team",
+        "format" => "place",
+        "in_beta" => true,
+        "details" => {
+          "description" => "Find your local child social care team",
+          "place_type" => "find-child-social-care-team",
+          "introduction" => "<p>Contact your local council if you think a child is at risk</p>"
+        }
+      })
+      content_api_has_an_artefact('report-child-abuse-to-local-council', @artefact_for_report_child_abuse)
+
+      @places_for_report_child_abuse = [
+        {
+          "name" => "Islington",
+          "phone" => "020 7226 1436 (Monday to Friday)",
+          "general_notes" => "020 7226 0992 (out of hours)",
+          "url" => "http://www.islington.gov.uk/services/children-families/cs-worried/Pages/default.aspx"
+        }
+      ]
+
+      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-child-social-care-team.json?limit=10&postcode=N5%201QL").
+        to_return(body: @places_for_report_child_abuse.to_json, status: 200)
+
+      visit "/report-child-abuse-to-local-council"
+      fill_in "Enter a postcode", with: "N5 1QL"
+      click_on "Find"
+    end
+
+    should "not display an error message" do
+      assert page.has_no_content?("Please enter a valid full UK postcode.")
+    end
+
+    should "not show the 'no results' message" do
+      assert page.has_no_content?("Sorry, no results were found near you.")
+    end
+
+    should "display places near to the requested location" do
+      within '#options' do
+        names = page.all("li p.adr span.fn").map(&:text)
+        assert_equal ["You can call the children's social care team at the council in Islington"], names
+
+        within first('li:first-child') do
+          assert page.has_link?("020 7226 1436", href: "tel://020%207226%201436")
+          assert page.has_content?("(Monday to Friday)")
+          assert page.has_link?("020 7226 0992", href: "tel://020%207226%200992")
+          assert page.has_content?("(out of hours)")
+
+          assert page.has_link?("Go to their website", href: "http://www.islington.gov.uk/services/children-families/cs-worried/Pages/default.aspx")
+        end
+      end
+    end
+  end
+
   context "given a valid postcode with no nearby places" do
     setup do
       @places = []

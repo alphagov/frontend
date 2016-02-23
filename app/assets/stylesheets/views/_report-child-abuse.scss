@@ -1,0 +1,8 @@
+.phone-numbers-report-child-abuse {
+  padding-top: $gutter-half;
+  padding-bottom: $gutter-half;
+
+  p.tel-report-child-abuse {
+    @include core-24;
+  }
+}

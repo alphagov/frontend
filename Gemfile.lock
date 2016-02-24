@@ -83,11 +83,11 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    gds-api-adapters (26.7.0)
+    gds-api-adapters (28.2.1)
       link_header
       lrucache (~> 0.1.1)
       null_logger
-      plek
+      plek (>= 1.9.0)
       rack-cache
       rest-client (~> 1.8.0)
     gelf (1.3.2)
@@ -152,7 +152,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.4)
-    rack-cache (1.5.1)
+    rack-cache (1.6.1)
       rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -278,7 +278,7 @@ DEPENDENCIES
   capybara (= 2.1.0)
   cdn_helpers (= 0.9)
   ci_reporter
-  gds-api-adapters (= 26.7.0)
+  gds-api-adapters (= 28.2.1)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint (~> 0.3.0)

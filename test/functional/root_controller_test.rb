@@ -138,6 +138,43 @@ class RootControllerTest < ActionController::TestCase
     get :publication, :slug => "a-slug"
   end
 
+  test "should choose custom template and locals for custom slug" do
+    content_api_has_an_artefact("check-local-dentist", {'format' => 'answer'})
+
+    custom_slug_hash = {
+        "check-local-dentist" => {
+          template: "check-local-dentist",
+          locals: {
+            full_width: true
+          }
+        }
+      }
+
+    RootController.stubs(:custom_slugs).returns(custom_slug_hash)
+
+    prevent_implicit_rendering
+    @controller.expects(:render).with("check-local-dentist", { locals: { full_width: true } })
+    get :publication, slug: "check-local-dentist"
+  end
+
+  test "should render with custom locals for custom format" do
+    content_api_has_an_artefact("tabs-vs-spaces", { "format" => "guide" })
+
+    custom_format_hash = {
+        "guide" => {
+          locals: {
+            full_width: true
+          }
+        }
+      }
+
+    RootController.stubs(:custom_formats).returns(custom_format_hash)
+
+    prevent_implicit_rendering
+    @controller.expects(:render).with("guide", { locals: { full_width: true } })
+    get :publication, slug: "tabs-vs-spaces"
+  end
+
   test "should set expiry headers for an edition" do
     content_api_has_an_artefact("a-slug")
 

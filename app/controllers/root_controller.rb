@@ -46,6 +46,9 @@ class RootController < ApplicationController
     }
   }
 
+  def self.custom_formats; CUSTOM_FORMATS; end
+  def self.custom_slugs; CUSTOM_SLUGS; end
+
   def index
     set_slimmer_headers(
       template: "homepage",
@@ -368,22 +371,22 @@ protected
   end
 
   def is_custom_slug?
-    CUSTOM_SLUGS.key?(params[:slug])
+    self.class.custom_slugs.key?(params[:slug])
   end
 
   def custom_slug_template
-    CUSTOM_SLUGS[params[:slug]].fetch(:template, @publication.format)
+    self.class.custom_slugs[params[:slug]].fetch(:template, @publication.format)
   end
 
   def custom_slug_locals
-    CUSTOM_SLUGS[params[:slug]][:locals]
+    self.class.custom_slugs[params[:slug]][:locals]
   end
 
   def is_custom_format?
-    CUSTOM_FORMATS.key?(@publication.format)
+    self.class.custom_formats.key?(@publication.format)
   end
 
   def custom_format_locals
-    CUSTOM_FORMATS[@publication.format][:locals]
+    self.class.custom_formats[@publication.format][:locals]
   end
 end

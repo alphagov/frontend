@@ -4,6 +4,7 @@ require 'gds_api/test_helpers/imminence'
 
 class PlacesTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::Imminence
 
   setup do
     mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
@@ -92,8 +93,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode" do
     setup do
-      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=10&postcode=SW1A%201AA").
-        to_return(:body => @places.to_json, :status => 200)
+      imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -154,8 +154,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         }
       ]
 
-      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-child-social-care-team.json?limit=10&postcode=N5%201QL").
-        to_return(body: @places_for_report_child_abuse.to_json, status: 200)
+      imminence_has_places_for_postcode(@places_for_report_child_abuse, "find-child-social-care-team", "N5 1QL", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/report-child-abuse-to-local-council"
       fill_in "Enter a postcode", with: "N5 1QL"
@@ -191,8 +190,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       @places = []
 
-      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=10&postcode=SW1A%201AA").
-        to_return(:body => @places.to_json, :status => 200)
+      imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -210,8 +208,8 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given an invalid postcode" do
     setup do
-      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=10&postcode=SW1A%202AA").
-        to_return(:status => 400)
+      query_hash = { "postcode" => "SW1A 2AA", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      stub_imminence_places_request("find-passport-offices", query_hash, {}, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 2AA"
@@ -236,8 +234,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode with no locations returned" do
     setup do
-      stub_request(:get, GdsApi::TestHelpers::Imminence::IMMINENCE_API_ENDPOINT + "/places/find-passport-offices.json?limit=10&postcode=JE4%205TP").
-        to_return(body: {"error" => "validPostcodeNoLocation"}.to_json, status: 400)
+      query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      return_data = { "error" => "validPostcodeNoLocation" }
+
+      stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "JE4 5TP"

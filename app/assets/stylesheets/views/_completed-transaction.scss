@@ -12,6 +12,10 @@
   form {
     @include core-19;
 
+    legend {
+      width: 100%;
+    }
+
     input {
       margin-right: 0.5em;
       vertical-align: 2px;

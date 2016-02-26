@@ -40,6 +40,8 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
         assert page.has_link?("Vehicles exempt from vehicle tax", :href => "/vehicle-exempt-from-car-tax")
       end
 
+      assert_page_is_full_width
+
       assert_selector("#transaction_cross_domain_analytics", visible: :all, text: "UA-12345-6")
     end
   end

@@ -48,6 +48,8 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
         assert page.has_link?("SORN (Statutory Off Road Notification)", :href => "/sorn-statutory-off-road-notification")
       end
 
+      assert_page_is_full_width
+
       assert_selector("#transaction_cross_domain_analytics", visible: :all, text: "UA-12345-6")
     end
   end

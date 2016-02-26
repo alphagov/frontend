@@ -17,7 +17,7 @@ class RootController < ApplicationController
 
   PRINT_FORMATS = %w(guide programme)
 
-  CUSTOM_FORMATS = {
+  CUSTOM_SLUGS = {
     "report-child-abuse-to-local-council" => {
       locals: {
         option_partial: "option_report_child_abuse",
@@ -25,23 +25,29 @@ class RootController < ApplicationController
       }
     },
     "check-vehicle-tax" => {
-      format: "check-vehicle-tax",
+      template: "check-vehicle-tax",
       locals: {
         full_width: true
       }
     },
     "make-a-sorn" => {
-      format: "make-a-sorn",
+      template: "make-a-sorn",
       locals: {
         full_width: true
       }
     },
+  }
+
+  CUSTOM_FORMATS = {
     "campaign" => {
       locals: {
         full_width: true
       }
     }
   }
+
+  def self.custom_formats; CUSTOM_FORMATS; end
+  def self.custom_slugs; CUSTOM_SLUGS; end
 
   def index
     set_slimmer_headers(
@@ -200,8 +206,10 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.html.none do
-        if is_custom_format?
-          render custom_format_template, locals: custom_format_locals
+        if is_custom_slug?
+          render custom_slug_template, locals: custom_slug_locals
+        elsif is_custom_format?
+          render @publication.format, locals: custom_format_locals
         else
           render @publication.format
         end
@@ -362,15 +370,23 @@ protected
     LocationError.new(error_code, { local_authority_name: local_authority.name })
   end
 
-  def is_custom_format?
-    CUSTOM_FORMATS.key?(params[:slug])
+  def is_custom_slug?
+    self.class.custom_slugs.key?(params[:slug])
   end
 
-  def custom_format_template
-    CUSTOM_FORMATS[params[:slug]].fetch(:format, @publication.format)
+  def custom_slug_template
+    self.class.custom_slugs[params[:slug]].fetch(:template, @publication.format)
+  end
+
+  def custom_slug_locals
+    self.class.custom_slugs[params[:slug]][:locals]
+  end
+
+  def is_custom_format?
+    self.class.custom_formats.key?(@publication.format)
   end
 
   def custom_format_locals
-    CUSTOM_FORMATS[params[:slug]][:locals]
+    self.class.custom_formats[@publication.format][:locals]
   end
 end

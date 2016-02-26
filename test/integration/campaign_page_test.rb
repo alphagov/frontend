@@ -23,6 +23,8 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
 
     assert_equal "Britain is GREAT campaign", page.find("meta[@name='description']", visible: false)[:content]
 
+    assert_page_is_full_width
+
     assert page.has_selector?(shared_component_selector('beta_label'))
 
   end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 gem 'rails-i18n', :git => "https://github.com/alphagov/rails-i18n.git", :branch => "welsh_updates"
 gem 'unicorn', '4.6.3'
 gem 'gelf'
@@ -11,7 +11,10 @@ gem 'plek', '1.11.0'
 gem 'statsd-ruby', '1.0.0', :require => 'statsd'
 gem 'htmlentities', '4.3.1'
 gem 'shared_mustache', '1.0.0'
-gem 'sprockets-rails', "2.3.3" #FIXME: This is temporary, will allow to upgrade rails to 4.2.5.1 to address security fixes without breaking tests http://weblog.rubyonrails.org/2016/1/25/Rails-5-0-0-beta1-1-4-2-5-1-4-1-14-1-3-2-22-1-and-rails-html-sanitizer-1-0-3-have-been-released/
+#FIXME: This is temporary, will allow to upgrade rails to 4.2.5.1 to
+# address security fixes without breaking tests
+# http://weblog.rubyonrails.org/2016/1/25/Rails-5-0-0-beta1-1-4-2-5-1-4-1-14-1-3-2-22-1-and-rails-html-sanitizer-1-0-3-have-been-released/
+gem 'sprockets-rails', "2.3.3"
 
 if ENV['SLIMMER_DEV']
   gem 'slimmer', :path => '../slimmer'

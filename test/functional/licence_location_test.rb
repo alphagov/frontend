@@ -54,7 +54,7 @@ class LicenceLocationTest < ActionController::TestCase
       context "for a Northern Irish local authority" do
         setup do
           mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "95Z"},
+            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003"},
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
           ])
 

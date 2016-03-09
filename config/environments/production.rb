@@ -37,9 +37,6 @@ Frontend::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_files = false
 
-  # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
-
   # Enable threaded mode
   # config.threadsafe!
 
@@ -55,9 +52,6 @@ Frontend::Application.configure do
 
   config.slimmer.use_cache = true
   config.slimmer.asset_host = Plek.current.find('static')
-
-  config.action_mailer.default_url_options = { :host => Plek.current.find('frontend') }
-  config.action_mailer.delivery_method = :ses
 
   # Enable JSON-style logging
   config.logstasher.enabled = true

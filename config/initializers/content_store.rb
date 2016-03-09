@@ -1,1 +1,0 @@
-ENABLE_CONTENT_STORE_TEST_ENDPOINT = Rails.env.development?

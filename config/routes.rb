@@ -42,10 +42,6 @@ Frontend::Application.routes.draw do
 
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
 
-  if ENABLE_CONTENT_STORE_TEST_ENDPOINT
-    get "test-for-content-store/*path" => "content_store#content_store_test"
-  end
-
   with_options(to: "root#publication") do |pub|
     pub.get "*slug", slug: %r{(done|help)/.+}
     pub.get ":slug/print", variant: :print

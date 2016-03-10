@@ -2163,5 +2163,55 @@
     "name": "Belfast City Council",
     "ons": "95Z",
     "gss": null
+  },
+  "antrim-newtownabbey": {
+    "name": "Antrim and Newtownabbey Borough Council",
+    "ons": "N09000001",
+    "gss": "N09000001"
+  },
+  "armagh-banbridge-craigavon": {
+    "name": "Armagh City, Banbridge and Craigavon Borough Council",
+    "ons": "N09000002",
+    "gss": "N09000002"
+  },
+  "causeway-coast-and-glens": {
+    "name": "Causeway Coast and Glens Borough Council",
+    "ons": "N09000004",
+    "gss": "N09000004"
+  },
+  "derry-strabane": {
+    "name": "Derry City and Strabane District Council",
+    "ons": "N09000005",
+    "gss": "N09000005"
+  },
+  "fermanagh-omagh": {
+    "name": "Fermanagh and Omagh District Council",
+    "ons": "N09000006",
+    "gss": "N09000006"
+  },
+  "lisburn-castlereagh": {
+    "name": "Lisburn and Castlereagh City Council",
+    "ons": "N09000007",
+    "gss": "N09000007"
+  },
+  "mid-and-east-antrim": {
+    "name": "Mid and East Antrim Borough Council",
+    "ons": "N09000008",
+    "gss": "N09000008"
+  },
+  "mid-ulster": {
+    "name": "Mid Ulster District Council",
+    "ons": "N09000009",
+    "gss": "N09000009"
+  },
+  "newry-mourne-down": {
+    "name": "Newry, Mourne and Down District Council",
+    "ons": "N09000010",
+    "gss": "N09000010"
+  },
+  "ards-and-north-down": {
+    "name": "Ards and North Down Borough Council",
+    "ons": "N09000011",
+    "gss": "N09000011"
   }
 }

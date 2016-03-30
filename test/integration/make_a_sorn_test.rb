@@ -30,7 +30,6 @@ class TaxDiscPageTest < ActionDispatch::IntegrationTest
       within ".offline-apply" do
         assert page.has_selector?("h1", :text => "Other ways to apply")
         assert page.has_selector?("li", :text => "0300 123 4321")
-        assert page.has_selector?("li", :text => "0300 790 6201")
       end
 
       within ".by-post" do

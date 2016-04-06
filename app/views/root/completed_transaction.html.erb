@@ -8,7 +8,7 @@
   publication: @publication,
   edition: @edition,
 } do %>
-  <% if promote_organ_donor_registration? %>
+  <% if promotion_choice == 'organ_donor' %>
     <div id="organ-donor-registration-promotion">
       <p>Please join the NHS Organ Donor Register.</p>
       <p>If you needed an organ transplant would you have one? If so please help others.</p>
@@ -17,8 +17,17 @@
               title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
       </p>
     </div>
-    <h2 class="satisfaction-survey-heading">Satisfaction survey</h2>
+  <% elsif promotion_choice == 'register-to-vote' %>
+    <div id="register-to-vote-promotion">
+      <p>Lorem ipsum.</p>
+      <p>
+        <%= link_to 'Register', register_to_vote_attributes['register_to_vote_url'],
+              title: "Register to vote", rel: "internal", class: "button", role: "button" %>
+      </p>
+    </div>
   <% end %>
+
+  <h2 class="satisfaction-survey-heading">Satisfaction survey</h2>
 
   <form class="contact-form" action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
     <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= @publication.slug.gsub("done/", "") %>" />

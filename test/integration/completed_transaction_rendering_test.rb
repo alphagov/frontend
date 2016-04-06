@@ -39,5 +39,24 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
         end
       end
     end
+
+    should "only show one promotion at a time" do
+      artefact = artefact_for_slug "shows-register-to-vote-promotion"
+      artefact = artefact.merge({
+        format: "completed_transaction",
+        details: {
+          presentation_toggles: { register_to_vote: { promote_register_to_vote: true, register_to_vote_url: '/register-to-vote-url' } }
+        }
+      })
+      content_api_has_an_artefact("shows-register-to-vote-promotion", artefact)
+
+      visit "/shows-register-to-vote-promotion"
+
+      assert_equal 200, page.status_code
+      within '.content-block' do
+        assert page.has_link?("Register", href: "/register-to-vote-url")
+        assert page.has_no_link?("Join")
+      end
+    end
   end
 end

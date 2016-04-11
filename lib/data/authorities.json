@@ -2159,11 +2159,6 @@
     "ons": "95Y",
     "gss": null
   },
-  "belfast": {
-    "name": "Belfast City Council",
-    "ons": "95Z",
-    "gss": null
-  },
   "antrim-newtownabbey": {
     "name": "Antrim and Newtownabbey Borough Council",
     "ons": "N09000001",
@@ -2173,6 +2168,11 @@
     "name": "Armagh City, Banbridge and Craigavon Borough Council",
     "ons": "N09000002",
     "gss": "N09000002"
+  },
+  "belfast": {
+    "name": "Belfast City Council",
+    "ons": "N09000003",
+    "gss": "N09000003"
   },
   "causeway-coast-and-glens": {
     "name": "Causeway Coast and Glens Borough Council",

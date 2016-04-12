@@ -88,6 +88,10 @@ body.homepage {
       @include media(desktop) {
         max-width: 66%;
       }
+
+      a[rel~="external"] {
+        @include external-link-19;
+      }
     }
   }
 }

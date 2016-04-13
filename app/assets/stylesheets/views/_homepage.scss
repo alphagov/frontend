@@ -90,6 +90,7 @@ body.homepage {
       }
 
       a[rel~="external"] {
+        @include external-link-default;
         @include external-link-19;
       }
     }

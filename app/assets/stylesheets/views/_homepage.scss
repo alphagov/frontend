@@ -91,7 +91,11 @@ body.homepage {
 
       a[rel~="external"] {
         @include external-link-default;
-        @include external-link-19;
+        @include external-link-16;
+
+        @include media(tablet) {
+          @include external-link-19;
+        }
       }
     }
   }

@@ -89,9 +89,19 @@ body.homepage {
         max-width: 66%;
       }
 
+      strong {
+        display: block;
+        @include bold-24;
+        margin-bottom: $gutter-half;
+      }
+
       a[rel~="external"] {
         @include external-link-default;
-        @include external-link-19;
+        @include external-link-16;
+
+        @include media(tablet) {
+          @include external-link-19;
+        }
       }
     }
   }

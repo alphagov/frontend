@@ -59,7 +59,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
       within '.content-block' do
-        assert page.has_text?("Lorem ipsum.")
+        assert page.has_text?("You must register to vote by 7 June if you want to take part in the EU referendum. You can register online and it only takes 5 minutes.")
         assert page.has_link?("Register", href: "/register-to-vote-url")
         within 'h2.satisfaction-survey-heading' do
           assert page.has_text?("Satisfaction survey")

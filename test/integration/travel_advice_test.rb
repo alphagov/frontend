@@ -76,6 +76,11 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       post "/foreign-travel-advice"
       assert_equal 405, response.status
     end
+
+    should "add the publishing request id in a meta tag" do
+      visit "/foreign-travel-advice"
+      assert page.has_css?("meta[name='govuk:publishing-request-id'][content='2546-1460985144476-19268198-3242']", visible: false)
+    end
   end
 
   context "with the javascript driver" do

@@ -8,20 +8,20 @@
   publication: @publication,
   edition: @edition,
 } do %>
-  <% if promotion_choice == 'organ_donor' %>
+  <% if @publication.promotion_choice == 'organ_donor' %>
     <div id="organ-donor-registration-promotion">
       <p>Please join the NHS Organ Donor Register.</p>
       <p>If you needed an organ transplant would you have one? If so please help others.</p>
       <p>
-        <%= link_to 'Join', organ_donor_registration_attributes['organ_donor_registration_url'],
+        <%= link_to 'Join', @publication.promotion_url,
               title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
       </p>
     </div>
-  <% elsif promotion_choice == 'register-to-vote' %>
+  <% elsif @publication.promotion_choice == 'register_to_vote' %>
     <div id="register-to-vote-promotion">
       <p>Lorem ipsum.</p>
       <p>
-        <%= link_to 'Register', register_to_vote_attributes['register_to_vote_url'],
+        <%= link_to 'Register', @publication.promotion_url,
               title: "Register to vote", rel: "internal", class: "button", role: "button" %>
       </p>
     </div>

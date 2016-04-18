@@ -19,7 +19,7 @@ class PublicationPresenter
   PASS_THROUGH_DETAILS_KEYS = [
     :body, :short_description, :introduction, :need_to_know, :video_url,
     :summary, :overview, :name, :video_summary, :continuation_link, :licence_overview,
-    :link, :will_continue_on, :more_information, :downtime, :presentation_toggles,
+    :link, :will_continue_on, :more_information, :downtime,
     :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
     :eligibility, :evaluation, :additional_information, :contact_details, :language, :country,
     :alert_status, :change_description, :caption_file, :nodes, :large_image, :medium_image, :small_image,
@@ -129,9 +129,46 @@ class PublicationPresenter
     end
   end
 
+  def promotion_choice
+    choice = promotion_choice_details['choice']
+    if choice.empty?
+      if has_legacy_organ_promotion_details?
+        "organ_donor"
+      else
+        "none"
+      end
+    else
+      choice
+    end
+  end
+
+  def promotion_url
+    url = promotion_choice_details['url']
+    url.empty? ? legacy_organ_promotion_details['organ_donor_registration_url'] : url
+  end
+
   def to_json
     {
       places: places
     }.to_json
+  end
+
+
+private
+
+  def has_legacy_organ_promotion_details?
+    legacy_organ_promotion_details['promote_organ_donor_registration']
+  end
+
+  def legacy_organ_promotion_details
+    presentation_toggles.fetch('organ_donor_registration', {'promote_organ_donor_registration' => false})
+  end
+
+  def promotion_choice_details
+    presentation_toggles.fetch('promotion_choice', {'choice' => '', 'url' => ''})
+  end
+
+  def presentation_toggles
+    details.fetch('presentation_toggles', {})
   end
 end

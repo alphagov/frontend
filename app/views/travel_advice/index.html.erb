@@ -2,7 +2,6 @@
   <%= javascript_include_tag "views/travel-advice.js" %>
   <link rel="alternate" type="application/json" href="<%= publication_api_path(@presenter, :edition => @edition) %>" />
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
-  <meta name="govuk:publishing-request-id" content="<%= @presenter.publishing_request_id %>">
 <% end %>
 
 <main id="content" role='main' class="group full-width">

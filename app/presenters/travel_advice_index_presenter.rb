@@ -3,8 +3,7 @@
 require 'ostruct'
 
 class TravelAdviceIndexPresenter
-  attr_accessor :countries, :description, :slug, :title, :subscription_url,
-                :format, :publishing_request_id
+  attr_accessor :countries, :description, :slug, :title, :subscription_url, :format
 
   def initialize(attributes)
     details = attributes.fetch("details")
@@ -17,7 +16,6 @@ class TravelAdviceIndexPresenter
     self.title = attributes.fetch("title")
     self.subscription_url = details.fetch("email_signup_link")
     self.format = "travel-advice"
-    self.publishing_request_id = details["publishing_request_id"]
   end
 
   def countries_by_date

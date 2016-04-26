@@ -8,17 +8,36 @@
   publication: @publication,
   edition: @edition,
 } do %>
-  <% if promote_organ_donor_registration? %>
+  <% if @publication.promotion_choice == 'organ_donor' %>
     <div id="organ-donor-registration-promotion">
       <p>Please join the NHS Organ Donor Register.</p>
       <p>If you needed an organ transplant would you have one? If so please help others.</p>
       <p>
-        <%= link_to 'Join', organ_donor_registration_attributes['organ_donor_registration_url'],
+        <%= link_to 'Join', @publication.promotion_url,
               title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
       </p>
     </div>
-    <h2 class="satisfaction-survey-heading">Satisfaction survey</h2>
+  <% elsif @publication.promotion_choice == 'register_to_vote' %>
+    <div id="register-to-vote-promotion"
+         data-module="auto-track-event"
+         data-track-category="linkTrack"
+         data-track-action="linkDisplayed"
+         data-track-label="Register">
+      <p>You must <a href="/register-to-vote">register to vote</a> by 7 June if you want to take part in the EU referendum. You can register online and it only takes 5 minutes.</p>
+      <p>
+        <%= link_to 'Register', @publication.promotion_url,
+              title: "Register to vote", rel: "internal", class: "button", role: "button",
+              data: {
+                module: 'track-click',
+                track: {
+                  category: 'linkTrack', action: 'linkClicked', label: @publication.promotion_url
+                }
+              } %>
+      </p>
+    </div>
   <% end %>
+
+  <h2 class="satisfaction-survey-heading">Satisfaction survey</h2>
 
   <form class="contact-form" action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
     <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= @publication.slug.gsub("done/", "") %>" />

@@ -4,21 +4,21 @@ require 'integration_test_helper'
 class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
   context "a completed transaction edition" do
-    should "hide organ donor registration promotion when presentation toggle is not present" do
-      artefact = artefact_for_slug "no-organ-donation-registration-promotion"
+    should "show no promotion when presentation toggle is not present" do
+      artefact = artefact_for_slug "no-promotion"
       artefact = artefact.merge({ format: "completed_transaction" })
-      content_api_has_an_artefact("no-organ-donation-registration-promotion", artefact)
+      content_api_has_an_artefact("no-promotion", artefact)
 
-      visit "/no-organ-donation-registration-promotion"
+      visit "/no-promotion"
 
       assert_equal 200, page.status_code
       within '.content-block' do
-        assert page.has_no_text?("If you needed an organ transplant would you have one? If so please help others.")
-        assert page.has_no_link?("Join")
+        assert page.has_no_selector?('#organ-donor-registration-promotion')
+        assert page.has_no_selector?('#register-to-vote-promotion')
       end
     end
 
-    should "show organ donor registration promotion and survey heading if related presentation toggle is turned-on" do
+    should "show organ donor registration promotion and survey heading if chosen" do
       artefact = artefact_for_slug "shows-organ-donation-registration-promotion"
       artefact = artefact.merge({
         format: "completed_transaction",
@@ -37,6 +37,143 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
         within 'h2.satisfaction-survey-heading' do
           assert page.has_text?("Satisfaction survey")
         end
+      end
+    end
+
+    should "show register to vote promotion and survey heading if chosen" do
+      artefact = artefact_for_slug "shows-register-to-vote-promotion"
+      artefact = artefact.merge({
+        format: "completed_transaction",
+        details: {
+          presentation_toggles: {
+            promotion_choice: {
+              choice: 'register_to_vote',
+              url: '/register-to-vote-url'
+            }
+          }
+        }
+      })
+      content_api_has_an_artefact("shows-register-to-vote-promotion", artefact)
+
+      visit "/shows-register-to-vote-promotion"
+
+      assert_equal 200, page.status_code
+      within '.content-block' do
+        assert page.has_text?("You must register to vote by 7 June if you want to take part in the EU referendum. You can register online and it only takes 5 minutes.")
+        assert page.has_link?("Register", href: "/register-to-vote-url")
+        within 'h2.satisfaction-survey-heading' do
+          assert page.has_text?("Satisfaction survey")
+        end
+      end
+    end
+
+    should "show no promotion when choice is not organ donor or register to vote" do
+      artefact = artefact_for_slug "unknown-promotion"
+      artefact = artefact.merge({
+        format: "completed_transaction",
+        details: {
+          presentation_toggles: {
+            promotion_choice: {
+              choice: 'cheese_hats',
+              url: '/get-free-cheese-hats-url'
+            }
+          }
+        }
+      })
+      content_api_has_an_artefact("unknown-promotion", artefact)
+
+      visit "/unknown-promotion"
+
+      assert_equal 200, page.status_code
+      within '.content-block' do
+        assert page.has_no_selector?('#organ-donor-registration-promotion')
+        assert page.has_no_selector?('#register-to-vote-promotion')
+        assert page.has_no_link?(href: '/get-free-cheese-hats-url')
+      end
+    end
+
+    should "prefer promotion choice options eve if legacy options present" do
+      artefact = artefact_for_slug "has-both-promotion_choice-and-legacy-promotion"
+      artefact = artefact.merge({
+        format: "completed_transaction",
+        details: {
+          presentation_toggles: {
+            organ_donor_registration: {
+              promote_organ_donor_registration: true,
+              organ_donor_registration_url: '/organ-donor-registration-url'
+            },
+            promotion_choice: {
+              choice: 'register_to_vote',
+              url: '/register-to-vote-url'
+            }
+          }
+        }
+      })
+      content_api_has_an_artefact("has-both-promotion_choice-and-legacy-promotion", artefact)
+
+      visit "/has-both-promotion_choice-and-legacy-promotion"
+
+      assert_equal 200, page.status_code
+      within '.content-block' do
+        assert page.has_no_link?("Join", href: "/organ-donor-registration-url")
+        assert page.has_link?("Register", href: "/register-to-vote-url")
+      end
+    end
+
+    should "fall back to legacy organ donation if promotion choice not present" do
+      artefact = artefact_for_slug "uses-legacy-promotion"
+      artefact = artefact.merge({
+        format: "completed_transaction",
+        details: {
+          presentation_toggles: {
+            organ_donor_registration: {
+              promote_organ_donor_registration: true,
+              organ_donor_registration_url: '/organ-donor-registration-url'
+            },
+            promotion_choice: {
+              choice: '',
+              url: ''
+            }
+          }
+        }
+      })
+      content_api_has_an_artefact("uses-legacy-promotion", artefact)
+
+      visit "/uses-legacy-promotion"
+
+      assert_equal 200, page.status_code
+      within '.content-block' do
+        assert page.has_text?("If you needed an organ transplant would you have one? If so please help others.")
+        assert page.has_link?("Join", href: "/organ-donor-registration-url")
+      end
+    end
+
+    should "show no promotion when promotion choice not present and legacy options are false" do
+      artefact = artefact_for_slug "no-legacy-promotion"
+      artefact = artefact.merge({
+        format: "completed_transaction",
+        details: {
+          presentation_toggles: {
+            organ_donor_registration: {
+              promote_organ_donor_registration: false,
+              organ_donor_registration_url: '/dont-show-this-url'
+            },
+            promotion_choice: {
+              choice: '',
+              url: ''
+            }
+          }
+        }
+      })
+      content_api_has_an_artefact("unknown-promotion", artefact)
+
+      visit "/unknown-promotion"
+
+      assert_equal 200, page.status_code
+      within '.content-block' do
+        assert page.has_no_selector?('#organ-donor-registration-promotion')
+        assert page.has_no_selector?('#register-to-vote-promotion')
+        assert page.has_no_link?(href: '/dont-show-this-url')
       end
     end
   end

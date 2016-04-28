@@ -147,7 +147,7 @@
   "northumberland": {
     "name": "Northumberland County Council",
     "ons": "00EM",
-    "gss": "E06000048"
+    "gss": "E06000057"
   },
   "devon": {
     "name": "Devon County Council",
@@ -537,7 +537,7 @@
   "east-hertfordshire": {
     "name": "East Hertfordshire District Council",
     "ons": "26UD",
-    "gss": "E07000097"
+    "gss": "E07000242"
   },
   "st-albans": {
     "name": "St Albans City Council",
@@ -562,7 +562,7 @@
   "stevenage": {
     "name": "Stevenage Borough Council",
     "ons": "26UH",
-    "gss": "E07000101"
+    "gss": "E07000243"
   },
   "tunbridge-wells": {
     "name": "Tunbridge Wells Borough Council",
@@ -1377,7 +1377,7 @@
   "gateshead": {
     "name": "Gateshead Borough Council",
     "ons": "00CH",
-    "gss": "E08000020"
+    "gss": "E08000037"
   },
   "kirklees": {
     "name": "Kirklees Borough Council",

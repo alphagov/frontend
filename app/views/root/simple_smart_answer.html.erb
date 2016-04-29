@@ -6,7 +6,7 @@
   <div class="intro">
     <%= raw @publication.body %>
     <p class="get-started">
-      <a rel="nofollow" href="<%= smart_answer_flow_path(:slug => @publication.slug, :edition => @edition) %>" class="big button" role="button">Start now</a>
+      <a rel="nofollow" href="<%= smart_answer_flow_path(:slug => @publication.slug, :edition => @edition) %>" class="big button" role="button"><%= @publication.start_button_text %></a>
     </p>
   </div>
 <% end %>

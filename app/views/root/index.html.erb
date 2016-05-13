@@ -42,13 +42,14 @@
       </div>
     </div>
   </header>
-
-  <div id="homepage-promo-banner">
-    <div class="banner-message">
-      <p><strong>EU referendum</strong> On Thursday 23 June there will be a vote on the UK’s membership of the European Union.
-      <a href="https://www.eureferendum.gov.uk" rel="external nofollow">More&nbsp;information<span class="visuallyhidden"> about the EU referendum</span></a></p>
+  <% if Time.current <= Time.zone.parse('May 26 2016 15:45:00 BST') %>
+    <div id="homepage-promo-banner">
+      <div class="banner-message">
+        <p><strong>EU referendum</strong> On Thursday 23 June there will be a vote on the UK’s membership of the European Union.
+        <a href="https://www.eureferendum.gov.uk" rel="external nofollow">More&nbsp;information<span class="visuallyhidden"> about the EU referendum</span></a></p>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div id="homepage" class="homepage-content">
     <div class="homepage-content-inner">

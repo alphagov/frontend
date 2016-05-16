@@ -6,7 +6,7 @@ class SearchParameters
   DEFAULT_RESULTS_PER_PAGE = 20
   MAX_RESULTS_PER_PAGE = 100
   ALWAYS_FACET_FIELDS = %w{organisations}
-  ALLOWED_FACET_FIELDS = %w{organisations topics manual}
+  ALLOWED_FACET_FIELDS = %w{organisations topics}
 
   # specialist_sectors will be renamed to topics at some point.  To avoid
   # people ever seeing the old name, we map it here, and back again in the presenter.

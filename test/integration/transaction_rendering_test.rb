@@ -36,7 +36,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           within 'section.more' do
             assert page.has_no_selector?('div.nav-tabs')
 
-            assert page.has_selector?('h1', :text => "What you need to know")
+            assert page.has_selector?('h2', text: "What you need to know")
 
             need_to_know = page.all('#what-you-need-to-know li').map(&:text)
             assert_equal ['Includes offline steps'], need_to_know
@@ -71,7 +71,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           end
 
           within 'section.more' do
-            assert page.has_selector?('h1', :text => "Yr hyn mae angen i chi ei wybod")
+            assert page.has_selector?('h2', text: "Yr hyn mae angen i chi ei wybod")
 
             need_to_know = page.all('#what-you-need-to-know li').map(&:text)
             assert_equal ['Includes offline steps'], need_to_know

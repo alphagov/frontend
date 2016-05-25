@@ -45,6 +45,8 @@ See `app/views/root` for some bespoke transaction start pages.
   provides raw data for rendering formats
 - [alphagov/panopticon](https://github.com/alphagov/panopticon) - (optionally)
   registers the application with Panoption
+- [alphagov/mapit](https://github.com/alphagov/mapit) - provides postcode lookups
+- [alphagov/imminence](https://github.com/alphagov/imminence) - provides places lookups (e.g. for find-my-nearest)
 
 ### Running the application
 
@@ -59,8 +61,12 @@ which uses the production
 [content API](https://github.com/alphagov/govuk_content_api) and a local copy of
 static.
 
+Note that you will have to have GOV.UK Mapit running locally.
+
 To run in a full development stack (with DNS, all apps running etc.) just use
 `./startup.sh`.
+
+Note that the app uses a local version of [GOV.UK Mapit](https://github.com/alphagov/mapit), therefore a valid dataset will have to be loaded for Mapit, otherwise postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
 
 ### Running the test suite
 

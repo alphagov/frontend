@@ -40,13 +40,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
             "name" => "Westminster City Council",
             "snac" => "00BK",
             "tier" => "district",
-            "contact_address" => [
-              "123 Example Street",
-              "SW1A 1AA"
-            ],
-            "contact_url" => "http://www.westminster.gov.uk/",
-            "contact_phone" => "020 1234 567",
-            "contact_email" => "info@westminster.gov.uk",
           },
           "local_interaction" => {
             "lgsl_code" => 461,
@@ -108,14 +101,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_link?('Back')
         assert !page.has_link?('(change location)')
       end
-
-      should "not show any authority contact details" do
-        within('.inner') do
-          assert !page.has_content?("123 Example Street")
-          assert !page.has_content?("SW1A 1AA")
-          assert !page.has_content?("020 1234 567")
-        end
-      end
     end
 
     context "when visiting the local transaction with an invalid postcode" do
@@ -169,13 +154,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
             "name" => "Westminster City Council",
             "snac" => "00BK",
             "tier" => "district",
-            "contact_address" => [
-              "123 Example Street",
-              "SW1A 1AA"
-            ],
-            "contact_url" => "http://www.westminster.gov.uk/contact-us",
-            "contact_phone" => "020 1234 567",
-            "contact_email" => "info@westminster.gov.uk",
             "homepage_url" => 'http://www.westminster.gov.uk/',
           },
           "local_interaction" => nil
@@ -235,13 +213,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
               "name" => "Westminster City Council",
               "snac" => "00BK",
               "tier" => "district",
-              "contact_address" => [
-                "123 Example Street",
-                "SW1A 1AA"
-              ],
-              "contact_url" => "",
-              "contact_phone" => "020 1234 567",
-              "contact_email" => "info@westminster.gov.uk",
               "homepage_url" => '',
             },
             "local_interaction" => nil

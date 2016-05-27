@@ -7,20 +7,12 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
         "name" => "Westminster City Council",
         "snac" => "00BK",
         "tier" => "district",
-        "contact_address" => [
-          "123 Example Street",
-          "SW1A 1AA"
-        ],
-        "contact_url" => "http://westminster.example.com/contact-us",
-        "contact_phone" => "020 1234 567",
-        "contact_email" => "info@westminster.gov.uk",
         "homepage_url" => 'http://westminster.example.com/',
       }
       @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
     end
     [
-      :name, :snac, :tier, :contact_address, :contact_url,
-      :contact_phone, :contact_email, :homepage_url,
+      :name, :snac, :tier, :homepage_url,
     ].each do |exposed_attribute|
       should "expose value of #{exposed_attribute} from payload via a method" do
         assert @local_authority_presenter.respond_to? exposed_attribute
@@ -34,7 +26,6 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
       setup do
         @local_authority_payload = {
           "name" => "Westminster City Council",
-          "contact_url" => "http://westminster.example.com/contact-us",
           "homepage_url" => 'http://westminster.example.com/',
         }
         @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)

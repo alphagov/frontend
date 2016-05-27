@@ -133,14 +133,6 @@ class LocalTransactionsControllerTest < ActionController::TestCase
           },
           "local_authority" => {
             "name" => "Staffordshire Moorlands",
-            "contact_details" => [
-              "Moorlands House",
-              "Stockwell Street",
-              "Leek",
-              "Staffordshire",
-              "ST13 6HQ"
-            ],
-            "contact_url" => "http://www.staffsmoorlands.gov.uk/sm/contact-us"
           }
         })
 
@@ -177,14 +169,6 @@ class LocalTransactionsControllerTest < ActionController::TestCase
           "local_interaction" => nil,
           "local_authority" => {
             "name" => "Staffordshire Moorlands",
-            "contact_details" => [
-              "Moorlands House",
-              "Stockwell Street",
-              "Leek",
-              "Staffordshire",
-              "ST13 6HQ"
-            ],
-            "contact_url" => "http://www.staffsmoorlands.gov.uk/sm/contact-us",
             "homepage_url" => "http://www.staffsmoorlands.gov.uk"
           }
         }

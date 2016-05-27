@@ -63,14 +63,6 @@ class RootControllerTest < ActionController::TestCase
       },
       "local_authority" => {
         "name" => "Torfaen County Borough Council",
-        "contact_details" => [
-          "Moorlands House",
-          "Stockwell Street",
-          "Leek",
-          "Staffordshire",
-          "ST13 6HQ"
-        ],
-        "contact_url" => "http://www.torfaen.gov.uk/en/moar-caek.aspx"
       }
     })
 

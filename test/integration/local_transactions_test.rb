@@ -227,39 +227,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "where a local authority does not have complete data" do
-    context "a missing homepage url" do
-      setup do
-        content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-          "details" => {
-            "local_authority" => {
-              "name" => "Westminster City Council",
-              "snac" => "00BK",
-              "tier" => "district",
-              "contact_address" => [
-                "123 Example Street",
-                "SW1A 1AA"
-              ],
-              "contact_url" => "http://westminster.example.com/contact-us",
-              "contact_phone" => "020 1234 567",
-              "contact_email" => "info@westminster.gov.uk",
-              "homepage_url" => '',
-            },
-            "local_interaction" => nil
-          }
-        }))
-
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
-      end
-
-      should "link to the authority using the contact_url instead" do
-        assert page.has_link?("Go to their website", href: 'http://westminster.example.com/contact-us')
-      end
-    end
-
-    context "a missing homepage url and missing contact url" do
+  context "given no interaction present and a missing homepage url" do
       setup do
         content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
           "details" => {
@@ -308,7 +276,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "show back link to go back and try a different postcode" do
         assert page.has_link?('Back')
       end
-    end
   end
 
   should "gracefully handle missing snac in mapit data" do

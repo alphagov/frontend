@@ -46,26 +46,9 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
     end
 
     context 'when homepage_url is blank' do
-      context 'and contact_url is present' do
         setup do
           @local_authority_payload = {
             "name" => "Westminster City Council",
-            "contact_url" => "http://westminster.example.com/contact-us",
-            "homepage_url" => '',
-          }
-          @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
-        end
-
-        should 'expose the contact_url as the url' do
-          assert_equal 'http://westminster.example.com/contact-us', @local_authority_presenter.url
-        end
-      end
-
-      context 'and contact_url is blank' do
-        setup do
-          @local_authority_payload = {
-            "name" => "Westminster City Council",
-            "contact_url" => '',
             "homepage_url" => '',
           }
           @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
@@ -74,50 +57,6 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
         should 'exposes no url' do
           assert_equal nil, @local_authority_presenter.url
         end
-      end
-    end
-
-    context 'when homepage_url is not in the payload' do
-      context 'and contact_url is present' do
-        setup do
-          @local_authority_payload = {
-            "name" => "Westminster City Council",
-            "contact_url" => "http://westminster.example.com/contact-us",
-          }
-          @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
-        end
-
-        should 'expose the contact_url as the url' do
-          assert_equal 'http://westminster.example.com/contact-us', @local_authority_presenter.url
-        end
-      end
-
-      context 'and contact_url is blank' do
-        setup do
-          @local_authority_payload = {
-            "name" => "Westminster City Council",
-            "contact_url" => '',
-          }
-          @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
-        end
-
-        should 'exposes no url' do
-          assert_equal nil, @local_authority_presenter.url
-        end
-      end
-
-      context 'and contact_url is not in the payload' do
-        setup do
-          @local_authority_payload = {
-            "name" => "Westminster City Council",
-          }
-          @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
-        end
-
-        should 'exposes no url' do
-          assert_equal nil, @local_authority_presenter.url
-        end
-      end
     end
   end
 end

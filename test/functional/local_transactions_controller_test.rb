@@ -184,7 +184,8 @@ class LocalTransactionsControllerTest < ActionController::TestCase
               "Staffordshire",
               "ST13 6HQ"
             ],
-            "contact_url" => "http://www.staffsmoorlands.gov.uk/sm/contact-us"
+            "contact_url" => "http://www.staffsmoorlands.gov.uk/sm/contact-us",
+            "homepage_url" => "http://www.staffsmoorlands.gov.uk"
           }
         }
       }

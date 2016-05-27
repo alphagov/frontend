@@ -29,6 +29,6 @@ private
   attr_accessor :local_authority
 
   def extract_first_url
-    homepage_url.presence || contact_url.presence || nil
+    homepage_url.presence || nil
   end
 end

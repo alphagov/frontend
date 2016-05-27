@@ -206,47 +206,47 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   end
 
   context "given no interaction present and a missing homepage url" do
-      setup do
-        content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-          "details" => {
-            "local_authority" => {
-              "name" => "Westminster City Council",
-              "snac" => "00BK",
-              "tier" => "district",
-              "homepage_url" => '',
-            },
-            "local_interaction" => nil
-          }
-        }))
+    setup do
+      content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
+        "details" => {
+          "local_authority" => {
+            "name" => "Westminster City Council",
+            "snac" => "00BK",
+            "tier" => "district",
+            "homepage_url" => '',
+          },
+          "local_interaction" => nil
+        }
+      }))
 
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
-      end
+      visit '/pay-bear-tax'
+      fill_in 'postcode', with: "SW1A 1AA"
+      click_button('Find')
+    end
 
-      should "redirect to the appropriate authority slug" do
-        assert_equal "/pay-bear-tax/westminster", current_path
-      end
+    should "redirect to the appropriate authority slug" do
+      assert_equal "/pay-bear-tax/westminster", current_path
+    end
 
-      should "not link to the authority" do
-        assert page.has_no_link?("Go to their website")
-      end
+    should "not link to the authority" do
+      assert page.has_no_link?("Go to their website")
+    end
 
-      should "show advisory message that we have no url" do
-        assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
-      end
+    should "show advisory message that we have no url" do
+      assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
+    end
 
-      should "not see the transaction information" do
-        assert page.has_no_content? "owning or looking after a bear"
-      end
+    should "not see the transaction information" do
+      assert page.has_no_content? "owning or looking after a bear"
+    end
 
-      should "not present the form again" do
-        assert page.has_no_field? "postcode"
-      end
+    should "not present the form again" do
+      assert page.has_no_field? "postcode"
+    end
 
-      should "show back link to go back and try a different postcode" do
-        assert page.has_link?('Back')
-      end
+    should "show back link to go back and try a different postcode" do
+      assert page.has_link?('Back')
+    end
   end
 
   should "gracefully handle missing snac in mapit data" do

@@ -37,17 +37,17 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
     end
 
     context 'when homepage_url is blank' do
-        setup do
-          @local_authority_payload = {
-            "name" => "Westminster City Council",
-            "homepage_url" => '',
-          }
-          @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
-        end
+      setup do
+        @local_authority_payload = {
+          "name" => "Westminster City Council",
+          "homepage_url" => '',
+        }
+        @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
+      end
 
-        should 'exposes no url' do
-          assert_equal nil, @local_authority_presenter.url
-        end
+      should 'exposes no url' do
+        assert_equal nil, @local_authority_presenter.url
+      end
     end
   end
 end

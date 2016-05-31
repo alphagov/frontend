@@ -37,11 +37,27 @@ class LicenceLocationTest < ActionController::TestCase
     context "loading the licence edition when posting a location" do
       context "for an English local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
-            { "name" => "Cheadle and Checkley", "type" => "CED" }
-          ])
+          areas = [
+            {
+              "name" => "Staffordshire County Council",
+              "type" => "CTY",
+              "ons" => "41",
+            },
+            {
+              "name" => "Staffordshire Moorlands District Council",
+              "type" => "DIS",
+              "ons" => "41UH",
+              "gss" => "E07000198",
+              "govuk_slug" => "staffordshire-moorlands",
+            },
+            {
+              "name" => "Cheadle and Checkley",
+              "type" => "CED"
+            },
+          ]
+
+          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], areas)
+          mapit_has_areas(AuthorityLookup.local_authority_types, areas)
 
           post :publication, slug: "licence-to-kill", postcode: "ST10 4DB"
         end
@@ -53,10 +69,23 @@ class LicenceLocationTest < ActionController::TestCase
 
       context "for a Northern Irish local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003"},
-            { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
-          ])
+          areas = [
+            {
+              "name" => "Belfast City Council",
+              "type" => "LGD",
+              "ons" => "N09000003",
+              "gss" => "N09000003",
+              "govuk_slug" => "belfast",
+            },
+            {
+              "name" => "Shaftesbury",
+              "type" => "LGW",
+              "ons" => "95Z24",
+            },
+          ]
+
+          mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], areas)
+          mapit_has_areas(AuthorityLookup.local_authority_types, areas)
 
           post :publication, slug: "licence-to-kill", postcode: "BT1 5GS"
         end

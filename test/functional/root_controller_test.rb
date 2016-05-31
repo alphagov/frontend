@@ -1,6 +1,9 @@
 require 'test_helper'
+require 'gds_api/test_helpers/mapit'
 
 class RootControllerTest < ActionController::TestCase
+  include GdsApi::TestHelpers::Mapit
+
   def setup_this_answer
     content_api_has_an_artefact("c-slug", {
       'slug' => 'c-slug',
@@ -42,6 +45,15 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should redirect JSON requests for local transactions with a parameter for the appropriate snac code" do
+    area = {
+      "name"=>"Torfaen Council",
+      "type"=>"UTA",
+      "ons"=>"00PM",
+      "gss"=>"W06000020",
+      "govuk_slug"=>"torfaen",
+    }
+    mapit_has_areas(AuthorityLookup.local_authority_types, [area])
+
     artefact = {
       "title" => "Find your local cake sale",
       "format" => "local_transaction",

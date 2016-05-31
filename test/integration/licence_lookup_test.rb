@@ -7,10 +7,21 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
   context "given a licence which exists in licensify" do
 
     setup do
-      mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO" },
-        { "name" => "Greater London Authority", "type" => "GLA" }
-      ])
+      areas = [
+        {
+          "ons" => "00BK",
+          "govuk_slug" => "westminster",
+          "name" => "Westminster City Council",
+          "type" => "LBO"
+        },
+        {
+          "name" => "Greater London Authority",
+          "type" => "GLA"
+        }
+      ]
+
+      mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], areas)
+      mapit_has_areas(AuthorityLookup.local_authority_types, areas)
 
       @artefact = artefact_for_slug('licence-to-kill').merge({
         "title" => "Licence to kill",
@@ -340,6 +351,15 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
   context "given a location-specific licence which does not exist in licensify for an authority" do
     setup do
+      area = {
+        "ons"=>"30UN",
+        "gss"=>"E07000126",
+        "govuk_slug"=>"south-ribble",
+        "name"=>"South Ribble Borough Council",
+        "type"=>"DIS"
+      }
+      mapit_has_areas(AuthorityLookup.local_authority_types, [area])
+
       artefact = artefact_for_slug('licence-to-kill').merge(
         "title" => "Licence to kill",
         "format" => "licence",

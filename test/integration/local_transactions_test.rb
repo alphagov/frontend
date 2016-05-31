@@ -5,10 +5,22 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
 
   setup do
-    mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-      { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO" },
-      { "name" => "Greater London Authority", "type" => "GLA" }
-    ])
+    areas = [
+      {
+        "name" => "Westminster City Council",
+        "type" => "LBO",
+        "ons" => "00BK",
+        "gss" => "E09000033",
+        "govuk_slug" => "westminster",
+      },
+      {
+        "name" => "Greater London Authority",
+        "type" => "GLA",
+      }
+    ]
+
+    mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], areas)
+    mapit_has_areas(AuthorityLookup.local_authority_types, areas)
 
     @artefact = artefact_for_slug('pay-bear-tax').merge({
       "title" => "Pay your bear tax",

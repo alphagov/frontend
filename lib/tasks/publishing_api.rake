@@ -74,6 +74,3 @@ namespace :publishing_api do
     end
   end
 end
-
-desc "Temporary alias of publishing_api:publish_special_routes for backward compatibility"
-task "router:register" => "publishing_api:publish_special_routes"

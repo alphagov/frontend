@@ -9,18 +9,18 @@ class AuthorityLookupTest < ActiveSupport::TestCase
     setup do
       areas = [
         {
-          "name"=>"Buckinghamshire County Council",
-          "type"=>"CTY",
-          "ons"=>"11",
-          "gss"=>"E10000002",
-          "govuk_slug"=>"buckinghamshire",
-        }, 
+          "name" => "Buckinghamshire County Council",
+          "type" => "CTY",
+          "ons" => "11",
+          "gss" => "E10000002",
+          "govuk_slug" => "buckinghamshire",
+        },
         {
-          "name"=>"Adur District Council",
-          "type"=>"DIS",
-          "ons"=>"45UB",
-          "gss"=>"E07000223",
-          "govuk_slug"=>"adur",
+          "name" => "Adur District Council",
+          "type" => "DIS",
+          "ons" => "45UB",
+          "gss" => "E07000223",
+          "govuk_slug" => "adur",
         }
       ]
 

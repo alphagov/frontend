@@ -5,7 +5,6 @@ require 'gds_api/test_helpers/panopticon'
 require 'gds_api/test_helpers/mapit'
 
 class LicenceLocationTest < ActionController::TestCase
-
   tests RootController
   include GdsApi::TestHelpers::Mapit
 
@@ -30,7 +29,7 @@ class LicenceLocationTest < ActionController::TestCase
       should "set correct expiry headers" do
         get :publication, slug: "licence-to-kill"
 
-        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
     end
 
@@ -96,5 +95,4 @@ class LicenceLocationTest < ActionController::TestCase
       end
     end
   end
-
 end

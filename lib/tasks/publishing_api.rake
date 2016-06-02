@@ -32,6 +32,12 @@ namespace :publishing_api do
         description: "A description of the various sections of GOV.UK and their uses.",
       },
       {
+        content_id: "3c7060f7-9efa-47be-bd36-0326f3fa4f04",
+        base_path: "/help",
+        title: "Help using GOV.UK",
+        description: "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use.",
+      },
+      {
         content_id: "a1c8e72e-985c-45af-8489-57a2e237a407",
         base_path: "/ukwelcomes",
         title: "UK Welcomes",

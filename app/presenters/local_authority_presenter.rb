@@ -7,10 +7,6 @@ class LocalAuthorityPresenter
     :name,
     :snac,
     :tier,
-    :contact_address,
-    :contact_url,
-    :contact_phone,
-    :contact_email,
     :homepage_url,
   ]
 
@@ -29,6 +25,6 @@ private
   attr_accessor :local_authority
 
   def extract_first_url
-    homepage_url.presence || contact_url.presence || nil
+    homepage_url.presence || nil
   end
 end

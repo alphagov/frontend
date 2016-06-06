@@ -40,13 +40,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
             "name" => "Westminster City Council",
             "snac" => "00BK",
             "tier" => "district",
-            "contact_address" => [
-              "123 Example Street",
-              "SW1A 1AA"
-            ],
-            "contact_url" => "http://www.westminster.gov.uk/",
-            "contact_phone" => "020 1234 567",
-            "contact_email" => "info@westminster.gov.uk",
           },
           "local_interaction" => {
             "lgsl_code" => 461,
@@ -108,14 +101,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_link?('Back')
         assert !page.has_link?('(change location)')
       end
-
-      should "not show any authority contact details" do
-        within('.inner') do
-          assert !page.has_content?("123 Example Street")
-          assert !page.has_content?("SW1A 1AA")
-          assert !page.has_content?("020 1234 567")
-        end
-      end
     end
 
     context "when visiting the local transaction with an invalid postcode" do
@@ -169,13 +154,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
             "name" => "Westminster City Council",
             "snac" => "00BK",
             "tier" => "district",
-            "contact_address" => [
-              "123 Example Street",
-              "SW1A 1AA"
-            ],
-            "contact_url" => "http://www.westminster.gov.uk/contact-us",
-            "contact_phone" => "020 1234 567",
-            "contact_email" => "info@westminster.gov.uk",
             "homepage_url" => 'http://www.westminster.gov.uk/',
           },
           "local_interaction" => nil
@@ -227,87 +205,47 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "where a local authority does not have complete data" do
-    context "a missing homepage url" do
-      setup do
-        content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-          "details" => {
-            "local_authority" => {
-              "name" => "Westminster City Council",
-              "snac" => "00BK",
-              "tier" => "district",
-              "contact_address" => [
-                "123 Example Street",
-                "SW1A 1AA"
-              ],
-              "contact_url" => "http://westminster.example.com/contact-us",
-              "contact_phone" => "020 1234 567",
-              "contact_email" => "info@westminster.gov.uk",
-              "homepage_url" => '',
-            },
-            "local_interaction" => nil
-          }
-        }))
+  context "given no interaction present and a missing homepage url" do
+    setup do
+      content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
+        "details" => {
+          "local_authority" => {
+            "name" => "Westminster City Council",
+            "snac" => "00BK",
+            "tier" => "district",
+            "homepage_url" => '',
+          },
+          "local_interaction" => nil
+        }
+      }))
 
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
-      end
-
-      should "link to the authority using the contact_url instead" do
-        assert page.has_link?("Go to their website", href: 'http://westminster.example.com/contact-us')
-      end
+      visit '/pay-bear-tax'
+      fill_in 'postcode', with: "SW1A 1AA"
+      click_button('Find')
     end
 
-    context "a missing homepage url and missing contact url" do
-      setup do
-        content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-          "details" => {
-            "local_authority" => {
-              "name" => "Westminster City Council",
-              "snac" => "00BK",
-              "tier" => "district",
-              "contact_address" => [
-                "123 Example Street",
-                "SW1A 1AA"
-              ],
-              "contact_url" => "",
-              "contact_phone" => "020 1234 567",
-              "contact_email" => "info@westminster.gov.uk",
-              "homepage_url" => '',
-            },
-            "local_interaction" => nil
-          }
-        }))
+    should "redirect to the appropriate authority slug" do
+      assert_equal "/pay-bear-tax/westminster", current_path
+    end
 
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
-      end
+    should "not link to the authority" do
+      assert page.has_no_link?("Go to their website")
+    end
 
-      should "redirect to the appropriate authority slug" do
-        assert_equal "/pay-bear-tax/westminster", current_path
-      end
+    should "show advisory message that we have no url" do
+      assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
+    end
 
-      should "not link to the authority" do
-        assert page.has_no_link?("Go to their website")
-      end
+    should "not see the transaction information" do
+      assert page.has_no_content? "owning or looking after a bear"
+    end
 
-      should "show advisory message that we have no url" do
-        assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
-      end
+    should "not present the form again" do
+      assert page.has_no_field? "postcode"
+    end
 
-      should "not see the transaction information" do
-        assert page.has_no_content? "owning or looking after a bear"
-      end
-
-      should "not present the form again" do
-        assert page.has_no_field? "postcode"
-      end
-
-      should "show back link to go back and try a different postcode" do
-        assert page.has_link?('Back')
-      end
+    should "show back link to go back and try a different postcode" do
+      assert page.has_link?('Back')
     end
   end
 

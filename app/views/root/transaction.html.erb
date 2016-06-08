@@ -17,6 +17,11 @@
         <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
       <% end %>
     </p>
+    <% if params[:slug] && params[:slug] == 'register-to-vote' %>
+      <div id="get-started-b-content" class="hidden">
+        <p>Sorry</p>
+      </div>
+    <% end %>
   </section>
 
   <section class="more">

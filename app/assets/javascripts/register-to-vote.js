@@ -15,13 +15,15 @@ $(function(){
       return cohort;
     };
 
+    var bContent = $('#get-started-b-content').html();
+
     new GOVUK.MultivariateTest({
       el: '.get-started',
       name: 'registerToVote_rateLimit_201606',
       customDimensionIndex: 14,
       cohorts: {
         a: { callback: function() {}, variantId: 0, weight: 50 },
-        b: { html: '<p>Sorry</p>', variantId: 1, weight: 50 },
+        b: { html: bContent, variantId: 1, weight: 50 },
       }
     });
   }

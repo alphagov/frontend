@@ -8,4 +8,5 @@
 //= require shared_mustache
 //= require templates
 //= require search
+//= require register-to-vote
 //= require_tree ./modules

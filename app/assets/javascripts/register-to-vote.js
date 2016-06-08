@@ -23,7 +23,9 @@ $(function(){
       customDimensionIndex: 14,
       cohorts: {
         a: { callback: function() {}, variantId: 0, weight: 50 },
-        b: { html: bContent, variantId: 1, weight: 50 },
+        b: { callback: function() {
+          $('.get-started').replaceWith(bContent);
+        }, variantId: 1, weight: 50 },
       }
     });
   }

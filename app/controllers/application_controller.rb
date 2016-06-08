@@ -67,6 +67,7 @@ protected
   end
 
   def set_expiry(duration = 30.minutes)
+    duration = 5.minutes if params.fetch(:slug, nil) == "register-to-vote"
     unless Rails.env.development?
       expires_in(duration, :public => true)
     end

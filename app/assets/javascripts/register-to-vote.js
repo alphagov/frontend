@@ -18,8 +18,8 @@ $(function(){
       name: 'registerToVote_rateLimit_201606',
       customDimensionIndex: 14,
       cohorts: {
-        a: { callback: function() {}, variantId: 0 },
-        b: { html: '<p>Sorry</p>', variantId: 1 },
+        a: { callback: function() {}, variantId: 0, weight: 50 },
+        b: { html: '<p>Sorry</p>', variantId: 1, weight: 50 },
       }
     });
   }

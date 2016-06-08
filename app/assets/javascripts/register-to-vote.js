@@ -15,6 +15,15 @@ $(function(){
       return cohort;
     };
 
+    GOVUK.MultivariateTest.prototype.setCustomVar = function(cohort) {
+      if (this.customDimensionIndex) {
+        GOVUK.analytics.setDimension(
+          this.customDimensionIndex,
+          this.cookieName() + "__" + cohort
+        );
+      }
+    };
+
     var bContent = $('#get-started-b-content').html();
 
     new GOVUK.MultivariateTest({

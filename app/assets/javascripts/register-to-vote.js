@@ -22,10 +22,10 @@ $(function(){
       name: 'registerToVote_rateLimit_201606',
       customDimensionIndex: 14,
       cohorts: {
-        a: { callback: function() {}, variantId: 0, weight: 50 },
+        a: { callback: function() {}, variantId: 0, weight: 75 },
         b: { callback: function() {
           $('.get-started').replaceWith(bContent);
-        }, variantId: 1, weight: 50 },
+        }, variantId: 1, weight: 25 },
       }
     });
   }

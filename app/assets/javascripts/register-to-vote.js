@@ -8,7 +8,7 @@ $(function(){
       if (!cohort || !this.cohorts[cohort]) {
         cohort = this.chooseRandomCohort();
         // x minutes in days: x / (60 minutes * 24 hours)
-        var minutesForCohort = 1,
+        var minutesForCohort = 5,
           minutesInDay = 1440; // 60 * 24
         GOVUK.cookie(this.cookieName(), cohort, {days: minutesForCohort / minutesInDay});
       }

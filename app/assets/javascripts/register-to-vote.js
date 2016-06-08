@@ -7,8 +7,10 @@ $(function(){
       var cohort = GOVUK.cookie(this.cookieName());
       if (!cohort || !this.cohorts[cohort]) {
         cohort = this.chooseRandomCohort();
-        // 10 minutes in days = 0.00694444444
-        GOVUK.cookie(this.cookieName(), cohort, {days: 0.000694444444});
+        // x minutes in days: x / (60 minutes * 24 hours)
+        var minutesForCohort = 1,
+          minutesInDay = 1440; // 60 * 24
+        GOVUK.cookie(this.cookieName(), cohort, {days: minutesForCohort / minutesInDay});
       }
       return cohort;
     };

@@ -26,7 +26,7 @@ $(function(){
     };
 
     var bContent = $('#get-started-b-content').html();
-    var pcThreshold = 25;
+    var pcThreshold = 20;
 
     new GOVUK.MultivariateTest({
       el: '.get-started',

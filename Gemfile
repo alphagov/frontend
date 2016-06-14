@@ -54,7 +54,7 @@ end
 
 # Note that govuk_frontend_toolkit is only used here for SASS mixins and
 # variables. Analytics and other javascript features are provided by static.
-gem 'govuk_frontend_toolkit', '~> 4.1.0'
+gem 'govuk_frontend_toolkit', '~> 4.12.0'
 gem 'sass', '3.4.9'
 gem 'sass-rails'
 gem "therubyracer", "0.12.2"

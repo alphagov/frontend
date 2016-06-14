@@ -1,4 +1,8 @@
 class ActiveSupport::TestCase
+  class << self
+    alias_method :describe, :context
+  end
+
   def api_returns_404_for(path)
     body = {
       "_response_info" => {

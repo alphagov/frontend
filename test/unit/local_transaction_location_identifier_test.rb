@@ -4,66 +4,59 @@ require 'local_transaction_location_identifier'
 class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
   context "given an artefact exists with a local service for the district/unitary tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => [ "district", "unitary" ] } } }
+      @artefact = { "details" => { "local_service" => { "providing_tier" => %w(district unitary) } } }
     end
 
     should "select the correct tier authority from geostack providing a district and county" do
-      geostack = {
-        "council" => [
-          {"id" => 1, "name" => "Lancashire County Council", "type" => "CTY", "ons" => "30"},
-          {"id" => 2, "name" => "South Ribble Borough Council", "type" => "DIS", "ons" => "30UN"},
-          {"id" => 3, "name" => "Leyland South West", "type" => "CED" },
-          {"id" => 4, "name" => "South Ribble", "type" => "WMC" }
-        ]
-      }
-      snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
+      areas = [
+        {type: "CTY", govuk_slug: "lancashire"},
+        {type: "DIS", govuk_slug: "ribble"},
+        {type: "CED" },
+        {type: "WMC" }
+      ]
 
-      assert_equal "30UN", snac
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "ribble", slug
     end
 
     should "return nil if no authorities match" do
-      geostack = {
-        "council" => [
-          {"id" => 3, "name" => "Leyland South West", "type" => "CED" },
-          {"id" => 4, "name" => "South Ribble", "type" => "WMC" }
-        ]
-      }
-      snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
+      areas = [
+        { type: "CED" },
+        { type: "WMC" },
+      ]
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
 
-      assert_nil snac
+      assert_nil slug
     end
   end
 
   context "given an artefact exists with a local service for the county/unitary tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => [ "county", "unitary" ] } } }
+      @artefact = { "details" => { "local_service" => { "providing_tier" => %w(county unitary) } } }
     end
 
     should "select the correct tier authority from geostack providing a district and county" do
-      geostack = {
-        "council" => [
-          {"id" => 1, "name" => "Lancashire County Council", "type" => "CTY", "ons" => "30"},
-          {"id" => 2, "name" => "South Ribble Borough Council", "type" => "DIS", "ons" => "30UN"},
-          {"id" => 3, "name" => "Leyland South West", "type" => "CED" },
-          {"id" => 4, "name" => "South Ribble", "type" => "WMC" }
-        ]
-      }
-      snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
+      areas = [
+        {type: "CTY", govuk_slug: "lancashire"},
+        {type: "DIS", govuk_slug: "ribble"},
+        {type: "CED" },
+        {type: "WMC" }
+      ]
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
 
-      assert_equal "30", snac
+      assert_equal "lancashire", slug
     end
 
     should "select the correct tier authority from geostack providing a unitary authority" do
-      geostack = {
-        "council" => [
-          {"id" => 2, "name" => "Shropshire Council", "type" => "UTA", "ons" => "00GG"},
-          {"id" => 3, "name" => "Shrewsbury", "type" => "CPC" }
-        ]
-      }
-      snac = LocalTransactionLocationIdentifier.find_snac(geostack, @artefact)
+      areas = [
+        { type: "UTA", govuk_slug: "shrops"},
+        { type: "CPC" }
+      ]
 
-      assert_equal "00GG", snac
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "shrops", slug
     end
   end
-
 end

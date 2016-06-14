@@ -1,39 +1,32 @@
 class AuthorityLookup
-  cattr_accessor :authorities
+  attr_reader :snac, :slug
+  LOCAL_AUTHORITY_TYPES = %w{ CTY DIS LBO LGD MTD UTA COI }
 
-  def self.find_slug_from_snac(snac)
-    self.find_slug_from_code("ons", snac)
+  def self.find_snac_from_slug(slug)
+    new(slug: slug).find_snac_from_slug
   end
 
-  def self.find_slug_from_gss(gss)
-    self.find_slug_from_code("gss", gss)
+  def initialize(params)
+    @snac = params[:snac]
+    @slug = params[:slug]
   end
 
-  def self.find_snac(slug)
-    self.find_code("ons", slug)
+  def find_snac_from_slug
+    authority_by_slug.map { |_, v| v["codes"]["ons"] }.first
   end
 
-  def self.find_gss(slug)
-    self.find_code("gss", slug)
+  def self.local_authority_types
+    LOCAL_AUTHORITY_TYPES.join(",")
   end
 
-  def self.load_authorities
-    json = File.open(Rails.root.join("lib", "data", "authorities.json")).read
-    self.authorities = JSON.parse(json)
+private
+
+  def authority_by_slug
+    # fairly expensive call at the moment. Could this be a supported mapit route?
+    authorities.to_h.select { |_, v| v["codes"]["govuk_slug"] == slug }
   end
 
-  private
-
-  def self.find_code(type, slug)
-    self.load_authorities unless self.authorities
-    return self.authorities[slug][type] if self.authorities[slug]
-    nil
-  end
-
-  def self.find_slug_from_code(type, code)
-    self.load_authorities unless self.authorities
-    self.authorities.select do |slug, codes|
-      codes[type] == code.to_s
-    end.keys.first
+  def authorities
+    @_authorities ||= Frontend.mapit_api.areas_for_type(LOCAL_AUTHORITY_TYPES.join(","))
   end
 end

@@ -50,11 +50,26 @@ class LocalTransactionsControllerTest < ActionController::TestCase
     context "loading the local transaction when posting a location" do
       context "for an English local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
-            { "name" => "Cheadle and Checkley", "type" => "CED" }
-          ])
+          areas = [
+            {
+              "name" => "Staffordshire County Council",
+              "type" => "CTY",
+              "ons" => "41",
+            },
+            {
+              "name" => "Staffordshire Moorlands District Council",
+              "type" => "DIS",
+              "ons" => "41UH",
+              "gss" => "E07000198",
+              "govuk_slug" => "staffordshire-moorlands",
+            },
+            {
+              "name" => "Cheadle and Checkley",
+              "type" => "CED"
+            },
+          ]
+
+          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], areas)
 
           post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
         end
@@ -124,6 +139,18 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
     context "loading the local transaction for an authority" do
       setup do
+        areas = [
+          {
+            "name" => "Staffordshire Moorlands District Council",
+            "type" => "DIS",
+            "ons" => "41UH",
+            "gss" => "E07000198",
+            "govuk_slug" => "staffordshire-moorlands",
+          }
+        ]
+
+        mapit_has_areas(AuthorityLookup.local_authority_types, areas)
+
         artefact_with_interaction = @artefact.dup
         artefact_with_interaction["details"].merge!({
           "local_interaction" => {
@@ -147,6 +174,8 @@ class LocalTransactionsControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
+      mapit_has_areas(AuthorityLookup.local_authority_types, {})
+
       get :publication, slug: "send-a-bear-to-your-local-council", part: "this slug should not exist"
 
       assert_equal 404, response.status
@@ -155,6 +184,18 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
   context "loading a local transaction without an interaction that exists in content api" do
     setup do
+      areas = [
+        {
+          "name" => "Staffordshire Moorlands District Council",
+          "type" => "DIS",
+          "ons" => "41UH",
+          "gss" => "E07000198",
+          "govuk_slug" => "staffordshire-moorlands",
+        }
+      ]
+
+      mapit_has_areas(AuthorityLookup.local_authority_types, areas)
+
       @artefact = {
         "title" => "Report a bear on a local road",
         "format" => "local_transaction",

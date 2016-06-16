@@ -27,27 +27,11 @@ class AuthorityLookupTest < ActiveSupport::TestCase
     assert_nil AuthorityLookup.find_slug_from_snac(12345)
   end
 
-  should "return the correct slug given a valid gss code as a string" do
-    assert_equal "example-authority", AuthorityLookup.find_slug_from_gss('E10000001')
-  end
-
-  should "return nil given a gss code which doesn't exist" do
-    assert_nil AuthorityLookup.find_slug_from_gss('E12345678')
-  end
-
   should "return the correct snac code given a valid slug" do
     assert_equal "1", AuthorityLookup.find_snac("example-authority")
   end
 
   should "return nil given a slug which doesn't exist" do
     assert_nil AuthorityLookup.find_snac("does-not-exist")
-  end
-
-  should "return the correct gss code given a valid slug" do
-    assert_equal "E10000001", AuthorityLookup.find_gss("example-authority")
-  end
-
-  should "return nil given a gss which doesn't exist" do
-    assert_nil AuthorityLookup.find_gss("does-not-exist")
   end
 end

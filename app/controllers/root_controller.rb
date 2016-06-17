@@ -84,10 +84,10 @@ class RootController < ApplicationController
       mapit_response = fetch_location(@postcode)
 
       if mapit_response.location_found?
-        snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
+        la_slug = appropriate_slug_from_location(@publication, mapit_response.location)
 
-        if snac
-          return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
+        if la_slug
+          return redirect_to publication_path(slug: params[:slug], part: la_slug)
         else
           @location_error = LocationError.new("noLaMatchLinkToFindLa")
         end
@@ -122,13 +122,13 @@ class RootController < ApplicationController
         @location_error = LocationError.new("fullPostcodeNoMapitMatch")
       elsif mapit_response.location_found?
         # Valid postcode and matching location
-        snac = appropriate_snac_code_from_location(@publication, mapit_response.location)
+        la_slug = appropriate_slug_from_location(@publication, mapit_response.location)
 
-        if snac
+        if la_slug
           # Matching local authority and redirect to publication page
           # with the local authority name. This is the 100% success state.
           # The redirect below redirects back to this action with the `part`
-          return redirect_to publication_path(slug: params[:slug], part: slug_for_snac_code(snac))
+          return redirect_to publication_path(slug: params[:slug], part: la_slug)
         else
           # No matching local authority.
           # This points the user towards "Find your LA" which is an
@@ -297,16 +297,16 @@ protected
     end
   end
 
-  def appropriate_snac_code_from_location(publication, location)
+  def appropriate_slug_from_location(publication, location)
     # map to legacy geostack format
     geostack = {
       "council" => location.areas.map {|area|
-        { "name" => area.name, "type" => area.type, "ons" => area.codes['ons'] }
+        { "name" => area.name, "type" => area.type, "govuk_slug" => area.codes['govuk_slug'] }
       }
     }
 
     identifier_class = identifier_class_for_format(publication.format)
-    identifier_class.find_snac(geostack, publication.artefact)
+    identifier_class.find_slug(geostack, publication.artefact)
   end
 
   def slug_for_snac_code(snac)

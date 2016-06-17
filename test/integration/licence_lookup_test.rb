@@ -8,7 +8,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
     setup do
       mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO" },
+        { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
         { "name" => "Greater London Authority", "type" => "GLA" }
       ])
 

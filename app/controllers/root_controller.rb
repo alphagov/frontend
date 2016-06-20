@@ -309,10 +309,6 @@ protected
     identifier_class.find_slug(geostack, publication.artefact)
   end
 
-  def slug_for_snac_code(snac)
-    AuthorityLookup.find_slug_from_snac(snac)
-  end
-
   def assert_found(obj)
     raise RecordNotFound unless obj
   end

@@ -22,7 +22,6 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "name" => "Westminster"
       }
 
-      mapit_has_area_for_code('ons', '00BK', westminster)
       mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
       mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
 

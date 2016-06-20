@@ -56,18 +56,6 @@ class LocalTransactionsControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          staffordshire_moorlands = {
-            "id" => 2432,
-            "codes" => {
-              "ons" => "41UH",
-              "gss" => "E07000198",
-              "govuk_slug" => "staffordshire-moorlands"
-            },
-            "name" => "Staffordshire Moorlands District Council",
-          }
-
-          mapit_has_area_for_code('ons', '41UH', staffordshire_moorlands)
-
           post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
         end
 

@@ -2,20 +2,38 @@ require 'location_identifier'
 
 class LocalTransactionLocationIdentifier < LocationIdentifier
   def self.find_slug(areas, artefact)
-    return nil unless artefact['details'] and artefact['details']['local_service']
+    new(areas, artefact).find_slug
+  end
 
+  attr_reader :areas, :artefact
 
-    providing_tier = artefact['details']['local_service']['providing_tier']
+  def initialize(areas, artefact)
+    @areas = areas
+    @artefact = artefact
+  end
 
-    by_tier = Hash[
-      areas.map do |area|
-        [
-          self.identify_tier(area["type"]),
-          area["codes"] && area["codes"]["govuk_slug"]
-        ]
+  def find_slug
+    matching_authority_by_tier_slug
+  end
+
+private
+
+  def matching_authority_by_tier_slug
+    matching_authority_by_tier.try(:[], "codes").try(:[], "govuk_slug")
+  end
+
+  def matching_authority_by_tier
+    service_providing_tiers.each do |tier|
+      areas.each do |area|
+        return area if tier == LocationIdentifier.identify_tier(area["type"])
       end
-    ]
+    end
+    nil
+  end
 
-    providing_tier.map {|tier| by_tier[tier] }.compact.first
+  def service_providing_tiers
+    return unless artefact
+
+    artefact["details"].try(:[], "local_service").try(:[], "providing_tier")
   end
 end

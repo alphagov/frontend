@@ -144,30 +144,34 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
   end
 
   context "given no local service is available" do
+    setup do
+      @artefact = nil
+    end
+
     should "select the closest authority for areas providing county and district" do
       areas = [@lancashire_county_council, @south_ribble_borough_council]
-      slug = LicenceLocationIdentifier.find_slug(areas)
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
 
       assert_equal "south-ribble-borough-council", slug
     end
 
     should "select the closest authority for areas providing unitary authority" do
       areas = [@shropshire_unitary_authority, @shrewsbury_civil_parish]
-      slug = LicenceLocationIdentifier.find_slug(areas)
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
 
       assert_equal "shropshire-council", slug
     end
 
     should "return nil when areas does not provide an appropriate authority" do
       areas = [@leyland_county_ward, @south_ribble_parliamentary_constituency]
-      slug = LicenceLocationIdentifier.find_slug(areas)
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
 
       assert_nil slug
     end
 
     should "return nil when areas does not provide any authorities" do
       areas = []
-      slug = LicenceLocationIdentifier.find_slug(areas)
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
 
       assert_nil slug
     end

@@ -4,7 +4,7 @@ class LicenceLocationIdentifier < LocationIdentifier
   # If the licence has an equivalent local service in the LGSL, try
   # to find the most appropriate council from the "providing tier"
   # if not, then return the closest authority available.
-  def self.find_slug(areas, artefact = nil)
+  def self.find_slug(areas, artefact)
     councils = areas.map do |area|
       [area["type"], area["codes"] && area["codes"]["govuk_slug"]]
     end

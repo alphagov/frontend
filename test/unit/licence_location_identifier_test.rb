@@ -3,8 +3,6 @@ require 'licence_location_identifier'
 
 class LicenceLocationIdentifierTest < ActiveSupport::TestCase
   setup do
-    @artefact = { "details" => { "licence" => { "local_service" => { "providing_tier" => %w(county unitary) } } } }
-
     @lancashire_county_council = {
       "name" => "Lancashire County Council",
       "type" => "CTY",
@@ -19,6 +17,11 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
       "codes" => {
         "govuk_slug" => "south-ribble-borough-council",
       },
+    }
+
+    @aylesbury_district_without_slug = {
+      "name" => "Aylesbury District",
+      "type" => "DIS",
     }
 
     @leyland_county_ward = {
@@ -45,8 +48,59 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
     }
   end
 
-  # SOMETHING WRONG HERE, ONLY ONE ARTEFACT BEING CREATED
   context "given an artefact exists with a local service for the district/unitary tiers" do
+    setup do
+      @artefact = { "details" => { "licence" => { "local_service" => { "providing_tier" => %w(district unitary) } } } }
+    end
+
+    should "select the correct tier authority from areas providing a district and county" do
+      areas = [
+        @lancashire_county_council,
+        @south_ribble_borough_council,
+        @leyland_county_ward,
+        @south_ribble_parliamentary_constituency,
+      ]
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "south-ribble-borough-council", slug
+    end
+
+    should "return nil if no authorities match" do
+      areas = [@leyland_county_ward, @south_ribble_parliamentary_constituency]
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_nil slug
+    end
+
+    should "select the closest authority from areas if district not provided" do
+      areas = [
+        @lancashire_county_council,
+        @leyland_county_ward,
+        @south_ribble_parliamentary_constituency,
+      ]
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "lancashire-county-council", slug
+    end
+
+    should "select the closest authority from areas if district has no slug" do
+      areas = [
+        @aylesbury_district_without_slug,
+        @lancashire_county_council,
+        @leyland_county_ward,
+        @south_ribble_parliamentary_constituency,
+      ]
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "lancashire-county-council", slug
+    end
+  end
+
+  context "given an artefact exists with a local service for the county/unitary tiers" do
+    setup do
+      @artefact = { "details" => { "licence" => { "local_service" => { "providing_tier" => %w(county unitary) } } } }
+    end
+
     should "select the correct tier authority from areas providing a district and county" do
       areas = [
         @lancashire_county_council,
@@ -59,15 +113,26 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
       assert_equal "lancashire-county-council", slug
     end
 
-    should "return nil if no authorities match" do
-      areas = [@leyland_county_ward, @south_ribble_parliamentary_constituency]
-      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
-
-      assert_nil slug
-    end
-
     should "select the closest authority from areas if district not provided" do
       areas = [
+        @south_ribble_borough_council,
+        @leyland_county_ward,
+        @south_ribble_parliamentary_constituency,
+      ]
+      slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "south-ribble-borough-council", slug
+    end
+  end
+
+  context "given an artefact exists with a local service for all tiers" do
+    setup do
+      @artefact = { "details" => { "licence" => { "local_service" => { "providing_tier" => %w(district unitary county) } } } }
+    end
+
+    should "select the correct tier authority from areas providing a district and county" do
+      areas = [
+        @lancashire_county_council,
         @south_ribble_borough_council,
         @leyland_county_ward,
         @south_ribble_parliamentary_constituency,
@@ -95,7 +160,6 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
 
     should "return nil when areas does not provide an appropriate authority" do
       areas = [@leyland_county_ward, @south_ribble_parliamentary_constituency]
-
       slug = LicenceLocationIdentifier.find_slug(areas)
 
       assert_nil slug
@@ -103,7 +167,6 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
 
     should "return nil when areas does not provide any authorities" do
       areas = []
-
       slug = LicenceLocationIdentifier.find_slug(areas)
 
       assert_nil slug

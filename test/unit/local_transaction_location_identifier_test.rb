@@ -93,4 +93,21 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
     end
   end
 
+  context "given an artefact exists with a local service for all tiers" do
+    setup do
+      @artefact = { "details" => { "local_service" => { "providing_tier" => %w(district unitary county) } } }
+    end
+
+    should "select the correct tier authority from areas providing a district and county" do
+      areas = [
+        @lancashire_county_council,
+        @south_ribble_borough_council,
+        @leyland_county_ward,
+        @south_ribble_parliamentary_constituency,
+      ]
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+
+      assert_equal "south-ribble-borough-council", slug
+    end
+  end
 end

@@ -4,9 +4,9 @@ class LicenceLocationIdentifier < LocationIdentifier
   # If the licence has an equivalent local service in the LGSL, try
   # to find the most appropriate council from the "providing tier"
   # if not, then return the closest authority available.
-  def self.find_slug(geostack, artefact = nil)
-    councils = geostack["council"].map do |area|
-      [area["type"], area["govuk_slug"]]
+  def self.find_slug(areas, artefact = nil)
+    councils = areas.map do |area|
+      [area["type"], area["codes"] && area["codes"]["govuk_slug"]]
     end
 
     if artefact and providing_tier = artefact["details"].try(:[], "licence").try(:[], "local_service").try(:[], "providing_tier")

@@ -298,15 +298,8 @@ protected
   end
 
   def appropriate_slug_from_location(publication, location)
-    # map to legacy geostack format
-    geostack = {
-      "council" => location.areas.map {|area|
-        { "name" => area.name, "type" => area.type, "govuk_slug" => area.codes['govuk_slug'] }
-      }
-    }
-
     identifier_class = identifier_class_for_format(publication.format)
-    identifier_class.find_slug(geostack, publication.artefact)
+    identifier_class.find_slug(location.areas, publication.artefact)
   end
 
   def assert_found(obj)

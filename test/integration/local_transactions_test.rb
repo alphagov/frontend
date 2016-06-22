@@ -10,6 +10,19 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       { "name" => "Greater London Authority", "type" => "GLA" }
     ])
 
+    westminster = {
+      "id" => 2432,
+      "codes" => {
+        "ons" => "00BK",
+        "gss" => "E07000198",
+        "govuk_slug" => "westminster"
+      },
+      "name" => "Westminster"
+    }
+
+    mapit_has_area_for_code('ons', '00BK', westminster)
+    mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
+
     @artefact = artefact_for_slug('pay-bear-tax').merge({
       "title" => "Pay your bear tax",
       "format" => "local_transaction",

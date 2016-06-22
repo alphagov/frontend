@@ -1,6 +1,9 @@
 require 'test_helper'
+require 'gds_api/test_helpers/mapit'
 
 class RootControllerTest < ActionController::TestCase
+  include GdsApi::TestHelpers::Mapit
+
   def setup_this_answer
     content_api_has_an_artefact("c-slug", {
       'slug' => 'c-slug',
@@ -68,6 +71,18 @@ class RootControllerTest < ActionController::TestCase
 
     content_api_has_an_artefact("find-local-cake-sale", artefact)
     content_api_has_an_artefact_with_snac_code("find-local-cake-sale", "00PM", artefact_with_interaction)
+
+    torfaen = {
+      "id" => 2432,
+      "codes" => {
+        "ons" => "00PM",
+        "gss" => "E07000198",
+        "govuk_slug" => "torfaen"
+      },
+      "name" => "Torfaen"
+    }
+
+    mapit_has_area_for_code('govuk_slug', 'torfaen', torfaen)
 
     get :publication, :slug => 'find-local-cake-sale', :part => "torfaen", :format => 'json'
     assert_response :redirect

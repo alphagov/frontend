@@ -43,6 +43,18 @@ class LicenceLocationTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
+          staffordshire_moorlands = {
+            "id" => 2432,
+            "codes" => {
+              "ons" => "41UH",
+              "gss" => "E07000198",
+              "govuk_slug" => "staffordshire-moorlands"
+            },
+            "name" => "Staffordshire Moorlands District Council",
+          }
+
+          mapit_has_area_for_code('ons', '41UH', staffordshire_moorlands)
+
           post :publication, slug: "licence-to-kill", postcode: "ST10 4DB"
         end
 
@@ -57,6 +69,17 @@ class LicenceLocationTest < ActionController::TestCase
             { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003"},
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
           ])
+
+          belfast = {
+            "codes" => {
+              "ons" => "N09000003",
+              "gss" => "N09000003",
+              "govuk_slug" => "belfast"
+            },
+            "name" => "Belfast",
+          }
+
+          mapit_has_area_for_code('ons', 'N09000003', belfast)
 
           post :publication, slug: "licence-to-kill", postcode: "BT1 5GS"
         end

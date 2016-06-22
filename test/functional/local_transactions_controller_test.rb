@@ -56,6 +56,18 @@ class LocalTransactionsControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
+          staffordshire_moorlands = {
+            "id" => 2432,
+            "codes" => {
+              "ons" => "41UH",
+              "gss" => "E07000198",
+              "govuk_slug" => "staffordshire-moorlands"
+            },
+            "name" => "Staffordshire Moorlands District Council",
+          }
+
+          mapit_has_area_for_code('ons', '41UH', staffordshire_moorlands)
+
           post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
         end
 
@@ -136,6 +148,17 @@ class LocalTransactionsControllerTest < ActionController::TestCase
           }
         })
 
+        staffordshire_moorlands = {
+          "id" => 2432,
+          "codes" => {
+            "ons" => "41UH",
+            "gss" => "E07000198",
+            "govuk_slug" => "staffordshire-moorlands"
+          },
+          "name" => "Staffordshire Moorlands District Council",
+        }
+
+        mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
         content_api_has_an_artefact_with_snac_code('send-a-bear-to-your-local-council', "41UH", artefact_with_interaction)
       end
 
@@ -147,7 +170,9 @@ class LocalTransactionsControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
-      get :publication, slug: "send-a-bear-to-your-local-council", part: "this slug should not exist"
+      mapit_does_not_have_area_for_code('govuk_slug', 'this-slug-should-not-exist')
+
+      get :publication, slug: "send-a-bear-to-your-local-council", part: "this-slug-should-not-exist"
 
       assert_equal 404, response.status
     end
@@ -174,6 +199,17 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         }
       }
 
+      staffordshire_moorlands = {
+        "id" => 2432,
+        "codes" => {
+          "ons" => "41UH",
+          "gss" => "E07000198",
+          "govuk_slug" => "staffordshire-moorlands"
+        },
+        "name" => "Staffordshire Moorlands District Council",
+      }
+
+      mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
       content_api_has_an_artefact('report-a-bear-on-a-local-road', @artefact)
       content_api_has_an_artefact_with_snac_code('report-a-bear-on-a-local-road', "41UH", @artefact)
 

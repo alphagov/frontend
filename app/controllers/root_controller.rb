@@ -97,7 +97,7 @@ class RootController < ApplicationController
         authority_slug = params[:part]
 
         unless non_location_specific_licence_present?(@publication)
-          snac = AuthorityLookup.find_snac(params[:part])
+          snac = AuthorityLookup.find_snac_from_slug(params[:part])
 
           if request.format.json?
             return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
@@ -141,7 +141,7 @@ class RootController < ApplicationController
         authority_slug = params[:part]
 
         unless non_location_specific_licence_present?(@publication)
-          snac = AuthorityLookup.find_snac(params[:part])
+          snac = AuthorityLookup.find_snac_from_slug(params[:part])
 
           if request.format.json?
             return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"

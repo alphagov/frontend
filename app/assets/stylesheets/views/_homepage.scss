@@ -124,6 +124,9 @@ body.homepage {
     }
     .promo-content {
       padding: 0 15px;
+      > a {
+        display: block;
+      }
     }
     img {
       width: 100%;

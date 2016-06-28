@@ -131,20 +131,11 @@ class PublicationPresenter
 
   def promotion_choice
     choice = promotion_choice_details['choice']
-    if choice.empty?
-      if has_legacy_organ_promotion_details?
-        "organ_donor"
-      else
-        "none"
-      end
-    else
-      choice
-    end
+    choice.empty? ? "none" : choice
   end
 
   def promotion_url
-    url = promotion_choice_details['url']
-    url.empty? ? legacy_organ_promotion_details['organ_donor_registration_url'] : url
+    promotion_choice_details['url']
   end
 
   def to_json
@@ -155,14 +146,6 @@ class PublicationPresenter
 
 
 private
-
-  def has_legacy_organ_promotion_details?
-    legacy_organ_promotion_details['promote_organ_donor_registration']
-  end
-
-  def legacy_organ_promotion_details
-    presentation_toggles.fetch('organ_donor_registration', {'promote_organ_donor_registration' => false})
-  end
 
   def promotion_choice_details
     presentation_toggles.fetch('promotion_choice', {'choice' => '', 'url' => ''})

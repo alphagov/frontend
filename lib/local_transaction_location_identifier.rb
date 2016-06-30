@@ -1,13 +1,15 @@
 require 'location_identifier'
 
 class LocalTransactionLocationIdentifier < LocationIdentifier
-  def self.find_snac(geostack, artefact)
-    return nil unless artefact['details'] and artefact['details']['local_service']
+  def find_slug
+    matching_authority_by_tier_slug
+  end
 
-    authorities = geostack['council']
-    providing_tier = artefact['details']['local_service']['providing_tier']
+private
 
-    by_tier = Hash[authorities.map {|area| [self.identify_tier(area["type"]), area["ons"]] }]
-    providing_tier.map {|tier| by_tier[tier] }.compact.first
+  def service_providing_tiers
+    return unless artefact
+
+    artefact["details"].try(:[], "local_service").try(:[], "providing_tier")
   end
 end

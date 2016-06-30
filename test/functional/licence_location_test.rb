@@ -38,8 +38,8 @@ class LicenceLocationTest < ActionController::TestCase
       context "for an English local authority" do
         setup do
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41"},
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH"},
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county"},
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands"},
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
@@ -54,7 +54,7 @@ class LicenceLocationTest < ActionController::TestCase
       context "for a Northern Irish local authority" do
         setup do
           mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003"},
+            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003", "govuk_slug" => "belfast"},
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
           ])
 

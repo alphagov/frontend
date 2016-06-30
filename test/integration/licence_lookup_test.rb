@@ -8,9 +8,22 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
     setup do
       mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO" },
+        { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
         { "name" => "Greater London Authority", "type" => "GLA" }
       ])
+
+      westminster = {
+        "id" => 2432,
+        "codes" => {
+          "ons" => "00BK",
+          "gss" => "E07000198",
+          "govuk_slug" => "westminster"
+        },
+        "name" => "Westminster"
+      }
+
+      mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
+      mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
 
       @artefact = artefact_for_slug('licence-to-kill').merge({
         "title" => "Licence to kill",
@@ -350,6 +363,18 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
       content_api_has_an_artefact('licence-to-kill', artefact)
       content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", artefact)
+
+      south_ribble = {
+        "id" => 2432,
+        "codes" => {
+          "ons" => "30UN",
+          "gss" => "E07000198",
+          "govuk_slug" => "south-ribble"
+        },
+        "name" => "South Ribble"
+      }
+
+      mapit_has_area_for_code('govuk_slug', 'south-ribble', south_ribble)
     end
 
     should "show message to contact local council" do

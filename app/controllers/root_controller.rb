@@ -30,12 +30,6 @@ class RootController < ApplicationController
         full_width: true
       }
     },
-    "make-a-sorn" => {
-      template: "make-a-sorn",
-      locals: {
-        full_width: true
-      }
-    },
   }
 
   CUSTOM_FORMATS = {

@@ -77,7 +77,6 @@ class SearchParameters
         world_locations
       },
       debug: params[:debug],
-      suggest: "spelling",
     }
     active_facet_fields.each { |field|
       internal = SearchParameters::internal_field_name(field)

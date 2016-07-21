@@ -133,23 +133,9 @@ class RootController < ApplicationController
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
       elsif params[:part]
         authority_slug = params[:part]
-
-        unless non_location_specific_licence_present?(@publication)
-          snac = AuthorityLookup.find_snac_from_slug(params[:part])
-
-          if request.format.json?
-            return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
-          end
-
-          # Fetch the artefact again, for the snac we have
-          # This returns additional data based on format and location
-          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
-          assert_found(updated_artefact)
-          @publication = PublicationPresenter.new(updated_artefact)
-        end
       end
 
-      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
+      @interaction_details = prepare_interaction_details(@publication, authority_slug)
       if local_authority_match?(@interaction_details)
         @local_authority = LocalAuthorityPresenter.new(@interaction_details['local_authority'])
         if no_interaction?(@interaction_details)
@@ -201,12 +187,12 @@ class RootController < ApplicationController
 
 protected
 
-  def prepare_interaction_details(publication, authority_slug, snac)
+  def prepare_interaction_details(publication, authority_slug, snac=nil)
     case publication.format
     when "licence"
       licence_details(publication.artefact, authority_slug, snac)
     when "local_transaction"
-      local_transaction_details(publication.artefact, authority_slug, snac)
+      local_transaction_details(publication.artefact, authority_slug)
     end
   end
 
@@ -273,10 +259,42 @@ protected
     !request.format.json? and !request.format.print? and !request.format.video?
   end
 
-  def local_transaction_details(artefact, authority_slug, snac)
-    raise RecordNotFound if snac.blank? && authority_slug.present?
+  def local_transaction_details(artefact, authority_slug)
+    if authority_slug
+      lgsl = artefact['details']['lgsl_code']
+      lgil = artefact['details']['lgil_override']
 
-    artefact['details'].slice('local_authority', 'local_service', 'local_interaction')
+      local_links_manager_response = local_links_manager_request(authority_slug, lgsl, lgil)
+      artefact['details'].slice('local_service').merge(local_links_manager_response)
+    else
+      artefact['details'].slice('local_service')
+    end
+  end
+
+  def local_links_manager_request(authority_slug, lgsl, lgil)
+    url = "/local_authorities/#{authority_slug}/services/#{lgsl}/interactions/#{lgil}.json"
+    # There will be a wrapper in gds-api-adapters for LocalLinksManager
+    # LocalLinksManager.get(url)
+
+    # this is the hash that was previously added to the artefact['details'] after
+    # the artfact was updated with local_transaction details by calling
+    # `fetch_artefact`
+    # Instead we return this hash from LocalLinksManager's API endpoint
+
+    # For demonstration purposes we return this stubbed response
+    {
+      "local_authority"=>{
+        "name"=>"London Borough of Camden",
+        # "snac"=>"00AG",
+        # "tier"=>"unitary",
+        # "homepage_url"=>"http://www.camden.gov.uk/"
+      },
+      "local_interaction"=>{
+        # "lgsl_code"=>432,
+        # "lgil_code"=>0,
+        "url"=>"https://www.westminster.gov.uk/stray-and-lost-dogs"
+      }
+    }
   end
 
   def licence_details(artefact, licence_authority_slug, snac_code)

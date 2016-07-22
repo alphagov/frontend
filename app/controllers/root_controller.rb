@@ -272,7 +272,12 @@ protected
   end
 
   def local_links_manager_request(authority_slug, lgsl, lgil)
-    url = "/local_authorities/#{authority_slug}/services/#{lgsl}/interactions/#{lgil}.json"
+    # RESTful endpoint
+    # url = "/local_authorities/#{authority_slug}/services/#{lgsl}/interactions/#{lgil}.json"
+
+    # Non-RESTful endpoint
+    url = "/api/local_interaction_details.json?authority_slug=#{authority_slug}&lgsl=#{lgsl}&lgil=#{lgil}"
+
     # There will be a wrapper in gds-api-adapters for LocalLinksManager
     # LocalLinksManager.get(url)
 
@@ -287,7 +292,7 @@ protected
         "name"=>"London Borough of Camden",
         # "snac"=>"00AG",
         # "tier"=>"unitary",
-        # "homepage_url"=>"http://www.camden.gov.uk/"
+        "homepage_url"=>"http://www.camden.gov.uk/"
       },
       "local_interaction"=>{
         # "lgsl_code"=>432,

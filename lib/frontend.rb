@@ -4,4 +4,5 @@ module Frontend
   mattr_accessor :detailed_guidance_content_api
   mattr_accessor :mapit_api
   mattr_accessor :imminence_api
+  mattr_accessor :local_links_manager_api
 end

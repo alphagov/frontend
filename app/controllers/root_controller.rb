@@ -132,31 +132,19 @@ class RootController < ApplicationController
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
       elsif params[:part]
+        # Check that the part is a valid govuk_slug according to mapit and raise RecordNotFound otherwise
+        area = Frontend.mapit_api.area_for_code("govuk_slug", params[:part])
+        assert_found(area)
         authority_slug = params[:part]
-
-        unless non_location_specific_licence_present?(@publication)
-          snac = AuthorityLookup.find_snac_from_slug(params[:part])
-
-          if request.format.json?
-            return redirect_to "/api/#{params[:slug]}.json?snac=#{snac}"
-          end
-
-          # Fetch the artefact again, for the snac we have
-          # This returns additional data based on format and location
-          updated_artefact = fetch_artefact(params[:slug], params[:edition], snac) if snac
-          assert_found(updated_artefact)
-          @publication = PublicationPresenter.new(updated_artefact)
-        end
       end
 
-      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
+      @interaction_details = prepare_interaction_details(@publication, authority_slug)
       if local_authority_match?(@interaction_details)
         @local_authority = LocalAuthorityPresenter.new(@interaction_details['local_authority'])
         if no_interaction?(@interaction_details)
           @location_error = error_for_missing_interaction(@local_authority)
         end
       end
-
     elsif @publication.empty_part_list?
       raise RecordNotFound
     elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
@@ -201,12 +189,12 @@ class RootController < ApplicationController
 
 protected
 
-  def prepare_interaction_details(publication, authority_slug, snac)
+  def prepare_interaction_details(publication, authority_slug, snac = nil)
     case publication.format
     when "licence"
       licence_details(publication.artefact, authority_slug, snac)
     when "local_transaction"
-      local_transaction_details(publication.artefact, authority_slug, snac)
+      local_transaction_details(publication.artefact, authority_slug)
     end
   end
 
@@ -273,10 +261,13 @@ protected
     !request.format.json? and !request.format.print? and !request.format.video?
   end
 
-  def local_transaction_details(artefact, authority_slug, snac)
-    raise RecordNotFound if snac.blank? && authority_slug.present?
+  def local_transaction_details(artefact, authority_slug)
+    return {} unless authority_slug
 
-    artefact['details'].slice('local_authority', 'local_service', 'local_interaction')
+    lgsl = artefact['details']['lgsl_code']
+    lgil = artefact['details']['lgil_override']
+
+    Frontend.local_links_manager_api.local_link(authority_slug, lgsl, lgil)
   end
 
   def licence_details(artefact, licence_authority_slug, snac_code)

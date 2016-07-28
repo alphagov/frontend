@@ -9,6 +9,11 @@ Frontend::Application.routes.draw do
 
   get "/random" => "random#random_page"
 
+  # Find local council
+  get "/find-local-council" => "local_council#index"
+  post "/find-local-council" => "local_council#find"
+  get "/find-local-council/:council_slug" => "local_council#result"
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc {|env| [404, {}, ["Not Found"]] }

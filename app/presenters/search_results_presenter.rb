@@ -42,7 +42,7 @@ class SearchResultsPresenter
         field: external,
         field_title: FACET_TITLES.fetch(field, field),
         options: facet,
-        show_filter_organisations: show_filter_organisations?(facet),
+        show_organisations_filter: show_organisations_filter?(facet),
       }
     end
   end
@@ -121,8 +121,8 @@ class SearchResultsPresenter
     end
   end
 
-  def show_filter_organisations?(facet)
-    search_parameters.show_filter_organisations? || facet[:any?]
+  def show_organisations_filter?(facet)
+    search_parameters.show_organisations_filter? || facet[:any?]
   end
 
 private

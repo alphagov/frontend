@@ -1,8 +1,10 @@
 require 'integration_test_helper'
 require 'gds_api/test_helpers/mapit'
+require 'gds_api/test_helpers/local_links_manager'
 
 class LocalTransactionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LocalLinksManager
 
   setup do
     mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
@@ -29,6 +31,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       "details" => {
         "format" => "LocalTransaction",
         "introduction" => "Information about paying local tax on owning or looking after a bear.",
+        "lgsl_code" => 461,
+        "lgil_override" => 8,
         "local_service" => {
           "description" => "Find out about paying your bear tax",
           "lgsl_code" => 461,
@@ -46,20 +50,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "given a local transaction with an interaction present" do
     setup do
-      content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-        "details" => {
-          "local_authority" => {
-            "name" => "Westminster City Council",
-            "snac" => "00BK",
-            "tier" => "district",
-          },
-          "local_interaction" => {
-            "lgsl_code" => 461,
-            "lgil_code" => 8,
-            "url" => "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership"
-          }
-        }
-      }))
+      local_links_manager_has_a_link(
+        authority_slug: "westminster",
+        lgsl: 461,
+        lgil: 8,
+        url: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update"
+      )
     end
 
     context "when visiting the local transaction without specifying a location" do
@@ -98,7 +94,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show a get started button which links to the interaction" do
-        assert page.has_link?("Go to their website", href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership")
+        assert page.has_link?("Go to their website", href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update")
       end
 
       should "not show the transaction information" do
@@ -160,17 +156,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "given a local transaction without an interaction present" do
     setup do
-      content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-        "details" => {
-          "local_authority" => {
-            "name" => "Westminster City Council",
-            "snac" => "00BK",
-            "tier" => "district",
-            "homepage_url" => 'http://www.westminster.gov.uk/',
-          },
-          "local_interaction" => nil
-        }
-      }))
+      local_links_manager_has_no_link(
+        authority_slug: 'westminster',
+        lgsl: 461,
+        lgil: 8
+      )
     end
 
     context "when visiting the local transaction without specifying a location" do
@@ -200,11 +190,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show advisory message that no interaction is available" do
-        assert page.has_content?("Search the Westminster City Council website for this service")
+        assert page.has_content?("Search the Westminster website for this service")
       end
 
       should 'link to the council website' do
-        assert page.has_link?("Go to their website", href: 'http://www.westminster.gov.uk/')
+        assert page.has_link?("Go to their website", href: 'http://westminster.example.com')
       end
 
       should "not show the transaction information" do
@@ -219,17 +209,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "given no interaction present and a missing homepage url" do
     setup do
-      content_api_has_an_artefact_with_snac_code('pay-bear-tax', '00BK', @artefact.deep_merge({
-        "details" => {
-          "local_authority" => {
-            "name" => "Westminster City Council",
-            "snac" => "00BK",
-            "tier" => "district",
-            "homepage_url" => '',
-          },
-          "local_interaction" => nil
-        }
-      }))
+      local_links_manager_has_no_link_and_no_homepage_url(
+        authority_slug: 'westminster',
+        lgsl: 461,
+        lgil: 8,
+      )
 
       visit '/pay-bear-tax'
       fill_in 'postcode', with: "SW1A 1AA"

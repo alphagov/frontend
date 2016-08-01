@@ -1,0 +1,11 @@
+<h1>Find local council</h1>
+
+<% if @local_authorities.count == 1 %>
+<h2>Your postcode is a district council</h2>
+<% else %>
+<h2>Your postcode is in a county council and a district council</h2>
+<% end %>
+<% @local_authorities.each do |authority| %>
+  <p><%= authority.name %></p>
+  <p>Website: <%= link_to nil, authority.homepage_url %></p>
+<% end %>

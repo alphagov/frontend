@@ -224,6 +224,33 @@ class SearchControllerTest < ActionController::TestCase
     assert_select %{.spelling-suggestion a[href*="filter_organisations%5B%5D=hm-revenue-customs"]}
   end
 
+  should "display the filters box as open when searching with a filter" do
+    results = [ a_search_result('something') ]
+
+    stub_results(results, "search-term", ["hm-revenue-customs"])
+
+    get :index, q: "search-term", filter_organisations: ["hm-revenue-customs"]
+    assert_select ".filter-form .filter.closed", count: 0
+  end
+
+  should "display the filters box as open when searching from whitehall" do
+    results = [ a_search_result('something') ]
+
+    stub_results(results, "search-term")
+
+    get :index, q: "search-term", show_filter_organisations: "true"
+    assert_select ".filter-form .filter.closed", count: 0
+  end
+
+  should "display the filters box as closed when searching from sources other than whitehall" do
+    results = [ a_search_result('something') ]
+
+    stub_results(results, "search-term")
+
+    get :index, q: "search-term"
+    assert_select ".filter-form .filter:not(.closed)", count: 0
+  end
+
 
   test "should return unlimited results" do
     results = []

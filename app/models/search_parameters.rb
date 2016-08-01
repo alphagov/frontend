@@ -25,6 +25,10 @@ class SearchParameters
     params[:q]
   end
 
+  def show_filter_organisations?
+    params[:show_filter_organisations] == "true"
+  end
+
   def start
     params[:start]
   end

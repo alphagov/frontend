@@ -36,11 +36,13 @@ class SearchResultsPresenter
     search_response["facets"].map do |field, value|
       external = SearchParameters::external_field_name(field)
       facet_params = search_parameters.filter(external)
-      facet = SearchFacetPresenter.new(value, facet_params)
+      facet = SearchFacetPresenter.new(value, facet_params).to_hash
+
       {
         field: external,
         field_title: FACET_TITLES.fetch(field, field),
-        options: facet.to_hash,
+        options: facet,
+        show_filter_organisations: show_filter_organisations?(facet),
       }
     end
   end
@@ -117,6 +119,10 @@ class SearchResultsPresenter
     if has_previous_page?
       "#{previous_page_number} of #{total_pages}"
     end
+  end
+
+  def show_filter_organisations?(facet)
+    search_parameters.show_filter_organisations? || facet[:any?]
   end
 
 private

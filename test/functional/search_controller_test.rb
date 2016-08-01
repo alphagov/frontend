@@ -205,7 +205,7 @@ class SearchControllerTest < ActionController::TestCase
 
   should "suggest the first alternative query" do
     suggestions = ["cats","dogs"]
-    results = [ a_search_result('something') ]
+    results = [a_search_result('something')]
 
     stub_results(results, "search-term", [], suggestions)
 
@@ -215,7 +215,7 @@ class SearchControllerTest < ActionController::TestCase
 
   should "preserve filters when suggesting spellings" do
     suggestions = ["cats"]
-    results = [ a_search_result('something') ]
+    results = [a_search_result('something')]
 
     stub_results(results, "search-term", ["hm-revenue-customs"], suggestions)
 
@@ -225,7 +225,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   should "display the filters box as open when searching with a filter" do
-    results = [ a_search_result('something') ]
+    results = [a_search_result('something')]
 
     stub_results(results, "search-term", ["hm-revenue-customs"])
 
@@ -234,7 +234,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   should "display the filters box as open when searching from whitehall" do
-    results = [ a_search_result('something') ]
+    results = [a_search_result('something')]
 
     stub_results(results, "search-term")
 
@@ -243,7 +243,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   should "display the filters box as closed when searching from sources other than whitehall" do
-    results = [ a_search_result('something') ]
+    results = [a_search_result('something')]
 
     stub_results(results, "search-term")
 

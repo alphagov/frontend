@@ -10,7 +10,7 @@
 
     <input type="search" name="q" value="<%= @search_term %>" id="search-main" />
 
-    <%= hidden_field_tag("show_filter_organisations", params[:show_filter_organisations]) if params[:show_filter_organisations] %>
+    <%= hidden_field_tag("show_organisations_filter", params[:show_organisations_filter]) if params[:show_organisations_filter] %>
     <%= hidden_field_tag("filter_manual[]", params[:filter_manual]) if params[:filter_manual] %>
     <%= hidden_field_tag(:debug_score, params[:debug_score]) if params[:debug_score] %>
     <%= hidden_field_tag(:debug, params[:debug]) if params[:debug] %>

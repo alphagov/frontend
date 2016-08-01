@@ -238,7 +238,7 @@ class SearchControllerTest < ActionController::TestCase
 
     stub_results(results, "search-term")
 
-    get :index, q: "search-term", show_filter_organisations: "true"
+    get :index, q: "search-term", show_organisations_filter: "true"
     assert_select ".filter-form .filter.closed", count: 0
   end
 

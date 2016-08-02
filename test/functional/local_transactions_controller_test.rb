@@ -2,10 +2,12 @@ require 'test_helper'
 
 require 'gds_api/part_methods'
 require 'gds_api/test_helpers/mapit'
+require 'gds_api/test_helpers/local_links_manager'
 
 class LocalTransactionsControllerTest < ActionController::TestCase
   tests RootController
   include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LocalLinksManager
 
   def subscribe_logstasher_to_postcode_error_notification
     LogStasher.watch('postcode_error_notification') do |_name, _start, _finish, _id, payload, store|
@@ -21,6 +23,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         "web_url" => "http://example.org/send-a-bear-to-your-local-council",
         "details" => {
           "format" => "LocalTransaction",
+          "lgsl_code" => "8342",
           "local_service" => {
             "description" => "What could go wrong?",
             "lgsl_code" => "8342",
@@ -124,18 +127,6 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
     context "loading the local transaction for an authority" do
       setup do
-        artefact_with_interaction = @artefact.dup
-        artefact_with_interaction["details"].merge!({
-          "local_interaction" => {
-            "lgsl_code" => 461,
-            "lgil_code" => 8,
-            "url" => "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks"
-          },
-          "local_authority" => {
-            "name" => "Staffordshire Moorlands",
-          }
-        })
-
         staffordshire_moorlands = {
           "id" => 2432,
           "codes" => {
@@ -147,7 +138,12 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         }
 
         mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-        content_api_has_an_artefact_with_snac_code('send-a-bear-to-your-local-council', "41UH", artefact_with_interaction)
+        local_links_manager_has_a_fallback_link(
+          authority_slug: 'staffordshire-moorlands',
+          lgsl: 8342,
+          lgil: 8,
+          url: 'http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks'
+        )
       end
 
       should "assign local transaction information" do
@@ -174,16 +170,12 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         "web_url" => "http://example.org/report-a-bear-on-a-local-road",
         "details" => {
           "format" => "LocalTransaction",
+          "lgsl_code" => "1234",
           "local_service" => {
             "description" => "Contact your council to dispatch Cousin Sven's bear enforcement squad in your area.",
             "lgsl_code" => "1234",
             "providing_tier" => %w(district unitary)
           },
-          "local_interaction" => nil,
-          "local_authority" => {
-            "name" => "Staffordshire Moorlands",
-            "homepage_url" => "http://www.staffsmoorlands.gov.uk"
-          }
         }
       }
 
@@ -199,7 +191,10 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
       mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
       content_api_has_an_artefact('report-a-bear-on-a-local-road', @artefact)
-      content_api_has_an_artefact_with_snac_code('report-a-bear-on-a-local-road', "41UH", @artefact)
+      local_links_manager_has_no_fallback_link(
+        authority_slug: 'staffordshire-moorlands',
+        lgsl: 1234,
+      )
 
       subscribe_logstasher_to_postcode_error_notification
       get :publication, slug: "report-a-bear-on-a-local-road", part: "staffordshire-moorlands"

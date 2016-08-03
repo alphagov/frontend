@@ -143,14 +143,14 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
   context "a transaction which should open in a new window" do
     should "have the correct target attribute set on the 'Start now' link for a new window" do
-      setup_api_responses('find-your-local-council')
-      visit '/find-your-local-council'
+      setup_api_responses('apply-blue-badge')
+      visit '/apply-blue-badge'
 
       assert_equal 200, page.status_code
 
       within '.article-container' do
         within 'section.intro' do
-          assert page.has_selector?("a[href='http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1'][target='_blank']", :text => "Start now")
+          assert page.has_selector?("a[href='https://bluebadge.direct.gov.uk/directgovapply.html'][target='_blank']", text: "Start now")
         end
       end
     end
@@ -329,8 +329,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
   context "start page format which shouldn't have cross domain analytics" do
     should "not include cross domain analytics javascript" do
-      setup_api_responses('find-your-local-council')
-      visit "/find-your-local-council"
+      setup_api_responses('apply-blue-badge')
+      visit "/apply-blue-badge"
 
       assert_equal 200, page.status_code
       assert page.has_no_selector?("#transaction_cross_domain_analytics", :visible => :all)

@@ -107,7 +107,6 @@ class TransactionPresenterTest < ActiveSupport::TestCase
           expected_transactions = [
             "car-tax-disc-vehicle-licence",
             "register-login-student-finance",
-            "find-your-local-council",
             "book-practical-driving-test",
             "example-slug-one"
           ]

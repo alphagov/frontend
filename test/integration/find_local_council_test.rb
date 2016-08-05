@@ -14,6 +14,21 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Find the website for your local council")
       assert page.has_field?("postcode")
     end
+
+    should "show the breadcrumbs" do
+      within('#global-breadcrumb') do
+        assert page.has_link?("Home", href: "/", exact: true)
+        assert page.has_link?("Housing and local services", href: "https://www.gov.uk/browse/housing-local-services", exact: true)
+        assert page.has_link?("Local councils and services", href: "https://www.gov.uk/browse/housing-local-services/local-councils", exact: true)
+      end
+    end
+
+    should "show the related links" do
+      visit '/find-your-local-council'
+
+      # related links are tested like this in the rest of frontend
+      assert page.has_selector?("#test-related")
+    end
   end
 
   context "when visiting the find local council start page with valid postcode" do

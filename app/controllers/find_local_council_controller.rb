@@ -1,4 +1,6 @@
 class FindLocalCouncilController < ApplicationController
+  before_filter :set_artefact_headers
+
   rescue_from RecordNotFound, with: :cacheable_404
 
   BASE_PATH = "/find-your-local-council"
@@ -57,6 +59,76 @@ private
 
   def local_council
     @_local_council ||= fetch_local_council_from_areas(mapit_response.location.areas)
+  end
+
+  def set_artefact_headers
+    set_slimmer_artefact_headers(dummy_artefact_with_hardcoded_links)
+  end
+
+  def dummy_artefact_with_hardcoded_links
+    # NOTE: We use hardcoded breadcrumbs and related links for the moment until
+    # we decide if we can store this and other related data on a content item
+    hardcoded_related_links.merge(hardcoded_breadcrumbs)
+  end
+
+  def hardcoded_related_links
+    {
+      "related" => [
+        {
+          "id" => "https://www.gov.uk/api/understand-how-your-council-works.json",
+          "content_id" => "df61f873-f42f-4fb9-8e8e-17fa6a583270",
+          "web_url" => "https://www.gov.uk/understand-how-your-council-works",
+          "title" => "Understand how your council works",
+          "format" => "guide",
+          "owning_app" => "publisher",
+          "in_beta" => false,
+          "updated_at" => "2014-10-22T16:24:06+01:00",
+          "group" => "subsection"
+        },
+      ]
+    }
+  end
+
+  def hardcoded_breadcrumbs
+    {
+      "tags" => [
+        {
+          "id" => "https://www.gov.uk/api/tags/section/housing-local-services%2Flocal-councils.json",
+          "content_id" => "4f8f62a8-9ff9-45ab-b4f7-aec5d1cffbad",
+          "slug" => "housing-local-services/local-councils",
+          "web_url" => "https://www.gov.uk/browse/housing-local-services/local-councils",
+          "title" => "Local councils and services",
+          "details" => {
+            "description" => "Find and access local services",
+            "short_description" => nil,
+            "type" => "section"
+          },
+          "content_with_tag" => {
+            "id" => "https://www.gov.uk/api/with_tag.json?section=housing-local-services%2Flocal-councils",
+            "web_url" => "https://www.gov.uk/browse/housing-local-services/local-councils"
+          },
+          "state" => "live",
+          "parent" => {
+            "id" => "https://www.gov.uk/api/tags/section/housing-local-services.json",
+            "content_id" => "61d038ad-ba54-40a1-b6ca-18b390138b41",
+            "slug" => "housing-local-services",
+            "web_url" => "https://www.gov.uk/browse/housing-local-services",
+            "title" => "Housing and local services",
+            "details" => {
+              "description" => "Includes owning or renting, council services, planning and building, neighbours, noise and pets",
+              "short_description" => nil,
+              "type" => "section"
+            },
+            "content_with_tag" => {
+              "id" => "https://www.gov.uk/api/with_tag.json?section=housing-local-services",
+              "web_url" => "https://www.gov.uk/browse/housing-local-services"
+            },
+            "state" => "live",
+            "parent" => nil
+          }
+        }
+      ],
+    }
   end
 
   def fetch_local_council_from_areas(areas)

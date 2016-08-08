@@ -14,7 +14,13 @@
         <% if @county["homepage_url"].blank? %>
           We don't have a link for their website.
         <% else %>
-          Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"] %>
+          Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"],
+                              data: {
+                                module: 'track-click',
+                                track_category: 'pageElementInteraction',
+                                track_action: 'countyLinkClicked',
+                                track_label: @county["homepage_url"]
+                              } %>
         <% end %>
       </p>
 
@@ -35,7 +41,13 @@
         <% if @district["homepage_url"].blank? %>
           We don't have a link for their website.
         <% else %>
-          Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"] %>
+          Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"],
+                              data: {
+                                module: 'track-click',
+                                track_category: 'pageElementInteraction',
+                                track_action: 'districtLinkClicked',
+                                track_label: @district["homepage_url"]
+                              } %>
         <% end %>
       </p>
 

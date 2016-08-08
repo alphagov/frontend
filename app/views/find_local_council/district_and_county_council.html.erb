@@ -1,44 +1,51 @@
 <%= render layout: 'base_page' do %>
   <h2>Your postcode is in a county council and a district council.</h2>
 
-  <div class="county-result group">
-    <p><%= @county["name"] %></p>
+  <div class="local-authority-results"
+       data-module="auto-track-event"
+       data-track-category="placeSearch"
+       data-track-action="postcodeResultShown"
+       data-track-label="2 Results">
 
-    <p>
-      <% if @county["homepage_url"].blank? %>
-        We don't have a link for their website.
-      <% else %>
-        Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"] %>
-      <% end %>
-    </p>
+    <div class="county-result group">
+      <p><%= @county["name"] %></p>
 
-    <p>County councils are responsible for services like:</p>
-    <ul class="list list-bullet">
-      <li>education</li>
-      <li>transport</li>
-      <li>social care</li>
-    </ul>
-  </div>
+      <p>
+        <% if @county["homepage_url"].blank? %>
+          We don't have a link for their website.
+        <% else %>
+          Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"] %>
+        <% end %>
+      </p>
 
-  <hr class="separator">
+      <p>County councils are responsible for services like:</p>
+      <ul class="list list-bullet">
+        <li>education</li>
+        <li>transport</li>
+        <li>social care</li>
+      </ul>
+    </div>
 
-  <div class="district-result group">
-    <p><%= @district["name"] %></p>
+    <hr class="separator">
 
-    <p>
-      <% if @district["homepage_url"].blank? %>
-        We don't have a link for their website.
-      <% else %>
-        Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"] %>
-      <% end %>
-    </p>
+    <div class="district-result group">
+      <p><%= @district["name"] %></p>
 
-    <p>District councils are responsible for services like:</p>
-    <ul class="list list-bullet">
-      <li>rubbish and recycling collection</li>
-      <li>council tax</li>
-      <li>housing</li>
-    </ul>
+      <p>
+        <% if @district["homepage_url"].blank? %>
+          We don't have a link for their website.
+        <% else %>
+          Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"] %>
+        <% end %>
+      </p>
+
+      <p>District councils are responsible for services like:</p>
+      <ul class="list list-bullet">
+        <li>rubbish and recycling collection</li>
+        <li>council tax</li>
+        <li>housing</li>
+      </ul>
+    </div>
   </div>
 
   <hr class="separator">

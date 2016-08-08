@@ -81,6 +81,11 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
       should "show back link" do
         assert page.has_link?("Back", href: "/find-your-local-council")
       end
+
+      should "add google analytics for exit link tracking" do
+        track_action = find_link('westminster.example.com')['data-track-action']
+        assert_equal "unitaryLinkClicked", track_action
+      end
     end
 
     context "for district local authority" do
@@ -140,6 +145,14 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
 
       should "show back link" do
         assert page.has_link?("Back", href: "/find-your-local-council")
+      end
+
+      should "add google analytics for exit link tracking" do
+        district_track_action = find_link('aylesbury.example.com')['data-track-action']
+        county_track_action = find_link('buckinghamshire.example.com')['data-track-action']
+
+        assert_equal "districtLinkClicked", district_track_action
+        assert_equal "countyLinkClicked", county_track_action
       end
     end
   end

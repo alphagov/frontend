@@ -15,7 +15,13 @@
         <% if @authority["homepage_url"].blank? %>
           We don't have a link for their website.
         <% else %>
-          Website: <%= link_to extract_host(@authority["homepage_url"]), @authority["homepage_url"] %>
+          Website: <%= link_to extract_host(@authority["homepage_url"]), @authority["homepage_url"],
+                        data: {
+                          module: 'track-click',
+                          track_category: 'pageElementInteraction',
+                          track_action: 'unitaryLinkClicked',
+                          track_label: @authority["homepage_url"]
+                        } %>
         <% end %>
       </p>
     </div>

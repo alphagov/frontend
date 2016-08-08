@@ -117,11 +117,11 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
       should "expose the 'missing local authority' error to the view" do
         location_error = assigns(:location_error)
-        assert_equal "noLaMatchLinkToFindLa", location_error.postcode_error
+        assert_equal "noLaMatch", location_error.postcode_error
       end
 
       should "log the 'missing local authority' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "noLaMatchLinkToFindLa" })
+        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "noLaMatch" })
       end
     end
 

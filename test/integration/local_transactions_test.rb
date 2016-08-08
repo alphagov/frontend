@@ -111,6 +111,26 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
     end
 
+    context "when visiting the local transaction with an incorrect postcode" do
+      setup do
+        mapit_does_not_have_a_postcode("AB1 2AB")
+
+        visit '/pay-bear-tax'
+
+        fill_in 'postcode', with: "AB1 2AB"
+        click_button('Find')
+      end
+
+      should "remain on the pay bear tax page" do
+        assert_equal "/pay-bear-tax", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "We couldn't find this postcode."
+        assert page.has_content? "Try checking it and entering it again."
+      end
+    end
+
     context "when visiting the local transaction with an invalid postcode" do
       setup do
         mapit_does_not_have_a_bad_postcode("Not valid")
@@ -229,7 +249,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
 
     should "show advisory message that we have no url" do
-      assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
+      assert page.has_content?("We don't have a link for their website.")
+      assert page.has_link?("local council search", href: "/find-your-local-council")
     end
 
     should "not see the transaction information" do

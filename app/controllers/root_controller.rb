@@ -83,7 +83,7 @@ class RootController < ApplicationController
         if la_slug
           return redirect_to publication_path(slug: params[:slug], part: la_slug)
         else
-          @location_error = LocationError.new("noLaMatchLinkToFindLa")
+          @location_error = LocationError.new("noLaMatch")
         end
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
@@ -127,7 +127,7 @@ class RootController < ApplicationController
           # No matching local authority.
           # This points the user towards "Find your LA" which is an
           # England only service
-          @location_error = LocationError.new("noLaMatchLinkToFindLa")
+          @location_error = LocationError.new("noLaMatch")
         end
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))

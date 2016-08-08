@@ -9,9 +9,9 @@ class LocationError
     when 'fullPostcodeNoMapitMatch'
       @message = 'formats.local_transaction.valid_postcode_no_match'
       @sub_message = 'formats.local_transaction.valid_postcode_no_match_sub_html'
-    when 'noLaMatchLinkToFindLa'
+    when 'noLaMatch'
       @message = 'formats.local_transaction.no_local_authority'
-      @sub_message = 'formats.local_transaction.no_local_authority_sub_html'
+      @sub_message = ''
     when 'laMatchNoLink'
       @message =
         if local_authority_name_starts_with_a_the?

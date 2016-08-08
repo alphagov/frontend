@@ -7,9 +7,11 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::LocalLinksManager
 
   context "when visiting the start page" do
-    should "show Find Local Council start page" do
+    setup do
       visit '/find-your-local-council'
+    end
 
+    should "show Find Local Council start page" do
       assert page.has_content?("Find your local council")
       assert page.has_content?("Find the website for your local council")
       assert page.has_field?("postcode")
@@ -24,10 +26,16 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
     end
 
     should "show the related links" do
-      visit '/find-your-local-council'
-
       # related links are tested like this in the rest of frontend
       assert page.has_selector?("#test-related")
+    end
+
+    should "add google analytics tags for postcodeSearchStarted" do
+      track_category = page.find('.find-nearest')['data-track-category']
+      track_action = page.find('.find-nearest')['data-track-action']
+
+      assert_equal "placeSearch", track_category
+      assert_equal "postcodeSearchStarted", track_action
     end
   end
 
@@ -60,6 +68,14 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Westminster")
           assert page.has_link?("westminster.example.com", href: "http://westminster.example.com", exact: true)
         end
+      end
+
+      should "add google analytics for postcodeResultsShown" do
+        track_action = page.find('.local-authority-results')['data-track-action']
+        track_label = page.find('.local-authority-results')['data-track-label']
+
+        assert_equal "postcodeResultShown", track_action
+        assert_equal "1 Result", track_label
       end
 
       should "show back link" do
@@ -112,6 +128,14 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_content?("District councils are responsible for services like:")
           assert page.has_link?("aylesbury.example.com", href: "http://aylesbury.example.com", exact: true)
         end
+      end
+
+      should "add google analytics for postcodeResultsShown" do
+        track_action = page.find('.local-authority-results')['data-track-action']
+        track_label = page.find('.local-authority-results')['data-track-label']
+
+        assert_equal "postcodeResultShown", track_action
+        assert_equal "2 Results", track_label
       end
 
       should "show back link" do

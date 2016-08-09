@@ -30,9 +30,9 @@
               title: "Register to vote", rel: "internal", class: "button", role: "button",
               data: {
                 module: 'track-click',
-                track: {
-                  category: 'linkTrack', action: 'linkClicked', label: @publication.promotion_url
-                }
+                track_category: 'linkTrack',
+                track_action: 'linkClicked',
+                track_label: @publication.promotion_url
               } %>
       </p>
     </div>

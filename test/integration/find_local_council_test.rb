@@ -34,7 +34,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
       track_category = page.find('.postcode-search-form')['data-track-category']
       track_action = page.find('.postcode-search-form')['data-track-action']
 
-      assert_equal "placeSearch", track_category
+      assert_equal "postcodeSearch:find_your_local_council", track_category
       assert_equal "postcodeSearchStarted", track_action
     end
   end

@@ -19,6 +19,10 @@ class MapitPostcodeResponse
     postcode && location.nil? && error.present?
   end
 
+  def blank_postcode?
+    postcode.blank?
+  end
+
   def areas_found?
     location.areas.present?
   end

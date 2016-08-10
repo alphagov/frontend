@@ -129,6 +129,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_content? "We couldn't find this postcode."
         assert page.has_content? "Check it and enter it again."
       end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:fullPostcodeNoMapitMatch", track_action
+        assert_equal "We couldn't find this postcode.", track_label
+      end
     end
 
     context "when visiting the local transaction with an invalid postcode" do
@@ -155,6 +163,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "re-populate the invalid input" do
         assert page.has_field? "postcode", with: "Not valid"
       end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:invalidPostcodeFormat", track_action
+        assert_equal "This isn't a valid postcode.", track_label
+      end
     end
 
     context "when visiting the local transaction with a blank postcode" do
@@ -170,6 +186,40 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "see an error message" do
         assert page.has_content? "This isn't a valid postcode"
+      end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:invalidPostcodeFormat", track_action
+        assert_equal "This isn't a valid postcode.", track_label
+      end
+    end
+
+    context "when visiting the local transaction with a valid postcode that has no areas in MapIt" do
+      setup do
+        mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+
+        visit '/pay-bear-tax'
+        fill_in 'postcode', with: "XM4 5HQ"
+        click_button('Find')
+      end
+
+      should "see an error message" do
+        assert page.has_content? "We couldn't find a council for this postcode."
+      end
+
+      should "re-populate the invalid input" do
+        assert page.has_field? "postcode", with: "XM4 5HQ"
+      end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:noLaMatch", track_action
+        assert_equal "We couldn't find a council for this postcode.", track_label
       end
     end
   end

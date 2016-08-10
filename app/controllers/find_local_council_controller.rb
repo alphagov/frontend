@@ -1,3 +1,5 @@
+require "postcode_sanitizer"
+
 class FindLocalCouncilController < ApplicationController
   before_filter :set_artefact_headers
 
@@ -45,12 +47,17 @@ class FindLocalCouncilController < ApplicationController
 private
 
   def location_error
-    return LocationError.new unless mapit_response.location_found?
-    return LocationError.new('noLaMatch') unless mapit_response.areas_found? && authority_slug.present?
+    return LocationError.new("invalidPostcodeFormat") if mapit_response.invalid_postcode? || mapit_response.blank_postcode?
+    return LocationError.new("fullPostcodeNoMapitMatch") if mapit_response.location_not_found?
+    return LocationError.new("noLaMatch") unless mapit_response.location_found? && mapit_response.areas_found? && authority_slug.present?
   end
 
   def mapit_response
-    @_mapit_response ||= fetch_location(params[:postcode])
+    @_mapit_response ||= fetch_location(postcode)
+  end
+
+  def postcode
+    @_postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
   end
 
   def authority_slug

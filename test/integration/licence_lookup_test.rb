@@ -80,9 +80,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
     end
 
     context "when visiting the licence without specifying a location" do
-      should "display the page content" do
+      setup do
         visit '/licence-to-kill'
+      end
 
+      should "display the page content" do
         assert page.has_content? "Licence to kill"
         assert page.has_content? "You only live twice, Mr Bond."
         assert page.has_selector?(shared_component_selector('beta_label'))
@@ -90,6 +92,14 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
       should "not show a postcode error" do
         assert !page.has_selector?(".location_error")
+      end
+
+      should "add google analytics tags for postcodeSearchStarted" do
+        track_category = page.find('.postcode-search-form')['data-track-category']
+        track_action = page.find('.postcode-search-form')['data-track-action']
+
+        assert_equal "postcodeSearch:licence", track_category
+        assert_equal "postcodeSearchStarted", track_action
       end
     end
 

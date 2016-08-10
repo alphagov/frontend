@@ -4,7 +4,12 @@
       data-track-action="postcodeSearchStarted">
 
   <% if @location_error %>
-    <div class="error-summary">
+    <div class="error-summary"
+         data-module="auto-track-event"
+         data-track-category="userAlerts:<%= publication_format %>"
+         data-track-action="postcodeErrorShown:<%= @location_error.postcode_error %>"
+         data-track-label="<%= t(@location_error.message, @location_error.message_args) %>">
+
       <p class="instruction"><%= t @location_error.message, @location_error.message_args %></p>
       <% if @location_error.sub_message.present? %>
         <p><%= t @location_error.sub_message %></p>

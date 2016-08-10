@@ -62,33 +62,45 @@ class PlacesTest < ActionDispatch::IntegrationTest
     ]
   end
 
-  should "show the postcode form and introduction without a postcode" do
-    visit '/passport-interview-office'
-
-    within ".page-header" do
-      assert page.has_content?("Find a passport interview office")
+  context "when visiting the start page" do
+    setup do
+      visit '/passport-interview-office'
     end
 
-    assert page.has_selector?(shared_component_selector('beta_label'))
-
-    within ".intro" do
-      assert page.has_content?("Enter your postcode to find a passport interview office near you.")
-    end
-
-    within ".find-location-for-service" do
-      assert page.has_field?("Enter a postcode")
-      assert page.has_button?("Find")
-    end
-
-    within ".further_information" do
-      assert page.has_content?("Further information")
-
-      within "ul" do
-        assert page.has_selector?("li", :text => "Proof of identification required")
+    should "show the postcode form and introduction without a postcode" do
+      within ".page-header" do
+        assert page.has_content?("Find a passport interview office")
       end
+
+      assert page.has_selector?(shared_component_selector('beta_label'))
+
+      within ".intro" do
+        assert page.has_content?("Enter your postcode to find a passport interview office near you.")
+      end
+
+      within ".find-location-for-service" do
+        assert page.has_field?("Enter a postcode")
+        assert page.has_button?("Find")
+      end
+
+      within ".further_information" do
+        assert page.has_content?("Further information")
+
+        within "ul" do
+          assert page.has_selector?("li", text: "Proof of identification required")
+        end
+      end
+
+      assert page.has_no_content?("Please enter a valid full UK postcode.")
     end
 
-    assert page.has_no_content?("Please enter a valid full UK postcode.")
+    should "add google analytics tags for postcodeSearchStarted" do
+      track_category = page.find('.postcode-search-form')['data-track-category']
+      track_action = page.find('.postcode-search-form')['data-track-action']
+
+      assert_equal "postcodeSearch:place", track_category
+      assert_equal "postcodeSearchStarted", track_action
+    end
   end
 
   context "given a valid postcode" do
@@ -127,7 +139,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
       end
     end
   end
-
 
   context "given a valid postcode for report child abuse" do
     setup do

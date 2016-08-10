@@ -80,6 +80,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "show link to postcode_finder" do
         assert page.has_selector?("a#postcode-finder-link")
       end
+
+      should "add google analytics tags for postcodeSearchStarted" do
+        track_category = page.find('.postcode-search-form')['data-track-category']
+        track_action = page.find('.postcode-search-form')['data-track-action']
+
+        assert_equal "postcodeSearch:local_transaction", track_category
+        assert_equal "postcodeSearchStarted", track_action
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do

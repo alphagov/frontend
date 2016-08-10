@@ -73,9 +73,19 @@ private
   end
 
   def dummy_artefact_with_hardcoded_links
-    # NOTE: We use hardcoded breadcrumbs and related links for the moment until
-    # we decide if we can store this and other related data on a content item
-    hardcoded_related_links.merge(hardcoded_breadcrumbs)
+    # NOTE: We use a hash as a dummy artefact (which stores a variety of
+    #       hardcoded data) for the moment, until we decide if we
+    #       can store this and other related data on a content item
+    hardcoded_format
+      .merge(hardcoded_related_links)
+      .merge(hardcoded_breadcrumbs)
+  end
+
+  def hardcoded_format
+    # NOTE: This is required to set 'dimension2' for Google Analytics tracking
+    {
+      "format" => "find-your-local-council",
+    }
   end
 
   def hardcoded_related_links

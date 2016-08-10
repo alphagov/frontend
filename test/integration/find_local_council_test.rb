@@ -31,8 +31,8 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
     end
 
     should "add google analytics tags for postcodeSearchStarted" do
-      track_category = page.find('.find-nearest')['data-track-category']
-      track_action = page.find('.find-nearest')['data-track-action']
+      track_category = page.find('.postcode-search-form')['data-track-category']
+      track_action = page.find('.postcode-search-form')['data-track-action']
 
       assert_equal "placeSearch", track_category
       assert_equal "postcodeSearchStarted", track_action

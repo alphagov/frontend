@@ -6,7 +6,9 @@
   <% if @location_error %>
     <div class="error-summary">
       <p class="instruction"><%= t @location_error.message, @location_error.message_args %></p>
-      <p><%= t @location_error.sub_message %></p>
+      <% if @location_error.sub_message.present? %>
+        <p><%= t @location_error.sub_message %></p>
+      <% end %>
     </div>
   <% end %>
 

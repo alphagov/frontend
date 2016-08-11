@@ -37,6 +37,11 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
       assert_equal "postcodeSearch:find_your_local_council", track_category
       assert_equal "postcodeSearchStarted", track_action
     end
+
+    should "add the description as meta tag for SEO purposes" do
+      description = page.find('meta[name="description"]', visible: false)['content']
+      assert_equal "Find your local authority in England, Wales, Scotland and Northern Ireland", description
+    end
   end
 
   context "when entering a postcode in the search form" do

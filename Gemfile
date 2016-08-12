@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.7.1'
 gem 'rails-i18n', '~> 4.0.8'
 gem 'unicorn', '4.6.3'
 gem 'gelf'

@@ -16,9 +16,9 @@ Frontend::Application.routes.draw do
   get "/help", to: "help#index"
   get "/tour", to: "root#tour"
 
-  get "/find-your-local-council" => "find_local_council#index"
-  post "/find-your-local-council" => "find_local_council#find"
-  get "/find-your-local-council/:authority_slug" => "find_local_council#result"
+  get "/find-local-council" => "find_local_council#index"
+  post "/find-local-council" => "find_local_council#find"
+  get "/find-local-council/:authority_slug" => "find_local_council#result"
 
   get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
   post "/foreign-travel-advice" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent POST requests for /foreign-travel-advice blowing up in the publication handlers below

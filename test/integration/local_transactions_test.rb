@@ -308,7 +308,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     should "show advisory message that we have no url" do
       assert page.has_content?("We don't have a link for their website.")
-      assert page.has_link?("local council search", href: "/find-your-local-council")
+      assert page.has_link?("local council search", href: "/find-local-council")
     end
 
     should "not see the transaction information" do

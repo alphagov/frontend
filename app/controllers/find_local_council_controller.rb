@@ -5,7 +5,7 @@ class FindLocalCouncilController < ApplicationController
 
   rescue_from RecordNotFound, with: :cacheable_404
 
-  BASE_PATH = "/find-your-local-council"
+  BASE_PATH = "/find-local-council"
   UNITARY_AREA_TYPES = %w(COI LBO LGD MTD UTA)
   DISTRICT_AREA_TYPE = "DIS"
   LOWEST_TIER_AREA_TYPES = UNITARY_AREA_TYPES << DISTRICT_AREA_TYPE
@@ -84,7 +84,7 @@ private
   def hardcoded_format
     # NOTE: This is required to set 'dimension2' for Google Analytics tracking
     {
-      "format" => "find-your-local-council",
+      "format" => "find-local-council",
     }
   end
 

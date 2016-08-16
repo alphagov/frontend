@@ -8,7 +8,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
 
   context "when visiting the start page" do
     setup do
-      visit '/find-your-local-council'
+      visit '/find-local-council'
     end
 
     should "show Find Local Council start page" do
@@ -58,13 +58,13 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
           ])
           local_links_manager_has_a_local_authority('westminster')
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "SW1A 1AA"
           click_button('Find')
         end
 
         should "redirect to the authority slug" do
-          assert_equal "/find-your-local-council/westminster", current_path
+          assert_equal "/find-local-council/westminster", current_path
         end
 
         should "show the local authority result" do
@@ -85,7 +85,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "show back link" do
-          assert page.has_link?("Back", href: "/find-your-local-council")
+          assert page.has_link?("Back", href: "/find-local-council")
         end
 
         should "add google analytics for exit link tracking" do
@@ -113,13 +113,13 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
 
           local_links_manager_has_a_district_and_county_local_authority('aylesbury', 'buckinghamshire')
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "HP20 1UG"
           click_button('Find')
         end
 
         should "redirect to the district authority slug" do
-          assert_equal "/find-your-local-council/aylesbury", current_path
+          assert_equal "/find-local-council/aylesbury", current_path
         end
 
         should "show the local authority results for both district and county" do
@@ -150,7 +150,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "show back link" do
-          assert page.has_link?("Back", href: "/find-your-local-council")
+          assert page.has_link?("Back", href: "/find-local-council")
         end
 
         should "add google analytics for exit link tracking" do
@@ -174,7 +174,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
           ])
           local_links_manager_has_a_local_authority_without_homepage('westminster')
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "SW1A 1AA"
           click_button('Find')
         end
@@ -190,13 +190,13 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         setup do
           mapit_does_not_have_a_bad_postcode("NO POSTCODE")
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "NO POSTCODE"
           click_button('Find')
         end
 
         should "remain on the find your local council page" do
-          assert_equal "/find-your-local-council", current_path
+          assert_equal "/find-local-council", current_path
 
           assert page.has_content?("Find your local council")
           assert page.has_content?("Find the website for your local council.")
@@ -221,13 +221,13 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "with blank postcode" do
         setup do
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: ""
           click_button('Find')
         end
 
         should "remain on the find your local council page" do
-          assert_equal "/find-your-local-council", current_path
+          assert_equal "/find-local-council", current_path
 
           assert page.has_content?("Find your local council")
           assert page.has_content?("Find the website for your local council.")
@@ -250,13 +250,13 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         setup do
           mapit_does_not_have_a_postcode("AB1 2AB")
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "AB1 2AB"
           click_button('Find')
         end
 
         should "remain on the find your local council page" do
-          assert_equal "/find-your-local-council", current_path
+          assert_equal "/find-local-council", current_path
 
           assert page.has_content?("Find your local council")
           assert page.has_content?("Find the website for your local council.")
@@ -280,7 +280,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         setup do
           mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "XM4 5HQ"
           click_button('Find')
         end
@@ -313,13 +313,13 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
             },
           ])
 
-          visit '/find-your-local-council'
+          visit '/find-local-council'
           fill_in 'postcode', with: "XM4 5HQ"
           click_button('Find')
         end
 
         should "remain on the find your local council page" do
-          assert_equal "/find-your-local-council", current_path
+          assert_equal "/find-local-council", current_path
 
           assert page.has_content?("Find your local council")
           assert page.has_content?("Find the website for your local council.")
@@ -344,7 +344,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
     context "with valid slug" do
       setup do
         local_links_manager_has_a_local_authority('islington')
-        visit '/find-your-local-council/islington'
+        visit '/find-local-council/islington'
       end
 
       should "show the local authority result" do
@@ -360,7 +360,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
     context "with invalid slug" do
       setup do
         local_links_manager_does_not_have_an_authority('hogwarts')
-        visit '/find-your-local-council/hogwarts'
+        visit '/find-local-council/hogwarts'
       end
 
       should "see an error message" do

@@ -10,7 +10,7 @@
     </div>
   </header>
   <div class="article-container group">
-    <%= render :partial => 'beta_label' %>
+    <%= render :partial => 'beta_label', locals: { message: content_for(:beta_label_message) } %>
 
     <div class="content-block">
       <div class="inner">

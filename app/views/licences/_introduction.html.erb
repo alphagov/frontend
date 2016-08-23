@@ -5,7 +5,11 @@
       <% if @interaction_details[:licence]['location_specific'] %>
         <div class="get-started-intro">
           <h1>Apply for this licence</h1>
-          <%= render :partial => 'location_form', :locals => {:format => 'licence'} %>
+          <%= render partial: 'location_form',
+                     locals: {
+                       format: 'licence',
+                       publication_format: 'licence'
+                     } %>
         </div>
       <% else %>
         <p>Please choose an authority to apply for the licence from.</p>
@@ -24,7 +28,7 @@
       </div>
     <% else %>
       <div class="application-notice help-notice">
-        <p>You can't apply for this licence online. <a href="/find-your-local-council" title="contact your local council">Contact your local council</a>.</p>
+        <p>You can't apply for this licence online. <a href="/find-local-council" title="contact your local council">Contact your local council</a>.</p>
       </div>
     <% end %>
 

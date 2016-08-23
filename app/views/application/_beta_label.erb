@@ -1,0 +1,7 @@
+<div class="beta-label-wrapper">
+  <% if local_assigns.include?(:message) && local_assigns[:message].present? %>
+    <%= render partial: 'govuk_component/beta_label', locals: { message: message } %>
+  <% else %>
+    <%= render partial: 'govuk_component/beta_label' %>
+  <% end %>
+</div>

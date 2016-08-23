@@ -1,0 +1,26 @@
+<% content_for :title do %>Find your local council<% end %>
+<% content_for :extra_headers do %>
+  <meta name="description"
+        content="Find your local authority in England, Wales, Scotland and Northern Ireland" />
+<% end %>
+
+<main id="content" role="main">
+  <header class="page-header">
+    <div>
+      <h1>
+        Find your local council
+      </h1>
+    </div>
+  </header>
+  <div class="article-container group">
+    <%= render :partial => 'beta_label', locals: { message: content_for(:beta_label_message) } %>
+
+    <div class="content-block">
+      <div class="inner">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="related-items"></div>

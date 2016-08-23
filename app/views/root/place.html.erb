@@ -10,7 +10,11 @@
 
         <%= raw @publication.introduction %>
 
-        <%= render partial: 'location_form', locals: { format: 'service' } %>
+        <%= render partial: 'location_form',
+                   locals: {
+                     format: 'service',
+                     publication_format: 'place'
+                   } %>
       </div>
     </div>
   </section>
@@ -40,5 +44,3 @@
     </section>
   <% end %>
 <% end %>
-
-<%= render partial: 'ga_postcode_error_tracking', locals: { alert_type: 'place' } %>

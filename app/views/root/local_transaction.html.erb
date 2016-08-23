@@ -10,7 +10,11 @@
         <%= raw @publication.introduction %>
       </div>
     </section>
-    <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+    <%= render partial: 'location_form',
+               locals: {
+                 format: 'service',
+                 publication_format: 'local_transaction'
+               } %>
   <% else %>
     <% if @interaction_details['local_interaction'] %>
       <div class="interaction">
@@ -35,11 +39,15 @@
             </a>
           </p>
         <% else %>
-          <p>We don't have a link for their website. Try the <a href="http://local.direct.gov.uk/LDGRedirect/Start.do?mode=1">local council search</a> instead.</p>
+          <p>We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
         <% end %>
       </div>
     <% else %>
-      <%= render :partial => 'location_form', :locals => {:format => 'service'} %>
+      <%= render partial: 'location_form',
+                 locals: {
+                   format: 'service',
+                   publication_format: 'local_transaction'
+                 } %>
     <% end %>
     <div class="search-again"><%= link_to 'Back', publication_path(@publication.slug), title: "Search again using a different postcode." %></div>
   <% end %>
@@ -53,4 +61,3 @@
     </div>
   </section>
 <% end %>
-<%= render partial: 'ga_postcode_error_tracking', locals: { alert_type: 'LocalTransaction' } %>

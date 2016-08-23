@@ -1,12 +1,19 @@
-<div class="find-nearest"
+<div class="postcode-search-form"
       data-module="track-submit"
-      data-track-category="placeSearch"
+      data-track-category="postcodeSearch:<%= publication_format %>"
       data-track-action="postcodeSearchStarted">
 
   <% if @location_error %>
-    <div class="error-summary">
+    <div class="error-summary"
+         data-module="auto-track-event"
+         data-track-category="userAlerts:<%= publication_format %>"
+         data-track-action="postcodeErrorShown:<%= @location_error.postcode_error %>"
+         data-track-label="<%= t(@location_error.message, @location_error.message_args) %>">
+
       <p class="instruction"><%= t @location_error.message, @location_error.message_args %></p>
-      <p><%= t @location_error.sub_message %></p>
+      <% if @location_error.sub_message.present? %>
+        <p><%= t @location_error.sub_message %></p>
+      <% end %>
     </div>
   <% end %>
 
@@ -22,13 +29,13 @@
         <p>eg SW1A 2AA</p>
         <input class="postcode" id="postcode" name="postcode" type="text" value="<%= @postcode %>">
         <button type="submit" class="button">Find</button>
-        <div>
+        <p>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",
                       'http://www.royalmail.com/find-a-postcode',
                       :target => "_blank",
                       id: 'postcode-finder-link',
                       rel: "external" %>
-        </div>
+        </p>
       </div>
     </fieldset>
   </form>

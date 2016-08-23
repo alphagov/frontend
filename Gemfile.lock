@@ -75,7 +75,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    gds-api-adapters (32.2.1)
+    gds-api-adapters (32.3.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -273,7 +273,7 @@ DEPENDENCIES
   capybara (= 2.1.0)
   cdn_helpers (= 0.9)
   ci_reporter
-  gds-api-adapters (= 32.2.1)
+  gds-api-adapters (= 32.3.0)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint (~> 0.3.0)

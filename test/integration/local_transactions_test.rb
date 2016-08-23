@@ -80,6 +80,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "show link to postcode_finder" do
         assert page.has_selector?("a#postcode-finder-link")
       end
+
+      should "add google analytics tags for postcodeSearchStarted" do
+        track_category = page.find('.postcode-search-form')['data-track-category']
+        track_action = page.find('.postcode-search-form')['data-track-action']
+
+        assert_equal "postcodeSearch:local_transaction", track_category
+        assert_equal "postcodeSearchStarted", track_action
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do
@@ -111,6 +119,34 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
     end
 
+    context "when visiting the local transaction with an incorrect postcode" do
+      setup do
+        mapit_does_not_have_a_postcode("AB1 2AB")
+
+        visit '/pay-bear-tax'
+
+        fill_in 'postcode', with: "AB1 2AB"
+        click_button('Find')
+      end
+
+      should "remain on the pay bear tax page" do
+        assert_equal "/pay-bear-tax", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "We couldn't find this postcode."
+        assert page.has_content? "Check it and enter it again."
+      end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:fullPostcodeNoMapitMatch", track_action
+        assert_equal "We couldn't find this postcode.", track_label
+      end
+    end
+
     context "when visiting the local transaction with an invalid postcode" do
       setup do
         mapit_does_not_have_a_bad_postcode("Not valid")
@@ -135,6 +171,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "re-populate the invalid input" do
         assert page.has_field? "postcode", with: "Not valid"
       end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:invalidPostcodeFormat", track_action
+        assert_equal "This isn't a valid postcode.", track_label
+      end
     end
 
     context "when visiting the local transaction with a blank postcode" do
@@ -150,6 +194,40 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "see an error message" do
         assert page.has_content? "This isn't a valid postcode"
+      end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:invalidPostcodeFormat", track_action
+        assert_equal "This isn't a valid postcode.", track_label
+      end
+    end
+
+    context "when visiting the local transaction with a valid postcode that has no areas in MapIt" do
+      setup do
+        mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+
+        visit '/pay-bear-tax'
+        fill_in 'postcode', with: "XM4 5HQ"
+        click_button('Find')
+      end
+
+      should "see an error message" do
+        assert page.has_content? "We couldn't find a council for this postcode."
+      end
+
+      should "re-populate the invalid input" do
+        assert page.has_field? "postcode", with: "XM4 5HQ"
+      end
+
+      should "populate google analytics tags" do
+        track_action = page.find('.error-summary')['data-track-action']
+        track_label = page.find('.error-summary')['data-track-label']
+
+        assert_equal "postcodeErrorShown:noLaMatch", track_action
+        assert_equal "We couldn't find a council for this postcode.", track_label
       end
     end
   end
@@ -229,7 +307,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
 
     should "show advisory message that we have no url" do
-      assert page.has_content?("We don't have a link for their website. Try the local council search instead.")
+      assert page.has_content?("We don't have a link for their website.")
+      assert page.has_link?("local council search", href: "/find-local-council")
     end
 
     should "not see the transaction information" do

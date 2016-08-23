@@ -49,7 +49,8 @@ end
 
 group :development, :test do
   gem 'pry'
-  gem 'govuk-lint', "~> 0.3.0"
+  gem 'govuk-lint', "~> 1.2.0"
+  gem 'ci_reporter_test_unit'
 end
 
 # Note that govuk_frontend_toolkit is only used here for SASS mixins and

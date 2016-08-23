@@ -18,4 +18,8 @@ class MapitPostcodeResponse
   def invalid_postcode?
     postcode && location.nil? && error.present?
   end
+
+  def areas_found?
+    location.areas.present?
+  end
 end

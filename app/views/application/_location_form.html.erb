@@ -22,13 +22,13 @@
         <p>eg SW1A 2AA</p>
         <input class="postcode" id="postcode" name="postcode" type="text" value="<%= @postcode %>">
         <button type="submit" class="button">Find</button>
-        <div>
+        <p>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",
                       'http://www.royalmail.com/find-a-postcode',
                       :target => "_blank",
                       id: 'postcode-finder-link',
                       rel: "external" %>
-        </div>
+        </p>
       </div>
     </fieldset>
   </form>

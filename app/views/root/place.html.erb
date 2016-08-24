@@ -20,20 +20,22 @@
   </section>
 
   <% if @postcode.present? and !@publication.places.nil? %>
-    <% if @publication.places.any? %>
-      <section class="places"
-               data-module="auto-track-event"
-               data-track-category="placeSearch"
-               data-track-action="postcodeResultShown"
-               data-track-label="<%= @publication.places.first["name"] %>">
-        <h2>Results <%= preposition ||= "near" %> <strong><%= @postcode %></strong>:</h2>
-        <ol id="options" class="places">
-          <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
-        </ol>
-      </section>
-    <% else %>
-      <div class="error-notification"><p>Sorry, no results were found near you.</p></div>
-    <% end %>
+    <section class="places-results"
+             data-module="auto-track-event"
+             data-track-category="<%= track_category_for_place_results(@publication.places) %>"
+             data-track-action="<%= track_action_for_place_results(@publication.places) %>"
+             data-track-label="<%= track_label_for_place_results(@publication.places) %>">
+      <% if @publication.places.any? %>
+          <h2>Results <%= preposition ||= "near" %> <strong><%= @postcode %></strong>:</h2>
+          <ol id="options" class="places">
+            <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
+          </ol>
+      <% else %>
+        <div class="error-notification">
+          <p>Sorry, no results were found near you.</p>
+        </div>
+      <% end %>
+    </section>
   <% else %>
     <section class="more">
       <div class="further_information">

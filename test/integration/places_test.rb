@@ -138,6 +138,16 @@ class PlacesTest < ActionDispatch::IntegrationTest
         end
       end
     end
+
+    should "add google analytics for postcodeResultsShown" do
+      track_category = page.find('.places-results')['data-track-category']
+      track_action = page.find('.places-results')['data-track-action']
+      track_label = page.find('.places-results')['data-track-label']
+
+      assert_equal "postcodeSearch:place", track_category
+      assert_equal "postcodeResultShown", track_action
+      assert_equal "London IPS Office", track_label
+    end
   end
 
   context "given a valid postcode for report child abuse" do
@@ -214,6 +224,16 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "inform the user on the lack of results" do
       assert page.has_content?("Sorry, no results were found near you.")
+    end
+
+    should "add google analytics for noResults" do
+      track_category = page.find('.places-results')['data-track-category']
+      track_action = page.find('.places-results')['data-track-action']
+      track_label = page.find('.places-results')['data-track-label']
+
+      assert_equal "userAlerts:place", track_category
+      assert_equal "postcodeErrorShown:noResults", track_action
+      assert_equal "Sorry, no results were found near you.", track_label
     end
   end
 

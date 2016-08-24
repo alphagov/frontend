@@ -34,7 +34,7 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
       track_category = page.find('.postcode-search-form')['data-track-category']
       track_action = page.find('.postcode-search-form')['data-track-action']
 
-      assert_equal "postcodeSearch:find_your_local_council", track_category
+      assert_equal "postcodeSearch:find_local_council", track_category
       assert_equal "postcodeSearchStarted", track_action
     end
 
@@ -81,9 +81,11 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "add google analytics for postcodeResultsShown" do
+          track_category = page.find('.local-authority-results')['data-track-category']
           track_action = page.find('.local-authority-results')['data-track-action']
           track_label = page.find('.local-authority-results')['data-track-label']
 
+          assert_equal "postcodeSearch:find_local_council", track_category
           assert_equal "postcodeResultShown", track_action
           assert_equal "1 Result", track_label
         end
@@ -150,9 +152,11 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "add google analytics for postcodeResultsShown" do
+          track_category = page.find('.local-authority-results')['data-track-category']
           track_action = page.find('.local-authority-results')['data-track-action']
           track_label = page.find('.local-authority-results')['data-track-label']
 
+          assert_equal "postcodeSearch:find_local_council", track_category
           assert_equal "postcodeResultShown", track_action
           assert_equal "2 Results", track_label
         end

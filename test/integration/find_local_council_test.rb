@@ -2,12 +2,13 @@ require 'integration_test_helper'
 require 'gds_api/test_helpers/mapit'
 require 'gds_api/test_helpers/local_links_manager'
 
-class LocalCouncilTest < ActionDispatch::IntegrationTest
+class FindLocalCouncilTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LocalLinksManager
 
   context "when visiting the start page" do
     setup do
+      Frontend.stubs(:govuk_website_root).returns("https://www.test.gov.uk")
       visit '/find-local-council'
     end
 
@@ -20,8 +21,8 @@ class LocalCouncilTest < ActionDispatch::IntegrationTest
     should "show the breadcrumbs" do
       within('#global-breadcrumb') do
         assert page.has_link?("Home", href: "/", exact: true)
-        assert page.has_link?("Housing and local services", href: "https://www.gov.uk/browse/housing-local-services", exact: true)
-        assert page.has_link?("Local councils and services", href: "https://www.gov.uk/browse/housing-local-services/local-councils", exact: true)
+        assert page.has_link?("Housing and local services", href: "https://www.test.gov.uk/browse/housing-local-services", exact: true)
+        assert page.has_link?("Local councils and services", href: "https://www.test.gov.uk/browse/housing-local-services/local-councils", exact: true)
       end
     end
 

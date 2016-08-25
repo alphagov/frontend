@@ -93,9 +93,9 @@ private
     {
       "related" => [
         {
-          "id" => "https://www.gov.uk/api/understand-how-your-council-works.json",
+          "id" => "#{Frontend.govuk_website_root}/api/understand-how-your-council-works.json",
           "content_id" => "df61f873-f42f-4fb9-8e8e-17fa6a583270",
-          "web_url" => "https://www.gov.uk/understand-how-your-council-works",
+          "web_url" => "#{Frontend.govuk_website_root}/understand-how-your-council-works",
           "title" => "Understand how your council works",
           "format" => "guide",
           "owning_app" => "publisher",
@@ -111,10 +111,10 @@ private
     {
       "tags" => [
         {
-          "id" => "https://www.gov.uk/api/tags/section/housing-local-services%2Flocal-councils.json",
+          "id" => "#{Frontend.govuk_website_root}/api/tags/section/housing-local-services%2Flocal-councils.json",
           "content_id" => "4f8f62a8-9ff9-45ab-b4f7-aec5d1cffbad",
           "slug" => "housing-local-services/local-councils",
-          "web_url" => "https://www.gov.uk/browse/housing-local-services/local-councils",
+          "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services/local-councils",
           "title" => "Local councils and services",
           "details" => {
             "description" => "Find and access local services",
@@ -122,15 +122,15 @@ private
             "type" => "section"
           },
           "content_with_tag" => {
-            "id" => "https://www.gov.uk/api/with_tag.json?section=housing-local-services%2Flocal-councils",
-            "web_url" => "https://www.gov.uk/browse/housing-local-services/local-councils"
+            "id" => "#{Frontend.govuk_website_root}/api/with_tag.json?section=housing-local-services%2Flocal-councils",
+            "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services/local-councils"
           },
           "state" => "live",
           "parent" => {
-            "id" => "https://www.gov.uk/api/tags/section/housing-local-services.json",
+            "id" => "#{Frontend.govuk_website_root}/api/tags/section/housing-local-services.json",
             "content_id" => "61d038ad-ba54-40a1-b6ca-18b390138b41",
             "slug" => "housing-local-services",
-            "web_url" => "https://www.gov.uk/browse/housing-local-services",
+            "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services",
             "title" => "Housing and local services",
             "details" => {
               "description" => "Includes owning or renting, council services, planning and building, neighbours, noise and pets",
@@ -138,8 +138,8 @@ private
               "type" => "section"
             },
             "content_with_tag" => {
-              "id" => "https://www.gov.uk/api/with_tag.json?section=housing-local-services",
-              "web_url" => "https://www.gov.uk/browse/housing-local-services"
+              "id" => "#{Frontend.govuk_website_root}/api/with_tag.json?section=housing-local-services",
+              "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services"
             },
             "state" => "live",
             "parent" => nil

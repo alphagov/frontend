@@ -51,7 +51,7 @@ Frontend::Application.configure do
   config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
 
   config.slimmer.use_cache = true
-  config.slimmer.asset_host = Plek.current.find('static')
+  config.slimmer.asset_host = Plek.new.find('static')
 
   # Enable JSON-style logging
   config.logstasher.enabled = true

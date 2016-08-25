@@ -47,7 +47,7 @@ protected
   def set_content_security_policy
     return unless Frontend::Application.config.enable_csp
 
-    asset_hosts = "#{Plek.current.find('static')} #{Plek.current.asset_root}"
+    asset_hosts = "#{Plek.new.find('static')} #{Plek.new.asset_root}"
 
     # Our Content-Security-Policy directives use 'unsafe-inline' for scripts and
     # styles because current browsers (Chrome 39 and Firefox 35) only support the
@@ -59,7 +59,7 @@ protected
     style_src = "style-src #{asset_hosts} 'unsafe-inline'"
     img_src = "img-src #{asset_hosts} *.google-analytics.com"
     font_src = "font-src #{asset_hosts} data:"
-    report_uri = "report-uri #{Plek.current.website_root}/e"
+    report_uri = "report-uri #{Plek.new.website_root}/e"
 
     csp_header = "#{default_src}; #{script_src}; #{style_src}; #{img_src}; #{font_src}; #{report_uri}"
 
@@ -89,14 +89,14 @@ protected
 
   def content_api
     @content_api ||= GdsApi::ContentApi.new(
-      Plek.current.find("contentapi"),
+      Plek.new.find("contentapi"),
       content_api_options
     )
   end
 
   def content_store
     @content_store ||= GdsApi::ContentStore.new(
-      Plek.current.find("content-store")
+      Plek.new.find("content-store")
     )
   end
 
@@ -113,7 +113,7 @@ private
   def content_api_options
     options = CONTENT_API_CREDENTIALS
     unless request.format == :atom
-      options = options.merge(web_urls_relative_to: Plek.current.website_root)
+      options = options.merge(web_urls_relative_to: Plek.new.website_root)
     end
     options
   end

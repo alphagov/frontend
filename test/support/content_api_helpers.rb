@@ -5,7 +5,7 @@ class ActiveSupport::TestCase
         "status" => "not found"
       }
     }
-    url = "#{Plek.current.find("contentapi")}#{path}"
+    url = "#{Plek.new.find('contentapi')}#{path}"
     stub_request(:get, url).to_return(:status => 404, :body => body.to_json, :headers => {})
   end
 end

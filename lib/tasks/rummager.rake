@@ -5,7 +5,7 @@ namespace :rummager do
 
   task :index_special_routes => :environment do
     require 'gds_api/rummager'
-    rummager = GdsApi::Rummager.new(ENV["RUMMAGER_HOST"] || Plek.current.find('search'))
+    rummager = GdsApi::Rummager.new(ENV["RUMMAGER_HOST"] || Plek.new.find('search'))
 
     rummager_payloads = [
       {

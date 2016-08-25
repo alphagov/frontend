@@ -5,7 +5,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   context "backend error handling" do
     context "backend timeout" do
       setup do
-        stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_timeout
+        stub_request(:get, "#{Plek.new.find('contentapi')}/my-item.json").to_timeout
       end
 
       should "return 503 if backend times out" do
@@ -16,7 +16,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
     context "backend 500 error" do
       setup do
-        stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_return(:status => 500)
+        stub_request(:get, "#{Plek.new.find('contentapi')}/my-item.json").to_return(status: 500)
       end
 
       should "return 503" do
@@ -27,7 +27,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
     context "backend connection refused" do
       setup do
-        stub_request(:get, "#{Plek.current.find('contentapi')}/my-item.json").to_raise(Errno::ECONNREFUSED)
+        stub_request(:get, "#{Plek.new.find('contentapi')}/my-item.json").to_raise(Errno::ECONNREFUSED)
       end
 
       should "return 503 if backend connection is refused" do

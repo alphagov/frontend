@@ -2,6 +2,7 @@ require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
   before_filter :set_artefact_headers
+  before_filter :set_expiry
 
   rescue_from RecordNotFound, with: :cacheable_404
 

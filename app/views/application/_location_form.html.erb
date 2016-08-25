@@ -27,7 +27,12 @@
       <div class="ask_location">
         <label class="instruction" for="postcode">Enter a postcode</label>
         <p>eg SW1A 2AA</p>
-        <input class="postcode" id="postcode" name="postcode" type="text" value="<%= @postcode %>">
+        <input class="postcode"
+               id="postcode"
+               name="postcode"
+               type="text"
+               aria-invalid="<%= @location_error ? 'true' : 'false' %>"
+               value="<%= @postcode %>">
         <button type="submit" class="button">Find</button>
         <p>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",

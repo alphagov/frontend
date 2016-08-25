@@ -47,6 +47,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     should 'have the initial survey link in the beta label area' do
       assert_beta_label with_link: { text: 'help us improve it', href: 'https://www.surveymonkey.co.uk/r/2RPJRVT' }
     end
+
+    should 'have the aria-invalid attribute set to false' do
+      assert_equal "false", page.find('.postcode')['aria-invalid']
+    end
   end
 
   context "when entering a postcode in the search form" do
@@ -233,6 +237,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           assert_equal "postcodeErrorShown:invalidPostcodeFormat", track_action
           assert_equal "This isn't a valid postcode.", track_label
+        end
+
+        should 'have the aria-invalid attribute set to true' do
+          assert_equal "true", page.find('.postcode')['aria-invalid']
         end
       end
 

@@ -12,7 +12,7 @@ class ActionDispatch::IntegrationTest
   def setup
     super
     # Stub website_root to match test fixtures
-    Plek.any_instance.stubs(:website_root).returns("https://www.gov.uk")
+    Frontend.stubs(:govuk_website_root).returns("https://www.gov.uk")
   end
 
   def teardown

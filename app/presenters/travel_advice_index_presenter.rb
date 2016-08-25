@@ -46,9 +46,6 @@ class TravelAdviceIndexPresenter
     end
 
   private
-    def website_root
-      @website_root ||= Plek.new.website_root
-    end
     alias_method :title, :name
   end
 end

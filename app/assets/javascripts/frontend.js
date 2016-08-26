@@ -9,3 +9,7 @@
 //= require templates
 //= require search
 //= require_tree ./modules
+
+$(document).ready(function() {
+  $('.error-summary').focus();
+});

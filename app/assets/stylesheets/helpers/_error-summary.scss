@@ -1,0 +1,6 @@
+.error-summary {
+  // Use the GOV.UK outline focus style
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+}

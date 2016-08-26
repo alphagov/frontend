@@ -5,6 +5,8 @@
 
   <% if @location_error %>
     <div class="error-summary"
+         tabindex="-1"
+         role="alert"
          data-module="auto-track-event"
          data-track-category="userAlerts:<%= publication_format %>"
          data-track-action="postcodeErrorShown:<%= @location_error.postcode_error %>"
@@ -26,8 +28,13 @@
 
       <div class="ask_location">
         <label class="instruction" for="postcode">Enter a postcode</label>
-        <p>eg SW1A 2AA</p>
-        <input class="postcode" id="postcode" name="postcode" type="text" value="<%= @postcode %>">
+        <p>For example SW1A 2AA</p>
+        <input class="postcode"
+               id="postcode"
+               name="postcode"
+               type="text"
+               aria-invalid="<%= @location_error ? 'true' : 'false' %>"
+               value="<%= @postcode %>">
         <button type="submit" class="button">Find</button>
         <p>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",

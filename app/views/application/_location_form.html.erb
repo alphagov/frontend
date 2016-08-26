@@ -5,6 +5,8 @@
 
   <% if @location_error %>
     <div class="error-summary"
+         tabindex="-1"
+         role="alert"
          data-module="auto-track-event"
          data-track-category="userAlerts:<%= publication_format %>"
          data-track-action="postcodeErrorShown:<%= @location_error.postcode_error %>"

@@ -503,6 +503,7 @@ body.homepage {
           display: block;
           text-decoration: none;
           line-height: 1.25;
+          overflow: hidden;
         }
         strong {
           // Manually setting font-size rather than using the mixins size so we

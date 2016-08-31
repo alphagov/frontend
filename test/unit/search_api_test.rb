@@ -10,7 +10,7 @@ class SearchAPITest < ActiveSupport::TestCase
     @search_api = SearchAPI.new(@rummager_api)
     @search_results = stub
     @rummager_response = stub(to_hash: { results: @search_results })
-    @rummager_api.expects(:unified_search).with(@rummager_params).returns(@rummager_response)
+    @rummager_api.expects(:search).with(@rummager_params).returns(@rummager_response)
   end
 
   context "given an unscoped search" do
@@ -36,8 +36,8 @@ class SearchAPITest < ActiveSupport::TestCase
       @manual_search_response = stub(results:  [stub(title: @manual_title)])
       @unscoped_search_response = stub(to_hash: {title: @govuk_result_title})
 
-      @rummager_api.expects(:unified_search).with(count: "3", reject_manual: @manual_link).returns(@unscoped_search_response)
-      @rummager_api.expects(:unified_search).with(filter_link: @manual_link, count: "1", fields: %w{title}).returns(@manual_search_response)
+      @rummager_api.expects(:search).with(count: "3", reject_manual: @manual_link).returns(@unscoped_search_response)
+      @rummager_api.expects(:search).with(filter_link: @manual_link, count: "1", fields: %w{title}).returns(@manual_search_response)
     end
 
     should "return search results from rummager" do

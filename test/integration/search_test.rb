@@ -8,7 +8,7 @@ class SearchTest < ActionDispatch::IntegrationTest
   end
 
   should "allow us to embed search results in an iframe" do
-    stub_request(:get, %r[#{Plek.new.find('search')}/unified_search.json*])
+    stub_request(:get, %r[#{Plek.new.find('search')}/search.json*])
       .to_return(body: JSON.dump(results: [], facets: []))
 
     get "/search?q=tax"

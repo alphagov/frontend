@@ -221,32 +221,16 @@ body.homepage {
       .header-search-content {
         @extend %contain-floats;
         position: relative;
-        background: #fff;
+        padding-right: 40px;
       }
       label {
-        float: left;
-        height: 40px;
-        line-height: 40px;
-        text-indent: 15px;
-        overflow: hidden;
         display: block;
-        margin-right: 10px;
-        color: $secondary-text-colour;
-
-        .js-enabled & {
-          float: none;
-          position: absolute;
-          left: 0;
-          top: 1px;
-          z-index: 1;
-          width: 100%;
-          margin-right: 0;
-        }
+        padding-bottom: 2px;
+        @include core-19;
       }
       input {
         @include box-sizing(border-box);
         float: left;
-        width: 50%;
         min-width: 0;
         display: block;
         margin: 0;
@@ -261,30 +245,17 @@ body.homepage {
 
       input#search-main {
         @include core-19($line-height: (28/19), $line-height-640: (28/16));
-        position: relative;
+        width: 100%;
         padding: 6px;
-        z-index: 3;
-        background: transparent;
-
-        &.focus,
-        &:focus {
-          background: #fff;
-        }
-
-        @include ie-lte(7){
-          padding-left: 0;
-        }
-        .js-enabled & {
-          width: 86%;
-          @include calc(width, "100% - 37px");
-        }
+        background: $white;
+        border-radius: 0;
       }
 
       input.submit {
         position: absolute;
-        z-index: 4;
+        z-index: 1;
         right: 0;
-        top: 0;
+        bottom: 0;
         width: 40px;
         height: 40px;
 

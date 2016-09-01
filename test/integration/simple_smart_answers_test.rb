@@ -306,7 +306,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       visit "/the-bridge-of-death?edition=2"
 
-      click_on "Start now"
+      click_on "Click here"
 
       assert_current_url "/the-bridge-of-death/y?edition=2"
 

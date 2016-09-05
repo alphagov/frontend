@@ -12,6 +12,7 @@ private
 
   def service_providing_tiers
     return unless artefact
+    return %w(county unitary) if tier_override == :county_unitary
 
     artefact["details"].try(:[], "licence").try(:[], "local_service").try(:[], "providing_tier")
   end

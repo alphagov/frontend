@@ -1,13 +1,14 @@
 class LocationIdentifier
-  def self.find_slug(areas, artefact)
-    new(areas, artefact).find_slug
+  def self.find_slug(areas, artefact, tier_override = nil)
+    new(areas, artefact, tier_override).find_slug
   end
 
-  attr_reader :areas, :artefact
+  attr_reader :areas, :artefact, :tier_override
 
-  def initialize(areas, artefact)
+  def initialize(areas, artefact, tier_override = nil)
     @areas = areas
     @artefact = artefact
+    @tier_override = tier_override
   end
 
 private

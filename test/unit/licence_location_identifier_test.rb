@@ -145,7 +145,7 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
 
   context "given no local service is available" do
     setup do
-      @artefact = nil
+      @artefact = { "details" => { "licence" => {} } }
     end
 
     should "select the closest authority for areas providing county and district" do
@@ -174,6 +174,15 @@ class LicenceLocationIdentifierTest < ActiveSupport::TestCase
       slug = LicenceLocationIdentifier.find_slug(areas, @artefact)
 
       assert_nil slug
+    end
+
+    context "with tier override" do
+      should "select the area by tier as specified by the override" do
+        areas = [@lancashire_county_council, @south_ribble_borough_council]
+        slug = LicenceLocationIdentifier.find_slug(areas, @artefact, :county_unitary)
+
+        assert_equal "lancashire-county-council", slug
+      end
     end
   end
 end

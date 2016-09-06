@@ -40,6 +40,26 @@ class RootController < ApplicationController
     }
   }
 
+  # NOTE: This is a temporary fix to ensure that these licences get treated as
+  # 'county/unitary' tiered (as opposed to 'district/unitary'). The tier data
+  # for licences used to be stored in LocalService model records in the content
+  # api, but the entries for the licences below have since been removed. In
+  # future this tier data will be stored in the licensing application
+  # (Licensify). Once that has happened and Frontend has been updated to use
+  # that tier information, this list and related code in the
+  # `appropriate_slug_from_location` method can be removed
+  LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE = [
+    'scaffolding-and-hoarding-licence',
+    'skip-operator-licence',
+    'permission-to-place-tables-and-chairs-on-the-pavement',
+    'pavement-or-street-display-licence',
+    'petroleum-storage-licence',
+    'weighbridge-operator-certificate',
+    'performing-animals-registration',
+    'approval-of-premises-for-civil-marriage-or-civil-partnership',
+    'licence-projection-over-highway-england-wales',
+  ].freeze
+
   def self.custom_formats; CUSTOM_FORMATS; end
   def self.custom_slugs; CUSTOM_SLUGS; end
 
@@ -283,8 +303,10 @@ protected
   end
 
   def appropriate_slug_from_location(publication, location)
+    tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(publication.slug)
+
     identifier_class = identifier_class_for_format(publication.format)
-    identifier_class.find_slug(location.areas, publication.artefact)
+    identifier_class.find_slug(location.areas, publication.artefact, tier_override)
   end
 
   def assert_found(obj)

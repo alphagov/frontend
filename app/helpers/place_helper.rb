@@ -4,10 +4,10 @@ module PlaceHelper
   end
 
   def track_action_for_place_results(places)
-    places.any? ? "postcodeResultShown" : "postcodeErrorShown:noResults"
+    places.any? ? "postcodeResultShown" : "postcodeErrorShown:validPostcodeNoLocation"
   end
 
   def track_label_for_place_results(places)
-    places.any? ? places.first["name"] : "Sorry, no results were found near you."
+    places.any? ? places.first["name"] : "We couldn't find any results for this postcode."
   end
 end

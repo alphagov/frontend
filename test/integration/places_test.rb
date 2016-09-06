@@ -117,7 +117,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "not show the 'no results' message" do
-      assert page.has_no_content?("Sorry, no results were found near you.")
+      assert page.has_no_content?("We couldn't find any results for this postcode.")
     end
 
     should "display places near to the requested location" do
@@ -187,7 +187,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "not show the 'no results' message" do
-      assert page.has_no_content?("Sorry, no results were found near you.")
+      assert page.has_no_content?("We couldn't find any results for this postcode.")
     end
 
     should "display places near to the requested location" do
@@ -223,24 +223,25 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "inform the user on the lack of results" do
-      assert page.has_content?("Sorry, no results were found near you.")
+      assert page.has_content?("We couldn't find any results for this postcode.")
     end
 
     should "add google analytics for noResults" do
-      track_category = page.find('.places-results')['data-track-category']
-      track_action = page.find('.places-results')['data-track-action']
-      track_label = page.find('.places-results')['data-track-label']
+      track_category = page.find('.error-summary')['data-track-category']
+      track_action = page.find('.error-summary')['data-track-action']
+      track_label = page.find('.error-summary')['data-track-label']
 
       assert_equal "userAlerts:place", track_category
-      assert_equal "postcodeErrorShown:noResults", track_action
-      assert_equal "Sorry, no results were found near you.", track_label
+      assert_equal "postcodeErrorShown:validPostcodeNoLocation", track_action
+      assert_equal "We couldn't find any results for this postcode.", track_label
     end
   end
 
   context "given an invalid postcode" do
     setup do
       query_hash = { "postcode" => "SW1A 2AA", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
-      stub_imminence_places_request("find-passport-offices", query_hash, {}, 400)
+      return_data = { "error" => "invalidPostcodeFormat" }
+      stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 2AA"
@@ -252,7 +253,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "not show the 'no results' message" do
-      assert page.has_no_content?("Sorry, no results were found near you.")
+      assert page.has_no_content?("We couldn't find any results for this postcode.")
     end
 
     should "display the postcode form" do
@@ -276,7 +277,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display the 'no locations found' message" do
-      assert page.has_content?("We can't find this postcode.")
+      assert page.has_content?("We couldn't find any results for this postcode.")
       assert page.has_content?("This could be because it's a PO Box or outside mainland UK. Please try another postcode nearby.")
     end
   end

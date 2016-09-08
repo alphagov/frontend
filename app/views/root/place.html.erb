@@ -19,7 +19,7 @@
     </div>
   </section>
 
-  <% if @postcode.present? and !@publication.places.nil? %>
+  <% if @postcode.present? && !@location_error %>
     <section class="places-results"
              data-module="auto-track-event"
              data-track-category="<%= track_category_for_place_results(@publication.places) %>"
@@ -30,10 +30,6 @@
           <ol id="options" class="places">
             <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
           </ol>
-      <% else %>
-        <div class="error-notification">
-          <p>Sorry, no results were found near you.</p>
-        </div>
       <% end %>
     </section>
   <% else %>

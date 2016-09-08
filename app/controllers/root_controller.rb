@@ -260,7 +260,10 @@ protected
 
   def fetch_places(artefact, postcode)
     if postcode.present? and artefact.format == 'place'
-      Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
+      places = Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
+      @location_error = LocationError.new("validPostcodeNoLocation") if places.blank?
+      @location_error = LocationError.new("invalidPostcodeFormat") if postcode.blank?
+      places
     end
   rescue GdsApi::HTTPErrorResponse => e
     # allow 400 errors, as they can be invalid postcodes or no locations found

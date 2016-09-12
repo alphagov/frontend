@@ -278,7 +278,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "display the 'no locations found' message" do
       assert page.has_content?("We couldn't find any results for this postcode.")
-      assert page.has_content?("This could be because it's a PO Box or outside mainland UK. Please try another postcode nearby.")
     end
   end
 end

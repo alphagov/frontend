@@ -32,7 +32,7 @@ class LocationError
     when 'validPostcodeNoLocation'
       # This is a find my nearest exception when no location is found
       @message = 'formats.find_my_nearest.valid_postcode_no_locations'
-      @sub_message = 'formats.find_my_nearest.sub_message'
+      @sub_message = '' # not used in the markup for this case
     else # e.g. 'invalidPostcodeFormat' both local transaction and from Imminence
       @message = 'formats.local_transaction.invalid_postcode'
       @sub_message = 'formats.local_transaction.invalid_postcode_sub'

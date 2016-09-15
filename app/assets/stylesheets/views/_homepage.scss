@@ -316,7 +316,12 @@ body.homepage {
             position: relative;
             z-index: 10;
 
-            background: transparent;
+            // Internet Explorer does not play well with "empty" elements. The
+            // label behind the text box becomes selectable (i.e. it acts as if
+            // the input is not there.) Setting a background image fixes it.
+            // http://stackoverflow.com/questions/2098714/input-boxes-with-transparent-background-are-not-clickable-in-ie8
+            // http://stackoverflow.com/questions/9109911/ie-z-index-trouble-on-element-with-transparent-background
+            background: transparent url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
 
             // Javascript adds a confusingly named `focus` class to the input
             // when it contains text. We use this to set the background to

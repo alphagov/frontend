@@ -10,11 +10,11 @@ UkviABTest.AddtoApplySection = function() {
   var html = "<p>You can <a " +
    "href='https://visas-immigration.service.gov.uk/product/eea-qp'>apply online "+
    "as a qualified person</a> but not if you’re a student or self-sufficient "+
-    "person and you're either:"+
+    "person and you're either:</p>"+
   "<ul>"+
     "<li>reliant on a family member for financial support</li>"+
     "<li>financially responsible for any other family members</li>"+
-  "</ul></p>";
+  "</ul>";
 
   $(html).insertBefore('h2:contains("Apply as a ‘family member’")');
 }
@@ -23,11 +23,11 @@ UkviABTest.AddtoPermanentResidenceSection = function() {
   var html = "<p>If you're from the EEA, you can also <a "+
    "href='https://visas-immigration.service.gov.uk/product/eea-pr'>apply "+
     "online</a> but not if you’re a student or self-sufficient person and "+
-    "you're either: "+
+    "you're either:</p>"+
   "<ul>"+
     "<li>reliant on a family member for financial support</li>"+
     "<li>financially responsible for any other family members</li>"+
-  "</ul></p>";
+  "</ul>";
 
   $(html).insertBefore('h3:contains("Supporting documents")');
 }

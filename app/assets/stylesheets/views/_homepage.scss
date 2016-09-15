@@ -216,108 +216,76 @@ body.homepage {
       }
     }
     form#header-search {
-      padding-bottom: 30px;
+      @extend %contain-floats;
+      margin-bottom: 30px;
 
-      .header-search-content {
-        @extend %contain-floats;
-        position: relative;
-        background: #fff;
-      }
-      label {
+      .search-input-wrapper {
         float: left;
-        height: 40px;
-        line-height: 40px;
-        text-indent: 15px;
-        overflow: hidden;
-        display: block;
-        margin-right: 10px;
-        color: $secondary-text-colour;
-
-        .js-enabled & {
-          float: none;
-          position: absolute;
-          left: 0;
-          top: 1px;
-          z-index: 1;
+        width: 100%;
+        
+        .search-input {
           width: 100%;
-          margin-right: 0;
+          margin: 0.5em 0;
+          padding: 6px;
+
+          @include core-19($line-height: (28 / 19), $line-height-640: (28 / 16));
         }
       }
-      input {
-        @include box-sizing(border-box);
+
+      .submit {
         float: left;
-        width: 50%;
-        min-width: 0;
-        display: block;
-        margin: 0;
-        border: 0;
-        height: 40px;
-        padding: 6px 0;
-        @include ie-lte(7){
-          height: 28px;
-        }
-        @include appearance(none);
-      }
-
-      input#search-main {
-        @include core-19($line-height: (28/19), $line-height-640: (28/16));
-        position: relative;
         padding: 6px;
-        z-index: 3;
-        background: transparent;
-
-        &.focus,
-        &:focus {
-          background: #fff;
-        }
-
-        @include ie-lte(7){
-          padding-left: 0;
-        }
-        .js-enabled & {
-          width: 86%;
-          @include calc(width, "100% - 37px");
-        }
-      }
-
-      input.submit {
-        position: absolute;
-        z-index: 4;
-        right: 0;
-        top: 0;
-        width: 40px;
-        height: 40px;
-
-        border: 1px solid $black;
-        border-width: 0 0 0 1px;
-        @include ie-lte(7){
-          border-width: 1px;
-        }
-        border-left-color: #222;
-        @include border-radius(0);
-
-        overflow: hidden;
-        text-indent: -5000px;
-        cursor: pointer;
-
+        background: $black;
         color: $white;
-        background: $black image-url("homepage/search-button.png") no-repeat 2px 50%;
+        border: 0;
+      }
 
-        @include device-pixel-ratio() {
-          background-size: 52.5px 35px;
-          background-position: 115% 50%;
+      // IE6 + IE7 always get the simplest version, regardless of whether
+      // javascript is enabled
+      @if ($is-ie == false) or ($ie-version >= 8) {
+        $search-button-size: 40px;
+
+        .search-input-wrapper {
+          @include box-sizing(border-box);
+
+          padding-right: $search-button-size;
+          margin-right: -$search-button-size;
+
+          .search-input {
+            @include box-sizing(border-box);
+            @include appearance(none);
+
+            position: relative;
+            height: $search-button-size;
+            margin: 0;
+
+            border: 0;
+          }
         }
 
-        @include ie-lte(7) {
-          background-image: none;
-          width: auto;
-        }
+        .submit {
+          @include box-sizing(border-box);
+          height: $search-button-size;
+          width: $search-button-size;
+          
+          cursor: pointer;
 
-        &:hover {
-          background-color: lighten($black, 5%);
+          overflow: hidden;
+          text-indent: -5000px;
+          background: $black image-url("homepage/search-button.png") no-repeat 2px 50%;
+          
+          @include device-pixel-ratio() {
+            background-size: 52.5px 35px;
+            background-position: 115% 50%;
+          }
+
+          &:hover {
+            background-color: lighten($black, 5%);
+          }
+
+          @include border-radius(0);
         }
       }
-      &.js-visible { display: block; }
     }
     .content-links-inner {
       padding-bottom: 20px;

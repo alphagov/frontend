@@ -283,6 +283,11 @@ body.homepage {
             background-color: lighten($black, 5%);
           }
 
+          &:focus {
+            z-index: 10;
+            position: relative;
+          }
+
           @include border-radius(0);
         }
       }

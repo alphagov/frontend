@@ -285,11 +285,47 @@ body.homepage {
           }
 
           &:focus {
-            z-index: 10;
+            z-index: 15;
             position: relative;
           }
 
           @include border-radius(0);
+        }
+
+        // If JS is enabled, and browser is not IE6 or IE7, position label
+        // as a placeholder
+        .js-enabled & {
+          position: relative;
+          background: $white;
+
+          // Absolutely position the label behind the input
+          label {
+            @include core-19($line-height: 40px, $line-height-640: 40px);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            z-index: 5;
+
+            text-indent: 15px;
+
+            color: $secondary-text-colour;
+          }
+
+          // Input is transparent and sits above the label
+          .search-input {
+            position: relative;
+            z-index: 10;
+
+            background: transparent;
+
+            // Javascript adds a confusingly named `focus` class to the input
+            // when it contains text. We use this to set the background to
+            // white, hiding the label.
+            &:focus,
+            &.focus {
+              background: $white;
+            }
+          }
         }
       }
     }

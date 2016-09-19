@@ -222,7 +222,7 @@ body.homepage {
       .search-input-wrapper {
         float: left;
         width: 100%;
-        
+
         .search-input {
           width: 100%;
           margin: 0.5em 0;
@@ -268,13 +268,13 @@ body.homepage {
           @include box-sizing(border-box);
           height: $search-button-size;
           width: $search-button-size;
-          
+
           cursor: pointer;
 
           overflow: hidden;
           text-indent: -5000px;
           background: $black image-url("homepage/search-button.png") no-repeat 2px 50%;
-          
+
           @include device-pixel-ratio() {
             background-size: 52.5px 35px;
             background-position: 115% 50%;

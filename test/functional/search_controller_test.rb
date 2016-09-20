@@ -61,7 +61,6 @@ class SearchControllerTest < ActionController::TestCase
   def response(results, suggestions=[], options={})
     {
       "results" => results,
-      "total" => results.count,
       "facets" => {
         "organisations" => {
           "options" =>

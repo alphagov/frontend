@@ -152,9 +152,13 @@ class RootController < ApplicationController
       elsif params[:authority] && params[:authority][:slug].present?
         return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
       elsif params[:part]
-        # Check that the part is a valid govuk_slug according to mapit and raise RecordNotFound otherwise
-        area = Frontend.mapit_api.area_for_code("govuk_slug", params[:part])
-        assert_found(area)
+        begin
+          # Check that the part is a valid govuk_slug according to mapit and raise RecordNotFound otherwise
+          Frontend.mapit_api.area_for_code("govuk_slug", params[:part])
+        rescue GdsApi::HTTPNotFound
+          raise RecordNotFound
+        end
+
         authority_slug = params[:part]
       end
 
@@ -251,6 +255,8 @@ protected
     if postcode.present?
       begin
         location = Frontend.mapit_api.location_for_postcode(postcode)
+      rescue GdsApi::HTTPNotFound
+        location = nil
       rescue GdsApi::HTTPClientError => e
         error = e
       end

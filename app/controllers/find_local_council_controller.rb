@@ -27,8 +27,11 @@ class FindLocalCouncilController < ApplicationController
 
   def result
     authority_slug = params[:authority_slug]
-    authority_results = Frontend.local_links_manager_api.local_authority(authority_slug)
-    raise RecordNotFound if authority_results.nil?
+    begin
+      authority_results = Frontend.local_links_manager_api.local_authority(authority_slug)
+    rescue GdsApi::HTTPNotFound
+      raise RecordNotFound
+    end
 
     if authority_results['local_authorities'].count == 1
       @authority = authority_results['local_authorities'].first
@@ -157,6 +160,8 @@ private
     if postcode.present?
       begin
         location = Frontend.mapit_api.location_for_postcode(postcode)
+      rescue GdsApi::HTTPNotFound
+        location = nil
       rescue GdsApi::HTTPClientError => e
         error = e
       end

@@ -24,7 +24,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
   end
 
   should "raise a RecordNotFound if no artefact is returned" do
-    @content_api.expects(:artefact!).with('beekeeping', {}).raises(GdsApi::HTTPErrorResponse.new(404))
+    @content_api.expects(:artefact!).with('beekeeping', {}).raises(GdsApi::HTTPNotFound.new(404))
     assert_raises RecordNotFound do
       @retriever.fetch_artefact('beekeeping')
     end
@@ -32,7 +32,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
 
   context "handling http errors" do
     should "raise a RecordArchived if a 410 status is returned" do
-      @content_api.expects(:artefact!).with('fooey', {}).raises(GdsApi::HTTPErrorResponse.new(410))
+      @content_api.expects(:artefact!).with('fooey', {}).raises(GdsApi::HTTPGone.new(410))
       assert_raises ArtefactRetriever::RecordArchived do
         @retriever.fetch_artefact('fooey')
       end

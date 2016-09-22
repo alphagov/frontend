@@ -38,8 +38,8 @@ $(function(){
       name: 'ukvi_apply-201609',
       customDimensionIndex: 13,
       cohorts: {
-        original: { callback: function() {}, weight: 90},
-        applyTextAndLink: { callback: UkviABTest.AddtoApplySection, weight: 10}
+        original: { callback: function() {}, weight: 60},
+        applyTextAndLink: { callback: UkviABTest.AddtoApplySection, weight: 40}
       }
     });
   }
@@ -49,8 +49,8 @@ $(function(){
       name: 'ukvi_permResidence-201609',
       customDimensionIndex: 13,
       cohorts: {
-        original: { callback: function() {}, weight: 90},
-        applyTextAndLink: { callback: UkviABTest.AddtoPermanentResidenceSection, weight: 10}
+        original: { callback: function() {}, weight: 60},
+        applyTextAndLink: { callback: UkviABTest.AddtoPermanentResidenceSection, weight: 40}
       }
     });
   }

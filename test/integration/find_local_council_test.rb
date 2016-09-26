@@ -44,10 +44,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       assert_equal "Find your local authority in England, Wales, Scotland and Northern Ireland", description
     end
 
-    should 'have the initial survey link in the beta label area' do
-      assert_beta_label with_link: { text: 'help us improve it', href: 'https://www.surveymonkey.co.uk/r/2RPJRVT' }
-    end
-
     should 'have the aria-invalid attribute set to false' do
       assert_equal "false", page.find('.postcode')['aria-invalid']
     end
@@ -102,10 +98,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         should "add google analytics for exit link tracking" do
           track_action = find_link('westminster.example.com')['data-track-action']
           assert_equal "unitaryLinkClicked", track_action
-        end
-
-        should 'have the single result survey link in the beta label area' do
-          assert_beta_label with_link: { text: 'help us improve it', href: 'https://www.surveymonkey.co.uk/r/2NWF9RY' }
         end
       end
 
@@ -176,10 +168,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           assert_equal "districtLinkClicked", district_track_action
           assert_equal "countyLinkClicked", county_track_action
-        end
-
-        should 'have the two results survey link in the beta label area' do
-          assert_beta_label with_link: { text: 'help us improve it', href: 'https://www.surveymonkey.co.uk/r/2FHBZWR' }
         end
       end
 
@@ -391,17 +379,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       should "see an error message" do
         assert_equal page.status_code, 404
       end
-    end
-  end
-
-  def assert_beta_label(with_link: {})
-    args = {}
-    args[:text] = %{<a href=\\"#{with_link[:href]}\\">#{with_link[:text]}</a>} unless with_link.empty?
-    # components aren't rended in test, but we get the partial arguments as
-    # json on the page to test so we can test that
-
-    within '.beta-label-wrapper' do
-      assert page.has_selector? 'test-govuk-component[data-template="govuk_component-beta_label"]', args
     end
   end
 end

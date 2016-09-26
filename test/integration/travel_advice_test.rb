@@ -78,6 +78,18 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "missing travel advice index content item" do
+    setup do
+      content_store_does_not_have_item("/foreign-travel-advice")
+    end
+
+    should "return a 404 HTTP status code and not 503" do
+      visit '/foreign-travel-advice'
+
+      assert_equal 404, page.status_code
+    end
+  end
+
   context "with the javascript driver" do
     setup do
       json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')

@@ -6,7 +6,14 @@ class TravelAdviceController < ApplicationController
   def index
     set_expiry
 
-    response = content_store.content_item("/foreign-travel-advice")
+    begin
+      response = content_store.content_item("/foreign-travel-advice")
+    rescue GdsApi::HTTPNotFound
+      return error_404
+    rescue GdsApi::HTTPGone
+      return error_410
+    end
+
     content_item = response.to_hash
     merge_hardcoded_breadcrumbs!(content_item)
 

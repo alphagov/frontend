@@ -10,7 +10,7 @@ class ArtefactRetriever
     self.statsd = statsd
     self.supported_formats = supported_formats ||
       %w{answer business_support campaign completed_transaction guide help_page licence
-         local_transaction place programme simple_smart_answer transaction 
+         local_transaction place programme simple_smart_answer transaction
          travel-advice video}
   end
 
@@ -23,13 +23,14 @@ class ArtefactRetriever
     verify_format_supported?(artefact) unless slug == 'foreign-travel-advice'
 
     artefact
+
+  rescue GdsApi::HTTPNotFound
+    logger.warn("Failed to fetch artefact #{slug} from Content API. Response code: 404")
+    raise RecordNotFound
+  rescue GdsApi::HTTPGone
+    raise RecordArchived
   rescue GdsApi::HTTPErrorResponse => e
-    if e.code == 404
-      logger.warn("Failed to fetch artefact #{slug} from Content API. Response code: 404")
-      raise RecordNotFound
-    elsif e.code == 410
-      raise RecordArchived
-    elsif e.code and e.code >= 500
+    if e.code && e.code >= 500
       statsd.increment("content_api_error")
     end
     raise

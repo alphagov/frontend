@@ -24,6 +24,6 @@ cy:
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
       jobsearch:
         job_title: "Teitl swydd"
-        town_place_postcode: "Cod post, Tref neu lle"
+        town_place_postcode: "Cod post, tref neu lle"
         skills: "Sgiliau (dewisol)"
         search: "Chwilio"

@@ -9,8 +9,7 @@ require "location_error"
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  before_filter :set_content_security_policy, :only => [:index]
-  before_filter :set_expiry, :only => [:index, :tour]
+  before_filter :set_expiry, only: [:tour]
   before_filter :validate_slug_param, :only => [:publication]
   before_filter :block_empty_format, :only => [:jobsearch, :publication]
   rescue_from RecordNotFound, with: :cacheable_404
@@ -62,21 +61,6 @@ class RootController < ApplicationController
 
   def self.custom_formats; CUSTOM_FORMATS; end
   def self.custom_slugs; CUSTOM_SLUGS; end
-
-  def index
-    set_slimmer_headers(
-      template: "homepage",
-      format: "homepage",
-      remove_search: true,
-    )
-
-    # Only needed for Analytics
-    set_slimmer_dummy_artefact(
-      section_name: "homepage",
-      section_url: "/")
-
-    render locals: { full_width: true }
-  end
 
   def tour
     render locals: { full_width: true }

@@ -283,7 +283,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert page.has_selector?("form.jobsearch-form[action='https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
             within "form.jobsearch-form" do
               assert page.has_field?("Teitl swydd", :type => "text")
-              assert page.has_field?("Cod post, Tref neu lle", :type => "text")
+              assert page.has_field?("Cod post, tref neu lle", :type => "text")
               assert page.has_field?("Sgiliau (dewisol)", :type => "text")
 
               assert page.has_selector?("button", :text => "Chwilio")

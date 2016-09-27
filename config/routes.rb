@@ -56,5 +56,5 @@ Frontend::Application.routes.draw do
     pub.match ":slug(/:part)", via: [:get, :post], as: :publication
   end
 
-  root :to => 'root#index', :via => :get
+  root to: 'homepage#index', via: :get
 end

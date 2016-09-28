@@ -1,12 +1,9 @@
 class ScopedSearchResultsPresenter < SearchResultsPresenter
-
   def to_hash
-    super.merge({
-      is_scoped?: true,
+    super.merge(is_scoped?: true,
       scope_title: scope_title,
       unscoped_results_any?: unscoped_results.any?,
-      unscoped_result_count: result_count_string(unscoped_result_count),
-    })
+      unscoped_result_count: result_count_string(unscoped_result_count))
   end
 
 private
@@ -39,7 +36,6 @@ private
 
   def unscoped_results
     @unscoped_results ||= build_result_presenters
-
   end
 
   def build_result_presenters
@@ -49,5 +45,4 @@ private
   def build_scoped_result(result)
     ScopedResult.new(search_parameters, result)
   end
-
 end

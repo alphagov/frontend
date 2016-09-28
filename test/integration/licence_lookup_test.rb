@@ -5,7 +5,6 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
 
   context "given a licence which exists in licensify" do
-
     setup do
       mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
         { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
@@ -25,8 +24,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
       mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
 
-      @artefact = artefact_for_slug('licence-to-kill').merge({
-        "title" => "Licence to kill",
+      @artefact = artefact_for_slug('licence-to-kill').merge("title" => "Licence to kill",
         "format" => "licence",
         "in_beta" => true,
         "details" => {
@@ -69,8 +67,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
               }
             }]
           }
-        }
-      })
+        })
 
       content_api_has_an_artefact('licence-to-kill', @artefact)
       GdsApi::TestHelpers::ContentApi::ArtefactStub.new('licence-to-kill')
@@ -450,5 +447,4 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       assert page.has_content?('Contact your local council')
     end
   end
-
 end

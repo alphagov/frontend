@@ -54,7 +54,6 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
   end
 
   context "presentable result list" do
-
     should "return all scoped results with unscoped results inserted at position 4" do
       results = ScopedSearchResultsPresenter.new(@search_response, @search_parameters).to_hash
 

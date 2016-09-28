@@ -2,7 +2,6 @@
 require 'integration_test_helper'
 
 class GuideRenderingTest < ActionDispatch::IntegrationTest
-
   should "render a guide correctly" do
     artefact = setup_api_responses('data-protection')
     visit "/data-protection"
@@ -42,7 +41,6 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
         assert page.has_selector?(".print-link a[rel=nofollow][href='/data-protection/print']", :text => "Print entire guide")
-
       end
     end # within #content
 

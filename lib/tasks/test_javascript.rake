@@ -1,6 +1,5 @@
 
 namespace :test do
-
   desc "Run javascript tests"
   task :javascript => :environment do
     require 'socket'

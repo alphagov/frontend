@@ -40,6 +40,7 @@ class ArtefactRetriever
   end
 
   protected
+
     def verify_format_supported?(artefact)
       unless supported_formats.include?(artefact['format'])
         raise UnsupportedArtefactFormat

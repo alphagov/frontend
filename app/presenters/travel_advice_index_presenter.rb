@@ -46,6 +46,7 @@ class TravelAdviceIndexPresenter
     end
 
   private
+
     alias_method :title, :name
   end
 end

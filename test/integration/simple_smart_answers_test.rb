@@ -2,7 +2,6 @@
 require 'integration_test_helper'
 
 class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
-
   setup do
     setup_api_responses('the-bridge-of-death')
   end
@@ -35,7 +34,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(shared_component_selector('beta_label'))
         within(".modified-date") { assert_page_has_content "Last updated: 25 June 2013" }
-
       end
     end # within #content
 
@@ -255,7 +253,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?('.done-questions li.done', :count => 2)
       assert_page_has_content "Right, off you go"
-
     end
 
     should "handle invalid url params combined with form submissions correctly" do
@@ -291,7 +288,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?('.done-questions li.done', :count => 2)
       assert_page_has_content "Right, off you go"
-
     end
   end # without javascript
 

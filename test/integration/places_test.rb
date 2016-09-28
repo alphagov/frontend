@@ -9,8 +9,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
   setup do
     mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
 
-    @artefact = artefact_for_slug('passport-interview-office').merge({
-      "title" => "Find a passport interview office",
+    @artefact = artefact_for_slug('passport-interview-office').merge("title" => "Find a passport interview office",
       "format" => "place",
       "in_beta" => true,
       "details" => {
@@ -18,8 +17,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "place_type" => "find-passport-offices",
         "need_to_know" => "<ul><li>Proof of identification required</li></ul>",
         "introduction" =>  "<p>Enter your postcode to find a passport interview office near you.</p>"
-      }
-    })
+      })
     content_api_has_an_artefact('passport-interview-office', @artefact)
 
     @places = [
@@ -154,16 +152,14 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       mapit_has_a_postcode("N5 1QL", [51.5505284612, -0.100467152148])
 
-      @artefact_for_report_child_abuse = artefact_for_slug('report-child-abuse-to-local-council').merge({
-        "title" => "Find your local child social care team",
+      @artefact_for_report_child_abuse = artefact_for_slug('report-child-abuse-to-local-council').merge("title" => "Find your local child social care team",
         "format" => "place",
         "in_beta" => true,
         "details" => {
           "description" => "Find your local child social care team",
           "place_type" => "find-child-social-care-team",
           "introduction" => "<p>Contact your local council if you think a child is at risk</p>"
-        }
-      })
+        })
       content_api_has_an_artefact('report-child-abuse-to-local-council', @artefact_for_report_child_abuse)
 
       @places_for_report_child_abuse = [

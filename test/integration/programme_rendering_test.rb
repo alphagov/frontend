@@ -2,7 +2,6 @@
 require 'integration_test_helper'
 
 class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
-
   should "render a programme correctly" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"
@@ -42,7 +41,6 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(".modified-date", :text => "Last updated: 12 November 2012")
         assert page.has_selector?(".print-link a[rel=nofollow][href='/reduced-earnings-allowance/print']", :text => "Print entire guide")
-
       end
     end # within #content
 
@@ -157,7 +155,6 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     assert_current_url "/reduced-earnings-allowance/further-information"
 
     within '#content .article-container' do
-
       within('header') { assert page.has_content?("5. Further information") }
 
       within 'footer nav.pagination' do

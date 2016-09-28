@@ -317,7 +317,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
     end
-
   end
 
   should "return a not found response for a country which does not exist" do

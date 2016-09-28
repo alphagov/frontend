@@ -24,8 +24,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
 
-    @artefact = artefact_for_slug('pay-bear-tax').merge({
-      "title" => "Pay your bear tax",
+    @artefact = artefact_for_slug('pay-bear-tax').merge("title" => "Pay your bear tax",
       "format" => "local_transaction",
       "in_beta" => true,
       "details" => {
@@ -42,8 +41,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
             "county"
           ]
         }
-      }
-    })
+      })
 
     content_api_has_an_artefact('pay-bear-tax', @artefact)
   end

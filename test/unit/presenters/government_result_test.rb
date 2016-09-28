@@ -32,46 +32,38 @@ class GovernmentResultTest < ActiveSupport::TestCase
   end
 
   should "return valid metadata" do
-    result = GovernmentResult.new(SearchParameters.new({}), {
-      "public_timestamp" => "2014-10-14",
+    result = GovernmentResult.new(SearchParameters.new({}), "public_timestamp" => "2014-10-14",
       "display_type" => "my-display-type",
       "organisations" => [ { "slug" => "org-1" } ],
-      "world_locations" => [ {"title" => "France", "slug" => "france"} ]
-    })
+      "world_locations" => [ {"title" => "France", "slug" => "france"} ])
     assert_equal result.metadata, [ '14 October 2014', 'my-display-type', 'org-1', 'France' ]
   end
 
   should "return format for corporate information pages in metadata" do
-    result = GovernmentResult.new(SearchParameters.new({}), {
-      "format" => "corporate_information"
-    })
+    result = GovernmentResult.new(SearchParameters.new({}), "format" => "corporate_information")
     assert_equal result.metadata, [ 'Corporate information' ]
   end
 
   should "return only display type for corporate information pages if it is present in metadata" do
-    result = GovernmentResult.new(SearchParameters.new({}), {
-      "display_type" => "my-display-type",
-      "format" => "corporate_information"
-    })
+    result = GovernmentResult.new(SearchParameters.new({}), "display_type" => "my-display-type",
+      "format" => "corporate_information")
     assert_equal result.metadata, [ "my-display-type" ]
   end
 
   should "not return sections for deputy prime ministers office" do
-    result = GovernmentResult.new(SearchParameters.new({}), {
-      "format" => "organisation",
-      "link" => "/government/organisations/deputy-prime-ministers-office",
-    })
+    result = GovernmentResult.new(SearchParameters.new({}), "format" => "organisation",
+      "link" => "/government/organisations/deputy-prime-ministers-office")
     assert_nil result.sections
   end
 
   should "return sections for some format types" do
     params = SearchParameters.new({})
-    minister_results               = GovernmentResult.new(params, { "format" => "minister" })
-    organisation_results           = GovernmentResult.new(params, { "format" => "organisation" })
-    person_results                 = GovernmentResult.new(params, { "format" => "person" })
-    world_location_results         = GovernmentResult.new(params, { "format" => "world_location" })
-    worldwide_organisation_results = GovernmentResult.new(params, { "format" => "worldwide_organisation" })
-    mainstream_results             = GovernmentResult.new(params, { "format" => "mainstream" })
+    minister_results               = GovernmentResult.new(params, "format" => "minister")
+    organisation_results           = GovernmentResult.new(params, "format" => "organisation")
+    person_results                 = GovernmentResult.new(params, "format" => "person")
+    world_location_results         = GovernmentResult.new(params, "format" => "world_location")
+    worldwide_organisation_results = GovernmentResult.new(params, "format" => "worldwide_organisation")
+    mainstream_results             = GovernmentResult.new(params, "format" => "mainstream")
 
     assert_equal 2, minister_results.sections.length
     assert_equal nil, organisation_results.sections
@@ -83,25 +75,21 @@ class GovernmentResultTest < ActiveSupport::TestCase
   end
 
   should "return sections in correct format" do
-    minister_results = GovernmentResult.new(SearchParameters.new({}), { "format" => "minister" })
+    minister_results = GovernmentResult.new(SearchParameters.new({}), "format" => "minister")
 
     assert_equal [:hash, :title], minister_results.sections.first.keys
   end
 
   should "have a government name when in history mode" do
-    result = GovernmentResult.new(SearchParameters.new({}), {
-      "is_historic" => true,
-      "government_name" => "XXXX to YYYY Example government",
-    })
+    result = GovernmentResult.new(SearchParameters.new({}), "is_historic" => true,
+      "government_name" => "XXXX to YYYY Example government")
     assert_equal result.historic?, true
     assert_equal result.government_name, "XXXX to YYYY Example government"
   end
 
   should "have a government name when not in history mode" do
-    result = GovernmentResult.new(SearchParameters.new({}), {
-      "is_historic" => false,
-      "government_name" => "XXXX to YYYY Example government",
-    })
+    result = GovernmentResult.new(SearchParameters.new({}), "is_historic" => false,
+      "government_name" => "XXXX to YYYY Example government")
     assert_equal result.historic?, false
     assert_equal result.government_name, "XXXX to YYYY Example government"
   end

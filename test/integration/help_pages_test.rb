@@ -2,9 +2,7 @@
 require "integration_test_helper"
 
 class HelpPagesTest < ActionDispatch::IntegrationTest
-
   context "rendering a help page" do
-
     should "render a help page" do
       setup_api_responses("help/cookies")
 
@@ -32,7 +30,6 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("p", :text => "This is the page about cookies.")
 
           assert page.has_selector?(".modified-date", :text => "Last updated: 23 August 2013")
-
         end
       end # within #content
 
@@ -56,6 +53,5 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Help using GOV.UK")
       end
     end
-
   end
 end

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TransactionPresenterTest < ActiveSupport::TestCase
-
   setup do
     @transaction = stub()
     @presenter = TransactionPresenter.new(@transaction)
@@ -46,7 +45,6 @@ class TransactionPresenterTest < ActiveSupport::TestCase
   end
 
   context "before_you_start?" do
-
     should "be true if transaction has more information" do
       @transaction.stubs(:more_information).returns("Something")
       assert @presenter.before_you_start?

@@ -2,7 +2,6 @@ require 'test_helper'
 require 'search_api'
 
 class SearchAPITest < ActiveSupport::TestCase
-
   setup do
     @rummager_api = stub
     @rummager_params = stub(except: {})

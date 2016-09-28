@@ -1,5 +1,4 @@
 class TravelAdviceController < ApplicationController
-
   before_filter(:only => [:country]) { validate_slug_param(:country_slug) }
   before_filter(:only => [:country]) { validate_slug_param(:part) if params[:part] }
 

@@ -152,7 +152,7 @@ class PublicationPresenter
 private
 
   def promotion_choice_details
-    presentation_toggles.fetch('promotion_choice', {'choice' => '', 'url' => ''})
+    presentation_toggles.fetch('promotion_choice', 'choice' => '', 'url' => '')
   end
 
   def presentation_toggles

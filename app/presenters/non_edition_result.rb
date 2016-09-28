@@ -2,10 +2,8 @@ class NonEditionResult < SearchResult
   include ERB::Util
 
   def to_hash
-    super.merge({
-      metadata: metadata,
-      metadata_any?: metadata.any?,
-    })
+    super.merge(metadata: metadata,
+      metadata_any?: metadata.any?)
   end
 
   def format
@@ -23,6 +21,7 @@ class NonEditionResult < SearchResult
   end
 
 private
+
   def formatted_public_timestamp
     public_timestamp && public_timestamp.to_date.strftime("%e %B %Y")
   end

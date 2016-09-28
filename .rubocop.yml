@@ -27,13 +27,6 @@ Lint/DeprecatedClassMethods:
     - 'lib/tasks/test_javascript.rake'
 
 # Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AlignWith, SupportedStyles, AutoCorrect.
-# SupportedStyles: keyword, variable, start_of_line
-Lint/EndAlignment:
-  Enabled: false
-
-# Offense count: 1
 Lint/HandleExceptions:
   Exclude:
     - 'test/integration_test_helper.rb'
@@ -112,13 +105,6 @@ Style/BarePercentLiterals:
   Exclude:
     - 'test/integration/travel_advice_test.rb'
 
-# Offense count: 91
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: IndentWhenRelativeTo, SupportedStyles, IndentOneStep, IndentationWidth.
@@ -134,95 +120,6 @@ Style/ConditionalAssignment:
   Exclude:
     - 'app/controllers/search_controller.rb'
     - 'config/initializers/content_security_policy.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAdjacentOneLineDefs.
-Style/EmptyLineBetweenDefs:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/root_controller.rb'
-
-# Offense count: 11
-# Cop supports --auto-correct.
-Style/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'app/controllers/application_controller.rb'
-    - 'app/controllers/campaign_controller.rb'
-    - 'app/controllers/help_controller.rb'
-    - 'app/helpers/campaign_helper.rb'
-    - 'app/presenters/non_edition_result.rb'
-    - 'app/presenters/travel_advice_index_presenter.rb'
-    - 'lib/artefact_retriever.rb'
-    - 'lib/licence_details_from_artefact.rb'
-    - 'lib/search_api.rb'
-
-# Offense count: 23
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, no_empty_lines
-Style/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'lib/tasks/test_javascript.rake'
-    - 'test/functional/root_controller_test.rb'
-    - 'test/integration/answer_rendering_test.rb'
-    - 'test/integration/campaign_page_test.rb'
-    - 'test/integration/check_vehicle_tax_start_page_test.rb'
-    - 'test/integration/guide_rendering_test.rb'
-    - 'test/integration/help_pages_test.rb'
-    - 'test/integration/licence_lookup_test.rb'
-    - 'test/integration/programme_rendering_test.rb'
-    - 'test/integration/simple_smart_answers_test.rb'
-    - 'test/integration/transaction_rendering_test.rb'
-    - 'test/integration/travel_advice_test.rb'
-    - 'test/unit/presenters/scoped_search_results_presenter_test.rb'
-    - 'test/unit/presenters/transaction_presenter_test.rb'
-
-# Offense count: 34
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, no_empty_lines
-Style/EmptyLinesAroundClassBody:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/EmptyLinesAroundMethodBody:
-  Exclude:
-    - 'app/presenters/scoped_search_results_presenter.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, no_empty_lines
-Style/EmptyLinesAroundModuleBody:
-  Exclude:
-    - 'app/helpers/travel_advice_helper.rb'
-
-# Offense count: 19
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
-Style/ExtraSpacing:
-  Exclude:
-    - 'config.ru'
-    - 'config/environments/test.rb'
-    - 'script/rails'
-    - 'test/functional/campaign_controller_test.rb'
-    - 'test/functional/help_controller_test.rb'
-    - 'test/functional/licence_location_test.rb'
-    - 'test/functional/root_controller_test.rb'
-    - 'test/functional/simple_smart_answers_controller_test.rb'
-    - 'test/functional/travel_advice_controller_test.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: consistent, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
-Style/FirstParameterIndentation:
-  Exclude:
-    - 'lib/tasks/publishing_api.rake'
-    - 'test/unit/helpers/campaign_helper_test.rb'
-    - 'test/unit/helpers/part_helper_test.rb'
 
 # Offense count: 411
 # Cop supports --auto-correct.

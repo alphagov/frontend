@@ -3,7 +3,6 @@ require "test_helper"
 require "json"
 
 class SearchControllerTest < ActionController::TestCase
-
   def a_search_result(slug, score=1)
     {
       "title_with_highlighting" => slug.titleize,
@@ -97,7 +96,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should ask the user to enter a search term if none was given" do
-    get :index, { q: "" }
+    get :index, q: ""
     assert_select "label", %{Search GOV.UK}
     assert_select "form[action=?]", search_path do
       assert_select "input[name=q]"
@@ -107,13 +106,13 @@ class SearchControllerTest < ActionController::TestCase
   test "should not raise an error responding to a json request with no search term" do
     stub_results([], '')
     assert_nothing_raised do
-      get :index, { q: "", format: :json }
+      get :index, q: "", format: :json
     end
   end
 
   test "should inform the user that we didn't find any documents matching the search term" do
     stub_results([])
-    get :index, { q: "search-term" }
+    get :index, q: "search-term"
     assert_select ".zero-results h2"
   end
 
@@ -125,7 +124,7 @@ class SearchControllerTest < ActionController::TestCase
   test "should display a link to the documents matching our search criteria" do
     result = {"title_with_highlighting" => "document-title", "link" => "/document-slug"}
     stub_single_result(result)
-    get :index, {q: "search-term"}
+    get :index, q: "search-term"
     assert_select "a[href='/document-slug']", text: "document-title"
   end
 
@@ -140,7 +139,7 @@ class SearchControllerTest < ActionController::TestCase
     }
 
     stub_results([historic_result], "bob")
-    get :index, {q: "bob"}
+    get :index, q: "bob"
 
     assert_select ".historic", text: /XXXX to YYYY Example government/
   end
@@ -156,7 +155,7 @@ class SearchControllerTest < ActionController::TestCase
     }
 
     stub_results([historic_result], "bob")
-    get :index, {q: "bob"}
+    get :index, q: "bob"
 
     assert_select ".historic", 0
   end
@@ -172,7 +171,7 @@ class SearchControllerTest < ActionController::TestCase
     }
 
     stub_results([historic_result], "bob")
-    get :index, {q: "bob"}
+    get :index, q: "bob"
 
     assert_select ".historic", 0
   end
@@ -180,7 +179,7 @@ class SearchControllerTest < ActionController::TestCase
   should "include organisations where available" do
     result = result_with_organisation("CO", "Cabinet Office", "cabinet-office")
     stub_results([result], "bob")
-    get :index, { q: "bob" }
+    get :index, q: "bob"
 
     assert_select "ul.attributes li", /CO/
   end
@@ -188,7 +187,7 @@ class SearchControllerTest < ActionController::TestCase
   should "provide an abbr tag to explain organisation abbreviations" do
     result = result_with_organisation("CO", "Cabinet Office", "cabinet-office")
     stub_results([result], "bob")
-    get :index, { q: "bob" }
+    get :index, q: "bob"
 
     assert_select "ul.attributes li abbr[title='Cabinet Office']", text: "CO"
   end
@@ -196,7 +195,7 @@ class SearchControllerTest < ActionController::TestCase
   should "not provide an abbr tag when the organisation title is the acronym" do
     result = result_with_organisation("Home Office", "Home Office", "home-office")
     stub_results([result], "bob")
-    get :index, { q: "bob" }
+    get :index, q: "bob"
 
     assert_select "ul.attributes li abbr[title='Home Office']", count: 0
     assert_select "ul.attributes li", /Home Office/
@@ -258,7 +257,7 @@ class SearchControllerTest < ActionController::TestCase
     end
     stub_results(results, "Test")
 
-    get :index, {q: "Test"}
+    get :index, q: "Test"
     assert_select "#results h3 a", count: 75
   end
 
@@ -299,7 +298,7 @@ class SearchControllerTest < ActionController::TestCase
 
     stub_results([external_document], "bleh")
 
-    get :index, {q: "bleh"}
+    get :index, q: "bleh"
     assert_select ".results-list li" do
       assert_select "a[rel=external]", "A title"
     end
@@ -313,7 +312,7 @@ class SearchControllerTest < ActionController::TestCase
       "format" => "publication"
     }
     stub_results([result], "bob", [], [], total: 1)
-    get :index, {q: "bob"}
+    get :index, q: "bob"
     assert_equal "search",  @response.headers["X-Slimmer-Section"]
     assert_equal "search",  @response.headers["X-Slimmer-Format"]
     assert_equal "1",       @response.headers["X-Slimmer-Result-Count"]
@@ -322,7 +321,7 @@ class SearchControllerTest < ActionController::TestCase
   test "display the total number of results" do
     stub_results(Array.new(15, {}), "bob", [], [], total: 15)
 
-    get :index, {q: "bob"}
+    get :index, q: "bob"
 
     assert_equal "15", @response.headers["X-Slimmer-Result-Count"]
   end
@@ -337,11 +336,11 @@ class SearchControllerTest < ActionController::TestCase
     }
     stub_results([external_link], "bleh")
 
-    get :index, {q: "bleh"}
+    get :index, q: "bleh"
 
     assert_response :success
     assert_select ".results-list li .meta" do
-      assert_select ".url", {count: 1, text: "www.weally.weally.long.url.com/weaseling/abou..."}
+      assert_select ".url", count: 1, text: "www.weally.weally.long.url.com/weaseling/abou..."
     end
   end
 
@@ -354,11 +353,11 @@ class SearchControllerTest < ActionController::TestCase
     }
     stub_results([external_link], "bleh")
 
-    get :index, {q: "bleh"}
+    get :index, q: "bleh"
 
     assert_response :success
     assert_select ".results-list li .meta" do
-      assert_select ".url", {count: 1, text: "www.badgers.com/badgers"}
+      assert_select ".url", count: 1, text: "www.badgers.com/badgers"
     end
   end
 
@@ -371,24 +370,24 @@ class SearchControllerTest < ActionController::TestCase
     }
     stub_results([external_link], "bleh")
 
-    get :index, {q: "bleh"}
+    get :index, q: "bleh"
 
     assert_response :success
     assert_select ".results-list li .meta" do
-      assert_select ".url", {count: 1, text: "www.badgers.com/badgers"}
+      assert_select ".url", count: 1, text: "www.badgers.com/badgers"
     end
   end
 
   test "should handle service errors with a 503" do
     Frontend.search_client.stubs(:search).raises(GdsApi::BaseError)
-    get :index, {q: "badness"}
+    get :index, q: "badness"
 
     assert_response 503
   end
 
   test "should render json results" do
     stub_results(Array.new(15, {}), "bob", [], [], total: 15)
-    get :index, { q: "bob", format: "json" }
+    get :index, q: "bob", format: "json"
 
     json = JSON.parse(@response.body)
     assert_equal json["result_count"], 15
@@ -398,7 +397,7 @@ class SearchControllerTest < ActionController::TestCase
 
   test "should render json with no results" do
     stub_results(Array.new(0, {}), "bob", [], [], total: 0)
-    get :index, { q: "bob", format: "json" }
+    get :index, q: "bob", format: "json"
 
     json = JSON.parse(@response.body)
     assert_equal json["result_count"], 0

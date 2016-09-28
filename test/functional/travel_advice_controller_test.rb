@@ -44,7 +44,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "set cache-control headers to 30 mins" do
         get :index
 
-        assert_equal "max-age=#{30.minutes.to_i}, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
       end
 
       context "requesting json" do
@@ -57,7 +57,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
 
         should "set cache-control headers to 30 mins" do
-          assert_equal "max-age=#{30.minutes.to_i}, public",  response.headers["Cache-Control"]
+          assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
         end
       end
 
@@ -72,7 +72,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
 
         should "set cache-control headers to 5 mins" do
-          assert_equal "max-age=#{5.minutes.to_i}, public",  response.headers["Cache-Control"]
+          assert_equal "max-age=#{5.minutes.to_i}, public", response.headers["Cache-Control"]
         end
       end
     end
@@ -128,7 +128,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "set expiry headers to 5 mins" do
         get :country, :country_slug => "turks-and-caicos-islands"
 
-        assert_equal "max-age=300, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=300, public", response.headers["Cache-Control"]
       end
 
       should "assign the edition number when previewing a country" do
@@ -229,7 +229,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
     should "return a cacheable 404 without querying content_api for an invalid country slug" do
       get :country, :country_slug => "this is not & a valid slug"
       assert response.not_found?
-      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
   end

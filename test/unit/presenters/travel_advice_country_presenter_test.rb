@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TravelAdviceCountryPresenterTest < ActiveSupport::TestCase
-
   context "handling attachments" do
     context "an artefact with attachments" do
       setup do

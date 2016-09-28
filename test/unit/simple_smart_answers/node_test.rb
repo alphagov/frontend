@@ -2,7 +2,6 @@ require 'test_helper'
 
 module SimpleSmartAnswers
   class NodeTest < ActiveSupport::TestCase
-
     should "have attribute accessors for basic fields" do
       node = Node.new(:a_flow, "kind" => "question", "slug" => "question-1",
             "title" => "Question 1", "body" => "<p>This is question 1</p>", "options" => [])

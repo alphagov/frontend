@@ -1,7 +1,6 @@
 require 'integration_test_helper'
 
 class PageRenderingTest < ActionDispatch::IntegrationTest
-
   context "backend error handling" do
     context "backend timeout" do
       setup do
@@ -39,9 +38,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
   test "completed transaction request" do
     artefact = artefact_for_slug "done/completed-transaction-test"
-    artefact = artefact.merge({
-      format: "completed_transaction"
-    })
+    artefact = artefact.merge(format: "completed_transaction")
     content_api_has_an_artefact('done/completed-transaction-test', artefact)
     visit "/done/completed-transaction-test"
     assert_equal 200, page.status_code
@@ -56,7 +53,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
   test "viewing a business support page" do
     artefact = artefact_for_slug "business-support-example"
-    artefact = artefact.merge({"format" => "business_support"})
+    artefact = artefact.merge("format" => "business_support")
     artefact = artefact.merge(content_api_response("business-support-example"))
     content_api_has_an_artefact('business-support-example', artefact)
     visit "/business-support-example"

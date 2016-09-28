@@ -81,12 +81,12 @@ namespace :publishing_api do
     routes.each do |route_type, routes_for_type|
       routes_for_type.each do |route|
         publisher.publish(route.merge(
-          format: "special_route",
-          publishing_app: "frontend",
-          rendering_app: "frontend",
-          type: route_type,
-          public_updated_at: Time.zone.now.iso8601,
-          update_type: "major",
+                            format: "special_route",
+                            publishing_app: "frontend",
+                            rendering_app: "frontend",
+                            type: route_type,
+                            public_updated_at: Time.zone.now.iso8601,
+                            update_type: "major",
         ))
       end
     end

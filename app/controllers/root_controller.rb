@@ -60,6 +60,7 @@ class RootController < ApplicationController
   ].freeze
 
   def self.custom_formats; CUSTOM_FORMATS; end
+
   def self.custom_slugs; CUSTOM_SLUGS; end
 
   def tour
@@ -332,7 +333,7 @@ protected
       else
         "laMatchNoLinkNoAuthorityUrl"
       end
-    LocationError.new(error_code, { local_authority_name: local_authority.name })
+    LocationError.new(error_code, local_authority_name: local_authority.name)
   end
 
   def is_custom_slug?

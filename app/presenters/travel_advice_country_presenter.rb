@@ -1,7 +1,6 @@
 require 'ostruct'
 
 class TravelAdviceCountryPresenter < PublicationPresenter
-
   def image
     @image ||= OpenStruct.new(details["image"]) if details["image"]
   end

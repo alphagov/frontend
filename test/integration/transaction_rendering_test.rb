@@ -2,7 +2,6 @@
 require 'integration_test_helper'
 
 class TransactionRenderingTest < ActionDispatch::IntegrationTest
-
   context "a transaction with need_to_know but no 'before you start' and 'other ways to apply'" do
     should "render the main information" do
       setup_api_responses('register-to-vote')
@@ -199,7 +198,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
   end
 
   context "Jobsearch special case" do
-
     should "redirect JSON requests to the correct API URL" do
       setup_api_responses('jobsearch')
       get "/jobsearch.json"

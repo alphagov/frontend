@@ -1,7 +1,6 @@
 require "test_helper"
 
 class HelpControllerTest < ActionController::TestCase
-
   context "GET index" do
     setup do
       @json_data = File.read(Rails.root.join('test/fixtures/help.json'))
@@ -28,7 +27,7 @@ class HelpControllerTest < ActionController::TestCase
     should "set the cache expiry headers" do
       get :index
 
-      assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
     end
 
     should "redirect json requests to the api" do

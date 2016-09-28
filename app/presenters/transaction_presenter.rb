@@ -1,5 +1,4 @@
 class TransactionPresenter
-
   def initialize(transaction)
     @transaction = transaction
   end

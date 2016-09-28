@@ -2,11 +2,10 @@
 require 'integration_test_helper'
 
 class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
-
   context "a completed transaction edition" do
     should "show no promotion when presentation toggle is not present" do
       artefact = artefact_for_slug "no-promotion"
-      artefact = artefact.merge({ format: "completed_transaction" })
+      artefact = artefact.merge(format: "completed_transaction")
       content_api_has_an_artefact("no-promotion", artefact)
 
       visit "/no-promotion"
@@ -20,8 +19,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
     should "show organ donor registration promotion and survey heading if chosen" do
       artefact = artefact_for_slug "shows-organ-donation-registration-promotion"
-      artefact = artefact.merge({
-        format: "completed_transaction",
+      artefact = artefact.merge(format: "completed_transaction",
         details: {
           presentation_toggles: {
             promotion_choice: {
@@ -29,8 +27,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
               url: '/organ-donor-registration-url'
             }
           }
-        }
-      })
+        })
       content_api_has_an_artefact("shows-organ-donation-registration-promotion", artefact)
 
       visit "/shows-organ-donation-registration-promotion"
@@ -47,8 +44,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
     should "show register to vote promotion and survey heading if chosen" do
       artefact = artefact_for_slug "shows-register-to-vote-promotion"
-      artefact = artefact.merge({
-        format: "completed_transaction",
+      artefact = artefact.merge(format: "completed_transaction",
         details: {
           presentation_toggles: {
             promotion_choice: {
@@ -56,8 +52,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
               url: '/register-to-vote-url'
             }
           }
-        }
-      })
+        })
       content_api_has_an_artefact("shows-register-to-vote-promotion", artefact)
 
       visit "/shows-register-to-vote-promotion"
@@ -74,8 +69,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
     should "show no promotion when choice is not organ donor or register to vote" do
       artefact = artefact_for_slug "unknown-promotion"
-      artefact = artefact.merge({
-        format: "completed_transaction",
+      artefact = artefact.merge(format: "completed_transaction",
         details: {
           presentation_toggles: {
             promotion_choice: {
@@ -83,8 +77,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
               url: '/get-free-cheese-hats-url'
             }
           }
-        }
-      })
+        })
       content_api_has_an_artefact("unknown-promotion", artefact)
 
       visit "/unknown-promotion"

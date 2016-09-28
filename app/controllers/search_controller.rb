@@ -1,7 +1,6 @@
 require "slimmer/headers"
 
 class SearchController < ApplicationController
-
   before_filter :setup_slimmer_artefact, only: :index
   before_filter :set_expiry
   before_filter :remove_search_box

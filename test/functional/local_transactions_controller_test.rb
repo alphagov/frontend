@@ -83,7 +83,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the 'invalid postcode format' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "invalidPostcodeFormat" })
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "invalidPostcodeFormat")
       end
     end
 
@@ -102,7 +102,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the 'no mapit match' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "fullPostcodeNoMapitMatch" })
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "fullPostcodeNoMapitMatch")
       end
     end
 
@@ -121,7 +121,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the 'missing local authority' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "noLaMatch" })
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "noLaMatch")
       end
     end
 
@@ -211,7 +211,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
     end
 
     should "log the 'missing interaction' error to the view" do
-      assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "laMatchNoLink" })
+      assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
     end
   end
 end

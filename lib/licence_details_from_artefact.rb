@@ -26,6 +26,7 @@ class LicenceDetailsFromArtefact
   end
 
   protected
+
     def location_specific?
       licence["location_specific"]
     end

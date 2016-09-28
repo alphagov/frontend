@@ -2,7 +2,7 @@ require "test_helper"
 
 class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
   should "route the start page to the root controller" do
-    assert_recognizes( {controller: "root", action: "publication", slug: "fooey"}, "/fooey")
+    assert_recognizes({ controller: "root", action: "publication", slug: "fooey" }, "/fooey")
   end
 
   context "routes in a flow" do

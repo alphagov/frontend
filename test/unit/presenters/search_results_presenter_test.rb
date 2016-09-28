@@ -4,7 +4,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
   should "return an appropriate hash" do
     results = SearchResultsPresenter.new({
       "total" => 1,
-      "results" => [ { "index" => "mainstream" } ],
+      "results" => [{ "index" => "mainstream" }],
       "facets" => {}
     }, SearchParameters.new(q: 'my-query'))
 
@@ -19,13 +19,13 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       "results" => [],
       "facets" => {
         "organisations" => {
-          "options" => [ {
+          "options" => [{
             "value" => {
               "link" => "/government/organisations/department-for-education",
               "title" => "Department for Education"
             },
             "documents" => 114
-          } ]
+          }]
         }
       }
     }, SearchParameters.new(q: 'my-query'))
@@ -42,13 +42,13 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       "results" => [],
       "facets" => {
         "specialist_sectors" => {
-          "options" => [ {
+          "options" => [{
             "value" => {
               "link" => "/business-tax/vat",
               "title" => "VAT"
             },
             "documents" => 114
-          } ]
+          }]
         }
       }
     }, SearchParameters.new(q: 'my-query'))
@@ -167,7 +167,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
     should "not have metadata for group results" do
       results = SearchResultsPresenter.new({
         "total" => 1,
-        "results" => [ { "document_type" => "group" } ],
+        "results" => [{ "document_type" => "group" }],
         "facets" => {}
       }, SearchParameters.new(q: 'my-query'))
       rlist = results.to_hash[:results]

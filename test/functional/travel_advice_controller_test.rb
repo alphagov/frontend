@@ -99,7 +99,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         }
 
         GdsApi::ContentApi.any_instance.expects(:artefact!).
-          with('foreign-travel-advice/turks-and-caicos-islands', { }).returns(stub_artefact)
+          with('foreign-travel-advice/turks-and-caicos-islands', {}).returns(stub_artefact)
 
         @controller.stubs(:render)
         get :country, country_slug: "turks-and-caicos-islands"

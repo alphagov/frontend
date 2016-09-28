@@ -91,7 +91,7 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
       within 'footer nav.pagination' do
         assert page.has_selector?("li.previous a[rel=prev][href='/data-protection/find-out-what-data-an-organisation-has-about-you'][title='Navigate to previous part']",
                                   text: "Find out what data an organisation has about you")
-          assert_equal 1, page.all('li').count
+        assert_equal 1, page.all('li').count
       end
     end
   end

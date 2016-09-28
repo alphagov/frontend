@@ -32,7 +32,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "licence_overview" => "You only live twice, Mr Bond.\n",
           "licence" => {
             "location_specific" => true,
-            "availability" => ["England","Wales"],
+            "availability" => ["England", "Wales"],
             "authorities" => [{
               "name" => "Westminster City Council",
               "slug" => "westminster",
@@ -49,7 +49,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred."
-                  },{
+                  }, {
                     "url" => "/licence-to-kill/westminster/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
@@ -222,7 +222,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "format" => "Licence",
           "licence" => {
             "location_specific" => false,
-            "availability" => ["England","Wales"],
+            "availability" => ["England", "Wales"],
             "authorities" => [{
               "name" => "Ministry of Plenty",
               "slug" => "miniplenty",
@@ -317,7 +317,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "format" => "Licence",
           "licence" => {
             "location_specific" => false,
-            "availability" => ["England","Wales"],
+            "availability" => ["England", "Wales"],
             "authorities" => [{
               "name" => "Ministry of Love",
               "slug" => "miniluv",

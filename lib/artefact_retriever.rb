@@ -41,18 +41,18 @@ class ArtefactRetriever
 
   protected
 
-    def verify_format_supported?(artefact)
-      unless supported_formats.include?(artefact['format'])
-        raise UnsupportedArtefactFormat
-      end
+  def verify_format_supported?(artefact)
+    unless supported_formats.include?(artefact['format'])
+      raise UnsupportedArtefactFormat
     end
+  end
 
-    def artefact_options(snac, location, edition)
-      options = { snac: snac, edition: edition }.delete_if { |k,v| v.blank? }
-      if location
-        options[:latitude]  = location.lat
-        options[:longitude] = location.lon
-      end
-      options
+  def artefact_options(snac, location, edition)
+    options = { snac: snac, edition: edition }.delete_if { |k, v| v.blank? }
+    if location
+      options[:latitude]  = location.lat
+      options[:longitude] = location.lon
     end
+    options
+  end
 end

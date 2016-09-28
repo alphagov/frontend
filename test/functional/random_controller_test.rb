@@ -8,7 +8,7 @@ class RandomControllerTest < ActionController::TestCase
             { "link" => "/bereavement-allowance" },
             { "link" => "/book-life-in-uk-test" },
             { "link" => "http://www.wyreforestdc.gov.uk" },
-        ]}
+        ] }
 
         stub_request(:get, "#{Plek.new.find('search')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
         stub_request(:get, %r{#{Plek.new.find('search')}/search.json\?count=1&fields=link&start=.}).to_return(status: 200, body: results.to_json)
@@ -40,7 +40,7 @@ class RandomControllerTest < ActionController::TestCase
             { "link" => "http://www.wyreforestdc.gov.uk" },
             { "link" => "/bereavement-allowance" },
             { "link" => "/book-life-in-uk-test" },
-        ]}
+        ] }
 
         stub_request(:get, "#{Plek.new.find('search')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
         stub_request(:get, %r{#{Plek.new.find('search')}/search.json\?count=1&fields=link&start=.}).to_return(status: 200, body: results.to_json)

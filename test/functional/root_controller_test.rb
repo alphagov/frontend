@@ -10,8 +10,8 @@ class RootControllerTest < ActionController::TestCase
       'details' => {
         'name' => 'THIS',
         'parts' => [
-          {'slug' => 'a', 'name' => 'AA'},
-          {'slug' => 'b', 'name' => 'BB'}
+          { 'slug' => 'a', 'name' => 'AA' },
+          { 'slug' => 'b', 'name' => 'BB' }
         ]
       })
   end
@@ -139,19 +139,19 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "further information tab should appear for programmes that have it" do
-    content_api_has_an_artefact("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
-            {'slug' => 'a', 'name' => 'AA'},
-            {'slug' => 'further-information', 'name' => 'BB', 'body' => "abc"}
-          ]})
+    content_api_has_an_artefact("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug", "details" => { 'parts' => [
+            { 'slug' => 'a', 'name' => 'AA' },
+            { 'slug' => 'further-information', 'name' => 'BB', 'body' => "abc" }
+          ] })
     get :publication, slug: "zippy"
     assert @response.body.include? "further-information"
   end
 
   test "further information tab should not appear for programmes where it is empty" do
-    content_api_has_an_artefact("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug","details" => {'parts' => [
-            {'slug' => 'a', 'name' => 'AA'},
-            {'slug' => 'further-information', 'name' => 'BB'}
-          ]})
+    content_api_has_an_artefact("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug", "details" => { 'parts' => [
+            { 'slug' => 'a', 'name' => 'AA' },
+            { 'slug' => 'further-information', 'name' => 'BB' }
+          ] })
     get :publication, slug: "zippy"
     refute @response.body.include? "further-information"
   end
@@ -190,7 +190,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return 404 if part requested but publication has no parts" do
-    content_api_has_an_artefact("a-slug",       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => []})
+    content_api_has_an_artefact("a-slug",       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => { 'parts' => [] })
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(status: 404))
@@ -198,7 +198,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should redirect to base url if bad part requested of multi-part guide" do
-    content_api_has_an_artefact("a-slug",       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => {'parts' => [{'title' => 'first', 'slug' => 'first'}]})
+    content_api_has_an_artefact("a-slug",       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => { 'parts' => [{ 'title' => 'first', 'slug' => 'first' }] })
     prevent_implicit_rendering
     get :publication, slug: "a-slug", part: "information"
     assert_response :redirect
@@ -206,7 +206,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should redirect to base url if part requested for non-parted format" do
-    content_api_has_an_artefact("a-slug", 'web_url' => 'http://example.org/a-slug', 'format' => 'answer', "details" => {'body' => 'An answer'})
+    content_api_has_an_artefact("a-slug", 'web_url' => 'http://example.org/a-slug', 'format' => 'answer', "details" => { 'body' => 'An answer' })
     prevent_implicit_rendering
     get :publication, slug: "a-slug", part: "information"
     assert_response :redirect
@@ -230,7 +230,7 @@ class RootControllerTest < ActionController::TestCase
 
     prevent_implicit_rendering
     @controller.stubs(:render)
-    get :publication, slug: "a-slug",edition: edition_id
+    get :publication, slug: "a-slug", edition: edition_id
   end
 
   test "Should redirect to transaction if no geo header" do
@@ -244,7 +244,7 @@ class RootControllerTest < ActionController::TestCase
     content_api_has_an_artefact("a-slug",       'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',
       'format' => 'transaction',
-      'details' => {"need_to_know" => ""},
+      'details' => { "need_to_know" => "" },
       'title' => 'A Test Transaction')
 
     prevent_implicit_rendering
@@ -256,7 +256,7 @@ class RootControllerTest < ActionController::TestCase
     content_api_has_an_artefact("a-slug", 'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',
       'format' => 'local_transaction',
-      'details' => {"need_to_know" => ""},
+      'details' => { "need_to_know" => "" },
       'title' => 'A Test Transaction')
 
     prevent_implicit_rendering
@@ -390,7 +390,7 @@ class RootControllerTest < ActionController::TestCase
           'slug' => 'jobsearch',
           'web_url' => 'https://www.preview.alphagov.co.uk/jobsearch',
           'format' => 'transaction',
-          'details' => {"need_to_know" => ""},
+          'details' => { "need_to_know" => "" },
           'title' => 'Universal Jobsearch'
         }
         content_api_has_an_artefact("jobsearch", @details)
@@ -433,7 +433,7 @@ class RootControllerTest < ActionController::TestCase
           'id' => 'https://www.gov.uk/api/chwilio-am-swydd.json',
           'web_url' => 'https://www.preview.alphagov.co.uk/chwilio-am-swydd',
           'format' => 'transaction',
-          'details' => {"need_to_know" => "", "language" => "cy"},
+          'details' => { "need_to_know" => "", "language" => "cy" },
           'title' => 'Universal Jobsearch'
         }
         content_api_has_an_artefact("chwilio-am-swydd", @details)

@@ -16,7 +16,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "description" => "Find a passport interview office",
         "place_type" => "find-passport-offices",
         "need_to_know" => "<ul><li>Proof of identification required</li></ul>",
-        "introduction" =>  "<p>Enter your postcode to find a passport interview office near you.</p>"
+        "introduction" => "<p>Enter your postcode to find a passport interview office near you.</p>"
       })
     content_api_has_an_artefact('passport-interview-office', @artefact)
 

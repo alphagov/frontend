@@ -45,7 +45,7 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
   context "given an artefact exists with a local service for the district/unitary tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => [ "district", "unitary" ] } } }
+      @artefact = { "details" => { "local_service" => { "providing_tier" => ["district", "unitary"] } } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do
@@ -70,7 +70,7 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
   context "given an artefact exists with a local service for the county/unitary tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => [ "county", "unitary" ] } } }
+      @artefact = { "details" => { "local_service" => { "providing_tier" => ["county", "unitary"] } } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do

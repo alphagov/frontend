@@ -39,7 +39,7 @@ class TravelAdviceController < ApplicationController
     @publication = fetch_publication_for_country(@country)
 
     tags = @publication.artefact.to_hash["tags"]
-    section_tag = tags.find {|t| t["details"]["type"] == "section" }
+    section_tag = tags.find { |t| t["details"]["type"] == "section" }
 
     combined_tags = slimmer_section_tag_for_details(
       section_name: "Foreign travel advice",

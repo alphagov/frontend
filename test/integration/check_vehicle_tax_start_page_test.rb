@@ -4,7 +4,7 @@ class CheckVehicleTaxPageTest < ActionDispatch::IntegrationTest
   context "rendering the check-vehicle-tax page" do
     should "render the check-vehicle-tax start page correctly" do
       setup_api_responses('check-vehicle-tax',
-        deep_merge: {"details" => {"department_analytics_profile" => "UA-12345-6"}})
+        deep_merge: { "details" => { "department_analytics_profile" => "UA-12345-6" } })
       visit "/check-vehicle-tax"
 
       assert_equal 200, page.status_code

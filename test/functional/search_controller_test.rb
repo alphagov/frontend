@@ -3,7 +3,7 @@ require "test_helper"
 require "json"
 
 class SearchControllerTest < ActionController::TestCase
-  def a_search_result(slug, score=1)
+  def a_search_result(slug, score = 1)
     {
       "title_with_highlighting" => slug.titleize,
       "description_with_highlighting" => "Description for #{slug}",
@@ -57,14 +57,14 @@ class SearchControllerTest < ActionController::TestCase
     stub_results([result])
   end
 
-  def response(results, suggestions=[], options={})
+  def response(results, suggestions = [], options = {})
     {
       "results" => results,
       "facets" => {
         "organisations" => {
           "options" =>
             [
-              {"value" =>
+              { "value" =>
                 {
                   "slug" => "ministry-of-silly-walks",
                   "link" => "/government/organisations/ministry-of-silly-walks",
@@ -73,12 +73,12 @@ class SearchControllerTest < ActionController::TestCase
                   "organisation_type" => "Ministerial department",
                   "organisation_state" => "live"
                 },
-                "documents"=>12
+                "documents" => 12
               }
             ],
-          "documents_with_no_value"=>1619,
-          "total_options"=>139,
-          "missing_options"=>39,
+          "documents_with_no_value" => 1619,
+          "total_options" => 139,
+          "missing_options" => 39,
         }
       },
       "suggested_queries" => suggestions,
@@ -122,7 +122,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should display a link to the documents matching our search criteria" do
-    result = {"title_with_highlighting" => "document-title", "link" => "/document-slug"}
+    result = { "title_with_highlighting" => "document-title", "link" => "/document-slug" }
     stub_single_result(result)
     get :index, q: "search-term"
     assert_select "a[href='/document-slug']", text: "document-title"
@@ -202,7 +202,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   should "suggest the first alternative query" do
-    suggestions = ["cats","dogs"]
+    suggestions = ["cats", "dogs"]
     results = [a_search_result('something')]
 
     stub_results(results, "search-term", [], suggestions)

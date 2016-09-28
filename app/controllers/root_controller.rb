@@ -289,9 +289,9 @@ protected
 
   def identifier_class_for_format(format)
     case format
-      when "licence" then LicenceLocationIdentifier
-      when "local_transaction" then LocalTransactionLocationIdentifier
-      else raise(Exception, "No location identifier available for #{format}")
+    when "licence" then LicenceLocationIdentifier
+    when "local_transaction" then LocalTransactionLocationIdentifier
+    else raise(Exception, "No location identifier available for #{format}")
     end
   end
 

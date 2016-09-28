@@ -13,14 +13,14 @@ class GovernmentResultTest < ActiveSupport::TestCase
   end
 
   should "display a single world location" do
-    france = {"title" => "France", "slug" => "france"}
+    france = { "title" => "France", "slug" => "france" }
     result = GovernmentResult.new(SearchParameters.new({}), "world_locations" => [france])
     assert_equal "France", result.metadata[0]
   end
 
   should "not display individual locations when there are several" do
-    france = {"title" => "France", "slug" => "france"}
-    spain = {"title" => "Spain", "slug" => "spain"}
+    france = { "title" => "France", "slug" => "france" }
+    spain = { "title" => "Spain", "slug" => "spain" }
     result = GovernmentResult.new(SearchParameters.new({}), "world_locations" => [france, spain])
     assert_equal "multiple locations", result.metadata[0]
   end
@@ -34,20 +34,20 @@ class GovernmentResultTest < ActiveSupport::TestCase
   should "return valid metadata" do
     result = GovernmentResult.new(SearchParameters.new({}), "public_timestamp" => "2014-10-14",
       "display_type" => "my-display-type",
-      "organisations" => [ { "slug" => "org-1" } ],
-      "world_locations" => [ {"title" => "France", "slug" => "france"} ])
-    assert_equal result.metadata, [ '14 October 2014', 'my-display-type', 'org-1', 'France' ]
+      "organisations" => [{ "slug" => "org-1" }],
+      "world_locations" => [{ "title" => "France", "slug" => "france" }])
+    assert_equal result.metadata, ['14 October 2014', 'my-display-type', 'org-1', 'France']
   end
 
   should "return format for corporate information pages in metadata" do
     result = GovernmentResult.new(SearchParameters.new({}), "format" => "corporate_information")
-    assert_equal result.metadata, [ 'Corporate information' ]
+    assert_equal result.metadata, ['Corporate information']
   end
 
   should "return only display type for corporate information pages if it is present in metadata" do
     result = GovernmentResult.new(SearchParameters.new({}), "display_type" => "my-display-type",
       "format" => "corporate_information")
-    assert_equal result.metadata, [ "my-display-type" ]
+    assert_equal result.metadata, ["my-display-type"]
   end
 
   should "not return sections for deputy prime ministers office" do

@@ -39,7 +39,7 @@ class SimpleSmartAnswersController < ApplicationController
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})
     responses_as_string = responses.any? ? responses.map(&:slug).join("/") : nil
-    attrs = {slug: @publication.slug, responses: responses_as_string, edition: @edition}.merge(extra_attrs)
+    attrs = { slug: @publication.slug, responses: responses_as_string, edition: @edition }.merge(extra_attrs)
     smart_answer_flow_path attrs
   end
 

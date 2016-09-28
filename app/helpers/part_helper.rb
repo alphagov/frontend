@@ -2,8 +2,8 @@
 # View helper for all things related to parts as provided by
 # the Parted module.
 module PartHelper
-  def part_path(slug, part=nil, edition=nil)
-    opts = Hash[{slug: slug, part: part, edition: edition}.select { |k,v| v }]
+  def part_path(slug, part = nil, edition = nil)
+    opts = Hash[{ slug: slug, part: part, edition: edition }.select { |k, v| v }]
     publication_path(opts)
   end
 
@@ -25,7 +25,7 @@ module PartHelper
   end
 
   def parts_group_size(parts)
-    size = parts.length.to_f/2
+    size = parts.length.to_f / 2
     if size < 2
       3
     else

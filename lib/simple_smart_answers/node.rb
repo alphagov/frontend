@@ -9,7 +9,7 @@ module SimpleSmartAnswers
       @slug = details["slug"]
       @title = details["title"]
       @body = details["body"]
-      @options = details["options"].map {|o| build_option(o) } if details["options"]
+      @options = details["options"].map { |o| build_option(o) } if details["options"]
     end
 
     attr_reader :kind, :slug, :title, :body, :options

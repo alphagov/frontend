@@ -23,7 +23,7 @@ class TravelAdviceCountryPresenter < PublicationPresenter
   end
 
   def navigation_parts
-    nav_parts = [ { slug: nil, title: 'Summary' } ]
+    nav_parts = [{ slug: nil, title: 'Summary' }]
     parts.map do |part|
       nav_parts << { slug: part.slug, title: part.title }
     end

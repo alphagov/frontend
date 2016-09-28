@@ -10,8 +10,8 @@ class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   before_filter :set_expiry, only: [:tour]
-  before_filter :validate_slug_param, :only => [:publication]
-  before_filter :block_empty_format, :only => [:jobsearch, :publication]
+  before_filter :validate_slug_param, only: [:publication]
+  before_filter :block_empty_format, only: [:jobsearch, :publication]
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
@@ -191,7 +191,7 @@ class RootController < ApplicationController
         end
       end
       format.json do
-        render :json => @publication.to_json
+        render json: @publication.to_json
       end
     end
   end

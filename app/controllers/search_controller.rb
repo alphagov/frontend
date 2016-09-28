@@ -55,6 +55,6 @@ protected
   end
 
   def setup_slimmer_artefact
-    set_slimmer_dummy_artefact(:section_name => "Search", :section_link => "/search")
+    set_slimmer_dummy_artefact(section_name: "Search", section_link: "/search")
   end
 end

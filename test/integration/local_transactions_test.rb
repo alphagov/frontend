@@ -91,7 +91,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     context "when visiting the local transaction with a valid postcode" do
       setup do
         visit '/pay-bear-tax'
-        fill_in 'postcode', :with => "SW1A 1AA"
+        fill_in 'postcode', with: "SW1A 1AA"
         click_button('Find')
       end
 
@@ -150,7 +150,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         mapit_does_not_have_a_bad_postcode("Not valid")
 
         visit '/pay-bear-tax'
-        fill_in 'postcode', :with => "Not valid"
+        fill_in 'postcode', with: "Not valid"
         click_button('Find')
       end
 
@@ -182,7 +182,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     context "when visiting the local transaction with a blank postcode" do
       setup do
         visit '/pay-bear-tax'
-        fill_in 'postcode', :with => ""
+        fill_in 'postcode', with: ""
         click_button('Find')
       end
 
@@ -257,7 +257,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     context "when visiting the local transaction with a valid postcode" do
       setup do
         visit '/pay-bear-tax'
-        fill_in 'postcode', :with => "SW1A 1AA"
+        fill_in 'postcode', with: "SW1A 1AA"
         click_button('Find')
       end
 
@@ -328,7 +328,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     ])
 
     visit '/pay-bear-tax'
-    fill_in 'postcode', :with => "AL10 9AB"
+    fill_in 'postcode', with: "AL10 9AB"
     click_button('Find')
 
     assert_current_url "/pay-bear-tax"

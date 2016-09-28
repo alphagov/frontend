@@ -1,9 +1,9 @@
 namespace :rummager do
-  task :index => "panopticon:register" do
+  task index: "panopticon:register" do
     Rake::Task["rummager:index_special_routes"].invoke
   end
 
-  task :index_special_routes => :environment do
+  task index_special_routes: :environment do
     require 'gds_api/rummager'
     rummager = GdsApi::Rummager.new(ENV["RUMMAGER_HOST"] || Plek.new.find('search'))
 

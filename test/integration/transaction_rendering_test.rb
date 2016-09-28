@@ -9,9 +9,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head', :visible => :all do
-        assert page.has_selector?("title", :text => "Register to vote - GOV.UK", :visible => :all)
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/register-to-vote.json']", :visible => :all)
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Register to vote - GOV.UK", visible: :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/register-to-vote.json']", visible: :all)
       end
 
       within '#content' do
@@ -23,7 +23,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           assert page.has_selector?(shared_component_selector('beta_label'))
 
           within 'section.intro' do
-            assert page.has_selector?("p", :text => "You have to fill out the form online, print it off and send it to your local electoral registration office.")
+            assert page.has_selector?("p", text: "You have to fill out the form online, print it off and send it to your local electoral registration office.")
 
             start_link = find_link("Start now")
             assert_equal "http://www.aboutmyvote.co.uk/", start_link["href"]
@@ -41,7 +41,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert_equal ['Includes offline steps'], need_to_know
           end
 
-          assert page.has_selector?(".modified-date", :text => "Last updated: 22 October 2012")
+          assert page.has_selector?(".modified-date", text: "Last updated: 22 October 2012")
         end
       end # within #content
 
@@ -65,7 +65,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
         within '.article-container' do
           within 'section.intro' do
-            assert page.has_link?("Dechrau nawr", :href => "http://www.aboutmyvote.co.uk/")
+            assert page.has_link?("Dechrau nawr", href: "http://www.aboutmyvote.co.uk/")
             assert page.has_content?("ar the Electoral Commission website")
           end
 
@@ -76,7 +76,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert_equal ['Includes offline steps'], need_to_know
           end
 
-          assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 22 Hydref 2012")
+          assert page.has_selector?(".modified-date", text: "Diweddarwyd diwethaf: 22 Hydref 2012")
         end
       end # within #content
     end
@@ -89,9 +89,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head', :visible => :all do
-        assert page.has_selector?("title", :text => "Apply for your first provisional driving licence - GOV.UK", :visible => :all)
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/apply-first-provisional-driving-licence.json']", :visible => :all)
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Apply for your first provisional driving licence - GOV.UK", visible: :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/apply-first-provisional-driving-licence.json']", visible: :all)
       end
 
       within '#content .article-container section.more' do
@@ -103,7 +103,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           within '#before-you-start' do
             assert page.has_no_selector?('h1')
 
-            assert page.has_selector?("li", :text => "be a resident of Great Britain")
+            assert page.has_selector?("li", text: "be a resident of Great Britain")
           end
 
           within '#what-you-need-to-know' do
@@ -116,7 +116,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
           within '#other-ways-to-apply' do
             assert page.has_no_selector?('h1')
 
-            assert page.has_selector?('li', :text => "original documentation confirming your identity")
+            assert page.has_selector?('li', text: "original documentation confirming your identity")
           end
         end # .tab-content
       end
@@ -180,7 +180,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end
         within '.article-container' do
           assert page.has_content?("Please join the NHS Organ Donor Register")
-          assert page.has_selector?(".button", :text => "Join")
+          assert page.has_selector?(".button", text: "Join")
         end
       end
     end
@@ -211,9 +211,9 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head', :visible => :all do
-        assert page.has_selector?("title", :text => "Find a job with Universal Jobmatch - GOV.UK", :visible => :all)
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobsearch.json']", :visible => :all)
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Find a job with Universal Jobmatch - GOV.UK", visible: :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/jobsearch.json']", visible: :all)
       end
 
       within '#content' do
@@ -223,7 +223,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
         within '.article-container' do
           within 'section.intro' do
-            assert page.has_selector?(".application-notice p", :text => "You may have difficulties using this service while it’s being improved - if you’re affected, please try again later.")
+            assert page.has_selector?(".application-notice p", text: "You may have difficulties using this service while it’s being improved - if you’re affected, please try again later.")
 
             assert page.has_selector?("form.jobsearch-form[action='https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx'][method=get]")
             within "form.jobsearch-form" do
@@ -231,7 +231,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
               assert page.has_field?("Postcode, town or place", type: "text")
               assert page.has_field?("Skills (optional)", type: "text")
 
-              assert page.has_selector?("button", :text => "Search")
+              assert page.has_selector?("button", text: "Search")
               assert page.has_content?("on Universal Jobmatch")
             end
           end
@@ -243,16 +243,16 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
 
             within '.tab-content' do
               within '#before-you-start' do
-                assert page.has_selector?(".application-notice p", :text => "Universal Jobmatch has replaced the Jobcentre Plus job search tool.")
+                assert page.has_selector?(".application-notice p", text: "Universal Jobmatch has replaced the Jobcentre Plus job search tool.")
               end
 
               within '#other-ways-to-apply' do
-                assert page.has_selector?('p', :text => "You can also search for jobs by calling Jobcentre Plus.")
+                assert page.has_selector?('p', text: "You can also search for jobs by calling Jobcentre Plus.")
               end
             end # within .tab_content
           end
 
-          assert page.has_selector?(".modified-date", :text => "Last updated: 20 November 2012")
+          assert page.has_selector?(".modified-date", text: "Last updated: 20 November 2012")
         end
       end # within #content
 
@@ -284,7 +284,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
               assert page.has_field?("Cod post, tref neu lle", type: "text")
               assert page.has_field?("Sgiliau (dewisol)", type: "text")
 
-              assert page.has_selector?("button", :text => "Chwilio")
+              assert page.has_selector?("button", text: "Chwilio")
               assert page.has_content?("ar Universal Jobmatch")
             end
           end
@@ -295,7 +295,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
             assert_equal expected, tabs
           end
 
-          assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 20 Tachwedd 2012")
+          assert page.has_selector?(".modified-date", text: "Diweddarwyd diwethaf: 20 Tachwedd 2012")
         end
       end # within #content
     end
@@ -331,7 +331,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       visit "/apply-blue-badge"
 
       assert_equal 200, page.status_code
-      assert page.has_no_selector?("#transaction_cross_domain_analytics", :visible => :all)
+      assert page.has_no_selector?("#transaction_cross_domain_analytics", visible: :all)
     end
   end
 

@@ -203,7 +203,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       within('.page-navigation') { click_on "Page Two" }
       assert_equal 200, page.status_code
 
-      within 'head', :visible => :all do
+      within 'head', visible: :all do
         assert page.has_selector?("title", text: "Turks and Caicos Islands extra special travel advice", visible: :all)
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']", visible: :all)
       end
@@ -298,7 +298,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit "/foreign-travel-advice/luxembourg"
       assert_equal 200, page.status_code
 
-      within 'head', :visible => :all do
+      within 'head', visible: :all do
         assert page.has_selector?("title", text: "Luxembourg travel advice", visible: :all)
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/luxembourg.json']", visible: :all)
       end
@@ -310,12 +310,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert ! page.has_selector?('.page-navigation')
 
-      assert page.has_no_selector?("h1", :text => "Summary")
+      assert page.has_no_selector?("h1", text: "Summary")
 
       assert page.has_content?(de_dup_spaces "Still current at: #{Date.today.strftime("%e %B %Y")}")
       assert page.has_content?("Updated: 31 January 2013")
 
-      assert page.has_selector?("p", :text => "There are no parts of Luxembourg that the FCO recommends avoiding.")
+      assert page.has_selector?("p", text: "There are no parts of Luxembourg that the FCO recommends avoiding.")
     end
   end
 

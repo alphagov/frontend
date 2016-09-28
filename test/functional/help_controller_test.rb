@@ -5,8 +5,8 @@ class HelpControllerTest < ActionController::TestCase
     setup do
       @json_data = File.read(Rails.root.join('test/fixtures/help.json'))
       @artefact = GdsApi::Response.new(
-        stub("HTTP_Response", :code => 200, :body => @json_data),
-        :web_urls_relative_to => "https://www.gov.uk"
+        stub("HTTP_Response", code: 200, body: @json_data),
+        web_urls_relative_to: "https://www.gov.uk"
       )
       GdsApi::ContentApi.any_instance.stubs(:artefact!).returns(@artefact)
       #@controller.stubs(:fetch_artefact).returns(@index_artefact)

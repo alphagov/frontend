@@ -71,7 +71,7 @@ protected
 
   def set_expiry(duration = 30.minutes)
     unless Rails.env.development?
-      expires_in(duration, :public => true)
+      expires_in(duration, public: true)
     end
   end
 
@@ -79,7 +79,7 @@ protected
     slimmer_headers[:format] ||= artefact["format"]
     set_slimmer_headers(slimmer_headers)
     if artefact["format"] == "help_page"
-      set_slimmer_artefact_overriding_section(artefact, :section_name => "Help", :section_link => "/help")
+      set_slimmer_artefact_overriding_section(artefact, section_name: "Help", section_link: "/help")
     else
       set_slimmer_artefact(artefact)
     end

@@ -104,7 +104,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       setup do
         visit '/licence-to-kill'
 
-        fill_in 'postcode', :with => "SW1A 1AA"
+        fill_in 'postcode', with: "SW1A 1AA"
         click_button('Find')
       end
 
@@ -118,8 +118,8 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
       should "show available licence actions" do
         within("#content nav") do
-          assert page.has_link? "How to apply", :href => '/licence-to-kill/westminster/apply'
-          assert page.has_link? "How to renew", :href => '/licence-to-kill/westminster/renew'
+          assert page.has_link? "How to apply", href: '/licence-to-kill/westminster/apply'
+          assert page.has_link? "How to renew", href: '/licence-to-kill/westminster/renew'
         end
       end
 
@@ -130,11 +130,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
         should "display the page content" do
           assert page.has_content? "Licence to kill"
-          assert page.has_selector? "h1", :text => "How to apply"
+          assert page.has_selector? "h1", text: "How to apply"
         end
 
         should "display a button to apply for the licence" do
-          assert page.has_link? "Apply online", :href => "/licence-to-kill/westminster/apply-1"
+          assert page.has_link? "Apply online", href: "/licence-to-kill/westminster/apply-1"
         end
       end
 
@@ -158,7 +158,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         mapit_does_not_have_a_bad_postcode("Not valid")
         visit '/licence-to-kill'
 
-        fill_in 'postcode', :with => "Not valid"
+        fill_in 'postcode', with: "Not valid"
         click_button('Find')
       end
 
@@ -177,7 +177,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
         visit '/licence-to-kill'
 
-        fill_in 'postcode', :with => "AB1 2AB"
+        fill_in 'postcode', with: "AB1 2AB"
         click_button('Find')
       end
 
@@ -302,7 +302,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
         should "display interactions for licence" do
           click_on "How to apply"
-          assert page.has_link? "Apply online", :href => '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+          assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
         end
       end
     end
@@ -347,13 +347,13 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
       should "show licence actions for the single authority" do
         within("#content nav") do
-          assert page.has_link? "How to apply", :href => '/licence-to-turn-off-a-telescreen/miniluv/apply'
+          assert page.has_link? "How to apply", href: '/licence-to-turn-off-a-telescreen/miniluv/apply'
         end
       end
 
       should "display the interactions for licence" do
         click_on "How to apply"
-        assert page.has_link? "Apply online", :href => '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+        assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
       end
     end
   end

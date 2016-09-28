@@ -24,7 +24,7 @@ module SimpleSmartAnswers
 
     context "options" do
       setup do
-        @flow = stub("Flow", :node_for_slug => :a_node)
+        @flow = stub("Flow", node_for_slug: :a_node)
         @node = Node.new(@flow, "kind" => "question", "slug" => "question-1", "options" => [
           {
             "label" => "Option 1",

@@ -11,9 +11,9 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_equal 200, page.status_code
 
-    within 'head', :visible => :all do
-      assert page.has_selector?('title', :text => "The Bridge of Death - GOV.UK", :visible => :all)
-      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/the-bridge-of-death.json']", :visible => :all)
+    within 'head', visible: :all do
+      assert page.has_selector?('title', text: "The Bridge of Death - GOV.UK", visible: :all)
+      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/the-bridge-of-death.json']", visible: :all)
     end
 
     within '#global-breadcrumb' do
@@ -29,7 +29,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within '.intro' do
           assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
-          assert page.has_link?("Start now", :href => "/the-bridge-of-death/y")
+          assert page.has_link?("Start now", href: "/the-bridge-of-death/y")
         end
 
         assert page.has_selector?(shared_component_selector('beta_label'))
@@ -49,9 +49,9 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert_current_url "/the-bridge-of-death/y"
 
-      within 'head', :visible => :all do
-        assert page.has_selector?('title', :text => "The Bridge of Death - GOV.UK", :visible => :all)
-        assert page.has_selector?("meta[name=robots][content=noindex]", :visible => :all)
+      within 'head', visible: :all do
+        assert page.has_selector?('title', text: "The Bridge of Death - GOV.UK", visible: :all)
+        assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
       end
 
       within '#global-breadcrumb' do
@@ -72,9 +72,9 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         end
         assert_page_has_content "It's the old man from Scene 24!!"
         within '.question-body' do
-          assert page.has_field?("Sir Lancelot of Camelot", :type => 'radio', :with => "sir-lancelot-of-camelot")
-          assert page.has_field?("Sir Robin of Camelot", :type => 'radio', :with => "sir-robin-of-camelot")
-          assert page.has_field?("Sir Galahad of Camelot", :type => 'radio', :with => "sir-galahad-of-camelot")
+          assert page.has_field?("Sir Lancelot of Camelot", type: 'radio', with: "sir-lancelot-of-camelot")
+          assert page.has_field?("Sir Robin of Camelot", type: 'radio', with: "sir-robin-of-camelot")
+          assert page.has_field?("Sir Galahad of Camelot", type: 'radio', with: "sir-galahad-of-camelot")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Sir Lancelot of Camelot", "Sir Robin of Camelot", "Sir Galahad of Camelot"], options
@@ -87,14 +87,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/the-bridge-of-death') }
         within 'ol li.done' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
       end
 
@@ -104,8 +104,8 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_field?("Blue", :type => 'radio', :with => "blue")
-          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :with => "blue-no-yelloooooooooooooooowww")
+          assert page.has_field?("Blue", type: 'radio', with: "blue")
+          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: 'radio', with: "blue-no-yelloooooooooooooooowww")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
@@ -118,14 +118,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/the-bridge-of-death') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -133,7 +133,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your favorite colour?"
           end
           within('.answer') { assert_page_has_content "Blue" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
         end
       end
 
@@ -152,10 +152,10 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         click_on "Change this answer"
       end
 
-      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot", :ignore_query => true
+      assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true
 
       within '.done-questions' do
-        assert page.has_selector?('li.done', :count => 1)
+        assert page.has_selector?('li.done', count: 1)
 
         within 'ol li.done' do
           within 'h3' do
@@ -163,7 +163,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
       end
 
@@ -173,7 +173,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_field?("Blue", :type => 'radio', :with => "blue", :checked => true)
+          assert page.has_field?("Blue", type: 'radio', with: "blue", checked: true)
         end
       end
 
@@ -190,7 +190,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/ultramarine"
 
       within '.done-questions' do
-        assert page.has_selector?('li.done', :count => 1)
+        assert page.has_selector?('li.done', count: 1)
 
         within 'ol li.done' do
           within 'h3' do
@@ -198,7 +198,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
       end
 
@@ -207,7 +207,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_selector?(".error-message", :text => "Please answer this question")
+          assert page.has_selector?(".error-message", text: "Please answer this question")
         end
       end
 
@@ -216,7 +216,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-      assert page.has_selector?('.done-questions li.done', :count => 2)
+      assert page.has_selector?('.done-questions li.done', count: 2)
       assert_page_has_content "Right, off you go"
     end
 
@@ -224,7 +224,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       visit "/the-bridge-of-death/y/sir-lancelot-of-camelot?response=ultramarine"
 
       within '.done-questions' do
-        assert page.has_selector?('li.done', :count => 1)
+        assert page.has_selector?('li.done', count: 1)
 
         within 'ol li.done' do
           within 'h3' do
@@ -232,7 +232,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
       end
 
@@ -242,7 +242,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_selector?(".error-message", :text => "Please answer this question")
+          assert page.has_selector?(".error-message", text: "Please answer this question")
         end
       end
 
@@ -251,7 +251,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-      assert page.has_selector?('.done-questions li.done', :count => 2)
+      assert page.has_selector?('.done-questions li.done', count: 2)
       assert_page_has_content "Right, off you go"
     end
 
@@ -259,7 +259,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/ultramarine?response=blue"
 
       within '.done-questions' do
-        assert page.has_selector?('li.done', :count => 1)
+        assert page.has_selector?('li.done', count: 1)
 
         within 'ol li.done' do
           within 'h3' do
@@ -267,7 +267,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "Sir Lancelot of Camelot" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
         end
       end
 
@@ -277,7 +277,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_selector?(".error-message", :text => "Please answer this question")
+          assert page.has_selector?(".error-message", text: "Please answer this question")
         end
       end
 
@@ -286,7 +286,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
       assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-      assert page.has_selector?('.done-questions li.done', :count => 2)
+      assert page.has_selector?('.done-questions li.done', count: 2)
       assert_page_has_content "Right, off you go"
     end
   end # without javascript
@@ -319,10 +319,10 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         end
         assert_page_has_content "It's the old man from Scene 24!!"
         within '.question-body' do
-          assert page.has_field?("Sir Lancelot of Camelot", :type => 'radio', :with => "sir-lancelot-of-camelot")
-          assert page.has_field?("Sir Robin of Camelot", :type => 'radio', :with => "sir-robin-of-camelot")
-          assert page.has_field?("Sir Galahad of Camelot", :type => 'radio', :with => "sir-galahad-of-camelot")
-          assert page.has_field?("King Arthur of the Britons!", :type => 'radio', :with => "king-arthur-of-the-britons")
+          assert page.has_field?("Sir Lancelot of Camelot", type: 'radio', with: "sir-lancelot-of-camelot")
+          assert page.has_field?("Sir Robin of Camelot", type: 'radio', with: "sir-robin-of-camelot")
+          assert page.has_field?("Sir Galahad of Camelot", type: 'radio', with: "sir-galahad-of-camelot")
+          assert page.has_field?("King Arthur of the Britons!", type: 'radio', with: "king-arthur-of-the-britons")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Sir Lancelot of Camelot", "Sir Robin of Camelot", "Sir Galahad of Camelot", "King Arthur of the Britons!"], options
@@ -338,14 +338,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_current_url "/the-bridge-of-death/y/king-arthur-of-the-britons?edition=2"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death?edition=2') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/the-bridge-of-death?edition=2') }
         within 'ol li.done' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "King Arthur of the Britons!" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?edition=2&previous_response=king-arthur-of-the-britons") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?edition=2&previous_response=king-arthur-of-the-britons") }
         end
       end
 
@@ -355,8 +355,8 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "What...is your favorite colour?"
         end
         within '.question-body' do
-          assert page.has_field?("Blue", :type => 'radio', :with => "blue")
-          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", :type => 'radio', :with => "blue-no-yelloooooooooooooooowww")
+          assert page.has_field?("Blue", type: 'radio', with: "blue")
+          assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: 'radio', with: "blue-no-yelloooooooooooooooowww")
           # Assert they're in the correct order
           options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
           assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
@@ -369,14 +369,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert_current_url "/the-bridge-of-death/y/king-arthur-of-the-britons/blue?edition=2"
 
       within '.done-questions' do
-        within('.start-again') { assert page.has_link?("Start again", :href => '/the-bridge-of-death?edition=2') }
+        within('.start-again') { assert page.has_link?("Start again", href: '/the-bridge-of-death?edition=2') }
         within 'ol li.done:nth-child(1)' do
           within 'h3' do
             within('.question-number') { assert_page_has_content "1" }
             assert_page_has_content "What...is your name?"
           end
           within('.answer') { assert_page_has_content "King Arthur of the Britons!" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y?edition=2&previous_response=king-arthur-of-the-britons") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?edition=2&previous_response=king-arthur-of-the-britons") }
         end
         within 'ol li.done:nth-child(2)' do
           within 'h3' do
@@ -384,7 +384,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
             assert_page_has_content "What...is your favorite colour?"
           end
           within('.answer') { assert_page_has_content "Blue" }
-          within('.undo') { assert page.has_link?("Change this answer", :href => "/the-bridge-of-death/y/king-arthur-of-the-britons?edition=2&previous_response=blue") }
+          within('.undo') { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y/king-arthur-of-the-britons?edition=2&previous_response=blue") }
         end
       end
 

@@ -8,7 +8,7 @@ gem 'gelf'
 gem 'nokogiri', '~> 1.6.7.2'
 
 gem 'plek', '1.11.0'
-gem 'statsd-ruby', '1.0.0', :require => 'statsd'
+gem 'statsd-ruby', '1.0.0', require: 'statsd'
 gem 'htmlentities', '4.3.1'
 gem 'shared_mustache', '1.0.0'
 #FIXME: This is temporary, will allow to upgrade rails to 4.2.5.1 to
@@ -17,19 +17,19 @@ gem 'shared_mustache', '1.0.0'
 gem 'sprockets-rails', "2.3.3"
 
 if ENV['SLIMMER_DEV']
-  gem 'slimmer', :path => '../slimmer'
+  gem 'slimmer', path: '../slimmer'
 else
   gem 'slimmer', '~> 9.0.0'
 end
 
 if ENV['CDN_DEV']
-  gem 'cdn_helpers', :path => '../cdn_helpers'
+  gem 'cdn_helpers', path: '../cdn_helpers'
 else
   gem 'cdn_helpers', '0.9'
 end
 
 if ENV['API_DEV']
-  gem 'gds-api-adapters', :path => '../gds-api-adapters'
+  gem 'gds-api-adapters', path: '../gds-api-adapters'
 else
   gem 'gds-api-adapters', '34.1.0'
 end
@@ -63,7 +63,7 @@ gem 'uglifier'
 
 group :test do
   gem "mocha", "~> 1.1.0"
-  gem "webmock", :require => false
+  gem "webmock", require: false
   gem 'simplecov'
   gem 'simplecov-rcov'
   gem 'ci_reporter'

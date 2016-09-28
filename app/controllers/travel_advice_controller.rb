@@ -1,6 +1,6 @@
 class TravelAdviceController < ApplicationController
-  before_filter(:only => [:country]) { validate_slug_param(:country_slug) }
-  before_filter(:only => [:country]) { validate_slug_param(:part) if params[:part] }
+  before_filter(only: [:country]) { validate_slug_param(:country_slug) }
+  before_filter(only: [:country]) { validate_slug_param(:part) if params[:part] }
 
   def index
     set_expiry
@@ -42,8 +42,8 @@ class TravelAdviceController < ApplicationController
     section_tag = tags.find {|t| t["details"]["type"] == "section" }
 
     combined_tags = slimmer_section_tag_for_details(
-      :section_name => "Foreign travel advice",
-      :section_link => "/foreign-travel-advice"
+      section_name: "Foreign travel advice",
+      section_link: "/foreign-travel-advice"
     ).merge("parent" => section_tag)
 
     if section_tag.present?

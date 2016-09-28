@@ -1,7 +1,7 @@
 
 namespace :test do
   desc "Run javascript tests"
-  task :javascript => :environment do
+  task javascript: :environment do
     require 'socket'
     require 'open3'
 
@@ -66,4 +66,4 @@ namespace :test do
   end
 end
 
-task :default => "test:javascript"
+task default: "test:javascript"

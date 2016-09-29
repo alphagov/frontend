@@ -17,10 +17,6 @@ Frontend::Application.routes.draw do
   get "/find-local-council/:authority_slug" => "find_local_council#result"
 
   get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
-  with_options(to: "travel_advice#country") do |country|
-    country.get "/foreign-travel-advice/:country_slug/print", variant: :print, as: :travel_advice_country_print
-    country.get "/foreign-travel-advice/:country_slug(/:part)", as: :travel_advice_country
-  end
 
   # Help pages
   get "/help", to: "help#index"

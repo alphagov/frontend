@@ -9,9 +9,9 @@ class SearchResultTest < ActiveSupport::TestCase
 
   should "present examples" do
     result = SearchResult.new(SearchParameters.new({}),
-                              "examples" => [{"title" => "An example"}]).to_hash
+                              "examples" => [{ "title" => "An example" }]).to_hash
     assert_equal true, result[:examples_present?]
-    assert_equal [{"title" => "An example"}], result[:examples]
+    assert_equal [{ "title" => "An example" }], result[:examples]
   end
 
   should "present suggested filters, using external field names" do

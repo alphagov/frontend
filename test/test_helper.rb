@@ -10,7 +10,7 @@ require 'rails/test_help'
 require 'minitest/unit'
 require 'mocha/mini_test'
 require 'webmock/minitest'
-WebMock.disable_net_connect!(:allow_localhost => true)
+WebMock.disable_net_connect!(allow_localhost: true)
 require 'timecop'
 
 require 'gds_api/test_helpers/content_api'

@@ -1,6 +1,6 @@
 namespace :publishing_api do
   desc "Publish special routes such as the homepage"
-  task :publish_special_routes => :environment do
+  task publish_special_routes: :environment do
     require 'gds_api/publishing_api/special_route_publisher'
 
     publishing_api = GdsApi::PublishingApiV2.new(
@@ -81,12 +81,12 @@ namespace :publishing_api do
     routes.each do |route_type, routes_for_type|
       routes_for_type.each do |route|
         publisher.publish(route.merge(
-          format: "special_route",
-          publishing_app: "frontend",
-          rendering_app: "frontend",
-          type: route_type,
-          public_updated_at: Time.zone.now.iso8601,
-          update_type: "major",
+                            format: "special_route",
+                            publishing_app: "frontend",
+                            rendering_app: "frontend",
+                            type: route_type,
+                            public_updated_at: Time.zone.now.iso8601,
+                            update_type: "major",
         ))
       end
     end

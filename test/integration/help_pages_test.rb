@@ -2,9 +2,7 @@
 require "integration_test_helper"
 
 class HelpPagesTest < ActionDispatch::IntegrationTest
-
   context "rendering a help page" do
-
     should "render a help page" do
       setup_api_responses("help/cookies")
 
@@ -12,14 +10,14 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head', :visible => :all do
-        assert page.has_selector?("title", :text => "Cookies - GOV.UK", :visible => :all)
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/help/cookies.json']", :visible => :all)
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Cookies - GOV.UK", visible: :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/help/cookies.json']", visible: :all)
       end
 
       within '#global-breadcrumb' do
-        assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")
-        assert page.has_selector?("li:nth-child(2) a[href='/help']", :text => "Help")
+        assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")
+        assert page.has_selector?("li:nth-child(2) a[href='/help']", text: "Help")
       end
 
       within '#content' do
@@ -29,10 +27,9 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         end
 
         within '.article-container' do
-          assert page.has_selector?("p", :text => "This is the page about cookies.")
+          assert page.has_selector?("p", text: "This is the page about cookies.")
 
-          assert page.has_selector?(".modified-date", :text => "Last updated: 23 August 2013")
-
+          assert page.has_selector?(".modified-date", text: "Last updated: 23 August 2013")
         end
       end # within #content
 
@@ -49,13 +46,12 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
       visit "/help"
 
       within '#global-breadcrumb' do
-        assert page.has_selector?("li:nth-child(1) a[href='/']", :text => "Home")
+        assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")
       end
 
       within '#content header' do
         assert page.has_content?("Help using GOV.UK")
       end
     end
-
   end
 end

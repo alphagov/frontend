@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TransactionPresenterTest < ActiveSupport::TestCase
-
   setup do
     @transaction = stub()
     @presenter = TransactionPresenter.new(@transaction)
@@ -46,7 +45,6 @@ class TransactionPresenterTest < ActiveSupport::TestCase
   end
 
   context "before_you_start?" do
-
     should "be true if transaction has more information" do
       @transaction.stubs(:more_information).returns("Something")
       assert @presenter.before_you_start?
@@ -87,7 +85,7 @@ class TransactionPresenterTest < ActiveSupport::TestCase
 
   context "new window transactions" do
     should "use the new window transaction list in lib/data by default" do
-      pathname = Rails.root.join('lib','data','new_window_transactions.json')
+      pathname = Rails.root.join('lib', 'data', 'new_window_transactions.json')
 
       assert_equal pathname, TransactionPresenter.new_window_transactions_file
     end
@@ -95,7 +93,7 @@ class TransactionPresenterTest < ActiveSupport::TestCase
     context "given a list of new window transactions" do
       setup do
         @original_data_file = TransactionPresenter.new_window_transactions_file
-        TransactionPresenter.new_window_transactions_file = Rails.root.join('test','fixtures','new-window-transactions.json')
+        TransactionPresenter.new_window_transactions_file = Rails.root.join('test', 'fixtures', 'new-window-transactions.json')
       end
 
       teardown do

@@ -2,7 +2,6 @@ require 'test_helper'
 
 module SimpleSmartAnswers
   class FlowTest < ActiveSupport::TestCase
-
     context "finding nodes" do
       setup do
         @nodes = [

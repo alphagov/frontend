@@ -1,12 +1,11 @@
 require 'test_helper'
 
 class TravelAdviceCountryPresenterTest < ActiveSupport::TestCase
-
   context "handling attachments" do
     context "an artefact with attachments" do
       setup do
         @json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/turks-and-caicos-islands.json'))
-        @artefact = GdsApi::Response.new(stub("HTTP_Response", :code => 200, :body => @json_data))
+        @artefact = GdsApi::Response.new(stub("HTTP_Response", code: 200, body: @json_data))
         @presenter = TravelAdviceCountryPresenter.new(@artefact)
       end
 
@@ -24,7 +23,7 @@ class TravelAdviceCountryPresenterTest < ActiveSupport::TestCase
     context "an artefact without attachments" do
       setup do
         @json_data = File.read(Rails.root.join('test/fixtures/foreign-travel-advice/luxembourg.json'))
-        @artefact = GdsApi::Response.new(stub("HTTP_Response", :code => 200, :body => @json_data))
+        @artefact = GdsApi::Response.new(stub("HTTP_Response", code: 200, body: @json_data))
         @presenter = TravelAdviceCountryPresenter.new(@artefact)
       end
 

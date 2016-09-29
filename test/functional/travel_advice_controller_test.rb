@@ -44,7 +44,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "set cache-control headers to 30 mins" do
         get :index
 
-        assert_equal "max-age=#{30.minutes.to_i}, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
       end
 
       context "requesting json" do
@@ -57,13 +57,13 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
 
         should "set cache-control headers to 30 mins" do
-          assert_equal "max-age=#{30.minutes.to_i}, public",  response.headers["Cache-Control"]
+          assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
         end
       end
 
       context "requesting atom" do
         setup do
-          get :index, :format => 'atom'
+          get :index, format: 'atom'
         end
 
         should "return an aggregate of country atom feeds" do
@@ -72,7 +72,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
 
         should "set cache-control headers to 5 mins" do
-          assert_equal "max-age=#{5.minutes.to_i}, public",  response.headers["Cache-Control"]
+          assert_equal "max-age=#{5.minutes.to_i}, public", response.headers["Cache-Control"]
         end
       end
     end
@@ -86,7 +86,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
 
       should "be a successful request" do
-        get :country, :country_slug => "turks-and-caicos-islands"
+        get :country, country_slug: "turks-and-caicos-islands"
 
         assert response.success?
       end
@@ -99,14 +99,14 @@ class TravelAdviceControllerTest < ActionController::TestCase
         }
 
         GdsApi::ContentApi.any_instance.expects(:artefact!).
-          with('foreign-travel-advice/turks-and-caicos-islands', { }).returns(stub_artefact)
+          with('foreign-travel-advice/turks-and-caicos-islands', {}).returns(stub_artefact)
 
         @controller.stubs(:render)
-        get :country, :country_slug => "turks-and-caicos-islands"
+        get :country, country_slug: "turks-and-caicos-islands"
       end
 
       should "assign the publication to the template" do
-        get :country, :country_slug => "turks-and-caicos-islands"
+        get :country, country_slug: "turks-and-caicos-islands"
 
         assert_not_nil assigns(:publication)
         assert assigns(:publication).is_a?(TravelAdviceCountryPresenter)
@@ -114,7 +114,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
 
       should "render the country template" do
-        get :country, :country_slug => "turks-and-caicos-islands"
+        get :country, country_slug: "turks-and-caicos-islands"
 
         assert_template "country"
       end
@@ -122,17 +122,17 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "set the locale to en" do
         I18n.expects(:locale=).with(:en)
 
-        get :country, :country_slug => "turks-and-caicos-islands"
+        get :country, country_slug: "turks-and-caicos-islands"
       end
 
       should "set expiry headers to 5 mins" do
-        get :country, :country_slug => "turks-and-caicos-islands"
+        get :country, country_slug: "turks-and-caicos-islands"
 
-        assert_equal "max-age=300, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=300, public", response.headers["Cache-Control"]
       end
 
       should "assign the edition number when previewing a country" do
-        get :country, :country_slug => "turks-and-caicos-islands", :edition => "5"
+        get :country, country_slug: "turks-and-caicos-islands", edition: "5"
 
         assert_equal "5", assigns(:edition)
       end
@@ -141,7 +141,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "expose artefact details in header" do
           @controller.stubs(:render)
 
-          get :country, :country_slug => "turks-and-caicos-islands"
+          get :country, country_slug: "turks-and-caicos-islands"
 
           assert_equal "travel-advice", @response.headers["X-Slimmer-Format"]
         end
@@ -149,7 +149,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "set the artefact in the header with a section added" do
           @controller.stubs(:render)
 
-          get :country, :country_slug => "turks-and-caicos-islands"
+          get :country, country_slug: "turks-and-caicos-islands"
 
           header_artefact = JSON.parse(@response.headers["X-Slimmer-Artefact"])
           assert_equal @artefact["title"], header_artefact["title"]
@@ -163,7 +163,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "pass-through the primary section from the api" do
           @controller.stubs(:render)
 
-          get :country, :country_slug => "turks-and-caicos-islands"
+          get :country, country_slug: "turks-and-caicos-islands"
 
           header_artefact = JSON.parse(@response.headers["X-Slimmer-Artefact"])
 
@@ -184,7 +184,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       context "requesting the root 'part'" do
         should "not assign a part" do
-          get :country, :country_slug => "turks-and-caicos-islands"
+          get :country, country_slug: "turks-and-caicos-islands"
 
           assert_nil assigns(:part)
         end
@@ -192,7 +192,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       context "requesting a part" do
         should "select a given part if it exists" do
-          get :country, :country_slug => "turks-and-caicos-islands", :part => "page-two"
+          get :country, country_slug: "turks-and-caicos-islands", part: "page-two"
 
           assigned_part = assigns(:publication).current_part
           assert_equal "page-two", assigned_part.slug
@@ -201,7 +201,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         end
 
         should "redirect to the travel advice edition root when a part doesn't exist" do
-          get :country, :country_slug => "turks-and-caicos-islands", :part => "nightlife"
+          get :country, country_slug: "turks-and-caicos-islands", part: "nightlife"
 
           assert_redirected_to "/foreign-travel-advice/turks-and-caicos-islands"
         end
@@ -209,7 +209,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       context "request as atom feed" do
         should "return the atom template" do
-          get :country, :format => 'atom', :country_slug => "turks-and-caicos-islands"
+          get :country, format: 'atom', country_slug: "turks-and-caicos-islands"
 
           assert_equal 200, response.status
           assert_equal "application/atom+xml; charset=utf-8", response.headers["Content-Type"]
@@ -221,15 +221,15 @@ class TravelAdviceControllerTest < ActionController::TestCase
     should "return a 404 status for a country which doesn't exist" do
       content_api_does_not_have_an_artefact "foreign-travel-advice/timbuktu"
 
-      get :country, :country_slug => "timbuktu"
+      get :country, country_slug: "timbuktu"
 
       assert response.not_found?
     end
 
     should "return a cacheable 404 without querying content_api for an invalid country slug" do
-      get :country, :country_slug => "this is not & a valid slug"
+      get :country, country_slug: "this is not & a valid slug"
       assert response.not_found?
-      assert_equal "max-age=600, public",  response.headers["Cache-Control"]
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
       assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
     end
   end

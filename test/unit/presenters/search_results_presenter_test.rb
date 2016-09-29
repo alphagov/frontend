@@ -4,9 +4,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
   should "return an appropriate hash" do
     results = SearchResultsPresenter.new({
       "total" => 1,
-      "results" => [ { "index" => "mainstream" } ],
+      "results" => [{ "index" => "mainstream" }],
       "facets" => {}
-    }, SearchParameters.new({q: 'my-query'}))
+    }, SearchParameters.new(q: 'my-query'))
 
     assert_equal 'my-query', results.to_hash[:query]
     assert_equal 1, results.to_hash[:result_count]
@@ -19,16 +19,16 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       "results" => [],
       "facets" => {
         "organisations" => {
-          "options" => [ {
+          "options" => [{
             "value" => {
               "link" => "/government/organisations/department-for-education",
               "title" => "Department for Education"
             },
             "documents" => 114
-          } ]
+          }]
         }
       }
-    }, SearchParameters.new({q: 'my-query'}))
+    }, SearchParameters.new(q: 'my-query'))
 
     assert_equal 1, results.to_hash[:filter_fields].length
     assert_equal "organisations", results.to_hash[:filter_fields][0][:field]
@@ -42,16 +42,16 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       "results" => [],
       "facets" => {
         "specialist_sectors" => {
-          "options" => [ {
+          "options" => [{
             "value" => {
               "link" => "/business-tax/vat",
               "title" => "VAT"
             },
             "documents" => 114
-          } ]
+          }]
         }
       }
-    }, SearchParameters.new({q: 'my-query'}))
+    }, SearchParameters.new(q: 'my-query'))
 
     assert_equal 1, results.to_hash[:filter_fields].length
     assert_equal "topics", results.to_hash[:filter_fields][0][:field]
@@ -63,11 +63,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
   context 'pagination' do
     should 'build a link to the next page' do
       response = { 'total' => 200 }
-      params = SearchParameters.new({
-        q: 'my-query',
+      params = SearchParameters.new(q: 'my-query',
         count: 50,
-        start: 0,
-      })
+        start: 0)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert presenter.has_next_page?
@@ -77,10 +75,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'not have a next page when start + count >= total' do
       response = { 'total' => 200 }
-      params = SearchParameters.new({
-        count: 50,
-        start: 150,
-      })
+      params = SearchParameters.new(count: 50,
+        start: 150)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert ! presenter.has_next_page?
@@ -90,11 +86,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'build a link to the previous page' do
       response = { 'total' => 200 }
-      params = SearchParameters.new({
-        q: 'my-query',
+      params = SearchParameters.new(q: 'my-query',
         count: 50,
-        start: 100,
-      })
+        start: 100)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert presenter.has_previous_page?
@@ -104,10 +98,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'not have a previous page when start = 0' do
       response = { 'total' => 200 }
-      params = SearchParameters.new({
-        count: 50,
-        start: 0,
-      })
+      params = SearchParameters.new(count: 50,
+        start: 0)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert ! presenter.has_previous_page?
@@ -120,11 +112,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'link to a start_at value of 0 when less than zero' do
       response = { 'total' => 200 }
-      params = SearchParameters.new({
-        q: 'my-query',
+      params = SearchParameters.new(q: 'my-query',
         count: 50,
-        start: 25,
-      })
+        start: 25)
       presenter = SearchResultsPresenter.new(response, params)
 
       # with a start value of 25 and a count of 50, this could incorrectly
@@ -137,10 +127,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'not have a previous or next page when there are no results' do
       response = { 'total' => 0 }
-      params = SearchParameters.new({
-        count: 50,
-        start: 0,
-      })
+      params = SearchParameters.new(count: 50,
+        start: 0)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert ! presenter.has_previous_page?
@@ -152,10 +140,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'not have a previous or next page when there are not enough results' do
       response = { 'total' => 25 }
-      params = SearchParameters.new({
-        count: 50,
-        start: 0,
-      })
+      params = SearchParameters.new(count: 50,
+        start: 0)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert ! presenter.has_previous_page?
@@ -167,11 +153,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
 
     should 'include the count parameter in the url when not set to the default' do
       response = { 'total' => 200 }
-      params = SearchParameters.new({
-        q: 'my-query',
+      params = SearchParameters.new(q: 'my-query',
         count: 88,
-        start: 0,
-      })
+        start: 0)
       presenter = SearchResultsPresenter.new(response, params)
 
       assert presenter.has_next_page?
@@ -183,9 +167,9 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
     should "not have metadata for group results" do
       results = SearchResultsPresenter.new({
         "total" => 1,
-        "results" => [ { "document_type" => "group" } ],
+        "results" => [{ "document_type" => "group" }],
         "facets" => {}
-      }, SearchParameters.new({q: 'my-query'}))
+      }, SearchParameters.new(q: 'my-query'))
       rlist = results.to_hash[:results]
       assert_equal 1, rlist.size
       assert_equal nil, rlist[0][:metadata]

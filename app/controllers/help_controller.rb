@@ -12,6 +12,7 @@ class HelpController < ApplicationController
   end
 
 protected
+
   def setup_slimmer_artefact
     @artefact = fetch_artefact
     set_slimmer_artefact(@artefact)

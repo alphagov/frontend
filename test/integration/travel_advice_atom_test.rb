@@ -18,7 +18,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
       assert page.has_xpath? ".//feed/entry/title", text: "Luxembourg"
       assert page.has_xpath? ".//feed/entry/id", text: "https://www.gov.uk/foreign-travel-advice/luxembourg#2013-01-31T11:35:17+00:00"
       assert page.has_xpath? ".//feed/entry/link[@href='https://www.gov.uk/foreign-travel-advice/luxembourg']"
-      assert page.has_xpath? ".//feed/entry/summary[@type='xhtml']/div/p", :text => "The issue with the Knights of Ni has been resolved."
+      assert page.has_xpath? ".//feed/entry/summary[@type='xhtml']/div/p", text: "The issue with the Knights of Ni has been resolved."
     end
 
     should "handle special chars in a way that's valid in xml" do

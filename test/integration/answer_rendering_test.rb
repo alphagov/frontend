@@ -2,16 +2,15 @@
 require 'integration_test_helper'
 
 class AnswerRenderingTest < ActionDispatch::IntegrationTest
-
   should "rendering a quick answer correctly" do
     setup_api_responses('vat-rates')
     visit "/vat-rates"
 
     assert_equal 200, page.status_code
 
-    within 'head', :visible => :all do
-      assert page.has_selector?("title", :text => "VAT rates - GOV.UK", :visible => :all)
-      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/vat-rates.json']", :visible => :all)
+    within 'head', visible: :all do
+      assert page.has_selector?("title", text: "VAT rates - GOV.UK", visible: :all)
+      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/vat-rates.json']", visible: :all)
     end
 
     within '#content' do
@@ -20,13 +19,11 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
-
-        assert page.has_selector?(".highlight-answer p em", :text => "20%")
+        assert page.has_selector?(".highlight-answer p em", text: "20%")
 
         assert page.has_selector?(shared_component_selector('beta_label'))
 
-        assert page.has_selector?(".modified-date", :text => "Last updated: 2 October 2012")
-
+        assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
       end
     end # within #content
     assert page.has_selector?("#test-related")
@@ -49,7 +46,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
       end
 
       within '.article-container' do
-        assert page.has_selector?(".modified-date", :text => "Diweddarwyd diwethaf: 2 Hydref 2012")
+        assert page.has_selector?(".modified-date", text: "Diweddarwyd diwethaf: 2 Hydref 2012")
       end
     end # within #content
   end

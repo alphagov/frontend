@@ -5,18 +5,15 @@ require 'gds_api/test_helpers/panopticon'
 require 'gds_api/test_helpers/mapit'
 
 class LicenceLocationTest < ActionController::TestCase
-
   tests RootController
   include GdsApi::TestHelpers::Mapit
 
   context "given a licence exists" do
     setup do
-      content_api_has_an_artefact('licence-to-kill', {
-        "format" => "licence",
+      content_api_has_an_artefact('licence-to-kill', "format" => "licence",
         "web_url" => "http://example.org/licence-to-kill",
         "title" => "Licence to kill",
-        "details" => { }
-      })
+        "details" => {})
     end
 
     context "loading the licence edition without any location" do
@@ -30,7 +27,7 @@ class LicenceLocationTest < ActionController::TestCase
       should "set correct expiry headers" do
         get :publication, slug: "licence-to-kill"
 
-        assert_equal "max-age=1800, public",  response.headers["Cache-Control"]
+        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
     end
 
@@ -38,8 +35,8 @@ class LicenceLocationTest < ActionController::TestCase
       context "for an English local authority" do
         setup do
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county"},
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands"},
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county" },
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands" },
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
@@ -54,8 +51,8 @@ class LicenceLocationTest < ActionController::TestCase
       context "for a Northern Irish local authority" do
         setup do
           mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003", "govuk_slug" => "belfast"},
-            { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24"},
+            { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003", "govuk_slug" => "belfast" },
+            { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24" },
           ])
 
           post :publication, slug: "licence-to-kill", postcode: "BT1 5GS"
@@ -67,5 +64,4 @@ class LicenceLocationTest < ActionController::TestCase
       end
     end
   end
-
 end

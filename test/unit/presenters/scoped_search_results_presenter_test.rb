@@ -54,7 +54,6 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
   end
 
   context "presentable result list" do
-
     should "return all scoped results with unscoped results inserted at position 4" do
       results = ScopedSearchResultsPresenter.new(@search_response, @search_parameters).to_hash
 
@@ -82,7 +81,7 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
 
 
       # Scoped results
-      simplified_expected_results_list[0..2].each_with_index do | result, i |
+      simplified_expected_results_list[0..2].each_with_index do |result, i|
         assert_equal result["title_with_highlighting"], results[:results][i][:title_with_highlighting]
       end
 
@@ -90,7 +89,7 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
       assert_equal true, results[:results][3][:is_multiple_results]
 
       # iterate unscoped sublist of results
-      simplified_expected_results_list[3]["results"].each_with_index do | result, i |
+      simplified_expected_results_list[3]["results"].each_with_index do |result, i|
         assert_equal result["title_with_highlighting"], results[:results][3][:results][i][:title_with_highlighting]
       end
 
@@ -108,7 +107,7 @@ class ScopedSearchResultsPresenterTest < ActiveSupport::TestCase
     should "not not include unscoped results in the presentable_list if there aren't any" do
       results = ScopedSearchResultsPresenter.new(@search_response, @search_parameters).to_hash
 
-      @scoped_results.each_with_index do | result, i |
+      @scoped_results.each_with_index do |result, i|
         assert_equal result["title_with_highlighting"], results[:results][i][:title_with_highlighting]
       end
     end

@@ -1,5 +1,4 @@
 class SearchAPI
-
   def initialize(rummager_api)
     @rummager_api = rummager_api
   end
@@ -9,6 +8,7 @@ class SearchAPI
   end
 
 private
+
   attr_reader :rummager_api
 
   class Searcher
@@ -22,6 +22,7 @@ private
     end
 
   private
+
     attr_reader :api, :params, :scope_object
 
     def search_results

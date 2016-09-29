@@ -6,6 +6,6 @@ class ActiveSupport::TestCase
       }
     }
     url = "#{Plek.new.find('contentapi')}#{path}"
-    stub_request(:get, url).to_return(:status => 404, :body => body.to_json, :headers => {})
+    stub_request(:get, url).to_return(status: 404, body: body.to_json, headers: {})
   end
 end

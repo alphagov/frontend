@@ -1,7 +1,6 @@
 require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
-
   before_filter :validate_slug_param
   before_filter :set_expiry
   before_filter :setup_edition
@@ -40,11 +39,11 @@ class SimpleSmartAnswersController < ApplicationController
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})
     responses_as_string = responses.any? ? responses.map(&:slug).join("/") : nil
-    attrs = {:slug => @publication.slug, :responses => responses_as_string, :edition => @edition}.merge(extra_attrs)
+    attrs = { slug: @publication.slug, responses: responses_as_string, edition: @edition }.merge(extra_attrs)
     smart_answer_flow_path attrs
   end
 
   def change_completed_question_path(question_number)
-    smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], :previous_response => @flow_state.completed_questions[question_number].slug)
+    smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], previous_response: @flow_state.completed_questions[question_number].slug)
   end
 end

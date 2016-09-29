@@ -9,7 +9,7 @@ module SimpleSmartAnswers
       @slug = details["slug"]
       @title = details["title"]
       @body = details["body"]
-      @options = details["options"].map {|o| build_option(o) } if details["options"]
+      @options = details["options"].map { |o| build_option(o) } if details["options"]
     end
 
     attr_reader :kind, :slug, :title, :body, :options
@@ -29,12 +29,10 @@ module SimpleSmartAnswers
     private
 
     def build_option(details)
-      OpenStruct.new({
-        :question => self,
-        :label => details["label"],
-        :slug => details["slug"],
-        :next_node_slug => details["next_node"],
-      })
+      OpenStruct.new(question: self,
+        label: details["label"],
+        slug: details["slug"],
+        next_node_slug: details["next_node"])
     end
   end
 end

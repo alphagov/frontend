@@ -3,15 +3,13 @@ class GovernmentResult < SearchResult
   result_accessor :display_type
 
   def to_hash
-    super.merge({
-      metadata: metadata,
+    super.merge(metadata: metadata,
       metadata_any?: metadata.any?,
       sections: sections,
       sections_present?: sections.present?,
       government: true,
       historic?: historic?,
-      government_name: government_name,
-    })
+      government_name: government_name)
   end
 
   def metadata

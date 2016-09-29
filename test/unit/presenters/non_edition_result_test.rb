@@ -4,9 +4,7 @@ class NonEditionResultTest < ActiveSupport::TestCase
   should "return document_type as the format" do
     result = NonEditionResult.new(
       SearchParameters.new({}),
-      {
-        "document_type" => "manual_section",
-      },
+              "document_type" => "manual_section",
     )
 
     assert_equal "manual_section", result.format
@@ -15,9 +13,7 @@ class NonEditionResultTest < ActiveSupport::TestCase
   should "include a humanized document_type in metadata" do
     result = NonEditionResult.new(
       SearchParameters.new({}),
-      {
-        "document_type" => "manual_section",
-      },
+              "document_type" => "manual_section",
     )
 
     assert result.metadata.include?("Manual section")
@@ -26,9 +22,7 @@ class NonEditionResultTest < ActiveSupport::TestCase
   should "use a custom humanized document_type form for special cases" do
     result = NonEditionResult.new(
       SearchParameters.new({}),
-      {
-        "document_type" => "cma_case",
-      },
+              "document_type" => "cma_case",
     )
 
     assert result.metadata.include?("CMA case")
@@ -37,10 +31,8 @@ class NonEditionResultTest < ActiveSupport::TestCase
   should "include public_timestamp date in metadata" do
     result = NonEditionResult.new(
       SearchParameters.new({}),
-      {
-        "document_type" => "cma_case",
+              "document_type" => "cma_case",
         "public_timestamp" => "2014-12-23T12:34:56",
-      },
     )
 
     assert result.metadata.include?("23 December 2014")
@@ -49,8 +41,7 @@ class NonEditionResultTest < ActiveSupport::TestCase
   should "include organisations in metadata" do
     result = NonEditionResult.new(
       SearchParameters.new({}),
-      {
-        "document_type" => "manual",
+              "document_type" => "manual",
         "organisations" => [
           {
             "slug" => "home-office",
@@ -62,7 +53,6 @@ class NonEditionResultTest < ActiveSupport::TestCase
             "acronym" => "UKVI",
           },
         ],
-      },
     )
 
     assert result.metadata.include?(

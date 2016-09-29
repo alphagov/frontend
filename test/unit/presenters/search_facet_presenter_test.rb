@@ -3,13 +3,13 @@ require "test_helper"
 class SearchFacetPresenterTest < ActiveSupport::TestCase
   should "return an appropriate hash" do
     facet = SearchFacetPresenter.new({
-      "options" => [ {
+      "options" => [{
         "value" => {
           "slug" => "department-for-education",
           "title" => "Department for Education"
         },
         "documents" => 1114
-      } ]
+      }]
     }, ['department-for-education'])
     assert_equal true, facet.to_hash[:any?]
     assert_equal 'department-for-education', facet.to_hash[:options][0][:slug]
@@ -20,7 +20,7 @@ class SearchFacetPresenterTest < ActiveSupport::TestCase
 
   should "work out which items are checked" do
     facet = SearchFacetPresenter.new({
-      "options" => [ {
+      "options" => [{
         "value" => {
           "slug" => "department-for-education",
           "title" => "Department for Education"
@@ -32,7 +32,7 @@ class SearchFacetPresenterTest < ActiveSupport::TestCase
           "title" => "Department for Transport"
         },
         "documents" => 1114
-      }  ]
+      }]
     }, ['department-for-education'])
     assert_equal 'department-for-education', facet.to_hash[:options][0][:slug]
     assert_equal true, facet.to_hash[:options][0][:checked]

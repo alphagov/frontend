@@ -45,6 +45,7 @@ module CampaignHelper
   end
 
 private
+
   def organisation_attributes(publication)
     publication.details.fetch("organisation", {})
   end

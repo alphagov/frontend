@@ -10,8 +10,8 @@ class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   before_filter :set_expiry, only: [:tour]
-  before_filter :validate_slug_param, :only => [:publication]
-  before_filter :block_empty_format, :only => [:jobsearch, :publication]
+  before_filter :validate_slug_param, only: [:publication]
+  before_filter :block_empty_format, only: [:jobsearch, :publication]
   rescue_from RecordNotFound, with: :cacheable_404
 
   PRINT_FORMATS = %w(guide programme)
@@ -60,6 +60,7 @@ class RootController < ApplicationController
   ].freeze
 
   def self.custom_formats; CUSTOM_FORMATS; end
+
   def self.custom_slugs; CUSTOM_SLUGS; end
 
   def tour
@@ -190,7 +191,7 @@ class RootController < ApplicationController
         end
       end
       format.json do
-        render :json => @publication.to_json
+        render json: @publication.to_json
       end
     end
   end
@@ -288,9 +289,9 @@ protected
 
   def identifier_class_for_format(format)
     case format
-      when "licence" then LicenceLocationIdentifier
-      when "local_transaction" then LocalTransactionLocationIdentifier
-      else raise(Exception, "No location identifier available for #{format}")
+    when "licence" then LicenceLocationIdentifier
+    when "local_transaction" then LocalTransactionLocationIdentifier
+    else raise(Exception, "No location identifier available for #{format}")
     end
   end
 
@@ -332,7 +333,7 @@ protected
       else
         "laMatchNoLinkNoAuthorityUrl"
       end
-    LocationError.new(error_code, { local_authority_name: local_authority.name })
+    LocationError.new(error_code, local_authority_name: local_authority.name)
   end
 
   def is_custom_slug?

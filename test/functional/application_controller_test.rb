@@ -15,7 +15,7 @@ class ApplicationControllerTest < ActionController::TestCase
 
     should "create an instance including website_root by default" do
       Frontend.expects(:govuk_website_root).returns("https://www.foo.gov.uk")
-      GdsApi::ContentApi.expects(:new).with(anything(), CONTENT_API_CREDENTIALS.merge(:web_urls_relative_to => "https://www.foo.gov.uk")).returns(:an_api_client)
+      GdsApi::ContentApi.expects(:new).with(anything(), CONTENT_API_CREDENTIALS.merge(web_urls_relative_to: "https://www.foo.gov.uk")).returns(:an_api_client)
 
       assert_equal :an_api_client, @controller.send(:content_api)
     end

@@ -54,8 +54,8 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       context "for an English local authority" do
         setup do
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county"},
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands"},
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county" },
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands" },
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
@@ -83,7 +83,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the 'invalid postcode format' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "invalidPostcodeFormat" })
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "invalidPostcodeFormat")
       end
     end
 
@@ -102,7 +102,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the 'no mapit match' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "fullPostcodeNoMapitMatch" })
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "fullPostcodeNoMapitMatch")
       end
     end
 
@@ -121,7 +121,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "log the 'missing local authority' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "noLaMatch" })
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "noLaMatch")
       end
     end
 
@@ -211,7 +211,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
     end
 
     should "log the 'missing interaction' error to the view" do
-      assert_equal(LogStasher.store["postcode_error_notification"], { postcode_error: "laMatchNoLink" })
+      assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
     end
   end
 end

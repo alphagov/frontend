@@ -6,9 +6,9 @@ class CampaignHelperTest < ActionView::TestCase
 
   setup do
     @model = PublicationPresenter.new(JSON.parse(
-      File.read(
-        Rails.root.join("test/fixtures/britain-is-great.json")
-      )
+                                        File.read(
+                                          Rails.root.join("test/fixtures/britain-is-great.json")
+                                        )
     ))
   end
 
@@ -86,5 +86,4 @@ class CampaignHelperTest < ActionView::TestCase
       end
     end
   end
-
 end

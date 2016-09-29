@@ -14,8 +14,8 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
   should "be able to fetch an artefact" do
     json_data = File.read(Rails.root.join('test/fixtures/register-to-vote.json'))
     artefact = GdsApi::Response.new(
-      stub("HTTP_Response", :code => 200, :body => json_data),
-      :web_urls_relative_to => "https://www.gov.uk"
+      stub("HTTP_Response", code: 200, body: json_data),
+      web_urls_relative_to: "https://www.gov.uk"
     )
     @content_api.expects(:artefact!).with('register-to-vote', {}).returns(artefact)
     assert_nothing_raised do
@@ -69,8 +69,8 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
     tampered_json_data = temp.to_json
 
     index_artefact = GdsApi::Response.new(
-      stub("HTTP_Response", :code => 200, :body => tampered_json_data),
-      :web_urls_relative_to => "https://www.gov.uk"
+      stub("HTTP_Response", code: 200, body: tampered_json_data),
+      web_urls_relative_to: "https://www.gov.uk"
     )
 
     assert_raises ArtefactRetriever::UnsupportedArtefactFormat do

@@ -6,9 +6,9 @@ class PartHelperTest < ActionView::TestCase
 
   setup do
     @model = PublicationPresenter.new(JSON.parse(
-      File.read(
-        Rails.root.join("test/fixtures/child-tax-credit.json")
-      )
+                                        File.read(
+                                          Rails.root.join("test/fixtures/child-tax-credit.json")
+                                        )
     ))
   end
 

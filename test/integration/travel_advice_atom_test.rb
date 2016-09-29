@@ -4,37 +4,6 @@ require "gds_api/test_helpers/content_store"
 class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::ContentStore
 
-  context "on a single country page" do
-    should "display the atom feed for a country" do
-      setup_api_responses "foreign-travel-advice/luxembourg"
-      visit "/foreign-travel-advice/luxembourg.atom"
-
-      assert_equal 200, page.status_code
-
-      assert page.has_xpath? ".//feed/id", text: "https://www.gov.uk/foreign-travel-advice/luxembourg"
-      assert page.has_xpath? ".//feed/title", text: "Travel Advice Summary"
-      assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/foreign-travel-advice/luxembourg.atom']"
-      assert page.has_xpath? ".//feed/entry", count: 1
-      assert page.has_xpath? ".//feed/entry/title", text: "Luxembourg"
-      assert page.has_xpath? ".//feed/entry/id", text: "https://www.gov.uk/foreign-travel-advice/luxembourg#2013-01-31T11:35:17+00:00"
-      assert page.has_xpath? ".//feed/entry/link[@href='https://www.gov.uk/foreign-travel-advice/luxembourg']"
-      assert page.has_xpath? ".//feed/entry/summary[@type='xhtml']/div/p", text: "The issue with the Knights of Ni has been resolved."
-    end
-
-    should "handle special chars in a way that's valid in xml" do
-      setup_api_responses "foreign-travel-advice/afghanistan"
-
-      visit "/foreign-travel-advice/afghanistan.atom"
-
-      assert_equal 200, page.status_code
-
-      assert page.has_xpath? ".//feed/entry", count: 1
-      assert page.has_xpath? ".//feed/entry/title", text: "Afghanistan"
-
-      assert_match /Travel advicé for "Afghanistan" has been updated &amp; is better\. “GOV\.UK”/, page.body
-    end
-  end
-
   context "aggregate feed" do
     should "display the list of countries as an atom feed" do
       json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')

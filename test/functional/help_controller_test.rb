@@ -9,7 +9,6 @@ class HelpControllerTest < ActionController::TestCase
         web_urls_relative_to: "https://www.gov.uk"
       )
       GdsApi::ContentApi.any_instance.stubs(:artefact!).returns(@artefact)
-      #@controller.stubs(:fetch_artefact).returns(@index_artefact)
     end
 
     should "send the artefact to slimmer" do

@@ -4,6 +4,9 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   context "backend error handling" do
     context "backend timeout" do
       setup do
+        stub_request(:get, %r[http://content-store.dev.gov.uk/*]).
+          to_return(status: 200, body: {}.to_json)
+
         stub_request(:get, "#{Plek.new.find('contentapi')}/my-item.json").to_timeout
       end
 
@@ -15,6 +18,9 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
     context "backend 500 error" do
       setup do
+        stub_request(:get, %r[http://content-store.dev.gov.uk/*]).
+          to_return(status: 200, body: {}.to_json)
+
         stub_request(:get, "#{Plek.new.find('contentapi')}/my-item.json").to_return(status: 500)
       end
 
@@ -26,6 +32,9 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
 
     context "backend connection refused" do
       setup do
+        stub_request(:get, %r[http://content-store.dev.gov.uk/*]).
+          to_return(status: 200, body: {}.to_json)
+
         stub_request(:get, "#{Plek.new.find('contentapi')}/my-item.json").to_raise(Errno::ECONNREFUSED)
       end
 
@@ -39,7 +48,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
   test "completed transaction request" do
     artefact = artefact_for_slug "done/completed-transaction-test"
     artefact = artefact.merge(format: "completed_transaction")
-    content_api_has_an_artefact('done/completed-transaction-test', artefact)
+    content_api_and_content_store_have_page('done/completed-transaction-test', artefact)
     visit "/done/completed-transaction-test"
     assert_equal 200, page.status_code
   end
@@ -55,7 +64,7 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     artefact = artefact_for_slug "business-support-example"
     artefact = artefact.merge("format" => "business_support")
     artefact = artefact.merge(content_api_response("business-support-example"))
-    content_api_has_an_artefact('business-support-example', artefact)
+    content_api_and_content_store_have_page('business-support-example', artefact)
     visit "/business-support-example"
     assert_equal 200, page.status_code
     assert page.has_content? "Business support example"

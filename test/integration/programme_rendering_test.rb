@@ -117,7 +117,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('reduced-earnings-allowance')
     artefact["details"]["language"] = "cy"
-    content_api_has_an_artefact('reduced-earnings-allowance', artefact)
+    content_api_and_content_store_have_page('reduced-earnings-allowance', artefact)
 
     visit "/reduced-earnings-allowance"
 
@@ -208,7 +208,7 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('reduced-earnings-allowance')
     artefact["details"]["language"] = "cy"
-    content_api_has_an_artefact('reduced-earnings-allowance', artefact)
+    content_api_and_content_store_have_page('reduced-earnings-allowance', artefact)
 
     visit "/reduced-earnings-allowance/print"
 
@@ -243,10 +243,9 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
 
   should "preserve the query string when navigating around a preview of a programme" do
     artefact = content_api_response('reduced-earnings-allowance')
-    content_api_has_unpublished_artefact('reduced-earnings-allowance', 5, artefact)
+    content_api_and_content_store_have_unpublished_page('reduced-earnings-allowance', 5, artefact)
 
     visit "/reduced-earnings-allowance/further-information?edition=5"
-
     assert page.has_content? "Overview"
 
     within ".page-navigation" do

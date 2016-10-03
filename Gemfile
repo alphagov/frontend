@@ -31,7 +31,7 @@ end
 if ENV['API_DEV']
   gem 'gds-api-adapters', path: '../gds-api-adapters'
 else
-  gem 'gds-api-adapters', '34.1.0'
+  gem 'gds-api-adapters', '36.4.1'
 end
 
 gem "addressable"
@@ -48,7 +48,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-byebug'
   gem 'govuk-lint', "~> 1.2.0"
   gem 'ci_reporter_test_unit'
 end
@@ -60,6 +60,7 @@ gem 'sass', '3.4.9'
 gem 'sass-rails'
 gem "therubyracer", "0.12.2"
 gem 'uglifier'
+gem 'govuk_navigation_helpers', '~> 1.0'
 
 group :test do
   gem "mocha", "~> 1.1.0"
@@ -73,4 +74,5 @@ group :test do
   gem "shoulda"
   gem "timecop", "0.6.3"
   gem 'govuk-content-schema-test-helpers'
+  gem 'govuk_schemas', '~> 0.2'
 end

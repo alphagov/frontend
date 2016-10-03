@@ -28,6 +28,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include GdsApi::TestHelpers::ContentApi
   include Slimmer::TestHelpers::SharedTemplates
+  include ContentStoreHelpers
 
   setup do
     I18n.locale = :en

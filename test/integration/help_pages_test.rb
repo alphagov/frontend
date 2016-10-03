@@ -15,10 +15,7 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/help/cookies.json']", visible: :all)
       end
 
-      within '#global-breadcrumb' do
-        assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")
-        assert page.has_selector?("li:nth-child(2) a[href='/help']", text: "Help")
-      end
+      assert_breadcrumb_rendered
 
       within '#content' do
         within 'header' do
@@ -45,9 +42,7 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
     should "render the help index page correctly" do
       visit "/help"
 
-      within '#global-breadcrumb' do
-        assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")
-      end
+      assert_breadcrumb_rendered
 
       within '#content header' do
         assert page.has_content?("Help using GOV.UK")

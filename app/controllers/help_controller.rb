@@ -4,7 +4,7 @@ class HelpController < ApplicationController
   before_filter :set_expiry
 
   def index
-    setup_slimmer_artefact
+    setup_navigation_helpers("/help")
 
     respond_to do |format|
       format.html
@@ -13,19 +13,14 @@ class HelpController < ApplicationController
   end
 
   def tour
+    setup_navigation_helpers("/tour")
     render locals: { full_width: true }
   end
 
 protected
 
-  def setup_slimmer_artefact
-    @artefact = fetch_artefact
-    set_slimmer_artefact(@artefact)
-    set_slimmer_headers(format: 'help_page')
-  end
-
-  def fetch_artefact
-    ArtefactRetriever.new(content_api, Rails.logger, statsd, ['custom-application']).
-      fetch_artefact('help')
+  def setup_navigation_helpers(base_path)
+    content_item = content_store.content_item(base_path)
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(content_item)
   end
 end

@@ -1,5 +1,4 @@
 require 'integration_test_helper'
-require "gds_api/test_helpers/content_store"
 
 class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::ContentStore

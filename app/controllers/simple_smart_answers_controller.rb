@@ -9,8 +9,11 @@ class SimpleSmartAnswersController < ApplicationController
 
   def flow
     artefact = fetch_artefact(params[:slug], @edition)
+
     @publication = PublicationPresenter.new(artefact)
     cacheable_404 and return unless @publication.format == "simple_smart_answer"
+
+    setup_navigation_helpers
 
     responses = params[:responses].to_s.split('/')
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
@@ -45,5 +48,10 @@ class SimpleSmartAnswersController < ApplicationController
 
   def change_completed_question_path(question_number)
     smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], previous_response: @flow_state.completed_questions[question_number].slug)
+  end
+
+  def setup_navigation_helpers
+    content_item = content_store.content_item("/" + params[:slug])
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(content_item)
   end
 end

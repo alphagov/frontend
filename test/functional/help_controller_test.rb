@@ -3,24 +3,7 @@ require "test_helper"
 class HelpControllerTest < ActionController::TestCase
   context "GET index" do
     setup do
-      @json_data = File.read(Rails.root.join('test/fixtures/help.json'))
-      @artefact = GdsApi::Response.new(
-        stub("HTTP_Response", code: 200, body: @json_data),
-        web_urls_relative_to: "https://www.gov.uk"
-      )
-      GdsApi::ContentApi.any_instance.stubs(:artefact!).returns(@artefact)
-    end
-
-    should "send the artefact to slimmer" do
-      get :index
-
-      assert_equal @artefact.to_hash.to_json, @response.headers["X-Slimmer-Artefact"]
-    end
-
-    should "set the slimmer format" do
-      get :index
-
-      assert_equal "help_page", response.headers["X-Slimmer-Format"]
+      content_store_has_random_item(base_path: "/help")
     end
 
     should "set the cache expiry headers" do
@@ -37,6 +20,10 @@ class HelpControllerTest < ActionController::TestCase
   end
 
   context "loading the tour page" do
+    setup do
+      content_store_has_random_item(base_path: "/tour")
+    end
+
     should "respond with success" do
       get :tour
 

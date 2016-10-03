@@ -2,6 +2,9 @@ require "integration_test_helper"
 
 class ContentApiResponseTest < ActionDispatch::IntegrationTest
   def status_for_url(path, status)
+    stub_request(:get, %r[http://content-store.dev.gov.uk/*]).
+      to_return(status: 200, body: {}.to_json)
+
     path = "/#{path}" if path[0] != "/"
     response = {
       status: status,

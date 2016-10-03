@@ -34,7 +34,7 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('vat-rates')
     artefact["details"]["language"] = "cy"
-    content_api_has_an_artefact('vat-rates', artefact)
+    content_api_and_content_store_have_page('vat-rates', artefact)
 
     visit "/vat-rates"
 

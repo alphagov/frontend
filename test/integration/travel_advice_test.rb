@@ -1,9 +1,6 @@
 require 'integration_test_helper'
-require "gds_api/test_helpers/content_store"
 
 class TravelAdviceTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::ContentStore
-
   # Necessary because Capybara's has_content? method normalizes spaces in the document
   # However, it doesn't normalize spaces in the query string, so if you're looking for a string
   # with 2 spaces in it (e.g. when the date is a single digit with a space prefix), it will fail.
@@ -60,11 +57,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       group_headers = page.all(".list h2").map(&:text)
       assert_equal group_headers.sort, group_headers
 
-      within '#global-breadcrumb nav' do
-        assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")
-        assert page.has_selector?("li:nth-child(2) a", text: "Passports, travel and living abroad")
-        assert page.has_selector?("li:nth-child(3) a", text: "Travel abroad")
-      end
+      assert_breadcrumb_rendered
     end
 
     should "set the slimmer #wrapper classes" do
@@ -83,10 +76,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       content_store_does_not_have_item("/foreign-travel-advice")
     end
 
-    should "return a 404 HTTP status code and not 503" do
+    should "returns a 503" do
       visit '/foreign-travel-advice'
 
-      assert_equal 404, page.status_code
+      assert_equal 503, page.status_code
     end
   end
 
@@ -128,7 +121,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "a single country page" do
+  context "a single country page preview" do
     setup do
       setup_api_responses "foreign-travel-advice/turks-and-caicos-islands"
     end
@@ -142,13 +135,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/foreign-travel-advice/turks-and-caicos-islands.json']", visible: :all)
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice/turks-and-caicos-islands.atom']", visible: :all)
         assert page.has_selector?("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: false)
-      end
-
-      within '#global-breadcrumb nav' do
-        assert page.has_selector?("li:nth-child(1) a[href='/']", text: "Home")
-        assert page.has_selector?("li:nth-child(2) a", text: "Passports, travel and living abroad")
-        assert page.has_selector?("li:nth-child(3) a", text: "Travel abroad")
-        assert page.has_selector?("li:nth-child(4) a[href='/foreign-travel-advice']", text: "Foreign travel advice")
       end
 
       within '.page-header' do

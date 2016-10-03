@@ -17,7 +17,14 @@
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">
+
+    <div class="header-context"><!-- Deliberately empty. This will prevent Slimmer from adding the artefact-breadcrumb. --></div>
+
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
+      <% if @navigation_helpers %>
+        <%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: @navigation_helpers.breadcrumbs } %>
+      <% end %>
+
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>
         <%= yield %>
       <% unless local_assigns.include?(:full_width) %></div><% end %>

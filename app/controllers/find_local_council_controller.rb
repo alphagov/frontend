@@ -1,6 +1,7 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
+  before_filter :setup_navigation_helpers
   before_filter :set_artefact_headers
   before_filter :set_expiry
 
@@ -82,7 +83,6 @@ private
     #       can store this and other related data on a content item
     hardcoded_format
       .merge(hardcoded_related_links)
-      .merge(hardcoded_breadcrumbs)
   end
 
   def hardcoded_format
@@ -110,47 +110,6 @@ private
     }
   end
 
-  def hardcoded_breadcrumbs
-    {
-      "tags" => [
-        {
-          "id" => "#{Frontend.govuk_website_root}/api/tags/section/housing-local-services%2Flocal-councils.json",
-          "content_id" => "4f8f62a8-9ff9-45ab-b4f7-aec5d1cffbad",
-          "slug" => "housing-local-services/local-councils",
-          "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services/local-councils",
-          "title" => "Local councils and services",
-          "details" => {
-            "description" => "Find and access local services",
-            "short_description" => nil,
-            "type" => "section"
-          },
-          "content_with_tag" => {
-            "id" => "#{Frontend.govuk_website_root}/api/with_tag.json?section=housing-local-services%2Flocal-councils",
-            "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services/local-councils"
-          },
-          "state" => "live",
-          "parent" => {
-            "id" => "#{Frontend.govuk_website_root}/api/tags/section/housing-local-services.json",
-            "content_id" => "61d038ad-ba54-40a1-b6ca-18b390138b41",
-            "slug" => "housing-local-services",
-            "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services",
-            "title" => "Housing and local services",
-            "details" => {
-              "description" => "Includes owning or renting, council services, planning and building, neighbours, noise and pets",
-              "short_description" => nil,
-              "type" => "section"
-            },
-            "content_with_tag" => {
-              "id" => "#{Frontend.govuk_website_root}/api/with_tag.json?section=housing-local-services",
-              "web_url" => "#{Frontend.govuk_website_root}/browse/housing-local-services"
-            },
-            "state" => "live",
-            "parent" => nil
-          }
-        }
-      ],
-    }
-  end
 
   def fetch_local_council_from_areas(areas)
     areas.detect { |a| LOWEST_TIER_AREA_TYPES.include? a.type }
@@ -167,5 +126,10 @@ private
       end
     end
     MapitPostcodeResponse.new(postcode, location, error)
+  end
+
+  def setup_navigation_helpers
+    content_item = content_store.content_item(BASE_PATH)
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(content_item)
   end
 end

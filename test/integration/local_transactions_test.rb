@@ -43,7 +43,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         }
       })
 
-    content_api_has_an_artefact('pay-bear-tax', @artefact)
+    content_api_and_content_store_have_page('pay-bear-tax', @artefact)
   end
 
   context "given a local transaction with an interaction present" do

@@ -1,0 +1,82 @@
+{
+  "_response_info": {
+      "status": "ok"
+  },
+  "id": "https://www.gov.uk/api/foreign-travel-advice%2Fturks-and-caicos-islands.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands",
+  "title": "Turks and Caicos Islands extra special travel advice",
+  "format": "travel-advice",
+  "updated_at": "2013-04-22T14:25:51+00:00",
+  "details": {
+    "reviewed_at": "2013-04-23T14:25:51+00:00",
+    "need_id": null,
+    "description": "Latest travel advice by country including safety and security, entry requirements, travel warnings and health",
+    "language": "en",
+    "summary": "<h3>This is the summary</h3>\n",
+    "alert_status": [
+      "avoid_all_travel_to_parts",
+      "avoid_all_but_essential_travel_to_whole_country"
+    ],
+    "change_description": "The issue with the Knights of Ni has been resolved.",
+    "country": {
+        "name": "Turks and Caicos Islands",
+        "slug": "turks-and-caicos-islands"
+    },
+    "image": {
+      "web_url": "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000001/darth-on-a-cat.jpg",
+      "content_type": "image/jpeg"
+    },
+    "document": {
+      "web_url": "https://assets.digital.cabinet-office.gov.uk/media/512c9019686c82191d000002/cookie-monster.pdf",
+      "content_type": "application/pdf"
+    },
+    "parts": [
+      {
+        "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands/page-two",
+        "order": 1,
+        "title": "Page Two",
+        "slug": "page-two",
+        "body": "<ul><li>We're all going on a summer holiday,</li><li>mo more working for a week or two.</li><li>Fun and laughter on our summer holiday,</li><li>no more worries for me or you,</li><li>For a week or two.</li></ul>"
+      },
+      {
+        "web_url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands/the-bridge-of-death",
+        "order": 2,
+        "title": "The Bridge of Death",
+        "slug": "the-bridge-of-death",
+        "body": "<ul><li>What...is your name?</li><li>What...is your quest?</li><li>What...is your favorite color?</li></ul>"
+      }
+    ]
+  },
+  "tags": [
+    {
+      "title": "Travel abroad",
+      "id": "https://www.gov.uk/api/tags/sections/abroad%2Ftravel-abroad.json",
+      "web_url": null,
+      "details": {
+          "description": "Includes the latest travel advice by country, your rights at the airport and getting help abroad",
+          "short_description": null,
+          "type": "section"
+      },
+      "content_with_tag": {
+          "id": "https://www.gov.uk/api/with_tag.json?section=abroad%2Ftravel-abroad",
+          "web_url": "https://www.gov.uk/browse/abroad/travel-abroad"
+      },
+      "parent": {
+          "title": "Passports, travel and living abroad",
+          "id": "https://www.gov.uk/api/tags/sections/abroad.json",
+          "web_url": null,
+          "details": {
+              "description": "Includes renewing passports and travel advice by country",
+              "short_description": null,
+              "type": "section"
+          },
+          "content_with_tag": {
+              "id": "https://www.gov.uk/api/with_tag.json?section=abroad",
+              "web_url": "https://www.gov.uk/browse/abroad"
+          },
+          "parent": null
+      }
+    }
+  ],
+  "related": []
+}

@@ -1,0 +1,48 @@
+<main id="content" role="main" class="group <%= @publication.parts.present? ? "multi" : "single" %>-page">
+
+  <header class="page-header group">
+    <div>
+      <h1><span>Foreign travel advice </span><%= @publication.country['name'] %></h1>
+    </div>
+  </header>
+
+  <div class="article-container group">
+    <%= render :partial => "travel_advice_navigation" if @publication.parts.present? %>
+
+    <div class="content-block">
+      <div class="inner">
+
+        <% if @publication.current_part %>
+          <header>
+            <h1><%= @publication.current_part.title %></h1>
+          </header>
+
+          <%= raw @publication.current_part.body %>
+        <% else %><%# The summary page %>
+          <%= render :partial => "country_summary", :locals => {:publication => @publication} %>
+        <% end %>
+
+        <div class="print-link"><%= link_to t('formats.guide.printer_friendly_page'), travel_advice_country_print_path(@publication.country['slug'], edition: @edition), rel: "nofollow" %></div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<div id="related-items"></div>
+
+<% content_for :extra_headers do %>
+  <link rel="alternate" type="application/json" href="<%= publication_api_path(@publication, :edition => @edition) %>" />
+  <%= auto_discovery_link_tag :atom, travel_advice_country_path(@publication.country['slug'], :format => :atom),
+    :title => "Recent updates for #{@publication.country['name']}" %>
+  <%- if @publication.current_part and @publication.has_previous_part? -%>
+    <link rel="prev" href="<%= part_path(@publication.slug, @publication.previous_part.slug, @edition) %>" />
+  <%- end -%>
+  <%- if @publication.current_part and @publication.has_next_part? -%>
+    <link rel="next" href="<%= part_path(@publication.slug, @publication.next_part.slug, @edition) %>" />
+  <%- end -%>
+  <% if @publication.description %>
+    <meta name="description" content="<%= @publication.description %>">
+  <% end %>
+<% end %>

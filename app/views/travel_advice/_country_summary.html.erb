@@ -1,0 +1,34 @@
+<% if publication.parts.present? then %>
+<header>
+  <h1>Summary</h1>
+</header>
+<% end %>
+
+<ul class="country-metadata">
+  <li><div class="label">Still current at:</div> <%= Date.today.strftime("%e %B %Y") %></li>
+  <li><div class="label">Updated:</div> <%= publication.last_reviewed_or_updated_at.strftime("%e %B %Y") %></li>
+  <li><%= simple_format publication.change_description %></li>
+</ul>
+
+<% if publication.alert_status.present? %>
+  <div class="application-notice help-notice">
+    <% publication.alert_status.each do |alert| %>
+      <p><%= raw t("travel_advice.alert_status.#{alert}") %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<% if publication.image %>
+  <p>
+    <img src="<%= publication.image.web_url %>" alt="" />
+  </p>
+<% end %>
+<% if publication.document %>
+  <div class="form-download">
+  <p>
+    <a href="<%= publication.document.web_url %>">Download map (PDF)</a>
+  </p>
+  </div>
+<% end %>
+
+<%= raw publication.summary %>

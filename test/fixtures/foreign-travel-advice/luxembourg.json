@@ -1,0 +1,25 @@
+{
+  "_response_info": {
+    "status": "ok"
+  },
+  "id": "https://www.gov.uk/api/foreign-travel-advice%2Fluxembourg.json",
+  "web_url": "https://www.gov.uk/foreign-travel-advice/luxembourg",
+  "title": "Luxembourg travel advice",
+  "format": "travel-advice",
+  "updated_at": "2013-01-31T11:35:17+00:00",
+  "details": {
+    "need_id": null,
+    "description": "",
+    "language": "en",
+    "summary": "<p>There are no parts of Luxembourg that the FCO recommends avoiding.</p>\n",
+    "alert_status": [],
+    "change_description": "The issue with the Knights of Ni has been resolved.",
+    "parts": [],
+    "country": {
+      "name": "Luxembourg",
+      "slug": "luxembourg"
+    }
+  },
+  "tags": [],
+  "related": []
+}

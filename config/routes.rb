@@ -22,6 +22,10 @@ Frontend::Application.routes.draw do
 
   get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
   post "/foreign-travel-advice" => proc { [405, {}, ["Method Not Allowed"]] } # Prevent POST requests for /foreign-travel-advice blowing up in the publication handlers below
+  with_options(to: "travel_advice#country") do |country|
+    country.get "/foreign-travel-advice/:country_slug/print", variant: :print, as: :travel_advice_country_print
+    country.get "/foreign-travel-advice/:country_slug(/:part)", as: :travel_advice_country
+  end
 
   # Campaign pages.
   with_options format: false do |routes|

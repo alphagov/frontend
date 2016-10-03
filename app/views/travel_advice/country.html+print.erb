@@ -1,0 +1,16 @@
+<header>
+  <h1><%= @publication.country['name'] %> travel advice</h1>
+</header>
+
+<div class="content-block" id="summary">
+  <%= render :partial => 'country_summary', :locals => {:publication => @publication }, :formats => ['html'] %>
+</div>
+<% (@publication.parts || []).each do |part| %>
+  <article class="content-block" id="<%= part.slug %>">
+    <header>
+      <h1><%= part.title %></h1>
+    </header>
+
+    <%= raw part.body %>
+  </article>
+<% end %>

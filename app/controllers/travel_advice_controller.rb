@@ -30,6 +30,8 @@ class TravelAdviceController < ApplicationController
     end
   end
 
+  # Travel advice country pages are still served in draft mode from this application,
+  # because the draft stack doesn't support previewing multiple editions yet.
   def country
     set_expiry(5.minutes)
 

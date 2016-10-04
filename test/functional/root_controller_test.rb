@@ -342,18 +342,6 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '200', response.code
   end
 
-  context "loading the tour page" do
-    should "respond with success" do
-      get :tour
-      assert_response :success
-    end
-
-    should "set correct expiry headers" do
-      get :tour
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-    end
-  end
-
   context "loading the legacy transaction finished page" do
     context "given an artefact for 'transaction-finished' exists" do
       setup do

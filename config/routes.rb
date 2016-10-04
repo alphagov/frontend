@@ -14,7 +14,7 @@ Frontend::Application.routes.draw do
   get "*path.gif", to: proc { |env| [404, {}, ["Not Found"]] }
 
   get "/help", to: "help#index"
-  get "/tour", to: "root#tour"
+  get "/tour", to: "help#tour"
 
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"

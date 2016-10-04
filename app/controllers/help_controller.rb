@@ -1,14 +1,19 @@
 require "slimmer/headers"
 
 class HelpController < ApplicationController
-  before_filter :setup_slimmer_artefact
   before_filter :set_expiry
 
   def index
+    setup_slimmer_artefact
+
     respond_to do |format|
       format.html
       format.json { redirect_to "/api/help.json" }
     end
+  end
+
+  def tour
+    render locals: { full_width: true }
   end
 
 protected

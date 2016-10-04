@@ -9,7 +9,6 @@ require "location_error"
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  before_filter :set_expiry, only: [:tour]
   before_filter :validate_slug_param, only: [:publication]
   before_filter :block_empty_format, only: [:jobsearch, :publication]
   rescue_from RecordNotFound, with: :cacheable_404
@@ -62,10 +61,6 @@ class RootController < ApplicationController
   def self.custom_formats; CUSTOM_FORMATS; end
 
   def self.custom_slugs; CUSTOM_SLUGS; end
-
-  def tour
-    render locals: { full_width: true }
-  end
 
   def jobsearch
     @publication = prepare_publication_and_environment

@@ -2,7 +2,7 @@
 <% content_for :body_classes, "search" %>
 <% content_for :extra_headers do %>
   <meta name="description"
-      content="Search for '#{@search_term}' on GOV.UK." />
+      content="Search for '<%= @search_term %>' on GOV.UK." />
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
 <% end %>
 

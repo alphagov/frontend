@@ -85,9 +85,9 @@ protected
     end
   end
 
-  def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
+  def fetch_artefact(slug, edition = nil, snac = nil)
     ArtefactRetriever.new(content_api, Rails.logger, statsd).
-      fetch_artefact(slug, edition, snac, location)
+      fetch_artefact(slug, edition, snac)
   end
 
   def content_api

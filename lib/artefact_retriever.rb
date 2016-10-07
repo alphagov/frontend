@@ -14,8 +14,8 @@ class ArtefactRetriever
          travel-advice video}
   end
 
-  def fetch_artefact(slug, edition = nil, snac = nil, location = nil)
-    artefact = content_api.artefact!(slug, artefact_options(snac, location, edition))
+  def fetch_artefact(slug, edition = nil, snac = nil)
+    artefact = content_api.artefact!(slug, artefact_options(snac, edition))
 
     # The foreign-travel-advice override is necessary because it has a format of custom-application
     # and we don't want to add custom-application to supported formats, otherwise we get errors if
@@ -47,12 +47,7 @@ class ArtefactRetriever
     end
   end
 
-  def artefact_options(snac, location, edition)
-    options = { snac: snac, edition: edition }.delete_if { |k, v| v.blank? }
-    if location
-      options[:latitude]  = location.lat
-      options[:longitude] = location.lon
-    end
-    options
+  def artefact_options(snac, edition)
+    { snac: snac, edition: edition }.delete_if { |k, v| v.blank? }
   end
 end

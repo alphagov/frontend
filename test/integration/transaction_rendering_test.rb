@@ -53,7 +53,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       # This is fine because we're testing the page furniture, not the rendering of the content.
       artefact = content_api_response('register-to-vote')
       artefact["details"]["language"] = "cy"
-      content_api_has_an_artefact('register-to-vote', artefact)
+      content_api_and_content_store_have_page('register-to-vote', artefact)
       visit "/register-to-vote"
 
       assert_equal 200, page.status_code
@@ -127,7 +127,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       # This is fine because we're testing the page furniture, not the rendering of the content.
       artefact = content_api_response('apply-first-provisional-driving-licence')
       artefact["details"]["language"] = "cy"
-      content_api_has_an_artefact('apply-first-provisional-driving-licence', artefact)
+      content_api_and_content_store_have_page('apply-first-provisional-driving-licence', artefact)
       visit "/apply-first-provisional-driving-licence"
 
       assert_equal 200, page.status_code
@@ -265,7 +265,7 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
       # We can use the welsh version when it exists.
       artefact = content_api_response('jobsearch')
       artefact["details"]["language"] = "cy"
-      content_api_has_an_artefact('chwilio-am-swydd', artefact)
+      content_api_and_content_store_have_page('chwilio-am-swydd', artefact)
 
       visit "/chwilio-am-swydd"
 

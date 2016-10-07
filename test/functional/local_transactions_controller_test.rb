@@ -32,7 +32,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         }
       }
 
-      content_api_has_an_artefact('send-a-bear-to-your-local-council', @artefact)
+      content_api_and_content_store_have_page('send-a-bear-to-your-local-council', @artefact)
     end
 
     context "loading the local transaction edition without any location" do
@@ -190,7 +190,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       }
 
       mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-      content_api_has_an_artefact('report-a-bear-on-a-local-road', @artefact)
+      content_api_and_content_store_have_page('report-a-bear-on-a-local-road', @artefact)
       local_links_manager_has_no_fallback_link(
         authority_slug: 'staffordshire-moorlands',
         lgsl: 1234,

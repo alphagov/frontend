@@ -45,7 +45,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           },
         ]
         @artefact["details"]["nodes"] = @node_details
-        content_api_has_an_artefact('the-bridge-of-death', @artefact)
+        content_api_and_content_store_have_page('the-bridge-of-death', @artefact)
       end
 
       should "calculate the flow state with no responses" do
@@ -134,6 +134,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     should "return a cacheable 404 if the slug doesn't exist" do
       content_api_does_not_have_an_artefact('fooey')
+      content_store_does_not_have_item("/fooey")
 
       get :flow, slug: 'fooey'
       assert_equal 404, response.status
@@ -141,7 +142,8 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
     end
 
     should "return a cacheable 404 if the slug isn't a simple_smart_answer" do
-      content_api_has_an_artefact('vat')
+      content_api_and_content_store_have_page('vat')
+      content_store_does_not_have_item("/vat")
 
       get :flow, slug: 'vat'
       assert_equal 404, response.status
@@ -150,7 +152,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     should "503 if content_api times out" do
       stub_request(:get, %r{\A#{GdsApi::TestHelpers::ContentApi::CONTENT_API_ENDPOINT}}).to_timeout
-
+      content_store_has_random_item(base_path: "/fooey")
       get :flow, slug: 'fooey'
       assert_equal 503, response.status
     end

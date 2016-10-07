@@ -69,7 +69,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         })
 
-      content_api_has_an_artefact('licence-to-kill', @artefact)
+      content_api_and_content_store_have_page('licence-to-kill', @artefact)
       GdsApi::TestHelpers::ContentApi::ArtefactStub.new('licence-to-kill')
           .with_query_parameters(snac: '00BK', latitude: 51.5010096, longitude: -0.1415870)
           .with_response_body(@artefact)
@@ -203,7 +203,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "tags" => [],
         "related" => []
       )
-      content_api_has_an_artefact("licence-to-kill", artefact)
+      content_api_and_content_store_have_page("licence-to-kill", artefact)
     end
 
     should "show message to contact local council" do
@@ -271,7 +271,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         }
       )
-      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', artefact)
+      content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
     end
 
     context "when visiting the licence without specifying an authority" do
@@ -333,7 +333,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         }
       )
-      content_api_has_an_artefact('licence-to-turn-off-a-telescreen', artefact)
+      content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
     end
 
     context "when visiting the licence" do
@@ -368,8 +368,8 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         }
       )
 
-      content_api_has_an_artefact('licence-to-kill', artefact)
-      content_api_has_an_artefact_with_snac_code("licence-to-kill", "30UN", artefact)
+      content_api_and_content_store_have_page('licence-to-kill', artefact)
+      content_api_and_content_store_have_page_with_snac_code("licence-to-kill", "30UN", artefact)
 
       south_ribble = {
         "id" => 2432,
@@ -404,7 +404,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "continuation_link" => "http://gov.uk/blah"
         }
       )
-      content_api_has_an_artefact('artistic-license', artefact)
+      content_api_and_content_store_have_page('artistic-license', artefact)
     end
 
     context "when visiting the licence" do
@@ -434,7 +434,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         }
       )
-      content_api_has_an_artefact('licence-to-kill', artefact)
+      content_api_and_content_store_have_page('licence-to-kill', artefact)
     end
 
     should "not blow the stack" do

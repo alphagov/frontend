@@ -113,11 +113,13 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
   end
 
   should "render the Welsh version of a guide correctly" do
+    content_store_has_random_item(base_path: "/data-protection")
+
     # Note, this is using an english piece of content set to Welsh
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('data-protection')
     artefact["details"]["language"] = "cy"
-    content_api_has_an_artefact('data-protection', artefact)
+    content_api_and_content_store_have_page('data-protection', artefact)
 
     visit "/data-protection"
     assert_equal 200, page.status_code
@@ -193,11 +195,13 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
   end
 
   should "render the print view of a welsh guide correctly" do
+    content_store_has_random_item(base_path: "/data-protection")
+
     # Note, this is using an english piece of content set to Welsh
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('data-protection')
     artefact["details"]["language"] = "cy"
-    content_api_has_an_artefact('data-protection', artefact)
+    content_api_and_content_store_have_page('data-protection', artefact)
 
     visit "/data-protection/print"
 
@@ -224,6 +228,8 @@ class GuideRenderingTest < ActionDispatch::IntegrationTest
   end
 
   should "allow previewing a guide" do
+    # Draft pages from publisher don't have a content item in the live content store yet.
+    content_store_does_not_have_item('/data-protection')
     content_api_has_a_draft_artefact "data-protection", 1, content_api_response("data-protection")
 
     visit "/data-protection?edition=1"

@@ -9,12 +9,6 @@ class HomepageController < ApplicationController
       remove_search: true,
     )
 
-    # Only needed for Analytics
-    set_slimmer_dummy_artefact(
-      section_name: "homepage",
-      section_url: "/"
-    )
-
     render locals: { full_width: true }
   end
 end

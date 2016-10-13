@@ -5,7 +5,6 @@ class SearchResultsPresenter
 
   FACET_TITLES = {
     "organisations" => "Organisations",
-    "specialist_sectors" => "Topics",
   }
 
   def initialize(search_response, search_parameters)
@@ -34,12 +33,11 @@ class SearchResultsPresenter
 
   def filter_fields
     search_response["facets"].map do |field, value|
-      external = SearchParameters::external_field_name(field)
-      facet_params = search_parameters.filter(external)
+      facet_params = search_parameters.filter(field)
       facet = SearchFacetPresenter.new(value, facet_params).to_hash
 
       {
-        field: external,
+        field: field,
         field_title: FACET_TITLES.fetch(field, field),
         options: facet,
         show_organisations_filter: show_organisations_filter?(facet),

@@ -50,12 +50,4 @@ class SearchParameterTest < ActiveSupport::TestCase
       assert_equal ['ministry-of-silly-walks'], params.rummager_parameters[:filter_organisations]
     end
   end
-
-  context "#filter_topics" do
-    should "translates the key for the specialist sector facet" do
-      params = SearchParameters.new("filter_topics" => ['a-topic'])
-
-      assert_equal ['a-topic'], params.rummager_parameters[:filter_specialist_sectors]
-    end
-  end
 end

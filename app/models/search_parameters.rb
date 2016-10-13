@@ -6,16 +6,7 @@ class SearchParameters
   DEFAULT_RESULTS_PER_PAGE = 20
   MAX_RESULTS_PER_PAGE = 100
   ALWAYS_FACET_FIELDS = %w{organisations}
-  ALLOWED_FACET_FIELDS = %w{organisations topics manual}
-
-  # specialist_sectors will be renamed to topics at some point.  To avoid
-  # people ever seeing the old name, we map it here, and back again in the presenter.
-  EXTERNAL_TO_INTERNAL_FIELDS = {
-    "topics" => "specialist_sectors",
-  }
-  INTERNAL_TO_EXTERNAL_FIELDS = {
-    "specialist_sectors" => "topics",
-  }
+  ALLOWED_FACET_FIELDS = %w{organisations manual}
 
   def initialize(params)
     @params = enforce_bounds(params)
@@ -84,9 +75,8 @@ class SearchParameters
       suggest: "spelling",
     }
     active_facet_fields.each { |field|
-      internal = SearchParameters::internal_field_name(field)
-      result["filter_#{internal}".to_sym] = filter(field)
-      result["facet_#{internal}".to_sym] = "100"
+      result["filter_#{field}".to_sym] = filter(field)
+      result["facet_#{field}".to_sym] = "100"
     }
     result
   end
@@ -95,14 +85,6 @@ class SearchParameters
     ALLOWED_FACET_FIELDS.select { |field|
       ALWAYS_FACET_FIELDS.include?(field) || filtered_by?(field)
     }
-  end
-
-  def self.external_field_name(field)
-    INTERNAL_TO_EXTERNAL_FIELDS.fetch(field, field)
-  end
-
-  def self.internal_field_name(field)
-    EXTERNAL_TO_INTERNAL_FIELDS.fetch(field, field)
   end
 
 private

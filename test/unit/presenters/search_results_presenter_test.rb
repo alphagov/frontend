@@ -37,29 +37,6 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
     assert_equal "Department for Education", results.to_hash[:filter_fields][0][:options][:options][0][:title]
   end
 
-  should "map specialist_sector field in return facets to topics" do
-    results = SearchResultsPresenter.new({
-      "results" => [],
-      "facets" => {
-        "specialist_sectors" => {
-          "options" => [{
-            "value" => {
-              "link" => "/business-tax/vat",
-              "title" => "VAT"
-            },
-            "documents" => 114
-          }]
-        }
-      }
-    }, SearchParameters.new(q: 'my-query'))
-
-    assert_equal 1, results.to_hash[:filter_fields].length
-    assert_equal "topics", results.to_hash[:filter_fields][0][:field]
-    assert_equal "Topics", results.to_hash[:filter_fields][0][:field_title]
-    assert_equal 1, results.to_hash[:filter_fields][0][:options][:options].length
-    assert_equal "VAT", results.to_hash[:filter_fields][0][:options][:options][0][:title]
-  end
-
   context 'pagination' do
     should 'build a link to the next page' do
       response = { 'total' => 200 }

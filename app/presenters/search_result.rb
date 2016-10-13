@@ -70,9 +70,8 @@ protected
     if suggested_filter
       field = suggested_filter["field"]
       value = suggested_filter["value"]
-      external = SearchParameters::external_field_name(field)
       @search_parameters.build_link(
-        "filter_#{external}" => value
+        "filter_#{field}" => value
       )
     end
   end

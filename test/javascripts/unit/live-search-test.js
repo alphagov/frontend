@@ -149,8 +149,7 @@ describe("liveSearch", function(){
 
   it("should only allow 15 filters in total to be selected", function(){
     var orgList = [];
-    for(var i=0;i<4;i++){ orgList.push( { name: 'filter_specialist_sectors[]' } ); }
-    for(var i=0;i<10;i++){ orgList.push( { name: 'filter_organisations[]' } ); }
+    for(var i=0;i<14;i++){ orgList.push( { name: 'filter_organisations[]' } ); }
     spyOn(GOVUK.liveSearch.$form, 'serializeArray').andReturn(orgList);
     spyOn(window, 'alert');
     var event = jasmine.createSpyObj('event', ['preventDefault']);

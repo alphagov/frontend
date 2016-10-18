@@ -65,7 +65,7 @@
           filterCount = filterCount + 1;
         }
       }
-      if(filterCount >= 15){
+      if(filterCount > 15){
         $(e.target).prop('checked', false);
         alert('You can only apply 15 filters at once. Please remove a filter before adding one');
         return false;

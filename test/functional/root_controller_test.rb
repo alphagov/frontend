@@ -287,20 +287,6 @@ class RootControllerTest < ActionController::TestCase
   end
 
   context "setting up slimmer artefact details" do
-    should "expose artefact details in header" do
-      # TODO: remove explicit setting of top-level format once gds-api-adapters with updated
-      # factory methods is being used.
-      artefact_data = artefact_for_slug_in_a_section("slug", "root-section-title")
-      artefact_data["format"] = "guide"
-      content_api_and_content_store_have_page("slug", artefact_data)
-
-      @controller.stubs(:render)
-
-      get :publication, slug: "slug"
-
-      assert_equal "guide", @response.headers["X-Slimmer-Format"]
-    end
-
     should "set the artefact in the header" do
       artefact_data = artefact_for_slug('slug')
       content_api_and_content_store_have_page("slug")

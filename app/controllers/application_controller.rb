@@ -76,12 +76,28 @@ protected
   end
 
   def set_slimmer_artefact_headers(artefact, slimmer_headers = {})
-    slimmer_headers[:format] ||= artefact["format"]
     set_slimmer_headers(slimmer_headers)
     if artefact["format"] == "help_page"
       set_slimmer_artefact_overriding_section(artefact, section_name: "Help", section_link: "/help")
     else
       set_slimmer_artefact(artefact)
+    end
+  end
+
+  def setup_content_item_and_navigation_helpers(base_path)
+    @content_item = content_store.content_item(base_path).to_hash
+    # Remove the organisations from the content item - this will prevent the
+    # govuk:analytics:organisations meta tag from being generated until there is
+    # a better way of doing this. This is so we don't add the tag to pages that
+    # didn't have it before, thereby swamping analytics.
+    if @content_item["links"]
+      @content_item["links"].delete("organisations")
+    end
+
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
+    section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
+    if section_name
+      @meta_section = section_name.downcase
     end
   end
 

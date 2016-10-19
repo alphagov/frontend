@@ -1,7 +1,7 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
-  before_filter :setup_navigation_helpers
+  before_filter -> { setup_content_item_and_navigation_helpers BASE_PATH }
   before_filter :set_artefact_headers
   before_filter :set_expiry
 
@@ -126,10 +126,5 @@ private
       end
     end
     MapitPostcodeResponse.new(postcode, location, error)
-  end
-
-  def setup_navigation_helpers
-    content_item = content_store.content_item(BASE_PATH)
-    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(content_item)
   end
 end

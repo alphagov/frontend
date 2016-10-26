@@ -20,4 +20,8 @@
   </div>
 </main>
 
-<div id="related-items"></div>
+<% if @navigation_helpers %>
+<div class="related-container">
+  <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
+</div>
+<% end %>

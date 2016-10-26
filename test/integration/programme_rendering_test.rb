@@ -44,7 +44,8 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
       end
     end # within #content
 
-    assert page.has_selector?("#test-related")
+    assert_breadcrumb_rendered
+    assert_related_items_rendered
 
     within('#content aside nav') { click_on "Eligibility" }
 

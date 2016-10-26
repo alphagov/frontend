@@ -28,7 +28,7 @@
 
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
       <% if @navigation_helpers %>
-        <%= render partial: 'govuk_component/breadcrumbs', locals: { breadcrumbs: @navigation_helpers.breadcrumbs } %>
+        <%= render partial: 'govuk_component/breadcrumbs', locals: @navigation_helpers.breadcrumbs %>
       <% end %>
 
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>

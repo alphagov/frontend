@@ -26,7 +26,9 @@ class AnswerRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
       end
     end # within #content
-    assert page.has_selector?("#test-related")
+
+    assert_breadcrumb_rendered
+    assert_related_items_rendered
   end
 
   should "render a quick answer in welsh correctly" do

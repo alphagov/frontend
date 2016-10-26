@@ -60,7 +60,7 @@ gem 'sass', '3.4.9'
 gem 'sass-rails'
 gem "therubyracer", "0.12.2"
 gem 'uglifier'
-gem 'govuk_navigation_helpers', '~> 1.0'
+gem 'govuk_navigation_helpers', '~> 2.0'
 
 group :test do
   gem "mocha", "~> 1.1.0"

@@ -4,10 +4,8 @@ class TravelAdviceController < ApplicationController
 
   def index
     set_expiry
-
-    content_item = content_store.content_item("/foreign-travel-advice").to_h
-    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(content_item)
-    @presenter = TravelAdviceIndexPresenter.new(content_item)
+    setup_content_item_and_navigation_helpers("/foreign-travel-advice")
+    @presenter = TravelAdviceIndexPresenter.new(@content_item)
     set_slimmer_artefact_headers("format" => "travel-advice")
 
     respond_to do |format|

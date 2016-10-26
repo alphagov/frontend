@@ -20,12 +20,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert response.success?
       end
 
-      should "set slimmer format to travel-advice" do
-        get :index
-
-        assert_equal 'travel-advice', @response.headers["X-Slimmer-Format"]
-      end
-
       should "render the index template" do
         get :index
 
@@ -129,14 +123,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
       end
 
       context "setting up slimmer artefact details" do
-        should "expose artefact details in header" do
-          @controller.stubs(:render)
-
-          get :country, country_slug: "turks-and-caicos-islands"
-
-          assert_equal "travel-advice", @response.headers["X-Slimmer-Format"]
-        end
-
         should "set the artefact in the header with a section added" do
           @controller.stubs(:render)
 

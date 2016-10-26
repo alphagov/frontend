@@ -55,7 +55,9 @@ See `app/views/root` for some bespoke transaction start pages.
 - [alphagov/static](https://github.com/alphagov/static) - provides shared
   templates, styles, and JavaScript
 - [alphagov/govuk_content_api](https://github.com/alphagov/govuk_content_api) -
-  provides raw data for rendering formats
+  provides raw data for rendering formats (being replaced by content-store)
+- [alphagov/content-store](https://github.com/alphagov/content-store) -
+  provides raw data for rendering formats (replacing govuk_content_api)
 - [alphagov/panopticon](https://github.com/alphagov/panopticon) - (optionally)
   registers the application with Panoption
 - [alphagov/mapit](https://github.com/alphagov/mapit) - provides postcode lookups

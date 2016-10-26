@@ -14,6 +14,12 @@
     <%= javascript_include_tag 'frontend.js' %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
+    <% if @content_item %>
+      <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item } %>
+    <% end %>
+    <% if @meta_section %>
+      <meta name="govuk:section" content="<%= @meta_section %>">
+    <% end %>
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">

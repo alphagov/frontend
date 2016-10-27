@@ -90,5 +90,17 @@ namespace :publishing_api do
         ))
       end
     end
+
+    # Set the related item for /find-local-council. This will be removed once
+    # there's an application that can manage related links for all of GOV.UK.
+    # See https://trello.com/c/mOeDK914
+    publishing_api.patch_links(
+      "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      links: {
+        ordered_related_items: [
+          "df61f873-f42f-4fb9-8e8e-17fa6a583270" # https://www.gov.uk/understand-how-your-council-works
+        ]
+      }
+    )
   end
 end

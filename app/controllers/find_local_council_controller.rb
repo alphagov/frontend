@@ -1,7 +1,7 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
-  before_filter -> { setup_content_item_and_navigation_helpers BASE_PATH }
+  before_filter -> { setup_content_item_and_navigation_helpers(BASE_PATH) }
   before_filter :set_artefact_headers
   before_filter :set_expiry
 

@@ -10,7 +10,7 @@ class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   before_filter :validate_slug_param, only: [:publication]
-  before_filter :get_content_item
+  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter :block_empty_format, only: [:jobsearch, :publication]
 
   rescue_from RecordNotFound, with: :cacheable_404
@@ -351,14 +351,5 @@ protected
 
   def custom_format_locals
     self.class.custom_formats[@publication.format][:locals]
-  end
-
-  def get_content_item
-    setup_content_item_and_navigation_helpers("/" + params[:slug])
-  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
-    # In this controller we can't be sure that the page has a content-item, since
-    # it's also used for previewing draft content. Since draft things don't exist
-    # in the content-store we would be serving a 404 here.
-    @navigation_helpers = nil
   end
 end

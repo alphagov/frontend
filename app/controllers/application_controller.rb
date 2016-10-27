@@ -99,6 +99,13 @@ protected
     if section_name
       @meta_section = section_name.downcase
     end
+
+  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
+    # We can't always be sure that the page has a content-item, since this
+    # application also runs as `private-frontend` to preview unpublished content,
+    # which doesn't exist in the content-store yet. However, when running in
+    # "normal" mode there should be a content item for all pages rendered.
+    @navigation_helpers, @content_item, @meta_section = nil
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil)

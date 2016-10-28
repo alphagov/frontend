@@ -34,7 +34,8 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       end
     end # within #content
 
-    assert page.has_selector?("#test-related")
+    assert_breadcrumb_rendered
+    assert_related_items_rendered
   end
 
   # This should be with_and_without_javascript when the AJAX variant is implemented

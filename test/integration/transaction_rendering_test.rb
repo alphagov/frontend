@@ -45,7 +45,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end
       end # within #content
 
-      assert page.has_selector?("#test-related")
+      assert_breadcrumb_rendered
+      assert_related_items_rendered
     end
 
     should "render the welsh version correctly" do
@@ -256,7 +257,8 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         end
       end # within #content
 
-      assert page.has_selector?("#test-related")
+      assert_breadcrumb_rendered
+      assert_related_items_rendered
     end
 
     should "render welsh jobsearch page correctly" do

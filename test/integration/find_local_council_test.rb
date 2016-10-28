@@ -27,8 +27,8 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     end
 
     should "show the related links" do
-      # related links are tested like this in the rest of frontend
-      assert page.has_selector?("#test-related")
+      assert_breadcrumb_rendered
+      assert_related_items_rendered
     end
 
     should "add google analytics tags for postcodeSearchStarted" do

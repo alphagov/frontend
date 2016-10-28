@@ -65,6 +65,16 @@ class ActionDispatch::IntegrationTest
     end
   end
 
+  # The following selectors are specified using XPath because Capybara/Nokogiri does not seem to find non-standard tags
+  # using the usual "CSS-style" selectors.
+  def assert_breadcrumb_rendered
+    assert page.has_selector?(:xpath, "//test-govuk-component[@data-template='govuk_component-breadcrumbs']", visible: true)
+  end
+
+  def assert_related_items_rendered
+    assert page.has_selector?(:xpath, "//test-govuk-component[@data-template='govuk_component-related_items']", visible: true)
+  end
+
   # Adapted from http://www.elabs.se/blog/53-why-wait_until-was-removed-from-capybara
   def wait_until
     if Capybara.current_driver == Capybara.javascript_driver

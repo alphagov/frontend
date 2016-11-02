@@ -280,6 +280,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "show back link to go back and try a different postcode" do
         assert page.has_link?('Back')
       end
+
+      should "add google analytics tags" do
+        track_category = page.find('.local-authority-result')['data-track-category']
+        track_action = page.find('.local-authority-result')['data-track-action']
+
+        assert_equal "user_alerts:local_transaction", track_category
+        assert_equal "postcodeResultShown:laMatchNoLink", track_action
+      end
     end
   end
 
@@ -319,6 +327,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     should "show back link to go back and try a different postcode" do
       assert page.has_link?('Back')
+    end
+
+    should "add google analytics tags" do
+      track_category = page.find('.local-authority-result')['data-track-category']
+      track_action = page.find('.local-authority-result')['data-track-action']
+
+      assert_equal "user_alerts:local_transaction", track_category
+      assert_equal "postcodeResultShown:laMatchNoLinkNoAuthorityUrl", track_action
     end
   end
 

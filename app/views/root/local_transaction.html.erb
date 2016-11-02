@@ -33,13 +33,23 @@
           <%= t(@location_error.message, @location_error.message_args) %>
         </p>
         <% if @local_authority.url.present? %>
-          <p id="get-started" class="get-started group">
-            <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
-              Go to their website
-            </a>
-          </p>
+          <div class="local-authority-result"
+               data-module="auto-track-event"
+               data-track-category="user_alerts:local_transaction"
+               data-track-action="postcodeResultShown:laMatchNoLink">
+            <p id="get-started" class="get-started group">
+              <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
+                Go to their website
+              </a>
+            </p>
+          </div>
         <% else %>
-          <p>We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
+          <div class="local-authority-result"
+               data-module="auto-track-event"
+               data-track-category="user_alerts:local_transaction"
+               data-track-action="postcodeResultShown:laMatchNoLinkNoAuthorityUrl">
+            <p>We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
+          </div>
         <% end %>
       </div>
     <% else %>

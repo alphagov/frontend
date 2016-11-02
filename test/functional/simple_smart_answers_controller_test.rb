@@ -88,12 +88,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         assert_equal "no-cache", response.headers["Cache-Control"]
       end
 
-      should "send the artefact to Slimmer" do
-        get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2"
-
-        assert_equal @artefact.to_json, response.headers["X-Slimmer-Artefact"]
-      end
-
       context "with form submission params" do
         should "add the given response to the state" do
           get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-1"

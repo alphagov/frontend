@@ -220,7 +220,6 @@ protected
   end
 
   def set_headers_from_publication(publication)
-    set_slimmer_artefact_headers(publication.artefact)
     I18n.locale = publication.language if publication.language
     set_expiry if params.exclude?('edition') and request.get?
     deny_framing if deny_framing?(publication)

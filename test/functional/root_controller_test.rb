@@ -286,33 +286,6 @@ class RootControllerTest < ActionController::TestCase
     end
   end
 
-  context "setting up slimmer artefact details" do
-    should "set the artefact in the header" do
-      artefact_data = artefact_for_slug('slug')
-      content_api_and_content_store_have_page("slug")
-      @controller.stubs(:render)
-
-      get :publication, slug: "slug"
-
-      assert_equal artefact_data.to_json, @response.headers["X-Slimmer-Artefact"]
-    end
-
-    should "fudge the section for help pages" do
-      artefact_data = artefact_for_slug('slug')
-      artefact_data["format"] = "help_page"
-      content_api_and_content_store_have_page("slug", artefact_data)
-      @controller.stubs(:render)
-
-      get :publication, slug: "slug"
-
-      slimmer_artefact = JSON.parse(@response.headers["X-Slimmer-Artefact"])
-      slimmer_section = slimmer_artefact["tags"][0]
-      assert_equal "section", slimmer_section["details"]["type"]
-      assert_equal "Help", slimmer_section["title"]
-      assert_equal "/help", slimmer_section["content_with_tag"]["web_url"]
-    end
-  end
-
   test "objects should have specified parts selected" do
     setup_this_answer
     prevent_implicit_rendering
@@ -383,11 +356,6 @@ class RootControllerTest < ActionController::TestCase
       should "initialize a publication object" do
         get :jobsearch, slug: "jobsearch"
         assert_equal "Universal Jobsearch", assigns(:publication).title
-      end
-
-      should "set correct slimmer artefact in headers" do
-        get :jobsearch, slug: "jobsearch"
-        assert_equal @details.to_json, @response.headers["X-Slimmer-Artefact"]
       end
 
       should "set correct expiry headers" do

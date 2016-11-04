@@ -75,15 +75,6 @@ protected
     end
   end
 
-  def set_slimmer_artefact_headers(artefact, slimmer_headers = {})
-    set_slimmer_headers(slimmer_headers)
-    if artefact["format"] == "help_page"
-      set_slimmer_artefact_overriding_section(artefact, section_name: "Help", section_link: "/help")
-    else
-      set_slimmer_artefact(artefact)
-    end
-  end
-
   def setup_content_item_and_navigation_helpers(base_path)
     @content_item = content_store.content_item(base_path).to_hash
     # Remove the organisations from the content item - this will prevent the

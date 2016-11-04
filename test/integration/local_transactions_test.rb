@@ -285,7 +285,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_category = page.find('.local-authority-result')['data-track-category']
         track_action = page.find('.local-authority-result')['data-track-action']
 
-        assert_equal "user_alerts:local_transaction", track_category
+        assert_equal "userAlerts:local_transaction", track_category
         assert_equal "postcodeResultShown:laMatchNoLink", track_action
       end
     end
@@ -333,7 +333,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       track_category = page.find('.local-authority-result')['data-track-category']
       track_action = page.find('.local-authority-result')['data-track-action']
 
-      assert_equal "user_alerts:local_transaction", track_category
+      assert_equal "userAlerts:local_transaction", track_category
       assert_equal "postcodeResultShown:laMatchNoLinkNoAuthorityUrl", track_action
     end
   end

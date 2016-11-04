@@ -35,7 +35,7 @@
         <% if @local_authority.url.present? %>
           <div class="local-authority-result"
                data-module="auto-track-event"
-               data-track-category="user_alerts:local_transaction"
+               data-track-category="userAlerts:local_transaction"
                data-track-action="postcodeResultShown:laMatchNoLink">
             <p id="get-started" class="get-started group">
               <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
@@ -46,7 +46,7 @@
         <% else %>
           <div class="local-authority-result"
                data-module="auto-track-event"
-               data-track-category="user_alerts:local_transaction"
+               data-track-category="userAlerts:local_transaction"
                data-track-action="postcodeResultShown:laMatchNoLinkNoAuthorityUrl">
             <p>We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
           </div>

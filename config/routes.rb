@@ -13,9 +13,6 @@ Frontend::Application.routes.draw do
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc { |env| [404, {}, ["Not Found"]] }
 
-  get "/help", to: "help#index"
-  get "/tour", to: "help#tour"
-
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"
   get "/find-local-council/:authority_slug" => "find_local_council#result"
@@ -46,8 +43,13 @@ Frontend::Application.routes.draw do
 
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
 
+  # Help pages
+  get "/help", to: "help#index"
+  get "/tour", to: "help#tour"
+  get "*slug", slug: %r{help/.+}, to: "help#show", constraints: FormatRoutingConstraint.new('help_page')
+
   with_options(to: "root#publication") do |pub|
-    pub.get "*slug", slug: %r{(done|help)/.+}
+    pub.get "*slug", slug: %r{done/.+}
     pub.get ":slug/print", variant: :print
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
 

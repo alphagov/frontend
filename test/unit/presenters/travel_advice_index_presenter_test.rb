@@ -1,5 +1,3 @@
-# rubocop:disable Rails/TimeZone
-
 require 'test_helper'
 
 class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase

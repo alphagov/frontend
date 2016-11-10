@@ -1,5 +1,3 @@
-# rubocop:disable Rails/TimeZone
-
 require 'ostruct'
 
 class TravelAdviceIndexPresenter

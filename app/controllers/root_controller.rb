@@ -24,12 +24,6 @@ class RootController < ApplicationController
         preposition: "for",
       }
     },
-    "check-vehicle-tax" => {
-      template: "check-vehicle-tax",
-      locals: {
-        full_width: true
-      }
-    },
   }
 
   CUSTOM_FORMATS = {

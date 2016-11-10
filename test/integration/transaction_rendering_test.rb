@@ -303,20 +303,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "exceptional check-vehicle-tax start page format" do
-    should "render a bespoke view" do
-      setup_api_responses('check-vehicle-tax')
-      visit "/check-vehicle-tax"
-      assert_equal 200, page.status_code
-      within("div.title h1") do
-        assert page.has_content?("Check if a vehicle is taxed")
-      end
-      within(".primary-apply") do
-        assert page.has_content?("Check using the new service")
-      end
-    end
-  end
-
   context "start page which should have cross domain analytics" do
     should "include cross domain analytics javascript" do
       setup_api_responses('register-to-vote')

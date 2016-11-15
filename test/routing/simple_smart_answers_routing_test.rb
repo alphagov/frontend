@@ -1,8 +1,16 @@
 require "test_helper"
 
 class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
-  should "route the start page to the root controller" do
-    assert_recognizes({ controller: "root", action: "publication", slug: "fooey" }, "/fooey")
+  context "for the start page" do
+    setup do
+      @artefact = artefact_for_slug('fooey')
+      @artefact["format"] = "simple_smart_answer"
+      content_api_and_content_store_have_page('fooey', @artefact)
+    end
+
+    should "route the start page to the root controller" do
+      assert_recognizes({ controller: "root", action: "publication", slug: "fooey" }, "/fooey")
+    end
   end
 
   context "routes in a flow" do

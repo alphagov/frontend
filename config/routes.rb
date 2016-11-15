@@ -48,6 +48,9 @@ Frontend::Application.routes.draw do
   get "/tour", to: "help#tour"
   get "*slug", slug: %r{help/.+}, to: "help#show", constraints: FormatRoutingConstraint.new('help_page')
 
+  # Answers pages
+  get ":slug", to: "answer#show", constraints: FormatRoutingConstraint.new('answer')
+
   with_options(to: "root#publication") do |pub|
     pub.get "*slug", slug: %r{done/.+}
     pub.get ":slug/print", variant: :print

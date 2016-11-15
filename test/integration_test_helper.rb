@@ -55,6 +55,10 @@ class ActionDispatch::IntegrationTest
     assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
   end
 
+  def assert_page_is_full_width
+    assert_not page.has_css?(".grid-row")
+  end
+
   def assert_current_url(path_with_query, options = {})
     expected = URI.parse(path_with_query)
     wait_until { expected.path == URI.parse(current_url).path }

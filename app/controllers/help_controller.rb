@@ -22,7 +22,7 @@ class HelpController < ApplicationController
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
     @edition = params[:edition]
-    set_headers_from_publication(@publication)
+    set_language_from_publication(@publication)
     render :show
   end
 
@@ -40,18 +40,17 @@ class HelpController < ApplicationController
     redirect_to "/api/#{slug}.json" if request.format.json?
   end
 
-  # duplicated from root_controller.rb#222
-  def set_headers_from_publication(publication)
+  def set_language_from_publication(publication)
     I18n.locale = publication.language if publication.language
-    set_expiry if(params.exclude?('edition') && request.get?)
-    deny_framing if deny_framing?(publication)
   end
 
-  def deny_framing
-    response.headers['X-Frame-Options'] = 'DENY'
+  def set_expiry
+    return if viewing_draft_content?
+    return unless request.get?
+    super
   end
 
-  def deny_framing?(publication)
-    ['transaction', 'local_transaction'].include? publication.format
+  def viewing_draft_content?
+    params.include?('edition')
   end
 end

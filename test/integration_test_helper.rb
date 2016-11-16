@@ -29,19 +29,8 @@ class ActionDispatch::IntegrationTest
 
   def setup_api_responses(slug, options = {})
     artefact = content_api_response(slug, options)
-    content_api_and_content_store_have_page_with_optional_location(slug, artefact)
-    content_store_has_random_item(base_path: "/#{slug}")
+    content_api_and_content_store_have_page(slug, artefact)
     artefact
-  end
-
-  def content_api_and_content_store_have_page_with_optional_location(slug, body = artefact_for_slug(slug))
-    GdsApi::TestHelpers::ContentApi::ArtefactStub.new(slug)
-        .with_response_body(body)
-        .stub
-    GdsApi::TestHelpers::ContentApi::ArtefactStub.new(slug)
-        .with_query_parameters(latitude: -0.18832238262617113, longitude: 51.112777245292826)
-        .with_response_body(body)
-        .stub
   end
 
   def content_api_has_a_draft_artefact(slug, version, body = artefact_for_slug(slug))
@@ -53,6 +42,10 @@ class ActionDispatch::IntegrationTest
 
   def assert_page_has_content(text)
     assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
+  end
+
+  def assert_page_is_full_width
+    assert_not page.has_css?(".grid-row")
   end
 
   def assert_current_url(path_with_query, options = {})

@@ -33,6 +33,23 @@ class HelpPagesTest < ActionDispatch::IntegrationTest
       assert_breadcrumb_rendered
       assert_related_items_rendered
     end
+
+    should "render a help page edition in preview" do
+      artefact = content_api_response("help/cookies")
+      content_api_and_content_store_have_unpublished_page("help/cookies", 5, artefact)
+
+      visit "/help/cookies?edition=5"
+
+      assert_equal 200, page.status_code
+
+      within '#content' do
+        within '.article-container' do
+          assert page.has_selector?("p", text: "This is the page about cookies.")
+        end
+      end # within #content
+
+      assert_current_url "/help/cookies?edition=5"
+    end
   end
 
   context "rendering the help index page" do

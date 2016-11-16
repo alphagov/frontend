@@ -1,29 +1,14 @@
 require "slimmer/headers"
 
-class HelpController < ApplicationController
+class AnswerController < ApplicationController
   before_filter :set_expiry
   before_filter :redirect_if_api_request
-
-  def index
-    setup_content_item_and_navigation_helpers("/help")
-
-    respond_to do |format|
-      format.html
-      format.json { redirect_to "/api/help.json" }
-    end
-  end
-
-  def tour
-    setup_content_item_and_navigation_helpers("/tour")
-    render locals: { full_width: true }
-  end
 
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
     @edition = params[:edition]
     set_language_from_publication(@publication)
-    render :show
   end
 
   private
@@ -36,8 +21,7 @@ class HelpController < ApplicationController
   end
 
   def redirect_if_api_request
-    slug = params[:slug] || 'help'
-    redirect_to "/api/#{slug}.json" if request.format.json?
+    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 
   def set_language_from_publication(publication)

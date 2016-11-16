@@ -51,6 +51,9 @@ Frontend::Application.routes.draw do
   # Answers pages
   get ":slug", to: "answer#show", constraints: FormatRoutingConstraint.new('answer')
 
+  # Video pages
+  get ":slug", to: "video#show", constraints: FormatRoutingConstraint.new('video')
+
   with_options(to: "root#publication") do |pub|
     pub.get "*slug", slug: %r{done/.+}
     pub.get ":slug/print", variant: :print

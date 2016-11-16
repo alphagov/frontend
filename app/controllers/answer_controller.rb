@@ -11,7 +11,7 @@ class AnswerController < ApplicationController
     set_language_from_publication(@publication)
   end
 
-  private
+private
 
   def artefact
     @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(

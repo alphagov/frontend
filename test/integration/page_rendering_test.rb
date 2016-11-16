@@ -90,16 +90,4 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     visit "/pagerror.gif"
     assert_equal 404, page.status_code
   end
-
-  test "viewing a video answer page" do
-    setup_api_responses('test-video')
-    visit "/test-video"
-    assert_equal 200, page.status_code
-    within '#content' do
-      assert page.has_content?("This is the video summary")
-      assert page.has_selector?("figure#video a[href='https://www.youtube.com/watch?v=fLreo24WYeQ']")
-      assert page.has_selector?("figure#video a[href='https://www.example.org/test.xml']", visible: :all)
-      assert page.has_content?("Video description")
-    end
-  end
 end

@@ -23,7 +23,22 @@ class CampaignPageTest < ActionDispatch::IntegrationTest
 
     assert_page_is_full_width
 
+    assert_breadcrumb_rendered
+
     assert page.has_selector?(shared_component_selector('beta_label'))
+  end
+
+  should "render a campaign page edition in preview" do
+    artefact = content_api_response("britain-is-great")
+    content_api_and_content_store_have_unpublished_page("britain-is-great", 5, artefact)
+
+    visit "/britain-is-great?edition=5"
+
+    assert_equal 200, page.status_code
+
+    assert_equal "Britain is GREAT", page.find("section#landing h1").text
+
+    assert_current_url "/britain-is-great?edition=5"
   end
 
   should "render a campaign page with a custom logo" do

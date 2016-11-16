@@ -1,9 +1,6 @@
 module ApplicationHelper
   def page_title(publication = nil)
-    if publication
-      title = publication.title
-      title = "Video - #{title}" if request.format.video?
-    end
+    title = publication.title if publication
     [title, 'GOV.UK'].select(&:present?).join(" - ")
   end
 
@@ -19,10 +16,6 @@ module ApplicationHelper
       else
         if publication.format
           html_classes << publication.format
-        end
-
-        if request.format.video?
-          html_classes << "video-guide"
         end
 
         if services.include? publication.format

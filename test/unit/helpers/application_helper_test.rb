@@ -28,12 +28,6 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   context "wrapper_class" do
-    should "correctly identifies a video guide in the wrapper classes" do
-      @helper.request.format.stubs(:video?).returns(true)
-      guide = OpenStruct.new(format: 'guide')
-      assert @helper.wrapper_class(guide).split.include?('video-guide')
-    end
-
     should "mark local transactions as a service" do
       local_transaction = OpenStruct.new(format: 'local_transaction')
       assert @helper.wrapper_class(local_transaction).split.include?('service')
@@ -48,12 +42,6 @@ class ApplicationHelperTest < ActionView::TestCase
   test "should build title from publication and artefact" do
     publication = OpenStruct.new(title: "Title")
     assert_equal "Title - GOV.UK", @helper.page_title(publication)
-  end
-
-  test "should prefix title of video with video" do
-    @helper.request.format.stubs(:video?).returns(true)
-    publication = OpenStruct.new(title: "Title")
-    assert_match /^Video - Title/, @helper.page_title(publication)
   end
 
   test "should omit first part of title if publication is omitted" do

@@ -259,11 +259,6 @@ protected
     params[:part] && ! @publication.find_part(params[:part])
   end
 
-  # request.format.html? returns 5 when the request format is video.
-  def treat_as_standard_html_request?
-    !request.format.json? and !request.format.print? and !request.format.video?
-  end
-
   def local_transaction_details(artefact, authority_slug)
     return {} unless authority_slug
 

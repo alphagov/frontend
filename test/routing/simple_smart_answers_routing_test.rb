@@ -8,8 +8,8 @@ class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
       content_api_and_content_store_have_page('fooey', @artefact)
     end
 
-    should "route the start page to the root controller" do
-      assert_recognizes({ controller: "root", action: "publication", slug: "fooey" }, "/fooey")
+    should "route the start page to the SimpleSmartAnswer controller" do
+      assert_recognizes({ controller: "simple_smart_answers", action: "show", slug: "fooey" }, "/fooey")
     end
   end
 

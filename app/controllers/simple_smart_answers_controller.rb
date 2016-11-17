@@ -1,14 +1,19 @@
 require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
-  before_filter :validate_slug_param
+  before_filter :validate_slug_param, only: :flow
   before_filter -> { set_expiry unless viewing_draft_content? }
+  before_filter :redirect_if_api_request, only: :show
 
   rescue_from RecordNotFound, with: :cacheable_404
 
-  def flow
-    artefact = fetch_artefact(params[:slug], params[:edition])
+  def show
+    setup_content_item_and_navigation_helpers("/" + params[:slug])
+    @publication = PublicationPresenter.new(artefact)
+    @edition = params[:edition]
+  end
 
+  def flow
     @publication = PublicationPresenter.new(artefact)
     @edition = params[:edition]
 
@@ -38,6 +43,17 @@ private
 
   def change_completed_question_path(question_number)
     smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], previous_response: @flow_state.completed_questions[question_number].slug)
+  end
+
+  def artefact
+    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
+      params[:slug],
+      params[:edition]
+    )
+  end
+
+  def redirect_if_api_request
+    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 
   def viewing_draft_content?

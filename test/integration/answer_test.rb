@@ -13,8 +13,6 @@ class AnswerTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/vat-rates.json']", visible: :all)
       end
 
-      assert_breadcrumb_rendered
-
       within '#content' do
         within 'header' do
           assert page.has_content?("VAT rates")

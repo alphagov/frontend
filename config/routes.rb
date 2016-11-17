@@ -25,9 +25,8 @@ Frontend::Application.routes.draw do
   end
 
   # Campaign pages.
-  with_options format: false do |routes|
-    routes.get "/ukwelcomes", to: "campaign#uk_welcomes"
-  end
+  get "/ukwelcomes", to: "campaign#uk_welcomes" # This is a special case.
+  get ":slug", to: "campaign#show", constraints: FormatRoutingConstraint.new('campaign')
 
   # Jobssearch form override (English and Welsh variants)
   constraints(slug: /(jobsearch|chwilio-am-swydd)/) do

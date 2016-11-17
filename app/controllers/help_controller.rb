@@ -6,11 +6,6 @@ class HelpController < ApplicationController
 
   def index
     setup_content_item_and_navigation_helpers("/help")
-
-    respond_to do |format|
-      format.html
-      format.json { redirect_to "/api/help.json" }
-    end
   end
 
   def tour

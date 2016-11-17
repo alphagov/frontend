@@ -26,14 +26,6 @@ class RootController < ApplicationController
     },
   }
 
-  CUSTOM_FORMATS = {
-    "campaign" => {
-      locals: {
-        full_width: true
-      }
-    }
-  }
-
   # NOTE: This is a temporary fix to ensure that these licences get treated as
   # 'county/unitary' tiered (as opposed to 'district/unitary'). The tier data
   # for licences used to be stored in LocalService model records in the content
@@ -53,8 +45,6 @@ class RootController < ApplicationController
     'approval-of-premises-for-civil-marriage-or-civil-partnership',
     'licence-projection-over-highway-england-wales',
   ].freeze
-
-  def self.custom_formats; CUSTOM_FORMATS; end
 
   def self.custom_slugs; CUSTOM_SLUGS; end
 
@@ -167,8 +157,6 @@ class RootController < ApplicationController
       format.html.none do
         if is_custom_slug?
           render custom_slug_template, locals: custom_slug_locals
-        elsif is_custom_format?
-          render @publication.format, locals: custom_format_locals
         else
           render @publication.format
         end
@@ -331,13 +319,5 @@ protected
 
   def custom_slug_locals
     self.class.custom_slugs[params[:slug]][:locals]
-  end
-
-  def is_custom_format?
-    self.class.custom_formats.key?(@publication.format)
-  end
-
-  def custom_format_locals
-    self.class.custom_formats[@publication.format][:locals]
   end
 end

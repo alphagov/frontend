@@ -85,7 +85,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       should "not set cache control headers when previewing" do
         get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2", edition: 2
 
-        assert_equal "no-cache", response.headers["Cache-Control"]
+        assert_nil response.headers["Cache-Control"]
       end
 
       context "with form submission params" do

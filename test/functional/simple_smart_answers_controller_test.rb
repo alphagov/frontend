@@ -4,6 +4,43 @@ require 'gds_api/test_helpers/content_api'
 class SimpleSmartAnswersControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::ContentApi
 
+  context "GET show" do
+    setup do
+      @artefact = artefact_for_slug('the-bridge-of-death')
+      @artefact["format"] = "simple_smart_answer"
+    end
+
+    context "for live content" do
+      setup do
+        content_api_and_content_store_have_page('the-bridge-of-death', @artefact)
+      end
+
+      should "set the cache expiry headers" do
+        get :show, slug: "the-bridge-of-death"
+
+        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      end
+
+      should "redirect json requests to the api" do
+        get :show, slug: "the-bridge-of-death", format: 'json'
+
+        assert_redirected_to "/api/the-bridge-of-death.json"
+      end
+    end
+
+    context "for draft content" do
+      setup do
+        content_api_and_content_store_have_unpublished_page("the-bridge-of-death", 3, @artefact)
+      end
+
+      should "does not set the cache expiry headers" do
+        get :show, slug: "the-bridge-of-death", edition: 3
+
+        assert_nil response.headers["Cache-Control"]
+      end
+    end
+  end
+
   context "GET 'flow'" do
     context "for a simple_smart_answer slug" do
       setup do
@@ -85,7 +122,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       should "not set cache control headers when previewing" do
         get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2", edition: 2
 
-        assert_equal "no-cache", response.headers["Cache-Control"]
+        assert_nil response.headers["Cache-Control"]
       end
 
       context "with form submission params" do

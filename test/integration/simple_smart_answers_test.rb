@@ -16,8 +16,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/the-bridge-of-death.json']", visible: :all)
     end
 
-    assert_breadcrumb_rendered
-
     within '#content' do
       within 'header.page-header' do
         assert_page_has_content("The Bridge of Death")
@@ -36,6 +34,23 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_breadcrumb_rendered
     assert_related_items_rendered
+  end
+
+  should "render a simple smart answer edition in preview" do
+    artefact = content_api_response("the-bridge-of-death")
+    content_api_and_content_store_have_unpublished_page("the-bridge-of-death", 5, artefact)
+
+    visit "/the-bridge-of-death?edition=5"
+
+    assert_equal 200, page.status_code
+
+    within '#content' do
+      within 'header.page-header' do
+        assert_page_has_content("The Bridge of Death")
+      end
+    end
+
+    assert_current_url "/the-bridge-of-death?edition=5"
   end
 
   # This should be with_and_without_javascript when the AJAX variant is implemented

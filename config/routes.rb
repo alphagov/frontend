@@ -40,7 +40,9 @@ Frontend::Application.routes.draw do
     get "/:slug(.:format)" => "root#legacy_completed_transaction"
   end
 
+  # Simple Smart Answer pages
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
+  get ":slug", to: "simple_smart_answers#show", constraints: FormatRoutingConstraint.new('simple_smart_answer')
 
   # Help pages
   get "/help", to: "help#index"

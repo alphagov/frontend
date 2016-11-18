@@ -215,13 +215,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, slug: "a-slug", edition: edition_id
   end
 
-  test "Should redirect to transaction if no geo header" do
-    content_api_and_content_store_have_page("c-slug")
-
-    request.env.delete("HTTP_X_GOVGEO_STACK")
-    get :publication, slug: "c-slug"
-  end
-
   test "Should not allow framing of transaction pages" do
     content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',

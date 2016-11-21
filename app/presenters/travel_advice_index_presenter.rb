@@ -8,7 +8,7 @@ class TravelAdviceIndexPresenter
     country_data = details.fetch("countries")
 
     self.countries = country_data.map { |d| IndexCountry.new(d) }
-    self.countries = countries.sort_by(&:name)
+    self.countries = countries_sorted_utf8
     self.description = attributes.fetch("description")
     self.slug = attributes.fetch("base_path")[1..-1]
     self.title = attributes.fetch("title")
@@ -46,5 +46,13 @@ class TravelAdviceIndexPresenter
   private
 
     alias_method :title, :name
+  end
+
+  private
+
+  def countries_sorted_utf8
+    countries.sort_by do |country|
+      ActiveSupport::Inflector.transliterate country.name
+    end
   end
 end

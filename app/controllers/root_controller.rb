@@ -9,7 +9,7 @@ require "location_error"
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  before_filter :validate_slug_param, only: [:publication]
+  before_filter :validate_slug_param, only: :publication
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter :block_empty_format, only: :publication
 
@@ -284,7 +284,7 @@ protected
   end
 
   def deny_framing?(publication)
-    ['transaction', 'local_transaction'].include? publication.format
+    'local_transaction' == publication.format
   end
 
   def local_authority_match?(interaction_details)

@@ -105,7 +105,7 @@ class RootControllerTest < ActionController::TestCase
   test "should set expiry headers for an edition" do
     content_api_and_content_store_have_page(
       "a-slug",
-      'format' => 'transaction',
+      'format' => 'local_transaction',
       "web_url" => "http://example.org/slug"
     )
 
@@ -224,7 +224,7 @@ class RootControllerTest < ActionController::TestCase
     content_api_and_content_store_have_unpublished_page(
       slug,
       edition_id,
-      "format" => "transaction",
+      "format" => "local_transaction",
       "web_url" => "http://example.org/slug"
     )
 
@@ -256,7 +256,7 @@ class RootControllerTest < ActionController::TestCase
 
   context "setting the locale" do
     should "set the locale to the artefact's locale" do
-      artefact = artefact_for_slug('slug').merge("format" => "transaction")
+      artefact = artefact_for_slug('slug').merge("format" => "local_transaction")
       artefact["details"]["language"] = 'pt'
       content_api_and_content_store_have_page('slug', artefact)
 
@@ -266,7 +266,7 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "not set the locale if the artefact has no language" do
-      artefact = artefact_for_slug('slug').merge("format" => "transaction")
+      artefact = artefact_for_slug('slug').merge("format" => "local_transaction")
       artefact["details"].delete("language")
       content_api_and_content_store_have_page('slug', artefact)
 

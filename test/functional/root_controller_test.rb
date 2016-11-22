@@ -242,18 +242,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, slug: "a-slug", edition: edition_id
   end
 
-  test "Should not allow framing of transaction pages" do
-    content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
-      'web_url' => 'https://example.com/a-slug',
-      'format' => 'transaction',
-      'details' => { "need_to_know" => "" },
-      'title' => 'A Test Transaction')
-
-    prevent_implicit_rendering
-    get :publication, slug: 'a-slug'
-    assert_equal "DENY", @response.headers["X-Frame-Options"]
-  end
-
   test "Should not allow framing of local transaction pages" do
     content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',

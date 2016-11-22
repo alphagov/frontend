@@ -62,6 +62,9 @@ Frontend::Application.routes.draw do
   get ":slug/print", to: "guide#show", variant: :print, constraints: FormatRoutingConstraint.new('guide')
   get ":slug(/:part)", to: "guide#show", constraints: FormatRoutingConstraint.new('guide')
 
+  # Transaction pages
+  get ":slug", to: "transaction#show", constraints: FormatRoutingConstraint.new('transaction')
+
   with_options(to: "root#publication") do |pub|
     pub.get ":slug/print", variant: :print
     pub.get ":slug/:part/:interaction", as: :licence_authority_action

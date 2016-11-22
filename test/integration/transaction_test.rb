@@ -1,7 +1,6 @@
-# encoding: utf-8
 require 'integration_test_helper'
 
-class TransactionRenderingTest < ActionDispatch::IntegrationTest
+class TransactionTest < ActionDispatch::IntegrationTest
   context "a transaction with need_to_know but no 'before you start' and 'other ways to apply'" do
     should "render the main information" do
       setup_api_responses('register-to-vote')
@@ -156,48 +155,6 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "legacy transaction finished pages' special cases" do
-    should "redirect transaction-finished JSON requests" do
-      setup_api_responses('transaction-finished')
-      get "/transaction-finished.json"
-      assert_equal 301, response.code.to_i
-      assert_redirected_to "/api/transaction-finished.json"
-    end
-
-    should "redirect driving-transaction-finished JSON requests" do
-      setup_api_responses('driving-transaction-finished')
-      get "/driving-transaction-finished.json"
-      assert_equal 301, response.code.to_i
-      assert_redirected_to "/api/driving-transaction-finished.json"
-    end
-
-    should "render the transaction-finished page correctly" do
-      setup_api_responses('transaction-finished')
-      visit "/transaction-finished"
-      assert_equal 200, page.status_code
-      within "#content" do
-        within "header" do
-          assert page.has_content?("Your transaction is finished")
-        end
-        within '.article-container' do
-          assert page.has_content?("Please join the NHS Organ Donor Register")
-          assert page.has_selector?(".button", text: "Join")
-        end
-      end
-    end
-
-    should "render the driving-transaction-finished page correctly" do
-      setup_api_responses('driving-transaction-finished')
-      visit "driving-transaction-finished"
-      assert_equal 200, page.status_code
-      within "#content" do
-        within "header" do
-          assert page.has_content?("Thank you")
-        end
-      end
-    end
-  end
-
   context "Jobsearch special case" do
     should "redirect JSON requests to the correct API URL" do
       setup_api_responses('jobsearch')
@@ -333,5 +290,22 @@ class TransactionRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_content?("This service will be unavailable between 3pm on 10 October and 6pm on 11 October")
       end
     end
+  end
+
+  should "render a transaction page edition in preview" do
+    artefact = content_api_response("apply-blue-badge")
+    content_api_and_content_store_have_unpublished_page("apply-blue-badge", 5, artefact)
+
+    visit "/apply-blue-badge?edition=5"
+
+    assert_equal 200, page.status_code
+
+    within '#content' do
+      within 'header' do
+        assert page.has_content?("Apply for or renew a Blue Badge")
+      end
+    end
+
+    assert_current_url "/apply-blue-badge?edition=5"
   end
 end

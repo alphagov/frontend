@@ -28,12 +28,6 @@ Frontend::Application.routes.draw do
   get "/ukwelcomes", to: "campaign#uk_welcomes" # This is a special case.
   get ":slug", to: "campaign#show", constraints: FormatRoutingConstraint.new('campaign')
 
-  # Jobssearch form override (English and Welsh variants)
-  constraints(slug: /(jobsearch|chwilio-am-swydd)/) do
-    get "/:slug.json"      => redirect("/api/%{slug}.json")
-    get "/:slug(.:format)" => "root#jobsearch"
-  end
-
   # Transaction finished pages
   constraints(slug: /(transaction-finished|driving-transaction-finished)/) do
     get "/:slug.json"      => redirect("/api/%{slug}.json")

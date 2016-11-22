@@ -1,5 +1,5 @@
 <%- presenter = TransactionPresenter.new(@publication) -%>
-<%= render layout: 'base_page', locals: {
+<%= render layout: 'shared/base_page', locals: {
   main_class: "jobsearch",
   title: @publication.title,
   publication: @publication,
@@ -32,9 +32,9 @@
 
   <section class="more">
     <%- if presenter.multiple_more_information_sections? -%>
-      <%= render :partial => 'transaction_additional_information_tabbed', :locals => {:transaction => @publication, :presenter => presenter } %>
+      <%= render :partial => 'additional_information_tabbed', :locals => {:transaction => @publication, :presenter => presenter } %>
     <%- else -%>
-      <%= render :partial => 'transaction_additional_information_single', :locals => {:transaction => @publication, :presenter => presenter } %>
+      <%= render :partial => 'additional_information_single', :locals => {:transaction => @publication, :presenter => presenter } %>
     <%- end -%>
   </section>
 <% end %>

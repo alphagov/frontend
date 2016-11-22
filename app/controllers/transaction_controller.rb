@@ -4,12 +4,19 @@ class TransactionController < ApplicationController
   before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter :redirect_if_api_request
 
+  JOBSEARCH_SLUGS = ["jobsearch", "chwilio-am-swydd"].freeze
+
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
     @edition = params[:edition]
     set_language_from_publication(@publication)
     deny_framing
+    if JOBSEARCH_SLUGS.include? params[:slug]
+      render :jobsearch
+    else
+      render :show
+    end
   end
 
 private

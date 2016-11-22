@@ -159,7 +159,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
     should "redirect JSON requests to the correct API URL" do
       setup_api_responses('jobsearch')
       get "/jobsearch.json"
-      assert_equal 301, response.code.to_i
+      assert_equal 302, response.code.to_i
       assert_redirected_to "/api/jobsearch.json"
     end
 

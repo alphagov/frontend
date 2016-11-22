@@ -1,5 +1,5 @@
 class CampaignController < ApplicationController
-  before_filter :set_expiry
+  before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter :redirect_if_api_request
 
   def show
@@ -25,12 +25,6 @@ private
 
   def redirect_if_api_request
     redirect_to "/api/#{params[:slug]}.json" if request.format.json?
-  end
-
-  def set_expiry
-    return if viewing_draft_content?
-    return unless request.get?
-    super
   end
 
   def viewing_draft_content?

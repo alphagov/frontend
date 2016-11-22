@@ -1,7 +1,7 @@
 require "slimmer/headers"
 
 class HelpController < ApplicationController
-  before_filter :set_expiry
+  before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter :redirect_if_api_request
 
   def index
@@ -37,12 +37,6 @@ private
 
   def set_language_from_publication(publication)
     I18n.locale = publication.language if publication.language
-  end
-
-  def set_expiry
-    return if viewing_draft_content?
-    return unless request.get?
-    super
   end
 
   def viewing_draft_content?

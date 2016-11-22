@@ -40,17 +40,6 @@ class RootControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should return a 404 if asked for a guide without parts" do
-    content_api_and_content_store_have_page("disability-living-allowance-guide", "title" => "Disability Living Allowance",
-      "format" => "guide",
-      "details" => {
-        "parts" => [],
-        "overview" => ""
-      })
-    get :publication, slug: "disability-living-allowance-guide"
-    assert_equal '404', response.code
-  end
-
   test "should 404 when asked for unrecognised format" do
     content_api_and_content_store_have_page("a-slug")
 
@@ -114,7 +103,11 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should set expiry headers for an edition" do
-    content_api_and_content_store_have_page("a-slug")
+    content_api_and_content_store_have_page(
+      "a-slug",
+      'format' => 'transaction',
+      "web_url" => "http://example.org/slug"
+    )
 
     get :publication, slug: 'a-slug'
     assert_equal "max-age=1800, public", response.headers["Cache-Control"]
@@ -139,7 +132,19 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "further information tab should not appear for programmes that don't have it" do
-    content_api_and_content_store_have_page("george")
+    content_api_and_content_store_have_page(
+      "george",
+      'web_url' => 'http://example.org/george',
+      'format' => 'programme',
+      "details" => {
+        'parts' => [
+          {
+            'title' => 'first',
+            'slug' => 'first',
+          }
+        ]
+      })
+
     get :publication, slug: "george"
     assert !@response.body.include?("further-information")
   end
@@ -156,15 +161,15 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return print view" do
-    content_api_and_content_store_have_page("a-slug")
+    content_api_and_content_store_have_page("a-slug", 'format' => 'programme')
 
     prevent_implicit_rendering
-    @controller.expects(:render).with("guide", layout: "application.print")
+    @controller.expects(:render).with("programme", layout: "application.print")
     get :publication, slug: "a-slug", variant: :print
     assert_equal [:print], @request.variant
   end
 
-  test "should return 404 when print view of a non-=supported format is requested" do
+  test "should return 404 when print view of a non-supported format is requested" do
     content_api_and_content_store_have_page("a-slug", artefact_for_slug("a-slug").merge("format" => "answer"))
 
     get :publication, slug: "a-slug", format: "print"
@@ -172,15 +177,32 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return 404 if part requested but publication has no parts" do
-    content_api_and_content_store_have_page("a-slug",       'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => { 'parts' => [] })
+    content_api_and_content_store_have_page(
+      "a-slug",
+      'web_url' => 'http://example.org/a-slug',
+      'format' => 'programme',
+      "details" => {
+        'parts' => []
+      })
 
     prevent_implicit_rendering
     @controller.expects(:render).with(has_entry(status: 404))
     get :publication, slug: "a-slug", part: "information"
   end
 
-  test "should redirect to base url if bad part requested of multi-part guide" do
-    content_api_and_content_store_have_page("a-slug", 'web_url' => 'http://example.org/a-slug', 'format' => 'guide', "details" => { 'parts' => [{ 'title' => 'first', 'slug' => 'first' }] })
+  test "should redirect to base url if bad part requested of multi-part programme" do
+    content_api_and_content_store_have_page(
+      "a-slug",
+      'web_url' => 'http://example.org/a-slug',
+      'format' => 'programme',
+      "details" => {
+        'parts' => [
+          {
+            'title' => 'first',
+            'slug' => 'first',
+          }
+        ]
+      })
     prevent_implicit_rendering
     get :publication, slug: "a-slug", part: "information"
     assert_response :redirect
@@ -199,7 +221,12 @@ class RootControllerTest < ActionController::TestCase
     edition_id = '23'
     slug = 'a-slug'
 
-    content_api_and_content_store_have_unpublished_page(slug, edition_id)
+    content_api_and_content_store_have_unpublished_page(
+      slug,
+      edition_id,
+      "format" => "transaction",
+      "web_url" => "http://example.org/slug"
+    )
 
     prevent_implicit_rendering
     get :publication, slug: "a-slug", edition: edition_id
@@ -213,13 +240,6 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, slug: "a-slug", edition: edition_id
-  end
-
-  test "Should redirect to transaction if no geo header" do
-    content_api_and_content_store_have_page("c-slug")
-
-    request.env.delete("HTTP_X_GOVGEO_STACK")
-    get :publication, slug: "c-slug"
   end
 
   test "Should not allow framing of transaction pages" do
@@ -248,7 +268,7 @@ class RootControllerTest < ActionController::TestCase
 
   context "setting the locale" do
     should "set the locale to the artefact's locale" do
-      artefact = artefact_for_slug('slug')
+      artefact = artefact_for_slug('slug').merge("format" => "transaction")
       artefact["details"]["language"] = 'pt'
       content_api_and_content_store_have_page('slug', artefact)
 
@@ -258,7 +278,7 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "not set the locale if the artefact has no language" do
-      artefact = artefact_for_slug('slug')
+      artefact = artefact_for_slug('slug').merge("format" => "transaction")
       artefact["details"].delete("language")
       content_api_and_content_store_have_page('slug', artefact)
 

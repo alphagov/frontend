@@ -24,12 +24,11 @@ module PartHelper
     "-"
   end
 
-  def parts_group_size(parts)
-    size = parts.length.to_f / 2
-    if size < 2
-      3
-    else
-      size.ceil
-    end
+  DEFAULT_COLUMN_HEIGHT = 3
+  NUMBER_OF_COLUMNS = 2
+
+  def parts_column_height(parts)
+    column_height = (parts.length.to_f / NUMBER_OF_COLUMNS).ceil
+    [column_height, DEFAULT_COLUMN_HEIGHT].max
   end
 end

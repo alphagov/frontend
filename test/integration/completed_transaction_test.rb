@@ -112,14 +112,14 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     should "redirect transaction-finished JSON requests" do
       setup_api_responses('transaction-finished')
       get "/transaction-finished.json"
-      assert_equal 301, response.code.to_i
+      assert_equal 302, response.code.to_i
       assert_redirected_to "/api/transaction-finished.json"
     end
 
     should "redirect driving-transaction-finished JSON requests" do
       setup_api_responses('driving-transaction-finished')
       get "/driving-transaction-finished.json"
-      assert_equal 301, response.code.to_i
+      assert_equal 302, response.code.to_i
       assert_redirected_to "/api/driving-transaction-finished.json"
     end
 

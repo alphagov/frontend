@@ -61,10 +61,6 @@ class RootController < ApplicationController
 
   def self.custom_slugs; CUSTOM_SLUGS; end
 
-  def legacy_completed_transaction
-    @publication = prepare_publication_and_environment
-  end
-
   def publication
     @publication = prepare_publication_and_environment
     raise FormatNotSupportedByControllerMethod if REFACTORED_FORMATS.include?(@publication.format)

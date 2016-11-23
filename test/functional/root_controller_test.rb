@@ -113,42 +113,6 @@ class RootControllerTest < ActionController::TestCase
     assert_equal "max-age=1800, public", response.headers["Cache-Control"]
   end
 
-  test "further information tab should appear for programmes that have it" do
-    content_api_and_content_store_have_page("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug", "details" => { 'parts' => [
-            { 'slug' => 'a', 'name' => 'AA' },
-            { 'slug' => 'further-information', 'name' => 'BB', 'body' => "abc" }
-          ] })
-    get :publication, slug: "zippy"
-    assert @response.body.include? "further-information"
-  end
-
-  test "further information tab should not appear for programmes where it is empty" do
-    content_api_and_content_store_have_page("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug", "details" => { 'parts' => [
-            { 'slug' => 'a', 'name' => 'AA' },
-            { 'slug' => 'further-information', 'name' => 'BB' }
-          ] })
-    get :publication, slug: "zippy"
-    refute @response.body.include? "further-information"
-  end
-
-  test "further information tab should not appear for programmes that don't have it" do
-    content_api_and_content_store_have_page(
-      "george",
-      'web_url' => 'http://example.org/george',
-      'format' => 'programme',
-      "details" => {
-        'parts' => [
-          {
-            'title' => 'first',
-            'slug' => 'first',
-          }
-        ]
-      })
-
-    get :publication, slug: "george"
-    assert !@response.body.include?("further-information")
-  end
-
   test "should pass edition parameter on to api to provide preview" do
     edition_id = '123'
     slug = 'c-slug'
@@ -160,53 +124,11 @@ class RootControllerTest < ActionController::TestCase
     get :publication, slug: "c-slug", edition: edition_id
   end
 
-  test "should return print view" do
-    content_api_and_content_store_have_page("a-slug", 'format' => 'programme')
-
-    prevent_implicit_rendering
-    @controller.expects(:render).with("programme", layout: "application.print")
-    get :publication, slug: "a-slug", variant: :print
-    assert_equal [:print], @request.variant
-  end
-
   test "should return 404 when print view of a non-supported format is requested" do
     content_api_and_content_store_have_page("a-slug", artefact_for_slug("a-slug").merge("format" => "answer"))
 
     get :publication, slug: "a-slug", format: "print"
     assert_equal 404, response.status
-  end
-
-  test "should return 404 if part requested but publication has no parts" do
-    content_api_and_content_store_have_page(
-      "a-slug",
-      'web_url' => 'http://example.org/a-slug',
-      'format' => 'programme',
-      "details" => {
-        'parts' => []
-      })
-
-    prevent_implicit_rendering
-    @controller.expects(:render).with(has_entry(status: 404))
-    get :publication, slug: "a-slug", part: "information"
-  end
-
-  test "should redirect to base url if bad part requested of multi-part programme" do
-    content_api_and_content_store_have_page(
-      "a-slug",
-      'web_url' => 'http://example.org/a-slug',
-      'format' => 'programme',
-      "details" => {
-        'parts' => [
-          {
-            'title' => 'first',
-            'slug' => 'first',
-          }
-        ]
-      })
-    prevent_implicit_rendering
-    get :publication, slug: "a-slug", part: "information"
-    assert_response :redirect
-    assert_redirected_to '/a-slug'
   end
 
   test "should redirect to base url if part requested for non-parted format" do

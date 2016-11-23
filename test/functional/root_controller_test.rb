@@ -105,7 +105,7 @@ class RootControllerTest < ActionController::TestCase
   test "should set expiry headers for an edition" do
     content_api_and_content_store_have_page(
       "a-slug",
-      'format' => 'transaction',
+      'format' => 'local_transaction',
       "web_url" => "http://example.org/slug"
     )
 
@@ -224,7 +224,7 @@ class RootControllerTest < ActionController::TestCase
     content_api_and_content_store_have_unpublished_page(
       slug,
       edition_id,
-      "format" => "transaction",
+      "format" => "local_transaction",
       "web_url" => "http://example.org/slug"
     )
 
@@ -242,18 +242,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, slug: "a-slug", edition: edition_id
   end
 
-  test "Should not allow framing of transaction pages" do
-    content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
-      'web_url' => 'https://example.com/a-slug',
-      'format' => 'transaction',
-      'details' => { "need_to_know" => "" },
-      'title' => 'A Test Transaction')
-
-    prevent_implicit_rendering
-    get :publication, slug: 'a-slug'
-    assert_equal "DENY", @response.headers["X-Frame-Options"]
-  end
-
   test "Should not allow framing of local transaction pages" do
     content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
       'web_url' => 'https://example.com/a-slug',
@@ -268,7 +256,7 @@ class RootControllerTest < ActionController::TestCase
 
   context "setting the locale" do
     should "set the locale to the artefact's locale" do
-      artefact = artefact_for_slug('slug').merge("format" => "transaction")
+      artefact = artefact_for_slug('slug').merge("format" => "local_transaction")
       artefact["details"]["language"] = 'pt'
       content_api_and_content_store_have_page('slug', artefact)
 
@@ -278,7 +266,7 @@ class RootControllerTest < ActionController::TestCase
     end
 
     should "not set the locale if the artefact has no language" do
-      artefact = artefact_for_slug('slug').merge("format" => "transaction")
+      artefact = artefact_for_slug('slug').merge("format" => "local_transaction")
       artefact["details"].delete("language")
       content_api_and_content_store_have_page('slug', artefact)
 
@@ -328,75 +316,6 @@ class RootControllerTest < ActionController::TestCase
       should "render the legacy completed transaction view" do
         get :legacy_completed_transaction, slug: "transaction-finished"
         assert_template "legacy_completed_transaction"
-      end
-    end
-  end
-
-  context "loading the jobsearch page" do
-    context "given an artefact for 'jobsearch' exists" do
-      setup do
-        @details = {
-          'slug' => 'jobsearch',
-          'web_url' => 'https://www.preview.alphagov.co.uk/jobsearch',
-          'format' => 'transaction',
-          'details' => { "need_to_know" => "" },
-          'title' => 'Universal Jobsearch'
-        }
-        content_api_and_content_store_have_page("jobsearch", @details)
-      end
-
-      should "respond with success" do
-        get :jobsearch, slug: "jobsearch"
-        assert_response :success
-      end
-
-      should "loads the correct details" do
-        get :jobsearch, slug: "jobsearch"
-        assert_equal "Universal Jobsearch", assigns(:publication).title
-      end
-
-      should "initialize a publication object" do
-        get :jobsearch, slug: "jobsearch"
-        assert_equal "Universal Jobsearch", assigns(:publication).title
-      end
-
-      should "set correct expiry headers" do
-        get :jobsearch, slug: "jobsearch"
-        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-      end
-
-      should "render the jobsearch view" do
-        get :jobsearch, slug: "jobsearch"
-        assert_template "jobsearch"
-      end
-    end
-
-    context "given a welsh version exists" do
-      setup do
-        @details = {
-          'id' => 'https://www.gov.uk/api/chwilio-am-swydd.json',
-          'web_url' => 'https://www.preview.alphagov.co.uk/chwilio-am-swydd',
-          'format' => 'transaction',
-          'details' => { "need_to_know" => "", "language" => "cy" },
-          'title' => 'Universal Jobsearch'
-        }
-        content_api_and_content_store_have_page("chwilio-am-swydd", @details)
-      end
-
-      should "set the locale to welsh" do
-        I18n.expects(:locale=).with("cy")
-        get :jobsearch, slug: "chwilio-am-swydd"
-      end
-    end
-
-    context "given an artefact does not exist" do
-      setup do
-        content_api_and_content_store_does_not_have_page('jobsearch')
-      end
-
-      should "respond with 404" do
-        get :jobsearch, slug: "jobsearch"
-        assert_response :not_found
       end
     end
   end

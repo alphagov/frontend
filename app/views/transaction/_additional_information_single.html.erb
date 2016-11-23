@@ -9,7 +9,7 @@
 <% if presenter.what_you_need_to_know? %>
   <div id="what-you-need-to-know">
     <h2><%= t 'formats.transaction.what_you_need_to_know' %></h2>
-    <%= render :partial => 'transaction_need_to_know', :locals => { :transaction => transaction } %>
+    <%= render :partial => 'need_to_know', :locals => { :transaction => transaction } %>
   </div>
 <% end %>
 

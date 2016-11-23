@@ -1,14 +1,13 @@
 # encoding: utf-8
 require 'integration_test_helper'
 
-class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
+class CompletedTransactionTest < ActionDispatch::IntegrationTest
   context "a completed transaction edition" do
     should "show no promotion when presentation toggle is not present" do
-      artefact = artefact_for_slug "no-promotion"
-      artefact = artefact.merge(format: "completed_transaction")
-      content_api_and_content_store_have_page("no-promotion", artefact)
-
-      visit "/no-promotion"
+      artefact = artefact_for_slug "done/no-promotion"
+      artefact = artefact.merge("format" => "completed_transaction")
+      content_api_and_content_store_have_page("done/no-promotion", artefact)
+      visit "/done/no-promotion"
 
       assert_equal 200, page.status_code
       within '.content-block' do
@@ -18,8 +17,8 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
     end
 
     should "show organ donor registration promotion and survey heading if chosen" do
-      artefact = artefact_for_slug "shows-organ-donation-registration-promotion"
-      artefact = artefact.merge(format: "completed_transaction",
+      artefact = artefact_for_slug "/done/shows-organ-donation-registration-promotion"
+      artefact = artefact.merge("format" => "completed_transaction",
         details: {
           presentation_toggles: {
             promotion_choice: {
@@ -28,9 +27,9 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
             }
           }
         })
-      content_api_and_content_store_have_page("shows-organ-donation-registration-promotion", artefact)
+      content_api_and_content_store_have_page("done/shows-organ-donation-registration-promotion", artefact)
 
-      visit "/shows-organ-donation-registration-promotion"
+      visit "/done/shows-organ-donation-registration-promotion"
 
       assert_equal 200, page.status_code
       within '.content-block' do
@@ -43,8 +42,8 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
     end
 
     should "show register to vote promotion and survey heading if chosen" do
-      artefact = artefact_for_slug "shows-register-to-vote-promotion"
-      artefact = artefact.merge(format: "completed_transaction",
+      artefact = artefact_for_slug "done/shows-register-to-vote-promotion"
+      artefact = artefact.merge("format" => "completed_transaction",
         details: {
           presentation_toggles: {
             promotion_choice: {
@@ -53,9 +52,9 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
             }
           }
         })
-      content_api_and_content_store_have_page("shows-register-to-vote-promotion", artefact)
+      content_api_and_content_store_have_page("done/shows-register-to-vote-promotion", artefact)
 
-      visit "/shows-register-to-vote-promotion"
+      visit "/done/shows-register-to-vote-promotion"
 
       assert_equal 200, page.status_code
       within '.content-block' do
@@ -68,8 +67,8 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
     end
 
     should "show no promotion when choice is not organ donor or register to vote" do
-      artefact = artefact_for_slug "unknown-promotion"
-      artefact = artefact.merge(format: "completed_transaction",
+      artefact = artefact_for_slug "done/unknown-promotion"
+      artefact = artefact.merge("format" => "completed_transaction",
         details: {
           presentation_toggles: {
             promotion_choice: {
@@ -78,9 +77,9 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
             }
           }
         })
-      content_api_and_content_store_have_page("unknown-promotion", artefact)
+      content_api_and_content_store_have_page("done/unknown-promotion", artefact)
 
-      visit "/unknown-promotion"
+      visit "/done/unknown-promotion"
 
       assert_equal 200, page.status_code
       within '.content-block' do
@@ -88,6 +87,24 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
         assert page.has_no_selector?('#register-to-vote-promotion')
         assert page.has_no_link?(href: '/get-free-cheese-hats-url')
       end
+    end
+
+    should "render a completed transaction edition in preview" do
+      artefact = artefact_for_slug "done/no-promotion"
+      artefact = artefact.merge("format" => "completed_transaction")
+      content_api_and_content_store_have_unpublished_page("done/no-promotion", 5, artefact)
+
+      visit "/done/no-promotion?edition=5"
+
+      assert_equal 200, page.status_code
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("")
+        end
+      end # within #content
+
+      assert_current_url "/done/no-promotion?edition=5"
     end
   end
 
@@ -123,7 +140,7 @@ class CompletedTransactionRenderingTest < ActionDispatch::IntegrationTest
 
     should "render the driving-transaction-finished page correctly" do
       setup_api_responses('driving-transaction-finished')
-      visit "driving-transaction-finished"
+      visit "/driving-transaction-finished"
       assert_equal 200, page.status_code
       within "#content" do
         within "header" do

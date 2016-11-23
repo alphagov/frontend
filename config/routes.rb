@@ -30,7 +30,9 @@ Frontend::Application.routes.draw do
   get "*slug", slug: %r{help/.+}, to: "help#show", constraints: FormatRoutingConstraint.new('help_page')
 
   # Done pages
-  get "*slug", slug: %r{done/.+}, to: "root#publication"
+  constraints FormatRoutingConstraint.new('completed_transaction') do
+    get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"
+  end
 
   # Transaction finished pages
   constraints(slug: /(transaction-finished|driving-transaction-finished)/) do

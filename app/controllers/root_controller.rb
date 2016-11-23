@@ -21,6 +21,7 @@ class RootController < ApplicationController
   REFACTORED_FORMATS = [
     'answer',
     'campaign',
+    'completed_transaction',
     'guide',
     'help',
     'programme',

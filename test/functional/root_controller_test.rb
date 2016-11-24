@@ -247,4 +247,29 @@ class RootControllerTest < ActionController::TestCase
       end
     end
   end
+
+  context "for refactored formats" do
+    setup do
+      content_api_and_content_store_have_page(
+        "refactored-answer-format-slug'",
+        'format' => 'answer',
+        'details' => {
+          'name' => 'An answer',
+        })
+    end
+
+    should "return cacheable 404" do
+      get :publication, slug: "refactored-answer-format-slug'"
+
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
+    end
+
+    should "return 404 for POST method" do
+      post :publication, slug: "refactored-answer-format-slug'"
+
+      assert_equal "404", response.code
+      assert_equal "max-age=600, public", response.headers["Cache-Control"]
+    end
+  end
 end

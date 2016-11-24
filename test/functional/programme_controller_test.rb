@@ -71,7 +71,8 @@ class ProgrammeControllerTest < ActionController::TestCase
       end
     end
 
-    context "programme with missing part" do
+
+    context "programme with parts" do
       setup do
         content_api_and_content_store_have_page(
           "a-slug",
@@ -82,20 +83,33 @@ class ProgrammeControllerTest < ActionController::TestCase
               {
                 'title' => 'first',
                 'slug' => 'first',
-              }
+                'name' => 'First Part',
+              },
+              {
+                'title' => 'second',
+                'slug' => 'second',
+                'name' => 'Second Part',
+              },
             ]
           })
       end
 
-      should "redirect to base url if missing part requested of multi-part programme" do
-        get :show, slug: "a-slug", part: "further-information"
-        assert_response :redirect
-        assert_redirected_to '/a-slug'
+      should "have specified parts selected " do
+        get :show, slug: "a-slug", part: "first"
+        assert_equal "First Part", assigns["publication"].current_part.name
       end
 
-      should "not show missing part tab" do
-        get :show, slug: "a-slug"
-        assert !@response.body.include?("further-information")
+      context "with missing part" do
+        should "redirect to base url if missing part requested of multi-part programme" do
+          get :show, slug: "a-slug", part: "further-information"
+          assert_response :redirect
+          assert_redirected_to '/a-slug'
+        end
+
+        should "not show missing part tab" do
+          get :show, slug: "a-slug"
+          assert !@response.body.include?("further-information")
+        end
       end
     end
 

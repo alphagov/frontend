@@ -71,7 +71,7 @@ class GuideControllerTest < ActionController::TestCase
       end
     end
 
-    should "should redirect to base url if bad part requested of multi-part guide" do
+    should "redirect to base url if bad part requested of multi-part guide" do
       content_api_and_content_store_have_page(
         "a-slug",
         'web_url' => 'http://example.org/a-slug',
@@ -89,7 +89,7 @@ class GuideControllerTest < ActionController::TestCase
       assert_redirected_to '/a-slug'
     end
 
-    should "should return print view" do
+    should "return print view" do
       content_api_and_content_store_have_page("a-slug", 'format' => 'guide')
 
       prevent_implicit_rendering

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'integration_test_helper'
 
-class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
+class ProgrammeTest < ActionDispatch::IntegrationTest
   should "render a programme correctly" do
     setup_api_responses('reduced-earnings-allowance')
     visit "/reduced-earnings-allowance"
@@ -242,18 +242,40 @@ class ProgrammeRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  should "preserve the query string when navigating around a preview of a programme" do
-    artefact = content_api_response('reduced-earnings-allowance')
-    content_api_and_content_store_have_unpublished_page('reduced-earnings-allowance', 5, artefact)
+  context "when previewing a programme" do
+    should "allow previewing" do
+      # Draft pages from publisher don't have a content item in the live content store yet.
+      content_store_does_not_have_item('/reduced-earnings-allowance')
+      content_api_has_a_draft_artefact "reduced-earnings-allowance", 1, content_api_response("reduced-earnings-allowance")
 
-    visit "/reduced-earnings-allowance/further-information?edition=5"
-    assert page.has_content? "Overview"
+      visit "/reduced-earnings-allowance?edition=1"
 
-    within ".page-navigation" do
-      click_link "Overview"
+      assert_equal 200, page.status_code
+
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Reduced Earnings Allowance - GOV.UK", visible: :all)
+      end
+
+      within '#content' do
+        within 'header.page-header' do
+          assert page.has_content?("Reduced Earnings Allowance")
+        end
+      end # within #content
     end
 
-    assert_equal 200, page.status_code
-    assert_current_url "/reduced-earnings-allowance/overview?edition=5"
+    should "preserve the query string when navigating around a preview of a programme" do
+      artefact = content_api_response('reduced-earnings-allowance')
+      content_api_and_content_store_have_unpublished_page('reduced-earnings-allowance', 5, artefact)
+
+      visit "/reduced-earnings-allowance/further-information?edition=5"
+      assert page.has_content? "Overview"
+
+      within ".page-navigation" do
+        click_link "Overview"
+      end
+
+      assert_equal 200, page.status_code
+      assert_current_url "/reduced-earnings-allowance/overview?edition=5"
+    end
   end
 end

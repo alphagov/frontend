@@ -15,8 +15,6 @@ class RootController < ApplicationController
 
   rescue_from RecordNotFound, with: :cacheable_404
 
-  PRINT_FORMATS = %w(guide programme)
-
   CUSTOM_SLUGS = {
     "report-child-abuse-to-local-council" => {
       locals: {
@@ -133,7 +131,7 @@ class RootController < ApplicationController
       end
     elsif @publication.empty_part_list?
       raise RecordNotFound
-    elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
+    elsif part_requested_but_no_parts?
       return redirect_to publication_path(slug: @publication.slug)
     elsif request.format.json? && @publication.format != 'place'
       return redirect_to "/api/#{params[:slug]}.json"
@@ -147,22 +145,12 @@ class RootController < ApplicationController
     @publication.current_part = params[:part]
     @edition = params[:edition]
 
-    request.variant = :print if params[:variant].to_s == "print"
-
     respond_to do |format|
       format.html.none do
         if is_custom_slug?
           render custom_slug_template, locals: custom_slug_locals
         else
           render @publication.format
-        end
-      end
-      format.html.print do
-        if PRINT_FORMATS.include?(@publication.format)
-          set_slimmer_headers template: "print"
-          render @publication.format, layout: "application.print"
-        else
-          error_404
         end
       end
       format.json do
@@ -237,10 +225,6 @@ protected
 
   def part_requested_but_no_parts?
     params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
-  end
-
-  def part_requested_but_not_found?
-    params[:part] && ! @publication.find_part(params[:part])
   end
 
   def local_transaction_details(artefact, authority_slug)

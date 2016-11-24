@@ -4,14 +4,15 @@ require 'gds_api/test_helpers/mapit'
 class RootControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
 
-  def setup_this_answer
-    content_api_and_content_store_have_page("c-slug", 'slug' => 'c-slug',
-      'format' => 'answer',
+  def setup_this_publication
+    content_api_and_content_store_have_page(
+      'c-slug',
+      'format' => 'business_support',
       'details' => {
         'name' => 'THIS',
         'parts' => [
-          { 'slug' => 'a', 'name' => 'AA' },
-          { 'slug' => 'b', 'name' => 'BB' }
+          { 'slug' => 'first_part', 'name' => 'First Part' },
+          { 'slug' => 'second_part', 'name' => 'Second Part' }
         ]
       })
   end
@@ -23,7 +24,7 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should redirect requests for JSON" do
-    setup_this_answer
+    setup_this_publication
     get :publication, slug: 'c-slug', format: 'json'
     assert_response :redirect
     assert_redirected_to "/api/c-slug.json"
@@ -77,14 +78,14 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should choose template based on type of publication" do
-    content_api_and_content_store_have_page("a-slug", 'format' => 'answer')
+    content_api_and_content_store_have_page("a-slug", 'format' => 'business_support')
     prevent_implicit_rendering
-    @controller.expects(:render).with("answer")
+    @controller.expects(:render).with("business_support")
     get :publication, slug: "a-slug"
   end
 
   test "should choose custom template and locals for custom slug" do
-    content_api_and_content_store_have_page("check-local-dentist", 'format' => 'answer')
+    content_api_and_content_store_have_page("check-local-dentist", 'format' => 'business_support')
 
     custom_slug_hash = {
         "check-local-dentist" => {
@@ -125,14 +126,19 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should return 404 when print view of a non-supported format is requested" do
-    content_api_and_content_store_have_page("a-slug", artefact_for_slug("a-slug").merge("format" => "answer"))
+    content_api_and_content_store_have_page("a-slug", artefact_for_slug("a-slug").merge("format" => "business_support"))
 
     get :publication, slug: "a-slug", format: "print"
     assert_equal 404, response.status
   end
 
   test "should redirect to base url if part requested for non-parted format" do
-    content_api_and_content_store_have_page("a-slug", 'web_url' => 'http://example.org/a-slug', 'format' => 'answer', "details" => { 'body' => 'An answer' })
+    content_api_and_content_store_have_page(
+      "a-slug",
+      'web_url' => 'http://example.org/a-slug',
+      'format' => 'business_support',
+      "details" => { 'body' => 'A business support related body' }
+    )
     prevent_implicit_rendering
     get :publication, slug: "a-slug", part: "information"
     assert_response :redirect
@@ -199,11 +205,11 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "objects should have specified parts selected" do
-    setup_this_answer
+    setup_this_publication
     prevent_implicit_rendering
-    @controller.stubs(:render).with("answer")
-    get :publication, slug: "c-slug", part: "b"
-    assert_equal "BB", assigns["publication"].current_part.name
+    @controller.stubs(:render).with("business_support")
+    get :publication, slug: "c-slug", part: "second_part"
+    assert_equal "Second Part", assigns["publication"].current_part.name
   end
 
   test "should work with place editions" do

@@ -98,14 +98,6 @@
 
         a {
           @include core-16;
-
-          &[rel="external"] {
-            @include external-link-14;
-
-            @include media($size: desktop) {
-              @include external-link-16;
-            }
-          }
         }
       }
     }
@@ -172,10 +164,6 @@
           @include ie-lte(7) {
             margin-left:0;
           }
-        }
-
-        a[rel="external"] {
-          @include external-link-16;
         }
       }
 

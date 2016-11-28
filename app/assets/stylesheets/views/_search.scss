@@ -253,10 +253,6 @@ main.search {
               text-decoration: underline;
             }
           }
-
-          a[rel="external"]::after {
-            content: "\A0\A0\A0\A0\A0\A0";
-          }
         }
 
         .sections {

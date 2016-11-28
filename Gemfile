@@ -19,7 +19,7 @@ gem 'sprockets-rails', "2.3.3"
 if ENV['SLIMMER_DEV']
   gem 'slimmer', path: '../slimmer'
 else
-  gem 'slimmer', '~> 9.0.0'
+  gem 'slimmer', '~> 10.0.0'
 end
 
 if ENV['CDN_DEV']

@@ -53,6 +53,15 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_current_url "/the-bridge-of-death?edition=5"
   end
 
+  context "when previously a format with parts" do
+    should "reroute to the base slug if requested with part route" do
+      setup_api_responses('the-bridge-of-death')
+
+      visit "/the-bridge-of-death/old-part-route"
+      assert_current_url "/the-bridge-of-death"
+    end
+  end
+
   # This should be with_and_without_javascript when the AJAX variant is implemented
   without_javascript do
     should "handle the flow correctly" do

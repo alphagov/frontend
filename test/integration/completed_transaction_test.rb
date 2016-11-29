@@ -107,4 +107,22 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       assert_current_url "/done/no-promotion?edition=5"
     end
   end
+
+  context "legacy transaction finished pages' special cases" do
+    should "not show the satisfaction survey for transaction-finished" do
+      artefact = artefact_for_slug("done/transaction-finished").merge("format" => "completed_transaction")
+      content_api_and_content_store_have_page("done/transaction-finished", artefact)
+      visit "/done/transaction-finished"
+
+      assert_not page.has_css?("h2.satisfaction-survey-heading")
+    end
+
+    should "not show the satisfaction survey for driving-transaction-finished" do
+      artefact = artefact_for_slug("done/driving-transaction-finished").merge("format" => "completed_transaction")
+      content_api_and_content_store_have_page("done/driving-transaction-finished", artefact)
+      visit "/done/driving-transaction-finished"
+
+      assert_not page.has_css?("h2.satisfaction-survey-heading")
+    end
+  end
 end

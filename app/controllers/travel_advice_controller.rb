@@ -1,20 +1,18 @@
 class TravelAdviceController < ApplicationController
   before_filter(only: [:country]) { validate_slug_param(:country_slug) }
   before_filter(only: [:country]) { validate_slug_param(:part) if params[:part] }
+  before_filter :redirect_if_api_request, only: :index
+
+  FOREIGN_TRAVEL_ADVICE_SLUG = 'foreign-travel-advice'.freeze
 
   def index
     set_expiry
-    setup_content_item_and_navigation_helpers("/foreign-travel-advice")
+    setup_content_item_and_navigation_helpers("/" + FOREIGN_TRAVEL_ADVICE_SLUG)
     @presenter = TravelAdviceIndexPresenter.new(@content_item)
 
     respond_to do |format|
       format.html { render locals: { full_width: true } }
       format.atom { set_expiry(5.minutes) }
-      # TODO: Doing a static redirect to the API URL here means that an API call
-      #       and a variety of other logic will have been executed unnecessarily.
-      #       We should move this to the top of the method or out to routes.rb for
-      #       efficiency.
-      format.json { redirect_to "/api/foreign-travel-advice.json" }
     end
   end
 
@@ -51,10 +49,14 @@ class TravelAdviceController < ApplicationController
     error 404
   end
 
-  private
+private
+
+  def redirect_if_api_request
+    redirect_to "/api/#{FOREIGN_TRAVEL_ADVICE_SLUG}.json" if request.format.json?
+  end
 
   def fetch_publication_for_country(country)
-    artefact = fetch_artefact("foreign-travel-advice/" + country, params[:edition])
+    artefact = fetch_artefact(FOREIGN_TRAVEL_ADVICE_SLUG + "/" + country, params[:edition])
     TravelAdviceCountryPresenter.new(artefact)
   end
 end

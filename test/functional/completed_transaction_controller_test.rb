@@ -37,33 +37,4 @@ class CompletedTransactionControllerTest < ActionController::TestCase
       end
     end
   end
-
-  context "loading the legacy transaction finished page" do
-    context "given an artefact for 'transaction-finished' exists" do
-      setup do
-        @details = {
-          'slug' => 'transaction-finished',
-          'web_url' => 'https://www.preview.alphagov.co.uk/transaction-finished',
-          'format' => 'completed_transaction'
-        }
-        content_api_and_content_store_have_page('transaction-finished', @details)
-      end
-
-      should "respond with success" do
-        get :show, slug: "transaction-finished"
-        assert_response :success
-      end
-
-      should "load the correct details" do
-        get :show, slug: "transaction-finished"
-        url = "https://www.preview.alphagov.co.uk/transaction-finished"
-        assert_equal url, assigns(:publication).web_url
-      end
-
-      should "render the legacy completed transaction view" do
-        get :show, slug: "transaction-finished"
-        assert_template "legacy_completed_transaction"
-      end
-    end
-  end
 end

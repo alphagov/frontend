@@ -107,46 +107,4 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       assert_current_url "/done/no-promotion?edition=5"
     end
   end
-
-  context "legacy transaction finished pages' special cases" do
-    should "redirect transaction-finished JSON requests" do
-      setup_api_responses('transaction-finished')
-      get "/transaction-finished.json"
-      assert_equal 302, response.code.to_i
-      assert_redirected_to "/api/transaction-finished.json"
-    end
-
-    should "redirect driving-transaction-finished JSON requests" do
-      setup_api_responses('driving-transaction-finished')
-      get "/driving-transaction-finished.json"
-      assert_equal 302, response.code.to_i
-      assert_redirected_to "/api/driving-transaction-finished.json"
-    end
-
-    should "render the transaction-finished page correctly" do
-      setup_api_responses('transaction-finished')
-      visit "/transaction-finished"
-      assert_equal 200, page.status_code
-      within "#content" do
-        within "header" do
-          assert page.has_content?("Your transaction is finished")
-        end
-        within '.article-container' do
-          assert page.has_content?("Please join the NHS Organ Donor Register")
-          assert page.has_selector?(".button", text: "Join")
-        end
-      end
-    end
-
-    should "render the driving-transaction-finished page correctly" do
-      setup_api_responses('driving-transaction-finished')
-      visit "/driving-transaction-finished"
-      assert_equal 200, page.status_code
-      within "#content" do
-        within "header" do
-          assert page.has_content?("Thank you")
-        end
-      end
-    end
-  end
 end

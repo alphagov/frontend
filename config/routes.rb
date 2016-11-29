@@ -31,10 +31,7 @@ Frontend::Application.routes.draw do
 
   # Done pages
   constraints FormatRoutingConstraint.new('completed_transaction') do
-    with_options(to: "completed_transaction#show") do
-      get "*slug", slug: %r{done/.+}
-      get ":slug" # Support legacy done pages without '/done' prefix
-    end
+    get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"
   end
 
   # Simple Smart Answer pages

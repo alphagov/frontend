@@ -30,12 +30,11 @@ Frontend::Application.routes.draw do
   get "*slug", slug: %r{help/.+}, to: "help#show", constraints: FormatRoutingConstraint.new('help_page')
 
   # Done pages
-  get "*slug", slug: %r{done/.+}, to: "root#publication"
-
-  # Transaction finished pages
-  constraints(slug: /(transaction-finished|driving-transaction-finished)/) do
-    get "/:slug.json"      => redirect("/api/%{slug}.json")
-    get "/:slug(.:format)" => "root#legacy_completed_transaction"
+  constraints FormatRoutingConstraint.new('completed_transaction') do
+    with_options(to: "completed_transaction#show") do
+      get "*slug", slug: %r{done/.+}
+      get ":slug" # Support legacy done pages without '/done' prefix
+    end
   end
 
   # Simple Smart Answer pages

@@ -4,7 +4,7 @@ class TransactionControllerTest < ActionController::TestCase
   context "GET show" do
     setup do
       @artefact = artefact_for_slug('register-to-vote')
-      @artefact["format"] = "answer"
+      @artefact["format"] = "transaction"
     end
 
     context "for live content" do

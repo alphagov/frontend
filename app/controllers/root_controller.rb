@@ -21,6 +21,7 @@ class RootController < ApplicationController
   REFACTORED_FORMATS = [
     'answer',
     'campaign',
+    'completed_transaction',
     'guide',
     'help',
     'programme',
@@ -59,10 +60,6 @@ class RootController < ApplicationController
   ].freeze
 
   def self.custom_slugs; CUSTOM_SLUGS; end
-
-  def legacy_completed_transaction
-    @publication = prepare_publication_and_environment
-  end
 
   def publication
     @publication = prepare_publication_and_environment

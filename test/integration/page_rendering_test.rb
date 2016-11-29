@@ -45,13 +45,6 @@ class PageRenderingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "completed transaction request" do
-    artefact = artefact_for_slug("done/completed-transaction-test").merge("format" => "completed_transaction")
-    content_api_and_content_store_have_page('done/completed-transaction-test', artefact)
-    visit "/done/completed-transaction-test"
-    assert_equal 200, page.status_code
-  end
-
   test "viewing a licence page" do
     setup_api_responses('licence-generic')
     visit "/licence-generic"

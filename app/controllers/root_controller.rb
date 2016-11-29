@@ -6,6 +6,8 @@ require "licence_details_from_artefact"
 require "postcode_sanitizer"
 require "location_error"
 
+class FormatNotSupportedByControllerMethod < StandardError; end
+
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
@@ -14,6 +16,18 @@ class RootController < ApplicationController
   before_filter :block_empty_format, only: :publication
 
   rescue_from RecordNotFound, with: :cacheable_404
+  rescue_from FormatNotSupportedByControllerMethod, with: :cacheable_404
+
+  REFACTORED_FORMATS = [
+    'answer',
+    'campaign',
+    'guide',
+    'help',
+    'programme',
+    'simple_smart_answer',
+    'transaction',
+    'video',
+  ]
 
   CUSTOM_SLUGS = {
     "report-child-abuse-to-local-council" => {
@@ -52,6 +66,8 @@ class RootController < ApplicationController
 
   def publication
     @publication = prepare_publication_and_environment
+    raise FormatNotSupportedByControllerMethod if REFACTORED_FORMATS.include?(@publication.format)
+
     @postcode = PostcodeSanitizer.sanitize(params[:postcode])
 
     if @publication.format == 'licence'

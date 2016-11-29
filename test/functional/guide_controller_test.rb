@@ -71,22 +71,40 @@ class GuideControllerTest < ActionController::TestCase
       end
     end
 
-    should "redirect to base url if bad part requested of multi-part guide" do
-      content_api_and_content_store_have_page(
-        "a-slug",
-        'web_url' => 'http://example.org/a-slug',
-        'format' => 'guide',
-        "details" => {
-          'parts' => [
-            {
-              'title' => 'first',
-              'slug' => 'first',
-            }
-          ]
-        })
-      get :show, slug: "a-slug", part: "information"
-      assert_response :redirect
-      assert_redirected_to '/a-slug'
+    context "guide with parts" do
+      setup do
+        content_api_and_content_store_have_page(
+          "a-slug",
+          'web_url' => 'http://example.org/a-slug',
+          'format' => 'guide',
+          "details" => {
+            'parts' => [
+              {
+                'title' => 'first',
+                'slug' => 'first',
+                'name' => 'First Part',
+              },
+              {
+                'title' => 'second',
+                'slug' => 'second',
+                'name' => 'Second Part',
+              },
+            ]
+          })
+      end
+
+      should "have specified parts selected " do
+        get :show, slug: "a-slug", part: "first"
+        assert_equal "First Part", assigns["publication"].current_part.name
+      end
+
+      context "with missing part" do
+        should "redirect to base url if bad part requested of multi-part guide" do
+          get :show, slug: "a-slug", part: "non-existent-part"
+          assert_response :redirect
+          assert_redirected_to '/a-slug'
+        end
+      end
     end
 
     should "return print view" do

@@ -64,4 +64,13 @@ class VideoTest < ActionDispatch::IntegrationTest
       end
     end # within #content
   end
+
+  context "when previously a format with parts" do
+    should "reroute to the base slug if requested with part route" do
+      setup_api_responses('test-video')
+
+      visit "/test-video/old-part-route"
+      assert_current_url "/test-video"
+    end
+  end
 end

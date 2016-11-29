@@ -24,9 +24,13 @@ Frontend::Application.routes.draw do
     country.get "/foreign-travel-advice/:country_slug(/:part)", as: :travel_advice_country
   end
 
-  # Campaign pages.
-  get "/ukwelcomes", to: "campaign#uk_welcomes" # This is a special case.
-  get ":slug", to: "campaign#show", constraints: FormatRoutingConstraint.new('campaign')
+  # Help pages
+  get "/help", to: "help#index"
+  get "/tour", to: "help#tour"
+  get "*slug", slug: %r{help/.+}, to: "help#show", constraints: FormatRoutingConstraint.new('help_page')
+
+  # Done pages
+  get "*slug", slug: %r{done/.+}, to: "root#publication"
 
   # Transaction finished pages
   constraints(slug: /(transaction-finished|driving-transaction-finished)/) do
@@ -36,32 +40,45 @@ Frontend::Application.routes.draw do
 
   # Simple Smart Answer pages
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
-  get ":slug", to: "simple_smart_answers#show", constraints: FormatRoutingConstraint.new('simple_smart_answer')
+  constraints FormatRoutingConstraint.new('simple_smart_answer') do
+    get ":slug", to: "simple_smart_answers#show"
+    get ":slug/:part", to: redirect('/%{slug}') # Support for simple smart answers that were once a format with parts
+  end
 
-  # Help pages
-  get "/help", to: "help#index"
-  get "/tour", to: "help#tour"
-  get "*slug", slug: %r{help/.+}, to: "help#show", constraints: FormatRoutingConstraint.new('help_page')
+  # Campaign pages.
+  get "/ukwelcomes", to: "campaign#uk_welcomes" # This is a hardcoded page in Frontend and does not have an associated artefact
+  constraints FormatRoutingConstraint.new('campaign') do
+    get ":slug", to: "campaign#show"
+  end
 
   # Answers pages
-  get ":slug", to: "answer#show", constraints: FormatRoutingConstraint.new('answer')
+  constraints FormatRoutingConstraint.new('answer') do
+    get ":slug", to: "answer#show"
+    get ":slug/:part", to: redirect('/%{slug}') # Support for answers that were once a format with parts
+  end
 
   # Video pages
-  get ":slug", to: "video#show", constraints: FormatRoutingConstraint.new('video')
-
-  # Done pages
-  get "*slug", slug: %r{done/.+}, to: "root#publication"
+  constraints FormatRoutingConstraint.new('video') do
+    get ":slug", to: "video#show"
+    get ":slug/:part", to: redirect('/%{slug}') # Support for videos that were once a format with parts
+  end
 
   # Guide pages
-  get ":slug/print", to: "guide#show", variant: :print, constraints: FormatRoutingConstraint.new('guide')
-  get ":slug(/:part)", to: "guide#show", constraints: FormatRoutingConstraint.new('guide')
+  constraints FormatRoutingConstraint.new('guide') do
+    get ":slug/print", to: "guide#show", variant: :print
+    get ":slug(/:part)", to: "guide#show"
+  end
 
   # Programme pages
-  get ":slug/print", to: "programme#show", variant: :print, constraints: FormatRoutingConstraint.new('programme')
-  get ":slug(/:part)", to: "programme#show", constraints: FormatRoutingConstraint.new('programme')
+  constraints FormatRoutingConstraint.new('programme') do
+    get ":slug/print", to: "programme#show", variant: :print
+    get ":slug(/:part)", to: "programme#show"
+  end
 
   # Transaction pages
-  get ":slug", to: "transaction#show", constraints: FormatRoutingConstraint.new('transaction')
+  constraints FormatRoutingConstraint.new('transaction') do
+    get ":slug", to: "transaction#show"
+  end
 
   with_options(to: "root#publication") do |pub|
     pub.get ":slug/:part/:interaction", as: :licence_authority_action

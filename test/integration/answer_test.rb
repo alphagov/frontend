@@ -68,4 +68,13 @@ class AnswerTest < ActionDispatch::IntegrationTest
       end # within #content
     end
   end
+
+  context "when previously a format with parts" do
+    should "reroute to the base slug if requested with part route" do
+      setup_api_responses('vat-rates')
+
+      visit "/vat-rates/old-part-route"
+      assert_current_url "/vat-rates"
+    end
+  end
 end

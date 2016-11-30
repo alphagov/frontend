@@ -4,8 +4,6 @@ class FindLocalCouncilController < ApplicationController
   before_filter :setup_content_item_and_navigation_helpers
   before_filter :set_expiry
 
-  rescue_from RecordNotFound, with: :cacheable_404
-
   BASE_PATH = "/find-local-council"
   UNITARY_AREA_TYPES = %w(COI LBO LGD MTD UTA)
   DISTRICT_AREA_TYPE = "DIS"
@@ -27,11 +25,7 @@ class FindLocalCouncilController < ApplicationController
 
   def result
     authority_slug = params[:authority_slug]
-    begin
-      authority_results = Frontend.local_links_manager_api.local_authority(authority_slug)
-    rescue GdsApi::HTTPNotFound
-      raise RecordNotFound
-    end
+    authority_results = Frontend.local_links_manager_api.local_authority(authority_slug)
 
     if authority_results['local_authorities'].count == 1
       @authority = authority_results['local_authorities'].first

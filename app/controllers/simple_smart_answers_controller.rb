@@ -5,8 +5,6 @@ class SimpleSmartAnswersController < ApplicationController
   before_filter :redirect_if_api_request, only: :show
   before_filter -> { set_expiry unless viewing_draft_content? }
 
-  rescue_from RecordNotFound, with: :cacheable_404
-
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)

@@ -1,6 +1,7 @@
 class ArtefactRetriever
   class UnsupportedArtefactFormat < StandardError; end
   class RecordArchived < StandardError; end
+  class RecordNotFound < StandardError; end
 
   attr_accessor :supported_formats, :content_api, :logger, :statsd
 

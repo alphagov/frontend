@@ -15,7 +15,6 @@ class RootController < ApplicationController
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter :block_empty_format, only: :publication
 
-  rescue_from RecordNotFound, with: :cacheable_404
   rescue_from FormatNotSupportedByControllerMethod, with: :cacheable_404
 
   REFACTORED_FORMATS = [

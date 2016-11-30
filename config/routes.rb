@@ -82,6 +82,11 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for business support pages that were once a format with parts
   end
 
+  # route API errors to the error handler
+  constraints ContentApiErrorRoutingConstraint.new do
+    get "*any", to: "error#handler"
+  end
+
   with_options(to: "root#publication") do |pub|
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
 

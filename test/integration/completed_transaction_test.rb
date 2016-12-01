@@ -109,44 +109,20 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
   end
 
   context "legacy transaction finished pages' special cases" do
-    should "redirect transaction-finished JSON requests" do
-      setup_api_responses('transaction-finished')
-      get "/transaction-finished.json"
-      assert_equal 302, response.code.to_i
-      assert_redirected_to "/api/transaction-finished.json"
+    should "not show the satisfaction survey for transaction-finished" do
+      artefact = artefact_for_slug("done/transaction-finished").merge("format" => "completed_transaction")
+      content_api_and_content_store_have_page("done/transaction-finished", artefact)
+      visit "/done/transaction-finished"
+
+      assert_not page.has_css?("h2.satisfaction-survey-heading")
     end
 
-    should "redirect driving-transaction-finished JSON requests" do
-      setup_api_responses('driving-transaction-finished')
-      get "/driving-transaction-finished.json"
-      assert_equal 302, response.code.to_i
-      assert_redirected_to "/api/driving-transaction-finished.json"
-    end
+    should "not show the satisfaction survey for driving-transaction-finished" do
+      artefact = artefact_for_slug("done/driving-transaction-finished").merge("format" => "completed_transaction")
+      content_api_and_content_store_have_page("done/driving-transaction-finished", artefact)
+      visit "/done/driving-transaction-finished"
 
-    should "render the transaction-finished page correctly" do
-      setup_api_responses('transaction-finished')
-      visit "/transaction-finished"
-      assert_equal 200, page.status_code
-      within "#content" do
-        within "header" do
-          assert page.has_content?("Your transaction is finished")
-        end
-        within '.article-container' do
-          assert page.has_content?("Please join the NHS Organ Donor Register")
-          assert page.has_selector?(".button", text: "Join")
-        end
-      end
-    end
-
-    should "render the driving-transaction-finished page correctly" do
-      setup_api_responses('driving-transaction-finished')
-      visit "/driving-transaction-finished"
-      assert_equal 200, page.status_code
-      within "#content" do
-        within "header" do
-          assert page.has_content?("Thank you")
-        end
-      end
+      assert_not page.has_css?("h2.satisfaction-survey-heading")
     end
   end
 end

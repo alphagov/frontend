@@ -1,8 +1,8 @@
 require "slimmer/headers"
 
 class GuideController < ApplicationController
-  before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter :redirect_if_api_request
+  before_filter -> { set_expiry unless viewing_draft_content? }
 
   rescue_from RecordNotFound, with: :cacheable_404
 

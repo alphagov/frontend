@@ -1,8 +1,8 @@
 require "slimmer/headers"
 
 class TransactionController < ApplicationController
-  before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter :redirect_if_api_request
+  before_filter -> { set_expiry unless viewing_draft_content? }
 
   JOBSEARCH_SLUGS = ["jobsearch", "chwilio-am-swydd"].freeze
 

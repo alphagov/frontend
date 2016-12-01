@@ -20,6 +20,7 @@ class RootController < ApplicationController
 
   REFACTORED_FORMATS = [
     'answer',
+    'business_support',
     'campaign',
     'completed_transaction',
     'guide',
@@ -142,12 +143,8 @@ class RootController < ApplicationController
           @location_error = error_for_missing_interaction(@local_authority)
         end
       end
-    elsif @publication.empty_part_list?
-      raise RecordNotFound
     elsif part_requested_but_no_parts?
       return redirect_to publication_path(slug: @publication.slug)
-    elsif request.format.json? && @publication.format != 'place'
-      return redirect_to "/api/#{params[:slug]}.json"
     end
 
     unless @location_error
@@ -155,7 +152,6 @@ class RootController < ApplicationController
       @location_error = LocationError.new("invalidPostcodeFormat") if params[:postcode] && @publication.places.nil?
     end
 
-    @publication.current_part = params[:part]
     @edition = params[:edition]
 
     respond_to do |format|

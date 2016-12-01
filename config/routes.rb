@@ -76,6 +76,12 @@ Frontend::Application.routes.draw do
     get ":slug", to: "transaction#show"
   end
 
+  # Business Support pages
+  constraints FormatRoutingConstraint.new('business_support') do
+    get ":slug", to: "business_support#show"
+    get ":slug/:part", to: redirect('/%{slug}') # Support for business support pages that were once a format with parts
+  end
+
   with_options(to: "root#publication") do |pub|
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
 

@@ -10,17 +10,6 @@ class RootControllerTest < ActionController::TestCase
     @controller.stubs(:default_render)
   end
 
-  test "should not redirect request for places JSON" do
-    content_api_and_content_store_have_page("d-slug", 'slug' => 'c-slug',
-      'format' => 'place',
-      'details' => {
-        'name' => 'THIS'
-      })
-
-    get :publication, slug: 'd-slug', format: 'json'
-    assert_response :success
-  end
-
   test "should 404 when asked for unrecognised format" do
     content_api_and_content_store_have_page("a-slug")
 
@@ -58,29 +47,10 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should choose template based on type of publication" do
-    content_api_and_content_store_have_page("a-slug", 'format' => 'place')
+    content_api_and_content_store_have_page("a-slug", 'format' => 'local_transaction')
     prevent_implicit_rendering
-    @controller.expects(:render).with("place")
+    @controller.expects(:render).with("local_transaction")
     get :publication, slug: "a-slug"
-  end
-
-  test "should choose custom template and locals for custom slug" do
-    content_api_and_content_store_have_page("check-local-dentist", 'format' => 'place')
-
-    custom_slug_hash = {
-        "check-local-dentist" => {
-          template: "check-local-dentist",
-          locals: {
-            full_width: true
-          }
-        }
-      }
-
-    RootController.stubs(:custom_slugs).returns(custom_slug_hash)
-
-    prevent_implicit_rendering
-    @controller.expects(:render).with("check-local-dentist", locals: { full_width: true })
-    get :publication, slug: "check-local-dentist"
   end
 
   test "should set expiry headers for an edition" do
@@ -103,19 +73,6 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, slug: "c-slug", edition: edition_id
-  end
-
-  test "should redirect to base url if part requested for non-parted format" do
-    content_api_and_content_store_have_page(
-      "a-slug",
-      'web_url' => 'http://example.org/a-slug',
-      'format' => 'place',
-      "details" => { 'body' => 'A place related body' }
-    )
-    prevent_implicit_rendering
-    get :publication, slug: "a-slug", part: "information"
-    assert_response :redirect
-    assert_redirected_to '/a-slug'
   end
 
   test "should assign edition to template if it's not blank and a number" do
@@ -175,13 +132,6 @@ class RootControllerTest < ActionController::TestCase
 
       get :publication, slug: 'slug'
     end
-  end
-
-  test "should work with place editions" do
-    content_api_and_content_store_have_page("a-slug", artefact_for_slug("a-slug").merge('format' => 'place', 'details' => {}))
-    prevent_implicit_rendering
-    get :publication, slug: "a-slug"
-    assert_equal '200', response.code
   end
 
   context "for refactored formats" do

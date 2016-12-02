@@ -82,6 +82,13 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for business support pages that were once a format with parts
   end
 
+  # Place pages
+  constraints FormatRoutingConstraint.new('place') do
+    get ":slug", to: "place#show"
+    post ":slug", to: "place#show"
+    get ":slug/:part", to: redirect('/%{slug}') # Support for places that were once a format with parts
+  end
+
   # route API errors to the error handler
   constraints ContentApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

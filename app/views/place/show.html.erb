@@ -1,4 +1,4 @@
-<%= render layout: 'base_page', locals: {
+<%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
   edition: @edition,
@@ -26,6 +26,7 @@
              data-track-action="<%= track_action_for_place_results(@publication.places) %>"
              data-track-label="<%= track_label_for_place_results(@publication.places) %>">
       <% if @publication.places.any? %>
+
           <h2>Results <%= preposition ||= "near" %> <strong><%= @postcode %></strong>:</h2>
           <ol id="options" class="places">
             <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>

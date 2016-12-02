@@ -4,6 +4,9 @@ class PlaceController < ApplicationController
   before_filter :redirect_if_api_request
   before_filter -> { set_expiry unless viewing_draft_content? }
 
+  INVALID_POSTCODE_ERROR = "invalidPostcodeError".freeze
+  NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze
+
   CUSTOM_SLUGS = {
     "report-child-abuse-to-local-council" => {
       locals: {
@@ -60,12 +63,24 @@ private
 
   def places
     places = Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
-    @location_error = LocationError.new("validPostcodeNoLocation") if places.blank?
+    @location_error = LocationError.new(NO_LOCATION_ERROR) if places.blank?
     places
   rescue GdsApi::HTTPErrorResponse => e
-    # allow 400 errors, as they can be invalid postcodes or no locations found
-    @location_error = LocationError.new(e.error_details["error"]) unless e.error_details.nil?
-    raise unless e.code == 400
+    if imminence_error_for_invalid_postcode?(e)
+      @location_error = LocationError.new(INVALID_POSTCODE_ERROR)
+    elsif imminence_error_for_no_mapit_location?(e)
+      @location_error = LocationError.new(NO_LOCATION_ERROR)
+    else
+      raise
+    end
+  end
+
+  def imminence_error_for_invalid_postcode?(error)
+    error.error_details.fetch("error") == INVALID_POSTCODE_ERROR
+  end
+
+  def imminence_error_for_no_mapit_location?(error)
+    error.error_details.fetch("error") == NO_LOCATION_ERROR
   end
 
   def is_custom_slug?

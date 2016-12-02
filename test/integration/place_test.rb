@@ -257,7 +257,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
   context "given an invalid postcode" do
     setup do
       query_hash = { "postcode" => "SW1A 2AA", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
-      return_data = { "error" => "invalidPostcodeFormat" }
+      return_data = { "error" => "invalidPostcodeError" }
       stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"

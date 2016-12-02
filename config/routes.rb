@@ -85,7 +85,6 @@ Frontend::Application.routes.draw do
   # Place pages
   constraints FormatRoutingConstraint.new('place') do
     get ":slug", to: "place#show"
-    post ":slug", to: "place#show"
     get ":slug/:part", to: redirect('/%{slug}') # Support for places that were once a format with parts
   end
 

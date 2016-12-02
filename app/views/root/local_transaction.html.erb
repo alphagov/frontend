@@ -12,6 +12,7 @@
     </section>
     <%= render partial: 'location_form',
                locals: {
+                 method: 'post',
                  format: 'service',
                  publication_format: 'local_transaction'
                } %>
@@ -55,6 +56,7 @@
     <% else %>
       <%= render partial: 'location_form',
                  locals: {
+                   method: 'post',
                    format: 'service',
                    publication_format: 'local_transaction'
                  } %>

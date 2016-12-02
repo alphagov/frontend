@@ -37,13 +37,4 @@ class PlaceControllerTest < ActionController::TestCase
       end
     end
   end
-
-  context "POST postcode" do
-    should "return 200 and redirect to itself" do
-      post :postcode, slug: "passport-interview-office", postcode: 'SW1A 1AA'
-
-      assert_equal 200, page.status_code
-      assert_redirected_to "/passport-interview-office"
-    end
-  end
 end

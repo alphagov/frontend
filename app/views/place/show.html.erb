@@ -14,13 +14,14 @@
                    locals: {
                      method: 'get',
                      format: 'service',
-                     publication_format: 'place'
+                     publication_format: 'place',
+                     postcode: postcode,
                    } %>
       </div>
     </div>
   </section>
 
-  <% if @postcode.present? && !@location_error %>
+  <% if postcode_provided? && !@location_error %>
     <section class="places-results"
              data-module="auto-track-event"
              data-track-category="<%= track_category_for_place_results(@publication.places) %>"
@@ -28,7 +29,7 @@
              data-track-label="<%= track_label_for_place_results(@publication.places) %>">
       <% if @publication.places.any? %>
 
-          <h2>Results <%= preposition ||= "near" %> <strong><%= @postcode %></strong>:</h2>
+          <h2>Results <%= preposition ||= "near" %> <strong><%= postcode %></strong>:</h2>
           <ol id="options" class="places">
             <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
           </ol>

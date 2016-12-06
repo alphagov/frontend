@@ -256,12 +256,12 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given an invalid postcode" do
     setup do
-      query_hash = { "postcode" => "SW1A 2AA", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
       return_data = { "error" => "invalidPostcodeError" }
       stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
-      fill_in "Enter a postcode", with: "SW1A 2AA"
+      fill_in "Enter a postcode", with: "BAD POSTCODE"
       click_on "Find"
     end
 
@@ -276,6 +276,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     should "display the postcode form" do
       within ".ask_location" do
         assert page.has_field?("Enter a postcode")
+        assert page.has_field? "postcode", with: "BAD POSTCODE"
         assert page.has_button?("Find")
       end
     end

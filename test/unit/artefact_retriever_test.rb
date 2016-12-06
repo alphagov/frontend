@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'application_controller'
 
 class ArtefactRetrieverTest < ActiveSupport::TestCase
   class DummyStatsd
@@ -25,7 +24,7 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
 
   should "raise a RecordNotFound if no artefact is returned" do
     @content_api.expects(:artefact!).with('beekeeping', {}).raises(GdsApi::HTTPNotFound.new(404))
-    assert_raises RecordNotFound do
+    assert_raises ArtefactRetriever::RecordNotFound do
       @retriever.fetch_artefact('beekeeping')
     end
   end

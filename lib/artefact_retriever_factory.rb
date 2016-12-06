@@ -9,7 +9,17 @@ class ArtefactRetrieverFactory
       artefact_retriever_class.new(content_api, logger, statsd)
     end
 
-    private
+    def caching_artefact_retriever(
+      options: {},
+      artefact_retriever_class: ArtefactRetrieverWithRequestCache
+    )
+
+      artefact_retriever_class.new(
+        artefact_retriever: artefact_retriever(options: options)
+      )
+    end
+
+  private
 
     def content_api
       GdsApi::ContentApi.new(

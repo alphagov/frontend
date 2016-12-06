@@ -45,8 +45,6 @@ class TravelAdviceController < ApplicationController
         render layout: "application.print"
       end
     end
-  rescue RecordNotFound
-    error 404
   end
 
 private

@@ -1,0 +1,2 @@
+class RecordNotFound < StandardError
+end

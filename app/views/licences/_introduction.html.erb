@@ -7,8 +7,10 @@
           <h1>Apply for this licence</h1>
           <%= render partial: 'location_form',
                      locals: {
+                       method: 'post',
                        format: 'licence',
-                       publication_format: 'licence'
+                       publication_format: 'licence',
+                       postcode: @postcode,
                      } %>
         </div>
       <% else %>

@@ -9,12 +9,15 @@ class PlacesTest < ActionDispatch::IntegrationTest
   setup do
     mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
 
-    @artefact = artefact_for_slug('passport-interview-office').merge("title" => "Find a passport interview office",
+    @artefact = artefact_for_slug('passport-interview-office').merge(
+      "title" => "Find a passport interview office",
       "format" => "place",
       "in_beta" => true,
+      "updated_at" => "2012-10-02T15:21:03+00:00",
       "details" => {
         "description" => "Find a passport interview office",
         "place_type" => "find-passport-offices",
+        "more_information" => "Some more info on passport offices",
         "need_to_know" => "<ul><li>Proof of identification required</li></ul>",
         "introduction" => "<p>Enter your postcode to find a passport interview office near you.</p>"
       })
@@ -65,31 +68,46 @@ class PlacesTest < ActionDispatch::IntegrationTest
       visit '/passport-interview-office'
     end
 
-    should "show the postcode form and introduction without a postcode" do
-      within ".page-header" do
-        assert page.has_content?("Find a passport interview office")
+    should "render the place page" do
+      assert_equal 200, page.status_code
+
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Find a passport interview office - GOV.UK", visible: :all)
+        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/passport-interview-office.json']", visible: :all)
       end
 
-      assert page.has_selector?(shared_component_selector('beta_label'))
+      within '#content' do
+        within ".page-header" do
+          assert page.has_content?("Find a passport interview office")
+        end
 
-      within ".intro" do
-        assert page.has_content?("Enter your postcode to find a passport interview office near you.")
-      end
+        within ".intro" do
+          assert page.has_content?("Enter your postcode to find a passport interview office near you.")
+        end
 
-      within ".find-location-for-service" do
-        assert page.has_field?("Enter a postcode")
-        assert page.has_button?("Find")
-      end
+        within ".find-location-for-service" do
+          assert page.has_field?("Enter a postcode")
+          assert page.has_button?("Find")
+        end
 
-      within ".further_information" do
-        assert page.has_content?("Further information")
+        assert page.has_no_content?("Please enter a valid full UK postcode.")
 
-        within "ul" do
-          assert page.has_selector?("li", text: "Proof of identification required")
+        within ".further-information" do
+          assert page.has_content?("Further information")
+
+          within "ul" do
+            assert page.has_selector?("li", text: "Proof of identification required")
+          end
+        end
+
+        within '.article-container' do
+          assert page.has_selector?(shared_component_selector('beta_label'))
+          assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
         end
       end
 
-      assert page.has_no_content?("Please enter a valid full UK postcode.")
+      assert_breadcrumb_rendered
+      assert_related_items_rendered
     end
 
     should "add google analytics tags for postcodeSearchStarted" do
@@ -119,6 +137,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display places near to the requested location" do
+      assert_breadcrumb_rendered
+      assert_related_items_rendered
+
       within '#options' do
         names = page.all("li p.adr span.fn").map(&:text)
         assert_equal ["London IPS Office", "Crawley IPS Office"], names
@@ -235,12 +256,12 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given an invalid postcode" do
     setup do
-      query_hash = { "postcode" => "SW1A 2AA", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
-      return_data = { "error" => "invalidPostcodeFormat" }
+      query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      return_data = { "error" => "invalidPostcodeError" }
       stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
-      fill_in "Enter a postcode", with: "SW1A 2AA"
+      fill_in "Enter a postcode", with: "BAD POSTCODE"
       click_on "Find"
     end
 
@@ -255,6 +276,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     should "display the postcode form" do
       within ".ask_location" do
         assert page.has_field?("Enter a postcode")
+        assert page.has_field? "postcode", with: "BAD POSTCODE"
         assert page.has_button?("Find")
       end
     end
@@ -274,6 +296,31 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "display the 'no locations found' message" do
       assert page.has_content?("We couldn't find any results for this postcode.")
+    end
+  end
+
+  context "when previewing the page" do
+    should "render the page" do
+      content_api_and_content_store_have_unpublished_page("passport-interview-office", 5, @artefact)
+
+      visit "/passport-interview-office?edition=5"
+
+      assert_equal 200, page.status_code
+
+      within '#content' do
+        within 'header' do
+          assert page.has_content?("Find a passport interview office")
+        end
+      end
+
+      assert_current_url "/passport-interview-office?edition=5"
+    end
+  end
+
+  context "when previously a format with parts" do
+    should "reroute to the base slug if requested with part route" do
+      visit "/passport-interview-office/old-part-route"
+      assert_current_url "/passport-interview-office"
     end
   end
 end

@@ -12,8 +12,10 @@
     </section>
     <%= render partial: 'location_form',
                locals: {
+                 method: 'post',
                  format: 'service',
-                 publication_format: 'local_transaction'
+                 publication_format: 'local_transaction',
+                 postcode: @postcode,
                } %>
   <% else %>
     <% if @interaction_details['local_interaction'] %>
@@ -55,8 +57,10 @@
     <% else %>
       <%= render partial: 'location_form',
                  locals: {
+                   method: 'post',
                    format: 'service',
-                   publication_format: 'local_transaction'
+                   publication_format: 'local_transaction',
+                   postcode: @postcode,
                  } %>
     <% end %>
     <div class="search-again"><%= link_to 'Back', publication_path(@publication.slug), title: "Search again using a different postcode." %></div>

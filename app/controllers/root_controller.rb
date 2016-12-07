@@ -24,20 +24,12 @@ class RootController < ApplicationController
     'completed_transaction',
     'guide',
     'help',
+    'place',
     'programme',
     'simple_smart_answer',
     'transaction',
     'video',
   ]
-
-  CUSTOM_SLUGS = {
-    "report-child-abuse-to-local-council" => {
-      locals: {
-        option_partial: "option_report_child_abuse",
-        preposition: "for",
-      }
-    },
-  }
 
   # NOTE: This is a temporary fix to ensure that these licences get treated as
   # 'county/unitary' tiered (as opposed to 'district/unitary'). The tier data
@@ -58,8 +50,6 @@ class RootController < ApplicationController
     'approval-of-premises-for-civil-marriage-or-civil-partnership',
     'licence-projection-over-highway-england-wales',
   ].freeze
-
-  def self.custom_slugs; CUSTOM_SLUGS; end
 
   def publication
     @publication = prepare_publication_and_environment
@@ -142,8 +132,6 @@ class RootController < ApplicationController
           @location_error = error_for_missing_interaction(@local_authority)
         end
       end
-    elsif part_requested_but_no_parts?
-      return redirect_to publication_path(slug: @publication.slug)
     end
 
     unless @location_error
@@ -155,11 +143,7 @@ class RootController < ApplicationController
 
     respond_to do |format|
       format.html.none do
-        if is_custom_slug?
-          render custom_slug_template, locals: custom_slug_locals
-        else
-          render @publication.format
-        end
+        render @publication.format
       end
       format.json do
         render json: @publication.to_json
@@ -231,10 +215,6 @@ protected
     raise unless e.code == 400
   end
 
-  def part_requested_but_no_parts?
-    params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
-  end
-
   def local_transaction_details(artefact, authority_slug)
     return {} unless authority_slug
 
@@ -295,17 +275,5 @@ protected
         "laMatchNoLinkNoAuthorityUrl"
       end
     LocationError.new(error_code, local_authority_name: local_authority.name)
-  end
-
-  def is_custom_slug?
-    self.class.custom_slugs.key?(params[:slug])
-  end
-
-  def custom_slug_template
-    self.class.custom_slugs[params[:slug]].fetch(:template, @publication.format)
-  end
-
-  def custom_slug_locals
-    self.class.custom_slugs[params[:slug]][:locals]
   end
 end

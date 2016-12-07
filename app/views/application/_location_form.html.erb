@@ -19,7 +19,7 @@
     </div>
   <% end %>
 
-  <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
+  <form method="<%= method %>" id="local-locator-form" class="find-location-for-<%= format %>">
     <fieldset>
       <legend class="visuallyhidden">Postcode lookup</legend>
       <% if @edition %>
@@ -34,7 +34,7 @@
                name="postcode"
                type="text"
                aria-invalid="<%= @location_error ? 'true' : 'false' %>"
-               value="<%= @postcode %>">
+               value="<%= postcode %>">
         <button type="submit" class="button">Find</button>
         <p>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",

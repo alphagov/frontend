@@ -167,9 +167,8 @@ protected
   end
 
   def prepare_publication_and_environment
-    publication = publication_with_places(
-      PostcodeSanitizer.sanitize(params[:postcode]), params[:slug], params[:edition]
-    )
+    artefact = fetch_artefact(params[:slug], params[:edition], nil)
+    publication = PublicationPresenter.new(artefact)
 
     assert_found(publication)
     set_headers_from_publication(publication)
@@ -183,13 +182,6 @@ protected
     deny_framing if deny_framing?(publication)
   end
 
-  def publication_with_places(postcode, slug, edition)
-    artefact = fetch_artefact(slug, edition, nil)
-    places = fetch_places(artefact, postcode)
-    publication = PublicationPresenter.new(artefact, places)
-    return publication
-  end
-
   def fetch_location(postcode)
     if postcode.present?
       begin
@@ -201,18 +193,6 @@ protected
       end
     end
     MapitPostcodeResponse.new(postcode, location, error)
-  end
-
-  def fetch_places(artefact, postcode)
-    if postcode.present? and artefact.format == 'place'
-      places = Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
-      @location_error = LocationError.new("validPostcodeNoLocation") if places.blank?
-      places
-    end
-  rescue GdsApi::HTTPErrorResponse => e
-    # allow 400 errors, as they can be invalid postcodes or no locations found
-    @location_error = LocationError.new(e.error_details["error"]) unless e.error_details.nil?
-    raise unless e.code == 400
   end
 
   def local_transaction_details(artefact, authority_slug)

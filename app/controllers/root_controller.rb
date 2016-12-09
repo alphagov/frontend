@@ -60,7 +60,11 @@ class RootController < ApplicationController
     if @publication.format == 'licence'
       mapit_response = fetch_location(@postcode)
 
-      if mapit_response.location_found?
+      if mapit_response.invalid_postcode?
+        @location_error = LocationError.new("invalidPostcodeFormat")
+      elsif mapit_response.location_not_found?
+        @location_error = LocationError.new("fullPostcodeNoMapitMatch")
+      elsif mapit_response.location_found?
         la_slug = appropriate_slug_from_location(@publication, mapit_response.location)
 
         if la_slug

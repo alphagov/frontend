@@ -24,9 +24,11 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
       mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
 
-      @artefact = artefact_for_slug('licence-to-kill').merge("title" => "Licence to kill",
+      @artefact = artefact_for_slug('licence-to-kill').merge(
+        "title" => "Licence to kill",
         "format" => "licence",
         "in_beta" => true,
+        "updated_at" => "2012-10-02T15:21:03+00:00",
         "details" => {
           "format" => "Licence",
           "licence_overview" => "You only live twice, Mr Bond.\n",
@@ -70,25 +72,46 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         })
 
       content_api_and_content_store_have_page('licence-to-kill', @artefact)
-      GdsApi::TestHelpers::ContentApi::ArtefactStub.new('licence-to-kill')
-          .with_query_parameters(snac: '00BK', latitude: 51.5010096, longitude: -0.1415870)
-          .with_response_body(@artefact)
-          .stub
     end
 
-    context "when visiting the licence without specifying a location" do
+    context "when visiting the licence start page" do
       setup do
         visit '/licence-to-kill'
       end
 
-      should "display the page content" do
-        assert page.has_content? "Licence to kill"
-        assert page.has_content? "You only live twice, Mr Bond."
-        assert page.has_selector?(shared_component_selector('beta_label'))
-      end
+      should "render the licence page" do
+        assert_equal 200, page.status_code
 
-      should "not show a postcode error" do
-        assert !page.has_selector?(".location_error")
+        within 'head', visible: :all do
+          assert page.has_selector?("title", text: "Licence to kill - GOV.UK", visible: :all)
+          assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/licence-to-kill.json']", visible: :all)
+        end
+
+        within '#content' do
+          within ".page-header" do
+            assert page.has_content?("Licence to kill")
+          end
+
+          within ".postcode-search-form" do
+            assert page.has_field?("Enter a postcode")
+            assert page.has_button?("Find")
+          end
+
+          assert page.has_no_content?("Please enter a valid full UK postcode.")
+
+          within "#overview" do
+            assert page.has_content?("Overview")
+            assert page.has_content? "You only live twice, Mr Bond."
+          end
+
+          within '.article-container' do
+            assert page.has_selector?(shared_component_selector('beta_label'))
+            assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
+          end
+        end
+
+        assert_breadcrumb_rendered
+        assert_related_items_rendered
       end
 
       should "add google analytics tags for postcodeSearchStarted" do
@@ -100,7 +123,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the licence with a postcode" do
+    context "when visiting the licence with a valid postcode" do
       setup do
         visit '/licence-to-kill'
 
@@ -169,9 +192,13 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       should "see an error message" do
         assert page.has_content? "This isn't a valid postcode."
       end
+
+      should "re-populate the invalid input" do
+        assert page.has_field? "postcode", with: "Not valid"
+      end
     end
 
-    context "when visiting the licence with an incorrect postcode" do
+    context "when visiting the licence with a postcode not present in MapIt" do
       setup do
         mapit_does_not_have_a_postcode("AB1 2AB")
 
@@ -186,7 +213,52 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "This isn't a valid postcode."
+        assert page.has_content? "We couldn't find this postcode."
+      end
+
+      should "re-populate the invalid input" do
+        assert page.has_field? "postcode", with: "AB1 2AB"
+      end
+    end
+
+    context "when visiting the licence with a postcode with no areas in MapIt" do
+      setup do
+        mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+
+        visit '/licence-to-kill'
+
+        fill_in 'postcode', with: "XM4 5HQ"
+        click_button('Find')
+      end
+
+      should "remain on the licence page" do
+        assert_equal "/licence-to-kill", current_path
+      end
+
+      should "see an error message" do
+        assert page.has_content? "We couldn't find a council for this postcode."
+      end
+
+      should "re-populate the invalid input" do
+        assert page.has_field? "postcode", with: "XM4 5HQ"
+      end
+    end
+
+    context "when previewing the page" do
+      should "render the page" do
+        content_api_and_content_store_have_unpublished_page("licence-to-kill", 5, @artefact)
+
+        visit "/licence-to-kill?edition=5"
+
+        assert_equal 200, page.status_code
+
+        within '#content' do
+          within 'header' do
+            assert page.has_content?("Licence to kill")
+          end
+        end
+
+        assert_current_url "/licence-to-kill?edition=5"
       end
     end
   end

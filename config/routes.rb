@@ -96,6 +96,13 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for places that were once a format with parts
   end
 
+  # Licence pages
+  constraints FormatRoutingConstraint.new('licence') do
+    get ":slug", to: "licence#search"
+    post ":slug", to: "licence#search" # Support for postcode submission which we treat as confidential data
+    get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
+  end
+
   # route API errors to the error handler
   constraints ContentApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

@@ -24,6 +24,7 @@ class RootController < ApplicationController
     'guide',
     'help',
     'local_transaction',
+    'licence',
     'place',
     'programme',
     'simple_smart_answer',

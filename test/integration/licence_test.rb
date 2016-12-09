@@ -4,7 +4,7 @@ require 'gds_api/test_helpers/mapit'
 class LicenceLookupTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
 
-  context "given a licence which exists in licensify" do
+  context "given a location specific licence" do
     setup do
       mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
         { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
@@ -74,7 +74,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       content_api_and_content_store_have_page('licence-to-kill', @artefact)
     end
 
-    context "when visiting the licence start page" do
+    context "when visiting the licence search page" do
       setup do
         visit '/licence-to-kill'
       end
@@ -143,6 +143,12 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         within("#content nav") do
           assert page.has_link? "How to apply", href: '/licence-to-kill/westminster/apply'
           assert page.has_link? "How to renew", href: '/licence-to-kill/westminster/renew'
+        end
+      end
+
+      should "show overview section" do
+        within("#overview") do
+          assert page.has_content?("You only live twice, Mr Bond.")
         end
       end
 
@@ -261,6 +267,239 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert_current_url "/licence-to-kill?edition=5"
       end
     end
+
+    context "which does not exist in licensify for an authority" do
+      setup do
+        artefact = artefact_for_slug('licence-to-kill').merge(
+          "title" => "Licence to kill",
+          "format" => "licence",
+          "details" => {
+            "format" => "Licence"
+          }
+        )
+
+        content_api_and_content_store_have_page('licence-to-kill', artefact)
+        content_api_and_content_store_have_page_with_snac_code("licence-to-kill", "30UN", artefact)
+
+        south_ribble = {
+          "id" => 2432,
+          "codes" => {
+            "ons" => "30UN",
+            "gss" => "E07000198",
+            "govuk_slug" => "south-ribble"
+          },
+          "name" => "South Ribble"
+        }
+
+        mapit_has_area_for_code('govuk_slug', 'south-ribble', south_ribble)
+      end
+
+      should "show message to contact local council" do
+        visit '/licence-to-kill/south-ribble'
+
+        assert page.status_code == 200
+        assert page.has_content?('Contact your local council')
+      end
+    end
+  end
+
+  context "given a non-location specific licence" do
+    context "with multiple authorities" do
+      setup do
+        artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
+          "title" => "Licence to turn off a telescreen",
+          "format" => "licence",
+          "details" => {
+            "format" => "Licence",
+            "licence" => {
+              "location_specific" => false,
+              "availability" => ["England", "Wales"],
+              "authorities" => [{
+                "name" => "Ministry of Plenty",
+                "slug" => "miniplenty",
+                "actions" => {
+                  "apply" => [{
+                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-plenty/apply-1",
+                    "description" => "Apply for your licence to turn off a telescreen",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }]
+                }
+              }, {
+                "name" => "Ministry of Love",
+                "slug" => "miniluv",
+                "actions" => {
+                  "apply" => [{
+                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                    "description" => "Apply for your licence to turn off a telescreen",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }]
+                }
+              }, {
+                "name" => "Ministry of Truth",
+                "slug" => "minitrue",
+                "actions" => {
+                  "apply" => [{
+                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-truth/apply-1",
+                    "description" => "Apply for your licence to turn off a telescreen",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }]
+                }
+              }, {
+                "name" => "Ministry of Peace",
+                "slug" => "minipax",
+                "actions" => {
+                  "apply" => [{
+                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-peace/apply-1",
+                    "description" => "Apply for your licence to turn off a telescreen",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }]
+                }
+              }]
+            }
+          }
+        )
+        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
+      end
+
+      context "when visiting the licence without specifying an authority" do
+        setup do
+          visit '/licence-to-turn-off-a-telescreen'
+        end
+
+        should "display the title" do
+          assert page.has_content?('Licence to turn off a telescreen')
+        end
+
+        should "see the available authorities in a list" do
+          assert page.has_content?('Ministry of Peace')
+          assert page.has_content?('Ministry of Love')
+          assert page.has_content?('Ministry of Truth')
+          assert page.has_content?('Ministry of Plenty')
+        end
+
+        context "when selecting an authority" do
+          setup do
+            choose 'Ministry of Love'
+            click_button "Get started"
+          end
+
+          should "redirect to the authority slug" do
+            assert_equal "/licence-to-turn-off-a-telescreen/miniluv", current_path
+          end
+
+          should "display interactions for licence" do
+            click_on "How to apply"
+            assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+          end
+        end
+      end
+    end
+
+    context "with a single authority" do
+      setup do
+        artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
+          "title" => "Licence to turn off a telescreen",
+          "format" => "licence",
+          "details" => {
+            "format" => "Licence",
+            "licence_overview" => "The place where there is no darkness.\n",
+            "licence" => {
+              "location_specific" => false,
+              "availability" => ["England", "Wales"],
+              "authorities" => [{
+                "name" => "Ministry of Love",
+                "slug" => "miniluv",
+                "actions" => {
+                  "apply" => [{
+                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                    "description" => "Apply for your licence to turn off a telescreen",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }]
+                }
+              }]
+            }
+          }
+        )
+        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
+      end
+
+      context "when visiting the licence" do
+        setup do
+          visit '/licence-to-turn-off-a-telescreen'
+        end
+
+        should "display the title" do
+          assert page.has_content?('Licence to turn off a telescreen')
+        end
+
+        should "show licence actions for the single authority" do
+          within("#content nav") do
+            assert page.has_link? "How to apply", href: '/licence-to-turn-off-a-telescreen/miniluv/apply'
+          end
+        end
+
+        should "display the interactions for licence" do
+          click_on "How to apply"
+          assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+        end
+
+        should "show overview section" do
+          within("#overview") do
+            assert page.has_content?("The place where there is no darkness.")
+          end
+        end
+      end
+    end
+  end
+
+  context "given a licence edition with continuation link" do
+    setup do
+      artefact = artefact_for_slug('artistic-license').merge(
+        "title" => "Artistic License",
+        "format" => "licence",
+        "details" => {
+          "format" => "Licence",
+          "licence" => {
+            "location_specific" => false,
+              "availability" => ["England", "Wales"],
+              "authorities" => [{
+              "name" => "Ministry of Love",
+              "slug" => "miniluv",
+              "actions" => {
+                "apply" => [{
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                   "payment" => "none",
+                   "introduction" => ""
+                  }]
+                }
+              }]
+            },
+          "will_continue_on" => "another planet",
+          "continuation_link" => "http://gov.uk/blah"
+        }
+      )
+      content_api_and_content_store_have_page('artistic-license', artefact)
+    end
+
+    context "when visiting the licence" do
+      setup do
+        visit '/artistic-license'
+      end
+
+      should "not see a location form" do
+        assert ! page.has_field?('postcode')
+      end
+
+      should "see a 'Start now' button" do
+        assert page.has_content?('Start now')
+      end
+    end
   end
 
   context "given a licence which does not exist in licensify" do
@@ -282,215 +521,6 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
       visit '/licence-to-kill'
 
       assert page.has_content?('Contact your local council')
-    end
-  end
-
-  context "given a non-location-specific licence which exists in licensify with multiple authorities" do
-    setup do
-      artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
-        "title" => "Licence to turn off a telescreen",
-        "format" => "licence",
-        "details" => {
-          "format" => "Licence",
-          "licence" => {
-            "location_specific" => false,
-            "availability" => ["England", "Wales"],
-            "authorities" => [{
-              "name" => "Ministry of Plenty",
-              "slug" => "miniplenty",
-              "actions" => {
-                "apply" => [{
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-plenty/apply-1",
-                  "description" => "Apply for your licence to turn off a telescreen",
-                  "payment" => "none",
-                  "introduction" => ""
-                }]
-              }
-            }, {
-              "name" => "Ministry of Love",
-              "slug" => "miniluv",
-              "actions" => {
-                "apply" => [{
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
-                  "description" => "Apply for your licence to turn off a telescreen",
-                  "payment" => "none",
-                  "introduction" => ""
-                }]
-              }
-            }, {
-              "name" => "Ministry of Truth",
-              "slug" => "minitrue",
-              "actions" => {
-                "apply" => [{
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-truth/apply-1",
-                  "description" => "Apply for your licence to turn off a telescreen",
-                  "payment" => "none",
-                  "introduction" => ""
-                }]
-              }
-            }, {
-              "name" => "Ministry of Peace",
-              "slug" => "minipax",
-              "actions" => {
-                "apply" => [{
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-peace/apply-1",
-                  "description" => "Apply for your licence to turn off a telescreen",
-                  "payment" => "none",
-                  "introduction" => ""
-                }]
-              }
-            }]
-          }
-        }
-      )
-      content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
-    end
-
-    context "when visiting the licence without specifying an authority" do
-      setup do
-        visit '/licence-to-turn-off-a-telescreen'
-      end
-
-      should "display the title" do
-        assert page.has_content?('Licence to turn off a telescreen')
-      end
-
-      should "see the available authorities in a list" do
-        assert page.has_content?('Ministry of Peace')
-        assert page.has_content?('Ministry of Love')
-        assert page.has_content?('Ministry of Truth')
-        assert page.has_content?('Ministry of Plenty')
-      end
-
-      context "when selecting an authority" do
-        setup do
-          choose 'Ministry of Love'
-          click_button "Get started"
-        end
-
-        should "redirect to the authority slug" do
-          assert_equal "/licence-to-turn-off-a-telescreen/miniluv", current_path
-        end
-
-        should "display interactions for licence" do
-          click_on "How to apply"
-          assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
-        end
-      end
-    end
-  end
-
-  context "given a non-location-specific licence which exists in licensify with a single authority" do
-    setup do
-      artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
-        "title" => "Licence to turn off a telescreen",
-        "format" => "licence",
-        "details" => {
-          "format" => "Licence",
-          "licence" => {
-            "location_specific" => false,
-            "availability" => ["England", "Wales"],
-            "authorities" => [{
-              "name" => "Ministry of Love",
-              "slug" => "miniluv",
-              "actions" => {
-                "apply" => [{
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
-                  "description" => "Apply for your licence to turn off a telescreen",
-                  "payment" => "none",
-                  "introduction" => ""
-                }]
-              }
-            }]
-          }
-        }
-      )
-      content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
-    end
-
-    context "when visiting the licence" do
-      setup do
-        visit '/licence-to-turn-off-a-telescreen'
-      end
-
-      should "display the title" do
-        assert page.has_content?('Licence to turn off a telescreen')
-      end
-
-      should "show licence actions for the single authority" do
-        within("#content nav") do
-          assert page.has_link? "How to apply", href: '/licence-to-turn-off-a-telescreen/miniluv/apply'
-        end
-      end
-
-      should "display the interactions for licence" do
-        click_on "How to apply"
-        assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
-      end
-    end
-  end
-
-  context "given a location-specific licence which does not exist in licensify for an authority" do
-    setup do
-      artefact = artefact_for_slug('licence-to-kill').merge(
-        "title" => "Licence to kill",
-        "format" => "licence",
-        "details" => {
-          "format" => "Licence"
-        }
-      )
-
-      content_api_and_content_store_have_page('licence-to-kill', artefact)
-      content_api_and_content_store_have_page_with_snac_code("licence-to-kill", "30UN", artefact)
-
-      south_ribble = {
-        "id" => 2432,
-        "codes" => {
-          "ons" => "30UN",
-          "gss" => "E07000198",
-          "govuk_slug" => "south-ribble"
-        },
-        "name" => "South Ribble"
-      }
-
-      mapit_has_area_for_code('govuk_slug', 'south-ribble', south_ribble)
-    end
-
-    should "show message to contact local council" do
-      visit '/licence-to-kill/south-ribble'
-
-      assert page.status_code == 200
-      assert page.has_content?('Contact your local council')
-    end
-  end
-
-  context "given a licence edition with alternative licence information fields" do
-    setup do
-      artefact = artefact_for_slug('artistic-license').merge(
-        "title" => "Artistic License",
-        "format" => "licence",
-        "details" => {
-          "format" => "Licence",
-          "licence" => nil,
-          "will_continue_on" => "another planet",
-          "continuation_link" => "http://gov.uk/blah"
-        }
-      )
-      content_api_and_content_store_have_page('artistic-license', artefact)
-    end
-
-    context "when visiting the licence" do
-      setup do
-        visit '/artistic-license'
-      end
-
-      should "not see a location form" do
-        assert ! page.has_field?('postcode')
-      end
-
-      should "see a 'Start now' button" do
-        assert page.has_content?('Start now')
-      end
     end
   end
 

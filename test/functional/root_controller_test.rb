@@ -33,18 +33,6 @@ class RootControllerTest < ActionController::TestCase
     get :publication, slug: "atlantis"
   end
 
-  test "should choose template based on type of publication" do
-    content_api_and_content_store_have_page('a-slug',
-      "format" => "licence",
-      "web_url" => "http://example.org/a-slug",
-      "title" => "Licence to drive",
-      "details" => {}
-    )
-    prevent_implicit_rendering
-    @controller.expects(:render).with("licence")
-    get :publication, slug: "a-slug"
-  end
-
   test "should pass edition parameter on to api to provide preview" do
     edition_id = '123'
     slug = 'c-slug'

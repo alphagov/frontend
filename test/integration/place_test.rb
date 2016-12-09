@@ -128,6 +128,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
       click_on "Find"
     end
 
+    should "redirect to same page and not put postcode as URL query parameter" do
+      assert_current_url "/passport-interview-office"
+    end
+
     should "not display an error message" do
       assert page.has_no_content?("Please enter a valid full UK postcode.")
     end

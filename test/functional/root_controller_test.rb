@@ -25,13 +25,6 @@ class RootControllerTest < ActionController::TestCase
     assert_equal '404', response.code
   end
 
-  test "should return a cacheable 404 without calling content_api if slug isn't URL friendly" do
-    get :publication, slug: "a complicated slug & one that's not \"url safe\""
-    assert_equal "404", response.code
-    assert_equal "max-age=600, public", response.headers["Cache-Control"]
-    assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
-  end
-
   test "should return a 404 if content_api returns a 404 (nil)" do
     content_api_and_content_store_does_not_have_page("banana")
     prevent_implicit_rendering

@@ -11,7 +11,6 @@ class FormatNotSupportedByControllerMethod < StandardError; end
 class RootController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  before_filter :validate_slug_param, only: :publication
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter :block_empty_format, only: :publication
 

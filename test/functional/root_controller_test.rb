@@ -4,12 +4,6 @@ require 'gds_api/test_helpers/mapit'
 class RootControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
 
-  def prevent_implicit_rendering
-    # we're not testing view rendering here,
-    # so prevent rendering by stubbing out default_render
-    @controller.stubs(:default_render)
-  end
-
   test "should 404 when asked for unrecognised format" do
     content_api_and_content_store_have_page("a-slug")
 

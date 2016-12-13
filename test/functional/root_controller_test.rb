@@ -67,7 +67,6 @@ class RootControllerTest < ActionController::TestCase
   test "should pass edition parameter on to api to provide preview" do
     edition_id = '123'
     slug = 'c-slug'
-    # stub_edition_request(slug, edition_id)
     content_api_and_content_store_have_unpublished_page(slug, edition_id)
 
     prevent_implicit_rendering

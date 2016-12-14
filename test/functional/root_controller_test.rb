@@ -4,12 +4,6 @@ require 'gds_api/test_helpers/mapit'
 class RootControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
 
-  def prevent_implicit_rendering
-    # we're not testing view rendering here,
-    # so prevent rendering by stubbing out default_render
-    @controller.stubs(:default_render)
-  end
-
   test "should 404 when asked for unrecognised format" do
     content_api_and_content_store_have_page("a-slug")
 
@@ -47,27 +41,20 @@ class RootControllerTest < ActionController::TestCase
   end
 
   test "should choose template based on type of publication" do
-    content_api_and_content_store_have_page("a-slug", 'format' => 'local_transaction')
-    prevent_implicit_rendering
-    @controller.expects(:render).with("local_transaction")
-    get :publication, slug: "a-slug"
-  end
-
-  test "should set expiry headers for an edition" do
-    content_api_and_content_store_have_page(
-      "a-slug",
-      'format' => 'local_transaction',
-      "web_url" => "http://example.org/slug"
+    content_api_and_content_store_have_page('a-slug',
+      "format" => "licence",
+      "web_url" => "http://example.org/a-slug",
+      "title" => "Licence to drive",
+      "details" => {}
     )
-
-    get :publication, slug: 'a-slug'
-    assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+    prevent_implicit_rendering
+    @controller.expects(:render).with("licence")
+    get :publication, slug: "a-slug"
   end
 
   test "should pass edition parameter on to api to provide preview" do
     edition_id = '123'
     slug = 'c-slug'
-    # stub_edition_request(slug, edition_id)
     content_api_and_content_store_have_unpublished_page(slug, edition_id)
 
     prevent_implicit_rendering
@@ -98,18 +85,6 @@ class RootControllerTest < ActionController::TestCase
     prevent_implicit_rendering
     @controller.stubs(:render)
     get :publication, slug: "a-slug", edition: edition_id
-  end
-
-  test "Should not allow framing of local transaction pages" do
-    content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
-      'web_url' => 'https://example.com/a-slug',
-      'format' => 'local_transaction',
-      'details' => { "need_to_know" => "" },
-      'title' => 'A Test Transaction')
-
-    prevent_implicit_rendering
-    get :publication, slug: 'a-slug'
-    assert_equal "DENY", @response.headers["X-Frame-Options"]
   end
 
   context "setting the locale" do

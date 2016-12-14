@@ -43,4 +43,10 @@ class ActiveSupport::TestCase
     config.schema_type = 'frontend'
     config.project_root = Rails.root
   end
+
+  def prevent_implicit_rendering
+    # we're not testing view rendering here,
+    # so prevent rendering by stubbing out default_render
+    @controller.stubs(:default_render)
+  end
 end

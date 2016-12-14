@@ -4,8 +4,7 @@ require 'gds_api/part_methods'
 require 'gds_api/test_helpers/mapit'
 require 'gds_api/test_helpers/local_links_manager'
 
-class LocalTransactionsControllerTest < ActionController::TestCase
-  tests RootController
+class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LocalLinksManager
 
@@ -15,6 +14,29 @@ class LocalTransactionsControllerTest < ActionController::TestCase
     end
   end
 
+  test "Should not allow framing of local transaction pages" do
+    content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
+      'web_url' => 'https://example.com/a-slug',
+      'format' => 'local_transaction',
+      'details' => { "need_to_know" => "" },
+      'title' => 'A Test Transaction')
+
+    prevent_implicit_rendering
+    get :search, slug: 'a-slug'
+    assert_equal "DENY", @response.headers["X-Frame-Options"]
+  end
+
+  test "should set expiry headers for an edition" do
+    content_api_and_content_store_have_page(
+      "a-slug",
+      'format' => 'local_transaction',
+      "web_url" => "http://example.org/slug"
+    )
+
+    get :search, slug: 'a-slug'
+    assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+  end
+
   context "given a local transaction exists in content api" do
     setup do
       @artefact = {
@@ -22,7 +44,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         "format" => "local_transaction",
         "web_url" => "http://example.org/send-a-bear-to-your-local-council",
         "details" => {
-          "format" => "LocalTransaction",
+          "format" => "local_transaction",
           "lgsl_code" => "8342",
           "local_service" => {
             "description" => "What could go wrong?",
@@ -37,14 +59,14 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
     context "loading the local transaction edition without any location" do
       should "return the normal content for a page" do
-        get :publication, slug: "send-a-bear-to-your-local-council"
+        get :search, slug: "send-a-bear-to-your-local-council"
 
         assert_response :success
         assert_equal assigns(:publication).title, "Send a bear to your local council"
       end
 
       should "set correct expiry headers" do
-        get :publication, slug: "send-a-bear-to-your-local-council"
+        get :search, slug: "send-a-bear-to-your-local-council"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -59,7 +81,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          post :publication, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
+          post :search, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
         end
 
         should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
@@ -74,7 +96,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
         subscribe_logstasher_to_postcode_error_notification
 
-        post :publication, slug: "send-a-bear-to-your-local-council", postcode: "BLAH"
+        post :search, slug: "send-a-bear-to-your-local-council", postcode: "BLAH"
       end
 
       should "expose the 'invalid postcode format' error to the view" do
@@ -93,7 +115,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
         subscribe_logstasher_to_postcode_error_notification
 
-        post :publication, slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ"
+        post :search, slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ"
       end
 
       should "expose the 'no mapit match' error to the view" do
@@ -112,7 +134,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
 
         subscribe_logstasher_to_postcode_error_notification
 
-        post :publication, slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD"
+        post :search, slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD"
       end
 
       should "expose the 'missing local authority' error to the view" do
@@ -147,16 +169,16 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       end
 
       should "assign local transaction information" do
-        get :publication, slug: "send-a-bear-to-your-local-council", part: "staffordshire-moorlands"
+        get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
 
         assert_equal "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks", assigns(:interaction_details)["local_interaction"]["url"]
       end
     end
 
     should "return a 404 for an incorrect authority slug" do
-      mapit_does_not_have_area_for_code('govuk_slug', 'this-slug-should-not-exist')
+      local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342')
 
-      get :publication, slug: "send-a-bear-to-your-local-council", part: "this-slug-should-not-exist"
+      get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist"
 
       assert_equal 404, response.status
     end
@@ -169,7 +191,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
         "format" => "local_transaction",
         "web_url" => "http://example.org/report-a-bear-on-a-local-road",
         "details" => {
-          "format" => "LocalTransaction",
+          "format" => "local_transaction",
           "lgsl_code" => "1234",
           "local_service" => {
             "description" => "Contact your council to dispatch Cousin Sven's bear enforcement squad in your area.",
@@ -197,7 +219,7 @@ class LocalTransactionsControllerTest < ActionController::TestCase
       )
 
       subscribe_logstasher_to_postcode_error_notification
-      get :publication, slug: "report-a-bear-on-a-local-road", part: "staffordshire-moorlands"
+      get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
     end
 
     should "show error message" do

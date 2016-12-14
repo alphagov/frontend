@@ -76,6 +76,13 @@ Frontend::Application.routes.draw do
     get ":slug", to: "transaction#show"
   end
 
+  # Local Transaction pages
+  constraints FormatRoutingConstraint.new('local_transaction') do
+    get ":slug", to: "local_transaction#search", as: 'local_transaction_search'
+    post ":slug", to: "local_transaction#search"
+    get ":slug/:local_authority_slug", to: "local_transaction#results", as: 'local_transaction_results'
+  end
+
   # Business Support pages
   constraints FormatRoutingConstraint.new('business_support') do
     get ":slug", to: "business_support#show"
@@ -96,9 +103,6 @@ Frontend::Application.routes.draw do
 
   with_options(to: "root#publication") do |pub|
     pub.get ":slug/:part/:interaction", as: :licence_authority_action
-
-    # Our approach to providing local transaction information currently
-    # requires that this support get and post
     pub.match ":slug(/:part)", via: [:get, :post], as: :publication
   end
 

@@ -24,6 +24,7 @@ class RootController < ApplicationController
     'completed_transaction',
     'guide',
     'help',
+    'local_transaction',
     'place',
     'programme',
     'simple_smart_answer',
@@ -88,50 +89,7 @@ class RootController < ApplicationController
         end
       end
 
-      @interaction_details = prepare_interaction_details(@publication, authority_slug, snac)
-    elsif @publication.format == 'local_transaction'
-
-      mapit_response = fetch_location(@postcode)
-
-      if mapit_response.invalid_postcode?
-        @location_error = LocationError.new("invalidPostcodeFormat")
-      elsif mapit_response.location_not_found?
-        @location_error = LocationError.new("fullPostcodeNoMapitMatch")
-      elsif mapit_response.location_found?
-        # Valid postcode and matching location
-        la_slug = appropriate_slug_from_location(@publication, mapit_response.location)
-
-        if la_slug
-          # Matching local authority and redirect to publication page
-          # with the local authority name. This is the 100% success state.
-          # The redirect below redirects back to this action with the `part`
-          return redirect_to publication_path(slug: params[:slug], part: la_slug)
-        else
-          # No matching local authority.
-          # This points the user towards "Find your LA" which is an
-          # England only service
-          @location_error = LocationError.new("noLaMatch")
-        end
-      elsif params[:authority] && params[:authority][:slug].present?
-        return redirect_to publication_path(slug: params[:slug], part: CGI.escape(params[:authority][:slug]))
-      elsif params[:part]
-        begin
-          # Check that the part is a valid govuk_slug according to mapit and raise RecordNotFound otherwise
-          Frontend.mapit_api.area_for_code("govuk_slug", params[:part])
-        rescue GdsApi::HTTPNotFound
-          raise RecordNotFound
-        end
-
-        authority_slug = params[:part]
-      end
-
-      @interaction_details = prepare_interaction_details(@publication, authority_slug)
-      if local_authority_match?(@interaction_details)
-        @local_authority = LocalAuthorityPresenter.new(@interaction_details['local_authority'])
-        if no_interaction?(@interaction_details)
-          @location_error = error_for_missing_interaction(@local_authority)
-        end
-      end
+      @interaction_details = licence_details(@publication.artefact, authority_slug, snac)
     end
 
     unless @location_error
@@ -153,15 +111,6 @@ class RootController < ApplicationController
 
 protected
 
-  def prepare_interaction_details(publication, authority_slug, snac = nil)
-    case publication.format
-    when "licence"
-      licence_details(publication.artefact, authority_slug, snac)
-    when "local_transaction"
-      local_transaction_details(publication.artefact, authority_slug)
-    end
-  end
-
   def block_empty_format
     raise RecordNotFound if request.format.nil?
   end
@@ -179,7 +128,6 @@ protected
   def set_headers_from_publication(publication)
     I18n.locale = publication.language if publication.language
     set_expiry if params.exclude?('edition') and request.get?
-    deny_framing if deny_framing?(publication)
   end
 
   def fetch_location(postcode)
@@ -195,24 +143,15 @@ protected
     MapitPostcodeResponse.new(postcode, location, error)
   end
 
-  def local_transaction_details(artefact, authority_slug)
-    return {} unless authority_slug
-
-    lgsl = artefact['details']['lgsl_code']
-    lgil = artefact['details']['lgil_override']
-
-    Frontend.local_links_manager_api.local_link(authority_slug, lgsl, lgil)
-  end
-
   def licence_details(artefact, licence_authority_slug, snac_code)
     LicenceDetailsFromArtefact.new(artefact, licence_authority_slug, snac_code, params[:interaction]).build_attributes
   end
 
   def identifier_class_for_format(format)
-    case format
-    when "licence" then LicenceLocationIdentifier
-    when "local_transaction" then LocalTransactionLocationIdentifier
-    else raise(Exception, "No location identifier available for #{format}")
+    if format == "licence"
+      LicenceLocationIdentifier
+    else
+      raise(Exception, "No location identifier available for #{format}")
     end
   end
 
@@ -229,31 +168,5 @@ protected
 
   def non_location_specific_licence_present?(publication)
     publication.format == 'licence' and publication.details['licence'] and !publication.details['licence']['location_specific']
-  end
-
-  def deny_framing
-    response.headers['X-Frame-Options'] = 'DENY'
-  end
-
-  def deny_framing?(publication)
-    'local_transaction' == publication.format
-  end
-
-  def local_authority_match?(interaction_details)
-    interaction_details['local_authority']
-  end
-
-  def no_interaction?(interaction_details)
-    !interaction_details['local_interaction']
-  end
-
-  def error_for_missing_interaction(local_authority)
-    error_code =
-      if local_authority.url.present?
-        "laMatchNoLink"
-      else
-        "laMatchNoLinkNoAuthorityUrl"
-      end
-    LocationError.new(error_code, local_authority_name: local_authority.name)
   end
 end

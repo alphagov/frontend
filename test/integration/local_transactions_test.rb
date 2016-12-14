@@ -350,4 +350,31 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     assert_current_url "/pay-bear-tax"
     assert_selector(".error-summary", text: "We couldn't find a council for this postcode")
   end
+
+  context "when previewing the local transaction" do
+    should "render the correct page in preview" do
+      content_store_does_not_have_item('/pay-bear-tax')
+      content_api_has_a_draft_artefact "pay-bear-tax", 6, content_api_response("pay-bear-tax")
+
+      visit "/pay-bear-tax?edition=6"
+
+      assert_equal 200, page.status_code
+
+      assert_current_url "/pay-bear-tax?edition=6"
+
+      within 'head', visible: :all do
+        assert page.has_selector?("title", text: "Pay Bear Tax - GOV.UK", visible: :all)
+      end
+
+      within '#content' do
+        within 'header.page-header' do
+          assert page.has_content?("Pay Bear Tax")
+        end
+
+        within '#local-locator-form' do
+          assert page.has_content?("Enter a postcode")
+        end
+      end
+    end
+  end
 end

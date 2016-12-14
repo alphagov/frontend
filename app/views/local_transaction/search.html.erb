@@ -1,0 +1,28 @@
+<%= render layout: 'shared/base_page', locals: {
+  title: @publication.title,
+  publication: @publication,
+  edition: @edition,
+  json_link: local_transaction_search_path(@publication.slug, edition: @edition, format: :json, all: true),
+} do %>
+  <section class="intro">
+    <div class="get-started-intro">
+      <%= raw @publication.introduction %>
+    </div>
+  </section>
+  <%= render partial: 'location_form',
+             locals: {
+               method: 'post',
+               format: 'service',
+               publication_format: 'local_transaction',
+               postcode: @postcode
+             } %>
+  <section class="more">
+  <% if @publication.need_to_know.present? %>
+    <h2>What you need to know</h2>
+    <%= raw @publication.need_to_know %>
+  <% end %>
+    <div class="more">
+      <%= raw @publication.more_information %>
+    </div>
+  </section>
+<% end %>

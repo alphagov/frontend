@@ -1,6 +1,4 @@
 class TravelAdviceController < ApplicationController
-  before_filter(only: [:country]) { validate_slug_param(:country_slug) }
-  before_filter(only: [:country]) { validate_slug_param(:part) if params[:part] }
   before_filter :redirect_if_api_request, only: :index
 
   FOREIGN_TRAVEL_ADVICE_SLUG = 'foreign-travel-advice'.freeze

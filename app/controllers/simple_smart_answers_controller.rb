@@ -1,7 +1,6 @@
 require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
-  before_filter :validate_slug_param, only: :flow
   before_filter :redirect_if_api_request, only: :show
   before_filter -> { set_expiry unless viewing_draft_content? }
 

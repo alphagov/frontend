@@ -170,12 +170,5 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       assert response.not_found?
     end
-
-    should "return a cacheable 404 without querying content_api for an invalid country slug" do
-      get :country, country_slug: "this is not & a valid slug"
-      assert response.not_found?
-      assert_equal "max-age=600, public", response.headers["Cache-Control"]
-      assert_not_requested(:get, %r{\A#{CONTENT_API_ENDPOINT}})
-    end
   end
 end

@@ -9,6 +9,6 @@ class FormatRoutingConstraint
     slug = request.params.fetch(:slug)
     edition = request.params.fetch(:edition, nil)
     artefact = @caching_artefact_retriever.fetch_artefact(slug, edition)
-    artefact['format'] == @format if artefact
+    artefact.format == @format if artefact && artefact.respond_to?(:format)
   end
 end

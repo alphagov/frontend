@@ -1,5 +1,6 @@
 require 'test_helper'
 
+require 'gds_api/part_methods'
 require 'gds_api/test_helpers/mapit'
 require 'gds_api/test_helpers/local_links_manager'
 

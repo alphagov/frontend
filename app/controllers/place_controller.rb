@@ -64,7 +64,7 @@ private
   end
 
   def places
-    places = Frontend.imminence_api.places_for_postcode(artefact["details"]["place_type"], postcode, Frontend::IMMINENCE_QUERY_LIMIT)
+    places = Frontend.imminence_api.places_for_postcode(artefact.details.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
     @location_error = LocationError.new(NO_LOCATION_ERROR) if places.blank?
     places
   rescue GdsApi::HTTPErrorResponse => e

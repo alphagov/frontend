@@ -33,7 +33,7 @@ private
       if is_scoped? && scope_object.present?
         {
           "scope" => {
-            "title" => scope_object.title,
+            "title" => scope_object["title"],
           },
           "unscoped_results" => unscoped_results,
         }
@@ -47,7 +47,8 @@ private
     end
 
     def scope_object
-      @scope_object ||= api.search(filter_link: scope_object_link, count: "1", fields: %w{title}).results.first
+      @_api_response ||= api.search(filter_link: scope_object_link, count: "1", fields: %w{title})
+      @_api_response.to_hash.fetch("results", []).first
     end
 
     def is_scoped?

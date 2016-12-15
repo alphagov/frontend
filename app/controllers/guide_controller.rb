@@ -14,7 +14,7 @@ class GuideController < ApplicationController
     if @publication.empty_part_list?
       raise RecordNotFound
     elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
-      return redirect_to publication_path(slug: @publication.slug)
+      return redirect_to guide_path(slug: @publication.slug)
     end
 
     request.variant = :print if params[:variant].to_s == "print"

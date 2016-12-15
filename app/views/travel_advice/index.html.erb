@@ -28,7 +28,7 @@
           <p>Get updates</p>
           <ul>
             <li><%= link_to "email", @presenter.subscription_url, class: "email-alerts", title: "Subscribe to email alerts" %></li>
-            <li><%= link_to "feed", publication_path(@presenter.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
+            <li><%= link_to "feed", travel_advice_path(@presenter.slug, format: "atom"), :class => "feed", :title => "Subscribe via RSS" %></li>
           </ul>
         </section>
       </div>

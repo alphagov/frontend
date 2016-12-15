@@ -2,7 +2,7 @@
   title: @publication.title,
   publication: @publication,
   edition: @edition,
-  json_link: publication_path(@publication.slug, edition: @edition, format: :json, all: true),
+  json_link: local_transaction_search_path(@publication.slug, edition: @edition, format: :json, all: true),
 } do %>
   <% if @interaction_details['local_interaction'] %>
     <div class="interaction">
@@ -41,7 +41,7 @@
       <% end %>
     </div>
   <% end %>
-  <div class="search-again"><%= link_to 'Back', publication_path(@publication.slug), title: "Search again using a different postcode." %></div>
+  <div class="search-again"><%= link_to 'Back', local_transaction_search_path(@publication.slug), title: "Search again using a different postcode." %></div>
   <section class="more">
     <div class="more">
       <%= raw @publication.more_information %>

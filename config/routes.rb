@@ -37,7 +37,7 @@ Frontend::Application.routes.draw do
   # Simple Smart Answer pages
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
   constraints FormatRoutingConstraint.new('simple_smart_answer') do
-    get ":slug", to: "simple_smart_answers#show"
+    get ":slug", to: "simple_smart_answers#show", as: "simple_smart_answer"
     get ":slug/:part", to: redirect('/%{slug}') # Support for simple smart answers that were once a format with parts
   end
 
@@ -62,13 +62,13 @@ Frontend::Application.routes.draw do
   # Guide pages
   constraints FormatRoutingConstraint.new('guide') do
     get ":slug/print", to: "guide#show", variant: :print
-    get ":slug(/:part)", to: "guide#show"
+    get ":slug(/:part)", to: "guide#show", as: "guide"
   end
 
   # Programme pages
   constraints FormatRoutingConstraint.new('programme') do
     get ":slug/print", to: "programme#show", variant: :print
-    get ":slug(/:part)", to: "programme#show"
+    get ":slug(/:part)", to: "programme#show", as: "programme"
   end
 
   # Transaction pages
@@ -98,7 +98,7 @@ Frontend::Application.routes.draw do
 
   # Licence pages
   constraints FormatRoutingConstraint.new('licence') do
-    get ":slug", to: "licence#search"
+    get ":slug", to: "licence#search", as: "licence"
     post ":slug", to: "licence#search" # Support for postcode submission which we treat as confidential data
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
   end

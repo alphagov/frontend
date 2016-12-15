@@ -108,10 +108,5 @@ Frontend::Application.routes.draw do
     get "*any", to: "error#handler"
   end
 
-  with_options(to: "root#publication") do |pub|
-    pub.get ":slug/:part/:interaction", as: :licence_authority_action
-    pub.match ":slug(/:part)", via: [:get, :post], as: :publication
-  end
-
   root to: 'homepage#index', via: :get
 end

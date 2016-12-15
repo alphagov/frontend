@@ -76,7 +76,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
-    gds-api-adapters (38.0.0)
+    gds-api-adapters (37.5.1)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -292,7 +292,7 @@ DEPENDENCIES
   cdn_helpers (= 0.9)
   ci_reporter
   ci_reporter_test_unit
-  gds-api-adapters (= 38.0.0)
+  gds-api-adapters (= 37.5.1)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint (~> 1.2.0)

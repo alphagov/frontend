@@ -500,6 +500,16 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         assert page.has_content?('Start now')
       end
     end
+
+    context "when visiting the licence with an authority slug" do
+      setup do
+        visit '/artistic-license/miniluv'
+      end
+
+      should "redirect to the search page" do
+        assert_current_url '/artistic-license'
+      end
+    end
   end
 
   context "given a licence which does not exist in licensify" do

@@ -52,7 +52,9 @@ class LicenceController < ApplicationController
   end
 
   def authority
-    if location_specific_licence?
+    if publication.continuation_link.present?
+      redirect_to licence_path(slug: params[:slug])
+    elsif location_specific_licence?
       raise RecordNotFound unless artefact_with_snac
       @publication = PublicationPresenter.new(artefact_with_snac)
       @interaction_details = licence_details_for_snac(params[:authority_slug], snac_from_slug)

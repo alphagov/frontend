@@ -41,6 +41,14 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "with an invalid URL" do
+    should "return 404 status" do
+      api_throws_exception('/slug.json', GdsApi::InvalidUrl)
+      visit "/slug"
+      assert_equal 404, page.status_code
+    end
+  end
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   test "requests for gifs 404" do

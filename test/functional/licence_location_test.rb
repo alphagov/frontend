@@ -1,6 +1,5 @@
 require 'test_helper'
 
-require 'gds_api/part_methods'
 require 'gds_api/test_helpers/panopticon'
 require 'gds_api/test_helpers/mapit'
 

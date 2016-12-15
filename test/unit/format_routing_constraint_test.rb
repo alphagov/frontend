@@ -21,7 +21,7 @@ class FormatRoutingConstraintTest < ActiveSupport::TestCase
   end
 
   def artefact(format)
-    stub(format: format)
+    stub(:[] => format)
   end
 
   def artefact_retriever(artefact)

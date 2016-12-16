@@ -20,6 +20,6 @@
 
   <%= render :partial => "pagination" %>
   <div class="print-link">
-    <%= link_to t('formats.guide.printer_friendly_page'), publication_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %>
+    <%= link_to t('formats.guide.printer_friendly_page'), programme_path(@publication.slug, :part => 'print', :edition => @edition), rel: "nofollow" %>
   </div>
 <% end %>

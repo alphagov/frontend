@@ -2,13 +2,13 @@ require "slimmer/headers"
 
 class AnswerController < ApplicationController
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
 
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
-    @edition = params[:edition]
     set_language_from_publication(@publication)
   end
 
@@ -23,9 +23,5 @@ private
 
   def set_language_from_publication(publication)
     I18n.locale = publication.language if publication.language
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 end

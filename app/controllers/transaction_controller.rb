@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class TransactionController < ApplicationController
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
 
@@ -10,7 +11,6 @@ class TransactionController < ApplicationController
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
-    @edition = params[:edition]
     set_language_from_publication(@publication)
     deny_framing
     if JOBSEARCH_SLUGS.include? params[:slug]
@@ -31,10 +31,6 @@ private
 
   def set_language_from_publication(publication)
     I18n.locale = publication.language if publication.language
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 
   def deny_framing

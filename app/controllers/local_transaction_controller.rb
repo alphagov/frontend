@@ -1,6 +1,7 @@
 class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
@@ -14,7 +15,6 @@ class LocalTransactionController < ApplicationController
 
   def search
     @publication = publication
-    @edition = params[:edition]
 
     if request.post?
       @location_error = location_error
@@ -29,7 +29,6 @@ class LocalTransactionController < ApplicationController
   def results
     @publication = publication
     @postcode = postcode
-    @edition = params[:edition]
     @interaction_details = interaction_details
     @local_authority = local_authority
   end
@@ -102,10 +101,6 @@ private
     council = params[:local_authority_slug]
     return {} unless council
     @_interaction ||= Frontend.local_links_manager_api.local_link(council, lgsl, lgil)
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 
   def error_for_missing_interaction(local_authority)

@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class PlaceController < ApplicationController
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
 
@@ -14,7 +15,6 @@ class PlaceController < ApplicationController
 
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
-    @edition = params[:edition]
     @publication = publication
 
     render :show, locals: locals
@@ -54,10 +54,6 @@ private
 
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 
   def places

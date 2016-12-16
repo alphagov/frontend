@@ -2,9 +2,9 @@ require "slimmer/headers"
 
 class LicenceController < ApplicationController
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
-  before_filter :set_edition_for_viewing_draft_content
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   helper_method :postcode
@@ -161,13 +161,5 @@ private
 
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def set_edition_for_viewing_draft_content
-    @edition = params[:edition]
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 end

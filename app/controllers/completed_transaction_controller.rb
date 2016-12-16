@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class CompletedTransactionController < ApplicationController
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
 
@@ -16,7 +17,6 @@ class CompletedTransactionController < ApplicationController
   def show
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
-    @edition = params[:edition]
   end
 
 private
@@ -26,10 +26,6 @@ private
       params[:slug],
       params[:edition]
     )
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 
   helper_method :show_survey?

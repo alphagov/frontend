@@ -2,6 +2,7 @@ require "slimmer/headers"
 
 class ProgrammeController < ApplicationController
   include ApiRedirectable
+  include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
 
@@ -9,7 +10,6 @@ class ProgrammeController < ApplicationController
     setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
     @publication.current_part = params[:part]
-    @edition = params[:edition]
     set_language_from_publication(@publication)
 
     if @publication.empty_part_list?
@@ -40,10 +40,6 @@ private
 
   def set_language_from_publication(publication)
     I18n.locale = publication.language if publication.language
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 
   def part_requested_but_no_parts?

@@ -5,6 +5,7 @@ class CompletedTransactionController < ApplicationController
   include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
+  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   # These 2 legacy completed transactions are linked to from multiple
   # transactions. The user satisfaction survey should not be shown for these as
@@ -15,7 +16,6 @@ class CompletedTransactionController < ApplicationController
   ].freeze
 
   def show
-    setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
   end
 

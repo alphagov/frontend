@@ -5,9 +5,9 @@ class SimpleSmartAnswersController < ApplicationController
 
   before_filter :redirect_if_api_request, only: :show
   before_filter -> { set_expiry unless viewing_draft_content? }
+  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   def show
-    setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
   end
 
@@ -15,8 +15,6 @@ class SimpleSmartAnswersController < ApplicationController
     @publication = PublicationPresenter.new(artefact)
 
     cacheable_404 and return unless @publication.format == "simple_smart_answer"
-
-    setup_content_item_and_navigation_helpers("/" + params[:slug])
 
     responses = params[:responses].to_s.split('/')
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)

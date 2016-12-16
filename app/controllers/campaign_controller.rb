@@ -3,9 +3,9 @@ class CampaignController < ApplicationController
   include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
+  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }, only: :show
 
   def show
-    setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = PublicationPresenter.new(artefact)
     render locals: { full_width: true }
   end

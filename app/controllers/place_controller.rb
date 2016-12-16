@@ -5,6 +5,7 @@ class PlaceController < ApplicationController
   include Previewable
 
   before_filter -> { set_expiry unless viewing_draft_content? }
+  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   helper_method :postcode_provided?, :postcode
 
@@ -14,7 +15,6 @@ class PlaceController < ApplicationController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
-    setup_content_item_and_navigation_helpers("/" + params[:slug])
     @publication = publication
 
     render :show, locals: locals

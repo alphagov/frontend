@@ -37,15 +37,19 @@ class LicenceController < ApplicationController
     @publication = publication
     @interaction_details = licence_details
 
-    @postcode = postcode if postcode_search_submitted?
-    @location_error = location_error if postcode_search_submitted?
+    if request.post?
+      if postcode_search_submitted?
+        @postcode = postcode
+        @location_error = location_error
 
-    if postcode_search_submitted? && local_authority_slug
-      redirect_to licence_authority_path(slug: params[:slug], authority_slug: local_authority_slug)
-    elsif authority_choice_submitted?
-      redirect_to licence_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
+        if local_authority_slug
+          redirect_to licence_authority_path(slug: params[:slug], authority_slug: local_authority_slug)
+        end
+      end
     elsif @publication.continuation_link.present?
       render :continues_on
+    elsif authority_choice_submitted?
+      redirect_to licence_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
     elsif single_authority_interaction_details_present?
       redirect_to licence_authority_path(slug: params[:slug], authority_slug: @interaction_details[:authority]["slug"])
     end
@@ -88,11 +92,11 @@ private
   end
 
   def postcode_search_submitted?
-    request.post? && params[:postcode]
+    params[:postcode]
   end
 
   def authority_choice_submitted?
-    request.post? && params[:authority] && params[:authority][:slug]
+    params[:authority] && params[:authority][:slug]
   end
 
   def single_authority_interaction_details_present?

@@ -23,4 +23,9 @@ class ActiveSupport::TestCase
     url = "#{Plek.new.find('contentapi')}#{path}"
     stub_request(:get, url).to_raise(Errno::ECONNREFUSED)
   end
+
+  def api_throws_exception_for(path, exception)
+    url = "#{Plek.new.find('contentapi')}#{path}"
+    stub_request(:get, url).to_raise(exception)
+  end
 end

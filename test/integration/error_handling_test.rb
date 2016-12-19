@@ -25,6 +25,14 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "when the application tries to retrieve an invalid URL from the content API" do
+    should "return 404 status" do
+      api_throws_exception_for('/slug.json', GdsApi::InvalidUrl.new)
+      visit '/slug'
+      assert_equal 404, page.status_code
+    end
+  end
+
   context "when the content API times out" do
     should "return 503 status" do
       api_times_out_for('/slug.json')

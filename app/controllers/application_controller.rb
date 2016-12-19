@@ -81,4 +81,8 @@ protected
       params[:edition]
     )
   end
+
+  def set_language_from_publication
+    I18n.locale = publication.language if publication.language
+  end
 end

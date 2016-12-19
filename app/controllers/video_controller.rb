@@ -9,12 +9,6 @@ class VideoController < ApplicationController
 
   def show
     @publication = publication
-    set_language_from_publication(@publication)
-  end
-
-  private
-
-  def set_language_from_publication(publication)
-    I18n.locale = publication.language if publication.language
+    set_language_from_publication
   end
 end

@@ -18,16 +18,12 @@ class HelpController < ApplicationController
 
   def show
     @publication = publication
-    set_language_from_publication(@publication)
+    set_language_from_publication
   end
 
 private
 
   def slug_param
     params[:slug] || 'help'
-  end
-
-  def set_language_from_publication(publication)
-    I18n.locale = publication.language if publication.language
   end
 end

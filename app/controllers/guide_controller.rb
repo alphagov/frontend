@@ -10,7 +10,7 @@ class GuideController < ApplicationController
   def show
     @publication = publication
     @publication.current_part = params[:part]
-    set_language_from_publication(@publication)
+    set_language_from_publication
 
     if @publication.empty_part_list?
       raise RecordNotFound
@@ -30,10 +30,6 @@ class GuideController < ApplicationController
   end
 
 private
-
-  def set_language_from_publication(publication)
-    I18n.locale = publication.language if publication.language
-  end
 
   def part_requested_but_no_parts?
     params[:part] && (@publication.parts.nil? || @publication.parts.empty?)

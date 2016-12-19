@@ -11,7 +11,7 @@ class TransactionController < ApplicationController
 
   def show
     @publication = publication
-    set_language_from_publication(@publication)
+    set_language_from_publication
     deny_framing
     if JOBSEARCH_SLUGS.include? params[:slug]
       render :jobsearch
@@ -21,10 +21,6 @@ class TransactionController < ApplicationController
   end
 
 private
-
-  def set_language_from_publication(publication)
-    I18n.locale = publication.language if publication.language
-  end
 
   def deny_framing
     response.headers['X-Frame-Options'] = 'DENY'

@@ -29,9 +29,7 @@ class SearchController < ApplicationController
 
     respond_to do |format|
       format.html { render locals: { full_width: true } }
-      format.json do
-        render json: @results
-      end
+      format.json { render json: @results }
     end
   end
 

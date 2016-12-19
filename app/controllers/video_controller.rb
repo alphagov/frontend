@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class VideoController < ApplicationController
   include ApiRedirectable
   include Previewable

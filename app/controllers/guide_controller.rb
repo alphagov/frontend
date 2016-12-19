@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class GuideController < ApplicationController
   include ApiRedirectable
   include Previewable

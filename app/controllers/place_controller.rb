@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class PlaceController < ApplicationController
   include ApiRedirectable
   include Previewable

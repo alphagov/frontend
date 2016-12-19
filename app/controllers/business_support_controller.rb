@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class BusinessSupportController < ApplicationController
   include ApiRedirectable
   include Previewable

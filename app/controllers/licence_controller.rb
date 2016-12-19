@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class LicenceController < ApplicationController
   include ApiRedirectable
   include Previewable
@@ -21,7 +19,7 @@ class LicenceController < ApplicationController
   # future this tier data will be stored in the licensing application
   # (Licensify). Once that has happened and Frontend has been updated to use
   # that tier information, this list and related code in the
-  # `appropriate_slug_from_location` method can be removed
+  # `local_authority_slug` method can be removed
   LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE = [
     'scaffolding-and-hoarding-licence',
     'skip-operator-licence',
@@ -141,11 +139,6 @@ private
       tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(params['slug'])
       LicenceLocationIdentifier.find_slug(mapit_response.location.areas, artefact, tier_override)
     end
-  end
-
-  def appropriate_slug_from_location(publication, location)
-    tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(publication.slug)
-    LicenceLocationIdentifier.find_slug(location.areas, publication.artefact, tier_override)
   end
 
   def postcode

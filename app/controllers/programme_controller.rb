@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class ProgrammeController < ApplicationController
   include ApiRedirectable
   include Previewable

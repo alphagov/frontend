@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class AnswerController < ApplicationController
   include ApiRedirectable
   include Previewable

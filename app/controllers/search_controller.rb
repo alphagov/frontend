@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class SearchController < ApplicationController
   before_filter :set_expiry
   before_filter :remove_search_box

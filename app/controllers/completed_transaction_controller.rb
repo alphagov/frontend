@@ -1,5 +1,3 @@
-require "slimmer/headers"
-
 class CompletedTransactionController < ApplicationController
   include ApiRedirectable
   include Previewable

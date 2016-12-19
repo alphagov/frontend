@@ -64,11 +64,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       visit '/foreign-travel-advice'
       assert_equal "travel-advice guide", page.find("#wrapper")["class"]
     end
-
-    should "return a 405 for POST requests" do
-      post "/foreign-travel-advice"
-      assert_equal 405, response.status
-    end
   end
 
   context "index with the javascript driver" do

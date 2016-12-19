@@ -2,10 +2,10 @@ class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
   include ApiRedirectable
   include Previewable
+  include Cacheable
 
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
-  before_filter -> { set_expiry unless viewing_draft_content? }
 
   INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
   NO_AUTHORITY_URL = 'laMatchNoLinkNoAuthorityUrl'.freeze

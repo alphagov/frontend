@@ -1,8 +1,8 @@
 class TransactionController < ApplicationController
   include ApiRedirectable
   include Previewable
+  include Cacheable
 
-  before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   JOBSEARCH_SLUGS = ["jobsearch", "chwilio-am-swydd"].freeze

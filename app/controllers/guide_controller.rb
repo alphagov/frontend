@@ -29,6 +29,10 @@ class GuideController < ApplicationController
 
 private
 
+  def publication
+    PublicationWithPartsPresenter.new(artefact)
+  end
+
   def part_requested_but_no_parts?
     params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
   end

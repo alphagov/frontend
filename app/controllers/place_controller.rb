@@ -22,7 +22,7 @@ private
 
   def publication
     if postcode_provided?
-      PublicationPresenter.new(artefact, places)
+      PublicationWithPlacesPresenter.new(artefact, places)
     else
       super
     end

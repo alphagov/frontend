@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
   rescue_from GdsApi::HTTPNotFound, with: :cacheable_404
+  rescue_from GdsApi::InvalidUrl, with: :cacheable_404
   rescue_from ArtefactRetriever::RecordArchived, with: :error_410
   rescue_from ArtefactRetriever::UnsupportedArtefactFormat, with: :error_404
   rescue_from ArtefactRetriever::RecordNotFound, with: :cacheable_404

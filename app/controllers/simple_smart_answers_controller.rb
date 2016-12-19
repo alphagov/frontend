@@ -40,13 +40,6 @@ private
     smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], previous_response: @flow_state.completed_questions[question_number].slug)
   end
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   def redirect_if_api_request
     redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end

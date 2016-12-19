@@ -62,13 +62,6 @@ private
     MapitPostcodeResponse.new(postcode, location, error)
   end
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
   end

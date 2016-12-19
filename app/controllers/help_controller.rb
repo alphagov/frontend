@@ -23,13 +23,6 @@ class HelpController < ApplicationController
 
 private
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   def slug_param
     params[:slug] || 'help'
   end

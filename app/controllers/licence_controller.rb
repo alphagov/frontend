@@ -71,13 +71,6 @@ class LicenceController < ApplicationController
 
 private
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   def artefact_with_snac
     return nil if snac_from_slug.blank?
 

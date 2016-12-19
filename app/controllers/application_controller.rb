@@ -70,4 +70,11 @@ protected
     # "normal" mode there should be a content item for all pages rendered.
     @navigation_helpers, @content_item, @meta_section = nil
   end
+
+  def artefact
+    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
+      params[:slug],
+      params[:edition]
+    )
+  end
 end

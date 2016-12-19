@@ -21,13 +21,6 @@ class CompletedTransactionController < ApplicationController
 
 private
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   helper_method :show_survey?
 
   def show_survey?

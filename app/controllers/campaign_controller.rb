@@ -14,13 +14,4 @@ class CampaignController < ApplicationController
     # This is a special case. It is a hardcoded campaign which is not editable
     # in Publisher.
   end
-
-private
-
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
 end

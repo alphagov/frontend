@@ -30,13 +30,6 @@ private
     end
   end
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   def locals
     if params[:slug] == REPORT_CHILD_ABUSE_SLUG
       {

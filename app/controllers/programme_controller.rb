@@ -31,13 +31,6 @@ class ProgrammeController < ApplicationController
 
 private
 
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
-
   def set_language_from_publication(publication)
     I18n.locale = publication.language if publication.language
   end

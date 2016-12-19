@@ -1,7 +1,8 @@
 require "slimmer/headers"
 
 class HelpController < ApplicationController
-  before_filter :redirect_if_api_request
+  include ApiRedirectable
+
   before_filter -> { set_expiry unless viewing_draft_content? }
 
   def index
@@ -30,9 +31,8 @@ private
     )
   end
 
-  def redirect_if_api_request
-    slug = params[:slug] || 'help'
-    redirect_to "/api/#{slug}.json" if request.format.json?
+  def slug_param
+    params[:slug] || 'help'
   end
 
   def set_language_from_publication(publication)

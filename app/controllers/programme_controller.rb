@@ -1,7 +1,8 @@
 require "slimmer/headers"
 
 class ProgrammeController < ApplicationController
-  before_filter :redirect_if_api_request
+  include ApiRedirectable
+
   before_filter -> { set_expiry unless viewing_draft_content? }
 
   def show
@@ -35,10 +36,6 @@ private
       params[:slug],
       params[:edition]
     )
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 
   def set_language_from_publication(publication)

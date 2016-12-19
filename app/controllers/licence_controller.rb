@@ -1,7 +1,8 @@
 require "slimmer/headers"
 
 class LicenceController < ApplicationController
-  before_filter :redirect_if_api_request
+  include ApiRedirectable
+
   before_filter -> { set_expiry unless viewing_draft_content? }
   before_filter :set_edition_for_viewing_draft_content
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
@@ -160,10 +161,6 @@ private
 
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 
   def set_edition_for_viewing_draft_content

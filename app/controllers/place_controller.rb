@@ -1,7 +1,8 @@
 require "slimmer/headers"
 
 class PlaceController < ApplicationController
-  before_filter :redirect_if_api_request
+  include ApiRedirectable
+
   before_filter -> { set_expiry unless viewing_draft_content? }
 
   helper_method :postcode_provided?, :postcode
@@ -53,10 +54,6 @@ private
 
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 
   def viewing_draft_content?

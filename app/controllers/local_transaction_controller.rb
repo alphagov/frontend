@@ -1,7 +1,7 @@
 class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
+  include ApiRedirectable
 
-  before_filter :redirect_if_api_request
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
   before_filter -> { set_expiry unless viewing_draft_content? }
@@ -111,9 +111,5 @@ private
   def error_for_missing_interaction(local_authority)
     error_code = local_authority.url.present? ? NO_LINK : NO_AUTHORITY_URL
     LocationError.new(error_code, local_authority_name: local_authority.name)
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 end

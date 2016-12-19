@@ -1,7 +1,8 @@
 require "slimmer/headers"
 
 class CompletedTransactionController < ApplicationController
-  before_filter :redirect_if_api_request
+  include ApiRedirectable
+
   before_filter -> { set_expiry unless viewing_draft_content? }
 
   # These 2 legacy completed transactions are linked to from multiple
@@ -25,10 +26,6 @@ private
       params[:slug],
       params[:edition]
     )
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 
   def viewing_draft_content?

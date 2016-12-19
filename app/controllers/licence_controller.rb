@@ -4,6 +4,8 @@ class LicenceController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
+
   helper_method :postcode
 
   INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
@@ -32,7 +34,6 @@ class LicenceController < ApplicationController
   ].freeze
 
   def search
-    @publication = publication
     @interaction_details = licence_details
 
     if request.post?
@@ -54,14 +55,13 @@ class LicenceController < ApplicationController
   end
 
   def authority
-    if publication.continuation_link.present?
+    if @publication.continuation_link.present?
       redirect_to licence_path(slug: params[:slug])
     elsif location_specific_licence?
       raise RecordNotFound unless artefact_with_snac
       @publication = PublicationPresenter.new(artefact_with_snac)
       @interaction_details = licence_details_for_snac(params[:authority_slug], snac_from_slug)
     else
-      @publication = publication
       @interaction_details = licence_details(params[:authority_slug])
     end
   end

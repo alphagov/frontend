@@ -4,8 +4,8 @@ class VideoController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
+
   def show
-    @publication = publication
-    set_language_from_publication
   end
 end

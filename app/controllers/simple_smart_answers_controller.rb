@@ -6,14 +6,12 @@ class SimpleSmartAnswersController < ApplicationController
   include Navigable
 
   before_filter :redirect_if_api_request, only: :show
+  before_filter :set_publication
 
   def show
-    @publication = publication
   end
 
   def flow
-    @publication = publication
-
     cacheable_404 and return unless @publication.format == "simple_smart_answer"
 
     responses = params[:responses].to_s.split('/')

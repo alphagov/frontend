@@ -4,6 +4,8 @@ class CompletedTransactionController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
+
   # These 2 legacy completed transactions are linked to from multiple
   # transactions. The user satisfaction survey should not be shown for these as
   # it would generate noisy data for the linked organisation.
@@ -13,7 +15,6 @@ class CompletedTransactionController < ApplicationController
   ].freeze
 
   def show
-    @publication = publication
   end
 
 private

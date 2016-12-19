@@ -4,6 +4,7 @@ class HelpController < ApplicationController
   include Cacheable
 
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }, only: :show
+  before_filter :set_publication, only: :show
 
   def index
     setup_content_item_and_navigation_helpers("/help")
@@ -15,8 +16,6 @@ class HelpController < ApplicationController
   end
 
   def show
-    @publication = publication
-    set_language_from_publication
   end
 
 private

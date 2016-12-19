@@ -4,10 +4,10 @@ class ProgrammeController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
+
   def show
-    @publication = publication
     @publication.current_part = params[:part]
-    set_language_from_publication
 
     if @publication.empty_part_list?
       raise RecordNotFound
@@ -28,8 +28,9 @@ class ProgrammeController < ApplicationController
 
 private
 
-  def publication
-    PublicationWithPartsPresenter.new(artefact)
+  def set_publication
+    @publication = PublicationWithPartsPresenter.new(artefact)
+    set_language_from_publication
   end
 
   def part_requested_but_no_parts?

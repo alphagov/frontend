@@ -4,11 +4,11 @@ class TransactionController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
+
   JOBSEARCH_SLUGS = ["jobsearch", "chwilio-am-swydd"].freeze
 
   def show
-    @publication = publication
-    set_language_from_publication
     deny_framing
     if JOBSEARCH_SLUGS.include? params[:slug]
       render :jobsearch

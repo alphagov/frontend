@@ -5,6 +5,7 @@ class LocalTransactionController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
 
   INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
@@ -14,8 +15,6 @@ class LocalTransactionController < ApplicationController
   NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
 
   def search
-    @publication = publication
-
     if request.post?
       @location_error = location_error
       if @location_error
@@ -27,7 +26,6 @@ class LocalTransactionController < ApplicationController
   end
 
   def results
-    @publication = publication
     @postcode = postcode
     @interaction_details = interaction_details
     @local_authority = local_authority

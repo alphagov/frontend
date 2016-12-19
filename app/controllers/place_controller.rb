@@ -4,6 +4,8 @@ class PlaceController < ApplicationController
   include Cacheable
   include Navigable
 
+  before_filter :set_publication
+
   helper_method :postcode_provided?, :postcode
 
   INVALID_POSTCODE_ERROR = "invalidPostcodeError".freeze
@@ -12,19 +14,18 @@ class PlaceController < ApplicationController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
-    @publication = publication
-
     render :show, locals: locals
   end
 
 private
 
-  def publication
-    if postcode_provided?
-      PublicationWithPlacesPresenter.new(artefact, places)
-    else
-      super
-    end
+  def set_publication
+    @publication = if postcode_provided?
+                     PublicationWithPlacesPresenter.new(artefact, places)
+                   else
+                     PublicationPresenter.new(artefact)
+                   end
+    set_language_from_publication
   end
 
   def locals

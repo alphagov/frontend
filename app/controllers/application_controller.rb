@@ -71,10 +71,6 @@ protected
     @navigation_helpers, @content_item, @meta_section = nil
   end
 
-  def publication
-    PublicationPresenter.new(artefact)
-  end
-
   def artefact
     @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
       params[:slug],
@@ -82,7 +78,12 @@ protected
     )
   end
 
+  def set_publication
+    @publication = PublicationPresenter.new(artefact)
+    set_language_from_publication
+  end
+
   def set_language_from_publication
-    I18n.locale = publication.language if publication.language
+    I18n.locale = @publication.language if @publication.language
   end
 end

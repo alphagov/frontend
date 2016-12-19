@@ -4,9 +4,9 @@ class CampaignController < ApplicationController
   include Cacheable
 
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }, only: :show
+  before_filter :set_publication, only: :show
 
   def show
-    @publication = publication
     render locals: { full_width: true }
   end
 

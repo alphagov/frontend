@@ -10,7 +10,7 @@ class TransactionController < ApplicationController
   JOBSEARCH_SLUGS = ["jobsearch", "chwilio-am-swydd"].freeze
 
   def show
-    @publication = PublicationPresenter.new(artefact)
+    @publication = publication
     set_language_from_publication(@publication)
     deny_framing
     if JOBSEARCH_SLUGS.include? params[:slug]

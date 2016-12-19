@@ -64,7 +64,7 @@ class LicenceController < ApplicationController
       @publication = PublicationPresenter.new(artefact_with_snac)
       @interaction_details = licence_details_for_snac(params[:authority_slug], snac_from_slug)
     else
-      @publication = PublicationPresenter.new(artefact)
+      @publication = publication
       @interaction_details = licence_details(params[:authority_slug])
     end
   end
@@ -101,10 +101,6 @@ private
     artefact['details']['licence']['location_specific']
   rescue
     false
-  end
-
-  def publication
-    PublicationPresenter.new(artefact)
   end
 
   def licence_details(authority_slug = nil)

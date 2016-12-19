@@ -66,10 +66,6 @@ private
     PostcodeSanitizer.sanitize(params[:postcode])
   end
 
-  def publication
-    PublicationPresenter.new(artefact)
-  end
-
   def lgsl
     artefact['details']['lgsl_code']
   end

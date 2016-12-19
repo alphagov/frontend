@@ -8,11 +8,11 @@ class SimpleSmartAnswersController < ApplicationController
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   def show
-    @publication = PublicationPresenter.new(artefact)
+    @publication = publication
   end
 
   def flow
-    @publication = PublicationPresenter.new(artefact)
+    @publication = publication
 
     cacheable_404 and return unless @publication.format == "simple_smart_answer"
 

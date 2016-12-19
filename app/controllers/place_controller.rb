@@ -26,7 +26,7 @@ private
     if postcode_provided?
       PublicationPresenter.new(artefact, places)
     else
-      PublicationPresenter.new(artefact)
+      super
     end
   end
 

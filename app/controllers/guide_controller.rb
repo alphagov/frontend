@@ -8,7 +8,7 @@ class GuideController < ApplicationController
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   def show
-    @publication = PublicationPresenter.new(artefact)
+    @publication = publication
     @publication.current_part = params[:part]
     set_language_from_publication(@publication)
 

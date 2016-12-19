@@ -16,7 +16,7 @@ class CompletedTransactionController < ApplicationController
   ].freeze
 
   def show
-    @publication = PublicationPresenter.new(artefact)
+    @publication = publication
   end
 
 private

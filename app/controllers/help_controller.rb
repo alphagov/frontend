@@ -17,7 +17,7 @@ class HelpController < ApplicationController
   end
 
   def show
-    @publication = PublicationPresenter.new(artefact)
+    @publication = publication
     set_language_from_publication(@publication)
   end
 

@@ -71,6 +71,10 @@ protected
     @navigation_helpers, @content_item, @meta_section = nil
   end
 
+  def publication
+    PublicationPresenter.new(artefact)
+  end
+
   def artefact
     @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
       params[:slug],

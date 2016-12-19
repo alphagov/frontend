@@ -41,12 +41,6 @@ protected
     error 404
   end
 
-  def statsd
-    @statsd ||= Statsd.new("localhost").tap do |c|
-      c.namespace = ENV['GOVUK_STATSD_PREFIX'].to_s
-    end
-  end
-
   def set_expiry(duration = 30.minutes)
     unless Rails.env.development?
       expires_in(duration, public: true)
@@ -75,33 +69,5 @@ protected
     # which doesn't exist in the content-store yet. However, when running in
     # "normal" mode there should be a content item for all pages rendered.
     @navigation_helpers, @content_item, @meta_section = nil
-  end
-
-  def fetch_artefact(slug, edition = nil, snac = nil)
-    ArtefactRetriever.new(content_api, Rails.logger, statsd).
-      fetch_artefact(slug, edition, snac)
-  end
-
-  def content_api
-    @content_api ||= GdsApi::ContentApi.new(
-      Plek.new.find("contentapi"),
-      content_api_options
-    )
-  end
-
-  def content_store
-    @content_store ||= GdsApi::ContentStore.new(
-      Plek.new.find("content-store")
-    )
-  end
-
-private
-
-  def content_api_options
-    options = CONTENT_API_CREDENTIALS
-    unless request.format == :atom
-      options = options.merge(web_urls_relative_to: Frontend.govuk_website_root)
-    end
-    options
   end
 end

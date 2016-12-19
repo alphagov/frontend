@@ -2,8 +2,7 @@ class PlaceController < ApplicationController
   include ApiRedirectable
   include Previewable
   include Cacheable
-
-  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
+  include Navigable
 
   helper_method :postcode_provided?, :postcode
 

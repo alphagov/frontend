@@ -2,8 +2,7 @@ class CompletedTransactionController < ApplicationController
   include ApiRedirectable
   include Previewable
   include Cacheable
-
-  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
+  include Navigable
 
   # These 2 legacy completed transactions are linked to from multiple
   # transactions. The user satisfaction survey should not be shown for these as

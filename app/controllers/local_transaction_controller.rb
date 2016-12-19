@@ -3,8 +3,8 @@ class LocalTransactionController < ApplicationController
   include ApiRedirectable
   include Previewable
   include Cacheable
+  include Navigable
 
-  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
 
   INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze

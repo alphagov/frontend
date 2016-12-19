@@ -3,9 +3,9 @@ require 'simple_smart_answers/flow'
 class SimpleSmartAnswersController < ApplicationController
   include Previewable
   include Cacheable
+  include Navigable
 
   before_filter :redirect_if_api_request, only: :show
-  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
 
   def show
     @publication = publication

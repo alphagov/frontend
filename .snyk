@@ -1,0 +1,7 @@
+version: v1.5.0
+ignore:
+  SNYK-RUBY-NOKOGIRI-20268:
+    - '* > nokogiri@1.6.7.2':
+        reason: None given
+        expires: '2016-12-10T11:02:48.932Z'
+patch: {}

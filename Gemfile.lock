@@ -51,7 +51,8 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.6)
-    capybara (2.1.0)
+    capybara (2.11.0)
+      addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -99,12 +100,11 @@ GEM
     govuk_schemas (0.2.0)
       json-schema (~> 2.5.0)
     hashdiff (0.3.1)
-    htmlentities (4.3.1)
+    htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    invalid_utf8_rejector (0.0.1)
-      rack (~> 1.0)
+    invalid_utf8_rejector (0.0.3)
     json (1.8.3)
     json-schema (2.5.2)
       addressable (~> 2.3.8)
@@ -113,9 +113,11 @@ GEM
       addressable (~> 2.3)
     libv8 (3.16.14.17)
     link_header (0.0.8)
-    logstash-event (1.1.5)
-    logstasher (0.6.2)
-      logstash-event (~> 1.1.0)
+    logstash-event (1.2.02)
+    logstasher (1.1.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      logstash-event (~> 1.2.0)
       request_store
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -130,7 +132,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
-    mocha (1.1.0)
+    mocha (1.2.1)
       metaclass (~> 0.0.1)
     multi_json (1.12.1)
     mustache (1.0.3)
@@ -140,11 +142,10 @@ GEM
     null_logger (0.0.1)
     parser (2.3.3.1)
       ast (~> 2.2)
-    plek (1.11.0)
-    poltergeist (1.8.1)
+    plek (1.12.0)
+    poltergeist (1.12.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
-      multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
     power_assert (0.4.1)
     powerpack (0.1.1)
@@ -218,12 +219,7 @@ GEM
     shared_mustache (1.0.0)
       execjs (>= 1.2.4)
       mustache (~> 1.0.2)
-    shoulda (3.5.0)
-      shoulda-context (~> 1.0, >= 1.0.1)
-      shoulda-matchers (>= 1.4.1, < 3.0)
     shoulda-context (1.2.2)
-    shoulda-matchers (2.8.0)
-      activesupport (>= 3.0.0)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -256,17 +252,17 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    timecop (0.6.3)
+    timecop (0.8.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
-    uk_postcode (2.1.0)
+    uk_postcode (2.1.1)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
     unicode-display_width (1.1.2)
-    unicorn (4.6.3)
+    unicorn (4.9.0)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -288,43 +284,43 @@ DEPENDENCIES
   airbrake (= 3.1.15)
   better_errors
   binding_of_caller
-  capybara (= 2.1.0)
+  capybara
   cdn_helpers (= 0.9)
   ci_reporter
   ci_reporter_test_unit
-  gds-api-adapters (= 38.1.0)
+  gds-api-adapters (~> 38.1.0)
   gelf
   govuk-content-schema-test-helpers
-  govuk-lint (~> 1.2.0)
+  govuk-lint
   govuk_frontend_toolkit (~> 4.12.0)
   govuk_navigation_helpers (~> 2.0)
   govuk_schemas (~> 0.2)
-  htmlentities (= 4.3.1)
-  invalid_utf8_rejector (= 0.0.1)
+  htmlentities (~> 4.3.0)
+  invalid_utf8_rejector (~> 0.0.0)
   launchy
-  logstasher (= 0.6.2)
-  mocha (~> 1.1.0)
-  nokogiri (>= 1.6.8.1)
-  plek (= 1.11.0)
-  poltergeist (= 1.8.1)
+  logstasher (~> 1.1.0)
+  mocha
+  nokogiri (~> 1.6.8.0)
+  plek (~> 1.12.0)
+  poltergeist
   pry-byebug
-  rack_strip_client_ip (= 0.0.1)
+  rack_strip_client_ip (~> 0.0.0)
   rails (= 4.2.7.1)
-  rails-i18n (~> 4.0.8)
-  sass (>= 3.4.23)
+  rails-i18n (~> 4.0.0)
+  sass (~> 3.4.0)
   sass-rails
-  shared_mustache (= 1.0.0)
-  shoulda
+  shared_mustache (~> 1.0.0)
+  shoulda-context
   simplecov
   simplecov-rcov
   slimmer (~> 10.0.0)
-  sprockets-rails (= 2.3.3)
+  sprockets-rails (~> 2.3.0)
   statsd-ruby (= 1.0.0)
-  therubyracer (= 0.12.2)
-  timecop (= 0.6.3)
+  therubyracer (~> 0.12.0)
+  timecop
   uglifier
-  uk_postcode (= 2.1.0)
-  unicorn (= 4.6.3)
+  uk_postcode (~> 2.1.0)
+  unicorn (~> 4.9.0)
   webmock
 
 BUNDLED WITH

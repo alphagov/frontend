@@ -18,7 +18,7 @@ class PostcodeSanitizerTest < ActiveSupport::TestCase
 
   context "if the postcode parameter is nil or an empty string" do
     should "return nil, not try to perform sanitization" do
-      assert_equal nil, PostcodeSanitizer.sanitize("")
+      assert_nil PostcodeSanitizer.sanitize("")
     end
   end
 end

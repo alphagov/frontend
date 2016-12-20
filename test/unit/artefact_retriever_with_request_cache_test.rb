@@ -83,7 +83,7 @@ class ArtefactRetrieverWithRequestCacheTest < ActiveSupport::TestCase
     should "return nil if there is no error" do
       @mock.expects(:fetch_artefact).returns(@artefact)
       @subject.fetch_artefact('foo')
-      assert_equal nil, @subject.error
+      assert_nil @subject.error
     end
   end
 end

@@ -28,11 +28,11 @@ class TravelAdviceCountryPresenterTest < ActiveSupport::TestCase
       end
 
       should "return nil for image" do
-        assert_equal nil, @presenter.image
+        assert_nil @presenter.image
       end
 
       should "return nil for document" do
-        assert_equal nil, @presenter.document
+        assert_nil @presenter.document
       end
     end
   end

@@ -5,7 +5,8 @@ gem 'rails-i18n', '~> 4.0.8'
 gem 'unicorn', '4.6.3'
 gem 'gelf'
 
-gem 'nokogiri', '~> 1.6.7.2'
+# This change was made via Snyk to fix a vulnerability
+gem 'nokogiri', '>= 1.6.8.1'
 
 gem 'plek', '1.11.0'
 gem 'statsd-ruby', '1.0.0', require: 'statsd'
@@ -56,7 +57,8 @@ end
 # Note that govuk_frontend_toolkit is only used here for SASS mixins and
 # variables. Analytics and other javascript features are provided by static.
 gem 'govuk_frontend_toolkit', '~> 4.12.0'
-gem 'sass', '3.4.9'
+# This change was made via Snyk to fix a vulnerability
+gem 'sass', '>= 3.4.23'
 gem 'sass-rails'
 gem "therubyracer", "0.12.2"
 gem 'uglifier'

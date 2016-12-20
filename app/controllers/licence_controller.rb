@@ -1,10 +1,10 @@
-require "slimmer/headers"
-
 class LicenceController < ApplicationController
-  before_filter :redirect_if_api_request
-  before_filter -> { set_expiry unless viewing_draft_content? }
-  before_filter :set_edition_for_viewing_draft_content
-  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }
+  include ApiRedirectable
+  include Previewable
+  include Cacheable
+  include Navigable
+
+  before_filter :set_publication
 
   helper_method :postcode
 
@@ -20,7 +20,7 @@ class LicenceController < ApplicationController
   # future this tier data will be stored in the licensing application
   # (Licensify). Once that has happened and Frontend has been updated to use
   # that tier information, this list and related code in the
-  # `appropriate_slug_from_location` method can be removed
+  # `local_authority_slug` method can be removed
   LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE = [
     'scaffolding-and-hoarding-licence',
     'skip-operator-licence',
@@ -34,7 +34,6 @@ class LicenceController < ApplicationController
   ].freeze
 
   def search
-    @publication = publication
     @interaction_details = licence_details
 
     if request.post?
@@ -56,26 +55,18 @@ class LicenceController < ApplicationController
   end
 
   def authority
-    if publication.continuation_link.present?
+    if @publication.continuation_link.present?
       redirect_to licence_path(slug: params[:slug])
     elsif location_specific_licence?
       raise RecordNotFound unless artefact_with_snac
       @publication = PublicationPresenter.new(artefact_with_snac)
       @interaction_details = licence_details_for_snac(params[:authority_slug], snac_from_slug)
     else
-      @publication = PublicationPresenter.new(artefact)
       @interaction_details = licence_details(params[:authority_slug])
     end
   end
 
 private
-
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
-  end
 
   def artefact_with_snac
     return nil if snac_from_slug.blank?
@@ -107,10 +98,6 @@ private
     artefact['details']['licence']['location_specific']
   rescue
     false
-  end
-
-  def publication
-    PublicationPresenter.new(artefact)
   end
 
   def licence_details(authority_slug = nil)
@@ -153,24 +140,7 @@ private
     end
   end
 
-  def appropriate_slug_from_location(publication, location)
-    tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(publication.slug)
-    LicenceLocationIdentifier.find_slug(location.areas, publication.artefact, tier_override)
-  end
-
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
-  end
-
-  def set_edition_for_viewing_draft_content
-    @edition = params[:edition]
-  end
-
-  def viewing_draft_content?
-    params.include?('edition')
   end
 end

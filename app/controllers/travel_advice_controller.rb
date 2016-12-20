@@ -22,7 +22,7 @@ class TravelAdviceController < ApplicationController
     @country = params[:country_slug].dup
     @edition = params[:edition]
 
-    @publication = fetch_publication_for_country(@country)
+    @publication = fetch_publication_for_country
 
     I18n.locale = :en # These pages haven't been localised yet.
 
@@ -51,8 +51,14 @@ private
     redirect_to "/api/#{FOREIGN_TRAVEL_ADVICE_SLUG}.json" if request.format.json?
   end
 
-  def fetch_publication_for_country(country)
-    artefact = fetch_artefact(FOREIGN_TRAVEL_ADVICE_SLUG + "/" + country, params[:edition])
+  def fetch_publication_for_country
     TravelAdviceCountryPresenter.new(artefact)
+  end
+
+  def artefact
+    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
+      FOREIGN_TRAVEL_ADVICE_SLUG + "/" + @country,
+      params[:edition]
+    )
   end
 end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "integration_test_helper"
 
-class HelpPagesTest < ActionDispatch::IntegrationTest
+class HelpTest < ActionDispatch::IntegrationTest
   context "rendering a help page" do
     should "render a help page" do
       setup_api_responses("help/cookies")

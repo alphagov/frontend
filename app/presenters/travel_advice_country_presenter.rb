@@ -1,6 +1,6 @@
 require 'ostruct'
 
-class TravelAdviceCountryPresenter < PublicationPresenter
+class TravelAdviceCountryPresenter < PublicationWithPartsPresenter
   def image
     @image ||= OpenStruct.new(details["image"]) if details["image"]
   end

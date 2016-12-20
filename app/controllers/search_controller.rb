@@ -10,7 +10,7 @@ class SearchController < ApplicationController
     if search_params.no_search? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
-    search_response = search_client.search(search_params)
+    search_response = SearchAPI.new(search_params).search
 
     @search_term = search_params.search_term
 
@@ -32,10 +32,6 @@ class SearchController < ApplicationController
   end
 
 protected
-
-  def search_client
-    Frontend.search_client
-  end
 
   def remove_search_box
     set_slimmer_headers(remove_search: true)

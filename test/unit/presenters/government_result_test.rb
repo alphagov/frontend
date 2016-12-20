@@ -66,12 +66,12 @@ class GovernmentResultTest < ActiveSupport::TestCase
     mainstream_results             = GovernmentResult.new(params, "format" => "mainstream")
 
     assert_equal 2, minister_results.sections.length
-    assert_equal nil, organisation_results.sections
+    assert_nil organisation_results.sections
     assert_equal 2, person_results.sections.length
     assert_equal 2, world_location_results.sections.length
     assert_equal 2, worldwide_organisation_results.sections.length
 
-    assert_equal nil, mainstream_results.sections
+    assert_nil mainstream_results.sections
   end
 
   should "return sections in correct format" do

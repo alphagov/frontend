@@ -46,7 +46,7 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
       end
 
       should 'exposes no url' do
-        assert_equal nil, @local_authority_presenter.url
+        assert_nil @local_authority_presenter.url
       end
     end
   end

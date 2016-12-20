@@ -57,8 +57,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       presenter = SearchResultsPresenter.new(response, params)
 
       assert ! presenter.has_next_page?
-      assert_equal nil, presenter.next_page_link
-      assert_equal nil, presenter.next_page_label
+      assert_nil presenter.next_page_link
+      assert_nil presenter.next_page_label
     end
 
     should 'build a link to the previous page' do
@@ -80,8 +80,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       presenter = SearchResultsPresenter.new(response, params)
 
       assert ! presenter.has_previous_page?
-      assert_equal nil, presenter.previous_page_link
-      assert_equal nil, presenter.previous_page_label
+      assert_nil presenter.previous_page_link
+      assert_nil presenter.previous_page_label
       assert presenter.has_next_page?
       assert_equal '/search?count=50&start=50', presenter.next_page_link
       assert_equal '2 of 4', presenter.next_page_label
@@ -111,8 +111,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       assert ! presenter.has_previous_page?
       assert ! presenter.has_next_page?
 
-      assert_equal nil, presenter.previous_page_link
-      assert_equal nil, presenter.next_page_link
+      assert_nil presenter.previous_page_link
+      assert_nil presenter.next_page_link
     end
 
     should 'not have a previous or next page when there are not enough results' do
@@ -124,8 +124,8 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       assert ! presenter.has_previous_page?
       assert ! presenter.has_next_page?
 
-      assert_equal nil, presenter.previous_page_link
-      assert_equal nil, presenter.next_page_link
+      assert_nil presenter.previous_page_link
+      assert_nil presenter.next_page_link
     end
 
     should 'include the count parameter in the url when not set to the default' do
@@ -149,7 +149,7 @@ class SearchResultsPresenterTest < ActiveSupport::TestCase
       }, SearchParameters.new(q: 'my-query'))
       rlist = results.to_hash[:results]
       assert_equal 1, rlist.size
-      assert_equal nil, rlist[0][:metadata]
+      assert_nil rlist[0][:metadata]
       assert ! rlist[0][:metadata_any?]
     end
   end

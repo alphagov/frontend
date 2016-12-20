@@ -14,6 +14,8 @@ private
     Services.rummager.search(rummager_params).to_hash
   end
 
+  # If the user is in scoped-search mode inside a manual, then return the manual
+  # we're scoping to and the unscoped results.
   def scope_info
     if is_scoped? && scope_object.present?
       {

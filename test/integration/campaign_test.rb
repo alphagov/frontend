@@ -1,6 +1,6 @@
 require 'integration_test_helper'
 
-class CampaignPageTest < ActionDispatch::IntegrationTest
+class CampaignTest < ActionDispatch::IntegrationTest
   should "render a campaign page correctly" do
     setup_api_responses('britain-is-great')
     visit "/britain-is-great"

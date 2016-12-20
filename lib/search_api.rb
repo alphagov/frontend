@@ -20,10 +20,10 @@ private
   # If the user is in scoped-search mode inside a manual, then return the manual
   # we're scoping to and the unscoped results.
   def scope_info
-    if is_scoped? && scope_object.present?
+    if is_scoped? && scoped_manual.present?
       {
         "scope" => {
-          "title" => scope_object.to_hash.fetch("title", ""),
+          "title" => scoped_manual.to_hash.fetch("title", ""),
         },
         "unscoped_results" => unscoped_results,
       }
@@ -36,17 +36,17 @@ private
     params.rummager_parameters
   end
 
-  def scope_object
-    @_scope_object ||= Services.rummager.search(filter_link: scope_object_link, count: "1", fields: %w{title})
-    @_scope_object.to_hash.fetch("results", []).first
+  def scoped_manual
+    @scoped_manual ||= Services.rummager.search(filter_link: manual_link, count: "1", fields: %w{title})
+    @scoped_manual.to_hash.fetch("results", []).first
   end
 
   def is_scoped?
     params.filtered_by?('manual')
   end
 
-  def scope_object_link
-    @scope_object_link ||= params.filter('manual').first
+  def manual_link
+    @manual_link ||= params.filter('manual').first
   end
 
   def unscoped_results
@@ -54,6 +54,6 @@ private
   end
 
   def unscoped_rummager_request
-    rummager_params.except(:filter_manual).merge(count: "3", reject_manual: scope_object_link)
+    rummager_params.except(:filter_manual).merge(count: "3", reject_manual: manual_link)
   end
 end

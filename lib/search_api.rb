@@ -1,8 +1,6 @@
-class SearchAPI
-  def initialize(rummager_api)
-    @api = rummager_api
-  end
+require 'services'
 
+class SearchAPI
   def search(params)
     @params = params
     search_results.merge(scope_info)
@@ -10,10 +8,10 @@ class SearchAPI
 
 private
 
-  attr_reader :api, :params
+  attr_reader :params
 
   def search_results
-    api.search(rummager_params).to_hash
+    Services.rummager.search(rummager_params).to_hash
   end
 
   def scope_info
@@ -34,7 +32,7 @@ private
   end
 
   def scope_object
-    @_scope_object ||= api.search(filter_link: scope_object_link, count: "1", fields: %w{title})
+    @_scope_object ||= Services.rummager.search(filter_link: scope_object_link, count: "1", fields: %w{title})
     @_scope_object.to_hash.fetch("results", []).first
   end
 
@@ -47,7 +45,7 @@ private
   end
 
   def unscoped_results
-    @unscoped_results ||= api.search(unscoped_rummager_request).to_hash
+    @unscoped_results ||= Services.rummager.search(unscoped_rummager_request).to_hash
   end
 
   def unscoped_rummager_request

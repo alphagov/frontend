@@ -1,8 +1,11 @@
 require 'services'
 
 class SearchAPI
-  def search(params)
+  def initialize(params)
     @params = params
+  end
+
+  def search
     search_results.merge(scope_info)
   end
 

@@ -49,8 +49,7 @@ class SearchControllerTest < ActionController::TestCase
 
   def stub_results(results, query = "search-term", organisations = [], suggestions = [], options = {})
     response_body = response(results, suggestions, options)
-    Frontend.search_client.stubs(:search)
-        .returns(response_body)
+    SearchAPI.stubs(:new).returns(stub(search: response_body))
   end
 
   def stub_single_result(result)
@@ -379,7 +378,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should handle service errors with a 503" do
-    Frontend.search_client.stubs(:search).raises(GdsApi::BaseError)
+    SearchAPI.stubs(:new).raises(GdsApi::BaseError)
     get :index, q: "badness"
 
     assert_response 503

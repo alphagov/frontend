@@ -40,7 +40,7 @@ private
   end
 
   def postcode_provided?
-    params[:postcode].present?
+    params[:postcode].present? && request.post?
   end
 
   def postcode

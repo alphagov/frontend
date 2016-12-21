@@ -2,7 +2,6 @@
 
 set -e
 
-export FACTER_govuk_platform=test
 export RAILS_ENV=test
 export DISPLAY=":99"
 export GOVUK_APP_DOMAIN=dev.gov.uk

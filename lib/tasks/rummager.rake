@@ -1,5 +1,5 @@
 namespace :rummager do
-  task index: "panopticon:register" do
+  task :index do
     Rake::Task["rummager:index_special_routes"].invoke
   end
 

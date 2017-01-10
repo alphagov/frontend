@@ -58,8 +58,6 @@ See `app/views/root` for some bespoke transaction start pages.
   provides raw data for rendering formats (being replaced by content-store)
 - [alphagov/content-store](https://github.com/alphagov/content-store) -
   provides raw data for rendering formats (replacing govuk_content_api)
-- [alphagov/panopticon](https://github.com/alphagov/panopticon) - (optionally)
-  registers the application with Panoption
 - [alphagov/mapit](https://github.com/alphagov/mapit) - provides postcode lookups
 - [alphagov/imminence](https://github.com/alphagov/imminence) - provides places lookups (e.g. for find-my-nearest)
 

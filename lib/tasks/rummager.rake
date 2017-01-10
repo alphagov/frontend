@@ -18,8 +18,6 @@ namespace :rummager do
     ]
 
     rummager_payloads.each do |rummager_payload|
-      # custom-application is ultimately what the /help route ends up as when it
-      # is sent to rummager via panopticon
       rummager.add_document('edition', rummager_payload[:link], rummager_payload)
     end
   end

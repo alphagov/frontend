@@ -4,6 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 require 'ci/reporter/rake/test_unit' if Rails.env.development? or Rails.env.test?
+require 'ci/reporter/rake/rspec'
 
 task default: [:lint]
 Frontend::Application.load_tasks

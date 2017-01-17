@@ -12,7 +12,6 @@ the GOV.UK single domain.
 * https://www.gov.uk/becoming-a-british-citizen (guide)
 * https://www.gov.uk/settle-in-the-uk (simple smart answer)
 * https://www.gov.uk/register-to-vote (transaction start page)
-* https://www.gov.uk/foreign-travel-advice/afghanistan (foreign travel advice country page)
 * https://www.gov.uk/help/cookies (help page)
 
 ### Hard-coded routes

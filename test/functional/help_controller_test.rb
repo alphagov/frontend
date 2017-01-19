@@ -86,6 +86,7 @@ class HelpControllerTest < ActionController::TestCase
       get :ab_testing
 
       assert_select ".ab-example-group", text: "A"
+      assert_meta_tag "govuk:ab-test:example:current-bucket", "A"
     end
 
     should "show the user the 'B' version if the user is in bucket 'A'" do
@@ -93,12 +94,14 @@ class HelpControllerTest < ActionController::TestCase
       get :ab_testing
 
       assert_select ".ab-example-group", text: "B"
+      assert_meta_tag "govuk:ab-test:example:current-bucket", "B"
     end
 
     should "show the user the default version if the user is not in a bucket" do
       get :ab_testing
 
       assert_select ".ab-example-group", text: "A"
+      assert_meta_tag "govuk:ab-test:example:current-bucket", "A"
     end
 
     should "show the user the default version if the user is in an unknown bucket" do
@@ -106,6 +109,11 @@ class HelpControllerTest < ActionController::TestCase
       get :ab_testing
 
       assert_select ".ab-example-group", text: "A"
+      assert_meta_tag "govuk:ab-test:example:current-bucket", "A"
     end
+  end
+
+  def assert_meta_tag(name, content)
+    assert_select "meta[name='#{name}'][content='#{content}']"
   end
 end

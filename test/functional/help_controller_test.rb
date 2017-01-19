@@ -73,4 +73,39 @@ class HelpControllerTest < ActionController::TestCase
       assert_equal "max-age=1800, public", response.headers["Cache-Control"]
     end
   end
+
+  context "GET ab-testing" do
+    should "respond with success" do
+      get :ab_testing, slug: "help/ab-testing"
+
+      assert_response :success
+    end
+
+    should "show the user the 'A' version if the user is in bucket 'A'" do
+      @request.headers["HTTP_GOVUK_ABTEST_EXAMPLE"] = "A"
+      get :ab_testing
+
+      assert_select ".ab-example-group", text: "A"
+    end
+
+    should "show the user the 'B' version if the user is in bucket 'A'" do
+      @request.headers["HTTP_GOVUK_ABTEST_EXAMPLE"] = "B"
+      get :ab_testing
+
+      assert_select ".ab-example-group", text: "B"
+    end
+
+    should "show the user the default version if the user is not in a bucket" do
+      get :ab_testing
+
+      assert_select ".ab-example-group", text: "A"
+    end
+
+    should "show the user the default version if the user is in an unknown bucket" do
+      @request.headers["HTTP_GOVUK_ABTEST_EXAMPLE"] = "not_a_valid_AB_test_value"
+      get :ab_testing
+
+      assert_select ".ab-example-group", text: "A"
+    end
+  end
 end

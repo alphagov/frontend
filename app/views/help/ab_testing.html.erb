@@ -1,0 +1,23 @@
+<% content_for :title, "A/B testing - GOV.UK" %>
+<% content_for :extra_headers do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
+<main id="content" role="main" class="group">
+  <header class="page-header group">
+    <div>
+      <h1>This is a test page</h1>
+    </div>
+  </header>
+
+  <div>
+    <p>We sometimes test different versions of pages with different users to see which work better.
+      This page shows us if the process is working.</p>
+    <p>There are 2 versions of this page. You are viewing the
+      <span class="ab-example-group">
+        <strong><%= @ab_variant %></strong>
+      </span>
+      version.</p>
+    <p>Visit the <a href="/">GOV.UK homepage</a> to find government services and information.</p>
+  </div>
+</main>

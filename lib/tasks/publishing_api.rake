@@ -39,6 +39,12 @@ namespace :publishing_api do
           description: "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use.",
         },
         {
+          content_id: "a4d4e755-3d75-4b19-b120-a638a6d79ba8",
+          base_path: "/help/ab-testing",
+          title: "A/B testing on GOV.UK",
+          description: "This page is being used internally by GOV.UK to make sure A/B testing works.",
+        },
+        {
           content_id: "50aa0d27-ea4a-49b7-a1e6-98abd1115f60",
           base_path: "/help.json",
           title: "Help using GOV.UK",

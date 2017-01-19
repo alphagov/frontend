@@ -18,6 +18,10 @@ class HelpController < ApplicationController
   def show
   end
 
+  def ab_testing
+    @ab_variant = request.headers["HTTP_GOVUK_ABTEST_EXAMPLE"] == "B" ? "B" : "A"
+  end
+
 private
 
   def slug_param

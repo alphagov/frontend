@@ -41,6 +41,9 @@ GEM
     airbrake (3.1.15)
       builder
       multi_json
+    appsignal (2.0.5)
+      rack
+      thread_safe
     arel (6.0.3)
     ast (2.3.0)
     better_errors (2.1.1)
@@ -282,6 +285,7 @@ PLATFORMS
 DEPENDENCIES
   addressable
   airbrake (= 3.1.15)
+  appsignal (~> 2.0)
   better_errors
   binding_of_caller
   capybara

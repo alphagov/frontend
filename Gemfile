@@ -36,7 +36,6 @@ group :development, :test do
   gem 'ci_reporter_test_unit'
   gem 'govuk-lint'
   gem 'pry-byebug'
-  gem 'ci_reporter_rspec'
 end
 
 group :test do

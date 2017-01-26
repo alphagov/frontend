@@ -20,6 +20,8 @@ class HelpController < ApplicationController
 
   def ab_testing
     @ab_variant = request.headers["HTTP_GOVUK_ABTEST_EXAMPLE"] == "B" ? "B" : "A"
+
+    response.headers['Vary'] = 'GOVUK-ABTest-Example'
   end
 
 private

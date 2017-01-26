@@ -79,8 +79,7 @@ module Frontend
 
     # Override Rails 4 default which restricts framing to SAMEORIGIN.
     config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOWALL',
-      'Vary' => 'GOVUK-ABTest-Example',
+      'X-Frame-Options' => 'ALLOWALL'
     }
   end
 end

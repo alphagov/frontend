@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
   include Slimmer::GovukComponents
+  include EducationNavigationABTestable
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -20,6 +21,8 @@ class ApplicationController < ActionController::Base
   rescue_from RecordNotFound, with: :cacheable_404
 
   slimmer_template 'wrapper'
+
+  helper_method :breadcrumbs
 
 protected
 
@@ -85,5 +88,14 @@ protected
 
   def set_language_from_publication
     I18n.locale = @publication.language if @publication.language
+  end
+
+  def breadcrumbs
+    return {} if @navigation_helpers.nil?
+    if should_present_new_navigation_view?
+      @navigation_helpers.taxon_breadcrumbs
+    else
+      @navigation_helpers.breadcrumbs
+    end
   end
 end

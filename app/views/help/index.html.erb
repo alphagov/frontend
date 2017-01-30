@@ -56,25 +56,23 @@
 
 </main>
 
-<!-- related -->
-<div class="related-positioning">
-  <div class="related-container">
-    <div class="related" id="related">
-      <div class="inner group">
-        <h2 id="parent-section">Find a contact</h2>
-        <nav role="navigation" aria-labelledby="parent-section">
-          <ul>
-            <li>
-              <a href="/contact">Contacts</a>
-            </li>
-             <li>
-              <a href="/contact/foi">Make a Freedom of Information Request</a>
-            </li>
-          </ul>
-        </nav>
-        <a class="return-to-top" href="#content">Return to top &uarr;</a>
-      </div>
-    </div>
-  </div>
+<div class="related-container">
+  <%= render partial: 'govuk_component/related_items', locals: {
+    sections: [
+      {
+        title: "Find a contact",
+        id: "parent-section",
+        items: [
+          {
+            title: "Contacts",
+            url: "/contact"
+          },
+          {
+            title: "Make a Freedom of Information Request",
+            url: "/contact/foi"
+          }
+        ]
+      }
+    ]
+  } %>
 </div>
-<!-- end related -->

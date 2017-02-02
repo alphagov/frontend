@@ -12,8 +12,10 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503
+  rescue_from GdsApi::HTTPGone, with: :error_410
   rescue_from GdsApi::HTTPNotFound, with: :cacheable_404
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
+  rescue_from URI::InvalidURIError, with: :cacheable_404
   rescue_from ArtefactRetriever::RecordArchived, with: :error_410
   rescue_from ArtefactRetriever::UnsupportedArtefactFormat, with: :error_404
   rescue_from ArtefactRetriever::RecordNotFound, with: :cacheable_404
@@ -71,6 +73,15 @@ protected
     @navigation_helpers, @content_item, @meta_section = nil
   end
 
+  def content_item
+    @_content_item ||= Services.content_store.content_item("/#{params[:slug]}")
+  end
+
+  def set_content_item
+    @publication = ContentItemPresenter.new(content_item)
+    set_language_from_publication
+  end
+
   def artefact
     @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
       params[:slug],
@@ -84,6 +95,6 @@ protected
   end
 
   def set_language_from_publication
-    I18n.locale = @publication.language if @publication.language
+    I18n.locale = @publication.language || @publication.locale || 'en'
   end
 end

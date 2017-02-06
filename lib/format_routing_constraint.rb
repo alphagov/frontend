@@ -1,14 +1,36 @@
 class FormatRoutingConstraint
-  def initialize(format, artefact_retriever: ArtefactRetrieverFactory.caching_artefact_retriever)
+  def initialize(format, content_format_inspector: ContentFormatInspector)
     @format = format
-    @caching_artefact_retriever = artefact_retriever
+    @content_format_inspector = content_format_inspector
   end
 
   def matches?(request)
-    @caching_artefact_retriever.set_request(request)
-    slug = request.params.fetch(:slug)
-    edition = request.params.fetch(:edition, nil)
-    artefact = @caching_artefact_retriever.fetch_artefact(slug, edition)
-    artefact['format'] == @format if artefact
+    @request = request
+    content_format == @format
+  end
+
+private
+
+  def content_format
+    @request.env[:__content_format] ||= begin
+      format_inspector.format || set_error(format_inspector.error) || :no_match
+    end
+  end
+
+  def set_error(err)
+    @request.env[:__api_error] = err
+    false
+  end
+
+  def format_inspector
+    @request.env[:__inspector] ||= @content_format_inspector.new(slug, edition)
+  end
+
+  def slug
+    @request.params.fetch(:slug)
+  end
+
+  def edition
+    @request.params.fetch(:edition, nil)
   end
 end

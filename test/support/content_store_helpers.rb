@@ -24,6 +24,10 @@ module ContentStoreHelpers
     content_api_has_unpublished_artefact(slug, edition, artefact)
   end
 
+  def content_store_throws_exception_for(path, exception)
+    Services.content_store.stubs(:content_item).with(path).raises(exception)
+  end
+
   def content_api_and_content_store_have_archived_page(slug)
     content_store_has_gone_item("/#{slug}")
     content_api_has_an_archived_artefact(slug)

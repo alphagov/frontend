@@ -35,6 +35,10 @@ class ContentItemPresenterTest < ActiveSupport::TestCase
     assert_equal datetime.to_i, subject(updated_at: datetime.to_s).updated_at.to_i
   end
 
+  test "#locale" do
+    assert_equals_foo subject(locale: 'foo').locale
+  end
+
   def assert_equals_foo(val)
     assert_equal 'foo', val
   end

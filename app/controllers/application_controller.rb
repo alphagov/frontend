@@ -74,20 +74,16 @@ protected
 
   def set_content_item
     @publication = ContentItemPresenter.new(content_item)
-    set_language_from_content_item
+    set_language_from_publication
   end
 
   def set_publication
     @publication = PublicationPresenter.new(artefact)
-    set_language_from_artefact
+    set_language_from_publication
   end
 
-  def set_language_from_artefact
-    I18n.locale = artefact[:language] || I18n.default_locale
-  end
-
-  def set_language_from_content_item
-    I18n.locale = content_item[:locale] || I18n.default_locale
+  def set_language_from_publication
+    I18n.locale = @publication.locale || I18n.default_locale
   end
 
   def content_item

@@ -3,7 +3,7 @@ require "test_helper"
 class HelpControllerTest < ActionController::TestCase
   context "GET index" do
     setup do
-      content_store_has_random_item(base_path: "/help")
+      content_store_has_random_item(base_path: "/help", schema: 'help_page')
     end
 
     should "set the cache expiry headers" do
@@ -27,7 +27,7 @@ class HelpControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('help/cookies', @artefact)
+        content_store_has_random_item(base_path: '/help/cookies', schema: 'help_page')
       end
 
       should "set the cache expiry headers" do
@@ -45,7 +45,8 @@ class HelpControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_api_and_content_store_have_unpublished_page("help/cookies", 3, @artefact)
+        content_api_has_unpublished_artefact("help/cookies", 3, @artefact)
+        content_store_has_random_item(base_path: '/help/cookies', schema: 'help_page')
       end
 
       should "does not set the cache expiry headers" do
@@ -58,7 +59,7 @@ class HelpControllerTest < ActionController::TestCase
 
   context "loading the tour page" do
     setup do
-      content_store_has_random_item(base_path: "/tour")
+      content_store_has_random_item(base_path: "/tour", schema: 'help_page')
     end
 
     should "respond with success" do

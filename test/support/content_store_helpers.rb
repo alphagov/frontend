@@ -3,8 +3,8 @@ require "gds_api/test_helpers/content_store"
 module ContentStoreHelpers
   include GdsApi::TestHelpers::ContentStore
 
-  def content_store_has_random_item(base_path:)
-    example_generator = GovukSchemas::RandomExample.for_schema("placeholder", schema_type: "frontend")
+  def content_store_has_random_item(base_path:, schema: 'placeholder')
+    example_generator = GovukSchemas::RandomExample.for_schema(schema, schema_type: "frontend")
     content_item = example_generator.merge_and_validate(base_path: base_path)
     content_store_has_item(content_item['base_path'], content_item)
   end

@@ -75,6 +75,10 @@ class PublicationPresenter
     }.to_json
   end
 
+  def locale
+    language
+  end
+
 private
 
   def promotion_choice_details

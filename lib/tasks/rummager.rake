@@ -17,8 +17,13 @@ namespace :rummager do
       },
     ]
 
-    rummager_payloads.each do |rummager_payload|
-      rummager.add_document('edition', rummager_payload[:link], rummager_payload)
+    begin
+      rummager_payloads.each do |rummager_payload|
+        rummager.add_document('edition', rummager_payload[:link], rummager_payload)
+      end
+    rescue SocketError => e
+      Rails.logger.warn(e.message)
+      Rails.logger.warn("We expect to see this when deploying to draft-frontend")
     end
   end
 end

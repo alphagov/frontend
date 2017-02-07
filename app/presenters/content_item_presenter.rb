@@ -6,7 +6,7 @@ class ContentItemPresenter
   end
 
   PASS_THROUGH_KEYS = [
-    :title, :details, :base_path, :description
+    :base_path, :details, :description, :title
   ].freeze
 
   PASS_THROUGH_DETAILS_KEYS = [

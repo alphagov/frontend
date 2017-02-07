@@ -6,17 +6,18 @@ class PublicationPresenter
   end
 
   PASS_THROUGH_KEYS = [
-    :title, :details, :web_url, :in_beta
+    :details, :in_beta, :title, :web_url
   ]
 
   PASS_THROUGH_DETAILS_KEYS = [
-    :body, :short_description, :introduction, :need_to_know, :video_url,
-    :summary, :overview, :name, :video_summary, :continuation_link, :licence_overview,
-    :link, :will_continue_on, :more_information, :downtime,
-    :alternate_methods, :place_type, :min_value, :max_value, :organiser, :max_employees,
-    :eligibility, :evaluation, :additional_information, :contact_details, :language, :country,
-    :alert_status, :change_description, :caption_file, :nodes, :large_image, :medium_image, :small_image,
-    :department_analytics_profile, :description
+    :additional_information, :alert_status, :alternate_methods, :body,
+    :caption_file, :change_description, :contact_details, :country,
+    :continuation_link, :department_analytics_profile, :description, :downtime,
+    :eligibility, :evaluation, :introduction, :language, :large_image,
+    :licence_overview, :link, :max_employees, :max_value, :medium_image, :min_value,
+    :more_information, :name, :need_to_know, :nodes, :organiser, :overview,
+    :place_type, :short_description, :small_image, :summary, :video_summary,
+    :video_url, :will_continue_on
   ]
 
   PASS_THROUGH_KEYS.each do |key|

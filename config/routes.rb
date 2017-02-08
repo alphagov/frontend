@@ -102,7 +102,7 @@ Frontend::Application.routes.draw do
   end
 
   # route API errors to the error handler
-  constraints ContentApiErrorRoutingConstraint.new do
+  constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"
   end
 

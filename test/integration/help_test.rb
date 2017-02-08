@@ -3,8 +3,36 @@ require "integration_test_helper"
 
 class HelpTest < ActionDispatch::IntegrationTest
   context "rendering a help page" do
+    setup do
+      @payload = {
+        analytics_identifier: nil,
+        base_path: "/help/cookies",
+        content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
+        document_type: "help_page",
+        first_published_at: "2016-02-29T09:24:10.000+00:00",
+        format: "help_page",
+        locale: "en",
+        need_ids: [],
+        phase: "live",
+        public_updated_at: "2014-12-16T12:49:50.000+00:00",
+        publishing_app: "publisher",
+        rendering_app: "frontend",
+        schema_name: "help_page",
+        title: "Cookies",
+        updated_at: "2017-01-30T12:30:33.483Z",
+        withdrawn_notice: {},
+        links: {},
+        description: "Descriptive cookie text.",
+        details: {
+          body: "This is the page about cookies"
+        },
+        external_related_links: []
+      }
+
+      content_store_has_item('/help/cookies', @payload)
+    end
+
     should "render a help page" do
-      setup_api_responses("help/cookies")
 
       visit "/help/cookies"
 
@@ -22,9 +50,9 @@ class HelpTest < ActionDispatch::IntegrationTest
         end
 
         within '.article-container' do
-          assert page.has_selector?("p", text: "This is the page about cookies.")
+          assert page.has_content?(@payload[:details][:body])
 
-          assert page.has_selector?(".modified-date", text: "Last updated: 23 August 2013")
+          assert page.has_selector?(".modified-date", text: "Last updated: 30 January 2017")
         end
       end # within #content
 
@@ -34,7 +62,7 @@ class HelpTest < ActionDispatch::IntegrationTest
 
     should "render a help page edition in preview" do
       artefact = content_api_response("help/cookies")
-      content_api_and_content_store_have_unpublished_page("help/cookies", 5, artefact)
+      content_api_has_unpublished_artefact("help/cookies", 5, artefact)
 
       visit "/help/cookies?edition=5"
 

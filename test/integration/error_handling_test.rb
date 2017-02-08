@@ -1,17 +1,17 @@
 require 'integration_test_helper'
 
 class ErrorHandlingTest < ActionDispatch::IntegrationTest
-  context "when the content API returns 404" do
+  context "when the content store returns 404" do
     should "return 404 status" do
-      api_returns_404_for('/slug.json')
+      content_store_does_not_have_item('/slug')
       visit "/slug"
       assert_equal 404, page.status_code
     end
   end
 
-  context "when the content API returns 410" do
+  context "when the content store returns 410" do
     should "return 410 status" do
-      api_returns_error_for('/slug.json', 410)
+      content_store_has_gone_item('/slug')
       visit '/slug'
       assert_equal 410, page.status_code
     end
@@ -19,33 +19,26 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
   context "when the content API returns 5xx" do
     should "return 503 status" do
-      api_returns_error_for('/slug.json', 500)
+      content_store_isnt_available
       visit "/slug"
       assert_equal 503, page.status_code
     end
   end
 
-  context "when the application tries to retrieve an invalid URL from the content API" do
+  context "when the format has not been migrated, and the content-api returns 5xx" do
+    should "return 503 status" do
+      content_store_has_item('/foo', format: 'unmigrated')
+      api_returns_error_for('/foo.json', 500)
+      visit '/foo'
+      assert_equal 503, page.status_code
+    end
+  end
+
+  context "when the application tries to retrieve an invalid URL from the content store" do
     should "return 404 status" do
-      api_throws_exception_for('/slug.json', GdsApi::InvalidUrl.new)
-      visit '/slug'
+      content_store_throws_exception_for('/foo', GdsApi::InvalidUrl)
+      visit '/foo'
       assert_equal 404, page.status_code
-    end
-  end
-
-  context "when the content API times out" do
-    should "return 503 status" do
-      api_times_out_for('/slug.json')
-      visit "/slug"
-      assert_equal 503, page.status_code
-    end
-  end
-
-  context "when the content API refuses the connection" do
-    should "return 503 status" do
-      api_fails_to_connect_for('/slug.json')
-      visit '/slug'
-      assert_equal 503, page.status_code
     end
   end
 

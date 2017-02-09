@@ -80,12 +80,14 @@ node('mongodb-2.4') {
       govuk.runRakeTask("ci:setup:rspec default")
     }
 
-    stage("Push release tag") {
-      govuk.pushTag(REPOSITORY, env.BRANCH_NAME, "release_${env.BUILD_NUMBER}")
-    }
+    if (env.BRANCH_NAME == "master") {
+      stage("Push release tag") {
+        govuk.pushTag(REPOSITORY, env.BRANCH_NAME, "release_${env.BUILD_NUMBER}")
+      }
 
-    stage("Deploy to integration") {
-      govuk.deployIntegration(REPOSITORY, env.BRANCH_NAME, 'release', 'deploy')
+      stage("Deploy to integration") {
+        govuk.deployIntegration(REPOSITORY, env.BRANCH_NAME, 'release', 'deploy')
+      }
     }
 
   } catch (e) {

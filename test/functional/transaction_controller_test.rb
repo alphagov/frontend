@@ -105,5 +105,23 @@ class TransactionControllerTest < ActionController::TestCase
         get :show, slug: "chwilio-am-swydd"
       end
     end
+
+    context "given a version in an unsupported language exists" do
+      setup do
+        @details = {
+          'id' => 'https://www.gov.uk/api/document-in-turkmen.json',
+          'web_url' => 'https://www.preview.alphagov.co.uk/document-in-turkmen',
+          'format' => 'transaction',
+          'details' => { "need_to_know" => "", "language" => "tk" },
+          'title' => 'Some title'
+        }
+        content_api_and_content_store_have_page("document-in-turkmen", @details)
+      end
+
+      should "set the locale to the English default" do
+        I18n.expects(:locale=).with(:en)
+        get :show, slug: "document-in-turkmen"
+      end
+    end
   end
 end

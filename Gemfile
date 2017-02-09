@@ -4,7 +4,7 @@ gem "addressable"
 gem 'airbrake', '3.1.15' # newer version is incompatible with our Errbit as of 12/2016
 gem 'appsignal', '~> 2.0'
 gem 'cdn_helpers', '0.9'
-gem 'gds-api-adapters', '~> 38.1.0'
+gem 'gds-api-adapters', '~> 39.2.0'
 gem 'gelf'
 gem 'govuk_frontend_toolkit', '~> 4.12.0'
 gem 'govuk_navigation_helpers', '~> 2.0'

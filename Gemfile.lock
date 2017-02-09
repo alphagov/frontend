@@ -84,7 +84,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
-    gds-api-adapters (38.1.0)
+    gds-api-adapters (39.2.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -164,7 +164,7 @@ GEM
       byebug (~> 9.0)
       pry (~> 0.10)
     rack (1.6.5)
-    rack-cache (1.6.1)
+    rack-cache (1.7.0)
       rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -310,7 +310,7 @@ DEPENDENCIES
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 38.1.0)
+  gds-api-adapters (~> 39.2.0)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint

@@ -24,6 +24,7 @@
 
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
+      <%= render partial: 'govuk_component/beta_label' if present_new_navigation? %>
       <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
 
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>

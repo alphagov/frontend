@@ -92,10 +92,15 @@ protected
 
   def breadcrumbs
     return {} if @navigation_helpers.nil?
-    if should_present_new_navigation_view?
+    if present_new_navigation?
       @navigation_helpers.taxon_breadcrumbs
     else
       @navigation_helpers.breadcrumbs
     end
   end
+
+  def present_new_navigation?
+    should_present_new_navigation_view?
+  end
+  helper_method :present_new_navigation?
 end

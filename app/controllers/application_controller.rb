@@ -83,7 +83,11 @@ protected
   end
 
   def set_language_from_publication
-    I18n.locale = @publication.locale || I18n.default_locale
+    I18n.locale = if @publication.locale && I18n.available_locales.map(&:to_s).include?(@publication.locale)
+                    @publication.locale
+                  else
+                    I18n.default_locale
+                  end
   end
 
   def content_item

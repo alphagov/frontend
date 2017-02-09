@@ -14,7 +14,7 @@ class HelpController < ApplicationController
   end
 
   def show
-    set_content_item
+    set_content_item(HelpPagePresenter)
   end
 
   def ab_testing

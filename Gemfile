@@ -27,6 +27,8 @@ gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
 gem 'unicorn', '~> 4.9.0' # version 5 is available
 
+gem 'govuk_ab_testing', github: 'alphagov/govuk_ab_testing', branch: 'master'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

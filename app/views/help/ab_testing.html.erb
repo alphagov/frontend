@@ -1,7 +1,7 @@
 <% content_for :title, "A/B testing - GOV.UK" %>
 <% content_for :extra_headers do %>
   <meta name="robots" content="noindex">
-  <meta name="govuk:ab-test" content="Example:<%= @ab_variant %>">
+  <%= @ab_variant.analytics_meta_tag.html_safe %>
 <% end %>
 
 <main id="content" role="main" class="group">
@@ -16,7 +16,7 @@
       This page shows us if the process is working.</p>
     <p>There are 2 versions of this page. You are viewing the
       <span class="ab-example-group">
-        <strong><%= @ab_variant %></strong>
+        <strong><%= @ab_variant.variant_name %></strong>
       </span>
       version.</p>
     <p>Visit the <a href="/">GOV.UK homepage</a> to find government services and information.</p>

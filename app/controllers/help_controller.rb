@@ -1,6 +1,5 @@
 class HelpController < ApplicationController
   include ApiRedirectable
-  include Previewable
   include Cacheable
 
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }, only: :show
@@ -15,11 +14,7 @@ class HelpController < ApplicationController
   end
 
   def show
-    if viewing_draft_content?
-      set_publication
-    else
-      set_content_item
-    end
+    set_content_item
   end
 
   def ab_testing

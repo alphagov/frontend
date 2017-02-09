@@ -1,6 +1,8 @@
 require "test_helper"
 
 class TransactionControllerTest < ActionController::TestCase
+  include EducationNavigationAbTestHelper
+
   context "GET show" do
     setup do
       @artefact = artefact_for_slug('register-to-vote')
@@ -47,6 +49,38 @@ class TransactionControllerTest < ActionController::TestCase
       get :show, slug: 'a-slug'
       assert_equal "DENY", @response.headers["X-Frame-Options"]
     end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :show, slug: "a-slug"
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :show, slug: "a-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :show, slug: "a-slug"
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
+      end
+    end
   end
 
   context "loading the jobsearch page" do
@@ -85,6 +119,39 @@ class TransactionControllerTest < ActionController::TestCase
       should "render the jobsearch view" do
         get :show, slug: "jobsearch"
         assert_template "jobsearch"
+      end
+
+      context "A/B testing" do
+        setup do
+          setup_education_navigation_ab_test
+          content_api_and_content_store_have_page_tagged_to_taxon("jobsearch", @details)
+        end
+
+        teardown do
+          teardown_education_navigation_ab_test
+        end
+
+        should "show normal breadcrumbs by default" do
+          get :show, slug: "jobsearch"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+
+        should "show normal breadcrumbs for the 'A' version" do
+          with_variant educationnavigation: "A" do
+            get :show, slug: "jobsearch"
+            assert_match(/NormalBreadcrumb/, response.body)
+            refute_match(/TaxonBreadcrumb/, response.body)
+          end
+        end
+
+        should "show taxon breadcrumbs for the 'B' version" do
+          with_variant educationnavigation: "B" do
+            get :show, slug: "jobsearch"
+            assert_match(/TaxonBreadcrumb/, response.body)
+            refute_match(/NormalBreadcrumb/, response.body)
+          end
+        end
       end
     end
 

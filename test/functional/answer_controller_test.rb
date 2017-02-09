@@ -1,6 +1,8 @@
 require "test_helper"
 
 class AnswerControllerTest < ActionController::TestCase
+  include EducationNavigationAbTestHelper
+
   context "GET show" do
     setup do
       @artefact = artefact_for_slug('vat-rates')
@@ -34,6 +36,38 @@ class AnswerControllerTest < ActionController::TestCase
         get :show, slug: "vat-rates", edition: 3
 
         assert_nil response.headers["Cache-Control"]
+      end
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :show, slug: "a-slug"
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :show, slug: "a-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :show, slug: "a-slug"
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
       end
     end
   end

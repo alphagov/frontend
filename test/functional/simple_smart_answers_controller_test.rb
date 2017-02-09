@@ -3,6 +3,7 @@ require 'gds_api/test_helpers/content_api'
 
 class SimpleSmartAnswersControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::ContentApi
+  include EducationNavigationAbTestHelper
 
   context "GET show" do
     setup do
@@ -37,6 +38,38 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         get :show, slug: "the-bridge-of-death", edition: 3
 
         assert_nil response.headers["Cache-Control"]
+      end
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :show, slug: "a-slug"
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :show, slug: "a-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :show, slug: "a-slug"
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
       end
     end
   end
@@ -159,6 +192,39 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           assert_equal 200, response.status
           assert_template "flow"
           assert_equal 'question-1', assigns[:flow_state].current_node.slug
+        end
+      end
+
+      context "A/B testing" do
+        setup do
+          setup_education_navigation_ab_test
+          content_api_and_content_store_have_page_tagged_to_taxon('the-bridge-of-death', @artefact)
+        end
+
+        teardown do
+          teardown_education_navigation_ab_test
+        end
+
+        should "show normal breadcrumbs by default" do
+          get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+
+        should "show normal breadcrumbs for the 'A' version" do
+          with_variant educationnavigation: "A" do
+            get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
+            assert_match(/NormalBreadcrumb/, response.body)
+            refute_match(/TaxonBreadcrumb/, response.body)
+          end
+        end
+
+        should "show taxon breadcrumbs for the 'B' version" do
+          with_variant educationnavigation: "B" do
+            get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
+            assert_match(/TaxonBreadcrumb/, response.body)
+            refute_match(/NormalBreadcrumb/, response.body)
+          end
         end
       end
     end

@@ -4,6 +4,7 @@ class LocalTransactionController < ApplicationController
   include Previewable
   include Cacheable
   include Navigable
+  include EducationNavigationABTestable
 
   before_filter :set_publication
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }

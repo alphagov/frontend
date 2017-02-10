@@ -4,6 +4,7 @@ class SimpleSmartAnswersController < ApplicationController
   include Previewable
   include Cacheable
   include Navigable
+  include EducationNavigationABTestable
 
   before_filter :redirect_if_api_request, only: :show
   before_filter :set_publication

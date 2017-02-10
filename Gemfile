@@ -7,7 +7,7 @@ gem 'cdn_helpers', '0.9'
 gem 'gds-api-adapters', '~> 39.2.0'
 gem 'gelf'
 gem 'govuk_frontend_toolkit', '~> 4.12.0'
-gem 'govuk_navigation_helpers', '~> 2.0'
+gem 'govuk_navigation_helpers', '~> 2.2.0'
 gem 'htmlentities', '~> 4.3.0'
 gem 'invalid_utf8_rejector', '~> 0.0.0'
 gem 'logstasher', '~> 1.1.0'
@@ -26,6 +26,7 @@ gem "therubyracer", "~> 0.12.0"
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
 gem 'unicorn', '~> 4.9.0' # version 5 is available
+gem 'govuk_ab_testing', '~> 0.1.4'
 
 group :development do
   gem 'better_errors'

@@ -23,9 +23,9 @@ class HelpController < ApplicationController
   end
 
   def ab_testing
-    @ab_variant = request.headers["HTTP_GOVUK_ABTEST_EXAMPLE"] == "B" ? "B" : "A"
-
-    response.headers['Vary'] = 'GOVUK-ABTest-Example'
+    ab_test = GovukAbTesting::AbTest.new("example", dimension: 40)
+    @requested_variant = ab_test.requested_variant(request)
+    @requested_variant.configure_response(response)
   end
 
 private

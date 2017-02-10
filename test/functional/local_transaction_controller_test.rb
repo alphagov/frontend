@@ -6,6 +6,7 @@ require 'gds_api/test_helpers/local_links_manager'
 class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LocalLinksManager
+  include EducationNavigationAbTestHelper
 
   def subscribe_logstasher_to_postcode_error_notification
     LogStasher.watch('postcode_error_notification') do |_name, _start, _finish, _id, payload, store|
@@ -233,6 +234,65 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     should "log the 'missing interaction' error to the view" do
       assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+        content_api_and_content_store_have_page_tagged_to_taxon('report-a-bear-on-a-local-road', @artefact)
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      context "results" do
+        should "show normal breadcrumbs by default" do
+          get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+
+        should "show normal breadcrumbs for the 'A' version" do
+          with_variant educationnavigation: "A" do
+            get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
+            assert_match(/NormalBreadcrumb/, response.body)
+            refute_match(/TaxonBreadcrumb/, response.body)
+          end
+        end
+
+        should "show taxon breadcrumbs for the 'B' version" do
+          with_variant educationnavigation: "B" do
+            get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
+            assert_match(/TaxonBreadcrumb/, response.body)
+            refute_match(/NormalBreadcrumb/, response.body)
+          end
+        end
+      end
+
+      context "search" do
+        should "show normal breadcrumbs by default" do
+          get :search, slug: "a-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+
+        should "show normal breadcrumbs for the 'A' version" do
+          with_variant educationnavigation: "A" do
+            get :search, slug: "a-slug"
+            assert_match(/NormalBreadcrumb/, response.body)
+            refute_match(/TaxonBreadcrumb/, response.body)
+          end
+        end
+
+        should "show taxon breadcrumbs for the 'B' version" do
+          with_variant educationnavigation: "B" do
+            get :search, slug: "a-slug"
+            assert_match(/TaxonBreadcrumb/, response.body)
+            refute_match(/NormalBreadcrumb/, response.body)
+          end
+        end
+      end
     end
   end
 end

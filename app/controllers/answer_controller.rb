@@ -3,6 +3,7 @@ class AnswerController < ApplicationController
   include Previewable
   include Cacheable
   include Navigable
+  include EducationNavigationABTestable
 
   before_filter :set_publication
 

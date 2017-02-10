@@ -3,6 +3,7 @@ require 'gds_api/test_helpers/mapit'
 
 class LicenceControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
+  include EducationNavigationAbTestHelper
 
   context "GET search" do
     setup do
@@ -37,6 +38,38 @@ class LicenceControllerTest < ActionController::TestCase
         get :search, slug: "licence-to-kill", edition: 3
 
         assert_nil response.headers["Cache-Control"]
+      end
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :search, slug: "a-slug"
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :search, slug: "a-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :search, slug: "a-slug"
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
       end
     end
   end
@@ -118,6 +151,38 @@ class LicenceControllerTest < ActionController::TestCase
         get :authority, slug: "licence-to-kill", authority_slug: "secret-service", edition: 3
 
         assert_nil response.headers["Cache-Control"]
+      end
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :authority, slug: "a-slug", authority_slug: "auth-slug"
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :authority, slug: "a-slug", authority_slug: "auth-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :authority, slug: "a-slug", authority_slug: "auth-slug"
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
       end
     end
   end

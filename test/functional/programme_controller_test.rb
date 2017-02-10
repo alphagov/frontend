@@ -1,6 +1,8 @@
 require "test_helper"
 
 class ProgrammeControllerTest < ActionController::TestCase
+  include EducationNavigationAbTestHelper
+
   def prevent_implicit_rendering
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
@@ -129,6 +131,38 @@ class ProgrammeControllerTest < ActionController::TestCase
       @controller.expects(:render).with(:show, layout: "application.print")
       get :show, slug: "a-slug", variant: :print
       assert_equal [:print], @request.variant
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal breadcrumbs by default" do
+        get :show, slug: "a-slug"
+        assert_match(/NormalBreadcrumb/, response.body)
+        refute_match(/TaxonBreadcrumb/, response.body)
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        with_variant educationnavigation: "A" do
+          get :show, slug: "a-slug"
+          assert_match(/NormalBreadcrumb/, response.body)
+          refute_match(/TaxonBreadcrumb/, response.body)
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        with_variant educationnavigation: "B" do
+          get :show, slug: "a-slug"
+          assert_match(/TaxonBreadcrumb/, response.body)
+          refute_match(/NormalBreadcrumb/, response.body)
+        end
+      end
     end
   end
 end

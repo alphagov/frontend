@@ -15,11 +15,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
   end
 
   test "Should not allow framing of local transaction pages" do
-    content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
-      'web_url' => 'https://example.com/a-slug',
-      'format' => 'local_transaction',
-      'details' => { "need_to_know" => "" },
-      'title' => 'A Test Transaction')
+    content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
 
     prevent_implicit_rendering
     get :search, slug: 'a-slug'
@@ -27,34 +23,42 @@ class LocalTransactionControllerTest < ActionController::TestCase
   end
 
   test "should set expiry headers for an edition" do
-    content_api_and_content_store_have_page(
-      "a-slug",
-      'format' => 'local_transaction',
-      "web_url" => "http://example.org/slug"
-    )
+    content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
 
     get :search, slug: 'a-slug'
     assert_equal "max-age=1800, public", response.headers["Cache-Control"]
   end
 
-  context "given a local transaction exists in content api" do
+  context "given a local transaction exists in content store" do
     setup do
-      @artefact = {
-        "title" => "Send a bear to your local council",
-        "format" => "local_transaction",
-        "web_url" => "http://example.org/send-a-bear-to-your-local-council",
-        "details" => {
-          "format" => "local_transaction",
-          "lgsl_code" => "8342",
-          "local_service" => {
-            "description" => "What could go wrong?",
-            "lgsl_code" => "8342",
-            "providing_tier" => %w(district unitary)
-          }
-        }
+      @payload = {
+        analytics_identifier: nil,
+        base_path: "/pay-bear-tax",
+        content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
+        document_type: "local_transaction",
+        first_published_at: "2016-02-29T09:24:10.000+00:00",
+        format: "local_transaction",
+        locale: "en",
+        need_ids: [],
+        phase: "beta",
+        public_updated_at: "2014-12-16T12:49:50.000+00:00",
+        publishing_app: "publisher",
+        rendering_app: "frontend",
+        schema_name: "local_transaction",
+        title: "Send a bear to your local council",
+        updated_at: "2017-01-30T12:30:33.483Z",
+        withdrawn_notice: {},
+        links: {},
+        description: "Descriptive bear text.",
+        details: {
+          lgsl_code: 8342,
+          service_tiers: %w(district unitary),
+          introduction: "Infos about sending bears."
+        },
+        external_related_links: []
       }
 
-      content_api_and_content_store_have_page('send-a-bear-to-your-local-council', @artefact)
+      content_store_has_item('/send-a-bear-to-your-local-council', @payload)
     end
 
     context "loading the local transaction edition without any location" do
@@ -184,21 +188,33 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
   end
 
-  context "loading a local transaction without an interaction that exists in content api" do
+  context "loading a local transaction without an interaction that exists in content store" do
     setup do
-      @artefact = {
-        "title" => "Report a bear on a local road",
-        "format" => "local_transaction",
-        "web_url" => "http://example.org/report-a-bear-on-a-local-road",
-        "details" => {
-          "format" => "local_transaction",
-          "lgsl_code" => "1234",
-          "local_service" => {
-            "description" => "Contact your council to dispatch Cousin Sven's bear enforcement squad in your area.",
-            "lgsl_code" => "1234",
-            "providing_tier" => %w(district unitary)
-          },
-        }
+      @payload = {
+        analytics_identifier: nil,
+        base_path: "/report-a-bear-on-a-local-road",
+        content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
+        document_type: "local_transaction",
+        first_published_at: "2016-02-29T09:24:10.000+00:00",
+        format: "local_transaction",
+        locale: "en",
+        need_ids: [],
+        phase: "beta",
+        public_updated_at: "2014-12-16T12:49:50.000+00:00",
+        publishing_app: "publisher",
+        rendering_app: "frontend",
+        schema_name: "local_transaction",
+        title: "Send a bear to your local council",
+        updated_at: "2017-01-30T12:30:33.483Z",
+        withdrawn_notice: {},
+        links: {},
+        description: "Descriptive bear text.",
+        details: {
+          lgsl_code: 1234,
+          service_tiers: %w(district unitary),
+          introduction: "Infos about sending bears."
+        },
+        external_related_links: []
       }
 
       staffordshire_moorlands = {
@@ -212,34 +228,39 @@ class LocalTransactionControllerTest < ActionController::TestCase
       }
 
       mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-      content_api_and_content_store_have_page('report-a-bear-on-a-local-road', @artefact)
       local_links_manager_has_no_fallback_link(
         authority_slug: 'staffordshire-moorlands',
         lgsl: 1234,
       )
 
       subscribe_logstasher_to_postcode_error_notification
-      get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
     end
 
-    should "show error message" do
-      assert response.ok?
-      assert response.body.include?("Search")
-    end
+    context "without A/B testing" do
+      setup do
+        content_store_has_item('/report-a-bear-on-a-local-road', @payload)
+        get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
+      end
 
-    should "expose the 'missing interaction' error to the view" do
-      location_error = assigns(:location_error)
-      assert_equal "laMatchNoLink", location_error.postcode_error
-    end
+      should "show error message" do
+        assert response.ok?
+        assert response.body.include?("Search")
+      end
 
-    should "log the 'missing interaction' error to the view" do
-      assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
+      should "expose the 'missing interaction' error to the view" do
+        location_error = assigns(:location_error)
+        assert_equal "laMatchNoLink", location_error.postcode_error
+      end
+
+      should "log the 'missing interaction' error to the view" do
+        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
+      end
     end
 
     context "A/B testing" do
       setup do
         setup_education_navigation_ab_test
-        content_api_and_content_store_have_page_tagged_to_taxon('report-a-bear-on-a-local-road', @artefact)
+        content_store_has_item_tagged_to_taxon(base_path: '/report-a-bear-on-a-local-road', payload: @payload)
       end
 
       teardown do

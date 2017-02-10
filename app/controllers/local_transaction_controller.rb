@@ -1,7 +1,6 @@
 class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
   include ApiRedirectable
-  include Previewable
   include Cacheable
   include Navigable
   include EducationNavigationABTestable
@@ -66,11 +65,11 @@ private
   end
 
   def lgsl
-    artefact['details']['lgsl_code']
+    content_item['details']['lgsl_code']
   end
 
   def lgil
-    artefact['details']['lgil_override']
+    content_item['details']['lgil_override']
   end
 
   def local_authority

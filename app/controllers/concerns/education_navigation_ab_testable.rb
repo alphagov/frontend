@@ -1,6 +1,12 @@
 module EducationNavigationABTestable
+  EDUCATION_NAVIGATION_DIMENSION = 41
+
   def education_navigation_ab_test
-    @ab_test ||= GovukAbTesting::AbTest.new("educationnavigation")
+    @ab_test ||=
+      GovukAbTesting::AbTest.new(
+        "educationnavigation",
+        dimension: EDUCATION_NAVIGATION_DIMENSION
+      )
   end
 
   def should_present_new_navigation_view?
@@ -8,7 +14,8 @@ module EducationNavigationABTestable
   end
 
   def education_navigation_variant
-    @education_navigation_variant ||= education_navigation_ab_test.requested_variant request
+    @education_navigation_variant ||=
+      education_navigation_ab_test.requested_variant(request)
   end
 
   def new_navigation_enabled?
@@ -20,7 +27,7 @@ module EducationNavigationABTestable
   end
 
   def set_education_navigation_response_header
-    education_navigation_variant.configure_response response
+    education_navigation_variant.configure_response(response)
   end
 
   def self.included(base)

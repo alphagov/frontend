@@ -6,4 +6,9 @@ class HomepageTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
     assert_equal "Welcome to GOV.UK", page.title
   end
+
+  should "not render breadcrumbs" do
+    visit "/"
+    assert_nil page.body.match(/govuk-breadcrumbs/)
+  end
 end

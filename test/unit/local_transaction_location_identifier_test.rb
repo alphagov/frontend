@@ -43,9 +43,9 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
     }
   end
 
-  context "given an artefact exists with a local service for the district/unitary tiers" do
+  context "given an content item exists with a local service for the district/unitary tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => ["district", "unitary"] } } }
+      @content_item = { "details" => { "service_tiers" => %w(district county) } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do
@@ -55,22 +55,22 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
         @leyland_county_ward,
         @south_ribble_parliamentary_constituency,
       ]
-      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @content_item)
 
       assert_equal "south-ribble-borough-council", slug
     end
 
     should "return nil if no authorities match" do
       areas = [@leyland_county_ward, @south_ribble_parliamentary_constituency]
-      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @content_item)
 
       assert_nil slug
     end
   end
 
-  context "given an artefact exists with a local service for the county/unitary tiers" do
+  context "given an content item exists with a local service for the county/unitary tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => ["county", "unitary"] } } }
+      @content_item = { "details" => { "service_tiers" => %w(county unitary) } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do
@@ -80,22 +80,22 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
         @leyland_county_ward,
         @south_ribble_parliamentary_constituency,
       ]
-      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @content_item)
 
       assert_equal "lancashire-county-council", slug
     end
 
     should "select the correct tier authority from areas providing a unitary authority" do
       areas = [@shropshire_unitary_authority, @shrewsbury_civil_parish]
-      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @content_item)
 
       assert_equal "shropshire-council", slug
     end
   end
 
-  context "given an artefact exists with a local service for all tiers" do
+  context "given an content item exists with a local service for all tiers" do
     setup do
-      @artefact = { "details" => { "local_service" => { "providing_tier" => %w(district unitary county) } } }
+      @content_item = { "details" => { "service_tiers" => %w(district unitary county) } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do
@@ -105,7 +105,7 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
         @leyland_county_ward,
         @south_ribble_parliamentary_constituency,
       ]
-      slug = LocalTransactionLocationIdentifier.find_slug(areas, @artefact)
+      slug = LocalTransactionLocationIdentifier.find_slug(areas, @content_item)
 
       assert_equal "south-ribble-borough-council", slug
     end

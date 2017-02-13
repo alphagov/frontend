@@ -1,4 +1,4 @@
-# GOV.UK Frontend
+# GOV.UK Publishing Frontend
 
 Application to serve mainstream formats, the homepage, and search vertical for
 the GOV.UK single domain.

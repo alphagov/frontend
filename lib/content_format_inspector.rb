@@ -27,7 +27,9 @@ private
   def handle_api_errors
     yield
   rescue GdsApi::HTTPErrorResponse,
-         GdsApi::InvalidUrl => e
+         GdsApi::InvalidUrl,
+         ArtefactRetriever::RecordArchived,
+         ArtefactRetriever::RecordNotFound => e
     Airbrake.notify(e)
     @error = e
     {}

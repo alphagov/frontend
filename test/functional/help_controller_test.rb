@@ -85,7 +85,7 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "show the user the 'A' version if the user is in bucket 'A'" do
-      with_variant example: 'A' do
+      with_variant Example: 'A' do
         get :ab_testing
 
         assert_select ".ab-example-group", text: "A"
@@ -93,7 +93,7 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "show the user the 'B' version if the user is in bucket 'A'" do
-      with_variant example: 'B' do
+      with_variant Example: 'B' do
         get :ab_testing
 
         assert_select ".ab-example-group", text: "B"
@@ -107,7 +107,7 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "show the user the default version if the user is in an unknown bucket" do
-      with_variant example: 'not_a_valid_AB_test_value' do
+      with_variant Example: 'not_a_valid_AB_test_value' do
         get :ab_testing
 
         assert_select ".ab-example-group", text: "A"

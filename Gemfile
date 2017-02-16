@@ -44,7 +44,7 @@ group :test do
   gem 'capybara'
   gem 'ci_reporter'
   gem 'govuk-content-schema-test-helpers'
-  gem 'govuk_schemas', '~> 0.2'
+  gem 'govuk_schemas'
   gem "launchy"
   gem "mocha"
   gem 'poltergeist'

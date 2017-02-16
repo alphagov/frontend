@@ -1,11 +1,10 @@
 class GuideController < ApplicationController
   include ApiRedirectable
-  include Previewable
   include Cacheable
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :set_publication
+  before_filter :set_content_item
 
   def show
     @publication.current_part = params[:part]
@@ -29,9 +28,8 @@ class GuideController < ApplicationController
 
 private
 
-  def set_publication
-    @publication = PublicationWithPartsPresenter.new(artefact)
-    set_language_from_publication
+  def set_content_item
+    super(GuidePresenter)
   end
 
   def part_requested_but_no_parts?

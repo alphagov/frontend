@@ -24,26 +24,35 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
 
-    @artefact = artefact_for_slug('pay-bear-tax').merge("title" => "Pay your bear tax",
-      "format" => "local_transaction",
-      "in_beta" => true,
-      "details" => {
-        "format" => "LocalTransaction",
-        "introduction" => "Information about paying local tax on owning or looking after a bear.",
-        "lgsl_code" => 461,
-        "lgil_override" => 8,
-        "local_service" => {
-          "description" => "Find out about paying your bear tax",
-          "lgsl_code" => 461,
-          "providing_tier" => [
-            "district",
-            "unitary",
-            "county"
-          ]
-        }
-      })
+    @payload = {
+      analytics_identifier: nil,
+      base_path: "/pay-bear-tax",
+      content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
+      document_type: "local_transaction",
+      first_published_at: "2016-02-29T09:24:10.000+00:00",
+      format: "local_transaction",
+      locale: "en",
+      need_ids: [],
+      phase: "beta",
+      public_updated_at: "2014-12-16T12:49:50.000+00:00",
+      publishing_app: "publisher",
+      rendering_app: "frontend",
+      schema_name: "local_transaction",
+      title: "Pay your bear tax",
+      updated_at: "2017-01-30T12:30:33.483Z",
+      withdrawn_notice: {},
+      links: {},
+      description: "Descriptive bear text.",
+      details: {
+        lgsl_code: 461,
+        lgil_override: 8,
+        service_tiers: ["county", "unitary"],
+        introduction: "Information about paying local tax on owning or looking after a bear."
+      },
+      external_related_links: []
+    }
 
-    content_api_and_content_store_have_page('pay-bear-tax', @artefact)
+    content_store_has_item('/pay-bear-tax', @payload)
   end
 
   context "given a local transaction with an interaction present" do
@@ -349,32 +358,5 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/pay-bear-tax"
     assert_selector(".error-summary", text: "We couldn't find a council for this postcode")
-  end
-
-  context "when previewing the local transaction" do
-    should "render the correct page in preview" do
-      content_store_does_not_have_item('/pay-bear-tax')
-      content_api_has_a_draft_artefact "pay-bear-tax", 6, content_api_response("pay-bear-tax")
-
-      visit "/pay-bear-tax?edition=6"
-
-      assert_equal 200, page.status_code
-
-      assert_current_url "/pay-bear-tax?edition=6"
-
-      within 'head', visible: :all do
-        assert page.has_selector?("title", text: "Pay Bear Tax - GOV.UK", visible: :all)
-      end
-
-      within '#content' do
-        within 'header.page-header' do
-          assert page.has_content?("Pay Bear Tax")
-        end
-
-        within '#local-locator-form' do
-          assert page.has_content?("Enter a postcode")
-        end
-      end
-    end
   end
 end

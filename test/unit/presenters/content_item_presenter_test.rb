@@ -5,10 +5,6 @@ class ContentItemPresenterTest < ActiveSupport::TestCase
     ContentItemPresenter.new(content_item.deep_stringify_keys!)
   end
 
-  test "#body" do
-    assert_equals_foo subject(details: { body: 'foo' }).body
-  end
-
   test "#base_path" do
     assert_equals_foo subject(base_path: 'foo').base_path
   end

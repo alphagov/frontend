@@ -1,12 +1,11 @@
 class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
   include ApiRedirectable
-  include Previewable
   include Cacheable
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :set_publication
+  before_filter -> { set_content_item(LocalTransactionPresenter) }
   before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
 
   INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
@@ -35,7 +34,7 @@ class LocalTransactionController < ApplicationController
 private
 
   def local_authority_slug
-    @_la_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, artefact)
+    @_la_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item)
   end
 
   def location_error
@@ -66,11 +65,11 @@ private
   end
 
   def lgsl
-    artefact['details']['lgsl_code']
+    content_item['details']['lgsl_code']
   end
 
   def lgil
-    artefact['details']['lgil_override']
+    content_item['details']['lgil_override']
   end
 
   def local_authority

@@ -5,6 +5,6 @@ class AnswerController < ApplicationController
   include EducationNavigationABTestable
 
   def show
-    set_content_item
+    set_content_item(AnswerPresenter)
   end
 end

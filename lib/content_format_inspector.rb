@@ -3,7 +3,7 @@ class ContentFormatInspector
 
   attr_reader :error
 
-  MIGRATED_SCHEMAS = %w(help_page answer).freeze
+  MIGRATED_SCHEMAS = %w(answer help_page local_transaction).freeze
 
   def initialize(slug, edition = nil)
     @slug = slug

@@ -76,8 +76,8 @@ protected
     @navigation_helpers, @content_item, @meta_section = nil
   end
 
-  def set_content_item
-    @publication = ContentItemPresenter.new(content_item)
+  def set_content_item(presenter)
+    @publication = presenter.new(content_item)
     set_language_from_publication
   end
 

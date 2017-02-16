@@ -1,15 +1,54 @@
 require 'location_identifier'
 
-class LocalTransactionLocationIdentifier < LocationIdentifier
+class LocalTransactionLocationIdentifier
+  def self.find_slug(areas, content_item, tier_override = nil)
+    new(areas, content_item, tier_override).find_slug
+  end
+
+  attr_reader :areas, :content_item, :tier_override
+
+  def initialize(areas, content_item, tier_override = nil)
+    @areas = areas
+    @content_item = content_item
+    @tier_override = tier_override
+  end
+
   def find_slug
     matching_authority_by_tier_slug
   end
 
 private
 
-  def service_providing_tiers
-    return unless artefact
+  def matching_authority_by_tier_slug
+    matching_authority_by_tier.try(:[], "codes").try(:[], "govuk_slug")
+  end
 
-    artefact["details"].try(:[], "local_service").try(:[], "providing_tier")
+  def matching_authority_by_tier
+    return nil unless service_providing_tiers
+
+    service_providing_tiers.each do |tier|
+      areas.each do |area|
+        return area if tier == identify_tier(area["type"])
+      end
+    end
+    nil
+  end
+
+  def authority_types
+    %w(DIS LBO UTA CTY LGD MTD COI)
+  end
+
+  def identify_tier(type)
+    case type
+    when 'DIS' then 'district'
+    when 'CTY' then 'county'
+    when 'LBO', 'MTD', 'UTA', 'COI' then 'unitary'
+    end
+  end
+
+  def service_providing_tiers
+    return unless content_item
+
+    content_item["details"].try(:[], "service_tiers")
   end
 end

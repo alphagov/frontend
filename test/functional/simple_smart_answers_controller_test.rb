@@ -57,7 +57,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs for the 'A' version" do
-        with_variant educationnavigation: "A" do
+        with_variant EducationNavigation: "A" do
           get :show, slug: "a-slug"
           assert_match(/NormalBreadcrumb/, response.body)
           refute_match(/TaxonBreadcrumb/, response.body)
@@ -65,7 +65,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
-        with_variant educationnavigation: "B" do
+        with_variant EducationNavigation: "B" do
           get :show, slug: "a-slug"
           assert_match(/TaxonBreadcrumb/, response.body)
           refute_match(/NormalBreadcrumb/, response.body)
@@ -212,7 +212,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show normal breadcrumbs for the 'A' version" do
-          with_variant educationnavigation: "A" do
+          with_variant EducationNavigation: "A" do
             get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
             assert_match(/NormalBreadcrumb/, response.body)
             refute_match(/TaxonBreadcrumb/, response.body)
@@ -220,7 +220,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
-          with_variant educationnavigation: "B" do
+          with_variant EducationNavigation: "B" do
             get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
             assert_match(/TaxonBreadcrumb/, response.body)
             refute_match(/NormalBreadcrumb/, response.body)

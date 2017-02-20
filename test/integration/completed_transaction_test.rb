@@ -60,13 +60,36 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("form[action='/contact/govuk/assisted-digital-help-with-fees-survey-feedback']")
 
         within "form[action='/contact/govuk/assisted-digital-help-with-fees-survey-feedback']" do
-          within_fieldset "Did you have any assistance with applying for help with fees online today?" do
-            assert page.has_field?("No, I applied for help with fees online myself", type: "radio")
-            assert page.has_field?("Someone helped me to apply for help with fees online", type: "radio")
-            assert page.has_field?("I have difficulty using computers so someone filled in the online help with fees application for me", type: "radio")
+          within_fieldset "Did you receive any assistance to use this service today?" do
+            assert page.has_field?("Yes", type: "radio")
+            assert page.has_field?("No", type: "radio")
           end
 
-          within_fieldset "Overall, how satisfied are you with the help with fees online service?" do
+          within_fieldset "What assistance did you receive?" do
+            assert page.has_field?("Your comments", type: 'textarea')
+          end
+
+          within_fieldset "Who provided the assistance?" do
+            assert page.has_field?("A friend or relative", type: 'radio')
+            assert page.has_field?("A work colleague", type: 'radio')
+            assert page.has_field?("A staff member of the responsible government department", type: 'radio')
+            assert page.has_field?("Other (please specify)", type: 'radio')
+            assert page.has_field?("Tell us who the other person was", type: 'text')
+          end
+
+          within_fieldset "How satisfied are you with the assistance received?" do
+            assert page.has_field?("Very satisfied", type: 'radio')
+            assert page.has_field?("Satisfied", type: 'radio')
+            assert page.has_field?("Neither satisfied or dissatisfied", type: 'radio')
+            assert page.has_field?("Dissatisfied", type: 'radio')
+            assert page.has_field?("Very dissatisfied", type: 'radio')
+          end
+
+          within_fieldset "Is there any way the assistance received could be improved?" do
+            assert page.has_field?("Your comments", type: 'textarea')
+          end
+
+          within_fieldset "Overall, how satisfied are you with the online service?" do
             assert page.has_field?("Very satisfied", type: 'radio')
             assert page.has_field?("Satisfied", type: 'radio')
             assert page.has_field?("Neither satisfied or dissatisfied", type: 'radio')

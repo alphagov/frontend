@@ -4,38 +4,140 @@
   <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= publication.slug.gsub("done/", "") %>" />
   <input type="hidden" id="service_done_page_url" name="service_feedback[url]" value="<%= publication.web_url %>" />
 
+  <div id="transaction-completed-form-notice">
+    <p>When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
+  </div>
+
   <fieldset>
-    <legend><h2>Did you have any assistance with applying for help with fees online today?</h2></legend>
+    <legend><h2>Did you receive any assistance to use this service today?</h2></legend>
     <br />
-    <input type="radio" required name="service_feedback[assistance]" id="no-help" value="no">
-    <label for="no-help">No, I applied for help with fees online myself</label>
+    <label class="block-label" data-target="assistance-yes-section">
+      <input type="radio" required name="service_feedback[assistance_received]" value="yes">
+      Yes
+    </label>
     <br />
-    <input type="radio" required name="service_feedback[assistance]" id="some-help" value="some">
-    <label for="some-help">Someone helped me to apply for help with fees online</label>
-    <br />
-    <input type="radio" required name="service_feedback[assistance]" id="all-help" value="all">
-    <label for="all-help">I have difficulty using computers so someone filled in the online help with fees application for me</label>
+    <label class="block-label">
+      <input type="radio" required name="service_feedback[assistance_received]" id="no-help" value="no">
+      No
+    </label>
   </fieldset>
 
   <br/>
 
+  <div id="assistance-yes-section" class="js-hidden">
+    <fieldset>
+      <legend><h2>What assistance did you receive?</h2></legend>
+      <br />
+      <label for="assistance-received-comments" class="visuallyhidden">Your comments</label>
+      <textarea name="service_feedback[assistance_received_comments]" class="full-size counted" id="assistance-received-comments">
+      </textarea>
+      <p id="assistance-received-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
+    </fieldset>
+
+    <br/>
+
+    <fieldset>
+      <legend><h2>Who provided the assistance?</h2></legend>
+      <br />
+      <label class="block-label">
+        <input type="radio" required name="service_feedback[assistance_provided_by]" id="friend-relative" value="friend-relative">
+        A friend or relative
+      </label>
+      <br />
+      <label class="block-label">
+        <input type="radio" required name="service_feedback[assistance_provided_by]" id="work-colleague" value="work-colleague">
+        A work colleague
+      </label>
+      <br />
+      <label class="block-label" data-target="assistance-staff-or-other-section">
+        <input type="radio" required name="service_feedback[assistance_provided_by]" id="government-staff" value="government-staff">
+        A staff member of the responsible government department
+      </label>
+      <br />
+      <label class="block-label" data-target="assistance-staff-or-other-section">
+        <input type="radio" required name="service_feedback[assistance_provided_by]" id="other" value="other">
+        Other (please specify)
+      </label>
+      <br/>
+
+      <label for="other-specified" class="visually-hidden">Tell us who the other person was</label>
+      <input type="text" name="service_feedback[assistance_provided_by_other]" id="other-specified" value="">
+    </fieldset>
+
+    <br />
+
+    <div id="assistance-staff-or-other-section" class="js-hidden">
+      <fieldset>
+        <legend><h2>How satisfied are you with the assistance received?</h2></legend>
+        <br />
+        <label class="block-label">
+          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-very-satisfied" value="5">
+          Very satisfied
+        </label>
+        <br />
+        <label class="block-label">
+          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-satisfied" value="4">
+          Satisfied
+        </label>
+        <br />
+        <label class="block-label">
+          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-neither-satisfied-or-dissatisfied" value="3">
+          Neither satisfied or dissatisfied
+        </label>
+        <br />
+        <label class="block-label">
+          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-dissatisfied" value="2">
+          Dissatisfied
+        </label>
+        <br />
+        <label class="block-label">
+          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-very-dissatisfied" value="1">
+          Very dissatisfied
+        </label>
+      </fieldset>
+
+      <br />
+
+      <fieldset>
+        <legend><h2>Is there any way the assistance received could be improved?</h2></legend>
+        <br />
+        <label for="assistance-improvement-comments" class="visuallyhidden">Your comments</label>
+        <textarea name="service_feedback[assistance_improvement_comments]" class="full-size counted" id="assistance-improvement-comments">
+        </textarea>
+        <p id="assistance-improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
+      </fieldset>
+
+      <br />
+    </div>
+  </div>
+
   <fieldset>
-    <legend><h2>Overall, how satisfied are you with the help with fees online service?</h2></legend>
+    <legend><h2>Overall, how satisfied are you with the online service?</h2></legend>
     <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="very-satisfied" value="5">
-    <label for="very-satisfied">Very satisfied</label>
+    <label class="block-label">
+      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-very-satisfied" value="5">
+      Very satisfied
+    </label>
     <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="satisfied" value="4">
-    <label for="satisfied">Satisfied</label>
+    <label class="block-label">
+      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-satisfied" value="4">
+      Satisfied
+    </label>
     <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="neither-satisfied-or-dissatisfied" value="3">
-    <label for="neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied</label>
+    <label class="block-label">
+      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-neither-satisfied-or-dissatisfied" value="3">
+      Neither satisfied or dissatisfied
+    </label>
     <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="dissatisfied" value="2">
-    <label for="dissatisfied">Dissatisfied</label>
+    <label class="block-label">
+      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-dissatisfied" value="2">
+      Dissatisfied
+    </label>
     <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="very-dissatisfied" value="1">
-    <label for="very-dissatisfied">Very dissatisfied</label>
+    <label class="block-label">
+      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-very-dissatisfied" value="1">
+      Very dissatisfied
+    </label>
   </fieldset>
 
   <br />
@@ -47,13 +149,18 @@
     <textarea name="service_feedback[improvement_comments]" class="full-size counted" id="improvement-comments">
     </textarea>
     <p id="improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
-
-    <div id="transaction-completed-form-notice">
-      <p>Please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
-    </div>
   </fieldset>
+
   <br />
+
   <p class="action group">
     <button type="submit" class="button">Send feedback</button>
   </p>
 </form>
+
+<% content_for :extra_javascript do %>
+  <%= javascript_tag do %>
+    var showHideContent = new GOVUK.ShowHideContent();
+    showHideContent.init();
+  <% end %>
+<% end %>

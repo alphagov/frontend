@@ -1,6 +1,11 @@
 module EducationNavigationABTestable
   EDUCATION_NAVIGATION_DIMENSION = 41
 
+  def self.included(base)
+    base.helper_method :education_navigation_variant
+    base.after_filter :set_education_navigation_response_header
+  end
+
   def education_navigation_ab_test
     @ab_test ||=
       GovukAbTesting::AbTest.new(
@@ -28,11 +33,6 @@ module EducationNavigationABTestable
 
   def set_education_navigation_response_header
     education_navigation_variant.configure_response(response)
-  end
-
-  def self.included(base)
-    base.helper_method :education_navigation_variant
-    base.after_filter :set_education_navigation_response_header
   end
 
   def breadcrumbs

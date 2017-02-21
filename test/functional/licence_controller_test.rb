@@ -57,7 +57,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs for the 'A' version" do
-        with_variant educationnavigation: "A" do
+        with_variant EducationNavigation: "A" do
           get :search, slug: "a-slug"
           assert_match(/NormalBreadcrumb/, response.body)
           refute_match(/TaxonBreadcrumb/, response.body)
@@ -65,7 +65,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
-        with_variant educationnavigation: "B" do
+        with_variant EducationNavigation: "B" do
           get :search, slug: "a-slug"
           assert_match(/TaxonBreadcrumb/, response.body)
           refute_match(/NormalBreadcrumb/, response.body)
@@ -170,7 +170,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs for the 'A' version" do
-        with_variant educationnavigation: "A" do
+        with_variant EducationNavigation: "A" do
           get :authority, slug: "a-slug", authority_slug: "auth-slug"
           assert_match(/NormalBreadcrumb/, response.body)
           refute_match(/TaxonBreadcrumb/, response.body)
@@ -178,7 +178,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
-        with_variant educationnavigation: "B" do
+        with_variant EducationNavigation: "B" do
           get :authority, slug: "a-slug", authority_slug: "auth-slug"
           assert_match(/TaxonBreadcrumb/, response.body)
           refute_match(/NormalBreadcrumb/, response.body)

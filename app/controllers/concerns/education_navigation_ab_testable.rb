@@ -4,7 +4,7 @@ module EducationNavigationABTestable
   def education_navigation_ab_test
     @ab_test ||=
       GovukAbTesting::AbTest.new(
-        "educationnavigation",
+        "EducationNavigation",
         dimension: EDUCATION_NAVIGATION_DIMENSION
       )
   end

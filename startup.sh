@@ -1,4 +1,4 @@
 #!/bin/bash
 
 bundle install
-bundle exec rails s -p 3005
+govuk_setenv frontend bundle exec rails s -p 3005

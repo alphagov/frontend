@@ -24,7 +24,6 @@ class AnswerControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_api_has_unpublished_artefact("molehills", 3)
         content_store_has_random_item(base_path: '/molehills', schema: 'answer')
       end
 

@@ -7,15 +7,10 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
   context "GET show" do
     setup do
-      @artefact = artefact_for_slug('the-bridge-of-death')
-      @artefact["format"] = "simple_smart_answer"
+      content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
     end
 
     context "for live content" do
-      setup do
-        content_api_and_content_store_have_page('the-bridge-of-death', @artefact)
-      end
-
       should "set the cache expiry headers" do
         get :show, slug: "the-bridge-of-death"
 
@@ -28,57 +23,11 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         assert_redirected_to "/api/the-bridge-of-death.json"
       end
     end
-
-    context "for draft content" do
-      setup do
-        content_api_and_content_store_have_unpublished_page("the-bridge-of-death", 3, @artefact)
-      end
-
-      should "does not set the cache expiry headers" do
-        get :show, slug: "the-bridge-of-death", edition: 3
-
-        assert_nil response.headers["Cache-Control"]
-      end
-    end
-
-    context "A/B testing" do
-      setup do
-        setup_education_navigation_ab_test
-      end
-
-      teardown do
-        teardown_education_navigation_ab_test
-      end
-
-      should "show normal breadcrumbs by default" do
-        get :show, slug: "a-slug"
-        assert_match(/NormalBreadcrumb/, response.body)
-        refute_match(/TaxonBreadcrumb/, response.body)
-      end
-
-      should "show normal breadcrumbs for the 'A' version" do
-        with_variant EducationNavigation: "A" do
-          get :show, slug: "a-slug"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
-        end
-      end
-
-      should "show taxon breadcrumbs for the 'B' version" do
-        with_variant EducationNavigation: "B" do
-          get :show, slug: "a-slug"
-          assert_match(/TaxonBreadcrumb/, response.body)
-          refute_match(/NormalBreadcrumb/, response.body)
-        end
-      end
-    end
   end
 
   context "GET 'flow'" do
     context "for a simple_smart_answer slug" do
       setup do
-        @artefact = artefact_for_slug('the-bridge-of-death')
-        @artefact["format"] = "simple_smart_answer"
         @node_details = [
           {
             "kind" => "question",
@@ -114,8 +63,22 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
             "body" => "<p>This is outcome 2</p>",
           },
         ]
-        @artefact["details"]["nodes"] = @node_details
-        content_api_and_content_store_have_page('the-bridge-of-death', @artefact)
+
+        @payload = {
+          base_path: "/the-bridge-of-death",
+          document_type: "simple_smart_answer",
+          schema_name: "simple_smart_answer",
+          title: "The bridge of death",
+          description: "Cheery description about bridge of death",
+          details: {
+            start_button_text: "Start here",
+            body: "Hello",
+            nodes: @node_details,
+          },
+          external_related_links: []
+        }
+
+        content_store_has_item('/the-bridge-of-death', @payload)
       end
 
       should "calculate the flow state with no responses" do
@@ -150,12 +113,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-      end
-
-      should "not set cache control headers when previewing" do
-        get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2", edition: 2
-
-        assert_nil response.headers["Cache-Control"]
       end
 
       context "with form submission params" do
@@ -193,12 +150,18 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           assert_template "flow"
           assert_equal 'question-1', assigns[:flow_state].current_node.slug
         end
+
+        should "pass on the 'token' param when in fact check" do
+          get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-2", token: "123"
+
+          assert_redirected_to action: :flow, slug: "the-bridge-of-death", responses: "option-1/option-2", token: "123"
+        end
       end
 
       context "A/B testing" do
         setup do
           setup_education_navigation_ab_test
-          content_api_and_content_store_have_page_tagged_to_taxon('the-bridge-of-death', @artefact)
+          content_store_has_item_tagged_to_taxon(base_path: '/the-bridge-of-death', payload: @payload)
         end
 
         teardown do
@@ -227,31 +190,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           end
         end
       end
-    end
-
-    should "return a cacheable 404 if the slug doesn't exist" do
-      content_api_does_not_have_an_artefact('fooey')
-      content_store_does_not_have_item("/fooey")
-
-      get :flow, slug: 'fooey'
-      assert_equal 404, response.status
-      assert_equal "max-age=600, public", response.headers["Cache-Control"]
-    end
-
-    should "return a cacheable 404 if the slug isn't a simple_smart_answer" do
-      content_api_and_content_store_have_page('vat')
-      content_store_does_not_have_item("/vat")
-
-      get :flow, slug: 'vat'
-      assert_equal 404, response.status
-      assert_equal "max-age=600, public", response.headers["Cache-Control"]
-    end
-
-    should "503 if content_api times out" do
-      stub_request(:get, %r{\A#{GdsApi::TestHelpers::ContentApi::CONTENT_API_ENDPOINT}}).to_timeout
-      content_store_has_random_item(base_path: "/fooey")
-      get :flow, slug: 'fooey'
-      assert_equal 503, response.status
     end
   end
 end

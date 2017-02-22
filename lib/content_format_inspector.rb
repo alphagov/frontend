@@ -30,7 +30,6 @@ private
          GdsApi::InvalidUrl,
          ArtefactRetriever::RecordArchived,
          ArtefactRetriever::RecordNotFound => e
-    Airbrake.notify(e)
     @error = e
     {}
   end

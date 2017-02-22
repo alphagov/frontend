@@ -4,18 +4,17 @@ class GuideController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :set_content_item
+  before_action -> { request.variant = :print }, if: :print_request?
 
   def show
-    @publication.current_part = params[:part]
+    set_content_item(GuidePresenter)
+    @publication.current_part = part_requested
 
     if @publication.empty_part_list?
       raise RecordNotFound
-    elsif part_requested_but_no_parts? || (@publication.parts && part_requested_but_not_found?)
+    elsif part_requested && @publication.part_not_found?
       return redirect_to guide_path(slug: @publication.slug)
     end
-
-    request.variant = :print if params[:variant].to_s == "print"
 
     respond_to do |format|
       format.html.none
@@ -26,17 +25,13 @@ class GuideController < ApplicationController
     end
   end
 
-private
+  private
 
-  def set_content_item
-    super(GuidePresenter)
+  def part_requested
+    params[:part]
   end
 
-  def part_requested_but_no_parts?
-    params[:part] && (@publication.parts.nil? || @publication.parts.empty?)
-  end
-
-  def part_requested_but_not_found?
-    params[:part] && ! @publication.find_part(params[:part])
+  def print_request?
+    params[:variant].to_s == "print"
   end
 end

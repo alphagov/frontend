@@ -13,7 +13,7 @@
             <% else %>
               <li>
                 <span class="part-number"><%= @publication.parts.find_index(nav_part) + 1 %>.</span>
-                <%= link_to nav_part.title, part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" %>
+                <%= link_to nav_part.title, guide_path(slug: @publication.slug, part: nav_part.slug), :title => "#{ t 'formats.guide.part' } #{ @publication.part_number(nav_part) }: #{ nav_part.title }" %>
               </li>
             <% end %>
           <% end %>

@@ -1,6 +1,6 @@
 require 'integration_test_helper'
 
-class GuideRenderingTest < ActionDispatch::IntegrationTest
+class GuideTest < ActionDispatch::IntegrationTest
   context "with a multi-part guide" do
     setup do
       @content_item ||= content_store_has_example_item('/foo', schema: 'guide')

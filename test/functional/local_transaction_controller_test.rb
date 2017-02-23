@@ -7,6 +7,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LocalLinksManager
   include EducationNavigationAbTestHelper
+  include LocationHelpers
 
   def subscribe_logstasher_to_postcode_error_notification
     LogStasher.watch('postcode_error_notification') do |_name, _start, _finish, _id, payload, store|
@@ -314,6 +315,33 @@ class LocalTransactionControllerTest < ActionController::TestCase
           end
         end
       end
+    end
+  end
+
+  context "when visiting a local transaction which is in fact check" do
+    setup do
+      configure_mapit_and_local_links(postcode: "SW1A 1AA", authority: "westminster", lgsl: 461, lgil: 8)
+
+      @payload = {
+        base_path: "/pay-bear-tax",
+        document_type: "local_transaction",
+        format: "local_transaction",
+        schema_name: "local_transaction",
+        details: {
+          lgsl_code: 461,
+          lgil_override: 8,
+          service_tiers: ["county", "unitary"],
+          introduction: "Information about paying local tax on owning or looking after a bear."
+        }
+      }
+
+      content_store_has_item('/pay-bear-tax', @payload)
+    end
+
+    should "redirect to the correct authority and pass cache and token as params" do
+      post :search, slug: 'pay-bear-tax', postcode: 'SW1A 1AA', token: '123', cache: 'abc'
+
+      assert_redirected_to "/pay-bear-tax/westminster?cache=abc&token=123"
     end
   end
 end

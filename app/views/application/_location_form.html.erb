@@ -22,9 +22,8 @@
   <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
     <fieldset>
       <legend class="visuallyhidden">Postcode lookup</legend>
-      <% if @edition %>
-        <input type="hidden" name="edition" value="<%= @edition %>">
-      <% end %>
+
+      <%= render partial: 'draft_fields' %>
 
       <div class="ask_location">
         <label class="instruction" for="postcode">Enter a postcode</label>

@@ -1,0 +1,11 @@
+<% if @edition %>
+  <input type="hidden" name="edition" value="<%= @edition %>">
+<% end %>
+
+<% if params[:token]  %>
+  <input type="hidden" id="token" name="token" value="<%= params[:token] %>">
+<% end %>
+
+<% if params[:cache] %>
+  <input type="hidden" id="cache" name="cache" value="<%= params[:cache] %>">
+<% end %>

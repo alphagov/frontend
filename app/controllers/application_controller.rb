@@ -121,4 +121,19 @@ protected
     end
   end
   helper_method :present_new_navigation?
+
+private
+
+  def default_url_options
+    {}.merge(token)
+      .merge(cache)
+  end
+
+  def token
+    params[:token] ? { token: params[:token] } : {}
+  end
+
+  def cache
+    params[:cache] ? { cache: params[:cache] } : {}
+  end
 end

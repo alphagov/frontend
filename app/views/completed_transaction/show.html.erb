@@ -24,8 +24,8 @@
 
   <% if show_survey? %>
     <div class="satisfaction-survey">
-      <% if AssistedDigitalSatisfactionSurvey.show_help_with_fees_survey? @publication.slug %>
-        <%= render 'assisted_digital_help_with_fees_satisfaction_survey', publication: @publication %>
+      <% if AssistedDigitalSatisfactionSurvey.show_survey? @publication.slug %>
+        <%= render 'assisted_digital_satisfaction_survey', publication: @publication %>
       <% else %>
         <%= render 'standard_satisfaction_survey', publication: @publication %>
       <% end %>

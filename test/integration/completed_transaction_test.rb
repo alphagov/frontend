@@ -47,7 +47,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
   end
 
   context 'satisfaction surveys' do
-    context 'for editions using the assisted digital help with fees survey' do
+    context 'for editions using the assisted digital survey' do
       setup do
         payload = @payload.merge(base_path: "/done/register-flood-risk-exemption")
         content_store_has_item("/done/register-flood-risk-exemption", payload)
@@ -55,11 +55,11 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       end
 
       should 'have a form that posts to the assisted-digital-survey endpoint' do
-        assert page.has_text?('Help with fees')
+        assert page.has_text?('Help us improve this service')
 
-        assert page.has_selector?("form[action='/contact/govuk/assisted-digital-help-with-fees-survey-feedback']")
+        assert page.has_selector?("form[action='/contact/govuk/assisted-digital-survey-feedback']")
 
-        within "form[action='/contact/govuk/assisted-digital-help-with-fees-survey-feedback']" do
+        within "form[action='/contact/govuk/assisted-digital-survey-feedback']" do
           within_fieldset "Did you receive any assistance to use this service today?" do
             assert page.has_field?("Yes", type: "radio")
             assert page.has_field?("No", type: "radio")

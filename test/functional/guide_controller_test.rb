@@ -10,108 +10,57 @@ class GuideControllerTest < ActionController::TestCase
   end
 
   context "GET show" do
-    setup do
-      @artefact = artefact_for_slug('data-protection')
-      @artefact["format"] = "guide"
-    end
-
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('data-protection', @artefact)
+        @content_item = content_store_has_example_item('/foo', schema: 'guide')
       end
 
       should "set the cache expiry headers" do
-        get :show, slug: "data-protection"
+        get :show, slug: "foo"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
 
       should "redirect json requests to the api" do
-        get :show, slug: "data-protection", format: 'json'
+        get :show, slug: "foo", format: 'json'
 
-        assert_redirected_to "/api/data-protection.json"
-      end
-    end
-
-    context "for draft content" do
-      setup do
-        content_api_and_content_store_have_unpublished_page("data-protection", 3, @artefact)
+        assert_redirected_to "/api/foo.json"
       end
 
-      should "does not set the cache expiry headers" do
-        get :show, slug: "data-protection", edition: 3
+      should "have specified parts selected " do
+        first_part = @content_item['details']['parts'][0]
+        get :show, slug: "foo", part: first_part['slug']
+        assert_equal first_part['title'], assigns["publication"].current_part.title
+      end
 
-        assert_nil response.headers["Cache-Control"]
+      should "redirect to base url if bad part requested of multi-part guide" do
+        get :show, slug: "foo", part: "non-existent-part"
+        assert_response :redirect
+        assert_redirected_to @content_item['base_path']
       end
     end
 
     context "guide without parts" do
+      setup do
+        content_store_has_example_item('/foo', schema: 'guide', example: 'no-part-guide')
+      end
+
       should "return a 404" do
-        content_api_and_content_store_have_page(
-          "disability-living-allowance-guide",
-          "title" => "Disability Living Allowance",
-          "format" => "guide",
-          "details" => {
-            "parts" => [],
-            "overview" => ""
-          })
-        get :show, slug: "disability-living-allowance-guide"
+        get :show, slug: "foo"
         assert_equal '404', response.code
       end
 
       should "return 404 if part requested" do
-        content_api_and_content_store_have_page(
-          "a-slug",
-          'web_url' => 'http://example.org/a-slug',
-          'format' => 'guide',
-          "details" => {
-            'parts' => []
-          })
-
         @controller.expects(:render).with(has_entry(status: 404))
-        get :show, slug: "a-slug", part: "information"
-      end
-    end
-
-    context "guide with parts" do
-      setup do
-        content_api_and_content_store_have_page(
-          "a-slug",
-          'web_url' => 'http://example.org/a-slug',
-          'format' => 'guide',
-          "details" => {
-            'parts' => [
-              {
-                'title' => 'first',
-                'slug' => 'first',
-                'name' => 'First Part',
-              },
-              {
-                'title' => 'second',
-                'slug' => 'second',
-                'name' => 'Second Part',
-              },
-            ]
-          })
-      end
-
-      should "have specified parts selected " do
-        get :show, slug: "a-slug", part: "first"
-        assert_equal "First Part", assigns["publication"].current_part.name
-      end
-
-      context "with missing part" do
-        should "redirect to base url if bad part requested of multi-part guide" do
-          get :show, slug: "a-slug", part: "non-existent-part"
-          assert_response :redirect
-          assert_redirected_to '/a-slug'
-        end
+        get :show, slug: "foo", part: "information"
       end
     end
 
     context "A/B testing" do
       setup do
-        setup_education_navigation_ab_test
+        set_new_navigation
+        content_store_has_example_item_tagged_to_taxon('/foo', schema: 'guide')
+        stub_controller_ab_test
       end
 
       teardown do
@@ -119,14 +68,14 @@ class GuideControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs by default" do
-        get :show, slug: "a-slug"
+        get :show, slug: "foo"
         assert_match(/NormalBreadcrumb/, response.body)
         refute_match(/TaxonBreadcrumb/, response.body)
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         with_variant EducationNavigation: "A" do
-          get :show, slug: "a-slug"
+          get :show, slug: "foo"
           assert_match(/NormalBreadcrumb/, response.body)
           refute_match(/TaxonBreadcrumb/, response.body)
         end
@@ -134,7 +83,7 @@ class GuideControllerTest < ActionController::TestCase
 
       should "show taxon breadcrumbs for the 'B' version" do
         with_variant EducationNavigation: "B" do
-          get :show, slug: "a-slug"
+          get :show, slug: "foo"
           assert_match(/TaxonBreadcrumb/, response.body)
           refute_match(/NormalBreadcrumb/, response.body)
         end
@@ -142,7 +91,7 @@ class GuideControllerTest < ActionController::TestCase
     end
 
     should "return print view" do
-      content_api_and_content_store_have_page("a-slug", 'format' => 'guide')
+      content_store_has_example_item("/a-slug", schema: "guide")
 
       prevent_implicit_rendering
       @controller.expects(:render).with(:show, layout: "application.print")

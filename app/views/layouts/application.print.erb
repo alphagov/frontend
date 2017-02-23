@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <title><% if @publication %><%= page_title(@publication) %><% else %><%= yield :title %><% end %></title>
-  <% if @publication.overview.present? %>
-    <meta name="description" content="<%= @publication.overview %>">
+  <% if @publication.description.present? %>
+    <meta name="description" content="<%= @publication.description %>">
   <% end %>
 
   <%= yield :extra_headers %>

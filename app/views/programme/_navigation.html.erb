@@ -2,7 +2,7 @@
 <aside>
   <div class="inner">
     <nav role="navigation" class="page-navigation" aria-label="parts to this guide">
-      <% @publication.parts.each_slice(parts_column_height(@publication.parts)).with_index do |parts,i| %>
+      <% @publication.parts.each_slice(programme_parts_column_height(@publication.parts)).with_index do |parts,i| %>
         <ol<%= " start=\"#{parts_column_height(@publication.parts) + 1}\"".html_safe if i == 1 %>>
           <% parts.each do |nav_part| %>
             <% if @publication.current_part == nav_part %>
@@ -13,7 +13,7 @@
             <% else %>
               <li>
                 <span class="part-number"><%= @publication.parts.find_index(nav_part) + 1 %>.</span>
-                <%= link_to nav_part.title, part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ part_number @publication.parts, nav_part }: #{ nav_part.title }" %>
+                <%= link_to nav_part.title, programme_part_path(@publication.slug, nav_part.slug, @edition), :title => "#{ t 'formats.guide.part' } #{ programme_part_number @publication.parts, nav_part }: #{ nav_part.title }" %>
               </li>
             <% end %>
           <% end %>

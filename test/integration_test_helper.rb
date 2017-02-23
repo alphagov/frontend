@@ -58,6 +58,24 @@ class ActionDispatch::IntegrationTest
     end
   end
 
+  def assert_parts_navigation_is_correct(content_item)
+    parts_array = content_item['details']['parts']
+    base_path = content_item['base_path']
+
+    part_titles = page.find('aside nav').all('li').map(&:text).map(&:strip)
+    expected_titles = []
+    parts_array.each_with_index do |part, i|
+      expected_titles << "#{i + 1}. #{part['title']}"
+    end
+    assert_equal expected_titles, part_titles
+
+    part_urls = page.find('aside nav').all('li a').map(&->(a) { a['href'] })
+    expected_urls = parts_array.map { |part| "#{base_path}/#{part['slug']}" }
+
+    # the 'overview' part isn't linked
+    assert_equal expected_urls.slice(1..-1), part_urls
+  end
+
   # The following selectors are specified using XPath because Capybara/Nokogiri does not seem to find non-standard tags
   # using the usual "CSS-style" selectors.
   def assert_breadcrumb_rendered

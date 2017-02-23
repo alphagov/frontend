@@ -20,12 +20,28 @@ module EducationNavigationAbTestHelper
         },
         taxon_breadcrumbs: {
           breadcrumbs: ['TaxonBreadcrumbs'],
-        },
+        }
       )
     )
   end
 
   def teardown_education_navigation_ab_test
     ENV['ENABLE_NEW_NAVIGATION'] = nil
+  end
+
+  def sidebar
+    Nokogiri::HTML.parse(response.body).at_css(".related-container")
+  end
+
+  def assert_normal_navigation_visible
+    assert_match(/NormalBreadcrumb/, response.body)
+    refute_match(/TaxonBreadcrumb/, response.body)
+    refute_match(/A Taxon/, sidebar)
+  end
+
+  def assert_taxonomy_navigation_visible
+    assert_match(/TaxonBreadcrumb/, response.body)
+    refute_match(/NormalBreadcrumb/, response.body)
+    assert_match(/A Taxon/, sidebar)
   end
 end

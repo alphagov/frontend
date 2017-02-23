@@ -144,23 +144,23 @@ class ProgrammeControllerTest < ActionController::TestCase
 
       should "show normal breadcrumbs by default" do
         get :show, slug: "a-slug"
-        assert_match(/NormalBreadcrumb/, response.body)
-        refute_match(/TaxonBreadcrumb/, response.body)
+
+        assert_normal_navigation_visible
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         with_variant EducationNavigation: "A" do
           get :show, slug: "a-slug"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
+
+          assert_normal_navigation_visible
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         with_variant EducationNavigation: "B" do
           get :show, slug: "a-slug"
-          assert_match(/TaxonBreadcrumb/, response.body)
-          refute_match(/NormalBreadcrumb/, response.body)
+
+          assert_taxonomy_navigation_visible
         end
       end
     end

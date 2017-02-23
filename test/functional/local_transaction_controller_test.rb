@@ -271,23 +271,23 @@ class LocalTransactionControllerTest < ActionController::TestCase
       context "results" do
         should "show normal breadcrumbs by default" do
           get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
+
+          assert_normal_navigation_visible
         end
 
         should "show normal breadcrumbs for the 'A' version" do
           with_variant EducationNavigation: "A" do
             get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-            assert_match(/NormalBreadcrumb/, response.body)
-            refute_match(/TaxonBreadcrumb/, response.body)
+
+            assert_normal_navigation_visible
           end
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
           with_variant EducationNavigation: "B" do
             get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-            assert_match(/TaxonBreadcrumb/, response.body)
-            refute_match(/NormalBreadcrumb/, response.body)
+
+            assert_taxonomy_navigation_visible
           end
         end
       end
@@ -295,23 +295,23 @@ class LocalTransactionControllerTest < ActionController::TestCase
       context "search" do
         should "show normal breadcrumbs by default" do
           get :search, slug: "a-slug"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
+
+          assert_normal_navigation_visible
         end
 
         should "show normal breadcrumbs for the 'A' version" do
           with_variant EducationNavigation: "A" do
             get :search, slug: "a-slug"
-            assert_match(/NormalBreadcrumb/, response.body)
-            refute_match(/TaxonBreadcrumb/, response.body)
+
+            assert_normal_navigation_visible
           end
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
           with_variant EducationNavigation: "B" do
             get :search, slug: "a-slug"
-            assert_match(/TaxonBreadcrumb/, response.body)
-            refute_match(/NormalBreadcrumb/, response.body)
+
+            assert_taxonomy_navigation_visible
           end
         end
       end

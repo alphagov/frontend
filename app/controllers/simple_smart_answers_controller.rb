@@ -1,20 +1,17 @@
 require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
-  include Previewable
-  include Cacheable
   include Navigable
   include EducationNavigationABTestable
 
   before_filter :redirect_if_api_request, only: :show
-  before_filter :set_publication
+  before_filter :set_expiry
+  before_filter -> { set_content_item(SimpleSmartAnswerPresenter) }
 
   def show
   end
 
   def flow
-    cacheable_404 and return unless @publication.format == "simple_smart_answer"
-
     responses = params[:responses].to_s.split('/')
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
     @flow_state = @flow.state_for_responses(responses)

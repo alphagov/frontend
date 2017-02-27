@@ -1,5 +1,3 @@
-require 'location_identifier'
-
 class LocalTransactionLocationIdentifier
   def self.find_slug(areas, content_item, tier_override = nil)
     new(areas, content_item, tier_override).find_slug

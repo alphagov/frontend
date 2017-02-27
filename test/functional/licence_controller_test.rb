@@ -1,8 +1,10 @@
 require "test_helper"
 require 'gds_api/test_helpers/mapit'
+require 'gds_api/test_helpers/licence_application'
 
 class LicenceControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LicenceApplication
   include EducationNavigationAbTestHelper
 
   context "GET search" do
@@ -88,17 +90,25 @@ class LicenceControllerTest < ActionController::TestCase
 
   context "POST to search" do
     setup do
-      content_api_and_content_store_have_page(
-        'licence-to-kill',
-        artefact: {
-          "format" => "licence",
-          "web_url" => "http://example.org/licence-to-kill",
-          "title" => "Licence to kill",
-          "details" => {}
-        })
+      content_api_and_content_store_have_page('licence-to-kill',
+        "format" => "licence",
+        "web_url" => "http://example.org/licence-to-kill",
+        "title" => "Licence to kill",
+        "details" => {
+          "licence_identifier" => "1071-5-1",
+        }
+      )
     end
 
     context "loading the licence edition when posting a location" do
+      setup do
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => true,
+                       "isOfferedByCounty" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => [])
+      end
+
       context "for an English local authority" do
         setup do
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [

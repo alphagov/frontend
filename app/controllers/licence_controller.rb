@@ -14,26 +14,6 @@ class LicenceController < ApplicationController
   NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
   NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
 
-  # NOTE: This is a temporary fix to ensure that these licences get treated as
-  # 'county/unitary' tiered (as opposed to 'district/unitary'). The tier data
-  # for licences used to be stored in LocalService model records in the content
-  # api, but the entries for the licences below have since been removed. In
-  # future this tier data will be stored in the licensing application
-  # (Licensify). Once that has happened and Frontend has been updated to use
-  # that tier information, this list and related code in the
-  # `local_authority_slug` method can be removed
-  LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE = [
-    'scaffolding-and-hoarding-licence',
-    'skip-operator-licence',
-    'permission-to-place-tables-and-chairs-on-the-pavement',
-    'pavement-or-street-display-licence',
-    'petroleum-storage-licence',
-    'weighbridge-operator-certificate',
-    'performing-animals-registration',
-    'approval-of-premises-for-civil-marriage-or-civil-partnership',
-    'licence-projection-over-highway-england-wales',
-  ].freeze
-
   def search
     @interaction_details = licence_details
 
@@ -134,8 +114,7 @@ private
     return nil unless mapit_response.location_found?
 
     @_la_slug ||= begin
-      # tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(params['slug'])
-      LicenceLocationIdentifier.find_slug(mapit_response.location.areas, licence_details)
+      LocalAuthoritySlugFinder.call(mapit_response.location.areas, @licence_details.offered_by_county?)
     end
   end
 

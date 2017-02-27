@@ -18,7 +18,7 @@ gem 'rails', '4.2.7.1' # version 5 is available
 gem 'rails-i18n', '~> 4.0.0'
 gem 'sass', '~> 3.4.0'
 gem 'sass-rails'
-gem 'slimmer', '~> 10.1.1'
+gem 'slimmer', '~> 10.1.3'
 gem 'sprockets-rails', "~> 2.3.0" # version 3.2 available, but breaks a test.
 gem 'shared_mustache', '~> 1.0.0'
 gem 'statsd-ruby', '1.0.0', require: 'statsd'

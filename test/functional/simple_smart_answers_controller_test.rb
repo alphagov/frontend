@@ -5,6 +5,17 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::ContentApi
   include EducationNavigationAbTestHelper
 
+  def simple_smart_answer_content_item
+    {
+      base_path: "/the-bridge-of-death",
+      document_type: "simple_smart_answer",
+      schema_name: "simple_smart_answer",
+      title: "The bridge of death",
+      description: "Cheery description about bridge of death",
+      external_related_links: []
+    }
+  end
+
   context "GET show" do
     setup do
       content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
@@ -21,6 +32,42 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         get :show, slug: "the-bridge-of-death", format: 'json'
 
         assert_redirected_to "/api/the-bridge-of-death.json"
+      end
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+        content_store_has_item_tagged_to_taxon(
+          base_path: '/the-bridge-of-death',
+          payload: simple_smart_answer_content_item
+        )
+      end
+
+      teardown do
+        teardown_education_navigation_ab_test
+      end
+
+      should "show normal navigation by default" do
+        get :show, slug: "the-bridge-of-death"
+
+        assert_normal_navigation_visible
+      end
+
+      should "show normal navigation for the 'A' version" do
+        with_variant EducationNavigation: "A" do
+          get :show, slug: "the-bridge-of-death"
+
+          assert_normal_navigation_visible
+        end
+      end
+
+      should "show taxon navigation for the 'B' version" do
+        with_variant EducationNavigation: "B" do
+          get :show, slug: "the-bridge-of-death"
+
+          assert_taxonomy_navigation_visible
+        end
       end
     end
   end
@@ -64,21 +111,15 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           },
         ]
 
-        @payload = {
-          base_path: "/the-bridge-of-death",
-          document_type: "simple_smart_answer",
-          schema_name: "simple_smart_answer",
-          title: "The bridge of death",
-          description: "Cheery description about bridge of death",
+        payload = simple_smart_answer_content_item.merge(
           details: {
             start_button_text: "Start here",
             body: "Hello",
             nodes: @node_details,
-          },
-          external_related_links: []
-        }
+          }
+        )
 
-        content_store_has_item('/the-bridge-of-death', @payload)
+        content_store_has_item('/the-bridge-of-death', payload)
       end
 
       should "calculate the flow state with no responses" do
@@ -155,39 +196,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-2", token: "123"
 
           assert_redirected_to action: :flow, slug: "the-bridge-of-death", responses: "option-1/option-2", token: "123"
-        end
-      end
-
-      context "A/B testing" do
-        setup do
-          setup_education_navigation_ab_test
-          content_store_has_item_tagged_to_taxon(base_path: '/the-bridge-of-death', payload: @payload)
-        end
-
-        teardown do
-          teardown_education_navigation_ab_test
-        end
-
-        should "show normal breadcrumbs by default" do
-          get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
-        end
-
-        should "show normal breadcrumbs for the 'A' version" do
-          with_variant EducationNavigation: "A" do
-            get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
-            assert_match(/NormalBreadcrumb/, response.body)
-            refute_match(/TaxonBreadcrumb/, response.body)
-          end
-        end
-
-        should "show taxon breadcrumbs for the 'B' version" do
-          with_variant EducationNavigation: "B" do
-            get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
-            assert_match(/TaxonBreadcrumb/, response.body)
-            refute_match(/NormalBreadcrumb/, response.body)
-          end
         end
       end
     end

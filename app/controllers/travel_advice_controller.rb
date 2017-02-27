@@ -19,11 +19,4 @@ private
   def redirect_if_api_request
     redirect_to "/api/#{FOREIGN_TRAVEL_ADVICE_SLUG}.json" if request.format.json?
   end
-
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      FOREIGN_TRAVEL_ADVICE_SLUG + "/" + @country,
-      params[:edition]
-    )
-  end
 end

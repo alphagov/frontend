@@ -11,6 +11,10 @@ module Services
     @content_store ||= GdsApi::ContentStore.new(Plek.new.find('content-store'))
   end
 
+  def self.licensify
+    @licensify ||= GdsApi::LicenceApplication.new(Plek.new.find('licensify'))
+  end
+
   def self.statsd
     @statsd ||= begin
       statsd_client = Statsd.new("localhost")

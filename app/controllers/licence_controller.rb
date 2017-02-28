@@ -61,7 +61,7 @@ class LicenceController < ApplicationController
     elsif location_specific_licence?
       raise RecordNotFound unless artefact_with_snac
       @publication = PublicationPresenter.new(artefact_with_snac)
-      @interaction_details = licence_details_for_snac(params[:authority_slug], snac_from_slug)
+      @interaction_details = licence_details(params[:authority_slug], snac_from_slug)
     else
       @interaction_details = licence_details(params[:authority_slug])
     end
@@ -96,17 +96,15 @@ private
   end
 
   def location_specific_licence?
-    artefact['details']['licence']['location_specific']
+    licence_details[:licence]['location_specific']
   rescue
     false
   end
 
-  def licence_details(authority_slug = nil)
-    LicenceDetailsFromArtefact.new(artefact, authority_slug, nil, params[:interaction]).build_attributes
-  end
+  def licence_details(authority_slug = nil, snac = nil)
+    return {} if @publication.continuation_link.present?
 
-  def licence_details_for_snac(authority_slug, snac)
-    LicenceDetailsFromArtefact.new(artefact_with_snac, authority_slug, snac, params[:interaction]).build_attributes
+    LicenceDetailsFromLicensify.new(artefact, authority_slug, snac, params[:interaction]).build_attributes
   end
 
   def location_error
@@ -136,8 +134,8 @@ private
     return nil unless mapit_response.location_found?
 
     @_la_slug ||= begin
-      tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(params['slug'])
-      LicenceLocationIdentifier.find_slug(mapit_response.location.areas, artefact, tier_override)
+      # tier_override = :county_unitary if LICENCE_SLUGS_WITH_COUNTY_TIER_OVERRIDE.include?(params['slug'])
+      LicenceLocationIdentifier.find_slug(mapit_response.location.areas, licence_details)
     end
   end
 

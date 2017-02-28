@@ -59,8 +59,7 @@ class GuideControllerTest < ActionController::TestCase
     context "A/B testing" do
       setup do
         set_new_navigation
-        content_store_has_example_item_tagged_to_taxon('/foo', schema: 'guide')
-        stub_controller_ab_test
+        content_store_has_example_item_tagged_to_taxon('/a-slug', schema: 'guide')
       end
 
       teardown do
@@ -68,24 +67,21 @@ class GuideControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs by default" do
-        get :show, slug: "foo"
-
-        assert_normal_navigation_visible
+        expect_normal_navigation
+        get :show, slug: "a-slug"
       end
 
       should "show normal breadcrumbs for the 'A' version" do
+        expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :show, slug: "foo"
-
-          assert_normal_navigation_visible
+          get :show, slug: "a-slug"
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
+        expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :show, slug: "foo"
-
-          assert_taxonomy_navigation_visible
+          get :show, slug: "a-slug"
         end
       end
     end

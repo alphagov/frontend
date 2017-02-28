@@ -60,24 +60,21 @@ class TransactionControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs by default" do
+        expect_normal_navigation
         get :show, slug: "a-slug"
-
-        assert_normal_navigation_visible
       end
 
       should "show normal breadcrumbs for the 'A' version" do
+        expect_normal_navigation
         with_variant EducationNavigation: "A" do
           get :show, slug: "a-slug"
-
-          assert_normal_navigation_visible
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
+        expect_new_navigation
         with_variant EducationNavigation: "B" do
           get :show, slug: "a-slug"
-
-          assert_taxonomy_navigation_visible
         end
       end
     end
@@ -132,24 +129,21 @@ class TransactionControllerTest < ActionController::TestCase
         end
 
         should "show normal breadcrumbs by default" do
+          expect_normal_navigation
           get :show, slug: "jobsearch"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
         end
 
         should "show normal breadcrumbs for the 'A' version" do
+          expect_normal_navigation
           with_variant EducationNavigation: "A" do
             get :show, slug: "jobsearch"
-            assert_match(/NormalBreadcrumb/, response.body)
-            refute_match(/TaxonBreadcrumb/, response.body)
           end
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
+          expect_new_navigation
           with_variant EducationNavigation: "B" do
             get :show, slug: "jobsearch"
-            assert_match(/TaxonBreadcrumb/, response.body)
-            refute_match(/NormalBreadcrumb/, response.body)
           end
         end
       end

@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   attr_accessor :navigation_helpers
 
-  helper_method :breadcrumbs
+  helper_method :breadcrumbs, :navigation_helpers
 
 protected
 

@@ -3,7 +3,7 @@
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  main_class: ("multi-page" if @interaction_details and @interaction_details[:authority]),
+  main_class: ("multi-page" if @licence_details.authority),
   context: "Licence",
   title: @publication.title,
   publication: @publication,
@@ -11,9 +11,9 @@
 } do %>
   <article role="article" class="group content-block">
     <div class="inner">
-      <% if @interaction_details %>
+      <% if @licence_details.present? %>
         <div class="intro">
-        <% if @interaction_details[:licence]['location_specific'] %>
+        <% if @licence_details.local_authority_specific? %>
           <div class="get-started-intro">
             <h1>Apply for this licence</h1>
             <%= render partial: 'location_form',
@@ -28,7 +28,7 @@
           <p>The authority you select will not affect the type of licence you apply for.</p>
           <%= form_tag @publication.slug, method: 'get' do %>
             <ul>
-              <% @interaction_details[:licence]['authorities'].each do |authority| %>
+              <% @licence_details.authorities.each do |authority| %>
                 <li><%= radio_button :authority, :slug, authority['slug'] %><%= label :authority, :slug, authority['name'], :value => authority['slug'] %></li>
               <% end %>
             </ul>

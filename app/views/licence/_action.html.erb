@@ -2,17 +2,17 @@
   <h1>How to <%= action %></h1>
 </header>
 
-<% if @interaction_details[:authority]['actions'][action].size > 1 %>
+<% if @licence_details.authority["actions"][action].size > 1 %>
   <p>There is more than one online form available for this licence:</p>
 
   <ol>
-    <% @interaction_details[:authority]['actions'][action].each_with_index do |link, i| %>
+    <% @licence_details.authority["actions"][action].each_with_index do |link, i| %>
       <li><%= link_to link['description'], "#form-#{i+1}" %></li>
     <% end %>
   </ol>
 <% end %>
 
-<% @interaction_details[:authority]['actions'][action].each_with_index do |link, i| %>
+<% @licence_details.authority["actions"][action].each_with_index do |link, i| %>
   <section>
     <h2><a id="form-<%= i+1 %>"></a><%= i+1 %>. <%= link['description'] %></h2>
 

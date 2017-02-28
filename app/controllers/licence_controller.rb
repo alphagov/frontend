@@ -15,48 +15,49 @@ class LicenceController < ApplicationController
   NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
 
   def search
-    @interaction_details = licence_details
-
-    if request.post?
-      if postcode_search_submitted?
-        @postcode = postcode
-        @location_error = location_error
-
-        if local_authority_slug
-          redirect_to licence_authority_path(slug: params[:slug], authority_slug: local_authority_slug)
-        end
-      end
-    elsif @publication.continuation_link.present?
+    if @publication.continuation_link.present?
       render :continues_on
-    elsif authority_choice_submitted?
+    elsif @licence_details.local_authority_specific? && postcode_search_submitted?
+      @postcode = postcode
+      @location_error = location_error
+
+      redirect_to licence_authority_path(slug: params[:slug], authority_slug: local_authority_slug) if local_authority_slug
+    elsif @licence_details.single_licence_authority_present?
+      redirect_to licence_authority_path(slug: params[:slug], authority_slug: @licence_details.authority['slug'])
+    elsif @licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
       redirect_to licence_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
-    elsif single_authority_interaction_details_present?
-      redirect_to licence_authority_path(slug: params[:slug], authority_slug: @interaction_details[:authority]["slug"])
     end
   end
 
   def authority
     if @publication.continuation_link.present?
       redirect_to licence_path(slug: params[:slug])
-    elsif location_specific_licence?
-      raise RecordNotFound unless artefact_with_snac
-      @publication = PublicationPresenter.new(artefact_with_snac)
-      @interaction_details = licence_details(params[:authority_slug], snac_from_slug)
-    else
-      @interaction_details = licence_details(params[:authority_slug])
+    elsif @licence_details.local_authority_specific?
+      @licence_details = LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, nil, params[:interaction])
     end
   end
 
 private
 
-  def artefact_with_snac
-    return nil if snac_from_slug.blank?
+  def set_publication
+    @publication = LicencePresenter.new(artefact)
+    @licence_details = LicenceDetailsPresenter.new(licence_details_from_api, params["authority_slug"], params[:interaction])
+    set_language_from_publication
+  end
 
-    @_artefact_with_snac ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition],
-      snac_from_slug
-    )
+  def licence_details_from_api(snac = nil)
+    return {} if @publication.continuation_link.present?
+
+    begin
+      Services.licensify.details_for_licence(artefact["details"]["licence_identifier"], snac)
+    rescue GdsApi::HTTPErrorResponse, GdsApi::TimedOutException
+      {}
+    end
+  end
+
+  def licence_details_from_api_for_local_authority
+    raise RecordNotFound unless snac_from_slug
+    licence_details_from_api(snac_from_slug)
   end
 
   def snac_from_slug
@@ -64,27 +65,11 @@ private
   end
 
   def postcode_search_submitted?
-    params[:postcode]
+    params[:postcode] && request.post?
   end
 
   def authority_choice_submitted?
     params[:authority] && params[:authority][:slug]
-  end
-
-  def single_authority_interaction_details_present?
-    @interaction_details && @interaction_details[:authority]
-  end
-
-  def location_specific_licence?
-    licence_details[:licence]['location_specific']
-  rescue
-    false
-  end
-
-  def licence_details(authority_slug = nil, snac = nil)
-    return {} if @publication.continuation_link.present?
-
-    LicenceDetailsFromLicensify.new(artefact, authority_slug, snac, params[:interaction]).build_attributes
   end
 
   def location_error

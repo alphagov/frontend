@@ -385,7 +385,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           "title" => "Licence to kill",
           "format" => "licence",
           "details" => {
-            "format" => "Licence"
+            "licence_identifier" => "1071-5-1",
           }
         )
 
@@ -403,6 +403,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         }
 
         mapit_has_area_for_code('govuk_slug', 'south-ribble', south_ribble)
+        licence_does_not_exist('1071-5-1/30UN')
       end
 
       should "show message to contact local council" do

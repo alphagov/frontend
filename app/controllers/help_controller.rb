@@ -19,7 +19,7 @@ class HelpController < ApplicationController
 
   def ab_testing
     ab_test = GovukAbTesting::AbTest.new("Example", dimension: 40)
-    @requested_variant = ab_test.requested_variant(request)
+    @requested_variant = ab_test.requested_variant(request.headers)
     @requested_variant.configure_response(response)
   end
 

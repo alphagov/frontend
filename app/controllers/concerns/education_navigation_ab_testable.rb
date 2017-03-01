@@ -20,7 +20,7 @@ module EducationNavigationABTestable
 
   def education_navigation_variant
     @education_navigation_variant ||=
-      education_navigation_ab_test.requested_variant(request)
+      education_navigation_ab_test.requested_variant(request.headers)
   end
 
   def new_navigation_enabled?

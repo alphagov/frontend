@@ -19,6 +19,10 @@ require 'govuk-content-schema-test-helpers'
 
 Dir[Rails.root.join('test/support/*.rb')].each { |f| require f }
 
+GovukAbTesting.configure do |config|
+  config.acceptance_test_framework = :active_support
+end
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #

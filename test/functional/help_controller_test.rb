@@ -92,7 +92,7 @@ class HelpControllerTest < ActionController::TestCase
       end
     end
 
-    should "show the user the 'B' version if the user is in bucket 'A'" do
+    should "show the user the 'B' version if the user is in bucket 'B'" do
       with_variant Example: 'B' do
         get :ab_testing
 
@@ -113,9 +113,5 @@ class HelpControllerTest < ActionController::TestCase
         assert_select ".ab-example-group", text: "A"
       end
     end
-  end
-
-  def assert_meta_tag(name, content)
-    assert_select "meta[name='#{name}'][content='#{content}']"
   end
 end

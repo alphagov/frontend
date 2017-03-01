@@ -402,4 +402,16 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal json["result_count"], 0
     assert_equal json["results"].length, 0
   end
+
+  test "should track the search homepage as a 'finding' page type" do
+    get :index
+
+    assert_select "meta[name='govuk:user-journey-stage'][content='finding']", 1
+  end
+
+  test "should track the search results page as a 'finding' page type" do
+    get :index, q: "some search term"
+
+    assert_select "meta[name='govuk:user-journey-stage'][content='finding']", 1
+  end
 end

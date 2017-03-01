@@ -26,7 +26,7 @@ gem "therubyracer", "~> 0.12.0"
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
 gem 'unicorn', '~> 4.9.0' # version 5 is available
-gem 'govuk_ab_testing', '~> 0.1.4'
+gem 'govuk_ab_testing', '1.0.0'
 
 group :development do
   gem 'better_errors'

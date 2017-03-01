@@ -5,6 +5,10 @@ require 'capybara/poltergeist'
 require 'gds_api/test_helpers/content_api'
 require 'slimmer/test'
 
+GovukAbTesting.configure do |config|
+  config.acceptance_test_framework = :active_support
+end
+
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include GdsApi::TestHelpers::ContentApi

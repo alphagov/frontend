@@ -51,24 +51,21 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs by default" do
+        expect_normal_navigation
         get :search, slug: "a-slug"
-        assert_match(/NormalBreadcrumb/, response.body)
-        refute_match(/TaxonBreadcrumb/, response.body)
       end
 
       should "show normal breadcrumbs for the 'A' version" do
+        expect_normal_navigation
         with_variant EducationNavigation: "A" do
           get :search, slug: "a-slug"
-          assert_match(/NormalBreadcrumb/, response.body)
-          refute_match(/TaxonBreadcrumb/, response.body)
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
+        expect_new_navigation
         with_variant EducationNavigation: "B" do
           get :search, slug: "a-slug"
-          assert_match(/TaxonBreadcrumb/, response.body)
-          refute_match(/NormalBreadcrumb/, response.body)
         end
       end
     end
@@ -164,24 +161,21 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "show normal breadcrumbs by default" do
+        expect_normal_navigation
         get :authority, slug: "a-slug", authority_slug: "auth-slug"
-
-        assert_normal_navigation_visible
       end
 
       should "show normal breadcrumbs for the 'A' version" do
+        expect_normal_navigation
         with_variant EducationNavigation: "A" do
           get :authority, slug: "a-slug", authority_slug: "auth-slug"
-
-          assert_normal_navigation_visible
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
+        expect_new_navigation
         with_variant EducationNavigation: "B" do
           get :authority, slug: "a-slug", authority_slug: "auth-slug"
-
-          assert_taxonomy_navigation_visible
         end
       end
     end

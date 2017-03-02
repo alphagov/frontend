@@ -49,24 +49,21 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show normal navigation by default" do
+        expect_normal_navigation
         get :show, slug: "the-bridge-of-death"
-
-        assert_normal_navigation_visible
       end
 
       should "show normal navigation for the 'A' version" do
+        expect_normal_navigation
         with_variant EducationNavigation: "A" do
           get :show, slug: "the-bridge-of-death"
-
-          assert_normal_navigation_visible
         end
       end
 
       should "show taxon navigation for the 'B' version" do
+        expect_new_navigation
         with_variant EducationNavigation: "B" do
           get :show, slug: "the-bridge-of-death"
-
-          assert_taxonomy_navigation_visible
         end
       end
     end

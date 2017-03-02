@@ -270,48 +270,42 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "results" do
         should "show normal breadcrumbs by default" do
+          expect_normal_navigation
           get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-
-          assert_normal_navigation_visible
         end
 
         should "show normal breadcrumbs for the 'A' version" do
+          expect_normal_navigation
           with_variant EducationNavigation: "A" do
             get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-
-            assert_normal_navigation_visible
           end
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
+          expect_new_navigation
           with_variant EducationNavigation: "B" do
             get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-
-            assert_taxonomy_navigation_visible
           end
         end
       end
 
       context "search" do
         should "show normal breadcrumbs by default" do
+          expect_normal_navigation
           get :search, slug: "a-slug"
-
-          assert_normal_navigation_visible
         end
 
         should "show normal breadcrumbs for the 'A' version" do
+          expect_normal_navigation
           with_variant EducationNavigation: "A" do
             get :search, slug: "a-slug"
-
-            assert_normal_navigation_visible
           end
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
+          expect_new_navigation
           with_variant EducationNavigation: "B" do
             get :search, slug: "a-slug"
-
-            assert_taxonomy_navigation_visible
           end
         end
       end

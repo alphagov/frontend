@@ -7,7 +7,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::LocalLinksManager
 
   setup do
-    content_store_has_random_item(base_path: '/find-local-council')
+    content_store_has_random_item_not_tagged_to_taxon(base_path: '/find-local-council')
   end
 
   context "when visiting the start page" do

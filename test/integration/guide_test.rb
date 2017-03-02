@@ -3,7 +3,7 @@ require 'integration_test_helper'
 class GuideTest < ActionDispatch::IntegrationTest
   context "with a multi-part guide" do
     setup do
-      @content_item ||= content_store_has_example_item('/foo', schema: 'guide')
+      @content_item ||= content_store_has_example_item_not_tagged_to_taxon('/foo', schema: 'guide')
     end
 
     should "render correctly" do
@@ -57,7 +57,7 @@ class GuideTest < ActionDispatch::IntegrationTest
 
   context "with a single-page guide" do
     setup do
-      @content_item ||= content_store_has_example_item('/foo', schema: 'guide', example: 'single-page-guide')
+      @content_item ||= content_store_has_example_item_not_tagged_to_taxon('/foo', schema: 'guide', example: 'single-page-guide')
     end
 
     should "render correctly" do

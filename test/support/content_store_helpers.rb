@@ -4,8 +4,9 @@ require "gds_api/test_helpers/content_store"
 module ContentStoreHelpers
   include GdsApi::TestHelpers::ContentStore
 
-  def content_store_has_example_item(base_path, schema:, example: nil)
+  def content_store_has_example_item_not_tagged_to_taxon(base_path, schema:, example: nil)
     content_item = GovukSchemas::Example.find(schema, example_name: example || schema)
+    content_item['links']['taxons'] = []
     content_store_has_item(base_path, content_item)
     content_item
   end
@@ -28,9 +29,12 @@ module ContentStoreHelpers
     content_item
   end
 
-  def content_store_has_random_item(base_path:, schema: 'placeholder')
+  def content_store_has_random_item_not_tagged_to_taxon(base_path:, schema: 'placeholder')
     example_generator = GovukSchemas::RandomExample.for_schema(frontend_schema: schema)
-    content_item = example_generator.merge_and_validate(base_path: base_path)
+    content_item = example_generator.merge_and_validate(
+      base_path: base_path,
+      links: { taxons: [] }
+    )
     content_store_has_item(content_item['base_path'], content_item)
     content_item
   end
@@ -53,7 +57,7 @@ module ContentStoreHelpers
   end
 
   def content_api_and_content_store_have_page(slug, artefact = artefact_for_slug(slug))
-    content_store_has_random_item(base_path: "/#{slug}")
+    content_store_has_random_item_not_tagged_to_taxon(base_path: "/#{slug}")
     content_api_has_an_artefact(slug, artefact)
   end
 
@@ -68,7 +72,7 @@ module ContentStoreHelpers
   end
 
   def content_api_and_content_store_have_unpublished_page(slug, edition, artefact = artefact_for_slug(slug))
-    content_store_has_random_item(base_path: "/#{slug}")
+    content_store_has_random_item_not_tagged_to_taxon(base_path: "/#{slug}")
     content_api_has_unpublished_artefact(slug, edition, artefact)
   end
 
@@ -82,7 +86,7 @@ module ContentStoreHelpers
   end
 
   def content_api_and_content_store_have_page_with_snac_code(slug, snac, artefact = artefact_for_slug(slug))
-    content_store_has_random_item(base_path: "/#{slug}")
+    content_store_has_random_item_not_tagged_to_taxon(base_path: "/#{slug}")
     content_api_has_an_artefact_with_snac_code(slug, snac, artefact)
   end
 end

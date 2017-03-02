@@ -3,7 +3,7 @@ module EducationNavigationAbTestHelper
 
   def setup_education_navigation_ab_test
     set_new_navigation
-    content_api_and_content_store_have_page_tagged_to_taxon("a-slug")
+    content_api_and_content_store_have_page_tagged_to_taxon("tagged-to-taxon")
   end
 
   def set_new_navigation

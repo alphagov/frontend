@@ -76,7 +76,7 @@ class AnswerTest < ActionDispatch::IntegrationTest
 
   context "when previously a format with parts" do
     should "reroute to the base slug if requested with part route" do
-      content_store_has_random_item(base_path: '/mice', schema: 'answer')
+      content_store_has_random_item_not_tagged_to_taxon(base_path: '/mice', schema: 'answer')
 
       visit "/mice/old-part-route"
       assert_current_url "/mice"

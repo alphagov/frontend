@@ -50,22 +50,32 @@ class LicenceControllerTest < ActionController::TestCase
         teardown_education_navigation_ab_test
       end
 
+      %w[A B].each do |variant|
+        should "not affect non-education pages with the #{variant} variant" do
+          content_api_and_content_store_have_page('licence-to-kill', @artefact)
+          setup_ab_variant('EducationNavigation', variant)
+          expect_normal_navigation
+          get :search, slug: "licence-to-kill"
+          assert_response_not_modified_for_ab_test
+        end
+      end
+
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :search, slug: "a-slug"
+        get :search, slug: "tagged-to-taxon"
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :search, slug: "a-slug"
+          get :search, slug: "tagged-to-taxon"
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :search, slug: "a-slug"
+          get :search, slug: "tagged-to-taxon"
         end
       end
     end
@@ -160,22 +170,32 @@ class LicenceControllerTest < ActionController::TestCase
         teardown_education_navigation_ab_test
       end
 
+      %w[A B].each do |variant|
+        should "not affect non-education pages with the #{variant} variant" do
+          content_api_and_content_store_have_page('licence-to-kill', @artefact)
+          setup_ab_variant('EducationNavigation', variant)
+          expect_normal_navigation
+          get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
+          assert_response_not_modified_for_ab_test
+        end
+      end
+
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :authority, slug: "a-slug", authority_slug: "auth-slug"
+        get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :authority, slug: "a-slug", authority_slug: "auth-slug"
+          get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :authority, slug: "a-slug", authority_slug: "auth-slug"
+          get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
         end
       end
     end

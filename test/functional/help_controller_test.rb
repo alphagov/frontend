@@ -5,7 +5,7 @@ class HelpControllerTest < ActionController::TestCase
 
   context "GET index" do
     setup do
-      content_store_has_random_item(base_path: "/help", schema: 'help_page')
+      content_store_has_random_item_not_tagged_to_taxon(base_path: "/help", schema: 'help_page')
     end
 
     should "set the cache expiry headers" do
@@ -29,7 +29,7 @@ class HelpControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_store_has_random_item(base_path: '/help/cookies', schema: 'help_page')
+        content_store_has_random_item_not_tagged_to_taxon(base_path: '/help/cookies', schema: 'help_page')
       end
 
       should "set the cache expiry headers" do
@@ -48,7 +48,7 @@ class HelpControllerTest < ActionController::TestCase
     context "for draft content" do
       setup do
         content_api_has_unpublished_artefact("help/cookies", 3, @artefact)
-        content_store_has_random_item(base_path: '/help/cookies', schema: 'help_page')
+        content_store_has_random_item_not_tagged_to_taxon(base_path: '/help/cookies', schema: 'help_page')
       end
 
       should "does not set the cache expiry headers" do
@@ -61,7 +61,7 @@ class HelpControllerTest < ActionController::TestCase
 
   context "loading the tour page" do
     setup do
-      content_store_has_random_item(base_path: "/tour", schema: 'help_page')
+      content_store_has_random_item_not_tagged_to_taxon(base_path: "/tour", schema: 'help_page')
     end
 
     should "respond with success" do
@@ -78,6 +78,15 @@ class HelpControllerTest < ActionController::TestCase
   end
 
   context "GET ab-testing" do
+    %w[A B].each do |variant|
+      should "not affect non-AB-testing pages with the #{variant} variant" do
+        content_store_has_random_item_not_tagged_to_taxon(base_path: "/tour", schema: 'help_page')
+        setup_ab_variant('Example', variant)
+        get :tour
+        assert_response_not_modified_for_ab_test
+      end
+    end
+
     should "respond with success" do
       get :ab_testing, slug: "help/ab-testing"
 

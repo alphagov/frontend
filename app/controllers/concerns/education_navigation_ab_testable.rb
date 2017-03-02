@@ -2,7 +2,7 @@ module EducationNavigationABTestable
   EDUCATION_NAVIGATION_DIMENSION = 41
 
   def self.included(base)
-    base.helper_method :education_navigation_variant
+    base.helper_method :education_navigation_variant, :ab_test_applies?
     base.after_filter :set_education_navigation_response_header
   end
 
@@ -14,8 +14,12 @@ module EducationNavigationABTestable
       )
   end
 
+  def ab_test_applies?
+    new_navigation_enabled? && content_is_tagged_to_a_taxon?
+  end
+
   def should_present_new_navigation_view?
-    education_navigation_variant.variant_b? && new_navigation_enabled? && content_is_tagged_to_a_taxon?
+    ab_test_applies? && education_navigation_variant.variant_b?
   end
 
   def education_navigation_variant
@@ -32,7 +36,7 @@ module EducationNavigationABTestable
   end
 
   def set_education_navigation_response_header
-    education_navigation_variant.configure_response(response)
+    education_navigation_variant.configure_response(response) if ab_test_applies?
   end
 
   def breadcrumbs

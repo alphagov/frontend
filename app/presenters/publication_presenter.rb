@@ -60,15 +60,6 @@ class PublicationPresenter
     end
   end
 
-  def promotion_choice
-    choice = promotion_choice_details['choice']
-    choice.empty? ? "none" : choice
-  end
-
-  def promotion_url
-    promotion_choice_details['url']
-  end
-
   def to_json
     {
       places: places
@@ -77,15 +68,5 @@ class PublicationPresenter
 
   def locale
     language
-  end
-
-private
-
-  def promotion_choice_details
-    presentation_toggles.fetch('promotion_choice', 'choice' => '', 'url' => '')
-  end
-
-  def presentation_toggles
-    details.fetch('presentation_toggles', {})
   end
 end

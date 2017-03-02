@@ -1,10 +1,7 @@
 class CompletedTransactionController < ApplicationController
   include ApiRedirectable
-  include Previewable
   include Cacheable
   include Navigable
-
-  before_filter :set_publication
 
   # These 2 legacy completed transactions are linked to from multiple
   # transactions. The user satisfaction survey should not be shown for these as
@@ -15,6 +12,7 @@ class CompletedTransactionController < ApplicationController
   ].freeze
 
   def show
+    set_content_item(CompletedTransactionPresenter)
   end
 
 private

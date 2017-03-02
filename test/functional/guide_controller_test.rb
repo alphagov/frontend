@@ -12,7 +12,7 @@ class GuideControllerTest < ActionController::TestCase
   context "GET show" do
     context "for live content" do
       setup do
-        @content_item = content_store_has_example_item_not_tagged_to_taxon('/foo', schema: 'guide')
+        @content_item = content_store_has_example_item('/foo', schema: 'guide')
       end
 
       should "set the cache expiry headers" do
@@ -42,7 +42,7 @@ class GuideControllerTest < ActionController::TestCase
 
     context "guide without parts" do
       setup do
-        content_store_has_example_item_not_tagged_to_taxon('/foo', schema: 'guide', example: 'no-part-guide')
+        content_store_has_example_item('/foo', schema: 'guide', example: 'no-part-guide')
       end
 
       should "return a 404" do
@@ -59,7 +59,7 @@ class GuideControllerTest < ActionController::TestCase
     context "A/B testing" do
       setup do
         set_new_navigation
-        content_store_has_example_item_tagged_to_taxon('/tagged-to-taxon', schema: 'guide')
+        content_store_has_example_item('/tagged-to-taxon', schema: 'guide', is_tagged_to_taxon: true)
       end
 
       teardown do
@@ -68,7 +68,7 @@ class GuideControllerTest < ActionController::TestCase
 
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
-          content_store_has_example_item_not_tagged_to_taxon('/not-tagged-to-taxon', schema: 'guide')
+          content_store_has_example_item('/not-tagged-to-taxon', schema: 'guide')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :show, slug: "not-tagged-to-taxon"
@@ -97,7 +97,7 @@ class GuideControllerTest < ActionController::TestCase
     end
 
     should "return print view" do
-      content_store_has_example_item_not_tagged_to_taxon("/a-slug", schema: "guide")
+      content_store_has_example_item("/a-slug", schema: "guide")
 
       prevent_implicit_rendering
       @controller.expects(:render).with(:show, layout: "application.print")

@@ -16,7 +16,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
   end
 
   test "Should not allow framing of local transaction pages" do
-    content_store_has_random_item_not_tagged_to_taxon(base_path: "/a-slug", schema: 'local_transaction')
+    content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
 
     prevent_implicit_rendering
     get :search, slug: 'a-slug'
@@ -24,7 +24,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
   end
 
   test "should set expiry headers for an edition" do
-    content_store_has_random_item_not_tagged_to_taxon(base_path: "/a-slug", schema: 'local_transaction')
+    content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
 
     get :search, slug: 'a-slug'
     assert_equal "max-age=1800, public", response.headers["Cache-Control"]

@@ -9,7 +9,7 @@ class PlaceControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('passport-interview-office', @artefact)
+        content_api_and_content_store_have_page('passport-interview-office', artefact: @artefact)
       end
 
       should "set the cache expiry headers" do
@@ -27,7 +27,7 @@ class PlaceControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_api_and_content_store_have_unpublished_page("passport-interview-office", 3, @artefact)
+        content_api_and_content_store_have_unpublished_page("passport-interview-office", 3, artefact: @artefact)
       end
 
       should "does not set the cache expiry headers" do

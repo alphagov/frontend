@@ -52,7 +52,7 @@ class BusinessSupportTest < ActionDispatch::IntegrationTest
       # This is fine because we're testing the page furniture, not the rendering of the content.
       artefact = content_api_response('business-support-example')
       artefact["details"]["language"] = "cy"
-      content_api_and_content_store_have_page('business-support-example', artefact)
+      content_api_and_content_store_have_page('business-support-example', artefact: artefact)
 
       visit "/business-support-example"
 

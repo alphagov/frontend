@@ -11,7 +11,7 @@ class TransactionControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('register-to-vote', @artefact)
+        content_api_and_content_store_have_page('register-to-vote', artefact: @artefact)
       end
 
       should "set the cache expiry headers" do
@@ -29,7 +29,7 @@ class TransactionControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_api_and_content_store_have_unpublished_page("register-to-vote", 3, @artefact)
+        content_api_and_content_store_have_unpublished_page("register-to-vote", 3, artefact: @artefact)
       end
 
       should "does not set the cache expiry headers" do
@@ -40,11 +40,12 @@ class TransactionControllerTest < ActionController::TestCase
     end
 
     should "not allow framing of transaction pages" do
-      content_api_and_content_store_have_page("a-slug", 'slug' => 'a-slug',
+      content_api_and_content_store_have_page("a-slug", artefact: { 'slug' => 'a-slug',
         'web_url' => 'https://example.com/a-slug',
         'format' => 'transaction',
         'details' => { "need_to_know" => "" },
-        'title' => 'A Test Transaction')
+        'title' => 'A Test Transaction'
+      })
 
       get :show, slug: 'a-slug'
       assert_equal "DENY", @response.headers["X-Frame-Options"]
@@ -62,7 +63,7 @@ class TransactionControllerTest < ActionController::TestCase
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
           setup_ab_variant('EducationNavigation', variant)
-          content_api_and_content_store_have_page('register-to-vote', @artefact)
+          content_api_and_content_store_have_page('register-to-vote', artefact: @artefact)
           expect_normal_navigation
           get :show, slug: "register-to-vote"
           assert_response_not_modified_for_ab_test
@@ -100,7 +101,7 @@ class TransactionControllerTest < ActionController::TestCase
           'details' => { "need_to_know" => "" },
           'title' => 'Universal Jobsearch'
         }
-        content_api_and_content_store_have_page("jobsearch", @details)
+        content_api_and_content_store_have_page("jobsearch", artefact: @details)
       end
 
       should "respond with success" do
@@ -131,7 +132,7 @@ class TransactionControllerTest < ActionController::TestCase
       context "A/B testing" do
         setup do
           setup_education_navigation_ab_test
-          content_api_and_content_store_have_page_tagged_to_taxon("jobsearch", @details)
+          content_api_and_content_store_have_page("jobsearch", artefact: @details, is_tagged_to_taxon: true)
         end
 
         teardown do
@@ -141,7 +142,7 @@ class TransactionControllerTest < ActionController::TestCase
         %w[A B].each do |variant|
           should "not affect non-education pages with the #{variant} variant" do
             setup_ab_variant('EducationNavigation', variant)
-            content_api_and_content_store_have_page('jobsearch', @details)
+            content_api_and_content_store_have_page('jobsearch', artefact: @details)
             expect_normal_navigation
             get :show, slug: "jobsearch"
             assert_response_not_modified_for_ab_test
@@ -178,7 +179,7 @@ class TransactionControllerTest < ActionController::TestCase
           'details' => { "need_to_know" => "", "language" => "cy" },
           'title' => 'Universal Jobsearch'
         }
-        content_api_and_content_store_have_page("chwilio-am-swydd", @details)
+        content_api_and_content_store_have_page("chwilio-am-swydd", artefact: @details)
       end
 
       should "set the locale to welsh" do
@@ -196,7 +197,7 @@ class TransactionControllerTest < ActionController::TestCase
           'details' => { "need_to_know" => "", "language" => "tk" },
           'title' => 'Some title'
         }
-        content_api_and_content_store_have_page("document-in-turkmen", @details)
+        content_api_and_content_store_have_page("document-in-turkmen", artefact: @details)
       end
 
       should "set the locale to the English default" do

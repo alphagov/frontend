@@ -5,7 +5,7 @@ class AnswerControllerTest < ActionController::TestCase
 
   context "GET show" do
     setup do
-      content_store_has_random_item_not_tagged_to_taxon(base_path: "/molehills", schema: 'answer')
+      content_store_has_random_item(base_path: "/molehills", schema: 'answer')
     end
 
     context "for live content" do
@@ -24,7 +24,7 @@ class AnswerControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_store_has_random_item_not_tagged_to_taxon(base_path: '/molehills', schema: 'answer')
+        content_store_has_random_item(base_path: '/molehills', schema: 'answer')
       end
 
       should "does not set the cache expiry headers" do

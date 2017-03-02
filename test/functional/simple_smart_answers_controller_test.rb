@@ -18,7 +18,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
   context "GET show" do
     setup do
-      content_store_has_random_item_not_tagged_to_taxon(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
+      content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
     end
 
     context "for live content" do
@@ -50,7 +50,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
-          content_store_has_random_item_not_tagged_to_taxon(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
+          content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :show, slug: "the-bridge-of-death"

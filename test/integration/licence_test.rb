@@ -71,7 +71,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         })
 
-      content_api_and_content_store_have_page('licence-to-kill', @artefact)
+      content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
     end
 
     context "when visiting the licence search page" do
@@ -278,7 +278,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         )
 
-        content_api_and_content_store_have_page('licence-to-kill', artefact)
+        content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
         content_api_and_content_store_have_page_with_snac_code("licence-to-kill", "30UN", artefact)
 
         south_ribble = {
@@ -362,7 +362,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
             }
           }
         )
-        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
+        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact: artefact)
       end
 
       context "when visiting the licence without specifying an authority" do
@@ -425,7 +425,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
             }
           }
         )
-        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact)
+        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact: artefact)
       end
 
       context "when visiting the licence" do
@@ -484,7 +484,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "continuation_link" => "http://gov.uk/blah"
         }
       )
-      content_api_and_content_store_have_page('artistic-license', artefact)
+      content_api_and_content_store_have_page('artistic-license', artefact: artefact)
     end
 
     context "when visiting the licence" do
@@ -524,7 +524,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "tags" => [],
         "related" => []
       )
-      content_api_and_content_store_have_page("licence-to-kill", artefact)
+      content_api_and_content_store_have_page("licence-to-kill", artefact: artefact)
     end
 
     should "show message to contact local council" do
@@ -546,7 +546,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           }
         }
       )
-      content_api_and_content_store_have_page('licence-to-kill', artefact)
+      content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
     end
 
     should "not blow the stack" do

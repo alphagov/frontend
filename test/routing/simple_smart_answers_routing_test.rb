@@ -5,7 +5,7 @@ class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
     setup do
       @artefact = artefact_for_slug('fooey')
       @artefact["format"] = "simple_smart_answer"
-      content_api_and_content_store_have_page('fooey', @artefact)
+      content_api_and_content_store_have_page('fooey', artefact: @artefact)
     end
 
     should "route the start page to the SimpleSmartAnswer controller" do

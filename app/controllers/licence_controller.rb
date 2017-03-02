@@ -14,7 +14,7 @@ class LicenceController < ApplicationController
   NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
   NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
 
-  def search
+  def start
     if @publication.continuation_link.present?
       render :continues_on
     elsif @licence_details.local_authority_specific? && postcode_search_submitted?

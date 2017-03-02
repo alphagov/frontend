@@ -214,7 +214,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             }
           )
 
-          content_api_and_content_store_have_page('licence-to-thrill', artefact)
+          content_api_and_content_store_have_page('licence-to-thrill', artefact: artefact)
 
           mapit_has_a_postcode_and_areas("HP20 2QF", [], [
             { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },

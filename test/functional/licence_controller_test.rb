@@ -7,7 +7,7 @@ class LicenceControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::LicenceApplication
   include EducationNavigationAbTestHelper
 
-  context "GET search" do
+  context "GET start" do
     setup do
       @artefact = artefact_for_slug('licence-to-kill')
       @artefact["format"] = "licence"
@@ -19,13 +19,13 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :search, slug: "licence-to-kill"
+        get :start, slug: "licence-to-kill"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
 
       should "redirect json requests to the api" do
-        get :search, slug: "licence-to-kill", format: 'json'
+        get :start, slug: "licence-to-kill", format: 'json'
 
         assert_redirected_to "/api/licence-to-kill.json"
       end
@@ -37,7 +37,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "does not set the cache expiry headers" do
-        get :search, slug: "licence-to-kill", edition: 3
+        get :start, slug: "licence-to-kill", edition: 3
 
         assert_nil response.headers["Cache-Control"]
       end
@@ -53,27 +53,27 @@ class LicenceControllerTest < ActionController::TestCase
           content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
-          get :search, slug: "licence-to-kill"
+          get :start, slug: "licence-to-kill"
           assert_response_not_modified_for_ab_test
         end
       end
 
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :search, slug: "tagged-to-taxon"
+        get :start, slug: "tagged-to-taxon"
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :search, slug: "tagged-to-taxon"
+          get :start, slug: "tagged-to-taxon"
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :search, slug: "tagged-to-taxon"
+          get :start, slug: "tagged-to-taxon"
         end
       end
 
@@ -82,20 +82,22 @@ class LicenceControllerTest < ActionController::TestCase
 
         expect_normal_navigation_and_old_related_links
         with_variant EducationNavigation: "B" do
-          get :search, slug: "tagged-to-taxon"
+          get :start, slug: "tagged-to-taxon"
         end
       end
     end
   end
 
-  context "POST to search" do
+  context "POST to start" do
     setup do
       content_api_and_content_store_have_page('licence-to-kill',
-        "format" => "licence",
-        "web_url" => "http://example.org/licence-to-kill",
-        "title" => "Licence to kill",
-        "details" => {
-          "licence_identifier" => "1071-5-1",
+        artefact: {
+          "format" => "licence",
+          "web_url" => "http://example.org/licence-to-kill",
+          "title" => "Licence to kill",
+          "details" => {
+            "licence_identifier" => "1071-5-1",
+          }
         }
       )
     end
@@ -117,7 +119,7 @@ class LicenceControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          post :search, slug: "licence-to-kill", postcode: "ST10 4DB"
+          post :start, slug: "licence-to-kill", postcode: "ST10 4DB"
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -132,7 +134,7 @@ class LicenceControllerTest < ActionController::TestCase
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24" },
           ])
 
-          post :search, slug: "licence-to-kill", postcode: "BT1 5GS"
+          post :start, slug: "licence-to-kill", postcode: "BT1 5GS"
         end
 
         should "redirect to the slug for the lowest level authority" do

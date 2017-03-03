@@ -27,10 +27,6 @@ class LicencePresenter
     end
   end
 
-  def start_button_text
-    "Start now"
-  end
-
   def format
     @artefact["format"]
   end

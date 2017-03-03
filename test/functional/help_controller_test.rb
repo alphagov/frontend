@@ -78,6 +78,15 @@ class HelpControllerTest < ActionController::TestCase
   end
 
   context "GET ab-testing" do
+    %w[A B].each do |variant|
+      should "not affect non-AB-testing pages with the #{variant} variant" do
+        content_store_has_random_item(base_path: "/tour", schema: 'help_page')
+        setup_ab_variant('Example', variant)
+        get :tour
+        assert_response_not_modified_for_ab_test
+      end
+    end
+
     should "respond with success" do
       get :ab_testing, slug: "help/ab-testing"
 

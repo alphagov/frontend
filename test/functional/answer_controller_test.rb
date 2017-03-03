@@ -43,22 +43,31 @@ class AnswerControllerTest < ActionController::TestCase
         teardown_education_navigation_ab_test
       end
 
+      %w[A B].each do |variant|
+        should "not affect non-education pages with the #{variant} variant" do
+          setup_ab_variant('EducationNavigation', variant)
+          expect_normal_navigation
+          get :show, slug: "molehills"
+          assert_response_not_modified_for_ab_test
+        end
+      end
+
       should "show normal navigation by default" do
         expect_normal_navigation
-        get :show, slug: "a-slug"
+        get :show, slug: "tagged-to-taxon"
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :show, slug: "a-slug"
+          get :show, slug: "tagged-to-taxon"
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :show, slug: "a-slug"
+          get :show, slug: "tagged-to-taxon"
         end
       end
     end

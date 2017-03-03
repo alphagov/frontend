@@ -33,7 +33,7 @@ class ActionDispatch::IntegrationTest
 
   def setup_api_responses(slug, options = {})
     artefact = content_api_response(slug, options)
-    content_api_and_content_store_have_page(slug, artefact)
+    content_api_and_content_store_have_page(slug, artefact: artefact)
     artefact
   end
 

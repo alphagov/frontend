@@ -17,7 +17,7 @@ class ProgrammeControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('reduced-earnings-allowance', @artefact)
+        content_api_and_content_store_have_page('reduced-earnings-allowance', artefact: @artefact)
       end
 
       should "set the cache expiry headers" do
@@ -35,7 +35,7 @@ class ProgrammeControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_api_and_content_store_have_unpublished_page("reduced-earnings-allowance", 3, @artefact)
+        content_api_and_content_store_have_unpublished_page("reduced-earnings-allowance", 3, artefact: @artefact)
       end
 
       should "does not set the cache expiry headers" do
@@ -49,11 +49,13 @@ class ProgrammeControllerTest < ActionController::TestCase
       should "return a 404" do
         content_api_and_content_store_have_page(
           "reduced-earnings-allowance",
-          "title" => "Reduced Earnings Allowance",
-          "format" => "programme",
-          "details" => {
-            "parts" => [],
-            "overview" => ""
+          artefact: {
+            "title" => "Reduced Earnings Allowance",
+            "format" => "programme",
+            "details" => {
+              "parts" => [],
+              "overview" => ""
+            }
           })
         get :show, slug: "reduced-earnings-allowance"
         assert_equal '404', response.code
@@ -62,10 +64,12 @@ class ProgrammeControllerTest < ActionController::TestCase
       should "return 404 if part requested" do
         content_api_and_content_store_have_page(
           "a-slug",
-          'web_url' => 'http://example.org/a-slug',
-          'format' => 'programme',
-          "details" => {
-            'parts' => []
+          artefact: {
+            'web_url' => 'http://example.org/a-slug',
+            'format' => 'programme',
+            "details" => {
+              'parts' => []
+            }
           })
 
         @controller.expects(:render).with(has_entry(status: 404))
@@ -78,21 +82,23 @@ class ProgrammeControllerTest < ActionController::TestCase
       setup do
         content_api_and_content_store_have_page(
           "a-slug",
-          'web_url' => 'http://example.org/a-slug',
-          'format' => 'programme',
-          "details" => {
-            'parts' => [
-              {
-                'title' => 'first',
-                'slug' => 'first',
-                'name' => 'First Part',
-              },
-              {
-                'title' => 'second',
-                'slug' => 'second',
-                'name' => 'Second Part',
-              },
-            ]
+          artefact: {
+            'web_url' => 'http://example.org/a-slug',
+            'format' => 'programme',
+            "details" => {
+              'parts' => [
+                {
+                  'title' => 'first',
+                  'slug' => 'first',
+                  'name' => 'First Part',
+                },
+                {
+                  'title' => 'second',
+                  'slug' => 'second',
+                  'name' => 'Second Part',
+                },
+              ]
+            }
           })
       end
 
@@ -116,16 +122,25 @@ class ProgrammeControllerTest < ActionController::TestCase
     end
 
     should "not show part tab when it is empty" do
-      content_api_and_content_store_have_page("zippy", 'slug' => 'zippy', 'format' => 'programme', "web_url" => "http://example.org/slug", "details" => { 'parts' => [
+      content_api_and_content_store_have_page(
+        "zippy",
+        artefact: {
+          'slug' => 'zippy',
+          'format' => 'programme',
+          "web_url" => "http://example.org/slug",
+          "details" => {
+            'parts' => [
               { 'slug' => 'a', 'name' => 'AA' },
               { 'slug' => 'further-information', 'name' => 'BB' }
-            ] })
+            ]
+          }
+        })
       get :show, slug: "zippy"
       refute @response.body.include? "further-information"
     end
 
     should "return print view" do
-      content_api_and_content_store_have_page("a-slug", 'format' => 'programme')
+      content_api_and_content_store_have_page("a-slug", artefact: { 'format' => 'programme' })
 
       prevent_implicit_rendering
       @controller.expects(:render).with(:show, layout: "application.print")
@@ -142,22 +157,32 @@ class ProgrammeControllerTest < ActionController::TestCase
         teardown_education_navigation_ab_test
       end
 
+      %w[A B].each do |variant|
+        should "not affect non-education pages with the #{variant} variant" do
+          content_api_and_content_store_have_page('reduced-earnings-allowance', artefact: @artefact)
+          setup_ab_variant('EducationNavigation', variant)
+          expect_normal_navigation
+          get :show, slug: "reduced-earnings-allowance"
+          assert_response_not_modified_for_ab_test
+        end
+      end
+
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :show, slug: "a-slug"
+        get :show, slug: "tagged-to-taxon"
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :show, slug: "a-slug"
+          get :show, slug: "tagged-to-taxon"
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :show, slug: "a-slug"
+          get :show, slug: "tagged-to-taxon"
         end
       end
     end

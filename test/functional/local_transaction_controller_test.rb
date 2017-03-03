@@ -292,20 +292,20 @@ class LocalTransactionControllerTest < ActionController::TestCase
       context "search" do
         should "show normal breadcrumbs by default" do
           expect_normal_navigation
-          get :search, slug: "a-slug"
+          get :search, slug: "tagged-to-taxon"
         end
 
         should "show normal breadcrumbs for the 'A' version" do
           expect_normal_navigation
           with_variant EducationNavigation: "A" do
-            get :search, slug: "a-slug"
+            get :search, slug: "tagged-to-taxon"
           end
         end
 
         should "show taxon breadcrumbs for the 'B' version" do
           expect_new_navigation
           with_variant EducationNavigation: "B" do
-            get :search, slug: "a-slug"
+            get :search, slug: "tagged-to-taxon"
           end
         end
       end

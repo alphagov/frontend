@@ -4,8 +4,12 @@ require "gds_api/test_helpers/content_store"
 module ContentStoreHelpers
   include GdsApi::TestHelpers::ContentStore
 
-  def content_store_has_example_item(base_path, schema:, example: nil)
+  def content_store_has_example_item(base_path, schema:, example: nil, is_tagged_to_taxon: false)
     content_item = GovukSchemas::Example.find(schema, example_name: example || schema)
+
+    content_item['links'] ||= {}
+    content_item['links']['taxons'] = is_tagged_to_taxon ? [basic_taxon] : []
+
     content_store_has_item(base_path, content_item)
     content_item
   end
@@ -19,29 +23,17 @@ module ContentStoreHelpers
     }
   end
 
-  def content_store_has_example_item_tagged_to_taxon(base_path, schema:, example: nil)
-    content_item = GovukSchemas::Example.find(schema, example_name: example || schema)
-    content_item["base_path"] = base_path
-    content_item["links"] = { taxons: [basic_taxon] }
-
-    content_store_has_item(base_path, content_item)
-    content_item
-  end
-
-  def content_store_has_random_item(base_path:, schema: 'placeholder')
+  def content_store_has_random_item(base_path:, schema: 'placeholder', is_tagged_to_taxon: false)
     example_generator = GovukSchemas::RandomExample.for_schema(frontend_schema: schema)
-    content_item = example_generator.merge_and_validate(base_path: base_path)
-    content_store_has_item(content_item['base_path'], content_item)
-    content_item
-  end
 
-  def content_store_has_random_item_tagged_to_taxon(base_path:, schema: 'placeholder')
-    example_generator = GovukSchemas::RandomExample.for_schema(frontend_schema: schema)
+    taxons = is_tagged_to_taxon ? [basic_taxon] : []
+
     content_item = example_generator.merge_and_validate(
       base_path: base_path,
-      links: { taxons: [basic_taxon] }
+      links: { taxons: taxons }
     )
     content_store_has_item(content_item['base_path'], content_item)
+    content_item
   end
 
   def content_store_has_item_tagged_to_taxon(base_path:, payload:)
@@ -52,13 +44,8 @@ module ContentStoreHelpers
     content_store_has_item(base_path, content_item)
   end
 
-  def content_api_and_content_store_have_page(slug, artefact = artefact_for_slug(slug))
-    content_store_has_random_item(base_path: "/#{slug}")
-    content_api_has_an_artefact(slug, artefact)
-  end
-
-  def content_api_and_content_store_have_page_tagged_to_taxon(slug, artefact = artefact_for_slug(slug))
-    content_store_has_random_item_tagged_to_taxon(base_path: "/#{slug}")
+  def content_api_and_content_store_have_page(slug, artefact: artefact_for_slug(slug), is_tagged_to_taxon: false)
+    content_store_has_random_item(base_path: "/#{slug}", is_tagged_to_taxon: is_tagged_to_taxon)
     content_api_has_an_artefact(slug, artefact)
   end
 

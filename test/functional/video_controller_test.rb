@@ -9,7 +9,7 @@ class VideoControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('test-video', @artefact)
+        content_api_and_content_store_have_page('test-video', artefact: @artefact)
       end
 
       should "set the cache expiry headers" do
@@ -27,7 +27,7 @@ class VideoControllerTest < ActionController::TestCase
 
     context "for draft content" do
       setup do
-        content_api_and_content_store_have_unpublished_page("test-video", 3, @artefact)
+        content_api_and_content_store_have_unpublished_page("test-video", 3, artefact: @artefact)
       end
 
       should "does not set the cache expiry headers" do

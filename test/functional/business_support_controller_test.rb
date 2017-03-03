@@ -9,7 +9,7 @@ class BusinessSupportControllerTest < ActionController::TestCase
 
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('business-support-example', @artefact)
+        content_api_and_content_store_have_page('business-support-example', artefact: @artefact)
       end
 
       should "set the cache expiry headers" do

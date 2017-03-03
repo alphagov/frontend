@@ -21,7 +21,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "need_to_know" => "<ul><li>Proof of identification required</li></ul>",
         "introduction" => "<p>Enter your postcode to find a passport interview office near you.</p>"
       })
-    content_api_and_content_store_have_page('passport-interview-office', @artefact)
+    content_api_and_content_store_have_page('passport-interview-office', artefact: @artefact)
 
     @places = [
       {
@@ -185,7 +185,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
           "place_type" => "find-child-social-care-team",
           "introduction" => "<p>Contact your local council if you think a child is at risk</p>"
         })
-      content_api_and_content_store_have_page('report-child-abuse-to-local-council', @artefact_for_report_child_abuse)
+      content_api_and_content_store_have_page('report-child-abuse-to-local-council', artefact: @artefact_for_report_child_abuse)
 
       @places_for_report_child_abuse = [
         {

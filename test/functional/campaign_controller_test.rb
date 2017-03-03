@@ -10,7 +10,7 @@ class CampaignControllerTest < ActionController::TestCase
 
       context "for live content" do
         setup do
-          content_api_and_content_store_have_page('firekills', @artefact)
+          content_api_and_content_store_have_page('firekills', artefact: @artefact)
         end
 
         should "set the cache expiry headers" do
@@ -28,7 +28,7 @@ class CampaignControllerTest < ActionController::TestCase
 
       context "for draft content" do
         setup do
-          content_api_and_content_store_have_unpublished_page("firekills", 3, @artefact)
+          content_api_and_content_store_have_unpublished_page("firekills", 3, artefact: @artefact)
         end
 
         should "does not set the cache expiry headers" do

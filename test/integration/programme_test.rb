@@ -118,7 +118,7 @@ class ProgrammeTest < ActionDispatch::IntegrationTest
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('reduced-earnings-allowance')
     artefact["details"]["language"] = "cy"
-    content_api_and_content_store_have_page('reduced-earnings-allowance', artefact)
+    content_api_and_content_store_have_page('reduced-earnings-allowance', artefact: artefact)
 
     visit "/reduced-earnings-allowance"
 
@@ -209,7 +209,7 @@ class ProgrammeTest < ActionDispatch::IntegrationTest
     # This is fine because we're testing the page furniture, not the rendering of the content.
     artefact = content_api_response('reduced-earnings-allowance')
     artefact["details"]["language"] = "cy"
-    content_api_and_content_store_have_page('reduced-earnings-allowance', artefact)
+    content_api_and_content_store_have_page('reduced-earnings-allowance', artefact: artefact)
 
     visit "/reduced-earnings-allowance/print"
 

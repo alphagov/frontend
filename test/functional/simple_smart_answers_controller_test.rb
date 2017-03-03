@@ -48,6 +48,16 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         teardown_education_navigation_ab_test
       end
 
+      %w[A B].each do |variant|
+        should "not affect non-education pages with the #{variant} variant" do
+          content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
+          setup_ab_variant('EducationNavigation', variant)
+          expect_normal_navigation
+          get :show, slug: "the-bridge-of-death"
+          assert_response_not_modified_for_ab_test
+        end
+      end
+
       should "show normal navigation by default" do
         expect_normal_navigation
         get :show, slug: "the-bridge-of-death"

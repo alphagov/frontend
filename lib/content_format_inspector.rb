@@ -12,6 +12,7 @@ class ContentFormatInspector
     place
     local_transaction
     simple_smart_answer
+    transaction
   ).freeze
 
   def initialize(slug, edition = nil)

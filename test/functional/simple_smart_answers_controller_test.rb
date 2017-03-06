@@ -44,10 +44,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         )
       end
 
-      teardown do
-        teardown_education_navigation_ab_test
-      end
-
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
           content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')

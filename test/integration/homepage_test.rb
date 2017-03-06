@@ -18,67 +18,43 @@ class HomepageTest < ActionDispatch::IntegrationTest
     ORIGINAL_EDUCATION_TITLE = "Education and learning".freeze
     NEW_EDUCATION_TITLE = "Education, training and skills".freeze
 
-    context "when feature flag is off" do
-      %w[A B].each do |variant|
-        should "render the original version for the #{variant} variant" do
-          setup_ab_variant('EducationNavigation', variant)
+    %w[A B].each do |variant|
+      should "cache the #{variant} variant separately" do
+        setup_ab_variant("EducationNavigation", variant)
 
-          visit "/"
+        visit "/"
 
-          assert page.has_text?(ORIGINAL_EDUCATION_TITLE)
-          assert page.has_no_text?(NEW_EDUCATION_TITLE)
-          assert_response_not_modified_for_ab_test
-        end
+        assert_response_is_cached_by_variant("EducationNavigation")
+      end
+
+      # The homepage is not part of the education content. Adding the A/B
+      # tracking dimension to the homepage would flood the A/B test analytics
+      # with every user journey that included the GOV.UK homepage.
+      should "not track analytics for the #{variant} variant" do
+        setup_ab_variant("EducationNavigation", variant)
+
+        visit "/"
+
+        assert_page_not_tracked_in_ab_test
       end
     end
 
-    context "when feature flag is on" do
-      setup do
-        set_new_navigation
-      end
+    should "render the original version for the A variant" do
+      setup_ab_variant('EducationNavigation', "A")
 
-      teardown do
-        teardown_education_navigation_ab_test
-      end
+      visit "/"
 
-      %w[A B].each do |variant|
-        should "cache the #{variant} variant separately" do
-          setup_ab_variant("EducationNavigation", variant)
+      assert page.has_text?(ORIGINAL_EDUCATION_TITLE)
+      assert page.has_no_text?(NEW_EDUCATION_TITLE)
+    end
 
-          visit "/"
+    should "render the new version for the B variant" do
+      setup_ab_variant('EducationNavigation', "B")
 
-          assert_response_is_cached_by_variant("EducationNavigation")
-        end
+      visit "/"
 
-        # The homepage is not part of the education content. Adding the A/B
-        # tracking dimension to the homepage would flood the A/B test analytics
-        # with every user journey that included the GOV.UK homepage.
-        should "not track analytics for the #{variant} variant" do
-          setup_ab_variant("EducationNavigation", variant)
-
-          visit "/"
-
-          assert_page_not_tracked_in_ab_test
-        end
-      end
-
-      should "render the original version for the A variant" do
-        setup_ab_variant('EducationNavigation', "A")
-
-        visit "/"
-
-        assert page.has_text?(ORIGINAL_EDUCATION_TITLE)
-        assert page.has_no_text?(NEW_EDUCATION_TITLE)
-      end
-
-      should "render the new version for the B variant" do
-        setup_ab_variant('EducationNavigation', "B")
-
-        visit "/"
-
-        assert page.has_text?(NEW_EDUCATION_TITLE)
-        assert page.has_no_text?(ORIGINAL_EDUCATION_TITLE)
-      end
+      assert page.has_text?(NEW_EDUCATION_TITLE)
+      assert page.has_no_text?(ORIGINAL_EDUCATION_TITLE)
     end
   end
 end

@@ -58,12 +58,7 @@ class GuideControllerTest < ActionController::TestCase
 
     context "A/B testing" do
       setup do
-        set_new_navigation
         content_store_has_example_item('/tagged-to-taxon', schema: 'guide', is_tagged_to_taxon: true)
-      end
-
-      teardown do
-        teardown_education_navigation_ab_test
       end
 
       %w[A B].each do |variant|

@@ -56,10 +56,6 @@ class TransactionControllerTest < ActionController::TestCase
         setup_education_navigation_ab_test
       end
 
-      teardown do
-        teardown_education_navigation_ab_test
-      end
-
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
           setup_ab_variant('EducationNavigation', variant)
@@ -133,10 +129,6 @@ class TransactionControllerTest < ActionController::TestCase
         setup do
           setup_education_navigation_ab_test
           content_api_and_content_store_have_page("jobsearch", artefact: @details, is_tagged_to_taxon: true)
-        end
-
-        teardown do
-          teardown_education_navigation_ab_test
         end
 
         %w[A B].each do |variant|

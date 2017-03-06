@@ -153,10 +153,6 @@ class ProgrammeControllerTest < ActionController::TestCase
         setup_education_navigation_ab_test
       end
 
-      teardown do
-        teardown_education_navigation_ab_test
-      end
-
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
           content_api_and_content_store_have_page('reduced-earnings-allowance', artefact: @artefact)

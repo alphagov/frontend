@@ -15,7 +15,7 @@ module EducationNavigationABTestable
   end
 
   def ab_test_applies?
-    new_navigation_enabled? && content_is_tagged_to_a_taxon?
+    new_navigation_enabled? && content_is_linked_to_a_taxon?
   end
 
   def should_present_new_navigation_view?
@@ -31,7 +31,7 @@ module EducationNavigationABTestable
     ENV['ENABLE_NEW_NAVIGATION'] == 'yes'
   end
 
-  def content_is_tagged_to_a_taxon?
+  def content_is_linked_to_a_taxon?
     content_item.dig("links", "taxons").present?
   end
 

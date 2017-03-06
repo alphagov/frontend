@@ -5,10 +5,6 @@ require 'capybara/poltergeist'
 require 'gds_api/test_helpers/content_api'
 require 'slimmer/test'
 
-GovukAbTesting.configure do |config|
-  config.acceptance_test_framework = :active_support
-end
-
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include GdsApi::TestHelpers::ContentApi
@@ -17,6 +13,10 @@ class ActionDispatch::IntegrationTest
     super
     # Stub website_root to match test fixtures
     Frontend.stubs(:govuk_website_root).returns("https://www.gov.uk")
+
+    GovukAbTesting.configure do |config|
+      config.acceptance_test_framework = :capybara
+    end
   end
 
   def teardown

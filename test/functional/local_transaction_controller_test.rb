@@ -264,10 +264,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
         content_store_has_item_tagged_to_taxon(base_path: '/report-a-bear-on-a-local-road', payload: @payload)
       end
 
-      teardown do
-        teardown_education_navigation_ab_test
-      end
-
       context "results" do
         should "show normal breadcrumbs by default" do
           expect_normal_navigation

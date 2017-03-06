@@ -46,10 +46,6 @@ class LicenceControllerTest < ActionController::TestCase
         setup_education_navigation_ab_test
       end
 
-      teardown do
-        teardown_education_navigation_ab_test
-      end
-
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
           content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
@@ -166,10 +162,6 @@ class LicenceControllerTest < ActionController::TestCase
     context "A/B testing" do
       setup do
         setup_education_navigation_ab_test
-      end
-
-      teardown do
-        teardown_education_navigation_ab_test
       end
 
       %w[A B].each do |variant|

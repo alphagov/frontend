@@ -15,7 +15,7 @@ module EducationNavigationABTestable
   end
 
   def ab_test_applies?
-    new_navigation_enabled? && content_is_linked_to_a_taxon?
+    content_is_linked_to_a_taxon?
   end
 
   def should_present_new_navigation_view?
@@ -27,12 +27,14 @@ module EducationNavigationABTestable
       education_navigation_ab_test.requested_variant(request.headers)
   end
 
-  def new_navigation_enabled?
-    ENV['ENABLE_NEW_NAVIGATION'] == 'yes'
+  def content_is_linked_to_a_taxon?
+    maybe_content_item.dig("links", "taxons").present?
   end
 
-  def content_is_linked_to_a_taxon?
-    content_item.dig("links", "taxons").present?
+  def maybe_content_item
+    content_item
+  rescue GdsApi::ContentStore::ItemNotFound
+    {}
   end
 
   def set_education_navigation_response_header

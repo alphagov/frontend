@@ -25,7 +25,22 @@
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
       <% unless current_page?(root_path) %>
-        <%= render partial: 'govuk_component/beta_label' if present_new_navigation? %>
+        <% if present_new_navigation? %>
+          <%=
+            render(
+              partial: 'govuk_component/beta_label',
+              locals: {
+                message: <<-MESSAGE
+                This is a test version of the layout of this page.
+                <a href='https://www.smartsurvey.co.uk/s/betasurvey2017'>
+                  Take the survey to help us improve it
+                </a>
+                <span id=banner-notification style='display:none;'><span>
+                MESSAGE
+              }
+            )
+          %>
+        <% end %>
         <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
       <% end %>
 

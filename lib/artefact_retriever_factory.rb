@@ -27,9 +27,7 @@ class ArtefactRetrieverFactory
     end
 
     def statsd
-      Statsd.new("localhost").tap do |c|
-        c.namespace = ENV['GOVUK_STATSD_PREFIX'].to_s
-      end
+      Services.statsd
     end
   end
 end

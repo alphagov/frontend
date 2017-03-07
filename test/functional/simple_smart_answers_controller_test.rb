@@ -72,6 +72,17 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :show, slug: "the-bridge-of-death"
         end
       end
+
+      should "show taxon breadcrumbs and old related links for flagged mainstream content" do
+        MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(
+          ["/the-bridge-of-death"]
+        )
+
+        expect_normal_navigation_and_old_related_links
+        with_variant EducationNavigation: "B" do
+          get :show, slug: "the-bridge-of-death"
+        end
+      end
     end
   end
 

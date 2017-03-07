@@ -69,6 +69,35 @@ body.homepage {
   }
 }
 
+#homepage-promo-banner {
+  background: $light-blue-25;
+
+  .banner-message {
+    @extend %site-width-container;
+
+    p {
+      margin: 0;
+      padding: $gutter-two-thirds 0;
+
+      @include core-19;
+
+      @include media(tablet) {
+        padding: $gutter 0;
+      }
+
+      @include media(desktop) {
+        max-width: 66%;
+      }
+
+      strong {
+        display: block;
+        @include bold-24;
+        margin-bottom: $gutter-half;
+      }
+    }
+  }
+}
+
 .root-index {
   // Generic objects for the homepage
   .inner-block {

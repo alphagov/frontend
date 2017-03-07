@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem "addressable"
 gem 'airbrake', '3.1.15' # newer version is incompatible with our Errbit as of 12/2016
-gem 'appsignal', '~> 2.0'
 gem 'cdn_helpers', '0.9'
 gem 'gds-api-adapters', '~> 40.1'
 gem 'gelf'

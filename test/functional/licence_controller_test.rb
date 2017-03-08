@@ -74,6 +74,15 @@ class LicenceControllerTest < ActionController::TestCase
           get :search, slug: "tagged-to-taxon"
         end
       end
+
+      should "show taxon breadcrumbs and old related links for flagged mainstream content" do
+        MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(["/tagged-to-taxon"])
+
+        expect_normal_navigation_and_old_related_links
+        with_variant EducationNavigation: "B" do
+          get :search, slug: "tagged-to-taxon"
+        end
+      end
     end
   end
 

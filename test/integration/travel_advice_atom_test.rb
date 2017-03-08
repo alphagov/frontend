@@ -39,7 +39,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
     should "render a maximum of 20 countries" do
       json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
       content_item = JSON.parse(json)
-      content_item["details"]["countries"] = content_item["details"]["countries"] * 5
+      content_item["links"]["children"] = content_item["links"]["children"] * 5
       base_path = content_item.fetch("base_path")
       content_store_has_item(base_path, content_item)
 

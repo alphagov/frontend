@@ -12,7 +12,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     setup do
       json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
       content_item = JSON.parse(json)
-      content_item["details"]["countries"].reverse!
+      #content_item["details"]["countries"].reverse!
       base_path = content_item.fetch("base_path")
 
       content_store_has_item(base_path, content_item)

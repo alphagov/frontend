@@ -14,7 +14,7 @@ class PublicationPresenter
     :caption_file, :change_description, :contact_details, :country,
     :continuation_link, :department_analytics_profile, :description, :downtime,
     :eligibility, :evaluation, :introduction, :language, :large_image,
-    :licence_overview, :link, :max_employees, :max_value, :medium_image, :min_value,
+    :link, :max_employees, :max_value, :medium_image, :min_value,
     :more_information, :name, :need_to_know, :nodes, :organiser, :overview,
     :place_type, :short_description, :small_image, :summary, :video_summary,
     :video_url, :will_continue_on

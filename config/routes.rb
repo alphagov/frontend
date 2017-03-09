@@ -96,8 +96,8 @@ Frontend::Application.routes.draw do
 
   # Licence pages
   constraints FormatRoutingConstraint.new('licence') do
-    get ":slug", to: "licence#search", as: "licence"
-    post ":slug", to: "licence#search" # Support for postcode submission which we treat as confidential data
+    get ":slug", to: "licence#start", as: "licence"
+    post ":slug", to: "licence#start" # Support for postcode submission which we treat as confidential data
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
   end
 

@@ -3,7 +3,6 @@
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  main_class: ("multi-page" if @interaction_details and @interaction_details[:authority]),
   context: "Licence",
   title: @publication.title,
   publication: @publication,
@@ -16,8 +15,10 @@
           <h1>Apply for this licence</h1>
 
           <p id="get-started" class="get-started group">
-             <a href="<%= @publication.continuation_link %>" rel="external" class="button">Start now</a>
-             <% if @publication.will_continue_on.present? %><span class="destination"> on <%= @publication.will_continue_on %></span><% end %>
+            <a href="<%= @publication.continuation_link %>" rel="external" class="button">Start now</a>
+            <% if @publication.will_continue_on.present? %>
+              <span class="destination">on <%= @publication.will_continue_on %></span>
+            <% end %>
           </p>
         </div>
       </div>

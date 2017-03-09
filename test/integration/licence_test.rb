@@ -1,8 +1,10 @@
 require 'integration_test_helper'
 require 'gds_api/test_helpers/mapit'
+require 'gds_api/test_helpers/licence_application'
 
-class LicenceLookupTest < ActionDispatch::IntegrationTest
+class LicenceTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LicenceApplication
 
   context "given a location specific licence" do
     setup do
@@ -30,46 +32,17 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "in_beta" => true,
         "updated_at" => "2012-10-02T15:21:03+00:00",
         "details" => {
-          "format" => "Licence",
+          "licence_identifier" => "1071-5-1",
+          "description" => "Description of the licence",
           "licence_overview" => "You only live twice, Mr Bond.\n",
-          "licence" => {
-            "location_specific" => true,
-            "availability" => ["England", "Wales"],
-            "authorities" => [{
-              "name" => "Westminster City Council",
-              "slug" => "westminster",
-              "contact" => {
-                "website" => "http://westminster.gov.uk/",
-                "email" => "blah@westminster.gov.uk",
-                "phone" => "02012345678",
-                "address" => "Westminster City Hall, 64 Victoria Street"
-              },
-              "actions" => {
-                "apply" => [
-                  {
-                    "url" => "/licence-to-kill/westminster/apply-1",
-                    "description" => "Apply for your licence to kill",
-                    "payment" => "none",
-                    "introduction" => "This licence is issued shaken, not stirred."
-                  }, {
-                    "url" => "/licence-to-kill/westminster/apply-2",
-                    "description" => "Apply for your licence to hold gadgets",
-                    "payment" => "none",
-                    "introduction" => "Q-approval required."
-                  }
-                ],
-                "renew" => [
-                  {
-                    "url" => "/licence-to-kill/westminster/renew-1",
-                    "description" => "Renew your licence to kill",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }
-                ]
-              }
-            }]
-          }
-        })
+        }
+      )
+
+      licence_exists('1071-5-1',
+                     "isLocationSpecific" => true,
+                     "isOfferedByCounty" => false,
+                     "geographicalAvailability" => %w(England Wales),
+                     "issuingAuthorities" => [])
 
       content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
     end
@@ -124,61 +97,199 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
     end
 
     context "when visiting the licence with a valid postcode" do
-      setup do
-        visit '/licence-to-kill'
-
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
-      end
-
-      should "redirect to the appropriate authority slug" do
-        assert_equal "/licence-to-kill/westminster", current_path
-      end
-
-      should "display the authority name" do
-        assert page.has_content?("Westminster")
-      end
-
-      should "show available licence actions" do
-        within("#content nav") do
-          assert page.has_link? "How to apply", href: '/licence-to-kill/westminster/apply'
-          assert page.has_link? "How to renew", href: '/licence-to-kill/westminster/renew'
-        end
-      end
-
-      should "show overview section" do
-        within("#overview") do
-          assert page.has_content?("You only live twice, Mr Bond.")
-        end
-      end
-
-      context "when visiting a licence action" do
+      context "when it's a unitary or district local authority" do
         setup do
-          click_link "How to apply"
+          authorities = [
+            {
+              "authorityName" => "Westminster City Council",
+              "authoritySlug" => "westminster",
+              "authorityContact" => {
+                "website" => "",
+                "email" => "",
+                "phone" => "020 7641 6000",
+                "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP"
+              },
+              "authorityInteractions" => {
+                "apply" => [
+                  {
+                    "url" => "/licence-to-kill/westminster/apply-1",
+                    "description" => "Apply for your licence to kill",
+                    "payment" => "none",
+                    "introduction" => "This licence is issued shaken, not stirred."
+                  }, {
+                    "url" => "/licence-to-kill/westminster/apply-2",
+                    "description" => "Apply for your licence to hold gadgets",
+                    "payment" => "none",
+                    "introduction" => "Q-approval required."
+                  }
+                ],
+                "renew" => [
+                  {
+                    "url" => "/licence-to-kill/westminster/renew-1",
+                    "description" => "Renew your licence to kill",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }
+                ]
+              }
+            }
+          ]
+
+          licence_exists('1071-5-1/00BK',
+                         "isLocationSpecific" => true,
+                         "isOfferedByCounty" => false,
+                         "geographicalAvailability" => %w(England Wales),
+                         "issuingAuthorities" => authorities)
+
+          visit '/licence-to-kill'
+
+          fill_in 'postcode', with: "SW1A 1AA"
+          click_button('Find')
         end
 
-        should "display the page content" do
-          assert page.has_content? "Licence to kill"
-          assert page.has_selector? "h1", text: "How to apply"
+        should "redirect to the appropriate authority slug" do
+          assert_equal "/licence-to-kill/westminster", current_path
         end
 
-        should "display a button to apply for the licence" do
-          assert page.has_link? "Apply online", href: "/licence-to-kill/westminster/apply-1"
+        should "display the authority name" do
+          within(".relevant-authority") do
+            assert page.has_content?("Westminster")
+          end
+        end
+
+        should "show available licence actions" do
+          within("#content nav") do
+            assert page.has_link? "How to apply", href: '/licence-to-kill/westminster/apply'
+            assert page.has_link? "How to renew", href: '/licence-to-kill/westminster/renew'
+          end
+        end
+
+        should "show overview section" do
+          within("#overview") do
+            assert page.has_content?("You only live twice, Mr Bond.")
+          end
+        end
+
+        context "when visiting a licence action" do
+          setup do
+            click_link "How to apply"
+          end
+
+          should "display the page content" do
+            assert page.has_content? "Licence to kill"
+            assert page.has_selector? "h1", text: "How to apply"
+          end
+
+          should "display a button to apply for the licence" do
+            assert page.has_link? "Apply online", href: "/licence-to-kill/westminster/apply-1"
+          end
+        end
+
+        should "return a 404 for an invalid action" do
+          visit "/licence-to-kill/westminster/blah"
+          assert_equal 404, page.status_code
+
+          visit "/licence-to-kill/westminster/change"
+          assert_equal 404, page.status_code
+        end
+
+        should "return a 404 for an invalid authority" do
+          visit "/licence-to-kill/not-a-valid-council-name"
+
+          assert_equal 404, page.status_code
         end
       end
 
-      should "return a 404 for an invalid action" do
-        visit "/licence-to-kill/westminster/blah"
-        assert_equal 404, page.status_code
+      context "when it's a county local authority" do
+        setup do
+          artefact = artefact_for_slug('licence-to-thrill').merge(
+            "title" => "Licence to thrill",
+            "format" => "licence",
+            "in_beta" => true,
+            "updated_at" => "2012-10-02T15:21:03+00:00",
+            "details" => {
+              "licence_identifier" => "999",
+              "description" => "Description of the licence",
+              "licence_overview" => "You only live twice, Mr Bond.\n",
+            }
+          )
 
-        visit "/licence-to-kill/westminster/change"
-        assert_equal 404, page.status_code
-      end
+          content_api_and_content_store_have_page('licence-to-thrill', artefact: artefact)
 
-      should "return a 404 for an invalid authority" do
-        visit "/licence-to-kill/not-a-valid-council-name"
+          mapit_has_a_postcode_and_areas("HP20 2QF", [], [
+            { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
+            { "ons" => "11UB", "govuk_slug" => "aylesbury-vale", "name" => "Aylesbury Vale District Council", "type" => "DIS" },
+          ])
 
-        assert_equal 404, page.status_code
+          buckinghamshire = {
+            "id" => 2432,
+            "codes" => {
+              "ons" => "11",
+              "gss" => "E07000198",
+              "govuk_slug" => "buckinghamshire"
+            },
+            "name" => "Buckinghamshire"
+          }
+
+          mapit_has_area_for_code('govuk_slug', 'buckinghamshire', buckinghamshire)
+
+          authorities = [
+            {
+              "authorityName" => "Buckinghamshire Council",
+              "authoritySlug" => "buckinghamshire",
+              "authorityContact" => {
+                "website" => "",
+                "email" => "",
+                "phone" => "",
+                "address" => "",
+              },
+              "authorityInteractions" => {
+                "apply" => [
+                  {
+                    "url" => "/licence-to-thrill/buckinghamshire/apply-1",
+                    "description" => "Apply for your licence to kill",
+                    "payment" => "none",
+                    "introduction" => "This licence is issued shaken, not stirred."
+                  }, {
+                    "url" => "/licence-to-thrill/buckinghamshire/apply-2",
+                    "description" => "Apply for your licence to hold gadgets",
+                    "payment" => "none",
+                    "introduction" => "Q-approval required."
+                  }
+                ],
+                "renew" => [
+                  {
+                    "url" => "/licence-to-thrill/buckinghamshire/renew-1",
+                    "description" => "Renew your licence to kill",
+                    "payment" => "none",
+                    "introduction" => ""
+                  }
+                ]
+              }
+            }
+          ]
+
+          licence_exists('999/11',
+                         "isLocationSpecific" => true,
+                         "isOfferedByCounty" => true,
+                         "geographicalAvailability" => %w(England Wales),
+                         "issuingAuthorities" => authorities)
+
+          licence_exists('999',
+                         "isLocationSpecific" => true,
+                         "isOfferedByCounty" => true,
+                         "geographicalAvailability" => %w(England Wales),
+                         "issuingAuthorities" => [])
+
+          visit '/licence-to-thrill'
+
+          fill_in 'postcode', with: "HP20 2QF"
+          click_button('Find')
+        end
+
+        should "redirect to the appropriate authority slug" do
+          assert_equal "/licence-to-thrill/buckinghamshire", current_path
+        end
       end
     end
 
@@ -274,7 +385,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "title" => "Licence to kill",
           "format" => "licence",
           "details" => {
-            "format" => "Licence"
+            "licence_identifier" => "1071-5-1",
           }
         )
 
@@ -292,6 +403,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         }
 
         mapit_has_area_for_code('govuk_slug', 'south-ribble', south_ribble)
+        licence_does_not_exist('1071-5-1/30UN')
       end
 
       should "show message to contact local council" do
@@ -310,58 +422,65 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "title" => "Licence to turn off a telescreen",
           "format" => "licence",
           "details" => {
-            "format" => "Licence",
-            "licence" => {
-              "location_specific" => false,
-              "availability" => ["England", "Wales"],
-              "authorities" => [{
-                "name" => "Ministry of Plenty",
-                "slug" => "miniplenty",
-                "actions" => {
-                  "apply" => [{
-                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-plenty/apply-1",
-                    "description" => "Apply for your licence to turn off a telescreen",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }]
-                }
-              }, {
-                "name" => "Ministry of Love",
-                "slug" => "miniluv",
-                "actions" => {
-                  "apply" => [{
-                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
-                    "description" => "Apply for your licence to turn off a telescreen",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }]
-                }
-              }, {
-                "name" => "Ministry of Truth",
-                "slug" => "minitrue",
-                "actions" => {
-                  "apply" => [{
-                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-truth/apply-1",
-                    "description" => "Apply for your licence to turn off a telescreen",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }]
-                }
-              }, {
-                "name" => "Ministry of Peace",
-                "slug" => "minipax",
-                "actions" => {
-                  "apply" => [{
-                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-peace/apply-1",
-                    "description" => "Apply for your licence to turn off a telescreen",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }]
-                }
+            "licence_identifier" => "1071-5-1",
+          }
+        )
+        authorities = [
+          {
+            "authorityName" => "Ministry of Plenty",
+            "authoritySlug" => "miniplenty",
+            "authorityInteractions" => {
+              "apply" => [{
+                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-plenty/apply-1",
+                "description" => "Apply for your licence to turn off a telescreen",
+                "payment" => "none",
+                "introduction" => ""
+              }]
+            }
+          },
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [{
+                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                "description" => "Apply for your licence to turn off a telescreen",
+                "payment" => "none",
+                "introduction" => ""
+              }]
+            }
+          },
+          {
+            "authorityName" => "Ministry of Truth",
+            "authoritySlug" => "minitrue",
+            "authorityInteractions" => {
+              "apply" => [{
+                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-truth/apply-1",
+                "description" => "Apply for your licence to turn off a telescreen",
+                "payment" => "none",
+                "introduction" => ""
+              }]
+            }
+          },
+          {
+            "authorityName" => "Ministry of Peace",
+            "authoritySlug" => "minipax",
+            "authorityInteractions" => {
+              "apply" => [{
+                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-peace/apply-1",
+                "description" => "Apply for your licence to turn off a telescreen",
+                "payment" => "none",
+                "introduction" => ""
               }]
             }
           }
-        )
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
         content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact: artefact)
       end
 
@@ -393,6 +512,7 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
           should "display interactions for licence" do
             click_on "How to apply"
+            assert current_path == '/licence-to-turn-off-a-telescreen/miniluv/apply'
             assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
           end
         end
@@ -405,26 +525,33 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
           "title" => "Licence to turn off a telescreen",
           "format" => "licence",
           "details" => {
-            "format" => "Licence",
+            "licence_identifier" => "1071-5-1",
             "licence_overview" => "The place where there is no darkness.\n",
-            "licence" => {
-              "location_specific" => false,
-              "availability" => ["England", "Wales"],
-              "authorities" => [{
-                "name" => "Ministry of Love",
-                "slug" => "miniluv",
-                "actions" => {
-                  "apply" => [{
-                    "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
-                    "description" => "Apply for your licence to turn off a telescreen",
-                    "payment" => "none",
-                    "introduction" => ""
-                  }]
-                }
-              }]
-            }
           }
         )
+
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                  "description" => "Apply for your licence to turn off a telescreen",
+                  "payment" => "none",
+                  "introduction" => "",
+                }
+              ]
+            }
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
         content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact: artefact)
       end
 
@@ -463,23 +590,6 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "title" => "Artistic License",
         "format" => "licence",
         "details" => {
-          "format" => "Licence",
-          "licence" => {
-            "location_specific" => false,
-              "availability" => ["England", "Wales"],
-              "authorities" => [{
-              "name" => "Ministry of Love",
-              "slug" => "miniluv",
-              "actions" => {
-                "apply" => [{
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
-                  "description" => "Apply for your licence to turn off a telescreen",
-                   "payment" => "none",
-                   "introduction" => ""
-                  }]
-                }
-              }]
-            },
           "will_continue_on" => "another planet",
           "continuation_link" => "http://gov.uk/blah"
         }
@@ -518,35 +628,36 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
         "title" => "Licence to kill",
         "format" => "licence",
         "details" => {
-          "format" => "Licence",
-          "licence" => {}
+          "licence_identifier" => "1071-5-1",
         },
         "tags" => [],
         "related" => []
+
       )
       content_api_and_content_store_have_page("licence-to-kill", artefact: artefact)
+      licence_does_not_exist("1071-5-1")
     end
 
     should "show message to contact local council" do
       visit '/licence-to-kill'
 
+      assert page.has_content?("You can't apply for this licence online")
       assert page.has_content?('Contact your local council')
     end
   end
 
-  context "given that licensify is down" do
+  context "given that licensify times out" do
     setup do
       artefact = artefact_for_slug('licence-to-kill').merge(
         "title" => "Licence to kill",
         "format" => "licence",
         "details" => {
-          "format" => "Licence",
-          "licence" => {
-            "error" => "http_error"
-          }
+          "licence_identifier" => "1071-5-1",
         }
       )
+
       content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
+      licence_times_out("1071-5-1")
     end
 
     should "not blow the stack" do
@@ -556,6 +667,35 @@ class LicenceLookupTest < ActionDispatch::IntegrationTest
 
     should "show message to contact local council" do
       visit '/licence-to-kill'
+
+      assert page.has_content?("You can't apply for this licence online")
+      assert page.has_content?('Contact your local council')
+    end
+  end
+
+  context "given that licensify errors" do
+    setup do
+      artefact = artefact_for_slug('licence-to-kill').merge(
+        "title" => "Licence to kill",
+        "format" => "licence",
+        "details" => {
+          "licence_identifier" => "1071-5-1",
+        }
+      )
+
+      content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
+      licence_returns_error("1071-5-1")
+    end
+
+    should "not blow the stack" do
+      visit '/licence-to-kill'
+      assert page.status_code == 200
+    end
+
+    should "show message to contact local council" do
+      visit '/licence-to-kill'
+
+      assert page.has_content?("You can't apply for this licence online")
       assert page.has_content?('Contact your local council')
     end
   end

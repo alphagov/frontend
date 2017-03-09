@@ -9,19 +9,22 @@ class PlacesTest < ActionDispatch::IntegrationTest
   setup do
     mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
 
-    @artefact = artefact_for_slug('passport-interview-office').merge(
-      "title" => "Find a passport interview office",
-      "format" => "place",
-      "in_beta" => true,
-      "updated_at" => "2012-10-02T15:21:03+00:00",
-      "details" => {
-        "description" => "Find a passport interview office",
-        "place_type" => "find-passport-offices",
-        "more_information" => "Some more info on passport offices",
-        "need_to_know" => "<ul><li>Proof of identification required</li></ul>",
-        "introduction" => "<p>Enter your postcode to find a passport interview office near you.</p>"
-      })
-    content_api_and_content_store_have_page('passport-interview-office', artefact: @artefact)
+    @payload = {
+      title: "Find a passport interview office",
+      base_path: "/passport-interview-office",
+      schema_name: "place",
+      phase: "beta",
+      updated_at: "2012-10-02T15:21:03+00:00",
+      details: {
+        introduction: "<p>Enter your postcode to find a passport interview office near you.</p>",
+        more_information: "Some more info on passport offices",
+        need_to_know: "<ul><li>Proof of identification required</li></ul>",
+        place_type: "find-passport-offices"
+      },
+      external_related_links: []
+    }
+
+    content_store_has_item('/passport-interview-office', @payload)
 
     @places = [
       {
@@ -153,7 +156,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
           assert page.has_content?("London")
           assert page.has_content?("SW1V 1PN")
 
-          assert page.has_link?("http://www.example.com/london_ips...", href: "http://www.example.com/london_ips_office")
+          assert page.has_link?("http://www.example.com/london_ips_office", href: "http://www.example.com/london_ips_office")
           assert page.has_content?("Phone: 0800 123 4567")
 
           assert page.has_content?("Monday to Saturday 8.00am - 6.00pm.")
@@ -177,15 +180,19 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       mapit_has_a_postcode("N5 1QL", [51.5505284612, -0.100467152148])
 
-      @artefact_for_report_child_abuse = artefact_for_slug('report-child-abuse-to-local-council').merge("title" => "Find your local child social care team",
-        "format" => "place",
-        "in_beta" => true,
-        "details" => {
-          "description" => "Find your local child social care team",
-          "place_type" => "find-child-social-care-team",
-          "introduction" => "<p>Contact your local council if you think a child is at risk</p>"
-        })
-      content_api_and_content_store_have_page('report-child-abuse-to-local-council', artefact: @artefact_for_report_child_abuse)
+      @payload_for_report_child_abuse = {
+        title: "Find your local child social care team",
+        base_path: "/report-child-abuse-to-local-council",
+        schema_name: "place",
+        in_beta: true,
+        details: {
+          description: "Find your local child social care team",
+          place_type: "find-child-social-care-team",
+          introduction: "<p>Contact your local council if you think a child is at risk</p>"
+        }
+      }
+
+      content_store_has_item("/report-child-abuse-to-local-council", @payload_for_report_child_abuse)
 
       @places_for_report_child_abuse = [
         {
@@ -300,24 +307,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "display the 'no locations found' message" do
       assert page.has_content?("We couldn't find any results for this postcode.")
-    end
-  end
-
-  context "when previewing the page" do
-    should "render the page" do
-      content_api_and_content_store_have_unpublished_page("passport-interview-office", 5, @artefact)
-
-      visit "/passport-interview-office?edition=5"
-
-      assert_equal 200, page.status_code
-
-      within '#content' do
-        within 'header' do
-          assert page.has_content?("Find a passport interview office")
-        end
-      end
-
-      assert_current_url "/passport-interview-office?edition=5"
     end
   end
 

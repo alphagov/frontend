@@ -14,6 +14,7 @@ class PlaceController < ApplicationController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
+    set_content_item(PlacePresenter)
     if request.post?
       @location_error = location_error
       if @location_error

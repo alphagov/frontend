@@ -34,10 +34,6 @@ node('mongodb-2.4') {
   ])
 
   try {
-    govuk.initializeParameters([
-      'IS_SCHEMA_TEST': 'false',
-    ])
-
     if (!govuk.isAllowedBranchBuild(env.BRANCH_NAME)) {
       return
     }

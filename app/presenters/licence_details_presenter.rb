@@ -45,7 +45,9 @@ class LicenceDetailsPresenter
   def authority
     if authorities.size == 1
       authorities_from_api_response.first
-    elsif authorities.size > 1
+    elsif authorities.size > 1 && local_authority_specific?
+      authorities_from_api_response.first
+    elsif authorities.size > 1 && authority_slug
       authorities.detect { |a| a["slug"] == authority_slug }
     end
   end

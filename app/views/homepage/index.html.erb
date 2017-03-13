@@ -5,7 +5,7 @@
 <% content_for :title, "Welcome to GOV.UK" %>
 <% content_for :body_classes, "homepage" %>
 
-<%= render :partial => "campaign_notification" %>
+<%= campaign_notification_content = render partial: "campaign_notification" %>
 <main id="content" class="root-index" role="main">
   <header class="homepage-top">
     <div class="homepage-top-inner">
@@ -46,12 +46,7 @@
     </div>
   </header>
 
-  <div id="homepage-promo-banner">
-    <div class="banner-message">
-      <p><strong>Some Title</strong> On [some date] [something will happen / has happened].
-      <a href="https://www.gov.uk" rel="external nofollow">More&nbsp;information</a></p>
-    </div>
-  </div>
+  <%= render_promo_banner if campaign_notification_content.strip.blank? %>
 
   <div id="homepage" class="homepage-content">
     <div class="homepage-content-inner">

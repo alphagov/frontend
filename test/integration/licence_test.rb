@@ -291,6 +291,72 @@ class LicenceTest < ActionDispatch::IntegrationTest
           assert_equal "/licence-to-thrill/buckinghamshire", current_path
         end
       end
+
+      context "when there are more than one authority" do
+        setup do
+          authorities = [
+            {
+              "authorityName" => "Westminster City Council",
+              "authoritySlug" => "westminster",
+              "authorityContact" => {
+                "website" => "",
+                "email" => "",
+                "phone" => "020 7641 6000",
+                "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP"
+              },
+              "authorityInteractions" => {
+                "apply" => [
+                  {
+                    "url" => "/licence-to-kill/westminster/apply-1",
+                    "description" => "Apply for your licence to kill",
+                    "payment" => "none",
+                    "introduction" => "This licence is issued shaken, not stirred."
+                  }
+                ],
+              }
+            },
+            {
+              "authorityName" => "Kingsmen Tailors",
+              "authoritySlug" => "kingsmen-tailors",
+              "authorityContact" => {
+                "website" => "",
+                "email" => "",
+                "phone" => "020 007 007",
+                "address" => "Savile Row"
+              },
+              "authorityInteractions" => {
+                "apply" => [
+                  {
+                    "url" => "/licence-to-kill/kingsmen-tailors/apply-1",
+                    "description" => "Apply for your licence to kill",
+                    "payment" => "none",
+                    "introduction" => "This licence is issued shaken, not stirred."
+                  }
+                ],
+              }
+            }
+
+          ]
+
+          licence_exists('1071-5-1/00BK',
+                         "isLocationSpecific" => true,
+                         "isOfferedByCounty" => false,
+                         "geographicalAvailability" => %w(England Wales),
+                         "issuingAuthorities" => authorities)
+
+          visit '/licence-to-kill'
+
+          fill_in 'postcode', with: "SW1A 1AA"
+          click_button('Find')
+        end
+
+        should "show details for the first authority only" do
+          within(".relevant-authority") do
+            assert page.has_content?("Westminster")
+            refute page.has_content?("Kingsmen Tailors")
+          end
+        end
+      end
     end
 
     context "when visiting the licence with an invalid formatted postcode" do

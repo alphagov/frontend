@@ -5,7 +5,7 @@ class TravelAdviceIndexPresenter
 
   def initialize(attributes)
     details = attributes.fetch("details")
-    country_data = details.fetch("countries")
+    country_data = details.fetch("countries", attributes.dig("links", "children"))
 
     self.countries = country_data.map { |d| IndexCountry.new(d) }
     self.countries = countries_sorted_utf8
@@ -36,8 +36,8 @@ class TravelAdviceIndexPresenter
       updated_at = DateTime.parse(updated_at) if updated_at
 
       self.change_description = attributes.fetch("change_description")
-      self.name = attributes.fetch("name")
-      self.synonyms = attributes.fetch("synonyms")
+      self.name = attributes.fetch("name", attributes.dig("country", "name"))
+      self.synonyms = attributes.fetch("synonyms", attributes.dig("country", "synonyms"))
       self.web_url =  [Frontend.govuk_website_root, base_path].join
       self.identifier = base_path.split("/").last
       self.updated_at = updated_at

@@ -34,11 +34,6 @@ node('mongodb-2.4') {
   ])
 
   try {
-    govuk.initializeParameters([
-      'IS_SCHEMA_TEST': 'false',
-      'SCHEMA_BRANCH': DEFAULT_SCHEMA_BRANCH,
-    ])
-
     if (!govuk.isAllowedBranchBuild(env.BRANCH_NAME)) {
       return
     }
@@ -60,7 +55,7 @@ node('mongodb-2.4') {
     }
 
     stage("Set up content schema dependency") {
-      govuk.contentSchemaDependency()
+      govuk.contentSchemaDependency(params.SCHEMA_BRANCH)
       govuk.setEnvar("GOVUK_CONTENT_SCHEMAS_PATH", "tmp/govuk-content-schemas")
     }
 

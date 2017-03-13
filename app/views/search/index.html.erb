@@ -3,6 +3,7 @@
 <% content_for :extra_headers do %>
   <meta name="description"
       content="Search for '<%= @search_term %>' on GOV.UK." />
+  <meta name="govuk:user-journey-stage" content="finding" />
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
 <% end %>
 

@@ -33,7 +33,7 @@
             <div class="additional-information">
               <% if place["url"].present? %>
                 <p class="url">
-                  <a href="<%= place["url"] %>"><%= place["text"] %></a>
+                  <a class="truncated-url" href="<%= place["url"] %>"><%= place["text"] %></a>
                 </p>
               <% end %>
 

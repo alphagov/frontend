@@ -8,4 +8,8 @@ class CompletedTransactionPresenter < ContentItemPresenter
       details[key.to_s] if details
     end
   end
+
+  def web_url
+    Plek.new.website_root + base_path
+  end
 end

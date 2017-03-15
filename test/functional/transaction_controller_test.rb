@@ -69,6 +69,7 @@ class TransactionControllerTest < ActionController::TestCase
         )
 
         expect_normal_navigation_and_old_related_links
+        content_store_has_item_tagged_to_taxon(base_path: '/tagged-to-taxon', payload: {})
 
         with_variant EducationNavigation: "B" do
           get :show, slug: "tagged-to-taxon"

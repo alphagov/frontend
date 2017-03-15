@@ -21,8 +21,8 @@
   </div>
 </main>
 
-<% if @navigation_helpers %>
-<div class="related-container">
-  <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
-</div>
+<% if @navigation_helpers.related_items[:sections].any? %>
+  <div class="related-container">
+    <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
+  </div>
 <% end %>

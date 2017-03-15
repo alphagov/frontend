@@ -1,8 +1,6 @@
 require 'test_helper'
-require 'gds_api/test_helpers/content_api'
 
 class SimpleSmartAnswersControllerTest < ActionController::TestCase
-  include GdsApi::TestHelpers::ContentApi
   include EducationNavigationAbTestHelper
 
   def simple_smart_answer_content_item

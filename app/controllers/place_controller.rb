@@ -4,8 +4,6 @@ class PlaceController < ApplicationController
   include Cacheable
   include Navigable
 
-  before_filter :set_publication
-
   helper_method :postcode_provided?, :postcode
 
   INVALID_POSTCODE = "invalidPostcodeError".freeze
@@ -14,12 +12,14 @@ class PlaceController < ApplicationController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
+    set_content_item(PlacePresenter)
+
     if request.post?
       @location_error = location_error
       if @location_error
         @postcode = postcode
       elsif imminence_response.places_found?
-        @publication = PublicationWithPlacesPresenter.new(artefact, imminence_response.places)
+        @publication = PlacePresenter.new(content_item, imminence_response.places)
       end
     end
 
@@ -59,7 +59,7 @@ private
   def places_from_imminence
     if postcode.present?
       begin
-        places = Frontend.imminence_api.places_for_postcode(artefact["details"]["place_type"], postcode, Frontend::IMMINENCE_QUERY_LIMIT)
+        places = Frontend.imminence_api.places_for_postcode(@publication.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
       rescue GdsApi::HTTPErrorResponse => e
         error = e
       end

@@ -6,7 +6,7 @@ class ApplicationHelperTest < ActionView::TestCase
     include ActionView::Helpers::TagHelper
 
     def request
-      @request ||= OpenStruct.new(format: OpenStruct.new(video?: false))
+      @request ||= OpenStruct.new(format: OpenStruct.new)
     end
   end
 
@@ -45,7 +45,6 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   test "should omit first part of title if publication is omitted" do
-    @helper.request.format.stubs(:video?).returns(true)
     assert_equal "GOV.UK", @helper.page_title
   end
 end

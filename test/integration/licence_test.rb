@@ -26,25 +26,28 @@ class LicenceTest < ActionDispatch::IntegrationTest
       mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
       mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
 
-      @artefact = artefact_for_slug('licence-to-kill').merge(
-        "title" => "Licence to kill",
-        "format" => "licence",
-        "in_beta" => true,
-        "updated_at" => "2012-10-02T15:21:03+00:00",
-        "details" => {
-          "licence_identifier" => "1071-5-1",
-          "description" => "Description of the licence",
-          "licence_overview" => "You only live twice, Mr Bond.\n",
-        }
-      )
+      @payload = {
+        base_path: "/licence-to-kill",
+        document_type: "licence",
+        format: "licence",
+        phase: "beta",
+        schema_name: "licence",
+        title: "Licence to kill",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1",
+          licence_overview: "You only live twice, Mr Bond.\n",
+        },
+      }
+
+      content_store_has_item('/licence-to-kill', @payload)
 
       licence_exists('1071-5-1',
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
                      "issuingAuthorities" => [])
-
-      content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
     end
 
     context "when visiting the licence search page" do
@@ -202,19 +205,21 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       context "when it's a county local authority" do
         setup do
-          artefact = artefact_for_slug('licence-to-thrill').merge(
-            "title" => "Licence to thrill",
-            "format" => "licence",
-            "in_beta" => true,
-            "updated_at" => "2012-10-02T15:21:03+00:00",
-            "details" => {
-              "licence_identifier" => "999",
-              "description" => "Description of the licence",
-              "licence_overview" => "You only live twice, Mr Bond.\n",
-            }
-          )
+          @payload = {
+            base_path: "/licence-to-thrill",
+            document_type: "licence",
+            format: "licence",
+            schema_name: "licence",
+            title: "Licence to thrill",
+            updated_at: "2012-10-02T12:30:33.483Z",
+            description: "Descriptive licence text.",
+            details: {
+              licence_identifier: "999",
+              licence_overview: "You only live twice, Mr Bond.\n",
+            },
+          }
 
-          content_api_and_content_store_have_page('licence-to-thrill', artefact: artefact)
+          content_store_has_item('/licence-to-thrill', @payload)
 
           mapit_has_a_postcode_and_areas("HP20 2QF", [], [
             { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
@@ -426,71 +431,29 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert page.has_field? "postcode", with: "XM4 5HQ"
       end
     end
-
-    context "when previewing the page" do
-      should "render the page" do
-        content_api_and_content_store_have_unpublished_page("licence-to-kill", 5, @artefact)
-
-        visit "/licence-to-kill?edition=5"
-
-        assert_equal 200, page.status_code
-
-        within '#content' do
-          within 'header' do
-            assert page.has_content?("Licence to kill")
-          end
-        end
-
-        assert_current_url "/licence-to-kill?edition=5"
-      end
-    end
-
-    context "which does not exist in licensify for an authority" do
-      setup do
-        artefact = artefact_for_slug('licence-to-kill').merge(
-          "title" => "Licence to kill",
-          "format" => "licence",
-          "details" => {
-            "licence_identifier" => "1071-5-1",
-          }
-        )
-
-        content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
-        content_api_and_content_store_have_page_with_snac_code("licence-to-kill", "30UN", artefact)
-
-        south_ribble = {
-          "id" => 2432,
-          "codes" => {
-            "ons" => "30UN",
-            "gss" => "E07000198",
-            "govuk_slug" => "south-ribble"
-          },
-          "name" => "South Ribble"
-        }
-
-        mapit_has_area_for_code('govuk_slug', 'south-ribble', south_ribble)
-        licence_does_not_exist('1071-5-1/30UN')
-      end
-
-      should "show message to contact local council" do
-        visit '/licence-to-kill/south-ribble'
-
-        assert page.status_code == 200
-        assert page.has_content?('Contact your local council')
-      end
-    end
   end
 
   context "given a non-location specific licence" do
+    setup do
+      @payload = {
+        base_path: "/licence-to-turn-off-a-telescreen",
+        document_type: "licence",
+        format: "licence",
+        schema_name: "licence",
+        title: "Licence to turn off a telescreen",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1",
+          licence_overview: "The place where there is no darkness",
+        },
+      }
+
+      content_store_has_item('/licence-to-turn-off-a-telescreen', @payload)
+    end
+
     context "with multiple authorities" do
       setup do
-        artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
-          "title" => "Licence to turn off a telescreen",
-          "format" => "licence",
-          "details" => {
-            "licence_identifier" => "1071-5-1",
-          }
-        )
         authorities = [
           {
             "authorityName" => "Ministry of Plenty",
@@ -546,8 +509,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
-
-        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact: artefact)
       end
 
       context "when visiting the licence without specifying an authority" do
@@ -587,15 +548,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
     context "with a single authority" do
       setup do
-        artefact = artefact_for_slug('licence-to-turn-off-a-telescreen').merge(
-          "title" => "Licence to turn off a telescreen",
-          "format" => "licence",
-          "details" => {
-            "licence_identifier" => "1071-5-1",
-            "licence_overview" => "The place where there is no darkness.\n",
-          }
-        )
-
         authorities = [
           {
             "authorityName" => "Ministry of Love",
@@ -617,8 +569,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
-
-        content_api_and_content_store_have_page('licence-to-turn-off-a-telescreen', artefact: artefact)
       end
 
       context "when visiting the licence" do
@@ -643,7 +593,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         should "show overview section" do
           within("#overview") do
-            assert page.has_content?("The place where there is no darkness.")
+            assert page.has_content?("The place where there is no darkness")
           end
         end
       end
@@ -652,15 +602,21 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
   context "given a licence edition with continuation link" do
     setup do
-      artefact = artefact_for_slug('artistic-license').merge(
-        "title" => "Artistic License",
-        "format" => "licence",
-        "details" => {
+      @payload = {
+        base_path: "/artistic-license",
+        document_type: "licence",
+        format: "licence",
+        schema_name: "licence",
+        title: "Artistic License",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
           "will_continue_on" => "another planet",
           "continuation_link" => "http://gov.uk/blah"
-        }
-      )
-      content_api_and_content_store_have_page('artistic-license', artefact: artefact)
+        },
+      }
+
+      content_store_has_item('/artistic-license', @payload)
     end
 
     context "when visiting the licence" do
@@ -690,17 +646,21 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
   context "given a licence which does not exist in licensify" do
     setup do
-      artefact = artefact_for_slug('licence-to-kill').merge(
-        "title" => "Licence to kill",
-        "format" => "licence",
-        "details" => {
-          "licence_identifier" => "1071-5-1",
+      @payload = {
+        base_path: "/licence-to-kill",
+        document_type: "licence",
+        format: "licence",
+        schema_name: "licence",
+        title: "Licence to kill",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1"
         },
-        "tags" => [],
-        "related" => []
+      }
 
-      )
-      content_api_and_content_store_have_page("licence-to-kill", artefact: artefact)
+      content_store_has_item('/licence-to-kill', @payload)
+
       licence_does_not_exist("1071-5-1")
     end
 
@@ -714,15 +674,20 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
   context "given that licensify times out" do
     setup do
-      artefact = artefact_for_slug('licence-to-kill').merge(
-        "title" => "Licence to kill",
-        "format" => "licence",
-        "details" => {
-          "licence_identifier" => "1071-5-1",
-        }
-      )
+      @payload = {
+        base_path: "/licence-to-kill",
+        document_type: "licence",
+        format: "licence",
+        schema_name: "licence",
+        title: "Licence to kill",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1"
+        },
+      }
 
-      content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
+      content_store_has_item('/licence-to-kill', @payload)
       licence_times_out("1071-5-1")
     end
 
@@ -741,15 +706,20 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
   context "given that licensify errors" do
     setup do
-      artefact = artefact_for_slug('licence-to-kill').merge(
-        "title" => "Licence to kill",
-        "format" => "licence",
-        "details" => {
-          "licence_identifier" => "1071-5-1",
-        }
-      )
+      @payload = {
+        base_path: "/licence-to-kill",
+        document_type: "licence",
+        format: "licence",
+        schema_name: "licence",
+        title: "Licence to kill",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1"
+        },
+      }
 
-      content_api_and_content_store_have_page('licence-to-kill', artefact: artefact)
+      content_store_has_item('/licence-to-kill', @payload)
       licence_returns_error("1071-5-1")
     end
 

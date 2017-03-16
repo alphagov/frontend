@@ -25,7 +25,7 @@
     <div id="overview" class="inner">
       <% if @licence_details.action.present? %>
         <%= render :partial => "action", :locals => {:action => @licence_details.action } %>
-      <% else %>
+      <% elsif @publication.licence_overview.present? %>
         <header><h1>Overview</h1></header>
         <%= raw @publication.licence_overview %>
       <% end %>

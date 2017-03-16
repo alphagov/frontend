@@ -14,12 +14,6 @@ class AnswerControllerTest < ActionController::TestCase
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
-
-      should "redirect json requests to the api" do
-        get :show, slug: "molehills", format: 'json'
-
-        assert_redirected_to "/api/molehills.json"
-      end
     end
 
     context "for draft content" do

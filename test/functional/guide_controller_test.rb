@@ -21,12 +21,6 @@ class GuideControllerTest < ActionController::TestCase
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
 
-      should "redirect json requests to the api" do
-        get :show, slug: "foo", format: 'json'
-
-        assert_redirected_to "/api/foo.json"
-      end
-
       should "have specified parts selected " do
         first_part = @content_item['details']['parts'][0]
         get :show, slug: "foo", part: first_part['slug']

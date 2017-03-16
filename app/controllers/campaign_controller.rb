@@ -1,5 +1,4 @@
 class CampaignController < ApplicationController
-  include ApiRedirectable
   include Previewable
   include Cacheable
 

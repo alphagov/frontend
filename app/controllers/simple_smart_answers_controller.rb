@@ -4,7 +4,6 @@ class SimpleSmartAnswersController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :redirect_if_api_request, only: :show
   before_filter :set_expiry
   before_filter -> { set_content_item(SimpleSmartAnswerPresenter) }
 
@@ -34,9 +33,5 @@ private
 
   def change_completed_question_path(question_number)
     smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], previous_response: @flow_state.completed_questions[question_number].slug)
-  end
-
-  def redirect_if_api_request
-    redirect_to "/api/#{params[:slug]}.json" if request.format.json?
   end
 end

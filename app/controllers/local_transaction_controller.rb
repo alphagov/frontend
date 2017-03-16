@@ -1,6 +1,5 @@
 class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
-  include ApiRedirectable
   include Cacheable
   include Navigable
   include EducationNavigationABTestable

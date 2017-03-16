@@ -1,5 +1,4 @@
 class GuideController < ApplicationController
-  include ApiRedirectable
   include Cacheable
   include Navigable
   include EducationNavigationABTestable

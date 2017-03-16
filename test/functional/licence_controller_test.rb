@@ -90,21 +90,16 @@ class LicenceControllerTest < ActionController::TestCase
 
   context "POST to start" do
     setup do
-      @payload = {
-        base_path: "/licence-to-kill",
-        document_type: "licence",
-        format: "licence",
-        schema_name: "licence",
-        title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
-        description: "Descriptive licence text.",
-        details: {
-          licence_identifier: "1071-5-1",
-          licence_overview: "You only live twice, Mr Bond.\n",
-        },
-      }
-
-      content_store_has_item('/licence-to-kill', @payload)
+      content_api_and_content_store_have_page('licence-to-kill',
+        artefact: {
+          "format" => "licence",
+          "web_url" => "http://example.org/licence-to-kill",
+          "title" => "Licence to kill",
+          "details" => {
+            "licence_identifier" => "1071-5-1",
+          }
+        }
+      )
     end
 
     context "loading the licence edition when posting a location" do

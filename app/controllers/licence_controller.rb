@@ -5,7 +5,7 @@ class LicenceController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :set_content_item
+  before_filter :set_publication
 
   helper_method :postcode
 
@@ -39,16 +39,17 @@ class LicenceController < ApplicationController
 
 private
 
-  def set_content_item
-    super(LicencePresenter)
+  def set_publication
+    @publication = LicencePresenter.new(artefact)
     @licence_details = LicenceDetailsPresenter.new(licence_details_from_api, params["authority_slug"], params[:interaction])
+    set_language_from_publication
   end
 
   def licence_details_from_api(snac = nil)
     return {} if @publication.continuation_link.present?
 
     begin
-      Services.licensify.details_for_licence(@publication.licence_identifier, snac)
+      Services.licensify.details_for_licence(artefact["details"]["licence_identifier"], snac)
     rescue GdsApi::HTTPErrorResponse, GdsApi::TimedOutException
       {}
     end

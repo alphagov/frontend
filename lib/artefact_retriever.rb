@@ -12,7 +12,7 @@ class ArtefactRetriever
     self.supported_formats = supported_formats ||
       %w{answer business_support campaign completed_transaction guide help_page licence
          local_transaction place programme simple_smart_answer transaction
-         travel-advice video}
+         travel-advice}
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil)

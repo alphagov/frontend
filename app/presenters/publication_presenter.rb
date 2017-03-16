@@ -16,8 +16,7 @@ class PublicationPresenter
     :eligibility, :evaluation, :introduction, :language, :large_image,
     :link, :max_employees, :max_value, :medium_image, :min_value,
     :more_information, :name, :need_to_know, :nodes, :organiser, :overview,
-    :place_type, :short_description, :small_image, :summary, :video_summary,
-    :video_url, :will_continue_on
+    :place_type, :short_description, :small_image, :summary, :will_continue_on
   ]
 
   PASS_THROUGH_KEYS.each do |key|
@@ -47,17 +46,6 @@ class PublicationPresenter
   def updated_at
     date = @artefact["updated_at"]
     DateTime.parse(date) if date
-  end
-
-  def video_embed_url
-    return nil unless video_url
-
-    video = video_url.scan(/\?v=([A-Za-z0-9_\-]+)/)
-    if video.any?
-      "https://www.youtube.com/watch?v=#{video[0][0]}"
-    else
-      ""
-    end
   end
 
   def to_json

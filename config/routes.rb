@@ -51,12 +51,6 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for answers that were once a format with parts
   end
 
-  # Video pages
-  constraints FormatRoutingConstraint.new('video') do
-    get ":slug", to: "video#show"
-    get ":slug/:part", to: redirect('/%{slug}') # Support for videos that were once a format with parts
-  end
-
   # Guide pages
   constraints FormatRoutingConstraint.new('guide') do
     get ":slug/print", to: "guide#show", variant: :print

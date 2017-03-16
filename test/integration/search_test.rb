@@ -1,6 +1,10 @@
 require 'integration_test_helper'
 
 class SearchTest < ActionDispatch::IntegrationTest
+  setup do
+    stub_search_page_in_content_store
+  end
+
   should "allow us to embed search results in an iframe" do
     stub_any_rummager_search_to_return_no_results
 

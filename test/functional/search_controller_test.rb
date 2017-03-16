@@ -92,6 +92,7 @@ class SearchControllerTest < ActionController::TestCase
   setup do
     @controller = SearchController.new
     stub_results([])
+    content_store_has_item("/search", schema: 'special_route')
   end
 
   test "should ask the user to enter a search term if none was given" do
@@ -313,7 +314,6 @@ class SearchControllerTest < ActionController::TestCase
     stub_results([result], "bob", [], [], total: 1)
     get :index, q: "bob"
     assert_equal "search",  @response.headers["X-Slimmer-Section"]
-    assert_equal "search",  @response.headers["X-Slimmer-Format"]
     assert_equal "1",       @response.headers["X-Slimmer-Result-Count"]
   end
 

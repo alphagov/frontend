@@ -19,6 +19,7 @@ namespace :publishing_api do
           content_id: "f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a",
           base_path: "/",
           title: "GOV.UK homepage",
+          document_type: "homepage",
         },
         {
           content_id: "ffcd9054-ee77-4539-978d-171a60eb4b2a",
@@ -66,6 +67,7 @@ namespace :publishing_api do
           base_path: "/search",
           title: "GOV.UK search results",
           description: "Sitewide search results are displayed here.",
+          document_type: "search",
         },
         {
           content_id: "9f306cd5-1842-43e9-8408-2c13116f4717",

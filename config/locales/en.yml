@@ -13,9 +13,6 @@ en:
       navigate_to_previous_part: "Navigate to previous part"
       navigate_to_next_part: "Navigate to next part"
       notes: "Notes"
-    programme:
-      name: "Benefits & credits"
-      printer_friendly_page: "Print entire guide"
     transaction:
       name: "Service"
       start_now: "Start now"

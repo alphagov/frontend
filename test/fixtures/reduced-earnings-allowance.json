@@ -5,7 +5,7 @@
     "id": "https://www.gov.uk/api/reduced-earnings-allowance.json",
     "web_url": "https://www.gov.uk/reduced-earnings-allowance",
     "title": "Reduced Earnings Allowance",
-    "format": "programme",
+    "format": "guide",
     "in_beta": true,
     "details": {
         "need_id": "49",
@@ -144,7 +144,7 @@
             "id": "https://www.gov.uk/api/statutory-sick-pay-ssp.json",
             "web_url": "https://www.gov.uk/statutory-sick-pay-ssp",
             "title": "Statutory Sick Pay (SSP) ",
-            "format": "programme",
+            "format": "guide",
             "details": {
                 "need_id": "47",
                 "description": "Statutory Sick Pay is money you get when you're off work due to sickness - what you'll get, eligibility, how to claim"
@@ -155,7 +155,7 @@
             "id": "https://www.gov.uk/api/industrial-injuries-disablement-benefit.json",
             "web_url": "https://www.gov.uk/industrial-injuries-disablement-benefit",
             "title": "Industrial Injuries Disablement Benefit",
-            "format": "programme",
+            "format": "guide",
             "details": {
                 "need_id": "1033",
                 "description": "You might get Industrial Injuries Disablement Benefit (IIDB) if you're ill or disabled from an accident or disease caused by work - what you'll get, eligibility, how to claim"

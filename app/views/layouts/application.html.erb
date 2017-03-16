@@ -40,7 +40,11 @@
             )
           %>
         <% end %>
-        <%= render partial: 'govuk_component/breadcrumbs', locals: breadcrumbs %>
+        <%= render partial: 'govuk_component/breadcrumbs',
+          locals: {
+            breadcrumbs: breadcrumbs[:breadcrumbs],
+            collapse_on_mobile: present_new_navigation?
+          } %>
       <% end %>
 
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>

@@ -1,24 +1,23 @@
 class TransactionController < ApplicationController
   include ApiRedirectable
-  include Previewable
   include Cacheable
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :set_publication
-
-  JOBSEARCH_SLUGS = ["jobsearch", "chwilio-am-swydd"].freeze
+  before_action :set_content_item
+  before_action :deny_framing
 
   def show
-    deny_framing
-    if JOBSEARCH_SLUGS.include? params[:slug]
-      render :jobsearch
-    else
-      render :show
-    end
+  end
+
+  def jobsearch
   end
 
 private
+
+  def set_content_item
+    super(TransactionPresenter)
+  end
 
   def deny_framing
     response.headers['X-Frame-Options'] = 'DENY'

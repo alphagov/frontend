@@ -1,21 +1,20 @@
-<% if presenter.before_you_start? %>
+<% if transaction.more_information.present? %>
   <div id="before-you-start">
-    <h2><%= t 'formats.transaction.before_you_start' %></h2>
-
-    <%= raw transaction.more_information %>
+    <h2><%= t 'formats.transaction.more_information' %></h2>
+    <%= transaction.more_information.try(:html_safe) %>
   </div>
 <% end %>
 
-<% if presenter.what_you_need_to_know? %>
+<% if transaction.what_you_need_to_know.present? %>
   <div id="what-you-need-to-know">
     <h2><%= t 'formats.transaction.what_you_need_to_know' %></h2>
-    <%= render :partial => 'need_to_know', :locals => { :transaction => transaction } %>
+    <%= transaction.what_you_need_to_know.try(:html_safe) %>
   </div>
 <% end %>
 
-<% if presenter.other_ways_to_apply? %>
+<% if transaction.other_ways_to_apply.present? %>
   <div id="other-ways-to-apply">
     <h2><%= t 'formats.transaction.other_ways_to_apply' %></h2>
-    <%= raw transaction.alternate_methods %>
+    <%= transaction.other_ways_to_apply.try(:html_safe) %>
   </div>
 <% end %>

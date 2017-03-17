@@ -7,8 +7,6 @@ class SearchController < ApplicationController
   def index
     search_params = SearchParameters.new(params)
 
-    setup_content_item("/search")
-
     if search_params.no_search? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
@@ -42,6 +40,7 @@ protected
   def fill_in_slimmer_headers(result_count)
     set_slimmer_headers(
       result_count: result_count,
+      format:       "search",
       section:      "search",
     )
   end

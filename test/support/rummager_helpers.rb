@@ -25,10 +25,6 @@ private
     stub_any_rummager_search.to_return(body: { results: [], facets: [] }.to_json)
   end
 
-  def stub_search_page_in_content_store
-    content_store_has_item("/search", schema: 'special_route')
-  end
-
   def stub_any_rummager_search
     endpoint = Plek.current.find('search')
     stub_request(:get, %r{#{endpoint}/search.json})

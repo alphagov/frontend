@@ -52,7 +52,7 @@ protected
     end
   end
 
-  def setup_content_item(base_path)
+  def setup_content_item_and_navigation_helpers(base_path)
     @content_item = content_store.content_item(base_path).to_hash
     # Remove the organisations from the content item - this will prevent the
     # govuk:analytics:organisations meta tag from being generated until there is
@@ -61,26 +61,19 @@ protected
     if @content_item["links"]
       @content_item["links"].delete("organisations")
     end
+
+    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
+    section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
+    if section_name
+      @meta_section = section_name.downcase
+    end
+
   rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
     # We can't always be sure that the page has a content-item, since this
     # application also runs as `private-frontend` to preview unpublished content,
     # which doesn't exist in the content-store yet. However, when running in
     # "normal" mode there should be a content item for all pages rendered.
-    @content_item = nil
-  end
-
-  def setup_content_item_and_navigation_helpers(base_path)
-    setup_content_item(base_path)
-
-    if @content_item
-      @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
-      section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
-      if section_name
-        @meta_section = section_name.downcase
-      end
-    else
-      @navigation_helpers, @meta_section = nil
-    end
+    @navigation_helpers, @content_item, @meta_section = nil
   end
 
   def set_content_item(presenter = ContentItemPresenter)

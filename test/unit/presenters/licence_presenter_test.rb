@@ -1,27 +1,42 @@
 require "test_helper"
 
 class LicencePresenterTest < ActiveSupport::TestCase
-  def subject(content_item)
-    LicencePresenter.new(content_item.deep_stringify_keys!)
+  setup do
+    licence = {
+      "id" => "https://www.gov.uk/api/temporary-events-notice.json",
+      "content_id" => "cb16a948-d4c9-4e55-99b9-2f3931481b07",
+      "web_url" => "https://www.gov.uk/temporary-events-notice",
+      "title" => "Temporary Events Notice (England and Wales)",
+      "format" => "licence",
+      "owning_app" => "publisher",
+      "in_beta" => false,
+      "updated_at" => "2016-11-23T16:48:53:00:00",
+      "details" => {
+        "need_ids" => [
+          "102218"
+        ],
+        "description" => "Description of a Temporary Events Notice.",
+        "language" => "en",
+        "continuation_link" => "",
+        "licence_identifier" => "1071-5-1",
+        "licence_overview" => "This is an unimaginative overview.",
+        "licence_short_description" => "An equally unimaginative short description.",
+        "will_continue_on" => "",
+      },
+    }
+
+    @subject = LicencePresenter.new(licence)
   end
 
-  test "#introduction" do
-    assert_equal 'https://continue-here.gov.uk', subject(details: { continuation_link: 'https://continue-here.gov.uk' }).continuation_link
+  should "extract the slug from the URL path" do
+    assert_equal "temporary-events-notice", @subject.slug
   end
 
-  test "#licence_identifier" do
-    assert_equal '123', subject(details: { licence_identifier: '123' }).licence_identifier
+  should "show the updated_at date in the correct time zone" do
+    assert_equal "Wed, 23 Nov 2016 16:48:53 UTC +00:00".to_datetime, @subject.updated_at
   end
 
-  test "#licence_overview" do
-    assert_equal 'Overview of the licence', subject(details: { licence_overview: 'Overview of the licence' }).licence_overview
-  end
-
-  test "#licence_short_description" do
-    assert_equal 'Short description', subject(details: { licence_short_description: 'Short description' }).licence_short_description
-  end
-
-  test "#will_continue_on" do
-    assert_equal 'Westminster Council', subject(details: { will_continue_on: 'Westminster Council' }).will_continue_on
+  should "show the correct locale for the licence" do
+    assert_equal "en", @subject.locale
   end
 end

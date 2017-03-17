@@ -1,27 +1,27 @@
 <div class="js-tabs nav-tabs">
   <ul>
-    <% if transaction.more_information.present? %><li class="active"><a href="#more-information"><%= t 'formats.transaction.more_information' %></a></li><% end %>
-    <% if transaction.what_you_need_to_know.present? %><li><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></li><% end %>
-    <% if transaction.other_ways_to_apply.present? %><li><a href="#other-ways-to-apply"><%= t 'formats.transaction.other_ways_to_apply' %></a></li><% end %>
+    <% if presenter.before_you_start? %><li class="active"><a href="#before-you-start"><%= t 'formats.transaction.before_you_start' %></a></li><% end %>
+    <% if presenter.what_you_need_to_know? %><li><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></li><% end %>
+    <% if presenter.other_ways_to_apply? %><li><a href="#other-ways-to-apply"><%= t 'formats.transaction.other_ways_to_apply' %></a></li><% end %>
   </ul>
 </div>
 
 <div class="js-tab-content tab-content">
-  <% if transaction.more_information.present? %>
-    <div class="js-tab-pane tab-pane" id="more-information">
-      <%= transaction.more_information.try(:html_safe) %>
+  <% if presenter.before_you_start? %>
+    <div class="js-tab-pane tab-pane" id="before-you-start">
+      <%= raw transaction.more_information %>
     </div>
   <% end %>
 
-  <% if transaction.what_you_need_to_know.present? %>
+  <% if presenter.what_you_need_to_know? %>
     <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-      <%= transaction.what_you_need_to_know.try(:html_safe) %>
+      <%= render :partial => 'need_to_know', :locals => { :transaction => transaction } %>
     </div>
   <% end %>
 
-  <% if transaction.other_ways_to_apply.present? %>
+  <% if presenter.other_ways_to_apply? %>
     <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-      <%= transaction.other_ways_to_apply.try(:html_safe) %>
+      <%= raw transaction.alternate_methods %>
     </div>
   <% end %>
 </div>

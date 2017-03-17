@@ -1,40 +1,40 @@
-class TransactionPresenter < ContentItemPresenter
-  PASS_THROUGH_DETAILS_KEYS = %i(
-    introductory_paragraph
-    more_information
-    other_ways_to_apply
-    transaction_start_link
-    what_you_need_to_know
-    will_continue_on
-    department_analytics_profile
-    downtime_message
-  ).freeze
-
-  PASS_THROUGH_DETAILS_KEYS.each do |key|
-    define_method key do
-      details[key.to_s] if details
-    end
+class TransactionPresenter
+  def initialize(transaction)
+    @transaction = transaction
   end
 
-  NEW_WINDOW_TRANSACTIONS = %w(
-    apply-blue-badge
-    claim-state-pension-online
-    pension-credit-calculator
-    report-benefit-fraud
-    report-extremism
-    pay-court-fine-online
-    send-vat-return
-    use-construction-industry-scheme-online
-    file-your-company-accounts-and-tax-return
-    check-mot-status-vehicle
-    check-mot-history-vehicle
-  ).freeze
-
   def multiple_more_information_sections?
-    [more_information, what_you_need_to_know, other_ways_to_apply].count(&:present?) > 1
+    num_sections = [:before_you_start?, :what_you_need_to_know?, :other_ways_to_apply?].count { |s| self.send(s) }
+    num_sections > 1
+  end
+
+  def before_you_start?
+    @transaction.more_information.present?
+  end
+
+  def what_you_need_to_know?
+    @transaction.need_to_know.present?
+  end
+
+  def other_ways_to_apply?
+    @transaction.alternate_methods.present?
   end
 
   def open_in_new_window?
-    slug.in? NEW_WINDOW_TRANSACTIONS
+    self.class.new_window_transactions.include? @transaction.slug
+  end
+
+  # attr_accessor stuff to allow overriding the data file in tests
+  @new_window_transactions_file = Rails.root.join('lib', 'data', 'new_window_transactions.json')
+  class << self
+    attr_reader :new_window_transactions_file
+  end
+  def self.new_window_transactions_file=(file)
+    @new_window_transactions_file = file
+    @new_window_transactions = nil
+  end
+
+  def self.new_window_transactions
+    @new_window_transactions ||= JSON.parse(File.read(@new_window_transactions_file))["new-window"]
   end
 end

@@ -35,7 +35,7 @@ class HomepageTest < ActionDispatch::IntegrationTest
 
         visit "/"
 
-        assert_page_not_tracked_in_ab_test
+        assert_page_not_tracked_in_ab_test('EducationNavigation')
       end
     end
 

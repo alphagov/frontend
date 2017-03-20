@@ -17,6 +17,7 @@
     <% if @content_item %>
       <%= render partial: 'govuk_component/analytics_meta_tags', locals: { content_item: @content_item } %>
     <% end %>
+    <%= benchmarking_ab_test.requested_variant.analytics_meta_tag.html_safe %>
     <% if @meta_section %>
       <meta name="govuk:section" content="<%= @meta_section %>">
     <% end %>
@@ -52,5 +53,9 @@
       <% unless local_assigns.include?(:full_width) %></div><% end %>
       <%= render_mustache_templates if Rails.env.development? %>
     </div>
+
+    <% if should_track_mouse_movements? %>
+      <%= javascript_include_tag 'mouseflow' %>
+    <% end %>
   </body>
 </html>

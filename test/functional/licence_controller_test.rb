@@ -54,7 +54,7 @@ class LicenceControllerTest < ActionController::TestCase
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :start, slug: "licence-to-kill"
-          assert_response_not_modified_for_ab_test
+          assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 
@@ -196,7 +196,7 @@ class LicenceControllerTest < ActionController::TestCase
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
-          assert_response_not_modified_for_ab_test
+          assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 

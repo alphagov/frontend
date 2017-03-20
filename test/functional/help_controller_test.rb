@@ -83,7 +83,7 @@ class HelpControllerTest < ActionController::TestCase
         content_store_has_random_item(base_path: "/tour", schema: 'help_page')
         setup_ab_variant('Example', variant)
         get :tour
-        assert_response_not_modified_for_ab_test
+        assert_response_not_modified_for_ab_test('EducationNavigation')
       end
     end
 

@@ -44,7 +44,7 @@ class AnswerControllerTest < ActionController::TestCase
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :show, slug: "molehills"
-          assert_response_not_modified_for_ab_test
+          assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 

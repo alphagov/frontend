@@ -78,6 +78,8 @@ Note that you will have to have GOV.UK Mapit running locally.
 To run in a full development stack (with DNS, all apps running etc.) just use
 `./startup.sh`.
 
+If you are using the GDS development virtual machine then the application will be available on the host at [http://frontend.dev.gov.uk/](http://frontend.dev.gov.uk/)
+
 Note that the app uses a local version of [GOV.UK Mapit](https://github.com/alphagov/mapit), therefore a valid dataset will have to be loaded for Mapit, otherwise postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
 
 ### Running the test suite

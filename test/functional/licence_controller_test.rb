@@ -31,18 +31,6 @@ class LicenceControllerTest < ActionController::TestCase
       end
     end
 
-    context "for draft content" do
-      setup do
-        content_api_and_content_store_have_unpublished_page("licence-to-kill", 3, artefact: @artefact)
-      end
-
-      should "does not set the cache expiry headers" do
-        get :start, slug: "licence-to-kill", edition: 3
-
-        assert_nil response.headers["Cache-Control"]
-      end
-    end
-
     context "A/B testing" do
       setup do
         setup_education_navigation_ab_test
@@ -170,18 +158,6 @@ class LicenceControllerTest < ActionController::TestCase
         get :authority, slug: "licence-to-kill", authority_slug: "secret-service", format: 'json'
 
         assert_redirected_to "/api/licence-to-kill.json"
-      end
-    end
-
-    context "for draft content" do
-      setup do
-        content_api_and_content_store_have_unpublished_page("licence-to-kill", 3, artefact: @artefact)
-      end
-
-      should "does not set the cache expiry headers" do
-        get :authority, slug: "licence-to-kill", authority_slug: "secret-service", edition: 3
-
-        assert_nil response.headers["Cache-Control"]
       end
     end
 

@@ -22,18 +22,6 @@ class AnswerControllerTest < ActionController::TestCase
       end
     end
 
-    context "for draft content" do
-      setup do
-        content_store_has_random_item(base_path: '/molehills', schema: 'answer')
-      end
-
-      should "does not set the cache expiry headers" do
-        get :show, slug: "molehills", edition: 3
-
-        assert_nil response.headers["Cache-Control"]
-      end
-    end
-
     context "A/B testing" do
       setup do
         setup_education_navigation_ab_test

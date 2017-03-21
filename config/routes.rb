@@ -57,12 +57,6 @@ Frontend::Application.routes.draw do
     get ":slug(/:part)", to: "guide#show", as: "guide"
   end
 
-  # Programme pages
-  constraints FormatRoutingConstraint.new('programme') do
-    get ":slug/print", to: "programme#show", variant: :print
-    get ":slug(/:part)", to: "programme#show", as: "programme"
-  end
-
   # Transaction pages
   constraints FormatRoutingConstraint.new('transaction') do
     get ":slug", slug: %r{(jobsearch|chwilio-am-swydd)}, to: "transaction#jobsearch"

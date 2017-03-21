@@ -107,7 +107,7 @@
         },
         {
             "title": "How to claim tax credits",
-            "format": "programme",
+            "format": "guide",
             "id": "https://contentapi.preview.alphagov.co.uk/claim-tax-credits.json",
             "web_url": "https://www.gov.uk/claim-tax-credits",
             "details": {

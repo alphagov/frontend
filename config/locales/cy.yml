@@ -13,8 +13,6 @@ cy:
       navigate_to_previous_part: "Llywio i’r rhan flaenorol"
       navigate_to_next_part: "Llywio i’r rhan nesaf"
       notes: "Nodiadau"
-    programme:
-      name: "Budd-daliadau a chredydau"
     transaction:
       name: "Gwasanaeth"
       start_now: "Dechrau nawr"

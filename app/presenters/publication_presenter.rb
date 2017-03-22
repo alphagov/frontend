@@ -48,12 +48,6 @@ class PublicationPresenter
     DateTime.parse(date) if date
   end
 
-  def to_json
-    {
-      places: places
-    }.to_json
-  end
-
   def locale
     language
   end

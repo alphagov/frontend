@@ -18,12 +18,6 @@ class CampaignControllerTest < ActionController::TestCase
 
           assert_equal "max-age=1800, public", response.headers["Cache-Control"]
         end
-
-        should "redirect json requests to the api" do
-          get :show, slug: "firekills", format: 'json'
-
-          assert_redirected_to "/api/firekills.json"
-        end
       end
 
       context "for draft content" do

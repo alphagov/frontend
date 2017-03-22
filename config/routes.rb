@@ -23,7 +23,6 @@ Frontend::Application.routes.draw do
   get "/help/ab-testing", to: "help#ab_testing"
   get "/tour", to: "help#tour"
   constraints FormatRoutingConstraint.new('help_page') do
-    get "*slug.json", slug: %r{help/.+}, to: "help#show", format: 'json'
     get "*slug", slug: %r{help/.+}, to: "help#show"
   end
 

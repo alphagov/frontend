@@ -23,12 +23,6 @@ class LicenceControllerTest < ActionController::TestCase
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
-
-      should "redirect json requests to the api" do
-        get :start, slug: "licence-to-kill", format: 'json'
-
-        assert_redirected_to "/api/licence-to-kill.json"
-      end
     end
 
     context "for draft content" do
@@ -164,12 +158,6 @@ class LicenceControllerTest < ActionController::TestCase
         get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-      end
-
-      should "redirect json requests to the api" do
-        get :authority, slug: "licence-to-kill", authority_slug: "secret-service", format: 'json'
-
-        assert_redirected_to "/api/licence-to-kill.json"
       end
     end
 

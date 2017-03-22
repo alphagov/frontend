@@ -1,5 +1,4 @@
 class LicenceController < ApplicationController
-  include ApiRedirectable
   include Previewable
   include Cacheable
   include Navigable

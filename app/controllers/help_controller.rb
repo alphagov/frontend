@@ -1,5 +1,4 @@
 class HelpController < ApplicationController
-  include ApiRedirectable
   include Cacheable
 
   before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }, only: :show

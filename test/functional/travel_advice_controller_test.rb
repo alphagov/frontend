@@ -32,16 +32,6 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
       end
 
-      context "requesting json" do
-        setup do
-          get :index, format: 'json'
-        end
-
-        should "redirect json requests to the api" do
-          assert_redirected_to "/api/foreign-travel-advice.json"
-        end
-      end
-
       context "requesting atom" do
         setup do
           get :index, format: 'atom'

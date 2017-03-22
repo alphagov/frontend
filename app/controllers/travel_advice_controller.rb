@@ -1,6 +1,4 @@
 class TravelAdviceController < ApplicationController
-  before_filter :redirect_if_api_request
-
   FOREIGN_TRAVEL_ADVICE_SLUG = 'foreign-travel-advice'.freeze
 
   def index
@@ -12,11 +10,5 @@ class TravelAdviceController < ApplicationController
       format.html { render locals: { full_width: true } }
       format.atom { set_expiry(5.minutes) }
     end
-  end
-
-private
-
-  def redirect_if_api_request
-    redirect_to "/api/#{FOREIGN_TRAVEL_ADVICE_SLUG}.json" if request.format.json?
   end
 end

@@ -5,28 +5,14 @@ class HelpTest < ActionDispatch::IntegrationTest
   context "rendering a help page" do
     setup do
       @payload = {
-        analytics_identifier: nil,
         base_path: "/help/cookies",
-        content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
-        document_type: "help_page",
-        first_published_at: "2016-02-29T09:24:10.000+00:00",
-        format: "help_page",
-        locale: "en",
-        need_ids: [],
-        phase: "live",
-        public_updated_at: "2014-12-16T12:49:50.000+00:00",
-        publishing_app: "publisher",
-        rendering_app: "frontend",
         schema_name: "help_page",
         title: "Cookies",
         updated_at: "2017-01-30T12:30:33.483Z",
-        withdrawn_notice: {},
-        links: {},
         description: "Descriptive cookie text.",
         details: {
           body: "This is the page about cookies"
         },
-        external_related_links: []
       }
 
       content_store_has_item('/help/cookies', @payload)
@@ -63,7 +49,13 @@ class HelpTest < ActionDispatch::IntegrationTest
 
   context "rendering the help index page" do
     setup do
-      setup_api_responses('help')
+      payload = {
+        base_path: "/help",
+        format: "special_route",
+        title: "Help using GOV.UK",
+        description: "",
+      }
+      content_store_has_item('/help', payload)
     end
 
     should "render the help index page correctly" do

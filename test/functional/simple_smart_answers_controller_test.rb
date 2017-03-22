@@ -25,12 +25,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
-
-      should "redirect json requests to the api" do
-        get :show, slug: "the-bridge-of-death", format: 'json'
-
-        assert_redirected_to "/api/the-bridge-of-death.json"
-      end
     end
 
     context "A/B testing" do

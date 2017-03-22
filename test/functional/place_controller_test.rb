@@ -12,12 +12,6 @@ class PlaceControllerTest < ActionController::TestCase
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
-
-      should "redirect json requests to the api" do
-        get :show, slug: "passport-interview-office", format: 'json'
-
-        assert_redirected_to "/api/passport-interview-office.json"
-      end
     end
   end
 end

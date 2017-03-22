@@ -1,5 +1,4 @@
 class CompletedTransactionController < ApplicationController
-  include ApiRedirectable
   include Cacheable
   include Navigable
 

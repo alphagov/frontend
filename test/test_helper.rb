@@ -37,15 +37,15 @@ class ActiveSupport::TestCase
     GovukAbTesting.configure do |config|
       config.acceptance_test_framework = :active_support
     end
+
+    GovukContentSchemaTestHelpers.configure do |config|
+      config.schema_type = 'frontend'
+      config.project_root = Rails.root
+    end
   end
 
   teardown do
     Timecop.return
-  end
-
-  GovukContentSchemaTestHelpers.configure do |config|
-    config.schema_type = 'frontend'
-    config.project_root = Rails.root
   end
 
   def prevent_implicit_rendering

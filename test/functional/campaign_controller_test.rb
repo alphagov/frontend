@@ -19,18 +19,6 @@ class CampaignControllerTest < ActionController::TestCase
           assert_equal "max-age=1800, public", response.headers["Cache-Control"]
         end
       end
-
-      context "for draft content" do
-        setup do
-          content_api_and_content_store_have_unpublished_page("firekills", 3, artefact: @artefact)
-        end
-
-        should "does not set the cache expiry headers" do
-          get :show, slug: "firekills", edition: 3
-
-          assert_nil response.headers["Cache-Control"]
-        end
-      end
     end
   end
 

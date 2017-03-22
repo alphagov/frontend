@@ -32,19 +32,6 @@ class HelpControllerTest < ActionController::TestCase
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
     end
-
-    context "for draft content" do
-      setup do
-        content_api_has_unpublished_artefact("help/cookies", 3, @artefact)
-        content_store_has_random_item(base_path: '/help/cookies', schema: 'help_page')
-      end
-
-      should "does not set the cache expiry headers" do
-        get :show, slug: "help/cookies", edition: 3
-
-        assert_nil response.headers["Cache-Control"]
-      end
-    end
   end
 
   context "loading the tour page" do

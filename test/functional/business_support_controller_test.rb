@@ -18,17 +18,5 @@ class BusinessSupportControllerTest < ActionController::TestCase
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
     end
-
-    context "for draft content" do
-      setup do
-        content_api_and_content_store_have_unpublished_page("business-support-example", 3, @artefact)
-      end
-
-      should "does not set the cache expiry headers" do
-        get :show, slug: "business-support-example", edition: 3
-
-        assert_nil response.headers["Cache-Control"]
-      end
-    end
   end
 end

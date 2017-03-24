@@ -18,9 +18,4 @@ module EducationNavigationAbTestHelper
     GovukNavigationHelpers::NavigationHelper.any_instance.expects(:taxon_breadcrumbs).returns(breadcrumbs: [])
     GovukNavigationHelpers::NavigationHelper.any_instance.expects(:taxonomy_sidebar)
   end
-
-  def expect_normal_navigation_and_old_related_links
-    GovukNavigationHelpers::NavigationHelper.any_instance.expects(:taxon_breadcrumbs).returns(breadcrumbs: [])
-    GovukNavigationHelpers::NavigationHelper.any_instance.expects(:related_items)
-  end
 end

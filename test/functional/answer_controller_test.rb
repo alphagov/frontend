@@ -49,23 +49,5 @@ class AnswerControllerTest < ActionController::TestCase
         end
       end
     end
-
-    context "Benchmarking test" do
-      should "show the mouseflow tag when in the benchmarking test" do
-        with_variant Benchmarking: "B" do
-          get :show, slug: "molehills"
-
-          assert_select("script[src*=mouseflow]", 1, "Expected to find one script tag with the mouseflow js code on the page")
-        end
-      end
-
-      should "not show the mouseflow tag when not in the benchmarking test" do
-        with_variant Benchmarking: "A" do
-          get :show, slug: "molehills"
-
-          assert_select("script[src*=mouseflow]", 0, "Did not expect to find a script tag with the mouseflow js code on the page")
-        end
-      end
-    end
   end
 end

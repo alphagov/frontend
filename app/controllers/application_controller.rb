@@ -24,10 +24,7 @@ class ApplicationController < ActionController::Base
 
   attr_accessor :navigation_helpers
 
-  helper_method :breadcrumbs
-  helper_method :navigation_helpers
-  helper_method :benchmarking_ab_test
-  helper_method :should_track_mouse_movements?
+  helper_method :breadcrumbs, :navigation_helpers
 
 protected
 
@@ -139,18 +136,6 @@ protected
     end
   end
   helper_method :present_new_navigation?
-
-  def benchmarking_ab_test
-    @benchmarking_ab_test ||= begin
-      benchmarking_test = BenchmarkingAbTestRequest.new(request)
-      benchmarking_test.set_response_vary_header(response)
-      benchmarking_test
-    end
-  end
-
-  def should_track_mouse_movements?
-    benchmarking_ab_test.in_benchmarking?
-  end
 
 private
 

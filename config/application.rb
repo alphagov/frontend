@@ -33,7 +33,6 @@ module Frontend
       application-ie6.css
       application-ie7.css
       application-ie8.css
-      mouseflow.js
     )
 
     # Path within public/ where assets are compiled to
@@ -60,8 +59,5 @@ module Frontend
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWALL'
     }
-
-    # Google Analytics dimension assigned to the benchmarking A/B test
-    config.benchmarking_ab_test_dimension = 49
   end
 end

@@ -40,9 +40,6 @@ Frontend::Application.routes.draw do
 
   # Campaign pages.
   get "/ukwelcomes", to: "campaign#uk_welcomes" # This is a hardcoded page in Frontend and does not have an associated artefact
-  constraints FormatRoutingConstraint.new('campaign') do
-    get ":slug", to: "campaign#show"
-  end
 
   # Answers pages
   constraints FormatRoutingConstraint.new('answer') do

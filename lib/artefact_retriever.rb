@@ -10,7 +10,7 @@ class ArtefactRetriever
     self.logger = logger
     self.statsd = statsd
     self.supported_formats = supported_formats ||
-      %w{answer business_support campaign completed_transaction guide help_page licence
+      %w{answer business_support completed_transaction guide help_page licence
          local_transaction place simple_smart_answer transaction travel-advice}
   end
 

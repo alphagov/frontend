@@ -38,9 +38,6 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for simple smart answers that were once a format with parts
   end
 
-  # Campaign pages.
-  get "/ukwelcomes", to: "campaign#uk_welcomes" # This is a hardcoded page in Frontend and does not have an associated artefact
-
   # Answers pages
   constraints FormatRoutingConstraint.new('answer') do
     get ":slug", to: "answer#show"

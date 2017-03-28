@@ -57,12 +57,6 @@ class SpecialRoutePublisher
           description: "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use rendered in JSON format here.",
         },
         {
-          content_id: "a1c8e72e-985c-45af-8489-57a2e237a407",
-          base_path: "/ukwelcomes",
-          title: "UK Welcomes",
-          description: "A static campaign for people in the EEA setting up businesses in the UK",
-        },
-        {
           content_id: "3c991cea-cdee-4e58-b8d1-d38e7c0e6327",
           base_path: "/random",
           title: "GOV.UK random page",

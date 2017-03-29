@@ -15,15 +15,7 @@ class ArtefactRetriever
   end
 
   def fetch_artefact(slug, edition = nil, snac = nil)
-    artefact = content_api.artefact!(slug, artefact_options(snac, edition))
-
-    # The foreign-travel-advice override is necessary because it has a format of custom-application
-    # and we don't want to add custom-application to supported formats, otherwise we get errors if
-    # requests for other custom-applications hit frontend (e.g. business support finder on private-frontend).
-    verify_format_supported?(artefact) unless slug == 'foreign-travel-advice'
-
-    artefact
-
+    content_api.artefact!(slug, artefact_options(snac, edition))
   rescue GdsApi::HTTPNotFound
     logger.warn("Failed to fetch artefact #{slug} from Content API. Response code: 404")
     raise RecordNotFound
@@ -40,12 +32,6 @@ class ArtefactRetriever
   end
 
   protected
-
-  def verify_format_supported?(artefact)
-    unless supported_formats.include?(artefact['format'])
-      raise UnsupportedArtefactFormat
-    end
-  end
 
   def artefact_options(snac, edition)
     { snac: snac, edition: edition }.delete_if { |k, v| v.blank? }

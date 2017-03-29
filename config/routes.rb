@@ -63,12 +63,6 @@ Frontend::Application.routes.draw do
     get ":slug/:local_authority_slug", to: "local_transaction#results", as: 'local_transaction_results'
   end
 
-  # Business Support pages
-  constraints FormatRoutingConstraint.new('business_support') do
-    get ":slug", to: "business_support#show"
-    get ":slug/:part", to: redirect('/%{slug}') # Support for business support pages that were once a format with parts
-  end
-
   # Place pages
   constraints FormatRoutingConstraint.new('place') do
     get ":slug", to: "place#show"

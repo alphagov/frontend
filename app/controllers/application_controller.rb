@@ -62,10 +62,6 @@ protected
       @content_item["links"].delete("organisations")
     end
   rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
-    # We can't always be sure that the page has a content-item, since this
-    # application also runs as `private-frontend` to preview unpublished content,
-    # which doesn't exist in the content-store yet. However, when running in
-    # "normal" mode there should be a content item for all pages rendered.
     @content_item = nil
   end
 

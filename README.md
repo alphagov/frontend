@@ -21,19 +21,6 @@ the GOV.UK single domain.
 * https://www.gov.uk/help (help index page)
 * https://www.gov.uk/foreign-travel-advice (travel advice index page)
 
-## Private frontend
-
-This application is also deployed as a backend application to allow editors to
-preview their work.
-
-https://private-frontend.publishing.service.gov.uk/  
-
-This is to be replaced by the "draft stack", a set of frontend apps using the
-draft content-store.
-
-Travel advice country pages are still served in draft mode from this application,
-because the draft stack doesn't support previewing multiple editions yet.
-
 ## Nomenclature
 
 - Formats - our phrase for a type of content

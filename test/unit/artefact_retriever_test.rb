@@ -60,21 +60,4 @@ class ArtefactRetrieverTest < ActiveSupport::TestCase
       end
     end
   end
-
-  should "raise an UnsupportedArtefactFormat exception if we get a bad format" do
-    json_data = File.read(Rails.root.join('test/fixtures/jobsearch.json'))
-    temp = JSON.parse(json_data)
-    temp['format'] = 'something bad'
-    tampered_json_data = temp.to_json
-
-    index_artefact = GdsApi::Response.new(
-      stub("HTTP_Response", code: 200, body: tampered_json_data),
-      web_urls_relative_to: "https://www.gov.uk"
-    )
-
-    assert_raises ArtefactRetriever::UnsupportedArtefactFormat do
-      @content_api.expects(:artefact!).with('jobsearch', {}).returns(index_artefact)
-      @retriever.fetch_artefact('jobsearch')
-    end
-  end
 end

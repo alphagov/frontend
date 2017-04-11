@@ -1,3 +1,5 @@
+require "emergency_banner"
+
 class HomepageController < ApplicationController
   include EducationNavigationABTestable
 
@@ -13,10 +15,14 @@ class HomepageController < ApplicationController
 
     setup_content_item("/")
 
-    render locals: { full_width: true }
+    render locals: { full_width: true, display_emergency_banner: display_emergency_banner? }
   end
 
   def content_is_linked_to_a_taxon?
     true
+  end
+
+  def display_emergency_banner?
+    EmergencyBanner.new.enabled?
   end
 end

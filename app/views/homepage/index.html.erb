@@ -46,7 +46,7 @@
     </div>
   </header>
 
-  <%= render_promo_banner if campaign_notification_content.strip.blank? %>
+  <%= render_promo_banner if campaign_notification_content.strip.blank? && !display_emergency_banner %>
 
   <div id="homepage" class="homepage-content">
     <div class="homepage-content-inner">

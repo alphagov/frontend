@@ -18,6 +18,7 @@ en:
       start_now: "Start now"
       "on": !str "on"
       before_you_start: "Before you start"
+      more_information: "More information"
       what_you_need_to_know: "What you need to know"
       other_ways_to_apply: "Other ways to apply"
       jobsearch:

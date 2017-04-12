@@ -18,6 +18,7 @@ cy:
       start_now: "Dechrau nawr"
       "on": "ar"
       before_you_start: "Cyn i chi ddechrau"
+      more_information: "Mwy o wybodaeth"
       what_you_need_to_know: "Yr hyn mae angen i chi ei wybod"
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
       jobsearch:

@@ -68,7 +68,7 @@ private
   end
 
   def lgil
-    content_item['details']['lgil_override']
+    content_item['details']['lgil_code'] || content_item['details']['lgil_override']
   end
 
   def local_authority

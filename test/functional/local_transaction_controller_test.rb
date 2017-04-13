@@ -330,7 +330,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         schema_name: "local_transaction",
         details: {
           lgsl_code: 461,
-          lgil_override: 8,
+          lgil_code: 8,
           service_tiers: ["county", "unitary"],
           introduction: "Information about paying local tax on owning or looking after a bear."
         }

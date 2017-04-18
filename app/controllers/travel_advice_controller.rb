@@ -8,7 +8,10 @@ class TravelAdviceController < ApplicationController
 
     respond_to do |format|
       format.html { render locals: { full_width: true } }
-      format.atom { set_expiry(5.minutes) }
+      format.atom do
+        set_expiry(5.minutes)
+        headers["Access-Control-Allow-Origin"] = "*"
+      end
     end
   end
 end

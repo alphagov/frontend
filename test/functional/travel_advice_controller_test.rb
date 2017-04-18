@@ -45,6 +45,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         should "set cache-control headers to 5 mins" do
           assert_equal "max-age=#{5.minutes.to_i}, public", response.headers["Cache-Control"]
         end
+
+        should "set Access-Control-Allow-Origin header" do
+          assert_equal "*", response.headers["Access-Control-Allow-Origin"]
+        end
       end
     end
   end

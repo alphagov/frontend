@@ -15,6 +15,7 @@ gem 'plek', '~> 1.12.0'
 gem 'rack_strip_client_ip', '~> 0.0.0'
 gem 'rails', '4.2.7.1' # version 5 is available
 gem 'rails-i18n', '~> 4.0.0'
+gem 'redis', "~> 3.3.3"
 gem 'sass', '~> 3.4.0'
 gem 'sass-rails'
 gem 'slimmer', '~> 10.1.3'

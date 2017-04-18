@@ -27,7 +27,7 @@ class HomepageControllerTest < ActionController::TestCase
     end
 
     context "with a promo banner partial" do
-      should "render promo banner" do
+      setup do
         stub_template "homepage/_promo_banner.html.erb" => <<-EOF
         <div id="homepage-promo-banner">
           <div class="banner-message">
@@ -36,11 +36,24 @@ class HomepageControllerTest < ActionController::TestCase
           </div>
         </div>
         EOF
+      end
 
-        get :index
-        assert_template "homepage/_promo_banner"
-        assert @response.body.include?("homepage-promo-banner")
-        assert @response.body.include?("Some Title")
+      context "with an emergency banner enabled" do
+        should "not render the promo banner" do
+          EmergencyBanner.any_instance.stubs(:enabled?).returns(true)
+          get :index
+          refute @response.body.include?("homepage-promo-banner")
+        end
+      end
+
+      context "with an emergency banner not enabled" do
+        should "render promo banner" do
+          EmergencyBanner.any_instance.stubs(:enabled?).returns(false)
+          get :index
+          assert_template "homepage/_promo_banner"
+          assert @response.body.include?("homepage-promo-banner")
+          assert @response.body.include?("Some Title")
+        end
       end
     end
   end

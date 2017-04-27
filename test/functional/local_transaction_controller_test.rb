@@ -53,6 +53,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         description: "Descriptive bear text.",
         details: {
           lgsl_code: 8342,
+          lgil_code: 8,
           service_tiers: %w(district unitary),
           introduction: "Infos about sending bears."
         },
@@ -165,7 +166,8 @@ class LocalTransactionControllerTest < ActionController::TestCase
         }
 
         mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-        local_links_manager_has_a_fallback_link(
+
+        local_links_manager_has_a_link(
           authority_slug: 'staffordshire-moorlands',
           lgsl: 8342,
           lgil: 8,
@@ -181,7 +183,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
-      local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342')
+      local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342', '8')
 
       get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist"
 
@@ -212,6 +214,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         description: "Descriptive bear text.",
         details: {
           lgsl_code: 1234,
+          lgil_code: 1,
           service_tiers: %w(district unitary),
           introduction: "Infos about sending bears."
         },
@@ -229,9 +232,10 @@ class LocalTransactionControllerTest < ActionController::TestCase
       }
 
       mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-      local_links_manager_has_no_fallback_link(
+      local_links_manager_has_no_link(
         authority_slug: 'staffordshire-moorlands',
         lgsl: 1234,
+        lgil: 1
       )
 
       subscribe_logstasher_to_postcode_error_notification

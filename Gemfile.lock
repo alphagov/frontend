@@ -77,11 +77,11 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.20170223)
+    domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
-    gds-api-adapters (41.2.0)
+    gds-api-adapters (42.0.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -101,8 +101,8 @@ GEM
     govuk_frontend_toolkit (4.12.0)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_navigation_helpers (5.1.0)
-      gds-api-adapters (~> 41.0)
+    govuk_navigation_helpers (6.0.0)
+      gds-api-adapters (~> 42.0)
     govuk_schemas (2.1.0)
     hashdiff (0.3.1)
     htmlentities (4.3.4)
@@ -200,7 +200,7 @@ GEM
     redis (3.3.3)
     ref (2.0.0)
     request_store (1.3.1)
-    rest-client (2.0.1)
+    rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
@@ -279,7 +279,7 @@ GEM
     uk_postcode (2.1.1)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.2)
+    unf_ext (0.0.7.4)
     unicode-display_width (1.1.2)
     unicorn (4.9.0)
       kgio (~> 2.6)
@@ -308,13 +308,13 @@ DEPENDENCIES
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 41.2)
+  gds-api-adapters (~> 42.0.0)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint
   govuk_ab_testing (~> 2.0)
   govuk_frontend_toolkit (~> 4.12.0)
-  govuk_navigation_helpers (~> 5.1)
+  govuk_navigation_helpers (~> 6.0)
   govuk_schemas
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)

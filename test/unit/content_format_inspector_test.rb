@@ -34,16 +34,6 @@ class ContentFormatInspectorTest < ActiveSupport::TestCase
     end
   end
 
-  context "format has been migrated to the content-store" do
-    setup do
-      set_content_item_format("help_page")
-    end
-
-    should "return the format of the content item from the content-store" do
-      assert subject.format == "help_page"
-    end
-  end
-
   context "content-store lookup throws an error" do
     setup do
       @error = GdsApi::HTTPNotFound.new("asd")

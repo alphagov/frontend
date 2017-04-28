@@ -22,9 +22,6 @@ Frontend::Application.routes.draw do
   get "/help", to: "help#index"
   get "/help/ab-testing", to: "help#ab_testing"
   get "/tour", to: "help#tour"
-  constraints FormatRoutingConstraint.new('help_page') do
-    get "*slug", slug: %r{help/.+}, to: "help#show"
-  end
 
   # Done pages
   constraints FormatRoutingConstraint.new('completed_transaction') do

@@ -1,8 +1,6 @@
 class HelpController < ApplicationController
   include Cacheable
 
-  before_filter -> { setup_content_item_and_navigation_helpers("/" + params[:slug]) }, only: :show
-
   def index
     setup_content_item_and_navigation_helpers("/help")
   end
@@ -10,10 +8,6 @@ class HelpController < ApplicationController
   def tour
     setup_content_item_and_navigation_helpers("/tour")
     render locals: { full_width: true }
-  end
-
-  def show
-    set_content_item(HelpPagePresenter)
   end
 
   def ab_testing

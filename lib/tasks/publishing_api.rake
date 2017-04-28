@@ -16,5 +16,7 @@ namespace :publishing_api do
         publisher.publish(route_type, route)
       end
     end
+
+    HomepagePublisher.publish!(publishing_api)
   end
 end

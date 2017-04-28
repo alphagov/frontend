@@ -21,12 +21,6 @@ class SpecialRoutePublisher
     {
       exact: [
         {
-          content_id: "f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a",
-          base_path: "/",
-          title: "GOV.UK homepage",
-          document_type: "homepage",
-        },
-        {
           content_id: "ffcd9054-ee77-4539-978d-171a60eb4b2a",
           base_path: "/homepage",
           title: "GOV.UK homepage redirect",

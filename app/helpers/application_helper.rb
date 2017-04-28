@@ -21,10 +21,6 @@ module ApplicationHelper
           html_classes << "service"
         end
 
-        if publication.format == "answer"
-          html_classes << "answer"
-        end
-
         if guides.include? publication.format
           html_classes << "guide"
         end

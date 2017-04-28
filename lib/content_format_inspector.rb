@@ -4,7 +4,6 @@ class ContentFormatInspector
   attr_reader :error
 
   MIGRATED_SCHEMAS = %w(
-    answer
     completed_transaction
     guide
     licence

@@ -7,7 +7,6 @@ class ContentFormatInspector
     answer
     completed_transaction
     guide
-    help_page
     licence
     place
     local_transaction

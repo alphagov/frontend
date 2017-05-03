@@ -11,64 +11,6 @@ body.homepage {
   }
 }
 
-@mixin campaign-styles($background, $foreground) {
-  background: $background;
-
-  h1,
-  p,
-  a {
-    color: $foreground;
-  }
-}
-
-#campaign {
-  &.black {
-    @include campaign-styles($black, $white);
-  }
-
-  &.red {
-    @include campaign-styles($red, $white);
-  }
-
-  &.green {
-    @include campaign-styles($turquoise, $white);
-  }
-
-  border: 5px solid $white;
-  border-width: 5px 0;
-
-  .campaign-inner {
-    @extend %contain-floats;
-    @extend %site-width-container;
-    position: relative;
-    padding: 15px 0;
-
-    h1 {
-      @include bold-48;
-    }
-
-    p {
-      @include media(tablet) {
-        width: 66.66%; // this is the same as .welcome-text
-        float: left;
-      }
-    }
-
-    a {
-      // this is the same as .content-links
-      @include media(tablet) {
-        position: absolute;
-        bottom: 1em;
-        left: 66.66%;
-        width: 33.33%;
-        padding: 0 10px;
-        display: block;
-      }
-      @include core-19;
-    }
-  }
-}
-
 #homepage-promo-banner {
   background: $light-blue-25;
 

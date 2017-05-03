@@ -7,8 +7,10 @@ namespace :publishing_api do
       Plek.new.find('publishing-api'),
       bearer_token: ENV['PUBLISHING_API_BEARER_TOKEN'] || 'example')
 
+    logger = Logger.new(STDOUT)
+
     publisher = SpecialRoutePublisher.new(
-      logger: Logger.new(STDOUT),
+      logger: logger,
       publishing_api: publishing_api)
 
     SpecialRoutePublisher.routes.each do |route_type, routes_for_type|
@@ -16,5 +18,7 @@ namespace :publishing_api do
         publisher.publish(route_type, route)
       end
     end
+
+    HomepagePublisher.publish!(publishing_api, logger)
   end
 end

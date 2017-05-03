@@ -23,7 +23,8 @@ module HomepagePublisher
     }
   end
 
-  def self.publish!(publishing_api)
+  def self.publish!(publishing_api, logger)
+    logger.info("Publishing exact route /, routing to frontend")
     publishing_api.put_content(CONTENT_ID, homepage_content_item)
     publishing_api.publish(CONTENT_ID, "major")
   end

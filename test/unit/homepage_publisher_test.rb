@@ -18,7 +18,7 @@ class HomepagePublisherTest < ActiveSupport::TestCase
 
     stub_api = GdsApi::PublishingApiV2.new(Plek.find("publishing-api"))
 
-    HomepagePublisher.publish!(stub_api)
+    HomepagePublisher.publish!(stub_api, stub(:info))
 
     assert_requested(
       content_request.with do |req|

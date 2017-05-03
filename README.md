@@ -7,7 +7,6 @@ the GOV.UK single domain.
 
 ### Formats
 
-* https://www.gov.uk/benefit-cap (answer)
 * https://www.gov.uk/becoming-a-british-citizen (guide)
 * https://www.gov.uk/settle-in-the-uk (simple smart answer)
 * https://www.gov.uk/register-to-vote (transaction start page)

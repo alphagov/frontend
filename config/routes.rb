@@ -35,11 +35,6 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for simple smart answers that were once a format with parts
   end
 
-  # Answers pages
-  constraints FormatRoutingConstraint.new('answer') do
-    get ":slug", to: "answer#show"
-    get ":slug/:part", to: redirect('/%{slug}') # Support for answers that were once a format with parts
-  end
 
   # Guide pages
   constraints FormatRoutingConstraint.new('guide') do

@@ -1,8 +1,8 @@
 # encoding: utf-8
+
 require "integration_test_helper"
 
 class HelpTest < ActionDispatch::IntegrationTest
-
   context "rendering the help index page" do
     setup do
       payload = {

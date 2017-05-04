@@ -53,6 +53,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         description: "Descriptive bear text.",
         details: {
           lgsl_code: 8342,
+          lgil_code: 8,
           service_tiers: %w(district unitary),
           introduction: "Infos about sending bears."
         },
@@ -165,7 +166,8 @@ class LocalTransactionControllerTest < ActionController::TestCase
         }
 
         mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-        local_links_manager_has_a_fallback_link(
+
+        local_links_manager_has_a_link(
           authority_slug: 'staffordshire-moorlands',
           lgsl: 8342,
           lgil: 8,
@@ -181,11 +183,55 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
-      local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342')
+      local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342', '8')
 
       get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist"
 
       assert_equal 404, response.status
+    end
+
+    context "A/B testing" do
+      setup do
+        setup_education_navigation_ab_test
+        content_store_has_item_tagged_to_taxon(base_path: '/send-a-bear-to-your-local-council', payload: @payload)
+
+        local_links_manager_has_a_link(
+          authority_slug: "staffordshire-moorlands",
+          lgil: 8,
+          lgsl: 8342,
+          url: 'http://www.staffsmoorlands.gov.uk/send-a-bear-to-your-local-council'
+        )
+      end
+
+      should "show normal breadcrumbs by default" do
+        expect_normal_navigation
+        get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+      end
+
+      should "show normal breadcrumbs for the 'A' version" do
+        expect_normal_navigation
+        with_variant EducationNavigation: "A" do
+          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+        end
+      end
+
+      should "show taxon breadcrumbs for the 'B' version" do
+        expect_new_navigation
+        with_variant EducationNavigation: "B" do
+          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+        end
+      end
+
+      should "show taxon breadcrumbs and old related links for flagged mainstream content" do
+        MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(
+          ['/send-a-bear-to-your-local-council']
+        )
+
+        expect_normal_navigation_and_old_related_links
+        with_variant EducationNavigation: "B" do
+          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+        end
+      end
     end
   end
 
@@ -212,6 +258,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         description: "Descriptive bear text.",
         details: {
           lgsl_code: 1234,
+          lgil_code: 1,
           service_tiers: %w(district unitary),
           introduction: "Infos about sending bears."
         },
@@ -229,93 +276,29 @@ class LocalTransactionControllerTest < ActionController::TestCase
       }
 
       mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
-      local_links_manager_has_no_fallback_link(
+      local_links_manager_has_no_link(
         authority_slug: 'staffordshire-moorlands',
         lgsl: 1234,
+        lgil: 1
       )
 
       subscribe_logstasher_to_postcode_error_notification
+      content_store_has_item('/report-a-bear-on-a-local-road', @payload)
+      get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
     end
 
-    context "without A/B testing" do
-      setup do
-        content_store_has_item('/report-a-bear-on-a-local-road', @payload)
-        get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-      end
-
-      should "show error message" do
-        assert response.ok?
-        assert response.body.include?("Search")
-      end
-
-      should "expose the 'missing interaction' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal "laMatchNoLink", location_error.postcode_error
-      end
-
-      should "log the 'missing interaction' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
-      end
+    should "show error message" do
+      assert response.ok?
+      assert response.body.include?("Search")
     end
 
-    context "A/B testing" do
-      setup do
-        setup_education_navigation_ab_test
-        content_store_has_item_tagged_to_taxon(base_path: '/report-a-bear-on-a-local-road', payload: @payload)
-      end
+    should "expose the 'missing interaction' error to the view" do
+      location_error = assigns(:location_error)
+      assert_equal "laMatchNoLink", location_error.postcode_error
+    end
 
-      context "results" do
-        should "show normal breadcrumbs by default" do
-          expect_normal_navigation
-          get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-        end
-
-        should "show normal breadcrumbs for the 'A' version" do
-          expect_normal_navigation
-          with_variant EducationNavigation: "A" do
-            get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-          end
-        end
-
-        should "show taxon breadcrumbs for the 'B' version" do
-          expect_new_navigation
-          with_variant EducationNavigation: "B" do
-            get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-          end
-        end
-
-        should "show taxon breadcrumbs and old related links for flagged mainstream content" do
-          MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(
-            ['/report-a-bear-on-a-local-road']
-          )
-
-          expect_normal_navigation_and_old_related_links
-          with_variant EducationNavigation: "B" do
-            get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
-          end
-        end
-      end
-
-      context "search" do
-        should "show normal breadcrumbs by default" do
-          expect_normal_navigation
-          get :search, slug: "tagged-to-taxon"
-        end
-
-        should "show normal breadcrumbs for the 'A' version" do
-          expect_normal_navigation
-          with_variant EducationNavigation: "A" do
-            get :search, slug: "tagged-to-taxon"
-          end
-        end
-
-        should "show taxon breadcrumbs for the 'B' version" do
-          expect_new_navigation
-          with_variant EducationNavigation: "B" do
-            get :search, slug: "tagged-to-taxon"
-          end
-        end
-      end
+    should "log the 'missing interaction' error to the view" do
+      assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
     end
   end
 

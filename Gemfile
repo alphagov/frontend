@@ -3,10 +3,10 @@ source 'https://rubygems.org'
 gem "addressable"
 gem 'airbrake', '3.1.15' # newer version is incompatible with our Errbit as of 12/2016
 gem 'cdn_helpers', '0.9'
-gem 'gds-api-adapters', '~> 41.2'
+gem 'gds-api-adapters', '~> 43.0.0'
 gem 'gelf'
 gem 'govuk_frontend_toolkit', '~> 4.12.0'
-gem 'govuk_navigation_helpers', '~> 5.1'
+gem 'govuk_navigation_helpers', '~> 6.0.2'
 gem 'htmlentities', '~> 4.3.0'
 gem 'invalid_utf8_rejector', '~> 0.0.0'
 gem 'logstasher', '~> 1.1.0'

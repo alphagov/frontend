@@ -6,6 +6,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     @payload = {
       base_path: "/done/no-promotion",
       schema_name: "completed_transaction",
+      document_type: 'completed_transaction',
       external_related_links: []
     }
   end

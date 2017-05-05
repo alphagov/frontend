@@ -13,6 +13,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       title: "Find a passport interview office",
       base_path: "/passport-interview-office",
       schema_name: "place",
+      document_type: 'place',
       phase: "beta",
       updated_at: "2012-10-02T15:21:03+00:00",
       details: {
@@ -184,6 +185,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         title: "Find your local child social care team",
         base_path: "/report-child-abuse-to-local-council",
         schema_name: "place",
+        document_type: 'place',
         in_beta: true,
         details: {
           description: "Find your local child social care team",

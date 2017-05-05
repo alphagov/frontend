@@ -19,24 +19,6 @@
                 title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
         </p>
       </div>
-    <% elsif @publication.promotion['category'] == 'register_to_vote' %>
-      <div id="register-to-vote-promotion"
-           data-module="auto-track-event"
-           data-track-category="linkTrack"
-           data-track-action="linkDisplayed"
-           data-track-label="Register">
-        <p>You must <a href="/register-to-vote">register to vote</a> by 7 June if you want to take part in the EU referendum. You can register online and it only takes 5 minutes.</p>
-        <p>
-          <%= link_to 'Register', @publication.promotion['url'],
-                title: "Register to vote", rel: "internal", class: "button", role: "button",
-                data: {
-                  module: 'track-click',
-                  track_category: 'linkTrack',
-                  track_action: 'linkClicked',
-                  track_label: @publication.promotion['url']
-                } %>
-        </p>
-      </div>
     <% end %>
   <% end %>
 

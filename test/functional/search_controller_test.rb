@@ -3,6 +3,8 @@ require "test_helper"
 require "json"
 
 class SearchControllerTest < ActionController::TestCase
+  include GovukAbTesting::MinitestHelpers
+
   def a_search_result(slug, score = 1)
     {
       "title_with_highlighting" => slug.titleize,
@@ -315,6 +317,18 @@ class SearchControllerTest < ActionController::TestCase
     get :index, q: "bob"
     assert_equal "search",  @response.headers["X-Slimmer-Section"]
     assert_equal "1",       @response.headers["X-Slimmer-Result-Count"]
+  end
+
+  test "should pass the search variant through when one is present" do
+    with_variant SearchMatchLength: "B" do
+      get :index, q: "Variant B"
+    end
+  end
+
+  test "should pass the default search variant through when none is present in the query" do
+    with_variant SearchMatchLength: "A" do
+      get :index, q: "No variant"
+    end
   end
 
   test "display the total number of results" do

@@ -1,8 +1,9 @@
 require 'services'
 
 class SearchAPI
-  def initialize(params)
+  def initialize(params, variants = {})
     @params = params
+    @variants = variants
   end
 
   def search
@@ -11,7 +12,7 @@ class SearchAPI
 
 private
 
-  attr_reader :params
+  attr_reader :params, :variants
 
   def search_results
     Services.rummager.search(rummager_params).to_hash
@@ -33,7 +34,7 @@ private
   end
 
   def rummager_params
-    params.rummager_parameters
+    params.rummager_parameters.merge(variants)
   end
 
   def scoped_manual

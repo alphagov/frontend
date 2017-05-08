@@ -40,8 +40,13 @@
       }
     },
     pageTrack: function(){
-      GOVUK.analytics.setResultCountDimension(liveSearch.cache().result_count);
-      GOVUK.analytics.trackPageview(window.location.pathname + window.location.search);
+      GOVUK.analytics.trackPageview(
+        window.location.pathname + window.location.search,
+        null,
+        {
+          dimension5: liveSearch.cache().result_count
+        }
+      );
       $(document).trigger("liveSearch.pageTrack");
     },
     checkboxChange: function(e){

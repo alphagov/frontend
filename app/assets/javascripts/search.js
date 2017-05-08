@@ -107,7 +107,9 @@
 
         startAt = getStartAtValue();
         position = $link.closest('li').index() + startAt + 1; // +1 so it isn't zero offset
-        GOVUK.analytics.callOnNextPage('setSearchPositionDimension', 'position=' + position + sublink);
+        GOVUK.analytics.setOptionsForNextPageview({
+          dimension21: 'position=' + position + sublink
+        });
       });
     },
     trackSearchResultsAndSuggestions: function ($searchResults) {

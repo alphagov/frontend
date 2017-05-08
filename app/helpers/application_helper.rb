@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def wrapper_class(publication = nil)
     services = %W[transaction local_transaction completed_transaction place]
-    guides = %W[guide travel-advice]
+    guides = %W[travel-advice]
     html_classes = []
 
     if publication

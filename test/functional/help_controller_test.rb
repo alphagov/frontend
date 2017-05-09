@@ -72,11 +72,10 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "show the user the default version if the user is in an unknown bucket" do
-      with_variant Example: 'not_a_valid_AB_test_value' do
-        get :ab_testing
+      setup_ab_variant('Example', 'not_a_valid_AB_test_value')
+      get :ab_testing
 
-        assert_select ".ab-example-group", text: "A"
-      end
+      assert_select ".ab-example-group", text: "A"
     end
   end
 end

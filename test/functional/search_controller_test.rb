@@ -47,7 +47,7 @@ class SearchControllerTest < ActionController::TestCase
     }
   end
 
-  def stub_results(results, query = "search-term", organisations = [], suggestions = [], options = {})
+  def stub_results(results, query = "search-term", suggestions = [], options = {})
     response_body = response(results, suggestions, options)
     SearchAPI.stubs(:new).returns(stub(search: response_body))
   end
@@ -205,7 +205,7 @@ class SearchControllerTest < ActionController::TestCase
     suggestions = ["cats", "dogs"]
     results = [a_search_result('something')]
 
-    stub_results(results, "search-term", [], suggestions)
+    stub_results(results, "search-term", suggestions)
 
     get :index, q: "search-term"
     assert_select ".spelling-suggestion", text: "Did you mean cats"
@@ -215,7 +215,7 @@ class SearchControllerTest < ActionController::TestCase
     suggestions = ["cats"]
     results = [a_search_result('something')]
 
-    stub_results(results, "search-term", ["hm-revenue-customs"], suggestions)
+    stub_results(results, "search-term", suggestions)
 
     get :index, q: "search-term", filter_organisations: ["hm-revenue-customs"]
     assert_select ".spelling-suggestion", text: "Did you mean cats"
@@ -225,7 +225,7 @@ class SearchControllerTest < ActionController::TestCase
   should "display the filters box as open when searching with a filter" do
     results = [a_search_result('something')]
 
-    stub_results(results, "search-term", ["hm-revenue-customs"])
+    stub_results(results, "search-term")
 
     get :index, q: "search-term", filter_organisations: ["hm-revenue-customs"]
     assert_select ".filter-form .filter.closed", count: 0
@@ -270,7 +270,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test 'should link to the next page' do
-    stub_results(Array.new(50, {}), 'Test', [], [], total: 100)
+    stub_results(Array.new(50, {}), 'Test', [], total: 100)
 
     get :index, q: 'Test', count: 50
 
@@ -279,7 +279,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test 'should link to the previous page' do
-    stub_results(Array.new(50, {}), 'Test', [], [], start: '50', total: 100)
+    stub_results(Array.new(50, {}), 'Test', [], start: '50', total: 100)
 
     get :index, q: 'Test', start: 50, count: 50
 
@@ -311,14 +311,14 @@ class SearchControllerTest < ActionController::TestCase
       "highlight" => "",
       "format" => "publication"
     }
-    stub_results([result], "bob", [], [], total: 1)
+    stub_results([result], "bob", [], total: 1)
     get :index, q: "bob"
     assert_equal "search",  @response.headers["X-Slimmer-Section"]
     assert_equal "1",       @response.headers["X-Slimmer-Result-Count"]
   end
 
   test "display the total number of results" do
-    stub_results(Array.new(15, {}), "bob", [], [], total: 15)
+    stub_results(Array.new(15, {}), "bob", [], total: 15)
 
     get :index, q: "bob"
 
@@ -385,7 +385,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should render json results" do
-    stub_results(Array.new(15, {}), "bob", [], [], total: 15)
+    stub_results(Array.new(15, {}), "bob", [], total: 15)
     get :index, q: "bob", format: "json"
 
     json = JSON.parse(@response.body)
@@ -395,7 +395,7 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should render json with no results" do
-    stub_results(Array.new(0, {}), "bob", [], [], total: 0)
+    stub_results(Array.new(0, {}), "bob", [], total: 0)
     get :index, q: "bob", format: "json"
 
     json = JSON.parse(@response.body)

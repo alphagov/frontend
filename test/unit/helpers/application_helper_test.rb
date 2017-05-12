@@ -15,7 +15,7 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   def dummy_publication
-    PublicationPresenter.new(artefact_for_slug("dummy"))
+    ContentItemPresenter.new(content_store_has_random_item(base_path: '/dummy'))
   end
 
   test "the page title doesn't contain consecutive pipes" do
@@ -34,7 +34,7 @@ class ApplicationHelperTest < ActionView::TestCase
     end
   end
 
-  test "should build title from publication and artefact" do
+  test "should build title from content items" do
     publication = OpenStruct.new(title: "Title")
     assert_equal "Title - GOV.UK", @helper.page_title(publication)
   end

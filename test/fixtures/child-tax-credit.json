@@ -4,7 +4,7 @@
     },
     "title": "Get Child Tax Credit",
     "format": "guide",
-    "id": "https://contentapi.preview.alphagov.co.uk/child-tax-credit.json",
+    "id": "https://content-store.preview.alphagov.co.uk/child-tax-credit.json",
     "web_url": "https://www.gov.uk/child-tax-credit",
     "details": {
         "need_id": null,
@@ -60,26 +60,26 @@
     "tags": [
         {
             "title": "Tax credits",
-            "id": "https://contentapi.preview.alphagov.co.uk/tags/benefits%2Ftax-credits.json",
+            "id": "https://content-store.preview.alphagov.co.uk/tags/benefits%2Ftax-credits.json",
             "web_url": null,
             "details": {
                 "description": "Includes working tax credit, child tax credit and when tax credits stop",
                 "type": "section"
             },
             "content_with_tag": {
-                "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=benefits%2Ftax-credits",
+                "id": "https://content-store.preview.alphagov.co.uk/with_tag.json?tag=benefits%2Ftax-credits",
                 "web_url": "https://www.gov.uk/browse/benefits/tax-credits"
             },
             "parent": {
                 "title": "Benefits",
-                "id": "https://contentapi.preview.alphagov.co.uk/tags/benefits.json",
+                "id": "https://content-store.preview.alphagov.co.uk/tags/benefits.json",
                 "web_url": null,
                 "details": {
                     "description": "Eligibility and how to apply",
                     "type": "section"
                 },
                 "content_with_tag": {
-                    "id": "https://contentapi.preview.alphagov.co.uk/with_tag.json?tag=benefits",
+                    "id": "https://content-store.preview.alphagov.co.uk/with_tag.json?tag=benefits",
                     "web_url": "https://www.gov.uk/browse/benefits"
                 },
                 "parent": null
@@ -90,7 +90,7 @@
         {
             "title": "Do you qualify for tax credits - quick questionnaire",
             "format": "answer",
-            "id": "https://contentapi.preview.alphagov.co.uk/qualify-tax-credits-quick-questionnaire.json",
+            "id": "https://content-store.preview.alphagov.co.uk/qualify-tax-credits-quick-questionnaire.json",
             "web_url": "https://www.gov.uk/qualify-tax-credits-quick-questionnaire",
             "details": {
                 "need_id": "559"
@@ -99,7 +99,7 @@
         {
             "title": "Tax credits calculator",
             "format": "transaction",
-            "id": "https://contentapi.preview.alphagov.co.uk/tax-credits-calculator.json",
+            "id": "https://content-store.preview.alphagov.co.uk/tax-credits-calculator.json",
             "web_url": "https://www.gov.uk/tax-credits-calculator",
             "details": {
                 "need_id": "696"
@@ -108,7 +108,7 @@
         {
             "title": "How to claim tax credits",
             "format": "guide",
-            "id": "https://contentapi.preview.alphagov.co.uk/claim-tax-credits.json",
+            "id": "https://content-store.preview.alphagov.co.uk/claim-tax-credits.json",
             "web_url": "https://www.gov.uk/claim-tax-credits",
             "details": {
                 "need_id": "2053"
@@ -117,7 +117,7 @@
         {
             "title": "Working Tax Credit",
             "format": "guide",
-            "id": "https://contentapi.preview.alphagov.co.uk/working-tax-credit.json",
+            "id": "https://content-store.preview.alphagov.co.uk/working-tax-credit.json",
             "web_url": "https://www.gov.uk/working-tax-credit",
             "details": {
                 "need_id": null
@@ -126,7 +126,7 @@
         {
             "title": "ADI check test: what to expect",
             "format": "guide",
-            "id": "https://contentapi.preview.alphagov.co.uk/adi-check-test-what-to-expect.json",
+            "id": "https://content-store.preview.alphagov.co.uk/adi-check-test-what-to-expect.json",
             "web_url": "https://www.gov.uk/adi-check-test-what-to-expect",
             "details": {
                 "need_id": "B129"

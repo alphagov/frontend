@@ -13,7 +13,6 @@ require 'webmock/minitest'
 WebMock.disable_net_connect!(allow_localhost: true)
 require 'timecop'
 
-require 'gds_api/test_helpers/content_api'
 require 'slimmer/test_helpers/govuk_components'
 require 'govuk-content-schema-test-helpers'
 
@@ -26,7 +25,6 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
 
   # Add more helper methods to be used by all tests here...
-  include GdsApi::TestHelpers::ContentApi
   include Slimmer::TestHelpers::GovukComponents
   include ContentStoreHelpers
 

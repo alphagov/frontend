@@ -36,10 +36,8 @@ See `app/views/root` for some bespoke transaction start pages.
 
 - [alphagov/static](https://github.com/alphagov/static) - provides shared
   templates, styles, and JavaScript
-- [alphagov/govuk_content_api](https://github.com/alphagov/govuk_content_api) -
-  provides raw data for rendering formats (being replaced by content-store)
 - [alphagov/content-store](https://github.com/alphagov/content-store) -
-  provides raw data for rendering formats (replacing govuk_content_api)
+  provides raw data for rendering formats
 - [alphagov/mapit](https://github.com/alphagov/mapit) - provides postcode lookups
 - [alphagov/imminence](https://github.com/alphagov/imminence) - provides places lookups (e.g. for find-my-nearest)
 
@@ -49,12 +47,10 @@ To run the application standalone, run
 [static](https://github.com/alphagov/static) and execute the following command:
 
 ```
-PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 PLEK_SERVICE_CONTENTAPI_URI=https://www.gov.uk/api ./startup.sh
+PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 ./startup.sh
 ```
 
-which uses the production
-[content API](https://github.com/alphagov/govuk_content_api) and a local copy of
-static.
+which uses a local copy of static.
 
 Note that you will have to have GOV.UK Mapit running locally.
 

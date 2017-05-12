@@ -2,17 +2,6 @@ cy:
   common:
     last_updated: "Diweddarwyd diwethaf"
   formats:
-    answer:
-      name: "Ateb cyflym"
-    guide:
-      name: "Canllaw"
-      part: "Rhan"
-      printer_friendly_page: "Tudalen hawdd ei hargraffu"
-      at_beginning_of_guide: "Rydych chi ar ddechrau’r canllaw hwn"
-      at_end_of_guide: "Rydych wedi cyrraedd diwedd y canllaw hwn"
-      navigate_to_previous_part: "Llywio i’r rhan flaenorol"
-      navigate_to_next_part: "Llywio i’r rhan nesaf"
-      notes: "Nodiadau"
     transaction:
       name: "Gwasanaeth"
       start_now: "Dechrau nawr"

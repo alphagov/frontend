@@ -28,7 +28,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: false)
       end
 
-      assert page.has_selector?("#wrapper.travel-advice.guide")
+      assert page.has_selector?("#wrapper.travel-advice")
 
       within '#content' do
         within 'header' do
@@ -61,7 +61,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
     should "set the slimmer #wrapper classes" do
       visit '/foreign-travel-advice'
-      assert_equal "travel-advice guide", page.find("#wrapper")["class"]
+      assert_equal "travel-advice", page.find("#wrapper")["class"]
     end
   end
 

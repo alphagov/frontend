@@ -5,7 +5,6 @@ class ContentFormatInspector
 
   MIGRATED_SCHEMAS = %w(
     completed_transaction
-    guide
     licence
     place
     local_transaction

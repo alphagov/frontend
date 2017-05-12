@@ -1,7 +1,0 @@
-<link rel="canonical" href="<%= current_part_path(@publication) %>" />
-<%- if @publication.has_previous_part? -%>
-  <link rel="prev" href="<%= previous_part_path(@publication) %>" />
-<%- end -%>
-<%- if @publication.has_next_part? -%>
-  <link rel="next" href="<%= next_part_path(@publication) %>" />
-<%- end -%>

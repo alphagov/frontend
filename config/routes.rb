@@ -35,13 +35,6 @@ Frontend::Application.routes.draw do
     get ":slug/:part", to: redirect('/%{slug}') # Support for simple smart answers that were once a format with parts
   end
 
-
-  # Guide pages
-  constraints FormatRoutingConstraint.new('guide') do
-    get ":slug/print", to: "guide#show", variant: :print
-    get ":slug(/:part)", to: "guide#show", as: "guide"
-  end
-
   # Transaction pages
   constraints FormatRoutingConstraint.new('transaction') do
     get ":slug", slug: %r{(jobsearch|chwilio-am-swydd)}, to: "transaction#jobsearch"

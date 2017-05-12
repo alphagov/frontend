@@ -9,7 +9,7 @@ class ArtefactRetriever
     self.content_api = content_api
     self.logger = logger
     self.statsd = statsd
-    self.supported_formats = supported_formats || %w{completed_transaction guide licence
+    self.supported_formats = supported_formats || %w{completed_transaction licence
          local_transaction place simple_smart_answer transaction travel-advice}
   end
 

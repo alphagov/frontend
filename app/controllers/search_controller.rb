@@ -17,7 +17,7 @@ class SearchController < ApplicationController
       render action: 'no_search_term' and return
     end
     variant = search_match_length_variant.variant_name
-    search_response = SearchAPI.new(search_params, SearchMatchLength: variant).search
+    search_response = SearchAPI.new(search_params, search_match_length: variant).search
 
     @search_term = search_params.search_term
 

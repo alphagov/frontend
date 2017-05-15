@@ -5,6 +5,7 @@
       content="Search for '<%= @search_term %>' on GOV.UK." />
   <link rel="alternate" type="application/json" href="/api/search.json?q=<%= @search_term %>">
   <%= search_match_length_variant.analytics_meta_tag.html_safe %>
+  <meta name="robots" content="noindex">
 <% end %>
 
 <main id="content" role="main" class="group search">

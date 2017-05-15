@@ -8,14 +8,9 @@ class LicenceControllerTest < ActionController::TestCase
   include EducationNavigationAbTestHelper
 
   context "GET start" do
-    setup do
-      @artefact = artefact_for_slug('licence-to-kill')
-      @artefact["format"] = "licence"
-    end
-
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
+        content_store_has_page('licence-to-kill')
       end
 
       should "set the cache expiry headers" do
@@ -32,7 +27,7 @@ class LicenceControllerTest < ActionController::TestCase
 
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
-          content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
+          content_store_has_page('licence-to-kill')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :start, slug: "licence-to-kill"
@@ -132,14 +127,9 @@ class LicenceControllerTest < ActionController::TestCase
   end
 
   context "GET authority" do
-    setup do
-      @artefact = artefact_for_slug('licence-to-kill')
-      @artefact["format"] = "licence"
-    end
-
     context "for live content" do
       setup do
-        content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
+        content_store_has_page('licence-to-kill')
       end
 
       should "set the cache expiry headers" do
@@ -156,7 +146,7 @@ class LicenceControllerTest < ActionController::TestCase
 
       %w[A B].each do |variant|
         should "not affect non-education pages with the #{variant} variant" do
-          content_api_and_content_store_have_page('licence-to-kill', artefact: @artefact)
+          content_store_has_page('licence-to-kill')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
           get :authority, slug: "licence-to-kill", authority_slug: "secret-service"

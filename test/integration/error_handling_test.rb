@@ -17,23 +17,6 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "when the content API returns 5xx" do
-    should "return 503 status" do
-      content_store_isnt_available
-      visit "/slug"
-      assert_equal 503, page.status_code
-    end
-  end
-
-  context "when the format has not been migrated, and the content-api returns 5xx" do
-    should "return 503 status" do
-      content_store_has_item('/foo', format: 'unmigrated')
-      api_returns_error_for('/foo.json', 500)
-      visit '/foo'
-      assert_equal 503, page.status_code
-    end
-  end
-
   context "when the application tries to retrieve an invalid URL from the content store" do
     should "return 404 status" do
       content_store_throws_exception_for('/foo', GdsApi::InvalidUrl)

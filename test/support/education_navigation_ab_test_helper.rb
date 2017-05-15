@@ -2,7 +2,7 @@ module EducationNavigationAbTestHelper
   include GovukAbTesting::MinitestHelpers
 
   def setup_education_navigation_ab_test
-    content_api_and_content_store_have_page("tagged-to-taxon", is_tagged_to_taxon: true)
+    content_store_has_page("tagged-to-taxon", is_tagged_to_taxon: true)
   end
 
   def sidebar

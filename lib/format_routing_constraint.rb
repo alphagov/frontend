@@ -23,14 +23,10 @@ private
   end
 
   def format_inspector
-    @request.env[:__inspector] ||= @content_format_inspector.new(slug, edition)
+    @request.env[:__inspector] ||= @content_format_inspector.new(slug)
   end
 
   def slug
     @request.params.fetch(:slug)
-  end
-
-  def edition
-    @request.params.fetch(:edition, nil)
   end
 end

@@ -3,50 +3,24 @@ class ContentFormatInspector
 
   attr_reader :error
 
-  MIGRATED_SCHEMAS = %w(
-    completed_transaction
-    licence
-    place
-    local_transaction
-    simple_smart_answer
-    transaction
-  ).freeze
-
-  def initialize(slug, edition = nil)
+  def initialize(slug)
     @slug = slug
-    @edition = edition
   end
 
   def format
-    if draft_requested? && artefact.present?
-      artefact['format']
-    elsif migrated? && content_item.present?
-      content_item['schema_name']
-    elsif artefact.present?
-      artefact['format']
-    end
+    content_item['schema_name']
   end
 
 private
 
-  attr_reader :slug, :edition
+  attr_reader :slug
 
   def handle_api_errors
     yield
   rescue GdsApi::HTTPErrorResponse,
-         GdsApi::InvalidUrl,
-         ArtefactRetriever::RecordArchived,
-         ArtefactRetriever::RecordNotFound => e
+         GdsApi::InvalidUrl => e
     @error = e
     {}
-  end
-
-  def draft_requested?
-    edition.present?
-  end
-
-  def migrated?
-    MIGRATED_SCHEMAS.include? content_item.to_h['schema_name']
   end
 
   def content_item
@@ -56,22 +30,11 @@ private
     end
   end
 
-  def artefact
-    return {} if error?
-    @_artefact ||= handle_api_errors do
-      artefact_retriever.fetch_artefact(slug, edition)
-    end
-  end
-
   def error?
     @error.present?
   end
 
   def content_store
     @_content_store ||= Services.content_store
-  end
-
-  def artefact_retriever
-    @_artefact_retriever ||= ArtefactRetrieverFactory.artefact_retriever
   end
 end

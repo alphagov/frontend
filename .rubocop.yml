@@ -41,7 +41,6 @@ Lint/UnusedBlockArgument:
   Exclude:
     - 'app/helpers/campaign_helper.rb'
     - 'config/routes.rb'
-    - 'lib/artefact_retriever.rb'
     - 'lib/tasks/test_javascript.rake'
 
 # Offense count: 2
@@ -149,7 +148,6 @@ Style/MutableConstant:
     - 'app/presenters/local_authority_presenter.rb'
     - 'app/presenters/publication_presenter.rb'
     - 'app/presenters/search_results_presenter.rb'
-    - 'config/initializers/content_api_credentials.rb'
 
 # Offense count: 4
 Style/NestedParenthesizedCalls:

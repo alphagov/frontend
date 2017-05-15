@@ -1,6 +1,4 @@
 require 'gds_api/helpers'
-require 'gds_api/content_api'
-require 'artefact_retriever'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
@@ -15,9 +13,6 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPGone, with: :error_410
   rescue_from GdsApi::HTTPNotFound, with: :cacheable_404
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
-  rescue_from ArtefactRetriever::RecordArchived, with: :error_410
-  rescue_from ArtefactRetriever::UnsupportedArtefactFormat, with: :error_404
-  rescue_from ArtefactRetriever::RecordNotFound, with: :cacheable_404
   rescue_from RecordNotFound, with: :cacheable_404
 
   slimmer_template 'wrapper'
@@ -27,8 +22,6 @@ class ApplicationController < ActionController::Base
   helper_method :breadcrumbs, :navigation_helpers
 
 protected
-
-  def error_404; error 404; end
 
   def error_410; error 410; end
 
@@ -84,11 +77,6 @@ protected
     set_language_from_publication
   end
 
-  def set_publication
-    @publication = PublicationPresenter.new(artefact)
-    set_language_from_publication
-  end
-
   def set_language_from_publication
     I18n.locale = if @publication.locale && I18n.available_locales.map(&:to_s).include?(@publication.locale)
                     @publication.locale
@@ -99,13 +87,6 @@ protected
 
   def content_item
     @_content_item ||= Services.content_store.content_item("/#{params[:slug]}")
-  end
-
-  def artefact
-    @_artefact ||= ArtefactRetrieverFactory.artefact_retriever.fetch_artefact(
-      params[:slug],
-      params[:edition]
-    )
   end
 
   def breadcrumbs

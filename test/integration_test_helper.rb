@@ -2,12 +2,10 @@ require 'test_helper'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
-require 'gds_api/test_helpers/content_api'
 require 'slimmer/test'
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
-  include GdsApi::TestHelpers::ContentApi
 
   def setup
     super
@@ -24,24 +22,13 @@ class ActionDispatch::IntegrationTest
     WebMock.reset!
   end
 
-  def content_api_response(slug, options = {})
+  def setup_api_response(slug, options = {})
     options[:file] ||= "#{slug}.json"
     options[:deep_merge] ||= {}
     json = File.read(Rails.root.join("test/fixtures/#{options[:file]}"))
-    JSON.parse(json).deep_merge(options[:deep_merge])
-  end
-
-  def setup_api_responses(slug, options = {})
-    artefact = content_api_response(slug, options)
-    content_api_and_content_store_have_page(slug, artefact: artefact)
-    artefact
-  end
-
-  def content_api_has_a_draft_artefact(slug, version, body = artefact_for_slug(slug))
-    GdsApi::TestHelpers::ContentApi::ArtefactStub.new(slug)
-        .with_query_parameters(edition: version)
-        .with_response_body(body)
-        .stub
+    content_item = JSON.parse(json).deep_merge(options[:deep_merge])
+    content_store_has_page(slug, schema: content_item['format'])
+    content_item
   end
 
   def assert_page_has_content(text)

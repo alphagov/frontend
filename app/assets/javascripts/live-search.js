@@ -44,7 +44,7 @@
         window.location.pathname + window.location.search,
         null,
         {
-          dimension5: liveSearch.cache().result_count
+          dimension5: String(liveSearch.cache().result_count)
         }
       );
       $(document).trigger("liveSearch.pageTrack");

@@ -60,7 +60,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         within 'head', visible: :all do
           assert page.has_selector?("title", text: "Licence to kill - GOV.UK", visible: :all)
-          assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/licence-to-kill.json']", visible: :all)
         end
 
         within '#content' do

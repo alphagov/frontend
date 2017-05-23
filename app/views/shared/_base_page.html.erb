@@ -15,8 +15,7 @@
         <%= yield %>
       </div>
     </div>
-    <% json_link ||= publication_api_path(publication, :edition => edition)  %>
-    <%= render 'shared/publication_metadata', :publication => publication, :api_links => { 'application/json' => json_link } %>
+    <%= render 'shared/publication_metadata', :publication => publication %>
   </div>
 </main>
 

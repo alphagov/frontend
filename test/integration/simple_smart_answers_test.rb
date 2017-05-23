@@ -96,7 +96,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     within 'head', visible: :all do
       assert page.has_selector?('title', text: "The Bridge of Death - GOV.UK", visible: :all)
-      assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/the-bridge-of-death.json']", visible: :all)
     end
 
     within '#content' do

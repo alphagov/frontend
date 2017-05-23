@@ -77,7 +77,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       within 'head', visible: :all do
         assert page.has_selector?("title", text: "Find a passport interview office - GOV.UK", visible: :all)
-        assert page.has_selector?("link[rel=alternate][type='application/json'][href='/api/passport-interview-office.json']", visible: :all)
       end
 
       within '#content' do

@@ -25,7 +25,7 @@ the GOV.UK single domain.
 ## Technical documentation
 
 A Ruby on Rails application that renders the citizen-facing part of formats
-stored in the Content API. It looks up the passed in slug in the Content API.
+stored in the Content Store. It looks up the passed-in slug in the Content Store.
 
 It also serves the homepage (hard-coded route) and the search results vertical
 (hard-coded route).

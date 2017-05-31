@@ -56,19 +56,6 @@ class TransactionControllerTest < ActionController::TestCase
           get :show, slug: "tagged"
         end
       end
-
-      should "show taxon breadcrumbs and old related links for flagged mainstream content" do
-        MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(
-          ["/tagged-to-taxon"]
-        )
-
-        expect_normal_navigation_and_old_related_links
-        content_store_has_item_tagged_to_taxon(base_path: '/tagged-to-taxon', payload: {})
-
-        with_variant EducationNavigation: "B" do
-          get :show, slug: "tagged-to-taxon"
-        end
-      end
     end
   end
 

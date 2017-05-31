@@ -21,7 +21,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     context "for live content" do
       should "set the cache expiry headers" do
-        get :show, slug: "the-bridge-of-death"
+        get :show, params: { slug: "the-bridge-of-death" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -41,27 +41,27 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
-          get :show, slug: "the-bridge-of-death"
+          get :show, params: { slug: "the-bridge-of-death" }
           assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 
       should "show normal navigation by default" do
         expect_normal_navigation
-        get :show, slug: "the-bridge-of-death"
+        get :show, params: { slug: "the-bridge-of-death" }
       end
 
       should "show normal navigation for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :show, slug: "the-bridge-of-death"
+          get :show, params: { slug: "the-bridge-of-death" }
         end
       end
 
       should "show taxon navigation for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :show, slug: "the-bridge-of-death"
+          get :show, params: { slug: "the-bridge-of-death" }
         end
       end
 
@@ -72,7 +72,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
         expect_normal_navigation_and_old_related_links
         with_variant EducationNavigation: "B" do
-          get :show, slug: "the-bridge-of-death"
+          get :show, params: { slug: "the-bridge-of-death" }
         end
       end
     end
@@ -134,7 +134,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         SimpleSmartAnswers::Flow.expects(:new).with(@node_details).returns(flow)
         flow.expects(:state_for_responses).with([]).returns(state)
 
-        get :flow, slug: "the-bridge-of-death"
+        get :flow, params: { slug: "the-bridge-of-death" }
 
         assert_equal state, assigns[:flow_state]
       end
@@ -145,45 +145,45 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         SimpleSmartAnswers::Flow.expects(:new).with(@node_details).returns(flow)
         flow.expects(:state_for_responses).with(["option-1", "option-2"]).returns(state)
 
-        get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2"
+        get :flow, params: { slug: "the-bridge-of-death", responses: "option-1/option-2" }
 
         assert_equal state, assigns[:flow_state]
       end
 
       should "render the flow template" do
-        get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2"
+        get :flow, params: { slug: "the-bridge-of-death", responses: "option-1/option-2" }
 
         assert_template "flow"
       end
 
       should "set cache control headers" do
-        get :flow, slug: "the-bridge-of-death", responses: "option-1/option-2"
+        get :flow, params: { slug: "the-bridge-of-death", responses: "option-1/option-2" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
 
       context "with form submission params" do
         should "add the given response to the state" do
-          get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-1"
+          get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-1" }
 
           state = assigns[:flow_state]
           assert_equal ['option-1', 'option-1'], state.completed_questions.map(&:slug)
         end
 
         should "redirect to the canonical path for the resulting state" do
-          get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-2"
+          get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-2" }
 
           assert_redirected_to action: :flow, slug: "the-bridge-of-death", responses: "option-1/option-2"
         end
 
         should "set cache control headers when redirecting" do
-          get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-2"
+          get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-2" }
 
           assert_equal "max-age=1800, public", response.headers["Cache-Control"]
         end
 
         should "not redirect if the form submission results in an error" do
-          get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "fooey"
+          get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "fooey" }
 
           assert_equal 200, response.status
           assert_template "flow"
@@ -191,7 +191,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "not process form param with invalid url params" do
-          get :flow, slug: "the-bridge-of-death", responses: "fooey", response: "option-1"
+          get :flow, params: { slug: "the-bridge-of-death", responses: "fooey", response: "option-1" }
 
           assert_equal 200, response.status
           assert_template "flow"
@@ -199,7 +199,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         end
 
         should "pass on the 'token' param when in fact check" do
-          get :flow, slug: "the-bridge-of-death", responses: "option-1", response: "option-2", token: "123"
+          get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-2", token: "123" }
 
           assert_redirected_to action: :flow, slug: "the-bridge-of-death", responses: "option-1/option-2", token: "123"
         end

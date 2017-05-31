@@ -3,7 +3,7 @@ module EducationNavigationABTestable
 
   def self.included(base)
     base.helper_method :education_navigation_variant, :ab_test_applies?
-    base.after_filter :set_education_navigation_response_header
+    base.after_action :set_education_navigation_response_header
   end
 
   def education_navigation_ab_test

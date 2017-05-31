@@ -29,9 +29,9 @@ protected
 
   def error(status_code, exception = nil)
     if exception and defined? Airbrake
-      env["airbrake.error_id"] = notify_airbrake(exception)
+      ENV["airbrake.error_id"] = notify_airbrake(exception)
     end
-    render status: status_code, text: "#{status_code} error"
+    render status: status_code, plain: "#{status_code} error"
   end
 
   def cacheable_404

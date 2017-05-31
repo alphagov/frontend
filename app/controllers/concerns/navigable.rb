@@ -2,7 +2,7 @@ module Navigable
   extend ActiveSupport::Concern
 
   included do
-    before_filter -> { setup_content_item_and_navigation_helpers("/#{slug_param}") }
+    before_action -> { setup_content_item_and_navigation_helpers("/#{slug_param}") }
   end
 
   def slug_param

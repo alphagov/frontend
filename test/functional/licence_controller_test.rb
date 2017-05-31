@@ -14,7 +14,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :start, slug: "licence-to-kill"
+        get :start, params: { slug: "licence-to-kill" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -30,27 +30,27 @@ class LicenceControllerTest < ActionController::TestCase
           content_store_has_page('licence-to-kill')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
-          get :start, slug: "licence-to-kill"
+          get :start, params: { slug: "licence-to-kill" }
           assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :start, slug: "tagged-to-taxon"
+        get :start, params: { slug: "tagged-to-taxon" }
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :start, slug: "tagged-to-taxon"
+          get :start, params: { slug: "tagged-to-taxon" }
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :start, slug: "tagged-to-taxon"
+          get :start, params: { slug: "tagged-to-taxon" }
         end
       end
 
@@ -59,7 +59,7 @@ class LicenceControllerTest < ActionController::TestCase
 
         expect_normal_navigation_and_old_related_links
         with_variant EducationNavigation: "B" do
-          get :start, slug: "tagged-to-taxon"
+          get :start, params: { slug: "tagged-to-taxon" }
         end
       end
     end
@@ -101,7 +101,7 @@ class LicenceControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          post :start, slug: "licence-to-kill", postcode: "ST10 4DB"
+          post :start, params: { slug: "licence-to-kill", postcode: "ST10 4DB" }
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -116,7 +116,7 @@ class LicenceControllerTest < ActionController::TestCase
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24" },
           ])
 
-          post :start, slug: "licence-to-kill", postcode: "BT1 5GS"
+          post :start, params: { slug: "licence-to-kill", postcode: "BT1 5GS" }
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -133,7 +133,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
+        get :authority, params: { slug: "licence-to-kill", authority_slug: "secret-service" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -149,27 +149,27 @@ class LicenceControllerTest < ActionController::TestCase
           content_store_has_page('licence-to-kill')
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
-          get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
+          get :authority, params: { slug: "licence-to-kill", authority_slug: "secret-service" }
           assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
+        get :authority, params: { slug: "tagged-to-taxon", authority_slug: "auth-slug" }
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
+          get :authority, params: { slug: "tagged-to-taxon", authority_slug: "auth-slug" }
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
+          get :authority, params: { slug: "tagged-to-taxon", authority_slug: "auth-slug" }
         end
       end
     end

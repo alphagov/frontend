@@ -4,7 +4,7 @@ class LicenceController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter :set_content_item
+  before_action :set_content_item
 
   helper_method :postcode
 

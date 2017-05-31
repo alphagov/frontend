@@ -16,7 +16,7 @@ class FindLocalCouncilControllerTest < ActionController::TestCase
     content_store_has_random_item(base_path: '/find-local-council')
     local_links_manager_does_not_have_an_authority('foo')
 
-    get :result, authority_slug: 'foo'
+    get :result, params: { authority_slug: 'foo' }
 
     assert_equal 404, response.status
   end

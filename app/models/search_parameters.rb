@@ -9,6 +9,7 @@ class SearchParameters
   ALLOWED_FACET_FIELDS = %w{organisations manual}
 
   def initialize(params)
+    params = params.to_unsafe_h if params.respond_to?(:to_unsafe_h)
     @params = enforce_bounds(params)
   end
 

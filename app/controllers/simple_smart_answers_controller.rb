@@ -15,6 +15,9 @@ class SimpleSmartAnswersController < ApplicationController
   end
 
   def flow
+    if is_benchmarking_tested_path?
+      set_benchmark_contact_dvla_title_response_header
+    end
     responses = params[:responses].to_s.split('/')
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
     @flow_state = @flow.state_for_responses(responses)

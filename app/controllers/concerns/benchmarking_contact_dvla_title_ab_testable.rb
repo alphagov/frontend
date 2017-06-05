@@ -1,6 +1,4 @@
 module BenchmarkingContactDvlaTitleABTestable
-  BENCHMARKING_PATHS = ['/contact-the-dvla'].freeze
-
   def should_show_benchmarking_variant?
   # Use GOVUK-ABTest-BenchmarkDVLATitle1=B header in dev to test this
     benchmark_contact_dvla_title_variant.variant_b? &&
@@ -8,7 +6,7 @@ module BenchmarkingContactDvlaTitleABTestable
   end
 
   def is_benchmarking_tested_path?
-    BENCHMARKING_PATHS.include? request.path
+    request.path.starts_with?("/contact-the-dvla")
   end
 
   def benchmark_contact_dvla_title_variant

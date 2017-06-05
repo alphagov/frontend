@@ -1,5 +1,6 @@
 <% content_for :extra_headers do %>
   <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
+  <%= benchmark_contact_dvla_title_variant.analytics_meta_tag.html_safe if is_benchmarking_tested_path? %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {

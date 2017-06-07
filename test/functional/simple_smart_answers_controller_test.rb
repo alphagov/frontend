@@ -27,7 +27,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context "A/B testing" do
+    context "Education A/B testing" do
       setup do
         setup_education_navigation_ab_test
         content_store_has_item_tagged_to_taxon(
@@ -73,6 +73,30 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         expect_normal_navigation_and_old_related_links
         with_variant EducationNavigation: "B" do
           get :show, slug: "the-bridge-of-death"
+        end
+      end
+    end
+
+    context 'Benchmarking A/B testing' do
+      setup do
+        @controller.stubs(:is_benchmarking_tested_path?).returns(true)
+
+        content_store_has_item('/the-bridge-of-death', simple_smart_answer_content_item)
+      end
+
+      should "show original title for the 'A' variant" do
+        with_variant BenchmarkDVLATitle1: "A" do
+          get :show, slug: "the-bridge-of-death"
+
+          assert_select "h1", text: "The bridge of death", count: 1
+        end
+      end
+
+      should "show new title for the 'B' variant" do
+        with_variant BenchmarkDVLATitle1: "B" do
+          get :show, slug: "the-bridge-of-death"
+
+          assert_select "h1", text: "Find out how to contact DVLA", count: 1
         end
       end
     end

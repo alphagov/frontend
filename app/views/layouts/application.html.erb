@@ -52,5 +52,6 @@
       <% unless local_assigns.include?(:full_width) %></div><% end %>
       <%= render_mustache_templates if Rails.env.development? %>
     </div>
+    <%= render partial: 'ab_testing/ukvi_ab_test_may_2017'%>
   </body>
 </html>

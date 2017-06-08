@@ -100,14 +100,6 @@ protected
     end
   end
 
-  def present_taxonomy_sidebar?
-    present_new_navigation? &&
-      MainstreamContentFetcher.with_curated_sidebar.exclude?(
-        @content_item['base_path']
-      )
-  end
-  helper_method :present_taxonomy_sidebar?
-
   def present_new_navigation?
     if defined?(should_present_new_navigation_view?)
       should_present_new_navigation_view?

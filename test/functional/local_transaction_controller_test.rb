@@ -221,17 +221,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
           get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
         end
       end
-
-      should "show taxon breadcrumbs and old related links for flagged mainstream content" do
-        MainstreamContentFetcher.stubs(:with_curated_sidebar).returns(
-          ['/send-a-bear-to-your-local-council']
-        )
-
-        expect_normal_navigation_and_old_related_links
-        with_variant EducationNavigation: "B" do
-          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
-        end
-      end
     end
   end
 

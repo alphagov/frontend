@@ -25,7 +25,7 @@
 
 <% if @navigation_helpers %>
 <div class="related-container">
-  <% if present_taxonomy_sidebar? %>
+  <% if present_new_navigation? %>
     <%= render partial: 'govuk_component/taxonomy_sidebar', locals: navigation_helpers.taxonomy_sidebar %>
   <% else %>
     <%= render partial: 'govuk_component/related_items', locals: navigation_helpers.related_items %>

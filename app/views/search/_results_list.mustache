@@ -12,7 +12,13 @@
 </div>
 
 {{#results_any?}}
-  <ol class="results-list{{#debug_score}} debug{{/debug_score}}" id="js-live-search-results" start="{{first_result_number}}">
+  <ol
+    class="results-list{{#debug_score}} debug{{/debug_score}}"
+    id="js-live-search-results"
+    start="{{first_result_number}}"
+    data-search-query="{{query}}"
+    data-analytics-ecommerce
+    data-ecommerce-start-index="{{first_result_number}}">
     {{#results}}
       {{#is_multiple_results}}
         {{>search/_sublist}}

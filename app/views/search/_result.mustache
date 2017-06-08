@@ -1,5 +1,8 @@
 <li>
-  <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}>{{{title_with_highlighting}}}</a></h3>
+  <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}
+       data-ecommerce-row
+       data-ecommerce-path="{{link}}"
+       data-ecommerce-content-id="{{content_id}}">{{{title_with_highlighting}}}</a></h3>
 
   {{#debug_score}}
     <p class="debug-link">

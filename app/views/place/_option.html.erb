@@ -61,17 +61,9 @@
                 </p>
               <% end %>
 
-              <% if place["general_notes"].present? %>
-                <p>
-                  <%= place["general_notes"] %>
-                </p>
-              <% end %>
+              <%= simple_format place["general_notes"] if place["general_notes"].present? %>
 
-              <% if place["access_notes"].present? %>
-                <p>
-                  <%= place["access_notes"] %>
-                </p>
-              <% end %>
+              <%= simple_format place["access_notes"] if place["access_notes"].present? %>
             </div>
           </div>
         </div>

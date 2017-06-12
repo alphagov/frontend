@@ -10,7 +10,21 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       schema_name: "simple_smart_answer",
       title: "The bridge of death",
       description: "Cheery description about bridge of death",
-      external_related_links: []
+      external_related_links: [],
+    }
+  end
+
+  def simple_smart_answer_content_item_with_start_button_text
+    {
+      base_path: "/the-squirrel-of-doom",
+      document_type: "simple_smart_answer",
+      schema_name: "simple_smart_answer",
+      title: "The squirrel of doom",
+      description: "Noooo, not the squirrel of doom!",
+      details: {
+        start_button_text: "Start now",
+      },
+      external_related_links: [],
     }
   end
 
@@ -77,15 +91,14 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
     end
 
-    context 'Benchmarking A/B testing' do
+    context 'Benchmarking DVLA title A/B test' do
       setup do
         @controller.stubs(:is_benchmarking_tested_path?).returns(true)
-
         content_store_has_item('/the-bridge-of-death', simple_smart_answer_content_item)
       end
 
       should "show original title for the 'A' variant" do
-        with_variant BenchmarkDVLATitle1: "A" do
+        with_variant BenchmarkDVLATitle1: "A", assert_meta_tag: false do
           get :show, slug: "the-bridge-of-death"
 
           assert_select "h1", text: "The bridge of death", count: 1
@@ -93,10 +106,33 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       end
 
       should "show new title for the 'B' variant" do
-        with_variant BenchmarkDVLATitle1: "B" do
+        with_variant BenchmarkDVLATitle1: "B", assert_meta_tag: false do
           get :show, slug: "the-bridge-of-death"
 
           assert_select "h1", text: "Find out how to contact DVLA", count: 1
+        end
+      end
+    end
+
+    context 'Benchmarking DVLA button A/B test' do
+      setup do
+        @controller.stubs(:is_benchmarking_lab_tested_path?).returns(true)
+        content_store_has_item('/the-squirrel-of-doom', simple_smart_answer_content_item_with_start_button_text)
+      end
+
+      should "show original start button for the 'A' variant" do
+        with_variant BenchmarkDVLAButton1: "A", assert_meta_tag: false do
+          get :show, slug: "the-squirrel-of-doom"
+
+          assert_select "a", text: "Start now", count: 1
+        end
+      end
+
+      should "show new start button for the 'B' variant" do
+        with_variant BenchmarkDVLAButton1: "B", assert_meta_tag: false do
+          get :show, slug: "the-squirrel-of-doom"
+
+          assert_select "a", text: "Find contact details", count: 1
         end
       end
     end

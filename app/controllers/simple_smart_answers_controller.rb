@@ -3,7 +3,7 @@ require 'simple_smart_answers/flow'
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
-  include BenchmarkingContactDvlaTitleABTestable
+  include BenchmarkingContactDvlaABTestable
 
   before_filter :set_expiry
   before_filter -> { set_content_item(SimpleSmartAnswerPresenter) }
@@ -11,6 +11,10 @@ class SimpleSmartAnswersController < ApplicationController
   def show
     if is_benchmarking_tested_path?
       set_benchmark_contact_dvla_title_response_header
+    end
+
+    if is_benchmarking_lab_tested_path?
+      set_benchmark_contact_dvla_button_response_header
     end
   end
 
@@ -34,7 +38,9 @@ private
     :smart_answer_path_for_responses,
     :change_completed_question_path,
     :is_benchmarking_tested_path?,
-    :should_show_benchmarking_variant?
+    :is_benchmarking_lab_tested_path?,
+    :should_show_benchmarking_variant?,
+    :should_show_benchmarking_lab_variant?
   )
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})

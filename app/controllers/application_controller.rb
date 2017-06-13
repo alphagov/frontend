@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
   include Slimmer::GovukComponents
-  include BenchmarkingContactDvlaTitleABTestable
+  include BenchmarkingContactDvlaABTestable
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -20,7 +20,12 @@ class ApplicationController < ActionController::Base
 
   attr_accessor :navigation_helpers
 
-  helper_method :breadcrumbs, :navigation_helpers, :should_show_benchmarking_variant?
+  helper_method(
+    :breadcrumbs,
+    :navigation_helpers,
+    :should_show_benchmarking_variant?,
+    :should_show_benchmarking_lab_variant?
+  )
 
 protected
 

@@ -47,12 +47,12 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "url" => "http://www.example.com/london_ips_office"
       },
       {
-        "access_notes" => nil,
+        "access_notes" => "The doors are always locked.\n\nAnd they are at the top of large staircases.",
         "address1" => nil,
         "address2" => "Station Way",
         "email" => nil,
         "fax" => nil,
-        "general_notes" => "Monday to Saturday 8.00am - 6.00pm. ",
+        "general_notes" => "Monday to Saturday 8.00am - 6.00pm.\n\nSunday 1pm - 2pm.",
         "location" => {
             "longitude" => -0.18832238262617113,
             "latitude" => 51.112777245292826
@@ -147,21 +147,30 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert_breadcrumb_rendered
       assert_related_items_rendered
 
-      within '#options' do
-        names = page.all("li p.adr span.fn").map(&:text)
-        assert_equal ["London IPS Office", "Crawley IPS Office"], names
+      names = page.all("#options li p.adr span.fn").map(&:text)
+      assert_equal ["London IPS Office", "Crawley IPS Office"], names
 
-        within first('li:first-child') do
-          assert page.has_content?("89 Eccleston Square")
-          assert page.has_content?("London")
-          assert page.has_content?("SW1V 1PN")
+      within '#options > li:first-child' do
+        assert page.has_content?("89 Eccleston Square")
+        assert page.has_content?("London")
+        assert page.has_content?("SW1V 1PN")
 
-          assert page.has_link?("http://www.example.com/london_ips_office", href: "http://www.example.com/london_ips_office")
-          assert page.has_content?("Phone: 0800 123 4567")
+        assert page.has_link?("http://www.example.com/london_ips_office", href: "http://www.example.com/london_ips_office")
+        assert page.has_content?("Phone: 0800 123 4567")
 
-          assert page.has_content?("Monday to Saturday 8.00am - 6.00pm.")
-          assert page.has_content?("The London Passport Office is fully accessible to wheelchair users.")
-        end
+        assert page.has_content?("Monday to Saturday 8.00am - 6.00pm.")
+        assert page.has_content?("The London Passport Office is fully accessible to wheelchair users.")
+      end
+    end
+
+    should 'format general notes and access notes' do
+      within '#options > li:nth-child(2)' do
+        assert page.has_content?("Station Way")
+
+        assert page.has_selector?('p', text: "Monday to Saturday 8.00am - 6.00pm.")
+        assert page.has_selector?('p', text: 'Sunday 1pm - 2pm.')
+        assert page.has_selector?('p', text: "The doors are always locked.")
+        assert page.has_selector?('p', text: "And they are at the top of large staircases.")
       end
     end
 

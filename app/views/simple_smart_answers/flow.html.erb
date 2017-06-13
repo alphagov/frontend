@@ -1,18 +1,13 @@
 <% content_for :extra_headers do %>
   <meta name="robots" content="noindex" />
   <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
-  <%= benchmark_contact_dvla_title_variant.analytics_meta_tag.html_safe if is_benchmarking_tested_path? %>
 <% end %>
 
 <main id="content">
   <header class="page-header group">
     <div>
       <h1>
-        <% if should_show_benchmarking_variant? %>
-            Find out how to contact DVLA
-        <% else %>
-          <%= @publication.title %>
-        <% end %>
+        <%= @publication.title %>
       </h1>
     </div>
   </header>

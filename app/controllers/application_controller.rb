@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
     :breadcrumbs,
     :navigation_helpers,
     :should_show_benchmarking_variant?,
-    :should_show_benchmarking_lab_variant?
   )
 
 protected

@@ -10,6 +10,7 @@
         <% if @flow_state.error? %>
           <p class="error-message" role="alert">Please answer this question</p>
         <% end %>
+        <%= hidden_field_tag 'response', '' %>
         <ul class="options">
           <% question.options.each do |option| %>
             <li>

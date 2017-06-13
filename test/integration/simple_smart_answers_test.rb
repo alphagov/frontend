@@ -311,6 +311,32 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_page_has_content "Right, off you go"
   end
 
+  should "handle empty form submissions correctly" do
+    visit "/the-bridge-of-death/y/sir-lancelot-of-camelot"
+
+    within '.current-question' do
+      within 'h2' do
+        within('.question-number') { assert_page_has_content "2" }
+        assert_page_has_content "What...is your favorite colour?"
+      end
+      within '.question-body' do
+        refute page.has_selector?(".error-message", text: "Please answer this question")
+      end
+    end
+
+    click_on "Next step"
+
+    within '.current-question' do
+      within 'h2' do
+        within('.question-number') { assert_page_has_content "2" }
+        assert_page_has_content "What...is your favorite colour?"
+      end
+      within '.question-body' do
+        assert page.has_selector?(".error-message", text: "Please answer this question")
+      end
+    end
+  end
+
   should "handle invalid form submissions correctly" do
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot?response=ultramarine"
 

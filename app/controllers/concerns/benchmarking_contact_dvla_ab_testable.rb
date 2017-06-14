@@ -42,10 +42,10 @@ module BenchmarkingContactDvlaABTestable
 private
 
   def benchmarking_ab_test_title
-    @ab_test ||= GovukAbTesting::AbTest.new("BenchmarkDVLATitle1", dimension: 48)
+    @ab_test_title ||= GovukAbTesting::AbTest.new("BenchmarkDVLATitle1", dimension: 48)
   end
 
   def benchmarking_ab_test_button
-    @ab_test ||= GovukAbTesting::AbTest.new("BenchmarkDVLAButton1", dimension: 62)
+    @ab_test_button ||= GovukAbTesting::AbTest.new("BenchmarkDVLAButton1", dimension: 62)
   end
 end

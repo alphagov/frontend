@@ -44,7 +44,7 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "respond with success" do
-      get :ab_testing, slug: "help/ab-testing"
+      get :ab_testing, params: { slug: "help/ab-testing" }
 
       assert_response :success
     end

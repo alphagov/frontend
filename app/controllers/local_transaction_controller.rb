@@ -4,8 +4,8 @@ class LocalTransactionController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
 
-  before_filter -> { set_content_item(LocalTransactionPresenter) }
-  before_filter -> { response.headers['X-Frame-Options'] = 'DENY' }
+  before_action -> { set_content_item(LocalTransactionPresenter) }
+  before_action -> { response.headers['X-Frame-Options'] = 'DENY' }
 
   INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
   NO_AUTHORITY_URL = 'laMatchNoLinkNoAuthorityUrl'.freeze

@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
-  before_filter :set_expiry
-  before_filter :remove_search_box
+  before_action :set_expiry
+  before_action :remove_search_box
   helper_method :search_match_length_variant
-  after_filter :set_search_match_length_response_header
+  after_action :set_search_match_length_response_header
 
   rescue_from GdsApi::BaseError, with: :error_503
 

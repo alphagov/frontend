@@ -10,7 +10,7 @@ class TransactionControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :show, slug: "foo"
+        get :show, params: { slug: "foo" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -19,7 +19,7 @@ class TransactionControllerTest < ActionController::TestCase
     should "not allow framing of transaction pages" do
       content_store_has_example_item('/foo', schema: 'transaction')
 
-      get :show, slug: 'foo'
+      get :show, params: { slug: 'foo' }
       assert_equal "DENY", @response.headers["X-Frame-Options"]
     end
 
@@ -33,27 +33,27 @@ class TransactionControllerTest < ActionController::TestCase
         should "not affect non-education pages with the #{variant} variant" do
           setup_ab_variant('EducationNavigation', variant)
           expect_normal_navigation
-          get :show, slug: "not-tagged"
+          get :show, params: { slug: "not-tagged" }
           assert_response_not_modified_for_ab_test('EducationNavigation')
         end
       end
 
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :show, slug: "not-tagged"
+        get :show, params: { slug: "not-tagged" }
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :show, slug: "tagged"
+          get :show, params: { slug: "tagged" }
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :show, slug: "tagged"
+          get :show, params: { slug: "tagged" }
         end
       end
 
@@ -66,7 +66,7 @@ class TransactionControllerTest < ActionController::TestCase
         content_store_has_item_tagged_to_taxon(base_path: '/tagged-to-taxon', payload: {})
 
         with_variant EducationNavigation: "B" do
-          get :show, slug: "tagged-to-taxon"
+          get :show, params: { slug: "tagged-to-taxon" }
         end
       end
     end
@@ -78,22 +78,22 @@ class TransactionControllerTest < ActionController::TestCase
     end
 
     should "respond with success" do
-      get :jobsearch, slug: "jobsearch"
+      get :jobsearch, params: { slug: "jobsearch" }
       assert_response :success
     end
 
     should "loads the correct details" do
-      get :jobsearch, slug: "jobsearch"
+      get :jobsearch, params: { slug: "jobsearch" }
       assert_equal @content_item['title'], assigns(:publication).title
     end
 
     should "set correct expiry headers" do
-      get :jobsearch, slug: "jobsearch"
+      get :jobsearch, params: { slug: "jobsearch" }
       assert_equal "max-age=1800, public", response.headers["Cache-Control"]
     end
 
     should "render the jobsearch view" do
-      get :jobsearch, slug: "jobsearch"
+      get :jobsearch, params: { slug: "jobsearch" }
       assert_template "jobsearch"
     end
   end
@@ -105,11 +105,11 @@ class TransactionControllerTest < ActionController::TestCase
 
     should "set the locale to welsh" do
       I18n.expects(:locale=).with("cy")
-      get :jobsearch, slug: "chwilio-am-swydd"
+      get :jobsearch, params: { slug: "chwilio-am-swydd" }
     end
 
     should "render the jobsearch view" do
-      get :jobsearch, slug: "chwilio-am-swydd"
+      get :jobsearch, params: { slug: "chwilio-am-swydd" }
       assert_template "jobsearch"
     end
   end

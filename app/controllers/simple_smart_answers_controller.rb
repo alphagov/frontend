@@ -5,8 +5,8 @@ class SimpleSmartAnswersController < ApplicationController
   include EducationNavigationABTestable
   include BenchmarkingContactDvlaABTestable
 
-  before_filter :set_expiry
-  before_filter -> { set_content_item(SimpleSmartAnswerPresenter) }
+  before_action :set_expiry
+  before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
 
   def show
     if is_benchmarking_tested_path?

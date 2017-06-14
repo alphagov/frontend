@@ -19,14 +19,14 @@ class LocalTransactionControllerTest < ActionController::TestCase
     content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
 
     prevent_implicit_rendering
-    get :search, slug: 'a-slug'
+    get :search, params: { slug: 'a-slug' }
     assert_equal "DENY", @response.headers["X-Frame-Options"]
   end
 
   test "should set expiry headers for an edition" do
     content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
 
-    get :search, slug: 'a-slug'
+    get :search, params: { slug: 'a-slug' }
     assert_equal "max-age=1800, public", response.headers["Cache-Control"]
   end
 
@@ -65,14 +65,14 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction edition without any location" do
       should "return the normal content for a page" do
-        get :search, slug: "send-a-bear-to-your-local-council"
+        get :search, params: { slug: "send-a-bear-to-your-local-council" }
 
         assert_response :success
         assert_equal assigns(:publication).title, "Send a bear to your local council"
       end
 
       should "set correct expiry headers" do
-        get :search, slug: "send-a-bear-to-your-local-council"
+        get :search, params: { slug: "send-a-bear-to-your-local-council" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -87,7 +87,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          post :search, slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] "
+          post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
         end
 
         should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
@@ -102,7 +102,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
         subscribe_logstasher_to_postcode_error_notification
 
-        post :search, slug: "send-a-bear-to-your-local-council", postcode: "BLAH"
+        post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
       end
 
       should "expose the 'invalid postcode format' error to the view" do
@@ -121,7 +121,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
         subscribe_logstasher_to_postcode_error_notification
 
-        post :search, slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ"
+        post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
       end
 
       should "expose the 'no mapit match' error to the view" do
@@ -140,7 +140,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
         subscribe_logstasher_to_postcode_error_notification
 
-        post :search, slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD"
+        post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
       end
 
       should "expose the 'missing local authority' error to the view" do
@@ -176,7 +176,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
       end
 
       should "assign local transaction information" do
-        get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+        get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
 
         assert_equal "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks", assigns(:interaction_details)["local_interaction"]["url"]
       end
@@ -185,7 +185,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     should "return a 404 for an incorrect authority slug" do
       local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342', '8')
 
-      get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist"
+      get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist" }
 
       assert_equal 404, response.status
     end
@@ -205,20 +205,20 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       should "show normal breadcrumbs by default" do
         expect_normal_navigation
-        get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+        get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
       end
 
       should "show normal breadcrumbs for the 'A' version" do
         expect_normal_navigation
         with_variant EducationNavigation: "A" do
-          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+          get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
         end
       end
 
       should "show taxon breadcrumbs for the 'B' version" do
         expect_new_navigation
         with_variant EducationNavigation: "B" do
-          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+          get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
         end
       end
 
@@ -229,7 +229,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
         expect_normal_navigation_and_old_related_links
         with_variant EducationNavigation: "B" do
-          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
+          get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
         end
       end
     end
@@ -284,7 +284,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       subscribe_logstasher_to_postcode_error_notification
       content_store_has_item('/report-a-bear-on-a-local-road', @payload)
-      get :results, slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands"
+      get :results, params: { slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands" }
     end
 
     should "show error message" do
@@ -323,7 +323,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "redirect to the correct authority and pass cache and token as params" do
-      post :search, slug: 'pay-bear-tax', postcode: 'SW1A 1AA', token: '123', cache: 'abc'
+      post :search, params: { slug: 'pay-bear-tax', postcode: 'SW1A 1AA', token: '123', cache: 'abc' }
 
       assert_redirected_to "/pay-bear-tax/westminster?cache=abc&token=123"
     end

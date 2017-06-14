@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   include EducationNavigationABTestable
 
-  before_filter :set_expiry
+  before_action :set_expiry
 
   def index
     set_slimmer_headers(

@@ -1,12 +1,12 @@
 class SearchController < ApplicationController
   before_filter :set_expiry
   before_filter :remove_search_box
-  helper_method :search_match_length_variant
-  after_filter :set_search_match_length_response_header
+  helper_method :search_ab_test_variant
+  after_filter :set_search_ab_test_response_header
 
   rescue_from GdsApi::BaseError, with: :error_503
 
-  SEARCH_MATCH_LENGTH_DIMENSION = 42
+  SEARCH_FORMAT_BOOSTING_DIMENSION = 42
 
   def index
     search_params = SearchParameters.new(params)
@@ -16,8 +16,8 @@ class SearchController < ApplicationController
     if search_params.no_search? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
-    variant = search_match_length_variant.variant_name
-    search_response = SearchAPI.new(search_params, search_match_length: variant).search
+    variant = search_ab_test_variant.variant_name
+    search_response = SearchAPI.new(search_params, format_boosting: variant).search
 
     @search_term = search_params.search_term
 
@@ -38,20 +38,20 @@ class SearchController < ApplicationController
     end
   end
 
-  def search_match_length_ab_test
+  def search_ab_test
     GovukAbTesting::AbTest.new(
-      "SearchMatchLength",
-      dimension: SEARCH_MATCH_LENGTH_DIMENSION
+      "SearchFormatBoosting",
+      dimension: SEARCH_FORMAT_BOOSTING_DIMENSION
     )
   end
 
-  def search_match_length_variant
-    @_search_match_length_variant ||=
-      search_match_length_ab_test.requested_variant(request.headers)
+  def search_ab_test_variant
+    @_search_ab_test_variant ||=
+      search_ab_test.requested_variant(request.headers)
   end
 
-  def set_search_match_length_response_header
-    search_match_length_variant.configure_response(response)
+  def set_search_ab_test_response_header
+    search_ab_test_variant.configure_response(response)
   end
 
 protected

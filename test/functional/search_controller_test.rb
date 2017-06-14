@@ -320,13 +320,13 @@ class SearchControllerTest < ActionController::TestCase
   end
 
   test "should pass the search variant through when one is present" do
-    with_variant SearchMatchLength: "B" do
+    with_variant SearchFormatBoosting: "B" do
       get :index, q: "Variant B"
     end
   end
 
   test "should pass the default search variant through when none is present in the query" do
-    with_variant SearchMatchLength: "A" do
+    with_variant SearchFormatBoosting: "A" do
       get :index, q: "No variant"
     end
   end

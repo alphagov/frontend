@@ -1,7 +1,6 @@
 <% content_for :extra_headers do %>
   <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
-  <%= benchmark_contact_dvla_title_variant.analytics_meta_tag.html_safe if is_benchmarking_tested_path? %>
-  <%= benchmark_contact_dvla_button_variant.analytics_meta_tag.html_safe if is_benchmarking_lab_tested_path? %>
+  <%= benchmark_contact_dvla_button_variant.analytics_meta_tag.html_safe if is_benchmarking_tested_path? %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
@@ -12,7 +11,7 @@
   <div class="intro">
     <%= raw @publication.body %>
     <p class="get-started">
-      <% if should_show_benchmarking_lab_variant? %>
+      <% if should_show_benchmarking_variant? %>
         <a rel="nofollow" href="<%= smart_answer_flow_path(:slug => @publication.slug, :edition => @edition) %>" class="big button" role="button">Find contact details</a>
       <% else %>
         <a rel="nofollow" href="<%= smart_answer_flow_path(:slug => @publication.slug, :edition => @edition) %>" class="big button" role="button"><%= @publication.start_button_text %></a>

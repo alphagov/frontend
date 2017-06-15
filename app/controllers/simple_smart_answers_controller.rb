@@ -10,18 +10,11 @@ class SimpleSmartAnswersController < ApplicationController
 
   def show
     if is_benchmarking_tested_path?
-      set_benchmark_contact_dvla_title_response_header
-    end
-
-    if is_benchmarking_lab_tested_path?
       set_benchmark_contact_dvla_button_response_header
     end
   end
 
   def flow
-    if is_benchmarking_tested_path?
-      set_benchmark_contact_dvla_title_response_header
-    end
     responses = params[:responses].to_s.split('/')
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
     @flow_state = @flow.state_for_responses(responses)
@@ -38,9 +31,7 @@ private
     :smart_answer_path_for_responses,
     :change_completed_question_path,
     :is_benchmarking_tested_path?,
-    :is_benchmarking_lab_tested_path?,
-    :should_show_benchmarking_variant?,
-    :should_show_benchmarking_lab_variant?
+    :should_show_benchmarking_variant?
   )
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})

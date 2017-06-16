@@ -51,6 +51,7 @@ class SearchResult
       es_score: formatted_es_score,
       format: format,
       is_multiple_results: false,
+      content_id: result["content_id"],
     }
   end
 

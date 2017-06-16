@@ -70,6 +70,7 @@ class SearchParameters
         specialist_sectors
         title
         world_locations
+        content_id
       },
       debug: params[:debug],
       suggest: "spelling",

@@ -3,11 +3,7 @@
     <div>
       <h1>
         <% if local_assigns.include?(:context) %><span><%= context %></span><% end %>
-        <% if should_show_benchmarking_variant? %>
-            Find out how to contact DVLA
-        <% else %>
-          <%= title %>
-        <% end %>
+        <%= title %>
       </h1>
     </div>
   </header>

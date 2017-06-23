@@ -90,29 +90,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         end
       end
     end
-
-    context 'Benchmarking DVLA button A/B test' do
-      setup do
-        @controller.stubs(:is_benchmarking_tested_path?).returns(true)
-        content_store_has_item('/the-squirrel-of-doom', simple_smart_answer_content_item_with_start_button_text)
-      end
-
-      should "show original start button for the 'A' variant" do
-        with_variant BenchmarkDVLAButton1: "A" do
-          get :show, slug: "the-squirrel-of-doom"
-
-          assert_select "a", text: "Start now", count: 1
-        end
-      end
-
-      should "show new start button for the 'B' variant" do
-        with_variant BenchmarkDVLAButton1: "B" do
-          get :show, slug: "the-squirrel-of-doom"
-
-          assert_select "a", text: "Find contact details", count: 1
-        end
-      end
-    end
   end
 
   context "GET 'flow'" do

@@ -319,18 +319,6 @@ class SearchControllerTest < ActionController::TestCase
     assert_equal "1",       @response.headers["X-Slimmer-Result-Count"]
   end
 
-  test "should pass the search variant through when one is present" do
-    with_variant SearchFormatBoosting: "B" do
-      get :index, q: "Variant B"
-    end
-  end
-
-  test "should pass the default search variant through when none is present in the query" do
-    with_variant SearchFormatBoosting: "A" do
-      get :index, q: "No variant"
-    end
-  end
-
   test "display the total number of results" do
     stub_results(Array.new(15, {}), "bob", [], total: 15)
 

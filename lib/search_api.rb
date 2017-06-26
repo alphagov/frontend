@@ -1,9 +1,8 @@
 require 'services'
 
 class SearchAPI
-  def initialize(params, ab_tests = {})
+  def initialize(params)
     @params = params
-    @ab_tests = ab_tests.map { |name, type| "#{name}:#{type}" }.join(',')
   end
 
   def search
@@ -12,7 +11,7 @@ class SearchAPI
 
 private
 
-  attr_reader :params, :ab_tests
+  attr_reader :params
 
   def search_results
     Services.rummager.search(rummager_params).to_hash
@@ -34,7 +33,7 @@ private
   end
 
   def rummager_params
-    params.rummager_parameters.merge(ab_tests: ab_tests)
+    params.rummager_parameters
   end
 
   def scoped_manual

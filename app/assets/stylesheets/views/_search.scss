@@ -11,6 +11,35 @@ main.search {
     padding-bottom: 10px;
   }
 
+  .sitelinks {
+    padding-left: 1.5em;
+
+    .sitelink {
+      width: 50%;
+      display: inline-block;
+      float: left;
+      margin-top: 1.2em;
+      padding-left: 1em;
+      box-sizing: border-box;
+
+      a {
+        font-size: 1.2em;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 1em;
+      }
+    }
+
+    .clearfix {
+      clear: both;
+    }
+
+    .more-results {
+      display: block;
+      margin: 1em 0 0 1em;
+    }
+  }
+
   .search-header {
     position: relative;
     margin: 0;

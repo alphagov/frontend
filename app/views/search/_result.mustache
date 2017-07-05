@@ -1,3 +1,4 @@
+{{#show_result?}}
 <li>
   <h3><a href="{{link}}" {{#external}}rel="external"{{/external}}
        data-ecommerce-row
@@ -70,4 +71,37 @@
     {{/suggested_filter_present?}}
   {{/examples_present?}}
 
+  {{#carers_allowance?}}
+    <div class="sitelinks">
+      <div class="sitelink">
+        <a href="/carers-allowance">How it works</a>
+        <p>You could get £62.70 a week if you care for someone at least...</p>
+      </div>
+
+      <div class="sitelink">
+        <a href="/carers-allowance/how-to-claim">Make a claim</a>
+        <p>Before you apply make sure you have your: National Insurance...</p>
+      </div>
+
+      <div class="sitelink">
+        <a href="/carers-allowance/eligibility">Eligibility</a>
+        <p>The person you care for must already get one of these...</p>
+      </div>
+
+      <div class="sitelink">
+        <a href="/carers-allowance/further-information">Change in circumstances</a>
+        <p>You must report any change in your circumstances if you’re...</p>
+      </div>
+
+      <div class="sitelink">
+        <a href="/carers-allowance/effect-on-other-benefits">Effect on other benefits</a>
+        <p>Carer’s Allowance can affect the other benefits that both you...</p>
+      </div>
+
+      <div class="clearfix"></div>
+      <a class="more-results" href="/carers-allowance">More results from GOV.UK »</a>
+    </div>
+  {{/carers_allowance?}}
+
 </li>
+{{/show_result?}}

@@ -39,6 +39,8 @@ class SearchResult
       debug_score: debug_score,
       link: link,
       examples_present?: result["examples"].present?,
+      carers_allowance?: link.end_with?("/carers-allowance"),
+      show_result?: show_result?(link),
       examples: result["examples"],
       description_with_highlighting: result["description_with_highlighting"],
       title_with_highlighting: result["title_with_highlighting"],
@@ -56,6 +58,16 @@ class SearchResult
   end
 
 protected
+
+  def show_result?(link)
+    blacklist = %w(
+      /carers-allowance-report-change
+      /carers-allowance-unit
+    )
+
+    return false if blacklist.any? { |b| link.include?(b) }
+    true
+  end
 
   def suggested_filter_title
     suggested_filter = result["suggested_filter"]

@@ -25,6 +25,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           introductory_paragraph: "This is the introduction to carrots",
           transaction_start_link: 'http://carrots.example.com',
           will_continue_on: 'Carrotworld',
+          start_button_text: 'Eat Carrots Now',
           what_you_need_to_know: 'Includes carrots',
           downtime_message: 'CarrotServe will be offline next week.'
         },
@@ -52,7 +53,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           within 'section.intro' do
             assert page.has_selector?(".get-started-intro", text: 'This is the introduction to carrots')
 
-            start_link = find_link("Start now")
+            start_link = find_link("Eat Carrots Now")
             assert_equal 'http://carrots.example.com', start_link["href"]
 
             assert page.has_content?('Carrotworld')

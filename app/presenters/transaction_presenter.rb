@@ -37,4 +37,12 @@ class TransactionPresenter < ContentItemPresenter
   def open_in_new_window?
     slug.in? NEW_WINDOW_TRANSACTIONS
   end
+
+  def start_button_text
+    if details && details['start_button_text'].present?
+      details['start_button_text']
+    else
+      I18n.t('formats.transaction.start_now')
+    end
+  end
 end

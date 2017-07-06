@@ -15,7 +15,9 @@
       </div>
     <% end %>
     <p id="get-started" class="get-started group">
-      <a href="<%= @publication.transaction_start_link %>" rel="external" data-transaction-slug="<%= @publication.slug %>" class="button" <% if @publication.open_in_new_window? %>target="_blank"<% end %> role="button"><%= t 'formats.transaction.start_now' %></a>
+      <a href="<%= @publication.transaction_start_link %>" rel="external" data-transaction-slug="<%= @publication.slug %>" class="button" <% if @publication.open_in_new_window? %>target="_blank"<% end %> role="button">
+        <%= @publication.start_button_text %>
+      </a>
       <% if @publication.will_continue_on.present? %>
         <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
       <% end %>

@@ -9,6 +9,7 @@ module ContentStoreHelpers
 
     content_item['links'] ||= {}
     content_item['links']['taxons'] = is_tagged_to_taxon ? [basic_taxon] : []
+    content_item['base_path'] = base_path
 
     content_store_has_item(base_path, content_item)
     content_item

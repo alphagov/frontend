@@ -81,7 +81,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
-    gds-api-adapters (43.0.0)
+    gds-api-adapters (47.2.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -162,7 +162,7 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
-    rack (1.6.5)
+    rack (1.6.8)
     rack-cache (1.7.0)
       rack (>= 0.4)
     rack-test (0.6.3)
@@ -308,7 +308,7 @@ DEPENDENCIES
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 43.0.0)
+  gds-api-adapters (~> 47.2)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint
@@ -345,4 +345,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.6
+   1.15.1

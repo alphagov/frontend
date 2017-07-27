@@ -225,6 +225,26 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
   end
 
+  should "tell GA when we reach the end of the smart answer" do
+    visit "/the-bridge-of-death"
+    click_on "Start now"
+    assert_current_url "/the-bridge-of-death/y"
+    assert page.has_no_selector?('[data-module=track-smart-answer][data-smart-answer-node-type=outcome]')
+
+    choose "Sir Lancelot of Camelot"
+    click_on "Next step"
+    assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
+    assert page.has_no_selector?('[data-module=track-smart-answer][data-smart-answer-node-type=outcome]')
+
+    choose "Blue"
+    click_on "Next step"
+
+    assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
+    # asserting that we have the right data attribtues to trigger the
+    # TrackSmartAnswer JS module doesn't feel like enough, but it'll do
+    assert page.has_selector?('[data-module=track-smart-answer][data-smart-answer-node-type=outcome]')
+  end
+
   should "should add hidden token param when fact checking" do
     token = "5UP3R_53CR3T_F4CT_CH3CK_T0k3N"
 

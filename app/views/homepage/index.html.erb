@@ -17,14 +17,8 @@
               <p>The best place to find government services and information</p>
               <p class="simpler">Simpler, clearer, faster</p>
 
-              <form id="header-search" class="site-search" action="/search" method="get" role="search">
-                <div class="header-search-content">
-                  <label for="search-main">Search GOV.UK</label>
-                  <div class="search-input-wrapper">
-                    <input type="search" name="q" id="search-main" title="Search" class="search-input js-search-focus">
-                  </div>
-                  <input class="submit" type="submit" value="Search">
-                </div>
+              <form action="/search" method="get" role="search">
+                <%= render 'govuk_component/search', on_govuk_blue: true %>
               </form>
             </div>
           </div>

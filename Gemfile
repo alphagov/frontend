@@ -26,6 +26,7 @@ gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
 gem 'unicorn', '~> 4.9.0' # version 5 is available
 gem 'govuk_ab_testing'
+gem 'asset_bom_removal-rails', '~> 1.0.0'
 
 group :development do
   gem 'better_errors'

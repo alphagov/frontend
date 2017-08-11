@@ -61,14 +61,12 @@ class GovernmentResultTest < ActiveSupport::TestCase
     minister_results               = GovernmentResult.new(params, "format" => "minister")
     organisation_results           = GovernmentResult.new(params, "format" => "organisation")
     person_results                 = GovernmentResult.new(params, "format" => "person")
-    world_location_results         = GovernmentResult.new(params, "format" => "world_location")
     worldwide_organisation_results = GovernmentResult.new(params, "format" => "worldwide_organisation")
     mainstream_results             = GovernmentResult.new(params, "format" => "mainstream")
 
     assert_equal 2, minister_results.sections.length
     assert_nil organisation_results.sections
     assert_equal 2, person_results.sections.length
-    assert_equal 2, world_location_results.sections.length
     assert_equal 2, worldwide_organisation_results.sections.length
 
     assert_nil mainstream_results.sections

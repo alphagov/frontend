@@ -37,11 +37,6 @@ class GovernmentResult < SearchResult
         { hash: 'biography', title: 'Biography' },
         { hash: 'current-roles', title: 'Roles' },
       ]
-    when 'world_location' then
-      [
-        { hash: 'worldwide-priorities', title: 'Priorities' },
-        { hash: 'organisations', title: "Organisations in #{title}" },
-      ]
     when 'worldwide_organisation' then
       [
         { hash: 'our-services', title: 'Services' },

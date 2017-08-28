@@ -58,6 +58,13 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert_breadcrumb_rendered
     end
 
+    should "have the correct titles" do
+      visit '/foreign-travel-advice'
+
+      assert page.has_css? "h1", text: "Foreign travel advice"
+      assert_equal "Foreign travel advice - GOV.UK", page.title
+    end
+
     should "set the slimmer #wrapper classes" do
       visit '/foreign-travel-advice'
       assert_equal "travel-advice", page.find("#wrapper")["class"]

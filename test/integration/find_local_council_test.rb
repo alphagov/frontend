@@ -44,8 +44,13 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       assert_equal "Find your local authority in England, Wales, Scotland and Northern Ireland", description
     end
 
-    should 'have the aria-invalid attribute set to false' do
+    should "have the aria-invalid attribute set to false" do
       assert_equal "false", page.find('.postcode')['aria-invalid']
+    end
+
+    should "have the correct titles" do
+      assert page.has_css? "h1", text: "Find your local council"
+      assert_equal "Find your local council - GOV.UK", page.title
     end
   end
 
@@ -79,6 +84,11 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             assert page.has_content?("Westminster")
             assert page.has_link?("westminster.example.com", href: "http://westminster.example.com", exact: true)
           end
+        end
+
+        should "have the correct titles" do
+          assert page.has_css? "h1", text: "Find your local council"
+          assert_equal "Find your local council - GOV.UK", page.title
         end
 
         should "add google analytics for postcodeResultsShown" do

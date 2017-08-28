@@ -57,7 +57,7 @@
   </div>
 </main>
 
-<% content_for :title, @presenter.title %>
+<% content_for :title, page_title(@presenter) %>
 
 <% content_for :extra_headers do %>
   <% if @presenter.description %>

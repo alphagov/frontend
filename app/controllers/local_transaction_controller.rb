@@ -12,6 +12,7 @@ class LocalTransactionController < ApplicationController
   NO_LINK = 'laMatchNoLink'.freeze
   NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
   NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
+  BANNED_POSTCODES = ["ENTERPOSTCODE"].freeze
 
   def search
     if request.post?
@@ -37,9 +38,13 @@ private
   end
 
   def location_error
+    return LocationError.new(INVALID_POSTCODE) if banned_postcode? || mapit_response.invalid_postcode? || mapit_response.blank_postcode?
     return LocationError.new(NO_MAPIT_MATCH) if mapit_response.location_not_found?
-    return LocationError.new(INVALID_POSTCODE) if mapit_response.invalid_postcode? || mapit_response.blank_postcode?
     return LocationError.new(NO_MATCHING_AUTHORITY) unless local_authority_slug
+  end
+
+  def banned_postcode?
+    BANNED_POSTCODES.include? postcode
   end
 
   def mapit_response

@@ -32,15 +32,11 @@ private
     nil
   end
 
-  def authority_types
-    %w(DIS LBO UTA CTY LGD MTD COI)
-  end
-
   def identify_tier(type)
     case type
     when 'DIS' then 'district'
     when 'CTY' then 'county'
-    when 'LBO', 'MTD', 'UTA', 'COI' then 'unitary'
+    when 'LBO', 'LGD', 'MTD', 'UTA', 'COI' then 'unitary'
     end
   end
 

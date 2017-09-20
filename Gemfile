@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "addressable"
+gem 'addressable'
 gem 'airbrake', '3.1.15' # newer version is incompatible with our Errbit as of 12/2016
 gem 'cdn_helpers', '0.9'
 gem 'gds-api-adapters', '~> 47.2'
@@ -18,10 +18,10 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'sass', '~> 3.4.0'
 gem 'sass-rails'
 gem 'slimmer', '~> 10.1.3'
-gem 'sprockets-rails', "~> 3.2.0"
+gem 'sprockets-rails', '~> 3.2.0'
 gem 'shared_mustache', '~> 1.0.0'
 gem 'statsd-ruby', '1.3.0', require: 'statsd'
-gem "therubyracer", "~> 0.12.0"
+gem 'therubyracer', '~> 0.12.0'
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
 gem 'unicorn', '~> 4.9.0' # version 5 is available
@@ -45,12 +45,12 @@ group :test do
   gem 'ci_reporter'
   gem 'govuk-content-schema-test-helpers'
   gem 'govuk_schemas'
-  gem "launchy"
-  gem "mocha"
+  gem 'launchy'
+  gem 'mocha'
   gem 'poltergeist'
   gem 'shoulda-context'
   gem 'simplecov'
   gem 'simplecov-rcov'
-  gem "timecop"
-  gem "webmock", require: false
+  gem 'timecop'
+  gem 'webmock', require: false
 end

@@ -1,27 +1,25 @@
 source 'https://rubygems.org'
 
-gem "addressable"
-gem 'airbrake', '3.1.15' # newer version is incompatible with our Errbit as of 12/2016
+gem 'addressable'
 gem 'cdn_helpers', '0.9'
-gem 'gds-api-adapters', '~> 47.2'
+gem 'gds-api-adapters', '~> 47.9.1'
 gem 'gelf'
+gem 'govuk_app_config', '~> 0.2.0'
 gem 'govuk_frontend_toolkit', '~> 4.12.0'
 gem 'govuk_navigation_helpers', '~> 6.3'
 gem 'htmlentities', '~> 4.3.0'
 gem 'invalid_utf8_rejector', '~> 0.0.0'
 gem 'logstasher', '~> 1.1.0'
-gem 'nokogiri', '~> 1.6.8.0'
 gem 'plek', '~> 1.12.0'
 gem 'rack_strip_client_ip', '~> 0.0.0'
 gem 'rails', '4.2.7.1' # version 5 is available
 gem 'rails-i18n', '~> 4.0.0'
 gem 'sass', '~> 3.4.0'
 gem 'sass-rails'
-gem 'slimmer', '~> 10.1.3'
-gem 'sprockets-rails', "~> 3.2.0"
+gem 'slimmer', '~> 11.0.2'
+gem 'sprockets-rails', '~> 3.2.0'
 gem 'shared_mustache', '~> 1.0.0'
-gem 'statsd-ruby', '1.3.0', require: 'statsd'
-gem "therubyracer", "~> 0.12.0"
+gem 'therubyracer', '~> 0.12.0'
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
 gem 'unicorn', '~> 4.9.0' # version 5 is available
@@ -45,12 +43,12 @@ group :test do
   gem 'ci_reporter'
   gem 'govuk-content-schema-test-helpers'
   gem 'govuk_schemas'
-  gem "launchy"
-  gem "mocha"
+  gem 'launchy'
+  gem 'mocha'
   gem 'poltergeist'
   gem 'shoulda-context'
   gem 'simplecov'
   gem 'simplecov-rcov'
-  gem "timecop"
-  gem "webmock", require: false
+  gem 'timecop'
+  gem 'webmock', require: false
 end

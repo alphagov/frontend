@@ -94,7 +94,7 @@ GEM
       json
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    govuk-content-schema-test-helpers (1.4.0)
+    govuk-content-schema-test-helpers (1.5.0)
       json-schema (~> 2.5.1)
     govuk-lint (1.2.1)
       rubocop (~> 0.39.0)
@@ -108,7 +108,7 @@ GEM
       sass (>= 3.2.0)
     govuk_navigation_helpers (6.3.0)
       gds-api-adapters (>= 43.0)
-    govuk_schemas (2.1.1)
+    govuk_schemas (2.3.0)
       json-schema (~> 2.5.0)
     hashdiff (0.3.1)
     htmlentities (4.3.4)

@@ -1,7 +1,7 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
-  before_filter :setup_content_item_and_navigation_helpers
+  before_filter -> { setup_content_item_and_navigation_helpers(BASE_PATH) }
   before_filter :set_expiry
 
   BASE_PATH = "/find-local-council"
@@ -64,19 +64,6 @@ private
 
   def local_council
     @_local_council ||= fetch_local_council_from_areas(mapit_response.location.areas)
-  end
-
-  def setup_content_item_and_navigation_helpers
-    @content_item = content_store.content_item(BASE_PATH).to_hash
-    # Remove the organisations from the content item - this will prevent the
-    # govuk:analytics:organisations meta tag from being generated until there is
-    # a better way of doing this. This is so we don't add the tag to pages that
-    # didn't have it before, thereby swamping analytics.
-    if @content_item["links"]
-      @content_item["links"].delete("organisations")
-    end
-
-    @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
   end
 
   def fetch_local_council_from_areas(areas)

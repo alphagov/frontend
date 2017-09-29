@@ -20,6 +20,7 @@
     <% if @meta_section %>
       <meta name="govuk:section" content="<%= @meta_section %>">
     <% end %>
+
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">
@@ -52,5 +53,18 @@
       <% unless local_assigns.include?(:full_width) %></div><% end %>
       <%= render_mustache_templates if Rails.env.development? %>
     </div>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', {scope: '/contact-the-dvla/'})
+        .then(function(reg) {
+          // registration worked
+          console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch(function(error) {
+          // registration failed
+          console.log('Registration failed with ' + error);
+        });
+      }
+    </script>
   </body>
 </html>

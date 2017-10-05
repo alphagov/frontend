@@ -269,6 +269,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    staccato (0.5.1)
     statsd-ruby (1.4.0)
     test-unit (3.2.3)
       power_assert
@@ -343,6 +344,7 @@ DEPENDENCIES
   simplecov-rcov
   slimmer (~> 11.0.2)
   sprockets-rails (~> 3.2.0)
+  staccato
   therubyracer (~> 0.12.0)
   timecop
   uglifier
@@ -351,4 +353,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

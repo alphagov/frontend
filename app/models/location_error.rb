@@ -1,3 +1,5 @@
+require 'staccato'
+
 class LocationError
   attr_reader :postcode_error, :message, :sub_message, :message_args
 
@@ -42,6 +44,9 @@ class LocationError
   end
 
   def send_error_notification(error)
+    client_id = '3405c765-e24b-48fa-aa90-b9529b31a6eb'
+    staccato_tracker = Staccato.tracker('UA-26179049-7', client_id, ssl: true)
+    staccato_tracker.event(category: 'Test', action: 'Server side error', label: @message.split('.').last.humanize, value: 1)
     ActiveSupport::Notifications.instrument('postcode_error_notification', postcode_error: error)
   end
 

@@ -52,3 +52,5 @@ group :test do
   gem 'timecop'
   gem 'webmock', require: false
 end
+
+gem 'staccato'

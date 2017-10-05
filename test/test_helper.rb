@@ -35,6 +35,8 @@ class ActiveSupport::TestCase
       config.schema_type = 'frontend'
       config.project_root = Rails.root
     end
+
+    stub_request(:post, 'https://ssl.google-analytics.com/collect')
   end
 
   teardown do

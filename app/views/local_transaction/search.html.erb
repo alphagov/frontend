@@ -1,6 +1,4 @@
 <% content_for :extra_headers do %>
-  <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
-
   <link rel="alternate" type="application/json" href="<%= local_transaction_search_path(@publication.slug, edition: @edition, format: :json, all: true) %>">
 <% end %>
 

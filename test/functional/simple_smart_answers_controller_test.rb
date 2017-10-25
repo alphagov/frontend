@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SimpleSmartAnswersControllerTest < ActionController::TestCase
-  include EducationNavigationAbTestHelper
+  include GovukAbTesting::MinitestHelpers
 
   def simple_smart_answer_content_item
     {
@@ -72,45 +72,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :show, slug: "learn-to-drive-dangerously"
 
           assert_template partial: "_tasklist_header", count: 1
-        end
-      end
-    end
-
-    context "Education A/B testing" do
-      setup do
-        setup_education_navigation_ab_test
-        content_store_has_item_tagged_to_taxon(
-          base_path: '/the-bridge-of-death',
-          payload: simple_smart_answer_content_item
-        )
-      end
-
-      %w[A B].each do |variant|
-        should "not affect non-education pages with the #{variant} variant" do
-          content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
-          setup_ab_variant('EducationNavigation', variant)
-          expect_normal_navigation
-          get :show, slug: "the-bridge-of-death"
-          assert_response_not_modified_for_ab_test('EducationNavigation')
-        end
-      end
-
-      should "show normal navigation by default" do
-        expect_normal_navigation
-        get :show, slug: "the-bridge-of-death"
-      end
-
-      should "show normal navigation for the 'A' version" do
-        expect_normal_navigation
-        with_variant EducationNavigation: "A" do
-          get :show, slug: "the-bridge-of-death"
-        end
-      end
-
-      should "show taxon navigation for the 'B' version" do
-        expect_new_navigation
-        with_variant EducationNavigation: "B" do
-          get :show, slug: "the-bridge-of-death"
         end
       end
     end

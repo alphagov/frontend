@@ -2,9 +2,9 @@ require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
-  include EducationNavigationABTestable
   include TasklistABTestable
   include TasklistHeaderABTestable
+
 
   before_filter :set_expiry
   before_filter -> { set_content_item(SimpleSmartAnswerPresenter) }

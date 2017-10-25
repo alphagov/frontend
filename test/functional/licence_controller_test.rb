@@ -5,7 +5,6 @@ require 'gds_api/test_helpers/licence_application'
 class LicenceControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LicenceApplication
-  include EducationNavigationAbTestHelper
 
   context "GET start" do
     context "for live content" do
@@ -17,41 +16,6 @@ class LicenceControllerTest < ActionController::TestCase
         get :start, slug: "licence-to-kill"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-      end
-    end
-
-    context "A/B testing" do
-      setup do
-        setup_education_navigation_ab_test
-      end
-
-      %w[A B].each do |variant|
-        should "not affect non-education pages with the #{variant} variant" do
-          content_store_has_page('licence-to-kill')
-          setup_ab_variant('EducationNavigation', variant)
-          expect_normal_navigation
-          get :start, slug: "licence-to-kill"
-          assert_response_not_modified_for_ab_test('EducationNavigation')
-        end
-      end
-
-      should "show normal breadcrumbs by default" do
-        expect_normal_navigation
-        get :start, slug: "tagged-to-taxon"
-      end
-
-      should "show normal breadcrumbs for the 'A' version" do
-        expect_normal_navigation
-        with_variant EducationNavigation: "A" do
-          get :start, slug: "tagged-to-taxon"
-        end
-      end
-
-      should "show taxon breadcrumbs for the 'B' version" do
-        expect_new_navigation
-        with_variant EducationNavigation: "B" do
-          get :start, slug: "tagged-to-taxon"
-        end
       end
     end
   end
@@ -127,41 +91,6 @@ class LicenceControllerTest < ActionController::TestCase
         get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-      end
-    end
-
-    context "A/B testing" do
-      setup do
-        setup_education_navigation_ab_test
-      end
-
-      %w[A B].each do |variant|
-        should "not affect non-education pages with the #{variant} variant" do
-          content_store_has_page('licence-to-kill')
-          setup_ab_variant('EducationNavigation', variant)
-          expect_normal_navigation
-          get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
-          assert_response_not_modified_for_ab_test('EducationNavigation')
-        end
-      end
-
-      should "show normal breadcrumbs by default" do
-        expect_normal_navigation
-        get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
-      end
-
-      should "show normal breadcrumbs for the 'A' version" do
-        expect_normal_navigation
-        with_variant EducationNavigation: "A" do
-          get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
-        end
-      end
-
-      should "show taxon breadcrumbs for the 'B' version" do
-        expect_new_navigation
-        with_variant EducationNavigation: "B" do
-          get :authority, slug: "tagged-to-taxon", authority_slug: "auth-slug"
-        end
       end
     end
   end

@@ -94,10 +94,8 @@ protected
   end
 
   def breadcrumbs
-    return {} if navigation_helpers.nil?
-
-    if present_new_navigation?
-      navigation_helpers.taxon_breadcrumbs
+    if navigation_helpers.nil?
+      return {}
     else
       navigation_helpers.breadcrumbs
     end

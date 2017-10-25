@@ -1,8 +1,6 @@
 require "test_helper"
 
 class TransactionControllerTest < ActionController::TestCase
-  include EducationNavigationAbTestHelper
-
   context "GET show" do
     context "for live content" do
       setup do

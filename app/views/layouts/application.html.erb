@@ -25,27 +25,11 @@
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
       <% unless current_page?(root_path) %>
-        <% if present_new_navigation? %>
-          <%=
-            render(
-              partial: 'govuk_component/beta_label',
-              locals: {
-                message: <<-MESSAGE
-                This is a test version of the layout of this page.
-                <a id=taxonomy-survey href='https://www.smartsurvey.co.uk/s/betasurvey2017?c=#{current_path_without_query_string}' target='_blank' rel='noopener noreferrer'>
-                  Take the survey to help us improve it
-                </a>
-                MESSAGE
-              }
-            )
-          %>
-        <% end %>
-
         <% unless show_tasklist_header? %>
           <%= render partial: 'govuk_component/breadcrumbs',
             locals: {
               breadcrumbs: breadcrumbs[:breadcrumbs],
-              collapse_on_mobile: present_new_navigation?
+              collapse_on_mobile: should_present_taxonomy_navigation?(@content_item)
             } %>
         <% end %>
       <% end %>

@@ -6,7 +6,6 @@ require 'gds_api/test_helpers/local_links_manager'
 class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LocalLinksManager
-  include EducationNavigationAbTestHelper
   include LocationHelpers
 
   def subscribe_logstasher_to_postcode_error_notification
@@ -188,39 +187,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
       get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist"
 
       assert_equal 404, response.status
-    end
-
-    context "A/B testing" do
-      setup do
-        setup_education_navigation_ab_test
-        content_store_has_item_tagged_to_taxon(base_path: '/send-a-bear-to-your-local-council', payload: @payload)
-
-        local_links_manager_has_a_link(
-          authority_slug: "staffordshire-moorlands",
-          lgil: 8,
-          lgsl: 8342,
-          url: 'http://www.staffsmoorlands.gov.uk/send-a-bear-to-your-local-council'
-        )
-      end
-
-      should "show normal breadcrumbs by default" do
-        expect_normal_navigation
-        get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
-      end
-
-      should "show normal breadcrumbs for the 'A' version" do
-        expect_normal_navigation
-        with_variant EducationNavigation: "A" do
-          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
-        end
-      end
-
-      should "show taxon breadcrumbs for the 'B' version" do
-        expect_new_navigation
-        with_variant EducationNavigation: "B" do
-          get :results, slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands"
-        end
-      end
     end
   end
 

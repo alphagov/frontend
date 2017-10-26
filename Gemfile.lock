@@ -115,7 +115,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.6)
-    invalid_utf8_rejector (0.0.3)
+    invalid_utf8_rejector (0.0.4)
     json (1.8.6)
     json-schema (2.5.2)
       addressable (~> 2.3.8)
@@ -351,4 +351,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.1
+   1.15.4

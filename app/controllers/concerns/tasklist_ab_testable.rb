@@ -11,6 +11,7 @@ module TasklistABTestable
     /change-theory-test
     /check-driving-test
     /check-theory-test
+    /driving-eyesight-rules
     /driving-lessons-learning-to-drive/
     /driving-test/what-to-take
     /find-driving-schools-and-lessons
@@ -28,7 +29,6 @@ module TasklistABTestable
     /apply-for-your-full-driving-licence
     /automatic-driving-licence-to-manual
     /complain-about-a-driving-instructor
-    /driving-eyesight-rules
     /driving-licence-fees
     /driving-test-cost
     /dvlaforms

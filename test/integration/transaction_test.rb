@@ -217,7 +217,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
           assert page.has_selector?(".qa-tasklist-sidebar")
 
-          within_static_component('tasklist') do |tasklist_args|
+          within_static_component('task_list') do |tasklist_args|
             assert_equal 2, tasklist_args[:steps].count
 
             assert_equal 3, tasklist_args[:heading_level]
@@ -234,7 +234,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?(".qa-tasklist-sidebar")
 
-        within_static_component('tasklist') do |tasklist_args|
+        within_static_component('task_list') do |tasklist_args|
           assert_equal [], tasklist_panel_links_keys(tasklist_args) - %w(active href text)
         end
       end

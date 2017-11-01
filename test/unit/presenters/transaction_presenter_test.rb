@@ -49,6 +49,13 @@ class TransactionPresenterTest < ActiveSupport::TestCase
         assert_equal "Start now", subject(@item).start_button_text
       end
     end
+
+    context "start_button_text is 'Sign in'" do
+      should "#start_button_text" do
+        @item[:details][:start_button_text] = "Sign in"
+        assert_equal "Sign in", subject(@item).start_button_text
+      end
+    end
   end
 
   context "locale is 'cy'" do
@@ -64,6 +71,13 @@ class TransactionPresenterTest < ActiveSupport::TestCase
     context "start_button_text is 'Start now'" do
       should "return Welsh translation 'Dechrau nawr'" do
         assert_equal "Dechrau nawr", subject(@item).start_button_text
+      end
+    end
+
+    context "start_button_text is 'Sign in'" do
+      should "return Welsh translation 'Mewngofnodi'" do
+        @item[:details][:start_button_text] = "Sign in"
+        assert_equal "Mewngofnodi", subject(@item).start_button_text
       end
     end
   end

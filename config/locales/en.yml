@@ -5,6 +5,7 @@ en:
     transaction:
       name: "Service"
       start_now: "Start now"
+      sign_in: "Sign in"
       "on": !str "on"
       before_you_start: "Before you start"
       more_information: "More information"

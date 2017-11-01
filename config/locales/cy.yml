@@ -5,6 +5,7 @@ cy:
     transaction:
       name: "Gwasanaeth"
       start_now: "Dechrau nawr"
+      sign_in: "Mewngofnodi"
       "on": "ar"
       before_you_start: "Cyn i chi ddechrau"
       more_information: "Mwy o wybodaeth"

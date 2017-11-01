@@ -14,7 +14,8 @@ class TransactionPresenterTest < ActiveSupport::TestCase
           other_ways_to_apply: "carrots",
           transaction_start_link: "bananas",
           what_you_need_to_know: "hats",
-          will_continue_on: "scarves"
+          will_continue_on: "scarves",
+          start_button_text: "Start now",
         }
       }
     end
@@ -41,6 +42,43 @@ class TransactionPresenterTest < ActiveSupport::TestCase
 
     should "#will_continue_on" do
       assert_equal "scarves", subject(@item).will_continue_on
+    end
+
+    context "start_button_text is 'Start now'" do
+      should "#start_button_text" do
+        assert_equal "Start now", subject(@item).start_button_text
+      end
+    end
+
+    context "start_button_text is 'Sign in'" do
+      should "#start_button_text" do
+        @item[:details][:start_button_text] = "Sign in"
+        assert_equal "Sign in", subject(@item).start_button_text
+      end
+    end
+  end
+
+  context "locale is 'cy'" do
+    setup do
+      I18n.locale = :cy
+      @item = {
+        details: {
+          start_button_text: "Start now"
+        }
+      }
+    end
+
+    context "start_button_text is 'Start now'" do
+      should "return Welsh translation 'Dechrau nawr'" do
+        assert_equal "Dechrau nawr", subject(@item).start_button_text
+      end
+    end
+
+    context "start_button_text is 'Sign in'" do
+      should "return Welsh translation 'Mewngofnodi'" do
+        @item[:details][:start_button_text] = "Sign in"
+        assert_equal "Mewngofnodi", subject(@item).start_button_text
+      end
     end
   end
 

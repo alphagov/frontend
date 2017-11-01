@@ -116,4 +116,35 @@ class TransactionTest < ActionDispatch::IntegrationTest
       assert page.has_no_selector?("#transaction_cross_domain_analytics", visible: :all)
     end
   end
+
+  context "locale is 'cy'" do
+    setup do
+      @payload = {
+        base_path: "/cymraeg",
+        content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
+        document_type: "transaction",
+        locale: "cy",
+        publishing_app: "publisher",
+        rendering_app: "frontend",
+        schema_name: "transaction",
+        title: "Cymraeg",
+        description: "Cynnwys Cymraeg",
+        details: {
+          transaction_start_link: 'http://cymraeg.example.com',
+          start_button_text: "Start now",
+        },
+      }
+      content_store_has_item("/cymraeg", @payload)
+    end
+
+    should "render start button text 'Dechrau nawr'" do
+      visit "/cymraeg"
+
+      within ".article-container" do
+        within "section.intro" do
+          assert page.has_link?("Dechrau nawr")
+        end
+      end
+    end
+  end
 end

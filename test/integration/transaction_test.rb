@@ -1,6 +1,8 @@
 require 'integration_test_helper'
 
 class TransactionTest < ActionDispatch::IntegrationTest
+  include GovukAbTesting::MinitestHelpers
+
   context "a transaction with all the optional things" do
     setup do
       @payload = {
@@ -146,5 +148,104 @@ class TransactionTest < ActionDispatch::IntegrationTest
         end
       end
     end
+  end
+
+  context "tasklist AB test on applicable content" do
+    setup do
+      TransactionController.any_instance.stubs(:tasklist_ab_test_applies?).returns(true)
+
+      TasklistContent.stubs(:learn_to_drive_config).returns(
+        title: "How to become a driver in the 1900s",
+        description: "A step by step guide to driving Miss Daisy",
+        tasklist: {
+          heading_level: 3,
+          small: true,
+          steps: [
+            [{
+              title: "Prerequisites",
+              panel_descriptions: [""],
+              panel_links: [
+                {
+                  href: "/purchase-red-flag",
+                  text: "Buy a red flag to wave ahead of your vehicle"
+                },
+                {
+                  href: "/hire-flag-waver",
+                  text: "Your flag needs someone to wave it"
+                }
+              ]
+            }],
+            [{
+              title: "Final steps",
+              panel_descriptions: ["Certain people require their motor vehicle to be driven in an appropriate fashion"],
+              panel_links: [
+                {
+                  href: "/learn-to-drive-miss-daisy",
+                  text: "Learn Miss Daisy's speed preferences"
+                }
+              ]
+            }]
+          ]
+        }
+       )
+    end
+
+    context "in bucket A" do
+      should "not include tasklist sidebar" do
+        with_variant TaskListSidebar: 'A' do
+          content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
+
+          visit "/learn-to-drive-miss-daisy"
+
+          assert page.has_no_selector?(".qa-tasklist-sidebar")
+        end
+      end
+    end
+
+
+    context "in bucket B" do
+      setup do
+        content_store_has_example_item('/hire-flag-waver', schema: 'transaction')
+        content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
+      end
+
+      should "include tasklist sidebar but not show the item as 'active' unless the page is in the tasklist config" do
+        with_variant TaskListSidebar: 'B' do
+          content_store_has_example_item('/sell-horses', schema: 'transaction')
+
+          visit "/sell-horses"
+
+          assert page.has_selector?(".qa-tasklist-sidebar")
+
+          within_static_component('task_list') do |tasklist_args|
+            assert_equal 2, tasklist_args[:steps].count
+
+            assert_equal 3, tasklist_args[:heading_level]
+
+            assert_equal [], tasklist_step_keys(tasklist_args) - %w(title panel panel_descriptions panel_links)
+
+            assert_equal [], tasklist_panel_links_keys(tasklist_args) - %w(href text)
+          end
+        end
+      end
+
+      should "set the item as active if it is the current page" do
+        visit "/hire-flag-waver"
+
+        assert page.has_selector?(".qa-tasklist-sidebar")
+
+        within_static_component('task_list') do |tasklist_args|
+          assert_equal [], tasklist_panel_links_keys(tasklist_args) - %w(active href text)
+        end
+      end
+    end
+  end
+
+  def tasklist_step_keys(tasklist_args)
+    tasklist_args[:steps].flatten.flat_map(&:keys).uniq
+  end
+
+  def tasklist_panel_links_keys(tasklist_args)
+    tasklist_args[:steps].flatten.flat_map { |step| step["panel_links"] }.flat_map(&:keys).uniq
   end
 end

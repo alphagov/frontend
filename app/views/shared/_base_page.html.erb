@@ -19,7 +19,11 @@
   </div>
 </main>
 
-<% if @navigation_helpers %>
+<% if show_tasklist_sidebar? %>
+<div class="related-container">
+  <%= render 'shared/tasklist_sidebar', tasklist: tasklist %>
+</div>
+<% elsif @navigation_helpers %>
 <div class="related-container">
   <% if present_new_navigation? %>
     <%= render partial: 'govuk_component/taxonomy_sidebar', locals: navigation_helpers.taxonomy_sidebar %>

@@ -3,11 +3,13 @@ require 'simple_smart_answers/flow'
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
   include EducationNavigationABTestable
+  include TasklistABTestable
 
   before_filter :set_expiry
   before_filter -> { set_content_item(SimpleSmartAnswerPresenter) }
 
   def show
+    render :show, locals: { tasklist: configure_current_task(TasklistContent.learn_to_drive_config) }
   end
 
   def flow

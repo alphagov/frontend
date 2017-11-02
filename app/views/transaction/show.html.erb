@@ -1,11 +1,13 @@
 <% content_for :extra_headers do %>
   <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
+  <%= tasklist_variant.analytics_meta_tag.html_safe if tasklist_ab_test_applies? %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
   edition: @edition,
+  tasklist: tasklist
 } do %>
   <section class="intro">
     <div class="get-started-intro"><%= @publication.introductory_paragraph.try(:html_safe) %></div>

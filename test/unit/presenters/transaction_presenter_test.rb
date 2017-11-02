@@ -97,14 +97,4 @@ class TransactionPresenterTest < ActiveSupport::TestCase
       assert subject(item).multiple_more_information_sections?
     end
   end
-
-  context "#open_in_new_window?" do
-    should "load transaction in new window if slug is in list" do
-      assert subject(base_path: "/apply-blue-badge").open_in_new_window?
-    end
-
-    should "not load transaction in new window if slug is not in list" do
-      assert_not subject(base_path: "/not-in-the-list").open_in_new_window?
-    end
-  end
 end

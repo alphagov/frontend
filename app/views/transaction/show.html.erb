@@ -17,7 +17,7 @@
       </div>
     <% end %>
     <p id="get-started" class="get-started group">
-      <a href="<%= @publication.transaction_start_link %>" rel="external" class="button" <% if @publication.open_in_new_window? %>target="_blank"<% end %> role="button">
+      <a href="<%= @publication.transaction_start_link %>" rel="external" class="button" role="button">
         <%= @publication.start_button_text %>
       </a>
       <% if @publication.will_continue_on.present? %>

@@ -74,21 +74,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "a transaction which should open in a new window" do
-    should "have the correct target attribute set on the 'Start now' link for a new window" do
-      content_store_has_example_item('/apply-blue-badge', schema: 'transaction', example: 'apply-blue-badge')
-      visit '/apply-blue-badge'
-
-      assert_equal 200, page.status_code
-
-      within '.article-container' do
-        within 'section.intro' do
-          assert page.has_selector?("a[href='https://bluebadge.direct.gov.uk/directgovapply.html'][target='_blank']", text: "Start now")
-        end
-      end
-    end
-  end
-
   context "jobsearch special page" do
     should "render ok" do
       content_store_has_example_item('/jobsearch', schema: 'transaction', example: 'jobsearch')

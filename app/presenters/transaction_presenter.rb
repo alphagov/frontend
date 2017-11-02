@@ -16,26 +16,8 @@ class TransactionPresenter < ContentItemPresenter
     end
   end
 
-  NEW_WINDOW_TRANSACTIONS = %w(
-    apply-blue-badge
-    claim-state-pension-online
-    pension-credit-calculator
-    report-benefit-fraud
-    report-extremism
-    pay-court-fine-online
-    send-vat-return
-    use-construction-industry-scheme-online
-    file-your-company-accounts-and-tax-return
-    check-mot-status-vehicle
-    check-mot-history-vehicle
-  ).freeze
-
   def multiple_more_information_sections?
     [more_information, what_you_need_to_know, other_ways_to_apply].count(&:present?) > 1
-  end
-
-  def open_in_new_window?
-    slug.in? NEW_WINDOW_TRANSACTIONS
   end
 
   def start_button_text

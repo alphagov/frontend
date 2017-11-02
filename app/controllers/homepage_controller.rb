@@ -1,5 +1,4 @@
 class HomepageController < ApplicationController
-
   before_filter :set_expiry
 
   def index

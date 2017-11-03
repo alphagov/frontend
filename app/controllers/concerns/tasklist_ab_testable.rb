@@ -12,7 +12,7 @@ module TasklistABTestable
     /check-driving-test
     /check-theory-test
     /driving-eyesight-rules
-    /driving-lessons-learning-to-drive/
+    /driving-lessons-learning-to-drive
     /driving-test/what-to-take
     /find-driving-schools-and-lessons
     /government/publications/car-show-me-tell-me-vehicle-safety-questions
@@ -49,6 +49,24 @@ module TasklistABTestable
     /view-driving-licence
   ).freeze
 
+  MATCHING_PAGES = %w(
+    /driving-lessons-learning-to-drive/practising-with-family-or-friends
+    /driving-lessons-learning-to-drive/taking-driving-lessons
+    /driving-lessons-learning-to-drive/using-l-and-p-plates
+    /driving-test
+    /driving-test/changes-december-2017
+    /driving-test/disability-health-condition-or-learning-difficulty
+    /driving-test/driving-test-faults-result
+    /driving-test/test-cancelled-bad-weather
+    /driving-test/using-your-own-car
+    /driving-test/what-happens-during-test
+    /theory-test
+    /theory-test/hazard-perception-test
+    /theory-test/if-you-have-safe-road-user-award
+    /theory-test/multiple-choice-questions
+    /theory-test/pass-mark-and-result
+  ).freeze
+
   def self.included(base)
     base.helper_method :tasklist_variant, :tasklist_ab_test_applies?, :should_show_tasklist_sidebar?
     base.after_filter :set_tasklist_response_header
@@ -81,6 +99,7 @@ module TasklistABTestable
 
   def page_is_included_in_test?
     TASKLIST_PRIMARY_PAGES.include?(request.path) ||
-      TASKLIST_SECONDARY_PAGES.include?(request.path)
+      TASKLIST_SECONDARY_PAGES.include?(request.path) ||
+      MATCHING_PAGES.include?(request.path)
   end
 end

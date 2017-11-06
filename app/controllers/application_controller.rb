@@ -117,6 +117,12 @@ protected
   end
   helper_method :show_tasklist_sidebar?
 
+  def show_tasklist_header?
+    if defined?(should_show_tasklist_header?)
+      should_show_tasklist_header?
+    end
+  end
+  helper_method :show_tasklist_header?
 
   def configure_current_task(config)
     tasklist = config[:tasklist]

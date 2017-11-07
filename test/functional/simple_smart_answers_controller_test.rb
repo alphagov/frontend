@@ -48,6 +48,17 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         @controller.stubs(:tasklist_header_ab_test_applies?).returns(true)
       end
 
+      %w[A B].each do |variant|
+        should "variant #{variant} should not show the tasklist header on pages that are not in the test" do
+          @controller.stubs(:tasklist_header_ab_test_applies?).returns(false)
+
+          setup_ab_variant('TasklistHeader', variant)
+
+          get :show, slug: "learn-to-drive-dangerously"
+          assert_response_not_modified_for_ab_test('TaskListHeader')
+        end
+      end
+
       should "not show the tasklist header by default" do
         with_variant TaskListHeader: "A" do
           get :show, slug: "learn-to-drive-dangerously"

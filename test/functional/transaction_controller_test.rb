@@ -58,6 +58,42 @@ class TransactionControllerTest < ActionController::TestCase
       end
     end
 
+    context "tasklist header A/B testing" do
+      setup do
+        content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
+        content_store_has_example_item('/i-have-a-need-a-need-for-speed', schema: 'transaction')
+
+        @controller.stubs(:tasklist_header_ab_test_applies?).returns(true)
+      end
+
+      %w[A B].each do |variant|
+        should "variant #{variant} should not show the tasklist header on pages that are not in the test" do
+          @controller.stubs(:tasklist_header_ab_test_applies?).returns(false)
+
+          setup_ab_variant('TaskListHeader', variant)
+
+          get :show, slug: 'learn-to-drive-miss-daisy'
+          assert_response_not_modified_for_ab_test('TaskListHeader')
+        end
+      end
+
+      should "not show the tasklist header by default" do
+        with_variant TaskListHeader: "A" do
+          get :show, slug: "learn-to-drive-miss-daisy"
+
+          assert_template partial: "_tasklist_header", count: 0
+        end
+      end
+
+      should "show the tasklist header for the 'B' version" do
+        with_variant TaskListHeader: "B" do
+          get :show, slug: "learn-to-drive-miss-daisy"
+
+          assert_template partial: "_tasklist_header", count: 1
+        end
+      end
+    end
+
     context "tasklist A/B testing" do
       setup do
         content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')

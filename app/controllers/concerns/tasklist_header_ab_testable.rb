@@ -8,7 +8,7 @@ module TasklistHeaderABTestable
       :should_show_tasklist_header?
     )
 
-    base.after_filter :set_tasklist_header_response_header
+    base.after_action :set_tasklist_header_response_header
   end
 
   def tasklist_header_ab_test
@@ -24,7 +24,7 @@ module TasklistHeaderABTestable
   end
 
   def should_show_tasklist_header?
-    tasklist_header_ab_test_applies? && tasklist_header_variant.variant_b?
+    tasklist_header_ab_test_applies? && tasklist_header_variant.variant?("B")
   end
 
   def tasklist_header_variant

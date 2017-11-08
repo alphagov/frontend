@@ -1,6 +1,6 @@
 require 'frontend'
 
-Frontend::Application.routes.draw do
+Rails.application.routes.draw do
   get "/homepage" => redirect("/")
 
   get "/search" => "search#index", as: :search

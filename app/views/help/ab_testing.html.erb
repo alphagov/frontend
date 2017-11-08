@@ -16,7 +16,7 @@
       This page shows us if the process is working.</p>
     <p>There are 2 versions of this page. You are viewing the
       <span class="ab-example-group">
-        <strong><%= @requested_variant.variant_a? ? 'A' : 'B' %></strong>
+        <strong><%= @requested_variant.variant?("A") ? 'A' : 'B' %></strong>
       </span>
       version.</p>
     <p>Visit the <a href="/">GOV.UK homepage</a> to find government services and information.</p>

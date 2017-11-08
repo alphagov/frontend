@@ -3,7 +3,7 @@ class LicenceController < ApplicationController
   include Cacheable
   include Navigable
 
-  before_filter :set_content_item
+  before_action :set_content_item
 
   helper_method :postcode
 

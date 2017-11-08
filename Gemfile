@@ -12,7 +12,7 @@ gem 'invalid_utf8_rejector', '~> 0.0.0'
 gem 'logstasher', '~> 1.1.0'
 gem 'plek', '~> 1.12.0'
 gem 'rack_strip_client_ip', '~> 0.0.0'
-gem 'rails', '4.2.7.1' # version 5 is available
+gem 'rails', '4.2.10' # version 5 is available
 gem 'rails-i18n', '~> 4.0.0'
 gem 'sass', '~> 3.4.0'
 gem 'sass-rails'

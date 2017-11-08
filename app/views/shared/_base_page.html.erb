@@ -1,7 +1,7 @@
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %>">
   <header class="page-header">
     <% if show_tasklist_header? %>
-        <%= render "shared/tasklist_header", tasklist: tasklist %>
+      <%= render "shared/tasklist_header" %>
     <% end %>
     <div>
       <h1>

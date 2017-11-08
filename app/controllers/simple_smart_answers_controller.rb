@@ -2,7 +2,6 @@ require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
-  include EducationNavigationABTestable
   include TasklistABTestable
   include TasklistHeaderABTestable
 

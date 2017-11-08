@@ -3,8 +3,6 @@ require "test_helper"
 require "json"
 
 class SearchControllerTest < ActionController::TestCase
-  include GovukAbTesting::MinitestHelpers
-
   def a_search_result(slug, score = 1)
     {
       "title_with_highlighting" => slug.titleize,

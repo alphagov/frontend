@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
   include Slimmer::GovukComponents
+  include TaxonomyNavigation
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -17,11 +18,12 @@ class ApplicationController < ActionController::Base
 
   slimmer_template 'wrapper'
 
-  attr_accessor :navigation_helpers
+  attr_accessor :navigation_helpers, :navigation
 
   helper_method(
     :breadcrumbs,
     :navigation_helpers,
+    :should_present_taxonomy_navigation?,
   )
 
 protected
@@ -96,19 +98,12 @@ protected
   def breadcrumbs
     return {} if navigation_helpers.nil?
 
-    if present_new_navigation?
+    if should_present_taxonomy_navigation?(@content_item)
       navigation_helpers.taxon_breadcrumbs
     else
       navigation_helpers.breadcrumbs
     end
   end
-
-  def present_new_navigation?
-    if defined?(should_present_new_navigation_view?)
-      should_present_new_navigation_view?
-    end
-  end
-  helper_method :present_new_navigation?
 
   def show_tasklist_sidebar?
     if defined?(should_show_tasklist_sidebar?)

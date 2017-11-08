@@ -1,7 +1,3 @@
-<% content_for :extra_headers do %>
-  <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
-<% end %>
-
 <%= render layout: 'shared/base_page', locals: {
   main_class: "jobsearch",
   title: @publication.title,

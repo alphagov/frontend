@@ -1,7 +1,6 @@
 require 'integration_test_helper'
 
 class HomepageTest < ActionDispatch::IntegrationTest
-
   setup do
     content_store_has_item("/", schema: 'special_route')
   end

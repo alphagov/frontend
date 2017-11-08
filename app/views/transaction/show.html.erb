@@ -1,5 +1,4 @@
 <% content_for :extra_headers do %>
-  <%= education_navigation_variant.analytics_meta_tag.html_safe if ab_test_applies? %>
   <%= tasklist_variant.analytics_meta_tag.html_safe if tasklist_ab_test_applies? %>
   <%= tasklist_header_variant.analytics_meta_tag.html_safe if tasklist_header_ab_test_applies? %>
 <% end %>

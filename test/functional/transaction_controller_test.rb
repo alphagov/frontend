@@ -1,7 +1,7 @@
 require "test_helper"
 
 class TransactionControllerTest < ActionController::TestCase
-  include EducationNavigationAbTestHelper
+  include GovukAbTesting::MinitestHelpers
 
   context "GET show" do
     context "for live content" do
@@ -21,41 +21,6 @@ class TransactionControllerTest < ActionController::TestCase
 
       get :show, slug: 'foo'
       assert_equal "DENY", @response.headers["X-Frame-Options"]
-    end
-
-    context "A/B testing" do
-      setup do
-        content_store_has_example_item('/tagged', schema: 'transaction', is_tagged_to_taxon: true)
-        content_store_has_example_item('/not-tagged', schema: 'transaction')
-      end
-
-      %w[A B].each do |variant|
-        should "not affect non-education pages with the #{variant} variant" do
-          setup_ab_variant('EducationNavigation', variant)
-          expect_normal_navigation
-          get :show, slug: "not-tagged"
-          assert_response_not_modified_for_ab_test('EducationNavigation')
-        end
-      end
-
-      should "show normal breadcrumbs by default" do
-        expect_normal_navigation
-        get :show, slug: "not-tagged"
-      end
-
-      should "show normal breadcrumbs for the 'A' version" do
-        expect_normal_navigation
-        with_variant EducationNavigation: "A" do
-          get :show, slug: "tagged"
-        end
-      end
-
-      should "show taxon breadcrumbs for the 'B' version" do
-        expect_new_navigation
-        with_variant EducationNavigation: "B" do
-          get :show, slug: "tagged"
-        end
-      end
     end
 
     context "tasklist header A/B testing" do

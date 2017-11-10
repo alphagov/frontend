@@ -21,21 +21,6 @@ class TaxonomyNavigationTest < ActionController::TestCase
       assert_equal(false, @controller.should_present_taxonomy_navigation?(@content_item))
     end
 
-    should "return true if page is tagged to worldwide taxonomy" do
-      @content_item['base_path'] = "/world"
-      @content_item['links'] = {
-        'mainstream_browse_pages' => [{
-          'content_id' => 'something'
-        }],
-        'taxons' => [{
-          'title' => 'A Taxon',
-          'base_path' => '/world'
-        }]
-      }
-
-      assert_equal(true, @controller.should_present_taxonomy_navigation?(@content_item))
-    end
-
     should "return true if page is tagged to taxonomy and not mainstream browse" do
       @content_item['links'] = {
         'taxons' => [{
@@ -69,21 +54,6 @@ class TaxonomyNavigationTest < ActionController::TestCase
       }
 
       assert_equal(false, @controller.should_present_taxonomy_navigation?(@content_item))
-    end
-
-
-    should "return true if page is tagged to mainstream browse and worldwide taxonomy" do
-      @content_item['links'] = {
-        'mainstream_browse_pages' => [{
-          'content_id' => 'something'
-        }],
-        'taxons' => [{
-          'title' => 'A Taxon',
-          'base_path' => '/world'
-        }]
-      }
-
-      assert_equal(true, @controller.should_present_taxonomy_navigation?(@content_item))
     end
   end
 end

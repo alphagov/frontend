@@ -1,5 +1,5 @@
 class HomepageController < ApplicationController
-  before_action :set_expiry
+  before_filter :set_expiry
 
   def index
     set_slimmer_headers(

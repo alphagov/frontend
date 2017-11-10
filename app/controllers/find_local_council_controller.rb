@@ -1,8 +1,8 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
-  before_action -> { setup_content_item_and_navigation_helpers(BASE_PATH) }
-  before_action :set_expiry
+  before_filter -> { setup_content_item_and_navigation_helpers(BASE_PATH) }
+  before_filter :set_expiry
 
   BASE_PATH = "/find-local-council"
   UNITARY_AREA_TYPES = %w(COI LBO LGD MTD UTA)

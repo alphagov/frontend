@@ -1,7 +1,7 @@
 require 'cdn_helpers'
 require 'plek'
 
-Rails.application.configure do
+Frontend::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.

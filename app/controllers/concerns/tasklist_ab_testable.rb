@@ -3,7 +3,7 @@ module TasklistABTestable
 
   def self.included(base)
     base.helper_method :tasklist_variant, :tasklist_ab_test_applies?, :should_show_tasklist_sidebar?
-    base.after_action :set_tasklist_response_header
+    base.after_filter :set_tasklist_response_header
   end
 
   def tasklist_ab_test
@@ -19,7 +19,7 @@ module TasklistABTestable
   end
 
   def should_show_tasklist_sidebar?
-    tasklist_ab_test_applies? && tasklist_variant.variant?("B")
+    tasklist_ab_test_applies? && tasklist_variant.variant_b?
   end
 
   def tasklist_variant

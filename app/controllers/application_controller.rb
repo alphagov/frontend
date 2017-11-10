@@ -28,21 +28,21 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  def error_410; error :gone; end
+  def error_410; error 410; end
 
-  def error_503(e); error(:service_unavailable, e); end
+  def error_503(e); error(503, e); end
 
   def error(status_code, exception = nil)
     if exception
       GovukError.notify(exception)
     end
 
-    head(status_code)
+    render status: status_code, text: "#{status_code} error"
   end
 
   def cacheable_404
     set_expiry(10.minutes)
-    error :not_found
+    error 404
   end
 
   def set_expiry(duration = 30.minutes)

@@ -13,7 +13,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :start, params: { slug: "licence-to-kill" }
+        get :start, slug: "licence-to-kill"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
@@ -56,7 +56,7 @@ class LicenceControllerTest < ActionController::TestCase
             { "name" => "Cheadle and Checkley", "type" => "CED" }
           ])
 
-          post :start, params: { slug: "licence-to-kill", postcode: "ST10 4DB" }
+          post :start, slug: "licence-to-kill", postcode: "ST10 4DB"
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -71,7 +71,7 @@ class LicenceControllerTest < ActionController::TestCase
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24" },
           ])
 
-          post :start, params: { slug: "licence-to-kill", postcode: "BT1 5GS" }
+          post :start, slug: "licence-to-kill", postcode: "BT1 5GS"
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -88,7 +88,7 @@ class LicenceControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :authority, params: { slug: "licence-to-kill", authority_slug: "secret-service" }
+        get :authority, slug: "licence-to-kill", authority_slug: "secret-service"
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end

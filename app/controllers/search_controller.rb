@@ -1,15 +1,15 @@
 class SearchController < ApplicationController
-  before_action :set_expiry
-  before_action :remove_search_box
+  before_filter :set_expiry
+  before_filter :remove_search_box
 
   rescue_from GdsApi::BaseError, with: :error_503
 
   def index
-    search_params = SearchParameters.new(permitted_search_params.to_h)
+    search_params = SearchParameters.new(params)
 
     setup_content_item("/search")
 
-    if search_params.no_search? && permitted_search_params[:format] != "json"
+    if search_params.no_search? && params[:format] != "json"
       render action: 'no_search_term' and return
     end
     search_response = SearchAPI.new(search_params).search
@@ -44,11 +44,5 @@ protected
       result_count: result_count,
       section:      "search",
     )
-  end
-
-private
-
-  def permitted_search_params
-    params.permit(:q, :filter_manual, { filter_organisations: [] }, :show_organisations_filter, :format, :count, :start)
   end
 end

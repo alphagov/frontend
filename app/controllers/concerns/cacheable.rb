@@ -2,6 +2,6 @@ module Cacheable
   extend ActiveSupport::Concern
 
   included do
-    before_action -> { set_expiry }
+    before_filter -> { set_expiry }
   end
 end

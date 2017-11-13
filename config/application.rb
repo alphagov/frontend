@@ -60,5 +60,9 @@ module Frontend
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWALL'
     }
+
+    config.middleware.delete ActionDispatch::Cookies
+    config.middleware.delete ActionDispatch::Session::CookieStore
+    config.action_controller.allow_forgery_protection = false
   end
 end

@@ -17,7 +17,7 @@ class FindLocalCouncilControllerTest < ActionController::TestCase
   should "return a 404 if the local authority can't be found" do
     local_links_manager_does_not_have_an_authority('foo')
 
-    get :result, authority_slug: 'foo'
+    get :result, params: { authority_slug: 'foo' }
 
     assert_equal 404, response.status
   end

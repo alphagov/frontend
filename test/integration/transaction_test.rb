@@ -145,7 +145,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         tasklist: {
           heading_level: 3,
           small: true,
-          steps: [
+          groups: [
             [{
               title: "Prerequisites",
               panel_descriptions: [""],
@@ -203,7 +203,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           assert page.has_selector?(".qa-tasklist-sidebar")
 
           within_static_component('task_list') do |tasklist_args|
-            assert_equal 2, tasklist_args[:steps].count
+            assert_equal 2, tasklist_args[:groups].count
 
             assert_equal 3, tasklist_args[:heading_level]
 
@@ -227,10 +227,10 @@ class TransactionTest < ActionDispatch::IntegrationTest
   end
 
   def tasklist_step_keys(tasklist_args)
-    tasklist_args[:steps].flatten.flat_map(&:keys).uniq
+    tasklist_args[:groups].flatten.flat_map(&:keys).uniq
   end
 
   def tasklist_panel_links_keys(tasklist_args)
-    tasklist_args[:steps].flatten.flat_map { |step| step["panel_links"] }.flat_map(&:keys).uniq
+    tasklist_args[:groups].flatten.flat_map { |step| step["panel_links"] }.flat_map(&:keys).uniq
   end
 end

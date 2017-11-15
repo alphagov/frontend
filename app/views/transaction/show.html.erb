@@ -17,7 +17,18 @@
       </div>
     <% end %>
     <p id="get-started" class="get-started group">
-      <a href="<%= @publication.transaction_start_link %>" rel="external" class="button" role="button">
+      <a
+        href="<%= @publication.transaction_start_link %>"
+        rel="external"
+        class="button"
+        role="button"
+
+        <% if @publication.department_analytics_profile.present? %>
+          data-module="cross-domain-tracking"
+          data-tracking-code="<%= @publication.department_analytics_profile %>"
+          data-tracking-name="transactionTracker"
+        <% end %>
+      >
         <%= @publication.start_button_text %>
       </a>
       <% if @publication.will_continue_on.present? %>
@@ -33,9 +44,4 @@
       <%= render :partial => 'additional_information_single', :locals => {:transaction => @publication } %>
     <%- end -%>
   </section>
-
-  <% if @publication.department_analytics_profile.present? %>
-    <%= render :partial => 'cross_domain_analytics',
-               :locals => { :transaction => @publication } %>
-  <% end %>
 <% end %>

@@ -90,7 +90,9 @@ class TransactionTest < ActionDispatch::IntegrationTest
       visit "/foo"
 
       assert_equal 200, page.status_code
-      assert_selector("#transaction_cross_domain_analytics", visible: :all, text: "UA-12345-6")
+      assert_selector('[data-module="cross-domain-tracking"]')
+      assert_selector('[data-tracking-code="UA-12345-6"]')
+      assert_selector('[data-tracking-name="transactionTracker"]')
     end
   end
 
@@ -100,7 +102,9 @@ class TransactionTest < ActionDispatch::IntegrationTest
       visit "/foo"
 
       assert_equal 200, page.status_code
-      assert page.has_no_selector?("#transaction_cross_domain_analytics", visible: :all)
+      assert page.has_no_selector?('[data-module="cross-domain-tracking"]')
+      assert page.has_no_selector?('[data-tracking-code]')
+      assert page.has_no_selector?('[data-tracking-name]')
     end
   end
 

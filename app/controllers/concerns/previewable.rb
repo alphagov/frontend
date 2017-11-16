@@ -2,7 +2,7 @@ module Previewable
   extend ActiveSupport::Concern
 
   included do
-    before_filter :set_edition_for_viewing_draft_content
+    before_action :set_edition_for_viewing_draft_content
   end
 
   def set_edition_for_viewing_draft_content

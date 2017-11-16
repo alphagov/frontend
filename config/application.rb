@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require "action_controller/railtie"
 require "rails/test_unit/railtie"
@@ -11,9 +11,10 @@ end
 module Frontend
   class Application < Rails::Application
     require 'frontend'
+    config.load_defaults 5.1
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W(#{config.root}/app/presenters #{config.root}/lib)
+    config.eager_load_paths += %W(#{config.root}/app/presenters #{config.root}/lib)
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -59,5 +60,9 @@ module Frontend
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWALL'
     }
+
+    config.middleware.delete ActionDispatch::Cookies
+    config.middleware.delete ActionDispatch::Session::CookieStore
+    config.action_controller.allow_forgery_protection = false
   end
 end

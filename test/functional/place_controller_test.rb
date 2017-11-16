@@ -8,7 +8,7 @@ class PlaceControllerTest < ActionController::TestCase
       end
 
       should "set the cache expiry headers" do
-        get :show, slug: "passport-interview-office"
+        get :show, params: { slug: "passport-interview-office" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end

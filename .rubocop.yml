@@ -55,12 +55,6 @@ Lint/UselessAssignment:
   Exclude:
     - 'test/unit/models/location_error_test.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Performance/StringReplacement:
-  Exclude:
-    - 'app/presenters/search_result.rb'
-
 # Offense count: 4
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: strict, flexible
@@ -92,7 +86,6 @@ Style/AndOr:
     - 'Rakefile'
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/root_controller.rb'
-    - 'app/controllers/search_controller.rb'
     - 'app/controllers/simple_smart_answers_controller.rb'
     - 'app/controllers/travel_advice_controller.rb'
     - 'app/helpers/travel_advice_helper.rb'
@@ -112,7 +105,6 @@ Style/BarePercentLiterals:
 # SupportedStyles: assign_to_condition, assign_inside_condition
 Style/ConditionalAssignment:
   Exclude:
-    - 'app/controllers/search_controller.rb'
     - 'config/initializers/content_security_policy.rb'
 
 # Offense count: 1
@@ -128,11 +120,6 @@ Style/MethodCallWithoutArgsParentheses:
     - 'test/unit/presenters/transaction_presenter_test.rb'
 
 # Offense count: 1
-Style/MethodCalledOnDoEndBlock:
-  Exclude:
-    - 'app/presenters/government_result.rb'
-
-# Offense count: 1
 Style/MultilineBlockChain:
   Exclude:
     - 'app/presenters/publication_presenter.rb'
@@ -144,10 +131,8 @@ Style/MutableConstant:
     - 'app/controllers/find_local_council_controller.rb'
     - 'app/controllers/root_controller.rb'
     - 'app/helpers/campaign_helper.rb'
-    - 'app/models/search_parameters.rb'
     - 'app/presenters/local_authority_presenter.rb'
     - 'app/presenters/publication_presenter.rb'
-    - 'app/presenters/search_results_presenter.rb'
 
 # Offense count: 4
 Style/NestedParenthesizedCalls:
@@ -159,7 +144,6 @@ Style/NestedParenthesizedCalls:
 # Configuration parameters: AllowSafeAssignment.
 Style/ParenthesesAroundCondition:
   Exclude:
-    - 'app/controllers/search_controller.rb'
     - 'lib/tasks/test_javascript.rake'
 
 # Offense count: 1
@@ -174,7 +158,6 @@ Style/PercentQLiterals:
 # Cop supports --auto-correct.
 Style/RedundantParentheses:
   Exclude:
-    - 'app/controllers/search_controller.rb'
     - 'lib/tasks/test_javascript.rake'
 
 # Offense count: 2

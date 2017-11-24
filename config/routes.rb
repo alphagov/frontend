@@ -3,9 +3,6 @@ require 'frontend'
 Rails.application.routes.draw do
   get "/homepage" => redirect("/")
 
-  get "/search" => "search#index", as: :search
-  get "/search/opensearch" => "search#opensearch"
-
   get "/random" => "random#random_page"
 
   # Crude way of handling the situation described at

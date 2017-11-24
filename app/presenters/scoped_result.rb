@@ -1,2 +1,0 @@
-class ScopedResult < SearchResult
-end

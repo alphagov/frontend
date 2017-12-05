@@ -43,7 +43,7 @@ group :test do
   gem 'capybara'
   gem 'ci_reporter'
   gem 'govuk-content-schema-test-helpers'
-  gem 'govuk_schemas'
+  gem 'govuk_schemas', '2.3.0'
   gem 'launchy'
   gem 'mocha'
   gem 'poltergeist'

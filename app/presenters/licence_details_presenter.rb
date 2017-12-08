@@ -67,13 +67,13 @@ private
 
   def authorities_from_api_response
     if licence && licence['issuingAuthorities']
-      licence['issuingAuthorities'].map {|authority|
+      licence['issuingAuthorities'].map { |authority|
         {
           'name' => authority['authorityName'],
           'slug' => authority['authoritySlug'],
           'contact' => authority['authorityContact'],
-          'actions' => authority['authorityInteractions'].inject({}) {|actions, (key, links)|
-            actions[key] = links.map {|link|
+          'actions' => authority['authorityInteractions'].inject({}) { |actions, (key, links)|
+            actions[key] = links.map { |link|
               {
                 'url' => link['url'],
                 'introduction' => link['introductionText'],

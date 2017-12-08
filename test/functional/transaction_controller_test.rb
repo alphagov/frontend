@@ -25,26 +25,22 @@ class TransactionControllerTest < ActionController::TestCase
 
     context "tasklist header A/B testing" do
       setup do
-        content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
-        content_store_has_example_item('/i-have-a-need-a-need-for-speed', schema: 'transaction')
-
-        @controller.stubs(:tasklist_header_ab_test_applies?).returns(true)
+        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
+        content_store_has_example_item('/not-in-test', schema: 'transaction')
       end
 
       %w[A B].each do |variant|
         should "variant #{variant} should not show the tasklist header on pages that are not in the test" do
-          @controller.stubs(:tasklist_header_ab_test_applies?).returns(false)
-
           setup_ab_variant('TaskListHeader', variant)
 
-          get :show, params: { slug: 'learn-to-drive-miss-daisy' }
+          get :show, params: { slug: 'not-in-test' }
           assert_response_not_modified_for_ab_test('TaskListHeader')
         end
       end
 
       should "not show the tasklist header by default" do
         with_variant TaskListHeader: "A" do
-          get :show, params: { slug: "learn-to-drive-miss-daisy" }
+          get :show, params: { slug: "vehicles-can-drive" }
 
           assert_template partial: "_tasklist_header", count: 0
         end
@@ -52,7 +48,7 @@ class TransactionControllerTest < ActionController::TestCase
 
       should "show the tasklist header for the 'B' version" do
         with_variant TaskListHeader: "B" do
-          get :show, params: { slug: "learn-to-drive-miss-daisy" }
+          get :show, params: { slug: "vehicles-can-drive" }
 
           assert_template partial: "_tasklist_header", count: 1
         end
@@ -61,26 +57,22 @@ class TransactionControllerTest < ActionController::TestCase
 
     context "tasklist A/B testing" do
       setup do
-        content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
-        content_store_has_example_item('/i-have-a-need-a-need-for-speed', schema: 'transaction')
-
-        @controller.stubs(:tasklist_ab_test_applies?).returns(true)
+        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
+        content_store_has_example_item('/not-in-test', schema: 'transaction')
       end
 
       %w[A B].each do |variant|
         should "variant #{variant} should not affect pages that are not in the test" do
-          @controller.stubs(:tasklist_ab_test_applies?).returns(false)
-
           setup_ab_variant('TaskListSidebar', variant)
 
-          get :show, params: { slug: "learn-to-drive-miss-daisy" }
+          get :show, params: { slug: "not-in-test" }
           assert_response_not_modified_for_ab_test('TaskListSidebar')
         end
       end
 
       should "not show the tasklist sidebar by default" do
         with_variant TaskListSidebar: "A" do
-          get :show, params: { slug: "learn-to-drive-miss-daisy" }
+          get :show, params: { slug: "vehicles-can-drive" }
 
           assert_template partial: "_tasklist_sidebar", count: 0
         end
@@ -88,7 +80,7 @@ class TransactionControllerTest < ActionController::TestCase
 
       should "show the tasklist sidebar for the 'B' version" do
         with_variant TaskListSidebar: "B" do
-          get :show, params: { slug: "learn-to-drive-miss-daisy" }
+          get :show, params: { slug: "vehicles-can-drive" }
 
           assert_template partial: "_tasklist_sidebar", count: 1
         end

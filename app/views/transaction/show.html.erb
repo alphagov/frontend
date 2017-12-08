@@ -1,13 +1,15 @@
 <% content_for :extra_headers do %>
-  <%= tasklist_variant.analytics_meta_tag.html_safe if tasklist_ab_test_applies? %>
-  <%= tasklist_header_variant.analytics_meta_tag.html_safe if tasklist_header_ab_test_applies? %>
+  <% if current_tasklist_ab_test.is_tested_page? %>
+    <%= current_tasklist_ab_test.sidebar_variant.analytics_meta_tag.html_safe %>
+    <%= current_tasklist_ab_test.header_variant.analytics_meta_tag.html_safe %>
+  <% end %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
   edition: @edition,
-  tasklist: tasklist
+  tasklist_content: tasklist_content
 } do %>
   <section class="intro">
     <div class="get-started-intro"><%= @publication.introductory_paragraph.try(:html_safe) %></div>

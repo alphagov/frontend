@@ -1,14 +1,18 @@
 class TransactionController < ApplicationController
   include Cacheable
   include Navigable
-  include TasklistABTestable
-  include TasklistHeaderABTestable
 
   before_action :set_content_item
   before_action :deny_framing
+  after_action :set_tasklist_ab_test_headers, only: [:show]
 
   def show
-    render :show, locals: { tasklist: configure_current_task(TasklistContent.learn_to_drive_config) }
+    locals = {
+      locals: {
+        tasklist_content: tasklist_content
+        }
+    }
+    render :show, locals
   end
 
   def jobsearch; end

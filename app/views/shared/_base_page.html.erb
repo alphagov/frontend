@@ -8,7 +8,7 @@
     </div>
   </header>
   <div class="article-container group">
-    <%= render :partial => 'beta_label' if publication.in_beta && !show_tasklist_header? %>
+    <%= render :partial => 'beta_label' if publication.in_beta && !current_tasklist_ab_test.show_tasklist_header? %>
     <div class="content-block">
       <div class="inner">
         <%= yield %>
@@ -18,9 +18,9 @@
   </div>
 </main>
 
-<% if show_tasklist_sidebar? %>
+<% if current_tasklist_ab_test.show_tasklist_sidebar? %>
 <div class="related-container">
-  <%= render 'shared/tasklist_sidebar', tasklist: tasklist %>
+  <%= render 'shared/tasklist_sidebar', tasklist_content: tasklist_content %>
 </div>
 <% elsif @navigation_helpers %>
 <div class="related-container">

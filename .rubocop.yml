@@ -160,13 +160,6 @@ Style/RedundantReturn:
   Exclude:
     - 'app/controllers/root_controller.rb'
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiteralsInInterpolation:
-  Enabled: false
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/UnneededPercentQ:

@@ -26,7 +26,6 @@ Lint/AssignmentInCondition:
 # Cop supports --auto-correct.
 Lint/DeprecatedClassMethods:
   Exclude:
-    - 'config/boot.rb'
     - 'lib/tasks/test_javascript.rake'
 
 # Offense count: 1
@@ -40,7 +39,6 @@ Lint/HandleExceptions:
 Lint/UnusedBlockArgument:
   Exclude:
     - 'app/helpers/campaign_helper.rb'
-    - 'config/routes.rb'
     - 'lib/tasks/test_javascript.rake'
 
 # Offense count: 2
@@ -76,13 +74,11 @@ Rails/TimeZone:
 # SupportedStyles: always, conditionals
 Style/AndOr:
   Exclude:
-    - 'Rakefile'
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/root_controller.rb'
     - 'app/controllers/simple_smart_answers_controller.rb'
     - 'app/controllers/travel_advice_controller.rb'
     - 'app/helpers/travel_advice_helper.rb'
-    - 'config/initializers/content_security_policy.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -91,14 +87,6 @@ Style/AndOr:
 Style/BarePercentLiterals:
   Exclude:
     - 'test/integration/travel_advice_test.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, SingleLineConditionsOnly.
-# SupportedStyles: assign_to_condition, assign_inside_condition
-Style/ConditionalAssignment:
-  Exclude:
-    - 'config/initializers/content_security_policy.rb'
 
 # Offense count: 1
 Style/IfInsideElse:

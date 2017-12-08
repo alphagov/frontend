@@ -14,7 +14,8 @@ class SpecialRoutePublisherTest < ActiveSupport::TestCase
 
     @publisher = SpecialRoutePublisher.new(
       publishing_api: @publishing_api,
-      logger: logger)
+      logger: logger
+    )
   end
 
   SpecialRoutePublisher.routes.each do |route_type, routes_for_type|

@@ -172,10 +172,3 @@ Style/StringLiteralsInInterpolation:
 Style/UnneededPercentQ:
   Exclude:
     - 'test/integration/travel_advice_test.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, MinSize, WordRegex.
-# SupportedStyles: percent, brackets
-Style/WordArray:
-  Enabled: false

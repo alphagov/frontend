@@ -48,7 +48,7 @@ class TravelAdviceIndexPresenter
     alias_method :title, :name
   end
 
-  private
+private
 
   def countries_sorted_utf8
     countries.sort_by do |country|

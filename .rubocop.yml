@@ -70,13 +70,6 @@ Rails/TimeZone:
     - 'app/presenters/publication_presenter.rb'
     - 'app/presenters/travel_advice_country_presenter.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, IndentationWidth.
-# SupportedStyles: outdent, indent
-Style/AccessModifierIndentation:
-  Enabled: false
-
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

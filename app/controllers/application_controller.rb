@@ -52,13 +52,6 @@ protected
 
   def setup_content_item(base_path)
     @content_item = content_store.content_item(base_path).to_hash
-    # Remove the organisations from the content item - this will prevent the
-    # govuk:analytics:organisations meta tag from being generated until there is
-    # a better way of doing this. This is so we don't add the tag to pages that
-    # didn't have it before, thereby swamping analytics.
-    if @content_item["links"]
-      @content_item["links"].delete("organisations")
-    end
   rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
     @content_item = nil
   end

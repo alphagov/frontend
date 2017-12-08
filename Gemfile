@@ -24,7 +24,7 @@ gem 'shared_mustache', '~> 1.0.0'
 gem 'therubyracer', '~> 0.12.0'
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.0'
-gem 'unicorn', '~> 4.9.0' # version 5 is available
+gem 'unicorn', '~> 5.3.1' # version 5 is available
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 
 group :development do

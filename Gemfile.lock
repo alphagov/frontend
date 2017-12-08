@@ -130,8 +130,7 @@ GEM
     libv8 (3.16.14.19)
     link_header (0.0.8)
     logstash-event (1.2.02)
-    logstasher (1.1.1)
-      activerecord (>= 4.0)
+    logstasher (1.2.2)
       activesupport (>= 4.0)
       logstash-event (~> 1.2.0)
       request_store
@@ -341,7 +340,7 @@ DEPENDENCIES
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)
   launchy
-  logstasher (~> 1.1.0)
+  logstasher (~> 1.2.2)
   mocha
   plek (~> 1.12.0)
   poltergeist

@@ -12,15 +12,8 @@ AllCops:
 # Offense count: 3
 Lint/AmbiguousRegexpLiteral:
   Exclude:
-    - 'test/integration/page_rendering_test.rb'
     - 'test/integration/travel_advice_atom_test.rb'
     - 'test/unit/helpers/application_helper_test.rb'
-
-# Offense count: 1
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Exclude:
-    - 'app/helpers/campaign_helper.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
@@ -38,15 +31,7 @@ Lint/HandleExceptions:
 # Configuration parameters: IgnoreEmptyBlocks.
 Lint/UnusedBlockArgument:
   Exclude:
-    - 'app/helpers/campaign_helper.rb'
     - 'lib/tasks/test_javascript.rake'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'test/functional/search_controller_test.rb'
 
 # Offense count: 4
 Lint/UselessAssignment:
@@ -60,14 +45,6 @@ Rails/Date:
   Exclude:
     - 'test/integration/travel_advice_test.rb'
 
-# Offense count: 2
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: strict, flexible
-Rails/TimeZone:
-  Exclude:
-    - 'app/presenters/publication_presenter.rb'
-    - 'app/presenters/travel_advice_country_presenter.rb'
-
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -75,7 +52,6 @@ Rails/TimeZone:
 Style/AndOr:
   Exclude:
     - 'app/controllers/application_controller.rb'
-    - 'app/controllers/root_controller.rb'
     - 'app/controllers/simple_smart_answers_controller.rb'
     - 'app/controllers/travel_advice_controller.rb'
     - 'app/helpers/travel_advice_helper.rb'
@@ -88,32 +64,18 @@ Style/BarePercentLiterals:
   Exclude:
     - 'test/integration/travel_advice_test.rb'
 
-# Offense count: 1
-Style/IfInsideElse:
-  Exclude:
-    - 'lib/licence_details_from_artefact.rb'
-
 # Offense count: 4
 # Cop supports --auto-correct.
 Style/MethodCallWithoutArgsParentheses:
   Exclude:
-    - 'test/functional/application_controller_test.rb'
     - 'test/unit/presenters/transaction_presenter_test.rb'
-
-# Offense count: 1
-Style/MultilineBlockChain:
-  Exclude:
-    - 'app/presenters/publication_presenter.rb'
 
 # Offense count: 17
 # Cop supports --auto-correct.
 Style/MutableConstant:
   Exclude:
     - 'app/controllers/find_local_council_controller.rb'
-    - 'app/controllers/root_controller.rb'
-    - 'app/helpers/campaign_helper.rb'
     - 'app/presenters/local_authority_presenter.rb'
-    - 'app/presenters/publication_presenter.rb'
 
 # Offense count: 4
 Style/NestedParenthesizedCalls:
@@ -140,13 +102,6 @@ Style/PercentQLiterals:
 Style/RedundantParentheses:
   Exclude:
     - 'lib/tasks/test_javascript.rake'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowMultipleReturnValues.
-Style/RedundantReturn:
-  Exclude:
-    - 'app/controllers/root_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

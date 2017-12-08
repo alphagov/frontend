@@ -8,7 +8,7 @@ class LocalAuthorityPresenter
     :snac,
     :tier,
     :homepage_url,
-  ]
+  ].freeze
 
   PASS_THROUGH_KEYS.each do |key|
     define_method key do

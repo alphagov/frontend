@@ -25,13 +25,6 @@ Lint/UselessAssignment:
   Exclude:
     - 'test/unit/models/location_error_test.rb'
 
-# Offense count: 4
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: strict, flexible
-Rails/Date:
-  Exclude:
-    - 'test/integration/travel_advice_test.rb'
-
 # Offense count: 14
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
@@ -42,14 +35,6 @@ Style/AndOr:
     - 'app/controllers/simple_smart_answers_controller.rb'
     - 'app/controllers/travel_advice_controller.rb'
     - 'app/helpers/travel_advice_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: percent_q, bare_percent
-Style/BarePercentLiterals:
-  Exclude:
-    - 'test/integration/travel_advice_test.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.
@@ -63,22 +48,3 @@ Style/MutableConstant:
   Exclude:
     - 'app/controllers/find_local_council_controller.rb'
     - 'app/presenters/local_authority_presenter.rb'
-
-# Offense count: 4
-Style/NestedParenthesizedCalls:
-  Exclude:
-    - 'test/integration/travel_advice_test.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: lower_case_q, upper_case_q
-Style/PercentQLiterals:
-  Exclude:
-    - 'test/integration/travel_advice_test.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/UnneededPercentQ:
-  Exclude:
-    - 'test/integration/travel_advice_test.rb'

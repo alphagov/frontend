@@ -87,7 +87,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       # For some reason PhantomJS isn't executing this script at the top of the <body> element,
       # so we have to repeat it here.
-      page.execute_script %Q(document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');)
+      page.execute_script "document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');"
 
       assert page.has_selector?("#country-filter")
 

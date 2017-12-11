@@ -8,7 +8,7 @@ module SimpleSmartAnswers
       node_details.each_with_index do |n, i|
         node = Node.new(self, n)
         @nodes[node.slug] = node
-        @start_node = node if i == 0
+        @start_node = node if i.zero?
       end
     end
 

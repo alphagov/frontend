@@ -11,8 +11,7 @@ class TransactionController < ApplicationController
     render :show, locals: { tasklist: configure_current_task(TasklistContent.learn_to_drive_config) }
   end
 
-  def jobsearch
-  end
+  def jobsearch; end
 
 private
 

@@ -9,8 +9,7 @@ class FindLocalCouncilController < ApplicationController
   DISTRICT_AREA_TYPE = "DIS".freeze
   LOWEST_TIER_AREA_TYPES = [*UNITARY_AREA_TYPES, DISTRICT_AREA_TYPE].freeze
 
-  def index
-  end
+  def index; end
 
   def find
     @location_error = location_error

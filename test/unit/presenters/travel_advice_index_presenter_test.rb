@@ -24,7 +24,13 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
       assert_equal [], country.synonyms
       assert_equal "http://www.dev.gov.uk/foreign-travel-advice/afghanistan", country.web_url
       assert_equal "afghanistan", country.identifier
-      assert_equal DateTime.new(2015, 1, 1), country.updated_at
+      assert_equal Time.zone.parse('2015-01-01'), country.updated_at
+    end
+
+    should "construct a feed id for each country using the url and time format" do
+      country = @presenter.countries.first
+
+      assert_equal 'http://www.dev.gov.uk/foreign-travel-advice/afghanistan#2015-01-01T00:00:00+00:00', country.feed_id
     end
 
     context "#countries" do

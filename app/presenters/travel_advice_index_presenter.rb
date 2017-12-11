@@ -33,7 +33,7 @@ class TravelAdviceIndexPresenter
       base_path = attributes.fetch("base_path")
 
       updated_at = attributes["public_updated_at"]
-      updated_at = DateTime.parse(updated_at) if updated_at
+      updated_at = Time.zone.parse(updated_at) if updated_at
 
       self.change_description = attributes.fetch("change_description")
       self.name = attributes.dig("country", "name")
@@ -41,6 +41,10 @@ class TravelAdviceIndexPresenter
       self.web_url =  [Frontend.govuk_website_root, base_path].join
       self.identifier = base_path.split("/").last
       self.updated_at = updated_at
+    end
+
+    def feed_id
+      "#{web_url}##{updated_at.strftime('%FT%T%:z')}"
     end
 
   private

@@ -18,6 +18,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
 
       assert page.has_xpath? ".//feed/link[@rel='self' and @href='http://www.example.com/foreign-travel-advice.atom']"
       assert page.has_xpath? ".//feed/link[@rel='alternate' and @type='text/html' and @href='http://www.example.com/foreign-travel-advice']"
+
       assert page.has_xpath? ".//feed/updated", text: "2015-12-08T17:02:23+00:00"
       assert page.has_xpath? ".//feed/entry", count: 7
 

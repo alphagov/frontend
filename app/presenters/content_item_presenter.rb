@@ -25,7 +25,7 @@ class ContentItemPresenter
 
   def updated_at
     date = @content_item["updated_at"]
-    DateTime.parse(date).in_time_zone if date
+    Time.zone.parse(date) if date
   end
 
   def format

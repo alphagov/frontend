@@ -41,7 +41,6 @@ class ActionDispatch::IntegrationTest
 
   def assert_current_url(path_with_query, options = {})
     expected = URI.parse(path_with_query)
-    wait_until { expected.path == URI.parse(current_url).path }
     current = URI.parse(current_url)
     assert_equal expected.path, current.path
     unless options[:ignore_query]
@@ -57,44 +56,6 @@ class ActionDispatch::IntegrationTest
 
   def assert_related_items_rendered
     assert page.has_selector?(:xpath, "//test-govuk-component[@data-template='govuk_component-related_items']", visible: true)
-  end
-
-  # Adapted from http://www.elabs.se/blog/53-why-wait_until-was-removed-from-capybara
-  def wait_until
-    if Capybara.current_driver == Capybara.javascript_driver
-      begin
-        Timeout.timeout(Capybara.default_max_wait_time) do
-          sleep(0.1) until yield
-        end
-      rescue TimeoutError
-      end
-    end
-  end
-
-  def self.with_javascript
-    context "with javascript" do
-      setup do
-        Capybara.current_driver = Capybara.javascript_driver
-      end
-
-      yield
-    end
-  end
-
-  def self.without_javascript
-    context "without javascript" do
-      yield
-    end
-  end
-
-  def self.with_and_without_javascript
-    without_javascript do
-      yield
-    end
-
-    with_javascript do
-      yield
-    end
   end
 end
 

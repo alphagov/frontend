@@ -12,7 +12,7 @@ class TasklistContentTest < ActiveSupport::TestCase
     end
 
     should "have symbolized keys" do
-      @config.keys.each do |key|
+      @config.each_key do |key|
         assert key.is_a? Symbol
       end
     end

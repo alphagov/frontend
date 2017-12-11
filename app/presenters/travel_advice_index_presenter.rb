@@ -47,8 +47,6 @@ class TravelAdviceIndexPresenter
       "#{web_url}##{updated_at.strftime('%FT%T%:z')}"
     end
 
-  private
-
     alias_method :title, :name
   end
 

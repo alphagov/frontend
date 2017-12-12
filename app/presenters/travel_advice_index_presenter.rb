@@ -33,7 +33,7 @@ class TravelAdviceIndexPresenter
       base_path = attributes.fetch("base_path")
 
       updated_at = attributes["public_updated_at"]
-      updated_at = DateTime.parse(updated_at) if updated_at
+      updated_at = Time.zone.parse(updated_at) if updated_at
 
       self.change_description = attributes.fetch("change_description")
       self.name = attributes.dig("country", "name")
@@ -43,12 +43,14 @@ class TravelAdviceIndexPresenter
       self.updated_at = updated_at
     end
 
-  private
+    def feed_id
+      "#{web_url}##{updated_at.strftime('%FT%T%:z')}"
+    end
 
     alias_method :title, :name
   end
 
-  private
+private
 
   def countries_sorted_utf8
     countries.sort_by do |country|

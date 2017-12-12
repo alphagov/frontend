@@ -5,7 +5,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
     @local_authority_licence = {
       "isLocationSpecific" => true,
       "isOfferedByCounty" => false,
-      "geographicalAvailability" => ["England", "Wales"],
+      "geographicalAvailability" => %w(England Wales),
       "issuingAuthorities" => [
         {
           "authorityName" => "Westminster City Council",
@@ -59,7 +59,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
     @licence_authority_licence = {
       "isLocationSpecific" => false,
       "isOfferedByCounty" => false,
-      "geographicalAvailability" => ["England", "Wales"],
+      "geographicalAvailability" => %w(England Wales),
       "issuingAuthorities" => [
         @the_one_licence_authority
       ]
@@ -68,7 +68,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
     @licence_multiple_authorities_licence = {
       "isLocationSpecific" => false,
       "isOfferedByCounty" => false,
-      "geographicalAvailability" => ["England", "Wales"],
+      "geographicalAvailability" => %w(England Wales),
       "issuingAuthorities" => [
         @the_one_licence_authority,
         @the_other_licence_authority,

@@ -269,7 +269,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         details: {
           lgsl_code: 461,
           lgil_code: 8,
-          service_tiers: ["county", "unitary"],
+          service_tiers: %w(county unitary),
           introduction: "Information about paying local tax on owning or looking after a bear."
         }
       }

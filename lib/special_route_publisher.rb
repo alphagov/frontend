@@ -14,7 +14,8 @@ class SpecialRoutePublisher
         type: route_type,
         public_updated_at: Time.zone.now.iso8601,
         update_type: "major",
-      ))
+      )
+    )
   end
 
   def self.routes

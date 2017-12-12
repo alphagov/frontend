@@ -26,7 +26,7 @@ module SimpleSmartAnswers
       option
     end
 
-    private
+  private
 
     def build_option(details)
       OpenStruct.new(question: self,

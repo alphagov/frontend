@@ -112,7 +112,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         assert page.has_selector?(shared_component_selector('beta_label'))
         within(".modified-date") { assert_page_has_content "Last updated: 25 June 2013" }
       end
-    end # within #content
+    end
 
     assert_breadcrumb_rendered
     assert_related_items_rendered

@@ -25,6 +25,18 @@ class ApplicationController < ActionController::Base
     :should_present_taxonomy_navigation?,
   )
 
+  def current_tasklist_ab_test
+    GovukNavigationHelpers::CurrentTasklistAbTest.new(
+      current_tasklist: current_tasklist,
+      request: request
+    )
+  end
+  helper_method :current_tasklist_ab_test
+
+  def tasklist_content
+    current_tasklist if current_tasklist && current_tasklist.is_page_included_in_ab_test?
+  end
+
 protected
 
   def error_410; error :gone; end
@@ -97,47 +109,14 @@ protected
     end
   end
 
-  def show_tasklist_sidebar?
-    if defined?(should_show_tasklist_sidebar?)
-      should_show_tasklist_sidebar?
-    end
-  end
-  helper_method :show_tasklist_sidebar?
-
-  def show_tasklist_header?
-    if defined?(should_show_tasklist_header?)
-      should_show_tasklist_header?
-    end
-  end
-  helper_method :show_tasklist_header?
-
-  def configure_current_task(config)
-    tasklist = config[:tasklist]
-
-    config[:tasklist] = set_task_as_active_if_current_page(tasklist)
-
-    config
-  end
-
 private
 
-  def set_task_as_active_if_current_page(tasklist)
-    counter = 0
-    tasklist[:groups].each do |grouped_steps|
-      grouped_steps.each do |step|
-        counter = counter + 1
+  def current_tasklist
+    GovukNavigationHelpers::TasklistContent.current_tasklist(request.path)
+  end
 
-        step[:panel_links].each do |link|
-          if link[:href] == request.path
-            link[:active] = true
-            tasklist[:open_step] = counter
-          else
-            link.delete(:active)
-          end
-        end
-      end
-    end
-    tasklist
+  def set_tasklist_ab_test_headers
+    current_tasklist_ab_test.set_response_header(response)
   end
 
   def default_url_options

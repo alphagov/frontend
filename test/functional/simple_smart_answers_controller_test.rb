@@ -45,9 +45,9 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     context "tasklist header A/B testing" do
       setup do
-        content_store_has_random_item(base_path: '/learn-to-drive-dangerously', schema: 'simple_smart_answer')
+        content_store_has_random_item(base_path: '/vehicles-can-drive', schema: 'simple_smart_answer')
+        content_store_has_random_item(base_path: '/not-in-the-test', schema: 'simple_smart_answer')
 
-        @controller.stubs(:tasklist_header_ab_test_applies?).returns(true)
       end
 
       %w[A B].each do |variant|
@@ -57,7 +57,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           setup_ab_variant('TasklistHeader', variant)
 
           get :show, params: {
-            slug: "learn-to-drive-dangerously"
+            slug: "not-in-the-test"
           }
           assert_response_not_modified_for_ab_test('TaskListHeader')
         end
@@ -66,7 +66,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       should "not show the tasklist header by default" do
         with_variant TaskListHeader: "A" do
           get :show, params: {
-            slug: "learn-to-drive-dangerously"
+            slug: "vehicles-can-drive"
           }
 
           assert_template partial: "_tasklist_header", count: 0
@@ -76,7 +76,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
       should "show the tasklist header for the 'B' version" do
         with_variant TaskListHeader: "B" do
           get :show, params: {
-            slug: "learn-to-drive-dangerously"
+            slug: "vehicles-can-drive"
           }
 
           assert_template partial: "_tasklist_header", count: 1

@@ -2,14 +2,19 @@ require 'simple_smart_answers/flow'
 
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
-  include TasklistABTestable
-  include TasklistHeaderABTestable
 
   before_action :set_expiry
   before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
+  after_action :set_tasklist_ab_test_headers, only: [:show]
 
   def show
-    render :show, locals: { tasklist: configure_current_task(TasklistContent.learn_to_drive_config) }
+    locals = {
+      locals: {
+        tasklist_content: tasklist_content
+        }
+    }
+
+    render :show, locals
   end
 
   def flow

@@ -140,92 +140,44 @@ class TransactionTest < ActionDispatch::IntegrationTest
   end
 
   context "tasklist AB test on applicable content" do
-    setup do
-      TransactionController.any_instance.stubs(:tasklist_ab_test_applies?).returns(true)
-
-      TasklistContent.stubs(:learn_to_drive_config).returns(
-        title: "How to become a driver in the 1900s",
-        description: "A step by step guide to driving Miss Daisy",
-        tasklist: {
-          heading_level: 3,
-          small: true,
-          groups: [
-            [{
-              title: "Prerequisites",
-              panel_descriptions: [""],
-              panel_links: [
-                {
-                  href: "/purchase-red-flag",
-                  text: "Buy a red flag to wave ahead of your vehicle"
-                },
-                {
-                  href: "/hire-flag-waver",
-                  text: "Your flag needs someone to wave it"
-                }
-              ]
-            }],
-            [{
-              title: "Final steps",
-              panel_descriptions: ["Certain people require their motor vehicle to be driven in an appropriate fashion"],
-              panel_links: [
-                {
-                  href: "/learn-to-drive-miss-daisy",
-                  text: "Learn Miss Daisy's speed preferences"
-                }
-              ]
-            }]
-          ]
-        }
-       )
-    end
 
     context "in bucket A" do
       should "not include tasklist sidebar" do
         with_variant TaskListSidebar: 'A' do
-          content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
+          content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
 
-          visit "/learn-to-drive-miss-daisy"
+          visit "/vehicles-can-drive"
 
-          assert page.has_no_selector?(".qa-tasklist-sidebar")
+          assert page.has_no_selector?(".gem-c-task-list")
         end
       end
     end
 
-
     context "in bucket B" do
       setup do
-        content_store_has_example_item('/hire-flag-waver', schema: 'transaction')
-        content_store_has_example_item('/learn-to-drive-miss-daisy', schema: 'transaction')
+        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
+        content_store_has_example_item('/complain-about-a-driving-instructor', schema: 'transaction')
       end
 
       should "include tasklist sidebar but not show the item as 'active' unless the page is in the tasklist config" do
         with_variant TaskListSidebar: 'B' do
-          content_store_has_example_item('/sell-horses', schema: 'transaction')
 
-          visit "/sell-horses"
+          visit "/complain-about-a-driving-instructor"
 
-          assert page.has_selector?(".qa-tasklist-sidebar")
+          assert page.has_selector?(".gem-c-task-list")
 
-          within_static_component('task_list') do |tasklist_args|
-            assert_equal 2, tasklist_args[:groups].count
+          assert page.has_selector?(".gem-c-task-list__group", count: 6)
 
-            assert_equal 3, tasklist_args[:heading_level]
-
-            assert_equal [], tasklist_step_keys(tasklist_args) - %w(title panel panel_descriptions panel_links)
-
-            assert_equal [], tasklist_panel_links_keys(tasklist_args) - %w(href text)
-          end
+          assert page.has_no_selector?(".gem-c-task-list__link-item--active")
         end
       end
 
       should "set the item as active if it is the current page" do
-        visit "/hire-flag-waver"
+        visit "/vehicles-can-drive"
 
-        assert page.has_selector?(".qa-tasklist-sidebar")
+        assert page.has_selector?(".gem-c-task-list")
 
-        within_static_component('task_list') do |tasklist_args|
-          assert_equal [], tasklist_panel_links_keys(tasklist_args) - %w(active href text)
-        end
+        assert page.has_selector?(".gem-c-task-list__link-item--active")
       end
     end
   end

@@ -7,10 +7,6 @@ class ActiveSupport::TestCase
     stub_request(:get, %r{/search.json.*filter_link.*}).to_return(body: scoped_object)
   end
 
-  def stub_unscoped_rummager_request
-    stub_request(:get, %r{/search.json.*reject_manual.*}).to_return(body: unscoped_object)
-  end
-
   def stub_unscoped_search(query)
     stub_request(:get, /search.json.*q=#{Regexp.quote(query)}.*/).to_return(body: search_result(query))
   end
@@ -19,10 +15,6 @@ private
 
   def search_result(query)
     fixture_data("unscoped_search_results_for_#{query}.json")
-  end
-
-  def stub_any_rummager_search_to_return_no_results
-    stub_any_rummager_search.to_return(body: { results: [], facets: [] }.to_json)
   end
 
   def stub_search_page_in_content_store

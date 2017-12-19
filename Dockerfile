@@ -21,4 +21,6 @@ ADD . $APP_HOME
 ARG COMPILE_ASSETS=false
 RUN if [ "$COMPILE_ASSETS" = "true" ] ; then bundle exec rails assets:precompile ; fi
 
+HEALTHCHECK CMD curl --silent --fail localhost:$PORT || exit 1
+
 CMD bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p $PORT -b '0.0.0.0'"

@@ -21,11 +21,6 @@ private
     content_store_has_item("/search", schema: 'special_route')
   end
 
-  def stub_any_rummager_search
-    endpoint = Plek.current.find('search')
-    stub_request(:get, %r{#{endpoint}/search.json})
-  end
-
   def scoped_object
     fixture_data('manual_scoped_search_scope_object.json')
   end

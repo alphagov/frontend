@@ -1,7 +1,6 @@
 # GOV.UK Mainstream, Home & Search Frontend
 
-Application to serve mainstream formats, the homepage, and search vertical for
-the GOV.UK single domain.
+Application to serve some mainstream formats and the homepage for GOV.UK.
 
 ## Live examples
 
@@ -12,7 +11,6 @@ the GOV.UK single domain.
 
 ### Hard-coded routes
 
-* https://www.gov.uk/search?q=cabinet+office (search results page)
 * https://www.gov.uk/ (homepage)
 * https://www.gov.uk/tour (tour of GOV.UK)
 * https://www.gov.uk/help (help index page)
@@ -27,8 +25,7 @@ the GOV.UK single domain.
 A Ruby on Rails application that renders the citizen-facing part of formats
 stored in the Content Store. It looks up the passed-in slug in the Content Store.
 
-It also serves the homepage (hard-coded route) and the search results vertical
-(hard-coded route).
+It also serves the homepage (hard-coded route).
 
 See `app/views/root` for some bespoke transaction start pages.
 

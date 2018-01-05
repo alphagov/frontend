@@ -18,8 +18,7 @@ RUN bundle install
 
 ADD . $APP_HOME
 
-ARG COMPILE_ASSETS=false
-RUN if [ "$COMPILE_ASSETS" = "true" ] ; then bundle exec rails assets:precompile ; fi
+RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk RAILS_ENV=production bundle exec rails assets:precompile
 
 HEALTHCHECK CMD curl --silent --fail localhost:$PORT || exit 1
 

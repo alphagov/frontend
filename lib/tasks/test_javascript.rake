@@ -24,11 +24,6 @@ module_function
     pid_file
   end
 
-  def compile_shared_mustache_templates
-    puts "Compiling the mustache templates"
-    Rake::Task["shared_mustache:compile"].invoke
-  end
-
   def start_rails_server(pid_file)
     puts "Starting the test server on port 3150"
     `cd #{Rails.root} && INCLUDE_JS_TEST_ASSETS=1 script/rails server -p 3150 --daemon --environment=test --pid=#{pid_file}`
@@ -69,11 +64,6 @@ module_function
       Process.kill("INT", pid_file.read.to_i)
     end
   end
-
-  def cleanup_shared_mustache_templates
-    puts "Removing compiled mustache templates"
-    Rake::Task["shared_mustache:clean"].invoke
-  end
 end
 
 namespace :test do
@@ -85,15 +75,11 @@ namespace :test do
     TestJavascript.enure_phantomjs_version_is_correct
     pid_file = TestJavascript.get_pid_file
 
-    TestJavascript.compile_shared_mustache_templates
-
     TestJavascript.start_rails_server(pid_file)
 
     exit_status = TestJavascript.run_javascript_tests
 
     TestJavascript.cleanup_pid_file(pid_file)
-
-    TestJavascript.cleanup_shared_mustache_templates
 
     exit exit_status
   end

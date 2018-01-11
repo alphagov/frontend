@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'addressable'
 gem 'cdn_helpers', '0.9'
-gem 'gds-api-adapters', '~> 50.8.0'
+gem 'gds-api-adapters', '~> 50.9.0'
 gem 'gelf'
 gem 'govuk_app_config', '~> 0.2.0'
 gem 'govuk_frontend_toolkit', '~> 7.2.0'

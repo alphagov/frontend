@@ -40,7 +40,6 @@
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>
         <%= yield %>
       <% unless local_assigns.include?(:full_width) %></div><% end %>
-      <%= render_mustache_templates if Rails.env.development? %>
     </div>
   </body>
 </html>

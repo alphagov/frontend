@@ -5,7 +5,7 @@
 //= require support
 //= require templates
 //= require_tree ./modules
-//= require components/task-list
+//= require govuk_publishing_components/components/task-list
 
 $(document).ready(function() {
   $('.error-summary').focus();

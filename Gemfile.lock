@@ -92,8 +92,6 @@ GEM
       plek (>= 1.9.0)
       rack-cache
       rest-client (~> 2.0)
-    gelf (3.0.0)
-      json
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     govspeak (5.3.0)
@@ -349,7 +347,6 @@ DEPENDENCIES
   ci_reporter_rspec
   ci_reporter_test_unit
   gds-api-adapters (~> 50.8.0)
-  gelf
   govuk-content-schema-test-helpers
   govuk-lint
   govuk_app_config (~> 0.2.0)

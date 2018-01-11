@@ -111,7 +111,7 @@ GEM
       rubocop-rspec (~> 1.19.0)
       scss_lint
     govuk_ab_testing (2.4.1)
-    govuk_app_config (0.2.0)
+    govuk_app_config (0.3.0)
       sentry-raven (~> 2.6.3)
       statsd-ruby (~> 1.4.0)
     govuk_frontend_toolkit (7.2.0)
@@ -349,7 +349,7 @@ DEPENDENCIES
   gds-api-adapters (~> 50.8.0)
   govuk-content-schema-test-helpers
   govuk-lint
-  govuk_app_config (~> 0.2.0)
+  govuk_app_config (~> 0.3.0)
   govuk_frontend_toolkit (~> 7.2.0)
   govuk_navigation_helpers (~> 8.2.0)
   govuk_publishing_components (~> 3.2.0)

@@ -60,9 +60,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    cdn_helpers (0.9)
-      actionpack
-      nokogiri
     ci_reporter (2.0.0)
       builder (>= 2.1.2)
     ci_reporter_rspec (1.0.0)
@@ -348,7 +345,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara
-  cdn_helpers (= 0.9)
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit

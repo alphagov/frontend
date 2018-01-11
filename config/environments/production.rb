@@ -1,4 +1,3 @@
-require 'cdn_helpers'
 require 'plek'
 
 Rails.application.configure do

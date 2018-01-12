@@ -88,7 +88,8 @@ GEM
     execjs (2.7.0)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
-    gds-api-adapters (50.8.0)
+    gds-api-adapters (50.9.1)
+      addressable
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -352,7 +353,7 @@ DEPENDENCIES
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 50.8.0)
+  gds-api-adapters (~> 50.9.1)
   gelf
   govuk-content-schema-test-helpers
   govuk-lint

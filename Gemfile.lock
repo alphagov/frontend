@@ -106,7 +106,7 @@ GEM
       sanitize (~> 2.1.0)
     govuk-content-schema-test-helpers (1.5.0)
       json-schema (~> 2.5.1)
-    govuk-lint (3.4.0)
+    govuk-lint (3.5.0)
       rubocop (~> 0.51.0)
       rubocop-rspec (~> 1.19.0)
       scss_lint
@@ -178,7 +178,7 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     null_logger (0.0.1)
-    parallel (1.12.0)
+    parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
     plek (2.0.0)

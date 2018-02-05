@@ -313,7 +313,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     timecop (0.9.1)
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.4)
       execjs (>= 0.3.0, < 3)
@@ -352,7 +352,7 @@ DEPENDENCIES
   govuk-lint
   govuk_app_config (~> 0.3.0)
   govuk_frontend_toolkit (~> 7.2.0)
-  govuk_navigation_helpers (~> 8.2.0)
+  govuk_navigation_helpers (~> 8.2.2)
   govuk_publishing_components (~> 4.1.0)
   govuk_schemas (= 2.3.0)
   htmlentities (~> 4.3.0)

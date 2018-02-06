@@ -4,13 +4,12 @@ class TransactionController < ApplicationController
 
   before_action :set_content_item
   before_action :deny_framing
-  after_action :set_tasklist_ab_test_headers, only: [:show]
 
   def show
     locals = {
       locals: {
-        tasklist_content: tasklist_content
-        }
+        step_nav_content: current_step_nav
+      }
     }
     render :show, locals
   end

@@ -23,7 +23,7 @@
 @import "helpers/beta-label";
 @import "helpers/error-summary";
 @import "helpers/truncated-url";
-@import "helpers/task-list-title";
+@import "helpers/step-nav-title";
 
 // View stylesheets
 @import "views/completed-transaction";
@@ -40,6 +40,6 @@
 @import "views/local-transaction";
 
 // components
-@import 'govuk_publishing_components/components/task-list';
-@import 'govuk_publishing_components/components/task-list-header';
-@import 'govuk_publishing_components/components/task-list-related';
+@import 'govuk_publishing_components/components/step-by-step-nav';
+@import 'govuk_publishing_components/components/step-by-step-nav-header';
+@import 'govuk_publishing_components/components/step-by-step-nav-related';

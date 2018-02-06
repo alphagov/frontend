@@ -26,8 +26,8 @@
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
       <% unless current_page?(root_path) %>
-        <% if current_tasklist_ab_test.show_tasklist_header? && local_assigns.has_key?(:tasklist_content) %>
-          <%= render 'shared/tasklist_header', tasklist_content: local_assigns[:tasklist_content] %>
+        <% if show_step_nav? %>
+          <%= render 'shared/step_nav_header', step_nav_content: current_step_nav %>
         <% else %>
           <%= render partial: 'govuk_component/breadcrumbs',
             locals: {

@@ -1,15 +1,8 @@
-<% content_for :extra_headers do %>
-  <% if current_tasklist_ab_test.is_tested_page? %>
-    <%= current_tasklist_ab_test.sidebar_variant.analytics_meta_tag.html_safe %>
-    <%= current_tasklist_ab_test.header_variant.analytics_meta_tag.html_safe %>
-  <% end %>
-<% end %>
-
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
   edition: @edition,
-  tasklist_content: tasklist_content
+  step_nav_content: current_step_nav
 } do %>
   <section class="intro">
     <div class="get-started-intro"><%= @publication.introductory_paragraph.try(:html_safe) %></div>

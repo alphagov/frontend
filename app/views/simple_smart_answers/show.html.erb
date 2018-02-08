@@ -1,13 +1,8 @@
-<% content_for :extra_headers do %>
-  <%= current_tasklist_ab_test.sidebar_variant.analytics_meta_tag.html_safe %>
-  <%= current_tasklist_ab_test.header_variant.analytics_meta_tag.html_safe %>
-<% end %>
-
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
   edition: @edition,
-  tasklist_content: tasklist_content
+  step_nav_content: step_nav_content
 } do %>
   <div class="intro">
     <%= raw @publication.body %>

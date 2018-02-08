@@ -25,17 +25,15 @@ class ApplicationController < ActionController::Base
     :should_present_taxonomy_navigation?,
   )
 
-  def current_tasklist_ab_test
-    GovukNavigationHelpers::CurrentTasklistAbTest.new(
-      current_tasklist: current_tasklist,
-      request: request
-    )
+  def current_step_nav
+    @step_nav = GovukNavigationHelpers::StepNavContent.current_step_nav(request.path)
   end
-  helper_method :current_tasklist_ab_test
+  helper_method :current_step_nav
 
-  def tasklist_content
-    current_tasklist if current_tasklist && current_tasklist.is_page_included_in_ab_test?
+  def show_step_nav?
+    current_step_nav && current_step_nav.show_step_nav?
   end
+  helper_method :show_step_nav?
 
 protected
 
@@ -110,14 +108,6 @@ protected
   end
 
 private
-
-  def current_tasklist
-    GovukNavigationHelpers::TasklistContent.current_tasklist(request.path)
-  end
-
-  def set_tasklist_ab_test_headers
-    current_tasklist_ab_test.set_response_header(response)
-  end
 
   def default_url_options
     {}.merge(token)

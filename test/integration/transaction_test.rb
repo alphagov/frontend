@@ -139,54 +139,33 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "tasklist AB test on applicable content" do
-
-    context "in bucket A" do
-      should "not include tasklist sidebar" do
-        with_variant TaskListSidebar: 'A' do
-          content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
-
-          visit "/vehicles-can-drive"
-
-          assert page.has_no_selector?(".gem-c-task-list")
-        end
-      end
+  context "step by step navigation" do
+    setup do
+      content_store_has_example_item('/not-in-test', schema: 'transaction')
+      content_store_has_example_item('/vehicles-can-drive', schema: 'transaction') #primary content
+      content_store_has_example_item('/complain-about-a-driving-instructor', schema: 'transaction') #secondary content
     end
 
-    context "in bucket B" do
-      setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
-        content_store_has_example_item('/complain-about-a-driving-instructor', schema: 'transaction')
-      end
 
-      should "include tasklist sidebar but not show the item as 'active' unless the page is in the tasklist config" do
-        with_variant TaskListSidebar: 'B' do
+    should "not include step nav sidebar on irrelevant content" do
+      visit "/not-in-test"
 
-          visit "/complain-about-a-driving-instructor"
-
-          assert page.has_selector?(".gem-c-task-list")
-
-          assert page.has_selector?(".gem-c-task-list__group", count: 6)
-
-          assert page.has_no_selector?(".gem-c-task-list__link-item--active")
-        end
-      end
-
-      should "set the item as active if it is the current page" do
-        visit "/vehicles-can-drive"
-
-        assert page.has_selector?(".gem-c-task-list")
-
-        assert page.has_selector?(".gem-c-task-list__link-item--active")
-      end
+      assert page.has_no_selector?(".gem-c-step-nav")
     end
-  end
 
-  def tasklist_step_keys(tasklist_args)
-    tasklist_args[:groups].flatten.flat_map(&:keys).uniq
-  end
+    should "on secondary content include step nav sidebar but not show the item as 'active'" do
+      visit "/complain-about-a-driving-instructor"
 
-  def tasklist_panel_links_keys(tasklist_args)
-    tasklist_args[:groups].flatten.flat_map { |step| step["panel_links"] }.flat_map(&:keys).uniq
+      assert page.has_selector?(".gem-c-step-nav")
+      assert page.has_selector?(".gem-c-step-nav__step", count: 7)
+      assert page.has_no_selector?(".gem-c-step-nav__link--active")
+    end
+
+    should "set the item as active if it is the current page" do
+      visit "/vehicles-can-drive"
+
+      assert page.has_selector?(".gem-c-step-nav")
+      assert page.has_selector?(".gem-c-step-nav__link--active")
+    end
   end
 end

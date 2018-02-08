@@ -23,67 +23,37 @@ class TransactionControllerTest < ActionController::TestCase
       assert_equal "DENY", @response.headers["X-Frame-Options"]
     end
 
-    context "tasklist header A/B testing" do
+    context "step navigation header" do
       setup do
         content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
         content_store_has_example_item('/not-in-test', schema: 'transaction')
       end
 
-      %w[A B].each do |variant|
-        should "variant #{variant} should not show the tasklist header on pages that are not in the test" do
-          setup_ab_variant('TaskListHeader', variant)
-
-          get :show, params: { slug: 'not-in-test' }
-          assert_response_not_modified_for_ab_test('TaskListHeader')
-        end
+      should "should not show the step_nav header on irrelevant pages" do
+        get :show, params: { slug: 'not-in-test' }
+        assert_template partial: "_step_nav_header", count: 0
       end
 
-      should "not show the tasklist header by default" do
-        with_variant TaskListHeader: "A" do
-          get :show, params: { slug: "vehicles-can-drive" }
-
-          assert_template partial: "_tasklist_header", count: 0
-        end
-      end
-
-      should "show the tasklist header for the 'B' version" do
-        with_variant TaskListHeader: "B" do
-          get :show, params: { slug: "vehicles-can-drive" }
-
-          assert_template partial: "_tasklist_header", count: 1
-        end
+      should "show the step_nav header on relevant pages" do
+        get :show, params: { slug: "vehicles-can-drive" }
+        assert_template partial: "_step_nav_header", count: 1
       end
     end
 
-    context "tasklist A/B testing" do
+    context "step navigation" do
       setup do
         content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
         content_store_has_example_item('/not-in-test', schema: 'transaction')
       end
 
-      %w[A B].each do |variant|
-        should "variant #{variant} should not affect pages that are not in the test" do
-          setup_ab_variant('TaskListSidebar', variant)
-
-          get :show, params: { slug: "not-in-test" }
-          assert_response_not_modified_for_ab_test('TaskListSidebar')
-        end
+      should "should not show the step navigation sidebar on irrelevant pages" do
+        get :show, params: { slug: "not-in-test" }
+        assert_template partial: "_step_nav_sidebar", count: 0
       end
 
-      should "not show the tasklist sidebar by default" do
-        with_variant TaskListSidebar: "A" do
-          get :show, params: { slug: "vehicles-can-drive" }
-
-          assert_template partial: "_tasklist_sidebar", count: 0
-        end
-      end
-
-      should "show the tasklist sidebar for the 'B' version" do
-        with_variant TaskListSidebar: "B" do
-          get :show, params: { slug: "vehicles-can-drive" }
-
-          assert_template partial: "_tasklist_sidebar", count: 1
-        end
+      should "show the step navigation sidebar on relevant pages" do
+        get :show, params: { slug: "vehicles-can-drive" }
+        assert_template partial: "_step_nav_sidebar", count: 1
       end
     end
   end

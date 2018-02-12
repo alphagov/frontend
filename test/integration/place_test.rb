@@ -81,7 +81,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       within '#content' do
         within ".page-header" do
-          assert page.has_content?("Find a passport interview office")
+          assert_has_component_title "Find a passport interview office"
         end
 
         within ".intro" do

@@ -18,6 +18,9 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       visit "/done/no-promotion"
 
       assert_equal 200, page.status_code
+
+      assert_has_component_title "Thank you"
+
       within '.content-block' do
         assert page.has_no_selector?('#organ-donor-registration-promotion')
         assert page.has_no_selector?('#register-to-vote-promotion')

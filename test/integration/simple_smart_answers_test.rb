@@ -100,7 +100,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     within '#content' do
       within 'header.page-header' do
-        assert_page_has_content("The Bridge of Death")
+        assert_has_component_title "The Bridge of Death"
       end
 
       within '.article-container' do

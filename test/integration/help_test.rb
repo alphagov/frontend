@@ -20,7 +20,7 @@ class HelpTest < ActionDispatch::IntegrationTest
       assert_breadcrumb_rendered
 
       within '#content header' do
-        assert page.has_content?("Help using GOV.UK")
+        assert_has_component_title "Help using GOV.UK"
       end
     end
   end

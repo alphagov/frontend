@@ -64,7 +64,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         within '#content' do
           within ".page-header" do
-            assert page.has_content?("Licence to kill")
+            assert_has_component_title "Licence to kill", "Licence"
           end
 
           within ".postcode-search-form" do

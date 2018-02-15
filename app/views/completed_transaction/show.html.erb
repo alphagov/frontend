@@ -15,8 +15,11 @@
         <p>If you needed an organ transplant would you have one? If so please help others.</p>
         <p>If you live in Wales and want to be an organ donor, you don’t need to do anything. Find out about your choices for <a href="https://www.organdonation.nhs.uk/supporting-my-decision/welsh-legislation-what-it-means-for-me/" rel="external">organ donation in Wales</a>.</p>
         <p>
-          <%= link_to 'Join', @publication.promotion['url'],
-                title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
+          <%= render "govuk_component/button",
+                      text: "Join",
+                      href: @publication.promotion['url'],
+                      rel: "external",
+                      title: "Register to become an organ donor" %>
         </p>
       </div>
     <% end %>

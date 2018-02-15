@@ -12,20 +12,21 @@
       </div>
     <% end %>
     <p id="get-started" class="get-started group">
-      <a
-        href="<%= @publication.transaction_start_link %>"
-        rel="external"
-        class="button"
-        role="button"
+      <%
+        data_attributes = {}
+        if @publication.department_analytics_profile.present?
+          data_attributes["module"] =  "cross-domain-tracking"
+          data_attributes["tracking-code"] = @publication.department_analytics_profile
+          data_attributes["tracking-name"] = "transactionTracker"
+        end
+      %>
+      <%= render "govuk_component/button",
+                  text: @publication.start_button_text,
+                  rel: "external",
+                  href: @publication.transaction_start_link,
+                  start: true,
+                  data_attributes: data_attributes %>
 
-        <% if @publication.department_analytics_profile.present? %>
-          data-module="cross-domain-tracking"
-          data-tracking-code="<%= @publication.department_analytics_profile %>"
-          data-tracking-name="transactionTracker"
-        <% end %>
-      >
-        <%= @publication.start_button_text %>
-      </a>
       <% if @publication.will_continue_on.present? %>
         <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
       <% end %>

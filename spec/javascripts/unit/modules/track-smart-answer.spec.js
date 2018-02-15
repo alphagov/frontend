@@ -8,7 +8,7 @@ describe('tracking smart answer progress', function () {
     GOVUK.analytics = {trackEvent: function () {}}
     tracker = new GOVUK.Modules.TrackSmartAnswer()
     spyOn(GOVUK.analytics, 'trackEvent')
-    spyOn(tracker, 'currentPath').andReturn('/the-bridge-of-death/y/sir-lancelot-of-camelot/blue')
+    spyOn(tracker, 'currentPath').and.returnValue('/the-bridge-of-death/y/sir-lancelot-of-camelot/blue')
   })
 
   afterEach(function () {

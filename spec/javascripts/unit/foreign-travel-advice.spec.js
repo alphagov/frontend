@@ -137,30 +137,27 @@ describe("CountryFilter", function () {
       expect(validEventMock.preventDefault).toHaveBeenCalled();
     });
 
-    it("Should track search input via timeouts", function () {
+    it("Should track search input via timeouts", function (done) {
 
-      runs(function() {
-        GOVUK.analytics = GOVUK.analytics || { trackEvent : function(args) {} };
+      GOVUK.analytics = GOVUK.analytics || { trackEvent : function(args) {} };
 
-        filter = new GOVUK.countryFilter($input);
+      filter = new GOVUK.countryFilter($input);
 
-        expect(filter._trackTimeout).toBeFalsy();
+      expect(filter._trackTimeout).toBeFalsy();
 
-        spyOn(filter, "filterListItems");
-        spyOn(filter, "track");
-        spyOn(GOVUK.analytics, "trackEvent");
+      spyOn(filter, "filterListItems")
+      spyOn(filter, "track").and.callThrough();
+      spyOn(filter, "pagePath").and.returnValue("travel-advice");
+      spyOn(GOVUK.analytics, "trackEvent");
 
-        $input.keyup();
+      $input.keyup();
 
-        expect(filter.track).toHaveBeenCalled();
-      });
+      expect(filter.track).toHaveBeenCalled();
 
-      waits(1001);
-
-      runs(function() {
+      setTimeout(function() {
         expect(GOVUK.analytics.trackEvent).toHaveBeenCalled();
-      });
-
+        done();
+      }, 1100);
     });
 
     it("Should set aria attributes on div.countries-wrapper", function () {
@@ -289,7 +286,7 @@ describe("CountryFilter", function () {
       $.fn.trigger = jasmine.createSpy('triggerSpy');
       filter = new GOVUK.countryFilter($input);
       filter.filterHeadings = jasmine.createSpy('filterHeadings');
-      spyOn(filter, 'doesSynonymMatch').andCallThrough();
+      spyOn(filter, 'doesSynonymMatch').and.callThrough();
     });
 
     afterEach(function () {
@@ -313,7 +310,7 @@ describe("CountryFilter", function () {
 
     it("Should call synonymDoesMatch for each list item", function () {
       filter.filterListItems('Yem');
-      expect(filter.doesSynonymMatch.callCount).toEqual(5);
+      expect(filter.doesSynonymMatch.calls.count()).toEqual(5);
     });
 
     it("Should only have one country visible for the 'Yem' search term", function () {

@@ -18,6 +18,11 @@
 
     <%= simple_format link['introduction'] %>
 
-    <p><%= link_to "Apply online", link['url'], :class => "button" %></p>
+    <p>
+      <%= render "govuk_component/button",
+        text: "Apply online",
+        start: true,
+        href: link['url'] %>
+    </p>
   </section>
 <% end %>

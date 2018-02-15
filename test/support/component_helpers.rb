@@ -17,7 +17,7 @@ class ActiveSupport::TestCase
     all(shared_component_selector('button')).each do |button|
       data = JSON.parse(button.text).symbolize_keys
       next unless text == data.delete(:text)
-      data.delete(:extra_attrs) if data[:extra_attrs].blank?
+      data.delete(:data_attributes) if data[:data_attributes].blank?
       return assert_equal attrs, data
     end
 

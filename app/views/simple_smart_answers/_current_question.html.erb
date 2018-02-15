@@ -27,7 +27,7 @@
       <%= render partial: 'draft_fields' %>
 
       <div class="next-question">
-        <button type="submit" class="medium button">Next step</button>
+        <%= render "govuk_component/button", text: "Next step", class: "medium" %>
       </div>
     <% end %>
 

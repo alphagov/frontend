@@ -90,7 +90,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
         within ".find-location-for-service" do
           assert page.has_field?("Enter a postcode")
-          assert page.has_button?("Find")
+          assert_has_button_component("Find")
         end
 
         assert page.has_no_content?("Please enter a valid full UK postcode.")
@@ -128,7 +128,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
-      click_on "Find"
+      click_button_component "Find"
     end
 
     should "redirect to same page and not put postcode as URL query parameter" do
@@ -217,7 +217,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       visit "/report-child-abuse-to-local-council"
       fill_in "Enter a postcode", with: "N5 1QL"
-      click_on "Find"
+      click_button_component "Find"
     end
 
     should "not display an error message" do
@@ -253,7 +253,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
-      click_on "Find"
+      click_button_component "Find"
     end
 
     should "not error on a bad postcode" do
@@ -283,7 +283,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "BAD POSTCODE"
-      click_on "Find"
+      click_button_component "Find"
     end
 
     should "display error message" do
@@ -298,7 +298,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       within ".ask_location" do
         assert page.has_field?("Enter a postcode")
         assert page.has_field? "postcode", with: "BAD POSTCODE"
-        assert page.has_button?("Find")
+        assert_has_button_component("Find")
       end
     end
   end
@@ -312,7 +312,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "JE4 5TP"
-      click_on "Find"
+      click_button_component "Find"
     end
 
     should "display the 'no locations found' message" do

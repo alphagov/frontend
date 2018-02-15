@@ -108,7 +108,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
           assert_has_button_component("Start now",
                                       href: "/the-bridge-of-death/y",
-                                      class: "big",
                                       rel: "nofollow")
         end
 

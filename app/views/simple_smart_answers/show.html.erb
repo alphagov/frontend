@@ -10,8 +10,7 @@
       <%= render "govuk_component/button",
                   text: @publication.start_button_text,
                   rel: "nofollow",
-                  href: smart_answer_flow_path(slug: @publication.slug, edition: @edition),
-                  class: "big" %>
+                  href: smart_answer_flow_path(slug: @publication.slug, edition: @edition) %>
     </p>
   </div>
 <% end %>

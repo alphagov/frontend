@@ -70,7 +70,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "SW1A 1AA"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "redirect to the authority slug" do
@@ -132,7 +132,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "HP20 1UG"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "redirect to the district authority slug" do
@@ -195,7 +195,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "SW1A 1AA"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "show advisory message that we have no URL" do
@@ -211,7 +211,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "NO POSTCODE"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "remain on the find your local council page" do
@@ -246,7 +246,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         setup do
           visit '/find-local-council'
           fill_in 'postcode', with: ""
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "remain on the find your local council page" do
@@ -275,7 +275,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "AB1 2AB"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "remain on the find your local council page" do
@@ -305,7 +305,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "XM4 5HQ"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "see an error message" do
@@ -338,7 +338,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           visit '/find-local-council'
           fill_in 'postcode', with: "XM4 5HQ"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "remain on the find your local council page" do

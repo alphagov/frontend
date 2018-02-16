@@ -48,7 +48,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       within '#content' do
         within 'header' do
-          assert page.has_content?('Carrots')
+          assert_has_component_title "Carrots"
         end
 
         within '.article-container' do

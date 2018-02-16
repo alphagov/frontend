@@ -61,7 +61,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     should "have the correct titles" do
       visit '/foreign-travel-advice'
 
-      assert page.has_css? "h1", text: "Foreign travel advice"
+      assert_has_component_title "Foreign travel advice"
       assert_equal "Foreign travel advice - GOV.UK", page.title
     end
 

@@ -49,7 +49,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     end
 
     should "have the correct titles" do
-      assert page.has_css? "h1", text: "Find your local council"
+      assert_has_component_title "Find your local council"
       assert_equal "Find your local council - GOV.UK", page.title
     end
   end
@@ -87,7 +87,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "have the correct titles" do
-          assert page.has_css? "h1", text: "Find your local council"
+          assert_has_component_title "Find your local council"
           assert_equal "Find your local council - GOV.UK", page.title
         end
 

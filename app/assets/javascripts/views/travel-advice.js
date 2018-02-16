@@ -117,13 +117,17 @@
 
   CountryFilter.prototype.track = function(search) {
     clearTimeout(this._trackTimeout);
+    var pagePath = this.pagePath();
     this._trackTimeout = root.setTimeout(function(){
-      var pagePath = window.location.pathname.split('/').pop();
       if (pagePath) {
         GOVUK.analytics.trackEvent('searchBoxFilter', search, {label: pagePath, nonInteraction: true});
       }
     }, 1000);
   };
+
+  CountryFilter.prototype.pagePath = function() {
+    window.location.pathname.split('/').pop();
+  }
 
   GOVUK.countryFilter = CountryFilter;
 

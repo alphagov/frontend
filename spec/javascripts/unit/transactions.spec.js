@@ -20,7 +20,7 @@ describe("Transactions", function () {
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalled();
 
-      var calledWith = GOVUK.analytics.trackEvent.mostRecentCall.args;
+      var calledWith = GOVUK.analytics.trackEvent.calls.mostRecent().args;
       expect(calledWith[0]).toEqual('startpages');
       expect(calledWith[1]).toEqual('tab');
       expect(calledWith[2]).toEqual({label: location.href + "#foo", nonInteraction: true});

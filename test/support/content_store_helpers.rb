@@ -25,14 +25,14 @@ module ContentStoreHelpers
   end
 
   def content_store_has_random_item(base_path:, schema: 'placeholder', is_tagged_to_taxon: false)
-    example_generator = GovukSchemas::RandomExample.for_schema(frontend_schema: schema)
+    content_item = GovukSchemas::RandomExample.for_schema(frontend_schema: schema) do |item|
+      taxons = is_tagged_to_taxon ? [basic_taxon] : []
+      item.merge(
+        'base_path' => base_path,
+        'links' => { 'taxons' => taxons }
+      )
+    end
 
-    taxons = is_tagged_to_taxon ? [basic_taxon] : []
-
-    content_item = example_generator.merge_and_validate(
-      base_path: base_path,
-      links: { taxons: taxons }
-    )
     content_store_has_item(content_item['base_path'], content_item)
     content_item
   end

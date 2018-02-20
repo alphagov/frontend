@@ -40,6 +40,8 @@
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>
         <%= yield %>
       <% unless local_assigns.include?(:full_width) %></div><% end %>
+
+      <%= render 'govuk_publishing_components/components/feedback' %>
     </div>
   </body>
 </html>

@@ -105,7 +105,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
             assert page.has_field?("Your comments", type: 'textarea')
           end
 
-          assert_has_button_component('Send feedback')
+          assert page.has_button?('Send feedback')
         end
       end
     end
@@ -135,7 +135,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
             assert page.has_field?("Your comments", type: 'textarea')
           end
 
-          assert_has_button_component('Send feedback')
+          assert page.has_button?('Send feedback')
         end
       end
     end

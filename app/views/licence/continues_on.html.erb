@@ -11,10 +11,7 @@
           <%= render "govuk_component/title", title: "Apply for this licence" %>
 
           <p id="get-started" class="get-started group">
-            <%= render "govuk_component/button",
-                        text: "Start now",
-                        rel: "external",
-                        href: @publication.continuation_link %>
+            <a href="<%= @publication.continuation_link %>" rel="external" class="button">Start now</a>
             <% if @publication.will_continue_on.present? %>
               <span class="destination">on <%= @publication.will_continue_on %></span>
             <% end %>

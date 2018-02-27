@@ -106,9 +106,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within '.article-container' do
         within '.intro' do
           assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
-          assert_has_button_component("Start now",
-                                      href: "/the-bridge-of-death/y",
-                                      rel: "nofollow")
+          assert page.has_link?("Start now", href: "/the-bridge-of-death/y")
         end
 
         assert page.has_selector?(shared_component_selector('beta_label'))
@@ -130,7 +128,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
   should "handle the flow correctly" do
     visit "/the-bridge-of-death"
 
-    click_button_component "Start now"
+    click_on "Start now"
 
     assert_current_url "/the-bridge-of-death/y"
 
@@ -164,7 +162,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     choose "Sir Lancelot of Camelot"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
 
@@ -195,7 +193,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     choose "Blue"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
@@ -229,17 +227,17 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
   should "tell GA when we reach the end of the smart answer" do
     visit "/the-bridge-of-death"
-    click_button_component "Start now"
+    click_on "Start now"
     assert_current_url "/the-bridge-of-death/y"
     assert page.has_no_selector?('[data-module=track-smart-answer][data-smart-answer-node-type=outcome]')
 
     choose "Sir Lancelot of Camelot"
-    click_button_component "Next step"
+    click_on "Next step"
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
     assert page.has_no_selector?('[data-module=track-smart-answer][data-smart-answer-node-type=outcome]')
 
     choose "Blue"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
     # asserting that we have the right data attribtues to trigger the
@@ -252,7 +250,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     visit "/the-bridge-of-death?token=#{token}"
 
-    click_button_component "Start now"
+    click_on "Start now"
 
     assert_current_url "/the-bridge-of-death/y?token=#{token}"
     assert page.has_selector?("input[value='#{token}']", visible: false)
@@ -291,7 +289,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     choose "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue-no-yelloooooooooooooooowww"
 
@@ -325,7 +323,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     choose "Blue"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
@@ -346,7 +344,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       end
     end
 
-    click_button_component "Next step"
+    click_on "Next step"
 
     within '.current-question' do
       within 'h2' do
@@ -386,7 +384,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     choose "Blue"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
@@ -421,7 +419,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     choose "Blue"
-    click_button_component "Next step"
+    click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 

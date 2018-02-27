@@ -13,10 +13,9 @@
         We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
       </p>
       <p id="get-started" class="get-started group">
-        <%= render "govuk_component/button",
-                    text: "Go to their website",
-                    rel: "external",
-                    href: @interaction_details['local_interaction']['url'] %>
+        <a href="<%= @interaction_details['local_interaction']['url'] %>" rel="external" class="button" role="button">
+          Go to their website
+        </a>
       </p>
     </div>
   <% elsif @location_error && @location_error.no_location_interaction? %>
@@ -30,10 +29,9 @@
              data-track-category="userAlerts:local_transaction"
              data-track-action="postcodeResultShown:laMatchNoLink">
           <p id="get-started" class="get-started group">
-            <%= render "govuk_component/button",
-                        text: "Go to their website",
-                        rel: "external",
-                        href: @local_authority.url %>
+            <a href="<%= @local_authority.url %>" rel="external" class="button" role="button">
+              Go to their website
+            </a>
           </p>
         </div>
       <% else %>

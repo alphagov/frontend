@@ -101,7 +101,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         visit '/pay-bear-tax'
         fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "redirect to the appropriate authority slug" do
@@ -109,7 +109,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show a get started button which links to the interaction" do
-        assert page.has_link?("Go to their website", href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update")
+        assert_has_button_component("Go to their website",
+                                    href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
+                                    rel: "external")
       end
 
       should "not show the transaction information" do
@@ -133,7 +135,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         visit '/pay-bear-tax'
 
         fill_in 'postcode', with: "AB1 2AB"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the pay bear tax page" do
@@ -160,7 +162,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
         visit '/pay-bear-tax'
         fill_in 'postcode', with: "Not valid"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the local transaction page" do
@@ -192,7 +194,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         visit '/pay-bear-tax'
         fill_in 'postcode', with: "ENTERPOSTCODE"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the local transaction page" do
@@ -224,7 +226,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         visit '/pay-bear-tax'
         fill_in 'postcode', with: ""
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the local transaction page" do
@@ -250,7 +252,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
         visit '/pay-bear-tax'
         fill_in 'postcode', with: "XM4 5HQ"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "see an error message" do
@@ -299,7 +301,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         visit '/pay-bear-tax'
         fill_in 'postcode', with: "SW1A 1AA"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "redirect to the appropriate authority slug" do
@@ -311,7 +313,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should 'link to the council website' do
-        assert page.has_link?("Go to their website", href: 'http://westminster.example.com')
+        assert_has_button_component("Go to their website",
+                                    href: "http://westminster.example.com",
+                                    rel: "external")
       end
 
       should "not show the transaction information" do
@@ -342,7 +346,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       visit '/pay-bear-tax'
       fill_in 'postcode', with: "SW1A 1AA"
-      click_button('Find')
+
+      click_button_component("Find")
     end
 
     should "redirect to the appropriate authority slug" do
@@ -386,7 +391,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     visit '/pay-bear-tax'
     fill_in 'postcode', with: "AL10 9AB"
-    click_button('Find')
+    click_button_component("Find")
 
     assert_current_url "/pay-bear-tax"
     assert_selector(".error-summary", text: "We couldn't find a council for this postcode")

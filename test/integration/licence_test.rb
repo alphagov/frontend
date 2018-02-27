@@ -69,7 +69,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           within ".postcode-search-form" do
             assert page.has_field?("Enter a postcode")
-            assert page.has_button?("Find")
+            assert_has_button_component("Find")
           end
 
           assert page.has_no_content?("Please enter a valid full UK postcode.")
@@ -146,7 +146,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           visit '/licence-to-kill'
 
           fill_in 'postcode', with: "SW1A 1AA"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "redirect to the appropriate authority slug" do
@@ -183,7 +183,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           end
 
           should "display a button to apply for the licence" do
-            assert page.has_link? "Apply online", href: "/licence-to-kill/westminster/apply-1"
+            assert_has_button_component("Apply online",
+                                        href: "/licence-to-kill/westminster/apply-1")
           end
         end
 
@@ -288,7 +289,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           visit '/licence-to-thrill'
 
           fill_in 'postcode', with: "HP20 2QF"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "redirect to the appropriate authority slug" do
@@ -351,7 +352,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           visit '/licence-to-kill'
 
           fill_in 'postcode', with: "SW1A 1AA"
-          click_button('Find')
+          click_button_component('Find')
         end
 
         should "show details for the first authority only" do
@@ -369,7 +370,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         visit '/licence-to-kill'
 
         fill_in 'postcode', with: "Not valid"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the licence page" do
@@ -392,7 +393,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         visit '/licence-to-kill'
 
         fill_in 'postcode', with: "AB1 2AB"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the licence page" do
@@ -415,7 +416,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         visit '/licence-to-kill'
 
         fill_in 'postcode', with: "XM4 5HQ"
-        click_button('Find')
+        click_button_component('Find')
       end
 
       should "remain on the licence page" do
@@ -529,7 +530,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         context "when selecting an authority" do
           setup do
             choose 'Ministry of Love'
-            click_button "Get started"
+            click_button_component "Get started"
           end
 
           should "redirect to the authority slug" do
@@ -539,7 +540,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           should "display interactions for licence" do
             click_on "How to apply"
             assert current_path == '/licence-to-turn-off-a-telescreen/miniluv/apply'
-            assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+            assert_has_button_component("Apply online",
+                                        href: "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1")
           end
         end
       end
@@ -587,7 +589,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         should "display the interactions for licence" do
           click_on "How to apply"
-          assert page.has_link? "Apply online", href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1'
+          assert_has_button_component("Apply online",
+                                      href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1')
         end
 
         should "show overview section" do

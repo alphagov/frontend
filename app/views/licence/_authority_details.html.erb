@@ -24,7 +24,11 @@
 <article role="article" class="content-block group">
   <div id="overview" class="inner">
     <% if @licence_details.action.present? %>
-      <%= render :partial => "action", :locals => {:action => @licence_details.action } %>
+      <% if @licence_details.uses_licensify %>
+        <%= render :partial => "action", :locals => {:action => @licence_details.action } %>
+      <% else %>
+        <%= render partial: 'licensify_unavailable' %>
+      <% end %>
     <% elsif @publication.licence_overview.present? %>
       <header><h1>Overview</h1></header>
       <%= raw @publication.licence_overview %>

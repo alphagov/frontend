@@ -117,20 +117,23 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "url" => "/licence-to-kill/westminster/apply-1",
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
-                    "introduction" => "This licence is issued shaken, not stirred."
+                    "introduction" => "This licence is issued shaken, not stirred.",
+                    "usesLicensify" => true
                   }, {
                     "url" => "/licence-to-kill/westminster/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
-                    "introduction" => "Q-approval required."
-                  }
+                    "introduction" => "Q-approval required.",
+                    "usesLicensify" => true
+                }
                 ],
                 "renew" => [
                   {
                     "url" => "/licence-to-kill/westminster/renew-1",
                     "description" => "Renew your licence to kill",
                     "payment" => "none",
-                    "introduction" => ""
+                    "introduction" => "",
+                    "usesLicensify" => true
                   }
                 ]
               }
@@ -142,7 +145,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
                          "isOfferedByCounty" => false,
                          "geographicalAvailability" => %w(England Wales),
                          "issuingAuthorities" => authorities)
-
           visit '/licence-to-kill'
 
           fill_in 'postcode', with: "SW1A 1AA"
@@ -255,20 +257,23 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "url" => "/licence-to-thrill/buckinghamshire/apply-1",
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
-                    "introduction" => "This licence is issued shaken, not stirred."
+                    "introduction" => "This licence is issued shaken, not stirred.",
+                    "usesLicensify" => true
                   }, {
                     "url" => "/licence-to-thrill/buckinghamshire/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
-                    "introduction" => "Q-approval required."
-                  }
+                    "introduction" => "Q-approval required.",
+                    "usesLicensify" => true
+                }
                 ],
                 "renew" => [
                   {
                     "url" => "/licence-to-thrill/buckinghamshire/renew-1",
                     "description" => "Renew your licence to kill",
                     "payment" => "none",
-                    "introduction" => ""
+                    "introduction" => "",
+                    "usesLicensify" => true
                   }
                 ]
               }
@@ -316,7 +321,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "url" => "/licence-to-kill/westminster/apply-1",
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
-                    "introduction" => "This licence is issued shaken, not stirred."
+                    "introduction" => "This licence is issued shaken, not stirred.",
+                    "usesLicensify" => true
                   }
                 ],
               }
@@ -336,7 +342,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "url" => "/licence-to-kill/kingsmen-tailors/apply-1",
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
-                    "introduction" => "This licence is issued shaken, not stirred."
+                    "introduction" => "This licence is issued shaken, not stirred.",
+                    "usesLicensify" => true
                   }
                 ],
               }
@@ -461,10 +468,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "authoritySlug" => "miniplenty",
             "authorityInteractions" => {
               "apply" => [{
-                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-plenty/apply-1",
+                "url" => "/licence-to-turn-off-a-telescreen/ministry-of-plenty/apply-1",
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
-                "introduction" => ""
+                "introduction" => "some intro",
+                "usesLicensify" => true
               }]
             }
           },
@@ -473,10 +481,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "authoritySlug" => "miniluv",
             "authorityInteractions" => {
               "apply" => [{
-                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                "url" => "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
-                "introduction" => ""
+                "introduction" => "",
+                "usesLicensify" => true
               }]
             }
           },
@@ -485,10 +494,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "authoritySlug" => "minitrue",
             "authorityInteractions" => {
               "apply" => [{
-                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-truth/apply-1",
+                "url" => "/licence-to-turn-off-a-telescreen/ministry-of-truth/apply-1",
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
-                "introduction" => ""
+                "introduction" => "",
+                "usesLicensify" => true
               }]
             }
           },
@@ -497,10 +507,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "authoritySlug" => "minipax",
             "authorityInteractions" => {
               "apply" => [{
-                "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-peace/apply-1",
+                "url" => "/licence-to-turn-off-a-telescreen/ministry-of-peace/apply-1",
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
-                "introduction" => ""
+                "introduction" => "",
+                "usesLicensify" => true
               }]
             }
           }
@@ -541,6 +552,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           should "display interactions for licence" do
             click_on "How to apply"
             assert current_path == '/licence-to-turn-off-a-telescreen/miniluv/apply'
+
             assert_has_button_component("Apply online",
                                         href: "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
                                         start: true)
@@ -558,10 +570,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "authorityInteractions" => {
               "apply" => [
                 {
-                  "url" => "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                  "url" => "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
                   "description" => "Apply for your licence to turn off a telescreen",
                   "payment" => "none",
                   "introduction" => "",
+                  "usesLicensify" => true
                 }
               ]
             }

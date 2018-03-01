@@ -19,6 +19,20 @@ class LicenceDetailsPresenter
     !licence_details["location_specific"]
   end
 
+  def has_any_actions?
+    authority && authority["actions"].present?
+  end
+
+  def uses_licensify(chosen_action = action)
+    return false unless authority
+    chosen_action_info = authority.dig("actions", chosen_action)
+    if chosen_action_info.present?
+      chosen_action_info.any? { |link| link && link['uses_licensify'] }
+    else
+      false
+    end
+  end
+
   def action
     return nil unless interaction
     raise RecordNotFound unless authority["actions"].keys.include?(interaction)
@@ -78,7 +92,8 @@ private
                 'url' => link['url'],
                 'introduction' => link['introductionText'],
                 'description' => link['description'],
-                'payment' => link['payment']
+                'payment' => link['payment'],
+                'uses_licensify' => (link['usesLicensify'] == true)
               }
             }
             actions

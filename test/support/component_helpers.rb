@@ -16,12 +16,29 @@ class ActiveSupport::TestCase
   def assert_has_button_component(text, attrs = {})
     all(shared_component_selector('button')).each do |button|
       data = JSON.parse(button.text).symbolize_keys
-      next unless text == data.delete(:text)
+      if attrs[:href] && data[:href]
+        next unless text == data.delete(:text) && attrs[:href] == data[:href]
+      else
+        next unless text == data.delete(:text)
+      end
       data.delete(:data_attributes) if data[:data_attributes].blank?
       return assert_equal attrs, data
     end
 
     fail_button_not_found(text)
+  end
+
+  def refute_has_button_component(text, attrs = {})
+    all(shared_component_selector('button')).each do |button|
+      data = JSON.parse(button.text).symbolize_keys
+      if attrs[:href] && data[:href]
+        next unless text == data.delete(:text) && attrs[:href] == data[:href]
+      else
+        next unless text == data.delete(:text)
+      end
+      data.delete(:data_attributes) if data[:data_attributes].blank?
+      return refute_equal attrs, data
+    end
   end
 
   def click_button_component(text)

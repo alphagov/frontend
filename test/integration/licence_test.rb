@@ -554,7 +554,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             assert current_path == '/licence-to-turn-off-a-telescreen/miniluv/apply'
 
             assert_has_button_component("Apply online",
-                                        href: "/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1",
+                                        href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
                                         start: true)
           end
         end
@@ -605,7 +605,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         should "display the interactions for licence" do
           click_on "How to apply"
           assert_has_button_component("Apply online",
-                                      href: '/licence-to-turn-off-a-telescreen/minsitry-of-love/apply-1',
+                                      href: '/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1',
                                       start: true)
         end
 
@@ -751,6 +751,483 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       assert page.has_content?("You can't apply for this licence online")
       assert page.has_content?('Contact your local council')
+    end
+  end
+
+  context "given the usesLicensify parameter" do
+    setup do
+      @payload = {
+        base_path: "/licence-to-kill",
+        document_type: "licence",
+        format: "licence",
+        schema_name: "licence",
+        title: "Licence to kill",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1"
+        },
+      }
+
+      content_store_has_item('/licence-to-kill', @payload)
+    end
+
+    context "when visiting an authority with no actions" do
+      setup do
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {}
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
+        visit '/licence-to-kill'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to kill')
+      end
+
+      should "not display authority" do
+        refute page.has_content? 'Ministry of Love'
+        refute page.has_button? 'Get started'
+      end
+
+      should "display the licence unavailable message" do
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+    end
+
+    context "when there's at least one action with usesLicensify set to true" do
+      setup do
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => true
+                },
+              ],
+              "renew" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/renew-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => false
+                }
+              ]
+            }
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
+        visit '/licence-to-kill'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to kill')
+      end
+
+      should "display the authority" do
+        assert page.has_content?('Ministry of Love')
+      end
+
+      should "show licence actions that have usesLicensify set to true" do
+        within("#content nav") do
+          assert page.has_link? "How to apply", href: '/licence-to-kill/miniluv/apply'
+        end
+      end
+
+      should "show licence actions that have usesLicensify set to false" do
+        within("#content nav") do
+          assert page.has_link? "How to renew", href: '/licence-to-kill/miniluv/renew'
+        end
+      end
+
+      should "display the interactions for the licence if usesLicensify is set to true" do
+        click_link "How to apply"
+
+        assert current_path == '/licence-to-kill/miniluv/apply'
+
+        assert_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/apply-1",
+                                    start: true)
+        refute page.has_content?("You can't apply for this licence online")
+        refute page.has_content?("Contact your local council")
+      end
+
+      should "not display the interactions for the licence if usesLicensify is set to false" do
+        click_link "How to renew"
+
+        assert current_path == '/licence-to-kill/miniluv/renew'
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/renew-1",
+                                    start: true)
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+    end
+
+    context "when all actions have usesLicensify set to false" do
+      setup do
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => false
+                },
+              ],
+              "renew" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/renew-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => false
+                }
+              ]
+            }
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
+        visit '/licence-to-kill'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to kill')
+      end
+
+      should "display authority" do
+        assert page.has_content? 'Ministry of Love'
+      end
+
+      should "display the actions" do
+        assert page.has_content? 'Overview'
+        assert page.has_link? 'How to apply', href: '/licence-to-kill/miniluv/apply'
+        assert page.has_link? 'How to renew', href: '/licence-to-kill/miniluv/renew'
+      end
+
+      should "not display the licence unavailable message on the main licence page" do
+        refute page.has_content?("You can't apply for this licence online")
+        refute page.has_content?("Contact your local council")
+      end
+
+      should "display the licence unavailable message after you click on the first action" do
+        click_on "How to apply"
+
+        assert current_path == '/licence-to-kill/miniluv/apply'
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/apply-1",
+                                    start: true)
+
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+
+      should "display the licence unavailable message after you click on the second action" do
+        click_on "How to renew"
+
+        assert current_path == '/licence-to-kill/miniluv/renew'
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/renew-1",
+                                    start: true)
+
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+    end
+
+    context "when usesLicensify is missing for one action" do
+      setup do
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => ""
+                },
+              ],
+              "renew" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/renew-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => true
+                }
+              ]
+            }
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
+        visit '/licence-to-kill'
+      end
+
+      should "display the title and authority" do
+        assert page.has_content? 'Licence to kill'
+        assert page.has_content? 'Ministry of Love'
+      end
+
+      should "show licence actions that don't have the usesLicensify param" do
+        within("#content nav") do
+          assert page.has_link? "How to apply", href: '/licence-to-kill/miniluv/apply'
+        end
+      end
+
+      should "show licence actions that have usesLicensify set to true" do
+        within("#content nav") do
+          assert page.has_link? "How to renew", href: '/licence-to-kill/miniluv/renew'
+        end
+      end
+
+      should "not display interactions for licence with missing usesLicensify" do
+        click_on "How to apply"
+
+        assert current_path == '/licence-to-kill/miniluv/apply'
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/apply-1",
+                                    start: true)
+
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+
+      should "display interactions for licence with usesLicensify set to true" do
+        click_on "How to renew"
+
+        assert current_path == '/licence-to-kill/miniluv/renew'
+
+        assert_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/renew-1",
+                                    start: true)
+
+        refute page.has_content?("You can't apply for this licence online")
+        refute page.has_content?("Contact your local council")
+      end
+    end
+
+    context "when usesLicensify is missing for all actions" do
+      setup do
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => ""
+                },
+              ],
+              "renew" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/renew-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                }
+              ]
+            }
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
+        visit '/licence-to-kill'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to kill')
+      end
+
+      should "display authority" do
+        assert page.has_content? 'Ministry of Love'
+      end
+
+      should "display the actions" do
+        assert page.has_content? 'Overview'
+        assert page.has_link? 'How to apply', href: '/licence-to-kill/miniluv/apply'
+        assert page.has_link? 'How to renew', href: '/licence-to-kill/miniluv/renew'
+      end
+
+      should "not display the licence unavailable message on the main licence page" do
+        refute page.has_content?("You can't apply for this licence online")
+        refute page.has_content?("Contact your local council")
+      end
+
+      should "display the licence unavailable message after you click on an action" do
+        click_on "How to apply"
+
+        assert current_path == '/licence-to-kill/miniluv/apply'
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/apply-1",
+                                    start: true)
+
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+    end
+
+    context "when an action has multiple links, some with usesLicensify set to true" do
+      setup do
+        authorities = [
+          {
+            "authorityName" => "Ministry of Love",
+            "authoritySlug" => "miniluv",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => true
+                },
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-2",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => false
+                },
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-3",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => true
+                },
+              ],
+              "renew" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/renew-1",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => false
+                },
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/renew-2",
+                  "description" => "Apply for your licence",
+                  "payment" => "none",
+                  "introduction" => ""
+                },
+              ]
+            }
+          }
+        ]
+
+        licence_exists('1071-5-1',
+                       "isLocationSpecific" => false,
+                       "geographicalAvailability" => %w(England Wales),
+                       "issuingAuthorities" => authorities)
+
+        visit '/licence-to-kill'
+      end
+
+      should "display the title" do
+        assert page.has_content?('Licence to kill')
+      end
+
+      should "display the authority" do
+        assert page.has_content?('Ministry of Love')
+      end
+
+      should "show licence actions that have usesLicensify set to true" do
+        within("#content nav") do
+          assert page.has_link? "How to apply", href: '/licence-to-kill/miniluv/apply'
+        end
+      end
+
+      should "show licence actions that have usesLicensify set to false" do
+        within("#content nav") do
+          assert page.has_link? "How to renew", href: '/licence-to-kill/miniluv/renew'
+        end
+      end
+
+      should "display the interactions for the licence if usesLicensify is set to true for a link" do
+        click_link "How to apply"
+
+        assert current_path == '/licence-to-kill/miniluv/apply'
+
+        assert_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/apply-1",
+                                    start: true)
+        assert_has_button_component("Apply online",
+                                    start: true,
+                                    href: "/licence-to-kill/ministry-of-love/apply-3")
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/apply-2",
+                                    start: true)
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
+
+      should "not display the interactions for the licence if usesLicensify is set to false or is missing for a link" do
+        click_link "How to renew"
+
+        assert current_path == '/licence-to-kill/miniluv/renew'
+
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/renew-1",
+                                    start: true)
+        refute_has_button_component("Apply online",
+                                    href: "/licence-to-kill/ministry-of-love/renew-2",
+                                    start: true)
+        assert page.has_content?("You can't apply for this licence online")
+        assert page.has_content?("Contact your local council")
+      end
     end
   end
 end

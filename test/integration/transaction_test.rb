@@ -55,8 +55,10 @@ class TransactionTest < ActionDispatch::IntegrationTest
           within 'section.intro' do
             assert page.has_selector?(".get-started-intro", text: 'This is the introduction to carrots')
 
-            start_link = find_link("Eat Carrots Now")
-            assert_equal 'http://carrots.example.com', start_link["href"]
+            assert_has_button_component("Eat Carrots Now",
+                                        href: "http://carrots.example.com",
+                                        start: true,
+                                        rel: "external")
 
             assert page.has_content?('Carrotworld')
           end
@@ -90,9 +92,15 @@ class TransactionTest < ActionDispatch::IntegrationTest
       visit "/foo"
 
       assert_equal 200, page.status_code
-      assert_selector('[data-module="cross-domain-tracking"]')
-      assert_selector('[data-tracking-code="UA-12345-6"]')
-      assert_selector('[data-tracking-name="transactionTracker"]')
+      assert_has_button_component("Start now",
+                                  rel: "external",
+                                  href: "http://cti.voa.gov.uk/cti/inits.asp",
+                                  start: true,
+                                  data_attributes: {
+                                    "module" => "cross-domain-tracking",
+                                    "tracking-code" => "UA-12345-6",
+                                    "tracking-name" => "transactionTracker"
+                                  })
     end
   end
 
@@ -102,9 +110,10 @@ class TransactionTest < ActionDispatch::IntegrationTest
       visit "/foo"
 
       assert_equal 200, page.status_code
-      assert page.has_no_selector?('[data-module="cross-domain-tracking"]')
-      assert page.has_no_selector?('[data-tracking-code]')
-      assert page.has_no_selector?('[data-tracking-name]')
+      assert_has_button_component("Start now",
+                                  rel: "external",
+                                  start: true,
+                                  href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx")
     end
   end
 
@@ -133,7 +142,10 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       within ".article-container" do
         within "section.intro" do
-          assert page.has_link?("Dechrau nawr")
+          assert_has_button_component("Dechrau nawr",
+                                      rel: "external",
+                                      start: true,
+                                      href: "http://cymraeg.example.com")
         end
       end
     end

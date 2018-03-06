@@ -1,8 +1,7 @@
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
-  edition: @edition,
-  step_nav_content: current_step_nav
+  edition: @edition
 } do %>
   <section class="intro">
     <div class="get-started-intro"><%= @publication.introductory_paragraph.try(:html_safe) %></div>

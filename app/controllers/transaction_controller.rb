@@ -6,12 +6,6 @@ class TransactionController < ApplicationController
   before_action :deny_framing
 
   def show
-    locals = {
-      locals: {
-        step_nav_content: current_step_nav
-      }
-    }
-    render :show, locals
   end
 
   def jobsearch; end

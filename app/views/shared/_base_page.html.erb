@@ -13,9 +13,9 @@
   </div>
 </main>
 
-<% if show_step_nav? %>
+<% if step_nav_helper.show_related_links? %>
 <div class="related-container">
-  <%= render 'shared/step_nav_sidebar', step_nav_content: step_nav_content %>
+  <%= render 'shared/step_nav_sidebar' %>
 </div>
 <% elsif @navigation_helpers %>
 <div class="related-container">

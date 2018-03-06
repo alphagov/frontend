@@ -25,15 +25,11 @@ class ApplicationController < ActionController::Base
     :should_present_taxonomy_navigation?,
   )
 
-  def current_step_nav
-    @step_nav = GovukNavigationHelpers::StepNavContent.current_step_nav(request.path)
+  def step_nav_helper
+    @step_nav_helper ||= GovukPublishingComponents::StepNavHelper.new(@content_item,
+      request.path)
   end
-  helper_method :current_step_nav
-
-  def show_step_nav?
-    current_step_nav && current_step_nav.show_step_nav?
-  end
-  helper_method :show_step_nav?
+  helper_method :step_nav_helper
 
 protected
 

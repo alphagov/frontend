@@ -25,8 +25,8 @@ class TransactionControllerTest < ActionController::TestCase
 
     context "step navigation header" do
       setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
-        content_store_has_example_item('/not-in-test', schema: 'transaction')
+        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction', example: "transaction-with-step-navs")
+        content_store_has_example_item('/not-in-test', schema: 'transaction', example: "transaction")
       end
 
       should "should not show the step_nav header on irrelevant pages" do
@@ -42,8 +42,8 @@ class TransactionControllerTest < ActionController::TestCase
 
     context "step navigation" do
       setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
-        content_store_has_example_item('/not-in-test', schema: 'transaction')
+        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction', example: "transaction-with-step-navs")
+        content_store_has_example_item('/not-in-test', schema: 'transaction', example: "transaction")
       end
 
       should "should not show the step navigation sidebar on irrelevant pages" do

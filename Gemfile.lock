@@ -233,9 +233,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-i18n (5.0.4)
-      i18n (~> 0.7)
-      railties (~> 5.0)
+    rails-i18n (5.1.1)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.1.5)
       actionpack (= 5.1.5)
       activesupport (= 5.1.5)
@@ -378,7 +378,7 @@ DEPENDENCIES
   rack_strip_client_ip (~> 0.0.2)
   rails (= 5.1.5)
   rails-controller-testing
-  rails-i18n (~> 5.0.0)
+  rails-i18n (~> 5.1.1)
   sass (~> 3.4.0)
   sass-rails
   shoulda-context

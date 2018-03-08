@@ -18,11 +18,16 @@
 
     <%= simple_format link['introduction'] %>
 
-    <p>
-      <%= render "govuk_component/button",
-        text: "Apply online",
-        start: true,
-        href: link['url'] %>
-    </p>
+    <% if link['uses_licensify'] %>
+      <p>
+        <%= render "govuk_component/button",
+                   text: "Apply online",
+                   start: true,
+                   href: link['url'] %>
+      </p>
+    <% else %>
+      <%= render partial: 'licensify_unavailable' %>
+    <% end %>
   </section>
+
 <% end %>

@@ -6,7 +6,7 @@
   edition: @edition,
 } do %>
 
-  <% if @licence_details.present? %>
+  <% if @licence_details.present? && @licence_details.has_any_actions? %>
     <%= render partial: 'authority_details' %>
   <% else %>
     <%= render partial: 'licensify_unavailable' %>

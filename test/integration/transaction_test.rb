@@ -153,31 +153,19 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
   context "step by step navigation" do
     setup do
-      content_store_has_example_item('/not-in-test', schema: 'transaction')
-      content_store_has_example_item('/vehicles-can-drive', schema: 'transaction') #primary content
-      content_store_has_example_item('/complain-about-a-driving-instructor', schema: 'transaction') #secondary content
+      content_store_has_example_item('/vehicles-can-drive', schema: 'transaction', example: 'transaction-with-step-navs')
     end
 
-
-    should "not include step nav sidebar on irrelevant content" do
-      visit "/not-in-test"
-
-      assert page.has_no_selector?(".gem-c-step-nav")
-    end
-
-    should "on secondary content include step nav sidebar but not show the item as 'active'" do
-      visit "/complain-about-a-driving-instructor"
-
-      assert page.has_selector?(".gem-c-step-nav")
-      assert page.has_selector?(".gem-c-step-nav__step", count: 7)
-      assert page.has_no_selector?(".gem-c-step-nav__link--active")
-    end
-
-    should "set the item as active if it is the current page" do
+    should "include correctly rendered step nav sidebar, header and related links" do
       visit "/vehicles-can-drive"
 
       assert page.has_selector?(".gem-c-step-nav")
+      assert page.has_selector?(".gem-c-step-nav__step", count: 7)
       assert page.has_selector?(".gem-c-step-nav__link--active")
+
+      assert page.has_selector?(".gem-c-step-nav-header")
+
+      assert page.has_selector?(".gem-c-step-nav-related")
     end
   end
 end

@@ -7,13 +7,6 @@ class SimpleSmartAnswersController < ApplicationController
   before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
 
   def show
-    locals = {
-      locals: {
-        step_nav_content: current_step_nav
-      }
-    }
-
-    render :show, locals
   end
 
   def flow

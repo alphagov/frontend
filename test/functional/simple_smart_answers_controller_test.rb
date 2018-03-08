@@ -45,8 +45,8 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     context "step navigation header" do
       setup do
-        content_store_has_random_item(base_path: '/vehicles-can-drive', schema: 'simple_smart_answer')
-        content_store_has_random_item(base_path: '/not-in-the-test', schema: 'simple_smart_answer')
+        content_store_has_example_item('/vehicles-can-drive', schema: 'simple_smart_answer', example: "simple-smart-answer-with-step-navs")
+        content_store_has_example_item('/not-in-the-test', schema: 'simple_smart_answer', example: "simple-smart-answer")
       end
 
       should "should not show the step navigation header on irrevelant pages" do
@@ -62,12 +62,12 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     context "step navigation" do
       setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction')
-        content_store_has_example_item('/not-in-test', schema: 'transaction')
+        content_store_has_example_item('/vehicles-can-drive', schema: 'simple_smart_answer', example: "simple-smart-answer-with-step-navs")
+        content_store_has_example_item('/not-in-the-test', schema: 'simple_smart_answer', example: "simple-smart-answer")
       end
 
       should "should not show the step navigation sidebar on irrelevant pages" do
-        get :show, params: { slug: "not-in-test" }
+        get :show, params: { slug: "not-in-the-test" }
         assert_template partial: "_step_nav_sidebar", count: 0
       end
 

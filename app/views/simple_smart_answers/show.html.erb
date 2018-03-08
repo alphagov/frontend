@@ -1,8 +1,7 @@
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
-  edition: @edition,
-  step_nav_content: step_nav_content
+  edition: @edition
 } do %>
   <div class="intro">
     <%= raw @publication.body %>

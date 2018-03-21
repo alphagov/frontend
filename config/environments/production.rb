@@ -11,12 +11,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Specifies the header that your server uses for sending files
-  config.action_dispatch.x_sendfile_header = "X-Sendfile"
-
-  # For nginx:
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
 
@@ -29,13 +23,6 @@ Rails.application.configure do
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
-  config.assets.compress = true
-  config.assets.digest = true
-
-  # Disable Rails's static asset server
-  # In production, Apache or nginx will already do this
-  config.serve_static_files = false
-
   # Enable threaded mode
   # config.threadsafe!
 
@@ -46,8 +33,24 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
-
   config.eager_load = true
+
+  # Set GOVUK_ASSET_ROOT for heroku - for review apps we have the hostname set
+  # at the time of the app being built so can't be set up in the app.json
+  if !ENV.include?('GOVUK_ASSET_ROOT') && ENV['HEROKU_APP_NAME']
+    ENV['GOVUK_ASSET_ROOT'] = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+  end
+
+  # Enable serving of images, stylesheets, and javascripts from an asset server
+  config.action_controller.asset_host = ENV['GOVUK_ASSET_ROOT']
+
+  config.assets.compress = true
+  config.assets.digest = true
+
+  # Disable Rails's static asset server
+  # In production, Apache or nginx will already do this
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
+  # Specifies the header that your server uses for sending files
+  config.action_dispatch.x_sendfile_header = ENV['HEROKU_APP_NAME'] ? nil : "X-Sendfile"
 end

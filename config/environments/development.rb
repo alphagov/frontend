@@ -19,8 +19,6 @@ Rails.application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  #config.assets.compress = true
-  #config.assets.digest = true
   config.assets.debug = true
 
   if ENV['GOVUK_ASSET_ROOT'].present?

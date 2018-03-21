@@ -3,6 +3,12 @@ require 'plek'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # Set GOVUK_ASSET_ROOT for heroku - for review apps we have the hostname set
+  # at the time of the app being built so can't be set up in the app.json
+  if !ENV.include?('GOVUK_ASSET_ROOT') && ENV['HEROKU_APP_NAME']
+    ENV['GOVUK_ASSET_ROOT'] = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+  end
+
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true

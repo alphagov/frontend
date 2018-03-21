@@ -11,12 +11,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # Specifies the header that your server uses for sending files
-  config.action_dispatch.x_sendfile_header = "X-Sendfile"
-
-  # For nginx:
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
 
@@ -56,4 +50,7 @@ Rails.application.configure do
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
+  # Specifies the header that your server uses for sending files
+  config.action_dispatch.x_sendfile_header = ENV['HEROKU_APP_NAME'] ? nil : "X-Sendfile"
 end

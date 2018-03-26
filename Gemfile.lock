@@ -86,7 +86,7 @@ GEM
     execjs (2.7.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
-    gds-api-adapters (52.2.1)
+    gds-api-adapters (52.4.0)
       addressable
       link_header
       lrucache (~> 0.1.1)
@@ -364,7 +364,7 @@ DEPENDENCIES
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 52.2.1)
+  gds-api-adapters (~> 52.4.0)
   govuk-content-schema-test-helpers
   govuk-lint
   govuk_app_config (~> 1.4.0)

@@ -192,7 +192,7 @@ GEM
       nokogiri
     null_logger (0.0.1)
     parallel (1.12.1)
-    parser (2.5.0.4)
+    parser (2.5.0.5)
       ast (~> 2.4.0)
     phantomjs (2.1.1.0)
     plek (2.1.1)

@@ -26,15 +26,7 @@
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
       <% unless current_page?(root_path) %>
-        <% if step_nav_helper.show_header? %>
-          <%= render 'shared/step_nav_header' %>
-        <% else %>
-          <%= render partial: 'govuk_component/breadcrumbs',
-            locals: {
-              breadcrumbs: breadcrumbs[:breadcrumbs],
-              collapse_on_mobile: should_present_taxonomy_navigation?(@content_item)
-            } %>
-        <% end %>
+        <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
       <% end %>
 
       <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>

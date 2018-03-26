@@ -108,9 +108,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
           assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
         end
       end
-
-      assert_breadcrumb_rendered
-      assert_related_items_rendered
     end
 
     should "add google analytics tags for postcodeSearchStarted" do
@@ -144,9 +141,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display places near to the requested location" do
-      assert_breadcrumb_rendered
-      assert_related_items_rendered
-
       names = page.all("#options li p.adr span.fn").map(&:text)
       assert_equal ["London IPS Office", "Crawley IPS Office"], names
 

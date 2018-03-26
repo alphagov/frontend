@@ -22,40 +22,6 @@ class TransactionControllerTest < ActionController::TestCase
       get :show, params: { slug: 'foo' }
       assert_equal "DENY", @response.headers["X-Frame-Options"]
     end
-
-    context "step navigation header" do
-      setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction', example: "transaction-with-step-navs")
-        content_store_has_example_item('/not-in-test', schema: 'transaction', example: "transaction")
-      end
-
-      should "should not show the step_nav header on irrelevant pages" do
-        get :show, params: { slug: 'not-in-test' }
-        assert_template partial: "_step_nav_header", count: 0
-      end
-
-      should "show the step_nav header on relevant pages" do
-        get :show, params: { slug: "vehicles-can-drive" }
-        assert_template partial: "_step_nav_header", count: 1
-      end
-    end
-
-    context "step navigation" do
-      setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'transaction', example: "transaction-with-step-navs")
-        content_store_has_example_item('/not-in-test', schema: 'transaction', example: "transaction")
-      end
-
-      should "should not show the step navigation sidebar on irrelevant pages" do
-        get :show, params: { slug: "not-in-test" }
-        assert_template partial: "_step_nav_sidebar", count: 0
-      end
-
-      should "show the step navigation sidebar on relevant pages" do
-        get :show, params: { slug: "vehicles-can-drive" }
-        assert_template partial: "_step_nav_sidebar", count: 1
-      end
-    end
   end
 
   context "loading the jobsearch page" do

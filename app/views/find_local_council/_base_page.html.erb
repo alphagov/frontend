@@ -17,8 +17,6 @@
   </div>
 </main>
 
-<% if @navigation_helpers %>
 <div class="related-container">
-  <%= render partial: 'govuk_component/related_items', locals: @navigation_helpers.related_items %>
+  <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
 </div>
-<% end %>

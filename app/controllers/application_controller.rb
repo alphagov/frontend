@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
   include Slimmer::GovukComponents
-  include TaxonomyNavigation
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -16,20 +15,6 @@ class ApplicationController < ActionController::Base
   rescue_from RecordNotFound, with: :cacheable_404
 
   slimmer_template 'wrapper'
-
-  attr_accessor :navigation_helpers, :navigation
-
-  helper_method(
-    :breadcrumbs,
-    :navigation_helpers,
-    :should_present_taxonomy_navigation?,
-  )
-
-  def step_nav_helper
-    @step_nav_helper ||= GovukPublishingComponents::StepNavHelper.new(@content_item,
-      request.path)
-  end
-  helper_method :step_nav_helper
 
 protected
 
@@ -57,22 +42,15 @@ protected
   end
 
   def setup_content_item(base_path)
-    @content_item = content_store.content_item(base_path).to_hash
-  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
-    @content_item = nil
-  end
-
-  def setup_content_item_and_navigation_helpers(base_path)
-    setup_content_item(base_path)
-
-    if @content_item
-      @navigation_helpers = GovukNavigationHelpers::NavigationHelper.new(@content_item)
+    begin
+      @content_item = content_store.content_item(base_path).to_hash
       section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
       if section_name
         @meta_section = section_name.downcase
       end
-    else
-      @navigation_helpers, @meta_section = nil
+    rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
+      @content_item = nil
+      @meta_section = nil
     end
   end
 
@@ -91,16 +69,6 @@ protected
 
   def content_item
     @_content_item ||= Services.content_store.content_item("/#{params[:slug]}")
-  end
-
-  def breadcrumbs
-    return {} if navigation_helpers.nil?
-
-    if should_present_taxonomy_navigation?(@content_item)
-      navigation_helpers.taxon_breadcrumbs
-    else
-      navigation_helpers.breadcrumbs
-    end
   end
 
 private

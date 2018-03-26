@@ -44,6 +44,8 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "respond with success" do
+      content_store_has_random_item(base_path: "/help/ab-testing", schema: 'help_page')
+
       get :ab_testing, params: { slug: "help/ab-testing" }
 
       assert_response :success
@@ -51,6 +53,8 @@ class HelpControllerTest < ActionController::TestCase
 
     should "show the user the 'A' version if the user is in bucket 'A'" do
       with_variant Example: 'A' do
+        content_store_has_random_item(base_path: "/help/ab-testing", schema: 'help_page')
+
         get :ab_testing
 
         assert_select ".ab-example-group", text: "A"
@@ -59,6 +63,8 @@ class HelpControllerTest < ActionController::TestCase
 
     should "show the user the 'B' version if the user is in bucket 'B'" do
       with_variant Example: 'B' do
+        content_store_has_random_item(base_path: "/help/ab-testing", schema: 'help_page')
+
         get :ab_testing
 
         assert_select ".ab-example-group", text: "B"
@@ -66,13 +72,17 @@ class HelpControllerTest < ActionController::TestCase
     end
 
     should "show the user the default version if the user is not in a bucket" do
+      content_store_has_random_item(base_path: "/help/ab-testing", schema: 'help_page')
+
       get :ab_testing
 
       assert_select ".ab-example-group", text: "A"
     end
 
     should "show the user the default version if the user is in an unknown bucket" do
+      content_store_has_random_item(base_path: "/help/ab-testing", schema: 'help_page')
       setup_ab_variant('Example', 'not_a_valid_AB_test_value')
+
       get :ab_testing
 
       assert_select ".ab-example-group", text: "A"

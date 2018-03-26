@@ -116,9 +116,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         within(".modified-date") { assert_page_has_content "Last updated: 25 June 2013" }
       end
     end
-
-    assert_breadcrumb_rendered
-    assert_related_items_rendered
   end
 
   context "when previously a format with parts" do
@@ -139,8 +136,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       assert page.has_selector?('title', text: "The Bridge of Death - GOV.UK", visible: :all)
       assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
     end
-
-    assert_breadcrumb_rendered
 
     within '#content' do
       within 'header.page-header' do
@@ -428,23 +423,5 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert page.has_selector?('.done-questions li.done', count: 2)
     assert_page_has_content "Right, off you go"
-  end
-
-  context "step by step navigation" do
-    setup do
-      content_store_has_example_item('/vehicles-can-drive', schema: 'simple_smart_answer', example: 'simple-smart-answer-with-step-navs')
-    end
-
-    should "include correctly rendered step nav sidebar, header and related links" do
-      visit "/vehicles-can-drive"
-
-      assert page.has_selector?(".gem-c-step-nav")
-      assert page.has_selector?(".gem-c-step-nav__step", count: 7)
-      assert page.has_selector?(".gem-c-step-nav__link--active")
-
-      assert page.has_selector?(".gem-c-step-nav-header")
-
-      assert page.has_selector?(".gem-c-step-nav-related")
-    end
   end
 end

@@ -22,15 +22,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       assert page.has_field?("postcode")
     end
 
-    should "show the breadcrumbs" do
-      assert_breadcrumb_rendered
-    end
-
-    should "show the related links" do
-      assert_breadcrumb_rendered
-      assert_related_items_rendered
-    end
-
     should "add google analytics tags for postcodeSearchStarted" do
       track_category = page.find('.postcode-search-form')['data-track-category']
       track_action = page.find('.postcode-search-form')['data-track-action']

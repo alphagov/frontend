@@ -70,9 +70,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
       within('.help-notice') do
         assert page.has_content?('CarrotServe will be offline next week.')
       end
-
-      assert_breadcrumb_rendered
-      assert_related_items_rendered
     end
   end
 
@@ -148,24 +145,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
                                       href: "http://cymraeg.example.com")
         end
       end
-    end
-  end
-
-  context "step by step navigation" do
-    setup do
-      content_store_has_example_item('/vehicles-can-drive', schema: 'transaction', example: 'transaction-with-step-navs')
-    end
-
-    should "include correctly rendered step nav sidebar, header and related links" do
-      visit "/vehicles-can-drive"
-
-      assert page.has_selector?(".gem-c-step-nav")
-      assert page.has_selector?(".gem-c-step-nav__step", count: 7)
-      assert page.has_selector?(".gem-c-step-nav__link--active")
-
-      assert page.has_selector?(".gem-c-step-nav-header")
-
-      assert page.has_selector?(".gem-c-step-nav-related")
     end
   end
 end

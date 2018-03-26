@@ -42,40 +42,6 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end
     end
-
-    context "step navigation header" do
-      setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'simple_smart_answer', example: "simple-smart-answer-with-step-navs")
-        content_store_has_example_item('/not-in-the-test', schema: 'simple_smart_answer', example: "simple-smart-answer")
-      end
-
-      should "should not show the step navigation header on irrevelant pages" do
-        get :show, params: { slug: "not-in-the-test" }
-        assert_template partial: "_step_nav_header", count: 0
-      end
-
-      should "show the step navigation header on relevant pages" do
-        get :show, params: { slug: "vehicles-can-drive" }
-        assert_template partial: "_step_nav_header", count: 1
-      end
-    end
-
-    context "step navigation" do
-      setup do
-        content_store_has_example_item('/vehicles-can-drive', schema: 'simple_smart_answer', example: "simple-smart-answer-with-step-navs")
-        content_store_has_example_item('/not-in-the-test', schema: 'simple_smart_answer', example: "simple-smart-answer")
-      end
-
-      should "should not show the step navigation sidebar on irrelevant pages" do
-        get :show, params: { slug: "not-in-the-test" }
-        assert_template partial: "_step_nav_sidebar", count: 0
-      end
-
-      should "show the step navigation sidebar on relevant pages" do
-        get :show, params: { slug: "vehicles-can-drive" }
-        assert_template partial: "_step_nav_sidebar", count: 1
-      end
-    end
   end
 
   context "GET 'flow'" do

@@ -54,8 +54,6 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       group_headers = page.all(".list h2").map(&:text)
       assert_equal group_headers.sort, group_headers
-
-      assert_breadcrumb_rendered
     end
 
     should "have the correct titles" do

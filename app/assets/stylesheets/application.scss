@@ -23,7 +23,6 @@
 @import "helpers/beta-label";
 @import "helpers/error-summary";
 @import "helpers/truncated-url";
-@import "helpers/step-nav-title";
 @import "helpers/title-context-reset";
 
 // View stylesheets
@@ -40,6 +39,18 @@
 @import "views/jobsearch";
 @import "views/location_form";
 @import "views/local-transaction";
+
+
+// Reset some global styles from the `wrapper` layout
+.gem-c-related-navigation {
+  h3 {
+    font-size: 16px;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+}
 
 // components
 @import 'govuk_publishing_components/all_components';

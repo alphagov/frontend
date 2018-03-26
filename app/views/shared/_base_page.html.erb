@@ -13,16 +13,6 @@
   </div>
 </main>
 
-<% if step_nav_helper.show_related_links? %>
 <div class="related-container">
-  <%= render 'shared/step_nav_sidebar' %>
+  <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
 </div>
-<% elsif @navigation_helpers %>
-<div class="related-container">
-  <% if should_present_taxonomy_navigation?(@content_item) %>
-    <%= render partial: 'govuk_component/taxonomy_sidebar', locals: navigation_helpers.taxonomy_sidebar %>
-  <% else %>
-    <%= render partial: 'govuk_component/related_items', locals: navigation_helpers.related_items %>
-  <% end %>
-</div>
-<% end %>

@@ -47,16 +47,6 @@ class ActionDispatch::IntegrationTest
       assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
     end
   end
-
-  # The following selectors are specified using XPath because Capybara/Nokogiri does not seem to find non-standard tags
-  # using the usual "CSS-style" selectors.
-  def assert_breadcrumb_rendered
-    assert page.has_selector?(:xpath, "//test-govuk-component[@data-template='govuk_component-breadcrumbs']", visible: true)
-  end
-
-  def assert_related_items_rendered
-    assert page.has_selector?(:xpath, "//test-govuk-component[@data-template='govuk_component-related_items']", visible: true)
-  end
 end
 
 Capybara.register_driver :poltergeist do |app|

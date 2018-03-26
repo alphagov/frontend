@@ -84,9 +84,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
             assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
           end
         end
-
-        assert_breadcrumb_rendered
-        assert_related_items_rendered
       end
 
       should "add google analytics tags for postcodeSearchStarted" do

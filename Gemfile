@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'gds-api-adapters', '~> 52.2.1'
+gem 'gds-api-adapters', '~> 52.4.0'
 gem 'govuk_app_config', '~> 1.4.0'
 gem 'govuk_frontend_toolkit', '~> 7.4.1'
 gem 'govuk_publishing_components', '~> 5.7.0'

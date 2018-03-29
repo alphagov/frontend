@@ -9,7 +9,7 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
     end
 
     should "set the index attributes correctly" do
-      assert_equal "https://public.govdelivery.com/accounts/UKGOVUK/subscriber/topics?qsp=TRAVEL", @presenter.subscription_url
+      assert_equal "/foreign-travel-advice/email-signup", @presenter.subscription_url
       assert_equal "Latest travel advice by country including safety and security, entry requirements, travel warnings and health", @presenter.description
       assert_equal "foreign-travel-advice", @presenter.slug
       assert_equal "Foreign travel advice", @presenter.title

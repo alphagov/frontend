@@ -7,54 +7,30 @@ class ActiveSupport::TestCase
     end
   end
 
-  def assert_has_button_component(text, attrs = {})
-    all(shared_component_selector('button')).each do |button|
-      data = JSON.parse(button.text).symbolize_keys
-      if attrs[:href] && data[:href]
-        next unless text == data.delete(:text) && attrs[:href] == data[:href]
-      else
-        next unless text == data.delete(:text)
-      end
-      data.delete(:data_attributes) if data[:data_attributes].blank?
-      return assert_equal attrs, data
-    end
+  def assert_has_button(text)
+    assert page.has_css?("button", text: text)
+  end
 
-    fail_button_not_found(text)
+  def assert_has_button_as_link(text, attrs = {})
+    assert page.has_css?(process_button_attributes(attrs), text: text)
   end
 
   def refute_has_button_component(text, attrs = {})
-    all(shared_component_selector('button')).each do |button|
-      data = JSON.parse(button.text).symbolize_keys
-      if attrs[:href] && data[:href]
-        next unless text == data.delete(:text) && attrs[:href] == data[:href]
-      else
-        next unless text == data.delete(:text)
-      end
-      data.delete(:data_attributes) if data[:data_attributes].blank?
-      return refute_equal attrs, data
-    end
+    assert page.has_no_css?(process_button_attributes(attrs), text: text)
   end
 
-  def click_button_component(text)
-    selector = shared_component_selector("button")
+  def process_button_attributes(attrs)
+    match_assert = ".gem-c-button"
+    match_assert << ".gem-c-button--start" if attrs[:start]
+    match_assert << "[rel='#{attrs[:rel]}']" if attrs[:rel]
+    match_assert << "[href='#{attrs[:href]}']" if attrs[:href]
 
-    all(selector).each do |button|
-      data = JSON.parse(button.text).symbolize_keys
-
-      next if data[:text] != text
-
-      if data.has_key?(:href)
-        return visit(data[:href])
-      else
-        form = find(selector).first(:xpath, "ancestor::form")
-        return Capybara::RackTest::Form.new(page.driver, form.native).submit({})
+    if attrs[:data]
+      attrs[:data].each do |key, value|
+        match_assert << "[data-#{key}='#{value}']"
       end
     end
 
-    fail_button_not_found(text)
-  end
-
-  def fail_button_not_found(button_text)
-    fail "Button component not found with text '#{button_text}'"
+    match_assert
   end
 end

@@ -12,7 +12,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
         document_type: "transaction",
         first_published_at: "2016-02-29T09:24:10.000+00:00",
         locale: "en",
-        need_ids: [],
         phase: "beta",
         public_updated_at: "2012-10-22T12:49:50.000+00:00",
         publishing_app: "publisher",

@@ -20,8 +20,9 @@ class ActiveSupport::TestCase
   end
 
   def process_button_attributes(attrs)
-    match_assert = ".gem-c-button"
-    match_assert << ".gem-c-button--start" if attrs[:start]
+    match_assert = ""
+    #match_assert = ".gem-c-button"
+    #match_assert << ".gem-c-button--start" if attrs[:start]
     match_assert << "[rel='#{attrs[:rel]}']" if attrs[:rel]
     match_assert << "[href='#{attrs[:href]}']" if attrs[:href]
 

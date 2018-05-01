@@ -54,7 +54,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           within 'section.intro' do
             assert page.has_selector?(".get-started-intro", text: 'This is the introduction to carrots')
 
-            assert_has_button_component("Eat Carrots Now",
+            assert_has_button_as_link("Eat Carrots Now",
                                         href: "http://carrots.example.com",
                                         start: true,
                                         rel: "external")
@@ -88,7 +88,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
       visit "/foo"
 
       assert_equal 200, page.status_code
-      assert_has_button_component("Start now",
+      assert_has_button_as_link("Start now",
                                   rel: "external",
                                   href: "http://cti.voa.gov.uk/cti/inits.asp",
                                   start: true,
@@ -106,7 +106,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
       visit "/foo"
 
       assert_equal 200, page.status_code
-      assert_has_button_component("Start now",
+      assert_has_button_as_link("Start now",
                                   rel: "external",
                                   start: true,
                                   href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx")
@@ -138,7 +138,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       within ".article-container" do
         within "section.intro" do
-          assert_has_button_component("Dechrau nawr",
+          assert_has_button_as_link("Dechrau nawr",
                                       rel: "external",
                                       start: true,
                                       href: "http://cymraeg.example.com")

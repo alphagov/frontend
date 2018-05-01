@@ -23,7 +23,7 @@
 
       <p class="group"><label for="search_keywords"><%= t 'formats.transaction.jobsearch.skills' %> <input id="search_keywords" name="q" type="text" /></label></p>
       <p id="get-started" class="get-started group">
-        <%= render "govuk_component/button", text: t('formats.transaction.jobsearch.search'), start: true %>
+        <%= render "govuk_publishing_components/components/button", text: t('formats.transaction.jobsearch.search'), start: true %>
         <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
       </p>
     </form>

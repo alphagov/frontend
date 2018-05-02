@@ -22,8 +22,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       assert_has_component_title "Thank you"
 
       within '.content-block' do
-        assert page.has_no_selector?('#organ-donor-registration-promotion')
-        assert page.has_no_selector?('#register-to-vote-promotion')
+        assert page.has_no_selector?('.promotion')
       end
     end
   end
@@ -136,6 +135,34 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
           end
 
           assert page.has_button?('Send feedback')
+        end
+      end
+    end
+
+    context 'promotions' do
+      setup do
+        payload = @payload.merge(
+          base_path: "/done/check-mot-history",
+          details: {
+            "promotion": {
+              "category": "mot_reminder",
+              "url": "https://www.gov.uk/mot-reminder"
+            }
+          }
+        )
+
+        content_store_has_item('/done/check-mot-history', payload)
+        visit "/done/check-mot-history"
+      end
+
+      should 'show mot-reminder content if promotion choice has been selected' do
+        assert_equal 200, page.status_code
+
+        assert_has_component_title "Thank you"
+
+        within '.content-block' do
+          assert page.has_selector?('.promotion')
+          assert page.has_content?('Get a text or email reminder when your MOT is due.')
         end
       end
     end

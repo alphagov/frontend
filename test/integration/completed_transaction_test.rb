@@ -22,9 +22,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       assert_has_component_title "Thank you"
 
       within '.content-block' do
-        assert page.has_no_selector?('#organ-donor-registration-promotion')
-        assert page.has_no_selector?('#register-to-vote-promotion')
-        assert page.has_no_selector?('#mot-reminder-promotion')
+        assert page.has_no_selector?('.promotion')
       end
     end
   end
@@ -163,7 +161,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
         assert_has_component_title "Thank you"
 
         within '.content-block' do
-          assert page.has_selector?('#mot-reminder-promotion')
+          assert page.has_selector?('.promotion')
           assert page.has_content?('Get a text or email reminder when your MOT is due.')
         end
       end

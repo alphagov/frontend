@@ -72,14 +72,13 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "jobsearch page" do
+  context "jobsearch special page" do
     should "render ok" do
       content_store_has_example_item('/jobsearch', schema: 'transaction', example: 'jobsearch')
       visit '/jobsearch'
 
       assert_equal 200, page.status_code
-      assert_has_button_as_link("Start now",
-                                href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx")
+      assert_selector('.jobsearch-form', visible: true)
     end
   end
 

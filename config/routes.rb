@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   # Transaction pages
   constraints FormatRoutingConstraint.new('transaction') do
+    get ":slug", slug: %r{(jobsearch|chwilio-am-swydd)}, to: "transaction#jobsearch"
     get ":slug", to: "transaction#show"
   end
 

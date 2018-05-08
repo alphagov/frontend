@@ -30,23 +30,18 @@ class TransactionControllerTest < ActionController::TestCase
     end
 
     should "respond with success" do
-      get :jobsearch, params: { slug: "jobsearch" }
+      get :show, params: { slug: "jobsearch" }
       assert_response :success
     end
 
     should "loads the correct details" do
-      get :jobsearch, params: { slug: "jobsearch" }
+      get :show, params: { slug: "jobsearch" }
       assert_equal @content_item['title'], assigns(:publication).title
     end
 
     should "set correct expiry headers" do
-      get :jobsearch, params: { slug: "jobsearch" }
+      get :show, params: { slug: "jobsearch" }
       assert_equal "max-age=1800, public", response.headers["Cache-Control"]
-    end
-
-    should "render the jobsearch view" do
-      get :jobsearch, params: { slug: "jobsearch" }
-      assert_template "jobsearch"
     end
   end
 
@@ -57,12 +52,7 @@ class TransactionControllerTest < ActionController::TestCase
 
     should "set the locale to welsh" do
       I18n.expects(:locale=).with("cy")
-      get :jobsearch, params: { slug: "chwilio-am-swydd" }
-    end
-
-    should "render the jobsearch view" do
-      get :jobsearch, params: { slug: "chwilio-am-swydd" }
-      assert_template "jobsearch"
+      get :show, params: { slug: "chwilio-am-swydd" }
     end
   end
 end

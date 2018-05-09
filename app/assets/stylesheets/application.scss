@@ -54,3 +54,9 @@
 
 // components
 @import 'govuk_publishing_components/all_components';
+
+// Delete after https://github.com/alphagov/govuk_publishing_components/pull/301
+// is merged and used in this application.
+.gem-c-radio__input {
+  font-size: inherit;
+}

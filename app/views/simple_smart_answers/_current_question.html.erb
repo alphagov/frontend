@@ -11,17 +11,11 @@
           <p class="error-message" role="alert">Please answer this question</p>
         <% end %>
         <%= hidden_field_tag 'response', '' %>
-        <ul class="options">
-          <% question.options.each do |option| %>
-            <li>
-              <label for="response_<%= option.slug %>" class="selectable">
-                <%= radio_button_tag "response", option.slug, (option.slug == params[:previous_response]), :id => "response_#{ option.slug }" %>
-                <%= option.label %>
-              </label>
-            </li>
-          <% end %>
-        </ul>
 
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "response",
+          items: question.options.map { |option| { text: option.label, value: option.slug, checked: option.slug == params[:previous_response] } }
+        } %>
       </div>
 
       <%= render partial: 'draft_fields' %>
@@ -33,4 +27,3 @@
 
   </div>
 </div>
-

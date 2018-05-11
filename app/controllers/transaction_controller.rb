@@ -8,8 +8,6 @@ class TransactionController < ApplicationController
   def show
   end
 
-  def jobsearch; end
-
 private
 
   def set_content_item

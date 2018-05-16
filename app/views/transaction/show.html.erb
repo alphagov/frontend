@@ -20,7 +20,7 @@
         end
       %>
       <%= render "govuk_publishing_components/components/button",
-                  text: @publication.start_button_text,
+                  text: @publication.start_button_text.html_safe,
                   rel: "external",
                   href: @publication.transaction_start_link,
                   start: true,

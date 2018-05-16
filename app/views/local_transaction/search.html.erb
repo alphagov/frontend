@@ -1,7 +1,3 @@
-<% content_for :extra_headers do %>
-  <link rel="alternate" type="application/json" href="<%= local_transaction_search_path(@publication.slug, edition: @edition, format: :json, all: true) %>">
-<% end %>
-
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,

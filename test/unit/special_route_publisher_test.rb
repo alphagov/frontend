@@ -26,6 +26,10 @@ class SpecialRoutePublisherTest < ActiveSupport::TestCase
         }
         @publishing_api.expects(:publish)
 
+        if route[:links]
+          @publishing_api.expects(:patch_links)
+        end
+
         @publisher.publish(route_type, route)
       end
     end

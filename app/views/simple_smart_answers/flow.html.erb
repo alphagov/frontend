@@ -4,7 +4,7 @@
 
 <main id="content">
   <header class="page-header group">
-    <%= render "govuk_component/title", title: @publication.title %>
+    <%= render "govuk_publishing_components/components/title", title: @publication.title %>
   </header>
 
   <% if @flow_state.completed_questions.any? %>

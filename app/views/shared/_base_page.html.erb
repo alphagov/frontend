@@ -1,6 +1,6 @@
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %>">
   <header class="page-header">
-    <%= render "govuk_component/title", context: local_assigns[:context], title: title %>
+    <%= render "govuk_publishing_components/components/title", context: local_assigns[:context], title: title %>
   </header>
   <div class="article-container group">
     <%= render :partial => 'beta_label' if publication.in_beta %>

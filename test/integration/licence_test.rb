@@ -64,7 +64,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         within '#content' do
           within ".page-header" do
-            assert_has_component_title "Licence to kill", "Licence"
+            assert_has_component_title "Licence to kill"
           end
 
           within ".postcode-search-form" do

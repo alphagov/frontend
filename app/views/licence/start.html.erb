@@ -11,7 +11,7 @@
         <div class="intro">
         <% if @licence_details.local_authority_specific? %>
           <div class="get-started-intro">
-            <%= render "govuk_component/title", title: "Apply for this licence" %>
+            <%= render "govuk_publishing_components/components/title", title: "Apply for this licence" %>
             <%= render partial: 'location_form',
                        locals: {
                          format: 'licence',

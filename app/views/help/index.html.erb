@@ -51,24 +51,9 @@
         </ul>
       </div>
     </nav>
-
   </div>
-
 </main>
 
 <div class="related-container">
-  <%= render partial: 'govuk_component/related_items', locals: {
-    sections: [
-      {
-        title: "Find a contact",
-        id: "parent-section",
-        items: [
-          {
-            title: "Contacts",
-            url: "/contact"
-          }
-        ]
-      }
-    ]
-  } %>
+  <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
 </div>

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include GdsApi::Helpers
   include Slimmer::Headers
   include Slimmer::Template
-  include Slimmer::GovukComponents
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503

@@ -13,19 +13,15 @@ require 'webmock/minitest'
 WebMock.disable_net_connect!(allow_localhost: true)
 require 'timecop'
 
-require 'slimmer/test_helpers/govuk_components'
 require 'govuk-content-schema-test-helpers'
 
 Dir[Rails.root.join('test', 'support', '*.rb')].each { |f| require f }
 
 class ActiveSupport::TestCase
-  # Add more helper methods to be used by all tests here...
-  include Slimmer::TestHelpers::GovukComponents
   include ContentStoreHelpers
 
   setup do
     I18n.locale = :en
-    stub_shared_component_locales
 
     GovukAbTesting.configure do |config|
       config.acceptance_test_framework = :active_support
@@ -45,12 +41,5 @@ class ActiveSupport::TestCase
     # we're not testing view rendering here,
     # so prevent rendering by stubbing out default_render
     @controller.stubs(:default_render)
-  end
-
-  def within_static_component(component)
-    within(shared_component_selector(component)) do
-      component_args = JSON.parse(page.text).with_indifferent_access
-      yield component_args
-    end
   end
 end

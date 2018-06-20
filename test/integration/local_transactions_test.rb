@@ -72,7 +72,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "display the page content" do
         assert_has_component_title "Pay your bear tax"
         assert page.has_content? "owning or looking after a bear"
-        assert page.has_selector?(shared_component_selector('beta_label'))
+        assert page.has_selector?(".gem-c-phase-banner")
       end
 
       should "ask for a postcode" do

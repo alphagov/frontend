@@ -1,0 +1,66 @@
+<div class="js-tabs nav-tabs">
+  <ul>
+    <% if transaction.more_information.present? %><li class="active"><a href="#more-information"><%= t 'formats.transaction.more_information' %></a></li><% end %>
+    <% if transaction.what_you_need_to_know.present? %><li><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></li><% end %>
+    <% if transaction.other_ways_to_apply.present? %><li><a href="#other-ways-to-apply"><%= t 'formats.transaction.other_ways_to_apply' %></a></li><% end %>
+  </ul>
+</div>
+
+<div class="js-tab-content tab-content">
+  <% if transaction.more_information.present? %>
+    <div class="js-tab-pane tab-pane" id="more-information">
+      <%= transaction.more_information.try(:html_safe) %>
+    </div>
+  <% end %>
+
+  <% if transaction.what_you_need_to_know.present? %>
+    <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
+      <%= transaction.what_you_need_to_know.try(:html_safe) %>
+    </div>
+  <% end %>
+  <% if transaction.other_ways_to_apply.present? %>
+    <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
+      <h2>Apply using your National Insurance number</h2>
+      <p>You can also <a href="https://www.viewdrivingrecord.service.gov.uk/driving-record/licence-number">use your national insurance number</a> to access our driving license information and get a license check code.</p>
+      <p>You’ll need:</p>
+
+      <ul>
+        <li>your driving licence number</li>
+        <li>your <a href="/lost-national-insurance-number">National Insurance number</a>
+        </li>
+        <li>the postcode on your driving licence</li>
+      </ul>
+      <h2 id="apply-by-phone">Apply by phone</h2>
+
+      <div class="contact">
+        <p>0300 083 0013<br>
+          Monday to Friday, 8am to 7pm<br>
+          Saturday, 8am to 2pm<br>
+          <a href="/call-charges">Find out about call charges</a></p>
+      </div>
+
+      <h2 id="apply-by-post">Apply by post</h2>
+
+      <p>You can either send a <a href="/government/publications/d888-request-by-an-individual-for-information-from-their-driving-record">request form</a> or a letter with the following information to the <abbr title="Driver and Vehicle Licensing Agency">DVLA</abbr>:</p>
+
+      <ul>
+        <li>your full name and address</li>
+        <li>your driver licence number (or your date of birth if you don’t know your driver number)</li>
+      </ul>
+
+      <p>Send your request to:</p>
+
+      <div class="address">
+        <div class="adr org fn"><p>
+
+        DACT Team,
+        <br><abbr title="Driver and Vehicle Licensing Agency">DVLA</abbr>,
+        <br>Swansea,
+        <br>SA99 1AJ
+        <br>
+      </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

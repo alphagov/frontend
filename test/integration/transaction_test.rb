@@ -176,7 +176,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
 
     should "render normal page (view-driving-licence) if cookie value A" do
-      with_variant 'ABTest-ViewDrivingLicence': "A" do
+      with_variant 'ViewDrivingLicence': "A" do
         visit "/view-driving-licence"
         assert_has_button_as_link("Start now",
           rel: "external",
@@ -185,7 +185,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
 
     should "render a variant page (view-driving-licence) if cookie value B" do
-      with_variant 'ABTest-ViewDrivingLicence': "B" do
+      with_variant 'ViewDrivingLicence': "B" do
         visit "/view-driving-licence"
         assert_has_button_as_link("Start now",
           rel: "external",

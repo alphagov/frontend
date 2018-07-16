@@ -8,7 +8,7 @@ class TransactionController < ApplicationController
   def show
     if request.params['slug'] == 'view-driving-licence'
       ab_test = GovukAbTesting::AbTest.new(
-        'ABTest-ViewDrivingLicence',
+        'ViewDrivingLicence',
         dimension: 68,
         allowed_variants: %w(A B),
         control_variant: 'A'

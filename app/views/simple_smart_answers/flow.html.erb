@@ -22,3 +22,10 @@
     <%= render :partial => "current_question", :locals => {:question => @flow_state.current_node } %>
   <% end %>
 </main>
+
+<% if @flow_state.current_node.outcome? %>
+  <div class="related-container">
+    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
+  </div>
+<% end %>
+

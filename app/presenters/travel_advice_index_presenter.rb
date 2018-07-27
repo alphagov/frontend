@@ -26,6 +26,16 @@ class TravelAdviceIndexPresenter
     countries_by_date.take(5)
   end
 
+  def countries_grouped_by_initial_letter
+    groups = countries.group_by do |country|
+      if country&.name
+        lstrip_definite_article(country.name)[0]
+      end
+    end
+
+    groups.sort_by { |initial, _| initial }
+  end
+
   class IndexCountry
     attr_accessor :change_description, :name, :synonyms, :updated_at, :web_url, :identifier
 
@@ -54,7 +64,11 @@ private
 
   def countries_sorted_utf8
     countries.sort_by do |country|
-      ActiveSupport::Inflector.transliterate country.name
+      lstrip_definite_article(ActiveSupport::Inflector.transliterate(country.name))
     end
+  end
+
+  def lstrip_definite_article(name)
+    name.gsub(/^The /, "")
   end
 end

@@ -53,5 +53,32 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
         assert_equal %w(São\ Tomé\ and\ Principe Spain Malaysia India Finland), names
       end
     end
+
+    context "#countries_grouped_by_initial_letter" do
+      setup do
+        attributes = {
+          "base_path" => "/travel-advice", "details" => { "email_signup_link" => "/email/travel-advice" },
+          "description" => "countries", "title" => "Travel Advice",
+          "links" => { "children" => [
+            { "base_path" => "/the-bahamas", "country" => { "name" => "The Bahamas" }, "change_description" => "xx" },
+            { "base_path" => "/bahrain", "country" => { "name" => "Bahrain" }, "change_description" => "xx" },
+            { "base_path" => "/georgia", "country" => { "name" => "Georgia" }, "change_description" => "xx" },
+            { "base_path" => "/the-gambia", "country" => { "name" => "The Gambia" }, "change_description" => "xx" },
+          ] }
+        }
+        presenter = TravelAdviceIndexPresenter.new(attributes)
+        @result = presenter.countries_grouped_by_initial_letter
+      end
+
+      should "order initials alphabetically" do
+        assert_equal(%w(B G), @result.map(&:first))
+      end
+
+      should "order countries alphabetically ignore definite articles" do
+        b_countries, g_countries = @result.map(&:second)
+        assert_equal(["The Bahamas", "Bahrain"], b_countries.map(&:name))
+        assert_equal(["The Gambia", "Georgia"], g_countries.map(&:name))
+      end
+    end
   end
 end

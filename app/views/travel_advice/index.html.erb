@@ -39,7 +39,7 @@
         </div>
 
         <div class="countries-list">
-          <% group_by_initial_letter(@presenter.countries).each do |initial,countries| %>
+          <% @presenter.countries_grouped_by_initial_letter.each do |initial,countries| %>
             <div id="<%= initial %>" class="list">
               <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
               <ul class="countries">

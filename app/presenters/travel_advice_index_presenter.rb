@@ -29,7 +29,7 @@ class TravelAdviceIndexPresenter
   def countries_grouped_by_initial_letter
     groups = countries.group_by do |country|
       if country&.name
-        lstrip_definite_article(country.name)[0]
+        ordered_country_name(country.name)[0]
       end
     end
 
@@ -64,11 +64,16 @@ private
 
   def countries_sorted_utf8
     countries.sort_by do |country|
-      lstrip_definite_article(ActiveSupport::Inflector.transliterate(country.name))
+      ordered_country_name(ActiveSupport::Inflector.transliterate(country.name))
     end
   end
 
-  def lstrip_definite_article(name)
-    name.gsub(/^The /, "")
+  # Used for grouping and ordering countries by an arbitrary initial.
+  EXCEPTIONAL_ORDERED_NAMES = {
+    "The Occupied Palestinian Territories" => "Palestinian Territories"
+  }.freeze
+
+  def ordered_country_name(country_name)
+    EXCEPTIONAL_ORDERED_NAMES.fetch(country_name, country_name).gsub(/^The /, "")
   end
 end

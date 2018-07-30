@@ -60,10 +60,10 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
           "base_path" => "/travel-advice", "details" => { "email_signup_link" => "/email/travel-advice" },
           "description" => "countries", "title" => "Travel Advice",
           "links" => { "children" => [
-            { "base_path" => "/the-bahamas", "country" => { "name" => "The Bahamas" }, "change_description" => "xx" },
-            { "base_path" => "/bahrain", "country" => { "name" => "Bahrain" }, "change_description" => "xx" },
-            { "base_path" => "/georgia", "country" => { "name" => "Georgia" }, "change_description" => "xx" },
-            { "base_path" => "/the-gambia", "country" => { "name" => "The Gambia" }, "change_description" => "xx" },
+            { "base_path" => "/c", "country" => { "name" => "Georgia" }, "change_description" => "xx" },
+            { "base_path" => "/d", "country" => { "name" => "The Gambia" }, "change_description" => "xx" },
+            { "base_path" => "/a", "country" => { "name" => "Peru" }, "change_description" => "xx" },
+            { "base_path" => "/b", "country" => { "name" => "The Occupied Palestinian Territories" }, "change_description" => "xx" }
           ] }
         }
         presenter = TravelAdviceIndexPresenter.new(attributes)
@@ -71,13 +71,17 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
       end
 
       should "order initials alphabetically" do
-        assert_equal(%w(B G), @result.map(&:first))
+        assert_equal(%w(G P), @result.map(&:first))
       end
 
-      should "order countries alphabetically ignore definite articles" do
-        b_countries, g_countries = @result.map(&:second)
-        assert_equal(["The Bahamas", "Bahrain"], b_countries.map(&:name))
+      should "order countries alphabetically ignoring definite article" do
+        g_countries, = @result.map(&:second)
         assert_equal(["The Gambia", "Georgia"], g_countries.map(&:name))
+      end
+
+      should "order countries using exceptional ordering rules" do
+        _, p_countries = @result.map(&:second)
+        assert_equal(["The Occupied Palestinian Territories", "Peru"], p_countries.map(&:name))
       end
     end
   end

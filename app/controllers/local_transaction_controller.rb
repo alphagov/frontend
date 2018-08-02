@@ -18,6 +18,8 @@ class LocalTransactionController < ApplicationController
       @location_error = location_error
       if @location_error
         @postcode = postcode
+      elsif mapit_response.location_found? && lgsl == 364 && country_name == 'Northern Ireland' ## LGSL code 364 = electoral registration
+        return redirect_to local_transaction_results_path(local_authority_slug: 'electoral-office-for-northern-ireland')
       elsif mapit_response.location_found? && local_authority_slug
         return redirect_to local_transaction_results_path(local_authority_slug: local_authority_slug)
       end
@@ -34,6 +36,10 @@ private
 
   def local_authority_slug
     @_la_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item)
+  end
+
+  def country_name
+    @_country_name ||= LocalTransactionLocationIdentifier.find_country(mapit_response.location.areas, content_item)
   end
 
   def location_error
@@ -90,7 +96,14 @@ private
   def interaction_details
     council = params[:local_authority_slug]
     return {} unless council
-    @_interaction ||= Frontend.local_links_manager_api.local_link(council, lgsl, lgil)
+    if council == 'electoral-office-for-northern-ireland'
+      return {
+        "local_authority" => { 'name' => 'Electoral Office for Northern Ireland', 'homepage_url' => 'http://www.eoni.org.uk' },
+        "local_interaction" => { 'url' => 'http://www.eoni.org.uk/Utility/Contact-Us' },
+      }
+    else
+      @_interaction ||= Frontend.local_links_manager_api.local_link(council, lgsl, lgil)
+    end
   end
 
   def error_for_missing_interaction(local_authority)

@@ -3,6 +3,10 @@ class LocalTransactionLocationIdentifier
     new(areas, content_item, tier_override).find_slug
   end
 
+  def self.find_country(areas, content_item, tier_override = nil)
+    new(areas, content_item, tier_override).find_country
+  end
+
   attr_reader :areas, :content_item, :tier_override
 
   def initialize(areas, content_item, tier_override = nil)
@@ -15,10 +19,18 @@ class LocalTransactionLocationIdentifier
     matching_authority_by_tier_slug
   end
 
+  def find_country
+    matching_country_by_tier_slug
+  end
+
 private
 
   def matching_authority_by_tier_slug
     matching_authority_by_tier.try(:[], "codes").try(:[], "govuk_slug")
+  end
+
+  def matching_country_by_tier_slug
+    matching_authority_by_tier.try(:[], "country_name")
   end
 
   def matching_authority_by_tier

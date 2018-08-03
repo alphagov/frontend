@@ -1,0 +1,25 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "6966beaf0fe0477c3d48777699d8829c2b4fa06aba797a3027dfb18585cc96d0",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped parameter value",
+      "file": "app/views/simple_smart_answers/_current_question.html.erb",
+      "line": 8,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "SimpleSmartAnswers::Flow.new(@publication.nodes).state_for_responses(params[:responses].to_s.split(\"/\")).current_node.body",
+      "render_path": [{"type":"controller","class":"SimpleSmartAnswersController","method":"flow","line":19,"file":"app/controllers/simple_smart_answers_controller.rb"},{"type":"template","name":"simple_smart_answers/flow","line":22,"file":"app/views/simple_smart_answers/flow.html.erb"}],
+      "location": {
+        "type": "template",
+        "template": "simple_smart_answers/_current_question"
+      },
+      "user_input": "params[:responses].to_s.split(\"/\")",
+      "confidence": "Weak",
+      "note": "It comes from the content store and we trust data from there."
+    }
+  ],
+  "updated": "2018-08-03 09:29:33 +0100",
+  "brakeman_version": "4.3.1"
+}

@@ -31,7 +31,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
   context "given a local transaction exists in content store" do
     setup do
-      @payload = {
+      @payload_bear = {
         analytics_identifier: nil,
         base_path: "/pay-bear-tax",
         content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
@@ -58,7 +58,35 @@ class LocalTransactionControllerTest < ActionController::TestCase
         external_related_links: []
       }
 
-      content_store_has_item('/send-a-bear-to-your-local-council', @payload)
+      @payload_electoral = {
+        analytics_identifier: nil,
+        base_path: "/get-on-electoral-register",
+        content_id: "d6d6caaf-77db-47e1-8206-30cd4f3hwe78",
+        document_type: "local_transaction",
+        first_published_at: "2016-02-29T09:24:10.000+00:00",
+        format: "local_transaction",
+        locale: "en",
+        phase: "beta",
+        public_updated_at: "2014-12-16T12:49:50.000+00:00",
+        publishing_app: "publisher",
+        rendering_app: "frontend",
+        schema_name: "local_transaction",
+        title: "Get on electoral register",
+        updated_at: "2017-01-30T12:30:33.483Z",
+        withdrawn_notice: {},
+        links: {},
+        description: "Descriptive text.",
+        details: {
+          lgsl_code: 364,
+          lgil_code: 8,
+          service_tiers: %w(district unitary),
+          introduction: "Infos about registering to vote."
+        },
+        external_related_links: []
+      }
+
+      content_store_has_item('/send-a-bear-to-your-local-council', @payload_bear)
+      content_store_has_item('/get-on-electoral-register', @payload_electoral)
     end
 
     context "loading the local transaction edition without any location" do
@@ -80,9 +108,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
       context "for an English local authority" do
         setup do
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county" },
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands" },
-            { "name" => "Cheadle and Checkley", "type" => "CED" }
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
+            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" }
           ])
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
@@ -90,6 +118,50 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
         should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
           assert_redirected_to "/send-a-bear-to-your-local-council/staffordshire-moorlands"
+        end
+      end
+
+      context "for a Northern Ireland local authority" do
+        setup do
+          mapit_has_a_postcode_and_areas("BT1 4QG", [0, 0], [
+            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" }
+          ])
+
+          post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
+        end
+
+        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+          assert_redirected_to "/send-a-bear-to-your-local-council/belfast"
+        end
+      end
+
+      context "for electoral registration for an English local authority" do
+        setup do
+          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
+            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
+            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
+            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" }
+          ])
+
+          post :search, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
+        end
+
+        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+          assert_redirected_to "/get-on-electoral-register/staffordshire-moorlands"
+        end
+      end
+
+      context "for electoral registration for a Northern Ireland local authority" do
+        setup do
+          mapit_has_a_postcode_and_areas("BT1 3QG", [0, 0], [
+            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" }
+          ])
+
+          post :search, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
+        end
+
+        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+          assert_redirected_to "/get-on-electoral-register/electoral-office-for-northern-ireland"
         end
       end
     end

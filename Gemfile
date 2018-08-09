@@ -30,7 +30,7 @@ end
 group :development, :test do
   gem 'ci_reporter_test_unit'
   gem 'govuk-lint'
-  gem 'jasmine', '~> 3.1'
+  gem 'jasmine', '~> 3.2'
   gem 'pry-byebug'
   gem 'ci_reporter_rspec'
 end

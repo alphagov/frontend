@@ -145,12 +145,12 @@ GEM
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     invalid_utf8_rejector (0.0.4)
-    jasmine (3.1.0)
-      jasmine-core (= 3.1.0)
+    jasmine (3.2.0)
+      jasmine-core (= 3.2.0)
       phantomjs
       rack (>= 1.2.1)
       rake
-    jasmine-core (3.1.0)
+    jasmine-core (3.2.0)
     json (2.1.0)
     json-schema (2.8.0)
       addressable (>= 2.4)
@@ -385,7 +385,7 @@ DEPENDENCIES
   govuk_schemas (~> 3.2)
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)
-  jasmine (~> 3.1)
+  jasmine (~> 3.2)
   launchy
   mocha
   plek (~> 2.1.1)

@@ -33,6 +33,16 @@ class LicenceDetailsPresenter
     end
   end
 
+  def uses_authority_url(chosen_action = action)
+    return false unless authority
+    chosen_action_info = authority.dig("actions", chosen_action)
+    if chosen_action_info.present?
+      chosen_action_info.any? { |link| link && link['uses_authority_url'] }
+    else
+      false
+    end
+  end
+
   def action
     return nil unless interaction
     raise RecordNotFound unless authority["actions"].keys.include?(interaction)
@@ -93,6 +103,7 @@ private
                 'introduction' => link['introductionText'],
                 'description' => link['description'],
                 'payment' => link['payment'],
+                'uses_authority_url' => (link['usesAuthorityUrl'] == true),
                 'uses_licensify' => (link['usesLicensify'] == true)
               }
             }

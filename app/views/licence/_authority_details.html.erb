@@ -26,8 +26,10 @@
     <% if @licence_details.action.present? %>
       <% if @licence_details.uses_licensify %>
         <%= render :partial => "action", :locals => {:action => @licence_details.action } %>
+      <% elsif @licence_details.uses_authority_url %>
+        <%= render :partial => 'authority_url', :locals => {:action => @licence_details.action, :index => 0} %>
       <% else %>
-        <%= render partial: 'licensify_unavailable' %>
+        <%= render :partial => 'licensify_unavailable' %>
       <% end %>
     <% elsif @publication.licence_overview.present? %>
       <header><h1>Overview</h1></header>

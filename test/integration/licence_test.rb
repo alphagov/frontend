@@ -659,6 +659,88 @@ class LicenceTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "given a licence which does not exist in licensify and uses authority url" do
+    setup do
+      @payload = {
+        base_path: "/some-licence",
+        document_type: "licence",
+        format: "licence",
+        phase: "beta",
+        schema_name: "licence",
+        title: "Licence of some type",
+        updated_at: "2012-10-02T12:30:33.483Z",
+        description: "Descriptive licence text.",
+        details: {
+          licence_identifier: "1071-5-1",
+          licence_overview: "This is a licence.\n",
+        },
+      }
+
+      content_store_has_item('/a-licence', @payload)
+
+      mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+        { "ons" => "00BK", "govuk_slug" => "a-council", "name" => "A council", "type" => "LBO" },
+        { "name" => "Greater London Authority", "type" => "GLA" }
+      ])
+
+      a_council = {
+        "id" => 2432,
+        "codes" => {
+          "ons" => "00BK",
+          "gss" => "E07000198",
+          "govuk_slug" => "a-council"
+        },
+        "name" => "Westminster"
+      }
+
+      mapit_has_area_for_code('govuk_slug', 'a-council', a_council)
+      mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
+
+      authorities = [
+        {
+          "authorityName" => "A Council",
+          "authoritySlug" => "a-council",
+          "authorityContact" => {
+            "website" => "",
+            "email" => "",
+            "phone" => "020 7641 6000",
+            "address" => "P.O. Box 123\nSome Town\nXY1 1AB"
+          },
+          "authorityInteractions" => {
+            "apply" => [
+              {
+                "url" => "http://some-council-website",
+                "description" => "Apply for your licence",
+                "payment" => "none",
+                "introduction" => "This licence is issued online",
+                "usesLicensify" => false,
+                "usesAuthorityUrl" => true
+            }
+            ]
+          }
+        }
+      ]
+      licence_exists('1071-5-1',
+                     "isLocationSpecific" => true,
+                     "isOfferedByCounty" => false,
+                     "geographicalAvailability" => %w(England Wales),
+                     "issuingAuthorities" => authorities)
+      licence_exists('1071-5-1/00BK',
+                     "isLocationSpecific" => true,
+                     "isOfferedByCounty" => false,
+                     "geographicalAvailability" => %w(England Wales),
+                     "issuingAuthorities" => authorities)
+    end
+
+    should "show message to contact local council through their website" do
+      visit '/a-licence/a-council/apply'
+
+      assert page.has_content? "To obtain this licence, you need to contact the authority directly"
+      assert page.has_content? "To continue, go to"
+      assert page.has_link? "A Council", href: 'http://some-council-website'
+    end
+  end
+
   context "given a licence which does not exist in licensify" do
     setup do
       @payload = {

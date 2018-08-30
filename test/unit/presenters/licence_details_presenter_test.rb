@@ -24,7 +24,8 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
                 "payment" => "fixed",
                 "paymentAmount" => "21.00",
                 "introductionText" => "Intro text",
-                "usesLicensify" => true
+                "usesLicensify" => true,
+                "usesAuthorityUrl" => true
               }
             ]
           }
@@ -39,7 +40,8 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         "apply" => [
           {
             "url" => "the-one-licence-authority/apply-1",
-            "usesLicensify" => true
+            "usesLicensify" => true,
+            "usesAuthorityUrl" => true
           }
         ]
       }
@@ -52,7 +54,8 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         "apply" => [
           {
             "url" => "the-other-licence-authority/apply-1",
-            "usesLicensify" => true
+            "usesLicensify" => true,
+            "usesAuthorityUrl" => true
           }
         ]
       }
@@ -65,7 +68,22 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         "apply" => [
           {
             "url" => "the-licence-authority-not-using-licensify/apply-1",
-            "usesLicensify" => "false"
+            "usesLicensify" => "false",
+            "usesAuthorityUrl" => "true"
+          }
+        ]
+      }
+    }
+
+    @licence_authority_not_using_authority_url = {
+      "authorityName" => "The Licence Authority Not Using Licensify",
+      "authoritySlug" => "the-licence-authority-not-using-licensify",
+      "authorityInteractions" => {
+        "apply" => [
+          {
+            "url" => "the-licence-authority-not-using-licensify/apply-1",
+            "usesLicensify" => "true",
+            "usesAuthorityUrl" => "false"
           }
         ]
       }
@@ -77,7 +95,21 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       "authorityInteractions" => {
         "apply" => [
           {
-            "url" => "the-licence-authority-without-uses-licensify-param/apply-1"
+            "url" => "the-licence-authority-without-uses-licensify-param/apply-1",
+            "usesAuthorityUrl" => "true"
+          }
+        ]
+      }
+    }
+
+    @licence_authority_without_uses_authority_url_param = {
+      "authorityName" => "The Licence Authority Without UsesLicensify Param",
+      "authoritySlug" => "the-licence-authority-without-uses-licensify-param",
+      "authorityInteractions" => {
+        "apply" => [
+          {
+            "url" => "the-licence-authority-without-uses-licensify-param/apply-1",
+            "usesLicensify" => "true"
           }
         ]
       }
@@ -170,7 +202,8 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
               "introduction" => nil,
               "description" => nil,
               "payment" => nil,
-              "uses_licensify" => true
+              "uses_licensify" => true,
+              "uses_authority_url" => true
             }
           ]
         }
@@ -187,7 +220,8 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
               "introduction" => nil,
               "description" => nil,
               "payment" => nil,
-              "uses_licensify" => true
+              "uses_licensify" => true,
+              "uses_authority_url" => true
             }
           ]
         }
@@ -274,6 +308,38 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
 
       assert_equal subject.uses_licensify("apply"), false
+    end
+  end
+
+  context "#uses_authority_url" do
+    should "return true if the action has a field to confirm that it uses authority url" do
+      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-one-licence-authority")
+
+      assert_equal subject.uses_authority_url("apply"), true
+    end
+
+    should "return true if the default action has uses_authority_url set to true" do
+      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-one-licence-authority", "apply")
+
+      assert_equal subject.uses_authority_url, true
+    end
+
+    should "return false if the action has the uses_authority_url field set to false" do
+      subject = LicenceDetailsPresenter.new(@licence_authority_not_using_authority_url)
+
+      assert_equal subject.uses_authority_url("apply"), false
+    end
+
+    should "return false if the action does not have a usesAuthorityUrl field" do
+      subject = LicenceDetailsPresenter.new(@licence_authority_without_uses_authority_url_param)
+
+      assert_equal subject.uses_authority_url("apply"), false
+    end
+
+    should "return false if authority is nil" do
+      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
+
+      assert_equal subject.uses_authority_url("apply"), false
     end
   end
 

@@ -81,9 +81,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
     should "load the page and perform filtering correctly" do
       visit "/foreign-travel-advice"
-      assert_equal 200, page.status_code
 
-      # For some reason PhantomJS isn't executing this script at the top of the <body> element,
+      assert page.has_content? "Foreign travel advice"
+
+      # For some reason the headless driver isn't executing this script at the top of the <body> element,
       # so we have to repeat it here.
       page.execute_script "document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');"
 

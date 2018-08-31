@@ -25,6 +25,8 @@
                    start: true,
                    href: link['url'] %>
       </p>
+    <% elsif link['uses_authority_url'] %>
+      <%= render partial: 'authority_url', locals: {action: action, index: i} %>
     <% else %>
       <%= render partial: 'licensify_unavailable' %>
     <% end %>

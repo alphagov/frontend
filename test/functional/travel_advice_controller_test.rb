@@ -17,7 +17,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
       should "be a successful request" do
         get :index
 
-        assert response.success?
+        assert response.successful?
       end
 
       should "render the index template" do

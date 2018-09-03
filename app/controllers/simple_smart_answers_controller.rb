@@ -6,8 +6,7 @@ class SimpleSmartAnswersController < ApplicationController
   before_action :set_expiry
   before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
 
-  def show
-  end
+  def show; end
 
   def flow
     responses = params[:responses].to_s.split('/')

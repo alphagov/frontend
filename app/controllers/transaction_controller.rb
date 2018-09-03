@@ -5,8 +5,7 @@ class TransactionController < ApplicationController
   before_action :set_content_item
   before_action :deny_framing
 
-  def show
-  end
+  def show; end
 
 private
 

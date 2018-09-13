@@ -36,7 +36,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
   gem 'ci_reporter'
   gem 'govuk-content-schema-test-helpers'
   gem 'govuk_schemas', '~> 3.2'

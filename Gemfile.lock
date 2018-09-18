@@ -59,7 +59,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (9.1.0)
-    capybara (3.7.1)
+    capybara (3.7.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -68,7 +68,7 @@ GEM
       xpath (~> 3.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (1.2.0)
+    chromedriver-helper (2.0.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     ci_reporter (2.0.0)
@@ -141,7 +141,7 @@ GEM
       slimmer (>= 11.1.0)
     govuk_schemas (3.2.0)
       json-schema (~> 2.8.0)
-    govuk_test (0.2.0)
+    govuk_test (0.2.1)
       capybara
       chromedriver-helper
       puma

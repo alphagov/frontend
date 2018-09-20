@@ -46,6 +46,7 @@ Rails.application.configure do
 
   config.assets.compress = true
   config.assets.digest = true
+  config.assets.js_compressor = :uglifier
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this

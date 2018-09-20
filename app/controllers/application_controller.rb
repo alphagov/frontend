@@ -19,7 +19,7 @@ protected
 
   def error_410; error :gone; end
 
-  def error_503(e); error(:service_unavailable, e); end
+  def error_503(exception); error(:service_unavailable, exception); end
 
   def error(status_code, exception = nil)
     if exception

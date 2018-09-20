@@ -58,7 +58,7 @@ private
   end
 
   def snac_from_slug
-    @_snac ||= AuthorityLookup.find_snac_from_slug(params[:authority_slug])
+    @snac_from_slug ||= AuthorityLookup.find_snac_from_slug(params[:authority_slug])
   end
 
   def postcode_search_submitted?
@@ -76,7 +76,7 @@ private
   end
 
   def mapit_response
-    @_mapit_response ||= location_from_mapit
+    @mapit_response ||= location_from_mapit
   end
 
   def location_from_mapit
@@ -95,7 +95,7 @@ private
   def local_authority_slug
     return nil unless mapit_response.location_found?
 
-    @_la_slug ||= begin
+    @local_authority_slug ||= begin
       LocalAuthoritySlugFinder.call(mapit_response.location.areas, @licence_details.offered_by_county?)
     end
   end

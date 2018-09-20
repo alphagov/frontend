@@ -67,7 +67,7 @@ protected
   end
 
   def content_item
-    @_content_item ||= Services.content_store.content_item("/#{params[:slug]}")
+    @content_item ||= Services.content_store.content_item("/#{params[:slug]}")
   end
 
 private

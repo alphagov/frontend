@@ -17,7 +17,7 @@ class LocalAuthorityPresenter
   end
 
   def url
-    @_url ||= extract_first_url
+    @url ||= extract_first_url
   end
 
 private

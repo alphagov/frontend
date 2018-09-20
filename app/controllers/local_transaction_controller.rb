@@ -35,11 +35,11 @@ class LocalTransactionController < ApplicationController
 private
 
   def local_authority_slug
-    @_la_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item)
+    @local_authority_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item)
   end
 
   def country_name
-    @_country_name ||= LocalTransactionLocationIdentifier.find_country(mapit_response.location.areas, content_item)
+    @country_name ||= LocalTransactionLocationIdentifier.find_country(mapit_response.location.areas, content_item)
   end
 
   def location_error
@@ -53,7 +53,7 @@ private
   end
 
   def mapit_response
-    @_mapit_response ||= location_from_mapit
+    @mapit_response ||= location_from_mapit
   end
 
   def location_from_mapit

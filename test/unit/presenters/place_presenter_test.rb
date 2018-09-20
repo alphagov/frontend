@@ -2,7 +2,7 @@ require "test_helper"
 
 class PlacePresenterTest < ActiveSupport::TestCase
   def subject(content_item)
-    @_ ||= PlacePresenter.new(content_item.deep_stringify_keys!)
+    @subject ||= PlacePresenter.new(content_item.deep_stringify_keys!)
   end
 
   test "#introduction" do

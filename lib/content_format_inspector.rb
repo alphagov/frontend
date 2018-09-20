@@ -25,7 +25,7 @@ private
 
   def content_item
     return {} if error?
-    @_content_item ||= handle_api_errors do
+    @content_item ||= handle_api_errors do
       content_store.content_item("/#{slug}")
     end
   end
@@ -35,6 +35,6 @@ private
   end
 
   def content_store
-    @_content_store ||= Services.content_store
+    @content_store ||= Services.content_store
   end
 end

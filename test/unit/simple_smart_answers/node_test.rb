@@ -18,7 +18,7 @@ module SimpleSmartAnswers
       end
 
       should "be false for a question node" do
-        refute Node.new(:a_flow, "kind" => "question").outcome?
+        assert_not Node.new(:a_flow, "kind" => "question").outcome?
       end
     end
 

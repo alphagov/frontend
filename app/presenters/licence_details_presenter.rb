@@ -45,7 +45,7 @@ class LicenceDetailsPresenter
 
   def action
     return nil unless interaction
-    raise RecordNotFound unless authority["actions"].keys.include?(interaction)
+    raise RecordNotFound unless authority["actions"].key?(interaction)
 
     interaction
   end

@@ -11,7 +11,7 @@ class LocalTransactionController < ApplicationController
   NO_LINK = 'laMatchNoLink'.freeze
   NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
   NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
-  BANNED_POSTCODES = ["ENTERPOSTCODE"].freeze
+  BANNED_POSTCODES = %w[ENTERPOSTCODE].freeze
 
   def search
     if request.post?

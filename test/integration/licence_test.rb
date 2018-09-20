@@ -363,7 +363,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         should "show details for the first authority only" do
           within(".relevant-authority") do
             assert page.has_content?("Westminster")
-            refute page.has_content?("Kingsmen Tailors")
+            assert_not page.has_content?("Kingsmen Tailors")
           end
         end
       end
@@ -640,7 +640,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "not see a location form" do
-        assert ! page.has_field?('postcode')
+        assert_not page.has_field?('postcode')
       end
 
       should "see a 'Start now' button" do
@@ -874,8 +874,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "not display authority" do
-        refute page.has_content? 'Ministry of Love'
-        refute page.has_button? 'Get started'
+        assert_not page.has_content? 'Ministry of Love'
+        assert_not page.has_button? 'Get started'
       end
 
       should "display the licence unavailable message" do
@@ -949,8 +949,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert_has_button_as_link("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/apply-1",
                                     start: true)
-        refute page.has_content?("You can't apply for this licence online")
-        refute page.has_content?("Contact your local council")
+        assert_not page.has_content?("You can't apply for this licence online")
+        assert_not page.has_content?("Contact your local council")
       end
 
       should "not display the interactions for the licence if usesLicensify is set to false" do
@@ -1018,8 +1018,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "not display the licence unavailable message on the main licence page" do
-        refute page.has_content?("You can't apply for this licence online")
-        refute page.has_content?("Contact your local council")
+        assert_not page.has_content?("You can't apply for this licence online")
+        assert_not page.has_content?("Contact your local council")
       end
 
       should "display the licence unavailable message after you click on the first action" do
@@ -1124,8 +1124,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
                                     href: "/licence-to-kill/ministry-of-love/renew-1",
                                     start: true)
 
-        refute page.has_content?("You can't apply for this licence online")
-        refute page.has_content?("Contact your local council")
+        assert_not page.has_content?("You can't apply for this licence online")
+        assert_not page.has_content?("Contact your local council")
       end
     end
 
@@ -1179,8 +1179,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "not display the licence unavailable message on the main licence page" do
-        refute page.has_content?("You can't apply for this licence online")
-        refute page.has_content?("Contact your local council")
+        assert_not page.has_content?("You can't apply for this licence online")
+        assert_not page.has_content?("Contact your local council")
       end
 
       should "display the licence unavailable message after you click on an action" do

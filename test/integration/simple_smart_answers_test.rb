@@ -338,7 +338,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         assert_page_has_content "What...is your favorite colour?"
       end
       within '.question-body' do
-        refute page.has_selector?(".error-message", text: "Please answer this question")
+        assert_not page.has_selector?(".error-message", text: "Please answer this question")
       end
     end
 

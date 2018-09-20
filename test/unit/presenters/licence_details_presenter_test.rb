@@ -152,7 +152,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       should "return false for local authority specific licence" do
         subject = LicenceDetailsPresenter.new(@local_authority_licence)
 
-        refute subject.single_licence_authority_present?
+        assert_not subject.single_licence_authority_present?
       end
     end
 
@@ -160,7 +160,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       should "return false" do
         subject = LicenceDetailsPresenter.new(@licence_authority_licence.merge("issuingAuthorities" => []))
 
-        refute subject.single_licence_authority_present?
+        assert_not subject.single_licence_authority_present?
       end
     end
   end
@@ -176,7 +176,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       should "return false for local authority specific licence" do
         subject = LicenceDetailsPresenter.new(@local_authority_licence)
 
-        refute subject.single_licence_authority_present?
+        assert_not subject.single_licence_authority_present?
       end
     end
 
@@ -184,7 +184,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       should "return false" do
         subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence.merge("issuingAuthorities" => []))
 
-        refute subject.single_licence_authority_present?
+        assert_not subject.single_licence_authority_present?
       end
     end
   end

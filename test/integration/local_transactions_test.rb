@@ -80,7 +80,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "not show a postcode error" do
-        assert !page.has_selector?(".location_error")
+        assert_not page.has_selector?(".location_error")
       end
 
       should "show link to postcode_finder" do
@@ -115,16 +115,16 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "not show the transaction information" do
-        assert !page.has_content?("owning or looking after a bear")
+        assert_not page.has_content?("owning or looking after a bear")
       end
 
       should "not show a postcode error" do
-        assert !page.has_selector?(".location_error")
+        assert_not page.has_selector?(".location_error")
       end
 
       should "show link to change location" do
         assert page.has_link?('Back')
-        assert !page.has_link?('(change location)')
+        assert_not page.has_link?('(change location)')
       end
     end
 
@@ -320,7 +320,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "not show the transaction information" do
-        assert !page.has_content?("owning or looking after a bear")
+        assert_not page.has_content?("owning or looking after a bear")
       end
 
       should "show back link to go back and try a different postcode" do

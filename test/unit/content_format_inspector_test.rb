@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ContentFormatInspectorTest < ActiveSupport::TestCase
   def subject
-    @_s ||= ContentFormatInspector.new(:slug)
+    @subject ||= ContentFormatInspector.new(:slug)
   end
 
   context "content-store lookup throws an error" do

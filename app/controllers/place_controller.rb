@@ -52,7 +52,7 @@ private
   end
 
   def imminence_response
-    @_imminence_response ||= places_from_imminence
+    @imminence_response ||= places_from_imminence
   end
 
   def places_from_imminence

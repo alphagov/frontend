@@ -50,11 +50,11 @@ private
   end
 
   def mapit_response
-    @_mapit_response ||= fetch_location(postcode)
+    @mapit_response ||= fetch_location(postcode)
   end
 
   def postcode
-    @_postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
+    @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
   end
 
   def authority_slug
@@ -62,7 +62,7 @@ private
   end
 
   def local_council
-    @_local_council ||= fetch_local_council_from_areas(mapit_response.location.areas)
+    @local_council ||= fetch_local_council_from_areas(mapit_response.location.areas)
   end
 
   def fetch_local_council_from_areas(areas)

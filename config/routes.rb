@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get "/random" => "random#random_page"
 
+  # https://securitytxt.org/
+  get "/security.txt" => "securitytxt#index"
+  get "/.well-known/security.txt" => "securitytxt#index"
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc { |env| [404, {}, ["Not Found"]] }

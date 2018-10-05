@@ -28,6 +28,18 @@ class SpecialRoutePublisher
           description: "Redirects to /",
         },
         {
+          content_id: "dfec39bf-cf04-4e0b-a621-8444372fbf45",
+          base_path: "/security.txt",
+          title: "security.txt for GOV.UK",
+          description: "Provides contact details for GOV.UK to be used by security researchers.",
+        },
+        {
+          content_id: "145f132a-e179-4ced-873e-1c81f2394621",
+          base_path: "/.well-known/security.txt",
+          title: "security.txt for GOV.UK",
+          description: "Provides contact details for GOV.UK to be used by security researchers.",
+        },
+        {
           content_id: "caf90fb7-11e3-4f8e-9a5d-b83283c91533",
           base_path: "/tour",
           title: "GOV.UK introductory page",

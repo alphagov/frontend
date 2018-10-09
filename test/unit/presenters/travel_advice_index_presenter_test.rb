@@ -59,12 +59,14 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
         attributes = {
           "base_path" => "/travel-advice", "details" => { "email_signup_link" => "/email/travel-advice" },
           "description" => "countries", "title" => "Travel Advice",
-          "links" => { "children" => [
-            { "base_path" => "/c", "country" => { "name" => "Georgia" }, "change_description" => "xx" },
-            { "base_path" => "/d", "country" => { "name" => "The Gambia" }, "change_description" => "xx" },
-            { "base_path" => "/a", "country" => { "name" => "Peru" }, "change_description" => "xx" },
-            { "base_path" => "/b", "country" => { "name" => "The Occupied Palestinian Territories" }, "change_description" => "xx" }
-          ] }
+          "links" => {
+            "children" => [
+              { "base_path" => "/c", "details" => { "country" => { "name" => "Georgia" }, "change_description" => "xx" } },
+              { "base_path" => "/d", "details" => { "country" => { "name" => "The Gambia" }, "change_description" => "xx" } },
+              { "base_path" => "/a", "details" => { "country" => { "name" => "Peru" }, "change_description" => "xx" } },
+              { "base_path" => "/b", "details" => { "country" => { "name" => "The Occupied Palestinian Territories" }, "change_description" => "xx" } },
+            ],
+          },
         }
         presenter = TravelAdviceIndexPresenter.new(attributes)
         @result = presenter.countries_grouped_by_initial_letter

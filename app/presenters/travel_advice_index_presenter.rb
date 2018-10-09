@@ -45,9 +45,11 @@ class TravelAdviceIndexPresenter
       updated_at = attributes["public_updated_at"]
       updated_at = Time.zone.parse(updated_at) if updated_at
 
-      self.change_description = attributes.dig("details", "change_description") || attributes.fetch("change_description")
-      self.name = attributes.dig("details", "country", "name") || attributes.dig("country", "name")
-      self.synonyms = attributes.dig("details", "country", "synonyms") || attributes.dig("country", "synonyms")
+      details = attributes.fetch("details")
+
+      self.change_description = details.fetch("change_description")
+      self.name = details.dig("country", "name")
+      self.synonyms = details.dig("country", "synonyms")
       self.web_url =  [Frontend.govuk_website_root, base_path].join
       self.identifier = base_path.split("/").last
       self.updated_at = updated_at

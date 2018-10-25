@@ -158,12 +158,12 @@ GEM
     invalid_utf8_rejector (0.0.4)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
-    jasmine (3.2.0)
-      jasmine-core (= 3.2.0)
+    jasmine (3.3.0)
+      jasmine-core (~> 3.3.0)
       phantomjs
       rack (>= 1.2.1)
       rake
-    jasmine-core (3.2.0)
+    jasmine-core (3.3.0)
     json (2.1.0)
     json-schema (2.8.0)
       addressable (>= 2.4)
@@ -399,7 +399,7 @@ DEPENDENCIES
   govuk_test
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)
-  jasmine (~> 3.2)
+  jasmine (~> 3.3)
   launchy
   mocha
   plek (~> 2.1.1)

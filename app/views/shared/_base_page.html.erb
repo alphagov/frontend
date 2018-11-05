@@ -16,3 +16,9 @@
 <div class="related-container">
   <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
 </div>
+
+<% content_for :after_content do %>
+  <div class="column-desktop-third">
+    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: @content_item %>
+  </div>
+<% end %>

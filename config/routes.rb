@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   # Transaction pages
   constraints FormatRoutingConstraint.new('transaction') do
-    get ":slug", to: "transaction#show"
+    get ":slug(/:variant)", to: "transaction#show"
   end
 
   # Local Transaction pages

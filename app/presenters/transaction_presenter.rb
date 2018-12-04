@@ -1,4 +1,7 @@
 class TransactionPresenter < ContentItemPresenter
+  attr_writer :variant_slug
+  attr_reader :variant_slug
+
   PASS_THROUGH_DETAILS_KEYS = %i(
     introductory_paragraph
     more_information
@@ -12,8 +15,20 @@ class TransactionPresenter < ContentItemPresenter
 
   PASS_THROUGH_DETAILS_KEYS.each do |key|
     define_method key do
+      if @variant_slug.present?
+        variant_val = variant_value(key.to_s)
+        return variant_val unless variant_val.nil?
+      end
       details[key.to_s] if details
     end
+  end
+
+  def title
+    if @variant_slug.present?
+      variant_val = variant_value('title')
+      return variant_val unless variant_val.nil?
+    end
+    content_item['title']
   end
 
   def multiple_more_information_sections?
@@ -32,5 +47,17 @@ class TransactionPresenter < ContentItemPresenter
     else
       details["start_button_text"]
     end
+  end
+
+private
+
+  def variant_value(key)
+    return nil if details['variants'].nil?
+    selected_variant = variant
+    selected_variant.fetch(key, nil) unless selected_variant.nil?
+  end
+
+  def variant
+    details['variants'].find { |v| v['slug'] == @variant_slug }
   end
 end

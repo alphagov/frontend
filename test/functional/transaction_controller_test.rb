@@ -55,4 +55,25 @@ class TransactionControllerTest < ActionController::TestCase
       get :show, params: { slug: "chwilio-am-swydd" }
     end
   end
+
+  context "given a variant exists" do
+    context "for live content" do
+      setup do
+        @content_item = content_store_has_example_item('/foo', schema: 'transaction', example: 'transaction-with-variants')
+      end
+
+      should "display variant specific values where present" do
+        get :show, params: { slug: "foo", variant: "council-tax-bands-2-staging" }
+
+        assert_equal @content_item.dig('details', 'variants', 0, 'title'), assigns(:publication).title
+        assert_equal @content_item.dig('details', 'variants', 0, 'transaction_start_link'), assigns(:publication).transaction_start_link
+      end
+
+      should "display normal value where variant does not specify value" do
+        get :show, params: { slug: "foo", variant: "council-tax-bands-2-staging" }
+
+        assert_equal @content_item.dig('details', 'more_information'), assigns(:publication).more_information
+      end
+    end
+  end
 end

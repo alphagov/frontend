@@ -1,6 +1,5 @@
 class TransactionPresenter < ContentItemPresenter
-  attr_writer :variant_slug
-  attr_reader :variant_slug
+  attr_accessor :variant_slug
 
   PASS_THROUGH_DETAILS_KEYS = %i(
     introductory_paragraph

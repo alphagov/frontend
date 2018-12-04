@@ -150,7 +150,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
   end
 
   context "a transaction has variants" do
-    should "render ok" do
+    should "render correct content including robots meta tag" do
       content_store_has_example_item('/council-tax-bands-2', schema: 'transaction', example: 'transaction-with-variants')
       visit '/council-tax-bands-2/council-tax-bands-2-staging'
 
@@ -163,7 +163,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
       end
 
       within 'head', visible: :all do
-        assert page.has_selector?("meta[name='robots'][content='none']", visible: false)
+        assert page.has_selector?("meta[name='robots'][content='noindex, nofollow']", visible: false)
       end
     end
   end

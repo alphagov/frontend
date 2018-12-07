@@ -11,6 +11,7 @@ private
 
   def set_content_item
     super(TransactionPresenter)
+    @publication.variant_slug = params['variant']
   end
 
   def deny_framing

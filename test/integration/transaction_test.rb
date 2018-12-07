@@ -43,6 +43,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       within 'head', visible: :all do
         assert page.has_selector?("title", text: "Carrots - GOV.UK", visible: false)
+        assert_not page.has_selector?("meta[name='robots']", visible: false)
       end
 
       within '#content' do
@@ -144,6 +145,25 @@ class TransactionTest < ActionDispatch::IntegrationTest
                                       start: true,
                                       href: "http://cymraeg.example.com")
         end
+      end
+    end
+  end
+
+  context "a transaction has variants" do
+    should "render correct content including robots meta tag" do
+      content_store_has_example_item('/council-tax-bands-2', schema: 'transaction', example: 'transaction-with-variants')
+      visit '/council-tax-bands-2/council-tax-bands-2-staging'
+
+      assert_equal 200, page.status_code
+      assert_has_button_as_link("Start now",
+                                href: "http://cti-staging.voa.gov.uk/cti/inits.asp")
+
+      within '#content/header' do
+        assert_has_component_title "Check your Council Tax band (staging)"
+      end
+
+      within 'head', visible: :all do
+        assert page.has_selector?("meta[name='robots'][content='noindex, nofollow']", visible: false)
       end
     end
   end

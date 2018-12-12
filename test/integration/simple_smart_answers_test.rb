@@ -9,7 +9,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       title: "The Bridge of Death",
       description: "Cheery description about bridge of death",
       phase: "beta",
-      updated_at: "2013-06-25T11:59:04+01:00",
+      public_updated_at: "2013-06-25T11:59:04+01:00",
       details: {
         start_button_text: "Start now",
         body: "<h2>STOP!</h2>\n\n<p>He who would cross the Bridge of Death<br />\nMust answer me<br />\nThese questions three<br />\nEre the other side he see.</p>\n",

@@ -28,7 +28,7 @@ class LicenceControllerTest < ActionController::TestCase
         format: "licence",
         schema_name: "licence",
         title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1",

@@ -15,7 +15,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       schema_name: "place",
       document_type: 'place',
       phase: "beta",
-      updated_at: "2012-10-02T15:21:03+00:00",
+      public_updated_at: "2012-10-02T15:21:03+00:00",
       details: {
         introduction: "<p>Enter your postcode to find a passport interview office near you.</p>",
         more_information: "Some more info on passport offices",

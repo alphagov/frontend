@@ -33,7 +33,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         phase: "beta",
         schema_name: "licence",
         title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1",
@@ -211,7 +211,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             format: "licence",
             schema_name: "licence",
             title: "Licence to thrill",
-            updated_at: "2012-10-02T12:30:33.483Z",
+            public_updated_at: "2012-10-02T12:30:33.483Z",
             description: "Descriptive licence text.",
             details: {
               licence_identifier: "999",
@@ -446,7 +446,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         format: "licence",
         schema_name: "licence",
         title: "Licence to turn off a telescreen",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1",
@@ -623,7 +623,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         format: "licence",
         schema_name: "licence",
         title: "Artistic License",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           "will_continue_on" => "another planet",
@@ -668,7 +668,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         phase: "beta",
         schema_name: "licence",
         title: "Licence of some type",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1",
@@ -749,7 +749,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         format: "licence",
         schema_name: "licence",
         title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1"
@@ -777,7 +777,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         format: "licence",
         schema_name: "licence",
         title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1"
@@ -809,7 +809,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         format: "licence",
         schema_name: "licence",
         title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1"
@@ -841,7 +841,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         format: "licence",
         schema_name: "licence",
         title: "Licence to kill",
-        updated_at: "2012-10-02T12:30:33.483Z",
+        public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
           licence_identifier: "1071-5-1"

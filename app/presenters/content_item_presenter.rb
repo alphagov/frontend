@@ -24,7 +24,7 @@ class ContentItemPresenter
   end
 
   def updated_at
-    date = @content_item["updated_at"]
+    date = @content_item["public_updated_at"]
     Time.zone.parse(date) if date
   end
 

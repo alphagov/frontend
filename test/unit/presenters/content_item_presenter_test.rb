@@ -28,7 +28,7 @@ class ContentItemPresenterTest < ActiveSupport::TestCase
 
   test "#updated_at" do
     datetime = 1.minute.ago
-    assert_equal datetime.to_i, subject(updated_at: datetime.to_s).updated_at.to_i
+    assert_equal datetime.to_i, subject(public_updated_at: datetime.to_s).updated_at.to_i
   end
 
   test "#locale" do

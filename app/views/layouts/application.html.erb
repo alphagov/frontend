@@ -29,9 +29,17 @@
         <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
       <% end %>
 
-      <% unless local_assigns.include?(:full_width) %><div class="grid-row"><% end %>
+      <% if local_assigns.exclude?(:full_width) %>
+        <div class="grid-row">
+          <%= yield %>
+        </div>
+        <div class="grid-row">
+          <%= yield :after_content %>
+        </div>
+      <% else %>
         <%= yield %>
-      <% unless local_assigns.include?(:full_width) %></div><% end %>
+        <%= yield :after_content %>
+      <% end %>
 
       <%= render 'govuk_publishing_components/components/feedback' %>
     </div>

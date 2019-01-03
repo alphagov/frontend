@@ -25,6 +25,7 @@ class LicenceDetailsPresenter
 
   def uses_licensify(chosen_action = action)
     return false unless authority
+
     chosen_action_info = authority.dig("actions", chosen_action)
     if chosen_action_info.present?
       chosen_action_info.any? { |link| link && link['uses_licensify'] }
@@ -35,6 +36,7 @@ class LicenceDetailsPresenter
 
   def uses_authority_url(chosen_action = action)
     return false unless authority
+
     chosen_action_info = authority.dig("actions", chosen_action)
     if chosen_action_info.present?
       chosen_action_info.any? { |link| link && link['uses_authority_url'] }

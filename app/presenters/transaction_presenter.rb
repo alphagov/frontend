@@ -52,6 +52,7 @@ private
 
   def variant_value(key)
     return nil if details['variants'].nil?
+
     selected_variant = variant
     selected_variant.fetch(key, nil) unless selected_variant.nil?
   end

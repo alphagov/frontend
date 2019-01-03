@@ -25,6 +25,7 @@ private
 
   def content_item
     return {} if error?
+
     @content_item ||= handle_api_errors do
       content_store.content_item("/#{slug}")
     end

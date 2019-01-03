@@ -96,6 +96,7 @@ private
   def interaction_details
     council = params[:local_authority_slug]
     return {} unless council
+
     if council == 'electoral-office-for-northern-ireland'
       return {
         "local_authority" => { 'name' => 'Electoral Office for Northern Ireland', 'homepage_url' => 'http://www.eoni.org.uk' },

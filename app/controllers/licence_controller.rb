@@ -54,6 +54,7 @@ private
 
   def licence_details_from_api_for_local_authority
     raise RecordNotFound unless snac_from_slug
+
     licence_details_from_api(snac_from_slug)
   end
 

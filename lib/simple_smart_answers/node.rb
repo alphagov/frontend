@@ -21,8 +21,10 @@ module SimpleSmartAnswers
     def process_response(response_slug)
       option = @options.find { |o| o.slug == response_slug }
       raise InvalidResponse if option.nil?
+
       option.next_node ||= @flow.node_for_slug(option.next_node_slug)
       raise InvalidResponse if option.next_node.nil? # TODO: should this be a different exception?
+
       option
     end
 

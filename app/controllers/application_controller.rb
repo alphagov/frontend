@@ -1,7 +1,4 @@
-require 'gds_api/helpers'
-
 class ApplicationController < ActionController::Base
-  include GdsApi::Helpers
   include Slimmer::Headers
   include Slimmer::Template
 
@@ -42,7 +39,7 @@ protected
 
   def setup_content_item(base_path)
     begin
-      @content_item = content_store.content_item(base_path).to_hash
+      @content_item = Services.content_store.content_item(base_path).to_hash
       section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
       if section_name
         @meta_section = section_name.downcase

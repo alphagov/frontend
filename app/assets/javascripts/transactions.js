@@ -15,14 +15,6 @@
 
 $(document).ready(function () {
 
-  var $container = $('section.more');
-
-  if ($container.find('.js-tabs').length) {
-    $container.tabs({
-      scrollOnload: true
-    });
-  }
-
   $('form#completed-transaction-form').
     append('<input type="hidden" name="service_feedback[javascript_enabled]" value="true"/>').
     append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
@@ -32,6 +24,6 @@ $(document).ready(function () {
     $(this).parents('form').submit();
   });
 
-  $('.transaction .nav-tabs a').click(window.GOVUK.Transactions.trackStartPageTabs);
+  $('.transaction .govuk-tabs__tab').click(window.GOVUK.Transactions.trackStartPageTabs);
 
 });

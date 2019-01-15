@@ -4,7 +4,7 @@ describe("Transactions", function () {
     var $tabs;
 
     beforeEach(function () {
-      $tabs = $('<div class="transaction"><div class="nav-tabs"><a href="#foo">Foo</a></div></div>');
+      $tabs = $('<div class="transaction"><a class="govuk-tabs__tab" href="#foo">Foo</a></div>');
       $('body').append($tabs);
     });
 

@@ -63,3 +63,22 @@
 .gem-c-radio__input {
   font-size: inherit;
 }
+
+// overwrites
+
+// `content-block` leaks styles into the `govuk-tabs` component so we need to
+// overwrite a few attributes to defend the component and preserve these values
+.content-block {
+  .govuk-tabs {
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+  }
+}

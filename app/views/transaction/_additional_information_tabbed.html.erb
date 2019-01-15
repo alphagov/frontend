@@ -1,27 +1,20 @@
-<div class="js-tabs nav-tabs">
-  <ul>
-    <% if transaction.more_information.present? %><li class="active"><a href="#more-information"><%= t 'formats.transaction.more_information' %></a></li><% end %>
-    <% if transaction.what_you_need_to_know.present? %><li><a href="#what-you-need-to-know"><%= t 'formats.transaction.what_you_need_to_know' %></a></li><% end %>
-    <% if transaction.other_ways_to_apply.present? %><li><a href="#other-ways-to-apply"><%= t 'formats.transaction.other_ways_to_apply' %></a></li><% end %>
-  </ul>
-</div>
-
-<div class="js-tab-content tab-content">
-  <% if transaction.more_information.present? %>
-    <div class="js-tab-pane tab-pane" id="more-information">
-      <%= transaction.more_information.try(:html_safe) %>
-    </div>
-  <% end %>
-
-  <% if transaction.what_you_need_to_know.present? %>
-    <div class="js-tab-pane tab-pane" id="what-you-need-to-know">
-      <%= transaction.what_you_need_to_know.try(:html_safe) %>
-    </div>
-  <% end %>
-
-  <% if transaction.other_ways_to_apply.present? %>
-    <div class="js-tab-pane tab-pane" id="other-ways-to-apply">
-      <%= transaction.other_ways_to_apply.try(:html_safe) %>
-    </div>
-  <% end %>
-</div>
+<%= render "govuk_publishing_components/components/tabs", {
+  panel_border: false,
+  tabs: [
+    {
+      id: ('more-information' if transaction.more_information.present?),
+      label: t('formats.transaction.more_information'),
+      content: transaction.more_information.try(:html_safe)
+    },
+    {
+      id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
+      label: t('formats.transaction.what_you_need_to_know'),
+      content: transaction.what_you_need_to_know.try(:html_safe)
+    },
+    {
+     id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
+     label: t('formats.transaction.other_ways_to_apply'),
+     content: transaction.other_ways_to_apply.try(:html_safe)
+    }
+  ].reject {|item| item[:id].blank?}
+} %>

@@ -1,4 +1,4 @@
-module AATestable
+module ABTestable
   extend ActiveSupport::Concern
 
   RELATED_LINKS_DIMENSION = 65
@@ -18,7 +18,7 @@ private
 
   def related_links_test
     @related_links_test ||= GovukAbTesting::AbTest.new(
-      "RelatedLinksAATest",
+      "RelatedLinksABTest",
       dimension: RELATED_LINKS_DIMENSION,
       allowed_variants: %w(A B),
       control_variant: "A"

@@ -68,7 +68,7 @@ protected
   def content_item(base_path = "/#{params[:slug]}")
     @content_item ||= Services.content_store.content_item(base_path)
 
-    if related_links_variant.variant?('B')
+    if related_links_variant.variant?('B') && @content_item.dig('links')
       @content_item['links']['ordered_related_items'] = @content_item['links'].fetch('suggested_ordered_related_items', [])
     end
 

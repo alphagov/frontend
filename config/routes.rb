@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'homepage#index', via: :get
   get "/homepage" => redirect("/")
+  match "/", to: proc { |env| [405, {}, ["Not Allowed"]] }, via: :all
 
   get "/random" => "random#random_page"
 
@@ -66,5 +67,5 @@ Rails.application.routes.draw do
     get "*any", to: "error#handler"
   end
 
-  root to: 'homepage#index', via: :get
+  match "*any", to: proc { |env| [405, {}, ["Not Allowed"]] }, via: :all
 end

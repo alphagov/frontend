@@ -3,6 +3,7 @@ require 'frontend'
 Rails.application.routes.draw do
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
+  root to: 'homepage#index', via: :get
   get "/homepage" => redirect("/")
 
   get "/random" => "random#random_page"

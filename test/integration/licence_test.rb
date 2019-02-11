@@ -81,7 +81,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           within '.article-container' do
             assert page.has_selector?(".gem-c-phase-banner")
-            assert page.has_selector?(".modified-date", text: "Last updated: 2 October 2012")
           end
         end
       end

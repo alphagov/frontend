@@ -113,7 +113,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         end
 
         assert page.has_selector?(".gem-c-phase-banner")
-        within(".modified-date") { assert_page_has_content "Last updated: 25 June 2013" }
       end
     end
   end

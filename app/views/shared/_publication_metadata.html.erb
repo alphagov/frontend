@@ -1,9 +1,3 @@
-<div class="meta-data group">
-  <% if publication.updated_at %>
-    <p class="modified-date"><%= t 'common.last_updated' %>: <%= l publication.updated_at, :format => '%e %B %Y' %></p>
-  <% end %>
-</div>
-
 <% content_for :extra_headers do %>
   <% if publication.description.present? %>
     <meta name="description" content="<%= publication.description %>" />

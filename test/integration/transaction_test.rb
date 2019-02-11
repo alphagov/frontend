@@ -62,8 +62,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
             assert page.has_content?('Carrotworld')
           end
-
-          assert page.has_selector?(".modified-date", text: "Last updated: 22 October 2012")
         end
       end
 

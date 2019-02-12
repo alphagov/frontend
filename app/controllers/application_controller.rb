@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
-  include AATestable
+  include ABTestable
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -40,7 +40,8 @@ protected
 
   def setup_content_item(base_path)
     begin
-      @content_item = Services.content_store.content_item(base_path).to_hash
+      @content_item = content_item(base_path).to_hash
+
       section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
       if section_name
         @meta_section = section_name.downcase
@@ -64,8 +65,14 @@ protected
                   end
   end
 
-  def content_item
-    @content_item ||= Services.content_store.content_item("/#{params[:slug]}")
+  def content_item(base_path = "/#{params[:slug]}")
+    @content_item ||= Services.content_store.content_item(base_path)
+
+    if related_links_variant.variant?('B') && @content_item.dig('links')
+      @content_item['links']['ordered_related_items'] = @content_item['links'].fetch('suggested_ordered_related_items', [])
+    end
+
+    @content_item
   end
 
 private

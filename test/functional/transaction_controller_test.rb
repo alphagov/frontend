@@ -23,8 +23,8 @@ class TransactionControllerTest < ActionController::TestCase
       assert_equal "DENY", @response.headers["X-Frame-Options"]
     end
 
-    should "get item from the content store and keeps ordered_related_items when running RelatedLinksABTest1 control variant" do
-      with_variant RelatedLinksABTest1: 'A' do
+    should "get item from the content store and keeps ordered_related_items when running RelatedLinksABTest2 control variant" do
+      with_variant RelatedLinksABTest2: 'A' do
         @content_item = content_store_has_example_item('/apply-marine-licence', schema: 'transaction', example: 'apply-marine-licence')
 
         get :show, params: { slug: 'apply-marine-licence' }
@@ -34,8 +34,8 @@ class TransactionControllerTest < ActionController::TestCase
       end
     end
 
-    should "get item from the content store and replace ordered_related_items when running RelatedLinksABTest1 test variant" do
-      with_variant RelatedLinksABTest1: 'B' do
+    should "get item from the content store and replace ordered_related_items when running RelatedLinksABTest2 test variant" do
+      with_variant RelatedLinksABTest2: 'B' do
         @content_item = content_store_has_example_item('/apply-marine-licence', schema: 'transaction', example: 'apply-marine-licence')
 
         get :show, params: { slug: 'apply-marine-licence' }
@@ -45,8 +45,8 @@ class TransactionControllerTest < ActionController::TestCase
       end
     end
 
-    should "get item from the content store and replace ordered_related_items with empty array when running RelatedLinksABTest1 test variant" do
-      with_variant RelatedLinksABTest1: 'B' do
+    should "get item from the content store and replace ordered_related_items with empty array when running RelatedLinksABTest2 test variant" do
+      with_variant RelatedLinksABTest2: 'B' do
         @content_item = content_store_has_example_item('/national-curriculum', schema: 'guide', example: 'guide')
 
         get :show, params: { slug: 'national-curriculum' }

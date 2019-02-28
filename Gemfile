@@ -39,7 +39,6 @@ group :test do
   gem 'govuk-content-schema-test-helpers'
   gem 'govuk_schemas', '~> 3.2'
   gem 'govuk_test'
-  gem 'launchy'
   gem 'mocha'
   gem 'shoulda-context'
   gem 'simplecov'

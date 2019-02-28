@@ -171,8 +171,6 @@ GEM
       addressable (>= 2.4)
     kgio (2.11.2)
     kramdown (1.15.0)
-    launchy (2.4.3)
-      addressable (~> 2.3)
     link_header (0.0.8)
     logstash-event (1.2.02)
     logstasher (1.2.2)
@@ -399,7 +397,6 @@ DEPENDENCIES
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)
   jasmine (~> 3.3)
-  launchy
   mocha
   plek (~> 2.1.1)
   pry-byebug

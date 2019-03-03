@@ -171,9 +171,6 @@ GEM
       addressable (>= 2.4)
     kgio (2.11.2)
     kramdown (1.15.0)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    libv8 (3.16.14.19)
     link_header (0.0.8)
     logstash-event (1.2.02)
     logstasher (1.2.2)
@@ -267,7 +264,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    ref (2.0.0)
     regexp_parser (1.3.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -352,9 +348,6 @@ GEM
     statsd-ruby (1.4.0)
     test-unit (3.2.6)
       power_assert
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -404,7 +397,6 @@ DEPENDENCIES
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)
   jasmine (~> 3.3)
-  launchy
   mocha
   plek (~> 2.1.1)
   pry-byebug
@@ -419,11 +411,10 @@ DEPENDENCIES
   simplecov-rcov
   slimmer (~> 13.1.0)
   sprockets-rails (~> 3.2.0)
-  therubyracer (~> 0.12.0)
   timecop
   uglifier
   uk_postcode (~> 2.1.3)
   webmock
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

@@ -18,7 +18,7 @@ class HomepageControllerTest < ActionController::TestCase
       assert_equal "max-age=1800, public", response.headers["Cache-Control"]
     end
 
-    %w(A B).each do |test_variant|
+    %w(A B C).each do |test_variant|
       should "RelatedLinksABTest3 works correctly for each variant (variant: #{test_variant})" do
         with_variant RelatedLinksABTest3: test_variant do
           get :index

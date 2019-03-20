@@ -19,8 +19,8 @@ class HomepageControllerTest < ActionController::TestCase
     end
 
     %w(A B C).each do |test_variant|
-      should "RelatedLinksABTest3 works correctly for each variant (variant: #{test_variant})" do
-        with_variant RelatedLinksABTest3: test_variant do
+      should "RelatedLinksABTest4 works correctly for each variant (variant: #{test_variant})" do
+        with_variant RelatedLinksABTest4: test_variant do
           get :index
 
           ab_test = @controller.send(:related_links_test)

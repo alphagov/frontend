@@ -21,8 +21,6 @@
     <% if @meta_section %>
       <meta name="govuk:section" content="<%= @meta_section %>">
     <% end %>
-
-    <%= related_links_variant.analytics_meta_tag.html_safe %>
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">

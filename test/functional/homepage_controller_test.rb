@@ -17,17 +17,5 @@ class HomepageControllerTest < ActionController::TestCase
       get :index
       assert_equal "max-age=1800, public", response.headers["Cache-Control"]
     end
-
-    %w(A B C).each do |test_variant|
-      should "RelatedLinksABTest4 works correctly for each variant (variant: #{test_variant})" do
-        with_variant RelatedLinksABTest4: test_variant do
-          get :index
-
-          ab_test = @controller.send(:related_links_test)
-          requested = ab_test.requested_variant(request.headers)
-          assert requested.variant?(test_variant)
-        end
-      end
-    end
   end
 end

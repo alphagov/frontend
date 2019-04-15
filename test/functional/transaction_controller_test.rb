@@ -22,50 +22,6 @@ class TransactionControllerTest < ActionController::TestCase
       get :show, params: { slug: 'foo' }
       assert_equal "DENY", @response.headers["X-Frame-Options"]
     end
-
-    should "get item from the content store and keeps ordered_related_items when running RelatedLinksABTest4 misclassification variant" do
-      with_variant RelatedLinksABTest4: 'A' do
-        @content_item = content_store_has_example_item('/apply-marine-licence', schema: 'transaction', example: 'apply-marine-licence')
-
-        get :show, params: { slug: 'apply-marine-licence' }
-
-        assert_response :success
-        assert_equal @content_item['links']['ordered_related_items'], assigns[:content_item]['links']['ordered_related_items']
-      end
-    end
-
-    should "get item from the content store and keeps ordered_related_items when running RelatedLinksABTest4 B control variant" do
-      with_variant RelatedLinksABTest4: 'B' do
-        @content_item = content_store_has_example_item('/apply-marine-licence', schema: 'transaction', example: 'apply-marine-licence')
-
-        get :show, params: { slug: 'apply-marine-licence' }
-
-        assert_response :success
-        assert_equal @content_item['links']['ordered_related_items'], assigns[:content_item]['links']['ordered_related_items']
-      end
-    end
-
-    should "get item from the content store and replace ordered_related_items when running RelatedLinksABTest4 test variant" do
-      with_variant RelatedLinksABTest4: 'C' do
-        @content_item = content_store_has_example_item('/apply-marine-licence', schema: 'transaction', example: 'apply-marine-licence')
-
-        get :show, params: { slug: 'apply-marine-licence' }
-
-        assert_response :success
-        assert_equal assigns[:content_item]['links']['ordered_related_items'], assigns[:content_item]['links']['suggested_ordered_related_items']
-      end
-    end
-
-    should "get item from the content store and replace ordered_related_items with empty array when running RelatedLinksABTest4 test variant" do
-      with_variant RelatedLinksABTest4: 'C' do
-        @content_item = content_store_has_example_item('/national-curriculum', schema: 'guide', example: 'guide')
-
-        get :show, params: { slug: 'national-curriculum' }
-
-        assert_response :success
-        assert_equal [], assigns[:content_item]['links']['ordered_related_items']
-      end
-    end
   end
 
   context "loading the jobsearch page" do

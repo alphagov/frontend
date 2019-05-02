@@ -109,9 +109,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "show a get started button which links to the interaction" do
         assert_has_button_as_link("Go to their website",
-                                    href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
-                                    rel: "external",
-                                    start: true)
+                                  href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
+                                  rel: "external",
+                                  start: true)
       end
 
       should "not show the transaction information" do
@@ -314,9 +314,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should 'link to the council website' do
         assert_has_button_as_link("Go to their website",
-                                    href: "http://westminster.example.com",
-                                    rel: "external",
-                                    start: true)
+                                  href: "http://westminster.example.com",
+                                  rel: "external",
+                                  start: true)
       end
 
       should "not show the transaction information" do

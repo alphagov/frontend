@@ -182,8 +182,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           should "display a button to apply for the licence" do
             assert_has_button_as_link("Apply online",
-                                        href: "/licence-to-kill/westminster/apply-1",
-                                        start: true)
+                                      href: "/licence-to-kill/westminster/apply-1",
+                                      start: true)
           end
         end
 
@@ -550,8 +550,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
             assert current_path == '/licence-to-turn-off-a-telescreen/miniluv/apply'
 
             assert_has_button_as_link("Apply online",
-                                        href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
-                                        start: true)
+                                      href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
+                                      start: true)
           end
         end
       end
@@ -601,8 +601,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         should "display the interactions for licence" do
           click_on 'How to apply'
           assert_has_button_as_link("Apply online",
-                                      href: '/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1',
-                                      start: true)
+                                    href: '/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1',
+                                    start: true)
         end
 
         should "show overview section" do
@@ -946,8 +946,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert current_path == '/licence-to-kill/miniluv/apply'
 
         assert_has_button_as_link("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/apply-1",
-                                    start: true)
+                                  href: "/licence-to-kill/ministry-of-love/apply-1",
+                                  start: true)
         assert_not page.has_content?("You can't apply for this licence online")
         assert_not page.has_content?("Contact your local council")
       end
@@ -1120,8 +1120,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert current_path == '/licence-to-kill/miniluv/renew'
 
         assert_has_button_as_link("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/renew-1",
-                                    start: true)
+                                  href: "/licence-to-kill/ministry-of-love/renew-1",
+                                  start: true)
 
         assert_not page.has_content?("You can't apply for this licence online")
         assert_not page.has_content?("Contact your local council")
@@ -1279,11 +1279,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert current_path == '/licence-to-kill/miniluv/apply'
 
         assert_has_button_as_link("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/apply-1",
-                                    start: true)
+                                  href: "/licence-to-kill/ministry-of-love/apply-1",
+                                  start: true)
         assert_has_button_as_link("Apply online",
-                                    start: true,
-                                    href: "/licence-to-kill/ministry-of-love/apply-3")
+                                  start: true,
+                                  href: "/licence-to-kill/ministry-of-love/apply-3")
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/apply-2",

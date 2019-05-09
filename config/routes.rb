@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "/help", to: "help#index"
   get "/help/ab-testing", to: "help#ab_testing"
   get "/tour", to: "help#tour"
+  get "/help/cookies", to: "help#cookie_settings"
 
   # Done pages
   constraints FormatRoutingConstraint.new('completed_transaction') do

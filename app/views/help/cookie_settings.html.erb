@@ -1,0 +1,119 @@
+<% content_for :title, "Cookies on GOV.UK" %>
+
+<main id="content" role="main" class="group help-page">
+  <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
+    <%= render "govuk_publishing_components/components/notice", {
+      title: t('cookies.confirmation_title'),
+      aria_live: true,
+    } do %>
+      <p><%= t('cookies.confirmation_message') %></p>
+      <a class="govuk_link cookie-settings__prev-page" href='#'><%= t('cookies.confirmation_previous_referrer_link') %></a>
+    <% end %>
+  </div>
+
+  <%= render "govuk_publishing_components/components/title", {
+    title: t('cookies.cookies_on_govuk')
+  } %>
+
+  <%= render "govuk_publishing_components/components/govspeak", {
+  } do %>
+    <p>Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
+    <p>They store information about how you use the website, such as the pages you visit.</p>
+    <p>Cookies are used, for example, to:</p>
+    <ul>
+      <li>measure how you use the website so it can be updated and improved based on your needs</li>
+      <li>remember the notifications you've seen so we do not show them to you again</li>
+      <li>remember you while you’re changing your GOV.UK email subscriptions</li>
+    </ul>
+
+    <h2>Government services</h2>
+    <p>Most services we link to are run by different government departments, for example HM Revenue and Customs (HMRC) or the Home Office. These services may set additional cookies and, if so, will have their own cookies policy and banner linking to it.</p>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: t('cookies.cookie_settings'),
+    padding: true,
+    heading_level: 2
+  } %>
+  <p>We use 4 main types of cookie. You can choose which cookies you're happy for us to use.</p>
+
+  <form data-module="cookie-settings">
+    <%= render "govuk_publishing_components/components/radio", {
+      name: "cookies-settings",
+      inline: true,
+      heading: t('cookies.types.settings'),
+      hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
+      items: [
+        {
+          value: "on",
+          text: t('cookies.on')
+        },
+        {
+          value: "off",
+          text: t('cookies.off')
+        }
+      ]
+    } %>
+
+    <%= render "govuk_publishing_components/components/radio", {
+      name: "cookies-usage",
+      inline: true,
+      heading: t('cookies.types.usage'),
+      hint: "These cookies store information about how you use our website, such as what you click on.",
+      items: [
+        {
+          value: "on",
+          text: t('cookies.on')
+        },
+        {
+          value: "off",
+          text: t('cookies.off')
+        }
+      ]
+    } %>
+
+    <% cookies_campaigns_hint = capture do %>
+      These cookies are set by third party websites and do things like:
+      <ul>
+        <li>tell us if you've seen our adverts on social media, such as Facebook or Twitter</li>
+        <li>measure how you view Youtube videos</li>
+        <li>help record your responses to surveys</li>
+      </ul>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/radio", {
+      name: "cookies-campaigns",
+      inline: true,
+      heading: t('cookies.types.campaigns'),
+      hint: cookies_campaigns_hint,
+      items: [
+        {
+          value: "on",
+          text: t('cookies.on')
+        },
+        {
+          value: "off",
+          text: t('cookies.off')
+        }
+      ]
+    } %>
+
+    <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+      <h2><%= t('cookies.types.essential') %></h2>
+      <p>These cookies do things like:</p>
+        <ul>
+          <li>keep the website secure</li>
+          <li>ensure the site functions properly for users</li>
+          <li>remember messages you’ve seen, so that you’re not shown them again</li>
+        </ul>
+      <p>They always need to be on.</p>
+
+      <p><a href="/help/cookie-details">Find out more about cookies on GOV.UK</a></p>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/button", {
+      text: t('cookies.save_changes')
+    } %>
+  </form>
+</main>

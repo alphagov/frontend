@@ -139,6 +139,16 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         @the_other_licence_authority,
       ]
     }
+
+    @multiple_authorities_and_location_specific_licence = {
+      "isLocationSpecific" => true,
+      "isOfferedByCounty" => false,
+      "geographicalAvailability" => %w(England Wales),
+      "issuingAuthorities" => [
+        @the_other_licence_authority,
+        @the_one_licence_authority,
+      ]
+    }
   end
 
   context "#single_licence_authority_present?" do
@@ -257,13 +267,13 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
 
       context "when more than one authority are present" do
         should "return the matched authority if authority slug provided" do
-          subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-other-licence-authority")
+          subject = LicenceDetailsPresenter.new(@multiple_authorities_and_location_specific_licence, "the-other-licence-authority")
 
           assert_equal @presented_the_other_licence_authority, subject.authority
         end
 
         should "return nil if no matched authority found" do
-          subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "a-funky-licence-authority")
+          subject = LicenceDetailsPresenter.new(@multiple_authorities_and_location_specific_licence, "a-funky-licence-authority")
 
           assert_nil subject.authority
         end

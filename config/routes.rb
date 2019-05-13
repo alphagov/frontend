@@ -1,7 +1,7 @@
 require 'frontend'
 
 Rails.application.routes.draw do
-  mount GovukPublishingComponents::Engine, at: "/component-guide"
+  root to: 'homepage#index', via: :get
 
   get "/homepage" => redirect("/")
 
@@ -65,5 +65,5 @@ Rails.application.routes.draw do
     get "*any", to: "error#handler"
   end
 
-  root to: 'homepage#index', via: :get
+  mount GovukPublishingComponents::Engine, at: "/component-guide"
 end

@@ -31,7 +31,7 @@ class LicenceController < ApplicationController
     if @publication.continuation_link.present?
       redirect_to licence_path(slug: params[:slug])
     elsif @licence_details.local_authority_specific?
-      @licence_details = LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, nil, params[:interaction])
+      @licence_details = LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
     end
   end
 

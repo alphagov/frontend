@@ -519,6 +519,16 @@ class LicenceTest < ActionDispatch::IntegrationTest
                        "issuingAuthorities" => authorities)
       end
 
+      context "when visiting the license and specifying an authority" do
+        setup do
+          visit '/licence-to-turn-off-a-telescreen/minitrue'
+        end
+
+        should "display correct licence" do
+          assert page.has_content?('The issuing authority for this licence is Ministry of Truth')
+        end
+      end
+
       context "when visiting the licence without specifying an authority" do
         setup do
           visit '/licence-to-turn-off-a-telescreen'

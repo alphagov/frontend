@@ -277,6 +277,14 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
 
           assert_nil subject.authority
         end
+
+        context "no authority_slug is provided" do
+          should "return the first authority" do
+            subject = LicenceDetailsPresenter.new(@multiple_authorities_and_location_specific_licence)
+
+            assert_equal @presented_the_other_licence_authority, subject.authority
+          end
+        end
       end
 
       context "when no authority is present" do

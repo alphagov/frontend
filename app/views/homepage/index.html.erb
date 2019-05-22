@@ -17,7 +17,8 @@
               <p>The best place to find government services and information</p>
               <p class="simpler">Simpler, clearer, faster</p>
 
-              <form action="/search" method="get" role="search">
+              <form action="/search/all" method="get" role="search">
+                <input type="hidden" name="order" value="relevance" />
                 <%= render "govuk_publishing_components/components/search", on_govuk_blue: true %>
               </form>
             </div>

@@ -15,6 +15,8 @@ class HomepagePublisherTest < ActiveSupport::TestCase
       to_return(status: 200)
     publish_request = stub_request(:post, "http://publishing-api.dev.gov.uk/v2/content/f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a/publish").
       to_return(status: 200)
+    patch_links_request = stub_request(:patch, "http://publishing-api.dev.gov.uk/v2/links/f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a").
+      to_return(status: 200)
 
     stub_api = GdsApi::PublishingApiV2.new(Plek.find("publishing-api"))
 
@@ -27,6 +29,16 @@ class HomepagePublisherTest < ActiveSupport::TestCase
     )
 
     assert_requested(publish_request)
+
+    expected_links = {
+      'organisations' => ['af07d5a5-df63-4ddc-9383-6a666845ebe9'],
+      'primary_publishing_organisation' => ['af07d5a5-df63-4ddc-9383-6a666845ebe9']
+    }
+    assert_requested(
+      patch_links_request.with do |req|
+        assert_equal expected_links, JSON.parse(req.body)['links']
+      end
+    )
 
     GovukContentSchemaTestHelpers.configure do |config|
       config.schema_type = 'frontend'

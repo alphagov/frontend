@@ -188,7 +188,7 @@ GEM
     parser (2.6.3.0)
       ast (~> 2.4.0)
     phantomjs (2.1.1.0)
-    plek (2.1.1)
+    plek (3.0.0)
     power_assert (1.1.1)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -382,7 +382,7 @@ DEPENDENCIES
   invalid_utf8_rejector (~> 0.0.0)
   jasmine (~> 3.4)
   mocha
-  plek (~> 2.1.1)
+  plek (~> 3.0.0)
   pry-byebug
   rack_strip_client_ip (~> 0.0.2)
   rails (= 5.2.3)

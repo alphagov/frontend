@@ -362,6 +362,11 @@ body.homepage {
         }
       }
     }
+    
+    .large-numbers__list {
+      padding-left: 0;
+    }
+
     .departments-promo-sections {
       @extend %contain-floats;
       clear: both;

@@ -7,6 +7,7 @@ describe('cookieSettings', function() {
       fakePreviousURL;
 
   beforeEach(function() {
+    GOVUK.analytics = {trackEvent: function () {}}
     cookieSettings = new GOVUK.Modules.CookieSettings()
     GOVUK.Modules.CookieSettings.prototype.getReferrerLink = function () {
       return fakePreviousURL
@@ -100,6 +101,19 @@ describe('cookieSettings', function() {
 
       expect(window.GOVUK.setCookie).toHaveBeenCalledWith("seen_cookie_message", true)
       expect(GOVUK.cookie('seen_cookie_message')).toBeTruthy()
+    });
+
+    it('fires a Google Analytics event', function() {
+      spyOn(GOVUK.analytics, 'trackEvent').and.callThrough()
+      cookieSettings.start(element)
+
+      element.querySelector('#settings-on').checked = false
+      element.querySelector('#settings-off').checked = true
+
+      var button = element.querySelector("#submit-button")
+      button.click()
+
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('cookieSettings', 'Save changes', { label: 'settings-no usage-yes campaigns-yes ' })
     });
   });
 

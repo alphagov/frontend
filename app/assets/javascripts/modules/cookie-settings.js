@@ -15,20 +15,19 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   CookieSettings.prototype.setInitialFormValues = function () {
-    if (!window.GOVUK.cookie('cookie_policy')) {
+    if (!window.GOVUK.getConsentCookie()) {
       window.GOVUK.setDefaultConsentCookie()
     }
 
-    var currentConsentCookie = window.GOVUK.cookie('cookie_policy')
-    var currentConsentCookieJSON = JSON.parse(currentConsentCookie)
+    var currentConsentCookie = window.GOVUK.getConsentCookie()
 
     // We don't need the essential value as this cannot be changed by the user
-    delete currentConsentCookieJSON["essential"]
+    delete currentConsentCookie["essential"]
 
-    for (var cookieType in currentConsentCookieJSON) {
+    for (var cookieType in currentConsentCookie) {
       var radioButton
 
-      if (currentConsentCookieJSON[cookieType]) {
+      if (currentConsentCookie[cookieType]) {
         radioButton = document.querySelector('input[name=cookies-' + cookieType + '][value=on]')
       } else {
         radioButton = document.querySelector('input[name=cookies-' + cookieType + '][value=off]')

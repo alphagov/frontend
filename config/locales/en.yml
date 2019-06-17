@@ -11,8 +11,8 @@ en:
     off: "Off"
     save_changes: "Save changes"
     types:
-      campaigns: "Cookies that help with campaigns"
-      essential: "Essential cookies"
+      campaigns: "Cookies that help with our communications and marketing"
+      essential: "Strictly necessary cookies"
       settings: "Cookies that remember your settings"
       usage: "Cookies that measure website use"
   formats:

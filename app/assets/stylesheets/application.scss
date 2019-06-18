@@ -1,5 +1,8 @@
 // BASE Stylesheet
 
+// Components from govuk_publishing_components gem
+@import 'govuk_publishing_components/all_components';
+
 // govuk_frontend_toolkit mixins
 @import "colours";
 @import "conditionals";
@@ -27,6 +30,7 @@
 
 // View stylesheets
 @import "views/completed-transaction";
+@import "views/cookie-settings";
 @import "views/homepage";
 @import "views/tour";
 @import "views/travel-advice";
@@ -54,9 +58,6 @@
     margin: 0;
   }
 }
-
-// components
-@import 'govuk_publishing_components/all_components';
 
 // Delete after https://github.com/alphagov/govuk_publishing_components/pull/301
 // is merged and used in this application.

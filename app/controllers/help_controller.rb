@@ -10,6 +10,10 @@ class HelpController < ApplicationController
     render locals: { full_width: true }
   end
 
+  def cookie_settings
+    setup_content_item("/help/cookies")
+  end
+
   def ab_testing
     setup_content_item("/help/ab-testing")
     ab_test = GovukAbTesting::AbTest.new("Example", dimension: 40)

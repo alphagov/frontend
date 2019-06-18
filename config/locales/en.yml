@@ -1,6 +1,20 @@
 en:
   common:
     last_updated: "Last updated"
+  cookies:
+    cookie_settings: "Cookie settings"
+    cookies_on_govuk: "Cookies on GOV.UK"
+    confirmation_title: "Your cookie settings were saved"
+    confirmation_message: "Government services may set additional cookies and, if so, will have their own cookie policy and banner."
+    confirmation_previous_referrer_link: "Go back to the page you were looking at"
+    on: "On"
+    off: "Off"
+    save_changes: "Save changes"
+    types:
+      campaigns: "Cookies that help with our communications and marketing"
+      essential: "Strictly necessary cookies"
+      settings: "Cookies that remember your settings"
+      usage: "Cookies that measure website use"
   formats:
     transaction:
       name: "Service"

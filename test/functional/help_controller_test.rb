@@ -15,6 +15,24 @@ class HelpControllerTest < ActionController::TestCase
     end
   end
 
+  context "loading the cookies setting page" do
+    setup do
+      content_store_has_random_item(base_path: "/help/cookies", schema: 'help_page')
+    end
+
+    should "respond with success" do
+      get :cookie_settings
+
+      assert_response :success
+    end
+
+    should "set the cache expiry headers" do
+      get :cookie_settings
+
+      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+    end
+  end
+
   context "loading the tour page" do
     setup do
       content_store_has_random_item(base_path: "/tour", schema: 'help_page')

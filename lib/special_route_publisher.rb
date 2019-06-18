@@ -49,6 +49,12 @@ class SpecialRoutePublisher
           description: "This page is being used internally by GOV.UK to make sure A/B testing works.",
         },
         {
+          content_id: "220f39ad-d4ad-4b0c-9d40-6c417a1341c0",
+          base_path: "/help/cookies",
+          title: "Cookies on GOV.UK",
+          description: "You can choose which cookies you're happy for GOV.UK to use.",
+        },
+        {
           content_id: "50aa0d27-ea4a-49b7-a1e6-98abd1115f60",
           base_path: "/help.json",
           title: "Help using GOV.UK",

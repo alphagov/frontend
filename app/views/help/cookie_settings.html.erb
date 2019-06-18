@@ -7,7 +7,9 @@
       aria_live: true,
     } do %>
       <p><%= t('cookies.confirmation_message') %></p>
-      <a class="govuk_link cookie-settings__prev-page" href='#'><%= t('cookies.confirmation_previous_referrer_link') %></a>
+      <a class="govuk_link cookie-settings__prev-page" href='#' data-module="track-click" data-track-category="cookieSettings" data-track-action="Back to previous page">
+        <%= t('cookies.confirmation_previous_referrer_link') %>
+      </a>
     <% end %>
   </div>
 
@@ -112,7 +114,11 @@
         </ul>
       <p>They always need to be on.</p>
 
-      <p><a href="/help/cookie-details">Find out more about cookies on GOV.UK</a></p>
+      <p>
+        <a href="/help/cookie-details" data-module="track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
+          Find out more about cookies on GOV.UK
+        </a>
+      </p>
     <% end %>
 
     <%= render "govuk_publishing_components/components/button", {

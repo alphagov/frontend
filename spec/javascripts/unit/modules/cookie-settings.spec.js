@@ -99,7 +99,7 @@ describe('cookieSettings', function() {
       var button = element.querySelector("#submit-button")
       button.click()
 
-      expect(window.GOVUK.setCookie).toHaveBeenCalledWith("seen_cookie_message", true)
+      expect(window.GOVUK.setCookie).toHaveBeenCalledWith("seen_cookie_message", true, { days: 365 } )
       expect(GOVUK.cookie('seen_cookie_message')).toBeTruthy()
     });
 

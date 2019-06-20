@@ -2,6 +2,8 @@ class TransactionController < ApplicationController
   include Cacheable
   include Navigable
 
+  slimmer_template 'wrapper'
+
   before_action :set_content_item
   before_action :deny_framing
 

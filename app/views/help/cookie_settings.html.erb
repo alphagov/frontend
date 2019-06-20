@@ -1,6 +1,6 @@
 <% content_for :title, "Cookies on GOV.UK" %>
 
-<main id="content" role="main" class="group help-page">
+<main id="content" role="main" class="group help-page cookie-settings">
   <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
     <%= render "govuk_publishing_components/components/notice", {
       title: t('cookies.confirmation_title'),
@@ -29,98 +29,112 @@
     padding: true,
     heading_level: 2
   } %>
-  <p>We use 4 types of cookie. You can choose which cookies you're happy for us to use.</p>
 
-  <form data-module="cookie-settings">
-
-    <% cookies_usage_hint = capture do %>
-      We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:
-      <ul>
-        <li>how you got to the site</li>
-        <li>the pages you visit on GOV.UK and how long you spend on each page</li>
-        <li>what you click on while you're visiting the site</li>
-      </ul>
-      We do not allow Google to use or share the data about how you use this site.
-
-    <% end %>
-
-    <%= render "govuk_publishing_components/components/radio", {
-      name: "cookies-usage",
-      inline: true,
-      heading: t('cookies.types.usage'),
-      hint: cookies_usage_hint,
-      items: [
-        {
-          value: "on",
-          text: t('cookies.on')
-        },
-        {
-          value: "off",
-          text: t('cookies.off')
-        }
-      ]
-    } %>
-
-    <% cookies_campaigns_hint = capture do %>
-    These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
-
-    <% end %>
-
-    <%= render "govuk_publishing_components/components/radio", {
-      name: "cookies-campaigns",
-      inline: true,
-      heading: t('cookies.types.campaigns'),
-      hint: cookies_campaigns_hint,
-      items: [
-        {
-          value: "on",
-          text: t('cookies.on')
-        },
-        {
-          value: "off",
-          text: t('cookies.off')
-        }
-      ]
-    } %>
-
-    <%= render "govuk_publishing_components/components/radio", {
-      name: "cookies-settings",
-      inline: true,
-      heading: t('cookies.types.settings'),
-      hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
-      items: [
-        {
-          value: "on",
-          text: t('cookies.on')
-        },
-        {
-          value: "off",
-          text: t('cookies.off')
-        }
-      ]
-    } %>
-
+  <div class="cookie-settings__no-js">
     <%= render "govuk_publishing_components/components/govspeak", {
       } do %>
-      <h2><%= t('cookies.types.essential') %></h2>
-      <p>These essential cookies do things like:</p>
-        <ul>
-          <li>remember the notifications you've seen so we do not show them to you again</li>
-          <li>remember your progress through a form (for example a licence application)</li>
-        </ul>
-      <p>They always need to be on.</p>
-
-      <p>
-        <a href="/help/cookie-details" data-module="track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
-          Find out more about cookies on GOV.UK
-        </a>
-      </p>
+      <p>We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:</p>
+      <ul>
+        <li>reloading the page</li>
+        <li>turning on Javascript in your browser</li>
+      </ul>
     <% end %>
+  </div>
 
-    <%= render "govuk_publishing_components/components/button", {
-      text: t('cookies.save_changes')
-    } %>
-  </form>
+  <div class="cookie-settings__form-wrapper">
+    <p>We use 4 types of cookie. You can choose which cookies you're happy for us to use.</p>
+
+    <form data-module="cookie-settings">
+
+      <% cookies_usage_hint = capture do %>
+        We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:
+        <ul>
+          <li>how you got to the site</li>
+          <li>the pages you visit on GOV.UK and how long you spend on each page</li>
+          <li>what you click on while you're visiting the site</li>
+        </ul>
+        We do not allow Google to use or share the data about how you use this site.
+
+      <% end %>
+
+      <%= render "govuk_publishing_components/components/radio", {
+        name: "cookies-usage",
+        inline: true,
+        heading: t('cookies.types.usage'),
+        hint: cookies_usage_hint,
+        items: [
+          {
+            value: "on",
+            text: t('cookies.on')
+          },
+          {
+            value: "off",
+            text: t('cookies.off')
+          }
+        ]
+      } %>
+
+      <% cookies_campaigns_hint = capture do %>
+      These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
+
+      <% end %>
+
+      <%= render "govuk_publishing_components/components/radio", {
+        name: "cookies-campaigns",
+        inline: true,
+        heading: t('cookies.types.campaigns'),
+        hint: cookies_campaigns_hint,
+        items: [
+          {
+            value: "on",
+            text: t('cookies.on')
+          },
+          {
+            value: "off",
+            text: t('cookies.off')
+          }
+        ]
+      } %>
+
+      <%= render "govuk_publishing_components/components/radio", {
+        name: "cookies-settings",
+        inline: true,
+        heading: t('cookies.types.settings'),
+        hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
+        items: [
+          {
+            value: "on",
+            text: t('cookies.on')
+          },
+          {
+            value: "off",
+            text: t('cookies.off')
+          }
+        ]
+      } %>
+
+      <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+        <h2><%= t('cookies.types.essential') %></h2>
+        <p>These essential cookies do things like:</p>
+          <ul>
+            <li>remember the notifications you've seen so we do not show them to you again</li>
+            <li>remember your progress through a form (for example a licence application)</li>
+          </ul>
+        <p>They always need to be on.</p>
+
+        <p>
+          <a href="/help/cookie-details" data-module="track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
+            Find out more about cookies on GOV.UK
+          </a>
+        </p>
+      <% end %>
+
+      <%= render "govuk_publishing_components/components/button", {
+        text: t('cookies.save_changes')
+      } %>
+    </form>
+  </div>
 
   <div class="cookie-settings__gov-services">
     <%= render "govuk_publishing_components/components/heading", {

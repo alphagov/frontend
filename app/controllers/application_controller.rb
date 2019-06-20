@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
   rescue_from RecordNotFound, with: :cacheable_404
 
-  slimmer_template 'wrapper'
-
 protected
 
   def error_410; error :gone; end

@@ -3,6 +3,8 @@ class LocalTransactionController < ApplicationController
   include Cacheable
   include Navigable
 
+  slimmer_template 'wrapper'
+
   before_action -> { set_content_item(LocalTransactionPresenter) }
   before_action -> { response.headers['X-Frame-Options'] = 'DENY' }
 

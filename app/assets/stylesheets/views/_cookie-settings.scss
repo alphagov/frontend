@@ -1,8 +1,22 @@
+.cookie-settings__form-wrapper {
+  display: none;
+
+  .js-enabled & {
+    display: block;
+  }
+}
+
+.cookie-settings__no-js {
+  .js-enabled & {
+    display: none;
+  }
+}
+
 .cookie-settings__confirmation {
   @include govuk-font(19);
   display: none;
 }
 
 .cookie-settings__gov-services {
-  margin-top: govuk-spacing(6);
+  margin-top: govuk-spacing(8);
 }

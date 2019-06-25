@@ -1,12 +1,6 @@
 class CompletedTransactionPresenter < ContentItemPresenter
-  PASS_THROUGH_DETAILS_KEYS = [
-    :promotion
-  ].freeze
-
-  PASS_THROUGH_DETAILS_KEYS.each do |key|
-    define_method key do
-      details[key.to_s] if details
-    end
+  def promotion
+    PromotionPresenter.new(details["promotion"]) if details && details["promotion"]
   end
 
   def web_url

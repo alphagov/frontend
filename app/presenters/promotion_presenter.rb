@@ -15,6 +15,14 @@ class PromotionPresenter
     @url ||= details.fetch("url")
   end
 
+  def opt_in_url
+    @opt_in_url ||= (details["opt_in_url"] || url)
+  end
+
+  def opt_out_url
+    @opt_out_url ||= details["opt_out_url"]
+  end
+
 private
 
   attr_reader :details

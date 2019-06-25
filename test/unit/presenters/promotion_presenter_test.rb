@@ -18,4 +18,13 @@ class PromotionPresenterTest < ActiveSupport::TestCase
   test "#url" do
     assert_equal "https://example.org", subject(url: "https://example.org").url
   end
+
+  test "#opt_in_url" do
+    assert_equal "https://example.org", subject(opt_in_url: "https://example.org").opt_in_url
+    assert_equal "https://example.org", subject(url: "https://example.org").opt_in_url
+  end
+
+  test "#opt_out_url" do
+    assert_equal "https://example.org", subject(opt_out_url: "https://example.org").opt_out_url
+  end
 end

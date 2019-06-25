@@ -12,13 +12,23 @@
   <% if @publication.promotion %>
     <div class="promotion">
       <% if @publication.promotion.organ_donor? %>
-        <p>Please join the NHS Organ Donor Register.</p>
-        <p>If you needed an organ transplant would you have one? If so please help others.</p>
-        <p>If you live in Wales and want to be an organ donor, you don’t need to do anything. Find out about your choices for <a href="https://www.organdonation.nhs.uk/supporting-my-decision/welsh-legislation-what-it-means-for-me/" rel="external">organ donation in Wales</a>.</p>
         <p>
-          <%= link_to 'Join', @publication.promotion.url,
-                title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
+          Please consider
+          <%= link_to 'joining the NHS Organ Donor Register', @publication.promotion.opt_in_url,
+                rel: "external" %>.
         </p>
+
+        <% if @publication.promotion.opt_out_url %>
+          <p>
+            Organ donation law in England is changing.
+            From spring 2020, you’ll be treated as an organ donor unless you
+            <%= link_to 'opt out of the donor register', @publication.promotion.opt_out_url,
+                  rel: "external" %>.
+            This law already applies in Wales.
+          </p>
+        <% end %>
+
+        <p><strong>Please tell your family your organ donation decision.</strong></p>
       <% elsif @publication.promotion.mot_reminder? %>
         <p>Get a text or email reminder when your MOT is due.</p>
         <p>

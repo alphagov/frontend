@@ -31,8 +31,8 @@ class HomepagePublisherTest < ActiveSupport::TestCase
     assert_requested(publish_request)
 
     expected_links = {
-      'organisations' => ['af07d5a5-df63-4ddc-9383-6a666845ebe9'],
-      'primary_publishing_organisation' => ['af07d5a5-df63-4ddc-9383-6a666845ebe9']
+      'organisations' => %w(af07d5a5-df63-4ddc-9383-6a666845ebe9),
+      'primary_publishing_organisation' => %w(af07d5a5-df63-4ddc-9383-6a666845ebe9)
     }
     assert_requested(
       patch_links_request.with do |req|

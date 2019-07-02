@@ -107,9 +107,9 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
       should "calculate the flow state for the given responses" do
         flow = SimpleSmartAnswers::Flow.new(@node_details)
-        state = flow.state_for_responses(["option-1", "option-2"])
+        state = flow.state_for_responses(%w(option-1 option-2))
         SimpleSmartAnswers::Flow.expects(:new).with(@node_details).returns(flow)
-        flow.expects(:state_for_responses).with(["option-1", "option-2"]).returns(state)
+        flow.expects(:state_for_responses).with(%w(option-1 option-2)).returns(state)
 
         get :flow, params: { slug: "the-bridge-of-death", responses: "option-1/option-2" }
 
@@ -133,7 +133,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-1" }
 
           state = assigns[:flow_state]
-          assert_equal ['option-1', 'option-1'], state.completed_questions.map(&:slug)
+          assert_equal %w(option-1 option-1), state.completed_questions.map(&:slug)
         end
 
         should "redirect to the canonical path for the resulting state" do

@@ -58,20 +58,3 @@
     margin: 0;
   }
 }
-
-// overwrites
-
-// `content-block` leaks styles into the `govuk-tabs` component so we need to
-// overwrite a few attributes to defend the component and preserve these values
-.content-block {
-  .govuk-tabs__list {
-    padding: 0;
-    margin: 0;
-  }
-
-  .govuk-tabs__list-item {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-}

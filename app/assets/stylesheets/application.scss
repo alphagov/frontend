@@ -59,12 +59,6 @@
   }
 }
 
-// Delete after https://github.com/alphagov/govuk_publishing_components/pull/301
-// is merged and used in this application.
-.gem-c-radio__input {
-  font-size: inherit;
-}
-
 // overwrites
 
 // `content-block` leaks styles into the `govuk-tabs` component so we need to

@@ -37,7 +37,7 @@ end
 group :test do
   gem 'ci_reporter'
   gem 'govuk-content-schema-test-helpers'
-  gem 'govuk_schemas', '~> 3.3'
+  gem 'govuk_schemas', '~> 4.0'
   gem 'govuk_test'
   gem 'mocha'
   gem 'shoulda-context'

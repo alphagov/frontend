@@ -143,4 +143,35 @@
       } %>
       <p>Most services we link to are run by different government departments, for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s webchat. These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.</p>
   </div>
+
+  <%= render "govuk_publishing_components/components/share_links", {
+    columns: true,
+    links: [
+      {
+        href: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgovuk-frontend-app-pr-1924.herokuapp.com%2Fhelp%2Fcookies%2F",
+        text: "Share on Facebook",
+        icon: "facebook"
+      },
+      {
+        href: "https://twitter.com/share?url=https%3A%2F%2Fgovuk-frontend-app-pr-1924.herokuapp.com%2Fhelp%2Fcookies%2F",
+        text: "Share on Twitter",
+        icon: "twitter"
+      },
+      {
+        href: "mailto:?body=https://govuk-frontend-app-pr-1924.herokuapp.com/help/cookies/&subject=Get ready for Brexit - GOV.UK",
+        text: "Share by email",
+        icon: "email"
+      },
+      {
+        href: "whatsapp://send?text=https://govuk-frontend-app-pr-1924.herokuapp.com/help/cookies/",
+        text: "Share on WhatsApp",
+        icon: "whatsapp"
+      },
+      {
+        href: "http://www.linkedin.com/shareArticle?url=https%3A%2F%2Fgovuk-frontend-app-pr-1924.herokuapp.com%2Fhelp%2Fcookies%2F&title=Get%20ready%20for%20Brexit%20-%20GOV.UK",
+        text: "Share on LinkedIn",
+        icon: "linkedin"
+      },
+    ]
+  } %>
 </main>

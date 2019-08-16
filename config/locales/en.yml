@@ -1,4 +1,8 @@
 en:
+  homepage:
+    get_ready: "Get ready for Brexit"
+    uk_leave_eu: "The UK will leave the EU on 31 October 2019"
+    check: "Check what you need to do"
   common:
     last_updated: "Last updated"
   cookies:

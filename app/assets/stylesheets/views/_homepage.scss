@@ -224,11 +224,44 @@ body.homepage {
       }
     }
   }
+
+  $red: #E61D32;
+
+  .homepage__ready {
+    margin: govuk-spacing(3) govuk-spacing(3) 0;
+    padding-bottom: govuk-spacing(6);
+    border-bottom: 1px solid $grey-2;
+
+    @include govuk-media-query($from: tablet) {
+      margin: govuk-spacing(6) govuk-spacing(6) 0;
+    }
+  }
+
+  .homepage__ready-heading {
+    @include govuk-font($size: 19, $weight: bold);
+    margin-bottom: govuk-spacing(1);
+  }
+
+  .homepage__ready-button {
+    display: inline-block;
+    background-color: $red;
+    color: govuk-colour("white");
+    padding: 10px;
+    box-shadow: 0px 2px 0px #BF1829;
+    text-decoration: none;
+  }
+
+  .homepage__ready-button:focus {
+    color: govuk-colour("white");
+  }
+
+  .homepage__ready-icon {
+    vertical-align: middle;
+    margin: 0 govuk-spacing(1);
+  }
+
   .services-block {
     padding-top: 15px;
-    @include media(tablet){
-      padding-top: 30px;
-    }
 
     .two-column-heading {
       @include media(tablet){
@@ -362,7 +395,7 @@ body.homepage {
         }
       }
     }
-    
+
     .large-numbers__list {
       padding-left: 0;
     }

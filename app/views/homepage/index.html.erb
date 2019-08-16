@@ -41,6 +41,17 @@
   <div id="homepage" class="homepage-content">
     <div class="homepage-content-inner">
 
+      <div class="homepage__ready">
+        <h2 class="homepage__ready-heading"><%= I18n.t("homepage.get_ready") %></h2>
+        <p class="govuk-body-m"><%= I18n.t("homepage.uk_leave_eu") %>.</p>
+        <a href="/get-ready-brexit-check" class="homepage__ready-button" data-module="track-click" data-track-category="startButtonClicked" data-track-action="/get-ready-brexit-check" data-track-label="<%= I18n.t('homepage.check') %>">
+          <%= I18n.t('homepage.check') %>
+          <svg class="homepage__ready-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+          </svg>
+        </a>
+      </div>
+
       <section class="services-block" aria-labelledby="services-and-information-label" id="services-and-information">
         <div class="inner-block floated-children">
           <div class="two-column-heading">

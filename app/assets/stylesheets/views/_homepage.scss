@@ -226,46 +226,45 @@ body.homepage {
   }
 
   $red: #E61E32;
+  $dark-red: #B31424;
 
-  .homepage__ready {
-    position: relative;
-    margin: govuk-spacing(3) govuk-spacing(3) 0;
-
-    &:after {
-      content: '';
-      width: 25px;
-      height: 25px;
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background-image: asset-url('chevron-extend-mobile.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 25px;
-    }
+  .homepage__ready-container {
+    margin: govuk-spacing(3) govuk-spacing(3) 0 govuk-spacing(3);
+    border-bottom: 1px solid $grey-3;
+    padding-bottom: govuk-spacing(3);
 
     @include govuk-media-query($from: tablet) {
-      margin: govuk-spacing(7) govuk-spacing(6);
-
-      &:after {
-        top: 0;
-        right: 0;
-        height: 100%;
-        min-width: 210px;
-        background-image: asset-url('chevron-extend.svg');
-        background-position: right center;
-        background-size: auto 100%;
-      }
+      margin: govuk-spacing(6) govuk-spacing(6) 0 govuk-spacing(6);
     }
   }
 
-  .homepage__ready-text {
-    background-color: $red;
-    color: govuk-colour("white");
-    padding: govuk-spacing(5);
+  .homepage__ready {
+    position: relative;
+    margin-top: govuk-spacing(6);
 
-    @include govuk-media-query($from: tablet) {
-      margin-right: 200px;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      min-width: 190px;
+      background-image: asset-url("chevron-extend.svg");
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: auto 100%;
+    }
+  }
+
+  .homepage__ready:hover {
+    &:after {
+      background-image: asset-url("chevron-extend-hover.svg");
+    }
+
+    .homepage__ready-text {
+      border: 2px solid govuk-colour("white");
+      background-color: $dark-red;
     }
   }
 
@@ -274,18 +273,27 @@ body.homepage {
     margin-bottom: 0;
   }
 
-  .homepage__ready-heading,
   .homepage__ready-desc {
-    margin-bottom: 0;
     margin-top: 0;
   }
 
-  .homepage__ready-desc,
-  .homepage__ready-link {
-    @include govuk-font(24);
+  .homepage__ready-text {
+    padding: govuk-spacing(3);
+    background-color: $red;
+    border: 2px solid transparent;
+    margin-right: 170px;
+
+    @include govuk-media-query($from: tablet) {
+      padding: govuk-spacing(5);
+    }
   }
 
   .homepage__ready-link {
+    @include govuk-font(24, $weight: bold);
+    color: govuk-colour("white");
+    margin-bottom: 0;
+    text-decoration: none;
+
     &:after {
       content: "";
       position: absolute;
@@ -301,8 +309,7 @@ body.homepage {
       color: govuk-colour("white");
     }
 
-    &:focus,
-    &:hover {
+    &:link:focus {
       color: govuk-colour("black");
     }
   }

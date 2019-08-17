@@ -41,11 +41,16 @@
   <div id="homepage" class="homepage-content">
     <div class="homepage-content-inner">
 
-      <div class="homepage__ready">
-        <div class="homepage__ready-text">
-            <h2 class="homepage__ready-heading"><%= I18n.t("homepage.get_ready") %></h2>
-            <p class="homepage__ready-desc"><%= I18n.t("homepage.uk_leave_eu") %>.</p>
-            <a href="/get-ready-brexit-check" class="govuk-link govuk-body homepage__ready-link" data-module="track-click" data-track-category="startButtonClicked" data-track-action="/get-ready-brexit-check" data-track-label="<%= I18n.t("homepage.check") %>"><%= I18n.t("homepage.check") %></a>
+      <div class="homepage__ready-container govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="homepage__ready-heading"><%= I18n.t("homepage.get_ready") %></h2>
+          <p class="homepage__ready-desc"><%= I18n.t("homepage.uk_leave_eu") %>.</p>
+
+          <div class="homepage__ready">
+            <div class="homepage__ready-text">
+              <a href="/get-ready-brexit-check" class="homepage__ready-link" data-module="track-click" data-track-category="startButtonClicked" data-track-action="/get-ready-brexit-check" data-track-label="Check what you need to do">Check what you need to do</a>
+            </div>
+          </div>
         </div>
       </div>
 

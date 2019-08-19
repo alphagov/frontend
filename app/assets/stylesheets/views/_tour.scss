@@ -115,10 +115,6 @@
         width: 31%;
         margin-top: -1.3em;
       }
-
-      @include ie-lte(7) {
-        width: 27%;
-      }
     }
 
     .category-description {
@@ -160,10 +156,6 @@
 
         form {
           padding-top:1em;
-
-          @include ie-lte(7) {
-            margin-left:0;
-          }
         }
       }
 
@@ -203,18 +195,6 @@
             &.last {
               width: 30%;
               margin-right: 0;
-            }
-          }
-
-          @include ie-lte(7) {
-            min-height: 9em;
-            display: inline;
-            zoom: 1;
-            width: 33%;
-            margin-right: 3.5%;
-
-            &.last {
-              width: 27%;
             }
           }
         }

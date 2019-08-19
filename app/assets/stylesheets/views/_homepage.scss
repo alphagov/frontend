@@ -166,12 +166,6 @@ body.homepage {
         padding: 15px 20px 5px;
         margin-top: 30px;
         min-height: 20em;
-        @include ie-lte(7){
-          margin-bottom: 0;
-        }
-        @include ie(6) {
-          height: 20em;
-        }
       }
 
       h2 {
@@ -329,9 +323,6 @@ body.homepage {
       ol {
         margin: 0;
         padding: 0;
-        @include ie-lte(7){
-          width: 988px; // because 990px/4 is not a round number
-        }
       }
       li {
         list-style: none;
@@ -362,7 +353,7 @@ body.homepage {
         }
       }
     }
-    
+
     .large-numbers__list {
       padding-left: 0;
     }

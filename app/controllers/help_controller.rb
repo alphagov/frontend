@@ -5,6 +5,7 @@ class HelpController < ApplicationController
 
   def index
     setup_content_item("/help")
+    render locals: { full_width: true }
   end
 
   def tour

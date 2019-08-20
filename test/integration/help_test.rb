@@ -17,9 +17,7 @@ class HelpTest < ActionDispatch::IntegrationTest
     should "render the help index page correctly" do
       visit "/help"
 
-      within '#content header' do
-        assert_has_component_title "Help using GOV.UK"
-      end
+      assert_has_component_title "Help using GOV.UK"
     end
   end
 end

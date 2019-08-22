@@ -1,16 +1,5 @@
-.postcode-search-form{
-  .instruction{
-    @include bold-24;
-  }
-
-  input{
-    margin-left: 0;
-  }
-
-  .error-summary {
-    border: 5px solid $red;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 20px 15px 15px 15px;
-  }
+.location-form {
+  padding: govuk-spacing(3);
+  margin: govuk-spacing(6) 0;
+  background: govuk-colour("light-grey", $legacy: "grey-4");
 }

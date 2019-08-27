@@ -1,25 +1,21 @@
-<div class="relevant-authority">From <strong><%= @licence_details.authority['name'] %></strong></div>
+<p class="govuk-body">From <strong><%= @licence_details.authority['name'] %></strong></p>
 
-<aside>
-  <div class="inner">
-    <nav role="navigation" class="page-navigation">
-      <ol>
-        <% if @licence_details.action %>
-          <li><%= link_to "Overview", licence_authority_path(@publication.slug, @licence_details.authority["slug"]) %></li>
-        <% else %>
-          <li class="active">Overview</li>
-        <% end %>
-        <% @licence_details.authority['actions'].keys.uniq.each do |action| %>
-          <% if @licence_details.action == action %>
-            <li class="active"><%= "How to #{action}" %></li>
-          <% else %>
-            <li><%= link_to "How to #{action}", licence_authority_path(@publication.slug, @licence_details.authority["slug"], action) %></li>
-          <% end %>
-        <% end %>
-      </ol>
-    </nav>
-  </div>
-</aside>
+<nav role="navigation" class="page-navigation">
+  <ol>
+    <% if @licence_details.action %>
+      <li><%= link_to "Overview", licence_authority_path(@publication.slug, @licence_details.authority["slug"]) %></li>
+    <% else %>
+      <li class="active">Overview</li>
+    <% end %>
+    <% @licence_details.authority['actions'].keys.uniq.each do |action| %>
+      <% if @licence_details.action == action %>
+        <li class="active"><%= "How to #{action}" %></li>
+      <% else %>
+        <li><%= link_to "How to #{action}", licence_authority_path(@publication.slug, @licence_details.authority["slug"], action) %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>
 
 <article role="article" class="content-block group">
   <div id="overview" class="inner">

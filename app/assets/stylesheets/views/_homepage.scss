@@ -14,7 +14,7 @@ body.homepage {
 .root-index {
   // Generic objects for the homepage
   .inner-block {
-    @include media(tablet){
+    @include govuk-media-query($from: tablet) {
       margin: 0 30px;
       &.floated-children {
         margin: 0 15px;
@@ -36,19 +36,18 @@ body.homepage {
     border: 5px solid $black;
     border-width: 5px 0 0;
 
-    @include media(tablet){
+    @include govuk-media-query($from: tablet) {
       margin: 60px 30px 30px;
     }
   }
 
   .single-column-heading {
-    @include media(desktop){
+    @include govuk-media-query($from: desktop) {
       width: 33.33%;
       float: left;
     }
     h2 {
-      @include core-36;
-      font-weight: bold;
+      @include govuk-font(36, $weight: bold);
       padding: 0 15px;
       margin: 0 0 10px;
     }
@@ -60,7 +59,7 @@ body.homepage {
     min-height: 0;
     position: static;
 
-    @include media(tablet){
+    @include govuk-media-query($from: tablet) {
       width: 33.33%;
       float: left;
     }
@@ -77,8 +76,7 @@ body.homepage {
       margin-bottom: 15px;
     }
     h3 {
-      @include core-24;
-      font-weight: bold;
+      @include govuk-font(24, $weight: bold);
       margin: 5px 0;
     }
     p {
@@ -96,12 +94,12 @@ body.homepage {
       text-align: center;
       text-decoration: none;
 
-      @include bold-19;
+      @include govuk-font($size: 19, $weight: bold);
 
       .main-text{
         display: block;
         margin-top: 15px;
-        @include bold-36;
+        @include govuk-font($size: 36, $weight: bold);
       }
 
       &:hover {
@@ -131,12 +129,12 @@ body.homepage {
 
   .welcome-block {
     .welcome-text {
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         width: 66.66%;
       }
     }
     .content-links {
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         position: absolute;
         top: 0;
         left: 66%;
@@ -145,8 +143,7 @@ body.homepage {
     }
 
     h1 {
-      @include core-48;
-      font-weight: bold;
+      @include govuk-font(48, $weight: bold);
       padding: 25px 0 15px;
     }
     p {
@@ -161,7 +158,7 @@ body.homepage {
     .content-links-inner {
       padding-bottom: 20px;
 
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         background: $black;
         padding: 15px 20px 5px;
         margin-top: 30px;
@@ -175,21 +172,21 @@ body.homepage {
       }
 
       h2 {
-        @include core-14;
+        @include govuk-font(14);
         margin: 0;
-        @include media($min-width: 1010px){
+        @include govuk-media-query($from: desktop) {
           margin: 5px 0 0;
         }
       }
       ul {
         margin: 0;
         padding: 0;
-        @include media($min-width: 1010px){
+        @include govuk-media-query($from: desktop) {
           margin: 10px 0 0;
         }
       }
       li {
-        @include bold-16;
+        @include govuk-font($size: 16, $weight: bold);
         list-style: none;
         margin: 5px 0;
       }
@@ -281,6 +278,13 @@ body.homepage {
     }
   }
 
+  .services-block {
+    padding-top: 15px;
+    @include govuk-media-query($from: tablet) {
+      padding-top: 30px;
+    }
+  }
+
   .homepage__ready:hover {
     &:after {
       background-image: asset-url("chevron-extend-hover.svg");
@@ -365,16 +369,15 @@ body.homepage {
     margin-top: govuk-spacing(3);
 
     .two-column-heading {
-      @include media(tablet){
+       @include govuk-media-query($from: tablet) {
         width: 66.66%;
         float: left;
       }
       h2 {
-        @include core-36;
-        font-weight: bold;
+        @include govuk-font(36, $weight: bold);
         padding: 0 15px;
         margin: 20px 0 0;
-        @include media(tablet){
+        @include govuk-media-query($from: tablet) {
           margin: 15px 0 25px;
         }
       }
@@ -382,13 +385,13 @@ body.homepage {
     .replaces {
       @extend %contain-floats;
 
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         padding-top: 10px;
         width: 33.33%;
         float: right;
       }
       p {
-        @include core-14;
+        @include govuk-font(14);
         padding: 0 15px;
         margin: 0;
         color: $secondary-text-colour;
@@ -414,7 +417,7 @@ body.homepage {
     .categories-list {
       margin: 0;
       padding: 10px 0 0;
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         float: left;
         width: $one-third;
       }
@@ -429,11 +432,10 @@ body.homepage {
           padding: 0 15px;
         }
         h3 {
-          @include core-19;
-          font-weight: bold;
+          @include govuk-font(19, $weight: bold);
         }
         p {
-          @include core-16;
+          @include govuk-font(16);
           min-height: 40px;
         }
       }
@@ -442,19 +444,19 @@ body.homepage {
 
   .departments-and-policy {
     .departments-intro {
-      @include media(desktop){
+      @include govuk-media-query($from: desktop) {
         width: 66.66%;
         float: left;
       }
       p {
-        @include core-24;
+        @include govuk-font(24);
         margin: 10px 0 20px;
       }
     }
     .large-numbers {
       clear: both;
       @extend %contain-floats;
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         padding: 0 0 30px 0;
         float: left;
         width: 33.33%;
@@ -486,7 +488,7 @@ body.homepage {
           font-weight: bold;
           display: block;
 
-          @include media(desktop){
+          @include govuk-media-query($from: desktop) {
             font-size: 80px;
             line-height: (80 / 80);
           }
@@ -513,10 +515,10 @@ body.homepage {
     margin-bottom: 60px;
 
     .promo-image {
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         width: 50%;
       }
-      @include media(desktop){
+      @include govuk-media-query($from: desktop) {
         width: 33.33%;
       }
 
@@ -561,16 +563,15 @@ body.homepage {
 
 
     .most-active {
-      @include media(tablet){
+      @include govuk-media-query($from: tablet) {
         width: 50%;
         float: left;
       }
-      @include media(desktop){
+      @include govuk-media-query($from: desktop) {
         width: 33.33%;
       }
       h3 {
-        @include core-24;
-        font-weight: bold;
+        @include govuk-font(24, $weight: bold);
         margin: 0;
         padding: 0 0 5px;
       }
@@ -582,7 +583,7 @@ body.homepage {
         list-style: none;
         margin: 0;
         padding: 5px 0 0;
-        @include core-19;
+        @include govuk-font(19);
         a {
           font-weight: bold;
         }

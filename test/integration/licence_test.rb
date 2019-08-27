@@ -152,7 +152,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         end
 
         should "display the authority name" do
-          within(".relevant-authority") do
+          within("#overview") do
             assert page.has_content?("Westminster")
           end
         end
@@ -360,7 +360,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         end
 
         should "show details for the first authority only" do
-          within(".relevant-authority") do
+          within("#overview") do
             assert page.has_content?("Westminster")
             assert_not page.has_content?("Kingsmen Tailors")
           end

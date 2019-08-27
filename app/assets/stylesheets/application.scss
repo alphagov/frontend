@@ -15,7 +15,6 @@ $govuk-compatibility-govuktemplate: true;
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/player-container";
-@import "helpers/beta-label";
 @import "helpers/error-summary";
 @import "helpers/truncated-url";
 @import "helpers/title-context-reset";
@@ -33,10 +32,6 @@ $govuk-compatibility-govuktemplate: true;
 @import "views/jobsearch";
 @import "views/location_form";
 @import "views/local-transaction";
-
-.column-desktop-third {
-  @include grid-column( 2/3, $full-width: desktop );
-}
 
 // Reset some global styles from the `wrapper` layout
 .gem-c-related-navigation {

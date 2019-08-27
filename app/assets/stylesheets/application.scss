@@ -15,7 +15,6 @@ $govuk-compatibility-govuktemplate: true;
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/player-container";
-@import "helpers/pagination";
 @import "helpers/beta-label";
 @import "helpers/error-summary";
 @import "helpers/truncated-url";

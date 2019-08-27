@@ -64,12 +64,6 @@
 }
 
 .travel-advice {
-    main {
-        @include ie-lte(8) {
-          width: 960px;
-        }
-    }
-
     .full-width .page-header div {
       margin-right: 0em;
     }

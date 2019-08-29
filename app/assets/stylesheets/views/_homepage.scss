@@ -280,6 +280,11 @@ body.homepage {
     margin-top: 0;
   }
 
+  .homepage__ready-desc,
+  .homepage__ready-link {
+    @include govuk-font(24);
+  }
+
   .homepage__ready-link {
     &:after {
       content: "";

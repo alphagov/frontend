@@ -238,21 +238,30 @@ body.homepage {
   }
 
   .homepage__ready-heading {
-    @include govuk-font($size: 19, $weight: bold);
+    @include govuk-font($size: 24, $weight: bold);
     margin-bottom: govuk-spacing(1);
   }
 
   .homepage__ready-button {
+    @include govuk-font(19, $weight: bold);
     display: inline-block;
     background-color: $red;
     color: govuk-colour("white");
     padding: 10px;
-    box-shadow: 0px 2px 0px #BF1829;
+    box-shadow: 0 2px 0 #55150b;
     text-decoration: none;
   }
 
-  .homepage__ready-button:focus {
+  .homepage__ready-button:hover {
+    background: #aa2a16;
     color: govuk-colour("white");
+  }
+
+  .homepage__ready-button:focus {
+    color: govuk-colour("black");
+    background: govuk-colour("yellow");
+    outline: 0;
+    box-shadow: 0 2px 0 govuk-color("black");
   }
 
   .homepage__ready-icon {

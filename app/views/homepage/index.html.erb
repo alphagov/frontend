@@ -6,165 +6,153 @@
 <% content_for :title, "Welcome to GOV.UK" %>
 <% content_for :body_classes, "homepage" %>
 
-<main id="content" class="root-index" role="main">
-  <header class="homepage-top">
-    <div class="homepage-top-inner">
+<main id="content" role="main">
+  <header class="home-top">
+    <div class="govuk-width-container home-top__inner">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="home-top__title">Welcome to GOV.UK</h1>
+          <p class="home-top__intro">The best place to find government services and information</p>
+          <p class="home-top__intro home-top__intro--simpler">Simpler, clearer, faster</p>
 
-      <div class="welcome-block">
-        <div class="inner-block floated-children">
-          <div class="welcome-text">
-            <div class="floated-inner-block">
-              <h1>Welcome to GOV.UK</h1>
-              <p>The best place to find government services and information</p>
-              <p class="simpler">Simpler, clearer, faster</p>
+          <form action="/search" method="get" role="search">
+            <%= render "govuk_publishing_components/components/search", on_govuk_blue: true %>
+          </form>
+        </div>
 
-              <form action="/search" method="get" role="search">
-                <%= render "govuk_publishing_components/components/search", on_govuk_blue: true %>
-              </form>
-            </div>
-          </div>
-          <div class="content-links">
-            <div class="floated-inner-block content-links-inner">
-              <h2>Popular on GOV.UK</h2>
-              <ul>
-                <li><a href="/brexit">Get ready for Brexit</a></li>
-                <li><a href="/jobsearch">Find a job</a></li>
-                <li><a href="/vehicle-tax">Renew vehicle tax</a></li>
-                <li><a href="/book-theory-test">Book your theory test</a></li>
-                <li><a href="/personal-tax-account">Personal tax account</a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="home-top__links">
+          <h2 class="home-top__links-title">Popular on GOV.UK</h2>
+          <ul class="home-top__links-list">
+            <li class="home-top__links-item"><a href="/brexit" class="home-top__links-link">Get ready for Brexit</a></li>
+            <li class="home-top__links-item"><a href="/jobsearch" class="home-top__links-link">Find a job</a></li>
+            <li class="home-top__links-item"><a href="/vehicle-tax" class="home-top__links-link">Renew vehicle tax</a></li>
+            <li class="home-top__links-item"><a href="/book-theory-test" class="home-top__links-link">Book your theory test</a></li>
+            <li class="home-top__links-item"><a href="/personal-tax-account" class="home-top__links-link">Personal tax account</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </header>
-  <div id="homepage" class="homepage-content">
-    <div class="homepage-content-inner">
 
-      <div class="homepage__ready-container">
-        <h2 class="homepage__ready-heading govuk-heading-m"><%= I18n.t("homepage.get_ready") %></h2>
-        <p class="homepage__ready-desc"><%= I18n.t("homepage.uk_leave_eu") %>.</p>
-        <div class="homepage__ready">
-          <div class="homepage__ready-text">
-            <a href="/get-ready-brexit-check" class="homepage__ready-link" data-module="track-click" data-track-category="startButtonClicked" data-track-action="/get-ready-brexit-check" data-track-label="Check what you need to do">Check what you need to&nbsp;do</a>
-          </div>
+  <div id="homepage" class="govuk-width-container">
+    <div class="homepage__ready-container">
+      <h2 class="homepage__ready-heading govuk-heading-m"><%= I18n.t("homepage.get_ready") %></h2>
+      <p class="homepage__ready-desc"><%= I18n.t("homepage.uk_leave_eu") %>.</p>
+      <div class="homepage__ready">
+        <div class="homepage__ready-text">
+          <a href="/get-ready-brexit-check" class="homepage__ready-link" data-module="track-click" data-track-category="startButtonClicked" data-track-action="/get-ready-brexit-check" data-track-label="Check what you need to do">Check what you need to do</a>
         </div>
-        <hr class="homepage__ready-section-break govuk-section-break govuk-section-break--l govuk-section-break--visible">
       </div>
-
-      <section class="services-block" aria-labelledby="services-and-information-label" id="services-and-information">
-        <div class="inner-block floated-children">
-          <div class="two-column-heading">
-            <h2 id="services-and-information-label" class="visuallyhidden">Services and information</h2>
-          </div>
-          <%= render :partial => "categories" %>
-        </div>
-      </section>
-
-      <hr class="homepage__section-break" id="departments-and-policy" aria-hidden="true" />
-
-      <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">
-        <div class="inner-block floated-children">
-            <h2 id="departments-and-policy-label" class="visuallyhidden">Departments and&nbsp;policy</h2>
-          <div class="large-numbers">
-            <ul class="large-numbers__list">
-              <li><a href="/government/organisations#ministerial_departments"><strong>25</strong> Ministerial departments</a></li>
-              <li><a href="/government/organisations#agencies_and_other_public_bodies"><strong>405</strong> Other agencies and public&nbsp;bodies</a></li>
-            </ul>
-          </div>
-          <div class="departments-intro">
-            <div class="floated-inner-block">
-              <p>
-                The websites of all <a href="/government/organisations">government
-                departments</a> and many other agencies and public bodies have
-                been merged into GOV.UK.
-              </p>
-              <p>
-                Here you can see all <a href="/search/news-and-communications">news and communications</a>,
-                <a href="/search/research-and-statistics">statistics</a>
-                and
-                <a href= "<%= CGI::escapeHTML('/search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations') %>">consultations</a>.
-              </p>
-              <p>
-                Find out <a href="/performance">how government services are performing</a>
-                and how satisfied users are.
-              </p>
-            </div>
-          </div>
-
-          <div class="departments-promo-sections">
-            <div class="promo-image">
-              <div class="promo-content">
-                <a href="https://www.longtermplan.nhs.uk/">
-                  <%= image_tag 'homepage/nhs-long-term-plan.png', alt: '' %>
-                  <h3>NHS long-term plan</h3>
-                </a>
-                <p>
-                  Read about how an extra £33.9 billion each year will improve the NHS - for patients, their families and its staff.
-                </p>
-              </div>
-            </div>
-            <div class="promo-image">
-              <div class="promo-content">
-                <a href="/brexit">
-                  <%= image_tag 'homepage/brexit-31-october.png', alt: '' %>
-                  <h3>Get ready for Brexit</h3>
-                </a>
-                <p>
-                  The UK is leaving the EU on 31 October 2019. Find out what you need to do.
-                </p>
-              </div>
-            </div>
-            <div class="promo-image">
-              <div class="promo-content">
-                <a href="/government/topical-events/spending-round-2019">
-                  <%= image_tag 'homepage/spending-round-2019.jpg', alt: '' %>
-                  <h3>Spending Round 2019</h3>
-                </a>
-                <p>The Chancellor delivered his Spending Round to Parliament on 4 September 2019.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr class="homepage__section-break" id="more-on-govuk" aria-hidden="true" />
-
-      <section class="popular-content" aria-labelledby="more-on-govuk-label">
-        <div class="inner-block floated-children">
-          <div class="single-column-heading">
-            <h2 id="more-on-govuk-label">More on GOV.UK</h2>
-          </div>
-          <div class="most-active">
-            <div class="floated-inner-block">
-              <h3>Most active</h3>
-              <ul class="most-active-content">
-                <li><a href="/jobsearch">Find a job</a></li>
-                <li><a href="/student-finance-register-login">Log in to student finance</a></li>
-                <li><a href="/passport-fees">Passport fees</a></li>
-                <li><a href="/jobseekers-allowance">Jobseeker's Allowance</a></li>
-                <li><a href="/council-tax-bands">Council Tax bands</a></li>
-                <li><a href="/running-a-limited-company">Running a limited company</a></li>
-                <li><a href="/book-a-driving-theory-test">Driving theory test</a></li>
-                <li><a href="/calculate-vehicle-tax-rates">Vehicle tax rates</a></li>
-                <li><a href="/vehicle-tax">Renew vehicle tax</a></li>
-                <li><a href="/vat-rates">VAT rates</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="promo-image" id="promo">
-            <div class="promo-content">
-              <h3 class="promo-text-cta">
-                <a href="/bank-holidays">
-                <span class="main-text">UK bank holidays</span>
-                </a>
-              </h3>
-              <p>Check the dates for <a href="/bank-holidays">bank holidays</a> in England, Wales, Scotland and Northern Ireland.</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
+
+    <hr class="home-divider home-divider--thin" aria-hidden="true" />
+
+    <section class="home-services" aria-labelledby="services-and-information-label" id="services-and-information">
+      <div class="govuk-grid-row">
+        <h2 id="services-and-information-label" class="visuallyhidden">Services and information</h2>
+        <%= render :partial => "categories" %>
+      </div>
+    </section>
+
+    <hr class="home-divider" id="departments-and-policy" aria-hidden="true" />
+
+    <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">
+      <div class="govuk-grid-row home-numbers-and-info">
+        <h2 id="departments-and-policy-label" class="visuallyhidden">Departments and&nbsp;policy</h2>
+        <div class="govuk-grid-column-one-third">
+          <ul class="home-numbers">
+            <li><a href="/government/organisations#ministerial_departments" class="home-numbers__link home-numbers__link--first govuk-link"><strong class="home-numbers__large">25</strong> Ministerial departments</a></li>
+            <li><a href="/government/organisations#agencies_and_other_public_bodies" class="home-numbers__link govuk-link"><strong class="home-numbers__large">405</strong> Other agencies and public&nbsp;bodies</a></li>
+          </ul>
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+          <p class="home-info">
+            The websites of all <a href="/government/organisations" class="govuk-link">government
+            departments</a> and many other agencies and public bodies have
+            been merged into GOV.UK.
+          </p>
+          <p class="home-info">
+            Here you can see all <a href="/search/news-and-communications" class="govuk-link">news and communications</a>,
+            <a href="/search/research-and-statistics" class="govuk-link">statistics</a>
+            and
+            <a href= "<%= CGI::escapeHTML('/search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations') %>" class="govuk-link">consultations</a>.
+          </p>
+          <p class="home-info">
+            Find out <a href="/performance" class="govuk-link">how government services are performing</a>
+            and how satisfied users are.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <a href="https://www.longtermplan.nhs.uk/" class="govuk-link home-promo">
+            <%= image_tag 'homepage/nhs-long-term-plan.png', alt: '', class: 'home-promo__image' %>
+            <h3 class="home-promo__title">NHS long-term plan</h3>
+          </a>
+          <p class="home-promo__text">
+            Read about how an extra £33.9 billion each year will improve the NHS - for patients, their families and its staff.
+          </p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <a href="/brexit" class="govuk-link home-promo">
+            <%= image_tag 'homepage/brexit-31-october.png', alt: '', class: 'home-promo__image' %>
+            <h3 class="home-promo__title">Get ready for Brexit</h3>
+          </a>
+          <p class="home-promo__text">
+            The UK is leaving the EU on 31 October 2019. Find out what you need to do.
+          </p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <a href="/government/topical-events/spending-round-2019" class="govuk-link home-promo">
+            <%= image_tag 'homepage/spending-round-2019.jpg', alt: '', class: 'home-promo__image' %>
+            <h3 class="home-promo__title">Spending Round 2019</h3>
+          </a>
+          <p class="home-promo__text">
+            The Chancellor delivered his Spending Round to Parliament on 4 September 2019.
+          </p>
+        </div>
+      </div>
+    <section>
+
+    <hr class="home-divider" id="more-on-govuk" aria-hidden="true" />
+
+    <section aria-labelledby="more-on-govuk-label">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <h2 id="more-on-govuk-label" class="home-more__title">More on GOV.UK</h2>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <h3 class="home-more__subtitle">Most active</h3>
+          <ul class="govuk-list home-more__list">
+            <li><a href="/jobsearch" class="govuk-link">Find a job</a></li>
+            <li><a href="/student-finance-register-login" class="govuk-link">Log in to student finance</a></li>
+            <li><a href="/passport-fees" class="govuk-link">Passport fees</a></li>
+            <li><a href="/jobseekers-allowance" class="govuk-link">Jobseeker's Allowance</a></li>
+            <li><a href="/council-tax-bands" class="govuk-link">Council Tax bands</a></li>
+            <li><a href="/running-a-limited-company" class="govuk-link">Running a limited company</a></li>
+            <li><a href="/book-a-driving-theory-test" class="govuk-link">Driving theory test</a></li>
+            <li><a href="/calculate-vehicle-tax-rates" class="govuk-link">Vehicle tax rates</a></li>
+            <li><a href="/vehicle-tax" class="govuk-link">Renew vehicle tax</a></li>
+            <li><a href="/vat-rates" class="govuk-link">VAT rates</a></li>
+          </ul>
+        </div>
+
+        <div class="govuk-grid-column-one-third" id="promo">
+          <h3>
+            <a href="/bank-holidays" class="govuk-link home-promo__link">
+              <span class="home-promo__link-content">UK bank holidays</span>
+            </a>
+          </h3>
+          <p class="home-promo__text">Check the dates for <a href="/bank-holidays" class="govuk-link">bank holidays</a> in England, Wales, Scotland and Northern Ireland.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </main>

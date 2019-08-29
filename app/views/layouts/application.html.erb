@@ -23,7 +23,18 @@
     <% end %>
   </head>
 
-  <body class="mainstream <%= yield :body_classes %>">
+  <body class="mainstream show-global-bar <%= yield :body_classes %>">
+
+    <div id="global-bar" class="global-bar dont-print" data-module="global-bar">
+      <div class="global-bar-message-container">
+      <p class="global-bar-message">
+        <span class="global-bar-title">The United Kingdom is leaving the European Union on 31 October 2019.</span>
+        <a rel="external noreferrer" class="js-call-to-action" href="https://www.gov.uk/brexit">Get ready for Brexit</a>
+      </p>
+      <a href="#hide-message" class="dismiss" role="button" aria-controls="global-bar">Hide&nbsp;message</a>
+      </div>
+    </div>
+
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
       <% unless current_page?(root_path) %>
         <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>

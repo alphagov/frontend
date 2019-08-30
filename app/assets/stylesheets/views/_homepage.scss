@@ -323,8 +323,13 @@ body.homepage {
       color: govuk-colour("white");
     }
 
-    &:link:focus {
-      color: govuk-colour("black");
+    &:focus {
+      outline: 3px solid transparent;
+      color: $govuk-focus-text-colour;
+      background-color: $govuk-focus-colour;
+      -webkit-box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
+      box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
+      text-decoration: none;
     }
   }
 

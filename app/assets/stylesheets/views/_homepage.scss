@@ -30,7 +30,7 @@ body.homepage {
     clear: both;
   }
 
-  hr {
+  .homepage__section-break {
     margin: 30px 15px 15px;
     clear: both;
     border: 5px solid $black;
@@ -229,8 +229,7 @@ body.homepage {
   $dark-red: #B31424;
 
   .homepage__ready-container {
-    margin: govuk-spacing(3) govuk-spacing(3) 0 govuk-spacing(3);
-    border-bottom: 1px solid $grey-3;
+    margin: govuk-spacing(6) govuk-spacing(6) 0 govuk-spacing(3);
     padding-bottom: govuk-spacing(3);
 
     @include govuk-media-query($from: tablet) {
@@ -239,8 +238,13 @@ body.homepage {
   }
 
   .homepage__ready {
+    @include govuk-font(24);
     position: relative;
     margin-top: govuk-spacing(6);
+
+    @include govuk-media-query($from: desktop) {	
+      max-width: 66%;
+    }
 
     &:after {
       content: '';
@@ -254,6 +258,10 @@ body.homepage {
       background-repeat: no-repeat;
       background-position: left center;
       background-size: auto 100%;
+
+      @include govuk-media-query($until: tablet) {
+        min-width: 151px;
+      }
     }
   }
 
@@ -263,28 +271,34 @@ body.homepage {
     }
 
     .homepage__ready-text {
-      border: 2px solid govuk-colour("white");
       background-color: $dark-red;
     }
   }
 
   .homepage__ready-heading {
-    @include govuk-font(24, $weight: bold);
-    margin-bottom: 0;
+    margin-bottom: govuk-spacing(2);
   }
 
   .homepage__ready-desc {
+    @include govuk-font(24);
     margin-top: 0;
   }
 
   .homepage__ready-text {
+    @include govuk-font(24, $weight: bold);
     padding: govuk-spacing(3);
     background-color: $red;
     border: 2px solid transparent;
     margin-right: 170px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 
     @include govuk-media-query($from: tablet) {
       padding: govuk-spacing(5);
+    }
+
+    @include govuk-media-query($until: tablet) {
+      margin-right: 150px;
     }
   }
 
@@ -311,6 +325,15 @@ body.homepage {
 
     &:link:focus {
       color: govuk-colour("black");
+    }
+  }
+
+  .homepage__ready-section-break {
+    margin-top: govuk-spacing(9);
+    margin-bottom: govuk-spacing(0);
+
+    @include govuk-media-query($until: tablet) {
+      margin-top: govuk-spacing(7);
     }
   }
 

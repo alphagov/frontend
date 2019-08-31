@@ -30,7 +30,7 @@ body.homepage {
     clear: both;
   }
 
-  hr {
+  .homepage__section-break {
     margin: 30px 15px 15px;
     clear: both;
     border: 5px solid $black;
@@ -224,11 +224,145 @@ body.homepage {
       }
     }
   }
-  .services-block {
-    padding-top: 15px;
-    @include media(tablet){
-      padding-top: 30px;
+
+  $red: #E61E32;
+  $dark-red: #B31424;
+
+  .homepage__ready-container {
+    margin: govuk-spacing(6) govuk-spacing(3) 0 govuk-spacing(3);
+    padding-bottom: govuk-spacing(3);
+
+    @include govuk-media-query($from: tablet) {
+      margin: govuk-spacing(6) govuk-spacing(6) 0 govuk-spacing(6);
     }
+  }
+
+  .homepage__ready {
+    @include govuk-font(24);
+    position: relative;
+    margin-top: govuk-spacing(6);
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      height: 100%;
+      width: 20px;
+      background-image: asset-url("chevron-extend-mobile.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px 20px;
+    }
+
+    @include govuk-media-query($from: desktop) {
+      max-width: 66%;
+    }
+
+    &:after {
+      @include govuk-media-query($from: mobile) {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        min-width: 190px;
+        background-image: asset-url("chevron-extend.svg");
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: auto 100%;
+      }
+
+      @include govuk-media-query($from: mobile, $until: tablet) {
+        min-width: 151px;
+      }
+    }
+  }
+
+  .homepage__ready:hover {
+    &:after {
+      background-image: asset-url("chevron-extend-hover.svg");
+    }
+
+    .homepage__ready-text {
+      background-color: $dark-red;
+    }
+  }
+
+  .homepage__ready-heading {
+    margin-bottom: govuk-spacing(2);
+  }
+
+  .homepage__ready-desc {
+    @include govuk-font(24);
+    margin-top: 0;
+  }
+
+  .homepage__ready-text {
+    @include govuk-font(24, $weight: bold);
+    padding: govuk-spacing(3) govuk-spacing(7) govuk-spacing(3) govuk-spacing(3);
+    background-color: $red;
+    border: 2px solid transparent;
+    border-radius: 5px;
+
+    @include govuk-media-query($from: mobile) {
+      padding: govuk-spacing(3);
+      margin-right: 135px;
+      border-radius: 0;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    @include govuk-media-query($from: tablet) {
+      padding: govuk-spacing(5);
+      margin-right: 170px;
+    }
+  }
+
+  .homepage__ready-link {
+    @include govuk-font(24, $weight: bold);
+    color: govuk-colour("white");
+    margin-bottom: 0;
+    text-decoration: none;
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:link,
+    &:visited {
+      color: govuk-colour("white");
+    }
+
+    &:focus {
+      outline: 3px solid transparent;
+      color: $govuk-focus-text-colour;
+      background-color: $govuk-focus-colour;
+      -webkit-box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
+      box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
+      text-decoration: none;
+    }
+  }
+
+  .homepage__ready-section-break {
+    margin-top: govuk-spacing(9);
+    margin-bottom: govuk-spacing(0);
+
+    @include govuk-media-query($until: tablet) {
+      margin-top: govuk-spacing(7);
+    }
+  }
+
+  .services-block {
+    margin-top: govuk-spacing(3);
 
     .two-column-heading {
       @include media(tablet){
@@ -362,7 +496,7 @@ body.homepage {
         }
       }
     }
-    
+
     .large-numbers__list {
       padding-left: 0;
     }

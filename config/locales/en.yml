@@ -46,3 +46,7 @@ en:
       local_authority_starts_with_the_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
     find_my_nearest:
       valid_postcode_no_locations: "We couldn't find any results for this postcode."
+  qa_pages:
+    checker:
+      question: "The UK is leaving the EU on 31 October 2019. How do I make sure I'm ready?"
+      answer: "Use the Get ready for Brexit checker on GOV.UK to find out what you need to do."

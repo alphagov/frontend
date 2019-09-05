@@ -1,6 +1,31 @@
-// BASE STYLESHEET FOR IE 7 COMPILER
+.govuk-width-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
 
-$is-ie: true;
-$ie-version: 7;
+.govuk-grid-row {
+  margin: 0;
+  clear: both;
+}
 
-@import "application.scss";
+.govuk-grid-column-one-third {
+  float: left;
+  width: 32%;
+  padding: 0;
+}
+
+.govuk-grid-column-two-thirds {
+  float: left;
+  width: 60%;
+  padding: 0;
+}
+
+.home-top__links {
+  position: absolute;
+  bottom: 0;
+  right: -15px;
+  box-sizing: border-box;
+  padding: 15px 20px 25px 20px;
+  width: 30%;
+  background: black;
+}

@@ -69,29 +69,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
         assert page.has_content?('CarrotServe will be offline next week.')
       end
     end
-
-    should "not render QAPage schema.org structured data" do
-      visit "/carrots"
-      assert_equal page.title, "Carrots - GOV.UK"
-
-      schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
-      schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
-
-      assert_nil(schemas.detect { |schema| schema["@type"] == "QAPage" })
-    end
-  end
-
-  context "a page in scope for Q and A schemas" do
-    should "render QAPage schema.org structured data" do
-      content_store_has_random_item(base_path: '/qa-pages-rock', schema: 'transaction', 'title' => 'QA pages rock', 'content_id' => QaPagePresenter::BREXIT_CHECKER_CONTENT_ID)
-      visit '/qa-pages-rock'
-
-      schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
-      schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
-
-      qa_page_schema = schemas.detect { |schema| schema["@type"] == "QAPage" }
-      assert_equal qa_page_schema["headline"], 'QA pages rock'
-    end
   end
 
   context "jobsearch page" do

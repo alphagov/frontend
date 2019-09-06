@@ -11,7 +11,6 @@ $govuk-compatibility-govuktemplate: true;
 
 // local styleguide includes
 @import "styleguide/conditionals";
-@import "styleguide/not-ie-conditional";
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/player-container";

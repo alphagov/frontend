@@ -11,586 +11,334 @@ body.homepage {
   }
 }
 
-.root-index {
-  // Generic objects for the homepage
-  .inner-block {
-    @include media(tablet){
-      margin: 0 30px;
-      &.floated-children {
-        margin: 0 15px;
-      }
-    }
+.home-top {
+  overflow: hidden;
+  background: $govuk-brand-colour;
+  color: $white;
+}
+
+.home-top__inner {
+  position: relative;
+}
+
+.home-top__title {
+  @include govuk-font(48, $weight: bold);
+  padding: 25px 0 15px;
+}
+
+.home-top__intro {
+  margin: 0;
+}
+
+.home-top__intro--simpler {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.home-top__links {
+  padding: 0 govuk-spacing(6) govuk-spacing(4) govuk-spacing(3);
+
+  @include govuk-media-query($from: tablet) {
+    position: absolute;
+    bottom: 0;
+    right: -(govuk-spacing(3));
+    width: 33.33%;
+    box-sizing: border-box;
+    padding: 15px 20px 25px 20px;
+    background: $black;
   }
+}
 
-  .floated-inner-block {
-    margin: 0 15px;
+.home-top__links-title {
+  @include govuk-font(14);
+  margin: 0;
+  @include govuk-media-query($from: desktop) {
+    margin: 5px 0 0;
   }
+}
 
-  section {
-    clear: both;
+.home-top__links-list {
+  margin: 0;
+  padding: 0;
+  @include govuk-media-query($from: desktop) {
+    margin: 10px 0 0;
   }
+}
 
-  .homepage__section-break {
-    margin: 30px 15px 15px;
-    clear: both;
-    border: 5px solid $black;
-    border-width: 5px 0 0;
+.home-top__links-item {
+  @include govuk-font($size: 16, $weight: bold);
+  list-style: none;
+  margin: 5px 0;
+}
 
-    @include media(tablet){
-      margin: 60px 30px 30px;
-    }
-  }
+.home-top__links-link {
+  color: $white;
 
-  .single-column-heading {
-    @include media(desktop){
-      width: 33.33%;
-      float: left;
-    }
-    h2 {
-      @include core-36;
-      font-weight: bold;
-      padding: 0 15px;
-      margin: 0 0 10px;
-    }
-  }
-
-  .promo-image {
-    margin-right: 0;
-    margin-bottom: 30px;
-    min-height: 0;
-    position: static;
-
-    @include media(tablet){
-      width: 33.33%;
-      float: left;
-    }
-    .promo-content {
-      padding: 0 15px;
-      > a {
-        display: block;
-      }
-    }
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 15px;
-    }
-    h3 {
-      @include core-24;
-      font-weight: bold;
-      margin: 5px 0;
-    }
-    p {
-      @include core-16;
-      margin: 0;
-    }
-
-    .promo-text-cta a {
-      display: block;
-      margin-bottom: 15px;
-      padding: 1.5em .75em 2em;
-
-      color: $white;
-      background: $homepage-top-colour;
-      text-align: center;
-      text-decoration: none;
-
-      @include bold-19;
-
-      .main-text{
-        display: block;
-        margin-top: 15px;
-        @include bold-36;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-
-  .homepage-top {
-    @extend %contain-floats;
-    text-align: center;
-    background: $homepage-top-colour;
+  &:link,
+  &:visited {
     color: $white;
-
-    .homepage-top-inner {
-      position: relative;
-      overflow: hidden;
-      max-width: 1020px;
-      margin: 0 auto;
-      text-align: left;
-      @include ie-lte(8){
-        width: 1020px;
-      }
-    }
   }
 
-  .welcome-block {
-    .welcome-text {
-      @include media(tablet){
-        width: 66.66%;
-      }
-    }
-    .content-links {
-      @include media(tablet){
-        position: absolute;
-        top: 0;
-        left: 66%;
-        width: 33.33%;
-      }
-    }
-
-    h1 {
-      @include core-48;
-      font-weight: bold;
-      padding: 25px 0 15px;
-    }
-    p {
-      margin: 0;
-
-      &.simpler {
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-    }
-
-    .content-links-inner {
-      padding-bottom: 20px;
-
-      @include media(tablet){
-        background: $black;
-        padding: 15px 20px 5px;
-        margin-top: 30px;
-        min-height: 20em;
-        @include ie-lte(7){
-          margin-bottom: 0;
-        }
-        @include ie(6) {
-          height: 20em;
-        }
-      }
-
-      h2 {
-        @include core-14;
-        margin: 0;
-        @include media($min-width: 1010px){
-          margin: 5px 0 0;
-        }
-      }
-      ul {
-        margin: 0;
-        padding: 0;
-        @include media($min-width: 1010px){
-          margin: 10px 0 0;
-        }
-      }
-      li {
-        @include bold-16;
-        list-style: none;
-        margin: 5px 0;
-      }
-      a {
-        &:link,
-        &:visited {
-          color: $white;
-        }
-
-        &:active,
-        &:hover {
-          color: darken($white, 20%);
-        }
-
-        &:focus {
-          // Manually fix the most embarassing :focus contast issue, needs a wider fix
-          color: $black;
-        }
-      }
-    }
-  }
-  .homepage-content {
-    @extend %contain-floats;
-    text-align: center;
-
-    .homepage-content-inner {
-      max-width: 1020px;
-      margin: 0 auto;
-      text-align: left;
-      @include ie-lte(8){
-        width: 1020px;
-      }
-    }
+  &:active,
+  &:hover {
+    color: darken($white, 20%);
   }
 
-  $red: #E61E32;
-  $dark-red: #B31424;
+  &:focus,
+  &:link:focus {
+    // Manually fix the most embarassing :focus contast issue, needs a wider fix
+    color: $black;
+    text-decoration: none;
+  }
+}
 
-  .homepage__ready-container {
-    margin: govuk-spacing(6) govuk-spacing(3) 0 govuk-spacing(3);
-    padding-bottom: govuk-spacing(3);
+$red: #E61E32;
+$dark-red: #B31424;
 
-    @include govuk-media-query($from: tablet) {
-      margin: govuk-spacing(6) govuk-spacing(6) 0 govuk-spacing(6);
-    }
+.homepage__ready-container {
+  margin: govuk-spacing(6) 0 govuk-spacing(7) 0;
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: govuk-spacing(3);
+  }
+}
+
+.homepage__ready {
+  @include govuk-font(24);
+  position: relative;
+  margin-top: govuk-spacing(6);
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    width: 20px;
+    background-image: asset-url("chevron-extend-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
   }
 
-  .homepage__ready {
-    @include govuk-font(24);
-    position: relative;
-    margin-top: govuk-spacing(6);
+  @include govuk-media-query($from: desktop) {
+    max-width: 66%;
+  }
 
-    &:after {
+  &:after {
+    @include govuk-media-query($from: mobile) {
       content: '';
       display: block;
       position: absolute;
       top: 0;
-      right: 10px;
+      right: 0;
       height: 100%;
-      width: 20px;
-      background-image: asset-url("chevron-extend-mobile.svg");
+      min-width: 190px;
+      background-image: asset-url("chevron-extend.svg");
       background-repeat: no-repeat;
-      background-position: center;
-      background-size: 20px 20px;
+      background-position: left center;
+      background-size: auto 100%;
     }
 
-    @include govuk-media-query($from: desktop) {
-      max-width: 66%;
-    }
-
-    &:after {
-      @include govuk-media-query($from: mobile) {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        min-width: 190px;
-        background-image: asset-url("chevron-extend.svg");
-        background-repeat: no-repeat;
-        background-position: left center;
-        background-size: auto 100%;
-      }
-
-      @include govuk-media-query($from: mobile, $until: tablet) {
-        min-width: 151px;
-      }
+    @include govuk-media-query($from: mobile, $until: tablet) {
+      min-width: 151px;
     }
   }
+}
 
-  .homepage__ready:hover {
-    &:after {
-      background-image: asset-url("chevron-extend-hover.svg");
-    }
-
-    .homepage__ready-text {
-      background-color: $dark-red;
-    }
-  }
-
-  .homepage__ready-heading {
-    margin-bottom: govuk-spacing(2);
-  }
-
-  .homepage__ready-desc {
-    @include govuk-font(24);
-    margin-top: 0;
+.homepage__ready:hover {
+  &:after {
+    background-image: asset-url("chevron-extend-hover.svg");
   }
 
   .homepage__ready-text {
-    @include govuk-font(24, $weight: bold);
-    padding: govuk-spacing(3) govuk-spacing(7) govuk-spacing(3) govuk-spacing(3);
-    background-color: $red;
-    border: 2px solid transparent;
-    border-radius: 5px;
+    background-color: $dark-red;
+  }
+}
 
-    @include govuk-media-query($from: mobile) {
-      padding: govuk-spacing(3);
-      margin-right: 135px;
-      border-radius: 0;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-    }
+.homepage__ready-heading {
+  margin-bottom: govuk-spacing(2);
+}
 
-    @include govuk-media-query($from: tablet) {
-      padding: govuk-spacing(5);
-      margin-right: 170px;
-    }
+.homepage__ready-desc {
+  @include govuk-font(24);
+  margin-top: 0;
+}
+
+.homepage__ready-text {
+  @include govuk-font(24, $weight: bold);
+  padding: govuk-spacing(3) govuk-spacing(7) govuk-spacing(3) govuk-spacing(3);
+  background-color: $red;
+  border: 2px solid transparent;
+  border-radius: 5px;
+
+  @include govuk-media-query($from: mobile) {
+    padding: govuk-spacing(3);
+    margin-right: 135px;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 
-  .homepage__ready-link {
-    @include govuk-font(24, $weight: bold);
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(5);
+    margin-right: 170px;
+  }
+}
+
+.homepage__ready-link {
+  @include govuk-font(24, $weight: bold);
+  color: govuk-colour("white");
+  margin-bottom: 0;
+  text-decoration: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:link,
+  &:visited {
     color: govuk-colour("white");
-    margin-bottom: 0;
+  }
+
+  &:focus,
+  &:link:focus {
+    outline: 3px solid transparent;
+    color: $govuk-focus-text-colour;
+    background-color: $govuk-focus-colour;
+    -webkit-box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
+    box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
     text-decoration: none;
-
-    &:after {
-      content: "";
-      position: absolute;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    &:link,
-    &:visited {
-      color: govuk-colour("white");
-    }
-
-    &:focus {
-      outline: 3px solid transparent;
-      color: $govuk-focus-text-colour;
-      background-color: $govuk-focus-colour;
-      -webkit-box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
-      box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-focus-text-colour;
-      text-decoration: none;
-    }
   }
+}
 
-  .homepage__ready-section-break {
-    margin-top: govuk-spacing(9);
-    margin-bottom: govuk-spacing(0);
+.home-services {
+  padding-top: govuk-spacing(5);
 
-    @include govuk-media-query($until: tablet) {
-      margin-top: govuk-spacing(7);
-    }
+  @include govuk-media-query($from: tablet) {
+    padding-top: govuk-spacing(2);
   }
+}
 
-  .services-block {
-    margin-top: govuk-spacing(3);
+.home-services__heading {
+  @include govuk-font(19, $weight: bold);
+  margin: 0;
+}
 
-    .two-column-heading {
-      @include media(tablet){
-        width: 66.66%;
-        float: left;
-      }
-      h2 {
-        @include core-36;
-        font-weight: bold;
-        padding: 0 15px;
-        margin: 20px 0 0;
-        @include media(tablet){
-          margin: 15px 0 25px;
-        }
-      }
-    }
-    .replaces {
-      @extend %contain-floats;
+.home-services__para {
+  @include govuk-font(16);
+  margin: 0 0 govuk-spacing(3) 0;
+  min-height: 40px;
+}
 
-      @include media(tablet){
-        padding-top: 10px;
-        width: 33.33%;
-        float: right;
-      }
-      p {
-        @include core-14;
-        padding: 0 15px;
-        margin: 0;
-        color: $secondary-text-colour;
-      }
-      ul {
-        margin: 0;
-        padding: 0 15px;
-      }
-      li {
-        line-height: 30px;
-        display: block;
-        float: left;
-        padding-right: 10px;
-        img {
-          vertical-align: bottom;
-        }
-      }
-    }
-    .categories-lists {
-      @extend %contain-floats;
-      clear: both;
-    }
-    .categories-list {
-      margin: 0;
-      padding: 10px 0 0;
-      @include media(tablet){
-        float: left;
-        width: $one-third;
-      }
+.home-divider {
+  margin: 30px 0 15px 0;
+  clear: both;
+  border: 5px solid $black;
+  border-width: 5px 0 0;
 
-      li {
-        margin: 0 0 15px;
-        padding: 0;
-        list-style: none;
-
-        h3, p {
-          margin: 0;
-          padding: 0 15px;
-        }
-        h3 {
-          @include core-19;
-          font-weight: bold;
-        }
-        p {
-          @include core-16;
-          min-height: 40px;
-        }
-      }
-    }
+  @include govuk-media-query($from: tablet) {
+    margin: 60px 0 30px 0;
   }
+}
 
-  .departments-and-policy {
-    .departments-intro {
-      @include media(desktop){
-        width: 66.66%;
-        float: left;
-      }
-      p {
-        @include core-24;
-        margin: 10px 0 20px;
-      }
-    }
-    .large-numbers {
-      clear: both;
-      @extend %contain-floats;
-      @include media(tablet){
-        padding: 0 0 30px 0;
-        float: left;
-        width: 33.33%;
-      }
+.home-divider--thin {
+  border: 0;
+  border-top: 1px solid $govuk-border-colour;
+}
 
-      ol {
-        margin: 0;
-        padding: 0;
-        @include ie-lte(7){
-          width: 988px; // because 990px/4 is not a round number
-        }
-      }
-      li {
-        list-style: none;
-        margin: 20px 0;
-
-        a {
-          padding: 0 15px;
-          display: block;
-          text-decoration: none;
-          line-height: 1.25;
-          overflow: hidden;
-        }
-        strong {
-          // Manually setting font-size rather than using the mixins size so we
-          // because the layout doesnt really work otherwise
-          font-size: 53px;
-          line-height: (55 / 53);
-          font-weight: bold;
-          display: block;
-
-          @include media(desktop){
-            font-size: 80px;
-            line-height: (80 / 80);
-          }
-        }
-        &:first-child {
-          margin-top: 10px;
-        }
-      }
-    }
-
-    .large-numbers__list {
-      padding-left: 0;
-    }
-
-    .departments-promo-sections {
-      @extend %contain-floats;
-      clear: both;
-      padding: 0;
-    }
+.home-numbers-and-info {
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: govuk-spacing(6);
   }
+}
 
-  .popular-content {
-    @extend %contain-floats;
-    margin-bottom: 60px;
+.home-numbers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-    .promo-image {
-      @include media(tablet){
-        width: 50%;
-      }
-      @include media(desktop){
-        width: 33.33%;
-      }
+.home-numbers__link {
+  display: block;
+  margin: 20px 0;
+  text-decoration: none;
+  line-height: 1.25;
+  overflow: hidden;
+}
 
-      a.callout {
-        display: block;
-        background-color: $turquoise;
-        color: $white;
-        font-weight: bold;
-        text-decoration: none;
-        text-align: center;
-        margin-bottom: 15px;
+.home-numbers__link--first {
+  margin-top: 10px;
+}
 
+.home-numbers__large {
+  // Manually setting font-size rather than using the mixins size
+  // because the layout doesnt really work otherwise
+  font-size: 53px;
+  line-height: (55 / 53);
+  font-weight: bold;
+  display: block;
 
-        p {
-          @include core-16;
-          font-weight:700;
-          padding-top: 1.25em;
-          padding-bottom: 1.25em;
-          margin-left: 2em;
-          margin-right: 2em;
-        }
-
-        span {
-          @include heading-48;
-          font-weight:700;
-          display: block;
-          margin: 0.25em 0 0.25em 0;
-          padding:0;
-
-          &:hover {
-            text-decoration: underline;
-          }
-
-          @include media(desktop) {
-            @include core-36;
-            font-weight:700;
-            margin:0;
-          }
-        }
-      }
-    }
-
-
-    .most-active {
-      @include media(tablet){
-        width: 50%;
-        float: left;
-      }
-      @include media(desktop){
-        width: 33.33%;
-      }
-      h3 {
-        @include core-24;
-        font-weight: bold;
-        margin: 0;
-        padding: 0 0 5px;
-      }
-      .most-active-content {
-        margin: 0;
-        padding: 0 0 15px;
-      }
-      li {
-        list-style: none;
-        margin: 0;
-        padding: 5px 0 0;
-        @include core-19;
-        a {
-          font-weight: bold;
-        }
-        span {
-          display: inline-block;
-          min-width: 25px;
-        }
-      }
-    }
+  @include govuk-media-query($from: desktop) {
+    font-size: 80px;
+    line-height: (80 / 80);
   }
+}
+
+.home-info {
+  @include govuk-font(24);
+  margin: govuk-spacing(2) 0 govuk-spacing(4);
+}
+
+.home-promo {
+  display: block;
+}
+
+.home-promo__image {
+  display: block;
+  max-width: 100%;
+  margin-bottom: govuk-spacing(4);
+}
+
+.home-promo__title {
+  @include govuk-font(24, $weight: bold);
+}
+
+.home-promo__text {
+  @include govuk-font(16);
+  margin: 0 0 govuk-spacing(4);
+}
+
+.home-more__title {
+  @include govuk-font(36, $weight: bold);
+  margin: 0 0 govuk-spacing(4) 0;
+}
+
+.home-more__subtitle {
+  @include govuk-font(24, $weight: bold);
+  margin: 0 0 govuk-spacing(2) 0;
+}
+
+.home-more__list {
+  font-weight: bold;
+}
+
+.home-promo__link {
+  display: block;
+  padding: 2.5em .75em;
+  margin-bottom: govuk-spacing(3);
+  background: $govuk-brand-colour;
+  text-align: center;
+}
+
+.home-promo__link-content {
+  @include govuk-font(36, $weight: bold);
+  color: govuk-colour("white");
 }

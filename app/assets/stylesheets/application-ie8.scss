@@ -1,6 +1,32 @@
-// BASE STYLESHEET FOR IE 8 COMPILER
+.govuk-width-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
 
-$is-ie: true;
-$ie-version: 8;
+.govuk-grid-row {
+  margin: 0 -15px;
+}
 
-@import "application.scss";
+.govuk-grid-column-one-third {
+  float: left;
+  width: 33.3333%;
+  padding: 0 15px;
+}
+
+.govuk-grid-column-two-thirds {
+  float: left;
+  width: 66.6666%;
+  padding: 0 15px;
+}
+
+.home-top__links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.33%;
+  box-sizing: border-box;
+  padding: 15px 20px 5px 20px;
+  margin-top: 30px;
+  min-height: 100%;
+  background: black;
+}

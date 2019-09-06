@@ -13,7 +13,7 @@
   }
 
   form {
-    @include core-19;
+    @include govuk-font(19);
 
     legend {
       width: 100%;
@@ -39,7 +39,7 @@
 
     textarea {
       display:block;
-      @include core-19;
+      @include govuk-font(19);
       margin: 0 0 1em 0;
       background-color: #f8f8f8;
       border: 1px inset #bfc1c3;

@@ -336,6 +336,13 @@ $dark-red: #B31424;
   margin-bottom: govuk-spacing(3);
   background: $govuk-brand-colour;
   text-align: center;
+  text-decoration: none;
+
+  &:focus {
+    .home-promo__link-content {
+      color: govuk-colour("black");
+    }
+  }
 }
 
 .home-promo__link-content {

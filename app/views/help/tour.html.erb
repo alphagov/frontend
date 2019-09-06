@@ -4,144 +4,134 @@
         content="About the GOV.UK website: a clearer, simpler and faster way to get what you need from the government." />
 <% end %>
 
-<main id="content" role="main" class="group tour root-tour">
-<div class="tour-container full-width group">
-  <article class="content-block" id="mainstream">
-  <header class="page-header group">
-    <%= render "govuk_publishing_components/components/title", title: "GOV.UK is the best place to find government services and information." %>
-  </header>
-  <div class="tour-video">
-    <div class="govuk-tour-video">
-      <figure class="media-player-wrapper video">
-        <a href="https://www.youtube.com/watch?v=kvVaUBEibXo">Watch our video about GOV.UK</a>
-      </figure>
+<main id="content" role="main">
+  <%= render "govuk_publishing_components/components/title", title: "GOV.UK is the best place to find government services and information" %>
+
+  <div class="govuk-grid-row" id="mainstream">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <p><a href="https://www.youtube.com/watch?v=kvVaUBEibXo">Watch our video about GOV.UK</a></p>
+      <% end %>
+
+      <p class="govuk-body">Watch Sarah Richards and Mike Bracken from the Government Digital Service introduce GOV.UK in this short video. <a href="http://www.youtube.com/watch?v=kvVaUBEibXo" title="Watch the video on YouTube" rel="external" class="govuk-link">Watch on YouTube</a></p>
+
+      <%= render "govuk_publishing_components/components/details", {
+        title: "View video transcript"
+      } do %>
+        <p class="govuk-body">Sarah: GOV.UK is a new website, it's the best place to find government services and information.</p>
+        <p class="govuk-body">Mike: GOV.UK makes it simpler, clearer and faster for people to get what they need from government.</p>
+        <p class="govuk-body">S: It's got some step-by-step guides for things like employing new staff, which can make some complicated processes much easier to understand.</p>
+        <p class="govuk-body">M: You can work out things like maternity pay with the help of some very simple tools.</p>
+        <p class="govuk-body">S: And for things like Bank Holidays, we put the information most people are looking for right in the middle of the page.</p>
+        <p class="govuk-body">M: GOV.UK. It's simpler, clearer and faster. Have a look at www.gov.uk.</p>
+      <% end %>
+
+      <p class="govuk-body">It’s a simpler, clearer and faster way to get what you need from the government.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">You can read more about the site below, or get started now by searching for things like <a href="/search?q=driving+test" class="govuk-link">driving test</a>, <a href="/search?q=passport" class="govuk-link">passport</a>, and <a href="/search?q=holiday+entitlement" class="govuk-link">holiday entitlement</a>.</p>
     </div>
-    <figcaption><p>Watch Sarah Richards and Mike Bracken from the Government Digital Service introduce GOV.UK in this short video. <a href="http://www.youtube.com/watch?v=kvVaUBEibXo" title="Watch the video on YouTube" rel="external">Watch on YouTube</a></p>
-      <p><a href="#main-transcript" class="visuallyhidden video-transcript-toggle">View video transcript</a></p>
-      <div class="video-transcript" id="main-transcript">
-        <p>Sarah: GOV.UK is a new website, it's the best place to find government services and information.</p>
-        <p>Mike: GOV.UK makes it simpler, clearer and faster for people to get what they need from government.</p>
-        <p>S: It's got some step-by-step guides for things like employing new staff, which can make some complicated processes much easier to understand.</p>
-        <p>M: You can work out things like maternity pay with the help of some very simple tools.</p>
-        <p>S: And for things like Bank Holidays, we put the information most people are looking for right in the middle of the page.</p>
-        <p>M: GOV.UK. It's simpler, clearer and faster. Have a look at www.gov.uk.</p>
-      </div>
-    </figcaption>
   </div>
-  <div class="tour-intro">
-    <p>It’s a simpler, clearer and faster way to get what you need from the government.</p>
-    <p>You can read more about the site below, or get started now by searching for things like <a href="/search?q=driving+test">driving test</a>, <a href="/search?q=passport">passport</a>, and <a href="/search?q=holiday+entitlement">holiday entitlement</a>.</p>
-  </div>
-  <ul class="tour-topics group">
-    <li>
-        <h2>Starting with search</h2>
-        <p>People begin most internet journeys with search, so we’ve designed the site with that in mind.</p>
-      <p>Whether you use a search engine or our own search tools, we’ve made sure you’ll get to the information you want quickly.</p>
-      <form class="search-box" action="/search" method="get" role="search">
-        <p>
-          <label for="main_autocomplete2" class="visuallyhidden">Try searching</label>
-          <input type="search" id="main_autocomplete2" value="" name="q" placeholder="Enter search text">
-          <button type="submit" class="button">Search</button>
-        </p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Starting with search</h2>
+      <p class="govuk-body">People begin most internet journeys with search, so we’ve designed the site with that in mind.</p>
+      <p class="govuk-body">Whether you use a search engine or our own search tools, we’ve made sure you’ll get to the information you want quickly.</p>
+      <form action="/search" method="get" role="search" class="govuk-!-margin-bottom-8">
+        <%= render "govuk_publishing_components/components/search" %>
       </form>
-      </li>
-      <li>
-        <h2>Simple navigation</h2>
-        <p>We use clear and simple headings and descriptions like <a href="/browse/driving/mot-insurance">&lsquo;MOT and vehicle insurance&rsquo;</a> or <a href="/browse/business/imports-exports">&lsquo;Imports and exports&rsquo;</a>. And we always show you where you are, so you can quickly explore a category.</p>
-
-      </li>
-      <li class="last">
-        <h2>Plain and direct language</h2>
-        <p>We’ve made sure that everything on GOV.UK has been written simply and directly, so that it&rsquo;s usable and accessible by everyone. That means short, engaging pieces of writing that avoid unnecessary jargon.</p>
-      <p>The <a href="/guidance/style-guide">GOV.UK style guide</a> goes into more detail about the guidelines our writers follow for everything on the site.</p>
-      </li>
-      <li>
-        <h2>Pages clear of clutter</h2>
-        <p>Pages are clean and simple, and we’ve looked carefully at what people search for so we show the information most people want right away.</p>
-
-      </li>
-      <li>
-        <h2>Step-by-step guides</h2>
-        <p>We’ll take you step by step through complicated processes, like <a href="/employing-staff">employing staff for the first time</a> and highlight the most important information.</p>
-
-      </li>
-      <li class="last">
-        <h2>Detail when you need it</h2>
-        <p>If you need more specific information, about things like <a href="/pay-leave-for-parents">pay and leave entitlements for parents</a>, then our tools will quickly give you a clear answer.</p>
-
-      </li>
-  </ul>
-
-
-</article>
-<article class="content-block" id="inside-government">
-  <header class="page-header group">
-    <div>
-      <h1>Policy, publications and announcements in one place.</h1>
     </div>
-  </header>
 
-  <div class="tour-video">
-    <div class="govuk-tour-video">
-      <figure class="media-player-wrapper video">
-        <a href="https://www.youtube.com/watch?v=sHelbBzXH1c">Watch our video about GOV.UK</a>
-      </figure>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Simple navigation</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">We use clear and simple headings and descriptions like <a href="/browse/driving/mot-insurance" class="govuk-link">&lsquo;MOT and vehicle insurance&rsquo;</a> or <a href="/browse/business/imports-exports" class="govuk-link">&lsquo;Imports and exports&rsquo;</a>. And we always show you where you are, so you can quickly explore a category.</p>
     </div>
-    <figcaption><p>Watch Neil Williams from the Government Digital Service and Lauren McAllister from the Department for Communities and Local Government introduce the government section in this short video. <a href="https://www.youtube.com/watch?v=sHelbBzXH1c" title="Watch the video on YouTube" rel="external">Watch on YouTube</a></p>
-      <p><a href="#insidegov-transcript" class="visuallyhidden video-transcript-toggle">View video transcript</a></p>
-      <div class="video-transcript" id="insidegov-transcript">
-        <p>Neil: Central government in the UK is made up of around 400 organisations.</p>
-        <p>Lauren: Each of these have websites where they publish information about who they are and what they do.</p>
-        <p>N: We're bringing all of these websites together onto a single place on GOV.UK.</p>
-        <p>L: Some have already moved, more will be joining soon.</p>
-        <p>N: When we've finished, you won't need to know which bit of government does what in order to find out what government is doing on any given subject.</p>
-        <p>L: Announcements, publications and policies will all be together in one place.</p>
-        <p>N: You can still look up information about a specific government organisation, like the Ministry of Defence or the Department of Education, and see everything it's working on.</p>
-        <p>L: Or you'll be able to see things from lots of organisations, gathered together around topics. Like everything on climate change or everything related to crime and justice.</p>
-        <p>N: Inside government makes it simpler, clearer and faster to find out how government works, see who is working on what and stay updated when things change. See for yourself at <a href="/government">www.gov.uk/government</a>.</p>
-      </div>
-    </figcaption>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Plain and direct language</h2>
+      <p class="govuk-body">We’ve made sure that everything on GOV.UK has been written simply and directly, so that it&rsquo;s usable and accessible by everyone. That means short, engaging pieces of writing that avoid unnecessary jargon.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">The <a href="/guidance/style-guide" class="govuk-link">GOV.UK style guide</a> goes into more detail about the guidelines our writers follow for everything on the site.</p>
+    </div>
   </div>
-  <div class="tour-intro">
-    <p>The <a href="/#departments-and-policy">government section</a> of GOV.UK (formerly called &ldquo;Inside Government&rdquo;) makes it simpler, clearer and faster to explore how government works, see who is working on what and stay updated when things change.</p>
-    <p>You can read more about the site below, or get started now by searching for things like departments, ministers, and policies.</p>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Pages clear of clutter</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">Pages are clean and simple, and we’ve looked carefully at what people search for so we show the information most people want right away.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Step-by-step guides</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">We’ll take you step by step through complicated processes, like <a href="/employing-staff" class="govuk-link">employing staff for the first time</a> and highlight the most important information.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Detail when you need it</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">If you need more specific information, about things like <a href="/pay-leave-for-parents" class="govuk-link">pay and leave entitlements for parents</a>, then our tools will quickly give you a clear answer.</p>
+    </div>
   </div>
-  <ul class="tour-topics group inside-gov">
-    <li>
-        <h2>Everything in one place</h2>
-        <p>From November 2012, the websites of central government departments and other organisations started moving to GOV.UK. You can find everything you need from government in one place.</p>
-      </li>
-      <li>
-        <h2>Grouped by organisation...</h2>
-        <p>Each department will have their own home on GOV.UK. They’ll be simple to navigate, with dedicated spaces for announcements, publications and policies.</p>
 
-      </li>
-      <li class="last">
-        <h2>...and by topic</h2>
-        <p>You don’t have to be an expert on how the government works to get around. Explore subjects by topic, like transport or housing, and see different policies on that subject from across government - all in one place.</p>
-      </li>
-      <li>
-        <h2>Clear, easy-to-read formats</h2>
-        <p>Each page has been designed so you can make the most of the information on it. That means there’s no clutter, and important information is clearly highlighted.</p>
+  <div class="govuk-grid-row" id="inside-government">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Policy, publications and announcements in one place</h2>
 
-      </li>
-      <li>
-        <h2>Written for everyone</h2>
-        <p>Like the rest of GOV.UK, information about government policy will be clearly written and free of jargon, so anyone with an interest in what government is doing will be able to understand it.</p>
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <p><a href="https://www.youtube.com/watch?v=sHelbBzXH1c">Watch our video about GOV.UK</a></p>
+      <% end %>
 
-      </li>
-      <li class="last">
-        <h2>It’s not finished yet</h2>
-        <p>GOV.UK <a href="https://gds.blog.gov.uk/2015/03/06/gov-uk-isnt-finished/" rel="external">isn't finished and never will be</a>. We're constantly working to improve it for users.</p>
-      </li>
-  </ul>
-  </article>
-</div>
+      <p class="govuk-body">Watch Neil Williams from the Government Digital Service and Lauren McAllister from the Department for Communities and Local Government introduce the government section in this short video. <a href="https://www.youtube.com/watch?v=sHelbBzXH1c" title="Watch the video on YouTube" rel="external" class="govuk-link">Watch on YouTube</a></p>
 
+      <%= render "govuk_publishing_components/components/details", {
+        title: "View video transcript"
+      } do %>
+        <p class="govuk-body">Neil: Central government in the UK is made up of around 400 organisations.</p>
+        <p class="govuk-body">Lauren: Each of these have websites where they publish information about who they are and what they do.</p>
+        <p class="govuk-body">N: We're bringing all of these websites together onto a single place on GOV.UK.</p>
+        <p class="govuk-body">L: Some have already moved, more will be joining soon.</p>
+        <p class="govuk-body">N: When we've finished, you won't need to know which bit of government does what in order to find out what government is doing on any given subject.</p>
+        <p class="govuk-body">L: Announcements, publications and policies will all be together in one place.</p>
+        <p class="govuk-body">N: You can still look up information about a specific government organisation, like the Ministry of Defence or the Department of Education, and see everything it's working on.</p>
+        <p class="govuk-body">L: Or you'll be able to see things from lots of organisations, gathered together around topics. Like everything on climate change or everything related to crime and justice.</p>
+        <p class="govuk-body">N: Inside government makes it simpler, clearer and faster to find out how government works, see who is working on what and stay updated when things change. See for yourself at <a href="/government" class="govuk-link">www.gov.uk/government</a>.</p>
+      <% end %>
+
+      <p class="govuk-body">The <a href="/#departments-and-policy" class="govuk-link">government section</a> of GOV.UK (formerly called &ldquo;Inside Government&rdquo;) makes it simpler, clearer and faster to explore how government works, see who is working on what and stay updated when things change.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">You can read more about the site below, or get started now by searching for things like departments, ministers, and policies.</p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Everything in one place</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">From November 2012, the websites of central government departments and other organisations started moving to GOV.UK. You can find everything you need from government in one place.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Grouped by organisation...</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">Each department will have their own home on GOV.UK. They’ll be simple to navigate, with dedicated spaces for announcements, publications and policies.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">...and by topic</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">You don’t have to be an expert on how the government works to get around. Explore subjects by topic, like transport or housing, and see different policies on that subject from across government - all in one place.</p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Clear, easy-to-read formats</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">Each page has been designed so you can make the most of the information on it. That means there’s no clutter, and important information is clearly highlighted.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Written for everyone</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">Like the rest of GOV.UK, information about government policy will be clearly written and free of jargon, so anyone with an interest in what government is doing will be able to understand it.</p>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">It’s not finished yet</h2>
+      <p class="govuk-body govuk-!-margin-bottom-8">GOV.UK <a href="https://gds.blog.gov.uk/2015/03/06/gov-uk-isnt-finished/" rel="external" class="govuk-link">isn't finished and never will be</a>. We're constantly working to improve it for users.</p>
+    </div>
+  </div>
 </main>
-
-<% content_for :body_classes do %>full-width<% end %>
-
-<% content_for :extra_javascript do %>
-  <%= javascript_include_tag 'tour.js', :defer => 'defer', integrity: true, crossorigin: 'anonymous' %>
-<% end %>

@@ -1,7 +1,0 @@
-$is-ie: false !default;
-
-@mixin not-ie-lte($version){
-  @if $is-ie == false or $ie-version > $version {
-    @content;
-  }
-}

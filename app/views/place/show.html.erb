@@ -13,7 +13,6 @@
     <div class="get-started-intro">
 
       <div class="find-nearest">
-
         <%= raw @publication.introduction %>
 
         <%= render partial: 'location_form',
@@ -32,14 +31,15 @@
              data-track-category="<%= track_category_for_place_results(@publication.places) %>"
              data-track-action="<%= track_action_for_place_results(@publication.places) %>"
              data-track-label="<%= track_label_for_place_results(@publication.places) %>">
-      <% if @publication.places.any? %>
 
-          <h2>Results <%= preposition ||= "near" %> <strong><%= postcode %></strong>:</h2>
-          <ol id="options" class="places">
-            <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
-          </ol>
+      <% if @publication.places.any? %>
+        <h2>Results <%= preposition ||= "near" %> <strong><%= postcode %></strong>:</h2>
+        <ol id="options" class="places">
+          <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
+        </ol>
       <% end %>
     </section>
+
   <% else %>
     <section class="more">
       <div class="further-information">

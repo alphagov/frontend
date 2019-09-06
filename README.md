@@ -15,6 +15,10 @@ Application to serve some mainstream formats and the homepage for GOV.UK.
 * https://www.gov.uk/tour (tour of GOV.UK)
 * https://www.gov.uk/help (help index page)
 * https://www.gov.uk/foreign-travel-advice (travel advice index page)
+* https://www.gov.uk/find-local-council
+* https://www.gov.uk/help/ab-testing
+* https://www.gov.uk/passport-interview-office
+* https://www.gov.uk/riding-establishment-licence
 
 ## Nomenclature
 

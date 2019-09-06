@@ -44,7 +44,7 @@
               <h2><span class="visuallyhidden">Countries starting with </span><%= initial %></h2>
               <ul class="countries">
                 <% countries.each do |country| %>
-                  <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, "/foreign-travel-advice/#{country.identifier}" %></li>
+                  <li data-synonyms='<%= country.synonyms ? country.synonyms.join("|") : "" %>'><%= link_to country.name, "/foreign-travel-advice/#{country.identifier}", class: "govuk-link" %></li>
                   <% end %>
               </ul>
             </div>

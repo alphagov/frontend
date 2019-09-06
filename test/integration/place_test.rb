@@ -84,15 +84,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
           assert_has_component_title "Find a passport interview office"
         end
 
-        within ".intro" do
-          assert page.has_content?("Enter your postcode to find a passport interview office near you.")
-        end
-
-        within ".find-location-for-service" do
-          assert page.has_field?("Enter a postcode")
-          assert_has_button("Find")
-        end
-
+        assert page.has_content?("Enter your postcode to find a passport interview office near you.")
+        assert page.has_field?("Enter a postcode")
+        assert_has_button("Find")
         assert page.has_no_content?("Please enter a valid full UK postcode.")
 
         within ".further-information" do
@@ -258,12 +252,12 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "add google analytics for noResults" do
-      track_category = page.find('.error-summary')['data-track-category']
-      track_action = page.find('.error-summary')['data-track-action']
-      track_label = page.find('.error-summary')['data-track-label']
+      track_category = page.find('.gem-c-error-alert')['data-track-category']
+      track_action = page.find('.gem-c-error-alert')['data-track-action']
+      track_label = page.find('.gem-c-error-alert')['data-track-label']
 
-      assert_equal "userAlerts:place", track_category
-      assert_equal "postcodeErrorShown:validPostcodeNoLocation", track_action
+      assert_equal "userAlerts: place", track_category
+      assert_equal "postcodeErrorShown: validPostcodeNoLocation", track_action
       assert_equal "We couldn't find any results for this postcode.", track_label
     end
   end

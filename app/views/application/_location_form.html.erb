@@ -4,42 +4,48 @@
       data-track-action="postcodeSearchStarted">
 
   <% if @location_error %>
-    <div class="error-summary"
-         tabindex="-1"
-         role="alert"
-         data-module="auto-track-event"
-         data-track-category="userAlerts:<%= publication_format %>"
-         data-track-action="postcodeErrorShown:<%= @location_error.postcode_error %>"
-         data-track-label="<%= t(@location_error.message, @location_error.message_args) %>">
+    <%
+      if @location_error.sub_message.present?
+        description = t(@location_error.sub_message)
+      end
+    %>
 
-      <p class="instruction"><%= t @location_error.message, @location_error.message_args %></p>
-      <% if @location_error.sub_message.present? %>
-        <p><%= t @location_error.sub_message %></p>
-      <% end %>
-    </div>
+    <%= render "govuk_publishing_components/components/error_alert", {
+      message: t(@location_error.message, @location_error.message_args),
+      description: description,
+      data_attributes: {
+        module: "auto-track-event",
+        track_category: "userAlerts: #{publication_format}",
+        track_action: "postcodeErrorShown: #{@location_error.postcode_error}",
+        track_label: t(@location_error.message, @location_error.message_args)
+      }
+    } %>
   <% end %>
 
-  <form method="post" id="local-locator-form" class="find-location-for-<%= format %>">
+  <form method="post" id="local-locator-form" class="location-form">
     <fieldset>
       <legend class="visuallyhidden">Postcode lookup</legend>
 
       <%= render partial: 'draft_fields' %>
 
       <div class="ask_location">
-        <label class="instruction" for="postcode">Enter a postcode</label>
-        <p>For example SW1A 2AA</p>
-        <input class="postcode"
-               id="postcode"
-               name="postcode"
-               type="text"
-               aria-invalid="<%= @location_error ? 'true' : 'false' %>"
-               value="<%= postcode %>">
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: "Enter a postcode"
+          },
+          value: postcode,
+          name: "postcode",
+          id: "postcode",
+          hint: "For example SW1A 2AA",
+          invalid: @location_error ? 'true' : 'false'
+        } %>
         <%= render "govuk_publishing_components/components/button", text: "Find" %>
         <p>
           <%= link_to "Find a postcode on Royal Mail's postcode finder",
                       'http://www.royalmail.com/find-a-postcode',
                       :target => "_blank",
                       id: 'postcode-finder-link',
+                      class: "govuk-link",
                       rel: "external" %>
         </p>
       </div>

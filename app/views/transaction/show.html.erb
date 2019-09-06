@@ -3,8 +3,6 @@
     schema: :article,
     content_item: @content_item %>
 
-  <%= render 'qa_page_structured_data' %>
-
   <% if @publication.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
   <% end %>

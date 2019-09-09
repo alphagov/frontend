@@ -1,7 +1,6 @@
 <% content_for :extra_headers do %>
 <link rel="canonical" href="<%= Frontend.govuk_website_root + root_path %>" />
 <meta name="description" content="GOV.UK - The place to find government services and information - Simpler, clearer, faster" />
-<link rel="preload" as="image" href="<%= asset_path 'chevron-extend-hover.svg' %>">
 <% end %>
 <% content_for :title, "Welcome to GOV.UK" %>
 <% content_for :body_classes, "homepage" %>
@@ -35,13 +34,20 @@
   </header>
 
   <div id="homepage" class="govuk-width-container">
-    <div class="homepage__ready-container">
+    <div class="homepage__ready-container govuk-grid-row">
       <h2 class="homepage__ready-heading govuk-heading-m"><%= I18n.t("homepage.get_ready") %></h2>
       <p class="homepage__ready-desc"><%= I18n.t("homepage.uk_leave_eu") %>.</p>
-      <div class="homepage__ready">
-        <div class="homepage__ready-text">
-          <a href="/get-ready-brexit-check" class="homepage__ready-link" data-module="track-click" data-track-category="startButtonClicked" data-track-action="/get-ready-brexit-check" data-track-label="Check what you need to do">Check what you need to do</a>
-        </div>
+
+      <div class="govuk-grid-column-two-thirds govuk-!-padding-0">
+        <%= render "govuk_publishing_components/components/chevron_banner", {
+          href: "/get-ready-brexit-check",
+          text: "Check what you need to do",
+          data_attributes: {
+            "track-category": "startButtonClicked",
+            "track-action": "/get-ready-brexit-check",
+            "track-label": "Check what you need to do"
+          }
+        } %>
       </div>
     </div>
 

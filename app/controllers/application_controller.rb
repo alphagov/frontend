@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
   rescue_from RecordNotFound, with: :cacheable_404
 
+  if ENV["BASIC_AUTH_USERNAME"]
+    http_basic_authenticate_with(
+      name: ENV.fetch("BASIC_AUTH_USERNAME"),
+      password: ENV.fetch("BASIC_AUTH_PASSWORD")
+    )
+  end
+
 protected
 
   def error_410; error :gone; end

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class PostcodeSanitizerTest < ActiveSupport::TestCase
   context "postcodes are sanitized before being sent to MapIt" do

@@ -1,16 +1,16 @@
-require 'integration_test_helper'
+require "integration_test_helper"
 
 class TravelAdviceTest < ActionDispatch::IntegrationTest
   # Necessary because Capybara's has_content? method normalizes spaces in the document
   # However, it doesn't normalize spaces in the query string, so if you're looking for a string
   # with 2 spaces in it (e.g. when the date is a single digit with a space prefix), it will fail.
   def de_dup_spaces(string)
-    string.gsub(/ +/, ' ')
+    string.gsub(/ +/, " ")
   end
 
   context "index" do
     setup do
-      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
       content_item = JSON.parse(json)
       base_path = content_item.fetch("base_path")
 
@@ -18,10 +18,10 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
 
     should "display the list of countries" do
-      visit '/foreign-travel-advice'
+      visit "/foreign-travel-advice"
       assert_equal 200, page.status_code
 
-      within 'head', visible: :all do
+      within "head", visible: :all do
         assert page.has_selector?("title", text: "Foreign travel advice", visible: :all)
         assert page.has_selector?("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']", visible: :all)
         assert page.has_selector?("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: false)
@@ -29,8 +29,8 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       assert page.has_selector?("#wrapper.travel-advice")
 
-      within '#content' do
-        within 'header' do
+      within "#content" do
+        within "header" do
           assert page.has_content?("Foreign travel advice")
         end
 
@@ -57,21 +57,21 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
     end
 
     should "have the correct titles" do
-      visit '/foreign-travel-advice'
+      visit "/foreign-travel-advice"
 
       assert_has_component_title "Foreign travel advice"
       assert_equal "Foreign travel advice - GOV.UK", page.title
     end
 
     should "set the slimmer #wrapper classes" do
-      visit '/foreign-travel-advice'
+      visit "/foreign-travel-advice"
       assert_equal "travel-advice", page.find("#wrapper")["class"]
     end
   end
 
   context "index with the javascript driver" do
     setup do
-      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
       content_item = JSON.parse(json)
       base_path = content_item.fetch("base_path")
       content_store_has_item(base_path, content_item)

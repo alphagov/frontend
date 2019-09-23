@@ -5,14 +5,14 @@ class CompletedTransactionControllerTest < ActionController::TestCase
     @payload = {
       base_path: "/done/no-promotion",
       schema_name: "completed_transaction",
-      document_type: 'completed_transaction',
+      document_type: "completed_transaction",
     }
   end
 
   context "GET show" do
     context "for live content" do
       setup do
-        content_store_has_item('/done/no-promotion', @payload)
+        content_store_has_item("/done/no-promotion", @payload)
       end
 
       should "set the cache expiry headers" do

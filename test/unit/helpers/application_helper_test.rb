@@ -1,10 +1,10 @@
-require 'test_helper'
+require "test_helper"
 
 class ApplicationHelperTest < ActionView::TestCase
   tests ApplicationHelper
 
   def dummy_publication
-    ContentItemPresenter.new(content_store_has_random_item(base_path: '/dummy'))
+    ContentItemPresenter.new(content_store_has_random_item(base_path: "/dummy"))
   end
 
   test "the page title doesn't contain consecutive pipes" do
@@ -18,8 +18,8 @@ class ApplicationHelperTest < ActionView::TestCase
 
   context "wrapper_class" do
     should "mark local transactions as a service" do
-      local_transaction = OpenStruct.new(format: 'local_transaction')
-      assert wrapper_class(local_transaction).split.include?('service')
+      local_transaction = OpenStruct.new(format: "local_transaction")
+      assert wrapper_class(local_transaction).split.include?("service")
     end
   end
 
@@ -32,15 +32,15 @@ class ApplicationHelperTest < ActionView::TestCase
     assert_equal "GOV.UK", page_title
   end
 
-  context '#current_path_without_query_string' do
+  context "#current_path_without_query_string" do
     should "return the path of the current request" do
-      self.stubs(:request).returns(ActionDispatch::TestRequest.new("PATH_INFO" => '/foo/bar'))
-      assert_equal '/foo/bar', current_path_without_query_string
+      self.stubs(:request).returns(ActionDispatch::TestRequest.new("PATH_INFO" => "/foo/bar"))
+      assert_equal "/foo/bar", current_path_without_query_string
     end
 
     should "return the path of the current request stripping off any query string parameters" do
-      self.stubs(:request).returns(ActionDispatch::TestRequest.new("PATH_INFO" => '/foo/bar', "QUERY_STRING" => 'ham=jam&spam=gram'))
-      assert_equal '/foo/bar', current_path_without_query_string
+      self.stubs(:request).returns(ActionDispatch::TestRequest.new("PATH_INFO" => "/foo/bar", "QUERY_STRING" => "ham=jam&spam=gram"))
+      assert_equal "/foo/bar", current_path_without_query_string
     end
   end
 end

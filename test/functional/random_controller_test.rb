@@ -1,8 +1,8 @@
-require 'test_helper'
+require "test_helper"
 
 class RandomControllerTest < ActionController::TestCase
   context "random page route" do
-    context 'valid search results' do
+    context "valid search results" do
       setup do
         results = { "results" => [
             { "link" => "/bereavement-allowance" },
@@ -34,7 +34,7 @@ class RandomControllerTest < ActionController::TestCase
       end
     end
 
-    context 'invalid search results' do
+    context "invalid search results" do
       setup do
         results = { "results" => [
             { "link" => "http://www.wyreforestdc.gov.uk" },

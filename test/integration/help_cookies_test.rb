@@ -9,13 +9,13 @@ class HelpCookiesTest < ActionDispatch::IntegrationTest
         title: "Cookies on GOV.UK",
         description: "You can choose which cookies you're happy for GOV.UK to use.",
       }
-      content_store_has_item('/help/cookies', payload)
+      content_store_has_item("/help/cookies", payload)
     end
 
     should "render the cookies setting page correctly" do
       visit "/help/cookies"
 
-      within '#content' do
+      within "#content" do
         assert_has_component_title "Cookies on GOV.UK"
       end
     end

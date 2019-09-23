@@ -1,16 +1,16 @@
-require 'integration_test_helper'
+require "integration_test_helper"
 
 class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::ContentStore
 
   context "aggregate feed" do
     should "display the list of countries as an atom feed" do
-      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
       content_item = JSON.parse(json)
       base_path = content_item.fetch("base_path")
       content_store_has_item(base_path, content_item)
 
-      visit '/foreign-travel-advice.atom'
+      visit "/foreign-travel-advice.atom"
       assert_equal 200, page.status_code
 
       assert page.has_xpath? ".//feed/id", text: "http://www.example.com/foreign-travel-advice"
@@ -38,13 +38,13 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
     end
 
     should "render a maximum of 20 countries" do
-      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
       content_item = JSON.parse(json)
       content_item["links"]["children"] = content_item["links"]["children"] * 5
       base_path = content_item.fetch("base_path")
       content_store_has_item(base_path, content_item)
 
-      visit '/foreign-travel-advice.atom'
+      visit "/foreign-travel-advice.atom"
       assert_equal 200, page.status_code
       assert page.has_xpath? ".//feed/entry", count: 20
     end

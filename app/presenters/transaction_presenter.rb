@@ -24,10 +24,10 @@ class TransactionPresenter < ContentItemPresenter
 
   def title
     if @variant_slug.present?
-      variant_val = variant_value('title')
+      variant_val = variant_value("title")
       return variant_val unless variant_val.nil?
     end
-    content_item['title']
+    content_item["title"]
   end
 
   def multiple_more_information_sections?
@@ -51,13 +51,13 @@ class TransactionPresenter < ContentItemPresenter
 private
 
   def variant_value(key)
-    return nil if details['variants'].nil?
+    return nil if details["variants"].nil?
 
     selected_variant = variant
     selected_variant.fetch(key, nil) unless selected_variant.nil?
   end
 
   def variant
-    details['variants'].find { |v| v['slug'] == @variant_slug }
+    details["variants"].find { |v| v["slug"] == @variant_slug }
   end
 end

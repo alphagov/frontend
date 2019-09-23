@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 module SimpleSmartAnswers
   class FlowTest < ActiveSupport::TestCase
@@ -36,13 +36,13 @@ module SimpleSmartAnswers
       end
 
       should "return the node matching the slug" do
-        node = @flow.node_for_slug('question-2')
+        node = @flow.node_for_slug("question-2")
         assert node.is_a?(Node)
         assert_equal "Question 2", node.title
       end
 
       should "return nil if none match" do
-        assert_nil @flow.node_for_slug('question-3')
+        assert_nil @flow.node_for_slug("question-3")
       end
 
       should "return the first node as the start_node" do

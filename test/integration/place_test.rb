@@ -1,6 +1,6 @@
-require 'integration_test_helper'
-require 'gds_api/test_helpers/mapit'
-require 'gds_api/test_helpers/imminence'
+require "integration_test_helper"
+require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/imminence"
 
 class PlacesTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
@@ -13,19 +13,19 @@ class PlacesTest < ActionDispatch::IntegrationTest
       title: "Find a passport interview office",
       base_path: "/passport-interview-office",
       schema_name: "place",
-      document_type: 'place',
+      document_type: "place",
       phase: "beta",
       public_updated_at: "2012-10-02T15:21:03+00:00",
       details: {
         introduction: "<p>Enter your postcode to find a passport interview office near you.</p>",
         more_information: "Some more info on passport offices",
         need_to_know: "<ul><li>Proof of identification required</li></ul>",
-        place_type: "find-passport-offices"
+        place_type: "find-passport-offices",
       },
-      external_related_links: []
+      external_related_links: [],
     }
 
-    content_store_has_item('/passport-interview-office', @payload)
+    content_store_has_item("/passport-interview-office", @payload)
 
     @places = [
       {
@@ -37,14 +37,14 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "general_notes" => "Monday to Saturday 8.00am - 6.00pm. ",
         "location" => {
             "longitude" => -0.14411606838362725,
-            "latitude" => 51.49338734529598
+            "latitude" => 51.49338734529598,
         },
         "name" => "London IPS Office",
         "phone" => "0800 123 4567",
         "postcode" => "SW1V 1PN",
         "text_phone" => nil,
         "town" => "London",
-        "url" => "http://www.example.com/london_ips_office"
+        "url" => "http://www.example.com/london_ips_office",
       },
       {
         "access_notes" => "The doors are always locked.\n\nAnd they are at the top of large staircases.",
@@ -55,31 +55,31 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "general_notes" => "Monday to Saturday 8.00am - 6.00pm.\n\nSunday 1pm - 2pm.",
         "location" => {
             "longitude" => -0.18832238262617113,
-            "latitude" => 51.112777245292826
+            "latitude" => 51.112777245292826,
         },
         "name" => "Crawley IPS Office",
         "phone" => nil,
         "postcode" => "RH10 1HU",
         "text_phone" => nil,
         "town" => "Crawley",
-        "url" => nil
-      }
+        "url" => nil,
+      },
     ]
   end
 
   context "when visiting the start page" do
     setup do
-      visit '/passport-interview-office'
+      visit "/passport-interview-office"
     end
 
     should "render the place page" do
       assert_equal 200, page.status_code
 
-      within 'head', visible: :all do
+      within "head", visible: :all do
         assert page.has_selector?("title", text: "Find a passport interview office - GOV.UK", visible: :all)
       end
 
-      within '#content' do
+      within "#content" do
         within ".page-header" do
           assert_has_component_title "Find a passport interview office"
         end
@@ -97,15 +97,15 @@ class PlacesTest < ActionDispatch::IntegrationTest
           end
         end
 
-        within '.article-container' do
+        within ".article-container" do
           assert page.has_selector?(".gem-c-phase-banner")
         end
       end
     end
 
     should "add google analytics tags for postcodeSearchStarted" do
-      track_category = page.find('.postcode-search-form')['data-track-category']
-      track_action = page.find('.postcode-search-form')['data-track-action']
+      track_category = page.find(".postcode-search-form")["data-track-category"]
+      track_action = page.find(".postcode-search-form")["data-track-action"]
 
       assert_equal "postcodeSearch:place", track_category
       assert_equal "postcodeSearchStarted", track_action
@@ -137,7 +137,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       names = page.all("#options li p.adr span.fn").map(&:text)
       assert_equal ["London IPS Office", "Crawley IPS Office"], names
 
-      within '#options > li:first-child' do
+      within "#options > li:first-child" do
         assert page.has_content?("89 Eccleston Square")
         assert page.has_content?("London")
         assert page.has_content?("SW1V 1PN")
@@ -150,21 +150,21 @@ class PlacesTest < ActionDispatch::IntegrationTest
       end
     end
 
-    should 'format general notes and access notes' do
-      within '#options > li:nth-child(2)' do
+    should "format general notes and access notes" do
+      within "#options > li:nth-child(2)" do
         assert page.has_content?("Station Way")
 
-        assert page.has_selector?('p', text: "Monday to Saturday 8.00am - 6.00pm.")
-        assert page.has_selector?('p', text: 'Sunday 1pm - 2pm.')
-        assert page.has_selector?('p', text: "The doors are always locked.")
-        assert page.has_selector?('p', text: "And they are at the top of large staircases.")
+        assert page.has_selector?("p", text: "Monday to Saturday 8.00am - 6.00pm.")
+        assert page.has_selector?("p", text: "Sunday 1pm - 2pm.")
+        assert page.has_selector?("p", text: "The doors are always locked.")
+        assert page.has_selector?("p", text: "And they are at the top of large staircases.")
       end
     end
 
     should "add google analytics for postcodeResultsShown" do
-      track_category = page.find('.places-results')['data-track-category']
-      track_action = page.find('.places-results')['data-track-action']
-      track_label = page.find('.places-results')['data-track-label']
+      track_category = page.find(".places-results")["data-track-category"]
+      track_action = page.find(".places-results")["data-track-action"]
+      track_label = page.find(".places-results")["data-track-label"]
 
       assert_equal "postcodeSearch:place", track_category
       assert_equal "postcodeResultShown", track_action
@@ -180,13 +180,13 @@ class PlacesTest < ActionDispatch::IntegrationTest
         title: "Find your local child social care team",
         base_path: "/report-child-abuse-to-local-council",
         schema_name: "place",
-        document_type: 'place',
+        document_type: "place",
         in_beta: true,
         details: {
           description: "Find your local child social care team",
           place_type: "find-child-social-care-team",
-          introduction: "<p>Contact your local council if you think a child is at risk</p>"
-        }
+          introduction: "<p>Contact your local council if you think a child is at risk</p>",
+        },
       }
 
       content_store_has_item("/report-child-abuse-to-local-council", @payload_for_report_child_abuse)
@@ -196,8 +196,8 @@ class PlacesTest < ActionDispatch::IntegrationTest
           "name" => "Islington",
           "phone" => "020 7226 1436 (Monday to Friday)",
           "general_notes" => "020 7226 0992 (out of hours)",
-          "url" => "http://www.islington.gov.uk/services/children-families/cs-worried/Pages/default.aspx"
-        }
+          "url" => "http://www.islington.gov.uk/services/children-families/cs-worried/Pages/default.aspx",
+        },
       ]
 
       imminence_has_places_for_postcode(@places_for_report_child_abuse, "find-child-social-care-team", "N5 1QL", Frontend::IMMINENCE_QUERY_LIMIT)
@@ -216,11 +216,11 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display places near to the requested location" do
-      within '#options' do
+      within "#options" do
         names = page.all("li p.adr span.fn").map(&:text)
         assert_equal ["You can call the children's social care team at the council in Islington"], names
 
-        within first('li:first-child') do
+        within first("li:first-child") do
           assert page.has_link?("020 7226 1436", href: "tel://020%207226%201436")
           assert page.has_content?("(Monday to Friday)")
           assert page.has_link?("020 7226 0992", href: "tel://020%207226%200992")
@@ -252,9 +252,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "add google analytics for noResults" do
-      track_category = page.find('.gem-c-error-alert')['data-track-category']
-      track_action = page.find('.gem-c-error-alert')['data-track-action']
-      track_label = page.find('.gem-c-error-alert')['data-track-label']
+      track_category = page.find(".gem-c-error-alert")["data-track-category"]
+      track_action = page.find(".gem-c-error-alert")["data-track-action"]
+      track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
       assert_equal "userAlerts: place", track_category
       assert_equal "postcodeErrorShown: validPostcodeNoLocation", track_action

@@ -3,16 +3,16 @@ class LicenceController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   before_action :set_content_item
 
   helper_method :postcode
 
-  INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
+  INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze
-  NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
-  NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
+  NO_MATCHING_AUTHORITY = "noLaMatch".freeze
+  NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
 
   def start
     if @publication.continuation_link.present?
@@ -23,7 +23,7 @@ class LicenceController < ApplicationController
 
       redirect_to licence_authority_path(slug: params[:slug], authority_slug: local_authority_slug) if local_authority_slug
     elsif @licence_details.single_licence_authority_present?
-      redirect_to licence_authority_path(slug: params[:slug], authority_slug: @licence_details.authority['slug'])
+      redirect_to licence_authority_path(slug: params[:slug], authority_slug: @licence_details.authority["slug"])
     elsif @licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
       redirect_to licence_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
     end

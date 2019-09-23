@@ -3,7 +3,7 @@ require "test_helper"
 class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
   context "for the start page" do
     setup do
-      content_store_has_page('fooey', schema: 'simple_smart_answer')
+      content_store_has_page("fooey", schema: "simple_smart_answer")
     end
 
     should "route the start page to the SimpleSmartAnswer controller" do

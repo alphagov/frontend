@@ -11,7 +11,7 @@ class HelpTest < ActionDispatch::IntegrationTest
         title: "Help using GOV.UK",
         description: "",
       }
-      content_store_has_item('/help', payload)
+      content_store_has_item("/help", payload)
     end
 
     should "render the help index page correctly" do

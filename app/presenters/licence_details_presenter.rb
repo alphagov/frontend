@@ -28,7 +28,7 @@ class LicenceDetailsPresenter
 
     chosen_action_info = authority.dig("actions", chosen_action)
     if chosen_action_info.present?
-      chosen_action_info.any? { |link| link && link['uses_licensify'] }
+      chosen_action_info.any? { |link| link && link["uses_licensify"] }
     else
       false
     end
@@ -39,7 +39,7 @@ class LicenceDetailsPresenter
 
     chosen_action_info = authority.dig("actions", chosen_action)
     if chosen_action_info.present?
-      chosen_action_info.any? { |link| link && link['uses_authority_url'] }
+      chosen_action_info.any? { |link| link && link["uses_authority_url"] }
     else
       false
     end
@@ -92,25 +92,25 @@ private
   end
 
   def authorities_from_api_response
-    if licence && licence['issuingAuthorities']
-      licence['issuingAuthorities'].map { |authority|
+    if licence && licence["issuingAuthorities"]
+      licence["issuingAuthorities"].map { |authority|
         {
-          'name' => authority['authorityName'],
-          'slug' => authority['authoritySlug'],
-          'contact' => authority['authorityContact'],
-          'actions' => authority['authorityInteractions'].inject({}) { |actions, (key, links)|
+          "name" => authority["authorityName"],
+          "slug" => authority["authoritySlug"],
+          "contact" => authority["authorityContact"],
+          "actions" => authority["authorityInteractions"].inject({}) { |actions, (key, links)|
             actions[key] = links.map { |link|
               {
-                'url' => link['url'],
-                'introduction' => link['introductionText'],
-                'description' => link['description'],
-                'payment' => link['payment'],
-                'uses_authority_url' => (link['usesAuthorityUrl'] == true),
-                'uses_licensify' => (link['usesLicensify'] == true)
+                "url" => link["url"],
+                "introduction" => link["introductionText"],
+                "description" => link["description"],
+                "payment" => link["payment"],
+                "uses_authority_url" => (link["usesAuthorityUrl"] == true),
+                "uses_licensify" => (link["usesLicensify"] == true),
               }
             }
             actions
-          }
+          },
         }
       }
     else

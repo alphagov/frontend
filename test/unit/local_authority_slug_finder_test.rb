@@ -1,5 +1,5 @@
-require 'test_helper'
-require 'local_authority_slug_finder'
+require "test_helper"
+require "local_authority_slug_finder"
 
 class LocalAuthoritySlugFinderTest < ActiveSupport::TestCase
   setup do

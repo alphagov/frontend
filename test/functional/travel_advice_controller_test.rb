@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 require "gds_api/test_helpers/content_store"
 
 class TravelAdviceControllerTest < ActionController::TestCase
@@ -7,7 +7,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
   context "GET index" do
     context "given countries exist" do
       setup do
-        json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+        json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
         @content_item = JSON.parse(json)
         base_path = @content_item.fetch("base_path")
 
@@ -34,7 +34,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
 
       context "requesting atom" do
         setup do
-          get :index, format: 'atom'
+          get :index, format: "atom"
         end
 
         should "return an aggregate of country atom feeds" do

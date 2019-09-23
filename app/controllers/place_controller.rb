@@ -3,7 +3,7 @@ class PlaceController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   helper_method :postcode_provided?, :postcode
 
@@ -33,7 +33,7 @@ private
     if params[:slug] == REPORT_CHILD_ABUSE_SLUG
       {
         option_partial: "option_report_child_abuse",
-        preposition: "for"
+        preposition: "for",
       }
     else
       {}

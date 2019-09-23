@@ -14,7 +14,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
             "website" => "",
             "email" => "",
             "phone" => "020 7641 6000",
-            "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP"
+            "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP",
           },
           "authorityInteractions" => {
             "apply" => [
@@ -25,12 +25,12 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
                 "paymentAmount" => "21.00",
                 "introductionText" => "Intro text",
                 "usesLicensify" => true,
-                "usesAuthorityUrl" => true
-              }
-            ]
-          }
-        }
-      ]
+                "usesAuthorityUrl" => true,
+              },
+            ],
+          },
+        },
+      ],
     }
 
     @the_one_licence_authority = {
@@ -41,10 +41,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
           {
             "url" => "the-one-licence-authority/apply-1",
             "usesLicensify" => true,
-            "usesAuthorityUrl" => true
-          }
-        ]
-      }
+            "usesAuthorityUrl" => true,
+          },
+        ],
+      },
     }
 
     @the_other_licence_authority = {
@@ -55,10 +55,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
           {
             "url" => "the-other-licence-authority/apply-1",
             "usesLicensify" => true,
-            "usesAuthorityUrl" => true
-          }
-        ]
-      }
+            "usesAuthorityUrl" => true,
+          },
+        ],
+      },
     }
 
     @licence_authority_not_using_licensify = {
@@ -69,10 +69,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
           {
             "url" => "the-licence-authority-not-using-licensify/apply-1",
             "usesLicensify" => "false",
-            "usesAuthorityUrl" => "true"
-          }
-        ]
-      }
+            "usesAuthorityUrl" => "true",
+          },
+        ],
+      },
     }
 
     @licence_authority_not_using_authority_url = {
@@ -83,10 +83,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
           {
             "url" => "the-licence-authority-not-using-licensify/apply-1",
             "usesLicensify" => "true",
-            "usesAuthorityUrl" => "false"
-          }
-        ]
-      }
+            "usesAuthorityUrl" => "false",
+          },
+        ],
+      },
     }
 
     @licence_authority_without_uses_licensify_param = {
@@ -96,10 +96,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         "apply" => [
           {
             "url" => "the-licence-authority-without-uses-licensify-param/apply-1",
-            "usesAuthorityUrl" => "true"
-          }
-        ]
-      }
+            "usesAuthorityUrl" => "true",
+          },
+        ],
+      },
     }
 
     @licence_authority_without_uses_authority_url_param = {
@@ -109,16 +109,16 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         "apply" => [
           {
             "url" => "the-licence-authority-without-uses-licensify-param/apply-1",
-            "usesLicensify" => "true"
-          }
-        ]
-      }
+            "usesLicensify" => "true",
+          },
+        ],
+      },
     }
 
     @licence_authority_with_no_actions = {
       "authorityName" => "The Licence Authority with no actions",
       "authoritySlug" => "the-licence-authority-with-no-actions",
-      "authorityInteractions" => {}
+      "authorityInteractions" => {},
     }
 
     @licence_authority_licence = {
@@ -126,8 +126,8 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       "isOfferedByCounty" => false,
       "geographicalAvailability" => %w(England Wales),
       "issuingAuthorities" => [
-        @the_one_licence_authority
-      ]
+        @the_one_licence_authority,
+      ],
     }
 
     @licence_multiple_authorities_licence = {
@@ -137,7 +137,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       "issuingAuthorities" => [
         @the_one_licence_authority,
         @the_other_licence_authority,
-      ]
+      ],
     }
 
     @multiple_authorities_and_location_specific_licence = {
@@ -147,7 +147,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       "issuingAuthorities" => [
         @the_other_licence_authority,
         @the_one_licence_authority,
-      ]
+      ],
     }
   end
 
@@ -213,10 +213,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
               "description" => nil,
               "payment" => nil,
               "uses_licensify" => true,
-              "uses_authority_url" => true
-            }
-          ]
-        }
+              "uses_authority_url" => true,
+            },
+          ],
+        },
       }
 
       @presented_the_other_licence_authority = {
@@ -231,10 +231,10 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
               "description" => nil,
               "payment" => nil,
               "uses_licensify" => true,
-              "uses_authority_url" => true
-            }
-          ]
-        }
+              "uses_authority_url" => true,
+            },
+          ],
+        },
       }
     end
 
@@ -243,7 +243,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
         subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
         expected_array = [
           @presented_the_one_licence_authority,
-          @presented_the_other_licence_authority
+          @presented_the_other_licence_authority,
         ]
 
         assert_equal expected_array, subject.authorities

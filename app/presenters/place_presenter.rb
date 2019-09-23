@@ -23,12 +23,12 @@ private
 
   def format_places(places)
     places.each do |place|
-      place['text']    = place['url'] if place['url']
-      place['address'] = place
-                           .values_at('address1', 'address2')
+      place["text"]    = place["url"] if place["url"]
+      place["address"] = place
+                           .values_at("address1", "address2")
                            .compact
                            .map(&:strip)
-                           .join(', ')
+                           .join(", ")
     end
   end
 end

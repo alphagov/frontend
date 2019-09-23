@@ -6,6 +6,6 @@ class CompletedTransactionPresenterTest < ActiveSupport::TestCase
   end
 
   test "#promotion" do
-    assert_equal 'organ-donation', subject(details: { promotion: 'organ-donation' }).promotion
+    assert_equal "organ-donation", subject(details: { promotion: "organ-donation" }).promotion
   end
 end

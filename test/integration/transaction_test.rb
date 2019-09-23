@@ -1,4 +1,4 @@
-require 'integration_test_helper'
+require "integration_test_helper"
 
 class TransactionTest < ActionDispatch::IntegrationTest
   include GovukAbTesting::MinitestHelpers
@@ -24,16 +24,16 @@ class TransactionTest < ActionDispatch::IntegrationTest
         description: "Descriptive carrots text.",
         details: {
           introductory_paragraph: "This is the introduction to carrots",
-          transaction_start_link: 'http://carrots.example.com',
-          will_continue_on: 'Carrotworld',
-          start_button_text: 'Eat Carrots Now',
-          what_you_need_to_know: 'Includes carrots',
-          downtime_message: 'CarrotServe will be offline next week.'
+          transaction_start_link: "http://carrots.example.com",
+          will_continue_on: "Carrotworld",
+          start_button_text: "Eat Carrots Now",
+          what_you_need_to_know: "Includes carrots",
+          downtime_message: "CarrotServe will be offline next week.",
         },
-        external_related_links: []
+        external_related_links: [],
       }
 
-      content_store_has_item('/carrots', @payload)
+      content_store_has_item("/carrots", @payload)
     end
 
     should "render the main information" do
@@ -41,40 +41,40 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       assert_equal 200, page.status_code
 
-      within 'head', visible: :all do
+      within "head", visible: :all do
         assert page.has_selector?("title", text: "Carrots - GOV.UK", visible: false)
         assert_not page.has_selector?("meta[name='robots']", visible: false)
       end
 
-      within '#content' do
-        within 'header' do
+      within "#content" do
+        within "header" do
           assert_has_component_title "Carrots"
         end
 
-        within '.article-container' do
-          within 'section.intro' do
-            assert page.has_selector?(".get-started-intro", text: 'This is the introduction to carrots')
+        within ".article-container" do
+          within "section.intro" do
+            assert page.has_selector?(".get-started-intro", text: "This is the introduction to carrots")
 
             assert_has_button_as_link("Eat Carrots Now",
                                       href: "http://carrots.example.com",
                                       start: true,
                                       rel: "external")
 
-            assert page.has_content?('Carrotworld')
+            assert page.has_content?("Carrotworld")
           end
         end
       end
 
-      within('.help-notice') do
-        assert page.has_content?('CarrotServe will be offline next week.')
+      within(".help-notice") do
+        assert page.has_content?("CarrotServe will be offline next week.")
       end
     end
   end
 
   context "jobsearch page" do
     should "render ok" do
-      content_store_has_example_item('/jobsearch', schema: 'transaction', example: 'jobsearch')
-      visit '/jobsearch'
+      content_store_has_example_item("/jobsearch", schema: "transaction", example: "jobsearch")
+      visit "/jobsearch"
 
       assert_equal 200, page.status_code
       assert_has_button_as_link("Start now",
@@ -84,7 +84,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
   context "start page which should have cross domain analytics" do
     should "include cross domain analytics javascript" do
-      content_store_has_example_item('/foo', schema: 'transaction', example: 'transaction')
+      content_store_has_example_item("/foo", schema: "transaction", example: "transaction")
       visit "/foo"
 
       assert_equal 200, page.status_code
@@ -95,14 +95,14 @@ class TransactionTest < ActionDispatch::IntegrationTest
                                 data_attributes: {
                                   "module" => "cross-domain-tracking",
                                   "tracking-code" => "UA-12345-6",
-                                  "tracking-name" => "transactionTracker"
+                                  "tracking-name" => "transactionTracker",
                                 })
     end
   end
 
   context "start page format which shouldn't have cross domain analytics" do
     should "not include cross domain analytics javascript" do
-      content_store_has_example_item('/foo', schema: 'transaction', example: 'jobsearch')
+      content_store_has_example_item("/foo", schema: "transaction", example: "jobsearch")
       visit "/foo"
 
       assert_equal 200, page.status_code
@@ -126,7 +126,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         title: "Cymraeg",
         description: "Cynnwys Cymraeg",
         details: {
-          transaction_start_link: 'http://cymraeg.example.com',
+          transaction_start_link: "http://cymraeg.example.com",
           start_button_text: "Start now",
         },
       }
@@ -149,18 +149,18 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
   context "a transaction has variants" do
     should "render correct content including robots meta tag" do
-      content_store_has_example_item('/council-tax-bands-2', schema: 'transaction', example: 'transaction-with-variants')
-      visit '/council-tax-bands-2/council-tax-bands-2-staging'
+      content_store_has_example_item("/council-tax-bands-2", schema: "transaction", example: "transaction-with-variants")
+      visit "/council-tax-bands-2/council-tax-bands-2-staging"
 
       assert_equal 200, page.status_code
       assert_has_button_as_link("Start now",
                                 href: "http://cti-staging.voa.gov.uk/cti/inits.asp")
 
-      within '#content/header' do
+      within "#content/header" do
         assert_has_component_title "Check your Council Tax band (staging)"
       end
 
-      within 'head', visible: :all do
+      within "head", visible: :all do
         assert page.has_selector?("meta[name='robots'][content='noindex, nofollow']", visible: false)
       end
     end

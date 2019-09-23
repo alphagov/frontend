@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ContentFormatInspectorTest < ActiveSupport::TestCase
   def subject
@@ -30,7 +30,7 @@ class ContentFormatInspectorTest < ActiveSupport::TestCase
   end
 
   def set_content_item_format(format)
-    @content_item = { 'schema_name' => format }
+    @content_item = { "schema_name" => format }
     stub_content_store
   end
 

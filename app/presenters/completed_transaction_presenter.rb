@@ -1,6 +1,6 @@
 class CompletedTransactionPresenter < ContentItemPresenter
   PASS_THROUGH_DETAILS_KEYS = [
-    :promotion
+    :promotion,
   ].freeze
 
   PASS_THROUGH_DETAILS_KEYS.each do |key|

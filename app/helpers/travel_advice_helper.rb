@@ -1,4 +1,4 @@
-require 'htmlentities'
+require "htmlentities"
 
 module TravelAdviceHelper
   def format_atom_change_description(text)

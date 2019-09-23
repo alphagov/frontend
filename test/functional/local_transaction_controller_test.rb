@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
-require 'gds_api/test_helpers/mapit'
-require 'gds_api/test_helpers/local_links_manager'
+require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/local_links_manager"
 
 class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
@@ -9,23 +9,23 @@ class LocalTransactionControllerTest < ActionController::TestCase
   include LocationHelpers
 
   def subscribe_logstasher_to_postcode_error_notification
-    LogStasher.watch('postcode_error_notification') do |_name, _start, _finish, _id, payload, store|
+    LogStasher.watch("postcode_error_notification") do |_name, _start, _finish, _id, payload, store|
       store[:postcode_error] = payload[:postcode_error]
     end
   end
 
   test "Should not allow framing of local transaction pages" do
-    content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
+    content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
     prevent_implicit_rendering
-    get :search, params: { slug: 'a-slug' }
+    get :search, params: { slug: "a-slug" }
     assert_equal "DENY", @response.headers["X-Frame-Options"]
   end
 
   test "should set expiry headers for an edition" do
-    content_store_has_random_item(base_path: "/a-slug", schema: 'local_transaction')
+    content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
-    get :search, params: { slug: 'a-slug' }
+    get :search, params: { slug: "a-slug" }
     assert_equal "max-age=1800, public", response.headers["Cache-Control"]
   end
 
@@ -53,9 +53,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgsl_code: 8342,
           lgil_code: 8,
           service_tiers: %w(district unitary),
-          introduction: "Infos about sending bears."
+          introduction: "Infos about sending bears.",
         },
-        external_related_links: []
+        external_related_links: [],
       }
 
       @payload_electoral = {
@@ -80,13 +80,13 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgsl_code: 364,
           lgil_code: 8,
           service_tiers: %w(district unitary),
-          introduction: "Infos about registering to vote."
+          introduction: "Infos about registering to vote.",
         },
-        external_related_links: []
+        external_related_links: [],
       }
 
-      content_store_has_item('/send-a-bear-to-your-local-council', @payload_bear)
-      content_store_has_item('/get-on-electoral-register', @payload_electoral)
+      content_store_has_item("/send-a-bear-to-your-local-council", @payload_bear)
+      content_store_has_item("/get-on-electoral-register", @payload_electoral)
     end
 
     context "loading the local transaction edition without any location" do
@@ -110,7 +110,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
             { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
             { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
-            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" }
+            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
           ])
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
@@ -124,7 +124,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
       context "for a Northern Ireland local authority" do
         setup do
           mapit_has_a_postcode_and_areas("BT1 4QG", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" }
+            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
           ])
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
@@ -140,7 +140,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
             { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
             { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
-            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" }
+            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
           ])
 
           post :search, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
@@ -154,7 +154,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
       context "for electoral registration for a Northern Ireland local authority" do
         setup do
           mapit_has_a_postcode_and_areas("BT1 3QG", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" }
+            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
           ])
 
           post :search, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
@@ -230,18 +230,18 @@ class LocalTransactionControllerTest < ActionController::TestCase
           "codes" => {
             "ons" => "41UH",
             "gss" => "E07000198",
-            "govuk_slug" => "staffordshire-moorlands"
+            "govuk_slug" => "staffordshire-moorlands",
           },
           "name" => "Staffordshire Moorlands District Council",
         }
 
-        mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
+        mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
 
         local_links_manager_has_a_link(
-          authority_slug: 'staffordshire-moorlands',
+          authority_slug: "staffordshire-moorlands",
           lgsl: 8342,
           lgil: 8,
-          url: 'http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks'
+          url: "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks",
         )
       end
 
@@ -253,7 +253,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
-      local_links_manager_does_not_have_required_objects('this-slug-should-not-exist', '8342', '8')
+      local_links_manager_does_not_have_required_objects("this-slug-should-not-exist", "8342", "8")
 
       get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist" }
 
@@ -285,9 +285,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgsl_code: 1234,
           lgil_code: 1,
           service_tiers: %w(district unitary),
-          introduction: "Infos about sending bears."
+          introduction: "Infos about sending bears.",
         },
-        external_related_links: []
+        external_related_links: [],
       }
 
       staffordshire_moorlands = {
@@ -295,20 +295,20 @@ class LocalTransactionControllerTest < ActionController::TestCase
         "codes" => {
           "ons" => "41UH",
           "gss" => "E07000198",
-          "govuk_slug" => "staffordshire-moorlands"
+          "govuk_slug" => "staffordshire-moorlands",
         },
         "name" => "Staffordshire Moorlands District Council",
       }
 
-      mapit_has_area_for_code('govuk_slug', 'staffordshire-moorlands', staffordshire_moorlands)
+      mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
       local_links_manager_has_no_link(
-        authority_slug: 'staffordshire-moorlands',
+        authority_slug: "staffordshire-moorlands",
         lgsl: 1234,
-        lgil: 1
+        lgil: 1,
       )
 
       subscribe_logstasher_to_postcode_error_notification
-      content_store_has_item('/report-a-bear-on-a-local-road', @payload)
+      content_store_has_item("/report-a-bear-on-a-local-road", @payload)
       get :results, params: { slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands" }
     end
 
@@ -340,15 +340,15 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgsl_code: 461,
           lgil_code: 8,
           service_tiers: %w(county unitary),
-          introduction: "Information about paying local tax on owning or looking after a bear."
-        }
+          introduction: "Information about paying local tax on owning or looking after a bear.",
+        },
       }
 
-      content_store_has_item('/pay-bear-tax', @payload)
+      content_store_has_item("/pay-bear-tax", @payload)
     end
 
     should "redirect to the correct authority and pass cache and token as params" do
-      post :search, params: { slug: 'pay-bear-tax', postcode: 'SW1A 1AA', token: '123', cache: 'abc' }
+      post :search, params: { slug: "pay-bear-tax", postcode: "SW1A 1AA", token: "123", cache: "abc" }
 
       assert_redirected_to "/pay-bear-tax/westminster?cache=abc&token=123"
     end

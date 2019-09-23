@@ -4,7 +4,7 @@ class FindLocalCouncilController < ApplicationController
   before_action -> { setup_content_item(BASE_PATH) }
   before_action :set_expiry
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   BASE_PATH = "/find-local-council".freeze
   UNITARY_AREA_TYPES = %w(COI LBO LGD MTD UTA).freeze
@@ -28,16 +28,16 @@ class FindLocalCouncilController < ApplicationController
     authority_slug = params[:authority_slug]
     authority_results = Frontend.local_links_manager_api.local_authority(authority_slug)
 
-    if authority_results['local_authorities'].count == 1
-      @authority = authority_results['local_authorities'].first
+    if authority_results["local_authorities"].count == 1
+      @authority = authority_results["local_authorities"].first
 
       render :one_council
     else
       # NOTE: the data doesn't support the situation where we get > 1 result
       # and it's anything other than a county and a district, so the obvious
       # problem with this code *shouldn't* happen. (sorry for when it does)
-      @county = authority_results['local_authorities'].detect { |auth| auth["tier"] == 'county' }
-      @district = authority_results['local_authorities'].detect { |auth| auth["tier"] == 'district' }
+      @county = authority_results["local_authorities"].detect { |auth| auth["tier"] == "county" }
+      @district = authority_results["local_authorities"].detect { |auth| auth["tier"] == "district" }
 
       render :district_and_county_council
     end

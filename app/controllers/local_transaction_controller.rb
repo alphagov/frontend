@@ -3,16 +3,16 @@ class LocalTransactionController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   before_action -> { set_content_item(LocalTransactionPresenter) }
-  before_action -> { response.headers['X-Frame-Options'] = 'DENY' }
+  before_action -> { response.headers["X-Frame-Options"] = "DENY" }
 
-  INVALID_POSTCODE = 'invalidPostcodeFormat'.freeze
-  NO_AUTHORITY_URL = 'laMatchNoLinkNoAuthorityUrl'.freeze
-  NO_LINK = 'laMatchNoLink'.freeze
-  NO_MAPIT_MATCH = 'fullPostcodeNoMapitMatch'.freeze
-  NO_MATCHING_AUTHORITY = 'noLaMatch'.freeze
+  INVALID_POSTCODE = "invalidPostcodeFormat".freeze
+  NO_AUTHORITY_URL = "laMatchNoLinkNoAuthorityUrl".freeze
+  NO_LINK = "laMatchNoLink".freeze
+  NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
+  NO_MATCHING_AUTHORITY = "noLaMatch".freeze
   BANNED_POSTCODES = %w[ENTERPOSTCODE].freeze
 
   def search
@@ -20,8 +20,8 @@ class LocalTransactionController < ApplicationController
       @location_error = location_error
       if @location_error
         @postcode = postcode
-      elsif mapit_response.location_found? && lgsl == 364 && country_name == 'Northern Ireland' ## LGSL code 364 = electoral registration
-        return redirect_to local_transaction_results_path(local_authority_slug: 'electoral-office-for-northern-ireland')
+      elsif mapit_response.location_found? && lgsl == 364 && country_name == "Northern Ireland" ## LGSL code 364 = electoral registration
+        return redirect_to local_transaction_results_path(local_authority_slug: "electoral-office-for-northern-ireland")
       elsif mapit_response.location_found? && local_authority_slug
         return redirect_to local_transaction_results_path(local_authority_slug: local_authority_slug)
       end
@@ -76,19 +76,19 @@ private
   end
 
   def lgsl
-    content_item['details']['lgsl_code']
+    content_item["details"]["lgsl_code"]
   end
 
   def lgil
-    content_item['details']['lgil_code'] || content_item['details']['lgil_override']
+    content_item["details"]["lgil_code"] || content_item["details"]["lgil_override"]
   end
 
   def local_authority
-    if interaction_details['local_authority']
-      local_authority = LocalAuthorityPresenter.new(interaction_details['local_authority'])
+    if interaction_details["local_authority"]
+      local_authority = LocalAuthorityPresenter.new(interaction_details["local_authority"])
     end
 
-    unless interaction_details['local_interaction']
+    unless interaction_details["local_interaction"]
       @location_error = error_for_missing_interaction(local_authority)
     end
 
@@ -99,10 +99,10 @@ private
     council = params[:local_authority_slug]
     return {} unless council
 
-    if council == 'electoral-office-for-northern-ireland'
+    if council == "electoral-office-for-northern-ireland"
       return {
-        "local_authority" => { 'name' => 'Electoral Office for Northern Ireland', 'homepage_url' => 'http://www.eoni.org.uk' },
-        "local_interaction" => { 'url' => 'http://www.eoni.org.uk/Utility/Contact-Us' },
+        "local_authority" => { "name" => "Electoral Office for Northern Ireland", "homepage_url" => "http://www.eoni.org.uk" },
+        "local_interaction" => { "url" => "http://www.eoni.org.uk/Utility/Contact-Us" },
       }
     else
       @_interaction ||= Frontend.local_links_manager_api.local_link(council, lgsl, lgil)

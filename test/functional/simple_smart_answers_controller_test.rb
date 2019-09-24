@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SimpleSmartAnswersControllerTest < ActionController::TestCase
   include GovukAbTesting::MinitestHelpers
@@ -30,13 +30,13 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
   context "GET show" do
     setup do
-      content_store_has_random_item(base_path: "/the-bridge-of-death", schema: 'simple_smart_answer')
+      content_store_has_random_item(base_path: "/the-bridge-of-death", schema: "simple_smart_answer")
     end
 
     context "for live content" do
       should "set the cache expiry headers" do
         get :show, params: {
-          slug: "the-bridge-of-death"
+          slug: "the-bridge-of-death",
         }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
@@ -88,10 +88,10 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
             start_button_text: "Start here",
             body: "Hello",
             nodes: @node_details,
-          }
+          },
         )
 
-        content_store_has_item('/the-bridge-of-death', payload)
+        content_store_has_item("/the-bridge-of-death", payload)
       end
 
       should "calculate the flow state with no responses" do
@@ -155,7 +155,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
           assert_equal 200, response.status
           assert_template "flow"
-          assert_equal 'question-2', assigns[:flow_state].current_node.slug
+          assert_equal "question-2", assigns[:flow_state].current_node.slug
         end
 
         should "not process form param with invalid url params" do
@@ -163,7 +163,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
           assert_equal 200, response.status
           assert_template "flow"
-          assert_equal 'question-1', assigns[:flow_state].current_node.slug
+          assert_equal "question-1", assigns[:flow_state].current_node.slug
         end
 
         should "pass on the 'token' param when in fact check" do

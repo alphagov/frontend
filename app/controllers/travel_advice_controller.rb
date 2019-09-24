@@ -1,7 +1,7 @@
 class TravelAdviceController < ApplicationController
-  FOREIGN_TRAVEL_ADVICE_SLUG = 'foreign-travel-advice'.freeze
+  FOREIGN_TRAVEL_ADVICE_SLUG = "foreign-travel-advice".freeze
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   def index
     set_expiry

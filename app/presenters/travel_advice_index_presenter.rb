@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 
 class TravelAdviceIndexPresenter
   attr_accessor :countries, :description, :slug, :title, :subscription_url, :format
@@ -72,7 +72,7 @@ private
 
   # Used for grouping and ordering countries by an arbitrary initial.
   EXCEPTIONAL_ORDERED_NAMES = {
-    "The Occupied Palestinian Territories" => "Palestinian Territories"
+    "The Occupied Palestinian Territories" => "Palestinian Territories",
   }.freeze
 
   def ordered_country_name(country_name)

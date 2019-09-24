@@ -6,43 +6,43 @@ class LocationError
     @message_args = message_args
 
     case postcode_error
-    when 'fullPostcodeNoMapitMatch'
-      @message = 'formats.local_transaction.valid_postcode_no_match'
-      @sub_message = 'formats.local_transaction.valid_postcode_no_match_sub_html'
-    when 'noLaMatch'
-      @message = 'formats.local_transaction.no_local_authority'
-      @sub_message = ''
-    when 'laMatchNoLink'
+    when "fullPostcodeNoMapitMatch"
+      @message = "formats.local_transaction.valid_postcode_no_match"
+      @sub_message = "formats.local_transaction.valid_postcode_no_match_sub_html"
+    when "noLaMatch"
+      @message = "formats.local_transaction.no_local_authority"
+      @sub_message = ""
+    when "laMatchNoLink"
       @message =
         if local_authority_name_starts_with_a_the?
-          'formats.local_transaction.local_authority_starts_with_the_no_service_url_html'
+          "formats.local_transaction.local_authority_starts_with_the_no_service_url_html"
         else
-          'formats.local_transaction.local_authority_no_service_url_html'
+          "formats.local_transaction.local_authority_no_service_url_html"
         end
-      @sub_message = '' #not used in the markup for this case
-    when 'laMatchNoLinkNoAuthorityUrl'
+      @sub_message = "" #not used in the markup for this case
+    when "laMatchNoLinkNoAuthorityUrl"
       @message =
         if local_authority_name_starts_with_a_the?
-          'formats.local_transaction.local_authority_starts_with_the_no_service_url_no_authority_link_html'
+          "formats.local_transaction.local_authority_starts_with_the_no_service_url_no_authority_link_html"
         else
-          'formats.local_transaction.local_authority_no_service_url_no_authority_link_html'
+          "formats.local_transaction.local_authority_no_service_url_no_authority_link_html"
         end
 
-      @sub_message = '' #not used in the markup for this case
-    when 'validPostcodeNoLocation'
+      @sub_message = "" #not used in the markup for this case
+    when "validPostcodeNoLocation"
       # This is a find my nearest exception when no location is found
-      @message = 'formats.find_my_nearest.valid_postcode_no_locations'
-      @sub_message = '' # not used in the markup for this case
+      @message = "formats.find_my_nearest.valid_postcode_no_locations"
+      @sub_message = "" # not used in the markup for this case
     else # e.g. 'invalidPostcodeFormat' both local transaction and from Imminence
-      @message = 'formats.local_transaction.invalid_postcode'
-      @sub_message = 'formats.local_transaction.invalid_postcode_sub'
+      @message = "formats.local_transaction.invalid_postcode"
+      @sub_message = "formats.local_transaction.invalid_postcode_sub"
     end
 
     send_error_notification(postcode_error) if postcode_error
   end
 
   def send_error_notification(error)
-    ActiveSupport::Notifications.instrument('postcode_error_notification', postcode_error: error)
+    ActiveSupport::Notifications.instrument("postcode_error_notification", postcode_error: error)
   end
 
   def no_location_interaction?
@@ -52,6 +52,6 @@ class LocationError
 private
 
   def local_authority_name_starts_with_a_the?
-    message_args.fetch(:local_authority_name, '') =~ /\Athe/i
+    message_args.fetch(:local_authority_name, "") =~ /\Athe/i
   end
 end

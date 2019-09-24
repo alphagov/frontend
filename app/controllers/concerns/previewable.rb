@@ -10,6 +10,6 @@ module Previewable
   end
 
   def viewing_draft_content?
-    params.include?('edition')
+    params.include?("edition")
   end
 end

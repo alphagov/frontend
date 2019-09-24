@@ -1,4 +1,4 @@
-require 'gds_api/publishing_api/special_route_publisher'
+require "gds_api/publishing_api/special_route_publisher"
 
 class SpecialRoutePublisher
   def initialize(publisher_options)
@@ -14,7 +14,7 @@ class SpecialRoutePublisher
         type: route_type,
         public_updated_at: Time.zone.now.iso8601,
         update_type: "major",
-      )
+      ),
     )
   end
 
@@ -39,8 +39,8 @@ class SpecialRoutePublisher
           title: "Help using GOV.UK",
           description: "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use.",
           links: {
-            ordered_related_items: %w(58b05bc2-fde5-4a0b-af73-8edc532674f8) # /contact
-          }
+            ordered_related_items: %w(58b05bc2-fde5-4a0b-af73-8edc532674f8), # /contact
+          },
         },
         {
           content_id: "a4d4e755-3d75-4b19-b120-a638a6d79ba8",

@@ -6,20 +6,20 @@ class ContentItemPresenterTest < ActiveSupport::TestCase
   end
 
   test "#base_path" do
-    assert_equals_foo subject(base_path: 'foo').base_path
+    assert_equals_foo subject(base_path: "foo").base_path
   end
 
   test "#in_beta" do
-    assert_not subject(phase: 'live').in_beta
-    assert subject(phase: 'beta').in_beta
+    assert_not subject(phase: "live").in_beta
+    assert subject(phase: "beta").in_beta
   end
 
   test "#slug" do
-    assert_equals_foo subject(base_path: '/foo').slug
+    assert_equals_foo subject(base_path: "/foo").slug
   end
 
   test "#format" do
-    assert_equals_foo subject(schema_name: 'foo').format
+    assert_equals_foo subject(schema_name: "foo").format
   end
 
   test "#short_description" do
@@ -32,10 +32,10 @@ class ContentItemPresenterTest < ActiveSupport::TestCase
   end
 
   test "#locale" do
-    assert_equals_foo subject(locale: 'foo').locale
+    assert_equals_foo subject(locale: "foo").locale
   end
 
   def assert_equals_foo(val)
-    assert_equal 'foo', val
+    assert_equal "foo", val
   end
 end

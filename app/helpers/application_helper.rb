@@ -1,7 +1,7 @@
 module ApplicationHelper
   def page_title(publication = nil)
     title = publication.title if publication
-    [title, 'GOV.UK'].select(&:present?).join(" - ")
+    [title, "GOV.UK"].select(&:present?).join(" - ")
   end
 
   def wrapper_class(publication = nil)
@@ -22,7 +22,7 @@ module ApplicationHelper
       end
     end
 
-    html_classes.join(' ')
+    html_classes.join(" ")
   end
 
   def current_path_without_query_string

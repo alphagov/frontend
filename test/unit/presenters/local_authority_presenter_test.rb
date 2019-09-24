@@ -1,13 +1,13 @@
-require 'test_helper'
+require "test_helper"
 
 class LocalAuthorityPresenterTest < ActiveSupport::TestCase
-  context 'exposing attributes from the json payload' do
+  context "exposing attributes from the json payload" do
     setup do
       @local_authority_payload = {
         "name" => "Westminster City Council",
         "snac" => "00BK",
         "tier" => "district",
-        "homepage_url" => 'http://westminster.example.com/',
+        "homepage_url" => "http://westminster.example.com/",
       }
       @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
     end
@@ -21,31 +21,31 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
     end
   end
 
-  context '#url' do
-    context 'when homepage_url is present' do
+  context "#url" do
+    context "when homepage_url is present" do
       setup do
         @local_authority_payload = {
           "name" => "Westminster City Council",
-          "homepage_url" => 'http://westminster.example.com/',
+          "homepage_url" => "http://westminster.example.com/",
         }
         @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
       end
 
-      should 'expose the homepage_url as the url' do
-        assert_equal 'http://westminster.example.com/', @local_authority_presenter.url
+      should "expose the homepage_url as the url" do
+        assert_equal "http://westminster.example.com/", @local_authority_presenter.url
       end
     end
 
-    context 'when homepage_url is blank' do
+    context "when homepage_url is blank" do
       setup do
         @local_authority_payload = {
           "name" => "Westminster City Council",
-          "homepage_url" => '',
+          "homepage_url" => "",
         }
         @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
       end
 
-      should 'exposes no url' do
+      should "exposes no url" do
         assert_nil @local_authority_presenter.url
       end
     end

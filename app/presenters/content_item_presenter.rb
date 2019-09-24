@@ -16,7 +16,7 @@ class ContentItemPresenter
   end
 
   def in_beta
-    @content_item['phase'] == 'beta'
+    @content_item["phase"] == "beta"
   end
 
   def slug
@@ -29,7 +29,7 @@ class ContentItemPresenter
   end
 
   def format
-    @content_item['schema_name']
+    @content_item["schema_name"]
   end
 
   def short_description

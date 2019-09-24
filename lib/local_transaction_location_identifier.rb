@@ -46,9 +46,9 @@ private
 
   def identify_tier(type)
     case type
-    when 'DIS' then 'district'
-    when 'CTY' then 'county'
-    when 'LBO', 'LGD', 'MTD', 'UTA', 'COI' then 'unitary'
+    when "DIS" then "district"
+    when "CTY" then "county"
+    when "LBO", "LGD", "MTD", "UTA", "COI" then "unitary"
     end
   end
 

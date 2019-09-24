@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "action_controller/railtie"
 require "rails/test_unit/railtie"
@@ -10,12 +10,12 @@ end
 
 module Frontend
   class Application < Rails::Application
-    require 'frontend'
+    require "frontend"
     config.load_defaults 5.1
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    config.time_zone = 'London'
+    config.time_zone = "London"
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.eager_load_paths += %W(#{config.root}/app/presenters #{config.root}/lib)
@@ -45,12 +45,12 @@ module Frontend
     config.assets.prefix = "/frontend"
 
     # Paths used by helpers when generating links to assets
-    config.action_controller.assets_dir = Rails.root.join 'public/frontend'
-    config.action_controller.javascripts_dir = Rails.root.join 'public/frontend/javascripts'
-    config.action_controller.stylesheets_dir = Rails.root.join 'public/frontend/stylesheets'
+    config.action_controller.assets_dir = Rails.root.join "public/frontend"
+    config.action_controller.javascripts_dir = Rails.root.join "public/frontend/javascripts"
+    config.action_controller.stylesheets_dir = Rails.root.join "public/frontend/stylesheets"
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = "1.0"
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :postcode]
@@ -63,7 +63,7 @@ module Frontend
 
     # Override Rails 4 default which restricts framing to SAMEORIGIN.
     config.action_dispatch.default_headers = {
-      'X-Frame-Options' => 'ALLOWALL'
+      "X-Frame-Options" => "ALLOWALL",
     }
 
     config.middleware.delete ActionDispatch::Cookies

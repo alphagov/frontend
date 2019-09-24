@@ -1,4 +1,4 @@
-require 'uri'
+require "uri"
 
 module LinksHelper
   def extract_host(url)

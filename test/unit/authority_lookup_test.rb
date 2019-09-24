@@ -1,6 +1,6 @@
-require 'test_helper'
-require 'authority_lookup'
-require 'gds_api/test_helpers/mapit'
+require "test_helper"
+require "authority_lookup"
+require "gds_api/test_helpers/mapit"
 
 class AuthorityLookupTest < ActiveSupport::TestCase
   include GdsApi::TestHelpers::Mapit
@@ -11,12 +11,12 @@ class AuthorityLookupTest < ActiveSupport::TestCase
       codes: {
         ons: "1",
         gss: "1",
-        govuk_slug: "example-authority"
-      }
+        govuk_slug: "example-authority",
+      },
     }
 
-    mapit_has_area_for_code('govuk_slug', 'example-authority', example_area)
-    mapit_does_not_have_area_for_code('govuk_slug', 'does-not-exist')
+    mapit_has_area_for_code("govuk_slug", "example-authority", example_area)
+    mapit_does_not_have_area_for_code("govuk_slug", "does-not-exist")
   end
 
   should "return the correct snac code given a valid slug" do

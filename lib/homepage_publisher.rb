@@ -15,8 +15,8 @@ module HomepagePublisher
       "routes": [
         {
           "path": "/",
-          "type": "exact"
-        }
+          "type": "exact",
+        },
       ],
       "publishing_app": "frontend",
       "rendering_app": "frontend",
@@ -29,8 +29,8 @@ module HomepagePublisher
     {
       links: {
         "organisations" => [GDS_ORGANISATION_CONTENT_ID],
-        "primary_publishing_organisation" => [GDS_ORGANISATION_CONTENT_ID]
-      }
+        "primary_publishing_organisation" => [GDS_ORGANISATION_CONTENT_ID],
+      },
     }
   end
 

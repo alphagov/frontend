@@ -1,6 +1,6 @@
-require 'integration_test_helper'
-require 'gds_api/test_helpers/mapit'
-require 'gds_api/test_helpers/licence_application'
+require "integration_test_helper"
+require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/licence_application"
 
 class LicenceTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
@@ -10,7 +10,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
     setup do
       mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
         { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
-        { "name" => "Greater London Authority", "type" => "GLA" }
+        { "name" => "Greater London Authority", "type" => "GLA" },
       ])
 
       westminster = {
@@ -18,13 +18,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
         "codes" => {
           "ons" => "00BK",
           "gss" => "E07000198",
-          "govuk_slug" => "westminster"
+          "govuk_slug" => "westminster",
         },
-        "name" => "Westminster"
+        "name" => "Westminster",
       }
 
-      mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
-      mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
+      mapit_has_area_for_code("govuk_slug", "westminster", westminster)
+      mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
 
       @payload = {
         base_path: "/licence-to-kill",
@@ -41,9 +41,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item('/licence-to-kill', @payload)
+      content_store_has_item("/licence-to-kill", @payload)
 
-      licence_exists('1071-5-1',
+      licence_exists("1071-5-1",
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
@@ -52,17 +52,17 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence search page" do
       setup do
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "render the licence page" do
         assert_equal 200, page.status_code
 
-        within 'head', visible: :all do
+        within "head", visible: :all do
           assert page.has_selector?("title", text: "Licence to kill - GOV.UK", visible: :all)
         end
 
-        within '#content' do
+        within "#content" do
           within ".page-header" do
             assert_has_component_title "Licence to kill"
           end
@@ -79,15 +79,15 @@ class LicenceTest < ActionDispatch::IntegrationTest
             assert page.has_content? "You only live twice, Mr Bond."
           end
 
-          within '.article-container' do
+          within ".article-container" do
             assert page.has_selector?(".gem-c-phase-banner")
           end
         end
       end
 
       should "add google analytics tags for postcodeSearchStarted" do
-        track_category = page.find('.postcode-search-form')['data-track-category']
-        track_action = page.find('.postcode-search-form')['data-track-action']
+        track_category = page.find(".postcode-search-form")["data-track-category"]
+        track_action = page.find(".postcode-search-form")["data-track-action"]
 
         assert_equal "postcodeSearch:licence", track_category
         assert_equal "postcodeSearchStarted", track_action
@@ -105,7 +105,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "website" => "",
                 "email" => "",
                 "phone" => "020 7641 6000",
-                "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP"
+                "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP",
               },
               "authorityInteractions" => {
                 "apply" => [
@@ -114,13 +114,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred.",
-                    "usesLicensify" => true
+                    "usesLicensify" => true,
                   }, {
                     "url" => "/licence-to-kill/westminster/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
                     "introduction" => "Q-approval required.",
-                    "usesLicensify" => true
+                    "usesLicensify" => true,
                 }
                 ],
                 "renew" => [
@@ -129,22 +129,22 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "description" => "Renew your licence to kill",
                     "payment" => "none",
                     "introduction" => "",
-                    "usesLicensify" => true
-                  }
-                ]
-              }
-            }
+                    "usesLicensify" => true,
+                  },
+                ],
+              },
+            },
           ]
 
-          licence_exists('1071-5-1/00BK',
+          licence_exists("1071-5-1/00BK",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => false,
                          "geographicalAvailability" => %w(England Wales),
                          "issuingAuthorities" => authorities)
-          visit '/licence-to-kill'
+          visit "/licence-to-kill"
 
-          fill_in 'postcode', with: "SW1A 1AA"
-          click_on 'Find'
+          fill_in "postcode", with: "SW1A 1AA"
+          click_on "Find"
         end
 
         should "redirect to the appropriate authority slug" do
@@ -159,8 +159,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         should "show available licence actions" do
           within("#content nav") do
-            assert page.has_link? "How to apply", href: '/licence-to-kill/westminster/apply'
-            assert page.has_link? "How to renew", href: '/licence-to-kill/westminster/renew'
+            assert page.has_link? "How to apply", href: "/licence-to-kill/westminster/apply"
+            assert page.has_link? "How to renew", href: "/licence-to-kill/westminster/renew"
           end
         end
 
@@ -218,7 +218,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             },
           }
 
-          content_store_has_item('/licence-to-thrill', @payload)
+          content_store_has_item("/licence-to-thrill", @payload)
 
           mapit_has_a_postcode_and_areas("HP20 2QF", [], [
             { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
@@ -230,12 +230,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "codes" => {
               "ons" => "11",
               "gss" => "E07000198",
-              "govuk_slug" => "buckinghamshire"
+              "govuk_slug" => "buckinghamshire",
             },
-            "name" => "Buckinghamshire"
+            "name" => "Buckinghamshire",
           }
 
-          mapit_has_area_for_code('govuk_slug', 'buckinghamshire', buckinghamshire)
+          mapit_has_area_for_code("govuk_slug", "buckinghamshire", buckinghamshire)
 
           authorities = [
             {
@@ -254,13 +254,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred.",
-                    "usesLicensify" => true
+                    "usesLicensify" => true,
                   }, {
                     "url" => "/licence-to-thrill/buckinghamshire/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
                     "introduction" => "Q-approval required.",
-                    "usesLicensify" => true
+                    "usesLicensify" => true,
                 }
                 ],
                 "renew" => [
@@ -269,29 +269,29 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "description" => "Renew your licence to kill",
                     "payment" => "none",
                     "introduction" => "",
-                    "usesLicensify" => true
-                  }
-                ]
-              }
-            }
+                    "usesLicensify" => true,
+                  },
+                ],
+              },
+            },
           ]
 
-          licence_exists('999/11',
+          licence_exists("999/11",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => true,
                          "geographicalAvailability" => %w(England Wales),
                          "issuingAuthorities" => authorities)
 
-          licence_exists('999',
+          licence_exists("999",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => true,
                          "geographicalAvailability" => %w(England Wales),
                          "issuingAuthorities" => [])
 
-          visit '/licence-to-thrill'
+          visit "/licence-to-thrill"
 
-          fill_in 'postcode', with: "HP20 2QF"
-          click_on 'Find'
+          fill_in "postcode", with: "HP20 2QF"
+          click_on "Find"
         end
 
         should "redirect to the appropriate authority slug" do
@@ -309,7 +309,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "website" => "",
                 "email" => "",
                 "phone" => "020 7641 6000",
-                "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP"
+                "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP",
               },
               "authorityInteractions" => {
                 "apply" => [
@@ -318,10 +318,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred.",
-                    "usesLicensify" => true
-                  }
+                    "usesLicensify" => true,
+                  },
                 ],
-              }
+              },
             },
             {
               "authorityName" => "Kingsmen Tailors",
@@ -330,7 +330,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "website" => "",
                 "email" => "",
                 "phone" => "020 007 007",
-                "address" => "Savile Row"
+                "address" => "Savile Row",
               },
               "authorityInteractions" => {
                 "apply" => [
@@ -339,24 +339,24 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "description" => "Apply for your licence to kill",
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred.",
-                    "usesLicensify" => true
-                  }
+                    "usesLicensify" => true,
+                  },
                 ],
-              }
-            }
+              },
+            },
 
           ]
 
-          licence_exists('1071-5-1/00BK',
+          licence_exists("1071-5-1/00BK",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => false,
                          "geographicalAvailability" => %w(England Wales),
                          "issuingAuthorities" => authorities)
 
-          visit '/licence-to-kill'
+          visit "/licence-to-kill"
 
-          fill_in 'postcode', with: "SW1A 1AA"
-          click_on 'Find'
+          fill_in "postcode", with: "SW1A 1AA"
+          click_on "Find"
         end
 
         should "show details for the first authority only" do
@@ -371,10 +371,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
     context "when visiting the licence with an invalid formatted postcode" do
       setup do
         mapit_does_not_have_a_bad_postcode("Not valid")
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
 
-        fill_in 'postcode', with: "Not valid"
-        click_on 'Find'
+        fill_in "postcode", with: "Not valid"
+        click_on "Find"
       end
 
       should "remain on the licence page" do
@@ -394,10 +394,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
       setup do
         mapit_does_not_have_a_postcode("AB1 2AB")
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
 
-        fill_in 'postcode', with: "AB1 2AB"
-        click_on 'Find'
+        fill_in "postcode", with: "AB1 2AB"
+        click_on "Find"
       end
 
       should "remain on the licence page" do
@@ -417,10 +417,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
       setup do
         mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
 
-        fill_in 'postcode', with: "XM4 5HQ"
-        click_on 'Find'
+        fill_in "postcode", with: "XM4 5HQ"
+        click_on "Find"
       end
 
       should "remain on the licence page" do
@@ -453,7 +453,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item('/licence-to-turn-off-a-telescreen', @payload)
+      content_store_has_item("/licence-to-turn-off-a-telescreen", @payload)
     end
 
     context "with multiple authorities" do
@@ -468,9 +468,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
                 "introduction" => "some intro",
-                "usesLicensify" => true
-              }]
-            }
+                "usesLicensify" => true,
+              }],
+            },
           },
           {
             "authorityName" => "Ministry of Love",
@@ -481,9 +481,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
                 "introduction" => "",
-                "usesLicensify" => true
-              }]
-            }
+                "usesLicensify" => true,
+              }],
+            },
           },
           {
             "authorityName" => "Ministry of Truth",
@@ -494,9 +494,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
                 "introduction" => "",
-                "usesLicensify" => true
-              }]
-            }
+                "usesLicensify" => true,
+              }],
+            },
           },
           {
             "authorityName" => "Ministry of Peace",
@@ -507,13 +507,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "description" => "Apply for your licence to turn off a telescreen",
                 "payment" => "none",
                 "introduction" => "",
-                "usesLicensify" => true
-              }]
-            }
-          }
+                "usesLicensify" => true,
+              }],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -521,34 +521,34 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       context "when visiting the license and specifying an authority" do
         setup do
-          visit '/licence-to-turn-off-a-telescreen/minitrue'
+          visit "/licence-to-turn-off-a-telescreen/minitrue"
         end
 
         should "display correct licence" do
-          assert page.has_content?('The issuing authority for this licence is Ministry of Truth')
+          assert page.has_content?("The issuing authority for this licence is Ministry of Truth")
         end
       end
 
       context "when visiting the licence without specifying an authority" do
         setup do
-          visit '/licence-to-turn-off-a-telescreen'
+          visit "/licence-to-turn-off-a-telescreen"
         end
 
         should "display the title" do
-          assert page.has_content?('Licence to turn off a telescreen')
+          assert page.has_content?("Licence to turn off a telescreen")
         end
 
         should "see the available authorities in a list" do
-          assert page.has_content?('Ministry of Peace')
-          assert page.has_content?('Ministry of Love')
-          assert page.has_content?('Ministry of Truth')
-          assert page.has_content?('Ministry of Plenty')
+          assert page.has_content?("Ministry of Peace")
+          assert page.has_content?("Ministry of Love")
+          assert page.has_content?("Ministry of Truth")
+          assert page.has_content?("Ministry of Plenty")
         end
 
         context "when selecting an authority" do
           setup do
-            choose 'Ministry of Love'
-            click_on 'Get started'
+            choose "Ministry of Love"
+            click_on "Get started"
           end
 
           should "redirect to the authority slug" do
@@ -556,8 +556,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           end
 
           should "display interactions for licence" do
-            click_on 'How to apply'
-            assert current_path == '/licence-to-turn-off-a-telescreen/miniluv/apply'
+            click_on "How to apply"
+            assert current_path == "/licence-to-turn-off-a-telescreen/miniluv/apply"
 
             assert_has_button_as_link("Apply online",
                                       href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
@@ -580,14 +580,14 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence to turn off a telescreen",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => true
-                }
-              ]
-            }
-          }
+                  "usesLicensify" => true,
+                },
+              ],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -595,23 +595,23 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       context "when visiting the licence" do
         setup do
-          visit '/licence-to-turn-off-a-telescreen'
+          visit "/licence-to-turn-off-a-telescreen"
         end
 
         should "display the title" do
-          assert page.has_content?('Licence to turn off a telescreen')
+          assert page.has_content?("Licence to turn off a telescreen")
         end
 
         should "show licence actions for the single authority" do
           within("#content nav") do
-            assert page.has_link? "How to apply", href: '/licence-to-turn-off-a-telescreen/miniluv/apply'
+            assert page.has_link? "How to apply", href: "/licence-to-turn-off-a-telescreen/miniluv/apply"
           end
         end
 
         should "display the interactions for licence" do
-          click_on 'How to apply'
+          click_on "How to apply"
           assert_has_button_as_link("Apply online",
-                                    href: '/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1',
+                                    href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
                                     start: true)
         end
 
@@ -636,34 +636,34 @@ class LicenceTest < ActionDispatch::IntegrationTest
         description: "Descriptive licence text.",
         details: {
           "will_continue_on" => "another planet",
-          "continuation_link" => "http://gov.uk/blah"
+          "continuation_link" => "http://gov.uk/blah",
         },
       }
 
-      content_store_has_item('/artistic-license', @payload)
+      content_store_has_item("/artistic-license", @payload)
     end
 
     context "when visiting the licence" do
       setup do
-        visit '/artistic-license'
+        visit "/artistic-license"
       end
 
       should "not see a location form" do
-        assert_not page.has_field?('postcode')
+        assert_not page.has_field?("postcode")
       end
 
       should "see a 'Start now' button" do
-        assert page.has_content?('Start now')
+        assert page.has_content?("Start now")
       end
     end
 
     context "when visiting the licence with an authority slug" do
       setup do
-        visit '/artistic-license/miniluv'
+        visit "/artistic-license/miniluv"
       end
 
       should "redirect to the search page" do
-        assert_current_url '/artistic-license'
+        assert_current_url "/artistic-license"
       end
     end
   end
@@ -685,11 +685,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item('/a-licence', @payload)
+      content_store_has_item("/a-licence", @payload)
 
       mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
         { "ons" => "00BK", "govuk_slug" => "a-council", "name" => "A council", "type" => "LBO" },
-        { "name" => "Greater London Authority", "type" => "GLA" }
+        { "name" => "Greater London Authority", "type" => "GLA" },
       ])
 
       a_council = {
@@ -697,13 +697,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
         "codes" => {
           "ons" => "00BK",
           "gss" => "E07000198",
-          "govuk_slug" => "a-council"
+          "govuk_slug" => "a-council",
         },
-        "name" => "Westminster"
+        "name" => "Westminster",
       }
 
-      mapit_has_area_for_code('govuk_slug', 'a-council', a_council)
-      mapit_does_not_have_area_for_code('govuk_slug', 'not-a-valid-council-name')
+      mapit_has_area_for_code("govuk_slug", "a-council", a_council)
+      mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
 
       authorities = [
         {
@@ -713,7 +713,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "website" => "",
             "email" => "",
             "phone" => "020 7641 6000",
-            "address" => "P.O. Box 123\nSome Town\nXY1 1AB"
+            "address" => "P.O. Box 123\nSome Town\nXY1 1AB",
           },
           "authorityInteractions" => {
             "apply" => [
@@ -723,18 +723,18 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "payment" => "none",
                 "introduction" => "This licence is issued online",
                 "usesLicensify" => false,
-                "usesAuthorityUrl" => true
-            }
-            ]
-          }
-        }
+                "usesAuthorityUrl" => true,
+            },
+            ],
+          },
+        },
       ]
-      licence_exists('1071-5-1',
+      licence_exists("1071-5-1",
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
                      "issuingAuthorities" => authorities)
-      licence_exists('1071-5-1/00BK',
+      licence_exists("1071-5-1/00BK",
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
@@ -742,11 +742,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
     end
 
     should "show message to contact local council through their website" do
-      visit '/a-licence/a-council/apply'
+      visit "/a-licence/a-council/apply"
 
       assert page.has_content? "To obtain this licence, you need to contact the authority directly"
       assert page.has_content? "To continue, go to"
-      assert page.has_link? "A Council", href: 'http://some-council-website'
+      assert page.has_link? "A Council", href: "http://some-council-website"
     end
   end
 
@@ -761,20 +761,20 @@ class LicenceTest < ActionDispatch::IntegrationTest
         public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
-          licence_identifier: "1071-5-1"
+          licence_identifier: "1071-5-1",
         },
       }
 
-      content_store_has_item('/licence-to-kill', @payload)
+      content_store_has_item("/licence-to-kill", @payload)
 
       licence_does_not_exist("1071-5-1")
     end
 
     should "show message to contact local council" do
-      visit '/licence-to-kill'
+      visit "/licence-to-kill"
 
       assert page.has_content?("You can't apply for this licence online")
-      assert page.has_content?('Contact your local council')
+      assert page.has_content?("Contact your local council")
     end
   end
 
@@ -789,24 +789,24 @@ class LicenceTest < ActionDispatch::IntegrationTest
         public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
-          licence_identifier: "1071-5-1"
+          licence_identifier: "1071-5-1",
         },
       }
 
-      content_store_has_item('/licence-to-kill', @payload)
+      content_store_has_item("/licence-to-kill", @payload)
       licence_times_out("1071-5-1")
     end
 
     should "not blow the stack" do
-      visit '/licence-to-kill'
+      visit "/licence-to-kill"
       assert page.status_code == 200
     end
 
     should "show message to contact local council" do
-      visit '/licence-to-kill'
+      visit "/licence-to-kill"
 
       assert page.has_content?("You can't apply for this licence online")
-      assert page.has_content?('Contact your local council')
+      assert page.has_content?("Contact your local council")
     end
   end
 
@@ -821,24 +821,24 @@ class LicenceTest < ActionDispatch::IntegrationTest
         public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
-          licence_identifier: "1071-5-1"
+          licence_identifier: "1071-5-1",
         },
       }
 
-      content_store_has_item('/licence-to-kill', @payload)
+      content_store_has_item("/licence-to-kill", @payload)
       licence_returns_error("1071-5-1")
     end
 
     should "not blow the stack" do
-      visit '/licence-to-kill'
+      visit "/licence-to-kill"
       assert page.status_code == 200
     end
 
     should "show message to contact local council" do
-      visit '/licence-to-kill'
+      visit "/licence-to-kill"
 
       assert page.has_content?("You can't apply for this licence online")
-      assert page.has_content?('Contact your local council')
+      assert page.has_content?("Contact your local council")
     end
   end
 
@@ -853,11 +853,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
         public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
-          licence_identifier: "1071-5-1"
+          licence_identifier: "1071-5-1",
         },
       }
 
-      content_store_has_item('/licence-to-kill', @payload)
+      content_store_has_item("/licence-to-kill", @payload)
     end
 
     context "when visiting an authority with no actions" do
@@ -866,25 +866,25 @@ class LicenceTest < ActionDispatch::IntegrationTest
           {
             "authorityName" => "Ministry of Love",
             "authoritySlug" => "miniluv",
-            "authorityInteractions" => {}
-          }
+            "authorityInteractions" => {},
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "display the title" do
-        assert page.has_content?('Licence to kill')
+        assert page.has_content?("Licence to kill")
       end
 
       should "not display authority" do
-        assert_not page.has_content? 'Ministry of Love'
-        assert_not page.has_button? 'Get started'
+        assert_not page.has_content? "Ministry of Love"
+        assert_not page.has_button? "Get started"
       end
 
       should "display the licence unavailable message" do
@@ -906,7 +906,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => true
+                  "usesLicensify" => true,
                 },
               ],
               "renew" => [
@@ -915,45 +915,45 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => false
-                }
-              ]
-            }
-          }
+                  "usesLicensify" => false,
+                },
+              ],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "display the title" do
-        assert page.has_content?('Licence to kill')
+        assert page.has_content?("Licence to kill")
       end
 
       should "display the authority" do
-        assert page.has_content?('Ministry of Love')
+        assert page.has_content?("Ministry of Love")
       end
 
       should "show licence actions that have usesLicensify set to true" do
         within("#content nav") do
-          assert page.has_link? "How to apply", href: '/licence-to-kill/miniluv/apply'
+          assert page.has_link? "How to apply", href: "/licence-to-kill/miniluv/apply"
         end
       end
 
       should "show licence actions that have usesLicensify set to false" do
         within("#content nav") do
-          assert page.has_link? "How to renew", href: '/licence-to-kill/miniluv/renew'
+          assert page.has_link? "How to renew", href: "/licence-to-kill/miniluv/renew"
         end
       end
 
       should "display the interactions for the licence if usesLicensify is set to true" do
         click_link "How to apply"
 
-        assert current_path == '/licence-to-kill/miniluv/apply'
+        assert current_path == "/licence-to-kill/miniluv/apply"
 
         assert_has_button_as_link("Apply online",
                                   href: "/licence-to-kill/ministry-of-love/apply-1",
@@ -965,7 +965,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
       should "not display the interactions for the licence if usesLicensify is set to false" do
         click_link "How to renew"
 
-        assert current_path == '/licence-to-kill/miniluv/renew'
+        assert current_path == "/licence-to-kill/miniluv/renew"
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/renew-1",
@@ -988,7 +988,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => false
+                  "usesLicensify" => false,
                 },
               ],
               "renew" => [
@@ -997,33 +997,33 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => false
-                }
-              ]
-            }
-          }
+                  "usesLicensify" => false,
+                },
+              ],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "display the title" do
-        assert page.has_content?('Licence to kill')
+        assert page.has_content?("Licence to kill")
       end
 
       should "display authority" do
-        assert page.has_content? 'Ministry of Love'
+        assert page.has_content? "Ministry of Love"
       end
 
       should "display the actions" do
-        assert page.has_content? 'Overview'
-        assert page.has_link? 'How to apply', href: '/licence-to-kill/miniluv/apply'
-        assert page.has_link? 'How to renew', href: '/licence-to-kill/miniluv/renew'
+        assert page.has_content? "Overview"
+        assert page.has_link? "How to apply", href: "/licence-to-kill/miniluv/apply"
+        assert page.has_link? "How to renew", href: "/licence-to-kill/miniluv/renew"
       end
 
       should "not display the licence unavailable message on the main licence page" do
@@ -1032,9 +1032,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "display the licence unavailable message after you click on the first action" do
-        click_on 'How to apply'
+        click_on "How to apply"
 
-        assert current_path == '/licence-to-kill/miniluv/apply'
+        assert current_path == "/licence-to-kill/miniluv/apply"
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/apply-1",
@@ -1045,9 +1045,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "display the licence unavailable message after you click on the second action" do
-        click_on 'How to renew'
+        click_on "How to renew"
 
-        assert current_path == '/licence-to-kill/miniluv/renew'
+        assert current_path == "/licence-to-kill/miniluv/renew"
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/renew-1",
@@ -1070,7 +1070,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "url" => "/licence-to-kill/ministry-of-love/apply-1",
                   "description" => "Apply for your licence",
                   "payment" => "none",
-                  "introduction" => ""
+                  "introduction" => "",
                 },
               ],
               "renew" => [
@@ -1079,42 +1079,42 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => true
-                }
-              ]
-            }
-          }
+                  "usesLicensify" => true,
+                },
+              ],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "display the title and authority" do
-        assert page.has_content? 'Licence to kill'
-        assert page.has_content? 'Ministry of Love'
+        assert page.has_content? "Licence to kill"
+        assert page.has_content? "Ministry of Love"
       end
 
       should "show licence actions that don't have the usesLicensify param" do
         within("#content nav") do
-          assert page.has_link? "How to apply", href: '/licence-to-kill/miniluv/apply'
+          assert page.has_link? "How to apply", href: "/licence-to-kill/miniluv/apply"
         end
       end
 
       should "show licence actions that have usesLicensify set to true" do
         within("#content nav") do
-          assert page.has_link? "How to renew", href: '/licence-to-kill/miniluv/renew'
+          assert page.has_link? "How to renew", href: "/licence-to-kill/miniluv/renew"
         end
       end
 
       should "not display interactions for licence with missing usesLicensify" do
-        click_on 'How to apply'
+        click_on "How to apply"
 
-        assert current_path == '/licence-to-kill/miniluv/apply'
+        assert current_path == "/licence-to-kill/miniluv/apply"
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/apply-1",
@@ -1125,9 +1125,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "display interactions for licence with usesLicensify set to true" do
-        click_on 'How to renew'
+        click_on "How to renew"
 
-        assert current_path == '/licence-to-kill/miniluv/renew'
+        assert current_path == "/licence-to-kill/miniluv/renew"
 
         assert_has_button_as_link("Apply online",
                                   href: "/licence-to-kill/ministry-of-love/renew-1",
@@ -1150,7 +1150,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "url" => "/licence-to-kill/ministry-of-love/apply-1",
                   "description" => "Apply for your licence",
                   "payment" => "none",
-                  "introduction" => ""
+                  "introduction" => "",
                 },
               ],
               "renew" => [
@@ -1159,32 +1159,32 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                }
-              ]
-            }
-          }
+                },
+              ],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "display the title" do
-        assert page.has_content?('Licence to kill')
+        assert page.has_content?("Licence to kill")
       end
 
       should "display authority" do
-        assert page.has_content? 'Ministry of Love'
+        assert page.has_content? "Ministry of Love"
       end
 
       should "display the actions" do
-        assert page.has_content? 'Overview'
-        assert page.has_link? 'How to apply', href: '/licence-to-kill/miniluv/apply'
-        assert page.has_link? 'How to renew', href: '/licence-to-kill/miniluv/renew'
+        assert page.has_content? "Overview"
+        assert page.has_link? "How to apply", href: "/licence-to-kill/miniluv/apply"
+        assert page.has_link? "How to renew", href: "/licence-to-kill/miniluv/renew"
       end
 
       should "not display the licence unavailable message on the main licence page" do
@@ -1193,9 +1193,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "display the licence unavailable message after you click on an action" do
-        click_on 'How to apply'
+        click_on "How to apply"
 
-        assert current_path == '/licence-to-kill/miniluv/apply'
+        assert current_path == "/licence-to-kill/miniluv/apply"
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/apply-1",
@@ -1219,21 +1219,21 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => true
+                  "usesLicensify" => true,
                 },
                 {
                   "url" => "/licence-to-kill/ministry-of-love/apply-2",
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => false
+                  "usesLicensify" => false,
                 },
                 {
                   "url" => "/licence-to-kill/ministry-of-love/apply-3",
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => true
+                  "usesLicensify" => true,
                 },
               ],
               "renew" => [
@@ -1242,51 +1242,51 @@ class LicenceTest < ActionDispatch::IntegrationTest
                   "description" => "Apply for your licence",
                   "payment" => "none",
                   "introduction" => "",
-                  "usesLicensify" => false
+                  "usesLicensify" => false,
                 },
                 {
                   "url" => "/licence-to-kill/ministry-of-love/renew-2",
                   "description" => "Apply for your licence",
                   "payment" => "none",
-                  "introduction" => ""
+                  "introduction" => "",
                 },
-              ]
-            }
-          }
+              ],
+            },
+          },
         ]
 
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
 
-        visit '/licence-to-kill'
+        visit "/licence-to-kill"
       end
 
       should "display the title" do
-        assert page.has_content?('Licence to kill')
+        assert page.has_content?("Licence to kill")
       end
 
       should "display the authority" do
-        assert page.has_content?('Ministry of Love')
+        assert page.has_content?("Ministry of Love")
       end
 
       should "show licence actions that have usesLicensify set to true" do
         within("#content nav") do
-          assert page.has_link? "How to apply", href: '/licence-to-kill/miniluv/apply'
+          assert page.has_link? "How to apply", href: "/licence-to-kill/miniluv/apply"
         end
       end
 
       should "show licence actions that have usesLicensify set to false" do
         within("#content nav") do
-          assert page.has_link? "How to renew", href: '/licence-to-kill/miniluv/renew'
+          assert page.has_link? "How to renew", href: "/licence-to-kill/miniluv/renew"
         end
       end
 
       should "display the interactions for the licence if usesLicensify is set to true for a link" do
         click_link "How to apply"
 
-        assert current_path == '/licence-to-kill/miniluv/apply'
+        assert current_path == "/licence-to-kill/miniluv/apply"
 
         assert_has_button_as_link("Apply online",
                                   href: "/licence-to-kill/ministry-of-love/apply-1",
@@ -1305,7 +1305,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
       should "not display the interactions for the licence if usesLicensify is set to false or is missing for a link" do
         click_link "How to renew"
 
-        assert current_path == '/licence-to-kill/miniluv/renew'
+        assert current_path == "/licence-to-kill/miniluv/renew"
 
         refute_has_button_component("Apply online",
                                     href: "/licence-to-kill/ministry-of-love/renew-1",

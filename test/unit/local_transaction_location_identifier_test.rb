@@ -1,5 +1,5 @@
-require 'test_helper'
-require 'local_transaction_location_identifier'
+require "test_helper"
+require "local_transaction_location_identifier"
 
 class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
   setup do

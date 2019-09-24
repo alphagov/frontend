@@ -1,7 +1,7 @@
 class HelpController < ApplicationController
   include Cacheable
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   def index
     setup_content_item("/help")
@@ -27,6 +27,6 @@ class HelpController < ApplicationController
 private
 
   def slug_param
-    params[:slug] || 'help'
+    params[:slug] || "help"
   end
 end

@@ -1,9 +1,9 @@
-require 'test_helper'
+require "test_helper"
 
 class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
   context "handling countries" do
     setup do
-      json = GovukContentSchemaTestHelpers::Examples.new.get('travel_advice_index', 'index')
+      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
       attributes = JSON.parse(json)
       @presenter = TravelAdviceIndexPresenter.new(attributes)
     end
@@ -24,13 +24,13 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
       assert_equal [], country.synonyms
       assert_equal "http://www.dev.gov.uk/foreign-travel-advice/afghanistan", country.web_url
       assert_equal "afghanistan", country.identifier
-      assert_equal Time.zone.parse('2015-01-01'), country.updated_at
+      assert_equal Time.zone.parse("2015-01-01"), country.updated_at
     end
 
     should "construct a feed id for each country using the url and time format" do
       country = @presenter.countries.first
 
-      assert_equal 'http://www.dev.gov.uk/foreign-travel-advice/afghanistan#2015-01-01T00:00:00+00:00', country.feed_id
+      assert_equal "http://www.dev.gov.uk/foreign-travel-advice/afghanistan#2015-01-01T00:00:00+00:00", country.feed_id
     end
 
     context "#countries" do
@@ -66,7 +66,7 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
               { "base_path" => "/a", "details" => { "country" => { "name" => "Peru" }, "change_description" => "xx" } },
               { "base_path" => "/b", "details" => { "country" => { "name" => "The Occupied Palestinian Territories" }, "change_description" => "xx" } },
             ],
-          },
+          }
         }
         presenter = TravelAdviceIndexPresenter.new(attributes)
         @result = presenter.countries_grouped_by_initial_letter

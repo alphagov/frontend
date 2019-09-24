@@ -1,6 +1,6 @@
 require "test_helper"
-require 'gds_api/test_helpers/mapit'
-require 'gds_api/test_helpers/licence_application'
+require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/licence_application"
 
 class LicenceControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::Mapit
@@ -9,7 +9,7 @@ class LicenceControllerTest < ActionController::TestCase
   context "GET start" do
     context "for live content" do
       setup do
-        content_store_has_page('licence-to-kill')
+        content_store_has_page("licence-to-kill")
       end
 
       should "set the cache expiry headers" do
@@ -36,12 +36,12 @@ class LicenceControllerTest < ActionController::TestCase
         },
       }
 
-      content_store_has_item('/licence-to-kill', @payload)
+      content_store_has_item("/licence-to-kill", @payload)
     end
 
     context "loading the licence edition when posting a location" do
       setup do
-        licence_exists('1071-5-1',
+        licence_exists("1071-5-1",
                        "isLocationSpecific" => true,
                        "isOfferedByCounty" => false,
                        "geographicalAvailability" => %w(England Wales),
@@ -53,7 +53,7 @@ class LicenceControllerTest < ActionController::TestCase
           mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
             { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county" },
             { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands" },
-            { "name" => "Cheadle and Checkley", "type" => "CED" }
+            { "name" => "Cheadle and Checkley", "type" => "CED" },
           ])
 
           post :start, params: { slug: "licence-to-kill", postcode: "ST10 4DB" }
@@ -84,7 +84,7 @@ class LicenceControllerTest < ActionController::TestCase
   context "GET authority" do
     context "for live content" do
       setup do
-        content_store_has_page('licence-to-kill')
+        content_store_has_page("licence-to-kill")
       end
 
       should "set the cache expiry headers" do

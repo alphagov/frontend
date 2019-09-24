@@ -1,7 +1,7 @@
-require 'frontend'
+require "frontend"
 
 Rails.application.routes.draw do
-  root to: 'homepage#index', via: :get
+  root to: "homepage#index", via: :get
 
   get "/homepage" => redirect("/")
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post "/find-local-council" => "find_local_council#find"
   get "/find-local-council/:authority_slug" => "find_local_council#result"
 
-  get '/foreign-travel-advice', to: "travel_advice#index", as: :travel_advice
+  get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice
 
   # Help pages
   get "/help", to: "help#index"
@@ -24,38 +24,38 @@ Rails.application.routes.draw do
   get "/help/cookies", to: "help#cookie_settings"
 
   # Done pages
-  constraints FormatRoutingConstraint.new('completed_transaction') do
+  constraints FormatRoutingConstraint.new("completed_transaction") do
     get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"
   end
 
   # Simple Smart Answer pages
   get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
-  constraints FormatRoutingConstraint.new('simple_smart_answer') do
+  constraints FormatRoutingConstraint.new("simple_smart_answer") do
     get ":slug", to: "simple_smart_answers#show", as: "simple_smart_answer"
-    get ":slug/:part", to: redirect('/%{slug}') # Support for simple smart answers that were once a format with parts
+    get ":slug/:part", to: redirect("/%{slug}") # Support for simple smart answers that were once a format with parts
   end
 
   # Transaction pages
-  constraints FormatRoutingConstraint.new('transaction') do
+  constraints FormatRoutingConstraint.new("transaction") do
     get ":slug(/:variant)", to: "transaction#show"
   end
 
   # Local Transaction pages
-  constraints FormatRoutingConstraint.new('local_transaction') do
-    get ":slug", to: "local_transaction#search", as: 'local_transaction_search'
+  constraints FormatRoutingConstraint.new("local_transaction") do
+    get ":slug", to: "local_transaction#search", as: "local_transaction_search"
     post ":slug", to: "local_transaction#search"
-    get ":slug/:local_authority_slug", to: "local_transaction#results", as: 'local_transaction_results'
+    get ":slug/:local_authority_slug", to: "local_transaction#results", as: "local_transaction_results"
   end
 
   # Place pages
-  constraints FormatRoutingConstraint.new('place') do
+  constraints FormatRoutingConstraint.new("place") do
     get ":slug", to: "place#show"
     post ":slug", to: "place#show" # Support for postcode submission which we treat as confidential data
-    get ":slug/:part", to: redirect('/%{slug}') # Support for places that were once a format with parts
+    get ":slug/:part", to: redirect("/%{slug}") # Support for places that were once a format with parts
   end
 
   # Licence pages
-  constraints FormatRoutingConstraint.new('licence') do
+  constraints FormatRoutingConstraint.new("licence") do
     get ":slug", to: "licence#start", as: "licence"
     post ":slug", to: "licence#start" # Support for postcode submission which we treat as confidential data
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"

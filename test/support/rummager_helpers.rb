@@ -18,19 +18,19 @@ private
   end
 
   def stub_search_page_in_content_store
-    content_store_has_item("/search", schema: 'special_route')
+    content_store_has_item("/search", schema: "special_route")
   end
 
   def scoped_object
-    fixture_data('manual_scoped_search_scope_object.json')
+    fixture_data("manual_scoped_search_scope_object.json")
   end
 
   def unscoped_object
-    fixture_data('manual_unscoped_search.json')
+    fixture_data("manual_unscoped_search.json")
   end
 
   def manual_scoped_search
-    fixture_data('manual_scoped_search_results.json')
+    fixture_data("manual_scoped_search_results.json")
   end
 
   def fixture_data(filename)

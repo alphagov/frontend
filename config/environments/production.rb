@@ -1,4 +1,4 @@
-require 'plek'
+require "plek"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb
@@ -37,12 +37,12 @@ Rails.application.configure do
 
   # Set GOVUK_ASSET_ROOT for heroku - for review apps we have the hostname set
   # at the time of the app being built so can't be set up in the app.json
-  if !ENV.include?('GOVUK_ASSET_ROOT') && ENV['HEROKU_APP_NAME']
-    ENV['GOVUK_ASSET_ROOT'] = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
+  if !ENV.include?("GOVUK_ASSET_ROOT") && ENV["HEROKU_APP_NAME"]
+    ENV["GOVUK_ASSET_ROOT"] = "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
   end
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = ENV['GOVUK_ASSET_ROOT']
+  config.action_controller.asset_host = ENV["GOVUK_ASSET_ROOT"]
 
   config.assets.compress = true
   config.assets.digest = true
@@ -50,8 +50,8 @@ Rails.application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Specifies the header that your server uses for sending files
-  config.action_dispatch.x_sendfile_header = ENV['HEROKU_APP_NAME'] ? nil : "X-Sendfile"
+  config.action_dispatch.x_sendfile_header = ENV["HEROKU_APP_NAME"] ? nil : "X-Sendfile"
 end

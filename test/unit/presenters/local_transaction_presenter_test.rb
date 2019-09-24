@@ -6,14 +6,14 @@ class LocalTransactionPresenterTest < ActiveSupport::TestCase
   end
 
   test "#introduction" do
-    assert_equal 'foo', subject(details: { introduction: 'foo' }).introduction
+    assert_equal "foo", subject(details: { introduction: "foo" }).introduction
   end
 
   test "#more_information" do
-    assert_equal 'foo', subject(details: { more_information: 'foo' }).more_information
+    assert_equal "foo", subject(details: { more_information: "foo" }).more_information
   end
 
   test "#need_to_know" do
-    assert_equal 'foo', subject(details: { need_to_know: 'foo' }).need_to_know
+    assert_equal "foo", subject(details: { need_to_know: "foo" }).need_to_know
   end
 end

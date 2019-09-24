@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 module SimpleSmartAnswers
   class NodeTest < ActiveSupport::TestCase
@@ -53,24 +53,24 @@ module SimpleSmartAnswers
 
       context "process_response" do
         should "return the matching option instance" do
-          assert_equal "Option 2", @node.process_response('option-2').label
+          assert_equal "Option 2", @node.process_response("option-2").label
         end
 
         should "populate the next_node on the returned option" do
-          @flow.stubs(:node_for_slug).with('question-2').returns(:question_2_node)
-          assert_equal :question_2_node, @node.process_response('option-2').next_node
+          @flow.stubs(:node_for_slug).with("question-2").returns(:question_2_node)
+          assert_equal :question_2_node, @node.process_response("option-2").next_node
         end
 
         should "raise InvalidResponse if no option matches" do
           assert_raise InvalidResponse do
-            @node.process_response('option-4')
+            @node.process_response("option-4")
           end
         end
 
         should "raise InvalidResponse if option points to a non-existent node" do
-          @flow.stubs(:node_for_slug).with('question-2').returns(nil)
+          @flow.stubs(:node_for_slug).with("question-2").returns(nil)
           assert_raise InvalidResponse do
-            @node.process_response('option-2')
+            @node.process_response("option-2")
           end
         end
       end

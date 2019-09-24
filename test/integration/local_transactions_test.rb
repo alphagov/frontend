@@ -1,6 +1,6 @@
-require 'integration_test_helper'
-require 'gds_api/test_helpers/mapit'
-require 'gds_api/test_helpers/local_links_manager'
+require "integration_test_helper"
+require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/local_links_manager"
 
 class LocalTransactionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Mapit
@@ -9,7 +9,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   setup do
     mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
       { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => "westminster" },
-      { "name" => "Greater London Authority", "type" => "GLA" }
+      { "name" => "Greater London Authority", "type" => "GLA" },
     ])
 
     westminster = {
@@ -17,12 +17,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       "codes" => {
         "ons" => "00BK",
         "gss" => "E07000198",
-        "govuk_slug" => "westminster"
+        "govuk_slug" => "westminster",
       },
-      "name" => "Westminster"
+      "name" => "Westminster",
     }
 
-    mapit_has_area_for_code('govuk_slug', 'westminster', westminster)
+    mapit_has_area_for_code("govuk_slug", "westminster", westminster)
 
     @payload = {
       analytics_identifier: nil,
@@ -46,12 +46,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         lgsl_code: 461,
         lgil_override: 8,
         service_tiers: %w(county unitary),
-        introduction: "Information about paying local tax on owning or looking after a bear."
+        introduction: "Information about paying local tax on owning or looking after a bear.",
       },
-      external_related_links: []
+      external_related_links: [],
     }
 
-    content_store_has_item('/pay-bear-tax', @payload)
+    content_store_has_item("/pay-bear-tax", @payload)
   end
 
   context "given a local transaction with an interaction present" do
@@ -60,13 +60,13 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         authority_slug: "westminster",
         lgsl: 461,
         lgil: 8,
-        url: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update"
+        url: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
       )
     end
 
     context "when visiting the local transaction without specifying a location" do
       setup do
-        visit '/pay-bear-tax'
+        visit "/pay-bear-tax"
       end
 
       should "display the page content" do
@@ -88,8 +88,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "add google analytics tags for postcodeSearchStarted" do
-        track_category = page.find('.postcode-search-form')['data-track-category']
-        track_action = page.find('.postcode-search-form')['data-track-action']
+        track_category = page.find(".postcode-search-form")["data-track-category"]
+        track_action = page.find(".postcode-search-form")["data-track-action"]
 
         assert_equal "postcodeSearch:local_transaction", track_category
         assert_equal "postcodeSearchStarted", track_action
@@ -98,9 +98,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with a valid postcode" do
       setup do
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_on 'Find'
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "SW1A 1AA"
+        click_on "Find"
       end
 
       should "redirect to the appropriate authority slug" do
@@ -123,8 +123,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show link to change location" do
-        assert page.has_link?('Back')
-        assert_not page.has_link?('(change location)')
+        assert page.has_link?("Back")
+        assert_not page.has_link?("(change location)")
       end
     end
 
@@ -132,10 +132,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         mapit_does_not_have_a_postcode("AB1 2AB")
 
-        visit '/pay-bear-tax'
+        visit "/pay-bear-tax"
 
-        fill_in 'postcode', with: "AB1 2AB"
-        click_on 'Find'
+        fill_in "postcode", with: "AB1 2AB"
+        click_on "Find"
       end
 
       should "remain on the pay bear tax page" do
@@ -148,8 +148,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find('.gem-c-error-alert')['data-track-action']
-        track_label = page.find('.gem-c-error-alert')['data-track-label']
+        track_action = page.find(".gem-c-error-alert")["data-track-action"]
+        track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: fullPostcodeNoMapitMatch", track_action
         assert_equal "We couldn't find this postcode.", track_label
@@ -160,9 +160,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         mapit_does_not_have_a_bad_postcode("Not valid")
 
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "Not valid"
-        click_on 'Find'
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "Not valid"
+        click_on "Find"
       end
 
       should "remain on the local transaction page" do
@@ -182,8 +182,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find('.gem-c-error-alert')['data-track-action']
-        track_label = page.find('.gem-c-error-alert')['data-track-label']
+        track_action = page.find(".gem-c-error-alert")["data-track-action"]
+        track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
         assert_equal "This isn't a valid postcode.", track_label
@@ -192,9 +192,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with a banned postcode" do
       setup do
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "ENTERPOSTCODE"
-        click_on 'Find'
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "ENTERPOSTCODE"
+        click_on "Find"
       end
 
       should "remain on the local transaction page" do
@@ -214,8 +214,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find('.gem-c-error-alert')['data-track-action']
-        track_label = page.find('.gem-c-error-alert')['data-track-label']
+        track_action = page.find(".gem-c-error-alert")["data-track-action"]
+        track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
         assert_equal "This isn't a valid postcode.", track_label
@@ -224,9 +224,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with a blank postcode" do
       setup do
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: ""
-        click_on 'Find'
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: ""
+        click_on "Find"
       end
 
       should "remain on the local transaction page" do
@@ -238,8 +238,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find('.gem-c-error-alert')['data-track-action']
-        track_label = page.find('.gem-c-error-alert')['data-track-label']
+        track_action = page.find(".gem-c-error-alert")["data-track-action"]
+        track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
         assert_equal "This isn't a valid postcode.", track_label
@@ -250,9 +250,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       setup do
         mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "XM4 5HQ"
-        click_on 'Find'
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "XM4 5HQ"
+        click_on "Find"
       end
 
       should "see an error message" do
@@ -264,8 +264,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find('.gem-c-error-alert')['data-track-action']
-        track_label = page.find('.gem-c-error-alert')['data-track-label']
+        track_action = page.find(".gem-c-error-alert")["data-track-action"]
+        track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: noLaMatch", track_action
         assert_equal "We couldn't find a council for this postcode.", track_label
@@ -276,15 +276,15 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   context "given a local transaction without an interaction present" do
     setup do
       local_links_manager_has_no_link(
-        authority_slug: 'westminster',
+        authority_slug: "westminster",
         lgsl: 461,
-        lgil: 8
+        lgil: 8,
       )
     end
 
     context "when visiting the local transaction without specifying a location" do
       setup do
-        visit '/pay-bear-tax'
+        visit "/pay-bear-tax"
       end
 
       should "display the page content" do
@@ -299,9 +299,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with a valid postcode" do
       setup do
-        visit '/pay-bear-tax'
-        fill_in 'postcode', with: "SW1A 1AA"
-        click_on 'Find'
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "SW1A 1AA"
+        click_on "Find"
       end
 
       should "redirect to the appropriate authority slug" do
@@ -312,7 +312,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_content?("Search the Westminster website for this service")
       end
 
-      should 'link to the council website' do
+      should "link to the council website" do
         assert_has_button_as_link("Go to their website",
                                   href: "http://westminster.example.com",
                                   rel: "external",
@@ -324,12 +324,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show back link to go back and try a different postcode" do
-        assert page.has_link?('Back')
+        assert page.has_link?("Back")
       end
 
       should "add google analytics tags" do
-        track_category = page.find('.local-authority-result')['data-track-category']
-        track_action = page.find('.local-authority-result')['data-track-action']
+        track_category = page.find(".local-authority-result")["data-track-category"]
+        track_action = page.find(".local-authority-result")["data-track-action"]
 
         assert_equal "userAlerts:local_transaction", track_category
         assert_equal "postcodeResultShown:laMatchNoLink", track_action
@@ -340,15 +340,15 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   context "given no interaction present and a missing homepage url" do
     setup do
       local_links_manager_has_no_link_and_no_homepage_url(
-        authority_slug: 'westminster',
+        authority_slug: "westminster",
         lgsl: 461,
         lgil: 8,
       )
 
-      visit '/pay-bear-tax'
-      fill_in 'postcode', with: "SW1A 1AA"
+      visit "/pay-bear-tax"
+      fill_in "postcode", with: "SW1A 1AA"
 
-      click_on 'Find'
+      click_on "Find"
     end
 
     should "redirect to the appropriate authority slug" do
@@ -373,12 +373,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
 
     should "show back link to go back and try a different postcode" do
-      assert page.has_link?('Back')
+      assert page.has_link?("Back")
     end
 
     should "add google analytics tags" do
-      track_category = page.find('.local-authority-result')['data-track-category']
-      track_action = page.find('.local-authority-result')['data-track-action']
+      track_category = page.find(".local-authority-result")["data-track-category"]
+      track_action = page.find(".local-authority-result")["data-track-action"]
 
       assert_equal "userAlerts:local_transaction", track_category
       assert_equal "postcodeResultShown:laMatchNoLinkNoAuthorityUrl", track_action
@@ -390,9 +390,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       { "name" => "Welwyn Hatfield Borough Council", "type" => "DIS" },
     ])
 
-    visit '/pay-bear-tax'
-    fill_in 'postcode', with: "AL10 9AB"
-    click_on 'Find'
+    visit "/pay-bear-tax"
+    fill_in "postcode", with: "AL10 9AB"
+    click_on "Find"
 
     assert_current_url "/pay-bear-tax"
     assert_selector(".gem-c-error-alert", text: "We couldn't find a council for this postcode")

@@ -1,5 +1,5 @@
-require 'test_helper'
-require 'api_error_routing_constraint'
+require "test_helper"
+require "api_error_routing_constraint"
 
 class ApiErrorRoutingConstraintTest < ActiveSupport::TestCase
   should "return true if there's a cached error" do

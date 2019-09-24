@@ -8,7 +8,7 @@ class ContentFormatInspector
   end
 
   def format
-    content_item['schema_name']
+    content_item["schema_name"]
   end
 
 private

@@ -1,8 +1,8 @@
-require 'test_helper'
-require 'capybara/rails'
-require 'support/govuk_test'
+require "test_helper"
+require "capybara/rails"
+require "support/govuk_test"
 
-require 'slimmer/test'
+require "slimmer/test"
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
@@ -27,7 +27,7 @@ class ActionDispatch::IntegrationTest
     options[:deep_merge] ||= {}
     json = File.read(Rails.root.join("test/fixtures/#{options[:file]}"))
     content_item = JSON.parse(json).deep_merge(options[:deep_merge])
-    content_store_has_page(slug, schema: content_item['format'])
+    content_store_has_page(slug, schema: content_item["format"])
     content_item
   end
 

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class TransactionPresenterTest < ActiveSupport::TestCase
   def subject(content_item)
@@ -16,7 +16,7 @@ class TransactionPresenterTest < ActiveSupport::TestCase
           what_you_need_to_know: "hats",
           will_continue_on: "scarves",
           start_button_text: "Start now",
-        }
+        },
       }
     end
 
@@ -63,8 +63,8 @@ class TransactionPresenterTest < ActiveSupport::TestCase
       I18n.locale = :cy
       @item = {
         details: {
-          start_button_text: "Start now"
-        }
+          start_button_text: "Start now",
+        },
       }
     end
 

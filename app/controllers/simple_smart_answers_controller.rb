@@ -1,9 +1,9 @@
-require 'simple_smart_answers/flow'
+require "simple_smart_answers/flow"
 
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
 
-  slimmer_template 'wrapper'
+  slimmer_template "wrapper"
 
   before_action :set_expiry
   before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
@@ -11,7 +11,7 @@ class SimpleSmartAnswersController < ApplicationController
   def show; end
 
   def flow
-    responses = params[:responses].to_s.split('/')
+    responses = params[:responses].to_s.split("/")
     @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
     @flow_state = @flow.state_for_responses(responses)
 
@@ -25,7 +25,7 @@ private
 
   helper_method(
     :smart_answer_path_for_responses,
-    :change_completed_question_path
+    :change_completed_question_path,
   )
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})

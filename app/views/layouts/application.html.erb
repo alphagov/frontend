@@ -30,10 +30,10 @@
       <% end %>
 
       <% if local_assigns.exclude?(:full_width) %>
-        <div class="grid-row">
+        <div class="govuk-grid-row">
           <%= yield %>
         </div>
-        <div class="grid-row">
+        <div class="govuk-grid-row">
           <%= yield :after_content %>
         </div>
       <% else %>

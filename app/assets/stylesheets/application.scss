@@ -1,4 +1,3 @@
-$govuk-compatibility-govukfrontendtoolkit: true;
 $govuk-compatibility-govuktemplate: true;
 
 // BASE Stylesheet
@@ -6,15 +5,10 @@ $govuk-compatibility-govuktemplate: true;
 // Components from govuk_publishing_components gem
 @import 'govuk_publishing_components/all_components';
 
-// govuk_frontend_toolkit mixins
-@import "design-patterns/media-player";
-
 // local styleguide includes
 @import "styleguide/conditionals";
 
 // Helper stylesheets (things on more than one page layout)
-@import "helpers/player-container";
-@import "helpers/error-summary";
 @import "helpers/truncated-url";
 @import "helpers/title-context-reset";
 

@@ -22,14 +22,14 @@
 
     @include media-down(tablet) {
       display:block;
-      border-bottom: 1px solid $border-colour;
+      border-bottom: 1px solid $govuk-border-colour;
     }
 
     section {
       width:50%;
       vertical-align:bottom;
       display:table-cell;
-      border-bottom: 1px solid $border-colour;
+      border-bottom: 1px solid $govuk-border-colour;
 
       @include media-down(tablet) {
         display:block;
@@ -64,7 +64,7 @@
             margin-right: 10px;
 
           }
-          color: $grey-1;
+          color: govuk-colour("dark-grey", $legacy: "grey-1");
         }
       }
 
@@ -74,7 +74,7 @@
 
         .meta{
           @include govuk-font(16);
-          color: $grey-1;
+          color: govuk-colour("dark-grey", $legacy: "grey-1");
         }
       }
     }
@@ -114,7 +114,7 @@
   .country-metadata {
     padding: 0;
     margin: 0;
-    color: $secondary-text-colour;
+    color: $govuk-secondary-text-colour;
 
     li {
       @include govuk-font(16);

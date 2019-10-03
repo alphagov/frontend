@@ -14,7 +14,7 @@ body.homepage {
 .home-top {
   overflow: hidden;
   background: $govuk-brand-colour;
-  color: $white;
+  color: govuk-colour("white");
 }
 
 .home-top__inner {
@@ -45,7 +45,7 @@ body.homepage {
     width: 33.33%;
     box-sizing: border-box;
     padding: 15px 20px 25px 20px;
-    background: $black;
+    background: govuk-colour("black");
   }
 }
 
@@ -72,22 +72,22 @@ body.homepage {
 }
 
 .home-top__links-link {
-  color: $white;
+  color: govuk-colour("white");
 
   &:link,
   &:visited {
-    color: $white;
+    color: govuk-colour("white");
   }
 
   &:active,
   &:hover {
-    color: darken($white, 20%);
+    color: $govuk-hover-colour;
   }
 
   &:focus,
   &:link:focus {
     // Manually fix the most embarassing :focus contast issue, needs a wider fix
-    color: $black;
+    color: govuk-colour("black");
     text-decoration: none;
   }
 }
@@ -131,7 +131,7 @@ body.homepage {
 .home-divider {
   margin: 30px 0 15px 0;
   clear: both;
-  border: 5px solid $black;
+  border: 5px solid govuk-colour("black");
   border-width: 5px 0 0;
 
   @include govuk-media-query($from: tablet) {

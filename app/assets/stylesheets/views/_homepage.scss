@@ -101,12 +101,7 @@ body.homepage {
 }
 
 .homepage__ready-heading {
-  margin-bottom: govuk-spacing(2);
-}
-
-.homepage__ready-desc {
-  @include govuk-font(24);
-  margin-top: 0;
+  margin-bottom: govuk-spacing(4);
 }
 
 .home-services {

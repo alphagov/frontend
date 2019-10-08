@@ -17,7 +17,7 @@ gem 'sass-rails'
 gem 'slimmer', '~> 13.1.0'
 gem 'sprockets-rails', '~> 3.2.0'
 gem 'uglifier'
-gem 'uk_postcode', '~> 2.1.4'
+gem 'uk_postcode', '~> 2.1.5'
 gem 'asset_bom_removal-rails', '~> 1.0.0'
 
 group :development do

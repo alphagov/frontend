@@ -3,7 +3,7 @@ $govuk-compatibility-govuktemplate: true;
 // BASE Stylesheet
 
 // Components from govuk_publishing_components gem
-@import 'govuk_publishing_components/all_components';
+@import "govuk_publishing_components/all_components";
 
 // local styleguide includes
 @import "styleguide/conditionals";

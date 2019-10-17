@@ -1,6 +1,19 @@
 <% content_for :title, "Cookies on GOV.UK" %>
 
 <main id="content" role="main" class="group help-page cookie-settings">
+
+  <div class="cookie-settings__error" data-cookie-error="true">
+    <%= render "govuk_publishing_components/components/error_alert", {
+      message: "Please select 'On' or 'Off' for all cookie choices"
+    } %>
+  </div>
+
+  <div class="cookie-settings__warning" data-cookie-warning="true">
+    <%= render "govuk_publishing_components/components/notice", {
+      title: "Please choose settings below, but note that we're already setting cookies because you haven't yet made a choice"
+    } %>
+  </div>
+
   <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
     <%= render "govuk_publishing_components/components/notice", {
       title: t('cookies.confirmation_title'),
@@ -129,7 +142,6 @@
           </a>
         </p>
       <% end %>
-
       <%= render "govuk_publishing_components/components/button", {
         text: t('cookies.save_changes')
       } %>

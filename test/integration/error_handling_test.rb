@@ -1,6 +1,17 @@
 require "integration_test_helper"
 
 class ErrorHandlingTest < ActionDispatch::IntegrationTest
+  context "when the content store returns 403" do
+    should "return 403 status" do
+      url = content_store_endpoint + "/content/slug"
+      stub_request(:get, url).to_return(status: 403, headers: {})
+
+      visit "/slug"
+
+      assert_equal 403, page.status_code
+    end
+  end
+
   context "when the content store returns 404" do
     should "return 404 status" do
       content_store_does_not_have_item("/slug")

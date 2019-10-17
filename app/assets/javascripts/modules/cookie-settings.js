@@ -73,7 +73,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       window.GOVUK.setCookie("seen_cookie_message", true, { days: 365 })
     }
     this.hideWarningMessage()
-    this.hideErrorMessage()
+    if(errorMessage.style.display == "block") {
+      this.hideErrorMessage()
+    }
     this.showConfirmationMessage()
 
 

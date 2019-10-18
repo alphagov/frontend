@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPGone, with: :error_410
   rescue_from GdsApi::HTTPNotFound, with: :cacheable_404
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
+  rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from RecordNotFound, with: :cacheable_404
 
   if ENV["BASIC_AUTH_USERNAME"]
@@ -18,6 +19,8 @@ class ApplicationController < ActionController::Base
   end
 
 protected
+
+  def error_403; error :forbidden; end
 
   def error_410; error :gone; end
 

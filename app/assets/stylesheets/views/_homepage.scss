@@ -104,6 +104,11 @@ body.homepage {
   margin-bottom: govuk-spacing(4);
 }
 
+.homepage__ready-call-to-action {
+  @include govuk-font(19, $weight: bold);
+  margin-bottom: 0;
+}
+
 .home-services {
   padding-top: govuk-spacing(5);
 
@@ -130,7 +135,7 @@ body.homepage {
   border-width: 5px 0 0;
 
   @include govuk-media-query($from: tablet) {
-    margin: 60px 0 30px 0;
+    margin: 30px 0 30px 0;
   }
 }
 

@@ -38,19 +38,23 @@
       <h2 class="homepage__ready-heading govuk-heading-m"><%= I18n.t("homepage.get_ready") %></h2>
 
       <div class="govuk-grid-column-two-thirds govuk-!-padding-0">
-        <%= render "govuk_publishing_components/components/chevron_banner", {
-          href: "/get-ready-brexit-check",
-          text: "Check what you need to do",
-          data_attributes: {
-            "track-category": "startButtonClicked",
-            "track-action": "/get-ready-brexit-check",
-            "track-label": "Check what you need to do"
-          }
-        } %>
+        <p class="govuk-body">A Brexit deal has been agreed in principle with the EU.</p>
+        <p class="govuk-body">Both the UK and the EU need to approve and sign the withdrawal agreement.</p>
+        <p class="govuk-body homepage__ready-call-to-action">
+          <%= link_to "Find out what this means for you",
+            "/brexit",
+            class: "govuk-link",
+            data_attributes: {
+              "track-category": "brexit-homepage",
+              "track-action": "/brexit",
+              "track-label": "Find out what this means for you"
+            }
+          %>
+        </p>
       </div>
     </div>
 
-    <hr class="home-divider home-divider--thin" aria-hidden="true" />
+    <hr class="home-divider" aria-hidden="true" />
 
     <section class="home-services" aria-labelledby="services-and-information-label" id="services-and-information">
       <div class="govuk-grid-row">

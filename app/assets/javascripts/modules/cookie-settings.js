@@ -73,7 +73,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       window.GOVUK.setCookie("seen_cookie_message", true, { days: 365 })
     }
     this.hideWarningMessage()
-    if(errorMessage.style.display == "block") {
+
+    var errorMessage = document.querySelector('div[data-cookie-error]')
+    if(errorMessage !== null && errorMessage.style.display == "block") {
       this.hideErrorMessage()
     }
     this.showConfirmationMessage()
@@ -112,21 +114,26 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     confirmationMessage.style.display = "block"
   }
 
-  var errorMessage = document.querySelector('div[data-cookie-error]')
-
   CookieSettings.prototype.showErrorMessage = function () {
-    errorMessage.style.display = "block"
-    document.body.scrollTop = document.documentElement.scrollTop = 0
+    var errorMessage = document.querySelector('div[data-cookie-error]')
+    if (errorMessage !== null){
+      errorMessage.style.display = "block"
+      document.body.scrollTop = document.documentElement.scrollTop = 0
+    }
   }
 
   CookieSettings.prototype.hideErrorMessage = function () {
-    errorMessage.style.display = "none"
+    var errorMessage = document.querySelector('div[data-cookie-error]')
+    if (errorMessage !== null){
+      errorMessage.style.display = "none"
+    }
   }
 
-  var warningMessage = document.querySelector('div[data-cookie-warning]')
-
   CookieSettings.prototype.hideWarningMessage = function () {
-    warningMessage.style.display = "none"
+    var warningMessage = document.querySelector('div[data-cookie-warning]')
+    if (warningMessage !== null){
+      warningMessage.style.display = "none"
+    }
   }
 
   CookieSettings.prototype.getReferrerLink = function () {

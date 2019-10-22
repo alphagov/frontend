@@ -204,9 +204,7 @@ describe('cookieSettings', function() {
     });
   });
 
-
   describe('formBeforeUserSetsPreferences', function () {
-
 
     it('does not autofill any radio values', function() {
       GOVUK.setCookie('cookie_preferences_set', null);
@@ -250,12 +248,6 @@ describe('cookieSettings', function() {
     });
 
   });
-
-
-
-
-
-
 
 });
 

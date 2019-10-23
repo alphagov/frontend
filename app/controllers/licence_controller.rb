@@ -48,7 +48,7 @@ private
     return {} if @publication.continuation_link.present?
 
     begin
-      Services.licensify.details_for_licence(@publication.licence_identifier, snac)
+      GdsApi.licence_application.details_for_licence(@publication.licence_identifier, snac)
     rescue GdsApi::HTTPErrorResponse, GdsApi::TimedOutException
       {}
     end

@@ -6,5 +6,7 @@ require 'rake'
 require 'ci/reporter/rake/test_unit' if Rails.env.development? or Rails.env.test?
 require 'ci/reporter/rake/rspec' if Rails.env.development? or Rails.env.test?
 
-task default: [:lint, 'jasmine:ci']
 Frontend::Application.load_tasks
+
+Rake::Task["default"].clear
+task default: [:spec, :test, :lint, 'jasmine:ci']

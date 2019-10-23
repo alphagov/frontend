@@ -27,15 +27,11 @@ private
     return {} if error?
 
     @content_item ||= handle_api_errors do
-      content_store.content_item("/#{slug}")
+      GdsApi.content_store.content_item("/#{slug}")
     end
   end
 
   def error?
     @error.present?
-  end
-
-  def content_store
-    @content_store ||= Services.content_store
   end
 end

@@ -26,7 +26,7 @@ class ContentFormatInspectorTest < ActiveSupport::TestCase
   end
 
   def stub_content_store_raises(error)
-    Services.expects(:content_store).raises(error)
+    GdsApi.expects(:content_store).raises(error)
   end
 
   def set_content_item_format(format)
@@ -37,6 +37,6 @@ class ContentFormatInspectorTest < ActiveSupport::TestCase
   def stub_content_store
     content_store = stub
     content_store.expects(:content_item).returns(@content_item || {})
-    Services.expects(:content_store).returns(content_store)
+    GdsApi.expects(:content_store).returns(content_store)
   end
 end

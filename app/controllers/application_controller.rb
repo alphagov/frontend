@@ -73,7 +73,7 @@ protected
   end
 
   def content_item(base_path = "/#{params[:slug]}")
-    @content_item ||= Services.content_store.content_item(base_path)
+    @content_item ||= GdsApi.content_store.content_item(base_path)
   end
 
 private

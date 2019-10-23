@@ -1,17 +1,20 @@
 <% content_for :title, "Cookies on GOV.UK" %>
 
 <main id="content" role="main" class="group help-page cookie-settings govuk-grid-column-two-thirds">
+  <%= render "govuk_publishing_components/components/title", {
+    title: t('cookies.cookies_on_govuk'),
+  } %>
 
   <div class="cookie-settings__error" data-cookie-error="true">
     <%= render "govuk_publishing_components/components/error_alert", {
-      message: "Please select 'On' or 'Off' for all cookie choices"
+      message: "Please select 'On' or 'Off' for all cookie choices",
     } %>
   </div>
 
-  <div class="cookie-settings__warning" data-cookie-warning="true">
+  <div class="cookie-settings__warning govuk-!-margin-bottom-0" data-cookie-warning="true">
     <%= render "govuk_publishing_components/components/notice", {
       title: "Your cookie settings have not yet been saved",
-      description: "GOV.UK sets cookies when you visit our website. You can choose to change these settings to your own preferences. You need to save this page with your new choices."
+      description_text: "GOV.UK sets cookies when you visit our website. You can choose to change these settings to your own preferences. You need to save this page with your new choices.",
     } %>
   </div>
 
@@ -20,16 +23,12 @@
       title: t('cookies.confirmation_title'),
       aria_live: true,
     } do %>
-      <p><%= t('cookies.confirmation_message') %></p>
+      <p class="govuk-body govuk-!-margin-0"><%= t('cookies.confirmation_message') %></p>
       <a class="govuk_link cookie-settings__prev-page" href='#' data-module="track-click" data-track-category="cookieSettings" data-track-action="Back to previous page">
         <%= t('cookies.confirmation_previous_referrer_link') %>
       </a>
     <% end %>
   </div>
-
-  <%= render "govuk_publishing_components/components/title", {
-    title: t('cookies.cookies_on_govuk')
-  } %>
 
   <%= render "govuk_publishing_components/components/govspeak", {
   } do %>

@@ -26,7 +26,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     // We don't need the essential value as this cannot be changed by the user
     delete currentConsentCookieJSON["essential"]
 
-    // If user has selected options previoiusly re-select them, otherwise they must be left blank
+    // If user has selected options previously re-select them, otherwise they must be left blank
     if (preferencesSet) {
       this.hideWarningMessage()
       for (var cookieType in currentConsentCookieJSON) {
@@ -79,7 +79,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.hideErrorMessage()
     }
     this.showConfirmationMessage()
-
 
     return false
   }

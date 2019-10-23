@@ -44,3 +44,27 @@ en:
       local_authority_starts_with_the_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
     find_my_nearest:
       valid_postcode_no_locations: "We couldn't find any results for this postcode."
+  funding_form:
+    organisation_type:
+      title: Organisation type
+      description: |
+        The organisation must be a UK partner in the grant agreement.
+
+        If your organisation type is not listed, select ‘Other’.
+      options:
+        business:
+          label: Business
+          hint: UK based businesses
+        research:
+          label: Research
+          hint: Higher education and organisations registered with Je-S
+        research_and_technology:
+          label: Research and technology organisation
+          hint: Organisations which solely promote and conduct collaborative research and innovation
+        public_sector_or_charity:
+          label: Public sector, charity or non Je-S registered research organisation
+          hint: A not for profit public sector body or charity working on innovation
+        other:
+          label: Other
+          input:
+            label: Type of organisation

@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   get "/brexit-eu-funding" => "funding_form#index"
   get "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#show"
   post "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#submit"
-  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show"
+  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show", as: "organisation_type"
   post "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#submit"
   get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show"
   post "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#submit"

@@ -35,4 +35,8 @@ Rails.application.configure do
   config.eager_load = false
 
   config.active_support.test_order = :sorted
+
+  # Use test delivery method instead of sending emails to Notify
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_options = { from: "test@example.com" }
 end

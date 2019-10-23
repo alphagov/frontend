@@ -61,6 +61,9 @@ Rails.application.routes.draw do
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
   end
 
+  # Funding Form pages
+  get "/funding-form" => "funding_form#index"
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

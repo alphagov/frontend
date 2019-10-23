@@ -1,4 +1,5 @@
-.cookie-settings__form-wrapper {
+.cookie-settings__form-wrapper,
+.cookie-settings__warning {
   display: none;
 
   .js-enabled & {

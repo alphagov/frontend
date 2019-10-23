@@ -54,4 +54,6 @@ Rails.application.configure do
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = ENV["HEROKU_APP_NAME"] ? nil : "X-Sendfile"
+
+  config.action_mailer.delivery_method = :notify
 end

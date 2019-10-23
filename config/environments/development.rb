@@ -22,4 +22,8 @@ Rails.application.configure do
   config.assets.debug = true
 
   config.eager_load = false
+
+  # Log Action Mailer emails instead of sending them to Notify
+  config.action_mailer.delivery_method = :file
+  config.action_mailer.default_options = { from: "test@example.com" }
 end

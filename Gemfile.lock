@@ -156,6 +156,7 @@ GEM
     json (2.2.0)
     json-schema (2.8.1)
       addressable (>= 2.4)
+    jwt (2.2.1)
     kgio (2.11.2)
     kramdown (2.1.0)
     link_header (0.0.8)
@@ -187,6 +188,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
+    notifications-ruby-client (4.0.0)
+      jwt (>= 1.5, < 3)
     null_logger (0.0.1)
     parallel (1.18.0)
     parser (2.6.5.0)
@@ -413,6 +416,7 @@ DEPENDENCIES
   invalid_utf8_rejector (~> 0.0.0)
   jasmine (~> 3.5)
   mocha
+  notifications-ruby-client (~> 4.0)
   plek (~> 3.0.0)
   pry-byebug
   rack_strip_client_ip (~> 0.0.2)

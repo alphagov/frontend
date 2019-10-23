@@ -25,7 +25,7 @@
 
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
-      <% unless current_page?(root_path) %>
+      <% unless current_page?(root_path) || !@publication || !@presenter %>
         <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
       <% end %>
 

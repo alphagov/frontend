@@ -1,0 +1,61 @@
+<% content_for :title do %><%= t('funding_form.organisation_type.title') %> - GOV.UK<% end %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= t('funding_form.organisation_type.title') %>" />
+<% end %>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= form_tag do %>
+        <%= render "govuk_publishing_components/components/radio", {
+          heading: t('funding_form.organisation_type.title'),
+          description: t('funding_form.organisation_type.description'),
+          is_page_heading: true,
+          name: "funding[organisation][type]",
+          items: [
+            {
+              value: t('funding_form.organisation_type.options.business.label'),
+              text: t('funding_form.organisation_type.options.business.label'),
+              hint_text: t('funding_form.organisation_type.options.business.hint'),
+              bold: true
+            },
+            {
+              value: t('funding_form.organisation_type.options.research.label'),
+              text: t('funding_form.organisation_type.options.research.label'),
+              hint_text: t('funding_form.organisation_type.options.research.hint'),
+              bold: true
+            },
+            {
+              value: t('funding_form.organisation_type.options.research_and_technology.label'),
+              text: t('funding_form.organisation_type.options.research_and_technology.label'),
+              hint_text: t('funding_form.organisation_type.options.research_and_technology.hint'),
+              bold: true
+            },
+            {
+              value: t('funding_form.organisation_type.options.public_sector_or_charity.label'),
+              text: t('funding_form.organisation_type.options.public_sector_or_charity.label'),
+              hint_text: t('funding_form.organisation_type.options.public_sector_or_charity.hint'),
+              bold: true
+            },
+            {
+              value: t('funding_form.organisation_type.options.other.label'),
+              text: t('funding_form.organisation_type.options.other.label'),
+              bold: true,
+              conditional: render("govuk_publishing_components/components/input", {
+                label: {
+                  text: t('funding_form.organisation_type.options.other.input.label')
+                },
+                name: "funding[organisation][type]"
+              })
+            }
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/button", text: "Next", margin_bottom: true %>
+
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

@@ -7,14 +7,21 @@ RSpec.describe FundingForm::OrganisationTypeController do
   end
 
   describe "POST submit" do
-    before do
+    it "sets predefined option to session variables" do
       post :submit, params: {
         organisation_type: "business",
       }
+
+      expect(session[:organisation_type]).to eq "business"
     end
 
-    it "sets session variables" do
-      expect(session[:organisation_type]).to eq "business"
+    it "sets custom option to session variables" do
+      post :submit, params: {
+        organisation_type: "other",
+        organisation_type_other: "Other organisation name",
+      }
+
+      expect(session[:organisation_type]).to eq "Other organisation name"
     end
 
     it "redirects to next step" do

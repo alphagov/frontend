@@ -3,6 +3,12 @@
     schema: :article,
     content_item: @content_item %>
 
+<% if @schema %>
+<script type="application/ld+json">
+  <%= raw @schema.structured_data.to_json %>
+</script>
+<% end %>
+
   <% if @publication.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
   <% end %>

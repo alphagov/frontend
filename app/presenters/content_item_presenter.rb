@@ -6,7 +6,7 @@ class ContentItemPresenter
   end
 
   PASS_THROUGH_KEYS = %i(
-    base_path details description locale title
+    base_path content_id details description first_published_at locale title
   ).freeze
 
   PASS_THROUGH_KEYS.each do |key|

@@ -4,7 +4,7 @@ class FundingForm::ProjectDetailsController < ApplicationController
   end
 
   def submit
-    keys = %i[project_name total_amount_awarded]
+    keys = %i[project_name total_amount_awarded start_date_year start_date_month start_date_day end_date_year end_date_month end_date_day]
     keys.each do |key|
       session[key] = params[key]
     end

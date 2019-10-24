@@ -9,6 +9,6 @@ class FundingFormMailer < ApplicationMailer
   def department_email
     email_address = params[:to]
     @form = params[:form]
-    mail(to: email_address, subject: "Funding Form Submission")
+    mail(to: email_address, subject: "Registration as a recipient of EU funding")
   end
 end

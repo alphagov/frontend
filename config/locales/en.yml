@@ -136,3 +136,16 @@ en:
           label: Health for Growth
         option_10:
           label: Rights, Equality, and Citizenship Programme (RECP)
+    project_details:
+      title: Project details
+      project_name:
+        label: Name
+        hint: Enter the project name as it appears on the grant agreement or bid
+      amount_awarded:
+        label: Total amount awarded to your organisation in euros
+      award_start_date:
+        label: Start date
+        hint: For example, 12 11 2014
+      award_end_date:
+        label: End date
+        hint: For example, 12 11 2020

@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   post "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#submit"
   get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show", as: "organisation_type"
   post "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#submit"
-  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show"
+  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show", as: "organisation_details"
   post "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#submit"
 
   # route API errors to the error handler

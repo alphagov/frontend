@@ -3,12 +3,15 @@ class FundingFormMailer < ApplicationMailer
 
   def confirmation_email
     email_address = params[:to]
-    mail(to: email_address, subject: "Funding Form Confirmation")
+    @form = params[:form]
+    @reference_number = params[:reference_number]
+    mail(to: email_address, subject: "You’ve registered as an organisation getting EU funding")
   end
 
   def department_email
     email_address = params[:to]
     @form = params[:form]
+    @reference_number = params[:reference_number]
     mail(to: email_address, subject: "Registration as a recipient of EU funding")
   end
 end

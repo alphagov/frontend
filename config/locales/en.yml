@@ -59,23 +59,20 @@ en:
           label: Telephone number
     organisation_type:
       title: Organisation type
-      description: |
-        The organisation must be a UK partner in the grant agreement.
-
-        If your organisation type is not listed, select ‘Other’.
+      description: The organisation must be a UK partner in the grant agreement.
       options:
         business:
           label: Business
           hint: UK based businesses
         research:
           label: Research
-          hint: Higher education and organisations registered with Je-S
+          hint: Higher education institutions and organisations registered with Je-S
         research_and_technology:
           label: Research and technology organisation
           hint: Organisations which solely promote and conduct collaborative research and innovation
         public_sector_or_charity:
           label: Public sector, charity or non Je-S registered research organisation
-          hint: A not for profit public sector body or charity working on innovation
+          hint: Not for profit public sector bodies or charities working on innovation
         other:
           label: Other
           input:
@@ -136,3 +133,16 @@ en:
           label: Health for Growth
         option_10:
           label: Rights, Equality, and Citizenship Programme (RECP)
+    project_details:
+      title: Project details
+      project_name:
+        label: Name
+        hint: Enter the project name as it appears on the grant agreement or bid
+      amount_awarded:
+        label: Total amount awarded to your organisation in euros
+      award_start_date:
+        label: Start date
+        hint: For example, 12 11 2014
+      award_end_date:
+        label: End date
+        hint: For example, 12 11 2020

@@ -23,6 +23,15 @@ Rails.application.routes.draw do
   get "/tour", to: "help#tour"
   get "/help/cookies", to: "help#cookie_settings"
 
+  # Funding Form pages
+  get "/brexit-eu-funding" => "funding_form#index"
+  get "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#show"
+  post "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#submit"
+  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show", as: "organisation_type"
+  post "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#submit"
+  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show", as: "organisation_details"
+  post "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#submit"
+
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do
     get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"
@@ -60,15 +69,6 @@ Rails.application.routes.draw do
     post ":slug", to: "licence#start" # Support for postcode submission which we treat as confidential data
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
   end
-
-  # Funding Form pages
-  get "/brexit-eu-funding" => "funding_form#index"
-  get "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#show"
-  post "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact#submit"
-  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show"
-  post "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#submit"
-  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show"
-  post "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#submit"
 
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do

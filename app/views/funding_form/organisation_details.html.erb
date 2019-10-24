@@ -7,10 +7,70 @@
   <main class="govuk-main-wrapper" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <%= form_tag do %>
         <%= render "govuk_publishing_components/components/title", {
           title: t('funding_form.organisation_details.title'),
         } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.organisation_details.name.label'),
+            bold: true
+          },
+          name: "organisation_name",
+          value: session["organisation_name"],
+          hint: t('funding_form.organisation_details.name.hint')
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text:t('funding_form.organisation_details.company_house_number.label'),
+            bold: true
+          },
+          name: "company_house_or_charity_commission_number",
+          hint: t('funding_form.organisation_details.company_house_number.hint'),
+          value: session["company_house_or_charity_commission_number"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.organisation_details.address.address_line_1.label'),
+            bold: true
+          },
+          name: "address_line_1",
+          hint: t('funding_form.organisation_details.address.address_line_1.hint'),
+          value: session["address_line_1"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          name: "address_line_2",
+          value: session["address_line_2"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.organisation_details.address.town_or_city.label')
+          },
+          name: "address_town",
+          width: 20,
+          value: session["address_town"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.organisation_details.address.county.label')
+          },
+          name: "address_county",
+          width: 20,
+          value: session["address_county"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.organisation_details.address.postcode.label')
+          },
+          name: "address_postcode",
+          value: session["address_postcode"],
+          width: 10
+        } %>
+
+          <%= render "govuk_publishing_components/components/button", text: "Next", margin_bottom: true %>
+
+        <% end %>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 </div>

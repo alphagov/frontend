@@ -70,3 +70,21 @@ en:
             label: Type of organisation
     organisation_details:
       title: Organisation details
+      name:
+        label: Name
+        hint: Enter the name as it appears on the grant agreement or bid
+      company_house_number:
+        label: Company House or Charity Commission number
+        hint: If you have both, enter your Company House number
+      address:
+          address_line_1:
+            label: Address
+            hint: Building and street
+          address_line_2:
+            label:
+          town_or_city:
+            label: Town or city
+          county:
+            label: County
+          postcode:
+            label: Postcode

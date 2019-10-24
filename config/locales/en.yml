@@ -111,3 +111,28 @@ en:
             label: Enter your grant agreement number
         grant_no:
           label: "No"
+    programme_funding:
+      title: What programme do you receive funding from?
+      description: |
+        If you have not yet received funding, select the programme you applied to.
+      options:
+        option_1:
+          label: Civil Protection Mechanism
+        option_2:
+          label: Competitiveness of Small and Medium-Sized Enterprises (COSME)
+        option_3:
+          label: Connecting Europe Facility (CEF) telecoms
+        option_4:
+          label: Creative Europe
+        option_5:
+          label: Employment and Social Innovation (EaSI)
+        option_6:
+          label: Erasmus+
+        option_7:
+          label: Europe for Citizens
+        option_8:
+          label: European Solidarity Corps
+        option_9:
+          label: Health for Growth
+        option_10:
+          label: Rights, Equality, and Citizenship Programme (RECP)

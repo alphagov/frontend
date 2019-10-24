@@ -1,5 +1,7 @@
 class FundingForm::CheckAnswersController < ApplicationController
-  def show; end
+  def show
+    render "funding_form/check_answers"
+  end
 
   def submit; end
 

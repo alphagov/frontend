@@ -7,7 +7,7 @@ RSpec.describe FundingFormMailer do
 
       expect(mail.to).to eq([email_address])
       expect(mail.subject).to eq("Funding Form Confirmation")
-      expect(mail.body.to_s).to include("Confirmation of funding form.")
+      expect(mail.body.to_s).to include("Thank you for filling in the funding form.")
     end
   end
 

@@ -32,14 +32,50 @@
         <%= render "govuk_publishing_components/components/date_input", {
           legend_text: t('funding_form.project_details.award_start_date.label'),
           hint: t('funding_form.project_details.award_start_date.hint'),
-          name: "award_start_date",
-          value: session["award_start_date"]
+          items: [
+            {
+              label: "Day",
+              name: "start_date_day",
+              width: 2,
+              value: session["start_date_day"]
+            },
+            {
+              label: "Month",
+              name: "start_date_month",
+              width: 2,
+              value: session["start_date_month"]
+            },
+            {
+              label: "Year",
+              name: "start_date_year",
+              width: 4,
+              value: session["start_date_year"]
+            }
+          ]
         } %>
         <%= render "govuk_publishing_components/components/date_input", {
           legend_text: t('funding_form.project_details.award_end_date.label'),
           hint: t('funding_form.project_details.award_end_date.hint'),
-          name: "award_end_date",
-          value: session["award_end_date"]
+          items: [
+            {
+              label: "Day",
+              name: "end_date_day",
+              width: 2,
+              value: session["end_date_day"]
+            },
+            {
+              label: "Month",
+              name: "end_date_month",
+              width: 2,
+              value: session["end_date_month"]
+            },
+            {
+              label: "Year",
+              name: "end_date_year",
+              width: 4,
+              value: session["end_date_year"]
+            }
+          ]
         } %>
         <%= render "govuk_publishing_components/components/button", text: "Save and continue", margin_bottom: true %>
         <% end %>

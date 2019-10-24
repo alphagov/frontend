@@ -23,7 +23,8 @@ class TransactionTest < ActionDispatch::IntegrationTest
         links: {},
         description: "Descriptive carrots text.",
         details: {
-          introductory_paragraph: "This is the introduction to carrots",
+          introductory_paragraph: "This is the introduction to carrots
+          <h2>Next bit</h2>If you'd like some carrots, you need to prove that you're not a rabbit",
           transaction_start_link: "http://carrots.example.com",
           will_continue_on: "Carrotworld",
           start_button_text: "Eat Carrots Now",
@@ -68,6 +69,63 @@ class TransactionTest < ActionDispatch::IntegrationTest
       within(".help-notice") do
         assert page.has_content?("CarrotServe will be offline next week.")
       end
+    end
+
+    should "present the FAQ schema correctly" do
+      register_a_carrot = @payload.merge(base_path: "/register-a-carrot", content_id: "834a7921-260b-4061-9de1-edda3e998c68")
+      content_store_has_item("/register-a-carrot", register_a_carrot)
+
+      visit "/register-a-carrot"
+
+      assert_equal 200, page.status_code
+
+      schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+      schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
+
+      faq_schema = schemas.detect { |schema| schema["@type"] == "FAQPage" }
+
+      expected_faq = {
+        "@context" => "http://schema.org",
+        "@type" => "FAQPage",
+        "headline" => "Carrots",
+        "datePublished" => "2016-02-29T09:24:10.000+00:00",
+        "dateModified" => "2012-10-22T13:49:50.000+01:00",
+        "description" => "Descriptive carrots text.",
+        "publisher" => {
+          "@type" => "Organization",
+          "name" => "GOV.UK",
+          "url" => "https://www.gov.uk",
+          "logo" => {
+            "@type" => "ImageObject",
+            "url" => "/frontend/govuk_publishing_components/govuk-logo-e5962881254c9adb48f94d2f627d3bb67f258a6cbccc969e80abb7bbe4622976.png",
+          },
+        },
+        "mainEntity" =>
+          [
+            {
+              "@type" => "Question",
+              "name" => "Next bit",
+              "url" => "http://www.dev.gov.uk/register-a-carrot",
+              "acceptedAnswer" => {
+                "@type" => "Answer",
+                "url" => "http://www.dev.gov.uk/register-a-carrot",
+                "text" => "If you'd like some carrots, you need to prove that you're not a rabbit<p><a href=\"http://carrots.example.com\">Eat Carrots Now</a></p>\n",
+              },
+            },
+            {
+              "@type" => "Question",
+              "name" => "What you need to know",
+              "url" => "http://www.dev.gov.uk/register-a-carrot#what-you-need-to-know",
+              "acceptedAnswer" => {
+                "@type" => "Answer",
+                "url" => "http://www.dev.gov.uk/register-a-carrot#what-you-need-to-know",
+                "text" => "Includes carrots",
+              },
+            },
+          ],
+        }
+
+      assert_equal expected_faq, faq_schema
     end
   end
 

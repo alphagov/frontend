@@ -62,9 +62,9 @@ Rails.application.routes.draw do
   end
 
   # Funding Form pages
-  get "/funding-form" => "funding_form#index"
-  get "/funding-form/organisation-name" => "funding_form/organisation_name#show"
-  post "/funding-form/organisation-name" => "funing_form/organisation_name#submit"
+  get "/brexit-eu-funding" => "funding_form#index"
+  get "/brexit-eu-funding/organisation-name" => "funding_form/organisation_name#show"
+  post "/brexit-eu-funding/organisation-name" => "funding_form/organisation_name#submit"
 
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do

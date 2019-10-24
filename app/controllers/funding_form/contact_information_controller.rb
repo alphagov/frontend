@@ -1,6 +1,6 @@
-class FundingForm::ContactController < ApplicationController
+class FundingForm::ContactInformationController < ApplicationController
   def show
-    render "funding_form/contact"
+    render "funding_form/contact_information"
   end
 
   def submit

@@ -68,3 +68,5 @@ en:
           label: Other
           input:
             label: Type of organisation
+    organisation_details:
+      title: Organisation details

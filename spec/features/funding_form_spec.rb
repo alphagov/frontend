@@ -9,7 +9,7 @@ RSpec.feature "Register as an organisation which gets funding directly from the 
   def when_i_choose_an_organisation_type
     visit organisation_type_path
     choose "Research"
-    click_on "Next"
+    click_on "Save and continue"
   end
 
   def then_i_see_the_choose_an_organisation_details_page

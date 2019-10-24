@@ -44,7 +44,6 @@ group :test do
   gem "rspec-rails", "~> 3.7"
   gem 'shoulda-context'
   gem 'simplecov'
-  gem 'simplecov-rcov'
   gem 'timecop'
   gem 'webmock', require: false
 end

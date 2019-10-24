@@ -6,7 +6,9 @@ class FundingFormMailer < ApplicationMailer
     mail(to: email_address, subject: "Funding Form Confirmation")
   end
 
-  def backend_email(email_address)
-    mail(to: email_address, subject: "Funding Form")
+  def department_email
+    email_address = params[:to]
+    @form = params[:form]
+    mail(to: email_address, subject: "Funding Form Submission")
   end
 end

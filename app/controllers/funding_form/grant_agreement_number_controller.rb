@@ -4,7 +4,7 @@ class FundingForm::GrantAgreementNumberController < ApplicationController
   end
 
   def submit
-    session[:grant_agreement_number] = params[:grant_agreement_number]
+    session[:grant_agreement_number] = params[:grant_agreement_number_yes] || params[:grant_agreement_number]
     redirect_to controller: "funding_form/programme", action: "show"
   end
 end

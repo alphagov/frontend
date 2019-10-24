@@ -67,8 +67,6 @@ module Frontend
       "X-Frame-Options" => "ALLOWALL",
     }
 
-    config.middleware.delete ActionDispatch::Cookies
-    config.middleware.delete ActionDispatch::Session::CookieStore
     config.action_controller.allow_forgery_protection = false
 
     config.active_job.queue_adapter = :sidekiq

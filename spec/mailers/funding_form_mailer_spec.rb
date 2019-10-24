@@ -39,7 +39,7 @@ RSpec.describe FundingFormMailer do
       mail = described_class.with(to: email_address, form: form).department_email
 
       expect(mail.to).to eq([email_address])
-      expect(mail.subject).to eq("Funding Form Submission")
+      expect(mail.subject).to eq("Registration as a recipient of EU funding")
       form.values.each do |value|
         expect(mail.body.to_s).to include(value)
       end

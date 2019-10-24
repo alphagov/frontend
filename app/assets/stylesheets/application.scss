@@ -9,6 +9,7 @@ $govuk-compatibility-govuktemplate: true;
 @import "styleguide/conditionals";
 
 // Helper stylesheets (things on more than one page layout)
+@import "helpers/overwrites";
 @import "helpers/truncated-url";
 @import "helpers/title-context-reset";
 

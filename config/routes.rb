@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   post "/brexit-eu-funding/do-you-have-a-grant-agreement-number" => "funding_form/grant_agreement_number#submit"
   get "/brexit-eu-funding/what-programme-do-you-receive-funding-from" => "funding_form/programme#show"
   post "/brexit-eu-funding/what-programme-do-you-receive-funding-from" => "funding_form/programme#submit"
+  get "/brexit-eu-funding/project-details" => "funding_form/project_details#show"
+  post "/brexit-eu-funding/project-details" => "funding_form/project_details#submit"
 
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do

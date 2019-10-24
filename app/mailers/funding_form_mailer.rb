@@ -1,7 +1,8 @@
 class FundingFormMailer < ApplicationMailer
   self.delivery_job = EmailDeliveryJob
 
-  def confirmation_email(email_address)
+  def confirmation_email
+    email_address = params[:to]
     mail(to: email_address, subject: "Funding Form Confirmation")
   end
 

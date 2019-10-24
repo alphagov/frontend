@@ -3,7 +3,7 @@ RSpec.describe FundingFormMailer do
 
   describe "#confirmation_email" do
     it "creates an email for the email address" do
-      mail = described_class.confirmation_email(email_address)
+      mail = described_class.with(to: email_address).confirmation_email
 
       expect(mail.to).to eq([email_address])
       expect(mail.subject).to eq("Funding Form Confirmation")

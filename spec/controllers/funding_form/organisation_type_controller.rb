@@ -10,6 +10,7 @@ RSpec.describe FundingForm::OrganisationTypeController do
     it "sets predefined option to session variables" do
       post :submit, params: {
         organisation_type: "business",
+        organisation_type_other: "",
       }
 
       expect(session[:organisation_type]).to eq "business"
@@ -25,6 +26,7 @@ RSpec.describe FundingForm::OrganisationTypeController do
     end
 
     it "redirects to next step" do
+      post :submit
       expect(response).to redirect_to("/brexit-eu-funding/organisation-details")
     end
   end

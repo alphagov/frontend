@@ -6,7 +6,7 @@ class FundingForm::CompaniesHouseNumberController < ApplicationController
   end
 
   def submit
-    session[:company_house_or_charity_commision_number] = sanitize(params[:company_house_or_charity_commision_number_other]).presence || sanitize(params[:company_house_or_charity_commision_number])
+    session[:companies_house_or_charity_commission_number] = sanitize(params[:companies_house_or_charity_commission_number_other]).presence || sanitize(params[:companies_house_or_charity_commission_number])
     redirect_to controller: "funding_form/grant_agreement_number", action: "show"
   end
 end

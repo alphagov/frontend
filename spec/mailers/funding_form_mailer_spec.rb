@@ -9,7 +9,7 @@ RSpec.describe FundingFormMailer do
       "telephone_number" => "012345",
       "organisation_type" => "Computers",
       "organisation_name" => "A name",
-      "company_house_or_charity_commission_number" => "789",
+      "companies_house_or_charity_commission_number" => "789",
       "address_line_1" => "First line of address",
       "address_line_2" => "Second line of address",
       "address_town" => "Town of address",

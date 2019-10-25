@@ -11,7 +11,7 @@ class FundingForm::CheckAnswersController < ApplicationController
 
     mailer = FundingFormMailer.with(form: session.to_h, reference_number: submission_reference)
     mailer.confirmation_email(session[:email_address]).deliver_later
-    mailer.department_email("grants.registration@cabinetoffice.gov.uk").deliver_later
+    mailer.department_email(session[:email_address]).deliver_later
 
     reset_session
 

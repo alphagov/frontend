@@ -97,6 +97,16 @@ en:
             label: County
           postcode:
             label: Postcode
+    company_house_or_charity_commision_number:
+        title: Do you have a Companies House or Charity Commission number?
+        options:
+          number_yes:
+            label: "Yes"
+            hint: UK based businesses
+            input:
+              label: If you have both, enter your Companies House number
+          number_no:
+            label: "No"
     grant_agreement_number:
       title: Do you have a grant agreement number?
       description: It might be called a project ID, proposal ID or action number.

@@ -25,15 +25,13 @@
                 name: "grant_agreement_number_other",
                 value: session[:grant_agreement_number] == "No" ? "" : session[:grant_agreement_number],
                 width: 10
-              }),
-              bold: true
+              })
             },
             {
               value: t('funding_form.grant_agreement_number.options.grant_no.label'),
               text: t('funding_form.grant_agreement_number.options.grant_no.label'),
-              checked: session[:grant_agreement_number]==t('funding_form.grant_agreement_number.options.grant_no.label'),
-              bold: true
-            },
+              checked: session[:grant_agreement_number]==t('funding_form.grant_agreement_number.options.grant_no.label')
+            }
           ]
         } %>
         <%= render "govuk_publishing_components/components/button", text: "Save and continue", margin_bottom: true %>

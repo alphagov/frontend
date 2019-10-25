@@ -47,6 +47,7 @@ en:
   funding_form:
     errors:
       heading: "There is a problem"
+      radio_field: "Select "
       missing_mandatory_text_field: "Enter "
     contact_information:
       title: Who should we contact about the grant award?

@@ -48,5 +48,17 @@ RSpec.describe FundingForm::ProjectDetailsController do
 
       expect(response).to render_template("funding_form/project_details")
     end
+
+    it "catches an invalid date" do
+      params["start_date_day"] = "A"
+      params["start_date_month"] = "A"
+      params["start_date_year"] = "A"
+      params["end_date_day"] = "A"
+      params["end_date_month"] = "A"
+      params["end_date_year"] = "A"
+      post :submit, params: params
+
+      expect(response).to render_template("funding_form/project_details")
+    end
   end
 end

@@ -23,12 +23,12 @@ RSpec.describe FundingForm::ProjectDetailsController do
     it "sets session variables" do
       expect(session[:project_name]).to eq "Researching something interesting"
       expect(session[:total_amount_awarded]).to eq "1000000"
-      expect(session[:start_date]).to eq "2019-06-10"
-      expect(session[:end_date]).to eq "2021-07-04"
+      expect(session[:award_start_date]).to eq "2019-06-10"
+      expect(session[:award_end_date]).to eq "2021-07-04"
     end
 
     it "redirects to next step" do
-      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+      expect(response).to redirect_to("/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk")
     end
   end
 end

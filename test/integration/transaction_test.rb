@@ -127,6 +127,44 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       assert_equal expected_faq, faq_schema
     end
+
+    should "contain GovernmentService schema.org information" do
+      carrot_service_with_org = @payload.merge(
+        links: {
+          organisations: [
+            {
+              title: "Department for Carrots",
+              web_url: "https://www.gov.uk/department-for-carrots",
+            },
+          ],
+        },
+      )
+      content_store_has_item("/carrots", carrot_service_with_org)
+
+      visit "/carrots"
+
+      schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+      schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
+
+      service_schema = schemas.detect { |schema| schema["@type"] == "GovernmentService" }
+
+      expected_service = {
+        "@context" => "http://schema.org",
+        "@type" => "GovernmentService",
+        "name" => "Carrots",
+        "description" => "Descriptive carrots text.",
+        "url" => "http://www.dev.gov.uk/carrots",
+        "provider" => [
+          {
+            "@type" => "GovernmentOrganization",
+            "name" => "Department for Carrots",
+            "url" => "https://www.gov.uk/department-for-carrots",
+          },
+        ],
+      }
+
+      assert_equal expected_service, service_schema
+    end
   end
 
   context "jobsearch page" do

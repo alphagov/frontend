@@ -45,6 +45,9 @@ en:
     find_my_nearest:
       valid_postcode_no_locations: "We couldn't find any results for this postcode."
   funding_form:
+    errors:
+      heading: "There is a problem"
+      missing_mandatory_text_field: "Enter "
     contact_information:
       title: Who should we contact about the grant award?
       description: We suggest using your Legal Entity Appointed Representative (LEAR).

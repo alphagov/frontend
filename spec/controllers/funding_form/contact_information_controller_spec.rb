@@ -1,8 +1,8 @@
-RSpec.describe FundingForm::ContactController do
+RSpec.describe FundingForm::ContactInformationController do
   describe "GET show" do
     it "renders the form" do
       get :show
-      expect(response).to render_template("funding_form/contact")
+      expect(response).to render_template("funding_form/contact_information")
     end
   end
 

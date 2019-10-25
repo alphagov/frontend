@@ -6,7 +6,7 @@ class FundingForm::CheckAnswersController < ApplicationController
   end
 
   def submit
-    session[:additonal_comments] = sanitize(params[:additonal_comments])
+    session[:additional_comments] = sanitize(params[:additional_comments])
     submission_reference = reference_number
 
     mailer = FundingFormMailer.with(form: session.to_h, reference_number: submission_reference)

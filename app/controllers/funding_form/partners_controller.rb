@@ -17,7 +17,7 @@ class FundingForm::PartnersController < ApplicationController
     )
 
     if invalid_fields.any?
-      flash[:validation] = invalid_fields
+      flash.now[:validation] = invalid_fields
       render "funding_form/partners"
     else
       redirect_to controller: "funding_form/check_answers", action: "show"

@@ -14,7 +14,7 @@ class FundingForm::OrganisationDetailsController < ApplicationController
     end
     invalid_fields = validate_mandatory_text_fields(mandatory_text_fields, "organisation_details")
     if invalid_fields.any?
-      flash[:validation] = invalid_fields
+      flash.now[:validation] = invalid_fields
       render "funding_form/organisation_details"
     else
       redirect_to controller: "funding_form/companies_house_number", action: "show"

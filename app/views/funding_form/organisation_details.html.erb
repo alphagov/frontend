@@ -22,15 +22,6 @@
         } %>
         <%= render "govuk_publishing_components/components/input", {
           label: {
-            text:t('funding_form.organisation_details.company_house_number.label'),
-            bold: true
-          },
-          name: "company_house_or_charity_commission_number",
-          hint: t('funding_form.organisation_details.company_house_number.hint'),
-          value: session["company_house_or_charity_commission_number"],
-        } %>
-        <%= render "govuk_publishing_components/components/input", {
-          label: {
             text: t('funding_form.organisation_details.address.address_line_1.label'),
             bold: true
           },

@@ -13,6 +13,8 @@ class FundingForm::CheckAnswersController < ApplicationController
     mailer.confirmation_email(session[:email_address]).deliver_later
     mailer.department_email("grants.registration@cabinetoffice.gov.uk").deliver_later
 
+    reset_session
+
     redirect_to controller: "funding_form/confirmation", action: "show", reference_number: submission_reference
   end
 

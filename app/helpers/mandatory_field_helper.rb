@@ -8,4 +8,15 @@ module MandatoryFieldHelper
     end
     invalid_fields
   end
+
+  def validate_date_fields(year, month, day, field)
+    invalid_fields = []
+    invalid_fields << { text: t("funding_form.errors.missing_year", field: field) } if year == ""
+    invalid_fields << { text: t("funding_form.errors.missing_month", field: field) } if month == ""
+    invalid_fields << { text: t("funding_form.errors.missing_day", field: field) } if day == ""
+    unless(Date.valid_date?(year.to_i, month.to_i, day.to_i))
+      invalid_fields << { text: t("funding_form.errors.invalid_date", field: field) }
+    end
+    invalid_fields
+  end
 end

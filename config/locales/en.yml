@@ -49,6 +49,10 @@ en:
       heading: "There is a problem"
       missing_mandatory_text_field: "Enter "
       invalid_money: "Total amount awarded must be an amount of money, like 15000"
+      missing_year: "%{field} must include a year"
+      missing_month: "%{field} must include a month"
+      missing_day: "%{field} must include a day"
+      invalid_date: "Enter a real %{field}"
     contact_information:
       title: Who should we contact about the grant award?
       description: We suggest using your Legal Entity Appointed Representative (LEAR).

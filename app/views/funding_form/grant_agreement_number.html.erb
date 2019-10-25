@@ -17,13 +17,13 @@
             {
               value: t('funding_form.grant_agreement_number.options.grant_yes.label'),
               text: t('funding_form.grant_agreement_number.options.grant_yes.label'),
-              checked: session[:grant_agreement_number_yes],
+              checked: session[:grant_agreement_number] != "No",
               conditional: render("govuk_publishing_components/components/input", {
                 label: {
                   text: t('funding_form.grant_agreement_number.options.grant_yes.input.label'),
                 },
                 name: "grant_agreement_number_other",
-                value: session[:grant_agreement_number_yes],
+                value: session[:grant_agreement_number] == "No" ? "" : session[:grant_agreement_number],
                 width: 10
               }),
               bold: true

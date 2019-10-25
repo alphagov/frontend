@@ -1,3 +1,5 @@
 class FundingForm::ConfirmationController < ApplicationController
-  def show; end
+  def show
+    render "funding_form/confirmation"
+  end
 end

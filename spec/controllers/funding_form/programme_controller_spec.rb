@@ -9,11 +9,11 @@ RSpec.describe FundingForm::ProgrammeController do
   describe "POST submit" do
     before do
       post :submit, params: {
-        funding_programme: "Erasmus+",
+        funding_programme: "<script></script>Erasmus+",
       }
     end
 
-    it "sets session variables" do
+    it "sets sanitised session variables" do
       expect(session[:funding_programme]).to eq "Erasmus+"
     end
 

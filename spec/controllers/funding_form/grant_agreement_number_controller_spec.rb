@@ -9,14 +9,14 @@ RSpec.describe FundingForm::GrantAgreementNumberController do
   describe "POST submit" do
     it "sets session variables where a grant agreement number is given" do
       post :submit, params: {
-        grant_agreement_number: "Yes",
-        grant_agreement_number_other: "1234",
+        grant_agreement_number: "<script></script>Yes",
+        grant_agreement_number_other: "<script></script>1234",
       }
 
       expect(session[:grant_agreement_number]).to eq "1234"
     end
 
-    it "sets session variables where a grant agreement number is not given" do
+    it "sets sanitised session variables where a grant agreement number is not given" do
       post :submit, params: {
         grant_agreement_number: "No",
         grant_agreement_number_other: "",

@@ -9,16 +9,16 @@ RSpec.describe FundingForm::OrganisationDetailsController do
   describe "POST submit" do
     before do
       post :submit, params: {
-        organisation_name: "Cabinet Office",
-        address_line_1: "70 Whitehall",
-        address_line_2: "Westminster",
-        address_town: "London",
-        address_county: "Greater London",
-        address_postcode: "SW1A 2AS",
+        organisation_name: "<script></script>Cabinet Office",
+        address_line_1: "<script></script>70 Whitehall",
+        address_line_2: "<script></script>Westminster",
+        address_town: "<script></script>London",
+        address_county: "<script></script>Greater London",
+        address_postcode: "<script></script>SW1A 2AS",
       }
     end
 
-    it "sets session variables" do
+    it "sets sanitised session variables" do
       expect(session[:organisation_name]).to eq "Cabinet Office"
       expect(session[:address_line_1]).to eq "70 Whitehall"
       expect(session[:address_line_2]).to eq "Westminster"

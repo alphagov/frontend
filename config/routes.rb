@@ -25,11 +25,11 @@ Rails.application.routes.draw do
 
   # Funding Form pages
   get "/brexit-eu-funding" => "funding_form#index"
-  get "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact_information#show"
+  get "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact_information#show", as: "contact_information"
   post "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact_information#submit"
-  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show", as: "organisation_type"
+  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show"
   post "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#submit"
-  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show", as: "organisation_details"
+  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show"
   post "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#submit"
   get "/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number" => "funding_form/companies_house_number#show"
   post "/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number" => "funding_form/companies_house_number#submit"

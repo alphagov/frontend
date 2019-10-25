@@ -19,4 +19,16 @@ module MandatoryFieldHelper
     end
     invalid_fields
   end
+
+  def validate_radio_field(page, radio:, other: false)
+    if radio.blank?
+      return [{ text: t("funding_form.errors.radio_field") + t("funding_form.#{page}.title") }]
+    end
+
+    if other != false && other.blank? && %w(Yes Other).include?(radio)
+      return [{ text: t("funding_form.errors.missing_mandatory_text_field") + t("funding_form.#{page}.title") }]
+    end
+
+    []
+  end
 end

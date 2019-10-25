@@ -4,7 +4,7 @@ class FundingForm::OrganisationTypeController < ApplicationController
   end
 
   def submit
-    session[:organisation_type] = params[:organisation_type_other] || params[:organisation_type]
+    session[:organisation_type] = params[:organisation_type_other].presence || params[:organisation_type]
 
     redirect_to controller: "funding_form/organisation_details", action: "show"
   end

@@ -41,5 +41,12 @@ RSpec.describe FundingForm::ProjectDetailsController do
 
       expect(response).to render_template("funding_form/project_details")
     end
+
+    it "catches an invalid amount of money" do
+      params["total_amount_awarded"] = "One million euros"
+      post :submit, params: params
+
+      expect(response).to render_template("funding_form/project_details")
+    end
   end
 end

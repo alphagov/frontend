@@ -48,6 +48,7 @@ en:
     errors:
       heading: "There is a problem"
       missing_mandatory_text_field: "Enter "
+      invalid_money: "Total amount awarded must be an amount of money, like 15000"
     contact_information:
       title: Who should we contact about the grant award?
       description: We suggest using your Legal Entity Appointed Representative (LEAR).

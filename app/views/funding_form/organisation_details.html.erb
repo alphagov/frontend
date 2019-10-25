@@ -7,7 +7,10 @@
   <main class="govuk-main-wrapper" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <%= form_tag do %>
+        <%= form_tag({},
+          "data-module": "track-funding-form",
+          "data-question-key": "organisation_details"
+        ) do %>
         <%= render "govuk_publishing_components/components/title", {
           title: t('funding_form.organisation_details.title'),
         } %>

@@ -7,7 +7,10 @@
   <main class="govuk-main-wrapper" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <%= form_tag do %>
+        <%= form_tag({},
+          "data-module": "track-funding-form",
+          "data-question-key": "grant_agreement_number"
+        ) do %>
         <%= render "govuk_publishing_components/components/radio", {
           heading: t('funding_form.grant_agreement_number.title'),
           is_page_heading: true,

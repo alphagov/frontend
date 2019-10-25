@@ -1,6 +1,6 @@
-<% content_for :title do %><%= t('funding_form.company_house_or_charity_commision_number.title') %> - GOV.UK<% end %>
+<% content_for :title do %><%= t('funding_form.companies_house_or_charity_commission_number.title') %> - GOV.UK<% end %>
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= t('funding_form.company_house_or_charity_commision_number.title') %>" />
+  <meta name="description" content="<%= t('funding_form.companies_house_or_charity_commission_number.title') %>" />
 <% end %>
 
 <div class="govuk-width-container">
@@ -9,27 +9,27 @@
       <div class="govuk-grid-column-two-thirds">
         <%= form_tag do %>
         <%= render "govuk_publishing_components/components/radio", {
-          heading: t('funding_form.company_house_or_charity_commision_number.title'),
+          heading: t('funding_form.companies_house_or_charity_commission_number.title'),
           is_page_heading: true,
-          name: "company_house_or_charity_commision_number",
+          name: "companies_house_or_charity_commission_number",
           items: [
             {
-              value: t('funding_form.company_house_or_charity_commision_number.options.number_yes.label'),
-              text: t('funding_form.company_house_or_charity_commision_number.options.number_yes.label'),
-              checked: session[:company_house_or_charity_commision_number] != t('funding_form.company_house_or_charity_commision_number.options.number_no.label'),
+              value: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
+              text: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
+              checked: session[:companies_house_or_charity_commission_number] != t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
               conditional: render("govuk_publishing_components/components/input", {
                 label: {
-                  text: t('funding_form.company_house_or_charity_commision_number.options.number_yes.input.label'),
+                  text: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.input.label'),
                 },
-                name: "company_house_or_charity_commision_number_other",
-                value: session[:company_house_or_charity_commision_number] == t('funding_form.company_house_or_charity_commision_number.options.number_no.label') ? "" : session[:company_house_or_charity_commision_number],
+                name: "companies_house_or_charity_commission_number_other",
+                value: session[:companies_house_or_charity_commission_number] == t('funding_form.companies_house_or_charity_commission_number.options.number_no.label') ? "" : session[:companies_house_or_charity_commission_number],
                 width: 10
               })
             },
             {
-              value: t('funding_form.company_house_or_charity_commision_number.options.number_no.label'),
-              text: t('funding_form.company_house_or_charity_commision_number.options.number_no.label'),
-              checked: session[:company_house_or_charity_commision_number]==t('funding_form.company_house_or_charity_commision_number.options.number_no.label')
+              value: t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
+              text: t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
+              checked: session[:companies_house_or_charity_commission_number]==t('funding_form.companies_house_or_charity_commission_number.options.number_no.label')
             },
           ]
         } %>

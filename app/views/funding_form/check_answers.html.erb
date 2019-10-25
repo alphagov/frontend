@@ -71,7 +71,7 @@
             },
             {
               field: t('funding_form.check_your_answers.section_2.company_house_number'),
-              value: session["company_house_or_charity_commission_number"],
+              value: session["companies_house_or_charity_commission_number"],
               edit: {
                 href: "do-you-have-a-companies-house-or-charity-commission-number"
               },
@@ -92,7 +92,7 @@
             },
             {
               field: t('funding_form.check_your_answers.section_3.programme'),
-              value: session["programme"],
+              value: session["funding_programme"],
               edit: {
                 href: "what-programme-do-you-receive-funding-from"
               },
@@ -113,14 +113,14 @@
             },
             {
               field: t('funding_form.check_your_answers.section_3.award_start_date'),
-              value: session["total_amount_awarded"],
+              value: session["award_start_date"],
               edit: {
                 href: "project-details"
               },
             },
             {
               field: t('funding_form.check_your_answers.section_3.award_end_date'),
-              value: session["total_amount_awarded"],
+              value: session["award_end_date"],
               edit: {
                 href: "project-details"
               },

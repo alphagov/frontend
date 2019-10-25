@@ -15,22 +15,22 @@
           description: t('funding_form.grant_agreement_number.description'),
           items: [
             {
-              value: t('funding_form.grant_agreement_number.options.grant_yes.label'),
-              text: t('funding_form.grant_agreement_number.options.grant_yes.label'),
-              checked: session[:grant_agreement_number] != "No",
+              value: t('funding_form.grant_agreement_number.options.grant_yes'),
+              text: t('funding_form.grant_agreement_number.options.grant_yes'),
+              checked: session[:grant_agreement_number] != t('funding_form.grant_agreement_number.options.grant_yes'),
               conditional: render("govuk_publishing_components/components/input", {
                 label: {
-                  text: t('funding_form.grant_agreement_number.options.grant_yes.input.label'),
+                  text: t('funding_form.grant_agreement_number.options.yes_input.label'),
                 },
                 name: "grant_agreement_number_other",
-                value: session[:grant_agreement_number] == "No" ? "" : session[:grant_agreement_number],
+                value: session[:grant_agreement_number] == t('funding_form.grant_agreement_number.options.grant_yes') ? "" : session[:grant_agreement_number],
                 width: 10
               })
             },
             {
-              value: t('funding_form.grant_agreement_number.options.grant_no.label'),
-              text: t('funding_form.grant_agreement_number.options.grant_no.label'),
-              checked: session[:grant_agreement_number]==t('funding_form.grant_agreement_number.options.grant_no.label')
+              value: t('funding_form.grant_agreement_number.options.grant_no'),
+              text: t('funding_form.grant_agreement_number.options.grant_no'),
+              checked: session[:grant_agreement_number]==t('funding_form.grant_agreement_number.options.grant_no')
             }
           ]
         } %>

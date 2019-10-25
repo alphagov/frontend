@@ -97,7 +97,7 @@ en:
             label: County
           postcode:
             label: Postcode
-    company_house_or_charity_commision_number:
+    companies_house_or_charity_commission_number:
         title: Do you have a Companies House or Charity Commission number?
         options:
           number_yes:
@@ -111,13 +111,11 @@ en:
       title: Do you have a grant agreement number?
       description: It might be called a project ID, proposal ID or action number.
       options:
-        grant_yes:
-          label: Yes
-          hint: UK based businesses
-          input:
-            label: Enter your grant agreement number
-        grant_no:
-          label: No
+        grant_yes: "Yes"
+        yes_hint: UK based businesses
+        yes_input:
+          label: Enter your grant agreement number
+        grant_no: "No"
     programme_funding:
       title: What programme do you receive funding from?
       description: |
@@ -158,9 +156,8 @@ en:
         hint: For example, 12 11 2020
     outside_uk_participants:
       title: Does the project have partners or participants outside the UK?
-      options:
-        yes: Yes
-        no: No
+      option_yes: "Yes"
+      option_no: "No"
     check_your_answers:
       title: Check your answers
       section_1:

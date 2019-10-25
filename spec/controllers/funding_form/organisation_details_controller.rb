@@ -10,7 +10,6 @@ RSpec.describe FundingForm::OrganisationDetailsController do
     before do
       post :submit, params: {
         organisation_name: "Cabinet Office",
-        company_house_or_charity_commission_number: "1234",
         address_line_1: "70 Whitehall",
         address_line_2: "Westminster",
         address_town: "London",
@@ -21,7 +20,6 @@ RSpec.describe FundingForm::OrganisationDetailsController do
 
     it "sets session variables" do
       expect(session[:organisation_name]).to eq "Cabinet Office"
-      expect(session[:company_house_or_charity_commission_number]).to eq "1234"
       expect(session[:address_line_1]).to eq "70 Whitehall"
       expect(session[:address_line_2]).to eq "Westminster"
       expect(session[:address_town]).to eq "London"
@@ -30,7 +28,7 @@ RSpec.describe FundingForm::OrganisationDetailsController do
     end
 
     it "redirects to next step" do
-      expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-grant-agreement-number")
+      expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number")
     end
   end
 end

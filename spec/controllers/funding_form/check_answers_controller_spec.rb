@@ -12,6 +12,10 @@ RSpec.describe FundingForm::CheckAnswersController do
   end
 
   describe "POST submit" do
+    before do
+      allow_any_instance_of(described_class).to receive(:reference_number).and_return("ABC")
+    end
+
     it "queues up two emails" do
       expect {
         post :submit
@@ -28,7 +32,7 @@ RSpec.describe FundingForm::CheckAnswersController do
 
     it "redirects to next step" do
       post :submit
-      expect(response).to redirect_to("/brexit-eu-funding/confirmation")
+      expect(response).to redirect_to(controller: "funding_form/confirmation", action: :show, reference_number: "ABC")
     end
   end
 end

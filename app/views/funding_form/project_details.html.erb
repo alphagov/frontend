@@ -9,7 +9,10 @@
       <div class="govuk-grid-column-two-thirds">
         <%= render "funding_form/validation_error" %>
 
-        <%= form_tag do %>
+        <%= form_tag({},
+          "data-module": "track-funding-form",
+          "data-question-key": "project_details"
+        ) do %>
         <%= render "govuk_publishing_components/components/title", {
           title: t('funding_form.project_details.title'),
         } %>

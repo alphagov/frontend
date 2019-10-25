@@ -47,6 +47,7 @@ en:
   funding_form:
     errors:
       heading: "There is a problem"
+      radio_field: "Select "
       missing_mandatory_text_field: "Enter "
       invalid_money: "Total amount awarded must be an amount of money, like 15000"
       missing_year: "%{field} must include a year"

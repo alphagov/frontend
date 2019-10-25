@@ -10,7 +10,7 @@
         <%= render "govuk_publishing_components/components/panel", {
           title: "Registration complete",
           description: sanitize("Your reference number<br>
-            <strong>HDJ2123F</strong>
+            <strong>#{params[:reference_number]}</strong>
             ")
         } %>
         <div class="gem-c-govspeak govuk-govspeak ">

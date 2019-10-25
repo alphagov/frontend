@@ -15,20 +15,20 @@
         } %>
         <%= render "govuk_publishing_components/components/input", {
           label: {
-            text: t('funding_form.organisation_details.name.label'),
+            text: t('funding_form.organisation_details.organisation_name.label'),
             bold: true
           },
           name: "organisation_name",
           value: session["organisation_name"],
-          hint: t('funding_form.organisation_details.name.hint')
+          hint: t('funding_form.organisation_details.organisation_name.hint')
         } %>
         <%= render "govuk_publishing_components/components/input", {
           label: {
-            text: t('funding_form.organisation_details.address.address_line_1.label'),
+            text: t('funding_form.organisation_details.address_line_1.label'),
             bold: true
           },
           name: "address_line_1",
-          hint: t('funding_form.organisation_details.address.address_line_1.hint'),
+          hint: t('funding_form.organisation_details.address_line_1.hint'),
           value: session["address_line_1"],
         } %>
         <%= render "govuk_publishing_components/components/input", {
@@ -37,7 +37,7 @@
         } %>
         <%= render "govuk_publishing_components/components/input", {
           label: {
-            text: t('funding_form.organisation_details.address.town_or_city.label')
+            text: t('funding_form.organisation_details.address_town.label')
           },
           name: "address_town",
           width: 20,
@@ -45,7 +45,7 @@
         } %>
         <%= render "govuk_publishing_components/components/input", {
           label: {
-            text: t('funding_form.organisation_details.address.county.label')
+            text: t('funding_form.organisation_details.address_county.label')
           },
           name: "address_county",
           width: 20,
@@ -53,7 +53,7 @@
         } %>
         <%= render "govuk_publishing_components/components/input", {
           label: {
-            text: t('funding_form.organisation_details.address.postcode.label')
+            text: t('funding_form.organisation_details.address_postcode.label')
           },
           name: "address_postcode",
           value: session["address_postcode"],

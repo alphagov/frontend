@@ -161,6 +161,31 @@ en:
       options:
         yes: Yes
         no: No
+    check_your_answers:
+      title: Check your answers
+      section_1:
+        heading: Contact details
+      section_2:
+        heading: Organisation
+        organisation_type: Type
+        organisation_name: Name
+        organisation_address: Address
+        company_house_number: Companies House or Charity Commission number
+      section_3:
+        heading: Project
+        grant_agreement_number: Grant agreement number
+        programme: Programme
+        project_name: Project name
+        total_amount_awarded: Total amount awarded
+        award_start_date: Start date
+        award_end_date: End date
+        non_uk_partners: Non UK partners
+      section_4:
+        heading: Add a note
+        description: Enter any information you think we need to know
+      section_5:
+        heading: Now send your details
+        description: By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the EU programme you receive funding from.
     confirmation:
       title: Registration complete
       description: We have sent a confirmation email to the address you gave.

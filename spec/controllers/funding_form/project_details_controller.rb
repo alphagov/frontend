@@ -28,7 +28,7 @@ RSpec.describe FundingForm::ProjectDetailsController do
     end
 
     it "redirects to next step" do
-      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+      expect(response).to redirect_to("/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk")
     end
   end
 end

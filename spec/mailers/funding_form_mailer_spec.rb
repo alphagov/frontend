@@ -51,6 +51,7 @@ RSpec.describe FundingFormMailer do
       form.values.each do |value|
         expect(mail.body.to_s).to include(value)
       end
+      expect(mail.body.to_s).to include("|First line of address, Second line of address, Town of address, County of address|")
       expect(mail.body.to_s).to include(reference_number)
     end
   end

@@ -146,3 +146,9 @@ en:
       award_end_date:
         label: End date
         hint: For example, 12 11 2020
+    confirmation:
+      title: Registration complete
+      description: We have sent a confirmation email to the address you gave.
+      heading: What happens next
+      paragraph_1: We will send your details to the government department responsible for the fund you’ve said you receive.
+      paragraph_2: They will contact you either to confirm your registration, or to ask for more information.

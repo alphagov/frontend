@@ -19,7 +19,7 @@ class FundingForm::GrantAgreementNumberController < ApplicationController
     )
 
     if invalid_fields.any?
-      flash[:validation] = invalid_fields
+      flash.now[:validation] = invalid_fields
       render "funding_form/grant_agreement_number"
     else
       redirect_to controller: "funding_form/programme", action: "show"

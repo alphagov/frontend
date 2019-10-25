@@ -18,7 +18,7 @@ class FundingForm::ProjectDetailsController < ApplicationController
     invalid_fields << validate_date_fields(session[:end_date_year], session[:end_date_month], session[:end_date_day], "End day")
     invalid_fields = invalid_fields.flatten
     if invalid_fields.any?
-      flash[:validation] = invalid_fields
+      flash.now[:validation] = invalid_fields
       render "funding_form/project_details"
     else
       session[:award_start_date] = DateTime.new(params[:start_date_year].to_i, params[:start_date_month].to_i, params[:start_date_day].to_i).strftime("%Y-%m-%d")

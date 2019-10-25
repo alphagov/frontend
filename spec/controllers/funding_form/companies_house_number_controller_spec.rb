@@ -9,8 +9,8 @@ RSpec.describe FundingForm::CompaniesHouseNumberController do
   describe "POST submit" do
     it "sets session variables when no number is given" do
       post :submit, params: {
-        company_house_or_charity_commision_number: "No",
-        company_house_or_charity_commision_number_other: "",
+        company_house_or_charity_commision_number: "<script></script>No",
+        company_house_or_charity_commision_number_other: "<script></script>",
       }
 
       expect(session[:company_house_or_charity_commision_number]).to eq "No"
@@ -18,8 +18,8 @@ RSpec.describe FundingForm::CompaniesHouseNumberController do
 
     it "sets session variables when a number is given" do
       post :submit, params: {
-        company_house_or_charity_commision_number: "Yes",
-        company_house_or_charity_commision_number_other: "1234",
+        company_house_or_charity_commision_number: "<script></script>Yes",
+        company_house_or_charity_commision_number_other: "<script></script>1234",
       }
 
       expect(session[:company_house_or_charity_commision_number]).to eq "1234"

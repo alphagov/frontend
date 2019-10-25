@@ -9,8 +9,8 @@ RSpec.describe FundingForm::ProjectDetailsController do
   describe "POST submit" do
     before do
       post :submit, params: {
-        project_name: "Researching something interesting",
-        total_amount_awarded: "1000000",
+        project_name: "<script></script>Researching something interesting",
+        total_amount_awarded: "<script></script>1000000",
         start_date_day: "10",
         start_date_month: "6",
         start_date_year: "2019",
@@ -20,7 +20,7 @@ RSpec.describe FundingForm::ProjectDetailsController do
       }
     end
 
-    it "sets session variables" do
+    it "sets sanitised session variables" do
       expect(session[:project_name]).to eq "Researching something interesting"
       expect(session[:total_amount_awarded]).to eq "1000000"
       expect(session[:award_start_date]).to eq "2019-06-10"

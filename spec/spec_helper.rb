@@ -9,6 +9,8 @@ require "slimmer/rspec"
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 SimpleCov.start
 
+ActiveJob::Base.queue_adapter = :test
+
 RSpec.configure do |config|
   config.expose_dsl_globally = false
   config.infer_spec_type_from_file_location!

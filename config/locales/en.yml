@@ -100,7 +100,7 @@ en:
             label: County
           postcode:
             label: Postcode
-    company_house_or_charity_commision_number:
+    companies_house_or_charity_commission_number:
         title: Do you have a Companies House or Charity Commission number?
         options:
           number_yes:
@@ -114,13 +114,11 @@ en:
       title: Do you have a grant agreement number?
       description: It might be called a project ID, proposal ID or action number.
       options:
-        grant_yes:
-          label: Yes
-          hint: UK based businesses
-          input:
-            label: Enter your grant agreement number
-        grant_no:
-          label: No
+        grant_yes: "Yes"
+        yes_hint: UK based businesses
+        yes_input:
+          label: Enter your grant agreement number
+        grant_no: "No"
     programme_funding:
       title: What programme do you receive funding from?
       description: |
@@ -161,9 +159,33 @@ en:
         hint: For example, 12 11 2020
     outside_uk_participants:
       title: Does the project have partners or participants outside the UK?
-      options:
-        yes: Yes
-        no: No
+      option_yes: "Yes"
+      option_no: "No"
+    check_your_answers:
+      title: Check your answers
+      section_1:
+        heading: Contact details
+      section_2:
+        heading: Organisation
+        organisation_type: Type
+        organisation_name: Name
+        organisation_address: Address
+        company_house_number: Companies House or Charity Commission number
+      section_3:
+        heading: Project
+        grant_agreement_number: Grant agreement number
+        programme: Programme
+        project_name: Project name
+        total_amount_awarded: Total amount awarded
+        award_start_date: Start date
+        award_end_date: End date
+        non_uk_partners: Non UK partners
+      section_4:
+        heading: Add a note
+        description: Enter any information you think we need to know
+      section_5:
+        heading: Now send your details
+        description: By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the EU programme you receive funding from.
     confirmation:
       title: Registration complete
       description: We have sent a confirmation email to the address you gave.

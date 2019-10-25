@@ -1,0 +1,157 @@
+<% content_for :title do %><%= t('funding_form.check_your_answers.title') %> - GOV.UK<% end %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= t('funding_form.check_your_answers.title') %>" />
+<% end %>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <%= render "govuk_publishing_components/components/title", {
+          title: t('funding_form.check_your_answers.title'),
+        } %>
+        <%= render "govuk_publishing_components/components/summary_list", {
+          title: t('funding_form.check_your_answers.section_1.heading'),
+          items: [
+            {
+              field: t('funding_form.contact_information.full_name.label'),
+              value: session["full_name"],
+              edit: {
+                href: "who-should-we-contact-about-the-grant-award",
+              }
+            },
+            {
+              field: t('funding_form.contact_information.job_title.label'),
+              value: session["job_title"],
+              edit: {
+                href: "who-should-we-contact-about-the-grant-award",
+              },
+            },
+            {
+              field: t('funding_form.contact_information.email_address.label'),
+              value: session["email_address"],
+              edit: {
+                href: "who-should-we-contact-about-the-grant-award",
+              },
+            },
+            {
+              field: t('funding_form.contact_information.telephone_number.label'),
+              value: session["telephone_number"],
+              edit: {
+                href: "who-should-we-contact-about-the-grant-award",
+              },
+            },
+
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/summary_list", {
+          title: t('funding_form.check_your_answers.section_2.heading'),
+          items: [
+            {
+              field: t('funding_form.check_your_answers.section_2.organisation_type'),
+              value: session[:organisation_type],
+              edit: {
+                href: "organisation-type",
+              }
+            },
+            {
+              field: t('funding_form.check_your_answers.section_2.organisation_name'),
+              value: session["organisation_name"],
+              edit: {
+                href: "organisation-details"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_2.organisation_address'),
+              value: session["address_line_1"]+' '+ session["address_line_2"].to_s + ' ' + session["town_or_city"].to_s + ' ' + session["address_county"].to_s  + ' ' + session["address_postcode"].to_s ,
+              edit: {
+                href: "organisation-details"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_2.company_house_number'),
+              value: session["companies_house_or_charity_commission_number"],
+              edit: {
+                href: "do-you-have-a-companies-house-or-charity-commission-number"
+              },
+            },
+
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/summary_list", {
+          title: t('funding_form.check_your_answers.section_3.heading'),
+          items: [
+            {
+              field: t('funding_form.check_your_answers.section_3.grant_agreement_number'),
+              value: session["grant_agreement_number"],
+              edit: {
+                href: "do-you-have-a-grant-agreement-number",
+              }
+            },
+            {
+              field: t('funding_form.check_your_answers.section_3.programme'),
+              value: session["funding_programme"],
+              edit: {
+                href: "what-programme-do-you-receive-funding-from"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_3.project_name'),
+              value: session["project_name"],
+              edit: {
+                href: "project-details"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_3.total_amount_awarded'),
+              value: session["total_amount_awarded"],
+              edit: {
+                href: "project-details"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_3.award_start_date'),
+              value: session["award_start_date"],
+              edit: {
+                href: "project-details"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_3.award_end_date'),
+              value: session["award_end_date"],
+              edit: {
+                href: "project-details"
+              },
+            },
+            {
+              field: t('funding_form.check_your_answers.section_3.non_uk_partners'),
+              value: session["partners_outside_uk"],
+              edit: {
+                href: "does-the-project-have-partners-or-participants-outside-the-uk"
+              },
+            },
+
+          ]
+        } %>
+
+        <%= form_tag do %>
+          <%= render "govuk_publishing_components/components/textarea", {
+            label: {
+              text: t('funding_form.check_your_answers.section_4.heading'),
+              bold: true
+            },
+            hint: t('funding_form.check_your_answers.section_4.description'),
+            name: "additonal_comments"
+          } %>
+
+          <h2 class="govuk-heading-m"><%= t('funding_form.check_your_answers.section_5.heading') %><h2>
+          <p class="govuk-body"><%= t('funding_form.check_your_answers.section_5.description') %></p>
+
+          <%= render "govuk_publishing_components/components/button", text: "Accept and send", margin_bottom: true %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

@@ -19,8 +19,8 @@ RSpec.describe FundingFormMailer do
       "funding_programme" => "Erasmus",
       "project_name" => "Whitehall",
       "total_amount_awarded" => "1000",
-      "start_date" => "24 October",
-      "end_date" => "25 October",
+      "award_start_date" => "24 October",
+      "award_end_date" => "25 October",
       "additional_comments" => "This is a\ncomment.",
     }
   end

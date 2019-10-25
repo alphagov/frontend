@@ -25,5 +25,10 @@ RSpec.describe FundingForm::CheckAnswersController do
       expect(department_email[:args].first).to eq("FundingFormMailer")
       expect(department_email[:args].second).to eq("department_email")
     end
+
+    it "redirects to next step" do
+      post :submit
+      expect(response).to redirect_to("/brexit-eu-funding/confirmation")
+    end
   end
 end

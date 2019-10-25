@@ -1,9 +1,13 @@
 class FundingForm::CheckAnswersController < ApplicationController
+  include ActionView::Helpers::SanitizeHelper
+
   def show
     render "funding_form/check_answers"
   end
 
   def submit
+    session[:additonal_comments] = sanitize(params[:additonal_comments])
+
     mailer = FundingFormMailer.with(form: session.to_h, reference_number: reference_number)
     mailer.confirmation_email(session[:email_address]).deliver_later
     mailer.department_email("grants.registration@cabinetoffice.gov.uk").deliver_later

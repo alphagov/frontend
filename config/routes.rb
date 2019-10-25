@@ -23,6 +23,29 @@ Rails.application.routes.draw do
   get "/tour", to: "help#tour"
   get "/help/cookies", to: "help#cookie_settings"
 
+  # Funding Form pages
+  get "/brexit-eu-funding" => "funding_form#index"
+  get "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact_information#show"
+  post "/brexit-eu-funding/who-should-we-contact-about-the-grant-award" => "funding_form/contact_information#submit"
+  get "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#show", as: "organisation_type"
+  post "/brexit-eu-funding/organisation-type" => "funding_form/organisation_type#submit"
+  get "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#show", as: "organisation_details"
+  post "/brexit-eu-funding/organisation-details" => "funding_form/organisation_details#submit"
+  get "/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number" => "funding_form/companies_house_number#show"
+  post "/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number" => "funding_form/companies_house_number#submit"
+  get "/brexit-eu-funding/do-you-have-a-grant-agreement-number" => "funding_form/grant_agreement_number#show"
+  post "/brexit-eu-funding/do-you-have-a-grant-agreement-number" => "funding_form/grant_agreement_number#submit"
+  get "/brexit-eu-funding/what-programme-do-you-receive-funding-from" => "funding_form/programme#show"
+  post "/brexit-eu-funding/what-programme-do-you-receive-funding-from" => "funding_form/programme#submit"
+  get "/brexit-eu-funding/project-details" => "funding_form/project_details#show"
+  post "/brexit-eu-funding/project-details" => "funding_form/project_details#submit"
+  get "/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk" => "funding_form/partners#show"
+  post "/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk" => "funding_form/partners#submit"
+  get "/brexit-eu-funding/check-your-answers" => "funding_form/check_answers#show"
+  post "/brexit-eu-funding/check-your-answers" => "funding_form/check_answers#submit"
+  get "/brexit-eu-funding/confirmation" => "funding_form/confirmation#show"
+
+
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do
     get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"

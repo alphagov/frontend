@@ -1,0 +1,44 @@
+<% content_for :title do %><%= t('funding_form.companies_house_or_charity_commission_number.title') %> - GOV.UK<% end %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= t('funding_form.companies_house_or_charity_commission_number.title') %>" />
+<% end %>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "funding_form/validation_error" %>
+
+        <%= form_tag do %>
+        <%= render "govuk_publishing_components/components/radio", {
+          heading: t('funding_form.companies_house_or_charity_commission_number.title'),
+          is_page_heading: true,
+          name: "companies_house_or_charity_commission_number",
+          items: [
+            {
+              value: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
+              text: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
+              checked: session[:companies_house_or_charity_commission_number] != t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
+              conditional: render("govuk_publishing_components/components/input", {
+                label: {
+                  text: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.input.label'),
+                },
+                hint: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.input.hint'),
+                name: "companies_house_or_charity_commission_number_other",
+                value: session[:companies_house_or_charity_commission_number] == t('funding_form.companies_house_or_charity_commission_number.options.number_no.label') ? "" : session[:companies_house_or_charity_commission_number],
+                width: 10
+              })
+            },
+            {
+              value: t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
+              text: t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
+              checked: session[:companies_house_or_charity_commission_number]==t('funding_form.companies_house_or_charity_commission_number.options.number_no.label')
+            },
+          ]
+        } %>
+        <%= render "govuk_publishing_components/components/button", text: "Save and continue", margin_bottom: true %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

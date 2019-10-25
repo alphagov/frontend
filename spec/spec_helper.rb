@@ -4,9 +4,12 @@ require "simplecov"
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
+require "slimmer/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 SimpleCov.start
+
+ActiveJob::Base.queue_adapter = :test
 
 RSpec.configure do |config|
   config.expose_dsl_globally = false

@@ -1,0 +1,56 @@
+<% content_for :title do %><%= t('funding_form.contact_information.title') %> - GOV.UK<% end %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= t('funding_form.contact_information.title') %>" />
+<% end %>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "funding_form/validation_error" %>
+
+        <%= form_tag do %>
+        <%= render "govuk_publishing_components/components/title", {
+          title: t('funding_form.contact_information.title'),
+        } %>
+        <%= tag.p t('funding_form.contact_information.description'), class: "govuk-body"%>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.contact_information.full_name.label'),
+            bold: true
+          },
+          name: "full_name",
+          value: session["full_name"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text:t('funding_form.contact_information.job_title.label'),
+            bold: true
+          },
+          name: "job_title",
+          value: session["job_title"],
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.contact_information.email_address.label'),
+            bold: true
+          },
+          name: "email_address",
+          hint: t('funding_form.contact_information.email_address.hint'),
+          value: session["email_address"]
+        } %>
+        <%= render "govuk_publishing_components/components/input", {
+          label: {
+            text: t('funding_form.contact_information.telephone_number.label'),
+            bold: true
+          },
+          name: "telephone_number",
+          width: 20,
+          value: session["telephone_number"]
+        } %>
+        <%= render "govuk_publishing_components/components/button", text: "Save and continue", margin_bottom: true %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

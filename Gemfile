@@ -20,6 +20,7 @@ gem 'sprockets-rails', '~> 3.2.0'
 gem 'uglifier'
 gem 'uk_postcode', '~> 2.1.5'
 gem 'asset_bom_removal-rails', '~> 1.0.0'
+gem "notifications-ruby-client", "~> 4.0"
 
 group :development do
   gem 'better_errors'
@@ -43,7 +44,6 @@ group :test do
   gem "rspec-rails", "~> 3.9"
   gem 'shoulda-context'
   gem 'simplecov'
-  gem 'simplecov-rcov'
   gem 'timecop'
   gem 'webmock', require: false
 end

@@ -1,0 +1,16 @@
+.gem-c-fieldset {
+  .govuk-fieldset__legend {
+    font-weight: bold;
+  }
+}
+
+.govuk-fieldset__legend {
+  .gem-c-title__text {
+    margin-top: govuk-spacing(8);
+    margin-bottom: govuk-spacing(8);
+  }
+}
+
+.gem-c-summary-list {
+  border: 0;
+}

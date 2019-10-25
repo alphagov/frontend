@@ -3,6 +3,7 @@ require_relative "boot"
 require "action_controller/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
+require "action_mailer/railtie"
 
 if defined?(Bundler)
   Bundler.require(*Rails.groups)
@@ -66,8 +67,8 @@ module Frontend
       "X-Frame-Options" => "ALLOWALL",
     }
 
-    config.middleware.delete ActionDispatch::Cookies
-    config.middleware.delete ActionDispatch::Session::CookieStore
     config.action_controller.allow_forgery_protection = false
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

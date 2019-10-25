@@ -7,8 +7,8 @@ RSpec.describe FundingForm::OrganisationDetailsController do
   end
 
   describe "POST submit" do
-    before do
-      post :submit, params: {
+    let(:params) do
+      {
         organisation_name: "<script></script>Cabinet Office",
         address_line_1: "<script></script>70 Whitehall",
         address_line_2: "<script></script>Westminster",
@@ -19,6 +19,8 @@ RSpec.describe FundingForm::OrganisationDetailsController do
     end
 
     it "sets sanitised session variables" do
+      post :submit, params: params
+
       expect(session[:organisation_name]).to eq "Cabinet Office"
       expect(session[:address_line_1]).to eq "70 Whitehall"
       expect(session[:address_line_2]).to eq "Westminster"
@@ -28,7 +30,19 @@ RSpec.describe FundingForm::OrganisationDetailsController do
     end
 
     it "redirects to next step" do
+      post :submit, params: params
+
       expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number")
+    end
+
+    it "catches missing mandatory fields" do
+      params["organisation_name"] = ""
+      params["address_line_1"] = ""
+      params["address_town"] = ""
+      params["address_postcode"] = ""
+      post :submit, params: params
+
+      expect(response).to render_template("funding_form/organisation_details")
     end
   end
 end

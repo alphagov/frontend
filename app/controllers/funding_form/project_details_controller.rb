@@ -13,6 +13,7 @@ class FundingForm::ProjectDetailsController < ApplicationController
       session[key] = sanitize(params[key])
     end
     invalid_fields = validate_mandatory_text_fields(mandatory_text_fields, "project_details")
+    invalid_fields << { text: t("funding_form.errors.invalid_money") } unless is_number?(session[:total_amount_awarded])
     session[:award_start_date] = DateTime.new(params[:start_date_year].to_i, params[:start_date_month].to_i, params[:start_date_day].to_i).strftime("%Y-%m-%d")
     session[:award_end_date] = DateTime.new(params[:end_date_year].to_i, params[:end_date_month].to_i, params[:end_date_day].to_i).strftime("%Y-%m-%d")
     if invalid_fields.any?
@@ -21,5 +22,11 @@ class FundingForm::ProjectDetailsController < ApplicationController
     else
       redirect_to controller: "funding_form/partners", action: "show"
     end
+  end
+
+private
+
+  def is_number?(string)
+    true if Float(string) rescue false
   end
 end

@@ -27,11 +27,11 @@ RSpec.describe FundingFormMailer do
   let(:reference_number) { "REF-ABC" }
 
   subject(:mailer) do
-    described_class.with(to: email_address, form: form, reference_number: reference_number)
+    described_class.with(form: form, reference_number: reference_number)
   end
 
   describe "#confirmation_email" do
-    subject(:mail) { mailer.confirmation_email }
+    subject(:mail) { mailer.confirmation_email(email_address) }
 
     it "creates an email for the email address" do
       expect(mail.to).to eq([email_address])
@@ -43,7 +43,7 @@ RSpec.describe FundingFormMailer do
   end
 
   describe "#department_email" do
-    subject(:mail) { mailer.department_email }
+    subject(:mail) { mailer.department_email(email_address) }
 
     it "creates an email for the email address" do
       expect(mail.to).to eq([email_address])

@@ -112,12 +112,12 @@ en:
       description: It might be called a project ID, proposal ID or action number.
       options:
         grant_yes:
-          label: "Yes"
+          label: Yes
           hint: UK based businesses
           input:
             label: Enter your grant agreement number
         grant_no:
-          label: "No"
+          label: No
     programme_funding:
       title: What programme do you receive funding from?
       description: |
@@ -156,6 +156,11 @@ en:
       award_end_date:
         label: End date
         hint: For example, 12 11 2020
+    outside_uk_participants:
+      title: Does the project have partners or participants outside the UK?
+      options:
+        yes: Yes
+        no: No
     confirmation:
       title: Registration complete
       description: We have sent a confirmation email to the address you gave.

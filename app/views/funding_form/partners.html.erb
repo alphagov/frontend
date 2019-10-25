@@ -1,0 +1,33 @@
+<% content_for :title do %><%= t('funding_form.outside_uk_participants.title') %> - GOV.UK<% end %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= t('funding_form.outside_uk_participants.title') %>" />
+<% end %>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= form_tag do %>
+        <%= render "govuk_publishing_components/components/radio", {
+          heading: t('funding_form.outside_uk_participants.title'),
+          is_page_heading: true,
+          name: "partners_outside_uk",
+          items: [
+            {
+              value: t('funding_form.outside_uk_participants.options.yes'),
+              text: t('funding_form.outside_uk_participants.options.yes'),
+              checked: session[:partners_outside_uk]==t('funding_form.outside_uk_participants.options.yes')
+            },
+            {
+              value: t('funding_form.outside_uk_participants.options.no'),
+              text: t('funding_form.outside_uk_participants.options.no'),
+              checked: session[:partners_outside_uk]==t('funding_form.outside_uk_participants.options.no')
+            },
+          ]
+        } %>
+        <%= render "govuk_publishing_components/components/button", text: "Save and continue", margin_bottom: true %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>

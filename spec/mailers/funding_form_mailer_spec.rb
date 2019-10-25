@@ -21,6 +21,7 @@ RSpec.describe FundingFormMailer do
       "total_amount_awarded" => "1000",
       "start_date" => "24 October",
       "end_date" => "25 October",
+      "additional_comments" => "This is a\ncomment.",
     }
   end
 
@@ -48,10 +49,11 @@ RSpec.describe FundingFormMailer do
     it "creates an email for the email address" do
       expect(mail.to).to eq([email_address])
       expect(mail.subject).to eq("Registration as a recipient of EU funding")
-      form.values.each do |value|
+      form.except("additional_comments").values.each do |value|
         expect(mail.body.to_s).to include(value)
       end
       expect(mail.body.to_s).to include("|First line of address, Second line of address, Town of address, County of address|")
+      expect(mail.body.to_s).to include("|This is a comment.")
       expect(mail.body.to_s).to include(reference_number)
     end
   end

@@ -63,7 +63,7 @@ en:
           label: Job title
       email_address:
           label: Email address
-          hint: We’ll only use this to contact you about the grant award
+          hint: We’ll only use this to contact them about the grant award
       telephone_number:
           label: Telephone number
     organisation_type:
@@ -172,7 +172,7 @@ en:
       section_2:
         heading: Organisation
         organisation_type: Type
-        organisation_name: Name
+        organisation_name: Organisation name
         organisation_address: Address
         company_house_number: Companies House or Charity Commission number
       section_3:

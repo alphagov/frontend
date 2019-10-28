@@ -130,7 +130,7 @@ RSpec.feature "Register as an organisation which gets funding directly from the 
     expect(page).to have_content("Email address john.doe@domain.tld")
     expect(page).to have_content("Telephone number +440755 555 555")
     expect(page).to have_content("Type Research")
-    expect(page).to have_content("Name Organisation name")
+    expect(page).to have_content("Organisation name Organisation name")
     expect(page).to have_content("Address Street name Flat number County W6812")
     expect(page).to have_content("Companies House or Charity Commission number Companies House number")
     expect(page).to have_content("Grant agreement number Grant agreement number")

@@ -172,7 +172,7 @@ en:
       section_2:
         heading: Organisation
         organisation_type: Type
-        organisation_name: Name
+        organisation_name: Organisation name
         organisation_address: Address
         company_house_number: Companies House or Charity Commission number
       section_3:

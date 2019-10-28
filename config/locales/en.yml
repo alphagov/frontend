@@ -63,7 +63,7 @@ en:
           label: Job title
       email_address:
           label: Email address
-          hint: We’ll only use this to contact you about the grant award
+          hint: We’ll only use this to contact them about the grant award
       telephone_number:
           label: Telephone number
     organisation_type:

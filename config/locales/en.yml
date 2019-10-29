@@ -91,11 +91,12 @@ en:
       organisation_name:
         label: Name
         hint: As the name appears on the grant agreement or bid
+      address_legend: Address
       address_line_1:
-        label: Address
-        hint: Building and street
+        label: Building and street
+        label_hidden: line 1 of 2
       address_line_2:
-        label:
+        label_hidden: Building and street line 2 of 2
       address_town:
         label: Town or city
       address_county:

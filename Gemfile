@@ -5,7 +5,7 @@ gem 'gds-api-adapters', '~> 60.1.0'
 gem 'govuk_app_config', '~> 2.0.1'
 gem 'govuk_ab_testing', '~> 2.4', '>= 2.4.1'
 gem "govuk_sidekiq", "~> 3.0"
-gem 'govuk_publishing_components', '~> 21.7.0'
+gem 'govuk_publishing_components', '~> 21.8.0'
 gem 'htmlentities', '~> 4.3.0'
 gem 'invalid_utf8_rejector', '~> 0.0.0'
 gem 'plek', '~> 3.0.0'

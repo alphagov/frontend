@@ -111,10 +111,6 @@ body.homepage {
 
 .home-services {
   padding-top: govuk-spacing(5);
-
-  @include govuk-media-query($from: tablet) {
-    padding-top: govuk-spacing(2);
-  }
 }
 
 .home-services__heading {

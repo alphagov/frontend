@@ -21,6 +21,7 @@ RSpec.describe FundingFormMailer do
       "total_amount_awarded" => "1000",
       "award_start_date" => "24 October",
       "award_end_date" => "25 October",
+      "partners_outside_uk" => "Yes",
       "additional_comments" => "This is a\ncomment.",
     }
   end

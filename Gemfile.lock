@@ -188,7 +188,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
-    notifications-ruby-client (4.0.0)
+    notifications-ruby-client (5.1.0)
       jwt (>= 1.5, < 3)
     null_logger (0.0.1)
     parallel (1.18.0)
@@ -414,7 +414,7 @@ DEPENDENCIES
   invalid_utf8_rejector (~> 0.0.0)
   jasmine (~> 3.5)
   mocha
-  notifications-ruby-client (~> 4.0)
+  notifications-ruby-client (~> 5.1)
   plek (~> 3.0.0)
   pry-byebug
   rack_strip_client_ip (~> 0.0.2)

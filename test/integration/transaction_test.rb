@@ -72,10 +72,10 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
 
     should "present the FAQ schema correctly" do
-      register_a_carrot = @payload.merge(base_path: "/register-a-carrot", content_id: "834a7921-260b-4061-9de1-edda3e998c68")
-      content_store_has_item("/register-a-carrot", register_a_carrot)
+      register_to_vote = @payload.merge(base_path: "/register-to-vote")
+      content_store_has_item("/register-to-vote", register_to_vote)
 
-      visit "/register-a-carrot"
+      visit "/register-to-vote"
 
       assert_equal 200, page.status_code
 
@@ -87,10 +87,8 @@ class TransactionTest < ActionDispatch::IntegrationTest
       expected_faq = {
         "@context" => "http://schema.org",
         "@type" => "FAQPage",
-        "headline" => "Carrots",
-        "datePublished" => "2016-02-29T09:24:10.000+00:00",
-        "dateModified" => "2012-10-22T13:49:50.000+01:00",
-        "description" => "Descriptive carrots text.",
+        "headline" => "Register to vote",
+        "description" => "<p>Use this service to register to vote in elections and referendums, or to change your details. It usually takes about 5 minutes.</p>\n",
         "publisher" => {
           "@type" => "Organization",
           "name" => "GOV.UK",
@@ -100,30 +98,81 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "url" => "/frontend/govuk_publishing_components/govuk-logo-e5962881254c9adb48f94d2f627d3bb67f258a6cbccc969e80abb7bbe4622976.png",
           },
         },
-        "mainEntity" =>
-          [
-            {
-              "@type" => "Question",
-              "name" => "Next bit",
-              "url" => "http://www.dev.gov.uk/register-a-carrot",
-              "acceptedAnswer" => {
-                "@type" => "Answer",
-                "url" => "http://www.dev.gov.uk/register-a-carrot",
-                "text" => "If you'd like some carrots, you need to prove that you're not a rabbit<p><a href=\"http://carrots.example.com\">Eat Carrots Now</a></p>\n",
-              },
+        "mainEntity" => [
+          {
+            "@type" => "Question",
+            "name" => "Deadline for registering to vote in the General Election",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>Register by 11:59pm on 26 November to vote in the General Election on 12 December.</p> <p>If you want to apply to <a href=\"/voting-in-the-uk#postal-voting\">vote by post</a>, register before:</p> <ul>\n <li>5pm on 26 November if you live in England, Scotland or Wales</li>\n <li>5pm on 21 November if you live in Northern Ireland</li>\n</ul> <p>If you’re going to be abroad on election day, you can apply to <a href=\"/voting-in-the-uk#voting-by-proxy\">vote by proxy</a> after you’ve registered. It takes time to vote by post from overseas.</p>\n",
             },
-            {
-              "@type" => "Question",
-              "name" => "What you need to know",
-              "url" => "http://www.dev.gov.uk/register-a-carrot#what-you-need-to-know",
-              "acceptedAnswer" => {
-                "@type" => "Answer",
-                "url" => "http://www.dev.gov.uk/register-a-carrot#what-you-need-to-know",
-                "text" => "Includes carrots",
-              },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Who can register",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can register if you’re both:</p> <ul>\n <li>aged 16 or over (or 14 or over in Scotland)</li>\n <li>a UK citizen (or an Irish, EU or Commonwealth citizen with a permanent UK address)</li>\n</ul> <p>You will not be able to vote until you’re 18. If you live in Scotland, you can vote in Scottish Parliament and local elections when you’re 16.</p>\n",
             },
-          ],
-        }
+          },
+          {
+            "@type" => "Question",
+            "name" => "Registering online",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>Register to get your name on the electoral register. You need to be on the electoral register to vote in elections and referendums.</p> <p>You only need to register once - not for every election.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "How to check if you’re already registered",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>Contact your local Electoral Registration Office to <a href=\"/get-on-electoral-register\">find out if you’re already registered to vote</a>.</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Updating your registration",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can also use the <a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start\">‘Register to vote’ service</a> to:</p> <ul>\n <li>change your name, address or nationality</li>\n <li>get on or off the <a href=\"/electoral-register\">open register</a>\n</li> </ul> <p>To do this, you need to register again with your new details (even if you’re already registered to vote).</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Registering with a paper form",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can:</p> <ul>\n <li><a href=\"/government/publications/register-to-vote-if-youre-living-in-the-uk\">register using a paper form in England, Wales and Scotland</a></li>\n <li><a rel=\"external\" href=\"http://www.eoni.org.uk/Register-To-Vote/Register-to-vote-change-address-change-name\">register using a paper form in Northern Ireland</a></li>\n</ul>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "If you live abroad",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can use this service to <a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start\">apply to register to vote</a> (or to renew or update your registration) if you:</p> <ul>\n <li>are a British citizen</li>\n <li>left the UK within the last 15 years</li>\n <li>were previously registered at an address in England, Scotland or Wales (or, in some cases, you left the UK before your 18th birthday)</li>\n</ul> <p>You’ll need your passport details if you’re a British citizen living abroad, and want to vote in England, Scotland or Wales.</p> <p>If you previously lived in Northern Ireland and want to vote there, use the <a rel=\"external\" href=\"http://www.eoni.org.uk/Register-To-Vote/Special-Category-Registration\">Northern Ireland overseas elector registration form</a>.</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "If you’re a public servant posted overseas",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>There’s a different service for public servants (and their spouses and civil partners) who are posted overseas as:</p> <ul>\n <li><a href=\"/register-to-vote-crown-servants-british-council-employees\">Crown servants or British council employees</a></li>\n <li>members of the <a href=\"/register-to-vote-armed-forces\">armed forces</a>\n</li> </ul>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Get help registering",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can get help registering from your local <a href=\"/get-on-electoral-register\">Electoral Registration Office</a>.</p> <p>There’s an <a href=\"/government/publications/registering-to-vote-easy-read-guide\">easy read guide about registering to vote</a> for people with a learning disability.</p>\n",
+            },
+          },
+        ],
+      }
 
       assert_equal expected_faq, faq_schema
     end

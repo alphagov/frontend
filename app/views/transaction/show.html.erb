@@ -7,9 +7,9 @@
              schema: :government_service,
              content_item: @content_item %>
 
-<% if @schema %>
+<% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(@publication) %>
 <script type="application/ld+json">
-  <%= raw @schema.structured_data.to_json %>
+  <%= raw MachineReadable::YamlFaqPageSchemaPresenter.new(@publication).structured_data.to_json %>
 </script>
 <% end %>
 

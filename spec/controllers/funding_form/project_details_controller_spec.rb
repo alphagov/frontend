@@ -56,6 +56,13 @@ RSpec.describe FundingForm::ProjectDetailsController do
       expect(response).to render_template("funding_form/project_details")
     end
 
+    it "allows amount of money to be left blank" do
+      params["total_amount_awarded"] = ""
+      post :submit, params: params
+
+      expect(response).to redirect_to("/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk")
+    end
+
     it "catches an invalid date" do
       params["start_date_day"] = "A"
       params["start_date_month"] = "A"

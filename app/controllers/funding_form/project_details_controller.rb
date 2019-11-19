@@ -13,7 +13,7 @@ class FundingForm::ProjectDetailsController < ApplicationController
       session[key] = sanitize(params[key])
     end
     invalid_fields = validate_mandatory_text_fields(mandatory_text_fields, "project_details")
-    invalid_fields << { text: t("funding_form.errors.invalid_money") } unless is_number?(session[:total_amount_awarded])
+    invalid_fields << { text: t("funding_form.errors.invalid_money") } unless is_number?(session[:total_amount_awarded]) || session[:total_amount_awarded] == ""
     invalid_fields << validate_date_fields(session[:start_date_year], session[:start_date_month], session[:start_date_day], "Start day")
     invalid_fields << validate_date_fields(session[:end_date_year], session[:end_date_month], session[:end_date_day], "End day")
     invalid_fields = invalid_fields.flatten

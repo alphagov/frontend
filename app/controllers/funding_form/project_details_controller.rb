@@ -24,7 +24,13 @@ class FundingForm::ProjectDetailsController < ApplicationController
       session[:total_amount_awarded] = session[:total_amount_awarded].gsub(",", "")
       session[:award_start_date] = DateTime.new(params[:start_date_year].to_i, params[:start_date_month].to_i, params[:start_date_day].to_i).strftime("%Y-%m-%d")
       session[:award_end_date] = DateTime.new(params[:end_date_year].to_i, params[:end_date_month].to_i, params[:end_date_day].to_i).strftime("%Y-%m-%d")
-      redirect_to controller: session["check_answers_seen"] ? "funding_form/check_answers" : "funding_form/partners", action: "show"
+      invalid_fields = validate_date_order(session[:award_start_date], session[:award_end_date])
+      if invalid_fields.any?
+        flash.now[:validation] = invalid_fields
+        render "funding_form/project_details"
+      else
+        redirect_to controller: session["check_answers_seen"] ? "funding_form/check_answers" : "funding_form/partners", action: "show"
+      end
     end
   end
 

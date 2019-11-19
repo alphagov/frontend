@@ -67,5 +67,17 @@ RSpec.describe FundingForm::ProjectDetailsController do
 
       expect(response).to render_template("funding_form/project_details")
     end
+
+    it "catches an end date before a start date" do
+      params["start_date_day"] = "10"
+      params["start_date_month"] = "11"
+      params["start_date_year"] = "2019"
+      params["end_date_day"] = "9"
+      params["end_date_month"] = "11"
+      params["end_date_year"] = "2019"
+      post :submit, params: params
+
+      expect(response).to render_template("funding_form/project_details")
+    end
   end
 end

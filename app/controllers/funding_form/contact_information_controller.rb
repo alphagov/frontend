@@ -17,7 +17,7 @@ class FundingForm::ContactInformationController < ApplicationController
       flash.now[:validation] = invalid_fields
       render "funding_form/contact_information"
     else
-      redirect_to controller: "funding_form/organisation_type", action: "show"
+      redirect_to controller: session["check_answers_seen"] ? "funding_form/check_answers" : "funding_form/organisation_type", action: "show"
     end
   end
 end

@@ -2,6 +2,7 @@ class FundingForm::CheckAnswersController < ApplicationController
   include ActionView::Helpers::SanitizeHelper
 
   def show
+    session[:check_answers_seen] = true
     render "funding_form/check_answers"
   end
 

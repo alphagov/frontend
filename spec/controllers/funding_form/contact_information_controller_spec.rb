@@ -31,6 +31,13 @@ RSpec.describe FundingForm::ContactInformationController do
       expect(response).to redirect_to("/brexit-eu-funding/organisation-type")
     end
 
+    it "redirects to check your answers if check your answers previously seen" do
+      session[:check_answers_seen] = true
+      post :submit, params: params
+
+      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+    end
+
     it "catches missing mandatory fields" do
       params["full_name"] = ""
       params["job_title"] = ""

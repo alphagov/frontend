@@ -35,6 +35,13 @@ RSpec.describe FundingForm::ProjectDetailsController do
       expect(response).to redirect_to("/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk")
     end
 
+    it "redirects to check your answers if check your answers previously seen" do
+      session[:check_answers_seen] = true
+      post :submit, params: params
+
+      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+    end
+
     it "catches missing mandatory fields" do
       params["project_name"] = ""
       post :submit, params: params

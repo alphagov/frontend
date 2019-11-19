@@ -34,6 +34,16 @@ RSpec.describe FundingForm::GrantAgreementNumberController do
       expect(response).to redirect_to("/brexit-eu-funding/what-programme-do-you-receive-funding-from")
     end
 
+    it "redirects to check your answers if check your answers previously seen" do
+      session[:check_answers_seen] = true
+      post :submit, params: {
+        grant_agreement_number: "<script></script>Yes",
+        grant_agreement_number_other: "<script></script>1234",
+      }
+
+      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+    end
+
     it "validates an option is chosen" do
       post :submit, params: {
         grant_agreement_number: "",

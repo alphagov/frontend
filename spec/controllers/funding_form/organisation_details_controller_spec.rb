@@ -35,6 +35,13 @@ RSpec.describe FundingForm::OrganisationDetailsController do
       expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number")
     end
 
+    it "redirects to check your answers if check your answers previously seen" do
+      session[:check_answers_seen] = true
+      post :submit, params: params
+
+      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+    end
+
     it "catches missing mandatory fields" do
       params["organisation_name"] = ""
       params["address_line_1"] = ""

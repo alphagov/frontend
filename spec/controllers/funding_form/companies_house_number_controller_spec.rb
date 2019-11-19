@@ -34,6 +34,16 @@ RSpec.describe FundingForm::CompaniesHouseNumberController do
       expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-grant-agreement-number")
     end
 
+    it "redirects to check your answers if check your answers previously seen" do
+      session[:check_answers_seen] = true
+      post :submit, params: {
+        companies_house_or_charity_commission_number: "<script></script>Yes",
+        companies_house_or_charity_commission_number_other: "<script></script>123",
+      }
+
+      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+    end
+
     it "validates an option is chosen" do
       post :submit, params: {
         companies_house_or_charity_commission_number: "",

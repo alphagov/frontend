@@ -34,6 +34,16 @@ RSpec.describe FundingForm::OrganisationTypeController do
       expect(response).to redirect_to("/brexit-eu-funding/organisation-details")
     end
 
+    it "redirects to check your answers if check your answers previously seen" do
+      session[:check_answers_seen] = true
+      post :submit, params: {
+        organisation_type: "<script></script>business",
+        organisation_type_other: "<script></script>",
+      }
+
+      expect(response).to redirect_to("/brexit-eu-funding/check-your-answers")
+    end
+
     it "validates an option is chosen" do
       post :submit, params: {
         organisation_type: "",

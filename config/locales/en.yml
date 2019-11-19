@@ -161,14 +161,14 @@ en:
         label: Project name
         hint: As the name appears on the grant agreement or bid
       amount_awarded:
-        label: Total amount awarded to your organisation in euros
-        hint: Enter the amount if it’s on the grant agreement or bid
+        label: Total amount awarded to your organisation in euros (if you know it)
+        hint: For example 12,000
       award_start_date:
-        label: Start date
-        hint: Enter the date if it’s on the grant agreement or bid, for example 12 11 2014
+        label: Start date (if you know it)
+        hint: For example 12 11 2014
       award_end_date:
-        label: End date
-        hint: Enter the date if it’s on the grant agreement or bid, for example 12 11 2020
+        label: End date (if you know it)
+        hint: For example 12 11 2020
     outside_uk_participants:
       title: Does the project have partners or participants outside the UK?
       option_yes: "Yes"

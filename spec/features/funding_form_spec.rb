@@ -137,8 +137,8 @@ RSpec.feature "Register as an organisation which gets funding directly from the 
     expect(page).to have_content("Programme Erasmus+")
     expect(page).to have_content("Project name Project name")
     expect(page).to have_content("Total amount awarded 12000")
-    expect(page).to have_content("Start date 2018-09-08")
-    expect(page).to have_content("End date 2019-11-10")
+    expect(page).to have_content("Start date 8 September 2018")
+    expect(page).to have_content("End date 10 November 2019")
     expect(page).to have_content("Non UK partners No")
   end
 end

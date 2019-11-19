@@ -114,14 +114,14 @@
             },
             {
               field: t('funding_form.check_your_answers.section_3.award_start_date'),
-              value: session["award_start_date"],
+              value: format_date(session["award_start_date"]),
               edit: {
                 href: "project-details"
               },
             },
             {
               field: t('funding_form.check_your_answers.section_3.award_end_date'),
-              value: session["award_end_date"],
+              value: format_date(session["award_end_date"]),
               edit: {
                 href: "project-details"
               },

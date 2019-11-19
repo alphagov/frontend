@@ -54,6 +54,7 @@ en:
       missing_month: "%{field} must include a month"
       missing_day: "%{field} must include a day"
       invalid_date: "Enter a real %{field}"
+      date_order: "The end date must be after the start date"
     contact_information:
       title: Who should we contact about the grant award?
       description: We suggest using your Legal Entity Appointed Representative (LEAR).

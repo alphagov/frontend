@@ -34,4 +34,12 @@ module MandatoryFieldHelper
 
     []
   end
+
+  def validate_date_order(start_date, end_date)
+    if end_date < start_date
+      [{ text: t("funding_form.errors.date_order") }]
+    else
+      []
+    end
+  end
 end

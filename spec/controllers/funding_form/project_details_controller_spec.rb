@@ -10,7 +10,7 @@ RSpec.describe FundingForm::ProjectDetailsController do
     let(:params) do
       {
         project_name: "<script></script>Researching something interesting",
-        total_amount_awarded: "<script></script>1000000",
+        total_amount_awarded: "<script></script>1,000,000",
         start_date_day: "10",
         start_date_month: "6",
         start_date_year: "2019",

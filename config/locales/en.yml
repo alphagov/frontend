@@ -64,6 +64,7 @@ en:
       email_address:
           label: Email address
           hint: We’ll only use this to contact them about the grant award
+          custom_error: Enter email address in the correct format, like name@example.com
       telephone_number:
           label: Telephone number
     organisation_type:
@@ -103,6 +104,7 @@ en:
         label: County (optional)
       address_postcode:
         label: Postcode
+        custom_error: Enter a real postcode
     companies_house_or_charity_commission_number:
       title: Do you have a Companies House or Charity Commission number?
       options:
@@ -114,6 +116,8 @@ en:
             hint: If you have both, enter your Companies House number
         number_no:
           label: "No"
+      custom_select_error: Select yes if you have a Companies House or Charity Commission number
+      custom_enter_error: Enter Companies House or Charity Commission number
     grant_agreement_number:
       title: Do you have a grant agreement number?
       description: It might be called a project ID, proposal ID or action number.
@@ -123,6 +127,8 @@ en:
         yes_input:
           label: Grant agreement number
         grant_no: "No"
+      custom_enter_error: Enter grant agreement number
+      custom_select_error: Select yes if you have a grant agreement number
     programme_funding:
       title: What programme do you receive funding from?
       description: |
@@ -148,6 +154,7 @@ en:
           label: Health for Growth
         option_10:
           label: Rights, Equality, and Citizenship Programme (RECP)
+      custom_select_error: Select what programme you receive funding from
     project_details:
       title: Project details
       project_name:
@@ -166,6 +173,7 @@ en:
       title: Does the project have partners or participants outside the UK?
       option_yes: "Yes"
       option_no: "No"
+      custom_select_error: Select yes if the project has partners or participants outside the UK
     check_your_answers:
       title: Check your answers
       section_1:

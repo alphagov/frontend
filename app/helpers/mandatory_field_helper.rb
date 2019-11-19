@@ -3,7 +3,8 @@ module MandatoryFieldHelper
     invalid_fields = []
     mandatory_fields.each do |field|
       if session[field] == ""
-        invalid_fields << { text: t("funding_form.errors.missing_mandatory_text_field", field: t("funding_form.#{page}.#{field}.label")).humanize }
+        invalid_fields << { text: t("funding_form.#{page}.#{field}.custom_error",
+                                    default: t("funding_form.errors.missing_mandatory_text_field", field: t("funding_form.#{page}.#{field}.label")).humanize) }
       end
     end
     invalid_fields
@@ -22,11 +23,13 @@ module MandatoryFieldHelper
 
   def validate_radio_field(page, radio:, other: false)
     if radio.blank?
-      return [{ text: t("funding_form.errors.radio_field", field: t("funding_form.#{page}.title")).humanize }]
+      return [{ text: t("funding_form.#{page}.custom_select_error",
+                        default: t("funding_form.errors.radio_field", field: t("funding_form.#{page}.title")).humanize) }]
     end
 
     if other != false && other.blank? && %w(Yes Other).include?(radio)
-      return [{ text: t("funding_form.errors.missing_mandatory_text_field", field: t("funding_form.#{page}.title")).humanize }]
+      return [{ text: t("funding_form.#{page}.custom_enter_error",
+                        default: t("funding_form.errors.missing_mandatory_text_field", field: t("funding_form.#{page}.title")).humanize) }]
     end
 
     []

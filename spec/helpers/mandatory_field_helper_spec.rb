@@ -6,7 +6,7 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
       session["full_name"] = ""
       session["job_title"] = "text"
       invalid_fields = validate_mandatory_text_fields(%w[full_name job_title], "contact_information")
-      expect(invalid_fields).to eq [{ text: "Enter Full name" }]
+      expect(invalid_fields).to eq [{ text: "Enter full name" }]
     end
   end
 
@@ -37,19 +37,19 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
 
     it "returns an error if date is not valid" do
       invalid_fields = validate_date_fields("2019", "02", "30", "Date")
-      expect(invalid_fields).to eq [{ text: "Enter a real Date" }]
+      expect(invalid_fields).to eq [{ text: "Enter a real date" }]
     end
   end
 
   context "#validate_radio_field" do
     it "return an error if no radio button selected" do
       invalid_fields = validate_radio_field("organisation_type", radio: "", other: "")
-      expect(invalid_fields).to eq [{ text: "Select Organisation type" }]
+      expect(invalid_fields).to eq [{ text: "Select organisation type" }]
     end
 
     it "returns an error when Other selected but no custom text entered" do
       invalid_fields = validate_radio_field("organisation_type", radio: "Other", other: "")
-      expect(invalid_fields).to eq [{ text: "Enter Organisation type" }]
+      expect(invalid_fields).to eq [{ text: "Enter organisation type" }]
     end
   end
 end

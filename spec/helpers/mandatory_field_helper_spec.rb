@@ -38,12 +38,16 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
       expect(invalid_fields).to eq [{ text: "Date must include a day" }]
     end
 
-    it "returns multiple errors if multiple date fields are blank" do
+    it "does not return an error if no date is entered" do
       invalid_fields = validate_date_fields("", "", "", "Date")
+      expect(invalid_fields).to eq []
+    end
+
+    it "returns multiple errors if multiple date fields are blank" do
+      invalid_fields = validate_date_fields("", "", "25", "Date")
       expect(invalid_fields).to eq [
         { text: "Date must include a year" },
         { text: "Date must include a month" },
-        { text: "Date must include a day" },
       ]
     end
 

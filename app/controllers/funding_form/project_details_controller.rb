@@ -22,9 +22,15 @@ class FundingForm::ProjectDetailsController < ApplicationController
       render "funding_form/project_details"
     else
       session[:total_amount_awarded] = session[:total_amount_awarded].gsub(",", "")
-      session[:award_start_date] = DateTime.new(params[:start_date_year].to_i, params[:start_date_month].to_i, params[:start_date_day].to_i).strftime("%Y-%m-%d")
-      session[:award_end_date] = DateTime.new(params[:end_date_year].to_i, params[:end_date_month].to_i, params[:end_date_day].to_i).strftime("%Y-%m-%d")
-      invalid_fields = validate_date_order(session[:award_start_date], session[:award_end_date])
+      unless params[:start_date_year] == "" && params[:start_date_month] == "" && params[:start_date_day] == ""
+        session[:award_start_date] = DateTime.new(params[:start_date_year].to_i, params[:start_date_month].to_i, params[:start_date_day].to_i).strftime("%Y-%m-%d")
+      end
+      unless params[:end_date_year] == "" && params[:end_date_month] == "" && params[:end_date_day] == ""
+        session[:award_end_date] = DateTime.new(params[:end_date_year].to_i, params[:end_date_month].to_i, params[:end_date_day].to_i).strftime("%Y-%m-%d")
+      end
+      unless params[:start_date_year] == "" && params[:start_date_month] == "" && params[:start_date_day] == "" || params[:end_date_year] == "" && params[:end_date_month] == "" && params[:end_date_day] == ""
+        invalid_fields = validate_date_order(session[:award_start_date], session[:award_end_date])
+      end
       if invalid_fields.any?
         flash.now[:validation] = invalid_fields
         render "funding_form/project_details"

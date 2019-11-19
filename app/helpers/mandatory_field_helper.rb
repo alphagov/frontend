@@ -11,6 +11,8 @@ module MandatoryFieldHelper
   end
 
   def validate_date_fields(year, month, day, field)
+    return [] if year == "" && month == "" && day == ""
+
     invalid_fields = []
     invalid_fields << { text: t("funding_form.errors.missing_year", field: field).humanize } if year == ""
     invalid_fields << { text: t("funding_form.errors.missing_month", field: field).humanize } if month == ""

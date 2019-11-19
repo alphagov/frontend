@@ -16,6 +16,11 @@ RSpec.describe FundingForm::CheckAnswersController do
       get :show
       expect(response).to render_template("funding_form/check_answers")
     end
+
+    it "sets a session variable" do
+      get :show
+      expect(session[:check_answers_seen]).to be true
+    end
   end
 
   describe "POST submit" do

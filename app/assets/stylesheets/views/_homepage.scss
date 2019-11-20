@@ -86,9 +86,7 @@ body.homepage {
 
   &:focus,
   &:link:focus {
-    // Manually fix the most embarassing :focus contast issue, needs a wider fix
-    color: govuk-colour("black");
-    text-decoration: none;
+    @include govuk-focused-text;
   }
 }
 
@@ -115,7 +113,7 @@ body.homepage {
 
 .home-services__heading {
   @include govuk-font(19, $weight: bold);
-  margin: 0;
+  margin: 0 0 govuk-spacing(1) 0;
 }
 
 .home-services__para {

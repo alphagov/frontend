@@ -9,5 +9,6 @@ class CurrencyHelperTest < ActionView::TestCase
 
   test "#format_amount" do
     assert_equal "12,000 euros", format_amount(@sample_number)
+    assert_equal nil, format_amount(nil)
   end
 end

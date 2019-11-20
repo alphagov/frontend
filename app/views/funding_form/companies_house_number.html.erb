@@ -22,21 +22,21 @@
             {
               value: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
               text: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
-              checked: session[:companies_house_or_charity_commission_number] != t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
+              checked: session[:companies_house_or_charity_commission_number_boolean] == t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),
               conditional: render("govuk_publishing_components/components/input", {
                 label: {
                   text: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.input.label'),
                 },
                 hint: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.input.hint'),
                 name: "companies_house_or_charity_commission_number_other",
-                value: session[:companies_house_or_charity_commission_number] == t('funding_form.companies_house_or_charity_commission_number.options.number_no.label') ? "" : session[:companies_house_or_charity_commission_number],
+                value: session[:companies_house_or_charity_commission_number],
                 width: 10
               })
             },
             {
               value: t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
               text: t('funding_form.companies_house_or_charity_commission_number.options.number_no.label'),
-              checked: session[:companies_house_or_charity_commission_number]==t('funding_form.companies_house_or_charity_commission_number.options.number_no.label')
+              checked: session[:companies_house_or_charity_commission_number_boolean] == t('funding_form.companies_house_or_charity_commission_number.options.number_no.label')
             },
           ]
         } %>

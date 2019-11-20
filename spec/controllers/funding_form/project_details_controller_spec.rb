@@ -56,6 +56,13 @@ RSpec.describe FundingForm::ProjectDetailsController do
       expect(response).to render_template("funding_form/project_details")
     end
 
+    it "allows amount of money to be left blank" do
+      params["total_amount_awarded"] = ""
+      post :submit, params: params
+
+      expect(response).to redirect_to("/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk")
+    end
+
     it "catches an invalid date" do
       params["start_date_day"] = "A"
       params["start_date_month"] = "A"
@@ -66,6 +73,30 @@ RSpec.describe FundingForm::ProjectDetailsController do
       post :submit, params: params
 
       expect(response).to render_template("funding_form/project_details")
+    end
+
+    it "catches an end date before a start date" do
+      params["start_date_day"] = "10"
+      params["start_date_month"] = "11"
+      params["start_date_year"] = "2019"
+      params["end_date_day"] = "9"
+      params["end_date_month"] = "11"
+      params["end_date_year"] = "2019"
+      post :submit, params: params
+
+      expect(response).to render_template("funding_form/project_details")
+    end
+
+    it "permits dates to be left blank" do
+      params["start_date_day"] = ""
+      params["start_date_month"] = ""
+      params["start_date_year"] = ""
+      params["end_date_day"] = ""
+      params["end_date_month"] = ""
+      params["end_date_year"] = ""
+      post :submit, params: params
+
+      expect(response).to redirect_to("/brexit-eu-funding/does-the-project-have-partners-or-participants-outside-the-uk")
     end
   end
 end

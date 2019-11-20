@@ -38,12 +38,16 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
       expect(invalid_fields).to eq [{ text: "Date must include a day" }]
     end
 
-    it "returns multiple errors if multiple date fields are blank" do
+    it "does not return an error if no date is entered" do
       invalid_fields = validate_date_fields("", "", "", "Date")
+      expect(invalid_fields).to eq []
+    end
+
+    it "returns multiple errors if multiple date fields are blank" do
+      invalid_fields = validate_date_fields("", "", "25", "Date")
       expect(invalid_fields).to eq [
         { text: "Date must include a year" },
         { text: "Date must include a month" },
-        { text: "Date must include a day" },
       ]
     end
 
@@ -92,6 +96,18 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
     it "returns a custom error when outside UK participants radio buttons not selected" do
       invalid_fields = validate_radio_field("outside_uk_participants", radio: "", other: "")
       expect(invalid_fields).to eq [{ text: "Select yes if the project has partners or participants outside the UK" }]
+    end
+  end
+
+  context "#validate_date_order" do
+    it "returns an error when end date is before start date" do
+      invalid_fields = validate_date_order("2019-11-19", "2019-11-18")
+      expect(invalid_fields).to eq [{ text: "The end date must be after the start date" }]
+    end
+
+    it "does not return an error when end date is after start date" do
+      invalid_fields = validate_date_order("2019-11-19", "2019-11-20")
+      expect(invalid_fields).to eq []
     end
   end
 end

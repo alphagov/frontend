@@ -1,6 +1,7 @@
 title: "Register to vote"
 preamble: >
-  <p>Use this service to register to vote in elections and referendums, or to change your details. It usually takes about 5 minutes.</p>
+  <p>Register to vote to get on the electoral register, or to change your details. It usually takes about 5 minutes.</p>
+  <p>You need to be on the electoral register to vote in general elections or referendums.</p>
 
 faqs:
   - question: Deadline for registering to vote in the General Election
@@ -24,7 +25,7 @@ faqs:
 
   - question: Registering online
     answer: >
-      <p>Register to get on the electoral register. You need to be on the electoral register to vote in elections and referendums.</p>
+      <p>Use this service to get on the electoral register. You need to be on the electoral register to vote in elections and referendums.</p>
       <p>You only need to register once - not for every election.</p>
       <p><a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">Start now</a></p>
       <h2>What you need to know</h2>

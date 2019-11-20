@@ -107,7 +107,7 @@
             },
             {
               field: t('funding_form.check_your_answers.section_3.total_amount_awarded'),
-              value: session["total_amount_awarded"],
+              value: format_amount(session["total_amount_awarded"]),
               edit: {
                 href: "project-details"
               },

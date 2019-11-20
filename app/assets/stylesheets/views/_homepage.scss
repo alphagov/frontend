@@ -183,8 +183,13 @@ body.homepage {
   margin: govuk-spacing(2) 0 govuk-spacing(4);
 }
 
-.home-promo {
-  display: block;
+.home-promo__link {
+  @include govuk-font(24, $weight: bold);
+  display: inline-block;
+
+  @include govuk-media-query($until: tablet) {
+    margin: 0 0 govuk-spacing(1) 0;
+  }
 }
 
 .home-promo__image {
@@ -216,7 +221,7 @@ body.homepage {
   font-weight: bold;
 }
 
-.home-promo__link {
+.home-more-promo {
   display: block;
   padding: 2.5em .75em;
   margin-bottom: govuk-spacing(3);
@@ -225,13 +230,13 @@ body.homepage {
   text-decoration: none;
 
   &:focus {
-    .home-promo__link-content {
+    .home-more-promo__link-content {
       color: govuk-colour("black");
     }
   }
 }
 
-.home-promo__link-content {
+.home-more-promo__link-content {
   @include govuk-font(36, $weight: bold);
   color: govuk-colour("white");
 }

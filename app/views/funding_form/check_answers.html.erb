@@ -65,7 +65,7 @@
             },
             {
               field: t('funding_form.check_your_answers.section_2.organisation_address'),
-              value: session["address_line_1"]+' '+ session["address_line_2"].to_s + ' ' + session["town_or_city"].to_s + ' ' + session["address_county"].to_s  + ' ' + session["address_postcode"].to_s ,
+              value: "#{session["address_line_1"]} #{session["address_line_2"]} #{session["address_town"]} #{session["address_county"]} #{session["address_postcode"]}",
               edit: {
                 href: "organisation-details"
               },

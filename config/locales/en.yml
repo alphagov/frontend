@@ -55,6 +55,7 @@ en:
       missing_day: "%{field} must include a day"
       invalid_date: "Enter a real %{field}"
       date_order: "The end date must be after the start date"
+      email_format: "Enter email address in the correct format, like name@example.com"
     contact_information:
       title: Who should we contact about the grant award?
       description: We suggest using your Legal Entity Appointed Representative (LEAR).

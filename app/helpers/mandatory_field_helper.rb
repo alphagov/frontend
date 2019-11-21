@@ -44,4 +44,12 @@ module MandatoryFieldHelper
       []
     end
   end
+
+  def validate_email_address(email_address)
+    if email_address =~ /@/
+      []
+    else
+      [{ text: t("funding_form.errors.email_format") }]
+    end
+  end
 end

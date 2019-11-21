@@ -122,4 +122,16 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
       expect(invalid_fields).to eq []
     end
   end
+
+  context "#validate_postcode" do
+    it "returns an error when postcode is not valid" do
+      invalid_fields = validate_postcode("12A45")
+      expect(invalid_fields).to eq [{ text: "Enter a real postcode" }]
+    end
+
+    it "does not return an error when postcode is valid" do
+      invalid_fields = validate_postcode("e18QS")
+      expect(invalid_fields).to eq []
+    end
+  end
 end

@@ -3,7 +3,8 @@ module MandatoryFieldHelper
     invalid_fields = []
     mandatory_fields.each do |field|
       if session[field].blank?
-        invalid_fields << { text: t("funding_form.#{page}.#{field}.custom_error",
+        invalid_fields << { field: field.to_s,
+                            text: t("funding_form.#{page}.#{field}.custom_error",
                                     default: t("funding_form.errors.missing_mandatory_text_field", field: t("funding_form.#{page}.#{field}.label")).humanize) }
       end
     end
@@ -14,11 +15,11 @@ module MandatoryFieldHelper
     return [] if year.blank? && month.blank? && day.blank?
 
     invalid_fields = []
-    invalid_fields << { text: t("funding_form.errors.missing_year", field: field).humanize } if year.blank?
-    invalid_fields << { text: t("funding_form.errors.missing_month", field: field).humanize } if month.blank?
-    invalid_fields << { text: t("funding_form.errors.missing_day", field: field).humanize } if day.blank?
+    invalid_fields << { field: field.to_s, text: t("funding_form.errors.missing_year", field: field).humanize } if year.blank?
+    invalid_fields << { field: field.to_s, text: t("funding_form.errors.missing_month", field: field).humanize } if month.blank?
+    invalid_fields << { field: field.to_s, text: t("funding_form.errors.missing_day", field: field).humanize } if day.blank?
     unless(invalid_fields != [] || Date.valid_date?(year.to_i, month.to_i, day.to_i))
-      invalid_fields << { text: t("funding_form.errors.invalid_date", field: field).humanize }
+      invalid_fields << { field: field.to_s, text: t("funding_form.errors.invalid_date", field: field).humanize }
     end
     invalid_fields
   end

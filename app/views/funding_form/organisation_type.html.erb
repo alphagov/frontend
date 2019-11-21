@@ -24,34 +24,34 @@
               value: t('funding_form.organisation_type.options.business.label'),
               text: t('funding_form.organisation_type.options.business.label'),
               hint_text: t('funding_form.organisation_type.options.business.hint'),
-              checked: session[:organisation_type]==t('funding_form.organisation_type.options.business.label'),
+              checked: session[:organisation_type] == t('funding_form.organisation_type.options.business.label'),
               bold: true
             },
             {
               value: t('funding_form.organisation_type.options.research.label'),
               text: t('funding_form.organisation_type.options.research.label'),
               hint_text: t('funding_form.organisation_type.options.research.hint'),
-              checked: session[:organisation_type]==t('funding_form.organisation_type.options.research.label'),
+              checked: session[:organisation_type] == t('funding_form.organisation_type.options.research.label'),
               bold: true
             },
             {
               value: t('funding_form.organisation_type.options.research_and_technology.label'),
               text: t('funding_form.organisation_type.options.research_and_technology.label'),
               hint_text: t('funding_form.organisation_type.options.research_and_technology.hint'),
-              checked: session[:organisation_type]==t('funding_form.organisation_type.options.research_and_technology.label'),
+              checked: session[:organisation_type] == t('funding_form.organisation_type.options.research_and_technology.label'),
               bold: true
             },
             {
               value: t('funding_form.organisation_type.options.public_sector_or_charity.label'),
               text: t('funding_form.organisation_type.options.public_sector_or_charity.label'),
               hint_text: t('funding_form.organisation_type.options.public_sector_or_charity.hint'),
-              checked: session[:organisation_type]==t('funding_form.organisation_type.options.public_sector_or_charity.label'),
+              checked: session[:organisation_type] == t('funding_form.organisation_type.options.public_sector_or_charity.label'),
               bold: true
             },
             {
               value: t('funding_form.organisation_type.options.other.label'),
               text: t('funding_form.organisation_type.options.other.label'),
-              checked: session[:organisation_type_other],
+              checked: session[:organisation_type] == t('funding_form.organisation_type.options.other.label'),
               conditional: render("govuk_publishing_components/components/input", {
                 label: {
                   text: t('funding_form.organisation_type.options.other.input.label'),

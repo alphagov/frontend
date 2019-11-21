@@ -8,7 +8,7 @@ Reference number: <%= @reference_number %>
 
 # Copy and paste into spreadsheet
 
-^ <%= @form["full_name"] %>|<%= @form["job_title"] %>|<%= @form["email_address"] %>|<%= @form["telephone_number"] %>|<%= @form["organisation_type"] %>|<%= @form["organisation_name"] %>|<%= @form["companies_house_or_charity_commission_number"] %>|<%= @address %>|<%= @form["address_postcode"] %>|<%= @form["grant_agreement_number"] %>|<%= @form["funding_programme"] %>|<%= @form["project_name"] %>|<%= @form["total_amount_awarded"] %>|<%= @form["award_start_date"] %>|<%= @form["award_end_date"] %>|<%= @form["partners_outside_uk"] %>|<%= @form["additional_comments"]&.squish %>
+^ <%= @form["full_name"] %>|<%= @form["job_title"] %>|<%= @form["email_address"] %>|<%= @form["telephone_number"] %>|<%= @form["organisation_type_other"].blank? ? @form["organisation_type"] : @form["organisation_type_other"] %>|<%= @form["organisation_name"] %>|<%= @form["companies_house_or_charity_commission_number"] %>|<%= @address %>|<%= @form["address_postcode"] %>|<%= @form["grant_agreement_number"] %>|<%= @form["funding_programme"] %>|<%= @form["project_name"] %>|<%= @form["total_amount_awarded"] %>|<%= @form["award_start_date"] %>|<%= @form["award_end_date"] %>|<%= @form["partners_outside_uk"] %>|<%= @form["additional_comments"]&.squish %>
 
 ---
 
@@ -28,7 +28,7 @@ Telephone number:
 
 # Organisation Type
 
-<%= @form["organisation_type"] %>
+<%= @form["organisation_type_other"].blank? ? @form["organisation_type"] : @form["organisation_type_other"] %>
 
 # Organisation Details
 

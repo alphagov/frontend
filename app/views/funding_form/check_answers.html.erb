@@ -51,7 +51,7 @@
           items: [
             {
               field: t('funding_form.check_your_answers.section_2.organisation_type'),
-              value: session[:organisation_type],
+              value: session[:organisation_type_other].blank? ? session[:organisation_type] : session[:organisation_type_other],
               edit: {
                 href: "organisation-type",
               }

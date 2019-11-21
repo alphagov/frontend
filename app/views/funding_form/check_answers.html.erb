@@ -72,7 +72,7 @@
             },
             {
               field: t('funding_form.check_your_answers.section_2.company_house_number'),
-              value: session["companies_house_or_charity_commission_number"],
+              value: session["companies_house_or_charity_commission_number"].blank? ? session["companies_house_or_charity_commission_number_boolean"] : session["companies_house_or_charity_commission_number"],
               edit: {
                 href: "do-you-have-a-companies-house-or-charity-commission-number"
               },
@@ -86,7 +86,7 @@
           items: [
             {
               field: t('funding_form.check_your_answers.section_3.grant_agreement_number'),
-              value: session["grant_agreement_number"],
+              value: session["grant_agreement_number"].blank? ? session["grant_agreement_number_boolean"] : session["grant_agreement_number"],
               edit: {
                 href: "do-you-have-a-grant-agreement-number",
               }

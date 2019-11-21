@@ -10,7 +10,8 @@ class FundingForm::CompaniesHouseNumberController < ApplicationController
     companies_house_or_charity_commission_number = sanitize(params[:companies_house_or_charity_commission_number]).presence
     companies_house_or_charity_commission_number_other = sanitize(params[:companies_house_or_charity_commission_number_other]).presence
 
-    session[:companies_house_or_charity_commission_number] = companies_house_or_charity_commission_number_other || companies_house_or_charity_commission_number
+    session[:companies_house_or_charity_commission_number_boolean] = companies_house_or_charity_commission_number
+    session[:companies_house_or_charity_commission_number] = companies_house_or_charity_commission_number == I18n.t("funding_form.companies_house_or_charity_commission_number.options.number_yes.label") ? companies_house_or_charity_commission_number_other : ""
 
     invalid_fields = validate_radio_field(
       "companies_house_or_charity_commission_number",

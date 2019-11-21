@@ -10,7 +10,8 @@ class FundingForm::GrantAgreementNumberController < ApplicationController
     grant_agreement_number = sanitize(params[:grant_agreement_number]).presence
     grant_agreement_number_other = sanitize(params[:grant_agreement_number_other]).presence
 
-    session[:grant_agreement_number] = grant_agreement_number_other || grant_agreement_number
+    session[:grant_agreement_number_boolean] = grant_agreement_number
+    session[:grant_agreement_number] = grant_agreement_number == I18n.t("funding_form.grant_agreement_number.options.grant_yes") ? grant_agreement_number_other : ""
 
     invalid_fields = validate_radio_field(
       "grant_agreement_number",

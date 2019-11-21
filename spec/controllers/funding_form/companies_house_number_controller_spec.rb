@@ -13,7 +13,7 @@ RSpec.describe FundingForm::CompaniesHouseNumberController do
         companies_house_or_charity_commission_number_other: "<script></script>",
       }
 
-      expect(session[:companies_house_or_charity_commission_number]).to eq "No"
+      expect(session[:companies_house_or_charity_commission_number_boolean]).to eq "No"
     end
 
     it "sets session variables when a number is given" do
@@ -22,7 +22,18 @@ RSpec.describe FundingForm::CompaniesHouseNumberController do
         companies_house_or_charity_commission_number_other: "<script></script>1234",
       }
 
+      expect(session[:companies_house_or_charity_commission_number_boolean]).to eq "Yes"
       expect(session[:companies_house_or_charity_commission_number]).to eq "1234"
+    end
+
+    it "sets session variables when a number is given but No is selected" do
+      post :submit, params: {
+        companies_house_or_charity_commission_number: "<script></script>No",
+        companies_house_or_charity_commission_number_other: "<script></script>1234",
+      }
+
+      expect(session[:companies_house_or_charity_commission_number_boolean]).to eq "No"
+      expect(session[:companies_house_or_charity_commission_number]).to eq ""
     end
 
     it "redirects to next step" do

@@ -36,7 +36,7 @@ Name:
 <%= @form["organisation_name"] %>
 
 Company House or Charity Commission number:
-<%= @form["companies_house_or_charity_commission_number"] %>
+<%= @form["companies_house_or_charity_commission_number"].blank? ? @form["companies_house_or_charity_commission_number_boolean"] : @form["companies_house_or_charity_commission_number"] %>
 
 Address:
 <%= @form["address_line_1"] %>
@@ -47,7 +47,7 @@ Address:
 
 # Grant agreement number
 
-<%= @form["grant_agreement_number"] %>
+<%= @form["grant_agreement_number"].blank? ? @form["grant_agreement_number_boolean"] : @form["grant_agreement_number"] %>
 
 # Funding programme
 

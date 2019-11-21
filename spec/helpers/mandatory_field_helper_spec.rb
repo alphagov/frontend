@@ -110,4 +110,28 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
       expect(invalid_fields).to eq []
     end
   end
+
+  context "#validate_email_address" do
+    it "returns an error when email address doesn't contain @" do
+      invalid_fields = validate_email_address("john.doe2email.com")
+      expect(invalid_fields).to eq [{ text: "Enter email address in the correct format, like name@example.com" }]
+    end
+
+    it "does not return an error when email address contains @" do
+      invalid_fields = validate_email_address("john.doe@email.com")
+      expect(invalid_fields).to eq []
+    end
+  end
+
+  context "#validate_postcode" do
+    it "returns an error when postcode is not valid" do
+      invalid_fields = validate_postcode("12A45")
+      expect(invalid_fields).to eq [{ text: "Enter a real postcode" }]
+    end
+
+    it "does not return an error when postcode is valid" do
+      invalid_fields = validate_postcode("e18QS")
+      expect(invalid_fields).to eq []
+    end
+  end
 end

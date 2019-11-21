@@ -13,6 +13,8 @@ class FundingForm::ContactInformationController < ApplicationController
       session[key] = sanitize(params[key])
     end
     invalid_fields = validate_mandatory_text_fields(mandatory_text_fields, "contact_information")
+    invalid_fields << validate_email_address(session[:email_address])
+    invalid_fields = invalid_fields.flatten
     if invalid_fields.any?
       flash.now[:validation] = invalid_fields
       render "funding_form/contact_information"

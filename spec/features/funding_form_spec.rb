@@ -52,7 +52,7 @@ RSpec.feature "Register as an organisation which gets funding directly from the 
     fill_in "address_line_2", with: "Flat number"
     fill_in "address_town", with: "Town"
     fill_in "address_county", with: "County"
-    fill_in "address_postcode", with: "W6812"
+    fill_in "address_postcode", with: "E18QS"
     click_on "Save and continue"
   end
 
@@ -131,7 +131,7 @@ RSpec.feature "Register as an organisation which gets funding directly from the 
     expect(page).to have_content("Telephone number +440755 555 555")
     expect(page).to have_content("Type Research")
     expect(page).to have_content("Organisation name Organisation name")
-    expect(page).to have_content("Address Street name Flat number Town County W6812")
+    expect(page).to have_content("Address Street name Flat number Town County E18QS")
     expect(page).to have_content("Companies House or Charity Commission number Companies House number")
     expect(page).to have_content("Grant agreement number Grant agreement number")
     expect(page).to have_content("Programme Erasmus+")

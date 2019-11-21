@@ -10,7 +10,8 @@ class FundingForm::OrganisationTypeController < ApplicationController
     organisation_type = sanitize(params[:organisation_type]).presence
     organisation_type_other = sanitize(params[:organisation_type_other]).presence
 
-    session[:organisation_type] = organisation_type_other || organisation_type
+    session[:organisation_type] = organisation_type
+    session[:organisation_type_other] = organisation_type == I18n.t("funding_form.organisation_type.options.other.label") ? organisation_type_other : ""
 
     invalid_fields = validate_radio_field(
       "organisation_type",

@@ -86,7 +86,7 @@
           items: [
             {
               field: t('funding_form.check_your_answers.section_3.grant_agreement_number'),
-              value: session["grant_agreement_number"],
+              value: session["grant_agreement_number"].blank? ? session["grant_agreement_number_boolean"] : session["grant_agreement_number"],
               edit: {
                 href: "do-you-have-a-grant-agreement-number",
               }

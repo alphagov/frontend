@@ -13,16 +13,18 @@ RSpec.describe FundingForm::GrantAgreementNumberController do
         grant_agreement_number_other: "<script></script>1234",
       }
 
+      expect(session[:grant_agreement_number_boolean]).to eq "Yes"
       expect(session[:grant_agreement_number]).to eq "1234"
     end
 
-    it "sets sanitised session variables where a grant agreement number is not given" do
+    it "sets session variables where a grant agreement number is not given" do
       post :submit, params: {
-        grant_agreement_number: "No",
-        grant_agreement_number_other: "",
+        grant_agreement_number: "<script></script>No",
+        grant_agreement_number_other: "<script></script>1234",
       }
 
-      expect(session[:grant_agreement_number]).to eq "No"
+      expect(session[:grant_agreement_number_boolean]).to eq "No"
+      expect(session[:grant_agreement_number]).to eq ""
     end
 
     it "redirects to next step" do

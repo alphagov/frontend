@@ -13,7 +13,7 @@
     var enterKeyCode = 13,
         filterInst = this;
 
-    this.container = input.closest('.travel-container');
+    this.container = input.closest('.js-travel-container');
     input.keyup(function() {
       var filter = $(this).val();
 
@@ -25,7 +25,7 @@
       }
     });
 
-    $(".countries-wrapper", this.container).attr("aria-live", "polite");
+    $(".js-countries-wrapper", this.container).attr("aria-live", "polite");
     $(document).bind("countrieslist", this.updateCounter);
   };
 
@@ -62,8 +62,8 @@
   };
 
   CountryFilter.prototype.filterListItems = function(filter) {
-    var countryHeadings = $("section.countries-wrapper div", this.container).children("h2"),
-        listItems = $("ul.countries li", this.container),
+    var countryHeadings = $(".js-countries-wrapper div", this.container).children("h3"),
+      listItems = $("ul.js-countries-list li", this.container),
         itemsToHide,
         itemsShowing,
         synonymMatch = false,
@@ -102,7 +102,7 @@
   };
 
   CountryFilter.prototype.updateCounter = function (e, eData) {
-    var $counter = $(".country-count", this.container),
+    var $counter = $(".js-country-count", this.container),
         results;
 
     $counter.find(".js-filter-count").text(eData.count);
@@ -131,7 +131,7 @@
 
   GOVUK.countryFilter = CountryFilter;
 
-  $("#country-filter form input#country").map(function(idx, input) {
+  $("#country-filter input#country").map(function(idx, input) {
       new GOVUK.countryFilter($(input));
   });
 }).call(this);

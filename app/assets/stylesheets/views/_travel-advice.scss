@@ -1,253 +1,78 @@
 .travel-container {
-  .list {
-    ul {
-      display: inline-block;
-      padding-left: 0;
-      width: 100%;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 20px;
+  .country-filter-form {
+    display: none;
+
+    .js-enabled & {
+      display: block;
     }
-    ul.countries {
-      li {
-        width: 49%;
-        float: left;
-        margin-right: 1%;
+  }
+
+  .country-filter-form__form-group {
+    margin: 0; // Because fieldset has 2px margins by default.
+  }
+
+  .subscriptions-wrapper {
+    @include govuk-media-query($from: tablet) {
+      .js-enabled & {
+        margin-top: 22px;
+        text-align: right;
       }
     }
   }
 
-  .section-wrap {
-    padding: 0 0 0;
-    display: table-row;
-
-    @include media-down(tablet) {
-      display:block;
-      border-bottom: 1px solid $govuk-border-colour;
-    }
-
-    section {
-      width:50%;
-      vertical-align:bottom;
-      display:table-cell;
-      border-bottom: 1px solid $govuk-border-colour;
-
-      @include media-down(tablet) {
-        display:block;
-        border-bottom: none;
-        width:100%;
-      }
-    }
-
+  .app-full-width-break {
+    clear: both;
+    margin-right: govuk-spacing(3);
+    margin-left: govuk-spacing(3);
   }
 
-  .subscriptions {
-    text-align:right;
-
-    ul li:first-child {
-      margin-right: 0.3em;
-    }
-  }
-}
-
-.travel-advice {
-    .full-width .page-header div {
-      margin-right: 0em;
-    }
-
-    .list {
-      ul {
-        padding-left: 0;
-      }
-      ul.countries {
-        li {
-          a {
-            margin-right: 10px;
-
-          }
-          color: govuk-colour("dark-grey", $legacy: "grey-1");
-        }
-      }
-
-      li {
-        list-style: none;
-        padding-left: 0;
-
-        .meta{
-          @include govuk-font(16);
-          color: govuk-colour("dark-grey", $legacy: "grey-1");
-        }
-      }
-    }
-
-    #country-filter {
-      h1 {
-        display: inline-block;
-        @include govuk-font(27, $weight: bold);
-        margin: 0 0 0.4em 0;
-      }
-
-      form {
-        @include govuk-font(19);
-
-        display: none;
-        margin: 0 0 1em 0;
-
-        .js-enabled & {
-          display: block;
-        }
-
-        fieldset {
-          label {
-            position: absolute;
-            left: -9999em;
-          }
-
-          input {
-            display: block;
-            border-color: #A6AAAC;
-            margin: 0;
-          }
-        }
-      }
-  }
-
-  .country-metadata {
-    padding: 0;
-    margin: 0;
-    color: $govuk-secondary-text-colour;
+  .countries-list {
+    border-bottom: 1px solid $govuk-border-colour;
+    display: block;
+    padding-bottom: govuk-spacing(4);
 
     li {
-      @include govuk-font(16);
-
-      list-style: none;
-      padding: 0;
-      .label {
-        display: inline-block;
-        width: 7em;
-      }
-      p {
-        @include govuk-font(16);
-      }
+      box-sizing: border-box;
+      color: $govuk-secondary-text-colour;
+      float: left;
+      padding-right: govuk-spacing(3);
+      width: 50%;
     }
   }
 
-  .meta-data .print-link {
-    margin: 1em 0;
-  }
-
-
- .subscriptions  {
-
-    @include govuk-media-query($from: desktop) {
-      ul li:first-child {
-        margin-right: 0;
-        margin-left: 0;
-      }
-    }
-
-    p {
-      display: inline-block;
-      margin-right: 0.5em;
-      font-weight: 700;
-    }
-
-    @include media-down(tablet) {
-      text-align: left;
-      width: auto;
-      padding-top: 0;
-
-
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-
-      li {
-        margin-bottom: 0.25em;
-        text-align: left;
-        display: inline;
-      }
-
-      li:first-child {
-        margin-right:1.5em;
-      }
-
-      a {
-        text-decoration: none;
-        font-weight: 700;
-        padding-left: 28px;
-        height: 16px;
-        background-position: 0 50%;
-        background-repeat: no-repeat;
-
-        &.feed {
-          background-image: image-url("travel-advice/feed-icon-black.png");
-        }
-
-        &.email-alerts {
-          background-image: image-url("travel-advice/mail-icon.png");
-          @include govuk-device-pixel-ratio() {
-            background-image: image-url("travel-advice/mail-icon-x2.png");
-            background-size: 20px 14px;
-          }
-        }
-      }
-    }
-  }
-
-  .page-navigation {
-    border-bottom: 1px solid $govuk-border-colour;
-    margin: 0 0 2.5em;
-    padding-bottom: 1em;
-  }
-
-  &#wrapper .article-container .subscriptions a:hover {
-    color: #2E8ACA;
+  .countries-list__link {
+    margin-right: govuk-spacing(2);
   }
 
   .countries-wrapper {
-    padding-top: 2em;
-
-    & > .countries {
-        @include govuk-media-query($from: desktop) {
-        display: block;
-        width:30%;
-        float:left;
-        margin-bottom: 42px;
-      }
-      h1 {
-        margin-bottom: 0.3em;
-      }
-    }
-
-    .countries-list {
-      @include govuk-media-query($from: desktop) {
-        width: 70%;
-        float:left;
-        margin-bottom: 42px;
-      }
-    }
-
-    h1 {
-      @include govuk-font(19);
-      margin-top: 0;
-    }
-
-    p.country-count {
+    h2 {
       margin: 0;
-      span.js-filter-count {
+    }
+
+    .country-count {
+      margin: 0;
+
+      .filter-count {
         @include govuk-font(80, $weight: bold);
       }
     }
 
-    h2 {
+    h3 {
       @include govuk-font(80, $weight: bold);
-      margin-top: 0.4em;
-      padding-top: 0;
+      margin-top: 0.37em;
       margin-bottom: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+// TODO: remove input margin and border reset once the global input[type="text"]
+// styles are gone from static.
+.travel-advice {
+  #country-filter {
+    input {
+      border: 2px solid $govuk-input-border-colour;
+      margin: 0;
     }
   }
 }

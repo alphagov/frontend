@@ -48,7 +48,7 @@ private
     return {} if @publication.continuation_link.present?
 
     begin
-      GdsApi.licence_application.details_for_licence(@publication.licence_identifier, snac)
+      licence_application.details_for_licence(@publication.licence_identifier, snac)
     rescue GdsApi::HTTPErrorResponse, GdsApi::TimedOutException
       {}
     end
@@ -105,5 +105,13 @@ private
 
   def postcode
     PostcodeSanitizer.sanitize(params[:postcode])
+  end
+
+  def licence_application
+    @licence_application ||= begin
+      GdsApi.licence_application.tap do |client|
+        client.options[:timeout] = 20
+      end
+    end
   end
 end

@@ -24,6 +24,8 @@
             bold: true
           },
           name: "full_name",
+          id: "full_name",
+          error_message: error_items('full_name'),
           value: session["full_name"],
         } %>
         <%= render "govuk_publishing_components/components/input", {
@@ -32,6 +34,8 @@
             bold: true
           },
           name: "job_title",
+          id: "job_title",
+          error_message: error_items('job_title'),
           value: session["job_title"],
         } %>
         <%= render "govuk_publishing_components/components/input", {
@@ -40,6 +44,8 @@
             bold: true
           },
           name: "email_address",
+          id: "email_address",
+          error_message: error_items('email_address'),
           hint: t('funding_form.contact_information.email_address.hint'),
           value: session["email_address"]
         } %>
@@ -49,6 +55,8 @@
             bold: true
           },
           name: "telephone_number",
+          id: "telephone_number",
+          error_message: error_items('telephone_number'),
           width: 20,
           value: session["telephone_number"]
         } %>

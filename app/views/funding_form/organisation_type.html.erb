@@ -12,13 +12,15 @@
 
         <%= form_tag({},
           "data-module": "track-funding-form",
-          "data-question-key": "organisation_type"
+          "data-question-key": "organisation_type",
+          "id": "organisation_type"
         ) do %>
         <%= render "govuk_publishing_components/components/radio", {
           heading: t('funding_form.organisation_type.title'),
           description: t('funding_form.organisation_type.description'),
           is_page_heading: true,
           name: "organisation_type",
+          error_message: error_items('organisation_type'),
           items: [
             {
               value: t('funding_form.organisation_type.options.business.label'),

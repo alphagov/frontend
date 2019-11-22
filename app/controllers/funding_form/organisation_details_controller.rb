@@ -13,8 +13,8 @@ class FundingForm::OrganisationDetailsController < ApplicationController
       session[key] = sanitize(params[key])
     end
     invalid_fields = validate_mandatory_text_fields(mandatory_text_fields, "organisation_details")
-    invalid_fields << validate_postcode(session[:address_postcode])
-    invalid_fields = invalid_fields.flatten
+    invalid_fields << validate_postcode("address_postcode", session[:address_postcode])
+    invalid_fields = invalid_fields.flatten.uniq
     if invalid_fields.any?
       flash.now[:validation] = invalid_fields
       render "funding_form/organisation_details"

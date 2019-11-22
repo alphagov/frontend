@@ -23,6 +23,8 @@
             bold: true
           },
           name: "project_name",
+          id: "project_name",
+          error_message: error_items('project_name'),
           hint: t('funding_form.project_details.project_name.hint'),
           value: session["project_name"]
         } %>
@@ -39,6 +41,8 @@
         <%= render "govuk_publishing_components/components/date_input", {
           legend_text: t('funding_form.project_details.award_start_date.label'),
           hint: t('funding_form.project_details.award_start_date.hint'),
+          id: "start_date",
+          error_message: error_items('start_date'),
           items: [
             {
               label: "Day",
@@ -63,6 +67,8 @@
         <%= render "govuk_publishing_components/components/date_input", {
           legend_text: t('funding_form.project_details.award_end_date.label'),
           hint: t('funding_form.project_details.award_end_date.hint'),
+          id: "end_date",
+          error_message: error_items('end_date'),
           items: [
             {
               label: "Day",

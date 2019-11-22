@@ -12,13 +12,15 @@
 
         <%= form_tag({},
           "data-module": "track-funding-form",
-          "data-question-key": "programme_funding"
+          "data-question-key": "programme_funding",
+          "id": "programme_funding"
         ) do %>
         <%= render "govuk_publishing_components/components/radio", {
           heading: t('funding_form.programme_funding.title'),
           description: t('funding_form.programme_funding.description'),
           is_page_heading: true,
           name: "funding_programme",
+          error_message: error_items('programme_funding'),
           items: [
             {
               value: t('funding_form.programme_funding.options.option_1.label'),

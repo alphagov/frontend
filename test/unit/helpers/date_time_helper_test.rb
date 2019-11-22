@@ -9,6 +9,6 @@ class DateTimeHelperTest < ActionView::TestCase
 
   test "#format_date" do
     assert_equal "12 November 2019", format_date(@sample_date)
-    assert_equal nil, format_date(nil)
+    assert_nil format_date(nil)
   end
 end

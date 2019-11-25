@@ -9,6 +9,8 @@
       text: sanitize(t('funding_form.organisation_details.address_line_1.label') + " " + tag.span(t('funding_form.organisation_details.address_line_1.label_hidden'), class: "govuk-visually-hidden")),
     },
     name: "address_line_1",
+    id: "address_line_1",
+    error_message: error_items('address_line_1'),
     value: session["address_line_1"]
   } %>
   <%= render "govuk_publishing_components/components/input", {
@@ -16,6 +18,8 @@
       text: tag.span(t('funding_form.organisation_details.address_line_2.label_hidden'), class: "govuk-visually-hidden")
     },
     name: "address_line_2",
+    id: "address_line_2",
+    error_message: error_items('address_line_2'),
     value: session["address_line_2"],
   } %>
   <%= render "govuk_publishing_components/components/input", {
@@ -23,6 +27,8 @@
       text: t('funding_form.organisation_details.address_town.label')
     },
     name: "address_town",
+    id: "address_town",
+    error_message: error_items('address_town'),
     width: 20,
     value: session["address_town"],
   } %>
@@ -31,6 +37,8 @@
       text: t('funding_form.organisation_details.address_county.label')
     },
     name: "address_county",
+    id: "address_county",
+    error_message: error_items('address_county'),
     width: 20,
     value: session["address_county"],
   } %>
@@ -39,6 +47,8 @@
       text: t('funding_form.organisation_details.address_postcode.label')
     },
     name: "address_postcode",
+    id: "address_postcode",
+    error_message: error_items('address_postcode'),
     value: session["address_postcode"],
     width: 10
   } %>
@@ -64,6 +74,8 @@
             bold: true
           },
           name: "organisation_name",
+          id: "organisation_name",
+          error_message: error_items('organisation_name'),
           value: session["organisation_name"],
           hint: t('funding_form.organisation_details.organisation_name.hint')
         } %>

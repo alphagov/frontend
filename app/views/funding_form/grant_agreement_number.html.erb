@@ -12,13 +12,15 @@
 
         <%= form_tag({},
           "data-module": "track-funding-form",
-          "data-question-key": "grant_agreement_number"
+          "data-question-key": "grant_agreement_number",
+          "id": "grant_agreement_number"
         ) do %>
         <%= render "govuk_publishing_components/components/radio", {
           heading: t('funding_form.grant_agreement_number.title'),
           is_page_heading: true,
           name: "grant_agreement_number",
           description: t('funding_form.grant_agreement_number.description'),
+          error_message: error_items('grant_agreement_number'),
           items: [
             {
               value: t('funding_form.grant_agreement_number.options.grant_yes'),

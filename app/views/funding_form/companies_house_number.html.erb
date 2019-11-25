@@ -12,12 +12,14 @@
 
         <%= form_tag({},
           "data-module": "track-funding-form",
-          "data-question-key": "companies_house_or_charity_commission_number"
+          "data-question-key": "companies_house_or_charity_commission_number",
+          "id": "companies_house_or_charity_commission_number"
         ) do %>
         <%= render "govuk_publishing_components/components/radio", {
           heading: t('funding_form.companies_house_or_charity_commission_number.title'),
           is_page_heading: true,
           name: "companies_house_or_charity_commission_number",
+          error_message: error_items('companies_house_or_charity_commission_number'),
           items: [
             {
               value: t('funding_form.companies_house_or_charity_commission_number.options.number_yes.label'),

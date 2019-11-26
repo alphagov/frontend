@@ -1,4 +1,5 @@
-<main id="content" role="main" class="govuk-grid-column-two-thirds <%= main_class if local_assigns.include?(:main_class) %>">
+<main id="content" role="main" class="govuk-grid-column-two-thirds <%= main_class if local_assigns.include?(:main_class) %>" <%= @lang_attribute %>>
+
   <header class="page-header">
     <%= render "govuk_publishing_components/components/title", context: local_assigns[:context], title: title %>
   </header>

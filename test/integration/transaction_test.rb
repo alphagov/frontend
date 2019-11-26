@@ -104,7 +104,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "name" => "Deadline for registering to vote in the General Election",
             "acceptedAnswer" => {
               "@type" => "Answer",
-              "text" => "<p>Register by 11:59pm on 26 November to vote in the General Election on 12 December.</p> <p>If you want to <a href=\"/voting-in-the-uk?src=schema#voting-by-proxy\">vote by proxy</a> in England, Scotland or Wales, you can still apply after you’ve registered. Apply by 5pm on 4 December.</p> <p>It is too late to apply to vote:</p> <ul>\n <li>by post in England, Scotland or Wales</li>\n <li>by post or by proxy in Northern Ireland</li>\n</ul>\n",
+              "text" => "<p>You can no longer register to vote in the General Election on 12 December. You can still register for future elections.</p> <p>If you’re already registered, you can still apply to <a href=\"/voting-in-the-uk?src=schema#voting-by-proxy\">vote by proxy</a> in England, Scotland or Wales. Apply by 5pm on 4 December.</p>\n",
             },
           },
           {

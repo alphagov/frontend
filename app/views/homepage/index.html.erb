@@ -36,7 +36,7 @@
   <div id="homepage" class="govuk-width-container">
     <section class="home-services" aria-labelledby="services-and-information-label" id="services-and-information">
       <div class="govuk-grid-row">
-        <h2 id="services-and-information-label" class="visuallyhidden">Services and information</h2>
+        <h2 id="services-and-information-label" class="govuk-visually-hidden">Services and information</h2>
         <%= render :partial => "categories" %>
       </div>
     </section>
@@ -45,11 +45,21 @@
 
     <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">
       <div class="govuk-grid-row home-numbers-and-info">
-        <h2 id="departments-and-policy-label" class="visuallyhidden">Departments and&nbsp;policy</h2>
+        <h2 id="departments-and-policy-label" class="govuk-visually-hidden">Departments and&nbsp;policy</h2>
         <div class="govuk-grid-column-one-third">
           <ul class="home-numbers">
-            <li><a href="/government/organisations#ministerial_departments" class="home-numbers__link home-numbers__link--first govuk-link"><strong class="home-numbers__large">25</strong> Ministerial departments</a></li>
-            <li><a href="/government/organisations#agencies_and_other_public_bodies" class="home-numbers__link govuk-link"><strong class="home-numbers__large">407</strong> Other agencies and public&nbsp;bodies</a></li>
+            <li>
+              <a href="/government/organisations#ministerial_departments" class="home-numbers__link home-numbers__link--first govuk-link">
+                <strong class="home-numbers__large">25</strong>
+                Ministerial departments
+              </a>
+            </li>
+            <li>
+              <a href="/government/organisations#agencies_and_other_public_bodies" class="home-numbers__link govuk-link">
+                <strong class="home-numbers__large">407</strong>
+                Other agencies and public&nbsp;bodies
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -76,30 +86,42 @@
     <section>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <a href="https://www.longtermplan.nhs.uk/" class="govuk-link home-promo">
-            <%= image_tag 'homepage/nhs-long-term-plan.png', alt: '', class: 'home-promo__image' %>
-            <h3 class="home-promo__title">NHS long-term plan</h3>
+          <a href="https://www.longtermplan.nhs.uk/" aria-hidden="true" tabindex="-1">
+            <%= image_tag 'homepage/nhs-long-term-plan.png', alt: '', class: 'home-promo__image', loading: "lazy" %>
           </a>
+          <h3>
+            <a href="https://www.longtermplan.nhs.uk/" class="govuk-link home-promo__link">
+              NHS long-term plan
+            </a>
+          </h3>
           <p class="home-promo__text">
             Read about how an extra £33.9 billion each year will improve the NHS - for patients, their families and its staff.
           </p>
         </div>
 
         <div class="govuk-grid-column-one-third">
-          <a href="/brexit" class="govuk-link home-promo">
-            <%= image_tag 'homepage/brexit.png', alt: '', class: 'home-promo__image' %>
-            <h3 class="home-promo__title">Brexit information</h3>
+          <a href="/brexit" aria-hidden="true" tabindex="-1">
+            <%= image_tag 'homepage/brexit.png', alt: '', class: 'home-promo__image', loading: "lazy" %>
           </a>
+          <h3>
+            <a href="/brexit" class="govuk-link home-promo__link">
+              Brexit information
+            </a>
+          </h3>
           <p class="home-promo__text">
             Find out what Brexit means for you.
           </p>
         </div>
 
         <div class="govuk-grid-column-one-third">
-          <a href="/guidance/grenfell-tower-fire-june-2017-support-for-people-affected" class="govuk-link home-promo">
-            <%= image_tag 'homepage/grenfell-tower-support.png', alt: '', class: 'home-promo__image' %>
-            <h3 class="home-promo__title">Grenfell Tower fire</h3>
+          <a href="/guidance/grenfell-tower-fire-june-2017-support-for-people-affected" aria-hidden="true" tabindex="-1">
+            <%= image_tag 'homepage/grenfell-tower-support.png', alt: '', class: 'home-promo__image', loading: "lazy" %>
           </a>
+          <h3>
+            <a href="/guidance/grenfell-tower-fire-june-2017-support-for-people-affected" class="govuk-link home-promo__link">
+              Grenfell Tower fire
+            </a>
+          </h3>
           <p class="home-promo__text">
             Find out about the support available.
           </p>
@@ -133,11 +155,11 @@
 
         <div class="govuk-grid-column-one-third" id="promo">
           <h3>
-            <a href="/bank-holidays" class="govuk-link home-promo__link">
-              <span class="home-promo__link-content">UK bank holidays</span>
+            <a href="/bank-holidays" class="govuk-link home-more-promo" tabindex="-1">
+              <span class="home-more-promo__link-content">UK bank holidays</span>
             </a>
           </h3>
-          <p class="home-promo__text">Check the dates for <a href="/bank-holidays" class="govuk-link">bank holidays</a> in England, Wales, Scotland and Northern Ireland.</p>
+          <p class="home-promo__text">Check the dates for <a href="/bank-holidays" class="govuk-link" aria-hidden="true">bank holidays</a> in England, Wales, Scotland and Northern Ireland.</p>
         </div>
       </div>
     </section>

@@ -86,9 +86,7 @@ body.homepage {
 
   &:focus,
   &:link:focus {
-    // Manually fix the most embarassing :focus contast issue, needs a wider fix
-    color: govuk-colour("black");
-    text-decoration: none;
+    @include govuk-focused-text;
   }
 }
 
@@ -115,7 +113,7 @@ body.homepage {
 
 .home-services__heading {
   @include govuk-font(19, $weight: bold);
-  margin: 0;
+  margin: 0 0 govuk-spacing(1) 0;
 }
 
 .home-services__para {
@@ -153,7 +151,7 @@ body.homepage {
 }
 
 .home-numbers__link {
-  display: block;
+  display: inline-block;
   margin: 20px 0;
   text-decoration: none;
   line-height: 1.25;
@@ -183,8 +181,13 @@ body.homepage {
   margin: govuk-spacing(2) 0 govuk-spacing(4);
 }
 
-.home-promo {
-  display: block;
+.home-promo__link {
+  @include govuk-font(24, $weight: bold);
+  display: inline-block;
+
+  @include govuk-media-query($until: tablet) {
+    margin: 0 0 govuk-spacing(1) 0;
+  }
 }
 
 .home-promo__image {
@@ -216,7 +219,7 @@ body.homepage {
   font-weight: bold;
 }
 
-.home-promo__link {
+.home-more-promo {
   display: block;
   padding: 2.5em .75em;
   margin-bottom: govuk-spacing(3);
@@ -225,13 +228,13 @@ body.homepage {
   text-decoration: none;
 
   &:focus {
-    .home-promo__link-content {
+    .home-more-promo__link-content {
       color: govuk-colour("black");
     }
   }
 }
 
-.home-promo__link-content {
+.home-more-promo__link-content {
   @include govuk-font(36, $weight: bold);
   color: govuk-colour("white");
 }

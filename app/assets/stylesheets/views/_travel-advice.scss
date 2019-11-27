@@ -26,43 +26,40 @@
     margin-left: govuk-spacing(3);
   }
 
+  .countries__heading {
+    margin: 0;
+  }
+
+  .country-count {
+    margin: 0;
+  }
+
+  .filter-count,
+  .countries-initial-letter {
+    @include govuk-font(80, $weight: bold);
+  }
+
+  .countries-initial-letter {
+    margin: 0.37em 0 0 0;
+    padding-top: 0;
+  }
+
   .countries-list {
     border-bottom: 1px solid $govuk-border-colour;
     display: block;
     padding-bottom: govuk-spacing(4);
+  }
 
-    li {
-      box-sizing: border-box;
-      color: $govuk-secondary-text-colour;
-      float: left;
-      padding-right: govuk-spacing(3);
-      width: 50%;
-    }
+  .countries-list__item {
+    box-sizing: border-box;
+    color: $govuk-secondary-text-colour;
+    float: left;
+    padding-right: govuk-spacing(3);
+    width: 50%;
   }
 
   .countries-list__link {
     margin-right: govuk-spacing(2);
-  }
-
-  .countries-wrapper {
-    h2 {
-      margin: 0;
-    }
-
-    .country-count {
-      margin: 0;
-
-      .filter-count {
-        @include govuk-font(80, $weight: bold);
-      }
-    }
-
-    h3 {
-      @include govuk-font(80, $weight: bold);
-      margin-top: 0.37em;
-      margin-bottom: 0;
-      padding-top: 0;
-    }
   }
 }
 

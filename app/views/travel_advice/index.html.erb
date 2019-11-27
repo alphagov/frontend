@@ -44,11 +44,11 @@
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible app-full-width-break">
     </section>
 
-    <section class="js-countries-wrapper countries-wrapper govuk-grid-row">
+    <section class="govuk-grid-row countries-wrapper js-countries-wrapper">
       <div class="countries govuk-grid-column-one-third">
-        <h2 class="govuk-heading-m">Countries or territories</h2>
+        <h2 class="govuk-heading-m countries__heading">Countries or territories</h2>
         <p class="country-count js-country-count">
-          <span class="js-filter-count filter-count "><%= @presenter.countries.length %></span>
+          <span class="filter-count js-filter-count"><%= @presenter.countries.length %></span>
           <span class="govuk-visually-hidden">Countries or territories</span>
         </p>
       </div>
@@ -56,10 +56,10 @@
       <div class="govuk-grid-column-two-thirds">
         <% @presenter.countries_grouped_by_initial_letter.each do |initial,countries| %>
           <div id="<%= initial %>" class="list">
-            <h3><span class="govuk-visually-hidden">Countries starting with </span><%= initial %></h3>
+            <h3 class="countries-initial-letter"><span class="govuk-visually-hidden">Countries starting with </span><%= initial %></h3>
             <ul class="govuk-list govuk-clearfix countries-list js-countries-list">
               <% countries.each do |country| %>
-                <li data-synonyms="<%= country.synonyms ? country.synonyms.join("|") : "" %>">
+                <li class="countries-list__item" data-synonyms="<%= country.synonyms ? country.synonyms.join("|") : "" %>">
                   <%= link_to country.name, "/foreign-travel-advice/#{country.identifier}", class: "govuk-link countries-list__link" %>
                 </li>
               <% end %>

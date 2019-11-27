@@ -120,7 +120,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "name" => "Registering online",
             "acceptedAnswer" => {
               "@type" => "Answer",
-              "text" => "<p>Use this service to get on the electoral register. You need to be on the electoral register to vote in elections and referendums.</p> <p>You only need to register once - not for every election.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>\n",
+              "text" => "<p>Use this service to get on the electoral register. You need to be on the electoral register to vote in elections and referendums.</p> <p>You only need to register once - not for every election.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/already-registered?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>\n",
             },
           },
           {

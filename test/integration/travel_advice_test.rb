@@ -36,7 +36,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
         assert page.has_selector?("#country-filter")
 
-        names = page.all("ul.countries li a").map(&:text)
+        names = page.all("ul.js-countries-list li a").map(&:text)
         assert_equal %w(Afghanistan Austria Finland India Malaysia São\ Tomé\ and\ Principe Spain), names
 
         within ".list#A" do
@@ -102,7 +102,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_no_selector?("#M li")
       end
 
-      within ".country-count" do
+      within ".js-country-count" do
         assert page.has_selector?(".js-filter-count", text: "4")
       end
     end

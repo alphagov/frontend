@@ -2,24 +2,24 @@
 var GOVUK_test = {
   countryFilter: {
     threeCategories: '<div id="W" class="list">' +
-      '<h2>' +
-      '<span class="visuallyhidden">Countries starting with </span>W</h2>' +
-      '<ul class="countries">' +
+      '<h3>' +
+      '<span class="visuallyhidden">Countries starting with </span>W</h3>' +
+      '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
       '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
       '</ul>' +
       '</div>' +
       '<div id="Y" class="list">' +
-      '<h2>' +
-      '<span class="visuallyhidden">Countries starting with </span>Y</h2>' +
-      '<ul class="countries">' +
+      '<h3>' +
+      '<span class="visuallyhidden">Countries starting with </span>Y</h3>' +
+      '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
       '</ul>' +
       '</div>' +
       '<div id="Z" class="list">' +
-      '<h2>' +
-      '<span class="visuallyhidden">Countries starting with </span>Z</h2>' +
-      '<ul class="countries">' +
+      '<h3>' +
+      '<span class="visuallyhidden">Countries starting with </span>Z</h3>' +
+      '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
       '</ul>' +
@@ -30,24 +30,24 @@ var GOVUK_test = {
 GOVUK_test.countryFilter.categories = {
   allWithCountries: '<section class="countries-wrapper">' + GOVUK_test.countryFilter.threeCategories + '</section>',
   twoWithoutCountries: '<section><div id="W" class="list">' +
-    '<h2>' +
-    '<span class="visuallyhidden">Countries starting with </span>W</h2>' +
-    '<ul class="countries">' +
+    '<h3>' +
+    '<span class="visuallyhidden">Countries starting with </span>W</h3>' +
+    '<ul class="countries js-countries-list">' +
     '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
     '<li data-synonyms="Sahel" style="display:none"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
     '</ul>' +
     '</div>' +
     '<div id="Y" class="list">' +
-    '<h2>' +
-    '<span class="visuallyhidden">Countries starting with </span>Y</h2>' +
-    '<ul class="countries">' +
+    '<h3>' +
+    '<span class="visuallyhidden">Countries starting with </span>Y</h3>' +
+    '<ul class="countries js-countries-list">' +
     '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
     '</ul>' +
     '</div>' +
     '<div id="Z" class="list">' +
-    '<h2>' +
-    '<span class="visuallyhidden">Countries starting with </span>Z</h2>' +
-    '<ul class="countries">' +
+    '<h3>' +
+    '<span class="visuallyhidden">Countries starting with </span>Z</h3>' +
+    '<ul class="countries js-countries-list">' +
     '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
     '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
     '</ul>' +
@@ -60,7 +60,7 @@ GOVUK_test.countryFilter.synonyms = {
   withUSASynonym: '<li data-synonyms="United States|America|arctic" style="display: list-item;"><a href="/foreign-travel-advice/usa">USA</a></li>'
 };
 
-GOVUK_test.countryFilter.countryCounter = '<p class="country-count"><span class="js-filter-count"></span></p>';
+GOVUK_test.countryFilter.countryCounter = '<p class="js-country-count"><span class="js-filter-count"></span></p>';
 
 describe("CountryFilter", function () {
   var $input,
@@ -160,9 +160,9 @@ describe("CountryFilter", function () {
       }, 1100);
     });
 
-    it("Should set aria attributes on div.countries-wrapper", function () {
-      var $container = $("<div class='travel-container' />"),
-          $countriesWrapper = $("<div class='countries-wrapper' />");
+    it("Should set aria attributes on div.js-countries-wrapper", function () {
+      var $container = $("<div class='js-travel-container' />")
+      var $countriesWrapper = $("<div class='js-countries-wrapper' />")
 
       $container
         .append($input)
@@ -193,7 +193,7 @@ describe("CountryFilter", function () {
       $countries = $(GOVUK_test.countryFilter.categories.allWithCountries);
       filter = new GOVUK.countryFilter($input);
       filter.container = $countries;
-      $headings = $countries.find('h2');
+      $headings = $countries.find('h3');
 
       filter.filterHeadings($headings);
       expect($headings.map(function () { if ($(this).css('display') !== 'none') { return this; }}).length).toEqual(3);
@@ -205,7 +205,7 @@ describe("CountryFilter", function () {
       $countries = $(GOVUK_test.countryFilter.categories.twoWithoutCountries);
       filter = new GOVUK.countryFilter($input);
       filter.container = $countries;
-      $headings = $countries.find('h2');
+      $headings = $countries.find('h3');
 
       filter.filterHeadings($headings);
       expect($headings.map(function () { if ($(this).parent().css('display') !== 'none') { return this; }}).length).toEqual(1);
@@ -245,9 +245,14 @@ describe("CountryFilter", function () {
     var $counter;
 
     beforeEach(function () {
-      $container = $('<div class="travel-container">' + GOVUK_test.countryFilter.countryCounter + '</div>').append($input);
+      $container = $(
+        '<div class="js-travel-container">' +
+          GOVUK_test.countryFilter.countryCounter +
+        '</div>'
+      ).append($input);
+
       filter = new GOVUK.countryFilter($input);
-      $counter = $(".country-count", filter.container)
+      $counter = $(".js-country-count", filter.container)
     });
 
     it("Should make the counter text match the sent number", function () {
@@ -279,7 +284,7 @@ describe("CountryFilter", function () {
     beforeEach(function () {
       $countries = $(GOVUK_test.countryFilter.categories.allWithCountries);
       $counter = $(GOVUK_test.countryFilter.countryCounter);
-      $container = $('<div class="travel-container"></div>')
+      $container = $('<div class="js-travel-container"></div>')
         .append($input)
         .append($countries)
         .append($counter);
@@ -317,7 +322,14 @@ describe("CountryFilter", function () {
       var visibleCountries;
 
       filter.filterListItems('Yem');
-      visibleCountries = $countries.find('ul.countries li').map(function () { if (this.style.display !== 'none') return this; });
+      visibleCountries = $countries
+                          .find('ul.js-countries-list li')
+                            .map(function () {
+                              if (this.style.display !== 'none') {
+                                return this;
+                              }
+                            });
+
       expect(visibleCountries.length).toEqual(1);
     });
 
@@ -325,7 +337,7 @@ describe("CountryFilter", function () {
       var visibleCountries;
 
       filter.filterListItems('Z');
-      visibleCountries = $countries.find('ul.countries li').map(function () { if (this.style.display !== 'none') return this; });
+      visibleCountries = $countries.find('ul.js-countries-list li').map(function () { if (this.style.display !== 'none') return this; });
       expect(visibleCountries.length).toEqual(2);
     });
   });

@@ -109,18 +109,18 @@ en:
         label: Postcode
         custom_error: Enter a real postcode
     companies_house_or_charity_commission_number:
-      title: Do you have a Companies House or Charity Commission number?
+      title: Do you have a company or charity registration number?
       options:
         number_yes:
           label: "Yes"
           hint: UK based businesses
           input:
-            label: Companies House or Charity Commission number
-            hint: If you have both, enter your Companies House number
+            label: Company or charity registration number
+            hint: If you have both, enter your company registration number
         number_no:
           label: "No"
-      custom_select_error: Select yes if you have a Companies House or Charity Commission number
-      custom_enter_error: Enter Companies House or Charity Commission number
+      custom_select_error: Select yes if you have a if you have a company or charity registration number
+      custom_enter_error: Enter company or charity registration number
     grant_agreement_number:
       title: Do you have a grant agreement number?
       description: It might be called a project ID, proposal ID or action number.

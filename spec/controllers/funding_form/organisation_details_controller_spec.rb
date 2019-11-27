@@ -32,7 +32,7 @@ RSpec.describe FundingForm::OrganisationDetailsController do
     it "redirects to next step" do
       post :submit, params: params
 
-      expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-companies-house-or-charity-commission-number")
+      expect(response).to redirect_to("/brexit-eu-funding/do-you-have-a-company-or-charity-registration-number")
     end
 
     it "redirects to check your answers if check your answers previously seen" do

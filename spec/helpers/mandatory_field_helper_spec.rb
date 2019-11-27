@@ -70,12 +70,12 @@ RSpec.describe MandatoryFieldHelper, type: :helper do
 
     it "returns a custom error when companies house radio buttons not selected" do
       invalid_fields = validate_radio_field("companies_house_or_charity_commission_number", radio: "", other: "")
-      expect(invalid_fields).to eq [{ field: "companies_house_or_charity_commission_number", text: "Select yes if you have a Companies House or Charity Commission number" }]
+      expect(invalid_fields).to eq [{ field: "companies_house_or_charity_commission_number", text: "Select yes if you have a if you have a company or charity registration number" }]
     end
 
     it "returns a custom error when companies house yes is selected but no value entered" do
       invalid_fields = validate_radio_field("companies_house_or_charity_commission_number", radio: "Yes", other: "")
-      expect(invalid_fields).to eq [{ field: "companies_house_or_charity_commission_number", text: "Enter Companies House or Charity Commission number" }]
+      expect(invalid_fields).to eq [{ field: "companies_house_or_charity_commission_number", text: "Enter company or charity registration number" }]
     end
 
     it "returns a custom error when grant number radio buttons not selected" do

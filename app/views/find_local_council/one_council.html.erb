@@ -1,5 +1,5 @@
 <%= render layout: 'base_page' do %>
-  <h2>Your postcode is in:</h2>
+  <h2 class="govuk-heading-m">Your postcode is in:</h2>
 
   <div class="local-authority-results"
        data-module="auto-track-event"
@@ -9,13 +9,13 @@
 
     <div class="<%= @authority['tier'] %>-result group">
 
-      <p><%= @authority["name"] %></p>
+      <p class="govuk-body"><%= @authority["name"] %></p>
 
-      <p>
+      <p class="govuk-body">
         <% if @authority["homepage_url"].blank? %>
           We don't have a link for their website.
         <% else %>
-          Website: <%= link_to extract_host(@authority["homepage_url"]), @authority["homepage_url"],
+          Website: <%= link_to extract_host(@authority["homepage_url"]), @authority["homepage_url"], class: "govuk-link",
                         data: {
                           module: 'track-click',
                           track_category: 'pageElementInteraction',
@@ -25,10 +25,10 @@
         <% end %>
       </p>
     </div>
-    <hr class="separator">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
   </div>
 
-  <div class="search-again">
-    <a href="/find-local-council">Back</a>
-  </div>
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: "/find-local-council"
+  } %>
 <% end %>

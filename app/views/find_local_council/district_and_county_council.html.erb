@@ -1,5 +1,5 @@
 <%= render layout: 'base_page' do %>
-  <h2>Your postcode is in a county council and a district council.</h2>
+  <h2 class="govuk-heading-m">Your postcode is in a county council and a district council.</h2>
 
   <div class="local-authority-results"
        data-module="auto-track-event"
@@ -8,13 +8,13 @@
        data-track-label="2 Results">
 
     <div class="county-result group">
-      <p><%= @county["name"] %></p>
+      <p class="govuk-body"><%= @county["name"] %></p>
 
-      <p>
+      <p class="govuk-body">
         <% if @county["homepage_url"].blank? %>
           We don't have a link for their website.
         <% else %>
-          Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"],
+          Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"], class: "govuk-link",
                               data: {
                                 module: 'track-click',
                                 track_category: 'pageElementInteraction',
@@ -24,24 +24,24 @@
         <% end %>
       </p>
 
-      <p>County councils are responsible for services like:</p>
-      <ul class="list list-bullet">
+      <p class="govuk-body">County councils are responsible for services like:</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>education</li>
         <li>transport</li>
         <li>social care</li>
       </ul>
     </div>
 
-    <hr class="separator">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
     <div class="district-result group">
-      <p><%= @district["name"] %></p>
+      <p class="govuk-body"><%= @district["name"] %></p>
 
-      <p>
+      <p class="govuk-body">
         <% if @district["homepage_url"].blank? %>
           We don't have a link for their website.
         <% else %>
-          Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"],
+          Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"], class: "govuk-link",
                               data: {
                                 module: 'track-click',
                                 track_category: 'pageElementInteraction',
@@ -51,8 +51,8 @@
         <% end %>
       </p>
 
-      <p>District councils are responsible for services like:</p>
-      <ul class="list list-bullet">
+      <p class="govuk-body">District councils are responsible for services like:</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>rubbish and recycling collection</li>
         <li>council tax</li>
         <li>housing</li>
@@ -60,9 +60,9 @@
     </div>
   </div>
 
-  <hr class="separator">
+  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-  <div class="search-again">
-    <a title="Search again using a different postcode." href="/find-local-council">Back</a>
-  </div>
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: "/find-local-council"
+  } %>
 <% end %>

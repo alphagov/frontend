@@ -20,7 +20,10 @@ class HomepagePublisherTest < ActiveSupport::TestCase
 
     stub_api = GdsApi::PublishingApiV2.new(Plek.find("publishing-api"))
 
-    HomepagePublisher.publish!(stub_api, stub(:info))
+    mock_logger = mock
+    mock_logger.expects(:info).returns("Publishing exact route /, routing to frontend")
+
+    HomepagePublisher.publish!(stub_api, mock_logger)
 
     assert_requested(
       content_request.with do |req|

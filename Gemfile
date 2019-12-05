@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'addressable'
-gem 'gds-api-adapters', '~> 61.1.0'
+gem 'gds-api-adapters', '~> 62.0.0'
 gem 'govuk_app_config', '~> 2.0.1'
 gem 'govuk_ab_testing', '~> 2.4', '>= 2.4.1'
 gem "govuk_sidekiq", "~> 3.0"

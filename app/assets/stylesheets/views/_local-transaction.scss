@@ -1,6 +1,6 @@
 .interaction{
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+  margin-top: govuk-spacing(3);
+  margin-bottom: govuk-spacing(6);
 
   .interaction-match{
     @include govuk-font(36);
@@ -11,7 +11,6 @@
   }
 }
 
-.search-again, .search-again a{
-  @include govuk-font(24);
-  margin-top: 2.5em;
+.search-again {
+  margin: govuk-spacing(7) 0 govuk-spacing(3) 0;
 }

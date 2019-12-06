@@ -39,12 +39,16 @@
              data-module="auto-track-event"
              data-track-category="userAlerts:local_transaction"
              data-track-action="postcodeResultShown:laMatchNoLinkNoAuthorityUrl">
-          <p>We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
+          <p class="govuk-body">We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
         </div>
       <% end %>
     </div>
   <% end %>
-  <div class="search-again"><%= link_to 'Back', local_transaction_search_path(@publication.slug), title: "Search again using a different postcode." %></div>
+  <div class="search-again">
+    <%= render "govuk_publishing_components/components/back_link", {
+      href: local_transaction_search_path(@publication.slug)
+    } %>
+  </div>
   <section class="more">
     <div class="more">
       <%= raw @publication.more_information %>

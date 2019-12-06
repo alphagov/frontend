@@ -24,7 +24,11 @@
   edition: @edition
 } do %>
   <section class="intro">
-    <div class="get-started-intro"><%= @publication.introductory_paragraph.try(:html_safe) %></div>
+    <div class="get-started-intro">
+      <%= render "govuk_publishing_components/components/govspeak", { } do %>
+        <%= @publication.introductory_paragraph.try(:html_safe) %>
+      <% end %>
+    </div>
     <% if @publication.downtime_message.present? %>
       <div class="application-notice help-notice">
         <p><strong><%= @publication.downtime_message %></strong></p>

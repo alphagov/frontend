@@ -11,7 +11,7 @@
       <% if @licence_details.action == action %>
         <li class="active"><%= "How to #{action}" %></li>
       <% else %>
-        <li><%= link_to "How to #{action}", licence_authority_path(@publication.slug, @licence_details.authority["slug"], action) %></li>
+        <li><%= link_to "How to #{action}", licence_authority_path(@publication.slug, @licence_details.authority["slug"], action), class: "govuk-link" %></li>
       <% end %>
     <% end %>
   </ol>
@@ -35,7 +35,7 @@
     <% if @licence_details.local_authority_specific? or @licence_details.multiple_licence_authorities_present? %>
       <div class="contact">
         <p>The issuing authority for this licence is <strong><%= @licence_details.authority["name"] %></strong>
-          <%= link_to (@licence_details.local_authority_specific? ? '(change location)' : '(change authority)'), licence_path(@publication.slug) %>
+          <%= link_to (@licence_details.local_authority_specific? ? '(change location)' : '(change authority)'), licence_path(@publication.slug), class: "govuk-link" %>
         </p>
 
         <% if @licence_details.authority['contact'] and ! @licence_details.authority['contact']['address'].blank? %>

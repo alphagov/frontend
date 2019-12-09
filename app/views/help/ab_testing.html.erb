@@ -4,17 +4,14 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<main id="content" role="main" class="group">
+<main id="content" role="main" class="govuk-grid-column-two-thirds">
   <%= render "govuk_publishing_components/components/title", {
     title: "This is a test page"
   } %>
 
-  <p>We sometimes test different versions of pages with different users to see which work better.
-    This page shows us if the process is working.</p>
-  <p>
-    There are 2 versions of this page. You are viewing the
-    <strong class="ab-example-group"><%= @requested_variant.variant?("A") ? 'A' : 'B' %></strong>
-    version.
-  </p>
-  <p>Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.</p>
+  <p class="govuk-body">We sometimes test different versions of pages with different users to see which work better. This page shows us if the process is working.</p>
+
+  <p class="govuk-body">There are 2 versions of this page. You are viewing the <strong class="ab-example-group"><%= @requested_variant.variant?("A") ? 'A' : 'B' %></strong> version.</p>
+
+  <p class="govuk-body">Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.</p>
 </main>

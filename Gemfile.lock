@@ -91,7 +91,7 @@ GEM
     faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
-    gds-api-adapters (62.0.0)
+    gds-api-adapters (63.0.0)
       addressable
       link_header
       null_logger
@@ -399,7 +399,7 @@ DEPENDENCIES
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 62.0.0)
+  gds-api-adapters (~> 63.0.0)
   govuk-content-schema-test-helpers
   govuk-lint
   govuk_ab_testing (~> 2.4, >= 2.4.1)

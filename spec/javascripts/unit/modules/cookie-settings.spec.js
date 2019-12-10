@@ -84,7 +84,7 @@ describe('cookieSettings', function() {
 
       var cookie = JSON.parse(GOVUK.cookie('cookie_policy'))
 
-      expect(window.GOVUK.setConsentCookie).toHaveBeenCalledWith({"settings": false, "usage": true, "campaigns": true})
+      expect(window.GOVUK.setConsentCookie).toHaveBeenCalledWith({"settings": false, "usage": false, "campaigns": false})
       expect(cookie['settings']).toBeFalsy()
     });
 
@@ -113,7 +113,7 @@ describe('cookieSettings', function() {
       var button = element.querySelector("#submit-button")
       button.click()
 
-      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('cookieSettings', 'Save changes', { label: 'settings-no usage-yes campaigns-yes ' })
+      expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('cookieSettings', 'Save changes', { label: 'settings-no usage-no campaigns-no ' })
     });
   });
 

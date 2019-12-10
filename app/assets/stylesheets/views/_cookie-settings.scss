@@ -1,5 +1,4 @@
-.cookie-settings__form-wrapper,
-.cookie-settings__warning {
+.cookie-settings__form-wrapper {
   display: none;
 
   .js-enabled & {
@@ -14,11 +13,6 @@
 }
 
 .cookie-settings__confirmation {
-  @include govuk-font(19);
-  display: none;
-}
-
-.cookie-settings__error {
   @include govuk-font(19);
   display: none;
 }

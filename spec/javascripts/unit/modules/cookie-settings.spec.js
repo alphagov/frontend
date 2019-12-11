@@ -45,7 +45,7 @@ describe('cookieSettings', function() {
 
   describe('setInitialFormValues', function () {
     it('sets a consent cookie by default', function() {
-      GOVUK.cookie('cookie_policy', null)
+      GOVUK.cookie('cookies_policy', null)
 
       spyOn(window.GOVUK, 'setDefaultConsentCookie').and.callThrough()
       cookieSettings.start(element)
@@ -57,7 +57,7 @@ describe('cookieSettings', function() {
       cookieSettings.start(element)
 
       var radioButtons = element.querySelectorAll('input[value=on]')
-      var consentCookieJSON = JSON.parse(window.GOVUK.cookie('cookie_policy'))
+      var consentCookieJSON = JSON.parse(window.GOVUK.cookie('cookies_policy'))
 
       for(var i = 0; i < radioButtons.length; i++) {
         var name = radioButtons[i].name.replace('cookies-', '')
@@ -82,7 +82,7 @@ describe('cookieSettings', function() {
       var button = element.querySelector("#submit-button")
       button.click()
 
-      var cookie = JSON.parse(GOVUK.cookie('cookie_policy'))
+      var cookie = JSON.parse(GOVUK.cookie('cookies_policy'))
 
       expect(window.GOVUK.setConsentCookie).toHaveBeenCalledWith({"settings": false, "usage": false, "campaigns": false})
       expect(cookie['settings']).toBeFalsy()

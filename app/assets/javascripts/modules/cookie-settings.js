@@ -15,11 +15,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   CookieSettings.prototype.setInitialFormValues = function () {
-    if (!window.GOVUK.cookie('cookie_policy')) {
+    if (!window.GOVUK.cookie('cookies_policy')) {
       window.GOVUK.setDefaultConsentCookie()
     }
 
-    var currentConsentCookie = window.GOVUK.cookie('cookie_policy')
+    var currentConsentCookie = window.GOVUK.cookie('cookies_policy')
     var currentConsentCookieJSON = JSON.parse(currentConsentCookie)
 
     // We don't need the essential value as this cannot be changed by the user

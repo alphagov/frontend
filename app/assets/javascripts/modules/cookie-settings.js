@@ -2,14 +2,15 @@ window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
-  function CookieSettings () { }
+  function CookieSettings () {}
 
   CookieSettings.prototype.start = function ($module) {
     this.$module = $module[0]
 
     this.$module.submitSettingsForm = this.submitSettingsForm.bind(this)
 
-    document.querySelector('form[data-module=cookie-settings]').addEventListener('submit', this.$module.submitSettingsForm)
+    document.querySelector('form[data-module=cookie-settings]')
+      .addEventListener('submit', this.$module.submitSettingsForm)
 
     this.setInitialFormValues()
   }
@@ -73,7 +74,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
-      GOVUK.analytics.trackEvent("cookieSettings", "Save changes", {label: eventLabel})
+      GOVUK.analytics.trackEvent("cookieSettings", "Save changes", { label: eventLabel })
     }
   }
 

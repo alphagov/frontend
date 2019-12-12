@@ -88,7 +88,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         "@context" => "http://schema.org",
         "@type" => "FAQPage",
         "headline" => "Register to vote",
-        "description" => "<p>Register to vote to get on the electoral register, or to change your details. It usually takes about 5 minutes.</p> <p>You need to be on the electoral register to vote in general elections or referendums.</p>\n",
+        "description" => "<p>Register to vote to get on the electoral register, or to change your details. It usually takes about 5 minutes.</p> <p>You need to be on the electoral register to vote in elections or referendums.</p>\n",
         "publisher" => {
           "@type" => "Organization",
           "name" => "GOV.UK",
@@ -99,14 +99,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
           },
         },
         "mainEntity" => [
-          {
-            "@type" => "Question",
-            "name" => "Deadline for registering to vote in the General Election",
-            "acceptedAnswer" => {
-              "@type" => "Answer",
-              "text" => "<p>You can no longer register to vote in the General Election on 12 December. You can still register for future elections.</p>\n",
-            },
-          },
           {
             "@type" => "Question",
             "name" => "Who can register",
@@ -120,7 +112,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "name" => "Registering online",
             "acceptedAnswer" => {
               "@type" => "Answer",
-              "text" => "<p>Use this service to get on the electoral register. You need to be on the electoral register to vote in elections and referendums.</p> <p>You only need to register once - not for every election.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>\n",
+              "text" => "<p>Use this service to register to vote.</p> <p>You only need to register once - not for every election.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>\n",
             },
           },
           {

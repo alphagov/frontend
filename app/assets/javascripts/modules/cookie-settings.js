@@ -59,10 +59,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     this.fireAnalyticsEvent(options)
 
-    if (!window.GOVUK.cookie("seen_cookie_message")) {
-      window.GOVUK.setCookie("seen_cookie_message", true, { days: 365 })
-    }
-
     this.showConfirmationMessage()
 
     return false

@@ -88,19 +88,19 @@ describe('cookieSettings', function() {
       expect(cookie['settings']).toBeFalsy()
     });
 
-    it('sets seen_cookie_message cookie on form submit', function() {
+    it('sets cookie_preferences_set cookie on form submit', function () {
       spyOn(window.GOVUK, 'setCookie').and.callThrough()
       cookieSettings.start(element)
 
-      GOVUK.cookie('seen_cookie_message', null)
+      GOVUK.cookie('cookie_preferences_set', null)
 
-      expect(GOVUK.cookie('seen_cookie_message')).toEqual(null)
+      expect(GOVUK.cookie('cookie_preferences_set')).toEqual(null)
 
       var button = element.querySelector("#submit-button")
       button.click()
 
-      expect(window.GOVUK.setCookie).toHaveBeenCalledWith("seen_cookie_message", true, { days: 365 } )
-      expect(GOVUK.cookie('seen_cookie_message')).toBeTruthy()
+      expect(window.GOVUK.setCookie).toHaveBeenCalledWith("cookie_preferences_set", true, { days: 365 } )
+      expect(GOVUK.cookie('cookie_preferences_set')).toBeTruthy()
     });
 
     it('fires a Google Analytics event', function() {

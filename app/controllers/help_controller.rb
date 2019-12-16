@@ -1,7 +1,7 @@
 class HelpController < ApplicationController
   include Cacheable
 
-  slimmer_template "wrapper"
+  slimmer_template "core_layout"
 
   def index
     setup_content_item("/help")

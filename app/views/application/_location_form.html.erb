@@ -39,8 +39,8 @@
           hint: "For example SW1A 2AA",
           invalid: @location_error ? 'true' : 'false'
         } %>
-        <%= render "govuk_publishing_components/components/button", text: "Find" %>
-        <p>
+        <%= render "govuk_publishing_components/components/button", text: "Find", margin_bottom: true %>
+        <p class="govuk-body">
           <%= link_to "Find a postcode on Royal Mail's postcode finder",
                       'http://www.royalmail.com/find-a-postcode',
                       :target => "_blank",

@@ -280,7 +280,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display the postcode form" do
-      within ".ask_location" do
+      within ".location-form" do
         assert page.has_field?("Enter a postcode")
         assert page.has_field? "postcode", with: "BAD POSTCODE"
         assert_has_button("Find")

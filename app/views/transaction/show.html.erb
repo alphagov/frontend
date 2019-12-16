@@ -7,12 +7,6 @@
              schema: :government_service,
              content_item: @content_item %>
 
-<% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(@publication) %>
-<script type="application/ld+json">
-  <%= raw MachineReadable::YamlFaqPageSchemaPresenter.new(@publication).structured_data.to_json %>
-</script>
-<% end %>
-
   <% if @publication.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
   <% end %>

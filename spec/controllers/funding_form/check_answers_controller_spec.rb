@@ -25,10 +25,17 @@ RSpec.describe FundingForm::CheckAnswersController do
 
   describe "POST submit" do
     before do
+      session[:email_address] = "grant_recipient@digital.cabinet-office.gov.uk"
       allow_any_instance_of(described_class).to receive(:reference_number).and_return("ABC")
     end
 
-    it "queues up two emails" do
+    after do
+      ActiveJob::Base.queue_adapter.enqueued_jobs.clear
+    end
+
+    it "queues up two emails for fund with one recipient" do
+      session[:project_name] = "Competitiveness of Small and Medium-Sized Enterprises (COSME)"
+
       expect {
         post :submit
       }.to have_enqueued_job.on_queue("mailers").twice
@@ -36,10 +43,35 @@ RSpec.describe FundingForm::CheckAnswersController do
       confirmation_email = ActiveJob::Base.queue_adapter.enqueued_jobs.first
       expect(confirmation_email[:args].first).to eq("FundingFormMailer")
       expect(confirmation_email[:args].second).to eq("confirmation_email")
+      expect(confirmation_email[:args].last).to eq("grant_recipient@digital.cabinet-office.gov.uk")
 
       department_email = ActiveJob::Base.queue_adapter.enqueued_jobs.second
       expect(department_email[:args].first).to eq("FundingFormMailer")
       expect(department_email[:args].second).to eq("department_email")
+      expect(department_email[:args].last).to eq("COSMEgrants@beis.gov.uk")
+    end
+
+    it "queues up three emails for fund with two recipients" do
+      session[:project_name] = "European Solidarity Corps"
+
+      expect {
+        post :submit
+      }.to have_enqueued_job.on_queue("mailers").exactly(3).times
+
+      confirmation_email = ActiveJob::Base.queue_adapter.enqueued_jobs.first
+      expect(confirmation_email[:args].first).to eq("FundingFormMailer")
+      expect(confirmation_email[:args].second).to eq("confirmation_email")
+      expect(confirmation_email[:args].last).to eq("grant_recipient@digital.cabinet-office.gov.uk")
+
+      department_email_one = ActiveJob::Base.queue_adapter.enqueued_jobs.second
+      expect(department_email_one[:args].first).to eq("FundingFormMailer")
+      expect(department_email_one[:args].second).to eq("department_email")
+      expect(department_email_one[:args].last).to eq("andrew.hodgetts@culture.gov.uk")
+
+      department_email_two = ActiveJob::Base.queue_adapter.enqueued_jobs.third
+      expect(department_email_two[:args].first).to eq("FundingFormMailer")
+      expect(department_email_two[:args].second).to eq("department_email")
+      expect(department_email_two[:args].last).to eq("ocseusubteam@culture.gov.uk")
     end
 
     it "redirects to next step" do

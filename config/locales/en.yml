@@ -179,6 +179,7 @@ en:
       custom_select_error: Select yes if the project has partners or participants outside the UK
     check_your_answers:
       title: Check your answers
+      submit: Confirm and send
       section_1:
         heading: Contact details
       section_2:
@@ -200,8 +201,8 @@ en:
         heading: Add a note (optional)
         description: Enter any information you think we need to know
       section_5:
-        heading: Now send your details
-        description: By submitting this form you authorise the Cabinet Office Grants Management Function to share your information with the government department responsible for the EU programme you receive funding from.
+        description: The information you’ve given will be shared with the government departments responsible for the EU programme you receive funding or will receive funding from. Find out %{privacy_link}.
+        privacy_link_text: how we use your personal data
     confirmation:
       title: Registration complete
       description: We have sent a confirmation email to the address you gave.

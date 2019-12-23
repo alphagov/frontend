@@ -147,10 +147,16 @@
             name: "additional_comments"
           } %>
 
-          <h2 class="govuk-heading-m"><%= t('funding_form.check_your_answers.section_5.heading') %><h2>
-          <p class="govuk-body"><%= t('funding_form.check_your_answers.section_5.description') %></p>
+          <%= render "govuk_publishing_components/components/button", text: t("funding_form.check_your_answers.submit"), margin_bottom: true %>
 
-          <%= render "govuk_publishing_components/components/button", text: "Accept and send", margin_bottom: true %>
+          <%= render "govuk_publishing_components/components/inset_text", {
+            text: t("funding_form.check_your_answers.section_5.description",
+                    privacy_link: link_to(
+                      t("funding_form.check_your_answers.section_5.privacy_link_text"),
+                      "/government/publications/privacy-notice-for-grants-management-function-recipient-registration/privacy-notice-for-grants-management-function-recipient-registration",
+                      target: "_blank",
+                      class: "govuk-link govuk-link--no-visited-state")).html_safe
+          } %>
         <% end %>
       </div>
     </div>

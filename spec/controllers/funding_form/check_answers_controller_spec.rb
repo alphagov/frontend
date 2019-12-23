@@ -34,7 +34,7 @@ RSpec.describe FundingForm::CheckAnswersController do
     end
 
     it "queues up two emails for fund with one recipient" do
-      session[:project_name] = "Competitiveness of Small and Medium-Sized Enterprises (COSME)"
+      session[:funding_programme] = "Competitiveness of Small and Medium-Sized Enterprises (COSME)"
 
       expect {
         post :submit
@@ -52,7 +52,7 @@ RSpec.describe FundingForm::CheckAnswersController do
     end
 
     it "queues up three emails for fund with two recipients" do
-      session[:project_name] = "European Solidarity Corps"
+      session[:funding_programme] = "European Solidarity Corps"
 
       expect {
         post :submit

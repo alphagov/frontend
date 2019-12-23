@@ -13,7 +13,7 @@ class FundingForm::CheckAnswersController < ApplicationController
     mailer = FundingFormMailer.with(form: session.to_h, reference_number: submission_reference)
     mailer.confirmation_email(session[:email_address]).deliver_later
 
-    department_grant_mapping.fetch(session[:project_name], []).each do |recipient_email|
+    department_grant_mapping.fetch(session[:funding_programme], []).each do |recipient_email|
       mailer.department_email(recipient_email).deliver_later
     end
 

@@ -41,12 +41,18 @@ $govuk-use-legacy-palette: true;
 }
 
 // Reset some styles from the `.content` when it's wrapped in the Govspeak
-// component
+// component. Can be removed when static is no longer being used.
 .content-block {
   .gem-c-govspeak {
     h2 + p,
     h3 + p {
       margin-top: govuk-spacing(4);
+    }
+
+    .help-notice {
+      p {
+        padding: 0;
+      }
     }
   }
 }

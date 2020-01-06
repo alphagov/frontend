@@ -128,7 +128,7 @@ describe('cookieSettings', function () {
 
       var previousLink = document.querySelector('.cookie-settings__prev-page')
 
-      expect(previousLink.style.display).toEqual("block")
+      expect(previousLink.style.display).toEqual("inline")
       expect(previousLink.href).toContain('/student-finance')
     });
 

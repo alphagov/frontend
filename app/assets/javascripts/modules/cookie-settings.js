@@ -87,7 +87,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     if (referrer && referrer !== document.location.pathname) {
       previousPageLink.href = referrer
-      previousPageLink.style.display = "block"
+      previousPageLink.style.display = "inline"
     } else {
       previousPageLink.style.display = "none"
     }

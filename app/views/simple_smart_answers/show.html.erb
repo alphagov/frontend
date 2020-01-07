@@ -10,7 +10,9 @@
   edition: @edition
 } do %>
   <div class="intro">
-    <%= raw @publication.body %>
+    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+      <%= raw @publication.body %>
+    <% end %>
     <p class="get-started">
       <%= render "govuk_publishing_components/components/button",
                   text: @publication.start_button_text.html_safe,

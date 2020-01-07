@@ -1,5 +1,5 @@
 <% content_for :extra_headers do %>
-  <%= javascript_include_tag "views/travel-advice.js", integrity: true, crossorigin: 'anonymous' %>
+  <%= javascript_include_tag "views/travel-advice.js", integrity: true, crossorigin: 'use-credentials' %>
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 

@@ -7,12 +7,12 @@
 
     <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 
-    <%= stylesheet_link_tag "application.css", integrity: true, crossorigin: 'anonymous' %>
+    <%= stylesheet_link_tag "application.css", integrity: true, crossorigin: 'use-credentials' %>
     <!--[if IE 6]><%= stylesheet_link_tag "application-ie6.css" %><![endif]-->
     <!--[if IE 7]><%= stylesheet_link_tag "application-ie7.css" %><![endif]-->
     <!--[if IE 8]><%= stylesheet_link_tag "application-ie8.css" %><![endif]-->
-    <%= stylesheet_link_tag "print.css", :media => "print", integrity: true, crossorigin: 'anonymous' %>
-    <%= javascript_include_tag 'frontend.js', integrity: true, crossorigin: 'anonymous' %>
+    <%= stylesheet_link_tag "print.css", :media => "print", integrity: true, crossorigin: 'use-credentials' %>
+    <%= javascript_include_tag 'frontend.js', integrity: true, crossorigin: 'use-credentials' %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
     <% if @content_item %>

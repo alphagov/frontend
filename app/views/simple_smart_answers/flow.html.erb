@@ -9,7 +9,9 @@
 
   <% if @flow_state.completed_questions.any? %>
     <div class="done-questions">
-      <div class="start-again"><%= link_to "Start again", simple_smart_answer_path(@publication.slug, :edition => @edition) %></div>
+      <div class="start-again">
+        <%= link_to "Start again", simple_smart_answer_path(@publication.slug, :edition => @edition), class: "govuk-link" %>
+      </div>
       <ol>
         <%= render :partial => "completed_question", :collection => @flow_state.completed_questions %>
       </ol>

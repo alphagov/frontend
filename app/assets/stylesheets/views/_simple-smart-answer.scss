@@ -6,3 +6,18 @@
     }
   }
 }
+
+.start-again {
+  background: govuk-colour("white");
+  height: 2.5em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: -2.5em;
+  width: 11em;
+
+  .govuk-link {
+    display: inline;
+    text-align: left;
+  }
+}

@@ -4,7 +4,9 @@
       <div class="result-info">
         <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
 
-        <%= raw outcome.body %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw outcome.body %>
+        <% end %>
       </div>
     </div>
   </div>

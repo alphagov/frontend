@@ -1,5 +1,8 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  Exclude:
+    - 'tmp/**/*'
 
-Rails:
-  Enabled: true
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+    - config/rails.yml

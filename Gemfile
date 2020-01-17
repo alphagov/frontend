@@ -28,11 +28,11 @@ group :development do
 end
 
 group :development, :test do
+  gem 'ci_reporter_rspec'
   gem 'ci_reporter_test_unit'
-  gem 'govuk-lint'
   gem 'jasmine', '~> 3.5'
   gem 'pry-byebug'
-  gem 'ci_reporter_rspec'
+  gem 'rubocop-govuk'
 end
 
 group :test do

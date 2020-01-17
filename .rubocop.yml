@@ -6,6 +6,12 @@ Style/MixinUsage:
   Exclude:
     - 'bin/*'
 
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - 'spec/**/*'
+    - 'test/**/*'
+
 inherit_gem:
   rubocop-govuk:
     - config/default.yml

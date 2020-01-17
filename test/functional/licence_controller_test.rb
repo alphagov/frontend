@@ -42,10 +42,10 @@ class LicenceControllerTest < ActionController::TestCase
     context "loading the licence edition when posting a location" do
       setup do
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => true,
-                       "isOfferedByCounty" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => [])
+                            "isLocationSpecific" => true,
+                            "isOfferedByCounty" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => [])
       end
 
       context "for an English local authority" do

@@ -44,10 +44,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
       stub_content_store_has_item("/licence-to-kill", @payload)
 
       stub_licence_exists("1071-5-1",
-                     "isLocationSpecific" => true,
-                     "isOfferedByCounty" => false,
-                     "geographicalAvailability" => %w(England Wales),
-                     "issuingAuthorities" => [])
+                          "isLocationSpecific" => true,
+                          "isOfferedByCounty" => false,
+                          "geographicalAvailability" => %w(England Wales),
+                          "issuingAuthorities" => [])
     end
 
     context "when visiting the licence search page" do
@@ -137,10 +137,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
           ]
 
           stub_licence_exists("1071-5-1/00BK",
-                         "isLocationSpecific" => true,
-                         "isOfferedByCounty" => false,
-                         "geographicalAvailability" => %w(England Wales),
-                         "issuingAuthorities" => authorities)
+                              "isLocationSpecific" => true,
+                              "isOfferedByCounty" => false,
+                              "geographicalAvailability" => %w(England Wales),
+                              "issuingAuthorities" => authorities)
           visit "/licence-to-kill"
 
           fill_in "postcode", with: "SW1A 1AA"
@@ -277,16 +277,16 @@ class LicenceTest < ActionDispatch::IntegrationTest
           ]
 
           stub_licence_exists("999/11",
-                         "isLocationSpecific" => true,
-                         "isOfferedByCounty" => true,
-                         "geographicalAvailability" => %w(England Wales),
-                         "issuingAuthorities" => authorities)
+                              "isLocationSpecific" => true,
+                              "isOfferedByCounty" => true,
+                              "geographicalAvailability" => %w(England Wales),
+                              "issuingAuthorities" => authorities)
 
           stub_licence_exists("999",
-                         "isLocationSpecific" => true,
-                         "isOfferedByCounty" => true,
-                         "geographicalAvailability" => %w(England Wales),
-                         "issuingAuthorities" => [])
+                              "isLocationSpecific" => true,
+                              "isOfferedByCounty" => true,
+                              "geographicalAvailability" => %w(England Wales),
+                              "issuingAuthorities" => [])
 
           visit "/licence-to-thrill"
 
@@ -348,10 +348,10 @@ class LicenceTest < ActionDispatch::IntegrationTest
           ]
 
           stub_licence_exists("1071-5-1/00BK",
-                         "isLocationSpecific" => true,
-                         "isOfferedByCounty" => false,
-                         "geographicalAvailability" => %w(England Wales),
-                         "issuingAuthorities" => authorities)
+                              "isLocationSpecific" => true,
+                              "isOfferedByCounty" => false,
+                              "geographicalAvailability" => %w(England Wales),
+                              "issuingAuthorities" => authorities)
 
           visit "/licence-to-kill"
 
@@ -514,9 +514,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
       end
 
       context "when visiting the license and specifying an authority" do
@@ -588,9 +588,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
       end
 
       context "when visiting the licence" do
@@ -730,15 +730,15 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       ]
       stub_licence_exists("1071-5-1",
-                     "isLocationSpecific" => true,
-                     "isOfferedByCounty" => false,
-                     "geographicalAvailability" => %w(England Wales),
-                     "issuingAuthorities" => authorities)
+                          "isLocationSpecific" => true,
+                          "isOfferedByCounty" => false,
+                          "geographicalAvailability" => %w(England Wales),
+                          "issuingAuthorities" => authorities)
       stub_licence_exists("1071-5-1/00BK",
-                     "isLocationSpecific" => true,
-                     "isOfferedByCounty" => false,
-                     "geographicalAvailability" => %w(England Wales),
-                     "issuingAuthorities" => authorities)
+                          "isLocationSpecific" => true,
+                          "isOfferedByCounty" => false,
+                          "geographicalAvailability" => %w(England Wales),
+                          "issuingAuthorities" => authorities)
     end
 
     should "show message to contact local council through their website" do
@@ -871,9 +871,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
 
         visit "/licence-to-kill"
       end
@@ -923,9 +923,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
 
         visit "/licence-to-kill"
       end
@@ -1005,9 +1005,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
 
         visit "/licence-to-kill"
       end
@@ -1087,9 +1087,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
 
         visit "/licence-to-kill"
       end
@@ -1166,9 +1166,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
 
         visit "/licence-to-kill"
       end
@@ -1256,9 +1256,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         ]
 
         stub_licence_exists("1071-5-1",
-                       "isLocationSpecific" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => authorities)
+                            "isLocationSpecific" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => authorities)
 
         visit "/licence-to-kill"
       end

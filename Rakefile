@@ -3,8 +3,8 @@
 
 require File.expand_path("config/application", __dir__)
 require "rake"
-require "ci/reporter/rake/test_unit" if Rails.env.development? or Rails.env.test?
-require "ci/reporter/rake/rspec" if Rails.env.development? or Rails.env.test?
+require "ci/reporter/rake/test_unit" if Rails.env.development? || Rails.env.test?
+require "ci/reporter/rake/rspec" if Rails.env.development? || Rails.env.test?
 
 Frontend::Application.load_tasks
 

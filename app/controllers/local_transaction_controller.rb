@@ -21,9 +21,9 @@ class LocalTransactionController < ApplicationController
       if @location_error
         @postcode = postcode
       elsif mapit_response.location_found? && lgsl == 364 && country_name == "Northern Ireland" ## LGSL code 364 = electoral registration
-        return redirect_to local_transaction_results_path(local_authority_slug: "electoral-office-for-northern-ireland")
+        redirect_to local_transaction_results_path(local_authority_slug: "electoral-office-for-northern-ireland")
       elsif mapit_response.location_found? && local_authority_slug
-        return redirect_to local_transaction_results_path(local_authority_slug: local_authority_slug)
+        redirect_to local_transaction_results_path(local_authority_slug: local_authority_slug)
       end
     end
   end
@@ -100,7 +100,7 @@ private
     return {} unless council
 
     if council == "electoral-office-for-northern-ireland"
-      return {
+      {
         "local_authority" => { "name" => "Electoral Office for Northern Ireland", "homepage_url" => "http://www.eoni.org.uk" },
         "local_interaction" => { "url" => "http://www.eoni.org.uk/Utility/Contact-Us" },
       }

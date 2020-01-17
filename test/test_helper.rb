@@ -13,7 +13,7 @@ require "timecop"
 
 require "govuk-content-schema-test-helpers"
 
-Dir[Rails.root.join("test", "support", "*.rb")].each { |f| require f }
+Dir[Rails.root.join("test/support/*.rb")].each { |f| require f }
 
 class ActiveSupport::TestCase
   include ContentStoreHelpers

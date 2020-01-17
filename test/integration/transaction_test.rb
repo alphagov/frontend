@@ -34,7 +34,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         external_related_links: [],
       }
 
-      content_store_has_item("/carrots", @payload)
+      stub_content_store_has_item("/carrots", @payload)
     end
 
     should "render the main information" do
@@ -82,7 +82,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           ],
         },
       )
-      content_store_has_item("/carrots", carrot_service_with_org)
+      stub_content_store_has_item("/carrots", carrot_service_with_org)
 
       visit "/carrots"
 
@@ -169,7 +169,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           start_button_text: "Start now",
         },
       }
-      content_store_has_item("/cymraeg", @payload)
+      stub_content_store_has_item("/cymraeg", @payload)
     end
 
     should "render start button text 'Dechrau nawr'" do

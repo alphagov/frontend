@@ -7,7 +7,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::Imminence
 
   setup do
-    mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
+    stub_mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
 
     @payload = {
       title: "Find a passport interview office",
@@ -25,7 +25,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       external_related_links: [],
     }
 
-    content_store_has_item("/passport-interview-office", @payload)
+    stub_content_store_has_item("/passport-interview-office", @payload)
 
     @places = [
       {
@@ -114,7 +114,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode" do
     setup do
-      imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -174,7 +174,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode for report child abuse" do
     setup do
-      mapit_has_a_postcode("N5 1QL", [51.5505284612, -0.100467152148])
+      stub_mapit_has_a_postcode("N5 1QL", [51.5505284612, -0.100467152148])
 
       @payload_for_report_child_abuse = {
         title: "Find your local child social care team",
@@ -189,7 +189,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/report-child-abuse-to-local-council", @payload_for_report_child_abuse)
+      stub_content_store_has_item("/report-child-abuse-to-local-council", @payload_for_report_child_abuse)
 
       @places_for_report_child_abuse = [
         {
@@ -200,7 +200,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         },
       ]
 
-      imminence_has_places_for_postcode(@places_for_report_child_abuse, "find-child-social-care-team", "N5 1QL", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_imminence_has_places_for_postcode(@places_for_report_child_abuse, "find-child-social-care-team", "N5 1QL", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/report-child-abuse-to-local-council"
       fill_in "Enter a postcode", with: "N5 1QL"
@@ -236,7 +236,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       @places = []
 
-      imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"

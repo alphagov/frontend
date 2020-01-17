@@ -36,21 +36,21 @@ class LicenceControllerTest < ActionController::TestCase
         },
       }
 
-      content_store_has_item("/licence-to-kill", @payload)
+      stub_content_store_has_item("/licence-to-kill", @payload)
     end
 
     context "loading the licence edition when posting a location" do
       setup do
-        licence_exists("1071-5-1",
-                       "isLocationSpecific" => true,
-                       "isOfferedByCounty" => false,
-                       "geographicalAvailability" => %w(England Wales),
-                       "issuingAuthorities" => [])
+        stub_licence_exists("1071-5-1",
+                            "isLocationSpecific" => true,
+                            "isOfferedByCounty" => false,
+                            "geographicalAvailability" => %w(England Wales),
+                            "issuingAuthorities" => [])
       end
 
       context "for an English local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
+          stub_mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
             { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county" },
             { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands" },
             { "name" => "Cheadle and Checkley", "type" => "CED" },
@@ -66,7 +66,7 @@ class LicenceControllerTest < ActionController::TestCase
 
       context "for a Northern Irish local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
+          stub_mapit_has_a_postcode_and_areas("BT1 5GS", [0, 0], [
             { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003", "govuk_slug" => "belfast" },
             { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24" },
           ])

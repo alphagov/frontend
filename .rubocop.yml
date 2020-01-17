@@ -1,5 +1,18 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  Exclude:
+    - 'tmp/**/*'
 
-Rails:
-  Enabled: true
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - 'spec/**/*'
+    - 'test/**/*'
+
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+    - config/rails.yml

@@ -85,8 +85,8 @@ class LocalTransactionControllerTest < ActionController::TestCase
         external_related_links: [],
       }
 
-      content_store_has_item("/send-a-bear-to-your-local-council", @payload_bear)
-      content_store_has_item("/get-on-electoral-register", @payload_electoral)
+      stub_content_store_has_item("/send-a-bear-to-your-local-council", @payload_bear)
+      stub_content_store_has_item("/get-on-electoral-register", @payload_electoral)
     end
 
     context "loading the local transaction edition without any location" do
@@ -107,7 +107,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     context "loading the local transaction when posting a location" do
       context "for an English local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
+          stub_mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
             { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
             { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
             { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
@@ -123,7 +123,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for a Northern Ireland local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("BT1 4QG", [0, 0], [
+          stub_mapit_has_a_postcode_and_areas("BT1 4QG", [0, 0], [
             { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
           ])
 
@@ -137,7 +137,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for electoral registration for an English local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
+          stub_mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
             { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
             { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
             { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
@@ -153,7 +153,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for electoral registration for a Northern Ireland local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("BT1 3QG", [0, 0], [
+          stub_mapit_has_a_postcode_and_areas("BT1 3QG", [0, 0], [
             { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
           ])
 
@@ -168,7 +168,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction when posting an invalid postcode" do
       setup do
-        mapit_does_not_have_a_bad_postcode("BLAH")
+        stub_mapit_does_not_have_a_bad_postcode("BLAH")
 
         subscribe_logstasher_to_postcode_error_notification
 
@@ -187,7 +187,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction when posting a postcode with no matching areas" do
       setup do
-        mapit_does_not_have_a_postcode("WC1E 9ZZ")
+        stub_mapit_does_not_have_a_postcode("WC1E 9ZZ")
 
         subscribe_logstasher_to_postcode_error_notification
 
@@ -206,7 +206,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction when posting a location that has no matching local authority" do
       setup do
-        mapit_has_a_postcode_and_areas("AB1 2CD", [0, 0], [])
+        stub_mapit_has_a_postcode_and_areas("AB1 2CD", [0, 0], [])
 
         subscribe_logstasher_to_postcode_error_notification
 
@@ -235,9 +235,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
           "name" => "Staffordshire Moorlands District Council",
         }
 
-        mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
+        stub_mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
 
-        local_links_manager_has_a_link(
+        stub_local_links_manager_has_a_link(
           authority_slug: "staffordshire-moorlands",
           lgsl: 8342,
           lgil: 8,
@@ -253,7 +253,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
-      local_links_manager_does_not_have_required_objects("this-slug-should-not-exist", "8342", "8")
+      stub_local_links_manager_does_not_have_required_objects("this-slug-should-not-exist", "8342", "8")
 
       get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist" }
 
@@ -300,15 +300,15 @@ class LocalTransactionControllerTest < ActionController::TestCase
         "name" => "Staffordshire Moorlands District Council",
       }
 
-      mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
-      local_links_manager_has_no_link(
+      stub_mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
+      stub_local_links_manager_has_no_link(
         authority_slug: "staffordshire-moorlands",
         lgsl: 1234,
         lgil: 1,
       )
 
       subscribe_logstasher_to_postcode_error_notification
-      content_store_has_item("/report-a-bear-on-a-local-road", @payload)
+      stub_content_store_has_item("/report-a-bear-on-a-local-road", @payload)
       get :results, params: { slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands" }
     end
 
@@ -344,7 +344,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         },
       }
 
-      content_store_has_item("/pay-bear-tax", @payload)
+      stub_content_store_has_item("/pay-bear-tax", @payload)
     end
 
     should "redirect to the correct authority and pass cache and token as params" do

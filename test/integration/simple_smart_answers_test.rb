@@ -86,7 +86,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       },
     }
 
-    content_store_has_item("/the-bridge-of-death", @payload)
+    stub_content_store_has_item("/the-bridge-of-death", @payload)
   end
 
   should "render the start page correctly" do

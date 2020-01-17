@@ -2,6 +2,10 @@ AllCops:
   Exclude:
     - 'tmp/**/*'
 
+Style/MixinUsage:
+  Exclude:
+    - 'bin/*'
+
 inherit_gem:
   rubocop-govuk:
     - config/default.yml

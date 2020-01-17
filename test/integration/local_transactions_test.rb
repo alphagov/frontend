@@ -7,7 +7,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::LocalLinksManager
 
   setup do
-    mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+    stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
       { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => "westminster" },
       { "name" => "Greater London Authority", "type" => "GLA" },
     ])
@@ -22,7 +22,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       "name" => "Westminster",
     }
 
-    mapit_has_area_for_code("govuk_slug", "westminster", westminster)
+    stub_mapit_has_area_for_code("govuk_slug", "westminster", westminster)
 
     @payload = {
       analytics_identifier: nil,
@@ -51,12 +51,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       external_related_links: [],
     }
 
-    content_store_has_item("/pay-bear-tax", @payload)
+    stub_content_store_has_item("/pay-bear-tax", @payload)
   end
 
   context "given a local transaction with an interaction present" do
     setup do
-      local_links_manager_has_a_link(
+      stub_local_links_manager_has_a_link(
         authority_slug: "westminster",
         lgsl: 461,
         lgil: 8,
@@ -130,7 +130,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with an incorrect postcode" do
       setup do
-        mapit_does_not_have_a_postcode("AB1 2AB")
+        stub_mapit_does_not_have_a_postcode("AB1 2AB")
 
         visit "/pay-bear-tax"
 
@@ -158,7 +158,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with an invalid postcode" do
       setup do
-        mapit_does_not_have_a_bad_postcode("Not valid")
+        stub_mapit_does_not_have_a_bad_postcode("Not valid")
 
         visit "/pay-bear-tax"
         fill_in "postcode", with: "Not valid"
@@ -248,7 +248,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with a valid postcode that has no areas in MapIt" do
       setup do
-        mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+        stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
         visit "/pay-bear-tax"
         fill_in "postcode", with: "XM4 5HQ"
@@ -275,7 +275,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "given a local transaction without an interaction present" do
     setup do
-      local_links_manager_has_no_link(
+      stub_local_links_manager_has_no_link(
         authority_slug: "westminster",
         lgsl: 461,
         lgil: 8,
@@ -339,7 +339,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "given no interaction present and a missing homepage url" do
     setup do
-      local_links_manager_has_no_link_and_no_homepage_url(
+      stub_local_links_manager_has_no_link_and_no_homepage_url(
         authority_slug: "westminster",
         lgsl: 461,
         lgil: 8,
@@ -386,7 +386,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   end
 
   should "gracefully handle missing snac in mapit data" do
-    mapit_has_a_postcode_and_areas("AL10 9AB", [51.75287647301734, -0.24217323267679933], [
+    stub_mapit_has_a_postcode_and_areas("AL10 9AB", [51.75287647301734, -0.24217323267679933], [
       { "name" => "Welwyn Hatfield Borough Council", "type" => "DIS" },
     ])
 

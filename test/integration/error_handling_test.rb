@@ -14,7 +14,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
   context "when the content store returns 404" do
     should "return 404 status" do
-      content_store_does_not_have_item("/slug")
+      stub_content_store_does_not_have_item("/slug")
       visit "/slug"
       assert_equal 404, page.status_code
     end
@@ -22,7 +22,7 @@ class ErrorHandlingTest < ActionDispatch::IntegrationTest
 
   context "when the content store returns 410" do
     should "return 410 status" do
-      content_store_has_gone_item("/slug")
+      stub_content_store_has_gone_item("/slug")
       visit "/slug"
       assert_equal 410, page.status_code
     end

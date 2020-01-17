@@ -18,7 +18,7 @@ private
   end
 
   def stub_search_page_in_content_store
-    content_store_has_item("/search", schema: "special_route")
+    stub_content_store_has_item("/search", schema: "special_route")
   end
 
   def scoped_object

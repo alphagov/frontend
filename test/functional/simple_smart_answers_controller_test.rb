@@ -91,7 +91,7 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           },
         )
 
-        content_store_has_item("/the-bridge-of-death", payload)
+        stub_content_store_has_item("/the-bridge-of-death", payload)
       end
 
       should "calculate the flow state with no responses" do

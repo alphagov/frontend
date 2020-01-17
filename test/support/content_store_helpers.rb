@@ -11,7 +11,7 @@ module ContentStoreHelpers
     content_item["links"]["taxons"] = is_tagged_to_taxon ? [basic_taxon] : []
     content_item["base_path"] = base_path
 
-    content_store_has_item(base_path, content_item)
+    stub_content_store_has_item(base_path, content_item)
     content_item
   end
 
@@ -33,16 +33,16 @@ module ContentStoreHelpers
       )
     end
 
-    content_store_has_item(content_item["base_path"], content_item)
+    stub_content_store_has_item(content_item["base_path"], content_item)
     content_item
   end
 
-  def content_store_has_item_tagged_to_taxon(base_path:, payload:)
+  def stub_content_store_has_item_tagged_to_taxon(base_path:, payload:)
     content_item = payload.merge(
       base_path: base_path,
       links: { taxons: [basic_taxon] },
     )
-    content_store_has_item(base_path, content_item)
+    stub_content_store_has_item(base_path, content_item)
   end
 
   def content_store_has_page(slug, schema: "placeholder", is_tagged_to_taxon: false)
@@ -50,7 +50,7 @@ module ContentStoreHelpers
   end
 
   def content_store_does_not_have_page(slug)
-    content_store_does_not_have_item("/#{slug}")
+    stub_content_store_does_not_have_item("/#{slug}")
   end
 
   def content_store_has_unpublished_page(slug)
@@ -64,6 +64,6 @@ module ContentStoreHelpers
   end
 
   def content_store_has_archived_page(slug)
-    content_store_has_gone_item("/#{slug}")
+    stub_content_store_has_gone_item("/#{slug}")
   end
 end

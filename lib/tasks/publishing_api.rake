@@ -3,7 +3,7 @@ require "gds_api/publishing_api_v2"
 namespace :publishing_api do
   desc "Publish special routes such as the homepage"
   task publish_special_routes: :environment do
-    publishing_api = GdsApi::PublishingApiV2.new(
+    publishing_api = GdsApi::PublishingApi.new(
       Plek.new.find("publishing-api"),
       bearer_token: ENV["PUBLISHING_API_BEARER_TOKEN"] || "example",
     )

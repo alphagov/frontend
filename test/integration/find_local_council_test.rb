@@ -45,7 +45,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     context "for successful postcode lookup" do
       context "for unitary local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+          stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
             {
               "ons" => "00BK",
               "govuk_slug" => "westminster",
@@ -53,7 +53,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
               "type" => "LBO",
             },
           ])
-          local_links_manager_has_a_local_authority("westminster")
+          stub_local_links_manager_has_a_local_authority("westminster")
 
           visit "/find-local-council"
           fill_in "postcode", with: "SW1A 1AA"
@@ -100,7 +100,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "for district local authority" do
         setup do
-          mapit_has_a_postcode_and_areas("HP20 1UG", [51.5010096, -0.1415870], [
+          stub_mapit_has_a_postcode_and_areas("HP20 1UG", [51.5010096, -0.1415870], [
             {
               "ons" => "00BK",
               "govuk_slug" => "aylesbury",
@@ -115,7 +115,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             },
           ])
 
-          local_links_manager_has_a_district_and_county_local_authority("aylesbury", "buckinghamshire")
+          stub_local_links_manager_has_a_district_and_county_local_authority("aylesbury", "buckinghamshire")
 
           visit "/find-local-council"
           fill_in "postcode", with: "HP20 1UG"
@@ -170,7 +170,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "when finding a local council without homepage" do
         setup do
-          mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+          stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
             {
               "ons" => "00BK",
               "govuk_slug" => "westminster",
@@ -178,7 +178,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
               "type" => "LBO",
             },
           ])
-          local_links_manager_has_a_local_authority_without_homepage("westminster")
+          stub_local_links_manager_has_a_local_authority_without_homepage("westminster")
 
           visit "/find-local-council"
           fill_in "postcode", with: "SW1A 1AA"
@@ -194,7 +194,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     context "for unsuccessful postcode lookup" do
       context "with invalid postcode" do
         setup do
-          mapit_does_not_have_a_bad_postcode("NO POSTCODE")
+          stub_mapit_does_not_have_a_bad_postcode("NO POSTCODE")
 
           visit "/find-local-council"
           fill_in "postcode", with: "NO POSTCODE"
@@ -254,7 +254,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "with a valid postcode that is not present in MapIt" do
         setup do
-          mapit_does_not_have_a_postcode("AB1 2AB")
+          stub_mapit_does_not_have_a_postcode("AB1 2AB")
 
           visit "/find-local-council"
           fill_in "postcode", with: "AB1 2AB"
@@ -284,7 +284,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "with a valid postcode that has no areas in MapIt" do
         setup do
-          mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+          stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
           visit "/find-local-council"
           fill_in "postcode", with: "XM4 5HQ"
@@ -310,7 +310,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "when no local council is found" do
         setup do
-          mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], [
+          stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], [
             {
               "ons" => "00BK",
               "govuk_slug" => "",
@@ -349,7 +349,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
   context "when entering a specific local authority slug in the URL" do
     context "with valid slug" do
       setup do
-        local_links_manager_has_a_local_authority("islington")
+        stub_local_links_manager_has_a_local_authority("islington")
         visit "/find-local-council/islington"
       end
 
@@ -365,7 +365,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
     context "with invalid slug" do
       setup do
-        local_links_manager_does_not_have_an_authority("hogwarts")
+        stub_local_links_manager_does_not_have_an_authority("hogwarts")
         visit "/find-local-council/hogwarts"
       end
 

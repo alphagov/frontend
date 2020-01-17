@@ -14,7 +14,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
 
   context "a completed transaction edition" do
     should "show no promotion when there is no promotion choice" do
-      content_store_has_item("/done/no-promotion", @payload)
+      stub_content_store_has_item("/done/no-promotion", @payload)
       visit "/done/no-promotion"
 
       assert_equal 200, page.status_code
@@ -31,7 +31,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     should "not show the satisfaction survey for transaction-finished" do
       payload = @payload.merge(base_path: "/done/transaction-finished")
 
-      content_store_has_item("/done/transaction-finished", payload)
+      stub_content_store_has_item("/done/transaction-finished", payload)
 
       visit "/done/transaction-finished"
 
@@ -41,7 +41,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     should "not show the satisfaction survey for driving-transaction-finished" do
       payload = @payload.merge(base_path: "/done/driving-transaction-finished")
 
-      content_store_has_item("/done/driving-transaction-finished", payload)
+      stub_content_store_has_item("/done/driving-transaction-finished", payload)
 
       visit "/done/driving-transaction-finished"
 
@@ -53,7 +53,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     context "for editions using the assisted digital survey" do
       setup do
         payload = @payload.merge(base_path: "/done/register-flood-risk-exemption")
-        content_store_has_item("/done/register-flood-risk-exemption", payload)
+        stub_content_store_has_item("/done/register-flood-risk-exemption", payload)
         visit "/done/register-flood-risk-exemption"
       end
 
@@ -112,7 +112,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     context "for editions using the normal satisfaction survey" do
       setup do
         payload = @payload.merge(base_path: "/done/register-to-vote")
-        content_store_has_item("/done/register-to-vote", payload)
+        stub_content_store_has_item("/done/register-to-vote", payload)
         visit "/done/register-to-vote"
       end
 
@@ -151,7 +151,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
           },
         )
 
-        content_store_has_item("/done/check-mot-history", payload)
+        stub_content_store_has_item("/done/check-mot-history", payload)
         visit "/done/check-mot-history"
       end
 

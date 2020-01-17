@@ -11,7 +11,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
         @content_item = JSON.parse(json)
         base_path = @content_item.fetch("base_path")
 
-        content_store_has_item(base_path, @content_item)
+        stub_content_store_has_item(base_path, @content_item)
       end
 
       should "be a successful request" do

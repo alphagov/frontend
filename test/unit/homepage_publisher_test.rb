@@ -18,7 +18,7 @@ class HomepagePublisherTest < ActiveSupport::TestCase
     patch_links_request = stub_request(:patch, "http://publishing-api.dev.gov.uk/v2/links/f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a").
       to_return(status: 200)
 
-    stub_api = GdsApi::PublishingApiV2.new(Plek.find("publishing-api"))
+    stub_api = GdsApi::PublishingApi.new(Plek.find("publishing-api"))
 
     mock_logger = mock
     mock_logger.expects(:info).returns("Publishing exact route /, routing to frontend")

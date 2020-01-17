@@ -14,7 +14,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       content_item = JSON.parse(json)
       base_path = content_item.fetch("base_path")
 
-      content_store_has_item(base_path, content_item)
+      stub_content_store_has_item(base_path, content_item)
     end
 
     should "display the list of countries" do
@@ -74,7 +74,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
       content_item = JSON.parse(json)
       base_path = content_item.fetch("base_path")
-      content_store_has_item(base_path, content_item)
+      stub_content_store_has_item(base_path, content_item)
 
       Capybara.current_driver = Capybara.javascript_driver
     end

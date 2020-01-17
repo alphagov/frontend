@@ -15,8 +15,8 @@ class AuthorityLookupTest < ActiveSupport::TestCase
       },
     }
 
-    mapit_has_area_for_code("govuk_slug", "example-authority", example_area)
-    mapit_does_not_have_area_for_code("govuk_slug", "does-not-exist")
+    stub_mapit_has_area_for_code("govuk_slug", "example-authority", example_area)
+    stub_mapit_does_not_have_area_for_code("govuk_slug", "does-not-exist")
   end
 
   should "return the correct snac code given a valid slug" do

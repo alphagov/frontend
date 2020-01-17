@@ -8,7 +8,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
   context "given a location specific licence" do
     setup do
-      mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+      stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
         { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
         { "name" => "Greater London Authority", "type" => "GLA" },
       ])
@@ -23,8 +23,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         "name" => "Westminster",
       }
 
-      mapit_has_area_for_code("govuk_slug", "westminster", westminster)
-      mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
+      stub_mapit_has_area_for_code("govuk_slug", "westminster", westminster)
+      stub_mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
 
       @payload = {
         base_path: "/licence-to-kill",
@@ -41,9 +41,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/licence-to-kill", @payload)
+      stub_content_store_has_item("/licence-to-kill", @payload)
 
-      licence_exists("1071-5-1",
+      stub_licence_exists("1071-5-1",
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
@@ -136,7 +136,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             },
           ]
 
-          licence_exists("1071-5-1/00BK",
+          stub_licence_exists("1071-5-1/00BK",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => false,
                          "geographicalAvailability" => %w(England Wales),
@@ -218,9 +218,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
             },
           }
 
-          content_store_has_item("/licence-to-thrill", @payload)
+          stub_content_store_has_item("/licence-to-thrill", @payload)
 
-          mapit_has_a_postcode_and_areas("HP20 2QF", [], [
+          stub_mapit_has_a_postcode_and_areas("HP20 2QF", [], [
             { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
             { "ons" => "11UB", "govuk_slug" => "aylesbury-vale", "name" => "Aylesbury Vale District Council", "type" => "DIS" },
           ])
@@ -235,7 +235,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
             "name" => "Buckinghamshire",
           }
 
-          mapit_has_area_for_code("govuk_slug", "buckinghamshire", buckinghamshire)
+          stub_mapit_has_area_for_code("govuk_slug", "buckinghamshire", buckinghamshire)
 
           authorities = [
             {
@@ -276,13 +276,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
             },
           ]
 
-          licence_exists("999/11",
+          stub_licence_exists("999/11",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => true,
                          "geographicalAvailability" => %w(England Wales),
                          "issuingAuthorities" => authorities)
 
-          licence_exists("999",
+          stub_licence_exists("999",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => true,
                          "geographicalAvailability" => %w(England Wales),
@@ -347,7 +347,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           ]
 
-          licence_exists("1071-5-1/00BK",
+          stub_licence_exists("1071-5-1/00BK",
                          "isLocationSpecific" => true,
                          "isOfferedByCounty" => false,
                          "geographicalAvailability" => %w(England Wales),
@@ -370,7 +370,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence with an invalid formatted postcode" do
       setup do
-        mapit_does_not_have_a_bad_postcode("Not valid")
+        stub_mapit_does_not_have_a_bad_postcode("Not valid")
         visit "/licence-to-kill"
 
         fill_in "postcode", with: "Not valid"
@@ -392,7 +392,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence with a postcode not present in MapIt" do
       setup do
-        mapit_does_not_have_a_postcode("AB1 2AB")
+        stub_mapit_does_not_have_a_postcode("AB1 2AB")
 
         visit "/licence-to-kill"
 
@@ -415,7 +415,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence with a postcode with no areas in MapIt" do
       setup do
-        mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+        stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
         visit "/licence-to-kill"
 
@@ -453,7 +453,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/licence-to-turn-off-a-telescreen", @payload)
+      stub_content_store_has_item("/licence-to-turn-off-a-telescreen", @payload)
     end
 
     context "with multiple authorities" do
@@ -513,7 +513,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -587,7 +587,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -640,7 +640,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/artistic-license", @payload)
+      stub_content_store_has_item("/artistic-license", @payload)
     end
 
     context "when visiting the licence" do
@@ -685,9 +685,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/a-licence", @payload)
+      stub_content_store_has_item("/a-licence", @payload)
 
-      mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
+      stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
         { "ons" => "00BK", "govuk_slug" => "a-council", "name" => "A council", "type" => "LBO" },
         { "name" => "Greater London Authority", "type" => "GLA" },
       ])
@@ -702,8 +702,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         "name" => "Westminster",
       }
 
-      mapit_has_area_for_code("govuk_slug", "a-council", a_council)
-      mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
+      stub_mapit_has_area_for_code("govuk_slug", "a-council", a_council)
+      stub_mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
 
       authorities = [
         {
@@ -729,12 +729,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         },
       ]
-      licence_exists("1071-5-1",
+      stub_licence_exists("1071-5-1",
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
                      "issuingAuthorities" => authorities)
-      licence_exists("1071-5-1/00BK",
+      stub_licence_exists("1071-5-1/00BK",
                      "isLocationSpecific" => true,
                      "isOfferedByCounty" => false,
                      "geographicalAvailability" => %w(England Wales),
@@ -765,9 +765,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/licence-to-kill", @payload)
+      stub_content_store_has_item("/licence-to-kill", @payload)
 
-      licence_does_not_exist("1071-5-1")
+      stub_licence_does_not_exist("1071-5-1")
     end
 
     should "show message to contact local council" do
@@ -793,8 +793,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/licence-to-kill", @payload)
-      licence_times_out("1071-5-1")
+      stub_content_store_has_item("/licence-to-kill", @payload)
+      stub_licence_times_out("1071-5-1")
     end
 
     should "not blow the stack" do
@@ -825,8 +825,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/licence-to-kill", @payload)
-      licence_returns_error("1071-5-1")
+      stub_content_store_has_item("/licence-to-kill", @payload)
+      stub_licence_returns_error("1071-5-1")
     end
 
     should "not blow the stack" do
@@ -857,7 +857,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         },
       }
 
-      content_store_has_item("/licence-to-kill", @payload)
+      stub_content_store_has_item("/licence-to-kill", @payload)
     end
 
     context "when visiting an authority with no actions" do
@@ -870,7 +870,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -922,7 +922,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -1004,7 +1004,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -1086,7 +1086,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -1165,7 +1165,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)
@@ -1255,7 +1255,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        licence_exists("1071-5-1",
+        stub_licence_exists("1071-5-1",
                        "isLocationSpecific" => false,
                        "geographicalAvailability" => %w(England Wales),
                        "issuingAuthorities" => authorities)

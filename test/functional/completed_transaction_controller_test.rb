@@ -12,7 +12,7 @@ class CompletedTransactionControllerTest < ActionController::TestCase
   context "GET show" do
     context "for live content" do
       setup do
-        content_store_has_item("/done/no-promotion", @payload)
+        stub_content_store_has_item("/done/no-promotion", @payload)
       end
 
       should "set the cache expiry headers" do

@@ -3,19 +3,15 @@
 <% end %>
 
 <main id="content" class="govuk-grid-column-two-thirds">
-  <header class="page-header group">
-    <%= render "govuk_publishing_components/components/title", title: @publication.title %>
-  </header>
+  <%= render "govuk_publishing_components/components/title", title: @publication.title %>
 
   <% if @flow_state.completed_questions.any? %>
-    <div class="done-questions">
-      <div class="start-again">
-        <%= link_to "Start again", simple_smart_answer_path(@publication.slug, :edition => @edition), class: "govuk-link" %>
-      </div>
-      <ol>
-        <%= render :partial => "completed_question", :collection => @flow_state.completed_questions %>
-      </ol>
+    <div class="start-over">
+      <%= link_to "Start again", simple_smart_answer_path(@publication.slug, :edition => @edition), class: "govuk-link" %>
     </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <%= render :partial => "completed_question", :collection => @flow_state.completed_questions %>
+    </dl>
   <% end %>
 
   <% if @flow_state.current_node.outcome? %>
@@ -30,4 +26,3 @@
     <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
   </div>
 <% end %>
-

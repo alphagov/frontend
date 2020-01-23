@@ -1,10 +1,11 @@
-<li class="done">
-  <h3 class="question">
-    <span class="question-number"><%= completed_question_counter + 1 %></span><%= completed_question.question.title %>
-  </h3>
-
-  <div class="answer"><%= completed_question.label %></div>
-  <p class="undo">
-    <%= link_to "Change this answer", change_completed_question_path(completed_question_counter), class: "govuk-link" %>
-  </p>
-</li>
+<div class="govuk-summary-list__row">
+  <dt class="govuk-summary-list__key">
+    <%= completed_question_counter + 1 %>. <%= completed_question.question.title %>
+  </dt>
+  <dd class="govuk-summary-list__value">
+    <%= completed_question.label %>
+  </dd>
+  <dd class="govuk-summary-list__actions">
+    <a href="<%= change_completed_question_path(completed_question_counter) %>" class="govuk-link">Change <span class="govuk-visually-hidden">this answer</span></a>
+  </dd>
+</div>

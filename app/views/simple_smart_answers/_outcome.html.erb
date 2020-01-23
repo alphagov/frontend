@@ -1,13 +1,10 @@
-<div class="article-container">
-  <div class="content-block outcome group" data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
-    <div class="inner group">
-      <div class="result-info">
-        <div class="summary"><h2 class="result-title"><%= outcome.title %></h2></div>
+<div data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: outcome.title,
+    margin_bottom: 4
+  } %>
 
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= raw outcome.body %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render "govuk_publishing_components/components/govspeak", {} do %>
+    <%= raw outcome.body %>
+  <% end %>
 </div>

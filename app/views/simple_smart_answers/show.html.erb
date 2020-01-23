@@ -15,10 +15,11 @@
     <% end %>
     <p class="get-started">
       <%= render "govuk_publishing_components/components/button",
-                  text: @publication.start_button_text.html_safe,
-                  rel: "nofollow",
-                  start: true,
-                  href: smart_answer_flow_path(slug: @publication.slug, edition: @edition) %>
+        text: @publication.start_button_text.html_safe,
+        rel: "nofollow",
+        start: true,
+        href: smart_answer_flow_path(slug: @publication.slug, edition: @edition)
+      %>
     </p>
   </div>
 <% end %>

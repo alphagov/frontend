@@ -1,29 +1,19 @@
-<div class="step">
-  <div class="current-question">
-    <h2><span class="question-number"><%= @flow_state.current_question_number %></span> <%= question.title %></h2>
+<%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, :edition => nil), :method => :get do %>
+  <%= hidden_field_tag :edition, @edition if @edition.present? %>
+  <%= hidden_field_tag 'response', '' %>
+  <%
+    if @flow_state.error?
+      error_message = "Please answer this question"
+    end
+  %>
+  <%= render "govuk_publishing_components/components/radio", {
+    heading: "#{@flow_state.current_question_number}. #{question.title}",
+    hint: strip_tags(question.body),
+    error_message: error_message,
+    name: "response",
+    items: question.options.map { |option| { text: option.label, value: option.slug, checked: option.slug == params[:previous_response] } }
+  } %>
+  <%= render partial: 'draft_fields' %>
 
-    <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, :edition => nil), :method => :get do %>
-      <%= hidden_field_tag :edition, @edition if @edition.present? %>
-      <div class="question-body">
-        <%= raw question.body %>
-
-        <% if @flow_state.error? %>
-          <p class="error-message" role="alert">Please answer this question</p>
-        <% end %>
-        <%= hidden_field_tag 'response', '' %>
-
-        <%= render "govuk_publishing_components/components/radio", {
-          name: "response",
-          items: question.options.map { |option| { text: option.label, value: option.slug, checked: option.slug == params[:previous_response] } }
-        } %>
-      </div>
-
-      <%= render partial: 'draft_fields' %>
-
-      <div class="next-question">
-        <%= render "govuk_publishing_components/components/button", text: "Next step" %>
-      </div>
-    <% end %>
-
-  </div>
-</div>
+  <%= render "govuk_publishing_components/components/button", text: "Next step" %>
+<% end %>

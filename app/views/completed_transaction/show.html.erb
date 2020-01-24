@@ -16,20 +16,32 @@
         <p>If you needed an organ transplant would you have one? If so please help others.</p>
         <p>If you live in Wales and want to be an organ donor, you don’t need to do anything. Find out about your choices for <a href="https://www.organdonation.nhs.uk/supporting-my-decision/welsh-legislation-what-it-means-for-me/" rel="external" class="govuk-link">organ donation in Wales</a>.</p>
         <p>
-          <%= link_to 'Join', @publication.promotion['url'],
-                title: "Register to become an organ donor", rel: "external", class: "button", role: "button" %>
+          <%= render "govuk_publishing_components/components/button", {
+            text: "Join",
+            href: @publication.promotion['url'],
+            rel: "external",
+            info_text: "Register to become an organ donor"
+          } %>
         </p>
       <% elsif @publication.promotion['category'] == 'mot_reminder' %>
         <p>Get a text or email reminder when your MOT is due.</p>
         <p>
-          <%= link_to 'Sign up', @publication.promotion['url'],
-                title: "Get a text or email reminder when your MOT is due", rel: "external", class: "button", role: "button" %>
+          <%= render "govuk_publishing_components/components/button", {
+            text: "Sign up",
+            href: @publication.promotion['url'],
+            rel: "external",
+          } %>
         </p>
       <% elsif @publication.promotion['category'] == 'electric_vehicle' %>
         <p>Make your next car electric.</p>
         <p>
-          <%= link_to 'Find out how much you could save', @publication.promotion['url'],
-                title: "Learn about electric cars", rel: "external", class: "button", role: "button" %>
+          <%= render "govuk_publishing_components/components/button", {
+            text: "Find out how much you could save",
+            href: @publication.promotion['url'],
+            rel: "external",
+            info_text: "Learn about electric cars"
+          } %>
+        </p>
       <% end %>
     </div>
   <% end %>

@@ -148,7 +148,7 @@ GEM
       rack (>= 1.2.1)
       rake
     jasmine-core (3.5.0)
-    json (2.2.0)
+    json (2.3.0)
     json-schema (2.8.1)
       addressable (>= 2.4)
     jwt (2.2.1)
@@ -331,11 +331,10 @@ GEM
     sidekiq-statsd (2.1.0)
       activesupport
       sidekiq (>= 3.3.1)
-    simplecov (0.17.1)
+    simplecov (0.18.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11.0)
+    simplecov-html (0.11.0)
     slimmer (13.2.0)
       activesupport
       json

@@ -1,6 +1,0 @@
-<% if flash[:validation]&.any? %>
-  <%= render "govuk_publishing_components/components/error_summary", {
-    title: t("funding_form.errors.heading"),
-    items: flash[:validation].map { |field| { text: field[:text], href: "##{field[:field]}" } },
-  } %>
-<% end %>

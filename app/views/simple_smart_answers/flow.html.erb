@@ -10,7 +10,7 @@
     <div class="start-over">
       <%= link_to "Start again", simple_smart_answer_path(@publication.slug, :edition => @edition), class: "govuk-link" %>
     </div>
-    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <dl class="govuk-summary-list your-answers">
       <%= render :partial => "completed_question", :collection => @flow_state.completed_questions %>
     </dl>
   <% end %>

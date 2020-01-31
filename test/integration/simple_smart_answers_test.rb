@@ -99,9 +99,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     within "#content" do
-      within "header.page-header" do
-        assert_has_component_title "The Bridge of Death"
-      end
+      assert_has_component_title "The Bridge of Death"
 
       within ".article-container" do
         within ".intro" do
@@ -137,18 +135,17 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     within "#content" do
-      within "header.page-header" do
+      within ".gem-c-title" do
         assert_page_has_content("The Bridge of Death")
       end
     end
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "1" }
-        assert_page_has_content "What...is your name?"
+    within "#content .govuk-form-group" do
+      within ".govuk-fieldset__legend" do
+        assert_page_has_content "1. What...is your name?"
       end
       assert_page_has_content "It's the old man from Scene 24!!"
-      within ".question-body" do
+      within ".govuk-radios" do
         assert page.has_field?("Sir Lancelot of Camelot", type: "radio", with: "sir-lancelot-of-camelot")
         assert page.has_field?("Sir Robin of Camelot", type: "radio", with: "sir-robin-of-camelot")
         assert page.has_field?("Sir Galahad of Camelot", type: "radio", with: "sir-galahad-of-camelot")
@@ -163,62 +160,52 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
 
-    within ".done-questions" do
-      within(".start-again") { assert page.has_link?("Start again", href: "/the-bridge-of-death") }
-      within "ol li.done" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
-        end
-        within(".answer") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+    within(".start-over") { assert page.has_link?("Start again", href: "/the-bridge-of-death") }
+    within ".govuk-summary-list" do
+      within ".govuk-summary-list__row" do
+        assert_page_has_content "1. What...is your name?"
       end
+      within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
+      within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
     end
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "2" }
-        assert_page_has_content "What...is your favorite colour?"
-      end
-      within ".question-body" do
-        assert page.has_field?("Blue", type: "radio", with: "blue")
-        assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue-no-yelloooooooooooooooowww")
-        # Assert they're in the correct order
-        options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
-        assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
-      end
+    within ".govuk-fieldset__legend" do
+      assert_page_has_content "2. What...is your favorite colour?"
+    end
+    within ".govuk-fieldset" do
+      assert page.has_field?("Blue", type: "radio", with: "blue")
+      assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue-no-yelloooooooooooooooowww")
+      # Assert they're in the correct order
+      options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
+      assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
     end
 
     choose "Blue"
     click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
+    within(".start-over") { assert page.has_link?("Start again", href: "/the-bridge-of-death") }
 
-    within ".done-questions" do
-      within(".start-again") { assert page.has_link?("Start again", href: "/the-bridge-of-death") }
-      within "ol li.done:nth-child(1)" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
+    within ".govuk-summary-list" do
+      within ".govuk-summary-list__row:nth-child(1)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "1. What...is your name?"
         end
-        within(".answer") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
-      within "ol li.done:nth-child(2)" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "2" }
-          assert_page_has_content "What...is your favorite colour?"
+      within ".govuk-summary-list__row:nth-child(2)" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "2. What...is your favorite colour?"
         end
-        within(".answer") { assert_page_has_content "Blue" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Blue" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
       end
     end
 
-    within ".outcome" do
-      within ".result-info" do
-        within("h2.result-title") { assert_page_has_content "Right, off you go." }
-        assert_page_has_content "Oh! Well, thank you. Thank you very much."
-      end
+    within "[data-module='track-smart-answer']" do
+      within("h2") { assert_page_has_content "Right, off you go." }
+      assert_page_has_content "Oh! Well, thank you. Thank you very much."
     end
   end
 
@@ -256,31 +243,29 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
   should "allow changing an answer" do
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-    within ".done-questions ol li.done:nth-child(2)" do
+    within ".govuk-summary-list .govuk-summary-list__row:nth-child(2)" do
       click_on "Change this answer"
     end
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true
 
-    within ".done-questions" do
-      assert page.has_selector?("li.done", count: 1)
+    within ".govuk-summary-list" do
+      assert page.has_selector?(".govuk-summary-list__row", count: 1)
 
-      within "ol li.done" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
+      within ".govuk-summary-list__row" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "1. What...is your name?"
         end
-        within(".answer") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "2" }
-        assert_page_has_content "What...is your favorite colour?"
+    within "#content .govuk-form-group" do
+      within ".govuk-fieldset__legend" do
+        assert_page_has_content "2. What...is your favorite colour?"
       end
-      within ".question-body" do
+      within ".govuk-radios" do
         assert page.has_field?("Blue", type: "radio", with: "blue", checked: true)
       end
     end
@@ -297,26 +282,23 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
   should "handle invalid responses in the url param correctly" do
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/ultramarine"
 
-    within ".done-questions" do
-      assert page.has_selector?("li.done", count: 1)
+    within ".govuk-summary-list" do
+      assert page.has_selector?(".govuk-summary-list__row", count: 1)
 
-      within "ol li.done" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
+      within ".govuk-summary-list__row" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "1. What...is your name?"
         end
-        within(".answer") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
-    within ".current-question" do
-      within "h2" do
+    within ".govuk-fieldset" do
+      within ".govuk-fieldset__legend" do
         assert_page_has_content "What...is your favorite colour?"
       end
-      within ".question-body" do
-        assert page.has_selector?(".error-message", text: "Please answer this question")
-      end
+      assert page.has_selector?(".govuk-error-message", text: "Please answer this question")
     end
 
     choose "Blue"
@@ -324,60 +306,50 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-    assert page.has_selector?(".done-questions li.done", count: 2)
+    assert page.has_selector?(".govuk-summary-list .govuk-summary-list__row", count: 2)
     assert_page_has_content "Right, off you go"
   end
 
   should "handle empty form submissions correctly" do
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot"
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "2" }
-        assert_page_has_content "What...is your favorite colour?"
+    within "#content .govuk-form-group" do
+      within ".govuk-fieldset__legend" do
+        assert_page_has_content "2. What...is your favorite colour?"
       end
-      within ".question-body" do
-        assert_not page.has_selector?(".error-message", text: "Please answer this question")
-      end
+      assert_not page.has_selector?(".govuk-error-message", text: "Please answer this question")
     end
 
     click_on "Next step"
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "2" }
-        assert_page_has_content "What...is your favorite colour?"
+    within "#content .govuk-form-group" do
+      within ".govuk-fieldset__legend" do
+        assert_page_has_content "2. What...is your favorite colour?"
       end
-      within ".question-body" do
-        assert page.has_selector?(".error-message", text: "Please answer this question")
-      end
+      assert page.has_selector?(".govuk-error-message", text: "Please answer this question")
     end
   end
 
   should "handle invalid form submissions correctly" do
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot?response=ultramarine"
 
-    within ".done-questions" do
-      assert page.has_selector?("li.done", count: 1)
+    within ".govuk-summary-list" do
+      assert page.has_selector?(".govuk-summary-list__row", count: 1)
 
-      within "ol li.done" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
+      within ".govuk-summary-list__row" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "1. What...is your name?"
         end
-        within(".answer") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "2" }
-        assert_page_has_content "What...is your favorite colour?"
+    within "#content .govuk-form-group" do
+      within ".govuk-fieldset__legend" do
+        assert_page_has_content "2. What...is your favorite colour?"
       end
-      within ".question-body" do
-        assert page.has_selector?(".error-message", text: "Please answer this question")
-      end
+      assert page.has_selector?(".govuk-error-message", text: "Please answer this question")
     end
 
     choose "Blue"
@@ -385,34 +357,30 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-    assert page.has_selector?(".done-questions li.done", count: 2)
+    assert page.has_selector?(".govuk-summary-list .govuk-summary-list__row", count: 2)
     assert_page_has_content "Right, off you go"
   end
 
   should "handle invalid url params combined with form submissions correctly" do
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/ultramarine?response=blue"
 
-    within ".done-questions" do
-      assert page.has_selector?("li.done", count: 1)
+    within ".govuk-summary-list" do
+      assert page.has_selector?(".govuk-summary-list__row", count: 1)
 
-      within "ol li.done" do
-        within "h3" do
-          within(".question-number") { assert_page_has_content "1" }
-          assert_page_has_content "What...is your name?"
+      within ".govuk-summary-list__row" do
+        within ".govuk-summary-list__key" do
+          assert_page_has_content "1. What...is your name?"
         end
-        within(".answer") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".undo") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
-    within ".current-question" do
-      within "h2" do
-        within(".question-number") { assert_page_has_content "2" }
-        assert_page_has_content "What...is your favorite colour?"
+    within "#content .govuk-form-group" do
+      within ".govuk-fieldset__legend" do
+        assert_page_has_content "2. What...is your favorite colour?"
       end
-      within ".question-body" do
-        assert page.has_selector?(".error-message", text: "Please answer this question")
-      end
+      assert page.has_selector?(".govuk-error-message", text: "Please answer this question")
     end
 
     choose "Blue"
@@ -420,7 +388,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-    assert page.has_selector?(".done-questions li.done", count: 2)
+    assert page.has_selector?(".govuk-summary-list .govuk-summary-list__row", count: 2)
     assert_page_has_content "Right, off you go"
   end
 end

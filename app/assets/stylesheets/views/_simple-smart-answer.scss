@@ -1,23 +1,8 @@
-.step {
-  .next-question {
-    button {
-      font-size: 19px;
-      line-height: 1.25;
-    }
-  }
+.start-over {
+  @include govuk-font(19);
+  margin-bottom: govuk-spacing(2);
 }
 
-.start-again {
-  background: govuk-colour("white");
-  height: 2.5em;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: -2.5em;
-  width: 11em;
-
-  .govuk-link {
-    display: inline;
-    text-align: left;
-  }
+.your-answers {
+  margin-bottom: govuk-spacing(9);
 }

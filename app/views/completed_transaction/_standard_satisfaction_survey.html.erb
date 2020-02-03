@@ -1,42 +1,52 @@
-<h2 class="satisfaction-survey-heading">Satisfaction survey</h2>
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Satisfaction survey",
+  margin_bottom: 4
+} %>
 
-<form class="contact-form" action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
+<form action="/contact/govuk/service-feedback" method="post" id="completed-transaction-form">
   <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= publication.slug.gsub("done/", "") %>" />
   <input type="hidden" id="service_done_page_url" name="service_feedback[url]" value="<%= publication.web_url %>" />
-  <fieldset>
-    <legend><h2>Overall, how did you feel about the service you received today?</h2></legend>
-    <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="very-satisfied" value="5">
-    <label for="very-satisfied">Very satisfied</label>
-    <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="satisfied" value="4">
-    <label for="satisfied">Satisfied</label>
-    <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="neither-satisfied-or-dissatisfied" value="3">
-    <label for="neither-satisfied-or-dissatisfied">Neither satisfied or dissatisfied</label>
-    <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="dissatisfied" value="2">
-    <label for="dissatisfied">Dissatisfied</label>
-    <br />
-    <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="very-dissatisfied" value="1">
-    <label for="very-dissatisfied">Very dissatisfied</label>
-  </fieldset>
 
-  <br />
+  <%= render "govuk_publishing_components/components/radio", {
+    name: "service_feedback[service_satisfaction_rating]",
+    heading: "Overall, how did you feel about the service you received today?",
+    heading_size: "s",
+    items: [
+      {
+        value: 5,
+        text: "Very satisfied"
+      },
+      {
+        value: 4,
+        text: "Satisfied"
+      },
+      {
+        value: 3,
+        text: "Neither satisfied or dissatisfied"
+      },
+      {
+        value: 2,
+        text: "Dissatisfied"
+      },
+      {
+        value: 1,
+        text: "Very dissatisfied"
+      },
+    ]
+  } %>
 
-  <fieldset>
-    <legend><h2>How could we improve this service?</h2></legend>
-    <br />
-    <label for="improvement-comments" class="visuallyhidden">Your comments</label>
-    <textarea name="service_feedback[improvement_comments]" class="full-size counted" id="improvement-comments"></textarea>
-     <p id="improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
+  <%= render "govuk_publishing_components/components/textarea", {
+    label: {
+      text: "How could we improve this service?",
+      bold: true
+    },
+    name: "service_feedback[improvement_comments]",
+  } do %>
+    <span class="govuk-hint">Limit is 1200 characters</span>
+    <p class="govuk-body">Do not include any personal or financial information, for example your National Insurance or credit card numbers.</p>
+  <% end %>
 
-    <div id="transaction-completed-form-notice">
-      <p>Do not include any personal or financial information, for example your National Insurance or credit card numbers.</p>
-    </div>
-  </fieldset>
-  <br />
-  <p class="action group">
-    <button type="submit" class="button">Send feedback</button>
-  </p>
+  <%= render "govuk_publishing_components/components/button", {
+    text: "Send feedback"
+  } %>
 </form>

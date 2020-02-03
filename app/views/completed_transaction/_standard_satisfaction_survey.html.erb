@@ -35,16 +35,17 @@
     ]
   } %>
 
-  <%= render "govuk_publishing_components/components/textarea", {
-    label: {
-      text: "How could we improve this service?",
-      bold: true
+  <%= render "govuk_publishing_components/components/character_count", {
+    textarea: {
+      label: {
+        text: "How could we improve this service?",
+        bold: true,
+      },
+      name: "service_feedback[improvement_comments]",
+      hint: "Do not include any personal or financial information, for example your National Insurance or credit card numbers."
     },
-    name: "service_feedback[improvement_comments]",
-  } do %>
-    <span class="govuk-hint">Limit is 1200 characters</span>
-    <p class="govuk-body">Do not include any personal or financial information, for example your National Insurance or credit card numbers.</p>
-  <% end %>
+    maxlength: 1200
+  } %>
 
   <%= render "govuk_publishing_components/components/button", {
     text: "Send feedback"

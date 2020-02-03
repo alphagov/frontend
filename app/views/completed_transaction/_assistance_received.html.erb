@@ -26,12 +26,14 @@
     },
   ]
 } %>
-<%= render "govuk_publishing_components/components/textarea", {
-  label: {
-    text: "Is there any way the assistance received could be improved?",
-    bold: true
+
+<%= render "govuk_publishing_components/components/character_count", {
+  textarea: {
+    label: {
+      text: "Is there any way the assistance received could be improved?",
+      bold: true,
+    },
+    name: "service_feedback[assistance_improvement_comments]"
   },
-  name: "service_feedback[assistance_improvement_comments]"
-} do %>
-  <span class="govuk-hint">Limit is 1200 characters</span>
-<% end %>
+  maxlength: 1200
+} %>

@@ -1,0 +1,39 @@
+<%= render "govuk_publishing_components/components/radio", {
+  name: "service_feedback[assistance_satisfaction_rating]",
+  id_prefix: locals[:id_prefix],
+  heading: "How satisfied are you with the assistance received?",
+  heading_size: "s",
+  items: [
+    {
+      value: 5,
+      text: "Very satisfied"
+    },
+    {
+      value: 4,
+      text: "Satisfied"
+    },
+    {
+      value: 3,
+      text: "Neither satisfied or dissatisfied"
+    },
+    {
+      value: 2,
+      text: "Dissatisfied"
+    },
+    {
+      value: 1,
+      text: "Very dissatisfied"
+    },
+  ]
+} %>
+
+<%= render "govuk_publishing_components/components/character_count", {
+  textarea: {
+    label: {
+      text: "Is there any way the assistance received could be improved?",
+      bold: true,
+    },
+    name: "service_feedback[assistance_improvement_comments]"
+  },
+  maxlength: 1200
+} %>

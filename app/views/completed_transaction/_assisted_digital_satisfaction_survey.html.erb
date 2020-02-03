@@ -1,163 +1,132 @@
-<h2 class="satisfaction-survey-heading">Help us improve this service</h2>
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Help us improve this service",
+  margin_bottom: 4
+} %>
 
-<form class="contact-form" action="/contact/govuk/assisted-digital-survey-feedback" method="post" id="completed-transaction-form">
+<form action="/contact/govuk/assisted-digital-survey-feedback" method="post" id="completed-transaction-form">
   <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= publication.slug.gsub("done/", "") %>" />
   <input type="hidden" id="service_done_page_url" name="service_feedback[url]" value="<%= publication.web_url %>" />
 
   <div id="transaction-completed-form-notice">
-    <p>When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
+    <p class="govuk-body">When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
   </div>
 
-  <fieldset>
-    <legend><h2>Did you receive any assistance to use this service today?</h2></legend>
-    <br />
-    <label class="block-label" data-target="assistance-yes-section">
-      <input type="radio" required name="service_feedback[assistance_received]" value="yes">
-      Yes
-    </label>
-    <br />
-    <label class="block-label">
-      <input type="radio" required name="service_feedback[assistance_received]" id="no-help" value="no">
-      No
-    </label>
-  </fieldset>
-
-  <br/>
-
-  <div id="assistance-yes-section" class="js-hidden">
-    <fieldset>
-      <legend><h2>What assistance did you receive?</h2></legend>
-      <br />
-      <label for="assistance-received-comments" class="visuallyhidden">Your comments</label>
-      <textarea name="service_feedback[assistance_received_comments]" class="full-size counted" id="assistance-received-comments"></textarea>
-      <p id="assistance-received-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
-    </fieldset>
-
-    <br/>
-
-    <fieldset>
-      <legend><h2>Who provided the assistance?</h2></legend>
-      <br />
-      <label class="block-label">
-        <input type="radio" required name="service_feedback[assistance_provided_by]" id="friend-relative" value="friend-relative">
-        A friend or relative
-      </label>
-      <br />
-      <label class="block-label">
-        <input type="radio" required name="service_feedback[assistance_provided_by]" id="work-colleague" value="work-colleague">
-        A work colleague
-      </label>
-      <br />
-      <label class="block-label" data-target="assistance-staff-or-other-section">
-        <input type="radio" required name="service_feedback[assistance_provided_by]" id="government-staff" value="government-staff">
-        A staff member of the responsible government department
-      </label>
-      <br />
-      <label class="block-label" data-target="assistance-staff-or-other-section">
-        <input type="radio" required name="service_feedback[assistance_provided_by]" id="other" value="other">
-        Other (please specify)
-      </label>
-      <br/>
-
-      <label for="other-specified" class="visually-hidden">Tell us who the other person was</label>
-      <input type="text" name="service_feedback[assistance_provided_by_other]" id="other-specified" value="">
-    </fieldset>
-
-    <br />
-
-    <div id="assistance-staff-or-other-section" class="js-hidden">
-      <fieldset>
-        <legend><h2>How satisfied are you with the assistance received?</h2></legend>
-        <br />
-        <label class="block-label">
-          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-very-satisfied" value="5">
-          Very satisfied
-        </label>
-        <br />
-        <label class="block-label">
-          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-satisfied" value="4">
-          Satisfied
-        </label>
-        <br />
-        <label class="block-label">
-          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-neither-satisfied-or-dissatisfied" value="3">
-          Neither satisfied or dissatisfied
-        </label>
-        <br />
-        <label class="block-label">
-          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-dissatisfied" value="2">
-          Dissatisfied
-        </label>
-        <br />
-        <label class="block-label">
-          <input type="radio" required name="service_feedback[assistance_satisfaction_rating]" id="assistance-very-dissatisfied" value="1">
-          Very dissatisfied
-        </label>
-      </fieldset>
-
-      <br />
-
-      <fieldset>
-        <legend><h2>Is there any way the assistance received could be improved?</h2></legend>
-        <br />
-        <label for="assistance-improvement-comments" class="visuallyhidden">Your comments</label>
-        <textarea name="service_feedback[assistance_improvement_comments]" class="full-size counted" id="assistance-improvement-comments"></textarea>
-        <p id="assistance-improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
-      </fieldset>
-
-      <br />
-    </div>
-  </div>
-
-  <fieldset>
-    <legend><h2>Overall, how satisfied are you with the online service?</h2></legend>
-    <br />
-    <label class="block-label">
-      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-very-satisfied" value="5">
-      Very satisfied
-    </label>
-    <br />
-    <label class="block-label">
-      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-satisfied" value="4">
-      Satisfied
-    </label>
-    <br />
-    <label class="block-label">
-      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-neither-satisfied-or-dissatisfied" value="3">
-      Neither satisfied or dissatisfied
-    </label>
-    <br />
-    <label class="block-label">
-      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-dissatisfied" value="2">
-      Dissatisfied
-    </label>
-    <br />
-    <label class="block-label">
-      <input type="radio" required name="service_feedback[service_satisfaction_rating]" id="service-very-dissatisfied" value="1">
-      Very dissatisfied
-    </label>
-  </fieldset>
-
-  <br />
-
-  <fieldset>
-    <legend><h2>Do you have any ideas for how this service could be improved?</h2></legend>
-    <br />
-    <label for="improvement-comments" class="visuallyhidden">Your comments</label>
-    <textarea name="service_feedback[improvement_comments]" class="full-size counted" id="improvement-comments"></textarea>
-    <p id="improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
-  </fieldset>
-
-  <br />
-
-  <p class="action group">
-    <button type="submit" class="button">Send feedback</button>
-  </p>
-</form>
-
-<% content_for :extra_javascript do %>
-  <%= javascript_tag do %>
-    var showHideContent = new GOVUK.ShowHideContent();
-    showHideContent.init();
+  <% government_staff = capture do %>
+    <%= render 'assistance_received', locals: { id_prefix: 'staff_member'} %>
   <% end %>
-<% end %>
+
+  <% other_person = capture do %>
+    <%= render 'assistance_received', locals: { id_prefix: 'other'} %>
+  <% end %>
+
+  <% other_input = capture do %>
+    <%= render "govuk_publishing_components/components/input", {
+      label: {
+        text: "Tell us who the other person was"
+      },
+      name: "service_feedback[assistance_provided_by_other]",
+      id: "other-specified"
+    } %>
+
+    <%= other_person %>
+  <% end %>
+
+  <% did_you_receive_assistance = capture do %>
+    <%= render "govuk_publishing_components/components/character_count", {
+      textarea: {
+        label: {
+          text: "What assistance did you receive?",
+          bold: true,
+        },
+        name: "service_feedback[assistance_received_comments]",
+      },
+      maxlength: 1200
+    } %>
+
+    <%= render "govuk_publishing_components/components/radio", {
+      name: "service_feedback[assistance_provided_by]",
+      heading: "Who provided the assistance?",
+      heading_size: "s",
+      items: [
+        {
+          value: "friend-relative",
+          text: "A friend or relative"
+        },
+        {
+          value: "work-colleague",
+          text: "A work colleague"
+        },
+        {
+          value: "government-staff",
+          text: "A staff member of the responsible government department",
+          conditional: government_staff
+        },
+        {
+          value: "other",
+          text: "Other (please specify)",
+          conditional: other_input
+        },
+      ]
+    } %>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/radio", {
+    name: "service_feedback[assistance_received]",
+    heading: "Did you receive any assistance to use this service today?",
+    heading_size: "s",
+    items: [
+      {
+        value: "yes",
+        text: "Yes",
+        conditional: did_you_receive_assistance
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+    ]
+  } %>
+
+  <%= render "govuk_publishing_components/components/radio", {
+    name: "service_feedback[service_satisfaction_rating]",
+    heading: "Overall, how satisfied are you with the online service?",
+    heading_size: "s",
+    items: [
+      {
+        value: 5,
+        text: "Very satisfied"
+      },
+      {
+        value: 4,
+        text: "Satisfied"
+      },
+      {
+        value: 3,
+        text: "Neither satisfied or dissatisfied"
+      },
+      {
+        value: 2,
+        text: "Dissatisfied"
+      },
+      {
+        value: 1,
+        text: "Very dissatisfied"
+      },
+    ]
+  } %>
+
+  <%= render "govuk_publishing_components/components/character_count", {
+    textarea: {
+      label: {
+        text: "Do you have any ideas for how this service could be improved?",
+        bold: true,
+      },
+      name: "service_feedback[improvement_comments]",
+    },
+    maxlength: 1200
+  } %>
+
+  <%= render "govuk_publishing_components/components/button", {
+    text: "Send feedback"
+  } %>
+</form>

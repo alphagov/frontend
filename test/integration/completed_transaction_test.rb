@@ -68,8 +68,8 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
             assert page.has_field?("No", type: "radio")
           end
 
-          within_fieldset "What assistance did you receive?" do
-            assert page.has_field?("Your comments", type: "textarea")
+          within_fieldset "Did you receive any assistance to use this service today?" do
+            assert page.has_field?("What assistance did you receive?", type: "textarea")
           end
 
           within_fieldset "Who provided the assistance?" do
@@ -78,18 +78,30 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
             assert page.has_field?("A staff member of the responsible government department", type: "radio")
             assert page.has_field?("Other (please specify)", type: "radio")
             assert page.has_field?("Tell us who the other person was", type: "text")
+
+            within "[data-module='govuk-radios'] > .govuk-radios__item:nth-child(3) + .govuk-radios__conditional" do
+              within_fieldset "How satisfied are you with the assistance received?" do
+                assert page.has_field?("Very satisfied", type: "radio")
+                assert page.has_field?("Satisfied", type: "radio")
+                assert page.has_field?("Neither satisfied or dissatisfied", type: "radio")
+                assert page.has_field?("Dissatisfied", type: "radio")
+                assert page.has_field?("Very dissatisfied", type: "radio")
+              end
+            end
+
+            within "[data-module='govuk-radios'] > .govuk-radios__item:nth-child(5) + .govuk-radios__conditional" do
+              within_fieldset "How satisfied are you with the assistance received?" do
+                assert page.has_field?("Very satisfied", type: "radio")
+                assert page.has_field?("Satisfied", type: "radio")
+                assert page.has_field?("Neither satisfied or dissatisfied", type: "radio")
+                assert page.has_field?("Dissatisfied", type: "radio")
+                assert page.has_field?("Very dissatisfied", type: "radio")
+              end
+            end
           end
 
-          within_fieldset "How satisfied are you with the assistance received?" do
-            assert page.has_field?("Very satisfied", type: "radio")
-            assert page.has_field?("Satisfied", type: "radio")
-            assert page.has_field?("Neither satisfied or dissatisfied", type: "radio")
-            assert page.has_field?("Dissatisfied", type: "radio")
-            assert page.has_field?("Very dissatisfied", type: "radio")
-          end
-
-          within_fieldset "Is there any way the assistance received could be improved?" do
-            assert page.has_field?("Your comments", type: "textarea")
+          within_fieldset "Who provided the assistance?" do
+            assert page.has_field?("Is there any way the assistance received could be improved?", type: "textarea")
           end
 
           within_fieldset "Overall, how satisfied are you with the online service?" do
@@ -100,9 +112,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
             assert page.has_field?("Very dissatisfied", type: "radio")
           end
 
-          within_fieldset "Do you have any ideas for how this service could be improved?" do
-            assert page.has_field?("Your comments", type: "textarea")
-          end
+          assert page.has_field?("Do you have any ideas for how this service could be improved?", type: "textarea")
 
           assert page.has_button?("Send feedback")
         end
@@ -130,9 +140,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
             assert page.has_field?("Very dissatisfied", type: "radio")
           end
 
-          within_fieldset "How could we improve this service?" do
-            assert page.has_field?("Your comments", type: "textarea")
-          end
+          assert page.has_field?("How could we improve this service?", type: "textarea")
 
           assert page.has_button?("Send feedback")
         end

@@ -184,7 +184,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           should "display the page content" do
             assert page.has_content? "Licence to kill"
-            assert page.has_selector? "h1", text: "How to apply"
+            assert page.has_selector? "h2", text: "How to apply"
           end
 
           should "display a button to apply for the licence" do

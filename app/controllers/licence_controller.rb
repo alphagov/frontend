@@ -3,7 +3,7 @@ class LicenceController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template "wrapper"
+  slimmer_template "core_layout"
 
   before_action :set_content_item
 

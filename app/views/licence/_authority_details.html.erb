@@ -1,7 +1,7 @@
 <p class="govuk-body">From <strong><%= @licence_details.authority['name'] %></strong></p>
 
 <nav role="navigation" class="page-navigation">
-  <ol>
+  <ol class="govuk-list govuk-list--number">
     <% if @licence_details.action %>
       <li><%= link_to "Overview", licence_authority_path(@publication.slug, @licence_details.authority["slug"]) %></li>
     <% else %>
@@ -28,19 +28,25 @@
         <%= render :partial => 'licensify_unavailable' %>
       <% end %>
     <% elsif @publication.licence_overview.present? %>
-      <header><h1>Overview</h1></header>
-      <%= raw @publication.licence_overview %>
+      <%= render "govuk_publishing_components/components/heading", text: "Overview", margin_bottom: 4 %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <%= raw @publication.licence_overview %>
+      <% end %>
     <% end %>
 
     <% if @licence_details.local_authority_specific? or @licence_details.multiple_licence_authorities_present? %>
       <div class="contact">
-        <p>The issuing authority for this licence is <strong><%= @licence_details.authority["name"] %></strong>
+        <p class="govuk-body">The issuing authority for this licence is <strong><%= @licence_details.authority["name"] %></strong>
           <%= link_to (@licence_details.local_authority_specific? ? '(change location)' : '(change authority)'), licence_path(@publication.slug), class: "govuk-link" %>
         </p>
 
         <% if @licence_details.authority['contact'] and ! @licence_details.authority['contact']['address'].blank? %>
-          <p>You can contact them using the details below.</p>
-          <%= simple_format @licence_details.authority['contact']['address'] %>
+          <p class="govuk-body">You can contact them using the details below.</p>
+          <%= render "govuk_publishing_components/components/govspeak", {
+          } do %>
+            <%= simple_format @licence_details.authority['contact']['address'] %>
+          <% end %>
         <% end %>
       </div>
     <% end %>

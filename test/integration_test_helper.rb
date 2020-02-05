@@ -36,7 +36,7 @@ class ActionDispatch::IntegrationTest
   end
 
   def assert_page_is_full_width
-    assert_not page.has_css?(".grid-row")
+    assert_not page.has_css?(".govuk-grid-row")
   end
 
   def assert_current_url(path_with_query, options = {})

@@ -23,7 +23,41 @@ Transaction start pages:
 * https://www.gov.uk/find-local-council
 * https://www.gov.uk/help/ab-testing
 * https://www.gov.uk/passport-interview-office
+
+### Licence finders
+
+Some examples:
+
 * https://www.gov.uk/riding-establishment-licence
+* https://www.gov.uk/premises-licence
+* https://www.gov.uk/temporary-events-notice
+* https://www.gov.uk/apply-skip-permit
+* https://www.gov.uk/street-collection-licence
+* https://www.gov.uk/zoo-licence
+* https://www.gov.uk/premises-licence-scotland
+* https://www.gov.uk/house-to-house-collection-licence
+* https://www.gov.uk/public-charitable-collection-permit-scotland
+* https://www.gov.uk/late-hours-catering-licence-scotland
+* https://www.gov.uk/food-business-registration
+* https://www.gov.uk/cooling-tower-notification
+* https://www.gov.uk/performing-animals-registration
+
+### Transaction done pages
+
+* https://www.gov.uk/done/transaction-finished
+* https://www.gov.uk/done/driving-transaction-finished
+
+### Transaction done with survey pages
+
+Standard survey:
+
+* https://www.gov.uk/done/check-settled-status
+
+Assisted digital satisfaction surveys:
+
+* https://www.gov.uk/done/register-flood-risk-exemption
+* https://www.gov.uk/done/waste-carrier-or-broker-registration
+* https://www.gov.uk/done/register-waste-exemption
 
 ## Nomenclature
 

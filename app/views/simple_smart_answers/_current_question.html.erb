@@ -8,7 +8,7 @@
   %>
   <%= render "govuk_publishing_components/components/radio", {
     heading: "#{@flow_state.current_question_number}. #{question.title}",
-    hint: strip_tags(question.body),
+    description: sanitize(question.body),
     error_message: error_message,
     name: "response",
     items: question.options.map { |option| { text: option.label, value: option.slug, checked: option.slug == params[:previous_response] } }

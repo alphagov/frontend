@@ -26,4 +26,6 @@ Rails.application.configure do
   # Log Action Mailer emails instead of sending them to Notify
   config.action_mailer.delivery_method = :file
   config.action_mailer.default_options = { from: "test@example.com" }
+
+  config.hosts << "frontend.dev.gov.uk"
 end

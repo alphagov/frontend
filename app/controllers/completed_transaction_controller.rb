@@ -1,6 +1,7 @@
 class CompletedTransactionController < ApplicationController
   include Cacheable
   include Navigable
+  include ElectricCarAbTestable
 
   slimmer_template "wrapper"
 

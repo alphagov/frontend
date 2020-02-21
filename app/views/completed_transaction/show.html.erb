@@ -1,5 +1,6 @@
 <% content_for :extra_headers do %>
   <meta name="robots" content="noindex, nofollow" />
+  <%= electric_car_variant.analytics_meta_tag.html_safe if electric_car_testable? %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
@@ -8,7 +9,18 @@
   edition: @edition,
 } do %>
 
-  <% if @publication.promotion %>
+  <% if electric_car_testable? %>
+    <div class="promotion">
+      <p><%= t electric_car_translation_key("text") %></p>
+      <p>
+        <%= render "govuk_publishing_components/components/button", {
+          text: t(electric_car_translation_key("button_text")),
+          href: t(electric_car_translation_key("link")),
+          rel: "external"
+        } %>
+      </p>
+    </div>
+  <% elsif @publication.promotion %>
     <div class="promotion">
       <% if @publication.promotion['category'] == 'organ_donor' %>
         <p>Please join the NHS Organ Donor Register.</p>

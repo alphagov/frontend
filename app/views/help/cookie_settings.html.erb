@@ -59,7 +59,7 @@
 
       <%= render "govuk_publishing_components/components/radio", {
         name: "cookies-usage",
-        inline: true,
+        inline: false,
         heading: t('cookies.types.usage'),
         hint: cookies_usage_hint,
         items: [
@@ -81,7 +81,7 @@
 
       <%= render "govuk_publishing_components/components/radio", {
         name: "cookies-campaigns",
-        inline: true,
+        inline: false,
         heading: t('cookies.types.campaigns'),
         hint: cookies_campaigns_hint,
         items: [
@@ -98,7 +98,7 @@
 
       <%= render "govuk_publishing_components/components/radio", {
         name: "cookies-settings",
-        inline: true,
+        inline: false,
         heading: t('cookies.types.settings'),
         hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
         items: [

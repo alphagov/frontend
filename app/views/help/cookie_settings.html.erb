@@ -46,14 +46,15 @@
     <form data-module="cookie-settings">
 
       <% cookies_usage_hint = capture do %>
-        We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:
+        We use Google Analytics to measure how you use the website so we can improve it based on user needs.
+        We do not allow Google to use or share the data about how you use this site.
+        <br />
+        Google Analytics sets cookies that store anonymised information about:
         <ul>
           <li>how you got to the site</li>
           <li>the pages you visit on GOV.UK and government digital services, and how long you spend on each page</li>
           <li>what you click on while you're visiting the site</li>
         </ul>
-        We do not allow Google to use or share the data about how you use this site.
-
       <% end %>
 
       <%= render "govuk_publishing_components/components/radio", {

@@ -12,6 +12,18 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
     }
   end
 
+  context "electric car test" do
+    should "present the default variant" do
+      content_store_has_example_item("/done/vehicle-tax", schema: "completed_transaction")
+      visit "/done/vehicle-tax"
+
+      assert_equal 200, page.status_code
+      page.assert_text "Information is available on electric vehicles."
+      page.assert_text "Make your next car electric"
+      page.assert_selector "a[href='https://www.goultralow.com/ev-owners/benefits']"
+    end
+  end
+
   context "a completed transaction edition" do
     should "show no promotion when there is no promotion choice" do
       stub_content_store_has_item("/done/no-promotion", @payload)

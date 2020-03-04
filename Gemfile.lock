@@ -335,7 +335,7 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.1)
-    slimmer (13.2.0)
+    slimmer (13.2.2)
       activesupport
       json
       nokogiri (~> 1.7)
@@ -419,7 +419,7 @@ DEPENDENCIES
   sass-rails (< 6)
   shoulda-context
   simplecov
-  slimmer (~> 13.2.0)
+  slimmer (~> 13.2.2)
   sprockets-rails (~> 3.2.0)
   timecop
   uglifier

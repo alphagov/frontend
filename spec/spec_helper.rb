@@ -6,7 +6,7 @@ require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
 require "slimmer/rspec"
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 SimpleCov.start
 
 ActiveJob::Base.queue_adapter = :test

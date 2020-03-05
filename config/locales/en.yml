@@ -2,7 +2,7 @@ en:
   ab_tests:
     electric_car:
       A:
-        text: "Fully electric vehicles could cost from as little as 2p per mile to run – less than a quarter of the cost of the most fuel-efficient petrol or diesel vehicles."
+        text: "Fully electric vehicles could cost from as little as 1p per mile to run – less than a quarter of the cost of the most fuel-efficient petrol or diesel vehicles."
         button_text: "Make your next car electric"
         link: "https://www.goultralow.com/ev-owners/benefits?govuk=A"
       B:

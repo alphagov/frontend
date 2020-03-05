@@ -1,4 +1,5 @@
-require "simple_smart_answers/errors"
+require "simple_smart_answers/base_error"
+require "simple_smart_answers/invalid_response"
 require "ostruct"
 
 module SimpleSmartAnswers

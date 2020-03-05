@@ -5,14 +5,14 @@ require "rails/test_unit/railtie"
 require "sprockets/railtie"
 require "action_mailer/railtie"
 
-if defined?(Bundler)
-  Bundler.require(*Rails.groups)
-end
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module Frontend
   class Application < Rails::Application
     require "frontend"
-    config.load_defaults 5.1
+    config.load_defaults 6.0
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
@@ -50,9 +50,6 @@ module Frontend
     config.action_controller.javascripts_dir = Rails.root.join "public/frontend/javascripts"
     config.action_controller.stylesheets_dir = Rails.root.join "public/frontend/stylesheets"
 
-    # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = "1.0"
-
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += %i[password postcode]
 
@@ -70,5 +67,10 @@ module Frontend
     config.action_controller.allow_forgery_protection = false
 
     config.active_job.queue_adapter = :sidekiq
+
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration can go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded after loading
+    # the framework and any gems in your application.
   end
 end

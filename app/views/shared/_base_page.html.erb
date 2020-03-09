@@ -1,9 +1,9 @@
-<main id="content" role="main" class="govuk-grid-column-two-thirds <%= main_class if local_assigns.include?(:main_class) %>" <%= @lang_attribute %>>
+<main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %>" <%= @lang_attribute %>>
 
-  <header class="page-header">
+  <header class="page-header govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", context: local_assigns[:context], title: title %>
   </header>
-  <div class="article-container group">
+  <div class="article-container group govuk-grid-column-two-thirds">
     <% if publication.in_beta %>
       <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
     <% end %>
@@ -17,7 +17,7 @@
   </div>
 </main>
 
-<div class="govuk-grid-column-one-third govuk-!-margin-top-7">
+<div class="govuk-grid-column-one-third">
   <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
 </div>
 

@@ -1,3 +1,12 @@
+inherit_gem:
+  rubocop-govuk:
+    - config/default.yml
+    - config/rails.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
 AllCops:
   Exclude:
     - 'tmp/**/*'
@@ -12,7 +21,3 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'test/**/*'
 
-inherit_gem:
-  rubocop-govuk:
-    - config/default.yml
-    - config/rails.yml

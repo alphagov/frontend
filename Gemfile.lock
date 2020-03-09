@@ -116,7 +116,7 @@ GEM
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
     govuk_ab_testing (2.4.1)
-    govuk_app_config (2.0.3)
+    govuk_app_config (2.1.0)
       logstasher (>= 1.2.2, < 1.4.0)
       sentry-raven (>= 2.7.1, < 2.14.0)
       statsd-ruby (~> 1.4.0)
@@ -399,7 +399,7 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.2)
+    zeitwerk (2.3.0)
 
 PLATFORMS
   ruby
@@ -415,7 +415,7 @@ DEPENDENCIES
   gds-api-adapters (~> 63.5.1)
   govuk-content-schema-test-helpers
   govuk_ab_testing (~> 2.4, >= 2.4.1)
-  govuk_app_config (~> 2.0.3)
+  govuk_app_config (~> 2.1.0)
   govuk_publishing_components (~> 21.27.1)
   govuk_schemas (~> 4.0)
   govuk_sidekiq (~> 3.0)

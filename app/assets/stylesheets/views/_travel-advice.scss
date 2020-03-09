@@ -14,7 +14,6 @@
   .subscriptions-wrapper {
     @include govuk-media-query($from: tablet) {
       .js-enabled & {
-        margin-top: 22px;
         text-align: right;
       }
     }

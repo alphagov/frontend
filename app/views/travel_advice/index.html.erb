@@ -3,7 +3,7 @@
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
-<main id="content" role="main" class="group full-width govuk-width-container ">
+<main id="content" role="main" class="group full-width">
   <header class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <%= render "govuk_publishing_components/components/title", {
@@ -13,16 +13,17 @@
       <%= render "govuk_publishing_components/components/lead_paragraph", {
         text: @presenter.description,
       } %>
+
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <div class="travel-advice-notice">
             <span class="govuk-warning-text__icon travel-advice-notice__icon" aria-hidden="true">!</span>
-            <h2 class="govuk-heading-m" aria-label="Important - this is a notice">
-              This is a notice
+            <h2 class="govuk-heading-m" aria-label="Important - COVID-19 Exceptional Travel Advisory Notice">
+              COVID-19 Exceptional Travel Advisory Notice
             </h2>
-            <p class="govuk-body">Jelly-o wafer gummi bears bonbon carrot cake. Topping fruitcake lemon drops bonbon
-              dessert. Fruitcake danish cookie. Macaroon candy fruitcake fruitcake candy cheesecake. Cupcake soufflé
-              chupa chups toffee wafer cotton candy soufflé gingerbread marzipan.</p>
+            <p class="govuk-body">
+              As countries respond to the COVID-19 pandemic, including travel and border restrictions, <strong>the FCO advises British nationals against all but essential international travel</strong>. Any country or area may restrict travel without notice.
+            </p>
           </div>
         </div>
       </div>

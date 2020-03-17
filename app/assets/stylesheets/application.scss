@@ -4,7 +4,7 @@ $govuk-use-legacy-palette: false;
 // BASE Stylesheet
 
 // Components from govuk_publishing_components gem
-@import 'govuk_publishing_components/all_components';
+@import "govuk_publishing_components/all_components";
 
 // local styleguide includes
 @import "styleguide/conditionals";
@@ -53,4 +53,16 @@ $govuk-use-legacy-palette: false;
       }
     }
   }
+}
+
+.travel-advice-notice {
+  background-color: govuk-colour("light-grey");
+  border: 1px solid $govuk-border-colour;
+  margin-bottom: govuk-spacing(7);
+  padding: govuk-spacing(4) govuk-spacing(4) 0 govuk-spacing(9);
+  position: relative;
+}
+
+.travel-advice-notice__icon {
+  margin-left: govuk-spacing(3);
 }

@@ -48,17 +48,6 @@
           </fieldset>
         </form>
       </div>
-      <div class="govuk-grid-column-one-half subscriptions-wrapper">
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Get updates for all countries</h2>
-        <%= render "govuk_publishing_components/components/subscription-links", {
-          email_signup_link_text: "email",
-          email_signup_link: @presenter.subscription_url,
-          feed_link_text: "feed",
-          feed_link: travel_advice_path(@presenter.slug, format: "atom"),
-          hide_heading: true,
-          margin_bottom: 0,
-        } %>
-      </div>
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible app-full-width-break">
     </section>
 
@@ -84,6 +73,17 @@
             </ul>
           </div>
         <% end %>
+        <div class="subscriptions-wrapper">
+          <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Get updates for all countries</h2>
+            <%= render "govuk_publishing_components/components/subscription-links", {
+              email_signup_link_text: "email",
+              email_signup_link: @presenter.subscription_url,
+              feed_link_text: "feed",
+              feed_link: travel_advice_path(@presenter.slug, format: "atom"),
+              hide_heading: true,
+              margin_bottom: 0,
+            } %>
+        </div>
       </div>
     </section>
   </div>

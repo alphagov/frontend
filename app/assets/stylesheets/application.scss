@@ -66,3 +66,13 @@ $govuk-use-legacy-palette: false;
 .travel-advice-notice__icon {
   margin-left: govuk-spacing(3);
 }
+
+.form-rate-limit {
+  .gem-c-error-alert {
+    margin-bottom: 0;
+  }
+  .gem-c-error-alert__message {
+    @include govuk-font(19, $weight: bold);
+    margin: 0;
+  }
+}

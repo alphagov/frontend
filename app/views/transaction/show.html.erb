@@ -48,6 +48,15 @@
         <span class="destination"> <%= t 'formats.transaction.on' %> <%= @publication.will_continue_on %></span>
       <% end %>
     </p>
+    <% if params[:slug] && params[:slug] == 'coronavirus-extremely-vulnerable' %>
+      <div id="js-rate-limit" class="hidden">
+        <div class="form-rate-limit">
+          <%= render "govuk_publishing_components/components/error_alert", {
+            message: "This service is working, but we're limiting the number of people who are using it at the same time. Please wait 5 minutes and refresh the page to try again."
+          } %>
+        </div>
+      </div>
+    <% end %>
   </section>
 
   <section class="more">

@@ -11,14 +11,13 @@
           <%= render "govuk_publishing_components/components/title", title: "Apply for this licence" %>
 
           <p id="get-started" class="get-started group">
+            <% info_text = "#{t('formats.transaction.on')} #{@publication.will_continue_on}" if @publication.will_continue_on.present? %>
             <%= render "govuk_publishing_components/components/button",
                         text: "Start now",
                         rel: "external",
                         start: true,
+                        info_text: info_text,
                         href: @publication.continuation_link %>
-            <% if @publication.will_continue_on.present? %>
-              <span class="destination">on <%= @publication.will_continue_on %></span>
-            <% end %>
           </p>
         </div>
       </div>

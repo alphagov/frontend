@@ -55,6 +55,15 @@ $govuk-use-legacy-palette: false;
   }
 }
 
+
+.article-container {
+  margin-bottom: govuk-spacing(6);
+
+  @include govuk-media-query($from: tablet) {
+    @include responsive-bottom-margin;
+  }
+}
+
 .travel-advice-notice {
   background-color: govuk-colour("light-grey");
   border: 1px solid $govuk-border-colour;

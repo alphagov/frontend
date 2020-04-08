@@ -4,7 +4,35 @@ $govuk-use-legacy-palette: false;
 // BASE Stylesheet
 
 // Components from govuk_publishing_components gem
-@import "govuk_publishing_components/all_components";
+@import 'govuk_publishing_components/govuk_frontend_support';
+@import 'govuk_publishing_components/component_support';
+@import 'govuk_publishing_components/components/back-link';
+@import 'govuk_publishing_components/components/breadcrumbs';
+@import 'govuk_publishing_components/components/button';
+@import 'govuk_publishing_components/components/character-count';
+@import 'govuk_publishing_components/components/contextual-sidebar';
+@import 'govuk_publishing_components/components/details';
+@import 'govuk_publishing_components/components/error-alert';
+@import 'govuk_publishing_components/components/error-message';
+@import 'govuk_publishing_components/components/feedback';
+@import 'govuk_publishing_components/components/govspeak';
+@import 'govuk_publishing_components/components/heading';
+@import 'govuk_publishing_components/components/hint';
+@import 'govuk_publishing_components/components/input';
+@import 'govuk_publishing_components/components/label';
+@import 'govuk_publishing_components/components/lead-paragraph';
+@import 'govuk_publishing_components/components/notice';
+@import 'govuk_publishing_components/components/phase-banner';
+@import 'govuk_publishing_components/components/radio';
+@import 'govuk_publishing_components/components/related-navigation';
+@import 'govuk_publishing_components/components/search';
+@import 'govuk_publishing_components/components/step-by-step-nav';
+@import 'govuk_publishing_components/components/step-by-step-nav-header';
+@import 'govuk_publishing_components/components/step-by-step-nav-related';
+@import 'govuk_publishing_components/components/subscription-links';
+@import 'govuk_publishing_components/components/tabs';
+@import 'govuk_publishing_components/components/textarea';
+@import 'govuk_publishing_components/components/title';
 
 // local styleguide includes
 @import "styleguide/conditionals";

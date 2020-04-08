@@ -3,6 +3,8 @@ require "frontend"
 Rails.application.routes.draw do
   root to: "homepage#index", via: :get
 
+  mount GovukPublishingComponents::Engine, at: "/component-guide"
+
   get "/homepage" => redirect("/")
 
   get "/random" => "random#random_page"
@@ -65,6 +67,4 @@ Rails.application.routes.draw do
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"
   end
-
-  mount GovukPublishingComponents::Engine, at: "/component-guide"
 end

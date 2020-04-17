@@ -4,8 +4,6 @@ class FindLocalCouncilController < ApplicationController
   before_action -> { setup_content_item(BASE_PATH) }
   before_action :set_expiry
 
-  slimmer_template "core_layout"
-
   BASE_PATH = "/find-local-council".freeze
   UNITARY_AREA_TYPES = %w[COI LBO LGD MTD UTA].freeze
   DISTRICT_AREA_TYPE = "DIS".freeze

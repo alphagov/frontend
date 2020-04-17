@@ -3,7 +3,7 @@ class PlaceController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template "wrapper"
+  slimmer_template "core_layout"
 
   helper_method :postcode_provided?, :postcode
 

@@ -68,7 +68,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         end
       end
 
-      within(".help-notice") do
+      within(".gem-c-warning-text") do
         assert page.has_content?("CarrotServe will be offline next week.")
       end
     end

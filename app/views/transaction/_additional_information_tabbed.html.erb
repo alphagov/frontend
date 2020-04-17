@@ -4,17 +4,23 @@
     {
       id: ('more-information' if transaction.more_information.present?),
       label: t('formats.transaction.more_information'),
-      content: transaction.more_information.try(:html_safe)
+      content: render("govuk_publishing_components/components/govspeak", {
+                content: transaction.more_information.try(:html_safe)
+              })
     },
     {
       id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
       label: t('formats.transaction.what_you_need_to_know'),
-      content: transaction.what_you_need_to_know.try(:html_safe)
+      content: render("govuk_publishing_components/components/govspeak", {
+                content: transaction.what_you_need_to_know.try(:html_safe)
+              })
     },
     {
      id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
      label: t('formats.transaction.other_ways_to_apply'),
-     content: transaction.other_ways_to_apply.try(:html_safe)
+     content: render("govuk_publishing_components/components/govspeak", {
+               content: transaction.other_ways_to_apply.try(:html_safe)
+             })
     }
   ].reject {|item| item[:id].blank?}
 } %>

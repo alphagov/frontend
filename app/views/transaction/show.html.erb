@@ -4,8 +4,8 @@
     content_item: @content_item %>
 
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
-             schema: :government_service,
-             content_item: @content_item %>
+    schema: :government_service,
+    content_item: @content_item %>
 
   <% if @publication.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
@@ -24,9 +24,9 @@
       <% end %>
     </div>
     <% if @publication.downtime_message.present? %>
-      <div class="application-notice help-notice">
-        <p><strong><%= @publication.downtime_message %></strong></p>
-      </div>
+      <%= render "govuk_publishing_components/components/warning_text", {
+        text: sanitize(@publication.downtime_message)
+      } %>
     <% end %>
     <p id="get-started" class="get-started group">
       <%
@@ -44,6 +44,7 @@
                   href: @publication.transaction_start_link,
                   start: true,
                   info_text: info_text,
+                  margin_bottom: true,
                   data_attributes: data_attributes %>
     </p>
   </section>

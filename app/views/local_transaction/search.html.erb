@@ -11,7 +11,9 @@
 } do %>
   <section class="intro">
     <div class="get-started-intro">
-      <%= raw @publication.introduction %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+        content: sanitize(@publication.introduction)
+      } %>
     </div>
   </section>
   <%= render partial: 'location_form',
@@ -23,11 +25,15 @@
              } %>
   <section class="more">
   <% if @publication.need_to_know.present? %>
-    <h2>What you need to know</h2>
-    <%= raw @publication.need_to_know %>
+    <%= render "govuk_publishing_components/components/heading", text: "What you need to know", margin_bottom: 4 %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+      content: sanitize(@publication.need_to_know)
+    } %>
   <% end %>
     <div class="more">
-      <%= raw @publication.more_information %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+        content: sanitize(@publication.more_information)
+      } %>
     </div>
   </section>
 <% end %>

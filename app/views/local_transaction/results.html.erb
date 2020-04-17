@@ -5,7 +5,7 @@
 } do %>
   <% if @interaction_details['local_interaction'] %>
     <div class="interaction">
-      <p class="interaction-match">
+      <p class="govuk-body interaction-match">
         We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
       </p>
       <p id="get-started" class="get-started group">
@@ -13,12 +13,13 @@
                     text: "Go to their website",
                     rel: "external",
                     start: true,
+                    margin_bottom: true,
                     href: @interaction_details['local_interaction']['url'] %>
       </p>
     </div>
   <% elsif @location_error && @location_error.no_location_interaction? %>
     <div class="interaction">
-      <p class="interaction-match">
+      <p class="govuk-body interaction-match">
         <%= t(@location_error.message, @location_error.message_args) %>
       </p>
       <% if @local_authority.url.present? %>
@@ -31,6 +32,7 @@
                         text: "Go to their website",
                         rel: "external",
                         start: true,
+                        margin_bottom: true,
                         href: @local_authority.url %>
           </p>
         </div>
@@ -51,7 +53,9 @@
   </div>
   <section class="more">
     <div class="more">
-      <%= raw @publication.more_information %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+        content: sanitize(@publication.more_information)
+      } %>
     </div>
   </section>
 <% end %>

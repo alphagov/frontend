@@ -192,8 +192,9 @@ body.homepage {
 
 .home-promo__image {
   display: block;
-  max-width: 100%;
+  height: auto;
   margin-bottom: govuk-spacing(4);
+  max-width: 100%;
 }
 
 .home-promo__title {

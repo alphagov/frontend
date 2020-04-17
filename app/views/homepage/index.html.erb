@@ -87,7 +87,13 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
           <a href="/coronavirus" aria-hidden="true" tabindex="-1">
-            <%= image_tag 'homepage/coronavirus.png', alt: '', class: 'home-promo__image', loading: "lazy" %>
+            <%= image_tag "homepage/coronavirus.png", {
+              alt: "",
+              class: "home-promo__image",
+              height: 400,
+              loading: "lazy",
+              width: 600,
+            } %>
           </a>
           <h3>
             <a href="/coronavirus" class="govuk-link home-promo__link">
@@ -101,7 +107,13 @@
 
         <div class="govuk-grid-column-one-third">
           <a href="/transition" aria-hidden="true" tabindex="-1">
-            <%= image_tag 'homepage/transition-period.png', alt: '', class: 'home-promo__image', loading: "lazy" %>
+            <%= image_tag "homepage/transition-period.png", {
+              alt: "",
+              class: "home-promo__image",
+              height: 400,
+              loading: "lazy",
+              width: 600,
+            } %>
           </a>
           <h3>
             <a href="/transition" class="govuk-link home-promo__link">
@@ -115,7 +127,21 @@
 
         <div class="govuk-grid-column-one-third">
           <a href="/government/topical-events/budget-2020" aria-hidden="true" tabindex="-1">
-            <%= image_tag 'homepage/budget-2020.jpg', alt: '', class: 'home-promo__image', loading: "lazy" %>
+            <%= image_tag "homepage/budget-2020--480w.jpg", {
+              alt: "",
+              class: "home-promo__image",
+              height: 400,
+              loading: "lazy",
+              sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
+              srcset: {
+                "homepage/budget-2020--600w.jpg": "600w",
+                "homepage/budget-2020--480w.jpg": "480w",
+                "homepage/budget-2020--320w.jpg": "320w",
+                "homepage/budget-2020--240w.jpg": "240w",
+                "homepage/budget-2020--170w.jpg": "170w",
+              },
+              width: 600,
+            } %>
           </a>
           <h3>
             <a href="/government/topical-events/budget-2020" class="govuk-link home-promo__link">

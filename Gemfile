@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "addressable"
 gem "asset_bom_removal-rails", "~> 1.0.0"
-gem "gds-api-adapters", "~> 63.5.1"
+gem "gds-api-adapters", "~> 63.6.0"
 gem "govuk_ab_testing", "~> 2.4", ">= 2.4.1"
 gem "govuk_app_config", "~> 2.1.2"
 gem "govuk_publishing_components", "~> 21.42.0"

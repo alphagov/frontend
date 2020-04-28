@@ -275,7 +275,6 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue-no-yelloooooooooooooooowww"
 
-
     assert_page_has_content "AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!"
   end
 

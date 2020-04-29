@@ -1,6 +1,6 @@
 module ElectricCarAbTestable
   CUSTOM_DIMENSION = 43
-  ALLOWED_VARIANTS = %w(A B C D E F G H Z).freeze
+  ALLOWED_VARIANTS = %w[A B C D E F G H Z].freeze
 
   def self.included(base)
     base.helper_method(
@@ -33,9 +33,9 @@ module ElectricCarAbTestable
   end
 
   def electric_car_testable?
-    %w(
+    %w[
       done/vehicle-tax
       done/check-vehicle-tax
-    ).include?(params[:slug])
+    ].include?(params[:slug])
   end
 end

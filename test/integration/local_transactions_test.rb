@@ -45,7 +45,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       details: {
         lgsl_code: 461,
         lgil_override: 8,
-        service_tiers: %w(county unitary),
+        service_tiers: %w[county unitary],
         introduction: "Information about paying local tax on owning or looking after a bear.",
       },
       external_related_links: [],

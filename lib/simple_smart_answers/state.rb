@@ -16,7 +16,7 @@ module SimpleSmartAnswers
     def process_responses(responses)
       responses.each do |response|
         add_response(response)
-        break if self.error?
+        break if error?
       end
       self
     end

@@ -19,7 +19,7 @@ module Frontend
     config.time_zone = "London"
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.eager_load_paths += %W(#{config.root}/app/presenters #{config.root}/lib)
+    config.eager_load_paths += %W[#{config.root}/app/presenters #{config.root}/lib]
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -31,7 +31,7 @@ module Frontend
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.precompile += %w(
+    config.assets.precompile += %w[
       views/travel-advice.js
       frontend.js
       tour.js
@@ -40,7 +40,7 @@ module Frontend
       application-ie7.css
       application-ie8.css
       print.css
-    )
+    ]
 
     # Path within public/ where assets are compiled to
     config.assets.prefix = "/frontend"

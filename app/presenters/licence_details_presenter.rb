@@ -7,9 +7,7 @@ class LicenceDetailsPresenter
     @interaction = interaction
   end
 
-  def present?
-    licence.present?
-  end
+  delegate :present?, to: :licence
 
   def local_authority_specific?
     licence_details["location_specific"]
@@ -98,7 +96,7 @@ private
           "name" => authority["authorityName"],
           "slug" => authority["authoritySlug"],
           "contact" => authority["authorityContact"],
-          "actions" => authority["authorityInteractions"].inject({}) { |actions, (key, links)|
+          "actions" => authority["authorityInteractions"].each_with_object({}) { |(key, links), actions|
             actions[key] = links.map { |link|
               {
                 "url" => link["url"],
@@ -109,7 +107,6 @@ private
                 "uses_licensify" => (link["usesLicensify"] == true),
               }
             }
-            actions
           },
         }
       }

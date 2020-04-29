@@ -6,6 +6,6 @@
     <%= completed_question.label %>
   </dd>
   <dd class="govuk-summary-list__actions">
-    <a href="<%= change_completed_question_path(completed_question_counter) %>" class="govuk-link">Change <span class="govuk-visually-hidden">this answer</span></a>
+    <a href="<%= change_completed_question_path(completed_question_counter) %>" class="govuk-link"><%= t('formats.simple_smart_answer.change.visible') %> <span class="govuk-visually-hidden"><%= t('formats.simple_smart_answer.change.hidden') %></span></a>
   </dd>
 </div>

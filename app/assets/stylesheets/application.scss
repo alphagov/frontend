@@ -35,6 +35,9 @@ $govuk-use-legacy-palette: false;
 @import 'govuk_publishing_components/components/title';
 @import 'govuk_publishing_components/components/warning-text';
 
+// components
+@import "components/calendar";
+
 // local styleguide includes
 @import "styleguide/conditionals";
 

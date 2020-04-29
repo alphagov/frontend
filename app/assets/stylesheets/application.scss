@@ -37,6 +37,7 @@ $govuk-use-legacy-palette: false;
 
 // components
 @import "components/calendar";
+@import "components/metadata";
 
 // local styleguide includes
 @import "styleguide/conditionals";

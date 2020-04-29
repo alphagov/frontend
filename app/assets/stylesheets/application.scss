@@ -35,6 +35,11 @@ $govuk-use-legacy-palette: false;
 @import 'govuk_publishing_components/components/title';
 @import 'govuk_publishing_components/components/warning-text';
 
+// components
+@import "components/calendar";
+@import "components/metadata";
+@import "components/subscribe";
+
 // local styleguide includes
 @import "styleguide/conditionals";
 
@@ -44,6 +49,7 @@ $govuk-use-legacy-palette: false;
 @import "helpers/title-context-reset";
 
 // View stylesheets
+@import "views/calendars";
 @import "views/cookie-settings";
 @import "views/homepage";
 @import "views/travel-advice";

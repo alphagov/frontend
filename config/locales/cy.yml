@@ -16,3 +16,5 @@ cy:
         town_place_postcode: "Cod post, tref neu lle"
         skills: "Sgiliau (dewisol)"
         search: "Chwilio"
+    simple_smart_answer:
+      start_now: "Dechrau nawr"

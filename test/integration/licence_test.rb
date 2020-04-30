@@ -78,11 +78,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
             assert page.has_content?("Overview")
             assert page.has_content? "You only live twice, Mr Bond."
           end
-
-          within ".article-container" do
-            assert page.has_selector?(".gem-c-phase-banner")
-          end
         end
+
+        assert page.has_selector?(".gem-c-phase-banner")
       end
 
       should "add google analytics tags for postcodeSearchStarted" do

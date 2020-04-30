@@ -25,6 +25,10 @@
 
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
+      <% if @publication && @publication.in_beta %>
+        <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
+      <% end %>
+
       <% unless current_page?(root_path) || !(@publication || @calendar) %>
         <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
       <% end %>

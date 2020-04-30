@@ -4,10 +4,6 @@
     <%= render "govuk_publishing_components/components/title", context: local_assigns[:context], title: title %>
   </header>
   <div class="article-container group govuk-grid-column-two-thirds">
-    <% if publication.in_beta %>
-      <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
-    <% end %>
-
     <div class="content-block">
       <div class="inner">
         <%= yield %>

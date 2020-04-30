@@ -109,10 +109,10 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
                                     start: true,
                                     rel: "nofollow")
         end
-
-        assert page.has_selector?(".gem-c-phase-banner")
       end
     end
+
+    assert page.has_selector?(".gem-c-phase-banner")
   end
 
   context "when previously a format with parts" do

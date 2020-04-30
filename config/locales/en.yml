@@ -87,5 +87,12 @@ en:
     find_my_nearest:
       valid_postcode_no_locations: "We couldn't find any results for this postcode."
     simple_smart_answer:
+      start_now: "Start now"
+      start_again: "Start again"
+      next_step: "Next step"
+      please_answer: "Please answer this question"
       your_answers: "Your answers"
       current_question: "Current question"
+      change:
+        visible: "Change"
+        hidden: "this answer"

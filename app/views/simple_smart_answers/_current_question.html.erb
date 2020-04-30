@@ -3,7 +3,7 @@
   <%= hidden_field_tag 'response', '' %>
   <%
     if @flow_state.error?
-      error_message = "Please answer this question"
+      error_message = t('formats.simple_smart_answer.please_answer')
     end
   %>
   <%= render "govuk_publishing_components/components/radio", {
@@ -15,5 +15,5 @@
   } %>
   <%= render partial: 'draft_fields' %>
 
-  <%= render "govuk_publishing_components/components/button", text: "Next step" %>
+  <%= render "govuk_publishing_components/components/button", text: t('formats.simple_smart_answer.next_step') %>
 <% end %>

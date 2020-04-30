@@ -59,9 +59,15 @@ Assisted digital satisfaction surveys:
 * https://www.gov.uk/done/waste-carrier-or-broker-registration
 * https://www.gov.uk/done/register-waste-exemption
 
+### Calendars
+
+* https://www.gov.uk/bank-holidays
+* https://www.gov.uk/when-do-the-clocks-change
+
 ## Nomenclature
 
-- Formats - our phrase for a type of content
+- **format**: our phrase for a type of content
+- **scope**: each type of calendar (eg daylight saving, bank holidays) is known as a scope. A scope has its own view templates, JSON data source and primary route.
 
 ## Technical documentation
 
@@ -71,12 +77,36 @@ It also serves the homepage as a hard-coded route.
 
 See `app/views/root` for some bespoke transaction start pages.
 
+Calendar JSON data files are stored in `lib/data/<scope>.json`, with a `divisions` hash for separate data per region (`united-kingdom`, `england-and-wales`, `scotland` or `northern-ireland`).
+
+Each scope's data file contains a list of divisions, containing a list of years, each with a list of events:
+
+```json
+{
+  "title": "UK bank holidays",
+  "description": "UK bank holidays calendar - see UK bank holidays and public holidays for 2012 and 2013",
+  "divisions": {
+    "england-and-wales": {
+      "title": "England and Wales",
+      "2011": [{
+        "title": "New Year's Day",
+        "date": "02/01/2011",
+        "notes": "Substitute day"
+      }]
+    }
+  }
+}
+```
+
+The division `title` attribute is optional.  If this is not present the slug will be humanized and used instead.
+
 ### Dependencies
 
 - [alphagov/static](https://github.com/alphagov/static) - provides shared templates, styles, and JavaScript
 - [alphagov/content-store](https://github.com/alphagov/content-store) - provides raw data for rendering formats
 - [alphagov/mapit](https://github.com/alphagov/mapit) - provides postcode lookups
 - [alphagov/imminence](https://github.com/alphagov/imminence) - provides places lookups (e.g. for find-my-nearest)
+- [alphagov/publishing-api](https://github.com/alphagov/publishing-api) - this app sends data to the content-store
 
 ### Running the application
 
@@ -112,6 +142,30 @@ To run them in a browser on your local machine (useful for breakpointing):
 2. Open [test/javascripts/support/LocalTestRunner.html](https://github.com/alphagov/frontend/blob/set-up-js-testing/test/javascripts/support/LocalTestRunner.html) (as a static file) in your browser.
 
 This relies on you being able to access the above server on `http://www.dev.gov.uk:3150`.
+
+## Additional information for calendars
+
+Send the calendars to the publishing-api:
+
+    bundle exec rake publishing_api:publish
+
+Search indexing is performed automatically on data sent to publishing api.
+
+A rake task has been created to generate the bank holidays JSON for a given year. They need to be then inserted, and modified to
+take into account any additions/modifications made by proclamation.
+Run the rake task like this:
+
+    bundle exec rake bank_holidays:generate_json[2016]
+
+### Canonical sources
+
+- For summer time, we can use the [Summer Time Act 1972](http://www.legislation.gov.uk/ukpga/1972/6).
+
+- Bank holidays are determined both by law and by proclamation. We use the following legislation: the [Banking and Financial Dealings Act 1971](http://www.legislation.gov.uk/ukpga/1971/80/schedule/1)
+and the [St Andrew's Day Bank Holiday Act](http://www.legislation.gov.uk/asp/2007/2/section/1).
+
+- The proclamations of holidays are published in [The Gazette](https://www.thegazette.co.uk/all-notices/notice?noticetypes=1101&sort-by=latest-date&text="Banking+and+Financial").
+Holidays are announced there 6 months to one year in advance, usually between the months of May and July for the following year.
 
 ## Licence
 

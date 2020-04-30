@@ -46,5 +46,5 @@ group :test do
   gem "shoulda-context"
   gem "simplecov"
   gem "timecop"
-  gem "webmock", require: false
+  gem "webmock"
 end

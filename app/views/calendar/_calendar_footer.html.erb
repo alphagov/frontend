@@ -1,3 +1,7 @@
+<div class="govuk-grid-column-one-third app-o-related-container <%= yield :related_container_class %>">
+  <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
+</div>
+
 <script type="application/ld+json">
   <%= @faq_presenter.metadata.to_json.html_safe %>
 </script>

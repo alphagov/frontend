@@ -27,8 +27,8 @@ class CalendarContentItem
       base_path: base_path,
       document_type: "calendar",
       schema_name: "calendar",
-      publishing_app: "calendars",
-      rendering_app: "calendars",
+      publishing_app: "frontend",
+      rendering_app: "frontend",
       locale: "en",
       details: {
         body: calendar.body,

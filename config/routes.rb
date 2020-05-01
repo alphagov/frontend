@@ -63,6 +63,19 @@ Rails.application.routes.draw do
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
   end
 
+  # Calendar pages
+  constraints(format: /(json|ics)/) do
+    get "/bank-holidays/ni", to: redirect("/bank-holidays/northern-ireland.%{format}")
+  end
+
+  get "/gwyliau-banc", to: "calendar#calendar", defaults: { scope: "gwyliau-banc", locale: :cy }
+  get "/gwyliau-banc/:division", to: "calendar#division", defaults: { scope: "gwyliau-banc", locale: :cy }
+
+  constraints FormatRoutingConstraint.new("calendar") do
+    get ":scope", to: "calendar#calendar", as: :calendar
+    get ":scope/:division", to: "calendar#division", as: :division
+  end
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

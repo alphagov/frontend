@@ -1,18 +1,11 @@
-require "gds_api/publishing_api_v2"
-
 namespace :publishing_api do
   desc "Publish special routes such as the homepage"
   task publish_special_routes: :environment do
-    publishing_api = GdsApi::PublishingApi.new(
-      Plek.new.find("publishing-api"),
-      bearer_token: ENV["PUBLISHING_API_BEARER_TOKEN"] || "example",
-    )
-
     logger = Logger.new(STDOUT)
 
     publisher = SpecialRoutePublisher.new(
       logger: logger,
-      publishing_api: publishing_api,
+      publishing_api: Services.publishing_api,
     )
 
     SpecialRoutePublisher.routes.each do |route_type, routes_for_type|
@@ -21,11 +14,11 @@ namespace :publishing_api do
       end
     end
 
-    HomepagePublisher.publish!(publishing_api, logger)
+    HomepagePublisher.publish!(Services.publishing_api, logger)
   end
 
-  desc "Send pages to the publishing-api"
-  task publish: [:environment] do
+  desc "Publish calendars"
+  task publish_calendars: :environment do
     %w[bank-holidays when-do-the-clocks-change].each do |calender_name|
       calendar = Calendar.find(calender_name)
       CalendarPublisher.new(calendar).publish

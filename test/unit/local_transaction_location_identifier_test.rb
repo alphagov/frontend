@@ -45,7 +45,7 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
   context "given an content item exists with a local service for the district/unitary tiers" do
     setup do
-      @content_item = { "details" => { "service_tiers" => %w(district county) } }
+      @content_item = { "details" => { "service_tiers" => %w[district county] } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do
@@ -70,7 +70,7 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
   context "given an content item exists with a local service for the county/unitary tiers" do
     setup do
-      @content_item = { "details" => { "service_tiers" => %w(county unitary) } }
+      @content_item = { "details" => { "service_tiers" => %w[county unitary] } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do
@@ -95,7 +95,7 @@ class LocalTransactionLocationIdentifierTest < ActiveSupport::TestCase
 
   context "given an content item exists with a local service for all tiers" do
     setup do
-      @content_item = { "details" => { "service_tiers" => %w(district unitary county) } }
+      @content_item = { "details" => { "service_tiers" => %w[district unitary county] } }
     end
 
     should "select the correct tier authority from areas providing a district and county" do

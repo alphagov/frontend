@@ -44,7 +44,7 @@ class LicenceControllerTest < ActionController::TestCase
         stub_licence_exists("1071-5-1",
                             "isLocationSpecific" => true,
                             "isOfferedByCounty" => false,
-                            "geographicalAvailability" => %w(England Wales),
+                            "geographicalAvailability" => %w[England Wales],
                             "issuingAuthorities" => [])
       end
 

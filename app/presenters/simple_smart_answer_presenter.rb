@@ -1,8 +1,8 @@
 class SimpleSmartAnswerPresenter < ContentItemPresenter
-  PASS_THROUGH_DETAILS_KEYS = %i(
+  PASS_THROUGH_DETAILS_KEYS = %i[
     body
     nodes
-  ).freeze
+  ].freeze
 
   PASS_THROUGH_DETAILS_KEYS.each do |key|
     define_method key do

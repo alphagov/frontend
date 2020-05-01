@@ -7,7 +7,7 @@ class FindLocalCouncilController < ApplicationController
   slimmer_template "wrapper"
 
   BASE_PATH = "/find-local-council".freeze
-  UNITARY_AREA_TYPES = %w(COI LBO LGD MTD UTA).freeze
+  UNITARY_AREA_TYPES = %w[COI LBO LGD MTD UTA].freeze
   DISTRICT_AREA_TYPE = "DIS".freeze
   LOWEST_TIER_AREA_TYPES = [*UNITARY_AREA_TYPES, DISTRICT_AREA_TYPE].freeze
 

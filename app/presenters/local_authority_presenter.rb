@@ -3,12 +3,12 @@ class LocalAuthorityPresenter
     @local_authority = local_authority
   end
 
-  PASS_THROUGH_KEYS = %i(
+  PASS_THROUGH_KEYS = %i[
     name
     snac
     tier
     homepage_url
-  ).freeze
+  ].freeze
 
   PASS_THROUGH_KEYS.each do |key|
     define_method key do

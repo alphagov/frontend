@@ -1,7 +1,7 @@
 class TransactionPresenter < ContentItemPresenter
   attr_accessor :variant_slug
 
-  PASS_THROUGH_DETAILS_KEYS = %i(
+  PASS_THROUGH_DETAILS_KEYS = %i[
     introductory_paragraph
     more_information
     other_ways_to_apply
@@ -10,7 +10,7 @@ class TransactionPresenter < ContentItemPresenter
     will_continue_on
     department_analytics_profile
     downtime_message
-  ).freeze
+  ].freeze
 
   PASS_THROUGH_DETAILS_KEYS.each do |key|
     define_method key do

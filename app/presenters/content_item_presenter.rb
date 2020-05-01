@@ -5,9 +5,9 @@ class ContentItemPresenter
     @content_item = content_item
   end
 
-  PASS_THROUGH_KEYS = %i(
+  PASS_THROUGH_KEYS = %i[
     base_path content_id details description first_published_at locale title
-  ).freeze
+  ].freeze
 
   PASS_THROUGH_KEYS.each do |key|
     define_method key do

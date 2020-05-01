@@ -19,7 +19,7 @@ class LocationError
         else
           "formats.local_transaction.local_authority_no_service_url_html"
         end
-      @sub_message = "" #not used in the markup for this case
+      @sub_message = "" # not used in the markup for this case
     when "laMatchNoLinkNoAuthorityUrl"
       @message =
         if local_authority_name_starts_with_a_the?
@@ -28,7 +28,7 @@ class LocationError
           "formats.local_transaction.local_authority_no_service_url_no_authority_link_html"
         end
 
-      @sub_message = "" #not used in the markup for this case
+      @sub_message = "" # not used in the markup for this case
     when "validPostcodeNoLocation"
       # This is a find my nearest exception when no location is found
       @message = "formats.find_my_nearest.valid_postcode_no_locations"
@@ -46,7 +46,7 @@ class LocationError
   end
 
   def no_location_interaction?
-    %w(laMatchNoLink laMatchNoLinkNoAuthorityUrl).include? postcode_error
+    %w[laMatchNoLink laMatchNoLinkNoAuthorityUrl].include? postcode_error
   end
 
 private

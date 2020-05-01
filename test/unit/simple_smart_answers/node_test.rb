@@ -4,7 +4,7 @@ module SimpleSmartAnswers
   class NodeTest < ActiveSupport::TestCase
     should "have attribute accessors for basic fields" do
       node = Node.new(:a_flow, "kind" => "question", "slug" => "question-1",
-            "title" => "Question 1", "body" => "<p>This is question 1</p>", "options" => [])
+                               "title" => "Question 1", "body" => "<p>This is question 1</p>", "options" => [])
 
       assert_equal "question", node.kind
       assert_equal "Question 1", node.title
@@ -46,8 +46,8 @@ module SimpleSmartAnswers
 
       should "construct options" do
         assert_equal ["Option 1", "Option 3", "Option 2"], @node.options.map(&:label)
-        assert_equal %w(option-1 option-3 option-2), @node.options.map(&:slug)
-        assert_equal %w(question-2 question-3 question-2), @node.options.map(&:next_node_slug)
+        assert_equal %w[option-1 option-3 option-2], @node.options.map(&:slug)
+        assert_equal %w[question-2 question-3 question-2], @node.options.map(&:next_node_slug)
         assert_equal @node, @node.options.first.question
       end
 

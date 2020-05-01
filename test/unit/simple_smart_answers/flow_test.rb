@@ -112,7 +112,7 @@ module SimpleSmartAnswers
       end
 
       should "return a state for the given responses" do
-        state = @flow.state_for_responses(%w(option-1))
+        state = @flow.state_for_responses(%w[option-1])
 
         assert_equal "question-2", state.current_node.slug
         assert_equal 2, state.current_question_number
@@ -125,7 +125,7 @@ module SimpleSmartAnswers
       end
 
       should "stop processing and set error flag on invalid response" do
-        state = @flow.state_for_responses(%w(option-1 fooey option-2))
+        state = @flow.state_for_responses(%w[option-1 fooey option-2])
 
         assert state.error?
         assert_equal "question-2", state.current_node.slug

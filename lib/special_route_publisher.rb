@@ -39,7 +39,7 @@ class SpecialRoutePublisher
           title: "Help using GOV.UK",
           description: "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy notice and terms and conditions of use.",
           links: {
-            ordered_related_items: %w(58b05bc2-fde5-4a0b-af73-8edc532674f8), # /contact
+            ordered_related_items: %w[58b05bc2-fde5-4a0b-af73-8edc532674f8], # /contact
           },
         },
         {

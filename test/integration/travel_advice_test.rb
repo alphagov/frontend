@@ -37,7 +37,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("#country-filter")
 
         names = page.all("ul.js-countries-list li a").map(&:text)
-        assert_equal %w(Afghanistan Austria Finland India Malaysia São\ Tomé\ and\ Principe Spain), names
+        assert_equal %w[Afghanistan Austria Finland India Malaysia São\ Tomé\ and\ Principe Spain], names
 
         within ".list#A" do
           assert page.has_link?("Afghanistan", href: "/foreign-travel-advice/afghanistan")

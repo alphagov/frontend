@@ -107,9 +107,9 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
       should "calculate the flow state for the given responses" do
         flow = SimpleSmartAnswers::Flow.new(@node_details)
-        state = flow.state_for_responses(%w(option-1 option-2))
+        state = flow.state_for_responses(%w[option-1 option-2])
         SimpleSmartAnswers::Flow.expects(:new).with(@node_details).returns(flow)
-        flow.expects(:state_for_responses).with(%w(option-1 option-2)).returns(state)
+        flow.expects(:state_for_responses).with(%w[option-1 option-2]).returns(state)
 
         get :flow, params: { slug: "the-bridge-of-death", responses: "option-1/option-2" }
 
@@ -133,15 +133,15 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-1" }
 
           state = assigns[:flow_state]
-          assert_equal %w(option-1 option-1), state.completed_questions.map(&:slug)
+          assert_equal %w[option-1 option-1], state.completed_questions.map(&:slug)
         end
 
         should "redirect to the canonical path for the resulting state" do
           get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-2" }
 
           assert_redirected_to action: :flow,
-            responses: "option-1/option-2",
-            slug: "the-bridge-of-death"
+                               responses: "option-1/option-2",
+                               slug: "the-bridge-of-death"
         end
 
         should "set cache control headers when redirecting" do
@@ -170,9 +170,9 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
           get :flow, params: { slug: "the-bridge-of-death", responses: "option-1", response: "option-2", token: "123" }
 
           assert_redirected_to action: :flow,
-            slug: "the-bridge-of-death",
-            responses: "option-1/option-2",
-            params: { token: "123" }
+                               slug: "the-bridge-of-death",
+                               responses: "option-1/option-2",
+                               params: { token: "123" }
         end
       end
     end

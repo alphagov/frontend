@@ -52,7 +52,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         details: {
           lgsl_code: 8342,
           lgil_code: 8,
-          service_tiers: %w(district unitary),
+          service_tiers: %w[district unitary],
           introduction: "Infos about sending bears.",
         },
         external_related_links: [],
@@ -79,7 +79,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         details: {
           lgsl_code: 364,
           lgil_code: 8,
-          service_tiers: %w(district unitary),
+          service_tiers: %w[district unitary],
           introduction: "Infos about registering to vote.",
         },
         external_related_links: [],
@@ -284,7 +284,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         details: {
           lgsl_code: 1234,
           lgil_code: 1,
-          service_tiers: %w(district unitary),
+          service_tiers: %w[district unitary],
           introduction: "Infos about sending bears.",
         },
         external_related_links: [],
@@ -339,7 +339,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         details: {
           lgsl_code: 461,
           lgil_code: 8,
-          service_tiers: %w(county unitary),
+          service_tiers: %w[county unitary],
           introduction: "Information about paying local tax on owning or looking after a bear.",
         },
       }

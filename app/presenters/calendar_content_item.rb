@@ -34,6 +34,7 @@ class CalendarContentItem
       public_updated_at: Time.current.to_datetime.rfc3339,
       routes: [
         { type: "prefix", path: base_path },
+        { type: "exact", path: "#{base_path}.json" },
       ],
       update_type: update_type,
     }

@@ -166,7 +166,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
         assert_page_has_content "1. What...is your name?"
       end
       within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
-      within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+      within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
     end
 
     within ".govuk-fieldset__legend" do
@@ -192,14 +192,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "1. What...is your name?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
       within ".govuk-summary-list__row:nth-child(2)" do
         within ".govuk-summary-list__key" do
           assert_page_has_content "2. What...is your favorite colour?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Blue" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y/sir-lancelot-of-camelot?previous_response=blue") }
       end
     end
 
@@ -244,7 +244,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     visit "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
     within ".govuk-summary-list .govuk-summary-list__row:nth-child(2)" do
-      click_on "Change this answer"
+      click_on "Change"
     end
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true
@@ -257,7 +257,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "1. What...is your name?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
@@ -289,7 +289,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "1. What...is your name?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
@@ -340,7 +340,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "1. What...is your name?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 
@@ -371,7 +371,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
           assert_page_has_content "1. What...is your name?"
         end
         within(".govuk-summary-list__value") { assert_page_has_content "Sir Lancelot of Camelot" }
-        within(".govuk-summary-list__actions") { assert page.has_link?("Change this answer", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
+        within(".govuk-summary-list__actions") { assert page.has_link?("Change", href: "/the-bridge-of-death/y?previous_response=sir-lancelot-of-camelot") }
       end
     end
 

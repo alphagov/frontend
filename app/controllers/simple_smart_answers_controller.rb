@@ -26,6 +26,7 @@ private
   helper_method(
     :smart_answer_path_for_responses,
     :change_completed_question_path,
+    :answer_summary_data,
   )
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})
@@ -36,5 +37,21 @@ private
 
   def change_completed_question_path(question_number)
     smart_answer_path_for_responses(@flow_state.completed_questions[0...question_number], previous_response: @flow_state.completed_questions[question_number].slug)
+  end
+
+  def answer_summary_data
+    items = []
+    @flow_state.completed_questions.each_with_index do |question, completed_question_counter|
+      items << {
+        field: "#{completed_question_counter + 1}. #{question.question.title}",
+        value: question.label,
+        edit: {
+          href: change_completed_question_path(completed_question_counter),
+          link_text: t("formats.simple_smart_answer.change"),
+        },
+      }
+    end
+
+    items
   end
 end

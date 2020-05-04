@@ -4,12 +4,13 @@ class CalendarContentItem
 
   attr_reader :calendar
 
-  def initialize(calendar)
+  def initialize(calendar, slug: nil)
     @calendar = calendar
+    @slug = slug
   end
 
   def base_path
-    "/" + calendar.slug
+    "/" + (@slug || calendar.slug)
   end
 
   def update_type
@@ -27,7 +28,7 @@ class CalendarContentItem
       schema_name: "calendar",
       publishing_app: "frontend",
       rendering_app: "frontend",
-      locale: "en",
+      locale: I18n.locale.to_s,
       details: {
         body: calendar.body,
       },

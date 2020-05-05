@@ -67,6 +67,4 @@ cy:
       please_answer: "Atebwch y cwestiwn hwn"
       current_question: "Cwestiwn presennol"
       your_answers: "Eich atebion"
-      change:
-        visible: "Newid"
-        hidden: "yr ateb hwn"
+      change: "Newid"

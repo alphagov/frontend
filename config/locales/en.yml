@@ -137,6 +137,4 @@ en:
       please_answer: "Please answer this question"
       your_answers: "Your answers"
       current_question: "Current question"
-      change:
-        visible: "Change"
-        hidden: "this answer"
+      change: "Change"

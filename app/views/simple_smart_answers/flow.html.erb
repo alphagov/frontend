@@ -10,9 +10,10 @@
     <div class="start-over">
       <%= link_to t('formats.simple_smart_answer.start_again'), simple_smart_answer_path(@publication.slug, :edition => @edition), class: "govuk-link" %>
     </div>
-    <dl class="govuk-summary-list your-answers">
-      <%= render :partial => "completed_question", :collection => @flow_state.completed_questions %>
-    </dl>
+
+    <%= render "govuk_publishing_components/components/summary_list", {
+      items: answer_summary_data
+    } %>
   <% end %>
 
   <% if @flow_state.current_node.outcome? %>

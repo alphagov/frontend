@@ -96,11 +96,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
             assert page.has_selector?("li", text: "Proof of identification required")
           end
         end
-
-        within ".article-container" do
-          assert page.has_selector?(".gem-c-phase-banner")
-        end
       end
+
+      assert page.has_selector?(".gem-c-phase-banner")
     end
 
     should "add google analytics tags for postcodeSearchStarted" do

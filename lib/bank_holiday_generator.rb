@@ -67,10 +67,10 @@ private
 
   def add_bank_holiday(title, date, substitute = false, bunting = true)
     bank_holiday_hash = {
-        "title" => title,
-        "date" => date.strftime("%d/%m/%Y"),
-        "notes" => "",
-        "bunting" => bunting,
+      "title" => title,
+      "date" => date.strftime("%d/%m/%Y"),
+      "notes" => "",
+      "bunting" => bunting,
     }
     if substitute
       bank_holiday_hash["notes"] = "common.substitute_day"

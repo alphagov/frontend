@@ -121,7 +121,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "payment" => "none",
                     "introduction" => "Q-approval required.",
                     "usesLicensify" => true,
-                }
+                  }
                 ],
                 "renew" => [
                   {
@@ -261,7 +261,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "payment" => "none",
                     "introduction" => "Q-approval required.",
                     "usesLicensify" => true,
-                }
+                  }
                 ],
                 "renew" => [
                   {
@@ -724,7 +724,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
                 "introduction" => "This licence is issued online",
                 "usesLicensify" => false,
                 "usesAuthorityUrl" => true,
-            },
+              },
             ],
           },
         },

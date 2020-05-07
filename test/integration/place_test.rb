@@ -36,8 +36,8 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "fax" => nil,
         "general_notes" => "Monday to Saturday 8.00am - 6.00pm. ",
         "location" => {
-            "longitude" => -0.14411606838362725,
-            "latitude" => 51.49338734529598,
+          "longitude" => -0.14411606838362725,
+          "latitude" => 51.49338734529598,
         },
         "name" => "London IPS Office",
         "phone" => "0800 123 4567",
@@ -54,8 +54,8 @@ class PlacesTest < ActionDispatch::IntegrationTest
         "fax" => nil,
         "general_notes" => "Monday to Saturday 8.00am - 6.00pm.\n\nSunday 1pm - 2pm.",
         "location" => {
-            "longitude" => -0.18832238262617113,
-            "latitude" => 51.112777245292826,
+          "longitude" => -0.18832238262617113,
+          "latitude" => 51.112777245292826,
         },
         "name" => "Crawley IPS Office",
         "phone" => nil,

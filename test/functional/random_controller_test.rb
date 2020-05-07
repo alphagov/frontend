@@ -5,9 +5,9 @@ class RandomControllerTest < ActionController::TestCase
     context "valid search results" do
       setup do
         results = { "results" => [
-            { "link" => "/bereavement-allowance" },
-            { "link" => "/book-life-in-uk-test" },
-            { "link" => "http://www.wyreforestdc.gov.uk" },
+          { "link" => "/bereavement-allowance" },
+          { "link" => "/book-life-in-uk-test" },
+          { "link" => "http://www.wyreforestdc.gov.uk" },
         ] }
 
         stub_request(:get, "#{Plek.new.find('search')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
@@ -37,9 +37,9 @@ class RandomControllerTest < ActionController::TestCase
     context "invalid search results" do
       setup do
         results = { "results" => [
-            { "link" => "http://www.wyreforestdc.gov.uk" },
-            { "link" => "/bereavement-allowance" },
-            { "link" => "/book-life-in-uk-test" },
+          { "link" => "http://www.wyreforestdc.gov.uk" },
+          { "link" => "/bereavement-allowance" },
+          { "link" => "/book-life-in-uk-test" },
         ] }
 
         stub_request(:get, "#{Plek.new.find('search')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')

@@ -11,19 +11,20 @@
     }
   };
 
-})();
+  $(document).ready(function () {
 
-$(document).ready(function () {
+    $('form#completed-transaction-form').
+      append('<input type="hidden" name="service_feedback[javascript_enabled]" value="true"/>').
+      append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
 
-  $('form#completed-transaction-form').
-    append('<input type="hidden" name="service_feedback[javascript_enabled]" value="true"/>').
-    append($('<input type="hidden" name="referrer">').val(document.referrer || "unknown"));
+    $('#completed-transaction-form button[type="submit"]').click(function() {
+      $(this).attr('disabled', 'disabled');
+      $(this).parents('form').submit();
+    });
 
-  $('#completed-transaction-form button[type="submit"]').click(function() {
-    $(this).attr('disabled', 'disabled');
-    $(this).parents('form').submit();
+    $('.transaction .govuk-tabs__tab').click(window.GOVUK.Transactions.trackStartPageTabs);
+
   });
 
-  $('.transaction .govuk-tabs__tab').click(window.GOVUK.Transactions.trackStartPageTabs);
+})();
 
-});

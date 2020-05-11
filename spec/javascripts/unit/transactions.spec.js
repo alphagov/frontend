@@ -27,4 +27,26 @@ describe("Transactions", function () {
     });
 
   });
+
+  describe("appendGaClientIdToAskSurvey", function () {
+    window.ga = function(callback) {
+      var tracker = { get: function () { return 'clientId' } };
+      callback(tracker);
+    };
+
+    beforeEach(function () {
+      $specialAskTransaction = $('<div class="transaction"><a href="https://www.smartsurvey.co.uk/ss/govuk-coronavirus-ask/">Start Now</a></div>');
+      $('body').append($specialAskTransaction);
+    });
+
+    afterEach(function(){
+      $specialAskTransaction.remove();
+    });
+
+    it("appends the url with the ga clientId", function () {
+      window.GOVUK.Transactions.appendGaClientIdToAskSurvey();
+      var expectedHref = 'https://www.smartsurvey.co.uk/ss/govuk-coronavirus-ask/?_ga=clientId'
+      expect($specialAskTransaction.find('a').attr('href')).toBe(expectedHref)
+    });
+  });
 });

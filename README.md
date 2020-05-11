@@ -128,21 +128,6 @@ If you are using the GDS development virtual machine then the application will b
 
 `bundle exec rake` runs the test suite.
 
-#### JavaScript unit testing
-
-The tests in [test/javascripts](https://github.com/alphagov/frontend/tree/set-up-js-testing/test/javascripts) will be run as part of the `test:javascript` task.
-
-To run them in a browser on your local machine (useful for breakpointing):
-
-1. On your VM, run:
-  ```sh
-  INCLUDE_JS_TEST_ASSETS=1 bundle exec script/rails server -p 3150  --environment=test
-  ```
-
-2. Open [test/javascripts/support/LocalTestRunner.html](https://github.com/alphagov/frontend/blob/set-up-js-testing/test/javascripts/support/LocalTestRunner.html) (as a static file) in your browser.
-
-This relies on you being able to access the above server on `http://www.dev.gov.uk:3150`.
-
 ## Additional information for calendars
 
 Send the calendars to the publishing-api:

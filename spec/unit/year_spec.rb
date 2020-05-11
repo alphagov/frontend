@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.describe Calendar::Year do
   it "return the year string for to_s" do
     expect(Calendar::Year.new("2012", :a_division, []).to_s).to eq("2012")

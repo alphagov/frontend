@@ -20,11 +20,17 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  def error_403; error :forbidden; end
+  def error_403
+    error :forbidden
+  end
 
-  def error_410; error :gone; end
+  def error_410
+    error :gone
+  end
 
-  def error_503(exception); error(:service_unavailable, exception); end
+  def error_503(exception)
+    error(:service_unavailable, exception)
+  end
 
   def error(status_code, exception = nil)
     if exception

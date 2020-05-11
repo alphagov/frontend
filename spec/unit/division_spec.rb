@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.describe Calendar::Division do
   it "returns the slug" do
     expect(Calendar::Division.new("a-slug", {}).slug).to eq("a-slug")

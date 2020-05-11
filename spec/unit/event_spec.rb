@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.describe Calendar::Event do
   context "construction" do
     it "parses a date given as a string" do

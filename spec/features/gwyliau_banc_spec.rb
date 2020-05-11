@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.feature "Gwyliau banc" do
   before do
     content_item_cy = {

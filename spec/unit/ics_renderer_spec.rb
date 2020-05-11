@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require "ics_renderer"
 
 RSpec.describe IcsRenderer do

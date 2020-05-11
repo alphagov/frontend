@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.feature "Bank holidays" do
   before do
     content_item = {

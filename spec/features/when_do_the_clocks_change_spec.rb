@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.feature "When do the clocks change?" do
   before do
     content_item = {

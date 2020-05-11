@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.feature "json" do
   before do
     content_item = {

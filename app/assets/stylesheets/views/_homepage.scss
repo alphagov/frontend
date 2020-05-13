@@ -36,25 +36,31 @@ body.homepage {
 }
 
 .home-top__links {
-  padding: 0 govuk-spacing(6) govuk-spacing(4) govuk-spacing(3);
+  padding: 0 0 govuk-spacing(4) 0;
 
   @include govuk-media-query($from: tablet) {
-    position: absolute;
-    bottom: 0;
-    right: -(govuk-spacing(3));
-    width: 33.33%;
-    box-sizing: border-box;
-    padding: 15px 20px 25px 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: govuk-spacing(1);
+    padding: govuk-spacing(3) govuk-spacing(4) govuk-spacing(4) govuk-spacing(4);
     background: govuk-colour("black");
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: govuk-spacing(2);
+      left: 0;
+      bottom: -100px;
+      width: 100%;
+      background: govuk-colour("black");
+    }
   }
 }
 
 .home-top__links-title {
   @include govuk-font(19);
   margin: 0;
-  @include govuk-media-query($from: desktop) {
-    margin: 5px 0 0;
-  }
 }
 
 .home-top__links-list {

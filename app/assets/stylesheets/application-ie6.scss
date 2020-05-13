@@ -21,24 +21,8 @@
 }
 
 .home-top__links {
-  position: absolute;
-  bottom: 0;
-  right: -15px;
-  box-sizing: border-box;
   padding: 15px 20px 25px 20px;
-  width: 30%;
   background: black;
-}
-
-.home-top__links-link {
-  color: white;
-
-  &:link,
-  &:active,
-  &:visited,
-  &:hover {
-    color: white;
-  }
 }
 
 .home-promo__image {

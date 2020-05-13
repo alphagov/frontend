@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.describe Calendar do
   context "finding a calendar by slug" do
     it "constructs a calendar with the slug and data from the corresponding JSON file" do

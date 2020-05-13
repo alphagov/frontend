@@ -37,6 +37,6 @@ private
   end
 
   def area_has_slug?(area)
-    !!area.try(:[], "codes").try(:[], "govuk_slug")
+    area.try(:[], "codes").try(:[], "govuk_slug").present?
   end
 end

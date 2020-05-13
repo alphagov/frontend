@@ -91,13 +91,13 @@ private
 
   def authorities_from_api_response
     if licence && licence["issuingAuthorities"]
-      licence["issuingAuthorities"].map { |authority|
+      licence["issuingAuthorities"].map do |authority|
         {
           "name" => authority["authorityName"],
           "slug" => authority["authoritySlug"],
           "contact" => authority["authorityContact"],
-          "actions" => authority["authorityInteractions"].each_with_object({}) { |(key, links), actions|
-            actions[key] = links.map { |link|
+          "actions" => authority["authorityInteractions"].each_with_object({}) do |(key, links), actions|
+            actions[key] = links.map do |link|
               {
                 "url" => link["url"],
                 "introduction" => link["introductionText"],
@@ -106,10 +106,10 @@ private
                 "uses_authority_url" => (link["usesAuthorityUrl"] == true),
                 "uses_licensify" => (link["usesLicensify"] == true),
               }
-            }
-          },
+            end
+          end,
         }
-      }
+      end
     else
       []
     end

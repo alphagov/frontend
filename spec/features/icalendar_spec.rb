@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 RSpec.feature "icalendar" do
   before do
     ["/gwyliau-banc", "/bank-holidays"].each do |base_path|

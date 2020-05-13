@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require "bank_holiday_generator"
 
 RSpec.describe BankHolidayGenerator do
@@ -8,11 +6,11 @@ RSpec.describe BankHolidayGenerator do
     bank_holidays = JSON.parse(IO.read(Rails.root + "./spec/fixtures/data/#{file_name}")).fetch("divisions")
     bank_holiday_generator = BankHolidayGenerator.new(year, nation)
     generated_bank_holidays = bank_holiday_generator.perform
-    translated_bank_holidays = generated_bank_holidays.map { |bank_holiday|
+    translated_bank_holidays = generated_bank_holidays.map do |bank_holiday|
       bank_holiday["title"] = I18n.t(bank_holiday["title"])
       bank_holiday["notes"] = I18n.t(bank_holiday["notes"]) unless bank_holiday["notes"].empty?
       bank_holiday
-    }
+    end
     expect(bank_holidays.fetch(nation).fetch(year.to_s)).to eq(translated_bank_holidays)
   end
 

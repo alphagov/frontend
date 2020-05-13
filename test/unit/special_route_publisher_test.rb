@@ -21,9 +21,9 @@ class SpecialRoutePublisherTest < ActiveSupport::TestCase
   SpecialRoutePublisher.routes.each do |route_type, routes_for_type|
     routes_for_type.each do |route|
       should "should publish valid content item for #{route_type} route '#{route[:base_path]}'" do
-        @publishing_api.expects(:put_content).with { |_, payload|
+        @publishing_api.expects(:put_content).with do |_, payload|
           assert_valid_content_item(payload)
-        }
+        end
         @publishing_api.expects(:publish)
 
         if route[:links]

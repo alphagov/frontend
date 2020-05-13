@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # Bank holidays are determined both by law and by proclamation.
 # Link to the legislation to determine bank holidays:
 #  http://www.legislation.gov.uk/ukpga/1971/80/schedule/1

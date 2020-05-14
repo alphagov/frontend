@@ -107,11 +107,15 @@ class LocalTransactionControllerTest < ActionController::TestCase
     context "loading the local transaction when posting a location" do
       context "for an English local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
-            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "ST10 4DB",
+            [0, 0],
+            [
+              { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
+              { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
+              { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
+            ],
+          )
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
         end
@@ -123,9 +127,13 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for a Northern Ireland local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("BT1 4QG", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "BT1 4QG",
+            [0, 0],
+            [
+              { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
+            ],
+          )
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
         end
@@ -137,11 +145,15 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for electoral registration for an English local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("ST10 4DB", [0, 0], [
-            { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
-            { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
-            { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "ST10 4DB",
+            [0, 0],
+            [
+              { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
+              { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
+              { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
+            ],
+          )
 
           post :search, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
         end
@@ -153,9 +165,13 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for electoral registration for a Northern Ireland local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("BT1 3QG", [0, 0], [
-            { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "BT1 3QG",
+            [0, 0],
+            [
+              { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
+            ],
+          )
 
           post :search, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
         end

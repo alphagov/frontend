@@ -45,14 +45,18 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     context "for successful postcode lookup" do
       context "for unitary local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-            {
-              "ons" => "00BK",
-              "govuk_slug" => "westminster",
-              "name" => "Westminster City Council",
-              "type" => "LBO",
-            },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "SW1A 1AA",
+            [51.5010096, -0.1415870],
+            [
+              {
+                "ons" => "00BK",
+                "govuk_slug" => "westminster",
+                "name" => "Westminster City Council",
+                "type" => "LBO",
+              },
+            ],
+          )
           stub_local_links_manager_has_a_local_authority("westminster")
 
           visit "/find-local-council"
@@ -100,20 +104,24 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "for district local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("HP20 1UG", [51.5010096, -0.1415870], [
-            {
-              "ons" => "00BK",
-              "govuk_slug" => "aylesbury",
-              "name" => "Aylesbury District",
-              "type" => "DIS",
-            },
-            {
-              "ons" => "00",
-              "govuk_slug" => "buckinghamshire",
-              "name" => "Buckinghamshire County",
-              "type" => "CTY",
-            },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "HP20 1UG",
+            [51.5010096, -0.1415870],
+            [
+              {
+                "ons" => "00BK",
+                "govuk_slug" => "aylesbury",
+                "name" => "Aylesbury District",
+                "type" => "DIS",
+              },
+              {
+                "ons" => "00",
+                "govuk_slug" => "buckinghamshire",
+                "name" => "Buckinghamshire County",
+                "type" => "CTY",
+              },
+            ],
+          )
 
           stub_local_links_manager_has_a_district_and_county_local_authority("aylesbury", "buckinghamshire")
 
@@ -170,14 +178,18 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "when finding a local council without homepage" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-            {
-              "ons" => "00BK",
-              "govuk_slug" => "westminster",
-              "name" => "Westminster City Council",
-              "type" => "LBO",
-            },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "SW1A 1AA",
+            [51.5010096, -0.1415870],
+            [
+              {
+                "ons" => "00BK",
+                "govuk_slug" => "westminster",
+                "name" => "Westminster City Council",
+                "type" => "LBO",
+              },
+            ],
+          )
           stub_local_links_manager_has_a_local_authority_without_homepage("westminster")
 
           visit "/find-local-council"
@@ -310,14 +322,18 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "when no local council is found" do
         setup do
-          stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], [
-            {
-              "ons" => "00BK",
-              "govuk_slug" => "",
-              "name" => "Christmas HQ",
-              "type" => "DIS",
-            },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "XM4 5HQ",
+            [0.00, -0.00],
+            [
+              {
+                "ons" => "00BK",
+                "govuk_slug" => "",
+                "name" => "Christmas HQ",
+                "type" => "DIS",
+              },
+            ],
+          )
 
           visit "/find-local-council"
           fill_in "postcode", with: "XM4 5HQ"

@@ -104,10 +104,12 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       within ".article-container" do
         within ".intro" do
           assert_page_has_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
-          assert_has_button_as_link("Start now",
-                                    href: "/the-bridge-of-death/y",
-                                    start: true,
-                                    rel: "nofollow")
+          assert_has_button_as_link(
+            "Start now",
+            href: "/the-bridge-of-death/y",
+            start: true,
+            rel: "nofollow",
+          )
         end
       end
     end

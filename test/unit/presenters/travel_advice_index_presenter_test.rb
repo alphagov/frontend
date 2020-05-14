@@ -57,8 +57,10 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
     context "#countries_grouped_by_initial_letter" do
       setup do
         attributes = {
-          "base_path" => "/travel-advice", "details" => { "email_signup_link" => "/email/travel-advice" },
-          "description" => "countries", "title" => "Travel Advice",
+          "base_path" => "/travel-advice",
+          "details" => { "email_signup_link" => "/email/travel-advice" },
+          "description" => "countries",
+          "title" => "Travel Advice",
           "links" => {
             "children" => [
               { "base_path" => "/c", "details" => { "country" => { "name" => "Georgia" }, "change_description" => "xx" } },
@@ -66,7 +68,7 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
               { "base_path" => "/a", "details" => { "country" => { "name" => "Peru" }, "change_description" => "xx" } },
               { "base_path" => "/b", "details" => { "country" => { "name" => "The Occupied Palestinian Territories" }, "change_description" => "xx" } },
             ],
-          }
+          },
         }
         presenter = TravelAdviceIndexPresenter.new(attributes)
         @result = presenter.countries_grouped_by_initial_letter

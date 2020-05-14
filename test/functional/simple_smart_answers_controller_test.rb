@@ -35,9 +35,10 @@ class SimpleSmartAnswersControllerTest < ActionController::TestCase
 
     context "for live content" do
       should "set the cache expiry headers" do
-        get :show, params: {
-          slug: "the-bridge-of-death",
-        }
+        get :show,
+            params: {
+              slug: "the-bridge-of-death",
+            }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
       end

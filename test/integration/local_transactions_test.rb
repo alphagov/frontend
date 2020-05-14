@@ -7,10 +7,14 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::LocalLinksManager
 
   setup do
-    stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-      { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => "westminster" },
-      { "name" => "Greater London Authority", "type" => "GLA" },
-    ])
+    stub_mapit_has_a_postcode_and_areas(
+      "SW1A 1AA",
+      [51.5010096, -0.1415870],
+      [
+        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => "westminster" },
+        { "name" => "Greater London Authority", "type" => "GLA" },
+      ],
+    )
 
     westminster = {
       "id" => 2432,
@@ -108,10 +112,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show a get started button which links to the interaction" do
-        assert_has_button_as_link("Go to their website",
-                                  href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
-                                  rel: "external",
-                                  start: true)
+        assert_has_button_as_link(
+          "Go to their website",
+          href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
+          rel: "external",
+          start: true,
+        )
       end
 
       should "not show the transaction information" do
@@ -313,10 +319,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "link to the council website" do
-        assert_has_button_as_link("Go to their website",
-                                  href: "http://westminster.example.com",
-                                  rel: "external",
-                                  start: true)
+        assert_has_button_as_link(
+          "Go to their website",
+          href: "http://westminster.example.com",
+          rel: "external",
+          start: true,
+        )
       end
 
       should "not show the transaction information" do
@@ -386,9 +394,13 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   end
 
   should "gracefully handle missing snac in mapit data" do
-    stub_mapit_has_a_postcode_and_areas("AL10 9AB", [51.75287647301734, -0.24217323267679933], [
-      { "name" => "Welwyn Hatfield Borough Council", "type" => "DIS" },
-    ])
+    stub_mapit_has_a_postcode_and_areas(
+      "AL10 9AB",
+      [51.75287647301734, -0.24217323267679933],
+      [
+        { "name" => "Welwyn Hatfield Borough Council", "type" => "DIS" },
+      ],
+    )
 
     visit "/pay-bear-tax"
     fill_in "postcode", with: "AL10 9AB"

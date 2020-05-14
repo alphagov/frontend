@@ -5,10 +5,14 @@ RSpec.describe Calendar::Year do
 
   context "events" do
     before do
-      @y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-      ])
+      @y = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+        ],
+      )
     end
 
     it "builds an event for each event in the data" do
@@ -32,41 +36,57 @@ RSpec.describe Calendar::Year do
     end
 
     it "returns nil with no future events" do
-      y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-      ])
+      y = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+        ],
+      )
       expect(y.upcoming_event).to be_nil
     end
 
     it "returns the first event that's in the future" do
-      y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
-      ])
+      y = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+          { "title" => "baz", "date" => "16/10/2012" },
+        ],
+      )
       Timecop.travel(Date.parse("2012-03-24")) do
         expect(y.upcoming_event.title).to eq("bar")
       end
     end
 
     it "counts an event today as a future event" do
-      y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
-      ])
+      y = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+          { "title" => "baz", "date" => "16/10/2012" },
+        ],
+      )
       Timecop.travel(Date.parse("2012-08-27")) do
         expect(y.upcoming_event.title).to eq("bar")
       end
     end
 
     it "caches the event" do
-      y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
-      ])
+      y = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+          { "title" => "baz", "date" => "16/10/2012" },
+        ],
+      )
       Timecop.travel(Date.parse("2012-03-24")) do
         y.upcoming_event
         allow(y).to receive(:events).and_raise(Exception)
@@ -77,11 +97,15 @@ RSpec.describe Calendar::Year do
 
   context "upcoming_events" do
     before do
-      @year = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
-      ])
+      @year = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+          { "title" => "baz", "date" => "16/10/2012" },
+        ],
+      )
     end
 
     it "returns all future events including today" do
@@ -99,11 +123,15 @@ RSpec.describe Calendar::Year do
 
   context "past_events" do
     before do
-      @year = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
-      ])
+      @year = Calendar::Year.new(
+        "1234",
+        :a_division,
+        [
+          { "title" => "foo", "date" => "02/01/2012" },
+          { "title" => "bar", "date" => "27/08/2012" },
+          { "title" => "baz", "date" => "16/10/2012" },
+        ],
+      )
     end
 
     it "returns all past events excluding today" do

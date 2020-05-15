@@ -96,8 +96,11 @@ RSpec.describe Calendar do
 
   context "attribute accessors" do
     before do
-      @cal = Calendar.new("a-calendar", "title" => "UK bank holidays",
-                                        "description" => "UK bank holidays description")
+      @cal = Calendar.new(
+        "a-calendar",
+        "title" => "UK bank holidays",
+        "description" => "UK bank holidays description",
+      )
     end
 
     it "has an accessor for the title" do

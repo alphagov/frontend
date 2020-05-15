@@ -6,10 +6,14 @@ module LocationHelpers
   include GdsApi::TestHelpers::LocalLinksManager
 
   def configure_mapit_and_local_links(postcode: "SW1A 1AA", authority: "westminster", lgsl: 461, lgil: 8)
-    stub_mapit_has_a_postcode_and_areas(postcode, [51.5010096, -0.1415870], [
-      { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => authority },
-      { "name" => "Greater London Authority", "type" => "GLA" },
-    ])
+    stub_mapit_has_a_postcode_and_areas(
+      postcode,
+      [51.5010096, -0.1415870],
+      [
+        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => authority },
+        { "name" => "Greater London Authority", "type" => "GLA" },
+      ],
+    )
 
     westminster = {
       "id" => 2432,

@@ -32,10 +32,12 @@ module SimpleSmartAnswers
   private
 
     def build_option(details)
-      OpenStruct.new(question: self,
-                     label: details["label"],
-                     slug: details["slug"],
-                     next_node_slug: details["next_node"])
+      OpenStruct.new(
+        question: self,
+        label: details["label"],
+        slug: details["slug"],
+        next_node_slug: details["next_node"],
+      )
     end
   end
 end

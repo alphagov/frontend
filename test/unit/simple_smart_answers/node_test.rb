@@ -3,8 +3,14 @@ require "test_helper"
 module SimpleSmartAnswers
   class NodeTest < ActiveSupport::TestCase
     should "have attribute accessors for basic fields" do
-      node = Node.new(:a_flow, "kind" => "question", "slug" => "question-1",
-                               "title" => "Question 1", "body" => "<p>This is question 1</p>", "options" => [])
+      node = Node.new(
+        :a_flow,
+        "kind" => "question",
+        "slug" => "question-1",
+        "title" => "Question 1",
+        "body" => "<p>This is question 1</p>",
+        "options" => [],
+      )
 
       assert_equal "question", node.kind
       assert_equal "Question 1", node.title
@@ -25,23 +31,28 @@ module SimpleSmartAnswers
     context "options" do
       setup do
         @flow = stub("Flow", node_for_slug: :a_node)
-        @node = Node.new(@flow, "kind" => "question", "slug" => "question-1", "options" => [
-          {
-            "label" => "Option 1",
-            "slug" => "option-1",
-            "next_node" => "question-2",
-          },
-          {
-            "label" => "Option 3",
-            "slug" => "option-3",
-            "next_node" => "question-3",
-          },
-          {
-            "label" => "Option 2",
-            "slug" => "option-2",
-            "next_node" => "question-2",
-          },
-        ])
+        @node = Node.new(
+          @flow,
+          "kind" => "question",
+          "slug" => "question-1",
+          "options" => [
+            {
+              "label" => "Option 1",
+              "slug" => "option-1",
+              "next_node" => "question-2",
+            },
+            {
+              "label" => "Option 3",
+              "slug" => "option-3",
+              "next_node" => "question-3",
+            },
+            {
+              "label" => "Option 2",
+              "slug" => "option-2",
+              "next_node" => "question-2",
+            },
+          ],
+        )
       end
 
       should "construct options" do

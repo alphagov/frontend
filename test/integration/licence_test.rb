@@ -8,10 +8,14 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
   context "given a location specific licence" do
     setup do
-      stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-        { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
-        { "name" => "Greater London Authority", "type" => "GLA" },
-      ])
+      stub_mapit_has_a_postcode_and_areas(
+        "SW1A 1AA",
+        [51.5010096, -0.1415870],
+        [
+          { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
+          { "name" => "Greater London Authority", "type" => "GLA" },
+        ],
+      )
 
       westminster = {
         "id" => 2432,
@@ -43,11 +47,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       stub_content_store_has_item("/licence-to-kill", @payload)
 
-      stub_licence_exists("1071-5-1",
-                          "isLocationSpecific" => true,
-                          "isOfferedByCounty" => false,
-                          "geographicalAvailability" => %w[England Wales],
-                          "issuingAuthorities" => [])
+      stub_licence_exists(
+        "1071-5-1",
+        "isLocationSpecific" => true,
+        "isOfferedByCounty" => false,
+        "geographicalAvailability" => %w[England Wales],
+        "issuingAuthorities" => [],
+      )
     end
 
     context "when visiting the licence search page" do
@@ -113,13 +119,14 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred.",
                     "usesLicensify" => true,
-                  }, {
+                  },
+                  {
                     "url" => "/licence-to-kill/westminster/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
                     "introduction" => "Q-approval required.",
                     "usesLicensify" => true,
-                  }
+                  },
                 ],
                 "renew" => [
                   {
@@ -134,11 +141,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
             },
           ]
 
-          stub_licence_exists("1071-5-1/00BK",
-                              "isLocationSpecific" => true,
-                              "isOfferedByCounty" => false,
-                              "geographicalAvailability" => %w[England Wales],
-                              "issuingAuthorities" => authorities)
+          stub_licence_exists(
+            "1071-5-1/00BK",
+            "isLocationSpecific" => true,
+            "isOfferedByCounty" => false,
+            "geographicalAvailability" => %w[England Wales],
+            "issuingAuthorities" => authorities,
+          )
           visit "/licence-to-kill"
 
           fill_in "postcode", with: "SW1A 1AA"
@@ -179,9 +188,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
           end
 
           should "display a button to apply for the licence" do
-            assert_has_button_as_link("Apply online",
-                                      href: "/licence-to-kill/westminster/apply-1",
-                                      start: true)
+            assert_has_button_as_link(
+              "Apply online",
+              href: "/licence-to-kill/westminster/apply-1",
+              start: true,
+            )
           end
         end
 
@@ -218,10 +229,14 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           stub_content_store_has_item("/licence-to-thrill", @payload)
 
-          stub_mapit_has_a_postcode_and_areas("HP20 2QF", [], [
-            { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
-            { "ons" => "11UB", "govuk_slug" => "aylesbury-vale", "name" => "Aylesbury Vale District Council", "type" => "DIS" },
-          ])
+          stub_mapit_has_a_postcode_and_areas(
+            "HP20 2QF",
+            [],
+            [
+              { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
+              { "ons" => "11UB", "govuk_slug" => "aylesbury-vale", "name" => "Aylesbury Vale District Council", "type" => "DIS" },
+            ],
+          )
 
           buckinghamshire = {
             "id" => 2432,
@@ -253,13 +268,14 @@ class LicenceTest < ActionDispatch::IntegrationTest
                     "payment" => "none",
                     "introduction" => "This licence is issued shaken, not stirred.",
                     "usesLicensify" => true,
-                  }, {
+                  },
+                  {
                     "url" => "/licence-to-thrill/buckinghamshire/apply-2",
                     "description" => "Apply for your licence to hold gadgets",
                     "payment" => "none",
                     "introduction" => "Q-approval required.",
                     "usesLicensify" => true,
-                  }
+                  },
                 ],
                 "renew" => [
                   {
@@ -274,17 +290,21 @@ class LicenceTest < ActionDispatch::IntegrationTest
             },
           ]
 
-          stub_licence_exists("999/11",
-                              "isLocationSpecific" => true,
-                              "isOfferedByCounty" => true,
-                              "geographicalAvailability" => %w[England Wales],
-                              "issuingAuthorities" => authorities)
+          stub_licence_exists(
+            "999/11",
+            "isLocationSpecific" => true,
+            "isOfferedByCounty" => true,
+            "geographicalAvailability" => %w[England Wales],
+            "issuingAuthorities" => authorities,
+          )
 
-          stub_licence_exists("999",
-                              "isLocationSpecific" => true,
-                              "isOfferedByCounty" => true,
-                              "geographicalAvailability" => %w[England Wales],
-                              "issuingAuthorities" => [])
+          stub_licence_exists(
+            "999",
+            "isLocationSpecific" => true,
+            "isOfferedByCounty" => true,
+            "geographicalAvailability" => %w[England Wales],
+            "issuingAuthorities" => [],
+          )
 
           visit "/licence-to-thrill"
 
@@ -345,11 +365,13 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           ]
 
-          stub_licence_exists("1071-5-1/00BK",
-                              "isLocationSpecific" => true,
-                              "isOfferedByCounty" => false,
-                              "geographicalAvailability" => %w[England Wales],
-                              "issuingAuthorities" => authorities)
+          stub_licence_exists(
+            "1071-5-1/00BK",
+            "isLocationSpecific" => true,
+            "isOfferedByCounty" => false,
+            "geographicalAvailability" => %w[England Wales],
+            "issuingAuthorities" => authorities,
+          )
 
           visit "/licence-to-kill"
 
@@ -511,10 +533,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
       end
 
       context "when visiting the license and specifying an authority" do
@@ -557,9 +581,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
             click_on "How to apply"
             assert current_path == "/licence-to-turn-off-a-telescreen/miniluv/apply"
 
-            assert_has_button_as_link("Apply online",
-                                      href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
-                                      start: true)
+            assert_has_button_as_link(
+              "Apply online",
+              href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
+              start: true,
+            )
           end
         end
       end
@@ -585,10 +611,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
       end
 
       context "when visiting the licence" do
@@ -608,9 +636,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         should "display the interactions for licence" do
           click_on "How to apply"
-          assert_has_button_as_link("Apply online",
-                                    href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
-                                    start: true)
+          assert_has_button_as_link(
+            "Apply online",
+            href: "/licence-to-turn-off-a-telescreen/ministry-of-love/apply-1",
+            start: true,
+          )
         end
 
         should "show overview section" do
@@ -685,10 +715,14 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       stub_content_store_has_item("/a-licence", @payload)
 
-      stub_mapit_has_a_postcode_and_areas("SW1A 1AA", [51.5010096, -0.1415870], [
-        { "ons" => "00BK", "govuk_slug" => "a-council", "name" => "A council", "type" => "LBO" },
-        { "name" => "Greater London Authority", "type" => "GLA" },
-      ])
+      stub_mapit_has_a_postcode_and_areas(
+        "SW1A 1AA",
+        [51.5010096, -0.1415870],
+        [
+          { "ons" => "00BK", "govuk_slug" => "a-council", "name" => "A council", "type" => "LBO" },
+          { "name" => "Greater London Authority", "type" => "GLA" },
+        ],
+      )
 
       a_council = {
         "id" => 2432,
@@ -727,16 +761,20 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         },
       ]
-      stub_licence_exists("1071-5-1",
-                          "isLocationSpecific" => true,
-                          "isOfferedByCounty" => false,
-                          "geographicalAvailability" => %w[England Wales],
-                          "issuingAuthorities" => authorities)
-      stub_licence_exists("1071-5-1/00BK",
-                          "isLocationSpecific" => true,
-                          "isOfferedByCounty" => false,
-                          "geographicalAvailability" => %w[England Wales],
-                          "issuingAuthorities" => authorities)
+      stub_licence_exists(
+        "1071-5-1",
+        "isLocationSpecific" => true,
+        "isOfferedByCounty" => false,
+        "geographicalAvailability" => %w[England Wales],
+        "issuingAuthorities" => authorities,
+      )
+      stub_licence_exists(
+        "1071-5-1/00BK",
+        "isLocationSpecific" => true,
+        "isOfferedByCounty" => false,
+        "geographicalAvailability" => %w[England Wales],
+        "issuingAuthorities" => authorities,
+      )
     end
 
     should "show message to contact local council through their website" do
@@ -868,10 +906,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
 
         visit "/licence-to-kill"
       end
@@ -920,10 +960,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
 
         visit "/licence-to-kill"
       end
@@ -953,9 +995,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/apply"
 
-        assert_has_button_as_link("Apply online",
-                                  href: "/licence-to-kill/ministry-of-love/apply-1",
-                                  start: true)
+        assert_has_button_as_link(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/apply-1",
+          start: true,
+        )
         assert_not page.has_content?("You can't apply for this licence online")
         assert_not page.has_content?("Contact your local council")
       end
@@ -965,9 +1009,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/renew"
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/renew-1",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/renew-1",
+          start: true,
+        )
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
       end
@@ -1002,10 +1048,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
 
         visit "/licence-to-kill"
       end
@@ -1034,9 +1082,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/apply"
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/apply-1",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/apply-1",
+          start: true,
+        )
 
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
@@ -1047,9 +1097,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/renew"
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/renew-1",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/renew-1",
+          start: true,
+        )
 
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
@@ -1084,10 +1136,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
 
         visit "/licence-to-kill"
       end
@@ -1114,9 +1168,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/apply"
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/apply-1",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/apply-1",
+          start: true,
+        )
 
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
@@ -1127,9 +1183,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/renew"
 
-        assert_has_button_as_link("Apply online",
-                                  href: "/licence-to-kill/ministry-of-love/renew-1",
-                                  start: true)
+        assert_has_button_as_link(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/renew-1",
+          start: true,
+        )
 
         assert_not page.has_content?("You can't apply for this licence online")
         assert_not page.has_content?("Contact your local council")
@@ -1163,10 +1221,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
 
         visit "/licence-to-kill"
       end
@@ -1195,9 +1255,11 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/apply"
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/apply-1",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/apply-1",
+          start: true,
+        )
 
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
@@ -1253,10 +1315,12 @@ class LicenceTest < ActionDispatch::IntegrationTest
           },
         ]
 
-        stub_licence_exists("1071-5-1",
-                            "isLocationSpecific" => false,
-                            "geographicalAvailability" => %w[England Wales],
-                            "issuingAuthorities" => authorities)
+        stub_licence_exists(
+          "1071-5-1",
+          "isLocationSpecific" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authorities,
+        )
 
         visit "/licence-to-kill"
       end
@@ -1286,16 +1350,22 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/apply"
 
-        assert_has_button_as_link("Apply online",
-                                  href: "/licence-to-kill/ministry-of-love/apply-1",
-                                  start: true)
-        assert_has_button_as_link("Apply online",
-                                  start: true,
-                                  href: "/licence-to-kill/ministry-of-love/apply-3")
+        assert_has_button_as_link(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/apply-1",
+          start: true,
+        )
+        assert_has_button_as_link(
+          "Apply online",
+          start: true,
+          href: "/licence-to-kill/ministry-of-love/apply-3",
+        )
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/apply-2",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/apply-2",
+          start: true,
+        )
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
       end
@@ -1305,12 +1375,16 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         assert current_path == "/licence-to-kill/miniluv/renew"
 
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/renew-1",
-                                    start: true)
-        refute_has_button_component("Apply online",
-                                    href: "/licence-to-kill/ministry-of-love/renew-2",
-                                    start: true)
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/renew-1",
+          start: true,
+        )
+        refute_has_button_component(
+          "Apply online",
+          href: "/licence-to-kill/ministry-of-love/renew-2",
+          start: true,
+        )
         assert page.has_content?("You can't apply for this licence online")
         assert page.has_content?("Contact your local council")
       end

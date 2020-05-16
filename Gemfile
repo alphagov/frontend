@@ -42,7 +42,7 @@ group :test do
   gem "govuk_schemas", "~> 4.0"
   gem "govuk_test"
   gem "mocha"
-  gem "rspec-rails", "~> 4.0.0"
+  gem "rspec-rails", "~> 4.0.1"
   gem "shoulda-context"
   gem "simplecov"
   gem "timecop"

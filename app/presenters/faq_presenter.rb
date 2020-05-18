@@ -1,8 +1,9 @@
 class FaqPresenter
-  def initialize(scope, calendar, content_item)
+  def initialize(scope, calendar, content_item, view_context)
     @scope = scope
     @calendar = calendar
     @content_item = content_item.symbolize_keys
+    @view_context = view_context
   end
 
   def metadata
@@ -27,7 +28,7 @@ class FaqPresenter
 
 private
 
-  attr_reader :scope, :calendar, :content_item
+  attr_reader :scope, :calendar, :content_item, :view_context
 
   def questions_and_answers
     calendar.divisions.map { |division| answer_for(division) }.compact
@@ -60,6 +61,6 @@ private
   end
 
   def logo_url
-    Plek.current.asset_root + ActionController::Base.helpers.asset_url("govuk_publishing_components/govuk-logo.png", type: :image)
+    view_context.image_url("govuk_publishing_components/govuk-logo.png")
   end
 end

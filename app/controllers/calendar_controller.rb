@@ -18,7 +18,7 @@ class CalendarController < ApplicationController
           @meta_section = section_name.downcase
         end
 
-        @faq_presenter = FaqPresenter.new(scope, @calendar, @content_item)
+        @faq_presenter = FaqPresenter.new(scope, @calendar, @content_item, view_context)
 
         render scope.tr("-", "_")
       end

@@ -4,7 +4,6 @@ RUN apt-get install -y build-essential nodejs && apt-get clean
 RUN gem install foreman
 
 ENV GOVUK_APP_NAME frontend
-ENV GOVUK_ASSET_ROOT http://assets-origin.dev.gov.uk
 ENV PORT 3005
 ENV RAILS_ENV development
 

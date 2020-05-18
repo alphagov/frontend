@@ -43,7 +43,11 @@ module Frontend
     ]
 
     # Path within public/ where assets are compiled to
-    config.assets.prefix = "/frontend"
+    config.assets.prefix = "/assets/frontend"
+
+    # allow overriding the asset host with an enironment variable, useful for
+    # when router is proxying to this app but asset proxying isn't set up.
+    config.asset_host = ENV["ASSET_HOST"]
 
     # Paths used by helpers when generating links to assets
     config.action_controller.assets_dir = Rails.root.join "public/frontend"

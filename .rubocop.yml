@@ -6,18 +6,3 @@ inherit_gem:
 inherit_mode:
   merge:
     - Exclude
-
-AllCops:
-  Exclude:
-    - 'tmp/**/*'
-
-Style/MixinUsage:
-  Exclude:
-    - 'bin/*'
-
-Metrics/BlockLength:
-  Exclude:
-    - config/routes.rb
-    - 'spec/**/*'
-    - 'test/**/*'
-

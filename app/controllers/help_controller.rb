@@ -1,8 +1,6 @@
 class HelpController < ApplicationController
   include Cacheable
 
-  slimmer_template "wrapper"
-
   def index
     setup_content_item("/help")
     render locals: { full_width: true }

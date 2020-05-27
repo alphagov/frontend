@@ -3,8 +3,6 @@ class LicenceController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template "wrapper"
-
   before_action :set_content_item
 
   helper_method :postcode

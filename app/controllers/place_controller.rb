@@ -3,8 +3,6 @@ class PlaceController < ApplicationController
   include Cacheable
   include Navigable
 
-  slimmer_template "wrapper"
-
   helper_method :postcode_provided?, :postcode
 
   INVALID_POSTCODE = "invalidPostcodeError".freeze

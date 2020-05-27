@@ -3,8 +3,6 @@ class CompletedTransactionController < ApplicationController
   include Navigable
   include ElectricCarAbTestable
 
-  slimmer_template "wrapper"
-
   # These 2 legacy completed transactions are linked to from multiple
   # transactions. The user satisfaction survey should not be shown for these as
   # it would generate noisy data for the linked organisation.

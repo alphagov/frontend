@@ -26,7 +26,8 @@
   <%= render "govuk_publishing_components/components/heading", {
     text: t('cookies.cookie_settings'),
     padding: true,
-    heading_level: 2
+    heading_level: 2,
+    margin_bottom: 3
   } %>
 
   <div class="cookie-settings__no-js">
@@ -41,15 +42,15 @@
   </div>
 
   <div class="cookie-settings__form-wrapper">
-    <p>We use 4 types of cookie. You can choose which cookies you're happy for us to use.</p>
+    <p class="govuk-body">We use 4 types of cookie. You can choose which cookies you're happy for us to use.</p>
 
     <form data-module="cookie-settings">
 
       <% cookies_usage_hint = capture do %>
-        <p class="govuk-!-margin-top-0">We use Google Analytics to measure how you use the website so we can improve it based on user needs.
+        <p class="govuk-body govuk-hint">We use Google Analytics to measure how you use the website so we can improve it based on user needs.
         We do not allow Google to use or share the data about how you use this site.</p>
-        <p>Google Analytics sets cookies that store anonymised information about:</p>
-        <ul>
+        <p class="govuk-body govuk-hint">Google Analytics sets cookies that store anonymised information about:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-hint">
           <li>how you got to the site</li>
           <li>the pages you visit on GOV.UK and government digital services, and how long you spend on each page</li>
           <li>what you click on while you're visiting the site</li>
@@ -74,8 +75,7 @@
       } %>
 
       <% cookies_campaigns_hint = capture do %>
-      These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
-
+        <p class="govuk-body govuk-hint">These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.</p>
       <% end %>
 
       <%= render "govuk_publishing_components/components/radio", {
@@ -133,8 +133,9 @@
   <div class="cookie-settings__gov-services">
     <%= render "govuk_publishing_components/components/heading", {
         text: "Government services",
-        heading_level: 2
+        heading_level: 2,
+        margin_bottom: 3
       } %>
-      <p>Most services we link to are run by different government departments, for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s webchat. These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.</p>
+      <p class="govuk-body">Most services we link to are run by different government departments, for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s webchat. These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.</p>
   </div>
 </main>

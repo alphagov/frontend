@@ -4,8 +4,6 @@ class TransactionController < ApplicationController
 
   include LocaleHelper
 
-  slimmer_template "wrapper"
-
   before_action :set_content_item
   before_action :deny_framing
 

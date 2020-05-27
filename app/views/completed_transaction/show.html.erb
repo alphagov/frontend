@@ -11,59 +11,54 @@
 
   <% if electric_car_testable? %>
     <div class="promotion">
-      <p><%= t electric_car_translation_key("text") %></p>
-      <p>
-        <%= render "govuk_publishing_components/components/button", {
-          text: t(electric_car_translation_key("button_text")),
-          href: t(electric_car_translation_key("link")),
-          rel: "external"
-        } %>
-      </p>
+      <p class="govuk-body"><%= t electric_car_translation_key("text") %></p>
+      <%= render "govuk_publishing_components/components/button", {
+        text: t(electric_car_translation_key("button_text")),
+        href: t(electric_car_translation_key("link")),
+        rel: "external",
+        margin_bottom: true
+      } %>
     </div>
   <% elsif @publication.promotion %>
     <div class="promotion">
       <% if @publication.promotion['category'] == 'organ_donor' %>
-        <p>Please join the NHS Organ Donor Register.</p>
-        <p>If you needed an organ transplant would you have one? If so please help others.</p>
-        <p>If you live in Wales and want to be an organ donor, you don’t need to do anything. Find out about your choices for <a href="https://www.organdonation.nhs.uk/supporting-my-decision/welsh-legislation-what-it-means-for-me/" rel="external" class="govuk-link">organ donation in Wales</a>.</p>
-        <p>
-          <%= render "govuk_publishing_components/components/button", {
-            text: "Join",
-            href: @publication.promotion['url'],
-            rel: "external",
-            info_text: "Register to become an organ donor"
-          } %>
-        </p>
+        <p class="govuk-body">Please join the NHS Organ Donor Register.</p>
+        <p class="govuk-body">If you needed an organ transplant would you have one? If so please help others.</p>
+        <p class="govuk-body">If you live in Wales and want to be an organ donor, you don’t need to do anything. Find out about your choices for <a href="https://www.organdonation.nhs.uk/supporting-my-decision/welsh-legislation-what-it-means-for-me/" rel="external" class="govuk-link">organ donation in Wales</a>.</p>
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Join",
+          href: @publication.promotion['url'],
+          rel: "external",
+          info_text: "Register to become an organ donor",
+          margin_bottom: true
+        } %>
       <% elsif @publication.promotion['category'] == 'mot_reminder' %>
-        <p>Get a text or email reminder when your MOT is due.</p>
-        <p>
-          <%= render "govuk_publishing_components/components/button", {
-            text: "Sign up",
-            href: @publication.promotion['url'],
-            rel: "external",
-          } %>
-        </p>
+        <p class="govuk-body">Get a text or email reminder when your MOT is due.</p>
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Sign up",
+          href: @publication.promotion['url'],
+          rel: "external",
+          margin_bottom: true
+        } %>
       <% elsif @publication.promotion['category'] == 'electric_vehicle' %>
-        <p>Make your next car electric.</p>
-        <p>
-          <%= render "govuk_publishing_components/components/button", {
-            text: "Find out how much you could save",
-            href: @publication.promotion['url'],
-            rel: "external",
-            info_text: "Learn about electric cars"
-          } %>
-        </p>
+        <p class="govuk-body">Make your next car electric.</p>
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Find out how much you could save",
+          href: @publication.promotion['url'],
+          rel: "external",
+          info_text: "Learn about electric cars",
+          margin_bottom: true
+        } %>
       <% end %>
     </div>
+    <hr class="govuk-section-break govuk-section-break--l">
   <% end %>
 
   <% if show_survey? %>
-    <div class="satisfaction-survey">
-      <% if AssistedDigitalSatisfactionSurvey.show_survey? @publication.slug %>
-        <%= render 'assisted_digital_satisfaction_survey', publication: @publication %>
-      <% else %>
-        <%= render 'standard_satisfaction_survey', publication: @publication %>
-      <% end %>
-    </div>
+    <% if AssistedDigitalSatisfactionSurvey.show_survey? @publication.slug %>
+      <%= render 'assisted_digital_satisfaction_survey', publication: @publication %>
+    <% else %>
+      <%= render 'standard_satisfaction_survey', publication: @publication %>
+    <% end %>
   <% end %>
 <% end %>

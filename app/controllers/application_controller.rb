@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from RecordNotFound, with: :cacheable_404
 
+  slimmer_template "core_layout"
+
   if ENV["BASIC_AUTH_USERNAME"]
     http_basic_authenticate_with(
       name: ENV.fetch("BASIC_AUTH_USERNAME"),

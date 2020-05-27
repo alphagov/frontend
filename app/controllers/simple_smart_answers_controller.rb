@@ -3,8 +3,6 @@ require "simple_smart_answers/flow"
 class SimpleSmartAnswersController < ApplicationController
   include Navigable
 
-  slimmer_template "wrapper"
-
   before_action :set_expiry
   before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
 

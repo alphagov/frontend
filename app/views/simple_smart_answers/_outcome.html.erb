@@ -4,7 +4,7 @@
     margin_bottom: 4
   } %>
 
-  <%= render "govuk_publishing_components/components/govspeak", {} do %>
-    <%= raw outcome.body %>
-  <% end %>
+  <%= render "govuk_publishing_components/components/govspeak", {
+    content: sanitize(outcome.body)
+  } %>
 </div>

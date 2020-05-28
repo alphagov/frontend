@@ -19,9 +19,10 @@ Transaction start pages:
 * https://www.gov.uk/ (homepage)
 * https://www.gov.uk/tour (tour of GOV.UK)
 * https://www.gov.uk/help (help index page)
+* https://www.gov.uk/help/cookies
+* https://www.gov.uk/help/ab-testing
 * https://www.gov.uk/foreign-travel-advice (travel advice index page)
 * https://www.gov.uk/find-local-council
-* https://www.gov.uk/help/ab-testing
 * https://www.gov.uk/passport-interview-office
 
 ### Licence finders

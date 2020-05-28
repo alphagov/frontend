@@ -1,4 +1,6 @@
 RSpec.describe FaqPresenter do
+  let(:view_context) { ApplicationController.new.view_context }
+
   it "uses the bank holiday body for the bank holidays FAQ" do
     expected = [
       q_and_a("England and Wales", "The next bank holiday in England and Wales is Good Friday on the 6th of April"),
@@ -11,7 +13,7 @@ RSpec.describe FaqPresenter do
       calendar = Calendar.find(scope)
       content_item = CalendarContentItem.new(calendar).payload
 
-      presenter = FaqPresenter.new(scope, calendar, content_item)
+      presenter = FaqPresenter.new(scope, calendar, content_item, view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end
@@ -27,7 +29,7 @@ RSpec.describe FaqPresenter do
       calendar = Calendar.find(scope)
       content_item = CalendarContentItem.new(calendar).payload
 
-      presenter = FaqPresenter.new(scope, calendar, content_item)
+      presenter = FaqPresenter.new(scope, calendar, content_item, view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end

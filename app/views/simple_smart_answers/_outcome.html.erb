@@ -5,6 +5,6 @@
   } %>
 
   <%= render "govuk_publishing_components/components/govspeak", {
-    content: sanitize(outcome.body)
+    content: outcome.body.html_safe
   } %>
 </div>

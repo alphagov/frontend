@@ -12,6 +12,7 @@
     <!--[if IE 7]><%= stylesheet_link_tag "application-ie7.css" %><![endif]-->
     <!--[if IE 8]><%= stylesheet_link_tag "application-ie8.css" %><![endif]-->
     <%= stylesheet_link_tag "print.css", :media => "print", integrity: false %>
+    <%= javascript_include_tag 'test-dependencies.js' if Rails.env.test? %>
     <%= javascript_include_tag 'application.js', integrity: false %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>

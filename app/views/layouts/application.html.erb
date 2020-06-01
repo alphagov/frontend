@@ -45,7 +45,9 @@
         <%= yield :after_content %>
       <% end %>
 
-      <%= render 'govuk_publishing_components/components/feedback' %>
+      <div class="feedback-wrapper">
+        <%= render 'govuk_publishing_components/components/feedback' %>
+      </div>
     </div>
   </body>
 </html>

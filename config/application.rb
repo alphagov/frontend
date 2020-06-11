@@ -36,9 +36,6 @@ module Frontend
       frontend.js
       tour.js
       application.css
-      application-ie6.css
-      application-ie7.css
-      application-ie8.css
       print.css
     ]
 

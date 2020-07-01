@@ -9,4 +9,4 @@ require "ci/reporter/rake/rspec" if Rails.env.development? || Rails.env.test?
 Frontend::Application.load_tasks
 
 Rake::Task["default"].clear
-task default: [:spec, :test, "jasmine:ci"]
+task default: [:lint, :spec, :test, "jasmine:ci"]

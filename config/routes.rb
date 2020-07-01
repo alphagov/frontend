@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   end
 
   # Simple Smart Answer pages
-  get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
   constraints FormatRoutingConstraint.new("simple_smart_answer") do
+    get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
     get ":slug", to: "simple_smart_answers#show", as: "simple_smart_answer"
     get ":slug/:part", to: redirect("/%{slug}") # Support for simple smart answers that were once a format with parts
   end

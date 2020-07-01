@@ -4,7 +4,9 @@
     margin_bottom: 4
   } %>
 
-  <%= render "govuk_publishing_components/components/govspeak", {
-    content: outcome.body.html_safe
-  } %>
+  <% if outcome.body %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+      content: outcome.body.html_safe
+    } %>
+  <% end %>
 </div>

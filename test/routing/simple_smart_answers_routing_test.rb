@@ -12,6 +12,10 @@ class SimpleSmartAnswersRoutingTest < ActionDispatch::IntegrationTest
   end
 
   context "routes in a flow" do
+    setup do
+      content_store_has_page("fooey", schema: "simple_smart_answer")
+    end
+
     should "route to the start of a flow" do
       assert_routing "/fooey/y", controller: "simple_smart_answers", action: "flow", slug: "fooey"
     end

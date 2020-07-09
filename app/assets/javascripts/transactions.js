@@ -18,7 +18,7 @@
         return;
       }
 
-      var links = $('.transaction a[href="https://www.smartsurvey.co.uk/ss/govuk-coronavirus-ask/"]');
+      var links = $('.transaction a[href="https://surveys.publishing.service.gov.uk/ss/govuk-coronavirus-ask"]');
 
       links.each(function () {
         var $link = $(this);

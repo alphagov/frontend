@@ -35,7 +35,7 @@ describe("Transactions", function () {
     };
 
     beforeEach(function () {
-      $specialAskTransaction = $('<div class="transaction"><a href="https://www.smartsurvey.co.uk/ss/govuk-coronavirus-ask/">Start Now</a></div>');
+      $specialAskTransaction = $('<div class="transaction"><a href="https://surveys.publishing.service.gov.uk/ss/govuk-coronavirus-ask">Start Now</a></div>');
       $('body').append($specialAskTransaction);
     });
 
@@ -45,7 +45,7 @@ describe("Transactions", function () {
 
     it("appends the url with the ga clientId", function () {
       window.GOVUK.Transactions.appendGaClientIdToAskSurvey();
-      var expectedHref = 'https://www.smartsurvey.co.uk/ss/govuk-coronavirus-ask/?_ga=clientId'
+      var expectedHref = 'https://surveys.publishing.service.gov.uk/ss/govuk-coronavirus-ask?_ga=clientId'
       expect($specialAskTransaction.find('a').attr('href')).toBe(expectedHref)
     });
   });

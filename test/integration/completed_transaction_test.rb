@@ -24,12 +24,13 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
 
   context "a completed transaction edition" do
     should "show no promotion when there is no promotion choice" do
-      stub_content_store_has_item("/done/no-promotion", @payload)
+      payload = @payload.merge(title: "Give feedback on this service")
+      stub_content_store_has_item("/done/no-promotion", payload)
       visit "/done/no-promotion"
 
       assert_equal 200, page.status_code
 
-      assert_has_component_title "Thank you"
+      assert_has_component_title "Give feedback on this service"
 
       within ".content-block" do
         assert page.has_no_selector?(".promotion")
@@ -161,6 +162,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       setup do
         payload = @payload.merge(
           base_path: "/done/check-mot-history",
+          title: "Give feedback on Check the MOT history of a vehicle",
           details: {
             "promotion": {
               "category": "mot_reminder",
@@ -176,7 +178,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       should "show mot-reminder content if promotion choice has been selected" do
         assert_equal 200, page.status_code
 
-        assert_has_component_title "Thank you"
+        assert_has_component_title "Give feedback on Check the MOT history of a vehicle"
 
         within ".content-block" do
           assert page.has_selector?(".promotion")

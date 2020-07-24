@@ -31,7 +31,7 @@ end
 group :development, :test do
   gem "ci_reporter_rspec"
   gem "ci_reporter_test_unit"
-  gem "jasmine", "~> 3.5"
+  gem "jasmine", "~> 3.6"
   gem "pry-byebug"
   gem "rubocop-govuk"
 end

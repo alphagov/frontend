@@ -1,19 +1,29 @@
-<%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, :edition => nil), :method => :get do %>
+  <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get", class: "govuk-!-padding-top-8" do %>
   <%= hidden_field_tag :edition, @edition if @edition.present? %>
   <%= hidden_field_tag 'response', '' %>
-  <%
-    if @flow_state.error?
-      error_message = t('formats.simple_smart_answer.please_answer')
-    end
-  %>
+
+  <% error_message = t('formats.simple_smart_answer.please_answer') if @flow_state.error? %>
+
   <%= render "govuk_publishing_components/components/radio", {
-    heading: "#{@flow_state.current_question_number}. #{question.title}",
     description: sanitize(question.body),
     error_message: error_message,
+    heading_caption: @publication.title,
+    heading_size: "l",
+    heading: "#{@flow_state.current_question_number}. #{question.title}",
+    is_page_heading: true,
     name: "response",
-    items: question.options.map { |option| { text: option.label, value: option.slug, checked: option.slug == params[:previous_response] } }
+    items: question.options.map do |option|
+      {
+        text: option.label,
+        value: option.slug,
+        checked: option.slug == params[:previous_response],
+      }
+    end
   } %>
   <%= render partial: 'draft_fields' %>
 
-  <%= render "govuk_publishing_components/components/button", text: t('formats.simple_smart_answer.next_step'), margin_bottom: true %>
+  <%= render "govuk_publishing_components/components/button",
+    text: t('formats.simple_smart_answer.next_step'),
+    margin_bottom: true
+  %>
 <% end %>

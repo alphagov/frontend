@@ -1,8 +1,8 @@
   <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get", class: "govuk-!-padding-top-8" do %>
   <%= hidden_field_tag :edition, @edition if @edition.present? %>
-  <%= hidden_field_tag 'response', '' %>
+  <%= hidden_field_tag "response", "" %>
 
-  <% error_message = t('formats.simple_smart_answer.please_answer') if @flow_state.error? %>
+  <% error_message = t("formats.simple_smart_answer.please_answer") if @flow_state.error? %>
 
   <%= render "govuk_publishing_components/components/radio", {
     description: sanitize(question.body),
@@ -20,10 +20,11 @@
       }
     end
   } %>
-  <%= render partial: 'draft_fields' %>
 
-  <%= render "govuk_publishing_components/components/button",
-    text: t('formats.simple_smart_answer.next_step'),
-    margin_bottom: true
-  %>
+  <%= render partial: "draft_fields" %>
+
+  <%= render "govuk_publishing_components/components/button", {
+    text: t("formats.simple_smart_answer.next_step"),
+    margin_bottom: true,
+  } %>
 <% end %>

@@ -3,15 +3,18 @@
 <% end %>
 
 <main id="content" class="govuk-grid-column-two-thirds">
-
   <% if @flow_state.completed_questions.any? %>
     <%= render "govuk_publishing_components/components/title", {
       context: @publication.title,
-      title: t('formats.simple_smart_answer.your_answers'),
+      title: t("formats.simple_smart_answer.your_answers"),
     } %>
 
     <p class="govuk-body">
-      <%= link_to t('formats.simple_smart_answer.start_again'), simple_smart_answer_path(@publication.slug, :edition => @edition), class: "govuk-link" %>
+      <%= link_to(
+        t("formats.simple_smart_answer.start_again"),
+        simple_smart_answer_path(@publication.slug, :edition => @edition),
+        class: "govuk-link"
+      ) %>
     </p>
 
     <%= render "govuk_publishing_components/components/summary_list", {
@@ -22,12 +25,16 @@
   <% if @flow_state.current_node.outcome? %>
     <%= render :partial => "outcome", :object => @flow_state.current_node %>
   <% else %>
-    <%= render :partial => "current_question", :locals => {:question => @flow_state.current_node } %>
+    <%= render :partial => "current_question", :locals => {
+      :question => @flow_state.current_node
+    } %>
   <% end %>
 </main>
 
 <% if @flow_state.current_node.outcome? %>
   <div class="govuk-grid-column-one-third govuk-!-margin-top-7">
-    <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
+    <%= render "govuk_publishing_components/components/contextual_sidebar", {
+      content_item: @content_item
+    } %>
   </div>
 <% end %>

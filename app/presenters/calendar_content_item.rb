@@ -32,7 +32,7 @@ class CalendarContentItem
       details: {
         body: calendar.body,
       },
-      public_updated_at: Time.current.to_datetime.rfc3339,
+      public_updated_at: Time.zone.now.rfc3339,
       routes: [
         { type: "prefix", path: base_path },
         { type: "exact", path: "#{base_path}.json" },

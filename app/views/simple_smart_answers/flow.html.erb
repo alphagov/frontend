@@ -2,33 +2,38 @@
   <meta name="robots" content="noindex" />
 <% end %>
 
-<main id="content" class="govuk-grid-column-two-thirds">
-  <% if @flow_state.completed_questions.any? %>
-    <%= render "govuk_publishing_components/components/title", {
-      context: @publication.title,
-      title: t("formats.simple_smart_answer.your_answers"),
-    } %>
+<main id="content" class="govuk-grid-column-two-thirds simple-smart-answer-wrapper">
+  <section class="simple-smart-answer__answers">
+    <% if @flow_state.current_node.outcome? %>
+      <%= render partial: "outcome", object: @flow_state.current_node %>
+    <% else %>
+      <%= render partial: "current_question", locals: {
+        question: @flow_state.current_node
+      } %>
+    <% end %>
+  </section>
+  <section>
+    <% if @flow_state.completed_questions.any? %>
+      <%= render "govuk_publishing_components/components/heading", {
+        font_size: "l",
+        heading_level: 2,
+        margin_bottom: 4,
+        text: t("formats.simple_smart_answer.your_answers"),
+      } %>
 
-    <p class="govuk-body">
-      <%= link_to(
-        t("formats.simple_smart_answer.start_again"),
-        simple_smart_answer_path(@publication.slug, :edition => @edition),
-        class: "govuk-link"
-      ) %>
-    </p>
+      <p class="govuk-body">
+        <%= link_to(
+          t("formats.simple_smart_answer.start_again"),
+          simple_smart_answer_path(@publication.slug, :edition => @edition),
+          class: "govuk-link"
+        ) %>
+      </p>
 
-    <%= render "govuk_publishing_components/components/summary_list", {
-      items: answer_summary_data,
-    } %>
-  <% end %>
-
-  <% if @flow_state.current_node.outcome? %>
-    <%= render :partial => "outcome", :object => @flow_state.current_node %>
-  <% else %>
-    <%= render :partial => "current_question", :locals => {
-      :question => @flow_state.current_node
-    } %>
-  <% end %>
+      <%= render "govuk_publishing_components/components/summary_list", {
+        items: answer_summary_data,
+      } %>
+    <% end %>
+  </section>
 </main>
 
 <% if @flow_state.current_node.outcome? %>

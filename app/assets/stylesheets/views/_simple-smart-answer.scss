@@ -1,0 +1,9 @@
+.simple-smart-answer-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: govuk-spacing(8);
+}
+
+.simple-smart-answer__answers {
+  padding-bottom: govuk-spacing(8);
+}

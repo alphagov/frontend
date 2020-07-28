@@ -6,9 +6,11 @@
       error_message = t('formats.simple_smart_answer.please_answer')
     end
   %>
-  <% description = render "govuk_publishing_components/components/govspeak", {
+  <%
+    description = render "govuk_publishing_components/components/govspeak", {
       content: sanitize(question.body),
-    } %>
+    }
+  %>
 
   <%= render "govuk_publishing_components/components/radio", {
     heading: "#{@flow_state.current_question_number}. #{question.title}",
@@ -27,10 +29,11 @@
       }
     end
   } %>
-  <%= render partial: 'draft_fields' %>
 
-  <%= render "govuk_publishing_components/components/button",
-    text: t('formats.simple_smart_answer.next_step'),
-    margin_bottom: true
-  %>
+  <%= render partial: "draft_fields" %>
+
+  <%= render "govuk_publishing_components/components/button", {
+    text: t("formats.simple_smart_answer.next_step"),
+    margin_bottom: true,
+  } %>
 <% end %>

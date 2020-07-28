@@ -165,7 +165,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
 
-    within(".gem-c-title + .govuk-body") do
+    within(".gem-c-heading + .govuk-body") do
       assert page.has_link?("Start again", href: "/the-bridge-of-death")
     end
 
@@ -193,7 +193,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
 
-    within(".gem-c-title + .govuk-body") do
+    within(".gem-c-heading + .govuk-body") do
       assert page.has_link?("Start again", href: "/the-bridge-of-death")
     end
 

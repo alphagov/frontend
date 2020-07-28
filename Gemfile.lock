@@ -127,7 +127,7 @@ GEM
       rails (>= 5.0.0.1)
       rouge
       sprockets (< 4)
-    govuk_schemas (4.0.0)
+    govuk_schemas (4.1.0)
       json-schema (~> 2.8.0)
     govuk_sidekiq (3.0.5)
       gds-api-adapters (>= 19.1.0)
@@ -413,7 +413,7 @@ DEPENDENCIES
   govuk_ab_testing (~> 2.4, >= 2.4.1)
   govuk_app_config (~> 2.2.1)
   govuk_publishing_components (~> 21.60.0)
-  govuk_schemas (~> 4.0)
+  govuk_schemas (~> 4.1)
   govuk_sidekiq (~> 3.0)
   govuk_test
   htmlentities (~> 4.3.0)

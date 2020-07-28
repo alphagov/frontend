@@ -39,7 +39,7 @@ end
 group :test do
   gem "ci_reporter"
   gem "govuk-content-schema-test-helpers"
-  gem "govuk_schemas", "~> 4.0"
+  gem "govuk_schemas", "~> 4.1"
   gem "govuk_test"
   gem "mocha"
   gem "rspec-rails", "~> 4.0.1"

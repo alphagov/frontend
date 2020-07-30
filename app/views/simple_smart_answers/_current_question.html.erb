@@ -6,11 +6,9 @@
       error_message = t('formats.simple_smart_answer.please_answer')
     end
   %>
-  <%
-    description = render "govuk_publishing_components/components/govspeak", {
-      content: sanitize(question.body),
-    }
-  %>
+  <% description = render "govuk_publishing_components/components/govspeak", {
+    content: sanitize(question.body),
+  } if question.body %>
 
   <%= render "govuk_publishing_components/components/radio", {
     description: description,

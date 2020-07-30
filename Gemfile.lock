@@ -402,43 +402,43 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
-  asset_bom_removal-rails (~> 1.0.0)
+  asset_bom_removal-rails
   better_errors
   binding_of_caller
   ci_reporter
   ci_reporter_rspec
   ci_reporter_test_unit
-  gds-api-adapters (~> 67.0.1)
+  gds-api-adapters
   govuk-content-schema-test-helpers
-  govuk_ab_testing (~> 2.4)
-  govuk_app_config (~> 2.2.1)
-  govuk_publishing_components (~> 21.61.0)
-  govuk_schemas (~> 4.1)
-  govuk_sidekiq (~> 4.0)
+  govuk_ab_testing
+  govuk_app_config
+  govuk_publishing_components
+  govuk_schemas
+  govuk_sidekiq
   govuk_test
-  htmlentities (~> 4.3.0)
-  invalid_utf8_rejector (~> 0.0.0)
-  jasmine (~> 3.6)
+  htmlentities
+  invalid_utf8_rejector
+  jasmine
   listen
   mocha
-  notifications-ruby-client (~> 5.1)
-  plek (~> 4.0.0)
+  notifications-ruby-client
+  plek
   pry-byebug
-  rack_strip_client_ip (~> 0.0.2)
-  rails (~> 6.0.3)
+  rack_strip_client_ip
+  rails (= 6.0.3.2)
   rails-controller-testing
-  rails-i18n (~> 6.0.0)
-  rspec-rails (~> 4.0.1)
+  rails-i18n
+  rspec-rails
   rubocop-govuk
-  sass (~> 3.7.4)
-  sass-rails (< 6)
+  sass
+  sass-rails
   shoulda-context
   simplecov
-  slimmer (~> 15.1.0)
-  sprockets-rails (~> 3.2.0)
+  slimmer
+  sprockets-rails
   timecop
   uglifier
-  uk_postcode (~> 2.1.5)
+  uk_postcode
   webmock
 
 BUNDLED WITH

@@ -2,7 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title><% if @publication %><%= page_title(@publication) %><% else %><%= yield :title %><% end %></title>
+    <title><%=
+      page_title = yield :title
+      if page_title.present?
+        page_title
+      elsif @publication
+        page_title(@publication)
+      else
+        "GOV.UK"
+      end
+    %></title>
     <%= yield :extra_stylesheets %>
 
     <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>

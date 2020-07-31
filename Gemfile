@@ -3,7 +3,6 @@ source "https://rubygems.org"
 gem "rails", "6.0.3.2"
 
 gem "addressable"
-gem "asset_bom_removal-rails"
 gem "gds-api-adapters"
 gem "govuk_ab_testing"
 gem "govuk_app_config"

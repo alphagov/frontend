@@ -1,0 +1,21 @@
+---
+applications:
+- name: frontend_replatforming
+  buildpack: ruby_buildpack
+  memory: 1G
+  instances: 1
+  # services:
+  # - prometheus-service-broker
+  env:
+    RAILS_ENV: production
+    ASSET_HOST: www.gov.uk
+    GOVUK_APP_DOMAIN: www.gov.uk
+    GOVUK_WEBSITE_ROOT: www.gov.uk
+    WEBSITE_ROOT: www.gov.uk
+    PLEK_SERVICE_CONTENT_STORE_URI: https://www.gov.uk/api
+    PLEK_SERVICE_STATIC_URI: https://assets.publishing.service.gov.uk
+    GOVUK_ASSET_ROOT: https://assets.digital.cabinet-office.gov.uk
+    GOVUK_STATSD_PREFIX: fargate
+    BASIC_AUTH_USERNAME: gds
+    # BASIC_AUTH_PASSWORD: '' # set manually with cf set-env
+    # SECRET_KEY_BASE: '' # set manually with cf set-env

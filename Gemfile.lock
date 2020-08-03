@@ -129,7 +129,7 @@ GEM
       sprockets (< 4)
     govuk_schemas (4.1.0)
       json-schema (~> 2.8.0)
-    govuk_sidekiq (3.0.5)
+    govuk_sidekiq (4.0.0)
       gds-api-adapters (>= 19.1.0)
       govuk_app_config (>= 1.1)
       redis-namespace (~> 1.6)
@@ -414,7 +414,7 @@ DEPENDENCIES
   govuk_app_config (~> 2.2.1)
   govuk_publishing_components (~> 21.60.0)
   govuk_schemas (~> 4.1)
-  govuk_sidekiq (~> 3.0)
+  govuk_sidekiq (~> 4.0)
   govuk_test
   htmlentities (~> 4.3.0)
   invalid_utf8_rejector (~> 0.0.0)

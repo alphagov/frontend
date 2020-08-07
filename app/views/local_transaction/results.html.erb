@@ -9,12 +9,13 @@
         We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
       </p>
       <p id="get-started" class="get-started group">
-        <%= render "govuk_publishing_components/components/button",
-                    text: "Go to their website",
-                    rel: "external",
-                    start: true,
-                    margin_bottom: true,
-                    href: @interaction_details['local_interaction']['url'] %>
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Go to their website",
+          rel: "external",
+          start: true,
+          margin_bottom: true,
+          href: @interaction_details['local_interaction']['url'],
+        } %>
       </p>
     </div>
   <% elsif @location_error && @location_error.no_location_interaction? %>
@@ -28,12 +29,13 @@
              data-track-category="userAlerts:local_transaction"
              data-track-action="postcodeResultShown:laMatchNoLink">
           <p id="get-started" class="get-started group">
-            <%= render "govuk_publishing_components/components/button",
-                        text: "Go to their website",
-                        rel: "external",
-                        start: true,
-                        margin_bottom: true,
-                        href: @local_authority.url %>
+            <%= render "govuk_publishing_components/components/button", {
+              text: "Go to their website",
+              rel: "external",
+              start: true,
+              margin_bottom: true,
+              href: @local_authority.url,
+            } %>
           </p>
         </div>
       <% else %>
@@ -48,14 +50,14 @@
   <% end %>
   <div class="search-again">
     <%= render "govuk_publishing_components/components/back_link", {
-      href: local_transaction_search_path(@publication.slug)
+      href: local_transaction_search_path(@publication.slug),
     } %>
   </div>
   <section class="more">
     <div class="more">
-      <%= render "govuk_publishing_components/components/govspeak", {
-        content: sanitize(@publication.more_information)
-      } %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= sanitize(@publication.more_information) %>
+      <% end %>
     </div>
   </section>
 <% end %>

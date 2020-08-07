@@ -1,12 +1,12 @@
 <div data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
   <%= render "govuk_publishing_components/components/heading", {
     text: outcome.title,
-    margin_bottom: 4
+    margin_bottom: 4,
   } %>
 
   <% if outcome.body %>
-    <%= render "govuk_publishing_components/components/govspeak", {
-      content: outcome.body.html_safe
-    } %>
+    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+      <%= sanitize(outcome.body) %>
+    <% end %>
   <% end %>
 </div>

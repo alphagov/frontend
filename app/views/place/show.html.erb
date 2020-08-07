@@ -13,9 +13,9 @@
     <div class="get-started-intro">
 
       <div class="find-nearest">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: sanitize(@publication.introduction)
-        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= sanitize(@publication.introduction) %>
+        <% end %>
         <%= render partial: 'location_form',
                    locals: {
                      format: 'service',
@@ -45,12 +45,12 @@
     <section class="more">
       <div class="further-information">
         <h2 class="govuk-heading-m">Further information</h2>
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: sanitize(@publication.need_to_know)
-        } %>
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: @publication.more_information
-        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= sanitize(@publication.need_to_know) %>
+        <% end %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= sanitize(@publication.more_information) %>
+        <% end %>
       </div>
     </section>
   <% end %>

@@ -1,25 +1,15 @@
-  <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get" do %>
+<%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get" do %>
   <%= hidden_field_tag :edition, @edition if @edition.present? %>
   <%= hidden_field_tag 'response', '' %>
-  <%
-    page_title = []
+  <% error_message = t("formats.simple_smart_answer.please_answer") if @flow_state.error? %>
 
-    if @flow_state.error?
-      error_message = t("formats.simple_smart_answer.please_answer")
-      page_title << "Error"
-    end
+  <% content_for :title do
+      simple_smart_answer_page_title(question.title)
+    end %>
 
-    page_title << question.title
-    page_title << @publication.title
-    page_title << "GOV.UK"
-
-    content_for :title do
-      page_title.join(' - ')
-    end
-  %>
   <% description = render "govuk_publishing_components/components/govspeak", {
-    content: sanitize(question.body),
-  } if question.body %>
+      content: sanitize(question.body)
+    } if question.body %>
 
   <%= render "govuk_publishing_components/components/radio", {
     description: description,

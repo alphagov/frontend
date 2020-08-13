@@ -22,9 +22,10 @@ class SimpleSmartAnswersController < ApplicationController
 private
 
   helper_method(
-    :smart_answer_path_for_responses,
-    :change_completed_question_path,
     :answer_summary_data,
+    :change_completed_question_path,
+    :simple_smart_answer_page_title,
+    :smart_answer_path_for_responses,
   )
 
   def smart_answer_path_for_responses(responses, extra_attrs = {})
@@ -51,5 +52,19 @@ private
     end
 
     items
+  end
+
+  def simple_smart_answer_page_title(page_title)
+    title = []
+
+    if @flow_state.error?
+      title << "Error"
+    end
+
+    title << page_title
+    title << @publication.title
+    title << "GOV.UK"
+
+    title.join(" - ")
   end
 end

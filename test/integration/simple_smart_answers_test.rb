@@ -137,8 +137,11 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     within "#content" do
-      within ".gem-c-title" do
+      within ".govuk-caption-l" do
         assert_page_has_content("The Bridge of Death")
+      end
+      within ".gem-c-radio__heading-text" do
+        assert_page_has_content("What...is your name?")
       end
     end
 
@@ -162,7 +165,10 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
 
-    within(".start-over") { assert page.has_link?("Start again", href: "/the-bridge-of-death") }
+    within(".gem-c-heading + .govuk-body") do
+      assert page.has_link?("Start again", href: "/the-bridge-of-death")
+    end
+
     within ".govuk-summary-list" do
       within ".govuk-summary-list__row" do
         assert_page_has_content "1. What...is your name?"
@@ -177,7 +183,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     within ".govuk-fieldset" do
       assert page.has_field?("Blue", type: "radio", with: "blue")
       assert page.has_field?("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!", type: "radio", with: "blue-no-yelloooooooooooooooowww")
-      # Assert they're in the correct order
+      # Assert they're in the correct order.
       options = page.all(:xpath, ".//label").map(&:text).map(&:strip)
       assert_equal ["Blue", "Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!"], options
     end
@@ -186,7 +192,10 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
-    within(".start-over") { assert page.has_link?("Start again", href: "/the-bridge-of-death") }
+
+    within(".gem-c-heading + .govuk-body") do
+      assert page.has_link?("Start again", href: "/the-bridge-of-death")
+    end
 
     within ".govuk-summary-list" do
       within ".govuk-summary-list__row:nth-child(1)" do
@@ -206,7 +215,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     end
 
     within "[data-module='track-smart-answer']" do
-      within("h2") { assert_page_has_content "Right, off you go." }
+      within("h1") { assert_page_has_content "Right, off you go." }
       assert_page_has_content "Oh! Well, thank you. Thank you very much."
     end
   end
@@ -226,8 +235,8 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     click_on "Next step"
 
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
-    # asserting that we have the right data attribtues to trigger the
-    # TrackSmartAnswer JS module doesn't feel like enough, but it'll do
+    # Asserting that we have the right data attribtues to trigger the
+    # TrackSmartAnswer JavaScript module doesn't feel like enough, but it'll do.
     assert page.has_selector?("[data-module=track-smart-answer][data-smart-answer-node-type=outcome]")
   end
 

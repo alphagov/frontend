@@ -1,7 +1,10 @@
 <div data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
-  <%= render "govuk_publishing_components/components/heading", {
-    text: outcome.title,
+  <%= render "govuk_publishing_components/components/title", {
+    context: @publication.title,
+    font_size: "l",
     margin_bottom: 4,
+    average_title_length: "long",
+    title: outcome.title,
   } %>
 
   <% if outcome.body %>

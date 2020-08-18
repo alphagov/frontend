@@ -95,7 +95,11 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_equal 200, page.status_code
 
     within "head", visible: :all do
-      assert page.has_selector?("title", text: "The Bridge of Death - GOV.UK", visible: :all)
+      assert page.has_selector?(
+        "title",
+        exact_text: "The Bridge of Death - GOV.UK",
+        visible: :all,
+      )
     end
 
     within "#content" do
@@ -132,8 +136,16 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_current_url "/the-bridge-of-death/y"
 
     within "head", visible: :all do
-      assert page.has_selector?("title", text: "The Bridge of Death - GOV.UK", visible: :all)
-      assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
+      assert page.has_selector?(
+        "title",
+        exact_text: "What...is your name? - The Bridge of Death - GOV.UK",
+        visible: :all,
+      )
+
+      assert page.has_selector?(
+        "meta[name=robots][content=noindex]",
+        visible: :all,
+      )
     end
 
     within "#content" do
@@ -160,6 +172,27 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       end
     end
 
+    # Submitting the form without choosing an option must show a validation
+    # error.
+    click_on "Next step"
+
+    within "head", visible: :all do
+      assert page.has_selector?(
+        "title",
+        exact_text: "Error - What...is your name? - The Bridge of Death - GOV.UK",
+        visible: :all,
+      )
+    end
+
+    within "#content .govuk-form-group--error" do
+      assert page.has_selector?(
+        ".gem-c-error-message.govuk-error-message",
+        exact_text: "Error: Please answer this question",
+      )
+    end
+
+    # Choosing an option allows the simple smart answer to move onto the next
+    # step.
     choose "Sir Lancelot of Camelot"
     click_on "Next step"
 
@@ -167,6 +200,19 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     within(".gem-c-heading + .govuk-body") do
       assert page.has_link?("Start again", href: "/the-bridge-of-death")
+    end
+
+    within "head", visible: :all do
+      assert page.has_selector?(
+        "title",
+        exact_text: "What...is your favorite colour? - The Bridge of Death - GOV.UK",
+        visible: :all,
+      )
+
+      assert page.has_selector?(
+        "meta[name=robots][content=noindex]",
+        visible: :all,
+      )
     end
 
     within ".govuk-summary-list" do
@@ -195,6 +241,19 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
 
     within(".gem-c-heading + .govuk-body") do
       assert page.has_link?("Start again", href: "/the-bridge-of-death")
+    end
+
+    within "head", visible: :all do
+      assert page.has_selector?(
+        "title",
+        text: "Right, off you go. - The Bridge of Death - GOV.UK",
+        visible: :all,
+      )
+
+      assert page.has_selector?(
+        "meta[name=robots][content=noindex]",
+        visible: :all,
+      )
     end
 
     within ".govuk-summary-list" do

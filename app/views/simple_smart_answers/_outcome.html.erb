@@ -1,4 +1,9 @@
-<div data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
+<%
+  content_for :title do
+    simple_smart_answer_page_title(outcome.title)
+  end
+%>
+ <div data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
   <%= render "govuk_publishing_components/components/title", {
     context: @publication.title,
     font_size: "l",

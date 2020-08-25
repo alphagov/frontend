@@ -1,15 +1,12 @@
 <% content_for :title, "Cookies on GOV.UK" %>
 <main id="content" role="main" class="group help-page cookie-settings govuk-grid-column-two-thirds">
-  <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
-    <%= render "govuk_publishing_components/components/notice", {
-      title: t('cookies.confirmation_title'),
-      aria_live: true,
-    } do %>
-      <p><%= t('cookies.confirmation_message') %></p>
-      <a class="govuk-link cookie-settings__prev-page" href='#' data-module="track-click" data-track-category="cookieSettings" data-track-action="Back to previous page">
-        <%= t('cookies.confirmation_previous_referrer_link') %>
-      </a>
-    <% end %>
+    no wrapper
+    <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
+      <%= render "govuk_publishing_components/components/success_alert", {
+        message: t('cookies.confirmation_title'),
+        description: sanitize("<p>#{t('cookies.confirmation_message')}</p>
+        <a class='govuk-link cookie-settings__prev-page' href='#' data-module='track-click' data-track-category='cookieSettings' data-track-action='Back to previous page'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe
+      } %>
   </div>
 
   <%= render "govuk_publishing_components/components/title", {

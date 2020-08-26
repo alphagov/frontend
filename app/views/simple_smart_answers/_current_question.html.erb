@@ -8,8 +8,8 @@
     end %>
 
   <% description = render "govuk_publishing_components/components/govspeak", {
-      content: sanitize(question.body)
-    } if question.body %>
+    content: question.body.html_safe
+  } if question.body %>
 
   <%= render "govuk_publishing_components/components/radio", {
     description: description,

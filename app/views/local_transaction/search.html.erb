@@ -9,13 +9,17 @@
   publication: @publication,
   edition: @edition,
 } do %>
-  <section class="intro">
-    <div class="get-started-intro">
-      <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= sanitize(@publication.introduction) %>
-      <% end %>
-    </div>
-  </section>
+
+  <% if @publication.introduction.present? %>
+    <section class="intro">
+      <div class="get-started-intro">
+        <%= render "govuk_publishing_components/components/govspeak", {
+          content: @publication.introduction.html_safe
+        } %>
+      </div>
+    </section>
+  <% end %>
+
   <%= render partial: 'location_form',
              locals: {
                method: 'post',
@@ -23,20 +27,26 @@
                publication_format: 'local_transaction',
                postcode: @postcode
              } %>
-  <section class="more">
-  <% if @publication.need_to_know.present? %>
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "What you need to know",
-      margin_bottom: 4
-    } %>
-    <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= sanitize(@publication.need_to_know) %>
-    <% end %>
-  <% end %>
-    <div class="more">
-      <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= sanitize(@publication.more_information) %>
+
+  <% if @publication.need_to_know.present? || @publication.more_information.present? %>
+    <section class="more">
+      <% if @publication.need_to_know.present? %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "What you need to know",
+          margin_bottom: 4
+        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {
+          content: @publication.need_to_know.html_safe
+        } %>
       <% end %>
-    </div>
-  </section>
+
+      <% if @publication.more_information.present? %>
+        <div class="more">
+          <%= render "govuk_publishing_components/components/govspeak", {
+            content: @publication.more_information.html_safe
+          } %>
+        </div>
+      <% end %>
+    </section>
+  <% end %>
 <% end %>

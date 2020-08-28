@@ -48,16 +48,20 @@
       <% end %>
     </div>
   <% end %>
+
   <div class="search-again">
     <%= render "govuk_publishing_components/components/back_link", {
       href: local_transaction_search_path(@publication.slug),
     } %>
   </div>
-  <section class="more">
-    <div class="more">
-      <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= sanitize(@publication.more_information) %>
-      <% end %>
-    </div>
-  </section>
+
+  <% if @publication.more_information.present? %>
+    <section class="more">
+      <div class="more">
+        <%= render "govuk_publishing_components/components/govspeak", {
+          content: @publication.more_information.html_safe
+        } %>
+      </div>
+    </section>
+  <% end %>
 <% end %>

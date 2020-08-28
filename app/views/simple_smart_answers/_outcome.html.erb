@@ -13,8 +13,8 @@
   } %>
 
   <% if outcome.body %>
-    <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= sanitize(outcome.body) %>
-    <% end %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+      content: outcome.body.html_safe
+    } %>
   <% end %>
 </div>

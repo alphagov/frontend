@@ -13,9 +13,12 @@
     <div class="get-started-intro">
 
       <div class="find-nearest">
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= sanitize(@publication.introduction) %>
+        <% if @publication.introduction.present? %>
+          <%= render "govuk_publishing_components/components/govspeak", {
+            content: @publication.introduction.html_safe
+          } %>
         <% end %>
+
         <%= render partial: 'location_form',
                    locals: {
                      format: 'service',
@@ -40,18 +43,24 @@
         </ol>
       <% end %>
     </section>
-
   <% else %>
-    <section class="more">
-      <div class="further-information">
-        <h2 class="govuk-heading-m">Further information</h2>
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= sanitize(@publication.need_to_know) %>
-        <% end %>
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= sanitize(@publication.more_information) %>
-        <% end %>
-      </div>
-    </section>
+    <% if @publication.need_to_know.present? || @publication.more_information.present? %>
+      <section class="more">
+        <div class="further-information">
+          <h2 class="govuk-heading-m">Further information</h2>
+          <% if @publication.need_to_know.present? %>
+            <%= render "govuk_publishing_components/components/govspeak", {
+              content: @publication.need_to_know.html_safe
+            } %>
+          <% end %>
+
+          <% if @publication.more_information.present? %>
+            <%= render "govuk_publishing_components/components/govspeak", {
+              content: @publication.more_information.html_safe
+            } %>
+          <% end %>
+        </div>
+      </section>
+    <% end %>
   <% end %>
 <% end %>

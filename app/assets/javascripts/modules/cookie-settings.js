@@ -80,6 +80,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   CookieSettings.prototype.showConfirmationMessage = function () {
     var confirmationMessage = document.querySelector('div[data-cookie-confirmation]')
+    // hide the message if already visible so assistive tech is triggered when it appears
+    confirmationMessage.style.display = "none"
     var previousPageLink = document.querySelector('.cookie-settings__prev-page')
     var referrer = CookieSettings.prototype.getReferrerLink()
 

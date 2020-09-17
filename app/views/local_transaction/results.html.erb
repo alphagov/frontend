@@ -21,7 +21,7 @@
   <% elsif @location_error && @location_error.no_location_interaction? %>
     <div class="interaction">
       <p class="govuk-body interaction-match">
-        <%= t(@location_error.message, @location_error.message_args) %>
+        <%= t(@location_error.message, **@location_error.message_args) %>
       </p>
       <% if @local_authority.url.present? %>
         <div class="local-authority-result"

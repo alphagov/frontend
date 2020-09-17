@@ -11,13 +11,13 @@
     %>
 
     <%= render "govuk_publishing_components/components/error_alert", {
-      message: t(@location_error.message, @location_error.message_args),
+      message: t(@location_error.message, **@location_error.message_args),
       description: description,
       data_attributes: {
         module: "auto-track-event",
         track_category: "userAlerts: #{publication_format}",
         track_action: "postcodeErrorShown: #{@location_error.postcode_error}",
-        track_label: t(@location_error.message, @location_error.message_args)
+        track_label: t(@location_error.message, **@location_error.message_args)
       }
     } %>
   <% end %>

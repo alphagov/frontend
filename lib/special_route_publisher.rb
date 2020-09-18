@@ -73,6 +73,12 @@ class SpecialRoutePublisher
           title: "Find your local council",
           description: "Find your local authority in England, Wales, Scotland and Northern Ireland",
         },
+        {
+          content_id: "d82ec90e-79cb-4b6f-ae2a-82eea07f2856",
+          base_path: "/performance",
+          title: "Performance",
+          description: "TBC",
+        },
       ],
     }
   end

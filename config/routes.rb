@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get "/tour", to: "help#tour"
   get "/help/cookies", to: "help#cookie_settings"
 
+  # Performance platform pages
+  get "/performance" => "performance#index"
+
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do
     get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # Performance platform pages
   get "/performance" => "performance#index"
+  get "/performance/*other" => "performance#redirect_to_index"
 
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do

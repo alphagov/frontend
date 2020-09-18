@@ -18,4 +18,12 @@ class PerformanceTest < ActionDispatch::IntegrationTest
       assert_has_component_title "Performance"
     end
   end
+
+  context "visiting anything under the /performance/* route" do
+    should "redirect to /performance" do
+      visit "/performance/foo"
+
+      assert_equal "/performance", current_path
+    end
+  end
 end

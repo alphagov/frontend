@@ -129,6 +129,8 @@ If you are using the GDS development virtual machine then the application will b
 
 `bundle exec rake` runs the test suite.
 
+`bundle exec rails test test/integration/help_test.rb` runs a single test file.
+
 ## Additional information for calendars
 
 Send the calendars to the publishing-api:

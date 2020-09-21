@@ -36,7 +36,8 @@
         name: "postcode",
         id: "postcode",
         hint: "For example SW1A 2AA",
-        invalid: @location_error ? 'true' : 'false'
+        invalid: @location_error ? 'true' : 'false',
+        autocomplete: "postal-code",
       } %>
 
       <%= render "govuk_publishing_components/components/button", text: "Find", margin_bottom: true %>

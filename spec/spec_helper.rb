@@ -1,14 +1,14 @@
-require "byebug"
 require "simplecov"
+SimpleCov.start
 
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
+require "byebug"
 require "rspec/rails"
 require "slimmer/rspec"
 require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
-SimpleCov.start
 
 ActiveJob::Base.queue_adapter = :test
 

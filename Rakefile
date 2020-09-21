@@ -20,4 +20,7 @@ end
 # RSpec shoves itself into the default task without asking, which confuses the ordering.
 # https://github.com/rspec/rspec-rails/blob/eb3377bca425f0d74b9f510dbb53b2a161080016/lib/rspec/rails/tasks/rspec.rake#L6
 Rake::Task["default"].clear
-task default: [:lint, :spec, :test_unit, "jasmine:ci"]
+
+# Combined coverage only works if RSpec come after Minitest. Using two frameworks sucks.
+# https://github.com/simplecov-ruby/simplecov#merging-results
+task default: [:lint, :test_unit, :spec, "jasmine:ci"]

@@ -33,6 +33,7 @@ group :development, :test do
   gem "ci_reporter_test_unit"
   gem "jasmine"
   gem "pry-byebug"
+  gem "rspec-rails"
   gem "rubocop-govuk"
 end
 
@@ -42,7 +43,6 @@ group :test do
   gem "govuk_schemas"
   gem "govuk_test"
   gem "mocha"
-  gem "rspec-rails"
   gem "shoulda-context"
   gem "simplecov"
   gem "timecop"

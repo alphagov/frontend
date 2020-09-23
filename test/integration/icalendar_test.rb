@@ -1,5 +1,7 @@
-RSpec.feature "icalendar" do
-  before do
+require "integration_test_helper"
+
+class IcalendarTest < ActionDispatch::IntegrationTest
+  setup do
     ["/gwyliau-banc", "/bank-holidays"].each do |base_path|
       content_item = {
         base_path: base_path,
@@ -11,9 +13,9 @@ RSpec.feature "icalendar" do
   end
 
   context "getting ICS version" do
-    before do
+    setup do
       # This timestamp is used to generate the DTSTAMP entries
-      allow(File).to receive(:mtime).with(Rails.root.join("REVISION")).and_return(Time.zone.parse("2012-10-17 01:00:00"))
+      File.stubs(:mtime).with(Rails.root.join("REVISION")).returns(Time.zone.parse("2012-10-17 01:00:00"))
     end
 
     calendars = {
@@ -26,9 +28,9 @@ RSpec.feature "icalendar" do
     }
 
     calendars.each do |calendar, calendar_path|
-      it "contains all events in #{calendar}" do
-        visit calendar_path
-        expect(page.status_code).to eq(200)
+      should "contain all events in #{calendar}" do
+        get calendar_path
+        assert_equal response.status, 200
 
         expected_non_scottish_events = [
           { "date" => "20120102", "title" => I18n.t("bank_holidays.new_year") },
@@ -58,28 +60,33 @@ RSpec.feature "icalendar" do
                             expected_non_scottish_events + common_expected_events
                           end
 
-        expect(page.body).to start_with("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nPRODID:-//uk.gov/GOVUK calendars//EN\r\nCALSCALE:GREGORIAN\r\n")
+        assert(
+          response.body.start_with?(
+            "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nPRODID:-//uk.gov/GOVUK calendars//EN\r\nCALSCALE:GREGORIAN\r\n",
+          ),
+        )
 
-        expect(page.response_headers["Content-Type"]).to eq("text/calendar; charset=utf-8")
-        expect(page.response_headers["Cache-Control"]).to eq("max-age=86400, public")
+        assert_equal "text/calendar; charset=utf-8", response.content_type
+        assert_equal "max-age=86400, public", response.headers["Cache-Control"]
 
         expected_events.each do |event|
           end_date = (Date.parse(event["date"]) + 1.day).strftime("%Y%m%d")
           expected = "BEGIN:VEVENT\r\nDTEND;VALUE=DATE:#{end_date}\r\nDTSTART;VALUE=DATE:#{event['date']}\r\nSUMMARY:#{event['title']}\r\n"
 
-          expect(page.body).to include(expected)
+          assert(response.body.include?(expected))
         end
       end
     end
 
-    it "has redirect for old 'ni' division" do
-      visit "/bank-holidays/ni.ics"
-      expect(page.current_url).to eq("http://www.example.com/bank-holidays/northern-ireland.ics")
+    should "have redirect for old 'ni' division" do
+      get "/bank-holidays/ni.ics"
+      assert_equal 301, response.status
+      assert_equal "http://www.example.com/bank-holidays/northern-ireland.ics", response.location
     end
 
-    it "404s if the division does not exist" do
-      visit "/bank-holidays/never-never-land.ics"
-      expect(page.status_code).to eq(404)
+    should "404 if the division does not exist" do
+      get "/bank-holidays/never-never-land.ics"
+      assert_equal 404, response.status
     end
   end
 end

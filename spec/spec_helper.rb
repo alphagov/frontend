@@ -10,8 +10,6 @@ require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
-ActiveJob::Base.queue_adapter = :test
-
 RSpec.configure do |config|
   config.render_views
   config.expose_dsl_globally = false

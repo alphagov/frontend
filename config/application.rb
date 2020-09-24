@@ -3,7 +3,6 @@ require_relative "boot"
 require "action_controller/railtie"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
-require "action_mailer/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -61,8 +60,6 @@ module Frontend
     }
 
     config.action_controller.allow_forgery_protection = false
-
-    config.active_job.queue_adapter = :sidekiq
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

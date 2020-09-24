@@ -156,7 +156,6 @@ GEM
     json (2.3.1)
     json-schema (2.8.1)
       addressable (>= 2.4)
-    jwt (2.2.1)
     kgio (2.11.3)
     kramdown (2.3.0)
       rexml
@@ -190,8 +189,6 @@ GEM
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    notifications-ruby-client (5.1.2)
-      jwt (>= 1.5, < 3)
     null_logger (0.0.1)
     parallel (1.19.2)
     parser (2.7.1.4)
@@ -421,7 +418,6 @@ DEPENDENCIES
   jasmine
   listen
   mocha
-  notifications-ruby-client
   plek
   pry-byebug
   rack_strip_client_ip

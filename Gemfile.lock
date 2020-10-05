@@ -145,6 +145,9 @@ GEM
       rack (>= 1.2.1)
       rake
     jasmine-core (3.6.0)
+    jasmine_selenium_runner (3.0.0)
+      jasmine (~> 3.0)
+      selenium-webdriver (~> 3.8)
     json (2.3.1)
     json-schema (2.8.1)
       addressable (>= 2.4)
@@ -195,7 +198,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     public_suffix (4.0.6)
-    puma (5.0.0)
+    puma (5.0.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -392,6 +395,7 @@ DEPENDENCIES
   htmlentities
   invalid_utf8_rejector
   jasmine
+  jasmine_selenium_runner
   listen
   mocha
   plek

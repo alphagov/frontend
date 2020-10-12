@@ -26,13 +26,11 @@ group :development do
 end
 
 group :development, :test do
-  gem "ci_reporter_rspec"
   gem "ci_reporter_test_unit"
   gem "govuk_test"
   gem "jasmine"
   gem "jasmine_selenium_runner"
   gem "pry-byebug"
-  gem "rspec-rails"
   gem "rubocop-govuk"
 end
 

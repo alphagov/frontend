@@ -1,5 +1,7 @@
-RSpec.feature "json" do
-  before do
+require "integration_test_helper"
+
+class JSONTest < ActionDispatch::IntegrationTest
+  setup do
     content_item = {
       base_path: "/bank-holidays",
       schema_name: "calendar",
@@ -9,8 +11,8 @@ RSpec.feature "json" do
   end
 
   context "GET /calendars/<calendar>.json" do
-    it "contains calendar with division" do
-      visit "/bank-holidays/england-and-wales.json"
+    should "contain calendar with division" do
+      get "/bank-holidays/england-and-wales.json"
 
       expected = {
         "division" => "england-and-wales",
@@ -28,13 +30,13 @@ RSpec.feature "json" do
         ],
       }
 
-      actual = JSON.parse(page.body)
-      expect(expected["events"] - actual["events"]).to be_empty
-      expect(actual["division"]).to eq(expected["division"])
+      actual = JSON.parse(@response.body)
+      assert((expected["events"] - actual["events"]).empty?)
+      assert_equal expected["division"], actual["division"]
     end
 
-    it "has the full calendar json view" do
-      visit "/bank-holidays.json"
+    should "have the full calendar json view" do
+      get "/bank-holidays.json"
 
       expected = {
         "england-and-wales" => {
@@ -87,17 +89,18 @@ RSpec.feature "json" do
           ],
         },
       }
-      actual = JSON.parse(page.body)
+      actual = JSON.parse(@response.body)
       expected.each do |nation, expected_bank_holidays|
         actual_bank_holidays = actual.fetch(nation)
-        expect(expected_bank_holidays["events"] - actual_bank_holidays["events"]).to be_empty
-        expect(actual_bank_holidays["division"]).to eq(expected_bank_holidays["division"])
+        assert((expected_bank_holidays["events"] - actual_bank_holidays["events"]).empty?)
+        assert_equal expected_bank_holidays["division"], actual_bank_holidays["division"]
       end
     end
 
-    it "redirects for old 'ni' division" do
-      visit "/bank-holidays/ni.json"
-      expect(page.current_url).to eq("http://www.example.com/bank-holidays/northern-ireland.json")
+    should "have redirect for old 'ni' division" do
+      get "/bank-holidays/ni.json"
+      assert_equal 301, response.status
+      assert_equal "http://www.example.com/bank-holidays/northern-ireland.json", response.location
     end
   end
 end

@@ -109,12 +109,20 @@
 
         <div class="govuk-grid-column-one-third">
           <a href="/transition" aria-hidden="true" tabindex="-1">
-            <%= image_tag "homepage/time-is-running-out.jpg", {
+            <%= image_tag "homepage/time-is-running-out--480w.jpg", {
               alt: "",
               class: "home-promo__image",
               height: 400,
               loading: "lazy",
               width: 600,
+              sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
+              srcset: {
+                "homepage/time-is-running-out--600w.jpg": "600w",
+                "homepage/time-is-running-out--480w.jpg": "480w",
+                "homepage/time-is-running-out--320w.jpg": "320w",
+                "homepage/time-is-running-out--240w.jpg": "240w",
+                "homepage/time-is-running-out--170w.jpg": "170w",
+              },
             } %>
           </a>
           <h3>

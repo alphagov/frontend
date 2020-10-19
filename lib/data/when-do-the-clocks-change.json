@@ -6,42 +6,6 @@
   "body": "In the UK the clocks go forward 1 hour at 1am on the last Sunday in March, and back 1 hour at 2am on the last Sunday in October.\nThe period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).\nWhen the clocks go back, the UK is on Greenwich Mean Time (GMT).",
   "divisions": {
     "united-kingdom": {
-      "2017": [
-        {
-          "title": "Start of British Summer Time",
-          "date": "26/03/2017",
-          "notes": "Clocks go forward one hour"
-        },
-        {
-          "title": "End of British Summer Time",
-          "date": "29/10/2017",
-          "notes": "Clocks go back one hour"
-        }
-      ],
-      "2018": [
-        {
-          "title": "Start of British Summer Time",
-          "date": "25/03/2018",
-          "notes": "Clocks go forward one hour"
-        },
-        {
-          "title": "End of British Summer Time",
-          "date": "28/10/2018",
-          "notes": "Clocks go back one hour"
-        }
-      ],
-      "2019": [
-        {
-          "title": "Start of British Summer Time",
-          "date": "31/03/2019",
-          "notes": "Clocks go forward one hour"
-        },
-        {
-          "title": "End of British Summer Time",
-          "date": "27/10/2019",
-          "notes": "Clocks go back one hour"
-        }
-      ],
       "2020": [
         {
           "title": "Start of British Summer Time",

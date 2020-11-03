@@ -12,7 +12,13 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
 
   context "electric car test" do
     should "present the default variant" do
-      content_store_has_example_item("/done/vehicle-tax", schema: "completed_transaction")
+      payload = @payload.merge(details: {
+        promotion: {
+          url: "https://www.goultralow.com/ev-owners/benefits",
+          category: "electric_vehicle",
+        },
+      })
+      stub_content_store_has_item("/done/vehicle-tax", payload)
       visit "/done/vehicle-tax"
 
       assert_equal 200, page.status_code

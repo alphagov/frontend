@@ -1,6 +1,5 @@
 <% content_for :extra_headers do %>
   <meta name="robots" content="noindex, nofollow" />
-  <%= electric_car_variant.analytics_meta_tag.html_safe if electric_car_testable? %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
@@ -9,17 +8,7 @@
   edition: @edition,
 } do %>
 
-  <% if electric_car_testable? %>
-    <div class="promotion">
-      <p class="govuk-body"><%= t electric_car_translation_key("text") %></p>
-      <%= render "govuk_publishing_components/components/button", {
-        text: t(electric_car_translation_key("button_text")),
-        href: t(electric_car_translation_key("link")),
-        rel: "external",
-        margin_bottom: true
-      } %>
-    </div>
-  <% elsif @publication.promotion %>
+  <% if @publication.promotion %>
     <div class="promotion">
       <% if @publication.promotion['category'] == 'organ_donor' %>
         <p class="govuk-body">Please join the NHS Organ Donor Register.</p>
@@ -41,12 +30,11 @@
           margin_bottom: true
         } %>
       <% elsif @publication.promotion['category'] == 'electric_vehicle' %>
-        <p class="govuk-body">Make your next car electric.</p>
+        <p class="govuk-body">Information is available on electric vehicles.</p>
         <%= render "govuk_publishing_components/components/button", {
-          text: "Find out how much you could save",
+          text: "Make your next car electric",
           href: @publication.promotion['url'],
           rel: "external",
-          info_text: "Learn about electric cars",
           margin_bottom: true
         } %>
       <% end %>

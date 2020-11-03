@@ -1,42 +1,4 @@
 en:
-  ab_tests:
-    electric_car:
-      A:
-        text: "Fully electric vehicles could cost from as little as 1p per mile to run – less than a quarter of the cost of the most fuel-efficient petrol or diesel vehicles."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=A"
-      B:
-        text: "Join the 6,000 new drivers every month who make the switch to an electric vehicle."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=B"
-      C:
-        text: "Road traffic is the biggest single contributor to carbon emissions in the UK. What you drive makes a difference."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=C"
-      D:
-        text: "Between 28,000 and 36,000 people die every year as a result of air pollution. What you drive makes a difference."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=D"
-      E:
-        text: "The Government are consulting on ending the sale of new petrol, diesel and hybrid cars and vans by 2035 or earlier.  Are you ready?"
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=E"
-      F:
-        text: "Charging your electric vehicle at home can be as easy as charging your phone overnight."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=F"
-      G:
-        text: "Rapid charge points for electric vehicles are available at almost all motorway service stations in the UK."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=G"
-      H:
-        text: "Information is available on electric vehicles."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits?govuk=H"
-      Z:
-        text: "Information is available on electric vehicles."
-        button_text: "Make your next car electric"
-        link: "https://www.goultralow.com/ev-owners/benefits"
   homepage:
     get_ready: "Get ready for Brexit"
   bank-holidays:              "bank-holidays"

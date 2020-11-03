@@ -13,9 +13,9 @@
   <% if @publication.introduction.present? %>
     <section class="intro">
       <div class="get-started-intro">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: @publication.introduction.html_safe
-        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw @publication.introduction %>
+        <% end %>
       </div>
     </section>
   <% end %>
@@ -35,16 +35,16 @@
           text: "What you need to know",
           margin_bottom: 4
         } %>
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: @publication.need_to_know.html_safe
-        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw @publication.need_to_know %>
+        <% end %>
       <% end %>
 
       <% if @publication.more_information.present? %>
         <div class="more">
-          <%= render "govuk_publishing_components/components/govspeak", {
-            content: @publication.more_information.html_safe
-          } %>
+          <%= render "govuk_publishing_components/components/govspeak", {} do %>
+            <%= raw @publication.more_information %>
+          <% end %>
         </div>
       <% end %>
     </section>

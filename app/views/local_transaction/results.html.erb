@@ -58,9 +58,9 @@
   <% if @publication.more_information.present? %>
     <section class="more">
       <div class="more">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: @publication.more_information.html_safe
-        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw @publication.more_information %>
+        <% end %>
       </div>
     </section>
   <% end %>

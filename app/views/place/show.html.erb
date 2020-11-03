@@ -14,9 +14,9 @@
 
       <div class="find-nearest">
         <% if @publication.introduction.present? %>
-          <%= render "govuk_publishing_components/components/govspeak", {
-            content: @publication.introduction.html_safe
-          } %>
+          <%= render "govuk_publishing_components/components/govspeak", {} do %>
+            <%= raw @publication.introduction %>
+          <% end %>
         <% end %>
 
         <%= render partial: 'location_form',
@@ -49,15 +49,15 @@
         <div class="further-information">
           <h2 class="govuk-heading-m">Further information</h2>
           <% if @publication.need_to_know.present? %>
-            <%= render "govuk_publishing_components/components/govspeak", {
-              content: @publication.need_to_know.html_safe
-            } %>
+            <%= render "govuk_publishing_components/components/govspeak", {} do %>
+              <%= raw @publication.need_to_know %>
+            <% end %>
           <% end %>
 
           <% if @publication.more_information.present? %>
-            <%= render "govuk_publishing_components/components/govspeak", {
-              content: @publication.more_information.html_safe
-            } %>
+            <%= render "govuk_publishing_components/components/govspeak", {} do %>
+              <%= raw @publication.more_information %>
+            <% end %>
           <% end %>
         </div>
       </section>

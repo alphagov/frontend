@@ -113,7 +113,7 @@ GEM
       sentry-raven (~> 3.1.1)
       statsd-ruby (~> 1.4.0)
       unicorn (>= 5.4, < 5.8)
-    govuk_publishing_components (23.3.0)
+    govuk_publishing_components (23.5.0)
       govuk_app_config
       kramdown
       plek
@@ -249,7 +249,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.4)
-    rouge (3.24.0)
+    rouge (3.25.0)
     rubocop (0.87.1)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
@@ -326,7 +326,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     timecop (0.9.1)
-    tzinfo (1.2.7)
+    tzinfo (1.2.8)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)

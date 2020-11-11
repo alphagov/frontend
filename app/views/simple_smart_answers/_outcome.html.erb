@@ -13,8 +13,8 @@
   } %>
 
   <% if outcome.body %>
-    <%= render "govuk_publishing_components/components/govspeak", {
-      content: outcome.body.html_safe
-    } %>
+    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+      <%= raw outcome.body %>
+    <% end %>
   <% end %>
 </div>

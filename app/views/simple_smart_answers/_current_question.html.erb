@@ -7,9 +7,9 @@
       simple_smart_answer_page_title(question.title)
     end %>
 
-  <% description = render "govuk_publishing_components/components/govspeak", {
-    content: question.body.html_safe
-  } if question.body %>
+  <% description = render "govuk_publishing_components/components/govspeak", {} do
+    raw(question.body)
+  end if question.body %>
 
   <%= render "govuk_publishing_components/components/radio", {
     description: description,

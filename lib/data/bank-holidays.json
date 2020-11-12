@@ -333,7 +333,13 @@
               },
               {
                 "title": "bank_holidays.spring",
-                "date": "30/05/2022",
+                "date": "02/06/2022",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.queen_platinum",
+                "date": "03/06/2022",
                 "notes": "",
                 "bunting": true
               },
@@ -723,7 +729,13 @@
               },
               {
                 "title": "bank_holidays.spring",
-                "date": "30/05/2022",
+                "date": "02/06/2022",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.queen_platinum",
+                "date": "03/06/2022",
                 "notes": "",
                 "bunting": true
               },
@@ -1161,7 +1173,13 @@
               },
               {
                 "title": "bank_holidays.spring",
-                "date": "30/05/2022",
+                "date": "02/06/2022",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.queen_platinum",
+                "date": "03/06/2022",
                 "notes": "",
                 "bunting": true
               },

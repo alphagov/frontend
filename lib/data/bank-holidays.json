@@ -704,13 +704,13 @@
             ],
             "2022": [
               {
-                "title": "bank_holidays.2nd_january",
+                "title": "bank_holidays.new_year",
                 "date": "03/01/2022",
                 "notes": "common.substitute_day",
                 "bunting": true
               },
               {
-                "title": "bank_holidays.new_year",
+                "title": "bank_holidays.2nd_january",
                 "date": "04/01/2022",
                 "notes": "common.substitute_day",
                 "bunting": true

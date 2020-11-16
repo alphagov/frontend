@@ -29,6 +29,18 @@
           "date": "31/10/2021",
           "notes": "Clocks go back one hour"
         }
+      ],
+      "2022": [
+        {
+          "title": "Start of British Summer Time",
+          "date": "26/03/2022",
+          "notes": "Clocks go forward one hour"
+        },
+        {
+          "title": "End of British Summer Time",
+          "date": "29/10/2022",
+          "notes": "Clocks go back one hour"
+        }
       ]
     }
   }

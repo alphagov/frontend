@@ -12,13 +12,14 @@
     <div class="promotion">
       <% if @publication.promotion['category'] == 'organ_donor' %>
         <p class="govuk-body">Please join the NHS Organ Donor Register.</p>
+        <p class="govuk-body">Organ donation laws have changed - <a href="https://www.organdonation.nhs.uk/uk-laws/" rel="external" class="govuk-link">find out how the laws affect the country you live in and what your choices are</a>.</p>
         <p class="govuk-body">If you needed an organ transplant would you have one? If so please help others.</p>
-        <p class="govuk-body">If you live in Wales and want to be an organ donor, you don’t need to do anything. Find out about your choices for <a href="https://www.organdonation.nhs.uk/supporting-my-decision/welsh-legislation-what-it-means-for-me/" rel="external" class="govuk-link">organ donation in Wales</a>.</p>
+        <p class="govuk-body">Tell your family about your organ donation decision.</p>
         <%= render "govuk_publishing_components/components/button", {
-          text: "Join",
+          text: "Register to donate",
           href: @publication.promotion['url'],
           rel: "external",
-          info_text: "Register to become an organ donor",
+          info_text: "Register your organ donation decision",
           margin_bottom: true
         } %>
       <% elsif @publication.promotion['category'] == 'mot_reminder' %>

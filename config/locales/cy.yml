@@ -45,7 +45,7 @@ cy:
     christmas:     "Dydd Nadolig"
     boxing_day:    "Gŵyl San Steffan"
     queen_diamond: "Jiwbilî Diemwnt y Frenhines"
-    queen_platinum: "Jiwbilî Platinwm y Frenhines"
+    queen_platinum: "Gŵyl Banc Jiwbilî Platinwm"
   formats:
     transaction:
       name: "Gwasanaeth"

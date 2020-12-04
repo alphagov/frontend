@@ -160,9 +160,9 @@ describe("CountryFilter", function () {
       }, 1100);
     });
 
-    it("Should set aria attributes on div.js-countries-wrapper", function () {
-      var $container = $("<div class='js-travel-container' />")
-      var $countriesWrapper = $("<div class='js-countries-wrapper' />")
+    it("Should set aria attributes on `.js-country-count`", function () {
+      var $container = $("<div class='js-travel-container' />");
+      var $countriesWrapper = $("<div class='js-country-count' />");
 
       $container
         .append($input)

@@ -1,4 +1,5 @@
 /* global GOVUK */
+
 (function () {
   'use strict'
 
@@ -28,7 +29,8 @@
       }
     })
 
-    $('.js-countries-wrapper', this.container).attr('aria-live', 'polite')
+    $('.js-country-count', this.container).attr('aria-live', 'polite')
+
     $(document).bind('countrieslist', this.updateCounter)
   }
 
@@ -36,7 +38,10 @@
     var filterInst = this
     var headingHasVisibleCountries = function (headingFirstLetter) {
       var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container).find('li')
-      return countries.map(function () { if (this.style.display === 'none') { return this } }).length < countries.length
+
+      return countries.map(function () {
+        return this.style.display === 'none' ? this : undefined
+      }).length < countries.length
     }
 
     countryHeadings.each(function (index, elem) {

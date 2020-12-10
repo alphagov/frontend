@@ -1,0 +1,40 @@
+<%= render layout: 'shared/base_page', locals: {
+  title: "This service is not available in #{@country_name}",
+  publication: @publication,
+  edition: @edition,
+} do %>
+  <div class="interaction">
+    <p class="govuk-body">
+      We’ve matched the postcode to <span class="local-authority"><%= @local_authority.name %></span>.
+    </p>
+
+    <p class="govuk-body">
+      This service is not available in <span class="country-name"><%= @country_name %></span>. You can find other services on the <span class="local-authority"><%= @local_authority.name %></span> website.
+    </p>
+
+    <p id="get-started" class="get-started group">
+      <%= render "govuk_publishing_components/components/button", {
+        text: "Find other services",
+        rel: "external",
+        margin_bottom: true,
+        href: @local_authority.url,
+      } %>
+    </p>
+  </div>
+
+  <div class="search-again">
+    <%= render "govuk_publishing_components/components/back_link", {
+      href: local_transaction_search_path(@publication.slug),
+    } %>
+  </div>
+
+  <% if @publication.more_information.present? %>
+    <section class="more">
+      <div class="more">
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw @publication.more_information %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+<% end %>

@@ -8,6 +8,7 @@ class LocalAuthorityPresenter
     snac
     tier
     homepage_url
+    country_name
   ].freeze
 
   PASS_THROUGH_KEYS.each do |key|

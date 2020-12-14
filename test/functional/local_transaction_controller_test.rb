@@ -258,6 +258,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgsl: 8342,
           lgil: 8,
           url: "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks",
+          country_name: "England",
         )
       end
 
@@ -321,6 +322,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         authority_slug: "staffordshire-moorlands",
         lgsl: 1234,
         lgil: 1,
+        country_name: "England",
       )
 
       subscribe_logstasher_to_postcode_error_notification

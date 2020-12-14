@@ -16,12 +16,17 @@ class LocalTransactionController < ApplicationController
   def search
     if request.post?
       @location_error = location_error
+
       if @location_error
         @postcode = postcode
-      elsif mapit_response.location_found? && lgsl == 364 && country_name == "Northern Ireland" ## LGSL code 364 = electoral registration
-        redirect_to local_transaction_results_path(local_authority_slug: "electoral-office-for-northern-ireland")
-      elsif mapit_response.location_found? && local_authority_slug
-        redirect_to local_transaction_results_path(local_authority_slug: local_authority_slug)
+      elsif mapit_response.location_found?
+        slug = if lgsl == 364 && country_name == "Northern Ireland"
+                 "electoral-office-for-northern-ireland"
+               else
+                 local_authority_slug
+               end
+
+        redirect_to local_transaction_results_path(local_authority_slug: slug)
       end
     end
   end
@@ -30,6 +35,13 @@ class LocalTransactionController < ApplicationController
     @postcode = postcode
     @interaction_details = interaction_details
     @local_authority = local_authority
+    @country_name = @local_authority.country_name
+
+    if LocalTransactionServices.instance.unavailable?(lgsl, @country_name)
+      render :unavailable_service
+    else
+      render :results
+    end
   end
 
 private

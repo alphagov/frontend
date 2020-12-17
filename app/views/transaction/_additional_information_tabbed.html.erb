@@ -5,21 +5,21 @@
       id: ('more-information' if transaction.more_information.present?),
       label: t('formats.transaction.more_information'),
       content: render("govuk_publishing_components/components/govspeak", {}) do
-                 sanitize(transaction.more_information)
+                 raw(transaction.more_information)
                end
     },
     {
       id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
       label: t('formats.transaction.what_you_need_to_know'),
       content: render("govuk_publishing_components/components/govspeak", {}) do
-                 sanitize(transaction.what_you_need_to_know)
+                 raw(transaction.what_you_need_to_know)
                end
     },
     {
       id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
       label: t('formats.transaction.other_ways_to_apply'),
       content: render("govuk_publishing_components/components/govspeak", {}) do
-                 sanitize(transaction.other_ways_to_apply)
+                 raw(transaction.other_ways_to_apply)
                end
     }
   ].reject {|item| item[:id].blank?}

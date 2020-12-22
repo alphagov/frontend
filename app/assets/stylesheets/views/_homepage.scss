@@ -31,11 +31,6 @@ body.homepage {
   position: relative;
 }
 
-.home-top__title {
-  @include govuk-font(48, $weight: bold);
-  padding: 25px 0 15px;
-}
-
 .home-top__intro {
   margin: 0;
 }

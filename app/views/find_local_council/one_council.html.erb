@@ -1,6 +1,8 @@
 <%= render layout: 'base_page' do %>
-  <h2 class="govuk-heading-m">Your postcode is in:</h2>
-
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Your postcode is in:",
+    margin_bottom: 4,
+  } %>
   <div class="local-authority-results"
        data-module="auto-track-event"
        data-track-category="postcodeSearch:find_local_council"

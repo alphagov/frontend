@@ -1,6 +1,9 @@
 <%= render layout: 'base_page' do %>
-  <h2 class="govuk-heading-m">Your postcode is in a county council and a district council.</h2>
-
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Your postcode is in a county council and a district council.",
+    margin_bottom: 4,
+    font_size: "m",
+  } %>
   <div class="local-authority-results"
        data-module="auto-track-event"
        data-track-category="postcodeSearch:find_local_council"
@@ -15,12 +18,12 @@
           We don't have a link for their website.
         <% else %>
           Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"], class: "govuk-link",
-                              data: {
-                                module: 'track-click',
-                                track_category: 'pageElementInteraction',
-                                track_action: 'countyLinkClicked',
-                                track_label: @county["homepage_url"]
-                              } %>
+            data: {
+              module: 'track-click',
+              track_category: 'pageElementInteraction',
+              track_action: 'countyLinkClicked',
+              track_label: @county["homepage_url"]
+            } %>
         <% end %>
       </p>
 

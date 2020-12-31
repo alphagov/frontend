@@ -27,7 +27,7 @@ private
     return {} if error?
 
     @content_item ||= handle_api_errors do
-      GdsApi.content_store.content_item("/#{slug}")
+      CachedContentItem.fetch("/#{slug}")
     end
   end
 

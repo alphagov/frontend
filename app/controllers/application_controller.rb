@@ -79,7 +79,7 @@ protected
   end
 
   def content_item(base_path = "/#{params[:slug]}")
-    @content_item ||= GdsApi.content_store.content_item(base_path)
+    @content_item ||= CachedContentItem.fetch(base_path)
   end
 
 private

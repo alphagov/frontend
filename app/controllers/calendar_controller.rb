@@ -12,7 +12,7 @@ class CalendarController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @content_item = GdsApi.content_store.content_item("/#{scope}").to_hash
+        @content_item = CachedContentItem.fetch("/#{scope}").to_hash
         section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
         if section_name
           @meta_section = section_name.downcase

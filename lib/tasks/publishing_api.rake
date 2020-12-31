@@ -5,7 +5,7 @@ namespace :publishing_api do
 
     publisher = SpecialRoutePublisher.new(
       logger: logger,
-      publishing_api: Services.publishing_api,
+      publishing_api: GdsApi.publishing_api,
     )
 
     SpecialRoutePublisher.routes.each do |route_type, routes_for_type|
@@ -14,7 +14,7 @@ namespace :publishing_api do
       end
     end
 
-    HomepagePublisher.publish!(Services.publishing_api, logger)
+    HomepagePublisher.publish!(GdsApi.publishing_api, logger)
   end
 
   desc "Publish calendars"

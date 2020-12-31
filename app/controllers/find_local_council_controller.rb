@@ -1,7 +1,7 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ApplicationController
-  before_action -> { setup_content_item(BASE_PATH) }
+  before_action -> { fetch_and_setup_content_item(BASE_PATH) }
   before_action :set_expiry
 
   BASE_PATH = "/find-local-council".freeze

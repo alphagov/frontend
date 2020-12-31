@@ -53,7 +53,7 @@ protected
     end
   end
 
-  def setup_content_item(base_path)
+  def fetch_and_setup_content_item(base_path)
     @content_item = content_item(base_path).to_hash
 
     section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")

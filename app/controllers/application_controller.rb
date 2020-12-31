@@ -54,15 +54,19 @@ protected
   end
 
   def fetch_and_setup_content_item(base_path)
-    @content_item = content_item(base_path).to_hash
+    setup_content_item(content_item(base_path))
+  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
+    @content_item = nil
+    @meta_section = nil
+  end
+
+  def setup_content_item(content_item)
+    @content_item = content_item.to_hash
 
     section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
     if section_name
       @meta_section = section_name.downcase
     end
-  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
-    @content_item = nil
-    @meta_section = nil
   end
 
   def set_content_item(presenter = ContentItemPresenter)

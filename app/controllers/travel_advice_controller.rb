@@ -3,7 +3,7 @@ class TravelAdviceController < ApplicationController
 
   def index
     set_expiry
-    setup_content_item("/" + FOREIGN_TRAVEL_ADVICE_SLUG)
+    fetch_and_setup_content_item("/" + FOREIGN_TRAVEL_ADVICE_SLUG)
     @presenter = TravelAdviceIndexPresenter.new(@content_item)
 
     respond_to do |format|

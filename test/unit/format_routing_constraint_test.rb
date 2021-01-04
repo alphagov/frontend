@@ -5,71 +5,64 @@ class FormatRoutingConstraintTest < ActiveSupport::TestCase
     context "when the content_store returns a document" do
       setup do
         @format = "foo"
-        @inspector = stub(new: stub(format: @format, error: nil))
+        stub_content_store_has_item("/#{slug}", schema_name: @format)
+        @request = request
       end
 
       should "return true if format matches" do
-        assert subject(@format, @inspector).matches?(request)
+        assert subject(@format).matches?(@request)
       end
 
       should "return false if format doesn't match" do
-        assert_not subject("not_the_format", @inspector).matches?(request)
+        assert_not subject("not_the_format").matches?(@request)
+      end
+
+      should "set the content item on the request object" do
+        subject(@format).matches?(@request)
+        assert @request.env[:content_item].present?
       end
     end
 
     context "when the content_store API call throws an error" do
       setup do
-        @error = GdsApi::HTTPNotFound.new(404)
-        @inspector = stub(new: stub(format: nil, error: @error))
+        stub_content_store_does_not_have_item("/#{slug}")
         @request = request
       end
 
       should "return false" do
-        assert_not subject("foo", @inspector).matches?(@request)
+        assert_not subject("any_format").matches?(@request)
       end
 
       should "set an error on the request object" do
-        subject("foo", @inspector).matches?(@request)
-        assert @request.env[:__api_error] == @error
+        subject("any_format").matches?(@request)
+        assert @request.env[:content_item_error].present?
       end
     end
   end
 
-  context "instances are memoized and used across multiple requests" do
+  context "content items are memoized and used across multiple requests" do
     setup do
-      @api_proxy = stub
-      @format = "static across requests"
-      @content_format_inspector_instance = stub(format: @format, error: nil)
-      @subject = subject("foo", @api_proxy)
-    end
-
-    should "make new API calls each time" do
-      @api_proxy.expects(:new).twice.returns(@content_format_inspector_instance)
-      @subject.matches?(request)
-      @subject.matches?(request)
-    end
-  end
-
-  context "a request will be passed to multiple instances" do
-    setup do
-      @api_proxy = stub
-      @inspector_instance = stub(format: "baz", error: nil)
+      @stub = stub_content_store_has_item("/#{slug}", schema_name: "foo")
+      @subject = subject("foo")
       @request = request
     end
 
-    should "not make additional API calls" do
-      @api_proxy.expects(:new).once.returns(@inspector_instance)
-      subject("foo", @api_proxy).matches?(@request)
-      subject("bar", @api_proxy).matches?(@request)
+    should "only make one API call" do
+      @subject.matches?(@request)
+      @subject.matches?(@request)
+      assert_requested @stub, times: 1
     end
   end
 
-  def request
-    env = {}
-    stub(params: { slug: "test_slug" }, env: env)
+  def slug
+    "test_slug"
   end
 
-  def subject(format, content_format_inspector)
-    FormatRoutingConstraint.new(format, content_format_inspector: content_format_inspector)
+  def request
+    stub(params: { slug: slug }, env: {})
+  end
+
+  def subject(format)
+    FormatRoutingConstraint.new(format)
   end
 end

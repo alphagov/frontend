@@ -7,7 +7,7 @@ class HomepageController < ApplicationController
       remove_search: true,
     )
 
-    setup_content_item("/")
+    fetch_and_setup_content_item("/")
 
     render locals: { full_width: true }
   end

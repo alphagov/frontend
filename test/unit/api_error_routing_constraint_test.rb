@@ -3,7 +3,7 @@ require "api_error_routing_constraint"
 
 class ApiErrorRoutingConstraintTest < ActiveSupport::TestCase
   should "return true if there's a cached error" do
-    request = stub(env: { __api_error: StandardError.new })
+    request = stub(env: { content_item_error: StandardError.new })
     assert subject.matches?(request)
   end
 

@@ -18,3 +18,4 @@ public/frontend
 app/assets/javascripts/templates.js
 rubocop-*.html
 node_modules
+yarn-error.log

@@ -130,7 +130,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show link to change location" do
-        assert page.has_link?("Back")
         assert_not page.has_link?("(change location)")
       end
     end
@@ -333,10 +332,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert_not page.has_content?("owning or looking after a bear")
       end
 
-      should "show back link to go back and try a different postcode" do
-        assert page.has_link?("Back")
-      end
-
       should "add google analytics tags" do
         track_category = page.find(".local-authority-result")["data-track-category"]
         track_action = page.find(".local-authority-result")["data-track-action"]
@@ -381,10 +376,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     should "not present the form again" do
       assert page.has_no_field? "postcode"
-    end
-
-    should "show back link to go back and try a different postcode" do
-      assert page.has_link?("Back")
     end
 
     should "add google analytics tags" do

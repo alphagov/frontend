@@ -26,6 +26,8 @@ updates:
         dependency-type: direct
       - dependency-name: jasmine
         dependency-type: direct
+      - dependency-name: sassc-rails
+        dependency-type: direct
 
   - package-ecosystem: docker
     directory: /

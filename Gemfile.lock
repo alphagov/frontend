@@ -281,13 +281,6 @@ GEM
     ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -384,8 +377,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n
   rubocop-govuk
-  sass
-  sass-rails
+  sassc-rails
   shoulda-context
   simplecov
   slimmer

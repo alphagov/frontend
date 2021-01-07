@@ -1,20 +1,20 @@
-describe('A form submit tracker', function() {
-  "use strict";
+describe('A form submit tracker', function () {
+  'use strict'
 
   var tracker,
-      element;
+    element
 
-  beforeEach(function() {
-    GOVUK.analytics = {trackEvent: function() {}};
-    tracker = new GOVUK.Modules.TrackSubmit();
-  });
+  beforeEach(function () {
+    GOVUK.analytics = { trackEvent: function () {} }
+    tracker = new GOVUK.Modules.TrackSubmit()
+  })
 
-  afterEach(function() {
-    delete GOVUK.analytics;
-  });
+  afterEach(function () {
+    delete GOVUK.analytics
+  })
 
-  it('tracks submit events', function() {
-    spyOn(GOVUK.analytics, 'trackEvent');
+  it('tracks submit events', function () {
+    spyOn(GOVUK.analytics, 'trackEvent')
 
     element = $('\
       <div \
@@ -24,12 +24,12 @@ describe('A form submit tracker', function() {
           <button id="submit-button" type="submit">Submit</button>\
         </form>\
       </div>\
-    ');
+    ')
 
-    tracker.start(element);
+    tracker.start(element)
 
-    element.find('form').trigger('submit');
+    element.find('form').trigger('submit')
 
-    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action');
-  });
-});
+    expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action')
+  })
+})

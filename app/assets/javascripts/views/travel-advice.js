@@ -104,7 +104,7 @@
 
     this.filterHeadings(countryHeadings)
 
-    $(document).trigger('countrieslist', { 'count': itemsShowing })
+    $(document).trigger('countrieslist', { count: itemsShowing })
   }
 
   CountryFilter.prototype.updateCounter = function (e, eData) {
@@ -127,7 +127,7 @@
     var pagePath = this.pagePath()
     this._trackTimeout = root.setTimeout(function () {
       if (pagePath) {
-        GOVUK.analytics.trackEvent('searchBoxFilter', search, {label: pagePath, nonInteraction: true})
+        GOVUK.analytics.trackEvent('searchBoxFilter', search, { label: pagePath, nonInteraction: true })
       }
     }, 1000)
   }

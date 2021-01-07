@@ -1,7 +1,7 @@
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
-(function(Modules) {
-  "use strict";
+(function (Modules) {
+  'use strict'
 
   Modules.TrackSmartAnswer = function () {
     this.start = function (element) {

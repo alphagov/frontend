@@ -1,11 +1,11 @@
 describe('tracking smart answer progress', function () {
-  "use strict"
+  'use strict'
 
   var tracker
-  var element;
+  var element
 
   beforeEach(function () {
-    GOVUK.analytics = {trackEvent: function () {}}
+    GOVUK.analytics = { trackEvent: function () {} }
     tracker = new GOVUK.Modules.TrackSmartAnswer()
     spyOn(GOVUK.analytics, 'trackEvent')
     spyOn(tracker, 'currentPath').and.returnValue('/the-bridge-of-death/y/sir-lancelot-of-camelot/blue')

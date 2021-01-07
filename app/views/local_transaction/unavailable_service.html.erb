@@ -1,3 +1,9 @@
+<div class="search-again">
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: local_transaction_search_path(@publication.slug),
+  } %>
+</div>
+
 <%= render layout: 'shared/base_page', locals: {
   title: "This service is not available in #{@country_name}",
   publication: @publication,
@@ -20,12 +26,6 @@
         href: @local_authority.url,
       } %>
     </p>
-  </div>
-
-  <div class="search-again">
-    <%= render "govuk_publishing_components/components/back_link", {
-      href: local_transaction_search_path(@publication.slug),
-    } %>
   </div>
 
   <% if @publication.more_information.present? %>

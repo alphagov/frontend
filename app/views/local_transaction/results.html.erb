@@ -1,3 +1,9 @@
+<div class="search-again">
+  <%= render "govuk_publishing_components/components/back_link", {
+    href: local_transaction_search_path(@publication.slug),
+  } %>
+</div>
+
 <%= render layout: 'shared/base_page', locals: {
   title: @publication.title,
   publication: @publication,
@@ -48,12 +54,6 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="search-again">
-    <%= render "govuk_publishing_components/components/back_link", {
-      href: local_transaction_search_path(@publication.slug),
-    } %>
-  </div>
 
   <% if @publication.more_information.present? %>
     <section class="more">

@@ -7,6 +7,5 @@ node() {
   govuk.buildProject(
     sassLint: false,
     publishingE2ETests: true,
-    rubyLintDiff: false
   )
 }

@@ -13,5 +13,4 @@
 
 //= require transactions
 //= require support
-//= require templates
 //= require_tree ./modules

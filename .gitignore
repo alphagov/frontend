@@ -5,16 +5,9 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 .bundle
-autotest
-.autotest
-db/*.sqlite3
 log/*.log
 tmp/
 coverage
-test/reports
-/public/autocomplete
-public/frontend
-.sass-cache
-rubocop-*.html
+public/assets
 node_modules
 yarn-error.log

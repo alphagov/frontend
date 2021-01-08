@@ -29,7 +29,7 @@ Transaction start pages:
 
 Some examples:
 
-* https://www.gov.uk/riding-establishment-licence
+* https://www.gov.uk/guidance/hire-out-horses-licence-england
 * https://www.gov.uk/premises-licence
 * https://www.gov.uk/temporary-events-notice
 * https://www.gov.uk/apply-skip-permit

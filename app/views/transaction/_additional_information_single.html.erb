@@ -1,6 +1,9 @@
 <% if transaction.more_information.present? %>
   <div id="before-you-start">
-    <h2 class="govuk-heading-m"><%= t 'formats.transaction.before_you_start' %></h2>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("formats.transaction.before_you_start"),
+      margin_bottom: 4,
+    } %>
     <%= render "govuk_publishing_components/components/govspeak", { } do %>
       <%= transaction.more_information.try(:html_safe) %>
     <% end %>
@@ -9,7 +12,10 @@
 
 <% if transaction.what_you_need_to_know.present? %>
   <div id="what-you-need-to-know">
-    <h2 class="govuk-heading-m"><%= t 'formats.transaction.what_you_need_to_know' %></h2>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("formats.transaction.what_you_need_to_know"),
+      margin_bottom: 4,
+    } %>
     <%= render "govuk_publishing_components/components/govspeak", { } do %>
       <%= transaction.what_you_need_to_know.try(:html_safe) %>
     <% end %>
@@ -18,7 +24,10 @@
 
 <% if transaction.other_ways_to_apply.present? %>
   <div id="other-ways-to-apply">
-    <h2 class="govuk-heading-m"><%= t 'formats.transaction.other_ways_to_apply' %></h2>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("formats.transaction.other_ways_to_apply"),
+      margin_bottom: 4,
+    } %>
     <%= render "govuk_publishing_components/components/govspeak", { } do %>
       <%= transaction.other_ways_to_apply.try(:html_safe) %>
     <% end %>

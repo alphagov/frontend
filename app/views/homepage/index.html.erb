@@ -10,7 +10,12 @@
     <div class="govuk-width-container home-top__inner">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <h1 class="home-top__title">Welcome to GOV.UK</h1>
+          <%= render "govuk_publishing_components/components/title", {
+            title: "Welcome to GOV.UK",
+            inverse: true,
+            margin_top: 5,
+            margin_bottom: 3
+          } %>
           <p class="home-top__intro">The best place to find government services and information</p>
           <p class="home-top__intro home-top__intro--simpler">Simpler, clearer, faster</p>
 

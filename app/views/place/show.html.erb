@@ -11,33 +11,31 @@
 } do %>
   <section class="intro">
     <div class="get-started-intro">
-
       <div class="find-nearest">
         <% if @publication.introduction.present? %>
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
             <%= raw @publication.introduction %>
           <% end %>
         <% end %>
-
         <%= render partial: 'location_form',
-                   locals: {
-                     format: 'service',
-                     publication_format: 'place',
-                     postcode: postcode,
-                   } %>
+          locals: {
+            format: 'service',
+            publication_format: 'place',
+            postcode: postcode,
+            } %>
       </div>
     </div>
   </section>
-
   <% if postcode_provided? && !@location_error %>
     <section class="places-results"
-             data-module="auto-track-event"
-             data-track-category="<%= track_category_for_place_results(@publication.places) %>"
-             data-track-action="<%= track_action_for_place_results(@publication.places) %>"
-             data-track-label="<%= track_label_for_place_results(@publication.places) %>">
-
+      data-module="auto-track-event"
+      data-track-category="<%= track_category_for_place_results(@publication.places) %>"
+      data-track-action="<%= track_action_for_place_results(@publication.places) %>"
+      data-track-label="<%= track_label_for_place_results(@publication.places) %>">
       <% if @publication.places.any? %>
-        <h2 class="govuk-heading-m">Results <%= preposition ||= "near" %> <strong><%= postcode %></strong>:</h2>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "#{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe
+        } %>
         <ol id="options" class="places">
           <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
         </ol>
@@ -47,13 +45,15 @@
     <% if @publication.need_to_know.present? || @publication.more_information.present? %>
       <section class="more">
         <div class="further-information">
-          <h2 class="govuk-heading-m">Further information</h2>
+          <%= render "govuk_publishing_components/components/heading", {
+            text: "Further information",
+            margin_bottom: 4,
+          } %>
           <% if @publication.need_to_know.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
               <%= raw @publication.need_to_know %>
             <% end %>
           <% end %>
-
           <% if @publication.more_information.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
               <%= raw @publication.more_information %>

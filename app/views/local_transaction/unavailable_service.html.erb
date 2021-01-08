@@ -22,12 +22,6 @@
     </p>
   </div>
 
-  <div class="search-again">
-    <%= render "govuk_publishing_components/components/back_link", {
-      href: local_transaction_search_path(@publication.slug),
-    } %>
-  </div>
-
   <% if @publication.more_information.present? %>
     <section class="more">
       <div class="more">

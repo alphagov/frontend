@@ -1,4 +1,6 @@
 // Remove search from the top bar as we have one in the content.
+
+// stylelint-disable selector-no-qualifying-type, selector-max-id
 body.homepage {
   #global-header-bar {
     display: none;
@@ -21,6 +23,7 @@ body.homepage {
     }
   }
 }
+// stylelint-enable selector-no-qualifying-type, selector-max-id
 
 .home-top {
   overflow: hidden;

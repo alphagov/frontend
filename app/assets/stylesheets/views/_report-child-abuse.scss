@@ -2,7 +2,7 @@
   padding-top: govuk-spacing(3);
   padding-bottom: govuk-spacing(3);
 
-  p.tel-report-child-abuse {
+  p.tel-report-child-abuse { // stylelint-disable-line selector-no-qualifying-type
     @include govuk-font(24);
   }
 }

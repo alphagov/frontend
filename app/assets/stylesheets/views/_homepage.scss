@@ -3,6 +3,7 @@ body.homepage {
   #global-header-bar {
     display: none;
   }
+
   #wrapper,
   #content {
     margin: 0;
@@ -134,13 +135,13 @@ body.homepage {
 }
 
 .home-divider {
-  margin: 30px 0 15px 0;
+  margin: govuk-spacing(6) 0 govuk-spacing(3);
   clear: both;
   border: 5px solid govuk-colour("black");
   border-width: 5px 0 0;
 
   @include govuk-media-query($from: tablet) {
-    margin: 30px 0 30px 0;
+    margin: govuk-spacing(6) 0;
   }
 }
 

@@ -2,9 +2,8 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path("config/application", __dir__)
-require "rake"
-require "ci/reporter/rake/test_unit" if Rails.env.development? || Rails.env.test?
 
-Frontend::Application.load_tasks
+Rails.application.load_tasks
 
-task default: [:lint, :test, "jasmine:ci"]
+Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
+task default: %i[lint test jasmine:ci]

@@ -1,5 +1,5 @@
 // Foreign travel advice tests
-var GOVUK_test = {
+var GOVUKTest = {
   countryFilter: {
     threeCategories: '<div id="W" class="list">' +
       '<h3>' +
@@ -27,8 +27,8 @@ var GOVUK_test = {
   }
 }
 
-GOVUK_test.countryFilter.categories = {
-  allWithCountries: '<section class="countries-wrapper">' + GOVUK_test.countryFilter.threeCategories + '</section>',
+GOVUKTest.countryFilter.categories = {
+  allWithCountries: '<section class="countries-wrapper">' + GOVUKTest.countryFilter.threeCategories + '</section>',
   twoWithoutCountries: '<section><div id="W" class="list">' +
     '<h3>' +
     '<span class="visuallyhidden">Countries starting with </span>W</h3>' +
@@ -54,14 +54,15 @@ GOVUK_test.countryFilter.categories = {
     '</div></section>'
 }
 
-GOVUK_test.countryFilter.synonyms = {
+GOVUKTest.countryFilter.synonyms = {
   noSynonyms: '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>',
   withSaharaSynonym: '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>',
   withUSASynonym: '<li data-synonyms="United States|America|arctic" style="display: list-item;"><a href="/foreign-travel-advice/usa">USA</a></li>'
 }
 
-GOVUK_test.countryFilter.countryCounter = '<p class="js-country-count"><span class="js-filter-count"></span></p>'
+GOVUKTest.countryFilter.countryCounter = '<p class="js-country-count"><span class="js-filter-count"></span></p>'
 
+/* eslint-disable new-cap */
 describe('CountryFilter', function () {
   var $input,
     filter
@@ -189,25 +190,25 @@ describe('CountryFilter', function () {
     it('Should leave headings with their countries showing visible', function () {
       var $headings
 
-      $countries = $(GOVUK_test.countryFilter.categories.allWithCountries)
+      $countries = $(GOVUKTest.countryFilter.categories.allWithCountries)
       filter = new GOVUK.countryFilter($input)
       filter.container = $countries
       $headings = $countries.find('h3')
 
       filter.filterHeadings($headings)
-      expect($headings.map(function () { if ($(this).css('display') !== 'none') { return this } }).length).toEqual(3)
+      expect($headings.filter(function () { return this.style.display !== 'none' }).length).toEqual(3)
     })
 
     it('Should make headings with no visible countries invisible by hiding the wrapper', function () {
       var $headings
 
-      $countries = $(GOVUK_test.countryFilter.categories.twoWithoutCountries)
+      $countries = $(GOVUKTest.countryFilter.categories.twoWithoutCountries)
       filter = new GOVUK.countryFilter($input)
       filter.container = $countries
       $headings = $countries.find('h3')
 
       filter.filterHeadings($headings)
-      expect($headings.map(function () { if ($(this).parent().css('display') !== 'none') { return this } }).length).toEqual(1)
+      expect($headings.filter(function () { return this.parentNode.style.display !== 'none' }).length).toEqual(1)
     })
   })
 
@@ -219,21 +220,21 @@ describe('CountryFilter', function () {
     })
 
     it('Should not find a match on an element with no synonyms', function () {
-      var element = $(GOVUK_test.countryFilter.synonyms.noSynonyms)[0]
+      var element = $(GOVUKTest.countryFilter.synonyms.noSynonyms)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
       expect(result).toBe(false)
     })
 
-    if ('Should find a match on an element with a single synonym equal to that sent', function () {
-      var element = $(GOVUK_test.countryFilter.synonyms.withSaharaSynonym)[0]
+    it('Should find a match on an element with a single synonym equal to that sent', function () {
+      var element = $(GOVUKTest.countryFilter.synonyms.withSaharaSynonym)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
       expect(result).toBe(true)
-    });
+    })
 
     it('Should find no match on an element with no synonyms equal to that sent', function () {
-      var element = $(GOVUK_test.countryFilter.synonyms.withUSASynonym)[0]
+      var element = $(GOVUKTest.countryFilter.synonyms.withUSASynonym)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
       expect(result).toBe(false)
@@ -244,9 +245,9 @@ describe('CountryFilter', function () {
     var $counter
 
     beforeEach(function () {
-      $container = $(
+      $(
         '<div class="js-travel-container">' +
-          GOVUK_test.countryFilter.countryCounter +
+          GOVUKTest.countryFilter.countryCounter +
         '</div>'
       ).append($input)
 
@@ -276,14 +277,12 @@ describe('CountryFilter', function () {
 
   describe('CountryFilter.filterListItems', function () {
     var $countries
-    var $container
-    var filterListItems = GOVUK.countryFilter.prototype.filterListItems
     var trigger = $.fn.trigger
 
     beforeEach(function () {
-      $countries = $(GOVUK_test.countryFilter.categories.allWithCountries)
-      $counter = $(GOVUK_test.countryFilter.countryCounter)
-      $container = $('<div class="js-travel-container"></div>')
+      $countries = $(GOVUKTest.countryFilter.categories.allWithCountries)
+      var $counter = $(GOVUKTest.countryFilter.countryCounter)
+      $('<div class="js-travel-container"></div>')
         .append($input)
         .append($countries)
         .append($counter)
@@ -323,11 +322,9 @@ describe('CountryFilter', function () {
       filter.filterListItems('Yem')
       visibleCountries = $countries
         .find('ul.js-countries-list li')
-        .map(function () {
-          if (this.style.display !== 'none') {
-            return this
-          }
-        })
+        .filter(function () { return this.style.display !== 'none' })
+
+      console.log(visibleCountries)
 
       expect(visibleCountries.length).toEqual(1)
     })
@@ -336,7 +333,9 @@ describe('CountryFilter', function () {
       var visibleCountries
 
       filter.filterListItems('Z')
-      visibleCountries = $countries.find('ul.js-countries-list li').map(function () { if (this.style.display !== 'none') return this })
+      visibleCountries = $countries
+        .find('ul.js-countries-list li')
+        .filter(function () { return this.style.display !== 'none' })
       expect(visibleCountries.length).toEqual(2)
     })
   })

@@ -95,7 +95,7 @@
         }
       })
       if (synonymMatch) {
-        itemsShowing = listItems.map(function () { if (this.style.display !== 'none') { return this } }).length
+        itemsShowing = listItems.filter(function () { return this.style.display !== 'none' }).length
       }
     } else {
       countryHeadings.show()
@@ -138,7 +138,7 @@
 
   GOVUK.countryFilter = CountryFilter
 
-  $('#country-filter input#country').map(function (idx, input) {
+  $('#country-filter input#country').each(function (idx, input) {
     new GOVUK.countryFilter($(input)) // eslint-disable-line new-cap, no-new
   })
 }).call(this)

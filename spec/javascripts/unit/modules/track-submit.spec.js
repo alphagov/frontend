@@ -16,15 +16,13 @@ describe('A form submit tracker', function () {
   it('tracks submit events', function () {
     spyOn(GOVUK.analytics, 'trackEvent')
 
-    element = $('\
-      <div \
-        data-track-category="category"\
-        data-track-action="action">\
-        <form method="post">\
-          <button id="submit-button" type="submit">Submit</button>\
-        </form>\
-      </div>\
-    ')
+    element = $(
+      '<div data-track-category="category" data-track-action="action">' +
+        '<form method="post">' +
+          '<button id="submit-button" type="submit">Submit</button>' +
+        '</form>' +
+      '</div>'
+    )
 
     tracker.start(element)
 

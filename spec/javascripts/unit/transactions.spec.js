@@ -27,6 +27,8 @@ describe('Transactions', function () {
   })
 
   describe('appendGaClientIdToAskSurvey', function () {
+    var $specialAskTransaction
+
     window.ga = function (callback) {
       var tracker = { get: function () { return 'clientId' } }
       callback(tracker)

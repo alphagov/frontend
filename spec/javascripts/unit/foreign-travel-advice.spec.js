@@ -230,7 +230,7 @@ describe('CountryFilter', function () {
       var element = $(GOVUKTest.countryFilter.synonyms.withSaharaSynonym)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
-      expect(result).toBe(true)
+      expect(result).toBe('Sahel')
     })
 
     it('Should find no match on an element with no synonyms equal to that sent', function () {

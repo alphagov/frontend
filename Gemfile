@@ -12,8 +12,7 @@ gem "invalid_utf8_rejector"
 gem "plek"
 gem "rack_strip_client_ip"
 gem "rails-i18n"
-gem "sass"
-gem "sass-rails"
+gem "sassc-rails"
 gem "slimmer"
 gem "sprockets-rails"
 gem "uglifier"
@@ -26,7 +25,6 @@ group :development do
 end
 
 group :development, :test do
-  gem "ci_reporter_test_unit"
   gem "govuk_test"
   gem "jasmine"
   gem "jasmine_selenium_runner"
@@ -35,7 +33,6 @@ group :development, :test do
 end
 
 group :test do
-  gem "ci_reporter"
   gem "govuk-content-schema-test-helpers"
   gem "govuk_schemas"
   gem "mocha"

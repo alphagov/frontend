@@ -1,10 +1,10 @@
-"use strict";
+'use strict'
 describe('cookieSettings', function () {
   var cookieSettings,
-      container,
-      element,
-      confirmationContainer,
-      fakePreviousURL;
+    container,
+    element,
+    confirmationContainer,
+    fakePreviousURL
 
   beforeEach(function () {
     GOVUK.analytics = { trackEvent: function () {} }
@@ -28,7 +28,7 @@ describe('cookieSettings', function () {
     document.body.appendChild(container)
 
     confirmationContainer = document.createElement('div')
-    confirmationContainer.style.display = "none"
+    confirmationContainer.style.display = 'none'
     confirmationContainer.setAttribute('data-cookie-confirmation', 'true')
     confirmationContainer.innerHTML =
       '<a class="cookie-settings__prev-page" href="#">View previous page</a>'
@@ -36,12 +36,12 @@ describe('cookieSettings', function () {
     document.body.appendChild(confirmationContainer)
 
     element = document.querySelector('[data-module=cookie-settings]')
-  });
+  })
 
   afterEach(function () {
     document.body.removeChild(container)
     document.body.removeChild(confirmationContainer)
-  });
+  })
 
   describe('setInitialFormValues', function () {
     it('sets a consent cookie by default', function () {
@@ -51,7 +51,7 @@ describe('cookieSettings', function () {
       cookieSettings.start(element)
 
       expect(window.GOVUK.setDefaultConsentCookie).toHaveBeenCalled()
-    });
+    })
 
     it('sets all radio buttons to the default values', function () {
       cookieSettings.start(element)
@@ -59,7 +59,7 @@ describe('cookieSettings', function () {
       var radioButtons = element.querySelectorAll('input[value=on]')
       var consentCookieJSON = JSON.parse(window.GOVUK.cookie('cookies_policy'))
 
-      for(var i = 0; i < radioButtons.length; i++) {
+      for (var i = 0; i < radioButtons.length; i++) {
         var name = radioButtons[i].name.replace('cookies-', '')
 
         if (consentCookieJSON[name]) {
@@ -68,8 +68,8 @@ describe('cookieSettings', function () {
           expect(radioButtons[i].checked).not.toBeTruthy()
         }
       }
-    });
-  });
+    })
+  })
 
   describe('submitSettingsForm', function () {
     it('updates consent cookie with any changes', function () {
@@ -79,14 +79,14 @@ describe('cookieSettings', function () {
       element.querySelector('#settings-on').checked = false
       element.querySelector('#settings-off').checked = true
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
       var cookie = JSON.parse(GOVUK.cookie('cookies_policy'))
 
-      expect(window.GOVUK.setConsentCookie).toHaveBeenCalledWith({"settings": false, "usage": false, "campaigns": false})
-      expect(cookie['settings']).toBeFalsy()
-    });
+      expect(window.GOVUK.setConsentCookie).toHaveBeenCalledWith({ settings: false, usage: false, campaigns: false })
+      expect(cookie.settings).toBeFalsy()
+    })
 
     it('sets cookies_preferences_set cookie on form submit', function () {
       spyOn(window.GOVUK, 'setCookie').and.callThrough()
@@ -96,12 +96,12 @@ describe('cookieSettings', function () {
 
       expect(GOVUK.cookie('cookies_preferences_set')).toEqual(null)
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
-      expect(window.GOVUK.setCookie).toHaveBeenCalledWith("cookies_preferences_set", true, { days: 365 } )
+      expect(window.GOVUK.setCookie).toHaveBeenCalledWith('cookies_preferences_set', true, { days: 365 })
       expect(GOVUK.cookie('cookies_preferences_set')).toBeTruthy()
-    });
+    })
 
     it('fires a Google Analytics event', function () {
       spyOn(GOVUK.analytics, 'trackEvent').and.callThrough()
@@ -110,64 +110,63 @@ describe('cookieSettings', function () {
       element.querySelector('#settings-on').checked = false
       element.querySelector('#settings-off').checked = true
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
       expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('cookieSettings', 'Save changes', { label: 'settings-no usage-no campaigns-no ' })
-    });
-  });
+    })
+  })
 
   describe('showConfirmationMessage', function () {
     it('sets the previous referrer link if one is present', function () {
-      fakePreviousURL = "/student-finance"
+      fakePreviousURL = '/student-finance'
 
       cookieSettings.start(element)
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
       var previousLink = document.querySelector('.cookie-settings__prev-page')
 
-      expect(previousLink.style.display).toEqual("inline")
+      expect(previousLink.style.display).toEqual('inline')
       expect(previousLink.href).toContain('/student-finance')
-    });
+    })
 
     it('does not set a referrer if one is not present', function () {
       fakePreviousURL = null
 
       cookieSettings.start(element)
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
       var previousLink = document.querySelector('.cookie-settings__prev-page')
 
-      expect(previousLink.style.display).toEqual("none")
-    });
+      expect(previousLink.style.display).toEqual('none')
+    })
 
     it('does not set a referrer if URL is the same as current page (cookies page)', function () {
       fakePreviousURL = document.location.pathname
 
       cookieSettings.start(element)
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
       var previousLink = document.querySelector('.cookie-settings__prev-page')
 
-      expect(previousLink.style.display).toEqual("none")
-    });
+      expect(previousLink.style.display).toEqual('none')
+    })
 
     it('shows a confirmation message', function () {
       var confirmationMessage = document.querySelector('[data-cookie-confirmation]')
 
       cookieSettings.start(element)
 
-      var button = element.querySelector("#submit-button")
+      var button = element.querySelector('#submit-button')
       button.click()
 
       expect(confirmationMessage.style.display).toEqual('block')
-    });
-  });
-});
-
+    })
+  })
+})

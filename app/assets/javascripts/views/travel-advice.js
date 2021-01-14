@@ -95,7 +95,7 @@
         }
       })
       if (synonymMatch) {
-        itemsShowing = listItems.map(function () { if (this.style.display !== 'none') { return this } }).length
+        itemsShowing = listItems.filter(function () { return this.style.display !== 'none' }).length
       }
     } else {
       countryHeadings.show()
@@ -104,7 +104,7 @@
 
     this.filterHeadings(countryHeadings)
 
-    $(document).trigger('countrieslist', { 'count': itemsShowing })
+    $(document).trigger('countrieslist', { count: itemsShowing })
   }
 
   CountryFilter.prototype.updateCounter = function (e, eData) {
@@ -127,7 +127,7 @@
     var pagePath = this.pagePath()
     this._trackTimeout = root.setTimeout(function () {
       if (pagePath) {
-        GOVUK.analytics.trackEvent('searchBoxFilter', search, {label: pagePath, nonInteraction: true})
+        GOVUK.analytics.trackEvent('searchBoxFilter', search, { label: pagePath, nonInteraction: true })
       }
     }, 1000)
   }
@@ -138,7 +138,7 @@
 
   GOVUK.countryFilter = CountryFilter
 
-  $('#country-filter input#country').map(function (idx, input) {
+  $('#country-filter input#country').each(function (idx, input) {
     new GOVUK.countryFilter($(input)) // eslint-disable-line new-cap, no-new
   })
 }).call(this)

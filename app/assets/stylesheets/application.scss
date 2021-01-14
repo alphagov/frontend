@@ -86,10 +86,8 @@ $govuk-use-legacy-palette: false;
       margin-top: govuk-spacing(4);
     }
 
-    .help-notice {
-      p {
-        padding: 0;
-      }
+    .help-notice p {
+      padding: 0;
     }
   }
 }

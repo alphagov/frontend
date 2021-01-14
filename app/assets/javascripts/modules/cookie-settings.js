@@ -24,7 +24,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     var currentConsentCookieJSON = JSON.parse(currentConsentCookie)
 
     // We don't need the essential value as this cannot be changed by the user
-    delete currentConsentCookieJSON["essential"]
+    delete currentConsentCookieJSON.essential
 
     for (var cookieType in currentConsentCookieJSON) {
       var radioButton
@@ -42,21 +42,21 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   CookieSettings.prototype.submitSettingsForm = function (event) {
     event.preventDefault()
 
-    var formInputs = event.target.getElementsByTagName("input")
+    var formInputs = event.target.getElementsByTagName('input')
     var options = {}
 
-    for ( var i = 0; i < formInputs.length; i++ ) {
+    for (var i = 0; i < formInputs.length; i++) {
       var input = formInputs[i]
       if (input.checked) {
         var name = input.name.replace('cookies-', '')
-        var value = input.value === "on" ? true : false
+        var value = input.value === 'on'
 
         options[name] = value
       }
     }
 
     window.GOVUK.setConsentCookie(options)
-    window.GOVUK.setCookie('cookies_preferences_set', true, { days: 365 });
+    window.GOVUK.setCookie('cookies_preferences_set', true, { days: 365 })
 
     this.fireAnalyticsEvent(options)
 
@@ -66,22 +66,22 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   CookieSettings.prototype.fireAnalyticsEvent = function (consent) {
-    var eventLabel = ""
+    var eventLabel = ''
 
     for (var option in consent) {
-      var optionValue = consent[option] ? "yes" : "no"
-      eventLabel += option + '-' + optionValue + " "
+      var optionValue = consent[option] ? 'yes' : 'no'
+      eventLabel += option + '-' + optionValue + ' '
     }
 
     if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
-      GOVUK.analytics.trackEvent("cookieSettings", "Save changes", { label: eventLabel })
+      GOVUK.analytics.trackEvent('cookieSettings', 'Save changes', { label: eventLabel })
     }
   }
 
   CookieSettings.prototype.showConfirmationMessage = function () {
     var confirmationMessage = document.querySelector('div[data-cookie-confirmation]')
     // hide the message if already visible so assistive tech is triggered when it appears
-    confirmationMessage.style.display = "none"
+    confirmationMessage.style.display = 'none'
     var previousPageLink = document.querySelector('.cookie-settings__prev-page')
     var referrer = CookieSettings.prototype.getReferrerLink()
 
@@ -89,12 +89,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     if (referrer && referrer !== document.location.pathname) {
       previousPageLink.href = referrer
-      previousPageLink.style.display = "inline"
+      previousPageLink.style.display = 'inline'
     } else {
-      previousPageLink.style.display = "none"
+      previousPageLink.style.display = 'none'
     }
 
-    confirmationMessage.style.display = "block"
+    confirmationMessage.style.display = 'block'
   }
 
   CookieSettings.prototype.getReferrerLink = function () {

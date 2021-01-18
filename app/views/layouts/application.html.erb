@@ -28,10 +28,6 @@
     <% if @meta_section %>
       <meta name="govuk:section" content="<%= @meta_section %>">
     <% end %>
-    <%= cookieless_variant.analytics_meta_tag.html_safe %>
-    <% unless cookieless_variant.variant?('Z') %>
-      <meta name="Cookieless-Variant" content="<%= cookieless_variant.variant_name %>" data-module="track-variant">
-    <% end %>
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">

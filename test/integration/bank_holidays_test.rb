@@ -1,8 +1,6 @@
 require "integration_test_helper"
 
 class BankHolidaysTest < ActionDispatch::IntegrationTest
-  include GovukAbTesting::MinitestHelpers
-
   setup do
     content_item = {
       base_path: "/bank-holidays",
@@ -227,24 +225,6 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
         within ".app-c-meta-data" do
           assert page.has_content?("Last updated: 5 December 2012")
         end
-      end
-    end
-  end
-
-  context "Check correct behaviour of CookielessAATest" do
-    %w[A B].each do |test_variant|
-      should "record hit when in variant #{test_variant}" do
-        with_variant CookielessAATest: test_variant.to_s do
-          visit "/bank-holidays"
-          assert page.has_selector?("meta[data-module=track-variant][content=#{test_variant}]", visible: false)
-        end
-      end
-    end
-
-    should "not record hit when in variant Z" do
-      with_variant CookielessAATest: "Z" do
-        visit "/bank-holidays"
-        assert page.has_no_selector?("meta[data-module=track-variant]", visible: false)
       end
     end
   end

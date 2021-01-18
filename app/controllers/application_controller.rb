@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include CookielessTestable
   include Slimmer::Headers
   include Slimmer::Template
 

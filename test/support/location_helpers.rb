@@ -33,6 +33,7 @@ module LocationHelpers
       lgil: lgil,
       url: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
       country_name: "England",
+      status: "ok",
     )
   end
 end

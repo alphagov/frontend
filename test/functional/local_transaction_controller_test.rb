@@ -259,6 +259,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgil: 8,
           url: "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks",
           country_name: "England",
+          status: "pending",
         )
       end
 
@@ -266,6 +267,12 @@ class LocalTransactionControllerTest < ActionController::TestCase
         get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
 
         assert_equal "http://www.staffsmoorlands.gov.uk/sm/council-services/parks-and-open-spaces/parks", assigns(:interaction_details)["local_interaction"]["url"]
+      end
+
+      should "assign link status" do
+        get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "staffordshire-moorlands" }
+
+        assert_equal "pending", assigns(:interaction_details)["local_interaction"]["status"]
       end
     end
 

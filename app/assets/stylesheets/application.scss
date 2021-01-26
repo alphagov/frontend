@@ -114,3 +114,33 @@ $govuk-use-legacy-palette: false;
   margin-top: - govuk-spacing(3);
   padding: 0 govuk-spacing(4) 0 govuk-spacing(9);
 }
+
+.govuk-roadmap-section {
+  border-bottom: 5px solid govuk-colour('black');
+  margin-bottom: govuk-spacing(6);
+}
+
+.govuk-roadmap-section__image {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.govuk-roadmap-numbers {
+  @include govuk-media-query($from: tablet) {
+    text-align: center;
+  }
+}
+
+.govuk-roadmap-numbers__column {
+  @include govuk-media-query($until: desktop) {
+    width: 50%;
+  }
+}
+
+.govuk-roadmap-numbers__column--crown {
+  display: none;
+
+  @include govuk-media-query($from: desktop) {
+    display: inline;
+  }
+}

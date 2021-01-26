@@ -56,8 +56,39 @@
       "user_input": null,
       "confidence": "Medium",
       "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "eaa22eaca39651393633b835c64b840d67fa31921125432586e82086ed947fc6",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/local_transaction/unavailable_service.html.erb",
+      "line": 7,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "LocalTransactionServices.instance.content(lgsl, local_authority.country_name, local_authority.name)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "LocalTransactionController",
+          "method": "results",
+          "line": 42,
+          "file": "app/controllers/local_transaction_controller.rb",
+          "rendered": {
+            "name": "local_transaction/unavailable_service",
+            "file": "app/views/local_transaction/unavailable_service.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "local_transaction/unavailable_service"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": "It comes from a developer maintained YAML file"
     }
   ],
-  "updated": "2019-07-25 16:52:35 +0100",
-  "brakeman_version": "4.6.1"
+  "updated": "2021-01-26 15:20:17 +0000",
+  "brakeman_version": "4.10.0"
 }

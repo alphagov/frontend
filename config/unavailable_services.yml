@@ -1,4 +1,9 @@
 services:
   1826:
-    - Scotland
-    - Northern Ireland
+    countries:
+      unavailable_in:
+        - Scotland
+        - Northern Ireland
+      content: |
+        <p class="govuk-body">We've matched the postcode to <span class="local-authority">%{local_authority_name}</span>.</p>
+        <p class="govuk-body">This service is not available in %{country_name}. You can find other services on the <span class="local-authority">%{local_authority_name}</span> website.</p>

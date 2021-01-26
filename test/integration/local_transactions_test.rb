@@ -431,8 +431,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "render the service unavailable in country page" do
-        assert page.has_content? "This service is not available in Scotland"
-        assert page.has_content? "We’ve matched the postcode to Edinburgh"
+        assert page.has_content? "This service is unavailable in Edinburgh, Scotland"
       end
 
       should "show a button that links to an appropriate alternate service provider" do
@@ -462,8 +461,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "render the service unavailable in country page" do
-        assert page.has_content? "This service is not available in Scotland"
-        assert page.has_content? "We’ve matched the postcode to Edinburgh"
+        assert page.has_content? "This service is unavailable in Edinburgh, Scotland"
       end
 
       should "show a button that links to an appropriate alternate service provider" do

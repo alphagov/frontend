@@ -4,13 +4,7 @@
   edition: @edition,
 } do %>
   <div class="interaction">
-    <p class="govuk-body">
-      We’ve matched the postcode to <span class="local-authority"><%= @local_authority.name %></span>.
-    </p>
-
-    <p class="govuk-body">
-      This service is not available in <span class="country-name"><%= @country_name %></span>. You can find other services on the <span class="local-authority"><%= @local_authority.name %></span> website.
-    </p>
+    <%= @content.html_safe %>
 
     <p id="get-started" class="get-started group">
       <%= render "govuk_publishing_components/components/button", {

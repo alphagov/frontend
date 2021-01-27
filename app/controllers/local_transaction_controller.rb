@@ -38,6 +38,7 @@ class LocalTransactionController < ApplicationController
     @country_name = @local_authority.country_name
 
     if LocalTransactionServices.instance.unavailable?(lgsl, @country_name)
+      @content = LocalTransactionServices.instance.content(lgsl, @country_name, @local_authority.name)
       render :unavailable_service
     else
       render :results

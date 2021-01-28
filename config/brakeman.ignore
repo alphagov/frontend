@@ -3,6 +3,37 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 2,
+      "fingerprint": "119592da9b30a8283c21806bfedcee24b8b080f857e9b56a9a7afcac895b86ea",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/local_transaction/unavailable_service.html.erb",
+      "line": 7,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "LocalTransactionServices.instance.content(lgsl, \"countries\", :country_name => local_authority.country_name, :local_authority_name => local_authority.name)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "LocalTransactionController",
+          "method": "results",
+          "line": 48,
+          "file": "app/controllers/local_transaction_controller.rb",
+          "rendered": {
+            "name": "local_transaction/unavailable_service",
+            "file": "app/views/local_transaction/unavailable_service.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "local_transaction/unavailable_service"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": "It comes from either MapIt or Local Links Manager and we trust data from there."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
       "fingerprint": "6966beaf0fe0477c3d48777699d8829c2b4fa06aba797a3027dfb18585cc96d0",
       "check_name": "CrossSiteScripting",
       "message": "Unescaped parameter value",
@@ -89,6 +120,6 @@
       "note": "It comes from a developer maintained YAML file"
     }
   ],
-  "updated": "2021-01-26 15:20:17 +0000",
+  "updated": "2021-01-28 13:11:52 +0000",
   "brakeman_version": "4.10.0"
 }

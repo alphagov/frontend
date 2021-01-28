@@ -111,19 +111,19 @@ The division `title` attribute is optional.  If this is not present the slug wil
 
 ### Running the application
 
+If you are [using docker](https://github.com/alphagov/govuk-docker) to run the application (which is advised) it will be available on the host at http://frontend.dev.gov.uk/
+
 To run the application standalone, run [static](https://github.com/alphagov/static) and execute the following command:
 
 ```
-PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 ./startup.sh
+PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 ./startup.sh --live
 ```
 
-which uses a local copy of static.
+which uses a local copy of static and content from production.
 
 Note that you will have to have [GOV.UK Mapit](https://github.com/alphagov/mapit) running locally. A valid dataset will have to be loaded for Mapit or postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
 
 To run in a full development stack (with DNS, all apps running etc.) use`./startup.sh`.
-
-If you are using the GDS development virtual machine then the application will be available on the host at http://frontend.dev.gov.uk/
 
 ### Running the test suite
 
@@ -137,8 +137,8 @@ Send the calendars to the publishing-api:
 
 Search indexing is performed automatically on data sent to publishing api.
 
-A rake task has been created to generate the bank holidays JSON for a given year. They need to be then inserted, and modified to
-take into account any additions/modifications made by proclamation.
+A rake task has been created to generate the bank holidays JSON for a given year. They need to be then inserted, and modified to take into account any additions/modifications made by proclamation.
+
 Run the rake task like this:
 
     bundle exec rake bank_holidays:generate_json[2016]

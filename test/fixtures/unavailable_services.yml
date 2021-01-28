@@ -4,24 +4,17 @@ services:
       unavailable_in:
         - Scotland
       content: "This service is unavailable in %{local_authority_name}, %{country_name}"
-    local_authorities:
-      content: "This service is unavailable in that local authority"
   561:
     countries:
       unavailable_in:
         - Scotland
-      content: ""
-    local_authorities:
       content: ""
   661:
     countries:
       unavailable_in:
         - Scotland
       content:
-    local_authorities:
-      content:
   761:
     countries:
       unavailable_in:
         - Scotland
-    local_authorities:

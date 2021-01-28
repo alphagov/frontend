@@ -445,64 +445,32 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
 
     context "with a url" do
-      context "and an ok link status" do
-        setup do
-          stub_local_links_manager_has_a_link(
-            authority_slug: "edinburgh",
-            lgsl: 461,
-            lgil: 8,
-            url: "http://www.edinburgh.gov.uk/bear-the-cost-of-grizzly-ownership",
-            country_name: "Scotland",
-            status: "ok",
-          )
+      setup do
+        stub_local_links_manager_has_a_link(
+          authority_slug: "edinburgh",
+          lgsl: 461,
+          lgil: 8,
+          url: "http://www.edinburgh.gov.uk/bear-the-cost-of-grizzly-ownership",
+          country_name: "Scotland",
+          status: "ok",
+        )
 
-          visit "/pay-bear-tax"
-          fill_in "postcode", with: "EH8 8DX"
-          click_on "Find"
-        end
-
-        should "render the service unavailable in country page" do
-          assert page.has_content? "This service is unavailable in Edinburgh, Scotland"
-        end
-
-        should "show a button that links to an appropriate alternate service provider" do
-          assert_has_button_as_link(
-            "Find other services",
-            href: "http://edinburgh.example.com", # local authority link from stubbed local links
-            rel: "external",
-            start: true,
-          )
-        end
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "EH8 8DX"
+        click_on "Find"
       end
 
-      context "and an pending link status" do
-        setup do
-          stub_local_links_manager_has_a_link(
-            authority_slug: "edinburgh",
-            lgsl: 461,
-            lgil: 8,
-            url: "http://www.edinburgh.gov.uk/bear-the-cost-of-grizzly-ownership",
-            country_name: "Scotland",
-            status: "pending",
-          )
+      should "render the service unavailable in country page" do
+        assert page.has_content? "This service is unavailable in Edinburgh, Scotland"
+      end
 
-          visit "/pay-bear-tax"
-          fill_in "postcode", with: "EH8 8DX"
-          click_on "Find"
-        end
-
-        should "render the service unavailable page with local authority content" do
-          assert page.has_content? "This service is unavailable in that local authority"
-        end
-
-        should "show a button that links to an appropriate alternate service provider" do
-          assert_has_button_as_link(
-            "Find other services",
-            href: "http://edinburgh.example.com", # local authority link from stubbed local links
-            rel: "external",
-            start: true,
-          )
-        end
+      should "show a button that links to an appropriate alternate service provider" do
+        assert_has_button_as_link(
+          "Find other services",
+          href: "http://edinburgh.example.com", # local authority link from stubbed local links
+          rel: "external",
+          start: true,
+        )
       end
     end
   end

@@ -12,79 +12,20 @@ class LocalTransactionServicesTest < ActiveSupport::TestCase
   end
 
   context ".content" do
-    setup do
-      @params = {
-        country_name: "Scotland",
-        local_authority_name: "Dundee",
-      }
+    should "return a string with the given country and local authority name in" do
+      assert_equal "This service is unavailable in Dundee, Scotland", LocalTransactionServices.instance.content(461, "Scotland", "Dundee")
     end
 
-    context "country" do
-      should "return a string with the given country and local authority name in" do
-        assert_equal "This service is unavailable in Dundee, Scotland", LocalTransactionServices.instance.content(461, "countries", @params)
-      end
+    should "return an empty string if the given content for the service is an empty string" do
+      assert_equal "", LocalTransactionServices.instance.content(561, "Scotland", "Dundee")
     end
 
-    context "local authority" do
-      should "return the content for unavailable local authorities" do
-        assert_equal "This service is unavailable in that local authority", LocalTransactionServices.instance.content(461, "local_authorities", {})
-      end
+    should "return an empty string if the given content for the service is an empty" do
+      assert_equal "", LocalTransactionServices.instance.content(661, "Scotland", "Dundee")
     end
 
-    context "with parameters" do
-      should "return an empty string if the given content for the service is an empty string" do
-        assert_equal "", LocalTransactionServices.instance.content(561, "local_authorities", @params)
-      end
-
-      should "return an empty string if the given content for the service is an empty" do
-        assert_equal "", LocalTransactionServices.instance.content(661, "countries", @params)
-      end
-
-      should "return an empty string if there is no content for the given service" do
-        assert_equal "", LocalTransactionServices.instance.content(761, "local_authorities", @params)
-      end
-    end
-
-    context "with empty parameter hash" do
-      should "return an empty string if the given content for the service is an empty string" do
-        assert_equal "", LocalTransactionServices.instance.content(561, "countries", {})
-      end
-
-      should "return an empty string if the given content for the service is an empty" do
-        assert_equal "", LocalTransactionServices.instance.content(661, "local_authorities", {})
-      end
-
-      should "return an empty string if there is no content for the given service" do
-        assert_equal "", LocalTransactionServices.instance.content(761, "countries", {})
-      end
-    end
-
-    context "with nil parameter hash" do
-      should "return an empty string if the given content for the service is an empty string" do
-        assert_equal "", LocalTransactionServices.instance.content(561, "local_authorities", nil)
-      end
-
-      should "return an empty string if the given content for the service is an empty" do
-        assert_equal "", LocalTransactionServices.instance.content(661, "countries", nil)
-      end
-
-      should "return an empty string if there is no content for the given service" do
-        assert_equal "", LocalTransactionServices.instance.content(761, "local_authorities", nil)
-      end
-    end
-
-    context "without a parameter hash" do
-      should "return an empty string if the given content for the service is an empty string" do
-        assert_equal "", LocalTransactionServices.instance.content(561, "countries")
-      end
-
-      should "return an empty string if the given content for the service is an empty" do
-        assert_equal "", LocalTransactionServices.instance.content(661, "local_authorities")
-      end
-
-      should "return an empty string if there is no content for the given service" do
-        assert_equal "", LocalTransactionServices.instance.content(761, "countries")
-      end
+    should "return an empty string if there is no content for the given service" do
+      assert_equal "", LocalTransactionServices.instance.content(761, "Scotland", "Dundee")
     end
   end
 end

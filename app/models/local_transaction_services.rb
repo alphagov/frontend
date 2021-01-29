@@ -13,18 +13,13 @@ class LocalTransactionServices
   end
 
   def unavailable?(lgsl, country_name)
-    @config.dig("services", lgsl).present? && @config.dig("services", lgsl, "countries", "unavailable_in").include?(country_name)
+    @config.dig("services", lgsl, country_name).present?
   end
 
-  def content(lgsl, country_name, local_authority_name)
-    content = @config.dig("services", lgsl, "countries", "content")
-
+  def content(lgsl, country_name, params = {})
+    content = @config.dig("services", lgsl, country_name)
     return "" unless content
 
-    I18n.interpolate(
-      content,
-      country_name: country_name,
-      local_authority_name: local_authority_name,
-    ) || ""
+    params.blank? ? content : I18n.interpolate(content, params)
   end
 end

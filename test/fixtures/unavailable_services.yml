@@ -1,20 +1,11 @@
 services:
   461:
-    countries:
-      unavailable_in:
-        - Scotland
-      content: "This service is unavailable in %{local_authority_name}, %{country_name}"
+    Scotland: "This service is unavailable in %{local_authority_name}, Scotland"
+    Northern Ireland: "This service is unavailable in %{local_authority_name}, Northern Ireland"
   561:
-    countries:
-      unavailable_in:
-        - Scotland
-      content: ""
+    Scotland: ""
+    Northern Ireland: ""
   661:
-    countries:
-      unavailable_in:
-        - Scotland
-      content:
+    Scotland:
+    Northern Ireland:
   761:
-    countries:
-      unavailable_in:
-        - Scotland

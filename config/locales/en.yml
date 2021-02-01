@@ -101,3 +101,129 @@ en:
       your_answers: "Your answers"
       current_question: "Current question"
       change: "Change"
+  roadmap:
+    page_title: Roadmap - GOV.UK
+    hero:
+      description: We’re always working to improve GOV.UK to meet user needs. This is our current roadmap, which takes us to the end of March 2021. We plan to update it again in the new financial year.
+      heading: GOV.UK roadmap
+    numbers_section:
+      footnote: 'We can only count visits to the GOV.UK website if users give us permission to.'
+      heading_large: GOV.UK in numbers
+      heading_small: From 1 April 2020 to 31 January 2021
+      numbers_columns:
+        column_one_count: 303
+        column_one_text: million users
+        # the special characters are in place to keep this text on one line
+        column_two_text: "billion\u00A0page\u00A0views"
+        column_two_count: 3.5
+    actions_section:
+      heading: What we’re working on
+      items:
+      - heading: Users should be able to access government services and re-use their information so that they don’t have to start from scratch each time
+        paragraph: Trial account functionality on GOV.UK
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Work with users to find out what they’d want from an account on GOV.UK
+          - text: Pilot adding <a href="https://insidegovuk.blog.gov.uk/2020/10/07/using-accounts-to-personalise-the-user-experience-on-gov-uk/" class="govuk-link">accounts functionality</a> to GOV.UK
+          - text: Audit government services to find the number of services that require an account
+        - heading: Up next
+          items:
+          - text: Review how users interacted with the new account functionality on the transition checker
+          - text: Integrate accounts with another service to expand research into their use
+        - heading: Exploring
+          items:
+          - text: Find out where a GOV.UK Account would be useful in other government services
+          - text: Further integration with other parts of GOV.UK
+          - text: Think about how to <a class="govuk-link" href="https://gds.blog.gov.uk/2020/11/05/new-approaches-to-gov-uk-content/">tag and categorise content segments</a> to support personalisation work
+      - heading: Users shouldn’t have to understand how government works to find out what is relevant to them
+        paragraph: Investigate if personalisation on GOV.UK could help users navigate complex tasks
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Map the steps involved in a complex task, i.e. starting and running a business
+          - text: Research on personalisation in other contexts
+          - text: Use machine learning to better understand content so we can group it quickly (known as ‘entity identification’)
+        - heading: Up next
+          items:
+          - text: Defining different types of personalisation and how they relate to GOV.UK
+          - text: Experiment with showing users guidance based on what they tell us in their GOV.UK Accounts
+          - text: Build prototypes to simplify and join up the steps involved in starting a business
+        - heading: Exploring
+          items:
+          - text: Adding more detailed metadata to GOV.UK pages so it’s easier to categorise them, find things, and show more relevant content
+          - text: Experiment with personalisation on content and navigation pages
+          - text: Use the ‘starting a business’ work as a model for simplifying other complex tasks
+      - heading: Users need content to be easy to find and understand, fully accessible, and accurate, both now and in the future
+        paragraph: Ensure that government content is easy to publish and find everywhere, and meets user needs
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Major updates to immigration guidance due to visa simplification work
+          - text: Make GOV.UK more accessible by making content and design elements compliant with new accessibility regulations
+          - text: Run a discovery project on the navigation systems used on GOV.UK
+          - text: Continuous updates and improvements to the most used content
+        - heading: Up next
+          items:
+          - text: Large scale changes to all guidance affected by Brexit
+          - text: Alpha designs for new GOV.UK navigation system
+          - text: Updating all the content affected by the rate changes ready for the 2021 to 2022 financial year
+        - heading: Exploring
+          items:
+          - text: Find efficiencies in how we manage the most used content
+          - text: Investigate what improvements can be made to the way we group content by what the content is about
+          - text: Run a discovery on the future development of GOV.UK publishing applications
+      - heading: We can use more of the data available to us to improve GOV.UK and online services
+        paragraph: Use data science, data analytics and research techniques to make services better and more efficient
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Create draft reports to see how services are being used, end-to-end
+          - text: Ongoing data analysis to help improve content and services related to coronavirus and Brexit
+        - heading: Up next
+          items:
+          - text: Build data visualisation tools so it’s easier to analyse how anonymous users interact with digital government services
+          - text: Automate the reports that show insights from coronavirus and Brexit content
+        - heading: Exploring
+          items:
+          - text: How to expand and automate data reports
+          - text: Further ways to automate analysis of user feedback so we can identify trends more quickly
+      - heading: Everyone in the UK needs to understand how they are affected by coronavirus and Brexit
+        paragraph: Create tools and guidance that help users find critical and up-to-date information
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Continuous updates to the coronavirus landing page and tools to help users find guidance, services and goverment support for coronavirus
+          - text: Launch a service for the public to ask ministers questions about coronavirus (<a class="govuk-link" href="https://www.gov.uk/ask">gov.uk/ask</a>)
+          - text: Launch a postcode checker to help users find which tier an area is in, and what the coronavirus restrictions are
+          - text: Update Brexit guidance and tools to help users find out what they need to do to prepare for the new rules in 2021
+        - heading: Up next
+          items:
+          - text: Continue iterating guidance and products to respond to the evolving user needs and government response to the coronavirus pandemic
+          - text: Updates to tools and guidance to support the local coronavirus tiers system and the start of vaccinations
+          - text: 'Help users understand the rules for travelling to areas in different tiers: improving guidance and exploring new tools'
+          - text: Update the Brexit campaign landing page, guidance and checker tool with the new rules to follow from 1 January 2021
+        - heading: Exploring
+          items:
+          - text: How GOV.UK can support the UK’s social and economic recovery from coronavirus
+          - text: How guidance and tools need to change to meet user needs, once the Brexit transition period ends
+      - heading: GOV.UK and the systems that support it need proactive maintenance to keep it working well
+        paragraph: Maintain and update our publishing applications and hosting platform
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Discovery into moving the GOV.UK website and its associated applications onto a different type of hosting platform
+          - text: Continuous improvements to error alerting and monitoring of services
+          - text: Continued testing and improving resilience, including the capacity to deal with increased demand
+          - text: Make it easy for users to accept or reject cookies when they access GOV.UK
+        - heading: Up next
+          items:
+          - text: Test running GOV.UK on a different type of hosting platform, to identify and resolve areas of highest risk
+          - text: Fix non-English language pages so all page elements are properly translated
+          - text: Improve the way we manage subdomains of GOV.UK for the rest of government
+          - text: Ongoing work on cookies
+          - text: Ongoing work on accessibility
+        - heading: Exploring
+          items:
+          - text: Reduce the risk of disrupting teams when moving GOV.UK applications to a different type of hosting platform
+          - text: Find applications that can be switched off, to reduce the support burden and make future enhancements quicker and easier

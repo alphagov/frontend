@@ -65,6 +65,12 @@ class SpecialRoutePublisher
           base_path: "/random",
           title: "GOV.UK random page",
         },
+        {
+          content_id: "9a86495d-663f-46f8-b4ce-fc9153579338",
+          base_path: "/roadmap",
+          title: "GOV.UK Roadmap",
+          description: "This is GOV.UK's current roadmap. We plan to update it again in the new financial year.",
+        },
       ],
       prefix: [
         {

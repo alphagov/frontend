@@ -111,7 +111,7 @@ en:
       heading_large: GOV.UK in numbers
       heading_small: From 1 April 2020 to 31 January 2021
       numbers_columns:
-        column_one_count: 302
+        column_one_count: 303
         column_one_text: million users
         # the special characters are in place to keep this text on one line
         column_two_text: "billion\u00A0page\u00A0views"

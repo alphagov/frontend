@@ -109,13 +109,13 @@ en:
     numbers_section:
       footnote: 'We can only count visits to the GOV.UK website if users give us permission to.'
       heading_large: GOV.UK in numbers
-      heading_small: From April 2020 to January 2021
+      heading_small: From 1 April 2020 to 31 January 2021
       numbers_columns:
-        column_one_count: 235
+        column_one_count: 302
         column_one_text: million users
         # the special characters are in place to keep this text on one line
         column_two_text: "billion\u00A0page\u00A0views"
-        column_two_count: 2.7
+        column_two_count: 3.5
     actions_section:
       heading: What we’re working on
       items:

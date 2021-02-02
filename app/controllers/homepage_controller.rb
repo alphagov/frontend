@@ -3,7 +3,7 @@ class HomepageController < ApplicationController
 
   def index
     set_slimmer_headers(
-      template: "homepage",
+      template: "core_layout",
       remove_search: true,
     )
 

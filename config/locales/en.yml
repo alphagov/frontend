@@ -206,7 +206,7 @@ en:
         - heading: Exploring
           items:
           - text: How GOV.UK can support the UK’s social and economic recovery from coronavirus
-          - text: How guidance and tools need to change to meet user needs, once the Brexit transition period ends
+          - text: How guidance and tools need to change to meet user needs, now that the Brexit transition period has ended
       - heading: GOV.UK and the systems that support it need proactive maintenance to keep it working well
         paragraph: Maintain and update our publishing applications and hosting platform
         steps:

@@ -199,11 +199,8 @@ body.homepage {
 
 .home-promo__link {
   @include govuk-font(24, $weight: bold);
+  @include govuk-responsive-margin(2, "bottom");
   display: inline-block;
-
-  @include govuk-media-query($until: tablet) {
-    margin: 0 0 govuk-spacing(1) 0;
-  }
 }
 
 .home-promo__image {

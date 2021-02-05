@@ -1,17 +1,23 @@
 <%= render layout: 'shared/base_page', locals: {
-  title: "This service is not available in #{@country_name}",
+  title: @service.title,
   publication: @publication,
   edition: @edition,
 } do %>
   <div class="interaction">
-    <%= @content.html_safe %>
+    <p class="govuk-body">
+      We've matched the postcode to <span class="local-authority"><%= @local_authority.name %></span>.
+    </p>
+
+  <% if @service.body.present? %>
+    <p class="govuk-body"><%= @service.body %></p>
+  <% end %>
 
     <p id="get-started" class="get-started group">
       <%= render "govuk_publishing_components/components/button", {
-        text: "Find other services",
+        text: @service.button_text,
         rel: "external",
         margin_bottom: true,
-        href: @local_authority.url,
+        href: @service.button_link,
       } %>
     </p>
   </div>

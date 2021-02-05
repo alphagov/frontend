@@ -1,0 +1,9 @@
+services:
+  1826:
+    unavailable_in:
+      Scotland:
+        title: "This service is not available in Scotland"
+        body: "This service is not available in Scotland. You can find other services on your council website"
+      Northern Ireland:
+        title: "This service is not available in Northern Ireland"
+        body: "This service is not available in Northern Ireland. You can find other services on your council website"

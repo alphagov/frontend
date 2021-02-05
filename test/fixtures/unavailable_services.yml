@@ -1,11 +1,10 @@
 services:
   461:
-    Scotland: "This service is unavailable in %{local_authority_name}, Scotland"
-    Northern Ireland: "This service is unavailable in %{local_authority_name}, Northern Ireland"
-  561:
-    Scotland: ""
-    Northern Ireland: ""
-  661:
-    Scotland:
-    Northern Ireland:
-  761:
+    unavailable_in:
+      Scotland:
+        title: "Custom title"
+        body: "Body content"
+        button_text: "Custom button text"
+        button_link: "https://gov.scot"
+      Wales:
+        body: "Body content"

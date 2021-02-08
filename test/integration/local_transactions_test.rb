@@ -406,46 +406,21 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
   end
 
   context "when a service is unavailable for the user's postcode" do
-    setup do
-      stub_mapit_has_a_postcode_and_areas(
-        "EH8 8DX",
-        [0, 0],
-        [
-          { "name" => "Holyroodhouse", "type" => "LGD", "govuk_slug" => "edinburgh", "country_name" => "Scotland" },
-        ],
-      )
-    end
-
-    context "without a url" do
+    context "with a custom button and link" do
       setup do
-        stub_local_links_manager_has_no_link(
-          authority_slug: "edinburgh",
-          lgsl: 461,
-          lgil: 8,
-          country_name: "Scotland",
+        stub_mapit_has_a_postcode_and_areas(
+          "EH8 8DX",
+          [0, 0],
+          [
+            {
+              "name" => "Holyroodhouse",
+              "type" => "LGD",
+              "govuk_slug" => "edinburgh",
+              "country_name" => "Scotland",
+            },
+          ],
         )
 
-        visit "/pay-bear-tax"
-        fill_in "postcode", with: "EH8 8DX"
-        click_on "Find"
-      end
-
-      should "render the service unavailable in country page" do
-        assert page.has_content? "This service is unavailable in Edinburgh, Scotland"
-      end
-
-      should "show a button that links to an appropriate alternate service provider" do
-        assert_has_button_as_link(
-          "Find other services",
-          href: "http://edinburgh.example.com", # local authority link from stubbed local links
-          rel: "external",
-          start: true,
-        )
-      end
-    end
-
-    context "with a url" do
-      setup do
         stub_local_links_manager_has_a_link(
           authority_slug: "edinburgh",
           lgsl: 461,
@@ -461,13 +436,56 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "render the service unavailable in country page" do
-        assert page.has_content? "This service is unavailable in Edinburgh, Scotland"
+        assert page.has_content? "Custom title"
+      end
+
+      should "show a button that links to an appropriate alternate service provider" do
+        assert_has_button_as_link(
+          "Custom button text",
+          href: "https://gov.scot",
+          rel: "external",
+          start: true,
+        )
+      end
+    end
+
+    context "without a custom button and link" do
+      setup do
+        stub_mapit_has_a_postcode_and_areas(
+          "WA8 8DX",
+          [0, 0],
+          [
+            {
+              "name" => "Cardiff",
+              "type" => "LGD",
+              "govuk_slug" => "cardiff",
+              "country_name" => "Wales",
+            },
+          ],
+        )
+
+        stub_local_links_manager_has_a_link(
+          authority_slug: "cardiff",
+          lgsl: 461,
+          lgil: 8,
+          url: "https://www.cardiff.gov.uk/bear-the-cost-of-grizzly-ownership",
+          country_name: "Wales",
+          status: "ok",
+        )
+
+        visit "/pay-bear-tax"
+        fill_in "postcode", with: "WA8 8DX"
+        click_on "Find"
+      end
+
+      should "render the service unavailable in country page" do
+        assert page.has_content? "Pay your bear tax"
       end
 
       should "show a button that links to an appropriate alternate service provider" do
         assert_has_button_as_link(
           "Find other services",
-          href: "http://edinburgh.example.com", # local authority link from stubbed local links
+          href: "http://cardiff.example.com", # local authority link from stubbed local links
           rel: "external",
           start: true,
         )

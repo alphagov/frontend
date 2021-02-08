@@ -36,10 +36,11 @@ class LocalTransactionController < ApplicationController
     @interaction_details = interaction_details
     @local_authority = local_authority
     @country_name = @local_authority.country_name
+    @service = LocalTransactionService.new(
+      @publication.title, lgsl, @country_name, @local_authority.url
+    )
 
-    if LocalTransactionServices.instance.unavailable?(lgsl, @country_name)
-      params = { local_authority_name: @local_authority.name }
-      @content = LocalTransactionServices.instance.content(lgsl, @country_name, params)
+    if @service.unavailable?
       render :unavailable_service
     else
       render :results

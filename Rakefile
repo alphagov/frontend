@@ -2,8 +2,15 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path("config/application", __dir__)
+require "rake/testtask"
 
 Rails.application.load_tasks
 
+Rake::TestTask.new(:test_unit) do |t|
+  t.libs << "test"
+  t.test_files = FileList["test/**/*_test.rb"]
+  t.warning = false
+end
+
 Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
-task default: %i[lint test jasmine:ci pact:verify]
+task default: %i[lint test_unit jasmine:ci pact:verify]

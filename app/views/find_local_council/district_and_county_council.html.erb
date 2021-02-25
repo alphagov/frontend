@@ -19,7 +19,7 @@
         <% else %>
           Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"], class: "govuk-link",
             data: {
-              module: 'track-click',
+              module: 'gem-track-click',
               track_category: 'pageElementInteraction',
               track_action: 'countyLinkClicked',
               track_label: @county["homepage_url"]
@@ -46,7 +46,7 @@
         <% else %>
           Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"], class: "govuk-link",
                               data: {
-                                module: 'track-click',
+                                module: 'gem-track-click',
                                 track_category: 'pageElementInteraction',
                                 track_action: 'districtLinkClicked',
                                 track_label: @district["homepage_url"]

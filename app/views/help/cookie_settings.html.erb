@@ -4,7 +4,7 @@
       <%= render "govuk_publishing_components/components/success_alert", {
         message: t('cookies.confirmation_title'),
         description: sanitize("<p>#{t('cookies.confirmation_message')}</p>
-        <a class='govuk-link cookie-settings__prev-page' href='#' data-module='track-click' data-track-category='cookieSettings' data-track-action='Back to previous page'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe
+        <a class='govuk-link cookie-settings__prev-page' href='#' data-module='gem-track-click' data-track-category='cookieSettings' data-track-action='Back to previous page'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe
       } %>
   </div>
 
@@ -113,7 +113,7 @@
         <p>These essential cookies do things like remember your progress through a form (for example a licence application)</p>
         <p>They always need to be on.</p>
         <p>
-          <a href="/help/cookie-details" data-module="track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
+          <a href="/help/cookie-details" data-module="gem-track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
             Find out more about cookies on GOV.UK
           </a>
         </p>

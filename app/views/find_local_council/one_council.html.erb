@@ -19,7 +19,7 @@
         <% else %>
           Website: <%= link_to extract_host(@authority["homepage_url"]), @authority["homepage_url"], class: "govuk-link",
                         data: {
-                          module: 'track-click',
+                          module: 'gem-track-click',
                           track_category: 'pageElementInteraction',
                           track_action: 'unitaryLinkClicked',
                           track_label: @authority["homepage_url"]

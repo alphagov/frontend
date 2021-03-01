@@ -47,5 +47,4 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.hosts << "frontend.dev.gov.uk"
-  config.hosts << "example.org" # for pact tests
 end

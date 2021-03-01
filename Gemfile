@@ -25,6 +25,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "climate_control"
   gem "govuk_test"
   gem "jasmine"
   gem "jasmine_selenium_runner"

@@ -22,10 +22,22 @@ class ProxyApp
   end
 end
 
+def url_encode(str)
+  ERB::Util.url_encode(str)
+end
+
 Pact.service_provider "Bank Holidays API" do
   app { ProxyApp.new(Rails.application) }
   honours_pact_with "GDS API Adapters" do
-    pact_uri "../gds-api-adapters/spec/pacts/gds_api_adapters-bank_holidays_api.json"
+    if ENV["PACT_URI"]
+      pact_uri(ENV["PACT_URI"])
+    else
+      base_url = "https://pact-broker.cloudapps.digital"
+      path = "pacts/provider/#{url_encode(name)}/consumer/#{url_encode(consumer_name)}"
+      version_modifier = "versions/#{url_encode(ENV.fetch('GDS_API_ADAPTERS_PACT_VERSION', 'master'))}"
+
+      pact_uri("#{base_url}/#{path}/#{version_modifier}")
+    end
   end
 end
 

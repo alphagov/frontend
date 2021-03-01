@@ -20,3 +20,13 @@
 ## Testing ##
 
 Write tests.
+
+### Pact tests
+
+If you make changes to the Bank Holidays API, you'll need to update the Pact tests.
+
+To test your changes locally, you can specify a Pact broker URI, can point to a local pactfile on disk:
+
+```sh
+govuk-docker-run env PACT_URI="../gds-api-adapters/spec/pacts/gds_api_adapters-bank_holidays_api.json" bundle exec rake pact:verify 
+```

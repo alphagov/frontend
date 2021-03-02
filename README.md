@@ -77,8 +77,6 @@ Frontend is a Ruby on Rails application that renders the citizen-facing part of 
 
 It also serves the homepage as a hard-coded route.
 
-See `app/views/root` for some bespoke transaction start pages.
-
 Calendar JSON data files are stored in `lib/data/<scope>.json`, with a `divisions` hash for separate data per region (`united-kingdom`, `england-and-wales`, `scotland` or `northern-ireland`).
 
 Each scope's data file contains a list of divisions, containing a list of years, each with a list of events:
@@ -134,7 +132,9 @@ To run in a full development stack (with DNS, all apps running etc.) use`./start
 
 Send the calendars to the publishing-api:
 
-    bundle exec rake publishing_api:publish
+    bundle exec rake publishing_api:publish_calendars
+
+If you're using govuk-docker, you may need to `govuk-docker-up` on `publishing-api` in a separate shell. You may also need to run the rake task a couple of times if you encounter timeouts.
 
 Search indexing is performed automatically on data sent to publishing api.
 

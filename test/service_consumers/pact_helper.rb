@@ -33,10 +33,8 @@ Pact.service_provider "Bank Holidays API" do
       pact_uri(ENV["PACT_URI"])
     else
       base_url = "https://pact-broker.cloudapps.digital"
-      path = "pacts/provider/#{url_encode(name)}/consumer/#{url_encode(consumer_name)}"
-      version_modifier = "versions/#{url_encode(ENV.fetch('GDS_API_ADAPTERS_PACT_VERSION', 'master'))}"
-
-      pact_uri("#{base_url}/#{path}/#{version_modifier}")
+      path = "pacts/provider/#{url_encode(name)}/consumer/#{url_encode(consumer_name)}/versions/master"
+      pact_uri("#{base_url}/#{path}")
     end
   end
 end

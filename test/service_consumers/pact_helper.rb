@@ -29,7 +29,7 @@ end
 Pact.service_provider "Bank Holidays API" do
   app { ProxyApp.new(Rails.application) }
   honours_pact_with "GDS API Adapters" do
-    if ENV["PACT_URI"]
+    if ENV["PACT_URI"] && ENV["PACT_URI"].size > 0
       pact_uri(ENV["PACT_URI"])
     else
       base_url = "https://pact-broker.cloudapps.digital"

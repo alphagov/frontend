@@ -2,9 +2,9 @@
 
 Images can cause a significant increase in the download time for the homepage. To prevent this:
 
- - resize the image to 608 by 405 pixels. This is the largest that the image will be displayed at.
+ - resize the image to 610 by 407 pixels. This is the largest that the image will be displayed at.
  - if it's a photograph save multiple sizes of the image:
-   - 608 by 405 pixels
+   - 610 by 407 pixels
    - 480 by 320 pixels
    - 320 by 213 pixels
    - 240 by 160 pixels

@@ -37,7 +37,7 @@ module MachineReadable
 
   private
 
-    CONFIG_PATH = Rails.root.join("config", "machine_readable").freeze
+    CONFIG_PATH = Rails.root.join("config/machine_readable").freeze
 
     def main_entity
       {

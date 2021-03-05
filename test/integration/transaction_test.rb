@@ -75,7 +75,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
     should "present the FAQ schema correctly" do
       register_to_vote = @payload.merge(base_path: "/register-to-vote")
-      content_store_has_item("/register-to-vote", register_to_vote)
+      stub_content_store_has_item("/register-to-vote", register_to_vote)
 
       visit "/register-to-vote"
 
@@ -97,7 +97,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           "url" => "https://www.gov.uk",
           "logo" => {
             "@type" => "ImageObject",
-            "url" => "/frontend/govuk_publishing_components/govuk-logo-e5962881254c9adb48f94d2f627d3bb67f258a6cbccc969e80abb7bbe4622976.png",
+            "url" => "/assets/frontend/govuk_publishing_components/govuk-logo-e5962881254c9adb48f94d2f627d3bb67f258a6cbccc969e80abb7bbe4622976.png",
           },
         },
         "mainEntity" => [

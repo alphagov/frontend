@@ -5,14 +5,16 @@
 } do %>
   <% if @interaction_details['local_interaction'] %>
     <div class="interaction">
-      <p class="govuk-body interaction-match">
+      <p class="govuk-body">
         We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
+      </p>
+      <p class="govuk-body">
+        You can get information on their website.
       </p>
       <p id="get-started" class="get-started group">
         <%= render "govuk_publishing_components/components/button", {
-          text: "Go to their website",
+          text: "Go to #{@local_authority.name} website",
           rel: "external",
-          start: true,
           margin_bottom: true,
           href: @interaction_details['local_interaction']['url'],
         } %>
@@ -20,7 +22,7 @@
     </div>
   <% elsif @location_error && @location_error.no_location_interaction? %>
     <div class="interaction">
-      <p class="govuk-body interaction-match">
+      <p class="govuk-body">
         <%= t(@location_error.message, **@location_error.message_args) %>
       </p>
       <% if @local_authority.url.present? %>
@@ -30,9 +32,8 @@
              data-track-action="postcodeResultShown:laMatchNoLink">
           <p id="get-started" class="get-started group">
             <%= render "govuk_publishing_components/components/button", {
-              text: "Go to their website",
+              text: "Go to #{@local_authority.name} website",
               rel: "external",
-              start: true,
               margin_bottom: true,
               href: @local_authority.url,
             } %>

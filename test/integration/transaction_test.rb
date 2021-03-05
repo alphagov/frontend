@@ -73,6 +73,104 @@ class TransactionTest < ActionDispatch::IntegrationTest
       end
     end
 
+    should "present the FAQ schema correctly" do
+      register_to_vote = @payload.merge(base_path: "/register-to-vote")
+      content_store_has_item("/register-to-vote", register_to_vote)
+
+      visit "/register-to-vote"
+
+      assert_equal 200, page.status_code
+
+      schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+      schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
+
+      faq_schema = schemas.detect { |schema| schema["@type"] == "FAQPage" }
+
+      expected_faq = {
+        "@context" => "http://schema.org",
+        "@type" => "FAQPage",
+        "headline" => "Register to vote",
+        "description" => "<p>Register to vote to get on the electoral register, or to change your details. It usually takes about 5 minutes.</p> <p>You need to be on the electoral register to vote in elections or referendums.</p>\n",
+        "publisher" => {
+          "@type" => "Organization",
+          "name" => "GOV.UK",
+          "url" => "https://www.gov.uk",
+          "logo" => {
+            "@type" => "ImageObject",
+            "url" => "/frontend/govuk_publishing_components/govuk-logo-e5962881254c9adb48f94d2f627d3bb67f258a6cbccc969e80abb7bbe4622976.png",
+          },
+        },
+        "mainEntity" => [
+          {
+            "@type" => "Question",
+            "name" => "Who can register",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can register if you’re both:</p> <ul>\n <li>aged 16 or over (or 14 or over in Scotland)</li>\n <li>a UK citizen (or an Irish, EU or Commonwealth citizen with a permanent UK address)</li>\n</ul> <p>You will not be able to vote until you’re 18. If you live in Scotland, you can vote in Scottish Parliament and local elections when you’re 16.</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Registering online",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>Use this service to register to vote.</p> <p>You only need to register once - not for every election.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "How to check if you’re already registered",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>Contact your local Electoral Registration Office to <a href=\"/get-on-electoral-register?src=schema\">find out if you’re already registered to vote</a>.</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Updating your registration",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can also use the <a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">‘Register to vote’ service</a> to:</p> <ul>\n <li>change your name, address or nationality</li>\n <li>get on or off the <a href=\"/electoral-register?src=schema\">open register</a>\n</li> </ul> <p>To do this, you need to register again with your new details (even if you’re already registered to vote).</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Registering with a paper form",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can:</p> <ul>\n <li><a href=\"/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema\">register using a paper form in England, Wales and Scotland</a></li>\n <li><a rel=\"external\" href=\"http://www.eoni.org.uk/Register-To-Vote/Register-to-vote-change-address-change-name?src=schema\">register using a paper form in Northern Ireland</a></li>\n</ul>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "If you live abroad",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can use this service to <a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">apply to register to vote</a> (or to renew or update your registration) if you:</p> <ul>\n <li>are a British citizen</li>\n <li>left the UK within the last 15 years</li>\n <li>were previously registered at an address in England, Scotland or Wales (or, in some cases, you left the UK before your 18th birthday)</li>\n</ul> <p>You’ll need your passport details if you’re a British citizen living abroad, and want to vote in England, Scotland or Wales.</p> <p>If you previously lived in Northern Ireland and want to vote there, use the <a rel=\"external\" href=\"http://www.eoni.org.uk/Register-To-Vote/Special-Category-Registration?src=schema\">Northern Ireland overseas elector registration form</a>.</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "If you’re a public servant posted overseas",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>There’s a different service for public servants (and their spouses and civil partners) who are posted overseas as:</p> <ul>\n <li><a href=\"/register-to-vote-crown-servants-british-council-employees?src=schema\">Crown servants or British council employees</a></li>\n <li>members of the <a href=\"/register-to-vote-armed-forces?src=schema\">armed forces</a>\n</li> </ul>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Get help registering",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>You can get help registering from your local <a href=\"/get-on-electoral-register?src=schema\">Electoral Registration Office</a>.</p> <p>There’s an <a href=\"/government/publications/registering-to-vote-easy-read-guide?src=schema\">easy read guide about registering to vote</a> for people with a learning disability.</p>\n",
+            },
+          },
+        ],
+      }
+
+      assert_equal expected_faq, faq_schema
+    end
+
     should "contain GovernmentService schema.org information" do
       carrot_service_with_org = @payload.merge(
         links: {

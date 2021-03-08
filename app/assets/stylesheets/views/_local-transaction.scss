@@ -1,10 +1,5 @@
 .interaction {
-  margin-top: govuk-spacing(3);
   margin-bottom: govuk-spacing(6);
-
-  .interaction-match {
-    @include govuk-font(36);
-  }
 
   .local-authority {
     font-weight: bold;

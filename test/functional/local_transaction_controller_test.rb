@@ -183,9 +183,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
       end
 
-      should "expose the 'invalid postcode format' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal location_error.postcode_error, "invalidPostcodeFormat"
+      should "responds successfully with an error message" do
+        assert response.ok?
+        assert_match CGI.escapeHTML(I18n.t!("formats.local_transaction.invalid_postcode")), response.body
       end
     end
 
@@ -196,9 +196,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
       end
 
-      should "expose the 'no mapit match' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal location_error.postcode_error, "fullPostcodeNoMapitMatch"
+      should "responds successfully with an error message" do
+        assert response.ok?
+        assert_match CGI.escapeHTML(I18n.t!("formats.local_transaction.valid_postcode_no_match")), response.body
       end
     end
 
@@ -209,9 +209,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
       end
 
-      should "expose the 'missing local authority' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal "noLaMatch", location_error.postcode_error
+      should "responds successfully with an error message" do
+        assert response.ok?
+        assert_match CGI.escapeHTML(I18n.t!("formats.local_transaction.no_local_authority")), response.body
       end
     end
 

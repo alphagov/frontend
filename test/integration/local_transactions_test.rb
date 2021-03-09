@@ -316,7 +316,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show advisory message that no interaction is available" do
-        assert page.has_content?("Search the Westminster website for this service")
+        assert page.has_content?("We do not know if they offer this service.")
       end
 
       should "link to the council website" do

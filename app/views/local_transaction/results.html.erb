@@ -3,11 +3,11 @@
   publication: @publication,
   edition: @edition,
 } do %>
-  <% if @interaction_details['local_interaction'] %>
-    <div class="interaction">
-      <p class="govuk-body">
-        We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
-      </p>
+  <div class="interaction">
+    <p class="govuk-body">
+      We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
+    </p>
+    <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
         You can get information on their website.
       </p>
@@ -19,13 +19,11 @@
           href: @interaction_details['local_interaction']['url'],
         } %>
       </p>
-    </div>
-  <% elsif @location_error && @location_error.no_location_interaction? %>
-    <div class="interaction">
-      <p class="govuk-body">
-        <%= t(@location_error.message, **@location_error.message_args) %>
-      </p>
+    <% else %>
       <% if @local_authority.url.present? %>
+        <p class="govuk-body">
+          We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.
+        </p>
         <div class="local-authority-result"
              data-module="auto-track-event"
              data-track-category="userAlerts:local_transaction"
@@ -47,8 +45,8 @@
           <p class="govuk-body">We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
         </div>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <% if @publication.more_information.present? %>
     <section class="more">

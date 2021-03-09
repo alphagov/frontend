@@ -337,18 +337,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
       get :results, params: { slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands" }
     end
 
-    should "show error message" do
+    should "responds successfully with an error message" do
       assert response.ok?
-      assert response.body.include?("Search")
-    end
-
-    should "expose the 'missing interaction' error to the view" do
-      location_error = assigns(:location_error)
-      assert_equal "laMatchNoLink", location_error.postcode_error
-    end
-
-    should "log the 'missing interaction' error to the view" do
-      assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
+      assert_match "We do not know if they offer this service", response.body
     end
   end
 

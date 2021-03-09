@@ -12,23 +12,6 @@ class LocationError
     when "noLaMatch"
       @message = "formats.local_transaction.no_local_authority"
       @sub_message = ""
-    when "laMatchNoLink"
-      @message =
-        if local_authority_name_starts_with_a_the?
-          "formats.local_transaction.local_authority_starts_with_the_no_service_url_html"
-        else
-          "formats.local_transaction.local_authority_no_service_url_html"
-        end
-      @sub_message = "" # not used in the markup for this case
-    when "laMatchNoLinkNoAuthorityUrl"
-      @message =
-        if local_authority_name_starts_with_a_the?
-          "formats.local_transaction.local_authority_starts_with_the_no_service_url_no_authority_link_html"
-        else
-          "formats.local_transaction.local_authority_no_service_url_no_authority_link_html"
-        end
-
-      @sub_message = "" # not used in the markup for this case
     when "validPostcodeNoLocation"
       # This is a find my nearest exception when no location is found
       @message = "formats.find_my_nearest.valid_postcode_no_locations"
@@ -43,15 +26,5 @@ class LocationError
 
   def send_error_notification(error)
     ActiveSupport::Notifications.instrument("postcode_error_notification", postcode_error: error)
-  end
-
-  def no_location_interaction?
-    %w[laMatchNoLink laMatchNoLinkNoAuthorityUrl].include? postcode_error
-  end
-
-private
-
-  def local_authority_name_starts_with_a_the?
-    message_args.fetch(:local_authority_name, "") =~ /\Athe/i
   end
 end

@@ -8,12 +8,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::LocalLinksManager
   include LocationHelpers
 
-  def subscribe_logstasher_to_postcode_error_notification
-    LogStasher.watch("postcode_error_notification") do |_name, _start, _finish, _id, payload, store|
-      store[:postcode_error] = payload[:postcode_error]
-    end
-  end
-
   test "Should not allow framing of local transaction pages" do
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
@@ -186,8 +180,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
       setup do
         stub_mapit_does_not_have_a_bad_postcode("BLAH")
 
-        subscribe_logstasher_to_postcode_error_notification
-
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
       end
 
@@ -195,17 +187,11 @@ class LocalTransactionControllerTest < ActionController::TestCase
         location_error = assigns(:location_error)
         assert_equal location_error.postcode_error, "invalidPostcodeFormat"
       end
-
-      should "log the 'invalid postcode format' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "invalidPostcodeFormat")
-      end
     end
 
     context "loading the local transaction when posting a postcode with no matching areas" do
       setup do
         stub_mapit_does_not_have_a_postcode("WC1E 9ZZ")
-
-        subscribe_logstasher_to_postcode_error_notification
 
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
       end
@@ -214,17 +200,11 @@ class LocalTransactionControllerTest < ActionController::TestCase
         location_error = assigns(:location_error)
         assert_equal location_error.postcode_error, "fullPostcodeNoMapitMatch"
       end
-
-      should "log the 'no mapit match' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "fullPostcodeNoMapitMatch")
-      end
     end
 
     context "loading the local transaction when posting a location that has no matching local authority" do
       setup do
         stub_mapit_has_a_postcode_and_areas("AB1 2CD", [0, 0], [])
-
-        subscribe_logstasher_to_postcode_error_notification
 
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
       end
@@ -232,10 +212,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
       should "expose the 'missing local authority' error to the view" do
         location_error = assigns(:location_error)
         assert_equal "noLaMatch", location_error.postcode_error
-      end
-
-      should "log the 'missing local authority' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "noLaMatch")
       end
     end
 
@@ -332,7 +308,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
         country_name: "England",
       )
 
-      subscribe_logstasher_to_postcode_error_notification
       stub_content_store_has_item("/report-a-bear-on-a-local-road", @payload)
       get :results, params: { slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands" }
     end

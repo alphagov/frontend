@@ -7,6 +7,20 @@ services:
       Northern Ireland:
         title: "This service is not available in Northern Ireland"
         body: "This service is not available in Northern Ireland. You can find other services on your council website"
+  1827:
+    unavailable_in:
+      Scotland:
+        title: "This service is not available in Scotland"
+        button_text: "Find testing information for Scotland"
+        button_link: "https://www.gov.scot/coronavirus-covid-19"
+      Northern Ireland:
+        title: "This service is not available in Northern Ireland"
+        button_text: "Find testing information for Northern Ireland"
+        button_link: "https://www.nidirect.gov.uk/campaigns/coronavirus-covid-19"
+      Wales:
+        title: "This service is not available in Wales"
+        button_text: "Find testing information for Wales"
+        button_link: "https://gov.wales/coronavirus"
   100001:
     unavailable_in:
       Scotland:

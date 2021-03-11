@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "action_controller/railtie"
+require "active_support/time"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
 

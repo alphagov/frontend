@@ -143,7 +143,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           },
           {
             "@type" => "Question",
-            "name" => "Register with a paper form",
+            "name" => "Register using a paper form",
             "acceptedAnswer" => {
               "@type" => "Answer",
               "text" => "<p>You can:</p> <ul>\n <li><a href=\"/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema\">register using a paper form in England, Wales and Scotland</a></li>\n <li><a rel=\"external\" href=\"https://www.eoni.org.uk/Register-To-Vote/Register-to-vote-change-address-change-name?src=schema\">register using a paper form in Northern Ireland</a></li>\n</ul> <p>You’ll need to print, fill out and <a href=\"/contact-electoral-registration-office?src=schema\">send the form to your local Electoral Registration Officer</a>.</p>\n",

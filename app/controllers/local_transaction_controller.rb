@@ -7,8 +7,6 @@ class LocalTransactionController < ApplicationController
   before_action -> { response.headers["X-Frame-Options"] = "DENY" }
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
-  NO_AUTHORITY_URL = "laMatchNoLinkNoAuthorityUrl".freeze
-  NO_LINK = "laMatchNoLink".freeze
   NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
   NO_MATCHING_AUTHORITY = "noLaMatch".freeze
   BANNED_POSTCODES = %w[ENTERPOSTCODE].freeze
@@ -34,7 +32,7 @@ class LocalTransactionController < ApplicationController
   def results
     @postcode = postcode
     @interaction_details = interaction_details
-    @local_authority = local_authority
+    @local_authority = LocalAuthorityPresenter.new(@interaction_details["local_authority"])
     @country_name = @local_authority.country_name
     @service = LocalTransactionService.new(
       @publication.title, lgsl, @country_name, @local_authority.url
@@ -96,21 +94,8 @@ private
     content_item["details"]["lgil_code"] || content_item["details"]["lgil_override"]
   end
 
-  def local_authority
-    if interaction_details["local_authority"]
-      local_authority = LocalAuthorityPresenter.new(interaction_details["local_authority"])
-    end
-
-    unless interaction_details["local_interaction"]
-      @location_error = error_for_missing_interaction(local_authority)
-    end
-
-    local_authority
-  end
-
   def interaction_details
     council = params[:local_authority_slug]
-    return {} unless council
 
     if council == "electoral-office-for-northern-ireland"
       {
@@ -120,10 +105,5 @@ private
     else
       @_interaction ||= Frontend.local_links_manager_api.local_link(council, lgsl, lgil)
     end
-  end
-
-  def error_for_missing_interaction(local_authority)
-    error_code = local_authority.url.present? ? NO_LINK : NO_AUTHORITY_URL
-    LocationError.new(error_code, local_authority_name: local_authority.name)
   end
 end

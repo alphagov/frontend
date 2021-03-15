@@ -87,10 +87,6 @@ en:
       valid_postcode_no_match: "We couldn't find this postcode."
       valid_postcode_no_match_sub_html: "Check it and enter it again."
       no_local_authority: "We couldn't find a council for this postcode."
-      local_authority_no_service_url_html: "Search the <span class='local-authority'>%{local_authority_name}</span> website for this service."
-      local_authority_starts_with_the_no_service_url_html: "Search <span class='local-authority'>%{local_authority_name}</span> website for this service."
-      local_authority_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
-      local_authority_starts_with_the_no_service_url_no_authority_link_html: "We've matched this postcode to <span class='local-authority'>%{local_authority_name}</span>."
     find_my_nearest:
       valid_postcode_no_locations: "We couldn't find any results for this postcode."
     simple_smart_answer:

@@ -8,12 +8,6 @@ class LocalTransactionControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::LocalLinksManager
   include LocationHelpers
 
-  def subscribe_logstasher_to_postcode_error_notification
-    LogStasher.watch("postcode_error_notification") do |_name, _start, _finish, _id, payload, store|
-      store[:postcode_error] = payload[:postcode_error]
-    end
-  end
-
   test "Should not allow framing of local transaction pages" do
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
@@ -186,18 +180,12 @@ class LocalTransactionControllerTest < ActionController::TestCase
       setup do
         stub_mapit_does_not_have_a_bad_postcode("BLAH")
 
-        subscribe_logstasher_to_postcode_error_notification
-
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
       end
 
-      should "expose the 'invalid postcode format' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal location_error.postcode_error, "invalidPostcodeFormat"
-      end
-
-      should "log the 'invalid postcode format' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "invalidPostcodeFormat")
+      should "responds successfully with an error message" do
+        assert response.ok?
+        assert_match CGI.escapeHTML(I18n.t!("formats.local_transaction.invalid_postcode")), response.body
       end
     end
 
@@ -205,18 +193,12 @@ class LocalTransactionControllerTest < ActionController::TestCase
       setup do
         stub_mapit_does_not_have_a_postcode("WC1E 9ZZ")
 
-        subscribe_logstasher_to_postcode_error_notification
-
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
       end
 
-      should "expose the 'no mapit match' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal location_error.postcode_error, "fullPostcodeNoMapitMatch"
-      end
-
-      should "log the 'no mapit match' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "fullPostcodeNoMapitMatch")
+      should "responds successfully with an error message" do
+        assert response.ok?
+        assert_match CGI.escapeHTML(I18n.t!("formats.local_transaction.valid_postcode_no_match")), response.body
       end
     end
 
@@ -224,18 +206,12 @@ class LocalTransactionControllerTest < ActionController::TestCase
       setup do
         stub_mapit_has_a_postcode_and_areas("AB1 2CD", [0, 0], [])
 
-        subscribe_logstasher_to_postcode_error_notification
-
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
       end
 
-      should "expose the 'missing local authority' error to the view" do
-        location_error = assigns(:location_error)
-        assert_equal "noLaMatch", location_error.postcode_error
-      end
-
-      should "log the 'missing local authority' error to the view" do
-        assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "noLaMatch")
+      should "responds successfully with an error message" do
+        assert response.ok?
+        assert_match CGI.escapeHTML(I18n.t!("formats.local_transaction.no_local_authority")), response.body
       end
     end
 
@@ -332,23 +308,13 @@ class LocalTransactionControllerTest < ActionController::TestCase
         country_name: "England",
       )
 
-      subscribe_logstasher_to_postcode_error_notification
       stub_content_store_has_item("/report-a-bear-on-a-local-road", @payload)
       get :results, params: { slug: "report-a-bear-on-a-local-road", local_authority_slug: "staffordshire-moorlands" }
     end
 
-    should "show error message" do
+    should "responds successfully with an error message" do
       assert response.ok?
-      assert response.body.include?("Search")
-    end
-
-    should "expose the 'missing interaction' error to the view" do
-      location_error = assigns(:location_error)
-      assert_equal "laMatchNoLink", location_error.postcode_error
-    end
-
-    should "log the 'missing interaction' error to the view" do
-      assert_equal(LogStasher.store["postcode_error_notification"], postcode_error: "laMatchNoLink")
+      assert_match "We do not know if they offer this service", response.body
     end
   end
 

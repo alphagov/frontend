@@ -170,7 +170,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "name" => "Get help registering",
             "acceptedAnswer" => {
               "@type" => "Answer",
-              "text" => "<p>You can get help registering from your local <a href=\"/get-on-electoral-register?src=schema\">Electoral Registration Office</a>.</p> <p>There’s an <a href=\"/government/publications/registering-to-vote-easy-read-guide?src=schema\">easy read guide about registering to vote</a> for people with a learning disability.</p>\n",
+              "text" => "<p>You can get help registering from your local <a href=\"/get-on-electoral-register?src=schema\">Electoral Registration Office</a>.</p> <p>There’s an <a href=\"/government/publications/registering-to-vote-easy-read-guide?src=schema\">easy read guide about registering to vote</a>.</p>\n",
             },
           },
         ],

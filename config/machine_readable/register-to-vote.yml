@@ -10,6 +10,17 @@ faqs:
       <a href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=actions">Update your registration</a>
       <a href="/how-to-vote/postal-voting?src=actions">Apply for a postal vote</a>
 
+  - question: Deadline for registering to vote in the 6 May 2021 elections
+    answer: >
+      <p>Register by 11:59pm on 19 April to vote in the following elections on 6 May:</p>
+      <ul>
+        <li>local government elections and referendums in England</li>
+        <li>Police and Crime Commissioner elections in England and Wales</li>
+        <li>Scottish Parliament elections</li>
+        <li>Senedd (Welsh Parliament) elections</li>
+        <li>Mayor of London and London Assembly elections</li>
+      </ul>
+
   - question: Who can register
     answer: >
       <p>You must be aged 16 or over (or 14 or over in Scotland and Wales).</p>

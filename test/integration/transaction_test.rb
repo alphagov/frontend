@@ -111,6 +111,14 @@ class TransactionTest < ActionDispatch::IntegrationTest
           },
           {
             "@type" => "Question",
+            "name" => "Deadline for registering to vote in the 6 May 2021 elections",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>Register by 11:59pm on 19 April to vote in the following elections on 6 May:</p> <ul>\n <li>local government elections and referendums in England</li>\n <li>Police and Crime Commissioner elections in England and Wales</li>\n <li>Scottish Parliament elections</li>\n <li>Senedd (Welsh Parliament) elections</li>\n <li>Mayor of London and London Assembly elections</li>\n</ul>\n",
+            },
+          },
+          {
+            "@type" => "Question",
             "name" => "Who can register",
             "acceptedAnswer" => {
               "@type" => "Answer",

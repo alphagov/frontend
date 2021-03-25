@@ -31,6 +31,8 @@
             title: t("common.download_ics")
           } %>
 
+          <%= render "save_location", nation: "#{t "#{division.title}"}" %>
+
           <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
           <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
 

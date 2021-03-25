@@ -3,8 +3,8 @@
     <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
       <%= render "govuk_publishing_components/components/success_alert", {
         message: t('cookies.confirmation_title'),
-        description: sanitize("<p>#{t('cookies.confirmation_message')}</p>
-        <a class='govuk-link cookie-settings__prev-page' href='#' data-module='gem-track-click' data-track-category='cookieSettings' data-track-action='Back to previous page'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe
+        description: raw("<p class='govuk-body'>#{t('cookies.confirmation_message')}</p>
+        <a class='govuk-link govuk-notification-banner__link cookie-settings__prev-page' href='#' data-module='gem-track-click' data-track-category='cookieSettings' data-track-action='Back to previous page'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe
       } %>
   </div>
 

@@ -24,6 +24,9 @@
   edition: @edition
 } do %>
   <section class="intro">
+    <%# Temporary experiment to test if applicability banner increases devolved administration usage %>
+    <%= render 'transaction/country_notice' if @publication.show_experimental_country_notice? %>
+
     <div class="get-started-intro">
       <%= render "govuk_publishing_components/components/govspeak", { } do %>
         <%= @publication.introductory_paragraph.try(:html_safe) %>

@@ -48,6 +48,10 @@ class TransactionPresenter < ContentItemPresenter
     end
   end
 
+  def show_experimental_country_notice?
+    @content_item["content_id"] == "89edffd2-3046-40bd-810c-cc1a13c05b6a"
+  end
+
 private
 
   def variant_value(key)

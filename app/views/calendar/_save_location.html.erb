@@ -29,6 +29,11 @@
     margin_bottom: 4,
     classes: "js-nation-button",
     aria_label: save_button_aria_label,
+    data_attributes: {
+      track_category: "uk-public-holiday",
+      track_action: "save-button",
+      track_label: nation.gsub(/\s/,'-')
+    }
   } %>
 
   <p class="govuk-body govuk-!-margin-0 js-nation-link">

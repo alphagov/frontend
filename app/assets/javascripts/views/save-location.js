@@ -22,12 +22,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           description: this.$module.getAttribute('data-save-description'),
           button_aria_label: this.$module.getAttribute('data-save-button-aria-label'),
           button_text: this.$module.getAttribute('data-save-button-text'),
+          button_track: 'undo-button', // this is the wrong way round, because tracking fires after we've updated this value
           link_display: 'block'
         },
         {
           description: this.$module.getAttribute('data-undo-description'),
           button_aria_label: this.$module.getAttribute('data-undo-button-aria-label'),
           button_text: this.$module.getAttribute('data-undo-button-text'),
+          button_track: 'save-button',
           link_display: 'none'
         }
       ]
@@ -75,6 +77,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     button.setAttribute('aria-label', this.page_content[option].button_aria_label.replace('#', nation))
     button.innerText = this.page_content[option].button_text.replace('#', nation)
+    button.setAttribute('data-track-action', this.page_content[option].button_track)
     description.innerHTML = this.page_content[option].description.replace('#', nation)
     link.style.display = this.page_content[option].link_display
   }

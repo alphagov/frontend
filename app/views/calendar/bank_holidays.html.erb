@@ -25,12 +25,6 @@
             } %>
           <% end %>
 
-          <%= render "components/subscribe", {
-            label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-            url: division_path(@calendar, division, :format => 'ics'),
-            title: t("common.download_ics")
-          } %>
-
           <%= render "save_location", nation: "#{t "#{division.title}"}" %>
 
           <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
@@ -48,7 +42,11 @@
           <p class="govuk-body"><%= raw(t("common.holiday_entitlement"))%></p>
           <p class="govuk-body"><%= raw(t("common.bank_holiday_benefits"))%></p>
 
-          <hr class="govuk-section-break govuk-section-break--m">
+          <%= render "components/subscribe", {
+            label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+            url: division_path(@calendar, division, :format => 'ics'),
+            title: t("common.download_ics")
+          } %>
 
           <% caption = "#{t "common.past_bank_holidays"} #{t "#{division.title}_in"}" %>
           <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>

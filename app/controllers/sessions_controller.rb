@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     redirect_with_ga account_manager_url and return if logged_in?
 
     redirect_with_ga GdsApi.account_api.get_sign_in_url(
-      redirect_path: params[:redirect_path],
+      redirect_path: params[:redirect_path] || fetch_http_referrer,
       state_id: params[:state_id],
     ).to_h["auth_uri"]
   end
@@ -46,6 +46,14 @@ protected
 
   def account_manager_url
     Plek.find("account-manager")
+  end
+
+  def fetch_http_referrer
+    http_referrer = request.headers["HTTP_REFERER"]
+
+    return nil unless http_referrer&.start_with?(Plek.new.website_root)
+
+    URI.parse(http_referrer).path
   end
 
   def redirect_with_ga(url, ga_client_id = nil)

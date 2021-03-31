@@ -112,5 +112,12 @@ class TransactionPresenterTest < ActiveSupport::TestCase
       assert subject(item).show_experimental_country_notice?
       Timecop.return
     end
+
+    should "be false when experiement is over" do
+      Timecop.freeze(Time.zone.local(2021, 4, 21))
+      item = { content_id: "89edffd2-3046-40bd-810c-cc1a13c05b6a" }
+      assert_not subject(item).show_experimental_country_notice?
+      Timecop.return
+    end
   end
 end

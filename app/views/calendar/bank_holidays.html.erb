@@ -29,7 +29,9 @@
             } %>
           <% end %>
 
-          <%= render "save_location", nation: "#{t "#{division.title}"}" %>
+          <% if @requested_variant.variant?("B") %>
+            <%= render "save_location", nation: "#{t "#{division.title}"}" %>
+          <% end %>
 
           <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
           <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>

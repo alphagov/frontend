@@ -14,3 +14,5 @@
 //= require transactions
 //= require support
 //= require_tree ./modules
+
+//= require ./views/save-location

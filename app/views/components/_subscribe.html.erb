@@ -1,3 +1,5 @@
+<% data ||= false %>
+
 <%= tag.div class: "app-c-subscribe" do %>
-  <%= link_to label, url, title: title, class: "app-c-subscribe__link govuk-link" %>
+  <%= link_to label, url, title: title, class: "app-c-subscribe__link govuk-link", data: data %>
 <% end %>

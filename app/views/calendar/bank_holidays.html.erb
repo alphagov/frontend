@@ -1,3 +1,7 @@
+<% content_for :extra_headers do %>
+  <%= @requested_variant.analytics_meta_tag.html_safe %>
+<% end %>
+
 <%= render :partial => "calendar_head" %>
 
 <div class="govuk-grid-column-two-thirds">
@@ -12,7 +16,7 @@
       title: @calendar.title
     } %>
 
-    <article role="article">
+    <article role="article" data-module="gem-track-click" class="js-tab-track">
       <% tab_content ||= [] %>
       <% @calendar.divisions.each_with_index do |division, index| %>
         <% tab_content[index] = capture do %>
@@ -25,11 +29,9 @@
             } %>
           <% end %>
 
-          <%= render "components/subscribe", {
-            label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-            url: division_path(@calendar, division, :format => 'ics'),
-            title: t("common.download_ics")
-          } %>
+          <% if @requested_variant.variant?("B") %>
+            <%= render "save_location", nation: "#{t "#{division.title}"}" %>
+          <% end %>
 
           <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
           <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
@@ -46,7 +48,16 @@
           <p class="govuk-body"><%= raw(t("common.holiday_entitlement"))%></p>
           <p class="govuk-body"><%= raw(t("common.bank_holiday_benefits"))%></p>
 
-          <hr class="govuk-section-break govuk-section-break--m">
+          <%= render "components/subscribe", {
+            label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+            url: division_path(@calendar, division, :format => 'ics'),
+            title: t("common.download_ics"),
+            data: {
+              track_category: "Download link clicked",
+              track_action: division_path(@calendar, division, :format => 'ics'),
+              track_label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+            }
+          } %>
 
           <% caption = "#{t "common.past_bank_holidays"} #{t "#{division.title}_in"}" %>
           <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
@@ -67,7 +78,12 @@
         tabs: @calendar.divisions.each_with_index.map { |division, index| {
            :id => t(division.slug),
            :label => t(division.title),
-           :content => tab_content[index]
+           :content => tab_content[index],
+           :tab_data_attributes => {
+             track_category: "uk-public-holiday",
+             track_action: "tab",
+             track_label: "#{t "#{division.title}"}".gsub(/\s/,'-')
+           }
          } }
       } %>
     </article>

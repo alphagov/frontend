@@ -1,3 +1,7 @@
+<% content_for :extra_headers do %>
+  <%= @requested_variant.analytics_meta_tag.html_safe %>
+<% end %>
+
 <%= render :partial => "calendar_head" %>
 
 <div class="govuk-grid-column-two-thirds">

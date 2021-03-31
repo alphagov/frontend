@@ -2,6 +2,7 @@ class CalendarController < ApplicationController
   before_action :set_cors_headers, if: :json_request?
   before_action :set_locale
   before_action :load_calendar
+  before_action :setup_ab_test
 
   rescue_from Calendar::CalendarNotFound, with: :simple_404
 
@@ -80,5 +81,16 @@ private
 
       params[:division] = "common.nations.#{division_slug}"
     end
+  end
+
+  def setup_ab_test
+    ab_test = GovukAbTesting::AbTest.new(
+      "AccountBankHols",
+      dimension: 46,
+      allowed_variants: %w[A B],
+      control_variant: "A",
+    )
+    @requested_variant = ab_test.requested_variant(request.headers)
+    @requested_variant.configure_response(response)
   end
 end

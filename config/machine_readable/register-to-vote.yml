@@ -10,6 +10,14 @@ faqs:
       <a href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=actions">Update your registration</a>
       <a href="/how-to-vote/postal-voting?src=actions">Apply for a postal vote</a>
 
+  - question: Register online
+    answer: >
+      <p>It usually takes about 5 minutes.</p>
+      <p><a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">Start now</a></p>
+      <h2>What you need to know</h2>
+      <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>
+      <p>After you’ve registered, your name and address will appear on the electoral register.</p>
+
   - question: Deadline for registering to vote in the 6 May 2021 elections
     answer: >
       <p>Register by 11:59pm on 19 April to vote in the following elections on 6 May:</p>
@@ -33,14 +41,6 @@ faqs:
       </ul>
       <p>Check which <a href="/elections-in-the-uk?src=schema">elections you’re eligible to vote in</a>.</p>
 
-  - question: Register online
-    answer: >
-      <p>It usually takes about 5 minutes.</p>
-      <p><a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">Start now</a></p>
-      <h2>What you need to know</h2>
-      <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>
-      <p>After you’ve registered, your name and address will appear on the electoral register.</p>
-
   - question: Check if you’re already registered
     answer: >
       <p><a href="/contact-electoral-registration-office?src=schema">Contact your local Electoral Registration Office</a> to find out if you’re already registered to vote.</p>
@@ -56,22 +56,17 @@ faqs:
 
   - question: Register using a paper form
     answer: >
-      <p>You can:</p>
-      <ul>
-        <li><a href="/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema">register using a paper form in England, Wales and Scotland</a></li>
-        <li><a rel="external" href="https://www.eoni.org.uk/Register-To-Vote/Register-to-vote-change-address-change-name?src=schema">register using a paper form in Northern Ireland</a></li>
-      </ul>
+      <p>You can <a href="/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema">register using a paper form in England, Wales and Scotland</a>.</p>
       <p>You’ll need to print, fill out and <a href="/contact-electoral-registration-office?src=schema">send the form to your local Electoral Registration Officer</a>.</p>
 
   - question: If you live abroad
     answer: >
-      <p>You can use this service to <a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">register to vote</a> (or to renew or update your registration) if you both:</p>
+      <p>You can use this service to <a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">register to vote</a> (or to renew or update your registration) if you:</p>
       <ul>
         <li>are a British citizen</li>
         <li>were registered to vote within the last 15 years (or, in some cases, if you were too young to register when you were in the UK)</li>
       </ul>
       <p>You may need your passport details.</p>
-      <p>If you previously lived in Northern Ireland and want to vote there, use the <a rel="external" href="https://www.eoni.org.uk/Register-To-Vote/Special-Category-Registration?src=schema">Northern Ireland overseas elector registration form</a>.</p>
 
   - question: If you’re a public servant posted overseas
     answer: >
@@ -85,4 +80,3 @@ faqs:
   - question: Get help registering
     answer: >
       <p>You can get help registering from your local <a href="/get-on-electoral-register?src=schema">Electoral Registration Office</a>.</p>
-      <p>There’s an <a href="/government/publications/registering-to-vote-easy-read-guide?src=schema">easy read guide about registering to vote</a>.</p>

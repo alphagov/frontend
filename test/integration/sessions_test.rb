@@ -30,6 +30,15 @@ class SessionsTest < ActionDispatch::IntegrationTest
       assert_requested stub
     end
 
+    should "preserve a redirect_path params stored in the HTTP Referer header" do
+      stub = stub_account_api_get_sign_in_url(redirect_path: "/from-referer?foo=bar")
+
+      get "/sign-in", headers: { "Referer" => "#{Plek.new.website_root}/from-referer?foo=bar" }
+
+      assert_response :redirect
+      assert_requested stub
+    end
+
     should "not add an invalid path as the redirect param" do
       stub_account_api_get_sign_in_url
       stub_evil = stub_account_api_get_sign_in_url(redirect_path: "/from-referer")

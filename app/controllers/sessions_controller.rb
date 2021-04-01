@@ -53,7 +53,7 @@ protected
 
     return nil unless http_referrer&.start_with?(Plek.new.website_root)
 
-    URI.parse(http_referrer).path
+    http_referrer.delete_prefix Plek.new.website_root
   end
 
   def redirect_with_ga(url, ga_client_id = nil)

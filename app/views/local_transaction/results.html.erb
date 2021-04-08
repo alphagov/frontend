@@ -4,7 +4,11 @@
   edition: @edition,
 } do %>
   <div class="interaction">
-    <p class="govuk-body">
+    <p class="govuk-body"
+       data-module="auto-track-event"
+       data-track-category="postcodeSearch:local_transaction"
+       data-track-action="postcodeResultShown"
+       data-track-label="<%= @local_authority.name %>">
       We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
     </p>
     <% if @interaction_details['local_interaction'] %>

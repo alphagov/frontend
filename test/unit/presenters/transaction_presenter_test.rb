@@ -97,4 +97,27 @@ class TransactionPresenterTest < ActiveSupport::TestCase
       assert subject(item).multiple_more_information_sections?
     end
   end
+
+  context "show_experimental_country_notice?" do
+    should "be false when not business support start page" do
+      Timecop.freeze(Time.zone.local(2021, 4, 4))
+      item = { details: { more_information: "carrots", what_you_need_to_know: "all about carrots" } }
+      assert_not subject(item).show_experimental_country_notice?
+      Timecop.return
+    end
+
+    should "be true if content item is in experiement" do
+      Timecop.freeze(Time.zone.local(2021, 4, 4))
+      item = { content_id: "89edffd2-3046-40bd-810c-cc1a13c05b6a" }
+      assert subject(item).show_experimental_country_notice?
+      Timecop.return
+    end
+
+    should "be false when experiement is over" do
+      Timecop.freeze(Time.zone.local(2021, 4, 21))
+      item = { content_id: "89edffd2-3046-40bd-810c-cc1a13c05b6a" }
+      assert_not subject(item).show_experimental_country_notice?
+      Timecop.return
+    end
+  end
 end

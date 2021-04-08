@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "rails", "6.1.3.1"
 
 gem "addressable"
+gem "dalli"
 gem "gds-api-adapters"
 gem "govuk_ab_testing"
 gem "govuk_app_config"

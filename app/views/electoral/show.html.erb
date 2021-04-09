@@ -1,1 +1,39 @@
-test
+<% content_for :title, @content_item[:title] %>
+<% content_for :breadcrumbs do %>
+  <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <%= render "govuk_publishing_components/components/title", title: @content_item[:title] %>
+    <%= form_tag find_electoral_things_path,
+      method: :get,
+      data: {} do |f| %>
+      <div>
+        <%= render "govuk_publishing_components/components/input", {
+          id: "postcode",
+          label: { text: t("electoral.lookup.input_label")},
+          heading_level: 2,
+          heading_size: "s",
+          error_message: nil,
+          name: "postcode",
+          hint: t("electoral.lookup.hint_text").html_safe,
+          invalid: false,
+          autocomplete: "postal-code",
+          width: 10,
+          value: params[:postcode],
+        } %>
+        <%= render "govuk_publishing_components/components/button",
+                   text: "find",
+                   margin_bottom: true %>
+
+        <p class="govuk-body">
+          <%= link_to t("electoral.royal_mail_lookup"),
+          t("electoral.royal_mail_url"),
+          class: "" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

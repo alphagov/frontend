@@ -66,6 +66,14 @@ en:
       essential: "Strictly necessary cookies"
       settings: "Cookies that remember your settings"
       usage: "Cookies that measure website use"
+  electoral:
+    lookup:
+      input_label: "Enter a full postcode"
+      hint_text:
+        <p>For example, LS1 1UR</p>
+        <p>We use this to give you more accurate information about the area.</p>
+    royal_mail_lookup: "Find a postcode on Royal Mail’s postcode finder"
+    royal_mail_url: https://www.royalmail.com/find-a-postcode
   formats:
     transaction:
       name: "Service"

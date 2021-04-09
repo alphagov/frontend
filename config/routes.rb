@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   # GOVUK Public Roadmap
   get "/roadmap", to: "roadmap#index"
 
+  # Electoral Registration Lookup Service
+  get "/find-electoral-things" => "electoral#show"
+
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do
     get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"

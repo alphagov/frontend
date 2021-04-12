@@ -10,15 +10,16 @@ Pact.configure do |config|
   config.include GdsApi::TestHelpers::ContentStore
 end
 
+WebMock.allow_net_connect!
+
 class ProxyApp
   def initialize(real_provider_app)
     @real_provider_app = real_provider_app
   end
 
   def call(env)
-    env["HTTP_HOST"] = "localhost:3003"
-    response = @real_provider_app.call(env)
-    response
+    env["HTTP_HOST"] = "localhost"
+    @real_provider_app.call(env)
   end
 end
 

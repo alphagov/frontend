@@ -10,6 +10,8 @@ Pact.configure do |config|
   config.include GdsApi::TestHelpers::ContentStore
 end
 
+WebMock.allow_net_connect!
+
 class ProxyApp
   def initialize(real_provider_app)
     @real_provider_app = real_provider_app

@@ -17,13 +17,15 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
   context "searching by postcode" do
     context "when a valid postcode is entered which matches a single electoral service" do
-      should "display contact details if available" do
+      should "display contact details, and upcoming elections if available" do
         search_for(postcode: "LS11UR")
 
         assert page.has_selector?("h2", text: "Your local council")
         assert page.has_text? "For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
         assert page.has_selector?("address", text: "Electoral Registration Office")
         assert page.has_selector?("h2", text: "Get help with electoral registration")
+        assert page.has_selector?("h2", text: "Next elections")
+        assert page.has_text?("2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons")
       end
 
       # TODO: should "display a helpful message if no contact details are present" do
@@ -33,6 +35,15 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
       #
       #   assert page.has_selector?("h2", text: "Get help with electoral registration")
       #   assert page.has_text?("Need help? Get in touch with your local electoral registration team.")
+      # end
+
+      # TODO: should "inform user if there are no upcoming elecections " do
+      #   setup do
+      #     stub_api_call
+      #   end
+      #
+      #   assert page.has_selector?("h2", text: "Next elections")
+      #   assert page.has_text?("There are no upcoming elections for your area")
       # end
     end
   end

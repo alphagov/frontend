@@ -7,8 +7,6 @@ class ElectoralPresenter
     address_picker
     addresses
     dates
-    notifications
-    ballots
     electoral_services
     registration
     postcode_location
@@ -33,6 +31,16 @@ class ElectoralPresenter
   def registration_address
     if registration["address"].present?
       registration["address"].split("\\n").join("<br>")
+    end
+  end
+
+  def upcoming_elections
+    dates.flat_map { |date| present_ballots(date) } if dates.present?
+  end
+
+  def present_ballots(date)
+    if date["ballots"].present?
+      date["ballots"].map { |b| "#{b['poll_open_date']} - #{b['ballot_title']}" }
     end
   end
 

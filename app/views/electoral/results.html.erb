@@ -61,6 +61,7 @@
           ]
         } %>
       <% end %>
+      <%= render partial: "upcoming_elections", locals: { elections: @presented_result.upcoming_elections } %>
     </div>
   </div>
 </div>

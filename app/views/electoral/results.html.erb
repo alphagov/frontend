@@ -1,1 +1,66 @@
-<%= @presented_result.council_name %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <% content_for :title,   @content_item[:title] %>
+
+    <div>
+      <%= render "govuk_publishing_components/components/title", title: @content_item["title"] %>
+
+      <p class="govuk-body">
+        We've matched the postcode <strong><%= @postcode %></strong> to <strong><%= @presented_result.electoral_service_name %></strong>.
+      </p>
+
+      <% electoral_contact_title = @presented_result.registration.present? ? "Your local council" : "Get help with electoral registration"
+        electoral_contact_description =
+          if @presented_result.registration.present?
+            "For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
+          else
+            "Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote."
+          end %>
+      <% if @presented_result.electoral_services.present? %>
+        <%= render "govuk_publishing_components/components/heading",
+            text: electoral_contact_title,
+            font_size: "m",
+            margin_bottom: 4
+        %>
+        <p class="govuk-body"><%= electoral_contact_description %></p>
+
+        <p class="govuk-body"><%= @presented_result.electoral_service_name %>
+        <% if @presented_result.electoral_services["address"].present? %>
+          <address class="govuk-body">
+            <%= @presented_result.electoral_service_address.html_safe%><br>
+            <%= @presented_result.electoral_services["postcode"] %><br>
+          </address>
+        <% end %>
+        <%= render "govuk_publishing_components/components/list", {
+          items: [
+            sanitize("<a href='#{@presented_result.electoral_services["website"]}'>#{@presented_result.electoral_services["website"]}</a>"),
+            @presented_result.electoral_services["phone"],
+            @presented_result.electoral_services["email"],
+          ]
+        } %>
+      <% end %>
+      <% if @presented_result.registration.present? %>
+        <%= render "govuk_publishing_components/components/heading",
+            text: "Get help with electoral registration",
+            font_size: "m",
+            margin_bottom: 4
+        %>
+        <p class="govuk-body"><%= electoral_contact_description %></p>
+
+        <% if @presented_result.registration["address"].present? %>
+          <address class="govuk-body">
+            <%= @presented_result.registration_address.html_safe %><br>
+            <%= @presented_result.registration["postcode"] %><br>
+          </address>
+        <% end %>
+        <%= render "govuk_publishing_components/components/list", {
+          items: [
+            sanitize("<a href='#{@presented_result.registration["website"]}'>#{@presented_result.registration["website"]}</a>"),
+            @presented_result.registration["phone"],
+            @presented_result.registration["email"],
+          ]
+        } %>
+      <% end %>
+    </div>
+  </div>
+</div>

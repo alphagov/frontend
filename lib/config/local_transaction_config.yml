@@ -23,4 +23,4 @@ services:
         title: "Rapid lateral flow testing is different in Wales"
         body: We do not know if they offer rapid lateral flow tests. Search the Welsh Government website to see if they do, or what else they offer.
         button_text: "Find testing information for Wales"
-        button_link: "https://gov.wales/lateral-flow-testing-people-without-symptoms"
+        button_link: "https://gov.wales/symptom-free-covid-19-community-testing"

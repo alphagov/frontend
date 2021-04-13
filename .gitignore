@@ -12,3 +12,4 @@ public/assets
 node_modules
 yarn-error.log
 spec/reports/pacts
+.env

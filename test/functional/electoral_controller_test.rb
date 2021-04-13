@@ -35,4 +35,17 @@ class ElectoralControllerTest < ActionController::TestCase
       end
     end
   end
+
+  context "with uprn params" do
+    should "GET show renders results page" do
+      stub_address_endpoint =
+        stub_request(:get, "https://api.ec-dc.club/api/v1/address/1234")
+        .to_return(status: 200, body: "{}")
+
+      get :show, params: { uprn: "1234" }
+      assert_response :success
+      assert_template :results
+      assert_requested(stub_address_endpoint)
+    end
+  end
 end

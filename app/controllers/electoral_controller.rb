@@ -13,7 +13,7 @@ class ElectoralController < ApplicationController
     api_response = fetch_response(@postcode)
     @presented_result = presented_result(api_response)
     if @presented_result.address_picker
-      render :address_picker, locals: { addresses: @presented_result.addresses }
+      render :address_picker, locals: { addresses: @presented_result.present_addresses }
       return
     end
     render :results

@@ -1,4 +1,5 @@
 class ElectoralPresenter
+  include Rails.application.routes.url_helpers
   def initialize(response)
     @response = response || {}
   end
@@ -41,6 +42,12 @@ class ElectoralPresenter
   def present_ballots(date)
     if date["ballots"].present?
       date["ballots"].map { |b| "#{b['poll_open_date']} - #{b['ballot_title']}" }
+    end
+  end
+
+  def present_addresses
+    if addresses.present?
+      addresses.map { |a| "<a href='#{find_electoral_things_path}?uprn=#{a['slug']}'>#{a['address']}</a>" }
     end
   end
 

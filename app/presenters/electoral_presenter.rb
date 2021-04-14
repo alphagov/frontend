@@ -22,6 +22,18 @@ class ElectoralPresenter
     electoral_services["name"]
   end
 
+  def electoral_service_address
+    if electoral_services["address"].present?
+      electoral_services["address"].split("\\n").join("<br>")
+    end
+  end
+
+  def registration_address
+    if registration["address"].present?
+      registration["address"].split("\\n").join("<br>")
+    end
+  end
+
 private
 
   attr_reader :response

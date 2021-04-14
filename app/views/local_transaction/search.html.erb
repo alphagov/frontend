@@ -20,13 +20,18 @@
     </section>
   <% end %>
 
-  <%= render partial: 'location_form',
+  <% if current_page?(find_electoral_things_path) %>
+    <%= render partial: "electoral/form" %>
+  <% else %>
+    <%= render partial: 'location_form',
              locals: {
                method: 'post',
                format: 'service',
                publication_format: 'local_transaction',
                postcode: @postcode
-             } %>
+             }
+    %>
+  <% end %>
 
   <% if @publication.need_to_know.present? || @publication.more_information.present? %>
     <section class="more">

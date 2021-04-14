@@ -9,5 +9,7 @@ class ElectoralControllerTest < ActionController::TestCase
     get :show
     assert_response :success
     assert_template "local_transaction/search"
+    assert_template partial: "electoral/_form"
+    assert_template partial: "application/_location_form", count: 0
   end
 end

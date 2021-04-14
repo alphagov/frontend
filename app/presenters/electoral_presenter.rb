@@ -19,7 +19,7 @@ class ElectoralPresenter
   end
 
   def electoral_service_name
-    electoral_services["name"]
+    electoral_services["name"] if electoral_services.present?
   end
 
   def electoral_service_address

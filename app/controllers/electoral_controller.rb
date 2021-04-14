@@ -18,10 +18,9 @@ class ElectoralController < ApplicationController
 
 private
 
-  def fetch_response(_postcode)
-    path = Rails.root.join("test/fixtures/electoral-result.json")
-    fixture = File.read(path)
-    JSON.parse(fixture)
+  def fetch_response(postcode)
+    response = request_api("#{api_base_path}/postcode/#{postcode}")
+    JSON.parse(response)
   end
 
   def postcode_params
@@ -30,5 +29,16 @@ private
 
   def presented_result(response)
     ElectoralPresenter.new(response)
+  end
+
+  def request_api(url)
+    headers = {
+      Authorization: "Token #{ENV['DEMOCRACY_CLUB_API_KEY']}",
+    }
+    RestClient.get(url, headers)
+  end
+
+  def api_base_path
+    "https://api.ec-dc.club/api/v1"
   end
 end

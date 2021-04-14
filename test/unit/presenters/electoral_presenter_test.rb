@@ -19,4 +19,11 @@ class ElectoralPresenterTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "when dates and ballots are present in the api response" do
+    should "should format them correctly" do
+      expected = ["2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons"]
+      assert_equal electoral_presenter.upcoming_elections, expected
+    end
+  end
 end

@@ -34,6 +34,16 @@ class ElectoralPresenter
     end
   end
 
+  def upcoming_elections
+    dates.flat_map { |date| present_ballots(date) } if dates.present?
+  end
+
+  def present_ballots(date)
+    if date["ballots"].present?
+      date["ballots"].map { |b| "#{b['poll_open_date']} - #{b['ballot_title']}" }
+    end
+  end
+
 private
 
   attr_reader :response

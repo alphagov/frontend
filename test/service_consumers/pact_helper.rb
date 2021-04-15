@@ -12,30 +12,18 @@ end
 
 WebMock.allow_net_connect!
 
-class ProxyApp
-  def initialize(real_provider_app)
-    @real_provider_app = real_provider_app
-  end
-
-  def call(env)
-    env["HTTP_HOST"] = "localhost"
-    @real_provider_app.call(env)
-  end
-end
-
 def url_encode(str)
   ERB::Util.url_encode(str)
 end
 
 Pact.service_provider "Bank Holidays API" do
-  app { ProxyApp.new(Rails.application) }
   honours_pact_with "GDS API Adapters" do
     if ENV["PACT_URI"]
       pact_uri(ENV["PACT_URI"])
     else
       base_url = "https://pact-broker.cloudapps.digital"
       path = "pacts/provider/#{url_encode(name)}/consumer/#{url_encode(consumer_name)}"
-      version_modifier = "versions/#{url_encode(ENV.fetch('GDS_API_ADAPTERS_PACT_VERSION', 'master'))}"
+      version_modifier = "versions/#{url_encode(ENV.fetch('PACT_CONSUMER_VERSION', 'master'))}"
 
       pact_uri("#{base_url}/#{path}/#{version_modifier}")
     end

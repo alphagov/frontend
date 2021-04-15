@@ -8,7 +8,7 @@ class ElectoralPresenterTest < ActiveSupport::TestCase
   end
 
   def electoral_presenter(payload)
-    @electoral_presenter ||= ElectoralPresenter.new(payload)
+    ElectoralPresenter.new(payload)
   end
 
   context "exposing attributes from the json payload" do
@@ -26,6 +26,29 @@ class ElectoralPresenterTest < ActiveSupport::TestCase
       subject = electoral_presenter(api_response)
       expected = ["2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons"]
       assert_equal subject.upcoming_elections, expected
+    end
+  end
+
+  context "presenting addresses" do
+    context "when duplicate contact details are provided" do
+      should "we should not show the electoral services address" do
+        with_duplicate_contact = api_response
+        with_duplicate_contact["registration"] = { "address" => "foo bar" }
+        with_duplicate_contact["electoral_services"] = { "address" => " foo  bar " }
+        subject = electoral_presenter(with_duplicate_contact)
+        assert_equal subject.use_electoral_services_contact_details?, false
+      end
+    end
+
+    context "when both contact details are different" do
+      should "we should show both addresses" do
+        with_different_contact = api_response
+        with_different_contact["registration"] = { "address" => "foo bar" }
+        with_different_contact["electoral_services"] = { "address" => " baz boo " }
+        subject = electoral_presenter(with_different_contact)
+        assert_equal subject.use_electoral_services_contact_details?, true
+        assert_equal subject.use_registration_contact_details?, true
+      end
     end
   end
 end

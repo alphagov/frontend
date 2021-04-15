@@ -15,9 +15,9 @@ class ElectoralController < ApplicationController
     api_response =
       postcode_params ? fetch_response(postcode: @postcode) : fetch_response(uprn: uprn_params)
 
-    @presented_result = presented_result(api_response)
+    @presenter = presented_result(api_response)
 
-    if @presented_result.address_picker
+    if @presenter.address_picker
       render :address_picker
       return
     end

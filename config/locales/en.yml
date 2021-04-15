@@ -66,6 +66,13 @@ en:
       essential: "Strictly necessary cookies"
       settings: "Cookies that remember your settings"
       usage: "Cookies that measure website use"
+  electoral:
+    service:
+      title: "Your local council"
+      description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
+    registration:
+      title: Get help with electoral registration
+      description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
   formats:
     transaction:
       name: "Service"

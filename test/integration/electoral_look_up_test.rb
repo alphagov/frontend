@@ -37,27 +37,39 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
   context "searching by postcode" do
     context "when a valid postcode is entered which matches a single address" do
-      should "display contact details, and upcoming elections if available" do
+      should "display upcoming elections if available" do
         stub_api_postcode_lookup(api_response, "LS11UR")
 
         search_for(postcode: "LS11UR")
-
-        assert page.has_selector?("h2", text: "Your local council")
-        assert page.has_text? "For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
-        assert page.has_selector?("address", text: "Electoral Registration Office")
-        assert page.has_selector?("h2", text: "Get help with electoral registration")
         assert page.has_selector?("h2", text: "Next elections")
         assert page.has_text?("2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons")
       end
 
-      should "display a helpful message if no contact details are present" do
-        without_contact_information = JSON.parse(api_response)
-        without_contact_information["registration"] = {}
-        stub_api_postcode_lookup(without_contact_information.to_json, "LS11UR")
+      should "display the electoral service (council) address if it's different to the registration office address" do
+        with_different_address = JSON.parse(api_response)
+        with_different_address["registration"] = { "address" => "foo" }
+        with_different_address["electoral_services"] = { "address" => "bar" }
+        stub_api_postcode_lookup(with_different_address.to_json, "LS11UR")
+
         search_for(postcode: "LS11UR")
+        assert page.has_selector?("h2", text: "Your local council")
+        assert page.has_text? "For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
+        assert page.has_selector?("address", text: "foo")
 
         assert page.has_selector?("h2", text: "Get help with electoral registration")
-        assert page.has_text?("Need help? Get in touch with your local electoral registration team.")
+        assert page.has_text? "Need help? Get in touch with your local electoral registration team."
+        assert page.has_selector?("address", text: "bar")
+      end
+
+      should "not display the electoral service (council) address if it's the same as the registration office address" do
+        duplicate_contact_information = JSON.parse(api_response)
+        duplicate_contact_information["registration"] = { "address" => "foo" }
+        duplicate_contact_information["electoral_services"] = { "address" => "foo" }
+        stub_api_postcode_lookup(duplicate_contact_information.to_json, "LS11UR")
+        search_for(postcode: "LS11UR")
+
+        assert page.has_no_selector?("h2", text: "Your local council")
+        assert page.has_no_text?("For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council.")
       end
 
       should "inform user if there are no upcoming elections " do

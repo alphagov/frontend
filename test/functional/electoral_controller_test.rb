@@ -16,10 +16,19 @@ class ElectoralControllerTest < ActionController::TestCase
   end
 
   context "with postcode params" do
+    should "sanitizes and url encodes" do
+      stub_democracy_club_api =
+        stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/LS1+1UR")
+        .to_return(status: 200, body: "{}")
+      get :show, params: { postcode: "LS11UR" }
+      get :show, params: { postcode: "LS1_1UR" }
+      get :show, params: { postcode: "LS1   1UR" }
+      assert_requested(stub_democracy_club_api, times: 3)
+    end
     context "that map to a single address" do
       should "GET show renders results page" do
         stub_democracy_club_api =
-          stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/LS11UR")
+          stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/LS1+1UR")
           .to_return(status: 200, body: "{}")
 
         get :show, params: { postcode: "LS11UR" }
@@ -32,7 +41,7 @@ class ElectoralControllerTest < ActionController::TestCase
     context "that maps to multiple addresses" do
       should "GET show renders the address picker template" do
         response = "{\"address_picker\":true,\"addresses\":[]}"
-        stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/IP224DN")
+        stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/IP22+4DN")
         .to_return(status: 200, body: response)
 
         get :show, params: { postcode: "IP224DN" }

@@ -38,7 +38,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   context "searching by postcode" do
     context "when a valid postcode is entered which matches a single address" do
       should "display upcoming elections if available" do
-        stub_api_postcode_lookup(api_response, "LS11UR")
+        stub_api_postcode_lookup(api_response, "LS1+1UR")
 
         search_for(postcode: "LS11UR")
         assert page.has_selector?("h2", text: "Next elections")
@@ -49,7 +49,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
         with_different_address = JSON.parse(api_response)
         with_different_address["registration"] = { "address" => "foo" }
         with_different_address["electoral_services"] = { "address" => "bar" }
-        stub_api_postcode_lookup(with_different_address.to_json, "LS11UR")
+        stub_api_postcode_lookup(with_different_address.to_json, "LS1+1UR")
 
         search_for(postcode: "LS11UR")
         assert page.has_selector?("h2", text: "Your local council")
@@ -65,7 +65,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
         duplicate_contact_information = JSON.parse(api_response)
         duplicate_contact_information["registration"] = { "address" => "foo" }
         duplicate_contact_information["electoral_services"] = { "address" => "foo" }
-        stub_api_postcode_lookup(duplicate_contact_information.to_json, "LS11UR")
+        stub_api_postcode_lookup(duplicate_contact_information.to_json, "LS1+1UR")
         search_for(postcode: "LS11UR")
 
         assert page.has_no_selector?("h2", text: "Your local council")
@@ -75,7 +75,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
       should "inform user if there are no upcoming elections " do
         without_dates = JSON.parse(api_response)
         without_dates["dates"] = []
-        stub_api_postcode_lookup(without_dates.to_json, "LS11UR")
+        stub_api_postcode_lookup(without_dates.to_json, "LS1+1UR")
         search_for(postcode: "LS11UR")
 
         assert page.has_selector?("h2", text: "Next elections")
@@ -85,7 +85,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
     context "when a valid postcode is entered which matches multiple addresses" do
       should "display an address picker" do
-        @postcode = "IP224DN"
+        @postcode = "IP22 4DN"
         with_multiple_addresses = JSON.parse(api_response)
         with_multiple_addresses["address_picker"] = true
         with_multiple_addresses["addresses"] = [
@@ -103,7 +103,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           },
         ]
         # Search for postcode
-        stub_api_postcode_lookup(with_multiple_addresses.to_json, @postcode)
+        stub_api_postcode_lookup(with_multiple_addresses.to_json, CGI.escape(@postcode))
         search_for(postcode: @postcode)
 
         # Multiple addresses are displayed

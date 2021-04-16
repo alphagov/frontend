@@ -10,7 +10,7 @@ class ElectoralController < ApplicationController
       return
     end
 
-    @postcode = postcode_params.strip if postcode_params
+    @postcode = postcode if postcode_params
 
     api_response =
       postcode_params ? fetch_response(postcode: @postcode) : fetch_response(uprn: uprn_params)
@@ -27,13 +27,17 @@ class ElectoralController < ApplicationController
 private
 
   def fetch_response(postcode: nil, uprn: nil)
-    endpoint = postcode ? "postcode/#{postcode}" : "address/#{uprn}"
+    endpoint = postcode ? "postcode/#{CGI.escape(postcode)}" : "address/#{uprn}"
     response = request_api("#{api_base_path}/#{endpoint}")
     JSON.parse(response)
   end
 
   def postcode_params
     params[:postcode]
+  end
+
+  def postcode
+    PostcodeSanitizer.sanitize(postcode_params)
   end
 
   def uprn_params

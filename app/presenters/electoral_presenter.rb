@@ -23,15 +23,11 @@ class ElectoralPresenter
   end
 
   def presented_electoral_service_address
-    if electoral_services["address"].present?
-      electoral_services["address"].split("\\n").join("<br>").html_safe
-    end
+    address_lines(electoral_services)
   end
 
   def presented_registration_address
-    if registration["address"].present?
-      registration["address"].split("\\n").join("<br>").html_safe
-    end
+    address_lines(registration)
   end
 
   def upcoming_elections
@@ -49,6 +45,12 @@ class ElectoralPresenter
 private
 
   attr_reader :response
+
+  def address_lines(property)
+    if property["address"].present?
+      property["address"].split("\n")
+    end
+  end
 
   def duplicate_contact_details?
     if electoral_services["address"].present? && registration["address"].present?

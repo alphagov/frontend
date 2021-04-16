@@ -1,0 +1,34 @@
+<div class="postcode-search-form"
+      data-module="track-submit"
+      data-track-category="postcodeSearch: local_transaction"
+      data-track-action="postcodeSearchStarted">
+
+  <%= form_with url: find_electoral_things_path,
+    method: :get,
+    id: "local-locator-form",
+    class: "location-form" do |form| %>
+      <%= field_set_tag 'Postcode lookup', class: "visuallyhidden" %>
+      <%= render partial: 'draft_fields' %>
+
+      <%= render "govuk_publishing_components/components/input", {
+        label: {
+          text: "Enter a postcode"
+        },
+        value: @postcode,
+        name: "postcode",
+        id: "postcode",
+        hint: "For example SW1A 2AA",
+        invalid: false,
+        autocomplete: "postal-code",
+      } %>
+
+      <%= render "govuk_publishing_components/components/button", text: "Find", margin_bottom: true %>
+
+      <%= tag.p link_to("Find a postcode on Royal Mail's postcode finder",
+                    "https://www.royalmail.com/find-a-postcode",
+                    id: 'postcode-finder-link',
+                    class: "govuk-link",
+                    rel: "external"),
+                class: "govuk-body" %>
+  <% end %>
+</div>

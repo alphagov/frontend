@@ -1,0 +1,25 @@
+<%= render "govuk_publishing_components/components/heading",
+    text: title,
+    font_size: "m",
+    margin_bottom: 4
+%>
+<% if name %>
+  <p class="govuk-body"><%= name %></p>
+<% end %>
+
+<p class="govuk-body"><%= description %></p>
+
+<% if contact_details %>
+  <address class="govuk-body">
+    <%= contact_details %><br>
+    <%= postcode %><br>
+  </address>
+<% end %>
+
+<%= render "govuk_publishing_components/components/list", {
+  items: [
+    sanitize("<a href='#{website}'>#{website}</a>"),
+    phone,
+    email,
+  ]
+} %>

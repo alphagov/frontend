@@ -5,7 +5,7 @@ class ElectoralController < ApplicationController
   def show
     @publication = LocalTransactionPresenter.new(@content_item)
 
-    if no_input?
+    if no_input? || invalid_postcode?
       render "local_transaction/search" and return
     end
 
@@ -31,18 +31,18 @@ private
     @presenter.address_picker
   end
 
+  def invalid_postcode?
+    postcode.present? && !postcode.valid?
+  end
+
   def fetch_response(postcode: nil, uprn: nil)
-    endpoint = postcode ? "postcode/#{postcode_for_api}" : "address/#{uprn}"
+    endpoint = postcode.present? ? "postcode/#{postcode.postcode_for_api}" : "address/#{uprn}"
     response = request_api("#{api_base_path}/#{endpoint}")
     JSON.parse(response)
   end
 
-  def postcode_for_api
-    postcode.gsub(/\s+/, "")
-  end
-
   def postcode
-    @postcode ||= PostcodeSanitizer.sanitize(postcode_params)
+    @postcode ||= ElectionPostcode.new(postcode_params)
   end
 
   def postcode_params

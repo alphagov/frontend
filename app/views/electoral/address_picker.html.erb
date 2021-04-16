@@ -7,7 +7,7 @@
       <%= render "govuk_publishing_components/components/title", title: title %>
 
       <p class="govuk-body">
-        The <strong><%= @postcode %></strong> postcode could be in several council areas. Please choose your address from the list below.
+        The <strong><%= @postcode.sanitized_postcode %></strong> postcode could be in several council areas. Please choose your address from the list below.
       </p>
 
       <% if @presenter.addresses.present? %>

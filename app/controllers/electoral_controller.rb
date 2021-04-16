@@ -17,11 +17,15 @@ class ElectoralController < ApplicationController
     end
 
     @postcode = postcode if postcode_params
+    @response = api_response_model
 
-    api_response =
-      postcode_params ? fetch_response(postcode: @postcode) : fetch_response(uprn: uprn_params)
+    if @response.bad_request?
+      @bad_request_error = true
+      render "local_transaction/search"
+      return
+    end
 
-    @presenter = presented_result(api_response)
+    @presenter = presented_result(@response.body)
 
     if @presenter.address_picker
       render :address_picker
@@ -32,10 +36,19 @@ class ElectoralController < ApplicationController
 
 private
 
-  def fetch_response(postcode: nil, uprn: nil)
-    endpoint = postcode ? "postcode/#{CGI.escape(postcode)}" : "address/#{uprn}"
-    response = request_api("#{api_base_path}/#{endpoint}")
-    JSON.parse(response)
+  def raw_api_response
+    endpoint = postcode ? "postcode/#{CGI.escape(postcode)}" : "address/#{uprn_params}"
+    request_api("#{api_base_path}/#{endpoint}")
+  end
+
+  def api_response_model
+    begin
+      r = raw_api_response
+      body = JSON.parse(r)
+    rescue RestClient::BadRequest
+      error = "bad_request"
+    end
+    DemocracyClubApiResponse.new(body, error)
   end
 
   def postcode_params

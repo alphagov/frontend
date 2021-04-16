@@ -5,9 +5,8 @@ class ElectoralController < ApplicationController
   def show
     @publication = LocalTransactionPresenter.new(@content_item)
 
-    if postcode_params.nil? && uprn_params.nil?
-      render "local_transaction/search"
-      return
+    if no_input?
+      render "local_transaction/search" and return
     end
 
     api_response =
@@ -15,15 +14,22 @@ class ElectoralController < ApplicationController
 
     @presenter = presented_result(api_response)
 
-    if @presenter.address_picker
-      render :address_picker
-      return
+    if indeterminate_postcode?
+      render :address_picker and return
     end
 
     render :results
   end
 
 private
+
+  def no_input?
+    postcode_params.nil? && uprn_params.nil?
+  end
+
+  def indeterminate_postcode?
+    @presenter.address_picker
+  end
 
   def fetch_response(postcode: nil, uprn: nil)
     endpoint = postcode ? "postcode/#{postcode_for_api}" : "address/#{uprn}"

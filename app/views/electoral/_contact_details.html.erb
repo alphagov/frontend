@@ -11,7 +11,9 @@
 
 <% if contact_details %>
   <address class="govuk-body">
-    <%= contact_details %><br>
+    <% contact_details.each do |address_line| %>
+      <%= address_line %><br>
+    <% end %>
     <%= postcode %><br>
   </address>
 <% end %>

@@ -8,6 +8,8 @@ class ElectionPostcode
     \Z
   }xi.freeze
 
+  delegate :present?, to: :sanitized_postcode
+
   def initialize(postcode)
     @postcode = postcode
   end
@@ -20,10 +22,6 @@ class ElectionPostcode
     sanitized_postcode.gsub(/\s+/, "")
   end
 
-  def present?
-    sanitized_postcode.present?
-  end
-
   def valid?
     sanitized_postcode.match?(UK_POSTCODE_PATTERN)
   end
@@ -34,5 +32,6 @@ class ElectionPostcode
   end
 
 private
+
   attr_reader :postcode
 end

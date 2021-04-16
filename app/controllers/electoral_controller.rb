@@ -10,6 +10,12 @@ class ElectoralController < ApplicationController
       return
     end
 
+    if postcode_params && uprn_params
+      @multiple_param_error = true
+      render "local_transaction/search"
+      return
+    end
+
     @postcode = postcode if postcode_params
 
     api_response =

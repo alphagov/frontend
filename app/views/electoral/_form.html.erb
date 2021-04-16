@@ -3,6 +3,14 @@
       data-track-category="postcodeSearch: local_transaction"
       data-track-action="postcodeSearchStarted">
 
+    <% if @multiple_param_error %>
+      <%= render "govuk_publishing_components/components/error_alert", {
+        message: "There was a problem",
+        description: "Enter a valid postcode",
+        data_attributes: {},
+      } %>
+    <% end %>
+
   <%= form_with url: find_electoral_things_path,
     method: :get,
     id: "local-locator-form",

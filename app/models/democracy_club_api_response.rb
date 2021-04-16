@@ -9,4 +9,8 @@ class DemocracyClubApiResponse
   def bad_request?
     error == "bad_request"
   end
+
+  def server_error?
+    error == "server_error"
+  end
 end

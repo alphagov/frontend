@@ -19,9 +19,10 @@ class ElectoralController < ApplicationController
     @postcode = postcode if postcode_params
     @response = api_response_model
 
-    if @response.bad_request?
-      @bad_request_error = true
+    @error = @response.bad_request? || @response.server_error?
+    if @error
       render "local_transaction/search"
+      # with some error messages
       return
     end
 
@@ -47,6 +48,8 @@ private
       body = JSON.parse(r)
     rescue RestClient::BadRequest
       error = "bad_request"
+    rescue RestClient::InternalServerError
+      error = "server_error"
     end
     DemocracyClubApiResponse.new(body, error)
   end

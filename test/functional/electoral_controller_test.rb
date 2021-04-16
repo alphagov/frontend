@@ -36,6 +36,15 @@ class ElectoralControllerTest < ActionController::TestCase
       assert_template "local_transaction/search"
     end
 
+    should "handle api error code 5XX" do
+      stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/ABC+123")
+      .to_return(status: 500, body: "{}")
+
+      get :show, params: { postcode: "ABC 123" }
+      assert_response :success
+      assert_template "local_transaction/search"
+    end
+
     context "that map to a single address" do
       should "GET show renders results page" do
         stub_democracy_club_api =

@@ -111,14 +111,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
           },
           {
             "@type" => "Question",
-            "name" => "Register online",
-            "acceptedAnswer" => {
-              "@type" => "Answer",
-              "text" => "<p>It usually takes about 5 minutes.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p> <p>After you’ve registered, your name and address will appear on the electoral register.</p>\n",
-            },
-          },
-          {
-            "@type" => "Question",
             "name" => "Deadline for registering to vote in the 6 May 2021 elections",
             "acceptedAnswer" => {
               "@type" => "Answer",
@@ -131,6 +123,14 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "acceptedAnswer" => {
               "@type" => "Answer",
               "text" => "<p>You must be aged 16 or over (or 14 or over in Scotland and Wales).</p> <p>You must also be one of the following:</p> <ul>\n <li>a British citizen</li>\n <li>an Irish or EU citizen living in the UK</li>\n <li>a Commonwealth citizen who has permission to enter or stay in the UK, or who does not need permission</li>\n <li>a citizen of another country living in Scotland or Wales who has permission to enter or stay in the UK, or who does not need permission</li>\n</ul> <p>Check which <a href=\"/elections-in-the-uk?src=schema\">elections you’re eligible to vote in</a>.</p>\n",
+            },
+          },
+          {
+            "@type" => "Question",
+            "name" => "Register online",
+            "acceptedAnswer" => {
+              "@type" => "Answer",
+              "text" => "<p>It usually takes about 5 minutes.</p> <p><a rel=\"external\" href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema\">Start now</a></p> <h2>What you need to know</h2> <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p> <p>After you’ve registered, your name and address will appear on the electoral register.</p>\n",
             },
           },
           {

@@ -5,35 +5,49 @@ class ElectoralController < ApplicationController
   def show
     @publication = LocalTransactionPresenter.new(@content_item)
 
-    if postcode_params.nil? && uprn_params.nil?
+    if valid_postcode? || valid_uprn?
+      @presenter = presented_result(fetch_response)
+
+      if indeterminate_postcode?
+        render :address_picker and return
+      end
+
+      render :results
+    else
       render "local_transaction/search"
-      return
     end
-
-    @postcode = postcode_params.strip if postcode_params
-
-    api_response =
-      postcode_params ? fetch_response(postcode: @postcode) : fetch_response(uprn: uprn_params)
-
-    @presenter = presented_result(api_response)
-
-    if @presenter.address_picker
-      render :address_picker
-      return
-    end
-    render :results
   end
 
 private
 
-  def fetch_response(postcode: nil, uprn: nil)
-    endpoint = postcode ? "postcode/#{postcode}" : "address/#{uprn}"
+  def indeterminate_postcode?
+    @presenter.address_picker
+  end
+
+  def valid_postcode?
+    postcode.present? && postcode.valid?
+  end
+
+  def valid_uprn?
+    uprn.valid?
+  end
+
+  def fetch_response
+    endpoint = postcode.present? ? "postcode/#{postcode.postcode_for_api}" : "address/#{uprn.sanitized_uprn}"
     response = request_api("#{api_base_path}/#{endpoint}")
     JSON.parse(response)
   end
 
+  def postcode
+    @postcode ||= ElectionPostcode.new(postcode_params)
+  end
+
   def postcode_params
     params[:postcode]
+  end
+
+  def uprn
+    @uprn || Uprn.new(uprn_params)
   end
 
   def uprn_params

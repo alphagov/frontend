@@ -10,24 +10,9 @@ faqs:
       <a href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=actions">Update your registration</a>
       <a href="/how-to-vote/postal-voting?src=actions">Apply for a postal vote</a>
 
-  - question: Register online
-    answer: >
-      <p>It usually takes about 5 minutes.</p>
-      <p><a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">Start now</a></p>
-      <h2>What you need to know</h2>
-      <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>
-      <p>After you’ve registered, your name and address will appear on the electoral register.</p>
-
   - question: Deadline for registering to vote in the 6 May 2021 elections
     answer: >
-      <p>Register by 11:59pm on 19 April to vote in the following elections on 6 May:</p>
-      <ul>
-        <li>local government elections and referendums in England</li>
-        <li>Police and Crime Commissioner elections in England and Wales</li>
-        <li>Scottish Parliament elections</li>
-        <li>Senedd (Welsh Parliament) elections</li>
-        <li>Mayor of London and London Assembly elections</li>
-      </ul>
+      <p>You can no longer register to vote in the elections on 6 May. You can still register for future elections.</p>
 
   - question: Who can register
     answer: >
@@ -40,6 +25,14 @@ faqs:
         <li>a citizen of another country living in Scotland or Wales who has permission to enter or stay in the UK, or who does not need permission</li>
       </ul>
       <p>Check which <a href="/elections-in-the-uk?src=schema">elections you’re eligible to vote in</a>.</p>
+
+  - question: Register online
+    answer: >
+      <p>It usually takes about 5 minutes.</p>
+      <p><a rel="external" href="https://www.registertovote.service.gov.uk/register-to-vote/start?src=schema">Start now</a></p>
+      <h2>What you need to know</h2>
+      <p>You’ll be asked for your National Insurance number (but you can still register if you do not have one).</p>
+      <p>After you’ve registered, your name and address will appear on the electoral register.</p>
 
   - question: Check if you’re already registered
     answer: >
@@ -54,7 +47,7 @@ faqs:
       </ul>
       <p>To do this, you need to register again with your new details (even if you’re already registered to vote).</p>
 
-  - question: Register using a paper form
+  - question: Registering with a paper form
     answer: >
       <p>You can <a href="/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema">register using a paper form in England, Wales and Scotland</a>.</p>
       <p>You’ll need to print, fill out and <a href="/contact-electoral-registration-office?src=schema">send the form to your local Electoral Registration Officer</a>.</p>

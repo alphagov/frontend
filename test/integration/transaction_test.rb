@@ -122,7 +122,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "name" => "Deadline for registering to vote in the 6 May 2021 elections",
             "acceptedAnswer" => {
               "@type" => "Answer",
-              "text" => "<p>Register by 11:59pm on 19 April to vote in the following elections on 6 May:</p> <ul>\n <li>local government elections and referendums in England</li>\n <li>Police and Crime Commissioner elections in England and Wales</li>\n <li>Scottish Parliament elections</li>\n <li>Senedd (Welsh Parliament) elections</li>\n <li>Mayor of London and London Assembly elections</li>\n</ul>\n",
+              "text" => "<p>You can no longer register to vote in the elections on 6 May. You can still register for future elections.</p>\n",
             },
           },
           {
@@ -151,7 +151,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
           },
           {
             "@type" => "Question",
-            "name" => "Register using a paper form",
+            "name" => "Registering with a paper form",
             "acceptedAnswer" => {
               "@type" => "Answer",
               "text" => "<p>You can <a href=\"/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema\">register using a paper form in England, Wales and Scotland</a>.</p> <p>You’ll need to print, fill out and <a href=\"/contact-electoral-registration-office?src=schema\">send the form to your local Electoral Registration Officer</a>.</p>\n",

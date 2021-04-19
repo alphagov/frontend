@@ -20,14 +20,7 @@ faqs:
 
   - question: Deadline for registering to vote in the 6 May 2021 elections
     answer: >
-      <p>Register by 11:59pm on 19 April to vote in the following elections on 6 May:</p>
-      <ul>
-        <li>local government elections and referendums in England</li>
-        <li>Police and Crime Commissioner elections in England and Wales</li>
-        <li>Scottish Parliament elections</li>
-        <li>Senedd (Welsh Parliament) elections</li>
-        <li>Mayor of London and London Assembly elections</li>
-      </ul>
+      <p>You can no longer register to vote in the elections on 6 May. You can still register for future elections.</p>
 
   - question: Who can register
     answer: >
@@ -54,7 +47,7 @@ faqs:
       </ul>
       <p>To do this, you need to register again with your new details (even if you’re already registered to vote).</p>
 
-  - question: Register using a paper form
+  - question: Registering with a paper form
     answer: >
       <p>You can <a href="/government/publications/register-to-vote-if-youre-living-in-the-uk?src=schema">register using a paper form in England, Wales and Scotland</a>.</p>
       <p>You’ll need to print, fill out and <a href="/contact-electoral-registration-office?src=schema">send the form to your local Electoral Registration Officer</a>.</p>

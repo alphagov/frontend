@@ -60,12 +60,12 @@ private
 
   def request_api(url)
     headers = {
-      Authorization: "Token #{ENV['DEMOCRACY_CLUB_API_KEY']}",
+      Authorization: "Token #{ENV['ELECTIONS_API_KEY']}",
     }
     RestClient.get(url, headers)
   end
 
   def api_base_path
-    "https://api.ec-dc.club/api/v1"
+    ENV['ELECTIONS_API_URL'] || "https://api.ec-dc.club/api/v1"
   end
 end

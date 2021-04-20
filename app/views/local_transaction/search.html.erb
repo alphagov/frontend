@@ -20,7 +20,7 @@
     </section>
   <% end %>
 
-  <% if current_page?(find_electoral_things_path) %>
+  <% if current_page?(electoral_services_path) %>
     <%= render partial: "electoral/form" %>
   <% else %>
     <%= render partial: 'location_form',

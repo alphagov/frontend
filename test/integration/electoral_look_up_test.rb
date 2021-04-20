@@ -10,7 +10,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   end
 
   def search_for(postcode:)
-    visit "/find-electoral-things"
+    visit electoral_services_path
     fill_in "postcode", with: postcode
     click_button "Find"
   end
@@ -22,7 +22,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
   context "visiting the homepage" do
     should "contain a form for entering a postcode" do
-      visit "/find-electoral-things"
+      visit electoral_services_path
       assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office")
       assert page.has_field?("postcode")
     end

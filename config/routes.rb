@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "/roadmap", to: "roadmap#index"
 
   # Electoral Registration Lookup Service
-  get "/find-electoral-things" => "electoral#show"
+  get "/find-electoral-things" => "electoral#show", as: :electoral_services
 
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do

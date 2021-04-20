@@ -1,7 +1,26 @@
 <div class="postcode-search-form"
       data-module="track-submit"
-      data-track-category="postcodeSearch: local_transaction"
+      data-track-category="postcodeSearch:local_transaction"
       data-track-action="postcodeSearchStarted">
+
+  <% if @location_error %>
+    <%
+      if @location_error.sub_message.present?
+        description = t(@location_error.sub_message)
+      end
+    %>
+
+    <%= render "govuk_publishing_components/components/error_alert", {
+      message: t(@location_error.message),
+      description: description,
+      data_attributes: {
+        module: "auto-track-event",
+        track_category: "userAlerts: local_transaction",
+        track_action: "postcodeErrorShown: #{@location_error.postcode_error}",
+        track_label: t(@location_error.message)
+      }
+    } %>
+  <% end %>
 
   <%= form_with url: find_electoral_things_path,
     method: :get,

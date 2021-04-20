@@ -26,8 +26,7 @@ class ElectionPostcode
     sanitized_postcode.match?(UK_POSTCODE_PATTERN)
   end
 
-  def errors
-    return "postcodeLeftBlankSanitized" if sanitized_postcode.empty?
+  def error
     return "invalidPostcodeFormat" unless valid?
   end
 

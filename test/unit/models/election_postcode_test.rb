@@ -43,13 +43,13 @@ class ElectionPostcodeTest < ActiveSupport::TestCase
     should "detect empty postcode after validation" do
       subject = ElectionPostcode.new("  +  ")
 
-      assert_equal("postcodeLeftBlankSanitized", subject.errors)
+      assert_equal("invalidPostcodeFormat", subject.error)
     end
 
     should "detect invalid postcode" do
       subject = ElectionPostcode.new("Also invalid")
 
-      assert_equal("invalidPostcodeFormat", subject.errors)
+      assert_equal("invalidPostcodeFormat", subject.error)
     end
   end
 end

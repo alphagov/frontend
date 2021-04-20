@@ -3,8 +3,6 @@ require "integration_test_helper"
 class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   include ElectionHelpers
 
-  TEST_API_URL = "https://test.example.org/api/v1".freeze
-
   setup do
     content = GovukSchemas::Example.find("local_transaction", example_name: "local_transaction")
     content["title"] = "Contact your local Electoral Registration Office"
@@ -25,7 +23,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   context "visiting the homepage" do
     should "contain a form for entering a postcode" do
       visit "/find-electoral-things"
-      assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office", visible: true)
+      assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office")
       assert page.has_field?("postcode")
     end
   end
@@ -84,6 +82,14 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
           assert page.has_selector?("h2", text: "Next elections")
           assert page.has_text?("There are no upcoming elections for your area")
+        end
+      end
+
+      should "with an invalid postcode" do
+        with_electoral_api_url do
+          search_for(postcode: "INVALID POSTCODE")
+          assert_selector("h1", text: "Contact your local Electoral Registration Office")
+          assert_text("This isn't a valid postcode")
         end
       end
     end

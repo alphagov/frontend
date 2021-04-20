@@ -66,6 +66,6 @@ private
   end
 
   def api_base_path
-    ENV['ELECTIONS_API_URL'] || "https://api.ec-dc.club/api/v1"
+    ENV["ELECTIONS_API_URL"]
   end
 end

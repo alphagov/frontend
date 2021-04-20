@@ -130,6 +130,14 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("p", text: "We've matched the postcode to Cardiff Council")
         end
       end
+
+      should "with an invalid uprn" do
+        with_electoral_api_url do
+          visit electoral_services_path(uprn: "INVALID UPRN")
+          assert_selector("h1", text: "Contact your local Electoral Registration Office")
+          assert_text("This isn't a valid address")
+        end
+      end
     end
   end
 end

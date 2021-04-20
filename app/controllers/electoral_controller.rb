@@ -23,8 +23,10 @@ private
 
   def location_error
     error_key = if invalid_postcode?
-      postcode.error
-    end
+                  postcode.error
+                elsif invalid_uprn?
+                  uprn.error
+                end
 
     LocationError.new(error_key) if error_key.present?
   end

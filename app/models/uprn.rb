@@ -13,7 +13,7 @@ class Uprn
     uprn.strip
   end
 
-  def errors
+  def error
     return "uprnLeftBlankSanitized" if sanitized_uprn.blank?
     return "invalidUprnFormat" unless valid?
   end

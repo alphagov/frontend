@@ -16,4 +16,9 @@ module ElectionHelpers
     stub_request(:get, "#{TEST_API_URL}/address/#{uprn}")
       .to_return(status: status, body: response)
   end
+
+  def api_response
+    path = Rails.root.join("test/fixtures/electoral-result.json")
+    File.read(path)
+  end
 end

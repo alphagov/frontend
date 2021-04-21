@@ -15,11 +15,6 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
     click_button "Find"
   end
 
-  def api_response
-    path = Rails.root.join("test/fixtures/electoral-result.json")
-    File.read(path)
-  end
-
   context "visiting the homepage" do
     should "contain a form for entering a postcode" do
       visit electoral_services_path
@@ -137,6 +132,20 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           visit electoral_services_path(uprn: "INVALID UPRN")
           assert_selector("h1", text: "Contact your local Electoral Registration Office")
           assert_text("This isn't a valid address")
+        end
+      end
+    end
+  end
+
+  context "API errors" do
+    context "400 and 404" do
+      should "display unfindable postcode message" do
+        stub_api_postcode_lookup("XM45HQ", status: 404)
+
+        with_electoral_api_url do
+          search_for(postcode: "XM4 5HQ")
+
+          assert_text("We couldn't find this postcode")
         end
       end
     end

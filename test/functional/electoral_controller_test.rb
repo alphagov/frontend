@@ -20,7 +20,7 @@ class ElectoralControllerTest < ActionController::TestCase
   context "with postcode params" do
     context "that map to a single address" do
       should "GET show renders results page" do
-        elections_api_stub = stub_api_postcode_lookup("LS11UR")
+        elections_api_stub = stub_api_postcode_lookup("LS11UR", response: api_response)
 
         with_electoral_api_url do
           get :show, params: { postcode: "LS11UR" }
@@ -47,7 +47,7 @@ class ElectoralControllerTest < ActionController::TestCase
 
   context "with uprn params" do
     should "GET show renders results page" do
-      elections_api_stub = stub_api_address_lookup("1234")
+      elections_api_stub = stub_api_address_lookup("1234", response: api_response)
 
       with_electoral_api_url do
         get :show, params: { uprn: "1234" }

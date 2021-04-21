@@ -1,6 +1,8 @@
 class Uprn
   UPRN_PATTERN = %r{^\d{1,12}$}.freeze
 
+  delegate :present?, to: :sanitized_uprn
+
   def initialize(uprn)
     @uprn = uprn || ""
   end

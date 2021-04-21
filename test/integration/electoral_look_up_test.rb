@@ -25,6 +25,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
       visit electoral_services_path
       assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office")
       assert page.has_field?("postcode")
+      assert_no_text("This isn't a valid")
     end
   end
 

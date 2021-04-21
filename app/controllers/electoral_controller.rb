@@ -48,7 +48,7 @@ private
   end
 
   def invalid_uprn?
-    !valid_uprn?
+    uprn.present? && !uprn.valid?
   end
 
   def fetch_response

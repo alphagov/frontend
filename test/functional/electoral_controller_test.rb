@@ -1,6 +1,8 @@
 require "test_helper"
 
 class ElectoralControllerTest < ActionController::TestCase
+  include ElectionHelpers
+
   setup do
     stub_content_store_has_item("/contact-electoral-registration-office")
   end
@@ -18,40 +20,41 @@ class ElectoralControllerTest < ActionController::TestCase
   context "with postcode params" do
     context "that map to a single address" do
       should "GET show renders results page" do
-        stub_democracy_club_api =
-          stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/LS11UR")
-          .to_return(status: 200, body: "{}")
+        stub_democracy_club_api = stub_api_postcode_lookup("LS11UR", status: 200, response: "{}")
 
-        get :show, params: { postcode: "LS11UR" }
-        assert_response :success
-        assert_template :results
-        assert_requested(stub_democracy_club_api)
+        with_electoral_api_url do
+          get :show, params: { postcode: "LS11UR" }
+          assert_response :success
+          assert_template :results
+          assert_requested(stub_democracy_club_api)
+        end
       end
     end
 
     context "that maps to multiple addresses" do
       should "GET show renders the address picker template" do
-        response = "{\"address_picker\":true,\"addresses\":[]}"
-        stub_request(:get, "https://api.ec-dc.club/api/v1/postcode/IP224DN")
-        .to_return(status: 200, body: response)
+        response = { "address_picker" => true, "addresses" => [] }.to_json
+        stub_api_postcode_lookup("IP224DN", status: 200, response: response)
 
-        get :show, params: { postcode: "IP224DN" }
-        assert_response :success
-        assert_template :address_picker
+        with_electoral_api_url do
+          get :show, params: { postcode: "IP224DN" }
+          assert_response :success
+          assert_template :address_picker
+        end
       end
     end
   end
 
   context "with uprn params" do
     should "GET show renders results page" do
-      stub_address_endpoint =
-        stub_request(:get, "https://api.ec-dc.club/api/v1/address/1234")
-        .to_return(status: 200, body: "{}")
+      stub_address_endpoint = stub_api_address_lookup("1234", status: 200, response: "{}")
 
-      get :show, params: { uprn: "1234" }
-      assert_response :success
-      assert_template :results
-      assert_requested(stub_address_endpoint)
+      with_electoral_api_url do
+        get :show, params: { uprn: "1234" }
+        assert_response :success
+        assert_template :results
+        assert_requested(stub_address_endpoint)
+      end
     end
   end
 end

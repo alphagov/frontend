@@ -57,10 +57,10 @@ private
 
   def elections_api
     @elections_api ||= if postcode.present?
-      ElectoralService.new(postcode: postcode.postcode_for_api)
-    else
-      ElectoralService.new(uprn: uprn.sanitized_uprn)
-    end
+                         ElectoralService.new(postcode: postcode.postcode_for_api)
+                       else
+                         ElectoralService.new(uprn: uprn.sanitized_uprn)
+                       end
   end
 
   def postcode

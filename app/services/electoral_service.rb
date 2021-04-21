@@ -2,7 +2,8 @@ class ElectoralService
   attr_reader :body, :error
 
   def initialize(postcode: nil, uprn: nil)
-    @postcode, @uprn = postcode, uprn
+    @postcode = postcode
+    @uprn = uprn
     @error = nil
     @body = nil
   end

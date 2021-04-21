@@ -148,6 +148,16 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           assert_text("We couldn't find this postcode")
         end
       end
+
+      should "display unfindable address message" do
+        stub_api_address_lookup("1234", status: 400)
+
+        with_electoral_api_url do
+          visit electoral_services_path(uprn: "1234")
+
+          assert_text("We couldn't find this address")
+        end
+      end
     end
   end
 end

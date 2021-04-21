@@ -31,7 +31,11 @@ private
 
   def assemble_error(exception)
     if [400, 404].include? exception.http_code
-      "validPostcodeNoElectionsMatch"
+      if postcode
+        "validPostcodeNoElectionsMatch"
+      else
+        "validUprnNoElectionsMatch"
+      end
     end
   end
 

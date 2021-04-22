@@ -106,7 +106,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
             "name" => "Related content",
             "acceptedAnswer" => {
               "@type" => "Answer",
-              "text" => "<a href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=actions\">Register to vote</a> <a href=\"https://www.registertovote.service.gov.uk/register-to-vote/start?src=actions\">Update your registration</a> <a href=\"/how-to-vote/postal-voting?src=actions\">Apply for a postal vote</a>\n",
+              "text" => "<a href=\"/register-to-vote?src=actions\">Register to vote</a> <a href=\"/how-to-vote?src=actions\">How to vote</a> <a href=\"/how-to-vote?src=actions#voting-by-proxy\">Ask someone to vote for you</a>\n",
             },
           },
           {

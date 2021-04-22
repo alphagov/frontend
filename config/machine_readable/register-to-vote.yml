@@ -6,9 +6,9 @@ preamble: >
 faqs:
   - question: Related content
     answer: >
-      <a href="/register-to-vote">Register to vote</a>
-      <a href="/how-to-vote">How to vote</a>
-      <a href="/how-to-vote#voting-by-proxy">Ask someone to vote for you</a>
+      <a href="/register-to-vote?src=actions">Register to vote</a>
+      <a href="/how-to-vote?src=actions">How to vote</a>
+      <a href="/how-to-vote?src=actions#voting-by-proxy">Ask someone to vote for you</a>
 
   - question: Deadline for registering to vote in the 6 May 2021 elections
     answer: >

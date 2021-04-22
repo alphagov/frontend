@@ -1,6 +1,8 @@
 class Uprn
   UPRN_PATTERN = %r{^\d{1,12}$}.freeze
 
+  delegate :present?, to: :sanitized_uprn
+
   def initialize(uprn)
     @uprn = uprn || ""
   end
@@ -13,8 +15,7 @@ class Uprn
     uprn.strip
   end
 
-  def errors
-    return "uprnLeftBlankSanitized" if sanitized_uprn.blank?
+  def error
     return "invalidUprnFormat" unless valid?
   end
 

@@ -14,11 +14,22 @@ class ElectoralController < ApplicationController
 
       render :results
     else
+      @location_error = location_error
       render "local_transaction/search"
     end
   end
 
 private
+
+  def location_error
+    error_key = if invalid_postcode?
+                  postcode.error
+                elsif invalid_uprn?
+                  uprn.error
+                end
+
+    LocationError.new(error_key) if error_key.present?
+  end
 
   def indeterminate_postcode?
     @presenter.address_picker
@@ -28,8 +39,16 @@ private
     postcode.present? && postcode.valid?
   end
 
+  def invalid_postcode?
+    postcode.present? && !postcode.valid?
+  end
+
   def valid_uprn?
-    uprn.valid?
+    uprn.present? && uprn.valid?
+  end
+
+  def invalid_uprn?
+    uprn.present? && !uprn.valid?
   end
 
   def fetch_response

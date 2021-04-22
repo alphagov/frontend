@@ -12,7 +12,7 @@
 
       <% if @presenter.addresses.present? %>
         <% items = @presenter.addresses.map do |a|
-                    link_to a['address'], find_electoral_things_path(uprn: a["slug"])
+                    link_to a['address'], electoral_services_path(uprn: a["slug"])
                    end %>
         <%= render "govuk_publishing_components/components/list", { items: items } %>
       <% end %>

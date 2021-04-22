@@ -94,6 +94,8 @@ en:
       valid_postcode_no_match: "We couldn't find this postcode."
       valid_postcode_no_match_sub_html: "Check it and enter it again."
       no_local_authority: "We couldn't find a council for this postcode."
+      invalid_uprn: "This isn't a valid address."
+      invalid_uprn_sub: "Enter the postcode again."
     find_my_nearest:
       valid_postcode_no_locations: "We couldn't find any results for this postcode."
     simple_smart_answer:

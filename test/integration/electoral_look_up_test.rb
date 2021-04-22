@@ -3,8 +3,6 @@ require "integration_test_helper"
 class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   include ElectionHelpers
 
-  TEST_API_URL = "https://test.example.org/api/v1".freeze
-
   setup do
     content = GovukSchemas::Example.find("local_transaction", example_name: "local_transaction")
     content["title"] = "Contact your local Electoral Registration Office"
@@ -12,7 +10,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   end
 
   def search_for(postcode:)
-    visit "/find-electoral-things"
+    visit electoral_services_path
     fill_in "postcode", with: postcode
     click_button "Find"
   end
@@ -24,9 +22,10 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
   context "visiting the homepage" do
     should "contain a form for entering a postcode" do
-      visit "/find-electoral-things"
-      assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office", visible: true)
+      visit electoral_services_path
+      assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office")
       assert page.has_field?("postcode")
+      assert_no_text("This isn't a valid")
     end
   end
 
@@ -86,6 +85,14 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           assert page.has_text?("There are no upcoming elections for your area")
         end
       end
+
+      should "with an invalid postcode" do
+        with_electoral_api_url do
+          search_for(postcode: "INVALID POSTCODE")
+          assert_selector("h1", text: "Contact your local Electoral Registration Office")
+          assert_text("This isn't a valid postcode")
+        end
+      end
     end
 
     context "when a valid postcode is entered which matches multiple addresses" do
@@ -122,6 +129,14 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           stub_api_address_lookup("1234", response: api_response)
           click_link("1 BUCKINGHAM PALACE")
           assert page.has_selector?("p", text: "We've matched the postcode to Cardiff Council")
+        end
+      end
+
+      should "with an invalid uprn" do
+        with_electoral_api_url do
+          visit electoral_services_path(uprn: "INVALID UPRN")
+          assert_selector("h1", text: "Contact your local Electoral Registration Office")
+          assert_text("This isn't a valid address")
         end
       end
     end

@@ -42,16 +42,16 @@ class UprnTest < ActiveSupport::TestCase
   end
 
   context "#errors" do
-    should "detect empty uprn after sanitization" do
+    should "detect empty uprn as invalid" do
       subject = Uprn.new("    ")
 
-      assert_equal("uprnLeftBlankSanitized", subject.errors)
+      assert_equal("invalidUprnFormat", subject.error)
     end
 
     should "detect invalid uprn" do
       subject = Uprn.new("Also invalid")
 
-      assert_equal("invalidUprnFormat", subject.errors)
+      assert_equal("invalidUprnFormat", subject.error)
     end
   end
 end

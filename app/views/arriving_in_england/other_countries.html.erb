@@ -2,11 +2,17 @@
   text: "Add all the countries you've visited in the last 10 days?",
 } %>
 
-<%= form_with url: arriving_in_england_path do %>
-  <ul>
+<%= form_with url: arriving_in_england_other_countries_path, method: :get do %>
+  <ul class="govuk-list">
     <% @countries.each do |slug| %>
       <li>
+        <%= hidden_field_tag "countries[]", slug %>
         <%= @world_locations[slug] %>
+        <%=
+         link_to 'remove',
+          arriving_in_england_other_countries_path(countries: @countries - [slug]),
+          class: "govuk-link govuk-link--no-visited-state"
+         %>
       </li>
     <% end %>
   </ul>
@@ -23,6 +29,11 @@
   } %>
 
   <%= render "govuk_publishing_components/components/button", {
-    text: "Next"
+    text: "Add country"
   } %>
 <% end %>
+<br>
+<%= render "govuk_publishing_components/components/button", {
+  text: "Next",
+  href: arriving_in_england_results_path(countries: @countries)
+} %>

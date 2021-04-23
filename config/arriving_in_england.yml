@@ -1,0 +1,8 @@
+albania: 
+  rag_status: red
+peru:
+  rag_status: green
+cuba: 
+  rag_status: red
+afghanistan:
+  rag_status: green

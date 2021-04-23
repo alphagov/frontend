@@ -1,0 +1,12 @@
+<%= form_with url: arriving_in_england_path do %>
+  <%= render "govuk_publishing_components/components/select", {
+    id: "country",
+    label: "Where have you travelled from?",
+    options: @world_locations.map do |(slug, title)|
+      {
+        text: title,
+        value: slug,
+      }
+    end
+  } %>
+<% end %>

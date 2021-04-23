@@ -2,8 +2,10 @@ services:
   1826:
     unavailable_in:
       Scotland:
-        title: "This service is not available in Scotland"
-        body: "This service is not available in Scotland. You can find other services on your council website"
+        title: "This service is different in Scotland"
+        body: "We do not know if they offer this service. Search the Scottish Government website to see if they do, or what else they offer."
+        button_text: "Find information for Scotland"
+        button_link: "https://www.mygov.scot/self-isolation-grant"
       Northern Ireland:
         title: "This service is not available in Northern Ireland"
         body: "This service is not available in Northern Ireland. You can find other services on your council website"

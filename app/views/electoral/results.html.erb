@@ -1,47 +1,45 @@
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <% content_for :title,   @content_item[:title] %>
+<div class="govuk-grid-column-two-thirds">
+  <% content_for :title, "#{@content_item[:title]} - GOV.UK" %>
 
-    <div>
-      <%= render "govuk_publishing_components/components/title", title: @content_item["title"] %>
-      <% if @presenter.electoral_services.present? %>
-        <p class="govuk-body">
-          We've matched the postcode <strong><%= @postcode.sanitized_postcode %></strong> to <strong><%= @presenter.electoral_service_name %></strong>.
-        </p>
-      <% end %>
-      <% if @presenter.use_electoral_services_contact_details? %>
-        <%= render partial: "contact_details",
-          locals: {
-            presenter: @presenter,
-            title: t("electoral.service.title"),
-            description: t("electoral.service.description"),
-            name: @presenter.electoral_service_name,
-            contact_details: @presenter.presented_electoral_service_address,
-            postcode: @presenter.electoral_services["postcode"],
-            website: @presenter.electoral_services["website"],
-            phone: @presenter.electoral_services["phone"],
-            email: @presenter.electoral_services["email"],
-            }
-        %>
-      <% end %>
+  <div>
+    <%= render "govuk_publishing_components/components/title", title: @content_item["title"] %>
+    <% if @presenter.electoral_services.present? %>
+      <p class="govuk-body">
+        We've matched the postcode <strong><%= @postcode.sanitized_postcode %></strong> to <strong><%= @presenter.electoral_service_name %></strong>.
+      </p>
+    <% end %>
+    <% if @presenter.use_electoral_services_contact_details? %>
+      <%= render partial: "contact_details",
+        locals: {
+          presenter: @presenter,
+          title: t("electoral.service.title"),
+          description: t("electoral.service.description"),
+          name: @presenter.electoral_service_name,
+          contact_details: @presenter.presented_electoral_service_address,
+          postcode: @presenter.electoral_services["postcode"],
+          website: @presenter.electoral_services["website"],
+          phone: @presenter.electoral_services["phone"],
+          email: @presenter.electoral_services["email"],
+          }
+      %>
+    <% end %>
 
-      <% if @presenter.use_registration_contact_details? %>
-        <%= render partial: "contact_details",
-          locals: {
-            presenter: @presenter,
-            title: t("electoral.registration.title"),
-            description: t("electoral.registration.description"),
-            name: nil,
-            contact_details: @presenter.presented_registration_address,
-            postcode: @presenter.registration["postcode"],
-            website: @presenter.registration["website"],
-            phone: @presenter.registration["phone"],
-            email: @presenter.registration["email"]
-            }
-        %>
-      <% end %>
+    <% if @presenter.use_registration_contact_details? %>
+      <%= render partial: "contact_details",
+        locals: {
+          presenter: @presenter,
+          title: t("electoral.registration.title"),
+          description: t("electoral.registration.description"),
+          name: nil,
+          contact_details: @presenter.presented_registration_address,
+          postcode: @presenter.registration["postcode"],
+          website: @presenter.registration["website"],
+          phone: @presenter.registration["phone"],
+          email: @presenter.registration["email"]
+          }
+      %>
+    <% end %>
 
-      <%= render partial: "upcoming_elections", locals: { elections: @presenter.upcoming_elections } %>
-    </div>
+    <%= render partial: "upcoming_elections", locals: { elections: @presenter.upcoming_elections } %>
   </div>
 </div>

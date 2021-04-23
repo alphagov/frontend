@@ -42,6 +42,10 @@ class ElectoralPresenter
     registration.present?
   end
 
+  def show_picker?
+    (address_picker.present? && no_contact_details?)
+  end
+
 private
 
   attr_reader :response
@@ -58,9 +62,7 @@ private
     end
   end
 
-  def present_ballots(date)
-    if date["ballots"].present?
-      date["ballots"].map { |b| "#{b['poll_open_date']} - #{b['ballot_title']}" }
-    end
+  def no_contact_details?
+    registration.nil? && electoral_services.nil?
   end
 end

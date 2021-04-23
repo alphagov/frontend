@@ -26,17 +26,6 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
   context "searching by postcode" do
     context "when a valid postcode is entered which matches a single address" do
-      should "display upcoming elections if available" do
-        with_electoral_api_url do
-          stub_api_postcode_lookup("LS11UR", response: api_response)
-
-          search_for(postcode: "LS11UR")
-          assert page.has_selector?("h2", text: "Next elections")
-          assert page.has_text?("2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons")
-          assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
-        end
-      end
-
       should "display the electoral service (council) address if it's different to the registration office address" do
         with_different_address = JSON.parse(api_response)
         with_different_address["registration"] = { "address" => "foo" }
@@ -69,19 +58,6 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
         end
       end
 
-      should "inform user if there are no upcoming elections " do
-        without_dates = JSON.parse(api_response)
-        without_dates["dates"] = []
-        stub_api_postcode_lookup("LS11UR", response: without_dates.to_json)
-
-        with_electoral_api_url do
-          search_for(postcode: "LS11UR")
-
-          assert page.has_selector?("h2", text: "Next elections")
-          assert page.has_text?("There are no upcoming elections for your area")
-        end
-      end
-
       should "with an invalid postcode" do
         with_electoral_api_url do
           search_for(postcode: "INVALID POSTCODE")
@@ -91,10 +67,12 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when a valid postcode is entered which matches multiple addresses" do
+    context "when a valid postcode is entered which matches multiple ERO addresses" do
       should "display an address picker" do
         postcode = "IP224DN"
         with_multiple_addresses = JSON.parse(api_response)
+        with_multiple_addresses["electoral_services"] = nil
+        with_multiple_addresses["registration"] = nil
         with_multiple_addresses["address_picker"] = true
         with_multiple_addresses["addresses"] = [
           {

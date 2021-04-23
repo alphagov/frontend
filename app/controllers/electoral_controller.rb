@@ -10,7 +10,7 @@ class ElectoralController < ApplicationController
     if elections_api.ok?
       @presenter = presented_result(elections_api.body)
 
-      if indeterminate_postcode?
+      if @presenter.show_picker?
         render :address_picker and return
       end
 
@@ -33,10 +33,6 @@ private
                 end
 
     LocationError.new(error_key) if error_key.present?
-  end
-
-  def indeterminate_postcode?
-    @presenter.address_picker
   end
 
   def valid_postcode?

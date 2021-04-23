@@ -1,0 +1,20 @@
+<%= form_with url: arriving_in_england_path do %>
+  <%= render "govuk_publishing_components/components/radio", {
+    name: "any_other",
+    heading: "Have you visited any other countries in the last 10 days?",
+    items: [
+      {
+        value: "yes",
+        text: "Yes"
+      },
+      {
+        value: "no",
+        text: "No"
+      }
+    ]
+  } %>
+
+  <%= render "govuk_publishing_components/components/button", {
+    text: "Next"
+  } %>
+<% end %>

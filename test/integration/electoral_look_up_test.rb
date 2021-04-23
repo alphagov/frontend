@@ -97,12 +97,12 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           # Multiple addresses are displayed
           assert page.has_selector?("h1", text: "Choose your address")
           assert page.has_selector?("p", text: "The IP22 4DN postcode could be in several council areas. Please choose your address from the list below.")
-          assert page.has_link?("1 BUCKINGHAM PALACE", href: "/find-electoral-things?uprn=1234")
+          assert page.has_select?("uprn", options: ["1 BUCKINGHAM PALACE", "2 BUCKINGHAM PALACE"])
           assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
 
           # Click on one of the suggested addresses
           stub_api_address_lookup("1234", response: api_response)
-          click_link("1 BUCKINGHAM PALACE")
+          click_button "Continue"
           assert page.has_selector?("p", text: "We've matched the postcode to Cardiff Council")
         end
       end

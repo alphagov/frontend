@@ -1,0 +1,3 @@
+class ArrivingInEnglandController < ApplicationController
+
+end

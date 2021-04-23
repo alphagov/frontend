@@ -5,8 +5,10 @@ class ElectoralController < ApplicationController
   def show
     @publication = LocalTransactionPresenter.new(@content_item)
 
-    if valid_postcode? || valid_uprn?
-      @presenter = presented_result(fetch_response)
+    elections_api.make_request if valid_postcode? || valid_uprn?
+
+    if elections_api.ok?
+      @presenter = presented_result(elections_api.body)
 
       if indeterminate_postcode?
         render :address_picker and return
@@ -26,6 +28,8 @@ private
                   postcode.error
                 elsif invalid_uprn?
                   uprn.error
+                elsif elections_api.error?
+                  elections_api.error
                 end
 
     LocationError.new(error_key) if error_key.present?
@@ -51,10 +55,12 @@ private
     uprn.present? && !uprn.valid?
   end
 
-  def fetch_response
-    endpoint = postcode.present? ? "postcode/#{postcode.postcode_for_api}" : "address/#{uprn.sanitized_uprn}"
-    response = request_api("#{api_base_path}/#{endpoint}")
-    JSON.parse(response)
+  def elections_api
+    @elections_api ||= if postcode.present?
+                         ElectoralService.new(postcode: postcode.postcode_for_api)
+                       else
+                         ElectoralService.new(uprn: uprn.sanitized_uprn)
+                       end
   end
 
   def postcode
@@ -75,16 +81,5 @@ private
 
   def presented_result(response)
     ElectoralPresenter.new(response)
-  end
-
-  def request_api(url)
-    headers = {
-      Authorization: "Token #{ENV['ELECTIONS_API_KEY']}",
-    }
-    RestClient.get(url, headers)
-  end
-
-  def api_base_path
-    ENV["ELECTIONS_API_URL"]
   end
 end

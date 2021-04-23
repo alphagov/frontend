@@ -1,21 +1,23 @@
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <% title = "Choose your address" %>
-    <% content_for :title, title %>
+<% content_for :extra_headers do %>
+  <meta name="robots" content="noindex">
+<% end %>
 
-    <div>
-      <%= render "govuk_publishing_components/components/title", title: title %>
+<div class="govuk-grid-column-two-thirds">
+  <% title = "Choose your address" %>
+  <% content_for :title, title %>
 
-      <p class="govuk-body">
-        The <strong><%= @postcode.sanitized_postcode %></strong> postcode could be in several council areas. Please choose your address from the list below.
-      </p>
+  <div>
+    <%= render "govuk_publishing_components/components/title", title: title %>
 
-      <% if @presenter.addresses.present? %>
-        <% items = @presenter.addresses.map do |a|
-                    link_to a['address'], electoral_services_path(uprn: a["slug"])
-                   end %>
-        <%= render "govuk_publishing_components/components/list", { items: items } %>
-      <% end %>
-    </div>
+    <p class="govuk-body">
+      The <strong><%= @postcode.sanitized_postcode %></strong> postcode could be in several council areas. Please choose your address from the list below.
+    </p>
+
+    <% if @presenter.addresses.present? %>
+       <% items = @presenter.addresses.map do |a|
+                  link_to a['address'], electoral_services_path(uprn: a["slug"])
+                  end %>
+       <%= render "govuk_publishing_components/components/list", { items: items } %>
+     <% end %>
   </div>
 </div>

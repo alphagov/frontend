@@ -15,11 +15,6 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
     click_button "Find"
   end
 
-  def api_response
-    path = Rails.root.join("test/fixtures/electoral-result.json")
-    File.read(path)
-  end
-
   context "visiting the homepage" do
     should "contain a form for entering a postcode" do
       visit electoral_services_path
@@ -38,6 +33,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           search_for(postcode: "LS11UR")
           assert page.has_selector?("h2", text: "Next elections")
           assert page.has_text?("2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons")
+          assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
         end
       end
 
@@ -124,6 +120,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("h1", text: "Choose your address")
           assert page.has_selector?("p", text: "The IP22 4DN postcode could be in several council areas. Please choose your address from the list below.")
           assert page.has_link?("1 BUCKINGHAM PALACE", href: "/find-electoral-things?uprn=1234")
+          assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
 
           # Click on one of the suggested addresses
           stub_api_address_lookup("1234", response: api_response)
@@ -137,6 +134,30 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           visit electoral_services_path(uprn: "INVALID UPRN")
           assert_selector("h1", text: "Contact your local Electoral Registration Office")
           assert_text("This isn't a valid address")
+        end
+      end
+    end
+  end
+
+  context "API errors" do
+    context "400 and 404" do
+      should "display unfindable postcode message" do
+        stub_api_postcode_lookup("XM45HQ", status: 404)
+
+        with_electoral_api_url do
+          search_for(postcode: "XM4 5HQ")
+
+          assert_text("We couldn't find this postcode")
+        end
+      end
+
+      should "display unfindable address message" do
+        stub_api_address_lookup("1234", status: 400)
+
+        with_electoral_api_url do
+          visit electoral_services_path(uprn: "1234")
+
+          assert_text("We couldn't find this address")
         end
       end
     end

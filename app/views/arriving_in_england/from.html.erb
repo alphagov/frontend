@@ -1,4 +1,7 @@
-<%= form_with url: arriving_in_england_path do %>
+<% content_for :title do %>Where have you travelled from? - GOV.UK<% end %>
+
+<main id="content" role="main" class="govuk-grid-column-two-thirds">
+<%= form_with url: arriving_in_england_any_other_path, method: :get do %>
   <%= render "govuk_publishing_components/components/select", {
     id: "country",
     label: "Where have you travelled from?",

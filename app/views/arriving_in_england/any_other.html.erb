@@ -1,4 +1,8 @@
-<%= form_with url: arriving_in_england_path do %>
+<% content_for :title, "Have you visited any other countries in the last 10 days? - GOV.UK" %>
+
+<main id="content" role="main" class="govuk-grid-column-two-thirds">
+<%= form_with url: arriving_in_england_other_countries_path, method: :get do %>
+  <%= hidden_field_tag :country, params[:country] %>
   <%= render "govuk_publishing_components/components/radio", {
     name: "any_other",
     heading: "Have you visited any other countries in the last 10 days?",

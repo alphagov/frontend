@@ -4,6 +4,13 @@ class ArrivingInEnglandController < ApplicationController
   end
 
   def other_countries
+    if params[:any_other] == "no"
+      redirect_to arriving_in_england_results_path(countries: params[:country])
+      return
+    end
+
+    @countries = params.fetch(:countries, [params[:country]])
+
     @world_locations = world_locations
   end
 

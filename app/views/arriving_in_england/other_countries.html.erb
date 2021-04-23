@@ -3,8 +3,16 @@
 } %>
 
 <%= form_with url: arriving_in_england_path do %>
+  <ul>
+    <% @countries.each do |slug| %>
+      <li>
+        <%= @world_locations[slug] %>
+      </li>
+    <% end %>
+  </ul>
   <%= render "govuk_publishing_components/components/select", {
     id: "country",
+    name: "countries[]",
     label: "Country",
     options: @world_locations.map do |(slug, title)|
       {

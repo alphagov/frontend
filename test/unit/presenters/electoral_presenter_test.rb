@@ -50,5 +50,29 @@ class ElectoralPresenterTest < ActiveSupport::TestCase
         assert_equal subject.use_registration_contact_details?, true
       end
     end
+
+    context "when address picker is present in the api response" do
+      setup do
+        @with_address_picker = api_response
+        @with_address_picker["address_picker"] = true
+      end
+
+      context "address details are present" do
+        should "#show_picker? returns true" do
+          with_no_contact_details = @with_address_picker
+          with_no_contact_details["registration"] = nil
+          with_no_contact_details["electoral_services"] = nil
+          subject = electoral_presenter(with_no_contact_details)
+          assert_equal subject.show_picker?, true
+        end
+      end
+
+      context "address details are missing" do
+        should "#show_picker? returns false" do
+          subject = electoral_presenter(@with_address_picker)
+          assert_equal subject.show_picker?, false
+        end
+      end
+    end
   end
 end

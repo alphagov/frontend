@@ -91,10 +91,12 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when a valid postcode is entered which matches multiple addresses" do
+    context "when a valid postcode is entered which matches multiple ERO addresses" do
       should "display an address picker" do
         postcode = "IP224DN"
         with_multiple_addresses = JSON.parse(api_response)
+        with_multiple_addresses["electoral_services"] = nil
+        with_multiple_addresses["registration"] = nil
         with_multiple_addresses["address_picker"] = true
         with_multiple_addresses["addresses"] = [
           {

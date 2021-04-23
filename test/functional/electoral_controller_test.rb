@@ -32,14 +32,32 @@ class ElectoralControllerTest < ActionController::TestCase
     end
 
     context "that maps to multiple addresses" do
-      should "GET show renders the address picker template" do
-        response = { "address_picker" => true, "addresses" => [] }.to_json
+      setup do
+        @response = { "address_picker" => true, "addresses" => [] }.to_json
         stub_api_postcode_lookup("IP224DN", response: response)
+      end
 
-        with_electoral_api_url do
-          get :show, params: { postcode: "IP224DN" }
-          assert_response :success
-          assert_template :address_picker
+      context "and there are no contact details" do
+        should "GET show renders the address picker template" do
+          ElectoralPresenter.any_instance.stubs(:show_picker?).returns(true)
+
+          with_electoral_api_url do
+            get :show, params: { postcode: "IP224DN" }
+            assert_response :success
+            assert_template :address_picker
+          end
+        end
+      end
+
+      context "but contact details are present" do
+        should "GET show doesn't render the address picker template" do
+          ElectoralPresenter.any_instance.stubs(:show_picker?).returns(false)
+
+          with_electoral_api_url do
+            get :show, params: { postcode: "IP224DN" }
+            assert_response :success
+            assert_template :results
+          end
         end
       end
     end

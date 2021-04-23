@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "/arriving-in-england" => "arriving_in_england#index"
   get "/arriving-in-england/from" => "arriving_in_england#from"
   get "/arriving-in-england/any-other" => "arriving_in_england#any_other"
+  get "/arriving-in-england/other-countries" => "arriving_in_england#other_countries"
 
   # Accounts
   get "/sign-in", to: "sessions#create", as: :new_govuk_session

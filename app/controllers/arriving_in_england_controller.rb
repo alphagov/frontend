@@ -3,6 +3,10 @@ class ArrivingInEnglandController < ApplicationController
     @world_locations = world_locations
   end
 
+  def other_countries
+    @world_locations = world_locations
+  end
+
   def world_locations
     GdsApi.worldwide
           .world_locations

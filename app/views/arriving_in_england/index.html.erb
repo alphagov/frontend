@@ -1,1 +1,10 @@
-<p>Hello World!</p>
+<% content_for :title do %>Arriving in England after travelling abroad - GOV.UK<% end %>
+
+<main id="content" role="main" class="govuk-grid-column-two-thirds">
+  <%= render "govuk_publishing_components/components/title", title: "Arriving in England after travelling abroad" %>
+  <%= render "govuk_publishing_components/components/button", {
+    text: "Start now",
+    start: true,
+    href: arriving_in_england_from_path,
+  } %>
+</main>

@@ -1,9 +1,11 @@
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Add all the countries you've visited in the last 10 days?",
+} %>
+
 <%= form_with url: arriving_in_england_path do %>
   <%= render "govuk_publishing_components/components/select", {
     id: "country",
-    label: "Where have you travelled from?",
-    heading_size: "xl",
-    is_page_heading: true,
+    label: "Country",
     options: @world_locations.map do |(slug, title)|
       {
         text: title,

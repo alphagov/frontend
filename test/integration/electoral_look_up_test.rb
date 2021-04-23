@@ -33,6 +33,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           search_for(postcode: "LS11UR")
           assert page.has_selector?("h2", text: "Next elections")
           assert page.has_text?("2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons")
+          assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
         end
       end
 
@@ -119,6 +120,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           assert page.has_selector?("h1", text: "Choose your address")
           assert page.has_selector?("p", text: "The IP22 4DN postcode could be in several council areas. Please choose your address from the list below.")
           assert page.has_link?("1 BUCKINGHAM PALACE", href: "/find-electoral-things?uprn=1234")
+          assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
 
           # Click on one of the suggested addresses
           stub_api_address_lookup("1234", response: api_response)

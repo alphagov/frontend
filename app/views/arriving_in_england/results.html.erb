@@ -2,4 +2,24 @@
 
 <main id="content" role="main" class="govuk-grid-column-two-thirds">
   <%= render "govuk_publishing_components/components/title", title: "What you will need to do" %>
+  <% @countries.each do |slug| %>
+    <p class="govuk-body">
+      <%= @world_locations[slug] %>
+      <% if @rag_statuses.dig(slug, "rag_status") == "red" %>
+        is a red listed country. You will only be allowed to enter the UK if you are a British or Irish National, or you have residence rights in the UK.
+      <% elsif @rag_statuses.dig(slug, "rag_status") == "green" %>
+        is a green listed country. On returning the UK, you must take a PCR test on or before day 2 after you arrive. You do not need to self-isolate unless the test you take is positive.
+      <% else %>
+        is an amber listed country. On returning the UK, you will need to quarantine at home.
+      <% end %>
+    </p>
+  <% end %>
+  <p class="govuk-body">This may change.</p>
+
+  <p class="govuk-body">
+    <%= link_to "Read the guidance",
+      "/coronavirus",
+      class: "govuk-link"
+    %>
+  </p>
 </main>

@@ -10,12 +10,15 @@
 <p class="govuk-body"><%= description %></p>
 
 <% if contact_details %>
-  <address class="govuk-body">
-    <% contact_details.each do |address_line| %>
-      <%= address_line %><br>
-    <% end %>
-    <%= postcode %><br>
-  </address>
+  <%= render "govuk_publishing_components/components/govspeak", {
+  } do %>
+    <address class="address govuk-body">
+      <% contact_details.each do |address_line| %>
+        <%= address_line %><br>
+      <% end %>
+      <%= postcode %><br>
+    </address>
+  <% end %>
 <% end %>
 
 <%= render "govuk_publishing_components/components/list", {

@@ -18,6 +18,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
   context "visiting the homepage" do
     should "contain a form for entering a postcode" do
       visit electoral_services_path
+      assert_title("Contact your local Electoral Registration Office - GOV.UK")
       assert page.has_selector?("h1", text: "Contact your local Electoral Registration Office")
       assert page.has_field?("postcode")
       assert_no_text("This isn't a valid")

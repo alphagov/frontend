@@ -52,7 +52,7 @@ private
 
   def with_caching
     Rails.cache.fetch(request_url, expires_in: 1.minute) do
-      GovukStatsd.time("content_store.#{timing_endpoint}.request_time") do
+      GovukStatsd.time("elections_api.#{timing_endpoint}.request_time") do
         yield
       end
     end

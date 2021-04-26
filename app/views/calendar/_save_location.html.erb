@@ -1,6 +1,7 @@
 <%
   data_nation = nation.gsub(/\s/,'_')
 
+  section_lang = "lang=en" unless I18n.locale.to_s == "en"
   save_description = "Do you want to save # as your location for bank holidays?"
   save_button_aria_label = "Save # as your location for bank holidays"
   save_button_text = "Save"
@@ -19,6 +20,7 @@
   data-undo-description="<%= undo_description %>"
   data-undo-button-aria-label="<%= undo_button_aria_label %>"
   data-undo-button-text="<%= undo_button_text %>"
+  <%= section_lang %>
 >
   <h2 class="govuk-heading-m js-nation-description" aria-live="polite">
     <%= sanitize(save_description) %>

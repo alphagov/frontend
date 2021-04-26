@@ -6,18 +6,24 @@
   <% title = "Choose your address" %>
   <% content_for :title, title %>
 
-  <div>
-    <%= render "govuk_publishing_components/components/title", title: title %>
+  <%= render "govuk_publishing_components/components/title", title: title %>
 
-    <p class="govuk-body">
-      The <strong><%= @postcode.sanitized_postcode %></strong> postcode could be in several council areas. Please choose your address from the list below.
-    </p>
+  <p class="govuk-body">
+    The <strong><%= @postcode.sanitized_postcode %></strong> postcode could be in several council areas. Please choose your address from the list below.
+  </p>
 
-    <% if @presenter.addresses.present? %>
-       <% items = @presenter.addresses.map do |a|
-                  link_to a['address'], electoral_services_path(uprn: a["slug"])
-                  end %>
-       <%= render "govuk_publishing_components/components/list", { items: items } %>
-     <% end %>
-  </div>
+  <% if @presenter.addresses.present? %>
+    <% items = @presenter.addresses.map { |a| { text: a['address'], value: a["slug"] } } %>
+
+    <%= form_with url: electoral_services_path, method: :get do |form| %>
+      <%= render "govuk_publishing_components/components/select", {
+        id: "uprn",
+        name: "uprn",
+        label: "Select an address",
+        options: items
+      } %>
+
+      <%= render "govuk_publishing_components/components/button", text: "Continue", margin_bottom: true %>
+    <% end %>
+  <% end %>
 </div>

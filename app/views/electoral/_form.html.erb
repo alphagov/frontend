@@ -26,7 +26,8 @@
     method: :get,
     id: "local-locator-form",
     class: "location-form" do |form| %>
-      <%= field_set_tag 'Postcode lookup', class: "visuallyhidden" %>
+    <%= tag.fieldset do %>
+      <%= tag.legend "Postcode lookup", class: "govuk-visually-hidden" %>
       <%= render partial: 'draft_fields' %>
 
       <%= render "govuk_publishing_components/components/input", {
@@ -49,5 +50,6 @@
                     class: "govuk-link",
                     rel: "external"),
                 class: "govuk-body" %>
+    <% end %>
   <% end %>
 </div>

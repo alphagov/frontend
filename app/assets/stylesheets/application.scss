@@ -26,6 +26,7 @@ $govuk-use-legacy-palette: false;
 @import 'govuk_publishing_components/components/radio';
 @import 'govuk_publishing_components/components/related-navigation';
 @import 'govuk_publishing_components/components/search';
+@import 'govuk_publishing_components/components/select';
 @import 'govuk_publishing_components/components/step-by-step-nav';
 @import 'govuk_publishing_components/components/step-by-step-nav-header';
 @import 'govuk_publishing_components/components/step-by-step-nav-related';
@@ -90,6 +91,12 @@ $govuk-use-legacy-palette: false;
     .help-notice p {
       padding: 0;
     }
+  }
+}
+
+.gem-c-govspeak {
+  address {
+    font-style: normal;
   }
 }
 

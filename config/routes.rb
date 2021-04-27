@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   get "/random" => "random#random_page"
 
-  get "/healthcheck", to: proc { [200, {}, %w[OK]] }
-
   get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }
   get "/healthcheck/ready", to: GovukHealthcheck.rack_response
 

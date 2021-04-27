@@ -10,8 +10,7 @@
       <span class="app-o-epic-bunting__bunt<%= " app-o-epic-bunting__bunt--#{@calendar.bunting_styles}" if @calendar.bunting_styles %>"></span>
     </div>
   <% end %>
-
-  <main id="content" class="app-o-main-container <%= "app-o-main-container--bunted" if @calendar.show_bunting? %>" role="main">
+  <main id="content" class="app-o-main-container <%= "app-o-main-container--bunted" if @calendar.show_bunting? %>" role="main" lang="<%= I18n.locale %>">
     <%= render "govuk_publishing_components/components/title", {
       title: @calendar.title
     } %>
@@ -30,7 +29,7 @@
           <% end %>
 
           <% if @requested_variant.variant?("B") %>
-            <%= render "save_location", nation: "#{t "#{division.title}"}" %>
+            <%= render "save_location", nation: t(division.title, locale: :en) %>
           <% end %>
 
           <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>

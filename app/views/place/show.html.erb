@@ -34,7 +34,8 @@
       data-track-label="<%= track_label_for_place_results(@publication.places) %>">
       <% if @publication.places.any? %>
         <%= render "govuk_publishing_components/components/heading", {
-          text: "#{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe
+          text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
+          margin_bottom: 4,
         } %>
         <ol id="options" class="places">
           <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>

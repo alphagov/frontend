@@ -1,6 +1,11 @@
 require "simplecov"
 SimpleCov.start "rails"
 
+require "i18n/coverage"
+require "i18n/coverage/printers/file_printer"
+I18n::Coverage.config.printer = I18n::Coverage::Printers::FilePrinter
+I18n::Coverage.start
+
 ENV["RAILS_ENV"] = "test"
 require File.expand_path("../config/environment", __dir__)
 require "rails/test_help"

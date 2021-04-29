@@ -1,6 +1,4 @@
 en:
-  homepage:
-    get_ready: "Get ready for Brexit"
   bank-holidays:              "bank-holidays"
   common:
     last_updated:             "Last updated"
@@ -75,7 +73,6 @@ en:
       description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
   formats:
     transaction:
-      name: "Service"
       start_now: "Start now"
       sign_in: "Sign in"
       "on": !str "on"
@@ -83,11 +80,6 @@ en:
       more_information: "More information"
       what_you_need_to_know: "What you need to know"
       other_ways_to_apply: "Other ways to apply"
-      jobsearch:
-        job_title: "Job title"
-        town_place_postcode: "Postcode, town or place"
-        skills: "Skills (optional)"
-        search: "Search"
     local_transaction:
       invalid_postcode: "This isn't a valid postcode."
       invalid_postcode_sub: "Check it and enter it again."
@@ -106,7 +98,6 @@ en:
       next_step: "Next step"
       please_answer: "Please answer this question"
       your_answers: "Your answers"
-      current_question: "Current question"
       change: "Change"
   roadmap:
     page_title: Roadmap - GOV.UK

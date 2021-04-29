@@ -48,7 +48,6 @@ cy:
     queen_platinum: "Gŵyl Banc Jiwbilî Platinwm"
   formats:
     transaction:
-      name: "Gwasanaeth"
       start_now: "Dechrau nawr"
       sign_in: "Mewngofnodi"
       "on": "ar"
@@ -56,16 +55,10 @@ cy:
       more_information: "Mwy o wybodaeth"
       what_you_need_to_know: "Yr hyn mae angen i chi ei wybod"
       other_ways_to_apply: "Ffyrdd eraill o wneud cais"
-      jobsearch:
-        job_title: "Teitl swydd"
-        town_place_postcode: "Cod post, tref neu lle"
-        skills: "Sgiliau (dewisol)"
-        search: "Chwilio"
     simple_smart_answer:
       start_now: "Dechrau nawr"
       start_again: "Dechrau eto"
       next_step: "Cam nesaf"
       please_answer: "Atebwch y cwestiwn hwn"
-      current_question: "Cwestiwn presennol"
       your_answers: "Eich atebion"
       change: "Newid"

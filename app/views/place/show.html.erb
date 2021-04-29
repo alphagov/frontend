@@ -37,7 +37,7 @@
           text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
           margin_bottom: 4,
         } %>
-        <ol id="options" class="places">
+        <ol id="options" class="govuk-list">
           <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
         </ol>
       <% end %>

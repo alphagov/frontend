@@ -52,7 +52,44 @@ cy:
     substitute_day: Diwrnod yn lle gŵyl banc sy'n disgyn ar benwythnos
     today: heddiw
     upcoming_bank_holidays: Gwyliau banc i ddod
+  cookies:
+    confirmation_message:
+    confirmation_previous_referrer_link:
+    confirmation_title:
+    cookie_settings:
+    cookies_on_govuk:
+    off-campaigns:
+    off-settings:
+    off-usage:
+    on-campaigns:
+    on-settings:
+    on-usage:
+    save_changes:
+    types:
+      campaigns:
+      essential:
+      settings:
+      usage:
+  electoral:
+    registration:
+      description:
+      title:
+    service:
+      description:
+      title:
   formats:
+    find_my_nearest:
+      valid_postcode_no_locations:
+    local_transaction:
+      invalid_postcode:
+      invalid_postcode_sub:
+      invalid_uprn:
+      invalid_uprn_sub:
+      no_local_authority:
+      valid_postcode_no_match:
+      valid_postcode_no_match_sub_html:
+      valid_uprn_no_match:
+      valid_uprn_no_match_sub_html:
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf
@@ -68,3 +105,20 @@ cy:
       sign_in: Mewngofnodi
       start_now: Dechrau nawr
       what_you_need_to_know: Yr hyn mae angen i chi ei wybod
+  roadmap:
+    actions_section:
+      heading:
+      items:
+    hero:
+      description:
+      heading:
+    numbers_section:
+      footnote:
+      heading_large:
+      heading_small:
+      numbers_columns:
+        column_one_count:
+        column_one_text:
+        column_two_count:
+        column_two_text:
+    page_title:

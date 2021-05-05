@@ -108,4 +108,18 @@ module SchemaOrgHelpers
     yield
     Timecop.return
   end
+
+  def setup_register_to_vote
+    register_to_vote = @payload.merge(base_path: "/register-to-vote")
+    stub_content_store_has_item("/register-to-vote", register_to_vote)
+  end
+
+  def find_schemas
+    schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+    schema_sections.map { |section| JSON.parse(section.text(:all)) }
+  end
+
+  def find_schema_of_type(schema_type)
+    find_schemas.detect { |schema| schema["@type"] == schema_type }
+  end
 end

@@ -74,20 +74,40 @@ class TransactionTest < ActionDispatch::IntegrationTest
       end
     end
 
-    should "present the FAQ schema correctly" do
+    should "present the FAQ schema correctly until voting closes" do
       register_to_vote = @payload.merge(base_path: "/register-to-vote")
       stub_content_store_has_item("/register-to-vote", register_to_vote)
 
-      visit "/register-to-vote"
+      when_voting_is_open do
+        visit "/register-to-vote"
 
-      assert_equal 200, page.status_code
+        assert_equal 200, page.status_code
 
-      schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
-      schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
+        schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+        schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
 
-      faq_schema = schemas.detect { |schema| schema["@type"] == "FAQPage" }
+        faq_schema = schemas.detect { |schema| schema["@type"] == "FAQPage" }
 
-      assert_equal SchemaOrgHelpers::REGISTER_TO_VOTE_SCHEMA, faq_schema
+        assert_equal SchemaOrgHelpers::REGISTER_TO_VOTE_SCHEMA, faq_schema
+      end
+    end
+
+    should "not present the custom FAQ schema once voting has closed" do
+      register_to_vote = @payload.merge(base_path: "/register-to-vote")
+      stub_content_store_has_item("/register-to-vote", register_to_vote)
+
+      when_voting_is_closed do
+        visit "/register-to-vote"
+
+        assert_equal 200, page.status_code
+
+        schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+        schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
+
+        faq_schema = schemas.detect { |schema| schema["@type"] == "FAQPage" }
+
+        assert_nil faq_schema
+      end
     end
 
     should "contain GovernmentService schema.org information" do

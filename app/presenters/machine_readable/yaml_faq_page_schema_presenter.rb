@@ -15,6 +15,14 @@ module MachineReadable
       @config_file = YAML.load_file(YamlFaqPageSchemaPresenter.config_path(content_item))
     end
 
+    def current?
+      expiry_date = config_file["expiry_date"]
+      return true if expiry_date.nil?
+
+      parsed_expiry_date = Time.zone.parse(expiry_date)
+      Time.zone.now < parsed_expiry_date
+    end
+
     def structured_data
       # http://schema.org/FAQPage
       {

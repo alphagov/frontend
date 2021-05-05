@@ -96,4 +96,16 @@ module SchemaOrgHelpers
       },
     ],
   }.freeze
+
+  def when_voting_is_open
+    Timecop.freeze(Time.zone.local(2021, 5, 6, 21, 59, 0))
+    yield
+    Timecop.return
+  end
+
+  def when_voting_is_closed
+    Timecop.freeze(Time.zone.local(2021, 5, 6, 22, 0, 0))
+    yield
+    Timecop.return
+  end
 end

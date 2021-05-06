@@ -5,48 +5,56 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   function SaveBankHolidayNation () { }
 
   SaveBankHolidayNation.prototype.start = function ($module) {
+    this.$module = $module[0]
     var consentCookie = window.GOVUK.getConsentCookie()
 
     if (consentCookie && consentCookie.settings) {
-      this.$module = $module[0]
-      this.$module.style.display = 'block'
-      this.cookie_name = 'user_nation'
-      this.cookie_options = { days: 365 } // expires after a year
-      this.cookie_value = this.$module.getAttribute('data-nation') // used for setting, is e.g. Northern_Ireland
-      this.nation = this.cookie_value.replace(/_/g, ' ') // used for text display, is e.g. Northern Ireland
-      this.saved_nation = this.getCookie()
-      this.other_modules = document.querySelectorAll('.js-save-nation:not([data-nation=' + this.cookie_value + '])')
+      this.startModule()
+    } else {
+      this.startModule = this.startModule.bind(this)
+      window.addEventListener('cookie-consent', this.startModule)
+    }
+  }
 
-      this.page_content = [
-        {
-          description: this.$module.getAttribute('data-save-description'),
-          button_aria_label: this.$module.getAttribute('data-save-button-aria-label'),
-          button_text: this.$module.getAttribute('data-save-button-text'),
-          button_track: 'undo-button', // this is the wrong way round, because tracking fires after we've updated this value
-          link_display: 'block'
-        },
-        {
-          description: this.$module.getAttribute('data-undo-description'),
-          button_aria_label: this.$module.getAttribute('data-undo-button-aria-label'),
-          button_text: this.$module.getAttribute('data-undo-button-text'),
-          button_track: 'save-button',
-          link_display: 'none'
-        }
-      ]
+  SaveBankHolidayNation.prototype.startModule = function () {
+    window.removeEventListener('cookie-consent', this.startModule)
+    this.$module.style.display = 'block'
+    this.cookie_name = 'user_nation'
+    this.cookie_options = { days: 365 } // expires after a year
+    this.cookie_value = this.$module.getAttribute('data-nation') // used for setting, is e.g. Northern_Ireland
+    this.nation = this.cookie_value.replace(/_/g, ' ') // used for text display, is e.g. Northern Ireland
+    this.saved_nation = this.getCookie()
+    this.other_modules = document.querySelectorAll('.js-save-nation:not([data-nation=' + this.cookie_value + '])')
 
-      this.button = this.$module.querySelector('.js-nation-button')
-      this.$module.clickButton = this.clickButton.bind(this)
-      this.button.addEventListener('click', this.$module.clickButton)
-
-      if (this.saved_nation && this.saved_nation === this.cookie_value) {
-        this.saved_nation = this.decodeNationCookieSafe(this.cookie_value)
-        this.toggleOptions(this.$module, 1, this.nation)
-        if (!window.location.hash) {
-          window.location.hash = this.encodeNationAsHash(this.saved_nation)
-        }
-      } else {
-        this.toggleOptions(this.$module, 0, this.nation)
+    this.page_content = [
+      {
+        description: this.$module.getAttribute('data-save-description'),
+        button_aria_label: this.$module.getAttribute('data-save-button-aria-label'),
+        button_text: this.$module.getAttribute('data-save-button-text'),
+        button_track: 'undo-button', // this is the wrong way round, because tracking fires after we've updated this value
+        link_display: 'block'
+      },
+      {
+        description: this.$module.getAttribute('data-undo-description'),
+        button_aria_label: this.$module.getAttribute('data-undo-button-aria-label'),
+        button_text: this.$module.getAttribute('data-undo-button-text'),
+        button_track: 'save-button',
+        link_display: 'none'
       }
+    ]
+
+    this.button = this.$module.querySelector('.js-nation-button')
+    this.$module.clickButton = this.clickButton.bind(this)
+    this.button.addEventListener('click', this.$module.clickButton)
+
+    if (this.saved_nation && this.saved_nation === this.cookie_value) {
+      this.saved_nation = this.decodeNationCookieSafe(this.cookie_value)
+      this.toggleOptions(this.$module, 1, this.nation)
+      if (!window.location.hash) {
+        window.location.hash = this.encodeNationAsHash(this.saved_nation)
+      }
+    } else {
+      this.toggleOptions(this.$module, 0, this.nation)
     }
   }
 

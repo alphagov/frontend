@@ -8,9 +8,12 @@
     content_item: @content_item %>
 
 <% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(@publication) %>
-<script type="application/ld+json">
-  <%= raw MachineReadable::YamlFaqPageSchemaPresenter.new(@publication).structured_data.to_json %>
-</script>
+  <% schema = MachineReadable::YamlFaqPageSchemaPresenter.new(@publication) %>
+  <% if schema.current? %>
+    <script type="application/ld+json">
+      <%= raw schema.structured_data.to_json %>
+    </script>
+  <% end %>
 <% end %>
 
   <% if @publication.variant_slug.present? %>

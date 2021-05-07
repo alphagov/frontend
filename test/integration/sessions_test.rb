@@ -12,6 +12,27 @@ class SessionsTest < ActionDispatch::IntegrationTest
   end
 
   context "when logged out" do
+    %w[level0 level1].each do |level|
+      should "allow #{level}" do
+        stub = stub_account_api_get_sign_in_url(level_of_authentication: level)
+
+        get "/sign-in", params: { level_of_authentication: level }
+
+        assert_response :redirect
+        assert_requested stub
+      end
+    end
+
+    should "not allow other levels of authentication" do
+      stub_account_api_get_sign_in_url
+      stub = stub_account_api_get_sign_in_url(level_of_authentication: "level2")
+
+      get "/sign-in", params: { level_of_authentication: "level2" }
+
+      assert_response :redirect
+      assert_not_requested stub
+    end
+
     should "prefer the redirect_path over the HTTP Referer" do
       stub = stub_account_api_get_sign_in_url(redirect_path: "/from-param")
 

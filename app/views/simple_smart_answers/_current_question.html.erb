@@ -17,7 +17,7 @@
     heading_caption: @publication.title,
     heading_size: "l",
     heading: "#{@flow_state.current_question_number}. #{question.title}",
-    is_page_heading: true,
+    heading_level: 1,
     name: "response",
     items: question.options.map do |option|
       {

@@ -22,7 +22,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Programme updates",
+            text: t('roadmap.updates_section.heading'),
             font_size: 'l',
           } %>
         </div>
@@ -34,7 +34,6 @@
             <%= render "govuk_publishing_components/components/image_card", {
               href: item[:href],
               image_src: asset_path(item[:image_src]),
-              image_alt: item[:image_alt],
               heading_text: item[:heading_text],
               heading_level: 0,
               font_size: 'm'
@@ -139,12 +138,12 @@
       title: "Share this page",
       links: [
         {
-          href: "https://www.facebook.com/sharer/sharer.php?u=https://www.gov.uk/roadmap",
-          text: "Facebook",
-          icon: "facebook"
+          href: "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.gov.uk%2Froadmap%3Futm_medium%3Dreferral%2520%26utm_source%3Dlinkedin_socials%26utm_campaign%3Droadmap_update",
+          text: "LinkedIn",
+          icon: "linkedin"
         },
         {
-          href: "https://twitter.com/share?url=https%3A%2F%2Fwww.gov.uk%2Froadmap",
+          href: "https://twitter.com/share?url=https%3A%2F%2Fwww.gov.uk%2Froadmap%3Futm_medium%3Dreferral%2520%26utm_source%3Dtwitter_socials%26utm_campaign%3Droadmap_update",
           text: "Twitter",
           icon: "twitter"
         }

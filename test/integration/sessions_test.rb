@@ -4,13 +4,6 @@ require "gds_api/test_helpers/account_api"
 class SessionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::AccountApi
 
-  context "when logged in" do
-    should "redirect the user to the account manager URL if they visit /sign-in" do
-      get "/sign-in", headers: { "GOVUK-Account-Session" => "placeholder" }
-      assert_redirected_to Plek.find("account-manager")
-    end
-  end
-
   context "when logged out" do
     %w[level0 level1].each do |level|
       should "allow #{level}" do

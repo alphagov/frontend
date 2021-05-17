@@ -4,8 +4,6 @@ class SessionsController < ApplicationController
   before_action :set_no_cache_headers
 
   def create
-    redirect_with_ga account_manager_url and return if logged_in?
-
     level_of_authentication = params[:level_of_authentication]
     unless %w[level0 level1].include? level_of_authentication
       level_of_authentication = nil

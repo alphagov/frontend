@@ -20,15 +20,6 @@ class SessionsControllerTest < ActionController::TestCase
       get :create, params: { redirect_path: "/bank-holiday", state_id: "state123", _ga: "ga123" }
       assert_equal @response.headers["Location"], "http://auth/provider?_ga=ga123"
     end
-
-    context "when already logged in" do
-      setup { mock_logged_in_session }
-
-      should "redirect the user to the account manager if the user is already logged in" do
-        get :create, params: { redirect_path: "/bank-holiday", state_id: "state123" }
-        assert_redirected_to Plek.find("account-manager")
-      end
-    end
   end
 
   context "GET sign-in/callback" do

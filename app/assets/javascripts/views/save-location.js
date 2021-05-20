@@ -13,7 +13,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.cookie_name = 'user_nation'
       this.cookie_options = { days: 365 } // expires after a year
       this.cookie_value = this.$module.getAttribute('data-nation') // used for setting, is e.g. Northern_Ireland
-      this.nation = this.cookie_value.replaceAll('_', ' ') // used for text display, is e.g. Northern Ireland
+      this.nation = this.cookie_value.replace(/_/g, ' ') // used for text display, is e.g. Northern Ireland
       this.saved_nation = this.getCookie()
       this.other_modules = document.querySelectorAll('.js-save-nation:not([data-nation=' + this.cookie_value + '])')
 
@@ -84,7 +84,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   SaveBankHolidayNation.prototype.toggleOtherModules = function (option) {
     for (var x = 0; x < this.other_modules.length; x++) {
-      var thatNation = this.other_modules[x].getAttribute('data-nation').replaceAll('_', ' ')
+      var thatNation = this.other_modules[x].getAttribute('data-nation').replace(/_/g, ' ')
       this.toggleOptions(this.other_modules[x], option, thatNation)
     }
   }

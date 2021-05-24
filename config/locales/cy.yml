@@ -1,5 +1,13 @@
 ---
 cy:
+  a:
+  ab_testing:
+    explanation:
+    two_versions:
+    version:
+    visit_govuk:
+  and:
+  b:
   bank-holidays: gwyliau-banc
   bank_holidays:
     2nd_january: 2il Ionawr

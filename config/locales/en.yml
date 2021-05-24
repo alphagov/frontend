@@ -1,6 +1,15 @@
 ---
 en:
-  bank-holidays: bank-holidays
+  a: A
+  ab_testing:
+    explanation: We sometimes test different versions of pages with different users
+      to see which work better. This page shows us if the process is working.
+    two_versions: There are 2 versions of this page. You are viewing the
+    version: version
+    visit_govuk: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find
+      government services and information.
+  and: and
+  b: B
   bank_holidays:
     2nd_january: 2nd January
     add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS,

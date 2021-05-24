@@ -137,6 +137,29 @@ cy:
       sign_in: Mewngofnodi
       start_now: Dechrau nawr
       what_you_need_to_know: Yr hyn mae angen i chi ei wybod
+  help:
+    index:
+      about:
+      about_description:
+      accessibility:
+      accessibility_description:
+      beta:
+      beta_description:
+      browsers:
+      browsers_description:
+      cookies:
+      cookies_description:
+      email:
+      email_description:
+      find_out:
+      privacy_notice:
+      privacy_notice_description:
+      reuse_content:
+      reuse_content_description:
+      terms:
+      terms_description:
+      vulnerability:
+      vulnerability_description:
   homepage:
     categories:
       abroad:

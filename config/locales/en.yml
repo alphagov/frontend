@@ -163,6 +163,34 @@ en:
       sign_in: Sign in
       start_now: Start now
       what_you_need_to_know: What you need to know
+  help:
+    index:
+      about: About GOV.UK
+      about_description: Information about the website and the team that are building
+        it
+      accessibility: Accessibility
+      accessibility_description: Details of accessibility and help using the internet
+      beta: Beta services on GOV.UK
+      beta_description: How new services are developed on GOV.UK and what it means
+        for users
+      browsers: Browsers
+      browsers_description: Information about browsers and how to upgrade yours
+      cookies: Cookies
+      cookies_description: How cookies are used on GOV.UK and each cookie’s purpose
+      email: GOV.UK email notifications
+      email_description: How to create a GOV.UK email notification account and update
+        your subscription preferences
+      find_out: Find out about GOV.UK, including the use of cookies, accessibility
+        of the site, the privacy notice and terms and conditions of use.
+      privacy_notice: Privacy notice
+      privacy_notice_description: GOV.UK’s approach to users’ privacy
+      reuse_content: Reuse GOV.UK content
+      reuse_content_description: How to reuse GOV.UK content through APIs and site
+        scraping
+      terms: Terms and conditions
+      terms_description: Information about the use of GOV.UK and liability
+      vulnerability: Report a vulnerability on a GOV.UK domain or subdomain
+      vulnerability_description: How to report a vulnerability on GOV.UK
   homepage:
     categories:
       abroad: Passports, travel and living abroad

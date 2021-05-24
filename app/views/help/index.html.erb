@@ -1,54 +1,54 @@
 <% content_for :title, "Help using GOV.UK - Help Pages - GOV.UK" %>
 <% content_for :extra_headers do %>
   <meta name="description"
-        content="Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy notice and terms and conditions of use." />
+        content="Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy notice and terms and conditions of use."/>
 <% end %>
 
 <main id="content" role="main">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/title", title: "Help using GOV.UK" %>
-      <p class="govuk-body govuk-!-margin-bottom-8">Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy notice and terms and conditions of use.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8"><%= t('help.index.find_out') %></p>
       <ul class="govuk-list">
         <li>
-          <a href="/help/about-govuk" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">About GOV.UK</a>
-          <p class="govuk-body govuk-!-margin-top-1">Information about the website and the team that are building it</p>
+          <a href="/help/about-govuk" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.about') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.about_description') %></p>
         </li>
         <li>
-          <a href="/help/accessibility" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Accessibility</a>
-          <p class="govuk-body govuk-!-margin-top-1">Details of accessibility and help using the internet</p>
+          <a href="/help/accessibility" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.accessibility') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.accessibility_description') %></p>
         </li>
         <li>
-          <a href="/help/beta" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Beta services on GOV.UK</a>
-          <p class="govuk-body govuk-!-margin-top-1">How new services are developed on GOV.UK and what it means for users</p>
+          <a href="/help/beta" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.beta') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.beta_description') %></p>
         </li>
         <li>
-          <a href="/help/browsers" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Browsers</a>
-          <p class="govuk-body govuk-!-margin-top-1">Information about browsers and how to upgrade yours</p>
+          <a href="/help/browsers" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.browsers') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.browsers_description') %></p>
         </li>
         <li>
-          <a href="/help/cookies" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Cookies</a>
-          <p class="govuk-body govuk-!-margin-top-1">How cookies are used on GOV.UK and each cookie’s purpose</p>
+          <a href="/help/cookies" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.cookies') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.cookies_description') %></p>
         </li>
         <li>
-          <a href="/help/update-email-notifications" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">GOV.UK email notifications</a>
-          <p class="govuk-body govuk-!-margin-top-1">How to create a GOV.UK email notification account and update your subscription preferences</p>
+          <a href="/help/update-email-notifications" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.email') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.email_description') %></p>
         </li>
         <li>
-          <a href="/help/privacy-notice" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Privacy notice</a>
-          <p class="govuk-body govuk-!-margin-top-1">GOV.UK’s approach to users’ privacy</p>
+          <a href="/help/privacy-notice" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.privacy_notice') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.privacy_notice_description') %></p>
         </li>
         <li>
-          <a href="/help/report-vulnerability" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Report a vulnerability on a GOV.UK domain or subdomain</a>
-          <p class="govuk-body govuk-!-margin-top-1">How to report a vulnerability on GOV.UK</p>
+          <a href="/help/report-vulnerability" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.vulnerability') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.vulnerability_description') %></p>
         </li>
         <li>
-          <a href="/help/reuse-govuk-content" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Reuse GOV.UK content</a>
-          <p class="govuk-body govuk-!-margin-top-1">How to reuse GOV.UK content through APIs and site scraping</p>
+          <a href="/help/reuse-govuk-content" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.reuse_content') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.reuse_content_description') %></p>
         </li>
         <li>
-          <a href="/help/terms-conditions" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">Terms and conditions</a>
-          <p class="govuk-body govuk-!-margin-top-1">Information about the use of GOV.UK and liability</p>
+          <a href="/help/terms-conditions" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.terms') %></a>
+          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.terms_description') %></p>
         </li>
       </ul>
     </div>

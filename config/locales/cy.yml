@@ -137,6 +137,7 @@ cy:
       sign_in: Mewngofnodi
       start_now: Dechrau nawr
       what_you_need_to_know: Yr hyn mae angen i chi ei wybod
+  homepage:
     categories:
       abroad:
       abroad_description:
@@ -170,6 +171,44 @@ cy:
       visas_immigration_description:
       working:
       working_description:
+    index:
+      brexit:
+      calculate_vehicle_tax:
+      consultations:
+      coronavirus:
+      coronavirus_restrictions:
+      council_tax_bands:
+      covid:
+      departments_and_policy:
+      driving_test:
+      find_job:
+      get_tested:
+      get_tested_description:
+      intro:
+      intro_simpler:
+      job_search:
+      jobseekers_allowance:
+      merged_websites:
+      ministerial_departments:
+      more:
+      most_active:
+      news:
+      other_agencies:
+      passport_fees:
+      popular:
+      running_limited_company:
+      see_all:
+      services_and_information:
+      statistics:
+      student_finance_login:
+      tax_account:
+      travel_abroad:
+      travel_abroad_check:
+      uk_bank_holidays:
+      uk_bank_holidays_dates:
+      universal_credit:
+      vat_rates:
+      vehicle_tax:
   roadmap:
     actions_section:
       heading:

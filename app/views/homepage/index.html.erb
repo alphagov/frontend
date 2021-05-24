@@ -16,8 +16,8 @@
             margin_top: 5,
             margin_bottom: 3
           } %>
-          <p class="home-top__intro">The best place to find government services and information</p>
-          <p class="home-top__intro home-top__intro--simpler">Simpler, clearer, faster</p>
+          <p class="home-top__intro"><%= t('homepage.index.intro') %></p>
+          <p class="home-top__intro home-top__intro--simpler"><%= t('homepage.index.intro_simpler') %></p>
 
           <form action="/search" method="get" role="search">
             <%= render "govuk_publishing_components/components/search", on_govuk_blue: true %>
@@ -26,13 +26,13 @@
 
         <div class="govuk-grid-column-one-third">
           <div class="home-top__links">
-            <h2 class="home-top__links-title">Popular on GOV.UK</h2>
+            <h2 class="home-top__links-title"><%= t('homepage.index.popular') %></h2>
             <ul class="home-top__links-list">
-              <li class="home-top__links-item"><a href="/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do" class="home-top__links-link">Coronavirus (COVID-19): rules</a></li>
-              <li class="home-top__links-item"><a href="/transition" class="home-top__links-link">Brexit: check what you need to do</a></li>
-              <li class="home-top__links-item"><a href="/personal-tax-account" class="home-top__links-link">Sign in to your personal tax account</a></li>
-              <li class="home-top__links-item"><a href="/jobsearch" class="home-top__links-link">Find a job</a></li>
-              <li class="home-top__links-item"><a href="/sign-in-universal-credit" class="home-top__links-link">Sign in to your Universal Credit account</a></li>
+              <li class="home-top__links-item"><a href="/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do" class="home-top__links-link"><%= t('homepage.index.covid') %></a></li>
+              <li class="home-top__links-item"><a href="/transition" class="home-top__links-link"><%= t('homepage.index.brexit') %></a></li>
+              <li class="home-top__links-item"><a href="/personal-tax-account" class="home-top__links-link"><%= t('homepage.index.tax_account') %></a></li>
+              <li class="home-top__links-item"><a href="/jobsearch" class="home-top__links-link"><%= t('homepage.index.job_search') %></a></li>
+              <li class="home-top__links-item"><a href="/sign-in-universal-credit" class="home-top__links-link"><%= t('homepage.index.universal_credit') %></a></li>
             </ul>
           </div>
         </div>
@@ -43,7 +43,7 @@
   <div id="homepage" class="govuk-width-container">
     <section class="home-services" aria-labelledby="services-and-information-label" id="services-and-information">
       <div class="govuk-grid-row">
-        <h2 id="services-and-information-label" class="govuk-visually-hidden">Services and information</h2>
+        <h2 id="services-and-information-label" class="govuk-visually-hidden"><%= t('homepage.index.services_and_information') %></h2>
         <%= render :partial => "categories" %>
       </div>
     </section>
@@ -52,19 +52,19 @@
 
     <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">
       <div class="govuk-grid-row home-numbers-and-info">
-        <h2 id="departments-and-policy-label" class="govuk-visually-hidden">Departments and&nbsp;policy</h2>
+        <h2 id="departments-and-policy-label" class="govuk-visually-hidden"><%= t('homepage.index.departments_and_policy') %></h2>
         <div class="govuk-grid-column-one-third">
           <ul class="home-numbers">
             <li>
               <a href="/government/organisations#ministerial_departments" class="home-numbers__link home-numbers__link--first govuk-link">
                 <strong class="home-numbers__large">23</strong>
-                Ministerial departments
+                <%= t('homepage.index.ministerial_departments') %>
               </a>
             </li>
             <li>
               <a href="/government/organisations#agencies_and_other_public_bodies" class="home-numbers__link govuk-link">
                 <strong class="home-numbers__large">411</strong>
-                Other agencies and public&nbsp;bodies
+                <%= t('homepage.index.other_agencies') %>
               </a>
             </li>
           </ul>
@@ -72,15 +72,13 @@
 
         <div class="govuk-grid-column-two-thirds">
           <p class="home-info">
-            The websites of all <a href="/government/organisations" class="govuk-link">government
-            departments</a> and many other agencies and public bodies have
-            been merged into GOV.UK.
+            <%= t('homepage.index.merged_websites') %>
           </p>
           <p class="home-info">
-            Here you can see all <a href="/search/news-and-communications" class="govuk-link">news and communications</a>,
-            <a href="/search/research-and-statistics" class="govuk-link">statistics</a>
-            and
-            <a href= "<%= CGI::escapeHTML('/search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations') %>" class="govuk-link">consultations</a>.
+            <%= t('homepage.index.see_all') %> <a href="/search/news-and-communications" class="govuk-link"><%= t('homepage.index.news') %></a>,
+            <a href="/search/research-and-statistics" class="govuk-link"><%= t('homepage.index.statistics') %></a>
+            <%= t('and') %>
+            <a href= "<%= CGI::escapeHTML('/search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations') %>" class="govuk-link"><%= t('homepage.index.consultations') %></a>.
           </p>
         </div>
       </div>
@@ -100,11 +98,11 @@
           </a>
           <h3>
             <a href="/coronavirus" class="govuk-link home-promo__link">
-              Coronavirus (COVID-19)
+              <%= t('homepage.index.coronavirus') %>
             </a>
           </h3>
           <p class="home-promo__text">
-            Coronavirus restrictions remain in place across the country.
+            <%= t('homepage.index.coronavirus_restrictions') %>
           </p>
         </div>
 
@@ -120,11 +118,11 @@
           </a>
           <h3>
             <a href="/travel-abroad" class="govuk-link home-promo__link">
-              Travel abroad: step by step
+              <%= t('homepage.index.travel_abroad') %>
             </a>
           </h3>
           <p class="home-promo__text">
-            Check what you need to do to travel internationally.
+            <%= t('homepage.index.travel_abroad_check') %>
           </p>
         </div>
 
@@ -140,11 +138,11 @@
           </a>
           <h3>
             <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/testing/get-tested-for-coronavirus/" class="govuk-link home-promo__link">
-              Get tested for COVID-19
+              <%= t('homepage.index.get_tested') %>
             </a>
           </h3>
           <p class="home-promo__text">
-            Get a test to check if you have coronavirus (COVID-19) on NHS.UK. You do not need to have symptoms to get a test.
+            <%= t('homepage.index.get_tested_description') %>
           </p>
         </div>
       </div>
@@ -155,32 +153,32 @@
     <section aria-labelledby="more-on-govuk-label">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <h2 id="more-on-govuk-label" class="home-more__title">More on GOV.UK</h2>
+          <h2 id="more-on-govuk-label" class="home-more__title"><%= t('homepage.index.more') %></h2>
         </div>
 
         <div class="govuk-grid-column-one-third">
-          <h3 class="home-more__subtitle">Most active</h3>
+          <h3 class="home-more__subtitle"><%= t('homepage.index.most_active') %></h3>
           <ul class="govuk-list home-more__list">
-            <li><a href="/jobsearch" class="govuk-link">Find a job</a></li>
-            <li><a href="/student-finance-register-login" class="govuk-link">Log in to student finance</a></li>
-            <li><a href="/passport-fees" class="govuk-link">Passport fees</a></li>
-            <li><a href="/jobseekers-allowance" class="govuk-link">Jobseeker's Allowance</a></li>
-            <li><a href="/council-tax-bands" class="govuk-link">Council Tax bands</a></li>
-            <li><a href="/running-a-limited-company" class="govuk-link">Running a limited company</a></li>
-            <li><a href="/book-a-driving-theory-test" class="govuk-link">Driving theory test</a></li>
-            <li><a href="/calculate-vehicle-tax-rates" class="govuk-link">Vehicle tax rates</a></li>
-            <li><a href="/vehicle-tax" class="govuk-link">Renew vehicle tax</a></li>
-            <li><a href="/vat-rates" class="govuk-link">VAT rates</a></li>
+            <li><a href="/jobsearch" class="govuk-link"><%= t('homepage.index.find_job') %></a></li>
+            <li><a href="/student-finance-register-login" class="govuk-link"><%= t('homepage.index.student_finance_login') %></a></li>
+            <li><a href="/passport-fees" class="govuk-link"><%= t('homepage.index.passport_fees') %></a></li>
+            <li><a href="/jobseekers-allowance" class="govuk-link"><%= t('homepage.index.jobseekers_allowance') %></a></li>
+            <li><a href="/council-tax-bands" class="govuk-link"><%= t('homepage.index.council_tax_bands') %></a></li>
+            <li><a href="/running-a-limited-company" class="govuk-link"><%= t('homepage.index.running_limited_company') %></a></li>
+            <li><a href="/book-a-driving-theory-test" class="govuk-link"><%= t('homepage.index.driving_test') %></a></li>
+            <li><a href="/calculate-vehicle-tax-rates" class="govuk-link"><%= t('homepage.index.calculate_vehicle_tax') %></a></li>
+            <li><a href="/vehicle-tax" class="govuk-link"><%= t('homepage.index.vehicle_tax') %></a></li>
+            <li><a href="/vat-rates" class="govuk-link"><%= t('homepage.index.vat_rates') %></a></li>
           </ul>
         </div>
 
         <div class="govuk-grid-column-one-third" id="promo">
           <h3>
             <a href="/bank-holidays" class="govuk-link home-more-promo" tabindex="-1">
-              <span class="home-more-promo__link-content">UK bank holidays</span>
+              <span class="home-more-promo__link-content"><%= t('homepage.index.uk_bank_holidays') %></span>
             </a>
           </h3>
-          <p class="home-promo__text">Check the dates for <a href="/bank-holidays" class="govuk-link">bank holidays</a> in England, Wales, Scotland and Northern Ireland.</p>
+          <p class="home-promo__text"><%= t('homepage.index.uk_bank_holidays_dates') %></p>
         </div>
       </div>
     </section>

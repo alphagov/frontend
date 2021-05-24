@@ -14,8 +14,8 @@
 
   <%= render "govuk_publishing_components/components/govspeak", {
   } do %>
-    <p>Cookies are files saved on your phone, tablet or computer when you visit a website.</p>
-    <p>We use cookies to store information about how you use the GOV.UK website, such as the pages you visit.</p>
+    <p><%= t('cookies.explanation') %></p>
+    <p><%= t('cookies.how_we_use') %></p>
   <% end %>
 
   <%= render "govuk_publishing_components/components/heading", {
@@ -28,27 +28,27 @@
   <div class="cookie-settings__no-js">
     <%= render "govuk_publishing_components/components/govspeak", {
       } do %>
-      <p>We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:</p>
+      <p><%= t('cookies.javascript') %></p>
       <ul>
-        <li>reloading the page</li>
-        <li>turning on Javascript in your browser</li>
+        <% t('cookies.javascript_list').each do |item| %>
+          <li><%= item %></li>
+        <% end %>
       </ul>
     <% end %>
   </div>
 
   <div class="cookie-settings__form-wrapper">
-    <p class="govuk-body">We use 4 types of cookie. You can choose which cookies you're happy for us to use.</p>
+    <p class="govuk-body"><%= t('cookies.four_types') %></p>
 
     <form data-module="cookie-settings">
 
       <% cookies_usage_hint = capture do %>
-        <p class="govuk-body govuk-hint">We use Google Analytics to measure how you use the website so we can improve it based on user needs.
-        We do not allow Google to use or share the data about how you use this site.</p>
-        <p class="govuk-body govuk-hint">Google Analytics sets cookies that store anonymised information about:</p>
+        <p class="govuk-body govuk-hint"><%= t('cookies.google') %></p>
+        <p class="govuk-body govuk-hint"><%= t('cookies.google_info') %>:</p>
         <ul class="govuk-list govuk-list--bullet govuk-hint">
-          <li>how you got to the site</li>
-          <li>the pages you visit on GOV.UK and government digital services, and how long you spend on each page</li>
-          <li>what you click on while you're visiting the site</li>
+          <li><%= t('cookies.how_you_got') %></li>
+          <li><%= t('cookies.pages_visited') %></li>
+          <li><%= t('cookies.clicks') %></li>
         </ul>
       <% end %>
 
@@ -70,7 +70,7 @@
       } %>
 
       <% cookies_campaigns_hint = capture do %>
-        <p class="govuk-body govuk-hint">These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.</p>
+        <p class="govuk-body govuk-hint"><%= t('cookies.third_parties') %></p>
       <% end %>
 
       <%= render "govuk_publishing_components/components/radio", {
@@ -110,11 +110,11 @@
       <%= render "govuk_publishing_components/components/govspeak", {
         } do %>
         <h2><%= t('cookies.types.essential') %></h2>
-        <p>These essential cookies do things like remember your progress through a form (for example a licence application)</p>
-        <p>They always need to be on.</p>
+        <p><%= t('cookies.essential_explanation') %></p>
+        <p><%= t('cookies.always_on') %></p>
         <p>
           <a href="/help/cookie-details" data-module="gem-track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
-            Find out more about cookies on GOV.UK
+            <%= t('cookies.find_out') %>
           </a>
         </p>
       <% end %>
@@ -131,6 +131,6 @@
         heading_level: 2,
         margin_bottom: 3
       } %>
-      <p class="govuk-body">Most services we link to are run by different government departments, for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s webchat. These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.</p>
+      <p class="govuk-body"><%= t('cookies.additional') %></p>
   </div>
 </main>

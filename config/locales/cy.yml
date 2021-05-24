@@ -130,13 +130,46 @@ cy:
       your_answers: Eich atebion
     start_now: Dechrau nawr
     transaction:
+      assistance_question:
       before_you_start: Cyn i chi ddechrau
+      dissatisfied:
+      e_vehicle_info:
+      friend_or_relative:
+      government_staff:
+      help_improve:
+      how_improve:
+      improvement_question:
+      join_organ_donor:
       more_information: Mwy o wybodaeth
+      mot_reminder:
+      neither:
+      next_car_electric:
+      no_pii_hint:
       'on': ar
+      online_satisfaction_check:
+      organ_donation_in_your_country:
+      organ_donation_laws:
+      organ_transplant_question:
+      other:
+      other_person:
       other_ways_to_apply: Ffyrdd eraill o wneud cais
+      pii_warning:
+      register_decision:
+      register_to_donate:
+      satisfaction_check:
+      satisfaction_survey:
+      satisfied:
+      send_feedback:
+      service_improvement_question:
+      service_satisfaction_check:
       sign_in: Mewngofnodi
-      start_now: Dechrau nawr
+      tell_your_family:
+      very_dissatisfied:
+      very_satisfied:
+      what_assistance:
       what_you_need_to_know: Yr hyn mae angen i chi ei wybod
+      who_assisted:
+      work_colleague:
   help:
     index:
       about:

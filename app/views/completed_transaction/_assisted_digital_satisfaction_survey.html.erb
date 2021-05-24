@@ -1,5 +1,5 @@
 <%= render "govuk_publishing_components/components/heading", {
-  text: "Help us improve this service",
+  text: t('formats.transaction.help_improve'),
   margin_bottom: 4
 } %>
 
@@ -8,7 +8,7 @@
   <input type="hidden" id="service_done_page_url" name="service_feedback[url]" value="<%= publication.web_url %>" />
 
   <div id="transaction-completed-form-notice">
-    <p class="govuk-body">When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
+    <p class="govuk-body"> <%= t('formats.transaction.pii_warning') %> </p>
   </div>
 
   <% government_staff = capture do %>
@@ -22,7 +22,7 @@
   <% other_input = capture do %>
     <%= render "govuk_publishing_components/components/input", {
       label: {
-        text: "Tell us who the other person was"
+        text: t('formats.transaction.other_person')
       },
       name: "service_feedback[assistance_provided_by_other]",
       id: "other-specified"
@@ -35,7 +35,7 @@
     <%= render "govuk_publishing_components/components/character_count", {
       textarea: {
         label: {
-          text: "What assistance did you receive?",
+          text: t('formats.transaction.what_assistance'),
           bold: true,
         },
         name: "service_feedback[assistance_received_comments]",
@@ -45,25 +45,25 @@
 
     <%= render "govuk_publishing_components/components/radio", {
       name: "service_feedback[assistance_provided_by]",
-      heading: "Who provided the assistance?",
+      heading: t('formats.transaction.who_assisted'),
       heading_size: "s",
       items: [
         {
           value: "friend-relative",
-          text: "A friend or relative"
+          text: t('formats.transaction.friend_or_relative')
         },
         {
           value: "work-colleague",
-          text: "A work colleague"
+          text: t('formats.transaction.work_colleague')
         },
         {
           value: "government-staff",
-          text: "A staff member of the responsible government department",
+          text: t('formats.transaction.government_staff'),
           conditional: government_staff
         },
         {
           value: "other",
-          text: "Other (please specify)",
+          text: t('formats.transaction.other'),
           conditional: other_input
         },
       ]
@@ -72,45 +72,45 @@
 
   <%= render "govuk_publishing_components/components/radio", {
     name: "service_feedback[assistance_received]",
-    heading: "Did you receive any assistance to use this service today?",
+    heading: t('formats.transaction.assistance_question'),
     heading_size: "s",
     items: [
       {
         value: "yes",
-        text: "Yes",
+        text: t('yes'),
         conditional: did_you_receive_assistance
       },
       {
         value: "no",
-        text: "No"
+        text: t('no')
       }
     ]
   } %>
 
   <%= render "govuk_publishing_components/components/radio", {
     name: "service_feedback[service_satisfaction_rating]",
-    heading: "Overall, how satisfied are you with the online service?",
+    heading: t('formats.transaction.online_satisfaction_check'),
     heading_size: "s",
     items: [
       {
         value: 5,
-        text: "Very satisfied"
+        text: t('formats.transaction.very_satisfied')
       },
       {
         value: 4,
-        text: "Satisfied"
+        text: t('formats.transaction.satisfied')
       },
       {
         value: 3,
-        text: "Neither satisfied or dissatisfied"
+        text: t('formats.transaction.neither')
       },
       {
         value: 2,
-        text: "Dissatisfied"
+        text: t('formats.transaction.dissatisfied')
       },
       {
         value: 1,
-        text: "Very dissatisfied"
+        text: t('formats.transaction.very_dissatisfied')
       },
     ]
   } %>
@@ -118,7 +118,7 @@
   <%= render "govuk_publishing_components/components/character_count", {
     textarea: {
       label: {
-        text: "Do you have any ideas for how this service could be improved?",
+        text: t('formats.transaction.service_improvement_question'),
         bold: true,
       },
       name: "service_feedback[improvement_comments]",
@@ -127,7 +127,7 @@
   } %>
 
   <%= render "govuk_publishing_components/components/button", {
-    text: "Send feedback",
+    text: t('formats.transaction.send_feedback'),
     margin_bottom: true
   } %>
 </form>

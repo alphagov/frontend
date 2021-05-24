@@ -156,13 +156,53 @@ en:
       your_answers: Your answers
     start_now: Start now
     transaction:
+      assistance_question: Did you receive any assistance to use this service today?
       before_you_start: Before you start
+      dissatisfied: Dissatisfied
+      e_vehicle_info: Information is available on electric vehicles.
+      friend_or_relative: A friend or relative
+      government_staff: A staff member of the responsible government department
+      help_improve: Help us improve this service
+      how_improve: How could we improve this service?
+      improvement_question: Is there any way the assistance received could be improved?
+      join_organ_donor: Please join the NHS Organ Donor Register.
       more_information: More information
+      mot_reminder: Get a text or email reminder when your MOT is due.
+      neither: Neither satisfied or dissatisfied
+      next_car_electric: Make your next car electric
+      no_pii_hint: Do not include any personal or financial information, for example
+        your National Insurance or credit card numbers.
       'on': 'on'
+      online_satisfaction_check: Overall, how satisfied are you with the online service?
+      organ_donation_in_your_country: find out how the laws affect the country you
+        live in and what your choices are
+      organ_donation_laws: Organ donation laws have changed
+      organ_transplant_question: If you needed an organ transplant would you have
+        one? If so please help others.
+      other: Other (please specify)
+      other_person: Tell us who the other person was
       other_ways_to_apply: Other ways to apply
+      pii_warning: When filling in this survey please don't include any personal or
+        financial information, for example your National Insurance or credit card
+        numbers.
+      register_decision: Register your organ donation decision
+      register_to_donate: Register to donate
+      satisfaction_check: How satisfied are you with the assistance received?
+      satisfaction_survey: Satisfaction survey
+      satisfied: Satisfied
+      send_feedback: Send feedback
+      service_improvement_question: Do you have any ideas for how this service could
+        be improved?
+      service_satisfaction_check: Overall, how did you feel about the service you
+        received today?
       sign_in: Sign in
-      start_now: Start now
+      tell_your_family: Tell your family about your organ donation decision.
+      very_dissatisfied: Very dissatisfied
+      very_satisfied: Very satisfied
+      what_assistance: What assistance did you receive?
       what_you_need_to_know: What you need to know
+      who_assisted: Who provided the assistance?
+      work_colleague: A work colleague
   help:
     index:
       about: About GOV.UK

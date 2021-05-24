@@ -232,6 +232,9 @@ cy:
       universal_credit:
       vat_rates:
       vehicle_tax:
+  place:
+    children_social_care:
+    go_to_website:
   roadmap:
     actions_section:
       heading:

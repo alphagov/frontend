@@ -8,7 +8,7 @@
 
             <p class="adr govuk-body">
               <% if place["name"].present? %>
-                <span class="fn">You can call the children's social care team at the council in <%= place["name"] %></span>
+                <span class="fn"><%= t('place.children_social_care') %> <%= place["name"] %></span>
               <% end %>
             </p>
 
@@ -32,7 +32,7 @@
 
             <% if place["url"].present? %>
               <p class="url govuk-body">
-                <a href="<%= place["url"] %>">Go to their website</a>
+                <a href="<%= place["url"] %>"><%= t('place.go_to_website') %></a>
               </p>
             <% end %>
           </div>

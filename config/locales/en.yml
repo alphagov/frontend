@@ -274,6 +274,10 @@ en:
       universal_credit: Sign in to your Universal Credit account
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
+  place:
+    children_social_care: You can call the children's social care team at the council
+      in
+    go_to_website: Go to their website
   roadmap:
     page_title: Roadmap - GOV.UK
     hero:

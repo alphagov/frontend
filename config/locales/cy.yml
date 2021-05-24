@@ -3,16 +3,23 @@ cy:
   bank-holidays: gwyliau-banc
   bank_holidays:
     2nd_january: 2il Ionawr
+    add_clock_changes_to_calendar:
     battle_boyne: Brwydr y Boyne (Diwrnod yr Orangemen)
     boxing_day: Gŵyl San Steffan
+    bst_explanation:
     calendar:
       description: Calendr gwyliau banc y DU - edrychwch ar wyliau banc a gwyliau
         cyhoeddus y DU
       title: Gwyliau banc y DU
     christmas: Dydd Nadolig
+    clock_change_explanation:
+    clocks_backward:
+    clocks_forward:
+    download_clock_changes:
     early_may: Gŵyl Banc Cyntaf Mai
     early_may_ve: Gŵyl Banc Cyntaf Mai (VE day)
     easter_monday: Dydd Llun y Pasg
+    gmt_explanation:
     good_friday: Dydd Gwener y Groglith
     late_august: Gŵyl Banc yr Haf
     new_year: Dydd Calan
@@ -22,6 +29,7 @@ cy:
     st_andrew: Gŵyl Andreas
     st_patrick: Gŵyl San Padrig
     summer: Gŵyl Banc yr Haf
+    year:
   common:
     add_holiday_ics: Ychwanegwch ddyddiadau gwyliau banc %{for_nation} at eich calendr
       (ICS, 10KB)

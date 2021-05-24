@@ -3,16 +3,28 @@ en:
   bank-holidays: bank-holidays
   bank_holidays:
     2nd_january: 2nd January
+    add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS,
+      2KB)
     battle_boyne: Battle of the Boyne (Orangemen’s Day)
     boxing_day: Boxing Day
+    bst_explanation: The period when the clocks are 1 hour ahead is called British
+      Summer Time (BST). There’s more daylight in the evenings and less in the mornings
+      (sometimes called Daylight Saving Time).
     calendar:
       description: Find out when bank holidays are in England, Wales, Scotland and
         Northern Ireland - including past and future bank holidays
       title: UK bank holidays
     christmas: Christmas Day
+    clock_change_explanation: In the UK the clocks go forward 1 hour at 1am on the
+      last Sunday in March, and back 1 hour at 2am on the last Sunday in October.
+    clocks_backward: Clocks go back
+    clocks_forward: Clocks go forward
+    download_clock_changes: Download these dates so you can add them to a calendar
+      application such as iCal or Outlook
     early_may: Early May bank holiday
     early_may_ve: Early May bank holiday (VE day)
     easter_monday: Easter Monday
+    gmt_explanation: When the clocks go back, the UK is on Greenwich Mean Time (GMT).
     good_friday: Good Friday
     late_august: Summer bank holiday
     new_year: New Year’s Day
@@ -22,6 +34,7 @@ en:
     st_andrew: St Andrew’s Day
     st_patrick: St Patrick’s Day
     summer: Summer bank holiday
+    year: Year
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
     bank_holiday_benefits: Bank holidays might affect <a href="/how-to-have-your-benefits-paid"

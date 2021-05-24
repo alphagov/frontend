@@ -75,6 +75,7 @@ en:
     substitute_day: Substitute day
     today: today
     upcoming_bank_holidays: Upcoming bank holidays
+  continue: Continue
   cookies:
     additional: Most services we link to are run by different government departments,
       for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s
@@ -134,15 +135,40 @@ en:
       description: For questions about your poll card, polling place, or about returning
         your postal voting ballot, contact your council."
       title: Your local council
+  find: Find
   formats:
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     local_transaction:
+      choose_address: Choose your address
+      council_tax: council tax
+      county_council_services: County councils are responsible for services like
+      county_council_services_list:
+      - education
+      - social care
+      - transport
+      county_district_council: Your postcode is in a county council and a district
+        council.
+      district_council_services: District councils are responsible for services like
+      enter_postcode: Enter a postcode
+      find_council: Find your local council
+      find_council_website: Find the website for your local council.
+      find_postcode_royal_mail: Find a postcode on Royal Mail's postcode finder
+      housing: housing
+      info_on_website: You can get information on their website.
       invalid_postcode: This isn't a valid postcode.
       invalid_postcode_sub: Check it and enter it again.
       invalid_uprn: This isn't a valid address.
       invalid_uprn_sub: Enter the postcode again.
+      matched_postcode: We've matched the postcode
       no_local_authority: We couldn't find a council for this postcode.
+      no_website: We don't have a link for their website.
+      postcode_hint: For example SW1A 2AA
+      postcode_lookup: Postcode lookup
+      rubbish_recycling_collection: rubbish and recycling collection
+      select_address: Select an address
+      unknown_service: We do not know if they offer this service. Search their website
+        to find out if they do, or what other services they offer.
       valid_postcode_no_match: We couldn't find this postcode.
       valid_postcode_no_match_sub_html: Check it and enter it again.
       valid_uprn_no_match: We couldn't find this address.
@@ -152,7 +178,6 @@ en:
       next_step: Next step
       please_answer: Please answer this question
       start_again: Start again
-      start_now: Start now
       your_answers: Your answers
     start_now: Start now
     transaction:
@@ -314,6 +339,7 @@ en:
       universal_credit: Sign in to your Universal Credit account
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
+  'no': 'No'
   place:
     children_social_care: You can call the children's social care team at the council
       in
@@ -452,3 +478,6 @@ en:
         column_two_text: "billion\u00A0page\u00A0views"
         column_two_count: 1.5
       last_updated: "Last updated: May 2021"
+  sign_up: Sign up
+  website: Website
+  'yes': 'Yes'

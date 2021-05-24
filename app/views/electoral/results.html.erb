@@ -8,7 +8,7 @@
   <%= render "govuk_publishing_components/components/title", title: @content_item["title"] %>
   <% if @presenter.electoral_services.present? %>
     <p class="govuk-body">
-      We've matched the postcode <strong><%= @postcode.sanitized_postcode %></strong> to <strong><%= @presenter.electoral_service_name %></strong>.
+      <%= t('formats.local_transaction.matched_postcode') %> <strong><%= @postcode.sanitized_postcode %></strong> to <strong><%= @presenter.electoral_service_name %></strong>.
     </p>
   <% end %>
   <% if @presenter.use_electoral_services_contact_details? %>

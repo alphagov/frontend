@@ -68,6 +68,7 @@ cy:
     substitute_day: Diwrnod yn lle gŵyl banc sy'n disgyn ar benwythnos
     today: heddiw
     upcoming_bank_holidays: Gwyliau banc i ddod
+  continue:
   cookies:
     additional:
     always_on:
@@ -108,15 +109,35 @@ cy:
     service:
       description:
       title:
+  find:
   formats:
     find_my_nearest:
       valid_postcode_no_locations:
     local_transaction:
+      choose_address:
+      council_tax:
+      county_council_services:
+      county_council_services_list:
+      county_district_council:
+      district_council_services:
+      enter_postcode:
+      find_council:
+      find_council_website:
+      find_postcode_royal_mail:
+      housing:
+      info_on_website:
       invalid_postcode:
       invalid_postcode_sub:
       invalid_uprn:
       invalid_uprn_sub:
+      matched_postcode:
       no_local_authority:
+      no_website:
+      postcode_hint:
+      postcode_lookup:
+      rubbish_recycling_collection:
+      select_address:
+      unknown_service:
       valid_postcode_no_match:
       valid_postcode_no_match_sub_html:
       valid_uprn_no_match:
@@ -126,7 +147,6 @@ cy:
       next_step: Cam nesaf
       please_answer: Atebwch y cwestiwn hwn
       start_again: Dechrau eto
-      start_now: Dechrau nawr
       your_answers: Eich atebion
     start_now: Dechrau nawr
     transaction:
@@ -265,6 +285,7 @@ cy:
       universal_credit:
       vat_rates:
       vehicle_tax:
+  'no':
   place:
     children_social_care:
     go_to_website:
@@ -285,3 +306,6 @@ cy:
         column_two_count:
         column_two_text:
     page_title:
+  sign_up:
+  website:
+  'yes':

@@ -137,6 +137,39 @@ cy:
       sign_in: Mewngofnodi
       start_now: Dechrau nawr
       what_you_need_to_know: Yr hyn mae angen i chi ei wybod
+    categories:
+      abroad:
+      abroad_description:
+      benefits:
+      benefits_description:
+      births_deaths_marriages:
+      births_deaths_marriages_description:
+      business:
+      business_description:
+      childcare_parenting:
+      childcare_parenting_description:
+      citizenship:
+      citizenship_description:
+      disabilities:
+      disabilities_description:
+      driving:
+      driving_description:
+      education:
+      education_description:
+      employing_people:
+      employing_people_description:
+      environment_countryside:
+      environment_countryside_description:
+      housing_local_services:
+      housing_local_services_description:
+      justice:
+      justice_description:
+      tax:
+      tax_description:
+      visas_immigration:
+      visas_immigration_description:
+      working:
+      working_description:
   roadmap:
     actions_section:
       heading:

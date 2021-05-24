@@ -163,6 +163,45 @@ en:
       sign_in: Sign in
       start_now: Start now
       what_you_need_to_know: What you need to know
+    categories:
+      abroad: Passports, travel and living abroad
+      abroad_description: Includes renewing passports and travel advice by country
+      benefits: Benefits
+      benefits_description: Includes eligibility, appeals, tax credits and Universal
+        Credit
+      births_deaths_marriages: Births, deaths, marriages and care
+      births_deaths_marriages_description: Parenting, civil partnerships, divorce
+        and Lasting Power of Attorney
+      business: Business and self-employed
+      business_description: Tools and guidance for businesses
+      childcare_parenting: Childcare and parenting
+      childcare_parenting_description: Includes giving birth, fostering, adopting,
+        benefits for children, childcare and schools
+      citizenship: Citizenship and living in the UK
+      citizenship_description: Voting, community participation, life in the UK, international
+        projects
+      disabilities: Disabled people
+      disabilities_description: Includes carers, your rights, benefits and the Equality
+        Act
+      driving: Driving and transport
+      driving_description: Includes vehicle tax, MOT and driving licences
+      education: Education and learning
+      education_description: Includes student loans, admissions and apprenticeships
+      employing_people: Employing people
+      employing_people_description: Includes pay, contracts and hiring
+      environment_countryside: Environment and countryside
+      environment_countryside_description: Includes flooding, recycling and wildlife
+      housing_local_services: Housing and local services
+      housing_local_services_description: Owning or renting and council services
+      justice: Crime, justice and the law
+      justice_description: Legal processes, courts and the police
+      tax: Money and tax
+      tax_description: Includes debt and Self Assessment
+      visas_immigration: Visas and immigration
+      visas_immigration_description: Apply to visit, work, study, settle or seek asylum
+        in the UK
+      working: Working, jobs and pensions
+      working_description: Includes holidays and finding a job
   roadmap:
     page_title: Roadmap - GOV.UK
     hero:

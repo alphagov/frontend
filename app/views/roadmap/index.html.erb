@@ -79,7 +79,7 @@
                   heading_level: 4,
                   margin_bottom: 4,
                 } %>
-                <ul class="govuk-list govuk-list--bullet">
+                <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
                   <% step[:items].each do |item| %>
                     <li><%= sanitize(item[:text]) %></li>
                   <% end %>

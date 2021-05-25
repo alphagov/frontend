@@ -1,12 +1,12 @@
 <% content_for :title do %>Find your local council - GOV.UK<% end %>
 <% content_for :extra_headers do %>
   <meta name="description"
-        content="Find your local authority in England, Wales, Scotland and Northern Ireland" />
+        content="Find your local authority in England, Wales, Scotland and Northern Ireland"/>
 <% end %>
 
 <main id="content" role="main" class="govuk-grid-column-two-thirds">
   <header class="page-header">
-    <%= render "govuk_publishing_components/components/title", title: "Find your local council" %>
+    <%= render "govuk_publishing_components/components/title", title: t('formats.local_transaction.find_council') %>
   </header>
   <%= yield %>
 </main>

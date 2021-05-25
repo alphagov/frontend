@@ -1,5 +1,5 @@
 <%= render "govuk_publishing_components/components/heading", {
-  text: "Satisfaction survey",
+  text: t('formats.transaction.satisfaction_survey'),
   margin_bottom: 4
 } %>
 
@@ -9,28 +9,28 @@
 
   <%= render "govuk_publishing_components/components/radio", {
     name: "service_feedback[service_satisfaction_rating]",
-    heading: "Overall, how did you feel about the service you received today?",
+    heading: t('formats.transaction.service_satisfaction_check'),
     heading_size: "s",
     items: [
       {
         value: 5,
-        text: "Very satisfied"
+        text: t('formats.transaction.very_satisfied')
       },
       {
         value: 4,
-        text: "Satisfied"
+        text: t('formats.transaction.satisfied')
       },
       {
         value: 3,
-        text: "Neither satisfied or dissatisfied"
+        text: t('formats.transaction.neither')
       },
       {
         value: 2,
-        text: "Dissatisfied"
+        text: t('formats.transaction.dissatisfied')
       },
       {
         value: 1,
-        text: "Very dissatisfied"
+        text: t('formats.transaction.very_dissatisfied')
       },
     ]
   } %>
@@ -38,17 +38,17 @@
   <%= render "govuk_publishing_components/components/character_count", {
     textarea: {
       label: {
-        text: "How could we improve this service?",
+        text: t('formats.transaction.how_improve'),
         bold: true,
       },
       name: "service_feedback[improvement_comments]",
-      hint: "Do not include any personal or financial information, for example your National Insurance or credit card numbers."
+      hint: t('formats.transaction.no_pii_hint')
     },
     maxlength: 1200
   } %>
 
   <%= render "govuk_publishing_components/components/button", {
-    text: "Send feedback",
+    text: t('formats.transaction.send_feedback'),
     margin_bottom: true
   } %>
 </form>

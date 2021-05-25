@@ -9,11 +9,11 @@
        data-track-category="postcodeSearch:local_transaction"
        data-track-action="postcodeResultShown"
        data-track-label="<%= @local_authority.name %>">
-      We've matched this postcode to <span class="local-authority"><%= @local_authority.name %></span>.
+      <%= t('formats.local_transaction.matched_postcode') %> <span class="local-authority"><%= @local_authority.name %></span>.
     </p>
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
-        You can get information on their website.
+        <%= t('formats.local_transaction.info_on_website') %>
       </p>
       <p id="get-started" class="get-started group">
         <%= render "govuk_publishing_components/components/button", {
@@ -26,7 +26,7 @@
     <% else %>
       <% if @local_authority.url.present? %>
         <p class="govuk-body">
-          We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.
+          <%= t('formats.local_transaction.unknown_service') %>
         </p>
         <div class="local-authority-result"
              data-module="auto-track-event"

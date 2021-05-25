@@ -12,11 +12,11 @@ class SimpleSmartAnswerPresenter < ContentItemPresenter
 
   def start_button_text
     unless details && details["start_button_text"].present?
-      return I18n.t("formats.simple_smart_answer.start_now")
+      return I18n.t("formats.start_now")
     end
 
     if details["start_button_text"] == "Start now"
-      I18n.t("formats.simple_smart_answer.start_now")
+      I18n.t("formats.start_now")
     else
       details["start_button_text"]
     end

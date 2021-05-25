@@ -15,7 +15,7 @@
 
       <p class="govuk-body">
         <% if @authority["homepage_url"].blank? %>
-          We don't have a link for their website.
+          <%= t('formats.local_transaction.no_website') %>
         <% else %>
           Website: <%= link_to extract_host(@authority["homepage_url"]), @authority["homepage_url"], class: "govuk-link",
                         data: {

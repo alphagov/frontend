@@ -9,9 +9,9 @@
     title: "This is a test page"
   } %>
 
-  <p class="govuk-body">We sometimes test different versions of pages with different users to see which work better. This page shows us if the process is working.</p>
+  <p class="govuk-body"><%= t('ab_testing.explanation') %></p>
 
-  <p class="govuk-body">There are 2 versions of this page. You are viewing the <strong class="ab-example-group"><%= @requested_variant.variant?("A") ? 'A' : 'B' %></strong> version.</p>
+  <p class="govuk-body"><%= t('ab_testing.two_versions') %> <strong class="ab-example-group"><%= @requested_variant.variant?("A") ? t('a') : t('b') %></strong> <%= t('ab_testing.version') %>.</p>
 
-  <p class="govuk-body">Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.</p>
+  <p class="govuk-body"><%= t('ab_testing.visit_govuk') %></p>
 </main>

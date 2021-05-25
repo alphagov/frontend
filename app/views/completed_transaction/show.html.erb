@@ -11,29 +11,29 @@
   <% if @publication.promotion %>
     <div class="promotion">
       <% if @publication.promotion['category'] == 'organ_donor' %>
-        <p class="govuk-body">Please join the NHS Organ Donor Register.</p>
-        <p class="govuk-body">Organ donation laws have changed - <a href="https://www.organdonation.nhs.uk/uk-laws/" rel="external" class="govuk-link">find out how the laws affect the country you live in and what your choices are</a>.</p>
-        <p class="govuk-body">If you needed an organ transplant would you have one? If so please help others.</p>
-        <p class="govuk-body">Tell your family about your organ donation decision.</p>
+        <p class="govuk-body"> <%= t('formats.transaction.join_organ_donor') %> </p>
+        <p class="govuk-body"><%= t('formats.transaction.organ_donation_laws') %> - <a href="https://www.organdonation.nhs.uk/uk-laws/" rel="external" class="govuk-link"><%= t('formats.transaction.organ_donation_in_your_country') %></a>.</p>
+        <p class="govuk-body"><%= t('formats.transaction.organ_transplant_question') %></p>
+        <p class="govuk-body"><%= t('formats.transaction.tell_your_family') %></p>
         <%= render "govuk_publishing_components/components/button", {
-          text: "Register to donate",
+          text: t('formats.transaction.register_to_donate'),
           href: @publication.promotion['url'],
           rel: "external",
-          info_text: "Register your organ donation decision",
+          info_text: t('formats.transaction.register_decision'),
           margin_bottom: true
         } %>
       <% elsif @publication.promotion['category'] == 'mot_reminder' %>
-        <p class="govuk-body">Get a text or email reminder when your MOT is due.</p>
+        <p class="govuk-body"><%= t('formats.transaction.mot_reminder') %></p>
         <%= render "govuk_publishing_components/components/button", {
-          text: "Sign up",
+          text: t('sign_up'),
           href: @publication.promotion['url'],
           rel: "external",
           margin_bottom: true
         } %>
       <% elsif @publication.promotion['category'] == 'electric_vehicle' %>
-        <p class="govuk-body">Information is available on electric vehicles.</p>
+        <p class="govuk-body"><%= t('formats.transaction.e_vehicle_info') %>></p>
         <%= render "govuk_publishing_components/components/button", {
-          text: "Make your next car electric",
+          text: t('formats.transaction.next_car_electric'),
           href: @publication.promotion['url'],
           rel: "external",
           margin_bottom: true

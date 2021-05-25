@@ -1,6 +1,6 @@
 <%= render layout: 'base_page' do %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: "Your postcode is in a county council and a district council.",
+    text: t('formats.local_transaction.county_district_council'),
     margin_bottom: 4,
     font_size: "m",
   } %>
@@ -15,9 +15,9 @@
 
       <p class="govuk-body">
         <% if @county["homepage_url"].blank? %>
-          We don't have a link for their website.
+          <%= t('formats.local_transaction.county_district_council') %>
         <% else %>
-          Website: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"], class: "govuk-link",
+          <%= t('website') %>: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"], class: "govuk-link",
             data: {
               module: 'gem-track-click',
               track_category: 'pageElementInteraction',
@@ -27,11 +27,11 @@
         <% end %>
       </p>
 
-      <p class="govuk-body">County councils are responsible for services like:</p>
+      <p class="govuk-body"><%= t('formats.local_transaction.county_council_services')%>:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>education</li>
-        <li>transport</li>
-        <li>social care</li>
+        <% t('formats.local_transaction.county_council_services_list').each do |service| %>
+          <li><%= service %></li>
+        <% end %>
       </ul>
     </div>
 
@@ -42,9 +42,9 @@
 
       <p class="govuk-body">
         <% if @district["homepage_url"].blank? %>
-          We don't have a link for their website.
+          <%= t('formats.local_transaction.no_website') %>
         <% else %>
-          Website: <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"], class: "govuk-link",
+          <%= t('website') %> <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"], class: "govuk-link",
                               data: {
                                 module: 'gem-track-click',
                                 track_category: 'pageElementInteraction',
@@ -54,11 +54,11 @@
         <% end %>
       </p>
 
-      <p class="govuk-body">District councils are responsible for services like:</p>
+      <p class="govuk-body"><%= t('formats.local_transaction.district_council_services')%>:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>rubbish and recycling collection</li>
-        <li>council tax</li>
-        <li>housing</li>
+        <li><%= t('formats.local_transaction.rubbish_recycling_collection')%></li>
+        <li><%= t('formats.local_transaction.council_tax')%></li>
+        <li><%= t('formats.local_transaction.housing')%></li>
       </ul>
     </div>
   </div>

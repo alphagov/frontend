@@ -6,7 +6,7 @@ en:
       to see which work better. This page shows us if the process is working.
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
-    visit_govuk: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find
+    visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find
       government services and information.
   and: and
   b: B
@@ -46,14 +46,14 @@ en:
     year: Year
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
-    bank_holiday_benefits: Bank holidays might affect <a href="/how-to-have-your-benefits-paid"
+    bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid"
       class="govuk-link">how and when your benefits are paid</a>.
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday
       becomes a bank holiday, normally the following Monday.
     download_ics: Download these dates so you can add them to a calendar application
       such as iCal or Outlook
     extra_bank_holiday: Extra bank holiday
-    holiday_entitlement: Your employer doesn’t have to give you <a href="/holiday-entitlement-rights"
+    holiday_entitlement_html: Your employer doesn’t have to give you <a href="/holiday-entitlement-rights"
       title="Holiday entitlement rights" class="govuk-link">paid leave on bank or
       public holidays</a>.
     last_updated: Last updated
@@ -315,7 +315,7 @@ en:
       intro_simpler: Simpler, clearer, faster
       job_search: Find a job
       jobseekers_allowance: Jobseeker's Allowance
-      merged_websites: The websites of all <a href="/government/organisations" class="govuk-link">government
+      merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link">government
         departments</a> and many other agencies and public bodies have been merged
         into GOV.UK.
       ministerial_departments: Ministerial departments
@@ -334,7 +334,7 @@ en:
       travel_abroad: 'Travel abroad: step by step'
       travel_abroad_check: Check what you need to do to travel internationally.
       uk_bank_holidays: UK bank holidays
-      uk_bank_holidays_dates: Check the dates for <a href="/bank-holidays" class="govuk-link">bank
+      uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link">bank
         holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
       vat_rates: VAT rates

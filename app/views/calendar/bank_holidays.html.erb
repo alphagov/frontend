@@ -43,9 +43,9 @@
             } %>
           <% end %>
 
-          <p class="govuk-body"><%= raw(t("common.bank_holiday_on_wkend"))%></p>
-          <p class="govuk-body"><%= raw(t("common.holiday_entitlement"))%></p>
-          <p class="govuk-body"><%= raw(t("common.bank_holiday_benefits"))%></p>
+          <p class="govuk-body"><%= t("common.bank_holiday_on_wkend") %></p>
+          <p class="govuk-body"><%= t("common.holiday_entitlement_html") %></p>
+          <p class="govuk-body"><%= t("common.bank_holiday_benefits_html") %></p>
 
           <%= render "components/subscribe", {
             label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),

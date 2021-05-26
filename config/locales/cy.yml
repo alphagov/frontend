@@ -5,7 +5,7 @@ cy:
     explanation:
     two_versions:
     version:
-    visit_govuk:
+    visit_govuk_html:
   and:
   b:
   bank-holidays: gwyliau-banc
@@ -41,13 +41,13 @@ cy:
   common:
     add_holiday_ics: Ychwanegwch ddyddiadau gwyliau banc %{for_nation} at eich calendr
       (ICS, 10KB)
-    bank_holiday_benefits: ''
+    bank_holiday_benefits_html: ''
     bank_holiday_on_wkend: Os bydd gŵyl banc ar benwythnos, bydd diwrnod o'r wythnos
       waith yn dod yn ŵyl banc yn lle, y dydd Llun canlynol fel rheol.
     download_ics: Llwythwch y dyddiadau hyn i lawr i chi allu eu hychwanegu at raglen
       calendr fel iCal neu Outlook
     extra_bank_holiday: Gŵyl Banc ychwanegol
-    holiday_entitlement: Nid oes yn rhaid i'ch cyflogwr roi absenoldeb â thâl i chi
+    holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi absenoldeb â thâl i chi
       am ŵyl banc neu ŵyl gyhoeddus.
     last_updated: Diweddarwyd diwethaf
     nations:
@@ -264,7 +264,7 @@ cy:
       intro_simpler:
       job_search:
       jobseekers_allowance:
-      merged_websites:
+      merged_websites_html:
       ministerial_departments:
       more:
       most_active:
@@ -281,7 +281,7 @@ cy:
       travel_abroad:
       travel_abroad_check:
       uk_bank_holidays:
-      uk_bank_holidays_dates:
+      uk_bank_holidays_dates_html:
       universal_credit:
       vat_rates:
       vehicle_tax:

@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   get "/sign-in/callback", to: "sessions#callback", as: :new_govuk_session_callback
   get "/sign-out", to: "sessions#delete", as: :end_govuk_session
 
+  scope "/account" do
+    get "/saved-pages/add", to: "save_pages#create", as: :save_page
+  end
+
   # Help pages
   get "/help", to: "help#index"
   get "/help/ab-testing", to: "help#ab_testing"

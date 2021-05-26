@@ -44,10 +44,6 @@ class SessionsController < ApplicationController
 
 protected
 
-  def set_no_cache_headers
-    response.headers["Cache-Control"] = "no-store"
-  end
-
   def account_manager_url
     Plek.find("account-manager")
   end
@@ -58,16 +54,5 @@ protected
     return nil unless http_referrer&.start_with?(Plek.new.website_root)
 
     http_referrer.delete_prefix Plek.new.website_root
-  end
-
-  def redirect_with_ga(url, ga_client_id = nil)
-    ga_client_id ||= params[:_ga]
-    if ga_client_id
-      uri = Addressable::URI.parse(url)
-      uri.query_values = (uri.query_values || {}).merge("_ga" => ga_client_id)
-      url = uri.to_s
-    end
-
-    redirect_to url
   end
 end

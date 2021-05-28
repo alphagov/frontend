@@ -18,6 +18,15 @@ class SavePagesController < ApplicationController
     redirect_to ensure_is_path(params[:page_path]) + "?personalisation=page_not_saved"
   end
 
+  def destroy
+    GdsApi.account_api.delete_saved_page(
+      page_path: ensure_is_path(params[:page_path]),
+      govuk_account_session: account_session_header,
+    )
+
+    redirect_to ensure_is_path(params[:page_path]) + "?personalisation=page_removed"
+  end
+
 private
 
   def authenticate
@@ -32,6 +41,8 @@ private
   def sign_in_redirect_path
     if request.env["PATH_INFO"] == save_page_path
       save_page_path(page_path: params[:page_path])
+    elsif request.env["PATH_INFO"] == remove_saved_page_path
+      remove_saved_page_path(page_path: params[:page_path])
     end
   end
 

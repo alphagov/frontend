@@ -63,12 +63,9 @@ protected
   def redirect_with_ga(url, ga_client_id = nil)
     ga_client_id ||= params[:_ga]
     if ga_client_id
-      url =
-        if url.include? "?"
-          "#{url}&_ga=#{ga_client_id}"
-        else
-          "#{url}?_ga=#{ga_client_id}"
-        end
+      uri = Addressable::URI.parse(url)
+      uri.query_values = (uri.query_values || {}).merge("_ga" => ga_client_id)
+      url = uri.to_s
     end
 
     redirect_to url

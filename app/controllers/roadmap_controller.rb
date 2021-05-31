@@ -2,6 +2,6 @@ class RoadmapController < ApplicationController
   include Cacheable
 
   def index
-    render locals: { full_width: true }
+    slimmer_template "gem_layout"
   end
 end

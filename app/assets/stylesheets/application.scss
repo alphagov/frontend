@@ -48,7 +48,6 @@ $govuk-use-legacy-palette: false;
 @import "styleguide/conditionals";
 
 // Helper stylesheets (things on more than one page layout)
-@import "helpers/overwrites";
 @import "helpers/truncated-url";
 @import "helpers/title-context-reset";
 
@@ -60,7 +59,6 @@ $govuk-use-legacy-palette: false;
 @import "views/travel-advice";
 @import "views/report-child-abuse";
 @import "views/local-authority";
-@import "views/simple-smart-answer";
 
 // exceptional format overrides
 @import "views/location_form";

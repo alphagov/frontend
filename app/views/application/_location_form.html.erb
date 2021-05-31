@@ -22,9 +22,9 @@
     } %>
   <% end %>
 
-  <form method="post" id="local-locator-form" class="location-form">
+  <form method="post" id="local-locator-form" class="location-form govuk-!-margin-bottom-9">
     <fieldset class="govuk-fieldset">
-      <legend class=" govuk-fieldset__legend govuk-visually-hidden">Postcode lookup</legend>
+      <legend class=" govuk-fieldset__legend govuk-visually-hidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
 
       <%= render partial: 'draft_fields' %>
 

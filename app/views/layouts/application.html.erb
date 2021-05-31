@@ -40,10 +40,7 @@
         <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
       <% end %>
 
-      <% if local_assigns.exclude?(:full_width) %>
-        <%= yield %>
-        <%= yield :after_content %>
-      <% else %>
+      <% if local_assigns %>
         <%= yield %>
         <%= yield :after_content %>
       <% end %>

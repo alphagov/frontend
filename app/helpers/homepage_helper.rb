@@ -11,9 +11,6 @@ module HomepageHelper
   end
 
   def other_agencies_public_bodies_count
-    organisations_json
-      .dig("details", "ordered_agencies_and_other_public_bodies")
-      .filter { |org| org["govuk_status"] != "joining" }
-      .count
+    Organisations.agencies_or_other_public_bodies.count
   end
 end

@@ -7,17 +7,17 @@ class SessionsControllerTest < ActionController::TestCase
 
   context "GET sign-in" do
     setup do
-      stub_account_api_get_sign_in_url(redirect_path: "/bank-holiday", state_id: "state123")
+      stub_account_api_get_sign_in_url(redirect_path: "/bank-holiday")
     end
 
     should "redirect the user to the GOV.UK Account service domain" do
-      get :create, params: { redirect_path: "/bank-holiday", state_id: "state123" }
+      get :create, params: { redirect_path: "/bank-holiday" }
       assert_response :redirect
       assert_equal @response.headers["Location"], "http://auth/provider"
     end
 
     should "preserve the _ga tracking parameter if provided" do
-      get :create, params: { redirect_path: "/bank-holiday", state_id: "state123", _ga: "ga123" }
+      get :create, params: { redirect_path: "/bank-holiday", _ga: "ga123" }
       assert_equal @response.headers["Location"], "http://auth/provider?_ga=ga123"
     end
   end

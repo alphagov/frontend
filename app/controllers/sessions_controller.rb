@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
 
     redirect_with_ga GdsApi.account_api.get_sign_in_url(
       redirect_path: params[:redirect_path] || fetch_http_referrer,
-      state_id: params[:state_id],
       level_of_authentication: level_of_authentication,
     ).to_h["auth_uri"]
   end

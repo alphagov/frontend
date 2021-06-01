@@ -14,7 +14,7 @@ class SavePagesController < ApplicationController
   rescue GdsApi::HTTPUnauthorized
     authenticate(save_page_path(page_path: page_path))
   rescue GdsApi::HTTPUnprocessableEntity
-    redirect_to page_path + "?personalisation=page_not_saved"
+    head :unprocessable_entity
   end
 
   def destroy

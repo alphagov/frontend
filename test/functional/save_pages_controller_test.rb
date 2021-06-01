@@ -70,21 +70,6 @@ class SavePagesControllerTest < ActionController::TestCase
           end
         end
 
-        should "report an unsuccessful save to the requesting app with a query parameter" do
-          with_feature_flag_enabled do
-            stub_account_api_save_page_cannot_save_page(
-              page_path: ministry_of_magic_path,
-              new_govuk_account_session: "placeholder",
-            )
-
-            get :create, params: { page_path: ministry_of_magic_path }
-            assert_response :redirect
-
-            query = Addressable::URI.parse(@response.headers["Location"]).query
-            assert_equal query, "personalisation=page_not_saved"
-          end
-        end
-
         should "return a 422 if the param isn't given" do
           with_feature_flag_enabled do
             get :create
@@ -92,20 +77,15 @@ class SavePagesControllerTest < ActionController::TestCase
           end
         end
 
-        should "protect against a redirect attack from a failed save page request" do
+        should "return a 422 if the account-api does" do
           with_feature_flag_enabled do
             stub_account_api_save_page_cannot_save_page(
               page_path: ministry_of_magic_path,
               new_govuk_account_session: "placeholder",
             )
 
-            get :create, params: { page_path: "https://evil.g0v.uk#{ministry_of_magic_path}" }
-            assert_response :redirect
-
-            path = Addressable::URI.parse(@response.headers["Location"]).path
-            query = Addressable::URI.parse(@response.headers["Location"]).query
-            assert_equal query, "personalisation=page_not_saved"
-            assert_equal path, ministry_of_magic_path
+            get :create, params: { page_path: ministry_of_magic_path }
+            assert_response :unprocessable_entity
           end
         end
       end

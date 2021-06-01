@@ -49,7 +49,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
       end
 
       within "#content" do
-        within "header" do
+        within ".gem-c-title" do
           assert_has_component_title "Carrots"
         end
 

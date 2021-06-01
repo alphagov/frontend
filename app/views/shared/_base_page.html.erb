@@ -1,11 +1,11 @@
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %> govuk-main-wrapper" <%= @lang_attribute %>>
   <div class="govuk-grid-row">
-    <header class="page-header govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/title", 
         context: local_assigns[:context], 
         margin_top: 0,
         title: title %>
-    </header>
+    </div>
     <div class="article-container group govuk-grid-column-two-thirds">
       <div class="content-block">
         <div class="inner">

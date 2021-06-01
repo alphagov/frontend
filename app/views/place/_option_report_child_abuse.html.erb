@@ -32,7 +32,7 @@
 
             <% if place["url"].present? %>
               <p class="url govuk-body">
-                <a href="<%= place["url"] %>" class="govuk-link">Go to their website</a>
+                <a href="<%= place["url"] %>" class="govuk-link"><%= t('place.go_to_website') %></a>
               </p>
             <% end %>
           </div>

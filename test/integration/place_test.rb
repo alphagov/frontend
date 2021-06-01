@@ -80,7 +80,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       end
 
       within "#content" do
-        within ".page-header" do
+        within ".gem-c-title" do
           assert_has_component_title "Find a passport interview office"
         end
 

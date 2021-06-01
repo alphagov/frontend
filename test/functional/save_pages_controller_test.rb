@@ -85,6 +85,13 @@ class SavePagesControllerTest < ActionController::TestCase
           end
         end
 
+        should "return a 422 if the param isn't given" do
+          with_feature_flag_enabled do
+            get :create
+            assert_response :unprocessable_entity
+          end
+        end
+
         should "protect against a redirect attack from a failed save page request" do
           with_feature_flag_enabled do
             stub_account_api_save_page_cannot_save_page(
@@ -155,7 +162,7 @@ class SavePagesControllerTest < ActionController::TestCase
           end
         end
 
-        should "report back a 404 error as page_removed " do
+        should "report back a 404 error as page_removed" do
           with_feature_flag_enabled do
             stub_account_api_delete_saved_page_does_not_exist(page_path: ministry_of_magic_path)
 

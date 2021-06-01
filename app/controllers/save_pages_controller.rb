@@ -3,6 +3,7 @@ class SavePagesController < ApplicationController
 
   before_action :set_no_cache_headers
   before_action { head :not_found unless feature_flag_enabled? }
+  before_action { head :unprocessable_entity if params[:page_path].blank? }
 
   def create
     GdsApi.account_api.save_page(

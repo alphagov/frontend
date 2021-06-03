@@ -4,7 +4,7 @@
 <% end %>
 
 <main id="content" role="main" class="group full-width">
-  <header class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <%= render "govuk_publishing_components/components/title", {
         title: @presenter.title,
@@ -27,23 +27,23 @@
             </div>
             <div class="travel-advice-notice__content">
               <p class="govuk-body">
-                Follow current COVID-19 rules where you live: <a href="/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do">England</a>, <a href="https://www.gov.scot/coronavirus-covid-19/">Scotland</a>, <a href="https://gov.wales/covid-19-alert-levels">Wales</a> and <a href="https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you">Northern Ireland</a>.
+                Follow current COVID-19 rules where you live: <a href="/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do" class="govuk-link">England</a>, <a href="https://www.gov.scot/coronavirus-covid-19/" class="govuk-link">Scotland</a>, <a href="https://gov.wales/covid-19-alert-levels" class="govuk-link">Wales</a> and <a href="https://www.nidirect.gov.uk/articles/coronavirus-covid-19-regulations-guidance-what-restrictions-mean-you" class="govuk-link">Northern Ireland</a>.
               </p>
               <p class="govuk-body">
-                To prevent new COVID variants from entering the UK, you should not travel to <a href="/guidance/red-amber-and-green-list-rules-for-entering-england">amber or red list countries</a>.
+                To prevent new COVID variants from entering the UK, you should not travel to <a href="/guidance/red-amber-and-green-list-rules-for-entering-england" class="govuk-link">amber or red list countries</a>.
               </p>
               <p class="govuk-body">
-                To understand the risks in a country follow <a href="/guidance/travel-advice-novel-coronavirus">FCDO Travel Advice</a>.
+                To understand the risks in a country follow <a href="/guidance/travel-advice-novel-coronavirus" class="govuk-link">FCDO Travel Advice</a>.
               </p>
               <p class="govuk-body">
-                When you return, follow the rules to <a href="/uk-border-control">enter the UK from abroad</a> (except from Ireland).
+                When you return, follow the rules to <a href="/uk-border-control" class="govuk-link">enter the UK from abroad</a> (except from Ireland).
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
 
   <div class="travel-container js-travel-container">
     <section class="govuk-grid-row">

@@ -40,21 +40,10 @@
         <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
       <% end %>
 
-      <% if local_assigns.exclude?(:full_width) %>
-        <div class="govuk-grid-row">
-          <%= yield %>
-        </div>
-        <div class="govuk-grid-row">
-          <%= yield :after_content %>
-        </div>
-      <% else %>
+      <% if local_assigns %>
         <%= yield %>
         <%= yield :after_content %>
       <% end %>
-
-      <div class="feedback-wrapper">
-        <%= render 'govuk_publishing_components/components/feedback' %>
-      </div>
     </div>
   </body>
 </html>

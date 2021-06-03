@@ -49,7 +49,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
       end
 
       within "#content" do
-        within "header" do
+        within ".gem-c-title" do
           assert_has_component_title "Carrots"
         end
 
@@ -227,7 +227,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         href: "http://cti-staging.voa.gov.uk/cti/inits.asp",
       )
 
-      within "#content/header" do
+      within ".gem-c-title" do
         assert_has_component_title "Check your Council Tax band (staging)"
       end
 

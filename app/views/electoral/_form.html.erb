@@ -26,8 +26,8 @@
     method: :get,
     id: "local-locator-form",
     class: "location-form" do |form| %>
-    <%= tag.fieldset do %>
-      <%= tag.legend t('formats.local_transaction.postcode_lookup'), class: "govuk-visually-hidden" %>
+    <%= tag.fieldset class: "govuk-fieldset" do %>
+      <%= tag.legend t('formats.local_transaction.postcode_lookup'), class: "govuk-fieldset__legend govuk-visually-hidden" %>
       <%= render partial: 'draft_fields' %>
 
       <%= render "govuk_publishing_components/components/input", {

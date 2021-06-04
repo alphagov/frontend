@@ -12,17 +12,22 @@
           <%= yield %>
         </div>
       </div>
+      <%= render 'shared/publication_metadata', :publication => publication %>
     </div>
-    <%= render 'shared/publication_metadata', :publication => publication %>
+
+    <div class="govuk-grid-column-one-third">
+      <%= render 'govuk_publishing_components/components/contextual_sidebar', 
+        content_item: @content_item 
+      %>
+    </div>
+
+    <% content_for :after_content do %>
+    <div class="govuk-grid-column-two-thirds">
+      <%= render 'govuk_publishing_components/components/contextual_footer', 
+        content_item: @content_item 
+      %>
+    </div>
   </div>
 </main>
 
-<div class="govuk-grid-column-one-third">
-  <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: @content_item %>
-</div>
-
-<% content_for :after_content do %>
-  <div class="govuk-grid-column-two-thirds">
-    <%= render 'govuk_publishing_components/components/contextual_footer', content_item: @content_item %>
-  </div>
 <% end %>

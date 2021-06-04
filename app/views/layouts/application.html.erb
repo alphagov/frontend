@@ -41,20 +41,12 @@
       <% end %>
 
       <% if local_assigns.exclude?(:full_width) %>
-        <div class="govuk-grid-row">
-          <%= yield %>
-        </div>
-        <div class="govuk-grid-row">
-          <%= yield :after_content %>
-        </div>
+        <%= yield %>
+        <%= yield :after_content %>
       <% else %>
         <%= yield %>
         <%= yield :after_content %>
       <% end %>
-
-      <div class="feedback-wrapper">
-        <%= render 'govuk_publishing_components/components/feedback' %>
-      </div>
     </div>
   </body>
 </html>

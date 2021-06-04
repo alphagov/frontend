@@ -3,12 +3,12 @@ class HelpController < ApplicationController
 
   def index
     fetch_and_setup_content_item("/help")
-    render locals: { full_width: true }
+    slimmer_template "gem_layout"
   end
 
   def tour
     fetch_and_setup_content_item("/tour")
-    render locals: { full_width: true }
+    slimmer_template "gem_layout"
   end
 
   def cookie_settings

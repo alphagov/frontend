@@ -3,7 +3,7 @@ var GOVUKTest = {
   countryFilter: {
     threeCategories: '<div id="W" class="list">' +
       '<h3>' +
-      '<span class="visuallyhidden">Countries starting with </span>W</h3>' +
+      '<span class="govuk-visually-hidden">Countries starting with </span>W</h3>' +
       '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
       '<li data-synonyms="Sahel"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
@@ -11,14 +11,14 @@ var GOVUKTest = {
       '</div>' +
       '<div id="Y" class="list">' +
       '<h3>' +
-      '<span class="visuallyhidden">Countries starting with </span>Y</h3>' +
+      '<span class="govuk-visually-hidden">Countries starting with </span>Y</h3>' +
       '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
       '</ul>' +
       '</div>' +
       '<div id="Z" class="list">' +
       '<h3>' +
-      '<span class="visuallyhidden">Countries starting with </span>Z</h3>' +
+      '<span class="govuk-visually-hidden">Countries starting with </span>Z</h3>' +
       '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +
@@ -31,7 +31,7 @@ GOVUKTest.countryFilter.categories = {
   allWithCountries: '<section class="countries-wrapper">' + GOVUKTest.countryFilter.threeCategories + '</section>',
   twoWithoutCountries: '<section><div id="W" class="list">' +
     '<h3>' +
-    '<span class="visuallyhidden">Countries starting with </span>W</h3>' +
+    '<span class="govuk-visually-hidden">Countries starting with </span>W</h3>' +
     '<ul class="countries js-countries-list">' +
     '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
     '<li data-synonyms="Sahel" style="display:none"><a href="/foreign-travel-advice/western-sahara">Western Sahara</a></li>' +
@@ -39,14 +39,14 @@ GOVUKTest.countryFilter.categories = {
     '</div>' +
     '<div id="Y" class="list">' +
     '<h3>' +
-    '<span class="visuallyhidden">Countries starting with </span>Y</h3>' +
+    '<span class="govuk-visually-hidden">Countries starting with </span>Y</h3>' +
     '<ul class="countries js-countries-list">' +
     '<li data-synonyms="" style="display:none"><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
     '</ul>' +
     '</div>' +
     '<div id="Z" class="list">' +
     '<h3>' +
-    '<span class="visuallyhidden">Countries starting with </span>Z</h3>' +
+    '<span class="govuk-visually-hidden">Countries starting with </span>Z</h3>' +
     '<ul class="countries js-countries-list">' +
     '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
     '<li data-synonyms=""><a href="/foreign-travel-advice/zimbabwe">Zimbabwe</a></li>' +

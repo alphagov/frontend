@@ -69,7 +69,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
         end
 
         within "#content" do
-          within ".gem-c-title" do
+          within ".page-header" do
             assert_has_component_title "Licence to kill"
           end
 

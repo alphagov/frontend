@@ -1,3 +1,30 @@
+// Remove search from the top bar as we have one in the content.
+
+// stylelint-disable selector-no-qualifying-type, selector-max-id
+body.homepage {
+  #global-header-bar {
+    display: none;
+  }
+
+  #wrapper,
+  #content {
+    margin: 0;
+    width: auto; // needed for IE overides
+    max-width: 100%;
+  }
+
+  .feedback-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 govuk-spacing(3);
+
+    @include govuk-media-query($from: tablet) {
+      padding: 0 govuk-spacing(6);
+    }
+  }
+}
+// stylelint-enable selector-no-qualifying-type, selector-max-id
+
 .home-top {
   overflow: hidden;
   background: $govuk-brand-colour;
@@ -15,7 +42,7 @@
 
 .home-top__intro--simpler {
   font-weight: bold;
-  margin-bottom: govuk-spacing(4);
+  margin-bottom: 20px;
 }
 
 .home-top__links {
@@ -153,7 +180,7 @@
 
 .home-numbers__large {
   // Manually setting font-size rather than using the mixins size
-  // because the layout doesn't really work otherwise
+  // because the layout doesnt really work otherwise
   font-size: 53px;
   line-height: (55 / 53);
   font-weight: bold;

@@ -8,9 +8,7 @@
   }
 
   .country-filter-form__form-group {
-    border: 0;
-    margin: 0;
-    padding: 0;
+    margin: 0; // Because fieldset has 2px margins by default.
   }
 
   .subscriptions-wrapper {

@@ -30,7 +30,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
       assert page.has_selector?("#wrapper.travel-advice")
 
       within "#content" do
-        within ".gem-c-title" do
+        within "header" do
           assert page.has_content?("Foreign travel advice")
         end
 

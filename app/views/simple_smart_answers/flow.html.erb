@@ -2,47 +2,44 @@
   <meta name="robots" content="noindex" />
 <% end %>
 
-<main id="content" class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <section class="simple-smart-answer__question-and-outcome">
-        <% if @flow_state.current_node.outcome? %>
-          <%= render partial: "outcome", object: @flow_state.current_node %>
-        <% else %>
-          <%= render partial: "current_question", locals: {
-            question: @flow_state.current_node,
-          } %>
-        <% end %>
-      </section>
-    <% if @flow_state.completed_questions.any? %>
-      <section class="govuk-!-padding-top-6">
-        <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
-          heading_level: 2,
-          margin_bottom: 4,
-          text: t("formats.simple_smart_answer.your_answers"),
-        } %>
-
-        <p class="govuk-body">
-          <%= link_to(
-            t("formats.simple_smart_answer.start_again"),
-            simple_smart_answer_path(@publication.slug, :edition => @edition),
-            class: "govuk-link"
-          ) %>
-        </p>
-
-        <%= render "govuk_publishing_components/components/summary_list", {
-          items: answer_summary_data,
-        } %>
-      </section>
-    <% end %>
-    </div>
+<main id="content" class="govuk-grid-column-two-thirds">
+  <section class="simple-smart-answer__question-and-outcome">
     <% if @flow_state.current_node.outcome? %>
-      <div class="govuk-grid-column-one-third">
-        <%= render "govuk_publishing_components/components/contextual_sidebar", {
-          content_item: @content_item
-        } %>
-      </div>
+      <%= render partial: "outcome", object: @flow_state.current_node %>
+    <% else %>
+      <%= render partial: "current_question", locals: {
+        question: @flow_state.current_node,
+      } %>
     <% end %>
-  </div>
+  </section>
+  <% if @flow_state.completed_questions.any? %>
+    <section>
+      <%= render "govuk_publishing_components/components/heading", {
+        font_size: "m",
+        heading_level: 2,
+        margin_bottom: 4,
+        text: t("formats.simple_smart_answer.your_answers"),
+      } %>
+
+      <p class="govuk-body">
+        <%= link_to(
+          t("formats.simple_smart_answer.start_again"),
+          simple_smart_answer_path(@publication.slug, :edition => @edition),
+          class: "govuk-link"
+        ) %>
+      </p>
+
+      <%= render "govuk_publishing_components/components/summary_list", {
+        items: answer_summary_data,
+      } %>
+    </section>
+  <% end %>
 </main>
+
+<% if @flow_state.current_node.outcome? %>
+  <div class="govuk-grid-column-one-third govuk-!-margin-top-7">
+    <%= render "govuk_publishing_components/components/contextual_sidebar", {
+      content_item: @content_item
+    } %>
+  </div>
+<% end %>

@@ -64,6 +64,9 @@ $govuk-new-link-styles: true;
 @import "views/location_form";
 @import "views/local-transaction";
 
+// account homepage stylesheet
+@import "views/accounts";
+
 // Reset some global styles from the `wrapper` layout
 .gem-c-related-navigation {
   h3 {

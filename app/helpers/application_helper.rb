@@ -28,4 +28,9 @@ module ApplicationHelper
   def current_path_without_query_string
     request.original_fullpath.split("?", 2).first
   end
+
+  def transition_checker_path
+    base_url = Rails.env.development? ? Plek.find("finder-frontend") : Plek.new.website_root
+    "#{base_url}/transition-check"
+  end
 end

@@ -3,6 +3,8 @@ $govuk-use-legacy-palette: false;
 
 // BASE Stylesheet
 
+$govuk-new-link-styles: true;
+
 // Components from govuk_publishing_components gem
 @import 'govuk_publishing_components/govuk_frontend_support';
 @import 'govuk_publishing_components/component_support';

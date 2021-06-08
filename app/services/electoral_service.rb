@@ -10,14 +10,14 @@ class ElectoralService
 
   def make_request
     @body = begin
-              with_caching do
-                json = RestClient.get(request_url, headers)
-                JSON.parse(json)
-              end
-            rescue RestClient::Exception => e
-              @error = assemble_error(e)
-              {}
-            end
+      with_caching do
+        json = RestClient.get(request_url, headers)
+        JSON.parse(json)
+      end
+    rescue RestClient::Exception => e
+      @error = assemble_error(e)
+      {}
+    end
   end
 
   def ok?
@@ -50,11 +50,9 @@ private
     GovukStatsd.increment("elections.errors.#{code}")
   end
 
-  def with_caching
+  def with_caching(&block)
     Rails.cache.fetch(request_url, expires_in: 1.minute) do
-      GovukStatsd.time("elections_api.#{timing_endpoint}.request_time") do
-        yield
-      end
+      GovukStatsd.time("elections_api.#{timing_endpoint}.request_time", &block)
     end
   end
 

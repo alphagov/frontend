@@ -1,10 +1,8 @@
 module ElectionHelpers
   TEST_API_URL = "https://test.example.org/api/v1".freeze
 
-  def with_electoral_api_url
-    ClimateControl.modify ELECTIONS_API_URL: TEST_API_URL do
-      yield
-    end
+  def with_electoral_api_url(&block)
+    ClimateControl.modify ELECTIONS_API_URL: TEST_API_URL, &block
   end
 
   def stub_api_postcode_lookup(postcode, response: "{}", status: 200)

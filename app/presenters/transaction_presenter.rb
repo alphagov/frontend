@@ -39,9 +39,10 @@ class TransactionPresenter < ContentItemPresenter
       return I18n.t("formats.start_now")
     end
 
-    if details["start_button_text"] == "Start now"
+    case details["start_button_text"]
+    when "Start now"
       I18n.t("formats.start_now")
-    elsif details["start_button_text"] == "Sign in"
+    when "Sign in"
       I18n.t("formats.transaction.sign_in")
     else
       details["start_button_text"]

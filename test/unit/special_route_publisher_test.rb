@@ -9,7 +9,7 @@ class SpecialRoutePublisherTest < ActiveSupport::TestCase
 
     @publishing_api = Object.new
 
-    logger = Logger.new(STDOUT)
+    logger = Logger.new($stdout)
     logger.level = Logger::WARN
 
     @publisher = SpecialRoutePublisher.new(

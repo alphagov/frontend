@@ -8,6 +8,7 @@ module Mocha
 
     class ValidSchemaMatcher < Base
       def initialize(format_name)
+        super()
         @format_name = format_name
       end
 

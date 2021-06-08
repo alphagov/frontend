@@ -2,7 +2,7 @@ class LocalAuthoritySlugFinder
   AUTHORITY_TYPES = %w[DIS LBO UTA CTY LGD MTD COI].freeze
   COUNTY_LOCAL_AUTHORITY_TYPE = "CTY".freeze
 
-  def self.call(areas, county_requested = false)
+  def self.call(areas, county_requested: false)
     new(areas, county_requested).find_slug
   end
 

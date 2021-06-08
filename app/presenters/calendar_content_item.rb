@@ -10,7 +10,7 @@ class CalendarContentItem
   end
 
   def base_path
-    "/" + (@slug || calendar.slug)
+    "/#{@slug || calendar.slug}"
   end
 
   def update_type

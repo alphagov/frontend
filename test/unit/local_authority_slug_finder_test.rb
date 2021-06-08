@@ -161,7 +161,7 @@ class LocalAuthoritySlugFinderTest < ActiveSupport::TestCase
     end
 
     should "return County slug if requested" do
-      slug = LocalAuthoritySlugFinder.call(@areas, true)
+      slug = LocalAuthoritySlugFinder.call(@areas, county_requested: true)
       assert_equal "lancashire-county-council", slug
     end
   end

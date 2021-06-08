@@ -15,7 +15,7 @@ class PlacePresenter < ContentItemPresenter
   attr_reader :places
 
   def initialize(content_item, places = [])
-    @content_item = content_item
+    super(content_item)
     @places = format_places(places)
   end
 

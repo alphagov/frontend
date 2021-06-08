@@ -1,7 +1,7 @@
 namespace :publishing_api do
   desc "Publish special routes such as the homepage"
   task publish_special_routes: :environment do
-    logger = Logger.new(STDOUT)
+    logger = Logger.new($stdout)
 
     publisher = SpecialRoutePublisher.new(
       logger: logger,

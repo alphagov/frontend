@@ -63,7 +63,7 @@ class BankHolidayGenerator
 
 private
 
-  def add_bank_holiday(title, date, substitute = false, bunting = true)
+  def add_bank_holiday(title, date, substitute: false, bunting: true)
     bank_holiday_hash = {
       "title" => title,
       "date" => date.strftime("%d/%m/%Y"),
@@ -76,35 +76,35 @@ private
     bank_holidays << bank_holiday_hash
   end
 
-  def new_years_day(second_january_off = false)
+  def new_years_day(second_january_off: false)
     date = Date.new(year, 1, 1)
     new_date = if second_january_off
                  substitute_day_next_day_off(date)
                else
                  substitute_day(date)
                end
-    add_bank_holiday("bank_holidays.new_year", new_date, new_date != date)
+    add_bank_holiday("bank_holidays.new_year", new_date, substitute: new_date != date)
   end
 
   def new_years_day_second_january_off
-    new_years_day(true)
+    new_years_day(second_january_off: true)
   end
 
   def second_january
     date = Date.new(year, 1, 2)
     new_date = substitute_day(date)
-    add_bank_holiday("bank_holidays.2nd_january", new_date, new_date != date)
+    add_bank_holiday("bank_holidays.2nd_january", new_date, substitute: new_date != date)
   end
 
   def st_patricks
     date = Date.new(year, 3, 17)
     new_date = substitute_day(date)
-    add_bank_holiday("bank_holidays.st_patrick", new_date, new_date != date)
+    add_bank_holiday("bank_holidays.st_patrick", new_date, substitute: new_date != date)
   end
 
   def good_friday
     date = easter - 2
-    add_bank_holiday("bank_holidays.good_friday", date, false, false)
+    add_bank_holiday("bank_holidays.good_friday", date, substitute: false, bunting: false)
   end
 
   def easter_monday
@@ -125,7 +125,7 @@ private
   def battle_boyne
     date = Date.new(year, 7, 12)
     new_date = substitute_day(date)
-    add_bank_holiday("bank_holidays.battle_boyne", new_date, new_date != date, false)
+    add_bank_holiday("bank_holidays.battle_boyne", new_date, substitute: new_date != date, bunting: false)
   end
 
   def first_monday_august
@@ -141,19 +141,19 @@ private
   def st_andrews
     date = Date.new(year, 11, 30)
     new_date = substitute_day(date)
-    add_bank_holiday("bank_holidays.st_andrew", new_date, new_date != date)
+    add_bank_holiday("bank_holidays.st_andrew", new_date, substitute: new_date != date)
   end
 
   def christmas
     date = Date.new(year, 12, 25)
     new_date = substitute_day_next_day_off(date)
-    add_bank_holiday("bank_holidays.christmas", new_date, new_date != date)
+    add_bank_holiday("bank_holidays.christmas", new_date, substitute: new_date != date)
   end
 
   def boxing_day
     date = Date.new(year, 12, 26)
     new_date = substitute_day(date)
-    add_bank_holiday("bank_holidays.boxing_day", new_date, new_date != date)
+    add_bank_holiday("bank_holidays.boxing_day", new_date, substitute: new_date != date)
   end
 
   # Date utilities

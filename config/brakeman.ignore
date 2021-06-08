@@ -1,37 +1,7 @@
 {
   "ignored_warnings": [
-    {
-      "warning_type": "Cross-Site Scripting",
-      "warning_code": 2,
-      "fingerprint": "9bf0691602eb033f80d35f6ee93736cace582ed9a28e35ca57057b649e3286db",
-      "check_name": "CrossSiteScripting",
-      "message": "Unescaped model attribute",
-      "file": "app/views/local_transaction/unavailable_service.html.erb",
-      "line": 7,
-      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
-      "code": "LocalTransactionServices.instance.content(lgsl, local_authority.country_name, :local_authority_name => local_authority.name)",
-      "render_path": [
-        {
-          "type": "controller",
-          "class": "LocalTransactionController",
-          "method": "results",
-          "line": 43,
-          "file": "app/controllers/local_transaction_controller.rb",
-          "rendered": {
-            "name": "local_transaction/unavailable_service",
-            "file": "app/views/local_transaction/unavailable_service.html.erb"
-          }
-        }
-      ],
-      "location": {
-        "type": "template",
-        "template": "local_transaction/unavailable_service"
-      },
-      "user_input": null,
-      "confidence": "Medium",
-      "note": "This data comes from MapIt/Local Links Manager - we should trust data from there"
-    }
+
   ],
-  "updated": "2021-01-29 13:45:41 +0000",
-  "brakeman_version": "4.10.0"
+  "updated": "2021-06-08 15:56:59 +0000",
+  "brakeman_version": "5.0.2"
 }

@@ -94,10 +94,10 @@ private
   end
 
   def local_authority_slug
-    return nil unless mapit_response.location_found?
-
     @local_authority_slug ||= begin
-      LocalAuthoritySlugFinder.call(mapit_response.location.areas, @licence_details.offered_by_county?)
+      return nil unless mapit_response.location_found?
+
+      LocalAuthoritySlugFinder.call(mapit_response.location.areas, county_requested: @licence_details.offered_by_county?)
     end
   end
 

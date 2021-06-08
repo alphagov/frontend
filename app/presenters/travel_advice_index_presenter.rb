@@ -10,7 +10,7 @@ class TravelAdviceIndexPresenter
     self.countries = country_data.map { |d| IndexCountry.new(d) }
     self.countries = countries_sorted_utf8
     self.description = attributes.fetch("description")
-    self.slug = attributes.fetch("base_path")[1..-1]
+    self.slug = attributes.fetch("base_path")[1..]
     self.title = attributes.fetch("title")
     self.subscription_url = details.fetch("email_signup_link")
     self.format = "travel-advice"

@@ -96,8 +96,8 @@ private
           "name" => authority["authorityName"],
           "slug" => authority["authoritySlug"],
           "contact" => authority["authorityContact"],
-          "actions" => authority["authorityInteractions"].each_with_object({}) do |(key, links), actions|
-            actions[key] = links.map do |link|
+          "actions" => authority["authorityInteractions"].transform_values do |links|
+            links.map do |link|
               {
                 "url" => link["url"],
                 "introduction" => link["introductionText"],

@@ -96,9 +96,6 @@ en:
     find_out: Find out more about cookies on GOV.UK
     four_types: We use 4 types of cookie. You can choose which cookies you're happy
       for us to use.
-    google: We use Google Analytics to measure how you use the website so we can improve
-      it based on user needs. We do not allow Google to use or share the data about
-      how you use this site.
     google_info: Google Analytics sets cookies that store anonymised information about
     how_we_use: We use cookies to store information about how you use the GOV.UK website,
       such as the pages you visit.
@@ -109,6 +106,8 @@ en:
     javascript_list:
     - reloading the page
     - turning on Javascript in your browser
+    lux_info: LUX software stores anonymised information about how well pages performed
+      on your device (including JavaScript errors).
     off-campaigns: Do not use cookies that help with communications and marketing
     off-settings: Do not use cookies that remember my settings on the site
     off-usage: Do not use cookies that measure my website use
@@ -125,6 +124,10 @@ en:
       essential: Strictly necessary cookies
       settings: Cookies that remember your settings
       usage: Cookies that measure website use
+    usage_info: We use Google Analytics and LUX Real User Monitoring software from SpeedCurve
+      to measure how you use the website and your web performance experience while visiting
+      so we can improve it based on user needs. We do not allow Google or SpeedCurve to use
+      or share the data about how you use this site.
   electoral:
     registration:
       description: Need help? Get in touch with your local electoral registration

@@ -6,8 +6,6 @@ class CalendarController < ApplicationController
 
   rescue_from Calendar::CalendarNotFound, with: :simple_404
 
-  slimmer_template "core_layout"
-
   def calendar
     set_expiry 1.hour
 

@@ -399,7 +399,7 @@ en:
         steps:
         - heading: Recently shipped
           items:
-          - text: Made continuous updates to the <a href="/coronavirus" class="govuk-link">coronavirus landing page</a> and tools to help users find guidance, services and goverment support for coronavirus
+          - text: Made continuous updates to the <a href="/coronavirus" class="govuk-link">coronavirus landing page</a> and tools to help users find guidance, services and government support for coronavirus
           - text: Updated Brexit guidance and tools to help users find and prepare for the new 2021 rules
           - text: "Launched the <a href=\"/travel-abroad\" class=\"govuk-link\">travel abroad step by step</a>: helping users plan travel according to Brexit and coronavirus rules"
           - text: Built prototypes to simplify and join up the steps involved in starting a business

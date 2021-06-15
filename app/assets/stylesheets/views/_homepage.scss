@@ -164,10 +164,6 @@
   max-width: 100%;
 }
 
-.home-promo__title {
-  @include govuk-font(24, $weight: bold);
-}
-
 .home-promo__text {
   @include govuk-font(16);
   margin: 0 0 govuk-spacing(4);
@@ -188,6 +184,10 @@
 }
 
 .home-more-promo {
+  margin: 0;
+}
+
+.home-more-promo__link {
   display: block;
   padding: 2.5em .75em;
   margin-bottom: govuk-spacing(3);

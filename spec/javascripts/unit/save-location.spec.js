@@ -1,6 +1,6 @@
 describe('Saving bank holiday locations', function () {
   var $locations
-  var html = '<section class="js-save-nation" data-module="save-bank-holiday-nation" data-nation="England_and_Wales" data-save-description="Do you want to save # as your location for bank holidays?" data-save-button-aria-label="Save # as your location for bank holidays" data-save-button-text="Save" data-undo-description="You\'ve saved # as your location for bank holidays" data-undo-button-aria-label="Remove # as your saved location for bank holidays" data-undo-button-text="Undo">' +
+  var html = '<section class="js-save-nation" data-module="save-bank-holiday-nation" data-nation="England_and_Wales" data-nation-matches=\'["England","Wales"]\' data-save-description="Do you want to save # as your location for bank holidays?" data-save-button-aria-label="Save # as your location for bank holidays" data-save-button-text="Save" data-undo-description="You\'ve saved # as your location for bank holidays" data-undo-button-aria-label="Remove # as your saved location for bank holidays" data-undo-button-text="Undo">' +
     '<p class="js-nation-description" aria-live="polite">Do you want to save # as your location for bank holidays?</p>' +
     '<button class="js-nation-button" type="submit" aria-label="Save # as your location for bank holidays">Save</button>' +
     '<p class="js-nation-link">' +
@@ -89,14 +89,14 @@ describe('Saving bank holiday locations', function () {
 
     beforeEach(function () {
       var html = '<div>' +
-      '<section class="js-save-nation" data-module="save-bank-holiday-nation" data-nation="England_and_Wales" data-save-description="Do you want to save # as your location for bank holidays?" data-save-button-aria-label="Save # as your location for bank holidays" data-save-button-text="Save" data-undo-description="You\'ve saved # as your location for bank holidays" data-undo-button-aria-label="Remove # as your saved location for bank holidays" data-undo-button-text="Undo">' +
+      '<section class="js-save-nation" data-module="save-bank-holiday-nation" data-nation="England_and_Wales" data-nation-matches=\'["England","Wales"]\' data-save-description="Do you want to save # as your location for bank holidays?" data-save-button-aria-label="Save # as your location for bank holidays" data-save-button-text="Save" data-undo-description="You\'ve saved # as your location for bank holidays" data-undo-button-aria-label="Remove # as your saved location for bank holidays" data-undo-button-text="Undo">' +
         '<p class="js-nation-description" aria-live="polite">Do you want to save # as your location for bank holidays?</p>' +
         '<button id="en" class="js-nation-button" type="submit" aria-label="Save # as your location for bank holidays">Save</button>' +
         '<p class="js-nation-link">' +
           '<a href="#" class="govuk-link">We\'ll add a cookie to your device</a>' +
         '</p>' +
       '</section>' +
-      '<section class="js-save-nation" data-module="save-bank-holiday-nation" data-nation="Northern_Ireland" data-save-description="Do you want to save # as your location for bank holidays?" data-save-button-aria-label="Save # as your location for bank holidays" data-save-button-text="Save" data-undo-description="You\'ve saved # as your location for bank holidays" data-undo-button-aria-label="Remove # as your saved location for bank holidays" data-undo-button-text="Undo">' +
+      '<section class="js-save-nation" data-module="save-bank-holiday-nation" data-nation="Northern_Ireland" data-nation-matches=\'["Northern Ireland"]\' data-save-description="Do you want to save # as your location for bank holidays?" data-save-button-aria-label="Save # as your location for bank holidays" data-save-button-text="Save" data-undo-description="You\'ve saved # as your location for bank holidays" data-undo-button-aria-label="Remove # as your saved location for bank holidays" data-undo-button-text="Undo">' +
         '<p class="js-nation-description" aria-live="polite">Do you want to save # as your location for bank holidays?</p>' +
         '<button id="ni" class="js-nation-button" type="submit" aria-label="Save # as your location for bank holidays">Save</button>' +
         '<p class="js-nation-link">' +
@@ -164,5 +164,27 @@ describe('Saving bank holiday locations', function () {
 
       expect(window.location.hash).toEqual('#england-and-wales')
     })
+  })
+
+  it('appends the correct URL fragment when the nation cookie partially matches one of the tabs', function () {
+    window.GOVUK.setCookie('user_nation', 'England')
+    $locations = $(html)
+    $('body').append($locations)
+    var bank = new GOVUK.Modules.SaveBankHolidayNation()
+    bank.start($locations)
+    var englandAndWales = $('[data-nation=England_and_Wales]')
+
+    expect(window.location.hash).toEqual('#england-and-wales')
+    expect(englandAndWales.find('.js-nation-description').text()).toEqual('Do you want to save England and Wales as your location for bank holidays?')
+  })
+
+  it('does not append a URL fragment when the cookie does not match one of the nations', function () {
+    window.GOVUK.setCookie('user_nation', 'spooky cookie')
+    $locations = $(html)
+    $('body').append($locations)
+    var bank = new GOVUK.Modules.SaveBankHolidayNation()
+    bank.start($locations)
+
+    expect(window.location.hash).toEqual('')
   })
 })

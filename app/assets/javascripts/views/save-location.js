@@ -25,6 +25,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.nation = this.cookie_value.replace(/_/g, ' ') // used for text display, is e.g. Northern Ireland
     this.saved_nation = this.getCookie()
     this.other_modules = document.querySelectorAll('.js-save-nation:not([data-nation=' + this.cookie_value + '])')
+    this.allowed_matches = JSON.parse(this.$module.getAttribute('data-nation-matches')) || []
+    this.allowed_matches.push(this.cookie_value)
 
     this.page_content = [
       {
@@ -47,9 +49,18 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.$module.clickButton = this.clickButton.bind(this)
     this.button.addEventListener('click', this.$module.clickButton)
 
-    if (this.saved_nation && this.saved_nation === this.cookie_value) {
-      this.saved_nation = this.decodeNationCookieSafe(this.cookie_value)
-      this.toggleOptions(this.$module, 1, this.nation)
+    if (this.saved_nation && this.checkCookieMatchesAllowedNations(this.saved_nation, this.allowed_matches)) {
+      if (this.saved_nation === this.cookie_value) {
+        // if the user location cookie is an exact match for one of available nations, display that nation as "saved"
+        // e.g. if the saved nation cookie is "England_and_Wales", then update the location box content to  "You've saved England and Wales as your location for bank holidays
+        this.saved_nation = this.decodeNationCookieSafe(this.cookie_value)
+        this.toggleOptions(this.$module, 1, this.nation)
+      } else {
+        // if the user location cookie is NOT an exact match for one of available nations, do not display any of the available nations as "saved"
+        // e.g. say the saved nation cookie is "Wales", but on this page we display Wales and England bank holidays together. It might be misleading to display  "You've saved England and Wales as your location for bank holidays" as they have only saved Wales as their location preference - not England
+        this.saved_nation = this.decodeNationCookieSafe(this.cookie_value)
+        this.toggleOptions(this.$module, 0, this.nation)
+      }
       if (!window.location.hash) {
         window.location.hash = this.encodeNationAsHash(this.saved_nation)
       }
@@ -101,9 +112,16 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     return nation.split('_').join(' ')
   }
 
+  SaveBankHolidayNation.prototype.checkCookieMatchesAllowedNations = function (cookie, allowedMatches) {
+    for (var i = 0; i < allowedMatches.length; i++) {
+      if (cookie.toUpperCase() === allowedMatches[i].toUpperCase()) {
+        return true
+      }
+    }
+  }
+
   SaveBankHolidayNation.prototype.encodeNationAsHash = function (nation) {
     return nation.split(' ').join('-').toLowerCase()
   }
-
   Modules.SaveBankHolidayNation = SaveBankHolidayNation
 })(window.GOVUK.Modules)

@@ -27,13 +27,15 @@
         <div class="govuk-grid-column-one-third">
           <div class="home-top__links">
             <h2 class="home-top__links-title"><%= t('homepage.index.popular') %></h2>
-            <ul class="home-top__links-list">
-              <li class="home-top__links-item"><a href="/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do" class="home-top__links-link"><%= t('homepage.index.covid') %></a></li>
-              <li class="home-top__links-item"><a href="/brexit" class="home-top__links-link"><%= t('homepage.index.brexit') %></a></li>
-              <li class="home-top__links-item"><a href="/personal-tax-account" class="home-top__links-link"><%= t('homepage.index.tax_account') %></a></li>
-              <li class="home-top__links-item"><a href="/jobsearch" class="home-top__links-link"><%= t('homepage.index.job_search') %></a></li>
-              <li class="home-top__links-item"><a href="/sign-in-universal-credit" class="home-top__links-link"><%= t('homepage.index.universal_credit') %></a></li>
-            </ul>
+            <%= render "govuk_publishing_components/components/list", {
+              items: [
+                raw("<a href=\"/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.covid')}</a>"),
+                raw("<a href=\"/brexit/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.brexit')}</a>"),
+                raw("<a href=\"/personal-tax-account/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.tax_account')}</a>"),
+                raw("<a href=\"/jobsearch/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.job_search')}</a>"),
+                raw("<a href=\"/sign-in-universal-credit/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.universal_credit')}</a>"),
+              ],
+            } %>
           </div>
         </div>
       </div>

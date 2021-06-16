@@ -43,13 +43,14 @@
     <form data-module="cookie-settings">
 
       <% cookies_usage_hint = capture do %>
-        <p class="govuk-body govuk-hint"><%= t('cookies.google') %></p>
+        <p class="govuk-body govuk-hint"><%= t('cookies.usage_info') %></p>
         <p class="govuk-body govuk-hint"><%= t('cookies.google_info') %>:</p>
         <ul class="govuk-list govuk-list--bullet govuk-hint">
           <li><%= t('cookies.how_you_got') %></li>
           <li><%= t('cookies.pages_visited') %></li>
           <li><%= t('cookies.clicks') %></li>
         </ul>
+        <p class="govuk-body govuk-hint"><%= t('cookies.lux_info') %>:</p>
       <% end %>
 
       <%= render "govuk_publishing_components/components/radio", {

@@ -23,14 +23,12 @@ Transaction start pages:
 * https://www.gov.uk/help/ab-testing
 * https://www.gov.uk/foreign-travel-advice (travel advice index page)
 * https://www.gov.uk/find-local-council
-* https://www.gov.uk/passport-interview-office
 * https://www.gov.uk/roadmap (GOV.UK public facing roadmap)
 
 ### Licence finders
 
 Some examples:
 
-* https://www.gov.uk/guidance/hire-out-horses-licence-england
 * https://www.gov.uk/premises-licence
 * https://www.gov.uk/temporary-events-notice
 * https://www.gov.uk/apply-skip-permit
@@ -66,6 +64,16 @@ Assisted digital satisfaction surveys:
 * https://www.gov.uk/bank-holidays
 * https://www.gov.uk/when-do-the-clocks-change
 
+### Misc
+
+| URL  | Related views |
+|-|-|
+| http://www.gov.uk/school-term-holiday-dates<br>http://www.gov.uk/pay-council-tax<br>http://www.gov.uk/find-covid-19-lateral-flow-test-site<br>http://www.gov.uk/rubbish-collection-day<br>http://www.gov.uk/apply-council-tax-reduction<br>http://www.gov.uk/apply-for-disabled-bus-pass<br>http://www.gov.uk/apply-free-school-meals | `_base_page` <br>`local_transaction/search` |
+| http://www.gov.uk/register-offices<br>http://www.gov.uk/ukonline-centre-internet-access-computer-training<br>http://www.gov.uk/find-theory-test-centre<br>http://www.gov.uk/id-scan-eu-settlement-scheme | `_base_page`<br>`place/show` |
+| http://www.gov.uk/provide-journey-contact-details-before-travel-uk | `publication_metadata`<br>`_base_page`<br>`show` |
+| http://www.gov.uk/contact-the-dvla/y/ | `flow` |
+| http://www.gov.uk/check-a-passport-travel-europe | `_publication_metadata`<br>`_base_page`<br>`transaction/show` |
+| http://www.gov.uk/renew-driving-licence-at-70    <br>http://www.gov.uk/check-mot-history    <br>http://www.gov.uk/mot-testing-service    <br>http://www.gov.uk/order-coronavirus-rapid-lateral-flow-tests   <br>http://www.gov.uk/check-legal-aid | `_base_page`<br>`transaction/show` |
 ## Nomenclature
 
 - **format**: our phrase for a type of content

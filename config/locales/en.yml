@@ -8,7 +8,7 @@ en:
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
   and: and
   b: B
-  bank-holidays:
+  bank-holidays: bank-holidays
   bank_holidays:
     2nd_january: 2nd January
     add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)

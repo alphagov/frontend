@@ -83,6 +83,7 @@ cy:
     how_you_got:
     javascript:
     javascript_list:
+    lux_info:
     off-campaigns:
     off-settings:
     off-usage:
@@ -97,6 +98,7 @@ cy:
       essential:
       settings:
       usage:
+    usage_info:
   electoral:
     registration:
       description:
@@ -261,10 +263,12 @@ cy:
       jobseekers_allowance:
       merged_websites_html:
       ministerial_departments:
+      ministerial_departments_count:
       more:
       most_active:
       news:
       other_agencies:
+      other_agencies_count:
       passport_fees:
       popular:
       running_limited_company:
@@ -295,12 +299,16 @@ cy:
       footnote:
       heading_large:
       heading_small:
+      last_updated:
       numbers_columns:
         column_one_count:
         column_one_text:
         column_two_count:
         column_two_text:
     page_title:
+    updates_section:
+      heading:
+      items:
   sign_up:
   website:
   'yes':

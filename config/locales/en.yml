@@ -8,6 +8,7 @@ en:
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
   and: and
   b: B
+  bank-holidays:
   bank_holidays:
     2nd_january: 2nd January
     add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)
@@ -76,6 +77,7 @@ en:
     explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
     find_out: Find out more about cookies on GOV.UK
     four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
+    google:
     google_info: Google Analytics sets cookies that store anonymised information about
     how_we_use: We use cookies to store information about how you use the GOV.UK website, such as the pages you visit.
     how_you_got: how you got to the site

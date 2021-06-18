@@ -104,6 +104,7 @@ cy:
       description:
       title:
     service:
+      matched_postcode_html:
       description:
       title:
   find:
@@ -127,9 +128,15 @@ cy:
       invalid_postcode_sub:
       invalid_uprn:
       invalid_uprn_sub:
-      matched_postcode:
+      matched_postcode_html:
       no_local_authority:
+      no_local_authority_url_html:
+      local_authority_website:
       no_website:
+      info_on_country_website:
+      find_other_services:
+      find_info_for:
+      service_not_available:
       postcode_hint:
       postcode_lookup:
       rubbish_recycling_collection:

@@ -9,7 +9,7 @@
        data-track-category="postcodeSearch:local_transaction"
        data-track-action="postcodeResultShown"
        data-track-label="<%= @local_authority.name %>">
-      <%= t('formats.local_transaction.matched_postcode') %> <span class="local-authority"><%= @local_authority.name %></span>.
+      <%= t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name) %>
     </p>
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
@@ -17,7 +17,7 @@
       </p>
       <p id="get-started" class="get-started group">
         <%= render "govuk_publishing_components/components/button", {
-          text: "Go to #{@local_authority.name} website",
+          text: t('formats.local_transaction.local_authority_website', local_authority_name: @local_authority.name),
           rel: "external",
           margin_bottom: true,
           href: @interaction_details['local_interaction']['url'],
@@ -34,7 +34,7 @@
              data-track-action="postcodeResultShown:laMatchNoLink">
           <p id="get-started" class="get-started group">
             <%= render "govuk_publishing_components/components/button", {
-              text: "Go to #{@local_authority.name} website",
+              text: t('formats.local_transaction.local_authority_website', local_authority_name: @local_authority.name),
               rel: "external",
               margin_bottom: true,
               href: @local_authority.url,
@@ -42,12 +42,7 @@
           </p>
         </div>
       <% else %>
-        <div class="local-authority-result"
-             data-module="auto-track-event"
-             data-track-category="userAlerts:local_transaction"
-             data-track-action="postcodeResultShown:laMatchNoLinkNoAuthorityUrl">
-          <p class="govuk-body">We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.</p>
-        </div>
+        <%= render partial: 'no_local_authority_url' %>
       <% end %>
     <% end %>
   </div>

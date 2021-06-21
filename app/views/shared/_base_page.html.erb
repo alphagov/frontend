@@ -1,8 +1,8 @@
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %>" <%= @lang_attribute %>>
 
-  <header class="page-header govuk-grid-column-two-thirds">
+  <div class="page-header govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", context: local_assigns[:context], title: title %>
-  </header>
+  </div>
   <div class="article-container group govuk-grid-column-two-thirds">
     <div class="content-block">
       <div class="inner">

@@ -16,8 +16,7 @@ cy:
     boxing_day: Gŵyl San Steffan
     bst_explanation:
     calendar:
-      description: Calendr gwyliau banc y DU - edrychwch ar wyliau banc a gwyliau
-        cyhoeddus y DU
+      description: Calendr gwyliau banc y DU - edrychwch ar wyliau banc a gwyliau cyhoeddus y DU
       title: Gwyliau banc y DU
     christmas: Dydd Nadolig
     clock_change_explanation:
@@ -39,16 +38,12 @@ cy:
     summer: Gŵyl Banc yr Haf
     year:
   common:
-    add_holiday_ics: Ychwanegwch ddyddiadau gwyliau banc %{for_nation} at eich calendr
-      (ICS, 10KB)
+    add_holiday_ics: Ychwanegwch ddyddiadau gwyliau banc %{for_nation} at eich calendr (ICS, 10KB)
     bank_holiday_benefits_html: ''
-    bank_holiday_on_wkend: Os bydd gŵyl banc ar benwythnos, bydd diwrnod o'r wythnos
-      waith yn dod yn ŵyl banc yn lle, y dydd Llun canlynol fel rheol.
-    download_ics: Llwythwch y dyddiadau hyn i lawr i chi allu eu hychwanegu at raglen
-      calendr fel iCal neu Outlook
+    bank_holiday_on_wkend: Os bydd gŵyl banc ar benwythnos, bydd diwrnod o'r wythnos waith yn dod yn ŵyl banc yn lle, y dydd Llun canlynol fel rheol.
+    download_ics: Llwythwch y dyddiadau hyn i lawr i chi allu eu hychwanegu at raglen calendr fel iCal neu Outlook
     extra_bank_holiday: Gŵyl Banc ychwanegol
-    holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi absenoldeb â thâl i chi
-      am ŵyl banc neu ŵyl gyhoeddus.
+    holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi absenoldeb â thâl i chi am ŵyl banc neu ŵyl gyhoeddus.
     last_updated: Diweddarwyd diwethaf
     nations:
       england-and-wales: Cymru a Lloegr
@@ -88,6 +83,7 @@ cy:
     how_you_got:
     javascript:
     javascript_list:
+    lux_info:
     off-campaigns:
     off-settings:
     off-usage:
@@ -102,6 +98,7 @@ cy:
       essential:
       settings:
       usage:
+    usage_info:
   electoral:
     registration:
       description:
@@ -266,10 +263,12 @@ cy:
       jobseekers_allowance:
       merged_websites_html:
       ministerial_departments:
+      ministerial_departments_count:
       more:
       most_active:
       news:
       other_agencies:
+      other_agencies_count:
       passport_fees:
       popular:
       running_limited_company:
@@ -300,12 +299,16 @@ cy:
       footnote:
       heading_large:
       heading_small:
+      last_updated:
       numbers_columns:
         column_one_count:
         column_one_text:
         column_two_count:
         column_two_text:
     page_title:
+    updates_section:
+      heading:
+      items:
   sign_up:
   website:
   'yes':

@@ -2,34 +2,27 @@
 en:
   a: A
   ab_testing:
-    explanation: We sometimes test different versions of pages with different users
-      to see which work better. This page shows us if the process is working.
+    explanation: We sometimes test different versions of pages with different users to see which work better. This page shows us if the process is working.
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
-    visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find
-      government services and information.
+    visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
   and: and
   b: B
+  bank-holidays: bank-holidays
   bank_holidays:
     2nd_january: 2nd January
-    add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS,
-      2KB)
+    add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)
     battle_boyne: Battle of the Boyne (Orangemen’s Day)
     boxing_day: Boxing Day
-    bst_explanation: The period when the clocks are 1 hour ahead is called British
-      Summer Time (BST). There’s more daylight in the evenings and less in the mornings
-      (sometimes called Daylight Saving Time).
+    bst_explanation: The period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).
     calendar:
-      description: Find out when bank holidays are in England, Wales, Scotland and
-        Northern Ireland - including past and future bank holidays
+      description: Find out when bank holidays are in England, Wales, Scotland and Northern Ireland - including past and future bank holidays
       title: UK bank holidays
     christmas: Christmas Day
-    clock_change_explanation: In the UK the clocks go forward 1 hour at 1am on the
-      last Sunday in March, and back 1 hour at 2am on the last Sunday in October.
+    clock_change_explanation: In the UK the clocks go forward 1 hour at 1am on the last Sunday in March, and back 1 hour at 2am on the last Sunday in October.
     clocks_backward: Clocks go back
     clocks_forward: Clocks go forward
-    download_clock_changes: Download these dates so you can add them to a calendar
-      application such as iCal or Outlook
+    download_clock_changes: Download these dates so you can add them to a calendar application such as iCal or Outlook
     early_may: Early May bank holiday
     early_may_ve: Early May bank holiday (VE day)
     easter_monday: Easter Monday
@@ -46,16 +39,11 @@ en:
     year: Year
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
-    bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid"
-      class="govuk-link">how and when your benefits are paid</a>.
-    bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday
-      becomes a bank holiday, normally the following Monday.
-    download_ics: Download these dates so you can add them to a calendar application
-      such as iCal or Outlook
+    bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
+    bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
+    download_ics: Download these dates so you can add them to a calendar application such as iCal or Outlook
     extra_bank_holiday: Extra bank holiday
-    holiday_entitlement_html: Your employer doesn’t have to give you <a href="/holiday-entitlement-rights"
-      title="Holiday entitlement rights" class="govuk-link">paid leave on bank or
-      public holidays</a>.
+    holiday_entitlement_html: Your employer doesn’t have to give you <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">paid leave on bank or public holidays</a>.
     last_updated: Last updated
     nations:
       england-and-wales: England and Wales
@@ -77,66 +65,48 @@ en:
     upcoming_bank_holidays: Upcoming bank holidays
   continue: Continue
   cookies:
-    additional: Most services we link to are run by different government departments,
-      for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s
-      webchat. These services may set additional cookies and, if so, will have their
-      own cookie policy and banner linking to it.
+    additional: Most services we link to are run by different government departments, for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s webchat. These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.
     always_on: They always need to be on.
     clicks: what you click on while you're visiting the site
-    confirmation_message: Government services may set additional cookies and, if so,
-      will have their own cookie policy and banner.
+    confirmation_message: Government services may set additional cookies and, if so, will have their own cookie policy and banner.
     confirmation_previous_referrer_link: Go back to the page you were looking at
     confirmation_title: Your cookie settings were saved
     cookie_settings: Cookie settings
     cookies_on_govuk: Cookies on GOV.UK
-    essential_explanation: These essential cookies do things like remember your progress
-      through a form (for example a licence application)
-    explanation: Cookies are files saved on your phone, tablet or computer when you
-      visit a website.
+    essential_explanation: These essential cookies do things like remember your progress through a form (for example a licence application)
+    explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
     find_out: Find out more about cookies on GOV.UK
-    four_types: We use 4 types of cookie. You can choose which cookies you're happy
-      for us to use.
+    four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
+    google:
     google_info: Google Analytics sets cookies that store anonymised information about
-    how_we_use: We use cookies to store information about how you use the GOV.UK website,
-      such as the pages you visit.
+    how_we_use: We use cookies to store information about how you use the GOV.UK website, such as the pages you visit.
     how_you_got: how you got to the site
-    javascript: 'We use Javascript to set most of our cookies. Unfortunately Javascript
-      is not running on your browser, so you cannot change your settings. You can
-      try:'
+    javascript: 'We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:'
     javascript_list:
     - reloading the page
     - turning on Javascript in your browser
-    lux_info: LUX software stores anonymised information about how well pages performed
-      on your device (including JavaScript errors).
+    lux_info: LUX software stores anonymised information about how well pages performed on your device (including JavaScript errors).
     off-campaigns: Do not use cookies that help with communications and marketing
     off-settings: Do not use cookies that remember my settings on the site
     off-usage: Do not use cookies that measure my website use
     on-campaigns: Use cookies that help with communications and marketing
     on-settings: Use cookies that remember my settings on the site
     on-usage: Use cookies that measure my website use
-    pages_visited: the pages you visit on GOV.UK and government digital services,
-      and how long you spend on each page
+    pages_visited: the pages you visit on GOV.UK and government digital services, and how long you spend on each page
     save_changes: Save changes
-    third_parties: These cookies may be set by third party websites and do things
-      like measure how you view YouTube videos that are on GOV.UK.
+    third_parties: These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
     types:
       campaigns: Cookies that help with our communications and marketing
       essential: Strictly necessary cookies
       settings: Cookies that remember your settings
       usage: Cookies that measure website use
-    usage_info: We use Google Analytics and LUX Real User Monitoring software from SpeedCurve
-      to measure how you use the website and your web performance experience while visiting
-      so we can improve it based on user needs. We do not allow Google or SpeedCurve to use
-      or share the data about how you use this site.
+    usage_info: We use Google Analytics and LUX Real User Monitoring software from SpeedCurve to measure how you use the website and your web performance experience while visiting so we can improve it based on user needs. We do not allow Google or SpeedCurve to use or share the data about how you use this site.
   electoral:
     registration:
-      description: Need help? Get in touch with your local electoral registration
-        team. They can tell you if you’re on the electoral register, or if you’ve
-        registered for a postal or proxy vote.
+      description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
       title: Get help with electoral registration
     service:
-      description: For questions about your poll card, polling place, or about returning
-        your postal voting ballot, contact your council."
+      description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
       title: Your local council
   find: Find
   formats:
@@ -150,8 +120,7 @@ en:
       - education
       - social care
       - transport
-      county_district_council: Your postcode is in a county council and a district
-        council.
+      county_district_council: Your postcode is in a county council and a district council.
       district_council_services: District councils are responsible for services like
       enter_postcode: Enter a postcode
       find_council: Find your local council
@@ -170,8 +139,7 @@ en:
       postcode_lookup: Postcode lookup
       rubbish_recycling_collection: rubbish and recycling collection
       select_address: Select an address
-      unknown_service: We do not know if they offer this service. Search their website
-        to find out if they do, or what other services they offer.
+      unknown_service: We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.
       valid_postcode_no_match: We couldn't find this postcode.
       valid_postcode_no_match_sub_html: Check it and enter it again.
       valid_uprn_no_match: We couldn't find this address.
@@ -198,31 +166,24 @@ en:
       mot_reminder: Get a text or email reminder when your MOT is due.
       neither: Neither satisfied or dissatisfied
       next_car_electric: Make your next car electric
-      no_pii_hint: Do not include any personal or financial information, for example
-        your National Insurance or credit card numbers.
+      no_pii_hint: Do not include any personal or financial information, for example your National Insurance or credit card numbers.
       'on': 'on'
       online_satisfaction_check: Overall, how satisfied are you with the online service?
-      organ_donation_in_your_country: find out how the laws affect the country you
-        live in and what your choices are
+      organ_donation_in_your_country: find out how the laws affect the country you live in and what your choices are
       organ_donation_laws: Organ donation laws have changed
-      organ_transplant_question: If you needed an organ transplant would you have
-        one? If so please help others.
+      organ_transplant_question: If you needed an organ transplant would you have one? If so please help others.
       other: Other (please specify)
       other_person: Tell us who the other person was
       other_ways_to_apply: Other ways to apply
-      pii_warning: When filling in this survey please don't include any personal or
-        financial information, for example your National Insurance or credit card
-        numbers.
+      pii_warning: When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.
       register_decision: Register your organ donation decision
       register_to_donate: Register to donate
       satisfaction_check: How satisfied are you with the assistance received?
       satisfaction_survey: Satisfaction survey
       satisfied: Satisfied
       send_feedback: Send feedback
-      service_improvement_question: Do you have any ideas for how this service could
-        be improved?
-      service_satisfaction_check: Overall, how did you feel about the service you
-        received today?
+      service_improvement_question: Do you have any ideas for how this service could be improved?
+      service_satisfaction_check: Overall, how did you feel about the service you received today?
       sign_in: Sign in
       tell_your_family: Tell your family about your organ donation decision.
       very_dissatisfied: Very dissatisfied
@@ -234,27 +195,22 @@ en:
   help:
     index:
       about: About GOV.UK
-      about_description: Information about the website and the team that are building
-        it
+      about_description: Information about the website and the team that are building it
       accessibility: Accessibility
       accessibility_description: Details of accessibility and help using the internet
       beta: Beta services on GOV.UK
-      beta_description: How new services are developed on GOV.UK and what it means
-        for users
+      beta_description: How new services are developed on GOV.UK and what it means for users
       browsers: Browsers
       browsers_description: Information about browsers and how to upgrade yours
       cookies: Cookies
       cookies_description: How cookies are used on GOV.UK and each cookie’s purpose
       email: GOV.UK email notifications
-      email_description: How to create a GOV.UK email notification account and update
-        your subscription preferences
-      find_out: Find out about GOV.UK, including the use of cookies, accessibility
-        of the site, the privacy notice and terms and conditions of use.
+      email_description: How to create a GOV.UK email notification account and update your subscription preferences
+      find_out: Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy notice and terms and conditions of use.
       privacy_notice: Privacy notice
       privacy_notice_description: GOV.UK’s approach to users’ privacy
       reuse_content: Reuse GOV.UK content
-      reuse_content_description: How to reuse GOV.UK content through APIs and site
-        scraping
+      reuse_content_description: How to reuse GOV.UK content through APIs and site scraping
       terms: Terms and conditions
       terms_description: Information about the use of GOV.UK and liability
       vulnerability: Report a vulnerability on a GOV.UK domain or subdomain
@@ -264,22 +220,17 @@ en:
       abroad: Passports, travel and living abroad
       abroad_description: Includes renewing passports and travel advice by country
       benefits: Benefits
-      benefits_description: Includes eligibility, appeals, tax credits and Universal
-        Credit
+      benefits_description: Includes eligibility, appeals, tax credits and Universal Credit
       births_deaths_marriages: Births, deaths, marriages and care
-      births_deaths_marriages_description: Parenting, civil partnerships, divorce
-        and Lasting Power of Attorney
+      births_deaths_marriages_description: Parenting, civil partnerships, divorce and Lasting Power of Attorney
       business: Business and self-employed
       business_description: Tools and guidance for businesses
       childcare_parenting: Childcare and parenting
-      childcare_parenting_description: Includes giving birth, fostering, adopting,
-        benefits for children, childcare and schools
+      childcare_parenting_description: Includes giving birth, fostering, adopting, benefits for children, childcare and schools
       citizenship: Citizenship and living in the UK
-      citizenship_description: Voting, community participation, life in the UK, international
-        projects
+      citizenship_description: Voting, community participation, life in the UK, international projects
       disabilities: Disabled people
-      disabilities_description: Includes carers, your rights, benefits and the Equality
-        Act
+      disabilities_description: Includes carers, your rights, benefits and the Equality Act
       driving: Driving and transport
       driving_description: Includes vehicle tax, MOT and driving licences
       education: Education and learning
@@ -295,8 +246,7 @@ en:
       tax: Money and tax
       tax_description: Includes debt and Self Assessment
       visas_immigration: Visas and immigration
-      visas_immigration_description: Apply to visit, work, study, settle or seek asylum
-        in the UK
+      visas_immigration_description: Apply to visit, work, study, settle or seek asylum in the UK
       working: Working, jobs and pensions
       working_description: Includes holidays and finding a job
     index:
@@ -304,30 +254,26 @@ en:
       calculate_vehicle_tax: Vehicle tax rates
       consultations: consultations
       coronavirus: Coronavirus (COVID-19)
-      coronavirus_restrictions: Coronavirus restrictions remain in place across the
-        country.
+      coronavirus_restrictions: Coronavirus restrictions remain in place across the country.
       council_tax_bands: Council Tax bands
       covid: 'Coronavirus (COVID-19): rules'
       departments_and_policy_html: Departments and&nbsp;policy
       driving_test: Driving theory test
       find_job: Find a job
       get_tested: Get tested for COVID-19
-      get_tested_description: Get a test to check if you have coronavirus (COVID-19)
-        on NHS.UK. You do not need to have symptoms to get a test.
+      get_tested_description: Get a test to check if you have coronavirus (COVID-19) on NHS.UK. You do not need to have symptoms to get a test.
       intro: The best place to find government services and information
       intro_simpler: Simpler, clearer, faster
       job_search: Find a job
       jobseekers_allowance: Jobseeker's Allowance
-      merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link">government
-        departments</a> and many other agencies and public bodies have been merged
-        into GOV.UK.
-      ministerial_departments_count: 23
+      merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
       ministerial_departments: Ministerial departments
+      ministerial_departments_count: 23
       more: More on GOV.UK
       most_active: Most active
       news: news and communications
-      other_agencies_count: 400+
       other_agencies: Other agencies and public&nbsp;bodies
+      other_agencies_count: 400+
       passport_fees: Passport fees
       popular: Popular on GOV.UK
       running_limited_company: Running a limited company
@@ -339,33 +285,15 @@ en:
       travel_abroad: 'Travel abroad: step by step'
       travel_abroad_check: Check what you need to do to travel internationally.
       uk_bank_holidays: UK bank holidays
-      uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link">bank
-        holidays</a> in England, Wales, Scotland and Northern Ireland.
+      uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
   'no': 'No'
   place:
-    children_social_care: You can call the children's social care team at the council
-      in
+    children_social_care: You can call the children's social care team at the council in
     go_to_website: Go to their website
   roadmap:
-    page_title: Roadmap - GOV.UK
-    hero:
-      description: GOV.UK is the trusted source of government information, so we’re always working to better meet user needs. This is our current roadmap, which takes us through to late 2021.
-      heading: GOV.UK roadmap
-    updates_section:
-      heading: Programme updates
-      items:
-      - href: "https://gds.blog.gov.uk/2021/03/29/whats-next-for-gov-uk-in-2021-to-2022/"
-        image_src: "roadmap/updates-goals.jpg"
-        heading_text: "Our 5 objectives"
-      - href: "https://gdscareers.gov.uk/"
-        image_src: "roadmap/updates-work.jpg"
-        heading_text: "Work at GDS"
-      - href: "https://insidegovuk.blog.gov.uk/"
-        image_src: "roadmap/updates-blog.jpg"
-        heading_text: "Inside GOV.UK blog"
     actions_section:
       heading: What we’re working on
       items:
@@ -404,7 +332,7 @@ en:
           items:
           - text: Made continuous updates to the <a href="/coronavirus" class="govuk-link">coronavirus landing page</a> and tools to help users find guidance, services and government support for coronavirus
           - text: Updated Brexit guidance and tools to help users find and prepare for the new 2021 rules
-          - text: "Launched the <a href=\"/travel-abroad\" class=\"govuk-link\">travel abroad step by step</a>: helping users plan travel according to Brexit and coronavirus rules"
+          - text: 'Launched the <a href="/travel-abroad" class="govuk-link">travel abroad step by step</a>: helping users plan travel according to Brexit and coronavirus rules'
           - text: Built prototypes to simplify and join up the steps involved in starting a business
         - heading: Working on now
           items:
@@ -472,17 +400,32 @@ en:
           - text: Work with multiple third parties to test integrations of GOV.UK content and products where users are
           - text: Structure content into small sections so it can be re-used across GOV.UK and other channels
           - text: Develop our publishing applications so we’re able to create structured content that can be used on other channels
+    hero:
+      description: GOV.UK is the trusted source of government information, so we’re always working to better meet user needs. This is our current roadmap, which takes us through to late 2021.
+      heading: GOV.UK roadmap
     numbers_section:
-      footnote: 'We can only count visits to the GOV.UK website if users give us permission to.'
+      footnote: We can only count visits to the GOV.UK website if users give us permission to.
       heading_large: GOV.UK in numbers
       heading_small: From 1 January 2021 to 30 April 2021
+      last_updated: 'Last updated: May 2021'
       numbers_columns:
         column_one_count: 603
         column_one_text: million visits
-        # the special characters are in place to keep this text on one line
-        column_two_text: "billion\u00A0page\u00A0views"
         column_two_count: 1.5
-      last_updated: "Last updated: May 2021"
+        column_two_text: billion page views
+    page_title: Roadmap - GOV.UK
+    updates_section:
+      heading: Programme updates
+      items:
+      - href: https://gds.blog.gov.uk/2021/03/29/whats-next-for-gov-uk-in-2021-to-2022/
+        image_src: roadmap/updates-goals.jpg
+        heading_text: Our 5 objectives
+      - href: https://gdscareers.gov.uk/
+        image_src: roadmap/updates-work.jpg
+        heading_text: Work at GDS
+      - href: https://insidegovuk.blog.gov.uk/
+        image_src: roadmap/updates-blog.jpg
+        heading_text: Inside GOV.UK blog
   sign_up: Sign up
   website: Website
   'yes': 'Yes'

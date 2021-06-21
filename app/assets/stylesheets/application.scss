@@ -1,13 +1,8 @@
-$govuk-compatibility-govuktemplate: true;
+$govuk-compatibility-govuktemplate: false;
 $govuk-use-legacy-palette: false;
-
-// BASE Stylesheet
-
 $govuk-new-link-styles: true;
-
 // Components from govuk_publishing_components gem
 @import 'govuk_publishing_components/govuk_frontend_support';
-@import 'govuk_publishing_components/component_support';
 @import 'govuk_publishing_components/components/back-link';
 @import 'govuk_publishing_components/components/breadcrumbs';
 @import 'govuk_publishing_components/components/button';
@@ -17,6 +12,7 @@ $govuk-new-link-styles: true;
 @import 'govuk_publishing_components/components/error-alert';
 @import 'govuk_publishing_components/components/error-message';
 @import 'govuk_publishing_components/components/feedback';
+@import 'govuk_publishing_components/components/fieldset';
 @import 'govuk_publishing_components/components/govspeak';
 @import 'govuk_publishing_components/components/heading';
 @import 'govuk_publishing_components/components/hint';
@@ -43,7 +39,7 @@ $govuk-new-link-styles: true;
 @import 'govuk_publishing_components/components/title';
 @import 'govuk_publishing_components/components/warning-text';
 
-// components
+// local app components
 @import "components/calendar";
 @import "components/metadata";
 @import "components/subscribe";
@@ -52,7 +48,6 @@ $govuk-new-link-styles: true;
 @import "styleguide/conditionals";
 
 // Helper stylesheets (things on more than one page layout)
-@import "helpers/overwrites";
 @import "helpers/truncated-url";
 @import "helpers/title-context-reset";
 
@@ -64,7 +59,6 @@ $govuk-new-link-styles: true;
 @import "views/travel-advice";
 @import "views/report-child-abuse";
 @import "views/local-authority";
-@import "views/simple-smart-answer";
 
 // exceptional format overrides
 @import "views/location_form";

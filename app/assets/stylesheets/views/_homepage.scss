@@ -1,30 +1,3 @@
-// Remove search from the top bar as we have one in the content.
-
-// stylelint-disable selector-no-qualifying-type, selector-max-id
-body.homepage {
-  #global-header-bar {
-    display: none;
-  }
-
-  #wrapper,
-  #content {
-    margin: 0;
-    width: auto; // needed for IE overides
-    max-width: 100%;
-  }
-
-  .feedback-wrapper {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 govuk-spacing(3);
-
-    @include govuk-media-query($from: tablet) {
-      padding: 0 govuk-spacing(6);
-    }
-  }
-}
-// stylelint-enable selector-no-qualifying-type, selector-max-id
-
 .home-top {
   overflow: hidden;
   background: $govuk-brand-colour;
@@ -42,7 +15,7 @@ body.homepage {
 
 .home-top__intro--simpler {
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: govuk-spacing(4);
 }
 
 .home-top__links {
@@ -157,7 +130,7 @@ body.homepage {
 
 .home-numbers__large {
   // Manually setting font-size rather than using the mixins size
-  // because the layout doesnt really work otherwise
+  // because the layout doesn't really work otherwise
   font-size: 53px;
   line-height: (55 / 53);
   font-weight: bold;
@@ -174,6 +147,10 @@ body.homepage {
   margin: govuk-spacing(2) 0 govuk-spacing(4);
 }
 
+.home-promo__heading {
+  margin: 0;
+}
+
 .home-promo__link {
   @include govuk-font(24, $weight: bold);
   @include govuk-responsive-margin(2, "bottom");
@@ -185,10 +162,6 @@ body.homepage {
   height: auto;
   margin-bottom: govuk-spacing(4);
   max-width: 100%;
-}
-
-.home-promo__title {
-  @include govuk-font(24, $weight: bold);
 }
 
 .home-promo__text {
@@ -211,6 +184,10 @@ body.homepage {
 }
 
 .home-more-promo {
+  margin: 0;
+}
+
+.home-more-promo__link {
   display: block;
   padding: 2.5em .75em;
   margin-bottom: govuk-spacing(3);

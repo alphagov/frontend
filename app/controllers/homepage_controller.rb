@@ -3,12 +3,10 @@ class HomepageController < ApplicationController
 
   def index
     set_slimmer_headers(
-      template: "core_layout",
+      template: "gem_layout_full_width",
       remove_search: true,
     )
 
     fetch_and_setup_content_item("/")
-
-    render locals: { full_width: true }
   end
 end

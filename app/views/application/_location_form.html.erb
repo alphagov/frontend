@@ -1,7 +1,7 @@
 <div class="postcode-search-form"
-      data-module="track-submit"
-      data-track-category="postcodeSearch:<%= publication_format %>"
-      data-track-action="postcodeSearchStarted">
+  data-module="track-submit"
+  data-track-category="postcodeSearch:<%= publication_format %>"
+  data-track-action="postcodeSearchStarted">
 
   <% if @location_error %>
     <%
@@ -22,9 +22,9 @@
     } %>
   <% end %>
 
-  <form method="post" id="local-locator-form" class="location-form">
-    <fieldset>
-      <legend class="visuallyhidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
+  <form method="post" id="local-locator-form" class="location-form govuk-!-margin-bottom-9">
+    <fieldset class="govuk-fieldset">
+      <legend class=" govuk-fieldset__legend govuk-visually-hidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
 
       <%= render partial: 'draft_fields' %>
 
@@ -40,14 +40,18 @@
         autocomplete: "postal-code",
       } %>
 
-      <%= render "govuk_publishing_components/components/button", text: "Find", margin_bottom: true %>
+      <%= render "govuk_publishing_components/components/button", 
+        text: "Find", 
+        margin_bottom: true 
+      %>
 
       <%= tag.p link_to(t('formats.local_transaction.find_postcode_royal_mail'),
-                    "https://www.royalmail.com/find-a-postcode",
-                    id: 'postcode-finder-link',
-                    class: "govuk-link",
-                    rel: "external"),
-                class: "govuk-body" %>
+        "https://www.royalmail.com/find-a-postcode",
+        id: 'postcode-finder-link',
+        class: "govuk-link",
+        rel: "external"),
+        class: "govuk-body" 
+      %>
     </fieldset>
   </form>
 </div>

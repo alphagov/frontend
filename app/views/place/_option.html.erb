@@ -7,15 +7,15 @@
 
             <p class="adr govuk-body">
               <% if place["name"].present? %>
-              <span class="fn"><%= place["name"] %></span><span class="visuallyhidden">,</span>
+              <span class="fn"><%= place["name"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
               <% if place["address"].present? %>
-                <br /><span class="street-address"><%= place["address"] %></span><span class="visuallyhidden">,</span>
+                <br /><span class="street-address"><%= place["address"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
               <% if place["town"].present? %>
-                <br /><span class="locality"><%= place["town"] %></span><span class="visuallyhidden">,</span>
+                <br /><span class="locality"><%= place["town"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
               <% if place["postcode"].present? %>

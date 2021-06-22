@@ -1,6 +1,7 @@
 <% content_for :extra_headers do %>
   <%= javascript_include_tag "views/travel-advice.js", integrity: false %>
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
+  <%= explore_menu_variant.analytics_meta_tag.html_safe if explore_menu_testable? %>
 <% end %>
 
 <main id="content" role="main" class="group full-width">

@@ -13,6 +13,7 @@
 src_files:
   - spec/javascripts/vendor/jquery-1.12.4.js
   - assets/all.js
+  - assets/test-dependencies.js
 
 # stylesheets
 #

@@ -28,6 +28,10 @@ updates:
         dependency-type: direct
       - dependency-name: sassc-rails
         dependency-type: direct
+      - dependency-name: pact
+        dependency-type: direct
+      - dependency-name: pact_broker-client
+        dependency-type: direct
 
   - package-ecosystem: npm
     directory: /

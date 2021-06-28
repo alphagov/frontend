@@ -51,6 +51,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         lgil_override: 8,
         service_tiers: %w[county unitary],
         introduction: "Information about paying local tax on owning or looking after a bear.",
+        scotland_availability: { "type" => "devolved_administration_service", "alternative_url" => "https://scot.gov/service" },
+        wales_availability: { "type" => "unavailable" },
       },
       external_related_links: [],
     }
@@ -115,7 +117,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "show a get started button which links to the interaction" do
         assert_has_button_as_link(
-          "Go to Westminster website",
+          I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"),
           href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
           rel: "external",
         )
@@ -149,8 +151,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "We couldn't find this postcode."
-        assert page.has_content? "Check it and enter it again."
+        assert page.has_content? I18n.t("formats.local_transaction.valid_postcode_no_match")
+        assert page.has_content? I18n.t("formats.local_transaction.valid_postcode_no_match_sub_html")
       end
 
       should "populate google analytics tags" do
@@ -158,7 +160,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: fullPostcodeNoMapitMatch", track_action
-        assert_equal "We couldn't find this postcode.", track_label
+
+        assert_equal I18n.t("formats.local_transaction.valid_postcode_no_match"), track_label
       end
     end
 
@@ -176,7 +179,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "This isn't a valid postcode"
+        assert page.has_content? I18n.t("formats.local_transaction.invalid_postcode")
       end
 
       should "see the transaction information" do
@@ -192,7 +195,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-        assert_equal "This isn't a valid postcode.", track_label
+        assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
       end
     end
 
@@ -208,7 +211,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "This isn't a valid postcode"
+        assert page.has_content? I18n.t("formats.local_transaction.invalid_postcode")
       end
 
       should "see the transaction information" do
@@ -224,7 +227,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-        assert_equal "This isn't a valid postcode.", track_label
+        assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
       end
     end
 
@@ -240,7 +243,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "This isn't a valid postcode"
+        assert page.has_content? I18n.t("formats.local_transaction.invalid_postcode")
       end
 
       should "populate google analytics tags" do
@@ -248,7 +251,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-        assert_equal "This isn't a valid postcode.", track_label
+        assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
       end
     end
 
@@ -262,7 +265,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "see an error message" do
-        assert page.has_content? "We couldn't find a council for this postcode."
+        assert page.has_content? I18n.t("formats.local_transaction.no_local_authority")
       end
 
       should "re-populate the invalid input" do
@@ -274,7 +277,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
         assert_equal "postcodeErrorShown: noLaMatch", track_action
-        assert_equal "We couldn't find a council for this postcode.", track_label
+        assert_equal I18n.t("formats.local_transaction.no_local_authority"), track_label
       end
     end
   end
@@ -316,12 +319,12 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "show advisory message that no interaction is available" do
-        assert page.has_content?("We do not know if they offer this service.")
+        assert page.has_content?(I18n.t("formats.local_transaction.unknown_service"))
       end
 
       should "link to the council website" do
         assert_has_button_as_link(
-          "Go to Westminster website",
+          I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"),
           href: "http://westminster.example.com",
           rel: "external",
         )
@@ -361,11 +364,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
 
     should "not link to the authority" do
-      assert page.has_no_link?("Go to their website")
+      assert page.has_no_link?(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"))
     end
 
     should "show advisory message that we have no url" do
-      assert page.has_content?("We don't have a link for their website.")
+      assert page.has_content?(I18n.t("formats.local_transaction.no_website"))
       assert page.has_link?("local council search", href: "/find-local-council")
     end
 
@@ -400,94 +403,139 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     click_on "Find"
 
     assert_current_url "/pay-bear-tax"
-    assert_selector(".gem-c-error-alert", text: "We couldn't find a council for this postcode")
+
+    assert_selector(".gem-c-error-alert", text: I18n.t("formats.local_transaction.no_local_authority"))
   end
 
-  context "when a service is unavailable for the user's postcode" do
-    context "with a custom button and link" do
-      setup do
-        stub_mapit_has_a_postcode_and_areas(
-          "EH8 8DX",
-          [0, 0],
-          [
-            {
-              "name" => "Holyroodhouse",
-              "type" => "LGD",
-              "govuk_slug" => "edinburgh",
-              "country_name" => "Scotland",
-            },
-          ],
-        )
+  context "when a service is unavailable for a devolved administration with an interaction present" do
+    setup do
+      stub_mapit_has_a_postcode_and_areas(
+        "WA8 8DX",
+        [0, 0],
+        [
+          {
+            "name" => "Cardiff",
+            "type" => "LGD",
+            "govuk_slug" => "cardiff",
+            "country_name" => "Wales",
+          },
+        ],
+      )
 
-        stub_local_links_manager_has_a_link(
-          authority_slug: "edinburgh",
-          lgsl: 461,
-          lgil: 8,
-          url: "http://www.edinburgh.gov.uk/bear-the-cost-of-grizzly-ownership",
-          country_name: "Scotland",
-          status: "ok",
-        )
+      stub_local_links_manager_has_a_link(
+        authority_slug: "cardiff",
+        lgsl: 461,
+        lgil: 8,
+        url: "https://www.cardiff.gov.uk/bear-the-cost-of-grizzly-ownership",
+        country_name: "Wales",
+        status: "ok",
+      )
 
-        visit "/pay-bear-tax"
-        fill_in "postcode", with: "EH8 8DX"
-        click_on "Find"
-      end
-
-      should "render the service unavailable in country page" do
-        assert page.has_content? "Custom title"
-      end
-
-      should "show a button that links to an appropriate alternate service provider" do
-        assert_has_button_as_link(
-          "Custom button text",
-          href: "https://gov.scot",
-          rel: "external",
-          start: true,
-        )
-      end
+      visit "/pay-bear-tax"
+      fill_in "postcode", with: "WA8 8DX"
+      click_on "Find"
     end
 
-    context "without a custom button and link" do
-      setup do
-        stub_mapit_has_a_postcode_and_areas(
-          "WA8 8DX",
-          [0, 0],
-          [
-            {
-              "name" => "Cardiff",
-              "type" => "LGD",
-              "govuk_slug" => "cardiff",
-              "country_name" => "Wales",
-            },
-          ],
-        )
+    should "render results page for an unavailable service" do
+      assert page.has_content? I18n.t("formats.local_transaction.service_not_available", country_name: "Wales")
+    end
 
-        stub_local_links_manager_has_a_link(
-          authority_slug: "cardiff",
-          lgsl: 461,
-          lgil: 8,
-          url: "https://www.cardiff.gov.uk/bear-the-cost-of-grizzly-ownership",
-          country_name: "Wales",
-          status: "ok",
-        )
+    should "render matching the postcode to local authority" do
+      assert page.body.include?(I18n.t("formats.local_transaction.matched_postcode_html", local_authority: "Cardiff"))
+    end
 
-        visit "/pay-bear-tax"
-        fill_in "postcode", with: "WA8 8DX"
-        click_on "Find"
-      end
+    should "show a button that links to the local authority website" do
+      assert_has_button_as_link(
+        I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Cardiff"),
+        href: "http://cardiff.example.com",
+        rel: "external",
+      )
+    end
+  end
 
-      should "render the service unavailable in country page" do
-        assert page.has_content? "Pay your bear tax"
-      end
+  context "when a service is unavailable for a devolved administration without an interaction or homepage present" do
+    setup do
+      stub_mapit_has_a_postcode_and_areas(
+        "WA8 8DX",
+        [0, 0],
+        [
+          {
+            "name" => "Cardiff",
+            "type" => "LGD",
+            "govuk_slug" => "cardiff",
+            "country_name" => "Wales",
+          },
+        ],
+      )
 
-      should "show a button that links to an appropriate alternate service provider" do
-        assert_has_button_as_link(
-          "Find other services",
-          href: "http://cardiff.example.com", # local authority link from stubbed local links
-          rel: "external",
-          start: true,
-        )
-      end
+      stub_local_links_manager_has_no_link_and_no_homepage_url(
+        authority_slug: "cardiff",
+        lgsl: 461,
+        lgil: 8,
+        country_name: "Wales",
+      )
+
+      visit "/pay-bear-tax"
+      fill_in "postcode", with: "WA8 8DX"
+      click_on "Find"
+    end
+
+    should "render results page for an unavailable service" do
+      assert page.has_content? I18n.t("formats.local_transaction.service_not_available", country_name: "Wales")
+    end
+
+    should "render matching the postcode to local authority" do
+      assert page.body.include?(I18n.t("formats.local_transaction.matched_postcode_html", local_authority: "Cardiff"))
+    end
+
+    should "not link to the authority" do
+      assert page.has_no_link?(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Cardiff"))
+    end
+
+    should "show advisory message that we have no url" do
+      assert page.body.include?(I18n.t("formats.local_transaction.no_local_authority_url_html"))
+    end
+  end
+
+  context "when a service is handled differently for a devolved administration" do
+    setup do
+      stub_mapit_has_a_postcode_and_areas(
+        "EH8 8DX",
+        [0, 0],
+        [
+          {
+            "name" => "Holyroodhouse",
+            "type" => "LGD",
+            "govuk_slug" => "edinburgh",
+            "country_name" => "Scotland",
+          },
+        ],
+      )
+
+      stub_local_links_manager_has_a_link(
+        authority_slug: "edinburgh",
+        lgsl: 461,
+        lgil: 8,
+        url: "http://www.edinburgh.gov.uk/bear-the-cost-of-grizzly-ownership",
+        country_name: "Scotland",
+        status: "ok",
+      )
+
+      visit "/pay-bear-tax"
+      fill_in "postcode", with: "EH8 8DX"
+      click_on "Find"
+    end
+
+    should "render results page for a devolved administration service" do
+      assert page.has_content? I18n.t("formats.local_transaction.info_on_country_website", country_name: "Scotland")
+    end
+
+    should "show a button that links to an alternate service provider" do
+      assert_has_button_as_link(
+        I18n.t("formats.local_transaction.find_info_for", country_name: @country_name),
+        href: "https://scot.gov/service",
+        rel: "external",
+      )
     end
   end
 end

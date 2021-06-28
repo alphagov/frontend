@@ -106,7 +106,9 @@ en:
       description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
       title: Get help with electoral registration
     service:
-      description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
+      matched_postcode_html: We've matched the postcode <strong>%{postcode}</strong> to <strong>%{electoral_service_name}</strong>.
+      description: For questions about your poll card, polling place, or about returning
+        your postal voting ballot, contact your council."
       title: Your local council
   find: Find
   formats:
@@ -132,9 +134,15 @@ en:
       invalid_postcode_sub: Check it and enter it again.
       invalid_uprn: This isn't a valid address.
       invalid_uprn_sub: Enter the postcode again.
-      matched_postcode: We've matched the postcode
+      matched_postcode_html: We've matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
+      no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
+      local_authority_website: Go to %{local_authority_name} website
       no_website: We don't have a link for their website.
+      info_on_country_website: Get information on this service, or a similar service, on the %{country_name} Government website.
+      find_other_services: Find other services on your council website.
+      find_info_for: Find information for %{country_name}
+      service_not_available: This service is not available in %{country_name}
       postcode_hint: For example SW1A 2AA
       postcode_lookup: Postcode lookup
       rubbish_recycling_collection: rubbish and recycling collection

@@ -48,6 +48,9 @@ class LocalTransactionControllerTest < ActionController::TestCase
           lgil_code: 8,
           service_tiers: %w[district unitary],
           introduction: "Infos about sending bears.",
+          scotland_availability: { "type" => "devolved_administration_service", "alternative_url" => "https://www.scotland.gov/service" },
+          wales_availability: { "type" => "unavailable" },
+
         },
         external_related_links: [],
       }
@@ -114,7 +117,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
         end
 
-        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+        should "redirect to the local authority slug" do
           assert_redirected_to "/send-a-bear-to-your-local-council/staffordshire-moorlands"
         end
       end
@@ -132,7 +135,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
         end
 
-        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+        should "redirect to the local authority slug" do
           assert_redirected_to "/send-a-bear-to-your-local-council/belfast"
         end
       end
@@ -152,7 +155,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           post :search, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
         end
 
-        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+        should "redirect to the local authority slug" do
           assert_redirected_to "/get-on-electoral-register/staffordshire-moorlands"
         end
       end
@@ -170,7 +173,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           post :search, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
         end
 
-        should "sanitize postcodes and redirect to the slug for the appropriate authority tier" do
+        should "redirect to the local authority slug" do
           assert_redirected_to "/get-on-electoral-register/electoral-office-for-northern-ireland"
         end
       end

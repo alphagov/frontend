@@ -268,8 +268,6 @@ en:
       departments_and_policy_html: Departments and&nbsp;policy
       driving_test: Driving theory test
       find_job: Find a job
-      get_tested: Get tested for COVID-19
-      get_tested_description: Get a test to check if you have coronavirus (COVID-19) on NHS.UK. You do not need to have symptoms to get a test.
       intro: The best place to find government services and information
       intro_simpler: Simpler, clearer, faster
       job_search: Find a job
@@ -284,6 +282,8 @@ en:
       other_agencies_count: 400+
       passport_fees: Passport fees
       popular: Popular on GOV.UK
+      pride_month: Celebrating Pride Month
+      pride_month_description: Prime Minister hosts reception for Pride Month 2021
       running_limited_company: Running a limited company
       see_all: Here you can see all
       services_and_information: Services and information

@@ -1,7 +1,18 @@
 require_relative "boot"
 
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+# require "active_record/railtie"
+# require "active_storage/engine"
 require "action_controller/railtie"
 require "active_support/time"
+# require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+require "action_view/railtie"
+# require "action_cable/engine"
 require "rails/test_unit/railtie"
 require "sprockets/railtie"
 
@@ -11,8 +22,9 @@ Bundler.require(*Rails.groups)
 
 module Frontend
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
     require "frontend"
-    config.load_defaults 6.0
+    config.load_defaults 6.1
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

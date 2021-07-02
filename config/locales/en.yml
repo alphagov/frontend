@@ -282,8 +282,6 @@ en:
       other_agencies_count: 400+
       passport_fees: Passport fees
       popular: Popular on GOV.UK
-      pride_month: Celebrating Pride Month
-      pride_month_description: Prime Minister hosts reception for Pride Month 2021
       running_limited_company: Running a limited company
       see_all: Here you can see all
       services_and_information: Services and information
@@ -295,6 +293,8 @@ en:
       uk_bank_holidays: UK bank holidays
       uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
+      vaccination: COVID-19 vaccinations
+      vaccination_description: Get information about vaccinations on NHS.UK
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
   'no': 'No'

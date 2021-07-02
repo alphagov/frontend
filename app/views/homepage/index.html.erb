@@ -93,25 +93,6 @@
     <section>
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
-          <a href="https://www.gov.uk/government/news/celebrating-pride-month-june-2021" aria-hidden="true" tabindex="-1">
-            <%= image_tag "homepage/pride-promo.png", {
-              alt: "",
-              class: "home-promo__image",
-              height: 407,
-              loading: "lazy",
-              width: 610,
-            } %>
-          </a>
-          <h3 class="home-promo__heading">
-            <a href="https://www.gov.uk/government/news/celebrating-pride-month-june-2021" class="govuk-link home-promo__link">
-              <%= t('homepage.index.pride_month') %>
-            </a>
-          </h3>
-          <p class="home-promo__text">
-            <%= t('homepage.index.pride_month_description') %>
-          </p>
-        </div>
-        <div class="govuk-grid-column-one-third">
           <a href="/coronavirus" aria-hidden="true" tabindex="-1">
             <%= image_tag "homepage/covid-19-promo.png", {
               alt: "",
@@ -128,6 +109,26 @@
           </h3>
           <p class="home-promo__text">
             <%= t('homepage.index.coronavirus_restrictions') %>
+          </p>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/" aria-hidden="true" tabindex="-1">
+            <%= image_tag "homepage/covid-19-vaccine-promo.png", {
+              alt: "",
+              class: "home-promo__image",
+              height: 407,
+              loading: "lazy",
+              width: 610,
+            } %>
+          </a>
+          <h3 class="home-promo__heading">
+            <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/" class="govuk-link home-promo__link">
+              <%= t('homepage.index.vaccination') %>
+            </a>
+          </h3>
+          <p class="home-promo__text">
+            <%= t('homepage.index.vaccination_description') %>
           </p>
         </div>
 

@@ -276,8 +276,6 @@ cy:
       other_agencies_count:
       passport_fees:
       popular:
-      pride_month:
-      pride_month_description:
       running_limited_company:
       see_all:
       services_and_information:
@@ -289,6 +287,8 @@ cy:
       uk_bank_holidays:
       uk_bank_holidays_dates_html:
       universal_credit:
+      vaccination:
+      vaccination_description:
       vat_rates:
       vehicle_tax:
   'no':

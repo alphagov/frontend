@@ -1,3 +1,13 @@
+PATH
+  remote: ../gds-api-adapters
+  specs:
+    gds-api-adapters (71.2.0)
+      addressable
+      link_header
+      null_logger
+      plek (>= 1.9.0)
+      rest-client (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -117,12 +127,6 @@ GEM
     ffi (1.15.1)
     filelock (1.1.1)
     find_a_port (1.0.1)
-    gds-api-adapters (71.6.0)
-      addressable
-      link_header
-      null_logger
-      plek (>= 1.9.0)
-      rest-client (~> 2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     govuk-content-schema-test-helpers (1.6.1)
@@ -185,6 +189,7 @@ GEM
     json (2.5.1)
     json-schema (2.8.1)
       addressable (>= 2.4)
+    jwt (2.2.3)
     kgio (2.11.4)
     kramdown (2.3.1)
       rexml
@@ -209,6 +214,7 @@ GEM
     mini_portile2 (2.5.3)
     minitest (5.14.4)
     mocha (1.12.0)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
@@ -217,6 +223,12 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     null_logger (0.0.1)
+    oauth2 (1.4.7)
+      faraday (>= 0.8, < 2.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
     pact (1.57.0)
       pact-mock_service (~> 3.0, >= 3.3.1)
       pact-support (~> 1.15)
@@ -446,7 +458,7 @@ DEPENDENCIES
   climate_control
   dalli
   dotenv-rails
-  gds-api-adapters
+  gds-api-adapters!
   govuk-content-schema-test-helpers
   govuk_ab_testing
   govuk_app_config
@@ -462,6 +474,7 @@ DEPENDENCIES
   jasmine_selenium_runner
   listen
   mocha
+  oauth2
   pact
   pact_broker-client
   plek

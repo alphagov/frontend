@@ -4,16 +4,10 @@ class SessionsController < ApplicationController
   before_action :set_no_cache_headers
 
   def create
-    level_of_authentication = params[:level_of_authentication]
-    level_of_authentication = nil unless is_valid_level_of_authentication? level_of_authentication
-
-    redirect_path = params[:redirect_path] || fetch_http_referrer
+    redirect_path = http_referer_path
     redirect_path = nil unless is_valid_redirect_path? redirect_path
 
-    redirect_with_ga GdsApi.account_api.get_sign_in_url(
-      redirect_path: redirect_path,
-      level_of_authentication: level_of_authentication,
-    ).to_h["auth_uri"]
+    redirect_with_ga GdsApi.account_api.get_sign_in_url(redirect_path: redirect_path)["auth_uri"]
   end
 
   def callback
@@ -48,16 +42,15 @@ protected
     Plek.find("account-manager")
   end
 
-  def fetch_http_referrer
-    http_referrer = request.headers["HTTP_REFERER"]
+  def http_referer_path
+    @http_referer_path ||=
+      begin
+        http_referer = request.headers["HTTP_REFERER"]
 
-    return nil unless http_referrer&.start_with?(Plek.new.website_root)
-
-    http_referrer.delete_prefix Plek.new.website_root
-  end
-
-  def is_valid_level_of_authentication?(value)
-    %w[level0 level1].include? value
+        if http_referer&.start_with?(Plek.new.website_root)
+          http_referer.delete_prefix Plek.new.website_root
+        end
+      end
   end
 
   def is_valid_redirect_path?(value)

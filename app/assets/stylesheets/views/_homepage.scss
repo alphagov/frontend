@@ -51,7 +51,7 @@
   color: govuk-colour("white");
 
   &:active,
-  &:hover {
+  &:not(:focus):hover {
     color: $govuk-hover-colour;
   }
 }

@@ -33,7 +33,8 @@
                 <% end %>
 
                 <% if @requested_variant.variant?("B") %>
-                  <%= render "save_location", nation: t(division.title, locale: :en) %>
+                  <% nations = t(division.title, locale: :en).split(" and ") %>
+                  <%= render "save_location", nation: t(division.title, locale: :en), nation_matches: nations %>
                 <% end %>
 
                 <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
@@ -97,14 +98,8 @@
         </section>
       </div>
         <% content_for :related_container_class do %><% if @calendar.show_bunting? -%>app-o-related-container--bunted<% end %><% end %>
-        <%= render :partial => "calendar_footer" %>  
+        <%= render :partial => "calendar_footer" %>
     </div>
 
   </main>
 </div>
-
-
-
-
-
-

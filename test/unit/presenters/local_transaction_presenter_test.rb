@@ -28,7 +28,7 @@ class LocalTransactionPresenterTest < ActiveSupport::TestCase
     devolved_administration = { "details" => { "wales_availability" => { "type" => "unavailable" } } }
 
     assert_equal "unavailable", subject(devolved_administration).wales_availability["type"]
-    assert_equal nil, subject(devolved_administration).wales_availability["alternative_url"]
+    assert_nil subject(devolved_administration).wales_availability["alternative_url"]
   end
 
   test "#northern_ireland_availability" do
@@ -79,11 +79,11 @@ class LocalTransactionPresenterTest < ActiveSupport::TestCase
 
   test "#devolved_administration_service_alternative_url does not return an alternative_url for an unavailable service" do
     devolved_administration = { "details" => { "wales_availability" => { "type" => "unavailable" } } }
-    assert_equal nil, subject(devolved_administration).devolved_administration_service_alternative_url("Wales")
+    assert_nil subject(devolved_administration).devolved_administration_service_alternative_url("Wales")
   end
 
   test "#devolved_administration_service_alternative_url does not return an alternative_url for a non devolved administration" do
     devolved_administration = { "details" => {} }
-    assert_equal nil, subject(devolved_administration).devolved_administration_service_alternative_url("England")
+    assert_nil subject(devolved_administration).devolved_administration_service_alternative_url("England")
   end
 end

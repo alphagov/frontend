@@ -41,52 +41,113 @@ class SessionsControllerTest < ActionController::TestCase
       assert_equal @response.redirect_url, @root_path
     end
 
-    should "set the 'GOVUK-Account-Session' header" do
-      stub_account_api_validates_auth_response(govuk_account_session: "placeholder")
-      get :callback, params: { code: "code123", state: "state123" }
-
-      assert_equal @response.headers["GOVUK-Account-Session"], "placeholder"
-    end
-
-    should "redirect to the redirect path if a redirect path is in the account-api response" do
-      stub_account_api_validates_auth_response(redirect_path: "/bank-holiday")
-      get :callback, params: { code: "code123", state: "state123" }
-
-      assert_response :redirect
-      assert_includes @response.redirect_url, "/bank-holiday"
-    end
-
-    should "redirect to the account manager url if no redirect path is in the account-api response" do
-      stub_account_api_validates_auth_response(redirect_path: nil, ga_client_id: nil)
-      get :callback, params: { code: "code123", state: "state123" }
-
-      assert_response :redirect
-      assert_equal @response.redirect_url, Plek.find("account-manager")
-    end
-
-    should "redirect with the specified :ga_client_id of the api response if present" do
-      ga_client_id = "ga_client_id"
-      stub_account_api_validates_auth_response(ga_client_id: ga_client_id)
-      get :callback, params: { code: "code123", state: "state123" }
-
-      assert_response :redirect
-      assert_includes @response.redirect_url, ga_client_id
-    end
-
-    should "redirect with the specified :_ga param if :ga_client_id of the api response is not present" do
-      underscore_ga = "underscore_ga"
-      stub_account_api_validates_auth_response(ga_client_id: nil)
-      get :callback, params: { code: "code123", state: "state123", _ga: underscore_ga }
-
-      assert_response :redirect
-      assert_includes @response.redirect_url, underscore_ga
-    end
-
     should "respond with :bad_request if :code or :state are invalid" do
       stub_account_api_rejects_auth_response
       get :callback, params: { code: "code123", state: "state123" }
 
       assert_response :bad_request
+    end
+
+    context "the :code and :state are valid" do
+      setup do
+        @govuk_account_session = "new-session-id"
+        @redirect_path = nil
+        @ga_client_id = nil
+        @cookie_consent = true
+      end
+
+      context "with no extra parameters" do
+        setup { stub_account_api }
+
+        should "set the 'GOVUK-Account-Session' header" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_equal @response.headers["GOVUK-Account-Session"], @govuk_account_session
+        end
+
+        should "redirect to the account manager url" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_response :redirect
+          assert_equal @response.redirect_url, Plek.find("account-manager")
+        end
+
+        should "redirect with the specified :_ga param" do
+          underscore_ga = "underscore_ga"
+          get :callback, params: { code: "code123", state: "state123", _ga: underscore_ga }
+
+          assert_response :redirect
+          assert_includes @response.redirect_url, underscore_ga
+        end
+
+        should "not set the cookies_policy cookie" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_nil cookies[:cookies_policy]
+        end
+
+        context "the cookies_policy cookie is set" do
+          setup do
+            @request.cookies[:cookies_policy] = { usage: "maybe" }.to_json
+          end
+
+          should "update the cookies_policy cookie" do
+            get :callback, params: { code: "code123", state: "state123" }
+
+            assert_equal "{\"usage\":true}", cookies[:cookies_policy]
+          end
+        end
+
+        context "the cookies_policy cookie is set to invalid JSON" do
+          setup do
+            @original_cookies_policy = "not json"
+            @request.cookies[:cookies_policy] = @original_cookies_policy
+          end
+
+          should "not change the cookies_policy cookie" do
+            get :callback, params: { code: "code123", state: "state123" }
+
+            assert_equal @original_cookies_policy, cookies[:cookies_policy]
+          end
+        end
+      end
+
+      context "account-api returns a :redirect_path" do
+        setup do
+          @redirect_path = "/bank-holiday"
+          stub_account_api
+        end
+
+        should "redirect to the redirect path" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_response :redirect
+          assert_includes @response.redirect_url, @redirect_path
+        end
+      end
+
+      context "account-api returns a :ga_client_id" do
+        setup do
+          @ga_client_id = "analytics-client-identifier"
+          stub_account_api
+        end
+
+        should "redirect with the specified :ga_client_id of the api response if present" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_response :redirect
+          assert_includes @response.redirect_url, @ga_client_id
+        end
+
+        should "uses the :ga_client_if over the :_ga" do
+          underscore_ga = "underscore_ga"
+          get :callback, params: { code: "code123", state: "state123", _ga: underscore_ga }
+
+          assert_response :redirect
+          assert_not_includes @response.redirect_url, underscore_ga
+          assert_includes @response.redirect_url, @ga_client_id
+        end
+      end
     end
   end
 
@@ -101,5 +162,14 @@ class SessionsControllerTest < ActionController::TestCase
         assert @response.headers["GOVUK-Account-End-Session"].present?
       end
     end
+  end
+
+  def stub_account_api
+    stub_account_api_validates_auth_response(
+      govuk_account_session: @govuk_account_session,
+      redirect_path: @redirect_path,
+      ga_client_id: @ga_client_id,
+      cookie_consent: @cookie_consent,
+    )
   end
 end

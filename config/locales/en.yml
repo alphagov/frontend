@@ -6,6 +6,45 @@ en:
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
+  account:
+    confirm:
+      intro:
+        set_up: "<strong>Confirm your email address</strong> to finish setting up your account and email alerts."
+        update: "<strong>Confirm your email address</strong> to finish updating your account and email alerts."
+      link_text: Resend confirmation email
+    feedback:
+      banners:
+        footer_intro: We’re trialling GOV.UK accounts.
+        footer_link: Give feedback
+        footer_outro: on your experience so we can make them better.
+        phase_intro: We’re trialling GOV.UK accounts - your
+        phase_link: feedback
+        phase_outro: will help us improve them.
+        title: Help improve GOV.UK accounts
+    navigation:
+      destroy_user_session: Sign out
+      menu_bar:
+        account:
+          link_text: Your account
+        manage:
+          link_text: Manage your account
+        security:
+          link_text: Security and privacy
+      user_root_path: Account
+    your_account:
+      account_not_used:
+        action: "%{link} to start getting the most out of your account."
+        description: GOV.UK accounts are designed to make it easier for you to use online government services. At the moment you can only use your account with the Brexit checker.
+        heading: You have not used your account to access any services yet
+        link_text: Answer the questions in the Brexit checker
+      heading: Your GOV.UK account
+      transition:
+        description: A personalised list of Brexit actions for you, your family and your business.
+        heading: 'Brexit checker results: what you need to do'
+        link1: See your <span class="govuk-visually-hidden">Brexit checker</span> results
+        link1_description: Go back to the Brexit checker results you’ve saved.
+        link2: Update your results and email alerts
+        link2_description: Answer the Brexit checker questions again to update your results.
   and: and
   b: B
   bank-holidays: bank-holidays

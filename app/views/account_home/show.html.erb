@@ -1,0 +1,68 @@
+<% content_for :title, t("account.your_account.heading") %>
+<% content_for :location, "your-account" %>
+<% content_for :account_navigation do %>
+  <%= render "account-navigation", page_is: yield(:location) %>
+<% end %>
+<% content_for :body_classes, "account" %>
+
+<div class="govuk-grid-row govuk-main-wrapper">
+  <div class="govuk-grid-column-one-third">
+    <%= render "account-navigation", page_is: yield(:location) %>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <main id="content" role="main">
+      <%= render "user-reminders" %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: yield(:title),
+        heading_level: 1,
+        font_size: "l",
+        margin_bottom: 4,
+      } %>
+      <% if @user["email"] %>
+        <p class="govuk-body accounts-your-account__email">
+          <%= @user["email"] %>
+        </p>
+      <% end %>
+      <% if has_used? "transition_checker" %>
+        <div class="accounts-panel">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t("account.your_account.transition.heading"),
+            heading_level: 2,
+            font_size: "m",
+            margin_bottom: 4,
+          } %>
+
+          <p class="govuk-body"><%= t("account.your_account.transition.description") %></p>
+
+          <p class="govuk-body govuk-!-margin-0">
+            <a href="<%= transition_checker_path %>/saved-results" class="govuk-link" data-module="gem-track-click" data-track-category="account-manage" data-track-action="your-account" data-track-label="see-results">
+              <%= sanitize(t("account.your_account.transition.link1")) %>
+            </a>
+          </p>
+          <p class="govuk-body"><%= t("account.your_account.transition.link1_description") %></p>
+
+          <p class="govuk-body govuk-!-margin-0">
+            <a href="<%= transition_checker_path %>/edit-saved-results" class="govuk-link" data-module="gem-track-click" data-track-category="account-manage" data-track-action="your-account" data-track-label="update-results">
+              <%= t("account.your_account.transition.link2") %>
+            </a>
+          </p>
+          <p class="govuk-body"><%= t("account.your_account.transition.link2_description") %></p>
+        </div>
+      <% else %>
+        <div class="accounts-panel">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t("account.your_account.account_not_used.heading"),
+            heading_level: 2,
+            font_size: "m",
+            margin_bottom: 4,
+          } %>
+
+          <p class="govuk-body"><%= t("account.your_account.account_not_used.description") %></p>
+
+          <p class="govuk-body"><%= sanitize(t("account.your_account.account_not_used.action", link: link_to(t("account.your_account.account_not_used.link_text"), "#{transition_checker_path.to_s}/edit-saved-results", html_options = { class: "govuk-link"} ))) %></p>
+        </div>
+      <% end %>
+    </main>
+  </div>
+</div>

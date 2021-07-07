@@ -1,0 +1,8 @@
+<% if show_confirmation_reminder? %>
+  <section class="user-reminder" aria-label="Notice" role="region">
+    <p class="govuk-body govuk-!-margin-0">
+      <%= sanitize(t("account.confirm.intro.#{confirmation_banner_prompt_type}")) %>
+      <a href="<%= "#{Plek.find('account-manager')}/confirmation/new" %>" class="govuk-link"><%= t("account.confirm.link_text") %></a>
+    </p>
+  </section>
+<% end %>

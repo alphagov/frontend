@@ -1,0 +1,30 @@
+<% page_is ||= nil %>
+
+<nav aria-label="Account management">
+  <ul class="accounts-menu">
+    <li class="accounts-menu__item <%= "accounts-menu__item--current" if page_is == "your-account" %>">
+      <%= link_to(
+        t("account.navigation.menu_bar.account.link_text"),
+        account_home_path,
+        class: 'accounts-menu__link govuk-link govuk-link--no-visited-state',
+        'aria-current': page_is == "your-account" ? "page" : nil,
+      ) %>
+    </li>
+    <li class="accounts-menu__item <%= "accounts-menu__item--current" if page_is == "manage" %>">
+      <%= link_to(
+        t("account.navigation.menu_bar.manage.link_text"),
+        "#{Plek.find('account-manager')}/account/manage",
+        class: 'accounts-menu__link govuk-link govuk-link--no-visited-state',
+        'aria-current': page_is == "manage" ? "page" : nil,
+      ) %>
+    </li>
+    <li class="accounts-menu__item <%= "accounts-menu__item--current" if page_is == "security" %>">
+      <%= link_to(
+        t("account.navigation.menu_bar.security.link_text"),
+        "#{Plek.find('account-manager')}/account/security",
+        class: 'accounts-menu__link govuk-link govuk-link--no-visited-state',
+        'aria-current': page_is == "security" ? "page" : nil,
+      ) %>
+    </li>
+  </ul>
+</nav>

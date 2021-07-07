@@ -50,9 +50,13 @@
   @include govuk-font($size: 16, $weight: bold);
   color: govuk-colour("white");
 
-  &:active,
-  &:not(:focus):hover {
-    color: $govuk-hover-colour;
+  @include govuk-media-query($from: tablet) {
+    &:active,
+    &:hover {
+      &:not(:focus) {
+        color: $govuk-hover-colour;
+      }
+    }
   }
 }
 

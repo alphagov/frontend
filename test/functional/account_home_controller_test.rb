@@ -42,7 +42,7 @@ class AccountHomeControllerTest < ActionController::TestCase
       should "should not show the user a reminder if if `email_verified` s true and `has_unconfirmed_email` false" do
         stub_account_api_user_info(email_verified: true, has_unconfirmed_email: false)
         get :show
-        assert_not_includes(@response.body, "#{Plek.find('account-manager')}/confirmation/new")
+        assert_not_includes(@response.body, "#{Plek.find('account-manager')}/account/confirmation/new")
       end
 
       should "remind the user to finish updating if `email_verified` is true and `has_unconfirmed_email` is true" do

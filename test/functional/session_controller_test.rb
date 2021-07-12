@@ -148,6 +148,23 @@ class SessionsControllerTest < ActionController::TestCase
           assert_includes @response.redirect_url, @ga_client_id
         end
       end
+
+      context "account-api returns a :redirect_path with repeated parameters AND a :ga_client_id" do
+        setup do
+          @redirect_path = "/bank-holiday?param=first-repeated-parameter&param=second-repeated-parameter"
+          @ga_client_id = "analytics-client-identifier"
+          stub_account_api
+        end
+
+        should "not mangle the repeated parameters" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_response :redirect
+          assert_includes @response.redirect_url, "?param=first-repeated-parameter"
+          assert_includes @response.redirect_url, "&param=second-repeated-parameter"
+          assert_includes @response.redirect_url, "&_ga=#{@ga_client_id}"
+        end
+      end
     end
   end
 

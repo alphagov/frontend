@@ -6,8 +6,11 @@
 //= require govuk_publishing_components/vendor/polyfills/indexOf
 
 // The `gem_layout` template from Static provides cookie-functions,
-// header-navigation, and track-click from the the components `lib` folder - so
+// header-navigation, and track-click from the the components `analytics` folder - so
 // they're not required here.
+
+//= require govuk_publishing_components/analytics
+//= require govuk_publishing_components/analytics/track-select-change
 
 //= require govuk_publishing_components/lib/current-location
 //= require govuk_publishing_components/lib/initial-focus
@@ -25,6 +28,7 @@
 //= require govuk_publishing_components/components/details
 //= require govuk_publishing_components/components/feedback
 //= require govuk_publishing_components/components/govspeak
+//= require govuk_publishing_components/components/intervention
 //= require govuk_publishing_components/components/radio
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require govuk_publishing_components/components/tabs

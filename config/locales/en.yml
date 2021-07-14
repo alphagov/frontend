@@ -283,7 +283,7 @@ en:
       education: Education and learning
       education_description: Includes student loans, admissions and apprenticeships
       employing_people: Employing people
-      employing_people_description: Includes pay, contracts and hiring
+      employing_people_description: Includes pay, contracts, hiring and redundancies
       environment_countryside: Environment and countryside
       environment_countryside_description: Includes flooding, recycling and wildlife
       housing_local_services: Housing and local services
@@ -295,7 +295,7 @@ en:
       visas_immigration: Visas and immigration
       visas_immigration_description: Apply to visit, work, study, settle or seek asylum in the UK
       working: Working, jobs and pensions
-      working_description: Includes holidays and finding a job
+      working_description: Includes holidays, finding a job and redundancy
     index:
       brexit: 'Brexit: check what you need to do'
       calculate_vehicle_tax: Vehicle tax rates

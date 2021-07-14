@@ -9,9 +9,9 @@ en:
   account:
     confirm:
       intro:
-        set_up: "<strong>Confirm your email address</strong> to finish setting up your account and email alerts."
+        set_up: "<strong>Confirm your email address</strong> to finish setting up your account and start getting email updates."
         update: "<strong>Confirm your email address</strong> to finish updating your account and email alerts."
-      link_text: Resend confirmation email
+      link_text: Send confirmation email again
     feedback:
       banners:
         footer_intro: We’re trialling GOV.UK accounts.

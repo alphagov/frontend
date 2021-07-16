@@ -7,18 +7,20 @@
     schema: :government_service,
     content_item: @content_item %>
 
-<% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(@publication) %>
-  <% schema = MachineReadable::YamlFaqPageSchemaPresenter.new(@publication) %>
-  <% if schema.current? %>
-    <script type="application/ld+json">
-      <%= raw schema.structured_data.to_json %>
-    </script>
+  <% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(@publication) %>
+    <% schema = MachineReadable::YamlFaqPageSchemaPresenter.new(@publication) %>
+    <% if schema.current? %>
+      <script type="application/ld+json">
+        <%= raw schema.structured_data.to_json %>
+      </script>
+    <% end %>
   <% end %>
-<% end %>
 
   <% if @publication.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
   <% end %>
+
+  <%= explore_menu_variant.analytics_meta_tag.html_safe if explore_menu_testable? %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {

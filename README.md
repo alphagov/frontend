@@ -81,7 +81,7 @@ Assisted digital satisfaction surveys:
 
 ## Technical documentation
 
-Frontend is a Ruby on Rails application that renders the citizen-facing part of formats stored in the Content Store. It looks up the passed-in slug in the Content Store.
+Frontend is a Ruby on Rails application and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html). It renders the citizen-facing part of formats stored in the Content Store. It looks up the passed-in slug in the Content Store.
 
 It also serves the homepage as a hard-coded route.
 
@@ -118,9 +118,11 @@ The division `title` attribute is optional.  If this is not present the slug wil
 
 ### Running the application
 
-If you are [using docker](https://github.com/alphagov/govuk-docker) to run the application (which is advised) it will be available on the host at http://frontend.dev.gov.uk/
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or the local `startup.sh` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
 
-To run the application standalone, run [static](https://github.com/alphagov/static) and execute the following command:
+If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
+
+If you are using the `startup.sh` script, first run [static](https://github.com/alphagov/static) and execute the following command:
 
 ```
 PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 ./startup.sh --live
@@ -129,8 +131,6 @@ PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 ./startup.sh --live
 which uses a local copy of static and content from production.
 
 Note that you will have to have [GOV.UK Mapit](https://github.com/alphagov/mapit) running locally. A valid dataset will have to be loaded for Mapit or postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
-
-To run in a full development stack (with DNS, all apps running etc.) use`./startup.sh`.
 
 ### Running the test suite
 

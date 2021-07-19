@@ -12,6 +12,17 @@ class CalendarControllerTest < ActionController::TestCase
       stub_content_store_has_item("/when-do-the-clocks-change")
     end
 
+    context "AB testing of Explore navigational super menu" do
+      should "request for Explore navigational super menu from slimmer" do
+        with_variant ExploreMenuAbTestable: "B" do
+          get :calendar, params: { scope: "bank-holidays" }
+
+          assert response.successful?
+          assert "core_layout_explore_header", assigns[:slimmer_template]
+        end
+      end
+    end
+
     context "HTML request (no format)" do
       should "load the calendar and show it" do
         get :calendar, params: { scope: "bank-holidays" }

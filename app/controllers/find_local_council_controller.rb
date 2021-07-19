@@ -18,10 +18,12 @@ class FindLocalCouncilController < ApplicationController
 
   def find
     ## TODO: deal with errors
+    if params[:authority_slug] ## TODO: check the authority slug is valid, i.e. don't allow users to overwrite the redirect
+      redirect_to "#{BASE_PATH}/#{params[:authority_slug]}"
+    end
+
     postcode = params[:postcode]
     authority_slug = fetch_location(postcode)
-
-    redirect_to "#{BASE_PATH}/#{authority_slug}"
   end
 
   def result
@@ -76,10 +78,26 @@ private
         else
           slug_from_authority_url(utla_url)
         end
+
+        redirect_to "#{BASE_PATH}/#{authority_slug}"
       else
         ## Postcode maps to more than one LA, so offer the user a choice of addresses, then use the UPRN of their choice to get the LA
-        ## TODO: deal with split postcodes
-        render plain: "Postcode split over multiple LAs"
+
+        local_authority_slugs = {
+          "4615" => "dudley",
+          "4620" => "sandwell",
+          "4635" => "wolverhampton",
+        } ## TODO: make a request to Local Links Manager to get the LA slugs for each LA we get back for OS Places API
+
+        puts results.inspect
+
+        @addresses = results.map do |result|
+          {
+            text: result.dig("DPA", "ADDRESS"),
+            value: local_authority_slugs[result.dig("DPA", "LOCAL_CUSTODIAN_CODE").to_s],
+          }
+        end
+        render :choose_address and return
       end
     end
   end

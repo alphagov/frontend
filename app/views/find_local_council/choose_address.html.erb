@@ -1,0 +1,21 @@
+<%= render layout: 'base_page' do %>
+  <p class="govuk-body"><%= t('formats.local_transaction.find_council_website') %></p>
+
+  <form method="post" id="local-locator-form" class="location-form govuk-!-margin-bottom-9">
+
+    <%= render "govuk_publishing_components/components/select", {
+        id: "authority_slug",
+        label: "Choose address",
+        options: @addresses,
+      }
+    %>
+
+    <%= render "govuk_publishing_components/components/button", {
+      text: "Submit"
+    } %>
+
+  </form>
+
+  <% ## TODO: POST this form to somewhere that redirects user to the LA page %>
+
+<% end %>

@@ -5,7 +5,7 @@
 } do %>
   <div class="interaction">
     <p class="govuk-body">
-        <%= t('formats.local_transaction.info_on_country_website', country_name: @country_name) %>
+        <%= t("formats.local_transaction.info_on_country_website.#{@country_name.parameterize(separator: "_")}") %>
     </p>
     <div class="local-authority-result"
          data-module="auto-track-event"

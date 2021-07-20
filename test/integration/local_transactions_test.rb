@@ -527,7 +527,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
 
     should "render results page for a devolved administration service" do
-      assert page.has_content? I18n.t("formats.local_transaction.info_on_country_website", country_name: "Scotland")
+      assert page.has_content? I18n.t("formats.local_transaction.info_on_country_website.scotland")
     end
 
     should "show a button that links to an alternate service provider" do

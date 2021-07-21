@@ -178,7 +178,10 @@ en:
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
       local_authority_website: Go to %{local_authority_name} website
       no_website: We don't have a link for their website.
-      info_on_country_website: Get information on this service, or a similar service, on the %{country_name} Government website.
+      info_on_country_website:
+        northern_ireland: Get information on this service, or a similar service, on the Northern Ireland Executive website.
+        scotland: Get information on this service, or a similar service, on the Scottish Government website.
+        wales: Get information on this service, or a similar service, on the Welsh Government website.
       find_other_services: Find other services on your council website.
       find_info_for: Find information for %{country_name}
       service_not_available: This service is not available in %{country_name}

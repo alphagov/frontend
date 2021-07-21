@@ -1,11 +1,11 @@
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   title: @publication.title,
   publication: @publication,
   edition: @edition,
 } do %>
   <div class="interaction">
     <p class="govuk-body">
-        <%= t('formats.local_transaction.info_on_country_website', country_name: @country_name) %>
+        <%= t("formats.local_transaction.info_on_country_website.#{@country_name.parameterize(separator: "_")}") %>
     </p>
     <div class="local-authority-result"
          data-module="auto-track-event"
@@ -14,7 +14,7 @@
          data-track-label="<%= @country_name %>">
       <p id="get-started" class="get-started group">
         <%= render "govuk_publishing_components/components/button", {
-          text: t('formats.local_transaction.find_info_for', country_name: @country_name) ,
+          text: t("formats.local_transaction.find_info_for", country_name: @country_name) ,
           rel: "external",
           margin_bottom: true,
           href: @publication.devolved_administration_service_alternative_url(@country_name),

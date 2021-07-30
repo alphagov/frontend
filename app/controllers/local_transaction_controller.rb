@@ -98,7 +98,11 @@ private
 
     if council == "electoral-office-for-northern-ireland"
       {
-        "local_authority" => { "name" => "Electoral Office for Northern Ireland", "homepage_url" => "http://www.eoni.org.uk" },
+        "local_authority" => {
+          "name" => "Electoral Office for Northern Ireland",
+          "homepage_url" => "http://www.eoni.org.uk",
+          "country_name" => "Northern Ireland",
+        },
         "local_interaction" => { "url" => "http://www.eoni.org.uk/Utility/Contact-Us" },
       }
     else

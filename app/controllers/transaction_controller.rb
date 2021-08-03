@@ -1,6 +1,7 @@
 class TransactionController < ApplicationController
   include Cacheable
   include Navigable
+  include SabPagesTestable
 
   include LocaleHelper
 

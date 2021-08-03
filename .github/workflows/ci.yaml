@@ -2,11 +2,20 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 name: CI Spike replace Jenkins
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - run: bundle install
+      - name: Rubocop
+        run: rubocop
   test:
     runs-on: ubuntu-latest
     env:
@@ -78,7 +87,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: my-app-repo
+          ECR_REPOSITORY: nadeemtest
           IMAGE_TAG: latest
           #IMAGE_TAG: ${{ github.sha }}
         run: |

@@ -60,7 +60,7 @@ class AccountHomeControllerTest < ActionController::TestCase
           get :show
 
           assert response.successful?
-          assert_equal "gem_layout_account", response.headers["X-Slimmer-Template"]
+          assert_equal "gem_layout_account_manager", response.headers["X-Slimmer-Template"]
         end
 
         with_variant ExploreMenuAbTestable: "B" do
@@ -68,7 +68,7 @@ class AccountHomeControllerTest < ActionController::TestCase
           get :show
 
           assert response.successful?
-          assert_equal "gem_layout_account", response.headers["X-Slimmer-Template"]
+          assert_equal "gem_layout_account_manager", response.headers["X-Slimmer-Template"]
         end
 
         with_variant ExploreMenuAbTestable: "Z" do
@@ -76,7 +76,7 @@ class AccountHomeControllerTest < ActionController::TestCase
           get :show
 
           assert response.successful?
-          assert_equal "gem_layout_account", response.headers["X-Slimmer-Template"]
+          assert_equal "gem_layout_account_manager", response.headers["X-Slimmer-Template"]
         end
       end
     end

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   rescue_from RecordNotFound, with: :cacheable_404
 
   before_action :set_explore_menu_response
-  before_action :set_slimmer_template
+  after_action :set_slimmer_template
 
   helper_method :explore_menu_variant, :explore_menu_testable?
 

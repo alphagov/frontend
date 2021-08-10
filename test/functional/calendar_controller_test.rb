@@ -14,11 +14,28 @@ class CalendarControllerTest < ActionController::TestCase
 
     context "AB testing of Explore navigational super menu" do
       should "request for Explore navigational super menu from slimmer" do
+        with_variant ExploreMenuAbTestable: "A" do
+          get :calendar, params: { scope: "bank-holidays" }
+
+          assert response.successful?
+          assert_equal "gem_layout", response.headers["X-Slimmer-Template"]
+          assert_page_tracked_in_ab_test("ExploreMenuAbTestable", "A", 47)
+        end
+
         with_variant ExploreMenuAbTestable: "B" do
           get :calendar, params: { scope: "bank-holidays" }
 
           assert response.successful?
-          assert "core_layout_explore_header", assigns[:slimmer_template]
+          assert_equal "gem_layout_explore_header", response.headers["X-Slimmer-Template"]
+          assert_page_tracked_in_ab_test("ExploreMenuAbTestable", "B", 47)
+        end
+
+        with_variant ExploreMenuAbTestable: "Z" do
+          get :calendar, params: { scope: "bank-holidays" }
+
+          assert response.successful?
+          assert_equal "gem_layout", response.headers["X-Slimmer-Template"]
+          assert_page_tracked_in_ab_test("ExploreMenuAbTestable", "Z", 47)
         end
       end
     end

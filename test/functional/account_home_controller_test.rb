@@ -4,6 +4,7 @@ require "gds_api/test_helpers/account_api"
 class AccountHomeControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::AccountApi
   include GovukPersonalisation::TestHelpers::Requests
+  include GovukAbTesting::MinitestHelpers
 
   context "GET '/account/home'" do
     context "when logged out" do
@@ -49,6 +50,34 @@ class AccountHomeControllerTest < ActionController::TestCase
         stub_account_api_user_info(email_verified: true, has_unconfirmed_email: true)
         get :show
         assert_includes(@response.body, I18n.t("account.confirm.intro.update"))
+      end
+    end
+
+    context "when A/B testing the explore menu" do
+      should "always request account template" do
+        with_variant ExploreMenuAbTestable: "A" do
+          stub_account_api_user_info
+          get :show
+
+          assert response.successful?
+          assert_equal "gem_layout_account", response.headers["X-Slimmer-Template"]
+        end
+
+        with_variant ExploreMenuAbTestable: "B" do
+          stub_account_api_user_info
+          get :show
+
+          assert response.successful?
+          assert_equal "gem_layout_account", response.headers["X-Slimmer-Template"]
+        end
+
+        with_variant ExploreMenuAbTestable: "Z" do
+          stub_account_api_user_info
+          get :show
+
+          assert response.successful?
+          assert_equal "gem_layout_account", response.headers["X-Slimmer-Template"]
+        end
       end
     end
   end

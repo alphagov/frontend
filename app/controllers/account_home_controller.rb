@@ -39,4 +39,8 @@ private
 
     @user["email_verified"] && @user["has_unconfirmed_email"]
   end
+
+  def set_slimmer_template
+    slimmer_template "gem_layout_account"
+  end
 end

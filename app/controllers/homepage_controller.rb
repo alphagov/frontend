@@ -14,7 +14,7 @@ class HomepageController < ApplicationController
 private
 
   def set_slimmer_template
-    if explore_menu_testable?
+    if explore_menu_variant_b?
       slimmer_template "gem_layout_full_width_explore_header"
     else
       slimmer_template "gem_layout_full_width"

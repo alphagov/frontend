@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  include GovukPersonalisation::AccountConcern
+  include GovukPersonalisation::ControllerConcern
 
   before_action :set_no_cache_headers
 

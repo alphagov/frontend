@@ -1,5 +1,5 @@
 class SavePagesController < ApplicationController
-  include GovukPersonalisation::AccountConcern
+  include GovukPersonalisation::ControllerConcern
 
   before_action :set_no_cache_headers
   before_action { head :not_found unless feature_flag_enabled? }

@@ -1,6 +1,7 @@
-<h1>GOV.UK Mainstream, Home & Search Frontend</h1>
+# Frontend
 
-<p>Application to serve some mainstream formats and the homepage for GOV.UK.</p>
+Frontend renders the citizen-facing part of formats stored in the Content Store, and
+some hard-coded routes including the GOV.UK homepage.
 
 ## Live examples
 
@@ -26,8 +27,6 @@ Transaction start pages:
 * https://www.gov.uk/roadmap (GOV.UK public facing roadmap)
 
 ### Licence finders
-
-Some examples:
 
 * https://www.gov.uk/premises-licence
 * https://www.gov.uk/temporary-events-notice
@@ -81,32 +80,7 @@ Assisted digital satisfaction surveys:
 
 ## Technical documentation
 
-Frontend is a Ruby on Rails application that renders the citizen-facing part of formats stored in the Content Store. It looks up the passed-in slug in the Content Store.
-
-It also serves the homepage as a hard-coded route.
-
-Calendar JSON data files are stored in `lib/data/<scope>.json`, with a `divisions` hash for separate data per region (`united-kingdom`, `england-and-wales`, `scotland` or `northern-ireland`).
-
-Each scope's data file contains a list of divisions, containing a list of years, each with a list of events:
-
-```json
-{
-  "title": "UK bank holidays",
-  "description": "UK bank holidays calendar - see UK bank holidays and public holidays for 2012 and 2013",
-  "divisions": {
-    "england-and-wales": {
-      "title": "England and Wales",
-      "2011": [{
-        "title": "New Year's Day",
-        "date": "02/01/2011",
-        "notes": "Substitute day"
-      }]
-    }
-  }
-}
-```
-
-The division `title` attribute is optional.  If this is not present the slug will be humanized and used instead.
+Frontend is a Ruby on Rails application and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
 ### Dependencies
 
@@ -118,49 +92,28 @@ The division `title` attribute is optional.  If this is not present the slug wil
 
 ### Running the application
 
-If you are [using docker](https://github.com/alphagov/govuk-docker) to run the application (which is advised) it will be available on the host at http://frontend.dev.gov.uk/
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) or the local `startup.sh` script to run the app. Read the [guidance on local frontend development](https://docs.publishing.service.gov.uk/manual/local-frontend-development.html) to find out more about each approach, before you get started.
 
-To run the application standalone, run [static](https://github.com/alphagov/static) and execute the following command:
+If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
+
+If you are using the `startup.sh` script, first run [static]()https://github.com/alphagov/static) and execute the following command:
 
 ```
-PLEK_SERVICE_STATIC_URI=http://127.0.0.1:3013 ./startup.sh --live
+PLEK_SERVICE_STATIC_URI=http://static.dev.gov.uk ./startup.sh --live
 ```
 
 which uses a local copy of static and content from production.
 
 Note that you will have to have [GOV.UK Mapit](https://github.com/alphagov/mapit) running locally. A valid dataset will have to be loaded for Mapit or postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
 
-To run in a full development stack (with DNS, all apps running etc.) use`./startup.sh`.
-
 ### Running the test suite
 
-`bundle exec rake` runs the test suite.
+```
+bundle exec rake
+```
+### Further documentation
 
-## Additional information for calendars
-
-Send the calendars to the publishing-api:
-
-    bundle exec rake publishing_api:publish_calendars
-
-If you're using govuk-docker, you may need to `govuk-docker-up` on `publishing-api` in a separate shell. You may also need to run the rake task a couple of times if you encounter timeouts.
-
-Search indexing is performed automatically on data sent to publishing api.
-
-A rake task has been created to generate the bank holidays JSON for a given year. They need to be then inserted, and modified to take into account any additions/modifications made by proclamation.
-
-Run the rake task like this:
-
-    bundle exec rake bank_holidays:generate_json[2016]
-
-### Canonical sources
-
-- For summer time, we can use the [Summer Time Act 1972](http://www.legislation.gov.uk/ukpga/1972/6).
-
-- Bank holidays are determined both by law and by proclamation. We use the following legislation: the [Banking and Financial Dealings Act 1971](http://www.legislation.gov.uk/ukpga/1971/80/schedule/1)
-and the [St Andrew's Day Bank Holiday Act](http://www.legislation.gov.uk/asp/2007/2/section/1).
-
-- The proclamations of holidays are published in [The Gazette](https://www.thegazette.co.uk/all-notices/notice?noticetypes=1101&sort-by=latest-date&text="Banking+and+Financial").
-Holidays are announced there 6 months to one year in advance, usually between the months of May and July for the following year.
+- [Calendars](docs/calendars.md)
 
 ## Licence
 

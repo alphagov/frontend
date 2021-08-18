@@ -284,8 +284,6 @@ en:
       brexit: 'Brexit: check what you need to do'
       calculate_vehicle_tax: Vehicle tax rates
       consultations: consultations
-      coronavirus: Coronavirus (COVID-19)
-      coronavirus_restrictions: Coronavirus cases remain high across the country. Find out how to stay safe.
       council_tax_bands: Council Tax bands
       covid: 'Coronavirus (COVID-19): guidance'
       departments_and_policy_html: Departments and&nbsp;policy
@@ -320,6 +318,8 @@ en:
       vaccination_description: Get information about vaccinations on NHS.UK
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
+      veterans: Support for veterans
+      veterans_text: Get support for veterans affected by recent events in Afghanistan.
   'no': 'No'
   place:
     children_social_care: You can call the children's social care team at the council in

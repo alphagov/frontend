@@ -65,11 +65,11 @@ class SessionsControllerTest < ActionController::TestCase
           assert_equal @response.headers["GOVUK-Account-Session"], @govuk_account_session
         end
 
-        should "redirect to the account manager url" do
+        should "redirect to the account home path" do
           get :callback, params: { code: "code123", state: "state123" }
 
           assert_response :redirect
-          assert_equal @response.redirect_url, Plek.find("account-manager")
+          assert_equal @response.redirect_url, account_home_url
         end
 
         should "redirect with the specified :_ga param" do

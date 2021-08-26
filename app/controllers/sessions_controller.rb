@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     set_account_session_header(callback["govuk_account_session"])
     set_cookies_policy(callback["cookie_consent"])
 
-    redirect_with_ga(callback["redirect_path"] || account_manager_url, callback["ga_client_id"])
+    redirect_with_ga(callback["redirect_path"] || account_home_path, callback["ga_client_id"])
   rescue GdsApi::HTTPUnauthorized
     head :bad_request
   end

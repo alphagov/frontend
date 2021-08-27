@@ -94,7 +94,7 @@ class SavePagesControllerTest < ActionController::TestCase
     context "GET /account/saved_pages/remove" do
       context "when logged out" do
         setup do
-          stub_account_api_delete_saved_page_unauthorised(page_path: ministry_of_magic_path)
+          stub_account_api_unauthorized_delete_saved_page(page_path: ministry_of_magic_path)
           @stub = stub_account_api_get_sign_in_url(
             level_of_authentication: "level0",
             redirect_path: remove_saved_page_path(

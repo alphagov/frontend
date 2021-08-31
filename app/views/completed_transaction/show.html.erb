@@ -32,7 +32,7 @@
           margin_bottom: true
         } %>
       <% elsif @publication.promotion['category'] == 'electric_vehicle' %>
-        <p class="govuk-body"><%= t('formats.transaction.e_vehicle_info') %>></p>
+        <p class="govuk-body"><%= t('formats.transaction.e_vehicle_info') %></p>
         <%= render "govuk_publishing_components/components/button", {
           text: t('formats.transaction.next_car_electric'),
           href: @publication.promotion['url'],

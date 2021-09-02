@@ -35,16 +35,69 @@
         </div>
 
         <div class="govuk-grid-column-one-third">
-          <div class="home-top__links">
+          <div class="home-top__links" data-module="gem-track-click">
             <h2 class="home-top__links-title"><%= t('homepage.index.popular') %></h2>
+            <%
+              link_class = "govuk-link govuk-link--inverse home-top__link-item"
+              items = []
+              items << link_to(t("homepage.index.covid"),
+                                 "/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/",
+                                 class: link_class,
+                                 data: {
+                                   track_category: "homepageClicked",
+                                   track_action: "popularLink",
+                                   track_label: "/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/",
+                                   track_value: 1,
+                                   track_dimension_index: 29,
+                                   track_dimension: t("homepage.index.covid"),
+                                 })
+              items << link_to(t("homepage.index.brexit"),
+                                 "/brexit",
+                                 class: link_class,
+                                 data: {
+                                   track_category: "homepageClicked",
+                                   track_action: "popularLink",
+                                   track_label: "/brexit",
+                                   track_value: 1,
+                                   track_dimension_index: 29,
+                                   track_dimension: t("homepage.index.brexit"),
+                                 })
+              items << link_to(t("homepage.index.tax_account"),
+                                 "/personal-tax-account",
+                                 class: link_class,
+                                 data: {
+                                   track_category: "homepageClicked",
+                                   track_action: "popularLink",
+                                   track_label: "/personal-tax-account",
+                                   track_value: 1,
+                                   track_dimension_index: 29,
+                                   track_dimension: t("homepage.index.tax_account"),
+                                 })
+              items << link_to(t("homepage.index.job_search"),
+                                 "/find-a-job",
+                                 class: link_class,
+                                 data: {
+                                   track_category: "homepageClicked",
+                                   track_action: "popularLink",
+                                   track_label: "/find-a-job",
+                                   track_value: 1,
+                                   track_dimension_index: 29,
+                                   track_dimension: t("homepage.index.job_search"),
+                                 })
+              items << link_to(t("homepage.index.universal_credit"),
+                                 "/sign-in-universal-credit",
+                                 class: link_class,
+                                 data: {
+                                   track_category: "homepageClicked",
+                                   track_action: "popularLink",
+                                   track_label: "/sign-in-universal-credit",
+                                   track_value: 1,
+                                   track_dimension_index: 29,
+                                   track_dimension: t("homepage.index.universal_credit"),
+                                 })
+            %>
             <%= render "govuk_publishing_components/components/list", {
-              items: [
-                raw("<a href=\"/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.covid')}</a>"),
-                raw("<a href=\"/brexit/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.brexit')}</a>"),
-                raw("<a href=\"/personal-tax-account/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.tax_account')}</a>"),
-                raw("<a href=\"/jobsearch/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.job_search')}</a>"),
-                raw("<a href=\"/sign-in-universal-credit/\" class=\"govuk-link govuk-link--inverse home-top__link-item\">#{t('homepage.index.universal_credit')}</a>"),
-              ],
+              items: items,
             } %>
           </div>
         </div>

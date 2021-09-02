@@ -151,15 +151,44 @@
           </ul>
         </div>
 
-        <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-grid-column-two-thirds" data-module="gem-track-click">
           <p class="home-info">
             <%= t('homepage.index.merged_websites_html') %>
           </p>
           <p class="home-info">
-            <%= t('homepage.index.see_all') %> <a href="/search/news-and-communications" class="govuk-link"><%= t('homepage.index.news') %></a>,
-            <a href="/search/research-and-statistics" class="govuk-link"><%= t('homepage.index.statistics') %></a>
+            <%= t('homepage.index.see_all') %>
+            <a href="/search/news-and-communications"
+               class="govuk-link"
+               data-track-category="homepageClicked"
+               data-track-action="governmentactivityLink"
+               data-track-label="/search/news-and-communications"
+               data-track-value="1"
+               data-track-dimension="<%= t('homepage.index.news') %>"
+               data-track-dimension-index="29">
+              <%= t('homepage.index.news') %>
+            </a>,
+            <a href="/search/research-and-statistics"
+               class="govuk-link"
+               data-track-category="homepageClicked"
+               data-track-action="governmentactivityLink"
+               data-track-label="/search/research-and-statistics"
+               data-track-value="1"
+               data-track-dimension="<%= t('homepage.index.statistics') %>"
+               data-track-dimension-index="29">
+              <%= t('homepage.index.statistics') %>
+            </a>
             <%= t('and') %>
-            <a href= "<%= CGI::escapeHTML('/search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations') %>" class="govuk-link"><%= t('homepage.index.consultations') %></a>.
+            <% consultations_link = CGI::escapeHTML('/search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations') %>
+            <a href= "<%= consultations_link %>"
+               class="govuk-link"
+               data-track-category="homepageClicked"
+               data-track-action="governmentactivityLink"
+               data-track-label="<%= consultations_link %>"
+               data-track-value="1"
+               data-track-dimension="<%= t('homepage.index.consultations') %>"
+               data-track-dimension-index="29">
+              <%= t('homepage.index.consultations') %>
+            </a>.
           </p>
         </div>
       </div>

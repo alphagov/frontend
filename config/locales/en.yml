@@ -281,6 +281,8 @@ en:
       working: Working, jobs and pensions
       working_description: Includes holidays, finding a job and redundancy
     index:
+      afghanistan: "Afghanistan: get support"
+      afghanistan_text: Find support and information for those affected by recent events in Afghanistan.
       brexit: 'Brexit: check what you need to do'
       calculate_vehicle_tax: Vehicle tax rates
       consultations: consultations
@@ -315,11 +317,9 @@ en:
       uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
       vaccination: COVID-19 vaccinations
-      vaccination_description: Get information about vaccinations on NHS.UK
+      vaccination_description: Get information about vaccinations on NHS.UK.
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
-      veterans: Support for veterans
-      veterans_text: Get support for veterans affected by recent events in Afghanistan.
   'no': 'No'
   place:
     children_social_care: You can call the children's social care team at the council in

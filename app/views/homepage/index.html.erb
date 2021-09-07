@@ -446,8 +446,16 @@
         </div>
 
         <div class="govuk-grid-column-one-third" id="promo">
-          <h3 class="home-more-promo">
-            <a href="/bank-holidays" class="govuk-link home-more-promo__link" tabindex="-1">
+          <h3 class="home-more-promo" data-module="gem-track-click">
+            <a href="/bank-holidays"
+              class="govuk-link home-more-promo__link"
+              tabindex="-1"
+              data-track-category="homepageClicked"
+              data-track-action="moreLink"
+              data-track-label="/bank-holidays"
+              data-track-value="1"
+              data-track-dimension="<%= t('homepage.index.uk_bank_holidays') %>"
+              data-track-dimension-index="29">
               <span class="home-more-promo__link-content"><%= t('homepage.index.uk_bank_holidays') %></span>
             </a>
           </h3>

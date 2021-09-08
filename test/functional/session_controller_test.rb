@@ -171,12 +171,20 @@ class SessionsControllerTest < ActionController::TestCase
   context "GET /sign-out" do
     context "when the user is logged in" do
       setup do
+        @end_session_uri = "https://authentication-provider/end-session"
         mock_logged_in_session
+        stub_account_api_get_end_session_url(end_session_uri: @end_session_uri)
       end
 
       should "set the 'GOVUK-Account-End-Session' header to 1" do
         get :delete
         assert @response.headers["GOVUK-Account-End-Session"].present?
+      end
+
+      should "redirect to the end session URL" do
+        get :delete
+        assert_response :redirect
+        assert_equal @response.redirect_url, @end_session_uri
       end
     end
   end

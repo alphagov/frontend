@@ -8,6 +8,7 @@
 
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {} }
 
+  // I have absolutely no idea what this does...
   $.expr[':'].contains = function (obj, index, meta) {
     return (obj.textContent || obj.innerText || '').toUpperCase().indexOf(meta[3].toUpperCase()) >= 0
   }
@@ -16,9 +17,12 @@
     var enterKeyCode = 13
     var filterInst = this
 
+    // suspect `closest` is jQ
     this.container = input.closest('.js-travel-container')
+    // also keyup
     input.keyup(function () {
-      var filter = $(this).val()
+      // think this can just be this.value
+      var filter = this.value
 
       filterInst.filterListItems(filter)
       filterInst.track(filter)
@@ -29,14 +33,17 @@
       }
     })
 
+    // not 100% on what this does but it's jQ
     $('.js-country-count', this.container).attr('aria-live', 'polite')
 
+    // need to look up document.bind
     $(document).bind('countrieslist', this.updateCounter)
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
     var filterInst = this
     var headingHasVisibleCountries = function (headingFirstLetter) {
+      // this is just going to be a query selector for an ID I think
       var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container).find('li')
 
       return countries.map(function () {
@@ -45,13 +52,12 @@
     }
 
     countryHeadings.each(function (index, elem) {
-      var $elem = $(elem)
-      var header = $elem.text().match(/[A-Z]{1}$/)[0]
+      var header = elem.textContent.match(/[A-Z]{1}$/)[0]
 
       if (headingHasVisibleCountries(header)) {
-        $elem.parent().show()
+        elem.parentNode.style.display = ''
       } else {
-        $elem.parent().hide()
+        elem.parentNode.style.display = 'none'
       }
     })
   }

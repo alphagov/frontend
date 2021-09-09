@@ -44,7 +44,10 @@
     var filterInst = this
     var headingHasVisibleCountries = function (headingFirstLetter) {
       // this is just going to be a query selector for an ID I think
+      // somewhat more complicated than that, I think I need to work on finding that ID bit and working out that the filterInst is...
+      // var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container)[0].querySelectorAll('li')
       var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container).find('li')
+      var thing = document.getElementById(headingFirstLetter.toUpperCase(), filterInst.container)
 
       return countries.map(function () {
         return this.style.display === 'none' ? this : undefined
@@ -63,7 +66,8 @@
   }
 
   CountryFilter.prototype.doesSynonymMatch = function (elem, synonym) {
-    var synonyms = $(elem).data('synonyms').split('|')
+
+    var synonyms = elem.getAttribute('data-synonyms').split('|')
     var result = false
     for (var syn in synonyms) {
       if (synonyms[syn].toLowerCase().indexOf(synonym.toLowerCase()) > -1) {

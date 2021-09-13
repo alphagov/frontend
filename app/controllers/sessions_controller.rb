@@ -29,19 +29,17 @@ class SessionsController < ApplicationController
   def delete
     logout!
     if params[:continue]
-      redirect_with_ga "#{account_manager_url}/sign-out?done=#{params[:continue]}"
+      # TODO: remove this case when we have migrated to DI in production
+      redirect_with_ga "#{Plek.find('account-manager')}/sign-out?done=#{params[:continue]}"
     elsif params[:done]
+      # TODO: remove this case when we have migrated to DI in production
       redirect_with_ga Plek.new.website_root
     else
-      redirect_with_ga "#{account_manager_url}/sign-out?continue=1"
+      redirect_with_ga GdsApi.account_api.get_end_session_url(govuk_account_session: account_session_header)["end_session_uri"]
     end
   end
 
 protected
-
-  def account_manager_url
-    Plek.find("account-manager")
-  end
 
   def http_referer_path
     @http_referer_path ||=

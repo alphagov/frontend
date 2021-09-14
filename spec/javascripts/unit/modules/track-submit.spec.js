@@ -6,7 +6,6 @@ describe('A form submit tracker', function () {
 
   beforeEach(function () {
     GOVUK.analytics = { trackEvent: function () {} }
-    tracker = new GOVUK.Modules.TrackSubmit()
   })
 
   afterEach(function () {
@@ -24,9 +23,10 @@ describe('A form submit tracker', function () {
       '</div>'
     )
 
-    tracker.start(element)
+    tracker = new GOVUK.Modules.TrackSubmit(element[0])
+    tracker.init()
 
-    element.find('form').trigger('submit')
+    GOVUK.triggerEvent(element.find('form')[0], 'submit')
 
     expect(GOVUK.analytics.trackEvent).toHaveBeenCalledWith('category', 'action')
   })

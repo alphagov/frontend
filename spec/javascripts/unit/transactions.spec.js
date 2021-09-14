@@ -25,28 +25,4 @@ describe('Transactions', function () {
       expect(calledWith[2]).toEqual({ label: location.href + '#foo', nonInteraction: true })
     })
   })
-
-  describe('appendGaClientIdToAskSurvey', function () {
-    var $specialAskTransaction
-
-    window.ga = function (callback) {
-      var tracker = { get: function () { return 'clientId' } }
-      callback(tracker)
-    }
-
-    beforeEach(function () {
-      $specialAskTransaction = $('<div class="transaction"><a href="https://surveys.publishing.service.gov.uk/ss/govuk-coronavirus-ask">Start Now</a></div>')
-      $('body').append($specialAskTransaction)
-    })
-
-    afterEach(function () {
-      $specialAskTransaction.remove()
-    })
-
-    it('appends the url with the ga clientId', function () {
-      window.GOVUK.Transactions.appendGaClientIdToAskSurvey()
-      var expectedHref = 'https://surveys.publishing.service.gov.uk/ss/govuk-coronavirus-ask?_ga=clientId'
-      expect($specialAskTransaction.find('a').attr('href')).toBe(expectedHref)
-    })
-  })
 })

@@ -3,35 +3,40 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   'use strict'
 
-  Modules.TrackSmartAnswer = function () {
-    this.start = function (element) {
-      var nodeType = element.data('smart-answer-node-type')
-      var flowSlug = element.data('smart-answer-slug')
+  function TrackSmartAnswer (element) {
+    this.$module = element
+  }
 
-      if ((nodeType === undefined) || (flowSlug === undefined)) {
-        return
-      }
+  TrackSmartAnswer.prototype.init = function () {
+    var nodeType = this.$module.getAttribute('data-smart-answer-node-type')
+    var flowSlug = this.$module.getAttribute('data-smart-answer-slug')
 
-      var trackingOptions = {
-        label: flowSlug,
-        nonInteraction: true,
-        page: this.currentPath()
-      }
+    if (!nodeType || !flowSlug) {
+      return
+    }
 
-      var trackSmartAnswer = function (category, action) {
-        if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
-          GOVUK.analytics.trackEvent(category, action, trackingOptions)
-        }
-      }
+    var trackingOptions = {
+      label: flowSlug,
+      nonInteraction: true,
+      page: this.currentPath()
+    }
 
-      switch (nodeType) {
-        case 'outcome':
-          trackSmartAnswer('Simple Smart Answer', 'Completed', trackingOptions)
-          break
+    var trackSmartAnswer = function (category, action) {
+      if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
+        GOVUK.analytics.trackEvent(category, action, trackingOptions)
       }
     }
-    this.currentPath = function () {
-      return window.location.pathname
+
+    switch (nodeType) {
+      case 'outcome':
+        trackSmartAnswer('Simple Smart Answer', 'Completed', trackingOptions)
+        break
     }
   }
+
+  TrackSmartAnswer.prototype.currentPath = function () {
+    return window.location.pathname
+  }
+
+  Modules.TrackSmartAnswer = TrackSmartAnswer
 })(window.GOVUK.Modules)

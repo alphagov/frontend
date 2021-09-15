@@ -9,6 +9,5 @@
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require govuk_publishing_components/components/tabs
 
-//= require transactions
 //= require support
 //= require_tree ./modules

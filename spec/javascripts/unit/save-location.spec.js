@@ -26,15 +26,13 @@ describe('Saving bank holiday locations', function () {
     })
 
     it('shows the bank holiday option if cookies are allowed', function () {
-      var bank = new GOVUK.Modules.SaveBankHolidayNation()
-      bank.start($locations)
+      new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
       expect($locations[0].style.display).toEqual('block')
     })
 
     it('doesn\'t show the bank holiday option if cookies are not allowed', function () {
       window.GOVUK.setCookie('cookies_policy', '{"essential":false,"settings":false,"usage":false,"campaigns":false}')
-      var bank = new GOVUK.Modules.SaveBankHolidayNation()
-      bank.start($locations)
+      new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
       expect($locations[0].style.display).toEqual('')
     })
   })
@@ -43,8 +41,7 @@ describe('Saving bank holiday locations', function () {
     beforeEach(function () {
       $locations = $(html)
       $('body').append($locations)
-      var bank = new GOVUK.Modules.SaveBankHolidayNation()
-      bank.start($locations)
+      new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
     })
 
     it('saves and unsaves a nation', function () {
@@ -71,8 +68,7 @@ describe('Saving bank holiday locations', function () {
       $locations = $(html)
       $('body').append($locations)
       window.GOVUK.setCookie('user_nation', 'England_and_Wales')
-      var bank = new GOVUK.Modules.SaveBankHolidayNation()
-      bank.start($locations)
+      new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
     })
 
     it('sets the state correctly', function () {
@@ -109,8 +105,7 @@ describe('Saving bank holiday locations', function () {
       $('body').append($locations)
       window.GOVUK.setCookie('user_nation', 'Northern_Ireland')
       $locations.find('.js-save-nation').each(function () {
-        var bank = new GOVUK.Modules.SaveBankHolidayNation()
-        bank.start($(this))
+        new GOVUK.Modules.SaveBankHolidayNation(this).init()
       })
       englandAndWales = $('[data-nation=England_and_Wales]')
       northernIreland = $('[data-nation=Northern_Ireland]')
@@ -148,8 +143,7 @@ describe('Saving bank holiday locations', function () {
       window.GOVUK.setCookie('user_nation', 'England_and_Wales')
       $locations = $(html)
       $('body').append($locations)
-      var bank = new GOVUK.Modules.SaveBankHolidayNation()
-      bank.start($locations)
+      new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
 
       expect(window.location.hash).toEqual('#england-and-wales')
     })
@@ -159,8 +153,8 @@ describe('Saving bank holiday locations', function () {
       $locations = $(html)
       $('body').append($locations)
       window.location.hash = '#england-and-wales'
-      var bank = new GOVUK.Modules.SaveBankHolidayNation()
-      bank.start($locations)
+
+      new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
 
       expect(window.location.hash).toEqual('#england-and-wales')
     })
@@ -170,8 +164,9 @@ describe('Saving bank holiday locations', function () {
     window.GOVUK.setCookie('user_nation', 'England')
     $locations = $(html)
     $('body').append($locations)
-    var bank = new GOVUK.Modules.SaveBankHolidayNation()
-    bank.start($locations)
+
+    new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
+
     var englandAndWales = $('[data-nation=England_and_Wales]')
 
     expect(window.location.hash).toEqual('#england-and-wales')
@@ -182,8 +177,8 @@ describe('Saving bank holiday locations', function () {
     window.GOVUK.setCookie('user_nation', 'spooky cookie')
     $locations = $(html)
     $('body').append($locations)
-    var bank = new GOVUK.Modules.SaveBankHolidayNation()
-    bank.start($locations)
+
+    new GOVUK.Modules.SaveBankHolidayNation($locations[0]).init()
 
     expect(window.location.hash).toEqual('')
   })

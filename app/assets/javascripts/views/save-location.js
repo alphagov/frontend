@@ -2,10 +2,11 @@ window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
-  function SaveBankHolidayNation () { }
+  function SaveBankHolidayNation ($module) {
+    this.$module = $module
+  }
 
-  SaveBankHolidayNation.prototype.start = function ($module) {
-    this.$module = $module[0]
+  SaveBankHolidayNation.prototype.init = function () {
     var consentCookie = window.GOVUK.getConsentCookie()
 
     if (consentCookie && consentCookie.settings) {

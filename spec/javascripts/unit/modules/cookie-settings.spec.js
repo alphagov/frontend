@@ -1,14 +1,12 @@
 'use strict'
 describe('cookieSettings', function () {
-  var cookieSettings,
-    container,
+  var container,
     element,
     confirmationContainer,
     fakePreviousURL
 
   beforeEach(function () {
     GOVUK.analytics = { trackEvent: function () {} }
-    cookieSettings = new GOVUK.Modules.CookieSettings()
     GOVUK.Modules.CookieSettings.prototype.getReferrerLink = function () {
       return fakePreviousURL
     }
@@ -46,15 +44,15 @@ describe('cookieSettings', function () {
   describe('setInitialFormValues', function () {
     it('sets a consent cookie by default', function () {
       GOVUK.cookie('cookies_policy', null)
-
       spyOn(window.GOVUK, 'setDefaultConsentCookie').and.callThrough()
-      cookieSettings.start(element)
+
+      new GOVUK.Modules.CookieSettings(element).init()
 
       expect(window.GOVUK.setDefaultConsentCookie).toHaveBeenCalled()
     })
 
     it('sets all radio buttons to the default values', function () {
-      cookieSettings.start(element)
+      new GOVUK.Modules.CookieSettings(element).init()
 
       var radioButtons = element.querySelectorAll('input[value=on]')
       var consentCookieJSON = JSON.parse(window.GOVUK.cookie('cookies_policy'))
@@ -74,7 +72,8 @@ describe('cookieSettings', function () {
   describe('submitSettingsForm', function () {
     it('updates consent cookie with any changes', function () {
       spyOn(window.GOVUK, 'setConsentCookie').and.callThrough()
-      cookieSettings.start(element)
+
+      new GOVUK.Modules.CookieSettings(element).init()
 
       element.querySelector('#settings-on').checked = false
       element.querySelector('#settings-off').checked = true
@@ -90,7 +89,8 @@ describe('cookieSettings', function () {
 
     it('sets cookies_preferences_set cookie on form submit', function () {
       spyOn(window.GOVUK, 'setCookie').and.callThrough()
-      cookieSettings.start(element)
+
+      new GOVUK.Modules.CookieSettings(element).init()
 
       GOVUK.cookie('cookies_preferences_set', null)
 
@@ -105,7 +105,8 @@ describe('cookieSettings', function () {
 
     it('fires a Google Analytics event', function () {
       spyOn(GOVUK.analytics, 'trackEvent').and.callThrough()
-      cookieSettings.start(element)
+
+      new GOVUK.Modules.CookieSettings(element).init()
 
       element.querySelector('#settings-on').checked = false
       element.querySelector('#settings-off').checked = true
@@ -121,7 +122,7 @@ describe('cookieSettings', function () {
     it('sets the previous referrer link if one is present', function () {
       fakePreviousURL = '/student-finance'
 
-      cookieSettings.start(element)
+      new GOVUK.Modules.CookieSettings(element).init()
 
       var button = element.querySelector('#submit-button')
       button.click()
@@ -135,7 +136,7 @@ describe('cookieSettings', function () {
     it('does not set a referrer if one is not present', function () {
       fakePreviousURL = null
 
-      cookieSettings.start(element)
+      new GOVUK.Modules.CookieSettings(element).init()
 
       var button = element.querySelector('#submit-button')
       button.click()
@@ -148,7 +149,7 @@ describe('cookieSettings', function () {
     it('does not set a referrer if URL is the same as current page (cookies page)', function () {
       fakePreviousURL = document.location.pathname
 
-      cookieSettings.start(element)
+      new GOVUK.Modules.CookieSettings(element).init()
 
       var button = element.querySelector('#submit-button')
       button.click()
@@ -161,7 +162,7 @@ describe('cookieSettings', function () {
     it('shows a confirmation message', function () {
       var confirmationMessage = document.querySelector('[data-cookie-confirmation]')
 
-      cookieSettings.start(element)
+      new GOVUK.Modules.CookieSettings(element).init()
 
       var button = element.querySelector('#submit-button')
       button.click()

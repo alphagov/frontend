@@ -2,11 +2,11 @@ window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
-  function CookieSettings () {}
+  function CookieSettings ($module) {
+    this.$module = $module
+  }
 
-  CookieSettings.prototype.start = function ($module) {
-    this.$module = $module[0]
-
+  CookieSettings.prototype.init = function () {
     this.$module.submitSettingsForm = this.submitSettingsForm.bind(this)
 
     document.querySelector('form[data-module=cookie-settings]')

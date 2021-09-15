@@ -324,8 +324,6 @@ describe('CountryFilter', function () {
         .find('ul.js-countries-list li')
         .filter(function () { return this.style.display !== 'none' })
 
-      console.log(visibleCountries)
-
       expect(visibleCountries.length).toEqual(1)
     })
 

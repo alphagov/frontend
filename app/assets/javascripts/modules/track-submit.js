@@ -3,18 +3,23 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 (function (Modules) {
   'use strict'
 
-  Modules.TrackSubmit = function () {
-    this.start = function (element) {
-      element.on('submit', 'form', trackSubmit)
+  function TrackSubmit (element) {
+    this.$module = element
+    this.formElement = this.$module.querySelector('form')
+  }
 
-      var category = element.data('track-category')
-      var action = element.data('track-action')
+  TrackSubmit.prototype.init = function () {
+    if (this.formElement) {
+      var category = this.$module.getAttribute('data-track-category')
+      var action = this.$module.getAttribute('data-track-action')
 
-      function trackSubmit () {
+      this.formElement.addEventListener('submit', function () {
         if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
           GOVUK.analytics.trackEvent(category, action)
         }
-      }
+      })
     }
   }
+
+  Modules.TrackSubmit = TrackSubmit
 })(window.GOVUK.Modules)

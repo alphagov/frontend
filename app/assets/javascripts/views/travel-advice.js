@@ -43,17 +43,21 @@
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
     var filterInst = this
     var headingHasVisibleCountries = function (headingFirstLetter) {
-      // this is just going to be a query selector for an ID I think
-      // somewhat more complicated than that, I think I need to work on finding that ID bit and working out that the filterInst is...
-      // var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container)[0].querySelectorAll('li')
-      var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container).find('li')
-      var thing = document.getElementById(headingFirstLetter.toUpperCase(), filterInst.container)
+      var firstLetterDiv = document.getElementById(headingFirstLetter)
 
-      return countries.map(function () {
-        return this.style.display === 'none' ? this : undefined
-      }).length < countries.length
+      if (firstLetterDiv) {
+        var countries = firstLetterDiv.querySelectorAll("li")
+        var countryList = []
+
+        for (var i = 0; i < countries.length; i++) {
+          var innerVar = countries[i].style.display === 'none' ? countries[i] : undefined
+          if (innerVar) { countryList.push(innerVar) }
+        }
+        return countryList.length < countries.length
+      }
     }
 
+    // each is jQ for(var blah blah balh)
     countryHeadings.each(function (index, elem) {
       var header = elem.textContent.match(/[A-Z]{1}$/)[0]
 
@@ -66,7 +70,6 @@
   }
 
   CountryFilter.prototype.doesSynonymMatch = function (elem, synonym) {
-
     var synonyms = elem.getAttribute('data-synonyms').split('|')
     var result = false
     for (var syn in synonyms) {
@@ -78,6 +81,15 @@
   }
 
   CountryFilter.prototype.filterListItems = function (filter) {
+    // I think this is the thing that I dislike most about this work and about jQ in general
+    // Like how are you meant to know what this does... I mean the first bit is something like
+    // docutment.getElementsByClass('js-countries-wrapper') but i don't know how to make sure
+    // that those elements are divs (which is what I assume the `div` tag is doing) but the thing
+    // I really dislike is how opaque the 2nd argument is... Like what is it doing...
+
+    // console.log(this.container)
+    // console.log(document.getElementsByClassName("js-countries-wrapper"))
+
     var countryHeadings = $('.js-countries-wrapper div', this.container).children('h3')
     var listItems = $('ul.js-countries-list li', this.container)
     var itemsToHide

@@ -4,33 +4,19 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   'use strict'
 
   function TrackSmartAnswer (element) {
-    this.$module = element
+    this.nodeType = element.getAttribute('data-smart-answer-node-type')
+    this.flowSlug = element.getAttribute('data-smart-answer-slug')
   }
 
   TrackSmartAnswer.prototype.init = function () {
-    var nodeType = this.$module.getAttribute('data-smart-answer-node-type')
-    var flowSlug = this.$module.getAttribute('data-smart-answer-slug')
+    if (!this.flowSlug || !GOVUK.analytics || !GOVUK.analytics.trackEvent) return
 
-    if (!nodeType || !flowSlug) {
-      return
-    }
-
-    var trackingOptions = {
-      label: flowSlug,
-      nonInteraction: true,
-      page: this.currentPath()
-    }
-
-    var trackSmartAnswer = function (category, action) {
-      if (GOVUK.analytics && GOVUK.analytics.trackEvent) {
-        GOVUK.analytics.trackEvent(category, action, trackingOptions)
-      }
-    }
-
-    switch (nodeType) {
-      case 'outcome':
-        trackSmartAnswer('Simple Smart Answer', 'Completed', trackingOptions)
-        break
+    if (this.nodeType === 'outcome') {
+      GOVUK.analytics.trackEvent('Simple Smart Answer', 'Completed', {
+        label: this.flowSlug,
+        nonInteraction: true,
+        page: this.currentPath()
+      })
     }
   }
 

@@ -57,16 +57,15 @@
       }
     }
 
-    // each is jQ for(var blah blah balh)
-    countryHeadings.each(function (index, elem) {
-      var header = elem.textContent.match(/[A-Z]{1}$/)[0]
+    for (var i = 0; i < countryHeadings.length; i++) {
+      var header = countryHeadings[i].textContent.match(/[A-Z]{1}$/)[0]
 
       if (headingHasVisibleCountries(header)) {
-        elem.parentNode.style.display = ''
+        countryHeadings[i].parentNode.style.display = ''
       } else {
-        elem.parentNode.style.display = 'none'
+        countryHeadings[i].parentNode.style.display = 'none'
       }
-    })
+    }
   }
 
   CountryFilter.prototype.doesSynonymMatch = function (elem, synonym) {

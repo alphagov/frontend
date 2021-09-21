@@ -70,7 +70,7 @@ private
   end
 
   def simple_404
-    head 404
+    head :not_found
   end
 
   def handle_bank_holiday_ics_calendars

@@ -36,21 +36,21 @@ class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
     context "#countries" do
       should "return the countries in utf-8 order" do
         names = @presenter.countries.map(&:name)
-        assert_equal %w[Afghanistan Austria Finland India Malaysia São\ Tomé\ and\ Principe Spain], names
+        assert_equal ["Afghanistan", "Austria", "Finland", "India", "Malaysia", "São Tomé and Principe", "Spain"], names
       end
     end
 
     context "#countries_by_date" do
       should "return the countries, ordered by updated_at descending" do
         names = @presenter.countries_by_date.map(&:name)
-        assert_equal %w[São\ Tomé\ and\ Principe Spain Malaysia India Finland Austria Afghanistan], names
+        assert_equal ["São Tomé and Principe", "Spain", "Malaysia", "India", "Finland", "Austria", "Afghanistan"], names
       end
     end
 
     context "#countries_recently_updated" do
       should "return the 5 most recently updated countries" do
         names = @presenter.countries_recently_updated.map(&:name)
-        assert_equal %w[São\ Tomé\ and\ Principe Spain Malaysia India Finland], names
+        assert_equal ["São Tomé and Principe", "Spain", "Malaysia", "India", "Finland"], names
       end
     end
 

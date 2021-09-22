@@ -4,10 +4,9 @@
       <div class="information">
         <div class="address vcard">
           <div class="adr org fn">
-
-            <p class="adr govuk-body">
+            <div class="adr govuk-body">
               <% if place["name"].present? %>
-              <span class="fn"><%= place["name"] %></span><span class="govuk-visually-hidden">,</span>
+                <h3 class="fn govuk-!-margin-bottom-0 govuk-heading-s govuk-!-display-inline"><%= place["name"] %></h3>
               <% end %>
 
               <% if place["address"].present? %>
@@ -21,7 +20,7 @@
               <% if place["postcode"].present? %>
                 <br /><span class="postal-code"><%= place["postcode"] %></span>
               <% end %>
-            </p>
+            </div>
 
             <% if place["location"].present? %>
               <ul class="govuk-list view-maps">

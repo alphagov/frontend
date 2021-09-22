@@ -132,7 +132,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "display places near to the requested location" do
-      names = page.all("#options li p.adr span.fn").map(&:text)
+      names = page.all("#options li .adr h3.fn").map(&:text)
       assert_equal ["London IPS Office", "Crawley IPS Office"], names
 
       within "#options > li:first-child" do

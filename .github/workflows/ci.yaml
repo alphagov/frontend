@@ -1,7 +1,11 @@
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'helm/**'
   pull_request:
+    paths-ignore:
+      - 'helm/**'
 
 name: CI Spike replace Jenkins
 
@@ -16,7 +20,9 @@ jobs:
       - run: bundle install
       - name: Rubocop
         run: rubocop
+  
   test:
+    needs: lint
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
@@ -65,6 +71,7 @@ jobs:
         run: bundle exec rake
 
   publish:
+    needs: [lint, test]
     name: Build
     runs-on: ubuntu-latest
 

@@ -3,7 +3,7 @@
   margin_bottom: 4
 } %>
 
-<form action="/contact/govuk/assisted-digital-survey-feedback" method="post" id="completed-transaction-form">
+<form action="/contact/govuk/assisted-digital-survey-feedback" method="post" data-module="transaction-survey-form">
   <input type="hidden" id="service_slug" name="service_feedback[slug]" value="<%= publication.slug.gsub("done/", "") %>" />
   <input type="hidden" id="service_done_page_url" name="service_feedback[url]" value="<%= publication.web_url %>" />
 

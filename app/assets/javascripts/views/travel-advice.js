@@ -80,50 +80,57 @@
   }
 
   CountryFilter.prototype.filterListItems = function (filter) {
-    // I think this is the thing that I dislike most about this work and about jQ in general
-    // Like how are you meant to know what this does... I mean the first bit is something like
-    // docutment.getElementsByClass('js-countries-wrapper') but i don't know how to make sure
-    // that those elements are divs (which is what I assume the `div` tag is doing) but the thing
-    // I really dislike is how opaque the 2nd argument is... Like what is it doing...
+    var jsCountryHeadings = document.getElementsByClassName('countries-initial-letter')
 
-    // console.log(this.container)
-    // console.log(document.getElementsByClassName("js-countries-wrapper"))
-
-    var countryHeadings = $('.js-countries-wrapper div', this.container).children('h3')
     var listItems = $('ul.js-countries-list li', this.container)
-    var itemsToHide
+    var jsListItems = document.getElementsByClassName('countries-list__item')
+
     var itemsShowing
     var synonymMatch = false
     var filterInst = this
 
-    listItems.each(function (i, item) {
-      var $item = $(item)
-      var link = $item.children('a')
-      $item.html(link)
-    }).show()
+    for (var i = 0; i < jsListItems.length; i++) {
+      jsListItems[i].style.display = ''
+    }
 
-    filter = $.trim(filter)
+    filter = filter.trim()
+
     if (filter && filter.length > 0) {
-      itemsToHide = listItems.filter(':not(:contains(' + filter + '))')
-      itemsToHide.hide()
-      itemsShowing = listItems.length - itemsToHide.length
+
+      for (var i = 0; i < jsListItems.length; i++) {
+        var downcase = jsListItems[i].innerText.toLowerCase()
+        if (downcase.indexOf(filter.toLowerCase()) === -1) {
+          jsListItems[i].style.display = 'none'
+        }
+      }
+
+      // I think the best thing to do here is just to set the synonyms as standard.
+      // that way this loop can be removed and the synonym adding won't be conditional
+      // on someone typing
+      
       listItems.each(function (i, item) {
         var $listItem = $(item)
         var synonym = filterInst.doesSynonymMatch(item, filter)
+
+        // this is going to need som work to be conditional
         if (synonym) {
           synonymMatch = true
           $listItem.show().append('(' + synonym + ')')
         }
       })
-      if (synonymMatch) {
-        itemsShowing = listItems.filter(function () { return this.style.display !== 'none' }).length
-      }
     } else {
-      countryHeadings.show()
-      itemsShowing = listItems.length
+      for (var i = 0; i < jsCountryHeadings.length; i++) {
+        jsCountryHeadings[i].style.display = ''
+      }
     }
 
-    this.filterHeadings(countryHeadings)
+    var arrayOfListItems = []
+    for(var i = 0; i < jsListItems.length; i++){
+      arrayOfListItems.push(jsListItems[i])
+    }
+    itemsShowing = arrayOfListItems.filter(function(item){return item.style.display !== 'none'}).length
+
+    this.filterHeadings(jsCountryHeadings)
 
     $(document).trigger('countrieslist', { count: itemsShowing })
   }

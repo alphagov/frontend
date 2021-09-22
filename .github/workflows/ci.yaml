@@ -2,10 +2,10 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - 'helm/**'
+      - 'helm/**/**'
   pull_request:
     paths-ignore:
-      - 'helm/**'
+      - 'helm/**/**'
 
 name: CI Spike replace Jenkins
 

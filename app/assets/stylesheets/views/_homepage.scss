@@ -114,38 +114,6 @@
   }
 }
 
-.home-numbers {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.home-numbers__link {
-  display: inline-block;
-  margin: 20px 0;
-  text-decoration: none;
-  line-height: 1.25;
-  overflow: hidden;
-}
-
-.home-numbers__link--first {
-  margin-top: 10px;
-}
-
-.home-numbers__large {
-  // Manually setting font-size rather than using the mixins size
-  // because the layout doesn't really work otherwise
-  font-size: 53px;
-  line-height: (55 / 53);
-  font-weight: bold;
-  display: block;
-
-  @include govuk-media-query($from: desktop) {
-    font-size: 80px;
-    line-height: (80 / 80);
-  }
-}
-
 .home-info {
   @include govuk-font(24);
   margin: govuk-spacing(2) 0 govuk-spacing(4);

@@ -39,10 +39,7 @@ private
   def authenticate(redirect_path)
     logout!
 
-    redirect_with_ga GdsApi.account_api.get_sign_in_url(
-      redirect_path: redirect_path,
-      level_of_authentication: "level0",
-    ).to_h["auth_uri"]
+    redirect_with_ga GdsApi.account_api.get_sign_in_url(redirect_path: redirect_path)["auth_uri"]
   end
 
   def feature_flag_enabled?

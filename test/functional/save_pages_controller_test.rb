@@ -27,7 +27,6 @@ class SavePagesControllerTest < ActionController::TestCase
         setup do
           stub_account_api_unauthorized_save_page(page_path: ministry_of_magic_path)
           @stub = stub_account_api_get_sign_in_url(
-            level_of_authentication: "level0",
             redirect_path: save_page_path(
               page_path: ministry_of_magic_path,
             ),
@@ -96,7 +95,6 @@ class SavePagesControllerTest < ActionController::TestCase
         setup do
           stub_account_api_unauthorized_delete_saved_page(page_path: ministry_of_magic_path)
           @stub = stub_account_api_get_sign_in_url(
-            level_of_authentication: "level0",
             redirect_path: remove_saved_page_path(
               page_path: ministry_of_magic_path,
             ),

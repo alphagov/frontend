@@ -1,0 +1,108 @@
+on:
+  push:
+    branches: 
+      - main
+    paths-ignore:
+      - "helm/**"
+  pull_request:
+    paths-ignore:
+      - "helm/**"
+
+name: CI Spike replace Jenkins
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - run: bundle install
+      - name: Rubocop
+        run: rubocop
+  
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+      GOVUK_CONTENT_SCHEMAS_PATH: vendor/govuk-content-schemas
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Checkout GOV.UK Content Schemas
+        uses: actions/checkout@v2
+        with:
+          repository: alphagov/govuk-content-schemas
+          ref: deployed-to-production
+          path: vendor/govuk-content-schemas
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Retrieve cached Gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: bundle-v2-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: bundle-v2
+
+      - name: Install Ruby dependencies
+        run: bundle install --jobs 4 --retry 3 --deployment
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+
+      - name: Retrieve cached node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: yarn
+
+      - name: Install JavaScript dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Precompile assets
+        run: bundle exec rails assets:precompile
+
+      - name: Run tests
+        run: bundle exec rake
+
+  publish:
+    needs: [lint, test]
+    name: Build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: nadeemtest
+          #IMAGE_TAG: latest
+          IMAGE_TAG: ${{ github.sha }}
+          #IMAGE_TAG: ${{ steps.extract_tag.outputs.release_tag }}
+        run: |
+          # Build a docker container and push it to ECR
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          echo "Pushing image to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"

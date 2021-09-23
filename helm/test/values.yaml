@@ -8,7 +8,7 @@ clusterDomain: svc.cluster.local
 service:
   type: NodePort
   annotations: {}
-  port: 8080
+  port: 80
 
 replicaCount: 1
 

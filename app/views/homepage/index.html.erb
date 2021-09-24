@@ -119,36 +119,36 @@
       <div class="govuk-grid-row home-numbers-and-info">
         <h2 id="departments-and-policy-label" class="govuk-visually-hidden"><%= t('homepage.index.departments_and_policy_html') %></h2>
         <div class="govuk-grid-column-one-third">
-          <ul class="home-numbers" data-module="gem-track-click">
+          <ul class="govuk-list" data-module="gem-track-click">
             <li>
-              <a href="/government/organisations#ministerial_departments"
-                 class="home-numbers__link home-numbers__link--first govuk-link"
-                 data-track-category="homepageClicked"
-                 data-track-action="departmentsLink"
-                 data-track-label="/government/organisations#ministerial_departments"
-                 data-track-value="1"
-                 data-track-dimension="<%= t('homepage.index.ministerial_departments_count') %> <%= t('homepage.index.ministerial_departments') %>"
-                 data-track-dimension-index="29">
-                <span class="home-numbers__large">
-                  <%= t('homepage.index.ministerial_departments_count') %>
-                </span>
-                <%= t('homepage.index.ministerial_departments') %>
-              </a>
+              <%= render "govuk_publishing_components/components/big_number", {
+                number: t('homepage.index.ministerial_departments_count'),
+                label: t('homepage.index.ministerial_departments'),
+                href: "/government/organisations#ministerial_departments",
+                data_attributes: {
+                  "track-category": "homepageClicked",
+                  "track-action": "departmentsLink",
+                  "track-label": "/government/organisations#ministerial_departments",
+                  "track-dimension": "#{t('homepage.index.ministerial_departments_count')} #{t('homepage.index.ministerial_departments')}",
+                  "track-dimension-index": 29,
+                  "track-value": 1,
+                },
+              } %>
             </li>
             <li>
-              <a href="/government/organisations#agencies_and_other_public_bodies"
-                 class="home-numbers__link govuk-link"
-                 data-track-category="homepageClicked"
-                 data-track-action="departmentsLink"
-                 data-track-label="/government/organisations#agencies_and_other_public_bodies"
-                 data-track-value="1"
-                 data-track-dimension="<%= t('homepage.index.other_agencies_count') %> <%= raw(t('homepage.index.other_agencies')) %>"
-                 data-track-dimension-index="29">
-                <span class="home-numbers__large">
-                  <%= t('homepage.index.other_agencies_count') %>
-                </span>
-                <%= raw(t('homepage.index.other_agencies')) %>
-              </a>
+              <%= render "govuk_publishing_components/components/big_number", {
+                number: t('homepage.index.other_agencies_count'),
+                label: raw(t('homepage.index.other_agencies')),
+                href: "/government/organisations#agencies_and_other_public_bodies",
+                data_attributes: {
+                  "track-category": "homepageClicked",
+                  "track-action": "departmentsLink",
+                  "track-label": "/government/organisations#agencies_and_other_public_bodies",
+                  "track-dimension": "#{t('homepage.index.other_agencies_count')} #{raw(t('homepage.index.other_agencies'))}",
+                  "track-dimension-index": 29,
+                  "track-value": 1,
+                },
+              } %>
             </li>
           </ul>
         </div>

@@ -22,6 +22,20 @@ class HelpController < ApplicationController
     @requested_variant.configure_response(response)
   end
 
+  def sign_in
+    @search_services_facets = [
+      {
+        key: "content_purpose_supergroup[]",
+        value: "services",
+      },
+      {
+        key: "content_purpose_supergroup[]",
+        value: "guidance_and_regulation",
+      },
+    ]
+    fetch_and_setup_content_item("/sign-in")
+  end
+
 private
 
   def slug_param

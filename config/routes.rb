@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice
 
   # Accounts
-  get "/sign-in", to: "sessions#create", as: :new_govuk_session
+  get "/sign-in", to: "sessions#create"
+  get "/sign-in/redirect", to: "sessions#create", as: :new_govuk_session
   get "/sign-in/callback", to: "sessions#callback", as: :new_govuk_session_callback
   get "/sign-out", to: "sessions#delete", as: :end_govuk_session
 

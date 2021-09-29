@@ -10,7 +10,7 @@ on:
       - "**.md"
       - "**.txt"
       - "Jenkinsfile"
-
+      - ".git**"
 name: CI Spike replace Jenkins
 
 jobs:

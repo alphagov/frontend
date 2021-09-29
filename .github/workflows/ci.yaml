@@ -4,6 +4,11 @@ on:
       - main
     paths-ignore:
       - "helm/**"
+      - "**.md"
+      - "**.txt"
+      - "Jenkinsfile"
+      - ".git**"
+
   pull_request:
     paths-ignore:
       - "helm/**"
@@ -11,7 +16,7 @@ on:
       - "**.txt"
       - "Jenkinsfile"
       - ".git**"
-      - "**.lock"
+
 name: CI Spike replace Jenkins
 
 jobs:

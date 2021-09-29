@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
-  include ExploreMenuAbTestable
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -12,10 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from RecordNotFound, with: :cacheable_404
 
-  before_action :set_explore_menu_response
-  after_action :set_slimmer_template
-
-  helper_method :explore_menu_variant, :explore_menu_variant_b?
+  slimmer_template "gem_layout"
 
   if ENV["BASIC_AUTH_USERNAME"]
     http_basic_authenticate_with(
@@ -25,14 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
 protected
-
-  def set_slimmer_template
-    if explore_menu_variant_b?
-      slimmer_template "gem_layout_explore_header"
-    else
-      slimmer_template "gem_layout"
-    end
-  end
 
   def error_403
     error :forbidden

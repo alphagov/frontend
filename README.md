@@ -2,8 +2,6 @@
 
 <p>Application to serve some mainstream formats and the homepage for GOV.UK.</p>
 
-##test
-
 ## Live examples
 
 ### Formats

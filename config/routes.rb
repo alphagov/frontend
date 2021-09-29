@@ -31,8 +31,6 @@ Rails.application.routes.draw do
 
   scope "/account" do
     get "/home", to: "account_home#show", as: :account_home
-    get "/saved-pages/add", to: "save_pages#create", as: :save_page
-    get "/saved-pages/remove", to: "save_pages#destroy", as: :remove_saved_page
   end
 
   # Help pages

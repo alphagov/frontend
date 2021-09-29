@@ -17,22 +17,10 @@ on:
       - "Jenkinsfile"
       - ".git**"
 
-name: CI Spike replace Jenkins
+name: Publish to ECR 
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.2
-      - run: bundle install
-      - name: Rubocop
-        run: rubocop
-  
   test:
-    needs: lint
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
@@ -81,10 +69,9 @@ jobs:
         run: bundle exec rake
 
   publish:
-    needs: [lint, test]
+    needs: test
     name: Build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout
@@ -106,9 +93,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: nadeemtest
-          #IMAGE_TAG: latest
           IMAGE_TAG: ${{ github.sha }}
-          #IMAGE_TAG: ${{ steps.extract_tag.outputs.release_tag }}
         run: |
           # Build a docker container and push it to ECR
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .

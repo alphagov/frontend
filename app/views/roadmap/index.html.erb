@@ -116,10 +116,10 @@
     </div>
     <div class="govuk-grid-row govuk-roadmap-numbers govuk-!-margin-bottom-3">
       <div class="govuk-grid-column-one-third govuk-roadmap-numbers__column">
-        <p class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-24">
-          <span class="govuk-!-font-size-80 govuk-!-display-block"><%= t('roadmap.numbers_section.numbers_columns.column_one_count') %></span>
-          <%= t('roadmap.numbers_section.numbers_columns.column_one_text') %>
-        </p>
+        <%= render "govuk_publishing_components/components/big_number", {
+          number: t('roadmap.numbers_section.numbers_columns.column_one_count'),
+          label: t('roadmap.numbers_section.numbers_columns.column_one_text'),
+        } %>
       </div>
       <div class="govuk-grid-column-one-third govuk-roadmap-numbers__column govuk-roadmap-numbers__column--crown">
         <svg aria-hidden="true" focusable="false" class="govuk-roadmap-numbers__crown" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 132 97" width="100" height="100">
@@ -130,10 +130,10 @@
         </svg>
       </div>
       <div class="govuk-grid-column-one-third govuk-roadmap-numbers__column">
-        <p class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-24">
-          <span class="govuk-!-font-size-80 govuk-!-display-block">
-            <%= t('roadmap.numbers_section.numbers_columns.column_two_count') %></span><%= t('roadmap.numbers_section.numbers_columns.column_two_text') %>
-        </p>
+        <%= render "govuk_publishing_components/components/big_number", {
+          number: t('roadmap.numbers_section.numbers_columns.column_two_count'),
+          label: t('roadmap.numbers_section.numbers_columns.column_two_text'),
+        } %>
       </div>
     </div>
     <p class="govuk-body-s"><span aria-hidden="true">*</span><%= t('roadmap.numbers_section.footnote') %></p>

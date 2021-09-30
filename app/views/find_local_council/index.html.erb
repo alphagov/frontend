@@ -1,7 +1,3 @@
-<% content_for :extra_headers do %>
-  <%= explore_menu_variant.analytics_meta_tag.html_safe %>
-<% end %>
-
 <%= render layout: 'base_page' do %>
   <p class="govuk-body"><%= t('formats.local_transaction.find_council_website') %></p>
   <%= render partial: 'location_form',

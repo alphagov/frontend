@@ -1,7 +1,3 @@
-<% content_for :extra_headers do %>
-  <%= explore_menu_variant.analytics_meta_tag.html_safe %>
-<% end %>
-
 <%= render layout: 'shared/base_page', locals: {
   title: t('formats.local_transaction.service_not_available', country_name: @country_name),
   publication: @publication,

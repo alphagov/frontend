@@ -52,33 +52,5 @@ class AccountHomeControllerTest < ActionController::TestCase
         assert_includes(@response.body, I18n.t("account.confirm.intro.update"))
       end
     end
-
-    context "when A/B testing the explore menu" do
-      should "always request account template" do
-        with_variant ExploreMenuAbTestable: "A" do
-          stub_account_api_user_info
-          get :show
-
-          assert response.successful?
-          assert_equal "gem_layout_account_manager", response.headers["X-Slimmer-Template"]
-        end
-
-        with_variant ExploreMenuAbTestable: "B" do
-          stub_account_api_user_info
-          get :show
-
-          assert response.successful?
-          assert_equal "gem_layout_account_manager", response.headers["X-Slimmer-Template"]
-        end
-
-        with_variant ExploreMenuAbTestable: "Z" do
-          stub_account_api_user_info
-          get :show
-
-          assert response.successful?
-          assert_equal "gem_layout_account_manager", response.headers["X-Slimmer-Template"]
-        end
-      end
-    end
   end
 end

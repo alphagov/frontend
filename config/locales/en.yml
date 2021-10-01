@@ -281,8 +281,14 @@ en:
       working: Working, jobs and pensions
       working_description: Includes holidays, finding a job and redundancy
     index:
-      ministerial_appointments_september_2021: "Ministerial appointments: September 2021"
-      ministerial_appointments_september_2021_text: "Latest updates as Prime Minister Boris Johnson makes government appointments."
+      promo_boxes:
+      vaccination_description: Get information about vaccinations on NHS.UK.
+        text_1: "Latest updates as Prime Minister Boris Johnson makes government appointments."
+        text_2: Get information about vaccinations on NHS.UK.
+        text_3: Check what you need to do to travel internationally.
+        title_1: "Ministerial appointments: September 2021"
+        title_2: COVID-19 vaccinations
+        title_3: 'Travel abroad: step by step'
       brexit: 'Brexit: check what you need to do'
       calculate_vehicle_tax: Vehicle tax rates
       consultations: consultations
@@ -311,13 +317,9 @@ en:
       statistics: statistics
       student_finance_login: Log in to student finance
       tax_account: Sign in to your personal tax account
-      travel_abroad: 'Travel abroad: step by step'
-      travel_abroad_check: Check what you need to do to travel internationally.
       uk_bank_holidays: &uk_bank_holidays UK bank holidays
       uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link" data-track-category="homepageClicked" data-track-action="promoTextLink" data-track-label="/bank-holidays" data-track-value="1" data-track-dimension="%{dimension}" data-track-dimension-index="29">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
-      vaccination: COVID-19 vaccinations
-      vaccination_description: Get information about vaccinations on NHS.UK.
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
   'no': 'No'

@@ -126,9 +126,8 @@ en:
       description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
       title: Get help with electoral registration
     service:
+      description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
       matched_postcode_html: We've matched the postcode <strong>%{postcode}</strong> to <strong>%{electoral_service_name}</strong>.
-      description: For questions about your poll card, polling place, or about returning
-        your postal voting ballot, contact your council."
       title: Your local council
   find: Find
   formats:
@@ -147,29 +146,29 @@ en:
       enter_postcode: Enter a postcode
       find_council: Find your local council
       find_council_website: Find the website for your local council.
+      find_info_for: Find information for %{country_name}
+      find_other_services: Find other services on your council website.
       find_postcode_royal_mail: Find a postcode on Royal Mail's postcode finder
       housing: housing
+      info_on_country_website:
+        northern_ireland: Get information on this service, or a similar service, on the Northern Ireland Executive website.
+        scotland: Get information on this service, or a similar service, on the Scottish Government website.
+        wales: Get information on this service, or a similar service, on the Welsh Government website.
       info_on_website: You can get information on their website.
       invalid_postcode: This isn't a valid postcode.
       invalid_postcode_sub: Check it and enter it again.
       invalid_uprn: This isn't a valid address.
       invalid_uprn_sub: Enter the postcode again.
+      local_authority_website: Go to %{local_authority_name} website
       matched_postcode_html: We've matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
-      local_authority_website: Go to %{local_authority_name} website
       no_website: We don't have a link for their website.
-      info_on_country_website:
-        northern_ireland: Get information on this service, or a similar service, on the Northern Ireland Executive website.
-        scotland: Get information on this service, or a similar service, on the Scottish Government website.
-        wales: Get information on this service, or a similar service, on the Welsh Government website.
-      find_other_services: Find other services on your council website.
-      find_info_for: Find information for %{country_name}
-      service_not_available: This service is not available in %{country_name}
       postcode_hint: For example SW1A 2AA
       postcode_lookup: Postcode lookup
       rubbish_recycling_collection: rubbish and recycling collection
       select_address: Select an address
+      service_not_available: This service is not available in %{country_name}
       unknown_service: We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.
       valid_postcode_no_match: We couldn't find this postcode.
       valid_postcode_no_match_sub_html: Check it and enter it again.
@@ -281,14 +280,6 @@ en:
       working: Working, jobs and pensions
       working_description: Includes holidays, finding a job and redundancy
     index:
-      promo_boxes:
-      vaccination_description: Get information about vaccinations on NHS.UK.
-        text_1: "Latest updates as Prime Minister Boris Johnson makes government appointments."
-        text_2: Get information about vaccinations on NHS.UK.
-        text_3: Check what you need to do to travel internationally.
-        title_1: "Ministerial appointments: September 2021"
-        title_2: COVID-19 vaccinations
-        title_3: 'Travel abroad: step by step'
       brexit: 'Brexit: check what you need to do'
       calculate_vehicle_tax: Vehicle tax rates
       consultations: consultations
@@ -311,13 +302,20 @@ en:
       other_agencies_count: 400+
       passport_fees: Passport fees
       popular: Popular on GOV.UK
+      promo_boxes:
+        text_1: Latest updates as Prime Minister Boris Johnson makes government appointments.
+        text_2: Get information about vaccinations on NHS.UK.
+        text_3: Check what you need to do to travel internationally.
+        title_1: 'Ministerial appointments: September 2021'
+        title_2: COVID-19 vaccinations
+        title_3: 'Travel abroad: step by step'
       running_limited_company: Running a limited company
       see_all: Here you can see all
       services_and_information: Services and information
       statistics: statistics
       student_finance_login: Log in to student finance
       tax_account: Sign in to your personal tax account
-      uk_bank_holidays: &uk_bank_holidays UK bank holidays
+      uk_bank_holidays: UK bank holidays
       uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link" data-track-category="homepageClicked" data-track-action="promoTextLink" data-track-label="/bank-holidays" data-track-value="1" data-track-dimension="%{dimension}" data-track-dimension-index="29">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
       vat_rates: VAT rates

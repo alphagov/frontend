@@ -11,6 +11,9 @@ ENV RAILS_ENV development
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
 
+RUN addgroup --system -gid 3000 app && adduser --system -uid 2000 -gid 3000 app
+RUN chown -R app $APP_HOME
+
 WORKDIR $APP_HOME
 ADD Gemfile* $APP_HOME/
 ADD .ruby-version $APP_HOME/

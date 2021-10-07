@@ -104,18 +104,4 @@ private
   def set_no_cache_headers
     response.headers["Cache-Control"] = "no-store"
   end
-
-  def redirect_with_ga(url, ga_client_id = nil)
-    ga_client_id ||= params[:_ga]
-    if ga_client_id
-      url =
-        if url.include? "?"
-          "#{url}&_ga=#{ga_client_id}"
-        else
-          "#{url}?_ga=#{ga_client_id}"
-        end
-    end
-
-    redirect_to url
-  end
 end

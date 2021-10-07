@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     redirect_path = http_referer_path
     redirect_path = nil unless is_valid_redirect_path? redirect_path
 
-    redirect_with_ga GdsApi.account_api.get_sign_in_url(redirect_path: redirect_path)["auth_uri"]
+    redirect_with_analytics GdsApi.account_api.get_sign_in_url(redirect_path: redirect_path)["auth_uri"]
   end
 
   def callback
@@ -16,12 +16,23 @@ class SessionsController < ApplicationController
     callback = GdsApi.account_api.validate_auth_response(
       code: params.require(:code),
       state: params.require(:state),
-    ).to_h
+    )
+
+    ga_client_id = callback["ga_client_id"] || params[:_ga]
+    cookie_consent =
+      case callback["cookie_consent"]
+      when true
+        "accept"
+      when false
+        "reject"
+      else
+        params[:cookie_consent]
+      end
 
     set_account_session_header(callback["govuk_account_session"])
-    set_cookies_policy(callback["cookie_consent"])
+    set_cookies_policy(cookie_consent)
 
-    redirect_with_ga(callback["redirect_path"] || account_home_path, callback["ga_client_id"])
+    redirect_to GovukPersonalisation::Redirect.build_url(callback["redirect_path"] || account_home_path, { _ga: ga_client_id, cookie_consent: cookie_consent }.compact)
   rescue GdsApi::HTTPUnauthorized
     head :bad_request
   end
@@ -30,12 +41,12 @@ class SessionsController < ApplicationController
     logout!
     if params[:continue]
       # TODO: remove this case when we have migrated to DI in production
-      redirect_with_ga "#{Plek.find('account-manager')}/sign-out?done=#{params[:continue]}"
+      redirect_with_analytics "#{Plek.find('account-manager')}/sign-out?done=#{params[:continue]}"
     elsif params[:done]
       # TODO: remove this case when we have migrated to DI in production
-      redirect_with_ga Plek.new.website_root
+      redirect_with_analytics Plek.new.website_root
     else
-      redirect_with_ga GdsApi.account_api.get_end_session_url(govuk_account_session: account_session_header)["end_session_uri"]
+      redirect_with_analytics GdsApi.account_api.get_end_session_url(govuk_account_session: account_session_header)["end_session_uri"]
     end
   end
 
@@ -61,11 +72,17 @@ protected
     false
   end
 
+  # TODO: this can be removed when all the apps have https://github.com/alphagov/govuk_publishing_components/pull/2340
   def set_cookies_policy(consent)
     return unless cookies[:cookies_policy]
 
     cookies_policy = JSON.parse(cookies[:cookies_policy]).symbolize_keys
-    cookies[:cookies_policy] = cookies_policy.merge(usage: consent).to_json
+    case consent
+    when "accept"
+      cookies[:cookies_policy] = cookies_policy.merge(usage: true).to_json
+    when "reject"
+      cookies[:cookies_policy] = cookies_policy.merge(usage: false).to_json
+    end
   rescue TypeError, JSON::ParserError
     nil
   end

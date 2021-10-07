@@ -65,11 +65,39 @@ class SessionsControllerTest < ActionController::TestCase
           assert_equal @response.headers["GOVUK-Account-Session"], @govuk_account_session
         end
 
-        should "redirect to the account home path" do
+        should "redirect to the account home path with cookie_consent=accept" do
           get :callback, params: { code: "code123", state: "state123" }
 
           assert_response :redirect
-          assert_equal @response.redirect_url, account_home_url
+          assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=accept"
+        end
+
+        context "cookie consent is passed by query param" do
+          setup do
+            @cookie_consent = nil
+            stub_account_api
+          end
+
+          should "redirect to the account home path with cookie_consent=accept if given" do
+            get :callback, params: { code: "code123", state: "state123", cookie_consent: "accept" }
+
+            assert_response :redirect
+            assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=accept"
+          end
+
+          should "redirect to the account home path with cookie_consent=reject if given" do
+            get :callback, params: { code: "code123", state: "state123", cookie_consent: "reject" }
+
+            assert_response :redirect
+            assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=reject"
+          end
+
+          should "redirect to the account home path with no cookie_consent param if not given" do
+            get :callback, params: { code: "code123", state: "state123" }
+
+            assert_response :redirect
+            assert_equal @response.redirect_url, account_home_url
+          end
         end
 
         should "redirect with the specified :_ga param" do

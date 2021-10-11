@@ -16,28 +16,36 @@
   var CountryFilter = function (input) {
     var enterKeyCode = 13
     var filterInst = this
+    var searchInput = input[0]
 
-    // suspect `closest` is jQ
-    this.container = input.closest('.js-travel-container')
-    // also keyup
-    input.keyup(function () {
-      // think this can just be this.value
-      var filter = this.value
+    if (searchInput) {
+      this.container = searchInput.closest('.js-travel-container')
 
-      filterInst.filterListItems(filter)
-      filterInst.track(filter)
-    }).keypress(function (event) {
-      // eslint-disable-next-line eqeqeq
-      if (event.which == enterKeyCode) {
-        event.preventDefault()
+      if (this.container) {
+        searchInput.addEventListener("keyup", (function () {
+            var filter = this.value
+            filterInst.filterListItems(filter)
+            filterInst.track(filter)
+          })
+        )
+
+        searchInput.addEventListener("keypress", (function (event) {
+            // eslint-disable-next-line eqeqeq
+            if (event.which == enterKeyCode) {
+              event.preventDefault()
+            }
+          })
+        )
+
+        var countryCount = this.container.getElementsByClassName('js-country-count')[0]
+        if (countryCount) {
+          countryCount.setAttribute('aria-live', 'polite')
+        }
       }
-    })
+    }
 
-    // not 100% on what this does but it's jQ
-    $('.js-country-count', this.container).attr('aria-live', 'polite')
-
-    // need to look up document.bind
-    $(document).bind('countrieslist', this.updateCounter)
+    // document.bind('countrieslist', this.updateCounter)
+    this.updateCounter
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
@@ -107,7 +115,7 @@
       // I think the best thing to do here is just to set the synonyms as standard.
       // that way this loop can be removed and the synonym adding won't be conditional
       // on someone typing
-      
+
       listItems.each(function (i, item) {
         var $listItem = $(item)
         var synonym = filterInst.doesSynonymMatch(item, filter)

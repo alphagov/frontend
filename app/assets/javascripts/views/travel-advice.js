@@ -26,6 +26,7 @@
             var filter = this.value
             filterInst.filterListItems(filter)
             filterInst.track(filter)
+            // updateCounter()
           })
         )
 
@@ -44,8 +45,8 @@
       }
     }
 
-    // document.bind('countrieslist', this.updateCounter)
-    this.updateCounter
+    // this.container.bind('countrieslist', this.updateCounter)
+    // this.updateCounter
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
@@ -144,10 +145,19 @@
   }
 
   CountryFilter.prototype.updateCounter = function (e, eData) {
+    console.log("You pressed a key")
+    // console.log("e", e, "eData", eData)
+    var jsCounter = document.getElementsByClassName('js-country-count')[0]
+    var jsFilter = document.getElementsByClassName('js-filter-count')[0]
+    // console.log("JS Counter size", jsCounter.length)
+    console.log("JS Filter", jsFilter)
+
     var $counter = $('.js-country-count', this.container)
+    // console.log("Counter size", $counter.length)
+
     var results
 
-    $counter.find('.js-filter-count').text(eData.count)
+    jsFilter.innerText = eData.count
     $counter.html($counter.html().replace(/\sresults$/, ''))
     // eslint-disable-next-line eqeqeq
     if (eData.count == 0) { // this is intentional type-conversion

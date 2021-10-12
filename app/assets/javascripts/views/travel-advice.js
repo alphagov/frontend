@@ -24,7 +24,7 @@
       if (this.container) {
         searchInput.addEventListener("keyup", (function () {
             var filter = this.value
-            filterInst.filterListItems(filter)
+            filterInst.filterListItems(filter).bind("document")
             filterInst.track(filter)
           })
         )
@@ -43,18 +43,23 @@
         }
       }
     }
-    // This will need removing but need to know more about `this` and `bind`
-    // add event listener the countries list event
     window.addEventListener('countrieslist', this.updateCounter)
-    // $(document).bind('countrieslist', this.updateCounter)
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
-    var filterInst = this
+
+    console.log("inside filter headings")
+
+    var filterInst = this.container[0]
     var headingHasVisibleCountries = function (headingFirstLetter) {
-      var firstLetterDiv = document.getElementById(headingFirstLetter)
+
+      console.log(filterInst.querySelector(headingFirstLetter))
+      var firstLetterDiv = filterInst.querySelector(headingFirstLetter)
+
+      console.log("firstLetterDiv", firstLetterDiv)
 
       if (firstLetterDiv) {
+        console.log("i don't think we get here")
         var countries = firstLetterDiv.querySelectorAll("li")
         var countryList = []
 
@@ -62,6 +67,8 @@
           var innerVar = countries[i].style.display === 'none' ? countries[i] : undefined
           if (innerVar) { countryList.push(innerVar) }
         }
+
+        console.log("contry list", countryList)
         return countryList.length < countries.length
       }
     }
@@ -89,27 +96,51 @@
   }
 
   CountryFilter.prototype.filterListItems = function (filter) {
-    var jsCountryHeadings = document.getElementsByClassName('countries-initial-letter')
+    var jsCountryHeadings = this.container.getElementsByClassName('countries-wrapper')[0].getElementsByTagName('h3')
+    var countryHeadings = $('.js-countries-wrapper div', this.container).children('h3')
 
     var listItems = $('ul.js-countries-list li', this.container)
-    var jsListItems = document.getElementsByClassName('countries-list__item')
+    var jsListItems = this.container.getElementsByClassName('js-countries-list')
+
+    var someListThing = []
+
+    for(var i=0; i<jsListItems.length; i++) {
+      var liItems = jsListItems[i].getElementsByTagName('li')
+      for(var j=0; j<liItems.length; j++) {
+        someListThing.push(liItems[j])
+      }
+    }
+
+    // console.log("filter list items container", this.container)
+    // console.log("CountryHeadings", countryHeadings.length)
 
     var itemsShowing
     var synonymMatch = false
     var filterInst = this
 
-    for (var i = 0; i < jsListItems.length; i++) {
-      jsListItems[i].style.display = ''
+    // listItems.each(function (i, item) {
+    //   var $item = $(item)
+    //   var link = $item.children('a')
+    //   $item.html(link)
+    // }).show()
+
+    for (var i = 0; i < someListThing.length; i++) {
+      // console.log(someListThing[i].children)
+
+      var inner = someListThing[i].innerHTML
+      // console.log("inner", inner)
+
+      someListThing[i].style.display = ''
     }
 
     filter = filter.trim()
 
     if (filter && filter.length > 0) {
 
-      for (var i = 0; i < jsListItems.length; i++) {
-        var downcase = jsListItems[i].innerText.toLowerCase()
+      for (var i = 0; i < someListThing.length; i++) {
+        var downcase = someListThing[i].innerText.toLowerCase()
         if (downcase.indexOf(filter.toLowerCase()) === -1) {
-          jsListItems[i].style.display = 'none'
+          someListThing[i].style.display = 'none'
         }
       }
 
@@ -133,17 +164,24 @@
       }
     }
 
+    console.log("0")
+
     var arrayOfListItems = []
-    for(var i = 0; i < jsListItems.length; i++){
-      arrayOfListItems.push(jsListItems[i])
+    for(var i = 0; i < someListThing.length; i++){
+      arrayOfListItems.push(someListThing[i])
     }
+
+    console.log("1")
+
     itemsShowing = arrayOfListItems.filter(function(item){return item.style.display !== 'none'}).length
+
+    console.log("2", jsCountryHeadings)
 
     this.filterHeadings(jsCountryHeadings)
 
-    // window govuk trigger event countries list
+    console.log("3")
+
     window.GOVUK.triggerEvent(window, 'countriesList', { count: itemsShowing } )
-    // $(document).trigger('countrieslist', { count: itemsShowing })
   }
 
   CountryFilter.prototype.updateCounter = function (e, eData) {

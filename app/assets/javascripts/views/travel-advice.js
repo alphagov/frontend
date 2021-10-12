@@ -26,7 +26,6 @@
             var filter = this.value
             filterInst.filterListItems(filter)
             filterInst.track(filter)
-            // updateCounter()
           })
         )
 
@@ -44,9 +43,10 @@
         }
       }
     }
-
-    // this.container.bind('countrieslist', this.updateCounter)
-    // this.updateCounter
+    // This will need removing but need to know more about `this` and `bind`
+    // add event listener the countries list event
+    window.addEventListener('countrieslist', this.updateCounter)
+    // $(document).bind('countrieslist', this.updateCounter)
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
@@ -141,28 +141,27 @@
 
     this.filterHeadings(jsCountryHeadings)
 
-    $(document).trigger('countrieslist', { count: itemsShowing })
+    // window govuk trigger event countries list
+    window.GOVUK.triggerEvent(window, 'countriesList', { count: itemsShowing } )
+    // $(document).trigger('countrieslist', { count: itemsShowing })
   }
 
   CountryFilter.prototype.updateCounter = function (e, eData) {
-    console.log("You pressed a key")
-    // console.log("e", e, "eData", eData)
-    var jsCounter = document.getElementsByClassName('js-country-count')[0]
-    var jsFilter = document.getElementsByClassName('js-filter-count')[0]
-    // console.log("JS Counter size", jsCounter.length)
-    console.log("JS Filter", jsFilter)
-
-    var $counter = $('.js-country-count', this.container)
-    // console.log("Counter size", $counter.length)
+    var jsCounter = this.container.getElementsByClassName('js-country-count')[0]
+    var jsFilter = this.container.getElementsByClassName('js-filter-count')[0]
 
     var results
 
     jsFilter.innerText = eData.count
-    $counter.html($counter.html().replace(/\sresults$/, ''))
+
+    var counterHTML = jsCounter.innerHTML
+    counterHTML.replace(/\sresults$/, '')
+    jsCounter.innerHTML = counterHTML
+
     // eslint-disable-next-line eqeqeq
     if (eData.count == 0) { // this is intentional type-conversion
       results = document.createTextNode(' results')
-      $counter[0].appendChild(results)
+      jsCounter.appendChild(results)
     }
   }
 

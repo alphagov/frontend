@@ -35,7 +35,7 @@ If the image is a simple graphic, and thus already a small file size, resize it 
 
 ## 3. Update the markup and phrases
 
-To apply the change you need to update the [app/views/homepage/index.html.erb](../app/views/homepage/index.html.erb) view by:
+To apply the change you need to update the [app/views/homepage/_promotion-slots.html.erb](../app/views/homepage/_promotion-slots.html.erb) view by:
 
 - changing the URL and the image paths - make sure you update any corresponding `data-` attributes
 - replacing the existing phrases in the [locale file](../config/locales/en.yml)

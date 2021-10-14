@@ -184,13 +184,13 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
     invalid_utf8_rejector (0.0.4)
-    jasmine (3.9.2)
-      jasmine-core (~> 3.9.0)
+    jasmine (3.10.0)
+      jasmine-core (~> 3.10.0)
       phantomjs
       rack (>= 2.1.4)
       rake
       webrick
-    jasmine-core (3.9.0)
+    jasmine-core (3.10.0)
     jasmine_selenium_runner (3.0.0)
       jasmine (~> 3.0)
       selenium-webdriver (~> 3.8)

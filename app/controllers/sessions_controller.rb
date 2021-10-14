@@ -30,7 +30,6 @@ class SessionsController < ApplicationController
       end
 
     set_account_session_header(callback["govuk_account_session"])
-    set_cookies_policy(cookie_consent)
 
     redirect_to GovukPersonalisation::Redirect.build_url(callback["redirect_path"] || account_home_path, { _ga: ga_client_id, cookie_consent: cookie_consent }.compact)
   rescue GdsApi::HTTPUnauthorized
@@ -70,20 +69,5 @@ protected
     return true if value.starts_with?("http://") && Rails.env.development?
 
     false
-  end
-
-  # TODO: this can be removed when all the apps have https://github.com/alphagov/govuk_publishing_components/pull/2340
-  def set_cookies_policy(consent)
-    return unless cookies[:cookies_policy]
-
-    cookies_policy = JSON.parse(cookies[:cookies_policy]).symbolize_keys
-    case consent
-    when "accept"
-      cookies[:cookies_policy] = cookies_policy.merge(usage: true).to_json
-    when "reject"
-      cookies[:cookies_policy] = cookies_policy.merge(usage: false).to_json
-    end
-  rescue TypeError, JSON::ParserError
-    nil
   end
 end

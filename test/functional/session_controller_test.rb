@@ -107,37 +107,6 @@ class SessionsControllerTest < ActionController::TestCase
           assert_response :redirect
           assert_includes @response.redirect_url, underscore_ga
         end
-
-        should "not set the cookies_policy cookie" do
-          get :callback, params: { code: "code123", state: "state123" }
-
-          assert_nil cookies[:cookies_policy]
-        end
-
-        context "the cookies_policy cookie is set" do
-          setup do
-            @request.cookies[:cookies_policy] = { usage: "maybe" }.to_json
-          end
-
-          should "update the cookies_policy cookie" do
-            get :callback, params: { code: "code123", state: "state123" }
-
-            assert_equal "{\"usage\":true}", cookies[:cookies_policy]
-          end
-        end
-
-        context "the cookies_policy cookie is set to invalid JSON" do
-          setup do
-            @original_cookies_policy = "not json"
-            @request.cookies[:cookies_policy] = @original_cookies_policy
-          end
-
-          should "not change the cookies_policy cookie" do
-            get :callback, params: { code: "code123", state: "state123" }
-
-            assert_equal @original_cookies_policy, cookies[:cookies_policy]
-          end
-        end
       end
 
       context "account-api returns a :redirect_path" do

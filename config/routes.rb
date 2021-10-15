@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "/sign-in", to: "sessions#create"
   get "/sign-in/redirect", to: "sessions#create", as: :new_govuk_session
   get "/sign-in/callback", to: "sessions#callback", as: :new_govuk_session_callback
+  post "/sign-in/first-time", to: "sessions#first_time", as: :new_govuk_session_first_time
   get "/sign-out", to: "sessions#delete", as: :end_govuk_session
 
   scope "/account" do

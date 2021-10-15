@@ -1,0 +1,103 @@
+<%
+@has_errors = defined?(@error_items) && !@error_items.empty?
+
+title = ""
+title << "#{t('error')}: " if @has_errors
+title << t("sessions.first_time.title")
+content_for :title, title
+%>
+
+<main id="content" role="main" class="govuk-main-wrapper" <%= lang_attribute("en") %>>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("sessions.first_time.title"),
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 3,
+      } %>
+
+      <% if @has_errors %>
+        <%= render "govuk_publishing_components/components/error_summary", {
+          id: "error-summary",
+          title: t("sessions.first_time.invalid"),
+          items: @error_items
+        } %>
+      <% end %>
+
+      <%= t("sessions.first_time.description_html") %>
+
+      <%= form_with(url: new_govuk_session_first_time_path, method: :post) do %>
+        <%= hidden_field_tag :_ga, (@ga_client_id || params[:_ga]) %>
+        <%= hidden_field_tag :redirect_path, (@redirect_path || params[:redirect_path]) %>
+        <%= hidden_field_tag :govuk_account_session, (@govuk_account_session || params[:govuk_account_session]) %>
+
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("sessions.first_time.cookie_consent.heading"),
+          heading_level: 2,
+          font_size: "m",
+          margin_bottom: 3,
+        } %>
+
+        <%= t("sessions.first_time.cookie_consent.description_html") %>
+
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "cookie_consent",
+          id: "cookie_consent",
+          heading: t("sessions.first_time.cookie_consent.field.heading"),
+          heading_size: "s",
+          heading_level: 3,
+          error_message: @cookie_consent_decision_error,
+          hint: t("sessions.first_time.cookie_consent.field.hint"),
+          items: [
+            {
+              value: "yes",
+              text: t("yes"),
+              checked: (params[:cookie_consent] == "yes") || (@cookie_consent == "accept"),
+            },
+            {
+              value: "no",
+              text: t("no"),
+              checked: (params[:cookie_consent] == "no") || (@cookie_consent == "reject"),
+            }
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/heading", {
+          text:  t("sessions.first_time.feedback_consent.heading"),
+          heading_level: 2,
+          font_size: "m",
+          margin_bottom: 3,
+        } %>
+
+        <%= t("sessions.first_time.feedback_consent.description_html") %>
+
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "feedback_consent",
+          id: "feedback_consent",
+          heading: t("sessions.first_time.feedback_consent.field.heading"),
+          heading_size: "s",
+          heading_level: 3,
+          error_message: @feedback_consent_decision_error,
+          hint: t("sessions.first_time.feedback_consent.field.hint"),
+          items: [
+            {
+              value: "yes",
+              text: t("yes"),
+              checked: params[:feedback_consent] == "yes",
+            },
+            {
+              value: "no",
+              text: t("no"),
+              checked: params[:feedback_consent] == "no",
+            }
+          ]
+        } %>
+
+        <%= render "govuk_publishing_components/components/button", {
+          text: t("continue"),
+        } %>
+      <% end %>
+    </div>
+  </div>
+</main>

@@ -12,6 +12,19 @@ en:
         set_up: "<strong>Confirm your email address</strong> to finish setting up your account and start getting email updates."
         update: "<strong>Confirm your email address</strong> to finish updating your account and email alerts."
       link_text: Send confirmation email again
+    cookies_and_feedback:
+      heading: Cookie and feedback settings
+      success: Your feedback and cookie settings have been changed.
+      cookie_consent:
+        heading: Change your cookie settings
+        description: We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.
+        field:
+          heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
+      feedback_consent:
+        heading: Change your feedback settings
+        description: As we add new features to your GOV.UK account, we would like to email you to find out any thoughts or suggestions you might have.
+        field:
+          heading: Can we email you to ask for feedback about your account?
     your_account:
       account_not_used:
         action: "%{link} to start getting the most out of your account."
@@ -57,6 +70,7 @@ en:
     st_patrick: St Patrick’s Day
     summer: Summer bank holiday
     year: Year
+  cancel: cancel
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
@@ -321,6 +335,7 @@ en:
       vat_rates: VAT rates
       vehicle_tax: Renew vehicle tax
   'no': 'No'
+  or: or
   place:
     children_social_care: You can call the children's social care team at the council in
     go_to_website: Go to their website
@@ -457,6 +472,7 @@ en:
       - href: https://insidegovuk.blog.gov.uk/
         image_src: roadmap/updates-blog.jpg
         heading_text: Inside GOV.UK blog
+  save: Save
   sign_up: Sign up
   website: Website
   'yes': 'Yes'

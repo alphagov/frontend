@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   scope "/account" do
     get "/home", to: "account_home#show", as: :account_home
+    get "/cookies-and-feedback", to: "account_cookies_and_feedback#show", as: :account_cookies_and_feedback
+    post "/cookies-and-feedback", to: "account_cookies_and_feedback#update"
   end
 
   # Help pages

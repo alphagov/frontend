@@ -12,6 +12,19 @@ cy:
         set_up:
         update:
       link_text:
+    cookies_and_feedback:
+      heading:
+      success:
+      cookie_consent:
+        heading:
+        description:
+        field:
+          heading:
+      feedback_consent:
+        heading:
+        description:
+        field:
+          heading:
     your_account:
       account_not_used:
         action:
@@ -57,6 +70,7 @@ cy:
     st_patrick: Gŵyl San Padrig
     summer: Gŵyl Banc yr Haf
     year:
+  cancel:
   common:
     add_holiday_ics: Ychwanegwch ddyddiadau gwyliau banc %{for_nation} at eich calendr (ICS, 10KB)
     bank_holiday_benefits_html: ''
@@ -318,6 +332,7 @@ cy:
       vat_rates:
       vehicle_tax:
   'no':
+  or:
   place:
     children_social_care:
     go_to_website:
@@ -342,6 +357,7 @@ cy:
     updates_section:
       heading:
       items:
+  save:
   sign_up:
   website:
   'yes':

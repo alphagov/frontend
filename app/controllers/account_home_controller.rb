@@ -1,7 +1,6 @@
 class AccountHomeController < ApplicationController
   include GovukPersonalisation::ControllerConcern
   before_action -> { set_slimmer_headers(template: "gem_layout_account_manager", remove_search: true, show_accounts: "signed-in") }
-  slimmer_template "gem_layout_account_manager"
 
   def show
     @is_account = true

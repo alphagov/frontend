@@ -92,15 +92,53 @@ class LicenceControllerTest < ActionController::TestCase
   end
 
   context "GET authority" do
-    context "for live content" do
+    context "for live content with a licence which exists" do
       setup do
-        content_store_has_page("licence-to-kill")
+        stub_content_store_has_item("/licence-to-kill", {
+          base_path: "/licence-to-kill",
+          document_type: "licence",
+          format: "licence",
+          schema_name: "licence",
+          title: "Licence to kill",
+          public_updated_at: "2012-10-02T12:30:33.483Z",
+          description: "Descriptive licence text.",
+          details: {
+            licence_identifier: "1071-5-1",
+            licence_overview: "You only live twice, Mr Bond.\n",
+          },
+        })
+        stub_licence_exists("1071-5-1", { "isLocationSpecific" => false })
       end
 
       should "set the cache expiry headers" do
         get :authority, params: { slug: "licence-to-kill", authority_slug: "secret-service" }
 
         assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      end
+    end
+
+    context "for live content when the licensing API times out" do
+      setup do
+        stub_content_store_has_item("/no-time-to-die", {
+          base_path: "/no-time-to-die",
+          document_type: "licence",
+          format: "licence",
+          schema_name: "licence",
+          title: "No time to die",
+          public_updated_at: "2021-10-02T12:30:33.483Z",
+          description: "Descriptive licence text.",
+          details: {
+            licence_identifier: "0-0-7",
+            licence_overview: "We have all the time in the world.\n",
+          },
+        })
+        stub_licence_times_out "0-0-7"
+      end
+
+      should "set the no-cache cache control header" do
+        get :authority, params: { slug: "no-time-to-die", authority_slug: "vesper" }
+
+        assert_equal "no-cache", response.headers["Cache-Control"]
       end
     end
   end

@@ -7,7 +7,7 @@ class LicenceDetailsPresenter
     @interaction = interaction
   end
 
-  delegate :present?, to: :licence
+  delegate :present?, :blank?, to: :licence
 
   def local_authority_specific?
     licence_details["location_specific"]

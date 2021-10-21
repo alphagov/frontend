@@ -18,18 +18,22 @@ class SessionsController < ApplicationController
       state: params.require(:state),
     ).to_h
 
+    @cookie_consent =
+      case params[:cookie_consent]
+      when "accept"
+        update_saved_cookie_consent = !callback["cookie_consent"]
+        "accept"
+      when "reject"
+        update_saved_cookie_consent = callback["cookie_consent"]
+        "reject"
+      else
+        update_saved_cookie_consent = false
+        callback["cookie_consent"] ? "accept" : "reject"
+      end
+
     # TODO: remove callback["ga_client_id"] when we have switched to
     # Digital Identity in production
     if callback.key?("cookie_consent") && callback.key?("feedback_consent") && (callback["cookie_consent"].nil? || callback["feedback_consent"].nil?)
-      @cookie_consent =
-        case callback["cookie_consent"]
-        when true
-          "accept"
-        when false
-          "reject"
-        else
-          params[:cookie_consent]
-        end
       @ga_client_id = callback["ga_client_id"]
       @redirect_path = callback["redirect_path"]
       @govuk_account_session = callback["govuk_account_session"]
@@ -37,7 +41,8 @@ class SessionsController < ApplicationController
     else
       do_login(
         redirect_path: callback["redirect_path"],
-        cookie_consent: callback["cookie_consent"],
+        cookie_consent: @cookie_consent,
+        update_saved_cookie_consent: update_saved_cookie_consent,
         govuk_account_session: callback["govuk_account_session"],
         ga_client_id: callback["ga_client_id"],
       )
@@ -76,7 +81,8 @@ class SessionsController < ApplicationController
 
       do_login(
         redirect_path: redirect_path,
-        cookie_consent: cookie_consent_decision,
+        cookie_consent: cookie_consent_decision ? "accept" : "reject",
+        update_saved_cookie_consent: false,
         govuk_account_session: response["govuk_account_session"],
       )
     end
@@ -119,14 +125,21 @@ protected
     false
   end
 
-  def do_login(redirect_path:, cookie_consent:, govuk_account_session:, ga_client_id: nil)
+  def do_login(redirect_path:, cookie_consent:, update_saved_cookie_consent:, govuk_account_session:, ga_client_id: nil)
     set_account_session_header(govuk_account_session)
+
+    if update_saved_cookie_consent
+      GdsApi.account_api.set_attributes(
+        attributes: { cookie_consent: cookie_consent == "accept" },
+        govuk_account_session: account_session_header,
+      )
+    end
 
     redirect_to GovukPersonalisation::Redirect.build_url(
       redirect_path || account_home_path,
       {
         _ga: ga_client_id || params[:_ga],
-        cookie_consent: cookie_consent ? "accept" : "reject",
+        cookie_consent: cookie_consent,
       }.compact,
     )
   end

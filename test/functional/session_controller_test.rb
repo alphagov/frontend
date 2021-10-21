@@ -73,6 +73,27 @@ class SessionsControllerTest < ActionController::TestCase
           assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=accept"
         end
 
+        context "cookie consent is passed by query param" do
+          should "redirect to the account home path with cookie_consent=accept if given" do
+            get :callback, params: { code: "code123", state: "state123", cookie_consent: "accept" }
+
+            assert_response :redirect
+            assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=accept"
+          end
+
+          context "stored cookie consent does not match the query param" do
+            should "update the stored consent" do
+              stub = stub_account_api_set_attributes(attributes: { cookie_consent: false })
+
+              get :callback, params: { code: "code123", state: "state123", cookie_consent: "reject" }
+
+              assert_response :redirect
+              assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=reject"
+              assert_requested stub
+            end
+          end
+        end
+
         should "redirect with the specified :_ga param" do
           underscore_ga = "underscore_ga"
           get :callback, params: { code: "code123", state: "state123", _ga: underscore_ga }

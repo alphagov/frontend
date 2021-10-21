@@ -14,6 +14,7 @@ class AccountCookiesAndFeedbackController < ApplicationController
 
     @cookie_consent = result.dig("values", "cookie_consent")
     @feedback_consent = result.dig("values", "feedback_consent")
+    @success = params[:success].present?
   end
 
   def update
@@ -30,10 +31,14 @@ class AccountCookiesAndFeedbackController < ApplicationController
       )
     end
 
-    redirect_to_cookies_and_feedback and return unless logged_in?
-
-    @success = true
-    render :show
+    if logged_in?
+      redirect_to account_cookies_and_feedback_path(
+        cookie_consent: @cookie_consent ? "accept" : "reject",
+        success: true,
+      )
+    else
+      redirect_to_cookies_and_feedback
+    end
   end
 
 private

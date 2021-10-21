@@ -47,8 +47,10 @@ private
 
     begin
       GdsApi.licence_application.details_for_licence(@publication.licence_identifier, snac)
-    rescue GdsApi::HTTPErrorResponse, GdsApi::TimedOutException
-      {}
+    rescue GdsApi::HTTPErrorResponse => e
+      return {} if e.code == 404
+
+      raise
     end
   end
 

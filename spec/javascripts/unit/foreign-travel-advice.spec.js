@@ -104,7 +104,7 @@ describe('CountryFilter', function () {
       expect(filter.container).toBeDefined()
     })
 
-    it("Should attach a call to its filterListItems method in the sent jQuery objects keyup method", function () {
+    it('Should attach a call to its filterListItems method in the sent jQuery objects keyup method', function () {
       filter = new GOVUK.countryFilter($input[0])
       spyOn(filter, 'filterListItems')
 

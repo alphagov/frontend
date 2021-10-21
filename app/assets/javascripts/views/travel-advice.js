@@ -77,9 +77,11 @@
     var itemsShowing = 0
     var synonymMatch = false
     var filterInst = this
+    var i = 0
+    var listItem = null
 
-    for (var i = 0; i < listItems.length; i++) {
-      var listItem = listItems[i]
+    for (i = 0; i < listItems.length; i++) {
+      listItem = listItems[i]
       var link = listItem.getElementsByTagName('a')[0]
       listItem.textContent = ''
       listItem.appendChild(link)
@@ -89,8 +91,8 @@
     filter = filter.replace(/^\s+|\s+$/g, '')
     if (filter && filter.length > 0) {
       var hideCount = 0
-      for (var i = 0; i < listItems.length; i++) {
-        var listItem = listItems[i]
+      for (i = 0; i < listItems.length; i++) {
+        listItem = listItems[i]
         if (listItem.children[0].firstChild.textContent.toLowerCase().includes(filter.toLowerCase())) {
           listItem.style.display = ''
         } else {
@@ -100,8 +102,8 @@
       }
       itemsShowing = listItems.length - hideCount
 
-      for (var i = 0; i < listItems.length; i++) {
-        var listItem = listItems[i]
+      for (i = 0; i < listItems.length; i++) {
+        listItem = listItems[i]
         var synonyms = filterInst.doesSynonymMatch(listItem, filter)
         if (synonyms.length > 0) {
           synonymMatch = true
@@ -114,14 +116,14 @@
 
       if (synonymMatch) {
         itemsShowing = 0
-        for (var i = 0; i < listItems.length; i++) {
+        for (i = 0; i < listItems.length; i++) {
           if (listItems[i].style.display !== 'none') {
             itemsShowing += 1
           }
         }
       }
     } else {
-      for (var i = 0; i < countryHeadings.length; i++) {
+      for (i = 0; i < countryHeadings.length; i++) {
         countryHeadings[i].style.display = ''
       }
 

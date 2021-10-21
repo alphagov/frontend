@@ -13,16 +13,13 @@
 
     this.container = searchInput.closest('.js-travel-container')
 
-    searchInput.addEventListener('keyup', function () {
-      var filter = this.value
-      filterInst.filterListItems(filter)
-      filterInst.track(filter)
-    })
-
-    searchInput.addEventListener('keypress', function (event) {
-      // eslint-disable-next-line eqeqeq
-      if (event.which == enterKeyCode) {
+    searchInput.addEventListener('keyup', function (event) {
+      if (event.keyCode === enterKeyCode) {
         event.preventDefault()
+      } else {
+        var filter = this.value
+        filterInst.filterListItems(filter)
+        filterInst.track(filter)
       }
     })
 

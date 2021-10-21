@@ -113,25 +113,20 @@ describe('CountryFilter', function () {
       expect(filter.filterListItems).toHaveBeenCalled()
     })
 
-    it('Should cancel events bound to keypress when enter is pressed', function () {
-      var invalidEventMock = {
-        which: 8,
-        preventDefault: jasmine.createSpy('preventDefault1')
-      }
-      var validEventMock = {
-        which: 13,
-        preventDefault: jasmine.createSpy('preventDefault2')
-      }
-
+    it('Should not cancel events bound to keyup when backspace is pressed', function () {
       filter = new GOVUK.countryFilter($input[0])
+      spyOn(filter, 'filterListItems')
 
-      // call event with backspace
-      window.GOVUK.triggerEvent($input[0], 'keyup', { detail: invalidEventMock })
-      expect(invalidEventMock.preventDefault).not.toHaveBeenCalled()
+      window.GOVUK.triggerEvent($input[0], 'keyup', { keyCode: 8 })
+      expect(filter.filterListItems).toHaveBeenCalled()
+    })
 
-      // call event with enter
-      window.GOVUK.triggerEvent($input[0], 'keypress', { detail: validEventMock })
-      expect(validEventMock.preventDefault).toHaveBeenCalled()
+    it('Should cancel events bound to keyup when enter is pressed', function () {
+      filter = new GOVUK.countryFilter($input[0])
+      spyOn(filter, 'filterListItems')
+
+      window.GOVUK.triggerEvent($input[0], 'keyup', { keyCode: 13 })
+      expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 
     it('Should track search input via timeouts', function (done) {

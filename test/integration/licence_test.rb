@@ -833,16 +833,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       stub_licence_times_out("1071-5-1")
     end
 
-    should "not blow the stack" do
+    should "show an error" do
       visit "/licence-to-kill"
-      assert page.status_code == 200
-    end
-
-    should "show message to contact local council" do
-      visit "/licence-to-kill"
-
-      assert page.has_content?("You can't apply for this licence online")
-      assert page.has_content?("Contact your local council")
+      assert_equal page.status_code, 503
     end
   end
 
@@ -865,16 +858,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       stub_licence_returns_error("1071-5-1")
     end
 
-    should "not blow the stack" do
+    should "show an error" do
       visit "/licence-to-kill"
-      assert page.status_code == 200
-    end
-
-    should "show message to contact local council" do
-      visit "/licence-to-kill"
-
-      assert page.has_content?("You can't apply for this licence online")
-      assert page.has_content?("Contact your local council")
+      assert_equal page.status_code, 503
     end
   end
 

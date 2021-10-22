@@ -74,43 +74,67 @@
   }
 
   CountryFilter.prototype.filterListItems = function (filter) {
-    var countryHeadings = $('.js-countries-wrapper div', this.container).children('h3')
-    var listItems = $('ul.js-countries-list li', this.container)
-    var itemsToHide
-    var itemsShowing
+    var countryHeadings = this.container.querySelectorAll('h3.countries-initial-letter')
+    var listItems = this.container.querySelectorAll('ul.js-countries-list li')
+
+    var itemsShowing = 0
     var synonymMatch = false
     var filterInst = this
+    var i = 0
+    var listItem = null
 
-    listItems.each(function (i, item) {
-      var $item = $(item)
-      var link = $item.children('a')
-      $item.html(link)
-    }).show()
+    for (i = 0; i < listItems.length; i++) {
+      listItem = listItems[i]
+      var link = listItem.getElementsByTagName('a')[0]
+      listItem.textContent = ''
+      listItem.appendChild(link)
+      listItem.style.display = ''
+    }
 
-    filter = $.trim(filter)
+    filter = filter.replace(/^\s+|\s+$/g, '')
     if (filter && filter.length > 0) {
-      itemsToHide = listItems.filter(':not(:contains(' + filter + '))')
-      itemsToHide.hide()
-      itemsShowing = listItems.length - itemsToHide.length
-      listItems.each(function (i, item) {
-        var $listItem = $(item)
-        var synonym = filterInst.doesSynonymMatch(item, filter)
-        if (synonym) {
-          synonymMatch = true
-          $listItem.show().append('(' + synonym + ')')
+      var hideCount = 0
+      for (i = 0; i < listItems.length; i++) {
+        listItem = listItems[i]
+        if (listItem.children[0].firstChild.textContent.toLowerCase().includes(filter.toLowerCase())) {
+          listItem.style.display = ''
+        } else {
+          listItem.style.display = 'none'
+          hideCount += 1
         }
-      })
+      }
+      itemsShowing = listItems.length - hideCount
+
+      for (i = 0; i < listItems.length; i++) {
+        listItem = listItems[i]
+        var synonyms = filterInst.doesSynonymMatch(listItem, filter)
+        if (synonyms.length > 0) {
+          synonymMatch = true
+          listItem.style.display = ''
+          for (var j = 0; j < synonyms.length; j++) {
+            listItem.appendChild(document.createTextNode('(' + synonyms[j] + ') '))
+          }
+        }
+      }
+
       if (synonymMatch) {
-        itemsShowing = listItems.filter(function () { return this.style.display !== 'none' }).length
+        itemsShowing = 0
+        for (i = 0; i < listItems.length; i++) {
+          if (listItems[i].style.display !== 'none') {
+            itemsShowing += 1
+          }
+        }
       }
     } else {
-      countryHeadings.show()
+      for (i = 0; i < countryHeadings.length; i++) {
+        countryHeadings[i].style.display = ''
+      }
+
       itemsShowing = listItems.length
     }
 
     this.filterHeadings(countryHeadings)
-
-    $(document).trigger('countrieslist', { count: itemsShowing })
+    this.updateCounter(itemsShowing)
   }
 
   CountryFilter.prototype.updateCounter = function (e, eData) {

@@ -98,13 +98,12 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("#I li") # _In_dia
         assert page.has_selector?("#F li") # F_in_land
         assert page.has_selector?("#S li") # Spa_in_
-        assert page.has_selector?("#A li") # Argent_in_a
-        assert page.has_no_selector?("#Y li")
-        assert page.has_no_selector?("#Z li")
+        assert page.has_no_selector?("#A li")
+        assert page.has_no_selector?("#M li")
       end
 
       within ".js-country-count" do
-        assert page.has_selector?(".js-filter-count", text: "7")
+        assert page.has_selector?(".js-filter-count", text: "4")
       end
     end
   end

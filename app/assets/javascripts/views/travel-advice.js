@@ -12,26 +12,28 @@
     return (obj.textContent || obj.innerText || '').toUpperCase().indexOf(meta[3].toUpperCase()) >= 0
   }
 
-  var CountryFilter = function (input) {
+  var CountryFilter = function (searchInput) {
     var enterKeyCode = 13
     var filterInst = this
 
-    this.container = input.closest('.js-travel-container')
-    input.keyup(function () {
-      var filter = $(this).val()
+    this.container = searchInput.closest('.js-travel-container')
 
-      filterInst.filterListItems(filter)
-      filterInst.track(filter)
-    }).keypress(function (event) {
-      // eslint-disable-next-line eqeqeq
-      if (event.which == enterKeyCode) {
+    searchInput.addEventListener('keyup', function (event) {
+      if (event.keyCode === enterKeyCode) {
         event.preventDefault()
+      } else {
+        var filter = this.value
+        filterInst.filterListItems(filter)
+        filterInst.track(filter)
       }
     })
 
-    $('.js-country-count', this.container).attr('aria-live', 'polite')
-
-    $(document).bind('countrieslist', this.updateCounter)
+    if (this.container) {
+      var countryCount = this.container.getElementsByClassName('js-country-count')[0]
+      if (countryCount) {
+        countryCount.setAttribute('aria-live', 'polite')
+      }
+    }
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {

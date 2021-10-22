@@ -12,31 +12,9 @@ class AccountHomeController < ApplicationController
 
 private
 
-  helper_method :show_confirmation_reminder?
-
-  def show_confirmation_reminder?
-    return false unless @user
-
-    !@user["email_verified"] || @user["has_unconfirmed_email"]
-  end
-
-  helper_method :confirmation_banner_prompt_type
-
-  def confirmation_banner_prompt_type
-    return "update" if confirmed_user_changed_email?
-
-    "set_up"
-  end
-
   helper_method :has_used?
 
   def has_used?(service_name)
     %w[yes yes_but_must_reauthenticate].include? @user.dig("services", service_name)
-  end
-
-  def confirmed_user_changed_email?
-    return false unless @user
-
-    @user["email_verified"] && @user["has_unconfirmed_email"]
   end
 end

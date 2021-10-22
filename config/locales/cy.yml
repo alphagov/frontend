@@ -141,6 +141,7 @@ cy:
       description:
       matched_postcode_html:
       title:
+  error:
   find:
   formats:
     find_my_nearest:
@@ -358,6 +359,25 @@ cy:
       heading:
       items:
   save:
+  sessions:
+    first_time:
+      title:
+      description_html:
+      cookie_consent:
+        heading:
+        description_html:
+        field:
+          heading:
+          hint:
+          invalid:
+      feedback_consent:
+        heading:
+        description_html:
+        field:
+          heading:
+          hint:
+          invalid:
+      invalid:
   sign_up:
   website:
   'yes':

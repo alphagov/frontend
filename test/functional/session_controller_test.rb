@@ -5,7 +5,7 @@ class SessionsControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::AccountApi
   include GovukPersonalisation::TestHelpers::Requests
 
-  context "GET sign-in" do
+  context "GET /sign-in/redirect" do
     setup do
       stub_account_api_get_sign_in_url
     end
@@ -22,7 +22,7 @@ class SessionsControllerTest < ActionController::TestCase
     end
   end
 
-  context "GET sign-in/callback" do
+  context "GET /sign-in/callback" do
     setup do
       @root_path = Plek.new.website_root
     end
@@ -54,6 +54,7 @@ class SessionsControllerTest < ActionController::TestCase
         @redirect_path = nil
         @ga_client_id = nil
         @cookie_consent = true
+        @feedback_consent = true
       end
 
       context "with no extra parameters" do
@@ -70,34 +71,6 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=accept"
-        end
-
-        context "cookie consent is passed by query param" do
-          setup do
-            @cookie_consent = nil
-            stub_account_api
-          end
-
-          should "redirect to the account home path with cookie_consent=accept if given" do
-            get :callback, params: { code: "code123", state: "state123", cookie_consent: "accept" }
-
-            assert_response :redirect
-            assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=accept"
-          end
-
-          should "redirect to the account home path with cookie_consent=reject if given" do
-            get :callback, params: { code: "code123", state: "state123", cookie_consent: "reject" }
-
-            assert_response :redirect
-            assert_equal @response.redirect_url, "#{account_home_url}?cookie_consent=reject"
-          end
-
-          should "redirect to the account home path with no cookie_consent param if not given" do
-            get :callback, params: { code: "code123", state: "state123" }
-
-            assert_response :redirect
-            assert_equal @response.redirect_url, account_home_url
-          end
         end
 
         should "redirect with the specified :_ga param" do
@@ -162,6 +135,83 @@ class SessionsControllerTest < ActionController::TestCase
           assert_includes @response.redirect_url, "&_ga=#{@ga_client_id}"
         end
       end
+
+      context "account-api returns a nil :cookie_consent" do
+        setup do
+          @cookie_consent = nil
+          stub_account_api
+        end
+
+        should "not sign the user in" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_nil @response.headers["GOVUK-Account-Session"]
+        end
+
+        should "render the consent form" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_includes @response.body, I18n.t("sessions.first_time.title")
+        end
+      end
+
+      context "account-api returns a nil :feedback_consent" do
+        setup do
+          @feedback_consent = nil
+          stub_account_api
+        end
+
+        should "not sign the user in" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_nil @response.headers["GOVUK-Account-Session"]
+        end
+
+        should "render the consent form" do
+          get :callback, params: { code: "code123", state: "state123" }
+
+          assert_includes @response.body, I18n.t("sessions.first_time.title")
+        end
+      end
+    end
+  end
+
+  context "POST /sign-in/first-time" do
+    should "save the consents, sign the user in, and send them to the redirect path" do
+      stub_account_api_set_attributes(
+        attributes: {
+          cookie_consent: true,
+          feedback_consent: true,
+        },
+        govuk_account_session: "foo",
+        new_govuk_account_session: "bar",
+      )
+
+      post :first_time, params: { govuk_account_session: "foo", redirect_path: "/account/home", cookie_consent: "yes", feedback_consent: "yes" }
+      assert_response :redirect
+      assert_includes @response.redirect_url, "/account/home?cookie_consent=accept"
+      assert_equal @response.headers["GOVUK-Account-Session"], "bar"
+    end
+
+    should "return a 400 error if the :redirect_path is invalid" do
+      post :first_time, params: { govuk_account_session: "foo", redirect_path: "https://www.example.com" }
+      assert_response :bad_request
+    end
+
+    should "raise an error if the :govuk_account_session is missing" do
+      assert_raises ActionController::ParameterMissing do
+        post :first_time, params: { redirect_path: "/account/home" }
+      end
+    end
+
+    should "display an error message if the cookie consent is invalid" do
+      post :first_time, params: { govuk_account_session: "foo", redirect_path: "/account/home", cookie_consent: "nonsense", feedback_consent: "yes" }
+      assert_includes @response.body, I18n.t("sessions.first_time.cookie_consent.field.invalid")
+    end
+
+    should "display an error message if the feedback consent is invalid" do
+      post :first_time, params: { govuk_account_session: "foo", redirect_path: "/account/home", cookie_consent: "yes", feedback_consent: "nonsense" }
+      assert_includes @response.body, I18n.t("sessions.first_time.feedback_consent.field.invalid")
     end
   end
 
@@ -192,6 +242,7 @@ class SessionsControllerTest < ActionController::TestCase
       redirect_path: @redirect_path,
       ga_client_id: @ga_client_id,
       cookie_consent: @cookie_consent,
+      feedback_consent: @feedback_consent,
     )
   end
 end

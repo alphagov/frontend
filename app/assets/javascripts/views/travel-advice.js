@@ -137,16 +137,15 @@
     this.updateCounter(itemsShowing)
   }
 
-  CountryFilter.prototype.updateCounter = function (e, eData) {
-    var $counter = $('.js-country-count', this.container)
-    var results
+  CountryFilter.prototype.updateCounter = function (showingCount) {
+    var counter = this.container.getElementsByClassName('js-country-count')[0]
+    var filter = this.container.getElementsByClassName('js-filter-count')[0]
 
-    $counter.find('.js-filter-count').text(eData.count)
-    $counter.html($counter.html().replace(/\sresults$/, ''))
+    filter.innerText = showingCount
+    counter.innerHTML = counter.innerHTML.replace(/\s*results$/, '')
     // eslint-disable-next-line eqeqeq
-    if (eData.count == 0) { // this is intentional type-conversion
-      results = document.createTextNode(' results')
-      $counter[0].appendChild(results)
+    if (showingCount == 0) { // this is intentional type-conversion
+      counter.appendChild(document.createTextNode(' results'))
     }
   }
 

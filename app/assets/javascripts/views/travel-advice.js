@@ -57,14 +57,16 @@
   }
 
   CountryFilter.prototype.doesSynonymMatch = function (elem, synonym) {
-    var synonyms = $(elem).data('synonyms').split('|')
-    var result = false
-    for (var syn in synonyms) {
-      if (synonyms[syn].toLowerCase().indexOf(synonym.toLowerCase()) > -1) {
-        result = synonyms[syn]
+    var synonyms = elem.getAttribute('data-synonyms').split('|')
+    var results = []
+
+    for (var i = 0; i < synonyms.length; i++) {
+      if (synonyms[i].toLowerCase().indexOf(synonym.toLowerCase()) > -1) {
+        results.push(synonyms[i])
       }
-    };
-    return result
+    }
+
+    return results
   }
 
   CountryFilter.prototype.filterListItems = function (filter) {

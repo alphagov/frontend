@@ -4,13 +4,8 @@
   'use strict'
 
   var root = this
-  var $ = root.jQuery
 
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {} }
-
-  $.expr[':'].contains = function (obj, index, meta) {
-    return (obj.textContent || obj.innerText || '').toUpperCase().indexOf(meta[3].toUpperCase()) >= 0
-  }
 
   var CountryFilter = function (searchInput) {
     var enterKeyCode = 13

@@ -167,7 +167,8 @@
 
   GOVUK.countryFilter = CountryFilter
 
-  $('#country-filter input#country').each(function (idx, input) {
-    new GOVUK.countryFilter($(input)) // eslint-disable-line new-cap, no-new
-  })
+  var inputs = root.document.querySelectorAll('input#country')
+  for (var i = 0; i < inputs.length; i++) {
+    new GOVUK.countryFilter(inputs[i]) // eslint-disable-line new-cap, no-new
+  }
 }).call(this)

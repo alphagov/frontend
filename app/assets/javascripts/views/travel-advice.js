@@ -36,24 +36,28 @@
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
     var filterInst = this
-    var headingHasVisibleCountries = function (headingFirstLetter) {
-      var countries = $('#' + headingFirstLetter.toUpperCase(), filterInst.container).find('li')
 
-      return countries.map(function () {
-        return this.style.display === 'none' ? this : undefined
-      }).length < countries.length
+    var headingHasVisibleCountries = function (headingFirstLetter) {
+      var countries = filterInst.container.querySelector('#' + headingFirstLetter.toUpperCase()).querySelectorAll('li')
+      var countryList = []
+
+      for (var i = 0; i < countries.length; i++) {
+        var innerVar = countries[i].style.display === 'none' ? countries[i] : undefined
+        if (innerVar) { countryList.push(innerVar) }
+      }
+
+      return countryList.length < countries.length
     }
 
-    countryHeadings.each(function (index, elem) {
-      var $elem = $(elem)
-      var header = $elem.text().match(/[A-Z]{1}$/)[0]
+    for (var i = 0; i < countryHeadings.length; i++) {
+      var header = countryHeadings[i].textContent.match(/[A-Z]{1}$/)[0]
 
       if (headingHasVisibleCountries(header)) {
-        $elem.parent().show()
+        countryHeadings[i].parentNode.style.display = ''
       } else {
-        $elem.parent().hide()
+        countryHeadings[i].parentNode.style.display = 'none'
       }
-    })
+    }
   }
 
   CountryFilter.prototype.doesSynonymMatch = function (elem, synonym) {

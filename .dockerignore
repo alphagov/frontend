@@ -1,0 +1,10 @@
+.git
+.gitignore
+CONTRIBUTING.md
+Jenkinsfile
+README.md
+docs
+log
+spec
+test
+tmp

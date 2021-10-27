@@ -52,6 +52,7 @@ class SessionsController < ApplicationController
   end
 
   def first_time
+    set_slimmer_headers(template: "gem_layout_account_manager_no_nav", remove_search: true, show_accounts: "signed-in")
     redirect_path = params[:redirect_path]
     head :bad_request unless is_valid_redirect_path? redirect_path
 

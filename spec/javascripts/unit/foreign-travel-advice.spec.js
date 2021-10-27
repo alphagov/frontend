@@ -82,7 +82,7 @@ describe('CountryFilter', function () {
         filter = new GOVUK.countryFilter()
       }
       var createAFilterWithParam = function () {
-        filter = new GOVUK.countryFilter($input)
+        filter = new GOVUK.countryFilter($input[0])
       }
 
       expect(createAFilterNoParam).toThrow()
@@ -90,7 +90,7 @@ describe('CountryFilter', function () {
     })
 
     it('Should have the correct interface', function () {
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
 
       expect(filter.filterHeadings).toBeDefined()
       expect(filter.doesSynonymMatch).toBeDefined()
@@ -99,49 +99,40 @@ describe('CountryFilter', function () {
     })
 
     it('Should have the correct properties applied to it', function () {
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
 
       expect(filter.container).toBeDefined()
     })
 
-    it("Should attach a call to it's filterListItems method in the sent jQuery object's keyup method", function () {
-      filter = new GOVUK.countryFilter($input)
+    it('Should attach a call to its filterListItems method in the sent jQuery objects keyup method', function () {
+      filter = new GOVUK.countryFilter($input[0])
       spyOn(filter, 'filterListItems')
 
-      $input.keyup()
+      window.GOVUK.triggerEvent($input[0], 'keyup')
 
       expect(filter.filterListItems).toHaveBeenCalled()
     })
 
-    it('Should cancel events bound to keypress when enter is pressed', function () {
-      var invalidEventMock = {
-        which: 8,
-        preventDefault: jasmine.createSpy('preventDefault1')
-      }
-      var validEventMock = {
-        which: 13,
-        preventDefault: jasmine.createSpy('preventDefault2')
-      }
-      var callback
+    it('Should not cancel events bound to keyup when backspace is pressed', function () {
+      filter = new GOVUK.countryFilter($input[0])
+      spyOn(filter, 'filterListItems')
 
-      $input.keypress = function (func) {
-        callback = func
-      }
-      filter = new GOVUK.countryFilter($input)
+      window.GOVUK.triggerEvent($input[0], 'keyup', { keyCode: 8 })
+      expect(filter.filterListItems).toHaveBeenCalled()
+    })
 
-      // call event with backspace
-      callback(invalidEventMock)
-      expect(invalidEventMock.preventDefault).not.toHaveBeenCalled()
+    it('Should cancel events bound to keyup when enter is pressed', function () {
+      filter = new GOVUK.countryFilter($input[0])
+      spyOn(filter, 'filterListItems')
 
-      // call event with enter
-      callback(validEventMock)
-      expect(validEventMock.preventDefault).toHaveBeenCalled()
+      window.GOVUK.triggerEvent($input[0], 'keyup', { keyCode: 13 })
+      expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 
     it('Should track search input via timeouts', function (done) {
       GOVUK.analytics = GOVUK.analytics || { trackEvent: function (args) {} }
 
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
 
       expect(filter._trackTimeout).toBeFalsy()
 
@@ -150,7 +141,7 @@ describe('CountryFilter', function () {
       spyOn(filter, 'pagePath').and.returnValue('travel-advice')
       spyOn(GOVUK.analytics, 'trackEvent')
 
-      $input.keyup()
+      window.GOVUK.triggerEvent($input[0], 'keyup')
 
       expect(filter.track).toHaveBeenCalled()
 
@@ -167,20 +158,9 @@ describe('CountryFilter', function () {
       $container
         .append($input)
         .append($countriesWrapper)
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
 
       expect($countriesWrapper.attr('aria-live')).toEqual('polite')
-    })
-
-    it("Should bind the updateCounter method to the 'countrieslist' event", function () {
-      var $temp = $
-
-      $.fn.bind = jasmine.createSpy('bindSpy')
-
-      filter = new GOVUK.countryFilter($input)
-
-      expect($.fn.bind).toHaveBeenCalledWith('countrieslist', filter.updateCounter)
-      $.fn.bind = $temp.fn.bind
     })
   })
 
@@ -191,8 +171,8 @@ describe('CountryFilter', function () {
       var $headings
 
       $countries = $(GOVUKTest.countryFilter.categories.allWithCountries)
-      filter = new GOVUK.countryFilter($input)
-      filter.container = $countries
+      filter = new GOVUK.countryFilter($input[0])
+      filter.container = $countries[0]
       $headings = $countries.find('h3')
 
       filter.filterHeadings($headings)
@@ -203,8 +183,8 @@ describe('CountryFilter', function () {
       var $headings
 
       $countries = $(GOVUKTest.countryFilter.categories.twoWithoutCountries)
-      filter = new GOVUK.countryFilter($input)
-      filter.container = $countries
+      filter = new GOVUK.countryFilter($input[0])
+      filter.container = $countries[0]
       $headings = $countries.find('h3')
 
       filter.filterHeadings($headings)
@@ -216,28 +196,28 @@ describe('CountryFilter', function () {
     var result
 
     beforeEach(function () {
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
     })
 
     it('Should not find a match on an element with no synonyms', function () {
       var element = $(GOVUKTest.countryFilter.synonyms.noSynonyms)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
-      expect(result).toBe(false)
+      expect(result).toEqual([])
     })
 
     it('Should find a match on an element with a single synonym equal to that sent', function () {
       var element = $(GOVUKTest.countryFilter.synonyms.withSaharaSynonym)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
-      expect(result).toBe('Sahel')
+      expect(result).toEqual(['Sahel'])
     })
 
     it('Should find no match on an element with no synonyms equal to that sent', function () {
       var element = $(GOVUKTest.countryFilter.synonyms.withUSASynonym)[0]
       var synonym = 'Sahel'
       result = filter.doesSynonymMatch(element, synonym)
-      expect(result).toBe(false)
+      expect(result).toEqual([])
     })
   })
 
@@ -251,25 +231,25 @@ describe('CountryFilter', function () {
         '</div>'
       ).append($input)
 
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
       $counter = $('.js-country-count', filter.container)
     })
 
     it('Should make the counter text match the sent number', function () {
-      filter.updateCounter({}, { count: 27 })
+      filter.updateCounter(27)
 
       expect($counter.find('.js-filter-count').text()).toBe('27')
     })
 
     it("Should add the word 'results' to the end of the count number if it is 0", function () {
-      filter.updateCounter({}, { count: 0 })
+      filter.updateCounter(0)
 
       expect($counter.text().match(/results$/)).not.toBeNull()
     })
 
     it("Should remove the word 'results' from the end of the count number once it changes from 0", function () {
-      filter.updateCounter({}, { count: 0 })
-      filter.updateCounter({}, { count: 27 })
+      filter.updateCounter(0)
+      filter.updateCounter(27)
 
       expect($counter.text().match(/results$/)).toBeNull()
     })
@@ -287,7 +267,7 @@ describe('CountryFilter', function () {
         .append($countries)
         .append($counter)
       $.fn.trigger = jasmine.createSpy('triggerSpy')
-      filter = new GOVUK.countryFilter($input)
+      filter = new GOVUK.countryFilter($input[0])
       filter.filterHeadings = jasmine.createSpy('filterHeadings')
       spyOn(filter, 'doesSynonymMatch').and.callThrough()
     })
@@ -299,11 +279,6 @@ describe('CountryFilter', function () {
     it('Should call filterHeadings', function () {
       filter.filterListItems('Yem')
       expect(filter.filterHeadings).toHaveBeenCalled()
-    })
-
-    it("Should call jQuery's trigger method with the string 'countrieslist' and an { count: 1 } object", function () {
-      filter.filterListItems('Yem')
-      expect($.fn.trigger).toHaveBeenCalledWith('countrieslist', { count: 1 })
     })
 
     it('Should call synonymDoesMatch', function () {

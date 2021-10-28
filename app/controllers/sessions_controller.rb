@@ -34,6 +34,8 @@ class SessionsController < ApplicationController
     # TODO: remove callback["ga_client_id"] when we have switched to
     # Digital Identity in production
     if callback.key?("cookie_consent") && callback.key?("feedback_consent") && (callback["cookie_consent"].nil? || callback["feedback_consent"].nil?)
+      use_account_layout
+
       @ga_client_id = callback["ga_client_id"]
       @redirect_path = callback["redirect_path"]
       @govuk_account_session = callback["govuk_account_session"]
@@ -52,7 +54,8 @@ class SessionsController < ApplicationController
   end
 
   def first_time
-    set_slimmer_headers(template: "gem_layout_account_manager_no_nav", remove_search: true, show_accounts: "signed-in")
+    use_account_layout
+
     redirect_path = params[:redirect_path]
     head :bad_request unless is_valid_redirect_path? redirect_path
 
@@ -143,5 +146,9 @@ protected
         cookie_consent: cookie_consent,
       }.compact,
     )
+  end
+
+  def use_account_layout
+    set_slimmer_headers(template: "gem_layout_account_manager_no_nav", remove_search: true, show_accounts: "signed-in")
   end
 end

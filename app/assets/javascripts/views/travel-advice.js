@@ -88,7 +88,7 @@
       listItem.style.display = ''
     }
 
-    filter = filter.replace(/^\s+|\s+$/g, '')
+    filter = filter.replace(/^\s+|\s+$/g, '') // Remove whitespace
     if (filter && filter.length > 0) {
       var hideCount = 0
       for (i = 0; i < listItems.length; i++) {

@@ -28,7 +28,7 @@
   publication: @publication,
   edition: @edition
 } do %>
-  <%= render 'govuk_publishing_components/components/intervention' if should_show_sab_intervention? %>
+  <%= render 'govuk_publishing_components/components/intervention', { suggestion_text: "Something" } if should_show_sab_intervention? %>
 
   <section class="intro">
     <div class="get-started-intro">

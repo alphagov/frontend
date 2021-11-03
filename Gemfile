@@ -24,7 +24,6 @@ gem "uk_postcode"
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "i18n-tasks"
   gem "listen"
 end
 

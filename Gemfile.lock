@@ -478,7 +478,6 @@ DEPENDENCIES
   govuk_test
   htmlentities
   i18n-coverage
-  i18n-tasks
   invalid_utf8_rejector
   jasmine
   jasmine_selenium_runner

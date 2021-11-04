@@ -260,6 +260,11 @@ en:
       terms_description: Information about the use of GOV.UK and liability
       vulnerability: Report a vulnerability on a GOV.UK domain or subdomain
       vulnerability_description: How to report a vulnerability on GOV.UK
+    sign_in:
+      service_not_listed_heading: If the service you’re looking for is not listed
+      service_not_listed_text: If you’re looking for a different service, you can search for it.
+      search_for_a_service: Search GOV.UK for a service
+      search_for_a_service_button: Search
   homepage:
     categories:
       abroad: Passports, travel and living abroad

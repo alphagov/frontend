@@ -1,24 +1,30 @@
-ARG base_image=ruby:2.7.3
-FROM ${base_image}
-RUN apt-get update -qq && apt-get upgrade -y
-RUN apt-get install -y build-essential nodejs && apt-get clean
+# TODO: make this default to govuk-ruby once it's being pushed somewhere public
+# (unless we decide to use Bitnami instead)
+ARG base_image=ruby:2.7.3-slim-buster
 
-ENV GOVUK_APP_NAME frontend
-ENV PORT 3005
-ENV RAILS_ENV development
+FROM $base_image AS builder
+ENV RAILS_ENV=production
+# TODO: have a separate build image which already contains the build-only deps.
+RUN apt-get update -qy && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essential nodejs
+RUN mkdir /app
+WORKDIR /app
+COPY Gemfile Gemfile.lock .ruby-version ./
+RUN bundle config set without 'development test' && \
+    bundle install -j8 --retry=2
+COPY . ./
+# TODO: We probably don't want assets in the image; remove this once we have a proper deployment process which uploads to (e.g.) S3.
+RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bin/bundle exec rails assets:precompile
 
-ENV APP_HOME /app
-RUN mkdir $APP_HOME
-
-WORKDIR $APP_HOME
-ADD Gemfile* $APP_HOME/
-ADD .ruby-version $APP_HOME/
-RUN bundle install
-
-ADD . $APP_HOME
-
-RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk RAILS_ENV=production bundle exec rails assets:precompile
-
-HEALTHCHECK CMD curl --silent --fail localhost:$PORT || exit 1
-
+FROM $base_image
+ENV RAILS_ENV=production GOVUK_APP_NAME=frontend
+# TODO: include nodejs in the base image (govuk-ruby).
+# TODO: apt-get upgrade in the base image
+RUN apt-get update -qy && \
+    apt-get upgrade -y && \
+    apt-get install -y nodejs
+COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
+COPY --from=builder /app /app/
+WORKDIR /app
 CMD bundle exec puma

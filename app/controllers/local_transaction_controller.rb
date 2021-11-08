@@ -2,7 +2,6 @@ class LocalTransactionController < ApplicationController
   include ActionView::Helpers::TextHelper
   include Cacheable
   include Navigable
-  include SabPagesTestable
 
   before_action -> { set_content_item(LocalTransactionPresenter) }
   before_action -> { response.headers["X-Frame-Options"] = "DENY" }

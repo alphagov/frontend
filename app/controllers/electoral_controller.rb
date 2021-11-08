@@ -1,5 +1,4 @@
 class ElectoralController < ApplicationController
-  include SabPagesTestable
   before_action -> { fetch_and_setup_content_item(BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE) }
   BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE = "/contact-electoral-registration-office".freeze
 

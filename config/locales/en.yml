@@ -26,11 +26,12 @@ en:
         field:
           heading: Can we email you to ask for feedback about your account?
     your_account:
-      account_not_used:
-        action: "%{link} to start getting the most out of your account."
-        description: GOV.UK accounts are designed to make it easier for you to use online government services. At the moment you can only use your account with the Brexit checker.
-        heading: You have not used your account to access any services yet
-        link_text: Answer the questions in the Brexit checker
+      emails:
+        heading: Your GOV.UK email subscriptions
+        no_emails_inset: You do not currently have any GOV.UK email subscriptions.
+        no_emails_description: Some GOV.UK pages have a link to 'get emails'. You can use that link to subscribe to pages or topics you’re interested in.
+        see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
+        manage_emails_link_text: Manage your GOV.UK email subscriptions
       heading: Your GOV.UK account
       transition:
         description: A personalised list of Brexit actions for you, your family and your business.

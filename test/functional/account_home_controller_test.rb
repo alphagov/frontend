@@ -1,8 +1,10 @@
 require "test_helper"
 require "gds_api/test_helpers/account_api"
+require "gds_api/test_helpers/email_alert_api"
 
 class AccountHomeControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::AccountApi
+  include GdsApi::TestHelpers::EmailAlertApi
   include GovukPersonalisation::TestHelpers::Requests
   include GovukAbTesting::MinitestHelpers
 
@@ -28,8 +30,21 @@ class AccountHomeControllerTest < ActionController::TestCase
     end
 
     context "when logged in" do
-      should "render the home page" do
+      setup do
+        mock_logged_in_session("session-id")
         stub_account_api_user_info
+        stub_email_alert_api_authenticate_subscriber_by_govuk_account(
+          "session-id",
+          "subscriber-id",
+          "example@example.com",
+        )
+        stub_email_alert_api_has_subscriber_subscriptions(
+          "subscriber-id",
+          "example@example.com",
+        )
+      end
+
+      should "render the home page" do
         get :show
         assert_response :ok
       end

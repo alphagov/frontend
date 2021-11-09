@@ -14,6 +14,36 @@
     <%= @user["email"] %>
   </p>
 <% end %>
+<% if @has_email_subscriptions %>
+  <div class="accounts-panel">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("account.your_account.emails.heading"),
+      heading_level: 2,
+      font_size: "m",
+      margin_bottom: 4,
+    } %>
+
+    <p class="govuk-body"><%= t("account.your_account.emails.see_and_manage") %></p>
+    <p class="govuk-body"><a class="govuk-link" href="/email/manage">
+      <%= sanitize(t("account.your_account.emails.manage_emails_link_text")) %>
+    </a></p>
+  </div>
+<% else %>
+  <div class="accounts-panel">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("account.your_account.emails.heading"),
+      heading_level: 2,
+      font_size: "m",
+      margin_bottom: 4,
+    } %>
+
+    <%= render "govuk_publishing_components/components/inset_text", {
+      text: t("account.your_account.emails.no_emails_inset")
+    } %>
+
+    <p class="govuk-body"><%= t("account.your_account.emails.no_emails_description") %></p>
+  </div>
+<% end %>
 <% if has_used? "transition_checker" %>
   <div class="accounts-panel">
     <%= render "govuk_publishing_components/components/heading", {
@@ -38,18 +68,5 @@
       </a>
     </p>
     <p class="govuk-body"><%= t("account.your_account.transition.link2_description") %></p>
-  </div>
-<% else %>
-  <div class="accounts-panel">
-    <%= render "govuk_publishing_components/components/heading", {
-      text: t("account.your_account.account_not_used.heading"),
-      heading_level: 2,
-      font_size: "m",
-      margin_bottom: 4,
-    } %>
-
-    <p class="govuk-body"><%= t("account.your_account.account_not_used.description") %></p>
-
-    <p class="govuk-body"><%= sanitize(t("account.your_account.account_not_used.action", link: link_to(t("account.your_account.account_not_used.link_text"), "#{transition_checker_path.to_s}/edit-saved-results", html_options = { class: "govuk-link"} ))) %></p>
   </div>
 <% end %>

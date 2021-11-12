@@ -16,6 +16,7 @@
   } do %>
     <p><%= t('cookies.explanation') %></p>
     <p><%= t('cookies.how_we_use') %></p>
+    <p><%= t('cookies.explanation_html') %></p>
   <% end %>
 
   <%= render "govuk_publishing_components/components/heading", {
@@ -44,13 +45,15 @@
 
       <% cookies_usage_hint = capture do %>
         <p class="govuk-body govuk-hint"><%= t('cookies.usage_info') %></p>
-        <p class="govuk-body govuk-hint"><%= t('cookies.google_info') %>:</p>
-        <ul class="govuk-list govuk-list--bullet govuk-hint">
+        <p class="govuk-body govuk-hint"><%= t('cookies.google_info') %></p>
+        <ul class="govuk-list--bullet govuk-hint">
           <li><%= t('cookies.how_you_got') %></li>
           <li><%= t('cookies.pages_visited') %></li>
           <li><%= t('cookies.clicks') %></li>
         </ul>
+        <p class="govuk-body govuk-hint"><%= t('cookies.lux_explain') %></p>
         <p class="govuk-body govuk-hint"><%= t('cookies.lux_info') %></p>
+        <p class="govuk-body govuk-hint"><%= t('cookies.google_share') %></p>
       <% end %>
 
       <%= render "govuk_publishing_components/components/radio", {
@@ -113,11 +116,6 @@
         <h2><%= t('cookies.types.essential') %></h2>
         <p><%= t('cookies.essential_explanation') %></p>
         <p><%= t('cookies.always_on') %></p>
-        <p>
-          <a href="/help/cookie-details" data-module="gem-track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies">
-            <%= t('cookies.find_out') %>
-          </a>
-        </p>
       <% end %>
 
       <%= render "govuk_publishing_components/components/button", {
@@ -132,6 +130,7 @@
         heading_level: 2,
         margin_bottom: 3
       } %>
-      <p class="govuk-body"><%= t('cookies.additional') %></p>
+      <p class="govuk-body"><%= t('cookies.services') %></p>
+      <p class="govuk-body"><%= t('cookies.services_additional') %></p>
   </div>
 </main>

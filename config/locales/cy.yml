@@ -99,24 +99,26 @@ cy:
     upcoming_bank_holidays: Gwyliau banc i ddod
   continue:
   cookies:
-    additional:
     always_on:
     clicks:
     confirmation_message:
     confirmation_previous_referrer_link:
     confirmation_title:
+    explanation_html:
     cookie_settings:
     cookies_on_govuk:
     essential_explanation:
     explanation:
-    find_out:
     four_types:
     google:
     google_info:
+    google_collection:
+    google_share:
     how_we_use:
     how_you_got:
     javascript:
     javascript_list:
+    lux_explain:
     lux_info:
     off-campaigns:
     off-settings:
@@ -126,6 +128,8 @@ cy:
     on-usage:
     pages_visited:
     save_changes:
+    services:
+    services_additional:
     third_parties:
     types:
       campaigns:

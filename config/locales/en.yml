@@ -314,7 +314,7 @@ en:
       - title: Policy papers and consultations
         description: Consultations and strategy
         link: /search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations
-      - title: Guidance and regulation 
+      - title: Guidance and regulation
         description: Detailed rules and legislation
         link: /search/guidance-and-regulation
       - title: Research and statistics
@@ -336,6 +336,8 @@ en:
         text: Welcome to GOV.UK
         html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
+      jobseekers_allowance: Jobseeker’s Allowance
+      merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link" data-track-category="homepageClicked" data-track-action="departmentsLink" data-track-label="/government/organisations" data-track-value="1" data-track-dimension="government departments" data-track-dimension-index="29">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 23
       meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.

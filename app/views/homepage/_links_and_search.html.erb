@@ -1,0 +1,41 @@
+<section class="homepage-links-and-search">
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half govuk-grid-column-two-thirds-from-desktop">
+        <%= render "govuk_publishing_components/components/heading", {
+          font_size: "m",
+          margin_bottom: 4,
+          text: t("homepage.index.most_viewed"),
+        } %>
+        <ul class="homepage-most-viewed-list">
+          <% t("homepage.index.most_viewed_list").each do | item | %>
+            <li>
+              <%= link_to(item[:text], item[:href], {
+                class: "govuk-link govuk-link--no-visited-state homepage-most-viewed-list__item",
+                data: {
+                  track_category: "homepageClicked",
+                  track_action: "popularLink",
+                  track_label: item[:href],
+                  track_value: 1,
+                  track_dimension_index: 29,
+                  track_dimension: item[:text],
+                }
+              }) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half govuk-grid-column-one-third-from-desktop homepage-search">
+        <%= render "govuk_publishing_components/components/search", {
+          button_text: t("homepage.index.search_button"),
+          inline_label: false,
+          label_margin_bottom: 4,
+          label_size: "m",
+          label_text: t("homepage.index.search_label"),
+          margin_bottom: 0,
+          wrap_label_in_a_heading: true,
+        } %>
+      </div>
+    </div>
+  </div>
+</section>

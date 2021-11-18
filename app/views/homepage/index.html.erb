@@ -1,108 +1,12 @@
 <% content_for :extra_headers do %>
-  <link rel="canonical" href="<%= Frontend.govuk_website_root + root_path %>" />
-  <meta name="description" content="GOV.UK - The place to find government services and information - Simpler, clearer, faster" />
+  <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
+  <meta name="description" content="<%= t("homepage.index.meta_description") %>">
 <% end %>
-<% content_for :title, "Welcome to GOV.UK" %>
-<% content_for :body_classes, "homepage" %>
+<% content_for :title, t("homepage.index.intro_title.text") %>
+<% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>
 
 <main id="content" role="main">
-  <div class="home-top">
-    <div class="govuk-width-container home-top__inner">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/title", {
-            title: "Welcome to GOV.UK",
-            inverse: true,
-            margin_top: 5,
-            margin_bottom: 3
-          } %>
-          <p class="home-top__intro"><%= t('homepage.index.intro') %></p>
-          <p class="home-top__intro home-top__intro--simpler"><%= t('homepage.index.intro_simpler') %></p>
-
-          <form action="/search" method="get" role="search">
-            <%= render "govuk_publishing_components/components/search", {
-              on_govuk_blue: true,
-              data_attributes: {
-                track_category: "homepageClicked",
-                track_action: "searchSubmitted",
-                track_label: "/search/all",
-                track_dimension_index: 29,
-                track_dimension: "Search on GOV.UK",
-              },
-            } %>
-          </form>
-        </div>
-
-        <div class="govuk-grid-column-one-third">
-          <div class="home-top__links" data-module="gem-track-click">
-            <h2 class="home-top__links-title"><%= t('homepage.index.popular') %></h2>
-            <%
-              link_class = "govuk-link govuk-link--inverse home-top__link-item"
-              items = []
-              items << link_to(t("homepage.index.covid"),
-                                 "/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/",
-                                 class: link_class,
-                                 data: {
-                                   track_category: "homepageClicked",
-                                   track_action: "popularLink",
-                                   track_label: "/guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/",
-                                   track_value: 1,
-                                   track_dimension_index: 29,
-                                   track_dimension: t("homepage.index.covid"),
-                                 })
-              items << link_to(t("homepage.index.brexit"),
-                                 "/brexit",
-                                 class: link_class,
-                                 data: {
-                                   track_category: "homepageClicked",
-                                   track_action: "popularLink",
-                                   track_label: "/brexit",
-                                   track_value: 1,
-                                   track_dimension_index: 29,
-                                   track_dimension: t("homepage.index.brexit"),
-                                 })
-              items << link_to(t("homepage.index.tax_account"),
-                                 "/personal-tax-account",
-                                 class: link_class,
-                                 data: {
-                                   track_category: "homepageClicked",
-                                   track_action: "popularLink",
-                                   track_label: "/personal-tax-account",
-                                   track_value: 1,
-                                   track_dimension_index: 29,
-                                   track_dimension: t("homepage.index.tax_account"),
-                                 })
-              items << link_to(t("homepage.index.job_search"),
-                                 "/find-a-job",
-                                 class: link_class,
-                                 data: {
-                                   track_category: "homepageClicked",
-                                   track_action: "popularLink",
-                                   track_label: "/find-a-job",
-                                   track_value: 1,
-                                   track_dimension_index: 29,
-                                   track_dimension: t("homepage.index.job_search"),
-                                 })
-              items << link_to(t("homepage.index.universal_credit"),
-                                 "/sign-in-universal-credit",
-                                 class: link_class,
-                                 data: {
-                                   track_category: "homepageClicked",
-                                   track_action: "popularLink",
-                                   track_label: "/sign-in-universal-credit",
-                                   track_value: 1,
-                                   track_dimension_index: 29,
-                                   track_dimension: t("homepage.index.universal_credit"),
-                                 })
-            %>
-            <%= render "govuk_publishing_components/components/list", {
-              items: items,
-            } %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render partial: "homepage/inverse_header" %>
 
   <div id="homepage" class="govuk-width-container">
     <section class="home-services" aria-labelledby="services-and-information-label" id="services-and-information">

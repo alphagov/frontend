@@ -303,13 +303,17 @@ en:
       departments_and_policy_html: Departments and&nbsp;policy
       driving_test: Driving theory test
       find_job: Find a job
-      intro: The best place to find government services and information
+      intro_html: The best place to find government services and&nbsp;information
       intro_simpler: Simpler, clearer, faster
+      intro_title:
+        text: Welcome to GOV.UK
+        html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
       jobseekers_allowance: Jobseeker's Allowance
       merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link" data-track-category="homepageClicked" data-track-action="departmentsLink" data-track-label="/government/organisations" data-track-value="1" data-track-dimension="government departments" data-track-dimension-index="29">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 23
+      meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
       most_active: Most active
       news: news and communications

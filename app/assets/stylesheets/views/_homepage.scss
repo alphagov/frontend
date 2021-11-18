@@ -1,63 +1,44 @@
-.home-top {
-  overflow: hidden;
-  background: $govuk-brand-colour;
+.homepage-inverse-header {
+  background-color: $govuk-brand-colour;
+  padding-bottom: govuk-spacing(7);
+  padding-top: govuk-spacing(8);
+
+  @include govuk-media-query($from: desktop) {
+    padding-bottom: govuk-spacing(8);
+    padding-top: govuk-spacing(9);
+  }
+}
+
+.homepage-inverse-header__title {
   color: govuk-colour("white");
-}
-
-.home-top__inner {
-  position: relative;
-}
-
-.home-top__intro {
-  @include govuk-font(19);
-  margin: 0;
-}
-
-.home-top__intro--simpler {
+  font-size: 32px;
+  font-size: govuk-px-to-rem(32);
   font-weight: bold;
-  margin-bottom: govuk-spacing(4);
-}
+  line-height: 1;
+  margin: 0;
+  padding-bottom: govuk-spacing(6);
 
-.home-top__links {
-  padding: 0 0 govuk-spacing(4) 0;
-
-  @include govuk-media-query($from: tablet) {
-    position: relative;
-    z-index: 1;
-    margin-top: govuk-spacing(1);
-    padding: govuk-spacing(3) govuk-spacing(4) govuk-spacing(4) govuk-spacing(4);
-    background: govuk-colour("black");
-
-    &:after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: govuk-spacing(2);
-      left: 0;
-      bottom: -100px;
-      width: 100%;
-      background: govuk-colour("black");
-    }
+  @include govuk-media-query($from: desktop) {
+    font-size: 48px;
+    font-size: govuk-px-to-rem(48);
   }
 }
 
-.home-top__links-title {
-  @include govuk-font(19);
-  margin-bottom: govuk-spacing(1);
-}
-
-.home-top__link-item {
-  @include govuk-font($size: 16, $weight: bold);
+.homepage-inverse-header__intro {
   color: govuk-colour("white");
+  font-size: 19px;
+  font-size: govuk-px-to-rem(19);
+  margin: 0;
+  padding-bottom: govuk-spacing(2);
 
-  @include govuk-media-query($from: tablet) {
-    &:active,
-    &:hover {
-      &:not(:focus) {
-        color: $govuk-hover-colour;
-      }
-    }
+  @include govuk-media-query($from: desktop) {
+    font-size: 24px;
+    font-size: govuk-px-to-rem(24);
   }
+}
+
+.homepage-inverse-header__intro--bold {
+  font-weight: bold;
 }
 
 .homepage__ready-container {

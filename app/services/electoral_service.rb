@@ -11,10 +11,12 @@ class ElectoralService
   def make_request
     @body = begin
       with_caching do
-        json = RestClient.get(request_url, headers)
-        JSON.parse(json)
+        response = RestClient.get(request_url, headers)
+        report_status_code(response.code)
+        JSON.parse(response)
       end
     rescue RestClient::Exception => e
+      report_status_code(e.http_code)
       @error = assemble_error(e)
       {}
     end
@@ -33,8 +35,6 @@ private
   attr_reader :postcode, :uprn
 
   def assemble_error(exception)
-    report_error(exception.http_code)
-
     if [400, 404].include? exception.http_code
       if postcode
         "validPostcodeNoElectionsMatch"
@@ -46,17 +46,17 @@ private
     end
   end
 
-  def report_error(code)
-    GovukStatsd.increment("elections.errors.#{code}")
+  def report_status_code(code)
+    GovukStatsd.increment("elections_api.#{monitoring_path}.#{code}")
   end
 
   def with_caching(&block)
     Rails.cache.fetch(request_url, expires_in: 1.minute) do
-      GovukStatsd.time("elections_api.#{timing_endpoint}.request_time", &block)
+      GovukStatsd.time("elections_api.#{monitoring_path}.request_time", &block)
     end
   end
 
-  def timing_endpoint
+  def monitoring_path
     postcode.present? ? "postcode" : "address"
   end
 

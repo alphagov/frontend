@@ -25,6 +25,7 @@ Transaction start pages:
 * https://www.gov.uk/foreign-travel-advice (travel advice index page)
 * https://www.gov.uk/find-local-council
 * https://www.gov.uk/roadmap (GOV.UK public facing roadmap)
+* https://www.gov.uk/contact-electoral-registration-office (elections API)
 
 ### Licence finders
 
@@ -114,6 +115,7 @@ bundle exec rake
 ### Further documentation
 
 - [Calendars](docs/calendars.md)
+- [Elections](docs/elections-api.md)
 
 ## Licence
 

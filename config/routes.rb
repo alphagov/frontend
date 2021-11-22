@@ -46,7 +46,8 @@ Rails.application.routes.draw do
   get "/roadmap", to: "roadmap#index"
 
   # Electoral Registration Lookup Service
-  get "/find-electoral-things" => "electoral#show", as: :electoral_services
+  # comment out this line to return to using a local transaction
+  get "/contact-electoral-registration-office" => "electoral#show", as: :electoral_services
 
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do

@@ -10,7 +10,7 @@ cy:
       gwasanaethau a gwybodaeth y llywodraeth.
   and: a
   b: B
-  bank-holidays: gwyliau banc
+  bank-holidays: gwyliau-banc
   bank_holidays:
     2nd_january: 2il o Ionawr
     add_clock_changes_to_calendar: Ychwanegwch newidiadau i'r cloc yn y DU at eich

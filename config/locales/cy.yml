@@ -64,15 +64,15 @@ cy:
       england-and-wales: Cymru a Lloegr
       england-and-wales_for: ar gyfer Cymru a Lloegr
       england-and-wales_in: yng Nghymru a Lloegr
-      england-and-wales_slug: england-and-wales
+      england-and-wales_slug: cymru-a-lloegr
       northern-ireland: Gogledd Iwerddon
       northern-ireland_for: ar gyfer Gogledd Iwerddon
       northern-ireland_in: yng Ngogledd Iwerddon
-      northern-ireland_slug: northern-ireland
+      northern-ireland_slug: gogledd-iwerddon
       scotland: yr Alban
       scotland_for: ar gyfer yr Alban
       scotland_in: yn yr Alban
-      scotland_slug: scotland
+      scotland_slug: yr-alban
     next_holiday_in_is: Yr ŵyl banc nesaf %{in_nation} yw
     past_bank_holidays: Gwyliau banc blaenorol
     substitute_day: Diwrnod amgen

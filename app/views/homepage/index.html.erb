@@ -8,14 +8,9 @@
 <main id="content" role="main">
   <%= render partial: "homepage/inverse_header" %>
 
-  <div id="homepage" class="govuk-width-container">
-    <section class="home-services" aria-labelledby="services-and-information-label" id="services-and-information">
-      <div class="govuk-grid-row">
-        <h2 id="services-and-information-label" class="govuk-visually-hidden"><%= t('homepage.index.services_and_information') %></h2>
-        <%= render :partial => "categories" %>
-      </div>
-    </section>
+  <%= render partial: "homepage/services_and_information" %>
 
+  <div id="homepage" class="govuk-width-container">
     <hr class="home-divider" id="departments-and-policy" aria-hidden="true" />
 
     <section class="departments-and-policy" aria-labelledby="departments-and-policy-label">

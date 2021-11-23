@@ -1,383 +1,404 @@
----
 cy:
-  a:
+  a: A
   ab_testing:
-    explanation:
-    two_versions:
-    version:
-    visit_govuk_html:
-  account:
-    confirm:
-      intro:
-        set_up:
-        update:
-      link_text:
-    cookies_and_feedback:
-      heading:
-      success:
-      cookie_consent:
-        heading:
-        description:
-        field:
-          heading:
-      feedback_consent:
-        heading:
-        description:
-        field:
-          heading:
-    your_account:
-      account_not_used:
-        action:
-        description:
-        heading:
-        link_text:
-      heading:
-      transition:
-        description:
-        heading:
-        link1:
-        link1_description:
-        link2:
-        link2_description:
-  and:
-  b:
-  bank-holidays: gwyliau-banc
+    explanation: Weithiau rydyn ni'n profi gwahanol fersiynau o dudalennau gyda gwahanol
+      ddefnyddwyr i weld pa un sy'n gweithio orau. Mae'r dudalen hon yn dangos i ni
+      a yw'r broses yn gweithio.
+    two_versions: Mae 2 fersiwn o'r dudalen hon. Rydych chi'n gweld y
+    version: fersiwn
+    visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld
+      gwasanaethau a gwybodaeth y llywodraeth.
+  and: a
+  b: B
+  bank-holidays: gwyliau banc
   bank_holidays:
-    2nd_january: 2il Ionawr
-    add_clock_changes_to_calendar:
-    battle_boyne: Brwydr y Boyne (Diwrnod yr Orangemen)
-    boxing_day: Gŵyl San Steffan
-    bst_explanation:
+    2nd_january: 2il o Ionawr
+    add_clock_changes_to_calendar: Ychwanegwch newidiadau i'r cloc yn y DU at eich
+      calendr (ICS, 2KB)
+    battle_boyne: Brwydr y Boyne (Dydd yr Orenwyr)
+    boxing_day: Dydd San Steffan
+    bst_explanation: Yr enw ar y cyfnod pan mae'r clociau 1 awr ymlaen yw Amser Haf
+      Prydain (BST). Mae mwy o olau dydd gyda'r nos a llai yn y bore (gelwir weithiau'n
+      Amser Arbed Golau Dydd).
     calendar:
-      description: Calendr gwyliau banc y DU - edrychwch ar wyliau banc a gwyliau cyhoeddus y DU
+      description: Dysgwch pryd mae gwyliau'r banc yng Nghymru, Lloegr, yr Alban a
+        Gogledd Iwerddon - gan gynnwys gwyliau banc yn y gorffennol a'r dyfodol
       title: Gwyliau banc y DU
     christmas: Dydd Nadolig
-    clock_change_explanation:
-    clocks_backward:
-    clocks_forward:
-    download_clock_changes:
-    early_may: Gŵyl Banc Cyntaf Mai
-    early_may_ve: Gŵyl Banc Cyntaf Mai (VE day)
-    easter_monday: Dydd Llun y Pasg
-    gmt_explanation:
-    good_friday: Dydd Gwener y Groglith
-    late_august: Gŵyl Banc yr Haf
+    clock_change_explanation: Yn y DU mae'r clociau'n mynd ymlaen 1 awr am 1am ar
+      ddydd Sul olaf mis Mawrth, ac yn ôl 1 awr am 2am ar ddydd Sul olaf mis Hydref.
+    clocks_backward: Y clociau'n mynd yn ôl
+    clocks_forward: Y clociau'n mynd ymlaen
+    download_clock_changes: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu
+      at raglen calendr fel iCal neu Outlook
+    early_may: Gŵyl banc dechrau Mai
+    early_may_ve: Gŵyl banc dechrau Mai (diwrnod VE)
+    easter_monday: Llun y Pasg
+    gmt_explanation: Pan fydd y clociau'n troi yn ôl, mae'r DU ar Amser Safonol Greenwich
+      (GMT).
+    good_friday: Gwener y Groglith
+    late_august: Gŵyl banc yr haf
     new_year: Dydd Calan
-    queen_diamond: Jiwbilî Diemwnt y Frenhines
-    queen_platinum: Gŵyl Banc Jiwbilî Platinwm
-    spring: Gŵyl Banc y Gwanwyn
+    queen_diamond: Jiwbilî Ddiemwnt y Frenhines
+    queen_platinum: Gŵyl banc Jiwbilî Blatinwm
+    spring: Gŵyl banc y gwanwyn
     st_andrew: Gŵyl Andreas
-    st_patrick: Gŵyl San Padrig
-    summer: Gŵyl Banc yr Haf
-    year:
-  cancel:
+    st_patrick: Gŵyl Sant Padrig
+    summer: Gŵyl banc yr haf
+    year: Blwyddyn
   common:
-    add_holiday_ics: Ychwanegwch ddyddiadau gwyliau banc %{for_nation} at eich calendr (ICS, 10KB)
-    bank_holiday_benefits_html: ''
-    bank_holiday_on_wkend: Os bydd gŵyl banc ar benwythnos, bydd diwrnod o'r wythnos waith yn dod yn ŵyl banc yn lle, y dydd Llun canlynol fel rheol.
-    download_ics: Llwythwch y dyddiadau hyn i lawr i chi allu eu hychwanegu at raglen calendr fel iCal neu Outlook
-    extra_bank_holiday: Gŵyl Banc ychwanegol
-    holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi absenoldeb â thâl i chi am ŵyl banc neu ŵyl gyhoeddus.
-    last_updated: Diweddarwyd diwethaf
+    add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS,
+      14KB)
+    bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid"
+      class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
+    bank_holiday_on_wkend: Os yw gŵyl banc yn cwympo ar benwythnos, bydd dydd o'r
+      wythnos yn dod yn ŵyl banc 'amgen' yn ei le, fel arfer y dydd Llun canlynol.
+    download_ics: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu at raglen
+      calendr fel iCal neu Outlook
+    extra_bank_holiday: Gŵyl banc ychwanegol
+    holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi <a href="/holiday-entitlement-rights"
+      title="Holiday entitlement rights" class="govuk-link">gwyliau â thâl i chi ar
+      wyliau banc neu gyhoeddus</a>.
+    last_updated: Diweddarwyd ddiwethaf
     nations:
       england-and-wales: Cymru a Lloegr
-      england-and-wales_for: yng Nghymru a Lloegr
+      england-and-wales_for: ar gyfer Cymru a Lloegr
       england-and-wales_in: yng Nghymru a Lloegr
-      england-and-wales_slug: cymru-a-lloegr
+      england-and-wales_slug: england-and-wales
       northern-ireland: Gogledd Iwerddon
-      northern-ireland_for: yng Ngogledd Iwerddon
+      northern-ireland_for: ar gyfer Gogledd Iwerddon
       northern-ireland_in: yng Ngogledd Iwerddon
-      northern-ireland_slug: gogledd-iwerddon
-      scotland: Yr Alban
-      scotland_for: yn yr Alban
+      northern-ireland_slug: northern-ireland
+      scotland: yr Alban
+      scotland_for: ar gyfer yr Alban
       scotland_in: yn yr Alban
-      scotland_slug: yr-alban
-    next_holiday_in_is: Y gŵyl banc nesaf %{in_nation} yw
-    past_bank_holidays: Gwyliau banc yn y gorffennol
-    substitute_day: Diwrnod yn lle gŵyl banc sy'n disgyn ar benwythnos
+      scotland_slug: scotland
+    next_holiday_in_is: Yr ŵyl banc nesaf %{in_nation} yw
+    past_bank_holidays: Gwyliau banc blaenorol
+    substitute_day: Diwrnod amgen
     today: heddiw
     upcoming_bank_holidays: Gwyliau banc i ddod
-  continue:
+  continue: Parhau
   cookies:
-    additional:
-    always_on:
-    clicks:
-    confirmation_message:
-    confirmation_previous_referrer_link:
-    confirmation_title:
-    cookie_settings:
-    cookies_on_govuk:
-    essential_explanation:
-    explanation:
-    find_out:
-    four_types:
+    additional: Mae'r rhan fwyaf o wasanaethau rydyn ni'n cysylltu iddyn nhw yn cael
+      eu rhedeg gan adrannau gwahanol o'r llywodraeth, er enghraifft Credyd Cynhwysol
+      ar-lein gan DWP, gwasanaeth treth cerbyd y DVLA, neu we-sgwrs CThEM. Efallai
+      y bydd y gwasanaethau hyn yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt
+      eu polisi cwcis eu hun a'u baner eu hun yn cysylltu ag ef.
+    always_on: Mae angen iddynt fod ymlaen bob amser.
+    clicks: beth rydych chi'n clicio arno wrth ymweld â'r wefan
+    confirmation_message: Efallai y bydd gwasanaethau'r llywodraeth yn gosod cwcis
+      ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis a'u baner eu hun.
+    confirmation_previous_referrer_link: Mynd yn ôl i'r dudalen roeddech chi'n edrych
+      arni
+    confirmation_title: Mae eich gosodiadau cwcis wedi'u cadw
+    cookie_settings: Gosodiadau cwcis
+    cookies_on_govuk: Cwcis ar GOV.UK
+    essential_explanation: Mae'r cwcis hanfodol hyn yn gwneud pethau fel cofio'ch
+      cynnydd drwy ffurflen (er enghraifft, cais am drwydded)
+    explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur
+      pan fyddwch chi'n ymweld â gwefan yw cwcis.
+    find_out: Dysgwch fwy am gwcis ar GOV.UK
+    four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych
+      chi'n hapus i ni eu defnyddio.
     google:
-    google_info:
-    how_we_use:
-    how_you_got:
-    javascript:
+    google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw
+      am
+    how_we_use: Rydyn ni'n defnyddio cwcis i storio gwybodaeth am sut rydych chi'n
+      defnyddio gwefan GOV.UK, fel y tudalennau rydych chi'n ymweld â nhw.
+    how_you_got: sut gyrhaeddoch chi'r wefan
+    javascript: 'Rydyn ni''n defnyddio Javascript i osod y rhan fwyaf o''n cwcis.
+      Yn anffodus, nid yw Javascript yn rhedeg ar eich porwr, felly nid oes modd i
+      chi newid eich gosodiadau. Gallwch drio:'
     javascript_list:
-    lux_info:
-    off-campaigns:
-    off-settings:
-    off-usage:
-    on-campaigns:
-    on-settings:
-    on-usage:
-    pages_visited:
-    save_changes:
-    third_parties:
+    - ail-lwytho'r dudalen
+    - troi Javascript ymlaen yn eich porwr
+    lux_info: Mae meddalwedd LUX yn storio gwybodaeth yn ddi-enw am ba mor dda y gwnaeth
+      tudalennau berfformio ar eich dyfais (gan gynnwys gwallau JavaScript).
+    off-campaigns: Peidiwch â defnyddio cwcis sy'n helpu gyda chyfathrebu a marchnata
+    off-settings: Peidiwch â defnyddio cwcis sy'n cofio fy ngosodiadau ar y wefan
+    off-usage: Peidiwch â defnyddio cwcis sy'n mesur fy nefnydd o'r wefan
+    on-campaigns: Defnyddiwch gwcis sy'n helpu gyda chyfathrebu a marchnata
+    on-settings: Defnyddiwch gwcis sy'n cofio fy ngosodiadau ar y wefan
+    on-usage: Defnyddiwch gwcis sy'n mesur fy nefnydd o'r wefan
+    pages_visited: y tudalennau rydych chi'n ymweld â nhw ar GOV.UK a gwasanaethau
+      digidol y llywodraeth, a pha mor hir rydych chi'n dreulio ar bob tudalen
+    save_changes: Cadw'r newidiadau
+    third_parties: Efallai y caiff y cwcis hyn eu gosod gan wefannau trydydd parti
+      ac y byddant yn gwneud pethau fel mesur sut rydych chi'n gwylio fideos YouTube
+      sydd ar GOV.UK.
     types:
-      campaigns:
-      essential:
-      settings:
-      usage:
-    usage_info:
+      campaigns: Cwcis sy'n helpu gyda chyfathrebu a marchnata
+      essential: Cwcis cwbl angenrheidiol
+      settings: Cwcis sy'n cofio'ch gosodiadau
+      usage: Cwcis sy'n mesur defnydd o'r wefan
+    usage_info: Rydyn ni'n defnyddio Google Analytics a meddalwedd Real User Monitoring
+      LUX gan SpeedCurve i fesur sut rydych chi'n defnyddio'r wefan a'ch profiad o
+      berfformiad gwe tra byddwch chi'n ymweld â'r wefan fel y gallwn ni ei wella
+      ar sail anghenion defnyddwyr. Dydyn ni ddim yn caniatáu i Google na SpeedCurve
+      ddefnyddio na rhannu'r data am sut rydych chi'n defnyddio'r wefan hon.
   electoral:
     registration:
-      description:
-      title:
+      description: Angen help? Cysylltwch â'ch tîm cofrestru etholiadol lleol. Fe
+        allan nhw roi gwybod i chi a ydych chi ar y gofrestr etholiadol, neu a ydych
+        chi wedi cofrestru am bleidlais drwy'r post neu drwy ddirprwy.
+      title: Mynnwch help gyda chofrestru etholiadol
     service:
-      description:
-      matched_postcode_html:
-      title:
-  error:
-  find:
+      description: Os oes gennych gwestiwn am eich cerdyn pleidleisio, eich man pleidleisio,
+        neu am ddychwelyd eich papur pleidleisio drwy'r post, cysylltwch â'ch cyngor."
+      title: Eich cyngor lleol
+  find: Ffeindio
   formats:
     find_my_nearest:
-      valid_postcode_no_locations:
+      valid_postcode_no_locations: Doedden ni ddim yn gallu dod o hyd i unrhyw ganlyniadau
+        ar gyfer y cod post hwn.
     local_transaction:
-      choose_address:
-      council_tax:
-      county_council_services:
+      choose_address: Dewiswch eich cyfeiriad
+      council_tax: treth gyngor
+      county_council_services: Mae cynghorau sir yn gyfrifol am wasanaethau fel
       county_council_services_list:
-      county_district_council:
-      district_council_services:
-      enter_postcode:
-      find_council:
-      find_council_website:
-      find_info_for:
-      find_other_services:
-      find_postcode_royal_mail:
-      housing:
-      info_on_country_website:
-        northern_ireland:
-        scotland:
-        wales:
-      info_on_website:
-      invalid_postcode:
-      invalid_postcode_sub:
-      invalid_uprn:
-      invalid_uprn_sub:
-      local_authority_website:
-      matched_postcode_html:
-      no_local_authority:
-      no_local_authority_url_html:
-      no_website:
-      postcode_hint:
-      postcode_lookup:
-      rubbish_recycling_collection:
-      select_address:
-      service_not_available:
-      unknown_service:
-      valid_postcode_no_match:
-      valid_postcode_no_match_sub_html:
-      valid_uprn_no_match:
-      valid_uprn_no_match_sub_html:
+      - addysg
+      - gofal cymdeithasol
+      - trafnidiaeth
+      county_district_council: Mae eich cod post mewn cyngor sir a chyngor dosbarth.
+      district_council_services: Mae cynghorau dosbarth yn gyfrifol am wasanaethau
+        fel
+      enter_postcode: Ysgrifennwch god post
+      find_council: Dod o hyd i'ch cyngor lleol
+      find_council_website: Dod o hyd i wefan eich cyngor lleol.
+      find_postcode_royal_mail: Dod o hyd i god post ar chwiliwr cod post y Post Brenhinol
+      housing: tai
+      info_on_website: Mae gwybodaeth i'w chael ar eu gwefan.
+      invalid_postcode: Nid yw hwn yn god post dilys.
+      invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
+      invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
+      invalid_uprn_sub: Ysgrifennwch y cod post eto.
+      matched_postcode: Rydyn ni wedi paru'r cod post
+      no_local_authority: Doedden ni ddim yn gallu ffeindio cyngor ar gyfer y cod
+        post hwn.
+      no_website: Does gyda ni ddim dolen ar gyfer eu gwefan.
+      postcode_hint: Er enghraifft CF99 1SN
+      postcode_lookup: Chwilio am god post
+      rubbish_recycling_collection: casglu sbwriel ac ailgylchu
+      select_address: Dewiswch gyfeiriad
+      unknown_service: Dydyn ni ddim yn gwybod a ydyn nhw'n cynnig y gwasanaeth hwn.
+        Edrychwch ar eu gwefan i weld a ydyn nhw'n gwneud, neu i weld pa wasanaethau
+        eraill maen nhw'n eu cynnig.
+      valid_postcode_no_match: Doedden ni ddim yn gallu dod o hyd i'r cod post hwn.
+      valid_postcode_no_match_sub_html: Gwiriwch a'i ysgrifennu eto.
+      valid_uprn_no_match: Doedden ni ddim yn gallu dod o hyd i'r cyfeiriad hwn.
+      valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf
-      please_answer: Atebwch y cwestiwn hwn
+      please_answer: Mae angen ateb y cwestiwn hwn
       start_again: Dechrau eto
       your_answers: Eich atebion
     start_now: Dechrau nawr
     transaction:
-      assistance_question:
+      assistance_question: A gawsoch chi unrhyw gymorth i ddefnyddio'r gwasanaeth
+        hwn heddiw?
       before_you_start: Cyn i chi ddechrau
-      dissatisfied:
-      e_vehicle_info:
-      friend_or_relative:
-      government_staff:
-      help_improve:
-      how_improve:
-      improvement_question:
-      join_organ_donor:
-      more_information: Mwy o wybodaeth
-      mot_reminder:
-      neither:
-      next_car_electric:
-      no_pii_hint:
-      'on': ar
-      online_satisfaction_check:
-      organ_donation_in_your_country:
-      organ_donation_laws:
-      organ_transplant_question:
-      other:
-      other_person:
+      dissatisfied: Anfodlon
+      e_vehicle_info: Mae gwybodaeth ar gael am gerbydau trydan.
+      friend_or_relative: Ffrind neu berthynas
+      government_staff: Aelod o staff o'r adran gyfrifol o'r llywodraeth
+      help_improve: Helpwch ni i wella'r gwasanaeth hwn
+      how_improve: Sut allen ni wella'r gwasanaeth hwn?
+      improvement_question: Oes unrhyw ffordd y gallai'r cymorth a gawsoch fod yn
+        well?
+      join_organ_donor: Ymunwch â Chofrestr Rhoddwyr Organau y GIG.
+      more_information: Rhagor o wybodaeth
+      mot_reminder: Mynnwch neges destun neu e-bost i'ch atgoffa pan fydd angen adnewyddu'ch
+        MOT.
+      neither: Ddim yn fodlon nac yn anfodlon
+      next_car_electric: Gwnewch eich car nesaf yn un trydan
+      no_pii_hint: Peidiwch â chynnwys unrhyw wybodaeth bersonol nac ariannol, er
+        enghraifft eich rhif Yswiriant Gwladol neu rif cerdyn credyd
+      'on': ymlaen
+      online_satisfaction_check: Ar y cyfan, pa mor fodlon ydych chi gyda'r gwasanaeth
+        ar-lein?
+      organ_donation_in_your_country: dysgwch sut mae'r cyfreithiau'n effeithio ar
+        y wlad rydych chi'n byw ynddi a beth yw eich dewisiadau
+      organ_donation_laws: Mae cyfreithiau ar roi organau wedi newid
+      organ_transplant_question: Pe byddai angen trawsblaniad organ arnoch chi, a
+        fyddech chi'n cymryd un? Os felly, gofynnwn i chi helpu eraill.
+      other: Arall (nodwch)
+      other_person: Dywedwch wrthon ni pwy oedd y person arall
       other_ways_to_apply: Ffyrdd eraill o wneud cais
-      pii_warning:
-      register_decision:
-      register_to_donate:
-      satisfaction_check:
-      satisfaction_survey:
-      satisfied:
-      send_feedback:
-      service_improvement_question:
-      service_satisfaction_check:
+      pii_warning: Pan fyddwch chi'n llenwi'r arolwg hwn, peidiwch â chynnwys unrhyw
+        wybodaeth bersonol nac ariannol, er enghraifft eich rhif Yswiriant Gwladol
+        neu rif cerdyn credyd.
+      register_decision: Cofrestrwch eich penderfyniad am roi organau
+      register_to_donate: Cofrestrwch i roi
+      satisfaction_check: Pa mor fodlon ydych chi gyda'r cymorth a gawsoch?
+      satisfaction_survey: Arolwg o fodlonrwydd
+      satisfied: Bodlon
+      send_feedback: Anfon adborth
+      service_improvement_question: Oes unrhyw syniadau gyda chi am sut gellid gwella'r
+        gwasanaeth hwn?
+      service_satisfaction_check: Ar y cyfan, sut oeddech chi'n teimlo am y gwasanaeth
+        a gawsoch heddiw?
       sign_in: Mewngofnodi
-      tell_your_family:
-      very_dissatisfied:
-      very_satisfied:
-      what_assistance:
-      what_you_need_to_know: Yr hyn mae angen i chi ei wybod
-      who_assisted:
-      work_colleague:
+      tell_your_family: Dywedwch wrth eich teulu am eich penderfyniad am roi organau.
+      very_dissatisfied: Anfodlon iawn
+      very_satisfied: Bodlon iawn
+      what_assistance: Pa gymorth gawsoch chi?
+      what_you_need_to_know: Beth mae angen i chi wybod
+      who_assisted: Pwy roddodd y cymorth?
+      work_colleague: Cydweithiwr
   help:
     index:
-      about:
-      about_description:
-      accessibility:
-      accessibility_description:
-      beta:
-      beta_description:
-      browsers:
-      browsers_description:
-      cookies:
-      cookies_description:
-      email:
-      email_description:
-      find_out:
-      privacy_notice:
-      privacy_notice_description:
-      reuse_content:
-      reuse_content_description:
-      terms:
-      terms_description:
-      vulnerability:
-      vulnerability_description:
+      about: Ynghylch GOV.UK
+      about_description: Gwybodaeth am y wefan a'r tîm sy'n ei hadeiladu
+      accessibility: Hygyrchedd
+      accessibility_description: Manylion am hygyrchedd a help i ddefnyddio'r rhyngrwyd
+      beta: Gwasanaethau beta ar GOV.UK
+      beta_description: Sut caiff gwasanaethau newydd eu datblygu ar GOV.UK a beth
+        mae'n olygu i ddefnyddwyr
+      browsers: Porwyr
+      browsers_description: Gwybodaeth am borwyr a sut i uwchraddio'ch un chi
+      cookies: Cwcis
+      cookies_description: Sut caiff cwcis eu defnyddio ar GOV.UK a diben pob cwci
+      email: Hysbysiadau e-bost GOV.UK
+      email_description: Sut i greu cyfrif hysbysiadau e-bost GOV.UK a diweddaru'ch
+        dewisiadau tanysgrifio
+      find_out: Dysgwch am GOV.UK, gan gynnwys y defnydd o gwcis, hygyrchedd y safle,
+        yr hysbysiad preifatrwydd a'r telerau ac amodau defnydd.
+      privacy_notice: Hysbysiad preifatrwydd
+      privacy_notice_description: Ymagwedd GOV.UK at breifatrwydd defnyddwyr
+      reuse_content: Ailddefnyddio cynnwys GOV.UK
+      reuse_content_description: Sut i ailddefnyddio cynnwys GOV.UK drwy APIs a chrafu
+        gwefannau
+      terms: Telerau ac amodau
+      terms_description: Gwybodaeth am y defnydd o GOV.UK ac atebolrwydd
+      vulnerability: Adrodd am wendid ar un o barthau neu is-barthau GOV.UK
+      vulnerability_description: Sut i adrodd am wendid ar GOV.UK
   homepage:
     categories:
-      abroad:
-      abroad_description:
-      benefits:
-      benefits_description:
-      births_deaths_marriages:
-      births_deaths_marriages_description:
-      business:
-      business_description:
-      childcare_parenting:
-      childcare_parenting_description:
-      citizenship:
-      citizenship_description:
-      disabilities:
-      disabilities_description:
-      driving:
-      driving_description:
-      education:
-      education_description:
-      employing_people:
-      employing_people_description:
-      environment_countryside:
-      environment_countryside_description:
-      housing_local_services:
-      housing_local_services_description:
-      justice:
-      justice_description:
-      tax:
-      tax_description:
-      visas_immigration:
-      visas_immigration_description:
-      working:
-      working_description:
+      abroad: Pasbortau, teithio a byw dramor
+      abroad_description: Yn cynnwys adnewyddu pasbortau a chyngor am deithio yn ôl
+        gwlad
+      benefits: Budd-daliadau
+      benefits_description: Yn cynnwys cymhwysedd, apeliadau, credydau treth a Chredyd
+        Cynhwysol
+      births_deaths_marriages: Genedigaethau, marwolaethau, priodasau a gofal
+      births_deaths_marriages_description: Rhianta, partneriaethau sifil, ysgariad
+        ac Atwrneiaeth Arhosol
+      business: Busnesau a phobl hunangyflogedig
+      business_description: Offer a chanllawiau i fusnesau
+      childcare_parenting: Gofal plant a rhianta
+      childcare_parenting_description: Yn cynnwys rhoi genedigaeth, maethu, mabwysiadu,
+        budd-daliadau ar gyfer plant, gofal plant ac ysgolion
+      citizenship: Dinasyddiaeth a byw yn y DU
+      citizenship_description: Pleidleisio, cyfranogi o'r gymuned, bywyd yn y DU,
+        prosiectau rhyngwladol
+      disabilities: Pobl anabl
+      disabilities_description: Yn cynnwys gofalwyr, eich hawliau, budd-daliadau a'r
+        Ddeddf Cydraddoldeb
+      driving: Gyrru a thrafnidiaeth
+      driving_description: Yn cynnwys treth cerbydau, MOT a thrwyddedau gyrru
+      education: Addysg a dysgu
+      education_description: Yn cynnwys benthyciadau myfyrwyr, derbyniadau a phrentisiaethau
+      employing_people: Cyflogi pobl
+      employing_people_description: Yn cynnwys tâl, contractau a recriwtio
+      environment_countryside: Yr amgylchedd a chefn gwlad
+      environment_countryside_description: Yn cynnwys llifogydd, ailgylchu a bywyd
+        gwyllt
+      housing_local_services: Tai a gwasanaethau lleol
+      housing_local_services_description: Perchenogi neu rentu a gwasanaethau cynghorau
+      justice: Trosedd, cyfiawnder a'r gyfraith
+      justice_description: Prosesau cyfreithiol, y llysoedd a'r heddlu
+      tax: Arian a threth
+      tax_description: Yn cynnwys dyled a Hunanasesu
+      visas_immigration: Fisâu a mewnfudo
+      visas_immigration_description: Gwneud cais i ymweld, gweithio, astudio, setlo
+        neu geisio lloches yn y DU
+      working: Gweithio, swyddi a phensiynau
+      working_description: Yn cynnwys gwyliau a dod o hyd i waith
     index:
-      brexit:
-      calculate_vehicle_tax:
-      consultations:
-      coronavirus:
-      coronavirus_restrictions:
-      council_tax_bands:
-      covid:
-      departments_and_policy_html:
-      driving_test:
-      find_job:
-      intro:
-      intro_simpler:
-      job_search:
-      jobseekers_allowance:
-      merged_websites_html:
-      ministerial_departments:
-      ministerial_departments_count:
-      more:
-      most_active:
-      news:
-      other_agencies:
-      other_agencies_count:
-      passport_fees:
-      popular:
-      promo_boxes:
-        text_1:
-        text_2:
-        text_3:
-        title_1:
-        title_2:
-        title_3:
-      running_limited_company:
-      see_all:
-      services_and_information:
-      statistics:
-      student_finance_login:
-      tax_account:
-      uk_bank_holidays:
-      uk_bank_holidays_dates_html:
-      universal_credit:
-      vat_rates:
-      vehicle_tax:
-  'no':
-  or:
+      brexit: 'Brexit: gwiriwch beth mae angen i chi wneud'
+      calculate_vehicle_tax: Cyfraddau treth cerbyd
+      consultations: ymgynghoriadau
+      coronavirus: Coronafeirws (COVID-19)
+      coronavirus_restrictions: Mae cyfyngiadau coronafeirws yn dal yn eu lle ar hyd
+        y wlad.
+      council_tax_bands: Bandiau'r Dreth Gyngor
+      covid: 'Coronafeirws (COVID-19): rheolau'
+      departments_and_policy_html: Adrannau a&nbsp;pholisi
+      driving_test: Prawf theori gyrru
+      find_job: Dod o hyd i swydd
+      get_tested: Cael prawf ar gyfer COVID-19
+      get_tested_description: Mynnwch brawf i wirio ydy'r coronafeirws (COVID-19)
+        arnoch chi ar NHS.UK. Does dim rhaid bod symptomau arnoch chi i gael prawf.
+      intro: Y lle gorau i gael gwasanaethau a gwybodaeth gan y llywodraeth
+      intro_simpler: Symlach, cliriach, cyflymach
+      job_search: Dod o hyd i swydd
+      jobseekers_allowance: Lwfans Ceisio Gwaith
+      merged_websites_html: Mae gwefannau holl <a href="/government/organisations"
+        class="govuk-link">adrannau'r llywodraeth</a> a llawer o asiantaethau a chyrff
+        cyhoeddus eraill wedi'u cyfuno o dan GOV.UK.
+      ministerial_departments: Adrannau gweinidogol
+      ministerial_departments_count: 23
+      more: Mwy ar GOV.UK
+      most_active: Mwyaf actif
+      news: newyddion a chyfathrebu
+      other_agencies: Asiantaethau a chyrff&nbsp;cyhoeddus eraill
+      other_agencies_count: 400+
+      passport_fees: Ffioedd pasbort
+      popular: Poblogaidd ar GOV.UK
+      running_limited_company: Rhedeg cwmni cyfyngedig
+      see_all: 'Yma gallwch weld pob un o''r canlynol:'
+      services_and_information: Gwasanaethau a gwybodaeth
+      statistics: ystadegau
+      student_finance_login: Mewngofnodi i gyllid myfyrwyr
+      tax_account: Mewngofnodi i'ch cyfrif treth personol
+      travel_abroad: 'Teithio dramor: gam wrth gam'
+      travel_abroad_check: Gwiriwch beth mae angen i chi wneud er mwyn teithio'n rhyngwladol.
+      uk_bank_holidays: Gwyliau banc y DU
+      uk_bank_holidays_dates_html: Gwiriwch y dyddiadau ar gyfer <a href="/bank-holidays"
+        class="govuk-link">gwyliau banc</a> yng Nghymru, Lloegr, yr Alban a Gogledd
+        Iwerddon.
+      universal_credit: Mewngofnodi i'ch cyfrif Credyd Cynhwysol
+      vat_rates: Cyfraddau TAW
+      vehicle_tax: Adnewyddu'ch treth cerbyd
+  'no': Na
   place:
-    children_social_care:
-    go_to_website:
+    children_social_care: Gallwch alw'r tîm gofal cymdeithasol i blant yn y cyngor
+      yn
+    go_to_website: Mynd i'w gwefan
   roadmap:
     actions_section:
-      heading:
-      items:
+      heading: Beth rydyn ni'n gweithio arno
     hero:
-      description:
-      heading:
+      description: GOV.UK yw'r ffynhonnell sicr o wybodaeth gan y llywodraeth, felly
+        rydyn ni bob amser yn gweithio i ddiwallu anghenion defnyddwyr yn well. Dyma'n
+        map ffordd presennol, sy'n mynd â ni hyd at ddiwedd 2021.
+      heading: Map ffordd GOV.UK
     numbers_section:
-      footnote:
-      heading_large:
-      heading_small:
-      last_updated:
+      footnote: Dim ond os bydd defnyddwyr yn rhoi caniatâd i ni wneud y gallwn ni
+        gyfri'r ymweliadau â gwefan GOV.UK.
+      heading_large: GOV.UK mewn rhifau
+      heading_small: O 1 Ionawr 2021 hyd 30 Ebrill 2021
+      last_updated: 'Diweddarwyd ddiwethaf: Mai 2021'
       numbers_columns:
-        column_one_count:
-        column_one_text:
-        column_two_count:
-        column_two_text:
-    page_title:
+        column_one_count: 603
+        column_one_text: miliwn o ymweliadau
+        column_two_count: '1.5'
+        column_two_text: biliwn o olygon ar y dudalen
+    page_title: Map ffordd - GOV.UK
     updates_section:
-      heading:
+      heading: Diweddariadau rhaglen
       items:
-  save:
-  sessions:
-    first_time:
-      title:
-      description_html:
-      cookie_consent:
-        heading:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-      feedback_consent:
-        heading:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-      invalid:
-  sign_up:
-  website:
-  'yes':
+      - "{href=>https://gds.blog.gov.uk/2021/03/29/whats-next-for-gov-uk-in-2021-to-2022/"
+      - image_src=>roadmap/updates-goals.jpg
+      - heading_text=>Ein 5 amcan}
+      - "{href=>https://gdscareers.gov.uk/"
+      - image_src=>roadmap/updates-work.jpg
+      - heading_text=>Gweithiwch yn GDS}
+      - "{href=>https://insidegovuk.blog.gov.uk/"
+      - image_src=>roadmap/updates-blog.jpg
+      - heading_text=>Blog Tu mewn i GOV.UK}
+  sign_up: Cofrestru
+  website: Gwefan
+  'yes': Ie

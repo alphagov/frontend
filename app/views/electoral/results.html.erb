@@ -2,10 +2,12 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<div class="govuk-grid-column-two-thirds">
-  <% content_for :title, "#{@content_item["title"]} - GOV.UK" %>
+<%= render layout: 'shared/base_page', locals: {
+  title: @publication.title,
+  publication: @publication,
+  edition: @edition,
+} do %>
 
-  <%= render "govuk_publishing_components/components/title", title: @content_item["title"] %>
   <% if @presenter.electoral_services.present? %>
     <p class="govuk-body">
       <%= t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
@@ -42,4 +44,4 @@
         }
     %>
   <% end %>
-</div>
+<% end %>

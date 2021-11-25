@@ -360,15 +360,15 @@ cy:
     updates_section:
       heading: Diweddariadau rhaglen
       items:
-      - "{href=>https://gds.blog.gov.uk/2021/03/29/whats-next-for-gov-uk-in-2021-to-2022/"
-      - image_src=>roadmap/updates-goals.jpg
-      - heading_text=>Ein 5 amcan}
-      - "{href=>https://gdscareers.gov.uk/"
-      - image_src=>roadmap/updates-work.jpg
-      - heading_text=>Gweithiwch yn GDS}
-      - "{href=>https://insidegovuk.blog.gov.uk/"
-      - image_src=>roadmap/updates-blog.jpg
-      - heading_text=>Blog Tu mewn i GOV.UK}
+      - href: https://gds.blog.gov.uk/2021/03/29/whats-next-for-gov-uk-in-2021-to-2022/
+        image_src: roadmap/updates-goals.jpg
+        heading_text: Ein 5 amcan
+      - href: https://gdscareers.gov.uk/
+        image_src: roadmap/updates-work.jpg
+        heading_text: Gweithiwch yn GDS
+      - href: https://insidegovuk.blog.gov.uk/
+        image_src: roadmap/updates-blog.jpg
+        heading_text: Blog Tu mewn i GOV.UK
   save:
   sessions:
     first_time:

@@ -305,16 +305,35 @@ en:
       - title: Working, jobs and&nbsp;pensions
         description: Includes holidays, finding a job and redundancy
         link: /browse/working
+    # If adding or removing items remember to update the `columns()` mixin in
+    # the homepage-section__government-activity homepage-services-and-info__list class in _homepage.scss.
+    government_activity:
+      - title: News
+        description: News articles, speeches and correspondence
+        link: /search/news-and-communications
+      - title: Policy papers and consultations
+        description: Consultations and strategy
+        link: /search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations
+      - title: Guidance and regulation 
+        description: Detailed rules and legislation
+        link: /search/guidance-and-regulation
+      - title: Research and statistics
+        description: Research, analysis and official statistics
+        link: /search/research-and-statistics
+      - title: Transparency documents
+        description: Data, freedom of information releases and corporate reports
+        link: /search/transparency-and-freedom-of-information-releases
     index:
       brexit: 'Brexit: check what you need to do'
       calculate_vehicle_tax: Vehicle tax rates
-      consultations: consultations
       council_tax_bands: Council Tax bands
       covid: 'Coronavirus (COVID-19): guidance'
-      departments_and_policy_html: Departments and&nbsp;policy
+      departments_and_organisations: Departments and organisations
       driving_test: Driving theory test
       featured: Featured
       find_job: Find a job
+      government_activity: Government activity
+      government_activity_description: Find out what the government is doing
       intro_html: The best place to find government services and&nbsp;information
       intro_simpler: Simpler, clearer, faster
       intro_title:
@@ -322,14 +341,12 @@ en:
         html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
       jobseekers_allowance: Jobseeker's Allowance
-      merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link" data-track-category="homepageClicked" data-track-action="departmentsLink" data-track-label="/government/organisations" data-track-value="1" data-track-dimension="government departments" data-track-dimension-index="29">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 23
       meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
       most_active: Most active
-      news: news and communications
-      other_agencies: Other agencies and public&nbsp;bodies
+      other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
       passport_fees: Passport fees
       popular: Popular on GOV.UK
@@ -341,9 +358,7 @@ en:
         title_2: COVID-19 vaccinations
         title_3: 'Travel abroad: step by step'
       running_limited_company: Running a limited company
-      see_all: Here you can see all
       services_and_information: Services and information
-      statistics: statistics
       student_finance_login: Log in to student finance
       tax_account: Sign in to your personal tax account
       uk_bank_holidays: UK bank holidays

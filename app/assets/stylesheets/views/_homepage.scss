@@ -126,28 +126,46 @@
   font-weight: bold;
 }
 
-.home-more-promo {
-  margin: 0;
+.homepage-more-on-govuk {
+  padding: govuk-spacing(4) 0 0 0;
 }
 
-.home-more-promo__link {
-  display: block;
-  padding: 2.5em .75em;
-  margin-bottom: govuk-spacing(3);
-  background: $govuk-brand-colour;
-  text-align: center;
-  text-decoration: none;
+.homepage-most-active-list {
+  list-style: none;
+  margin: 0 0 govuk-spacing(6) 0;
+  padding: 0;
 
-  &:focus {
-    .home-more-promo__link-content {
-      color: govuk-colour("black");
+  @include govuk-media-query($from: desktop) {
+    @include columns($items: 10, $columns: 2, $selector: "li", $flow: column);
+  }
+
+  & > li {
+    margin: 0 0 govuk-spacing(4) 0;
+    @include govuk-font($size: 19);
+
+    @include govuk-media-query($from: desktop) {
+      margin-bottom: govuk-spacing(2);
     }
   }
 }
 
-.home-more-promo__link-content {
-  @include govuk-font(36, $weight: bold);
-  color: govuk-colour("white");
+.homepage-promo {
+  display: block;
+  margin: 0;
+  padding: (govuk-spacing(9) + govuk-spacing(4)) govuk-spacing(3); // results in a top and bottom padding of 80px for small screens
+  background: $govuk-brand-colour;
+  text-align: center;
+  max-width: 240px;
+
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(8) govuk-spacing(3);
+  }
+}
+
+.homepage-promo__link {
+  @include govuk-link-style-inverse;
+  @include govuk-link-style-no-underline;
+  @include govuk-font($size: 36, $weight: bold);
 }
 
 .homepage-services-and-info {

@@ -146,6 +146,7 @@ cy:
     service:
       description: Os oes gennych gwestiwn am eich cerdyn pleidleisio, eich man pleidleisio,
         neu am ddychwelyd eich papur pleidleisio drwy'r post, cysylltwch â'ch cyngor."
+      matched_postcode_html: Rydyn ni wedi paru'r cod post <strong>%{postcode}</strong> i <strong>%{electoral_service_name}</strong>.
       title: Eich cyngor lleol
   find: Ffeindio
   formats:
@@ -173,7 +174,7 @@ cy:
       invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
       invalid_uprn_sub: Ysgrifennwch y cod post eto.
-      matched_postcode: Rydyn ni wedi paru'r cod post
+      matched_postcode_html: Rydyn ni wedi paru'r cod post i <span class="local-authority">%{local_authority}</span>.
       no_local_authority: Doedden ni ddim yn gallu ffeindio cyngor ar gyfer y cod
         post hwn.
       no_website: Does gyda ni ddim dolen ar gyfer eu gwefan.

@@ -2,112 +2,131 @@
   Before updating a promotion slot please read the documentation.
   See: https://docs.publishing.service.gov.uk/apps/frontend/update-homepage-promotion-slots.html
 %>
-<section>
+<section class="homepage-section">
+  <div class="homepage-section__heading">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t('homepage.index.featured')
+    } %>
+  </div>
+
   <div class="govuk-grid-row" data-module="gem-track-click">
     <div class="govuk-grid-column-one-third">
-      <a href="/coronavirus"
-         aria-hidden="true"
-         tabindex="-1"
-         data-track-category="homepageClicked"
-         data-track-action="promoImageLink"
-         data-track-label="/coronavirus"
-         data-track-value="1"
-         data-track-dimension-index="29"
-         data-track-dimension="homepage/covid-19-promo.png">
-        <%= image_tag "homepage/covid-19-promo.png", {
-          alt: "",
-          class: "home-promo__image",
-          height: 407,
-          loading: "lazy",
-          width: 610,
-          sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
-        } %>
-      </a>
-      <h3 class="home-promo__heading">
-        <a href="/coronavirus"
-           class="govuk-link home-promo__link"
-           data-track-category="homepageClicked"
-           data-track-action="promoTextLink"
-           data-track-label="/coronavirus"
-           data-track-value="1"
-           data-track-dimension-index="29"
-           data-track-dimension="<%= t('homepage.index.promo_boxes.title_1') %>">
-          <%= t('homepage.index.promo_boxes.title_1') %>
+      <div class="home-promo">
+        <a href="/government/topical-events/cop26"
+          aria-hidden="true"
+          tabindex="-1"
+          data-track-category="homepageClicked"
+          data-track-action="promoImageLink"
+          data-track-label="/government/topical-events/cop26"
+          data-track-value="1"
+          data-track-dimension-index="29"
+          data-track-dimension="homepage/cop26.jpg">
+          <%= image_tag "homepage/cop26.jpg", {
+            alt: "",
+            class: "home-promo__image",
+            height: 407,
+            loading: "lazy",
+            width: 610,
+            sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
+            srcset: {
+              "homepage/cop26.jpg": "610w",
+              "homepage/cop26-480.jpg": "480w",
+              "homepage/cop26-320.jpg": "320w",
+              "homepage/cop26-240.jpg": "240w",
+              "homepage/cop26-170.jpg": "170w",
+            },
+          } %>
         </a>
-      </h3>
-      <p class="home-promo__text">
-        <%= t('homepage.index.promo_boxes.text_1') %>
-      </p>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+          <a href="/government/topical-events/cop26"
+            class="govuk-link"
+            data-track-category="homepageClicked"
+            data-track-action="promoTextLink"
+            data-track-label="/government/topical-events/cop26"
+            data-track-value="1"
+            data-track-dimension-index="29"
+            data-track-dimension="<%= t('homepage.index.promo_boxes.title_1') %>">
+            <%= t('homepage.index.promo_boxes.title_1') %>
+          </a>
+        </h3>
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          <%= t('homepage.index.promo_boxes.text_1') %>
+        </p>
+      </div>
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
-         aria-hidden="true"
-         tabindex="-1"
-         data-track-category="homepageClicked"
-         data-track-action="promoImageLink"
-         data-track-label="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
-         data-track-value="1"
-         data-track-dimension-index="29"
-         data-track-dimension="homepage/covid-19-vaccine-promo.png">
-        <%= image_tag "homepage/covid-19-vaccine-promo.png", {
-          alt: "",
-          class: "home-promo__image",
-          height: 407,
-          loading: "lazy",
-          width: 610,
-        } %>
-      </a>
-      <h3 class="home-promo__heading">
+      <div class="home-promo">
         <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
-           class="govuk-link home-promo__link"
-           data-track-category="homepageClicked"
-           data-track-action="promoTextLink"
-           data-track-label="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
-           data-track-value="1"
-           data-track-dimension-index="29"
-           data-track-dimension="<%= t('homepage.index.promo_boxes.title_2') %>">
-          <%= t('homepage.index.promo_boxes.title_2') %>
+          aria-hidden="true"
+          tabindex="-1"
+          data-track-category="homepageClicked"
+          data-track-action="promoImageLink"
+          data-track-label="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
+          data-track-value="1"
+          data-track-dimension-index="29"
+          data-track-dimension="homepage/covid-19-vaccine-promo.png">
+          <%= image_tag "homepage/covid-19-vaccine-promo.png", {
+            alt: "",
+            class: "home-promo__image",
+            height: 407,
+            loading: "lazy",
+            width: 610,
+          } %>
         </a>
-      </h3>
-      <p class="home-promo__text">
-        <%= t('homepage.index.promo_boxes.text_2') %>
-      </p>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+          <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
+            class="govuk-link"
+            data-track-category="homepageClicked"
+            data-track-action="promoTextLink"
+            data-track-label="https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/"
+            data-track-value="1"
+            data-track-dimension-index="29"
+            data-track-dimension="<%= t('homepage.index.promo_boxes.title_2') %>">
+            <%= t('homepage.index.promo_boxes.title_2') %>
+          </a>
+        </h3>
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          <%= t('homepage.index.promo_boxes.text_2') %>
+        </p>
+      </div>
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <a href="/travel-abroad"
-         aria-hidden="true"
-         tabindex="-1"
-         data-track-category="homepageClicked"
-         data-track-action="promoImageLink"
-         data-track-label="/travel-abroad"
-         data-track-value="1"
-         data-track-dimension-index="29"
-         data-track-dimension="homepage/travel-abroad-step-by-step.png">
-        <%= image_tag "homepage/travel-abroad-step-by-step.png", {
-          alt: "",
-          class: "home-promo__image",
-          height: 407,
-          loading: "lazy",
-          width: 610,
-        } %>
-      </a>
-      <h3 class="home-promo__heading">
+      <div class="home-promo govuk-!-margin-bottom-0">
         <a href="/travel-abroad"
-           class="govuk-link home-promo__link"
-           data-track-category="homepageClicked"
-           data-track-action="promoTextLink"
-           data-track-label="/travel-abroad"
-           data-track-value="1"
-           data-track-dimension-index="29"
-           data-track-dimension="<%= t('homepage.index.promo_boxes.title_3') %>">
-          <%= t('homepage.index.promo_boxes.title_3') %>
+          aria-hidden="true"
+          tabindex="-1"
+          data-track-category="homepageClicked"
+          data-track-action="promoImageLink"
+          data-track-label="/travel-abroad"
+          data-track-value="1"
+          data-track-dimension-index="29"
+          data-track-dimension="homepage/travel-abroad-step-by-step.png">
+          <%= image_tag "homepage/travel-abroad-step-by-step.png", {
+            alt: "",
+            class: "home-promo__image",
+            height: 407,
+            loading: "lazy",
+            width: 610,
+          } %>
         </a>
-      </h3>
-      <p class="home-promo__text">
-        <%= t('homepage.index.promo_boxes.text_3') %>
-      </p>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+          <a href="/travel-abroad"
+            class="govuk-link"
+            data-track-category="homepageClicked"
+            data-track-action="promoTextLink"
+            data-track-label="/travel-abroad"
+            data-track-value="1"
+            data-track-dimension-index="29"
+            data-track-dimension="<%= t('homepage.index.promo_boxes.title_3') %>">
+            <%= t('homepage.index.promo_boxes.title_3') %>
+          </a>
+        </h3>
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          <%= t('homepage.index.promo_boxes.text_3') %>
+        </p>
+      </div>
     </div>
   </div>
-<section>
+</section>

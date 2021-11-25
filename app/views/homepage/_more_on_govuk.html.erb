@@ -1,0 +1,52 @@
+<section class="homepage-more-on-govuk">
+  <%= render "govuk_publishing_components/components/heading", {
+        text: t('homepage.index.more'),
+        margin_bottom: 6,
+        font_size: "m",
+      } %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t('homepage.index.most_active'),
+        margin_bottom: 4,
+        font_size: "s",
+        heading_level: 3,
+      } %>
+
+      <ul class="homepage-most-active-list" data-module="gem-track-click">
+        <% t("homepage.most_active").each do | item | %>
+          <li>
+            <%= link_to(
+              item[:title],
+              item[:link],
+              class: "govuk-link",
+              data: {
+                "track-category": "homepageClicked",
+                "track-action": "moreLink",
+                "track-label": item[:link],
+                "track-value": "1",
+                "track-dimension": item[:title],
+                "track-dimension-index": "29",
+              }
+            ) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <div class="homepage-promo">
+        <a href="/bank-holidays"
+          class="govuk-link homepage-promo__link"
+          data-track-category="homepageClicked"
+          data-track-action="promoImageLink"
+          data-track-label="/bank-holidays"
+          data-track-value="1"
+          data-track-dimension="<%= t('homepage.index.uk_bank_holidays') %>"
+          data-track-dimension-index="29">
+            <%= t'homepage.index.uk_bank_holidays' %>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

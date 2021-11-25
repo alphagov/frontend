@@ -2,3 +2,10 @@ data:
   yaml:
     write:
       line_width: -1
+ignore_unused:
+  - 'formats.local_transaction.*'
+  - 'formats.find_my_nearest.valid_postcode_no_locations'
+  - 'common.nations.*'
+  - 'common.substitute_day'
+  - 'bank_holidays.*'
+  - 'bank-holidays'

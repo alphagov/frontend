@@ -7,11 +7,6 @@ en:
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
   account:
-    confirm:
-      intro:
-        set_up: "<strong>Confirm your email address</strong> to finish setting up your account and start getting email updates."
-        update: "<strong>Confirm your email address</strong> to finish updating your account and email alerts."
-      link_text: Send confirmation email again
     cookies_and_feedback:
       cookie_consent:
         description: We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.
@@ -112,7 +107,6 @@ en:
     explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
     find_out: Find out more about cookies on GOV.UK
     four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
-    google:
     google_info: Google Analytics sets cookies that store anonymised information about
     how_we_use: We use cookies to store information about how you use the GOV.UK website, such as the pages you visit.
     how_you_got: how you got to the site

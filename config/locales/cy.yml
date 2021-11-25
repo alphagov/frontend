@@ -77,7 +77,6 @@ cy:
     explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur pan fyddwch chi'n ymweld â gwefan yw cwcis.
     find_out: Dysgwch fwy am gwcis ar GOV.UK
     four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych chi'n hapus i ni eu defnyddio.
-    google:
     google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     how_we_use: Rydyn ni'n defnyddio cwcis i storio gwybodaeth am sut rydych chi'n defnyddio gwefan GOV.UK, fel y tudalennau rydych chi'n ymweld â nhw.
     how_you_got: sut gyrhaeddoch chi'r wefan
@@ -254,15 +253,11 @@ cy:
       brexit: 'Brexit: gwiriwch beth mae angen i chi wneud'
       calculate_vehicle_tax: Cyfraddau treth cerbyd
       consultations: ymgynghoriadau
-      coronavirus: Coronafeirws (COVID-19)
-      coronavirus_restrictions: Mae cyfyngiadau coronafeirws yn dal yn eu lle ar hyd y wlad.
       council_tax_bands: Bandiau'r Dreth Gyngor
       covid: 'Coronafeirws (COVID-19): rheolau'
       departments_and_policy_html: Adrannau a&nbsp;pholisi
       driving_test: Prawf theori gyrru
       find_job: Dod o hyd i swydd
-      get_tested: Cael prawf ar gyfer COVID-19
-      get_tested_description: Mynnwch brawf i wirio ydy'r coronafeirws (COVID-19) arnoch chi ar NHS.UK. Does dim rhaid bod symptomau arnoch chi i gael prawf.
       intro: Y lle gorau i gael gwasanaethau a gwybodaeth gan y llywodraeth
       intro_simpler: Symlach, cliriach, cyflymach
       job_search: Dod o hyd i swydd
@@ -283,8 +278,6 @@ cy:
       statistics: ystadegau
       student_finance_login: Mewngofnodi i gyllid myfyrwyr
       tax_account: Mewngofnodi i'ch cyfrif treth personol
-      travel_abroad: 'Teithio dramor: gam wrth gam'
-      travel_abroad_check: Gwiriwch beth mae angen i chi wneud er mwyn teithio'n rhyngwladol.
       uk_bank_holidays: Gwyliau banc y DU
       uk_bank_holidays_dates_html: Gwiriwch y dyddiadau ar gyfer <a href="/bank-holidays" class="govuk-link">gwyliau banc</a> yng Nghymru, Lloegr, yr Alban a Gogledd Iwerddon.
       universal_credit: Mewngofnodi i'ch cyfrif Credyd Cynhwysol

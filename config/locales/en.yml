@@ -256,7 +256,7 @@ en:
   homepage:
     categories:
       # If adding or removing items remember to update the `columns()` mixin in
-      # the homepage SCSS.
+      # the homepage-services-and-info__list class in _homepage.scss.
       - title: Benefits
         description: Includes eligibility, appeals, tax credits and Universal Credit
         link: /browse/benefits
@@ -325,13 +325,9 @@ en:
         link: /search/transparency-and-freedom-of-information-releases
     index:
       brexit: 'Brexit: check what you need to do'
-      calculate_vehicle_tax: Vehicle tax rates
-      council_tax_bands: Council Tax bands
       covid: 'Coronavirus (COVID-19): guidance'
       departments_and_organisations: Departments and organisations
-      driving_test: Driving theory test
       featured: Featured
-      find_job: Find a job
       government_activity: Government activity
       government_activity_description: Find out what the government is doing
       intro_html: The best place to find government services and&nbsp;information
@@ -340,7 +336,6 @@ en:
         text: Welcome to GOV.UK
         html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
-      jobseekers_allowance: Jobseeker's Allowance
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 23
       meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
@@ -383,7 +378,6 @@ en:
             link: /vat-rates
       other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
-      passport_fees: Passport fees
       popular: Popular on GOV.UK
       promotion_slots:
         - text: Coronavirus cases remain high across the country. Find out how to stay safe.
@@ -402,13 +396,32 @@ en:
       search_button: Search GOV.UK
       search_label: Search
       services_and_information: Services and information
-      student_finance_login: Log in to student finance
       tax_account: Sign in to your personal tax account
       uk_bank_holidays: UK bank holidays
-      uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link" data-track-category="homepageClicked" data-track-action="promoTextLink" data-track-label="/bank-holidays" data-track-value="1" data-track-dimension="%{dimension}" data-track-dimension-index="29">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
-      vat_rates: VAT rates
-      vehicle_tax: Renew vehicle tax
+    # If adding or removing items remember to update the `columns()` mixin in
+    # the homepage-most-active-list class in _homepage.scss.
+    most_active:
+      - title: Find a job
+        link: /find-a-job
+      - title: Log in to student finance
+        link: /student-finance-register-login
+      - title: Passport fees
+        link: /passport-fees
+      - title: Jobseeker's Allowance
+        link: /jobseekers-allowance
+      - title: Council Tax bands
+        link: /council-tax-bands
+      - title: Running a limited company
+        link: /running-a-limited-company
+      - title: Driving theory test
+        link: /book-theory-test
+      - title: Vehicle tax rates
+        link: /calculate-tax-rates-for-new-cars
+      - title: Renew vehicle tax
+        link: /vehicle-tax
+      - title: VAT rates
+        link: /vat-rates
   'no': 'No'
   or: or
   place:

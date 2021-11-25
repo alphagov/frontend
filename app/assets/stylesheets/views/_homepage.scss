@@ -87,12 +87,6 @@
   border-top: 1px solid $govuk-border-colour;
 }
 
-.home-numbers-and-info {
-  @include govuk-media-query($from: tablet) {
-    margin-bottom: govuk-spacing(6);
-  }
-}
-
 .home-info {
   @include govuk-font(24);
   margin: govuk-spacing(2) 0 govuk-spacing(4);
@@ -179,6 +173,16 @@
   @include govuk-media-query($from: "desktop") {
     @include columns($items: 16, $columns: 3, $selector: "li");
   }
+
+  .homepage-section__government-activity & {
+    @include columns($items: 5, $columns: 1, $selector: "li");
+    margin-bottom: govuk-spacing(4);
+
+    @include govuk-media-query($from: "tablet") {
+      @include columns($items: 5, $columns: 2, $selector: "li");
+      margin-bottom: 0;
+    }
+  }
 }
 
 .chevron-card {
@@ -236,8 +240,13 @@
   }
 }
 
+// Created a custom section and header pattern to
+// - display a border-top of 2px (to replace .home-divider)
+// - margin-bottom of 30px (both mobile and desktop)
+// - padding-top to create a gap between border and heading
+
 .homepage-section {
-  margin: govuk-spacing(4) 0 govuk-spacing(9);
+  margin: govuk-spacing(4) 0 govuk-spacing(8);
 }
 
 .homepage-section__heading {
@@ -245,4 +254,10 @@
   border-top-width: 2px;
   margin: 0 0 govuk-spacing(6);
   padding: govuk-spacing(4) 0 0;
+}
+
+.homepage-big-number__wrapper {
+  &:nth-child(1) {
+    margin-bottom: govuk-spacing(6);
+  }
 }

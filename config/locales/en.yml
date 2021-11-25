@@ -13,18 +13,18 @@ en:
         update: "<strong>Confirm your email address</strong> to finish updating your account and email alerts."
       link_text: Send confirmation email again
     cookies_and_feedback:
-      heading: Cookie and feedback settings
-      success: Your feedback and cookie settings have been changed.
       cookie_consent:
-        heading: Change your cookie settings
         description: We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.
         field:
           heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
+        heading: Change your cookie settings
       feedback_consent:
-        heading: Change your feedback settings
         description: As we add new features to your GOV.UK account, we would like to email you to find out any thoughts or suggestions you might have.
         field:
           heading: Can we email you to ask for feedback about your account?
+        heading: Change your feedback settings
+      heading: Cookie and feedback settings
+      success: Your feedback and cookie settings have been changed.
     your_account:
       emails:
         heading: Your GOV.UK email subscriptions
@@ -262,10 +262,10 @@ en:
       vulnerability: Report a vulnerability on a GOV.UK domain or subdomain
       vulnerability_description: How to report a vulnerability on GOV.UK
     sign_in:
-      service_not_listed_heading: If the service you’re looking for is not listed
-      service_not_listed_text: If you’re looking for a different service, you can search for it.
       search_for_a_service: Search GOV.UK for a service
       search_for_a_service_button: Search
+      service_not_listed_heading: If the service you’re looking for is not listed
+      service_not_listed_text: If you’re looking for a different service, you can search for it.
   homepage:
     categories:
       abroad: Passports, travel and living abroad
@@ -482,7 +482,15 @@ en:
   save: Save
   sessions:
     first_time:
-      title: Control how we use information about you
+      cookie_consent:
+        description_html: |
+          <p class="govuk-body">We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.</p>
+          <p class="govuk-body">This data shows us what is and isn’t working, and helps us understand where we can make improvements to GOV.UK.</p>
+        field:
+          heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
+          hint: You’ll be able to update this later in your privacy settings if you’re not sure or you change your mind.
+          invalid: Choose whether or not you agree to analytics cookies while you’re signed in to your account.
+        heading: Data about how you use GOV.UK
       description_html: |
         <p class="govuk-body">Your GOV.UK account will only store the information you’ve chosen to provide about yourself. You can access, update or permanently delete your account and all the information stored in it at any time.</p>
         <p class="govuk-body">We will never:</p>
@@ -493,24 +501,17 @@ en:
         <p class="govuk-body">As we add new features to your account, we may ask if we can share your information with other organisations to help us provide more efficient online services that are relevant to you. We will always ask your permission beforehand.</p>
         <p class="govuk-body">We may also use your information to produce anonymised reports to help us get a better understanding of GOV.UK account users. For example, to create a report on the proportion of users who are students in the UK. We’ll use this data to decide what features or services to add to GOV.UK accounts in future. These reports will not identify you personally.</p>
         <p class="govuk-body">You can read the <a href="https://www.gov.uk/government/publications/govuk-accounts-trial-full-privacy-notice-and-accessibility-statement" class="govuk-link">full privacy notice</a> for more detail on how your information is stored, shared and used.</p>
-      cookie_consent:
-        heading: Data about how you use GOV.UK
-        description_html: |
-          <p class="govuk-body">We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.</p>
-          <p class="govuk-body">This data shows us what is and isn’t working, and helps us understand where we can make improvements to GOV.UK.</p>
-        field:
-          heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
-          hint: You’ll be able to update this later in your privacy settings if you’re not sure or you change your mind.
-          invalid: Choose whether or not you agree to analytics cookies while you’re signed in to your account.
       feedback_consent:
-        heading: Feedback about your GOV.UK account
-        description_html: |
-          <p class="govuk-body">As we add more features to your account, we would like to email you to find out any thoughts or suggestions you might have.</p>
+        description_html: '<p class="govuk-body">As we add more features to your account, we would like to email you to find out any thoughts or suggestions you might have.</p>
+
+          '
         field:
           heading: Can we email you to ask for feedback about your account?
           hint: You can update this later in your privacy settings if you’re not sure or you change your mind.
           invalid: Choose whether or not you agree to receive emails asking for feedback about your account.
+        heading: Feedback about your GOV.UK account
       invalid: There was a problem
+      title: Control how we use information about you
   sign_up: Sign up
   website: Website
   'yes': 'Yes'

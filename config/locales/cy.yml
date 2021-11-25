@@ -6,6 +6,34 @@ cy:
     two_versions: Mae 2 fersiwn o'r dudalen hon. Rydych chi'n gweld y
     version: fersiwn
     visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld gwasanaethau a gwybodaeth y llywodraeth.
+  account:
+    cookies_and_feedback:
+      cookie_consent:
+        description:
+        field:
+          heading:
+        heading:
+      feedback_consent:
+        description:
+        field:
+          heading:
+        heading:
+      heading:
+      success:
+    your_account:
+      account_not_used:
+        action:
+        description:
+        heading:
+        link_text:
+      heading:
+      transition:
+        description:
+        heading:
+        link1:
+        link1_description:
+        link2:
+        link2_description:
   and: a
   b: B
   bank-holidays: gwyliau-banc
@@ -37,6 +65,7 @@ cy:
     st_patrick: Gŵyl Sant Padrig
     summer: Gŵyl banc yr haf
     year: Blwyddyn
+  cancel:
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
@@ -108,6 +137,7 @@ cy:
       description: Os oes gennych gwestiwn am eich cerdyn pleidleisio, eich man pleidleisio, neu am ddychwelyd eich papur pleidleisio drwy'r post, cysylltwch â'ch cyngor."
       matched_postcode_html: Rydyn ni wedi paru'r cod post <strong>%{postcode}</strong> i <strong>%{electoral_service_name}</strong>.
       title: Eich cyngor lleol
+  error:
   find: Ffeindio
   formats:
     find_my_nearest:
@@ -125,20 +155,29 @@ cy:
       enter_postcode: Ysgrifennwch god post
       find_council: Dod o hyd i'ch cyngor lleol
       find_council_website: Dod o hyd i wefan eich cyngor lleol.
+      find_info_for:
+      find_other_services:
       find_postcode_royal_mail: Dod o hyd i god post ar chwiliwr cod post y Post Brenhinol
       housing: tai
+      info_on_country_website:
+        northern_ireland:
+        scotland:
+        wales:
       info_on_website: Mae gwybodaeth i'w chael ar eu gwefan.
       invalid_postcode: Nid yw hwn yn god post dilys.
       invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
       invalid_uprn_sub: Ysgrifennwch y cod post eto.
+      local_authority_website:
       matched_postcode_html: Rydyn ni wedi paru'r cod post i <span class="local-authority">%{local_authority}</span>.
       no_local_authority: Doedden ni ddim yn gallu ffeindio cyngor ar gyfer y cod post hwn.
+      no_local_authority_url_html:
       no_website: Does gyda ni ddim dolen ar gyfer eu gwefan.
       postcode_hint: Er enghraifft CF99 1SN
       postcode_lookup: Chwilio am god post
       rubbish_recycling_collection: casglu sbwriel ac ailgylchu
       select_address: Dewiswch gyfeiriad
+      service_not_available:
       unknown_service: Dydyn ni ddim yn gwybod a ydyn nhw'n cynnig y gwasanaeth hwn. Edrychwch ar eu gwefan i weld a ydyn nhw'n gwneud, neu i weld pa wasanaethau eraill maen nhw'n eu cynnig.
       valid_postcode_no_match: Doedden ni ddim yn gallu dod o hyd i'r cod post hwn.
       valid_postcode_no_match_sub_html: Gwiriwch a'i ysgrifennu eto.
@@ -215,6 +254,11 @@ cy:
       terms_description: Gwybodaeth am y defnydd o GOV.UK ac atebolrwydd
       vulnerability: Adrodd am wendid ar un o barthau neu is-barthau GOV.UK
       vulnerability_description: Sut i adrodd am wendid ar GOV.UK
+    sign_in:
+      search_for_a_service:
+      search_for_a_service_button:
+      service_not_listed_heading:
+      service_not_listed_text:
   homepage:
     categories:
       abroad: Pasbortau, teithio a byw dramor
@@ -272,6 +316,13 @@ cy:
       other_agencies_count: 400+
       passport_fees: Ffioedd pasbort
       popular: Poblogaidd ar GOV.UK
+      promo_boxes:
+        text_1:
+        text_2:
+        text_3:
+        title_1:
+        title_2:
+        title_3:
       running_limited_company: Rhedeg cwmni cyfyngedig
       see_all: 'Yma gallwch weld pob un o''r canlynol:'
       services_and_information: Gwasanaethau a gwybodaeth
@@ -284,12 +335,14 @@ cy:
       vat_rates: Cyfraddau TAW
       vehicle_tax: Adnewyddu'ch treth cerbyd
   'no': Na
+  or:
   place:
     children_social_care: Gallwch alw'r tîm gofal cymdeithasol i blant yn y cyngor yn
     go_to_website: Mynd i'w gwefan
   roadmap:
     actions_section:
       heading: Beth rydyn ni'n gweithio arno
+      items:
     hero:
       description: GOV.UK yw'r ffynhonnell sicr o wybodaeth gan y llywodraeth, felly rydyn ni bob amser yn gweithio i ddiwallu anghenion defnyddwyr yn well. Dyma'n map ffordd presennol, sy'n mynd â ni hyd at ddiwedd 2021.
       heading: Map ffordd GOV.UK
@@ -316,6 +369,26 @@ cy:
       - "{href=>https://insidegovuk.blog.gov.uk/"
       - image_src=>roadmap/updates-blog.jpg
       - heading_text=>Blog Tu mewn i GOV.UK}
+  save:
+  sessions:
+    first_time:
+      cookie_consent:
+        description_html:
+        field:
+          heading:
+          hint:
+          invalid:
+        heading:
+      description_html:
+      feedback_consent:
+        description_html:
+        field:
+          heading:
+          hint:
+          invalid:
+        heading:
+      invalid:
+      title:
   sign_up: Cofrestru
   website: Gwefan
   'yes': Ie

@@ -52,7 +52,6 @@ class SessionsControllerTest < ActionController::TestCase
       setup do
         @govuk_account_session = "new-session-id"
         @redirect_path = nil
-        @ga_client_id = nil
         @cookie_consent = true
         @feedback_consent = true
       end
@@ -114,46 +113,6 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_includes @response.redirect_url, @redirect_path
-        end
-      end
-
-      context "account-api returns a :ga_client_id" do
-        setup do
-          @ga_client_id = "analytics-client-identifier"
-          stub_account_api
-        end
-
-        should "redirect with the specified :ga_client_id of the api response if present" do
-          get :callback, params: { code: "code123", state: "state123" }
-
-          assert_response :redirect
-          assert_includes @response.redirect_url, @ga_client_id
-        end
-
-        should "uses the :ga_client_if over the :_ga" do
-          underscore_ga = "underscore_ga"
-          get :callback, params: { code: "code123", state: "state123", _ga: underscore_ga }
-
-          assert_response :redirect
-          assert_not_includes @response.redirect_url, underscore_ga
-          assert_includes @response.redirect_url, @ga_client_id
-        end
-      end
-
-      context "account-api returns a :redirect_path with repeated parameters AND a :ga_client_id" do
-        setup do
-          @redirect_path = "/bank-holiday?param=first-repeated-parameter&param=second-repeated-parameter"
-          @ga_client_id = "analytics-client-identifier"
-          stub_account_api
-        end
-
-        should "not mangle the repeated parameters" do
-          get :callback, params: { code: "code123", state: "state123" }
-
-          assert_response :redirect
-          assert_includes @response.redirect_url, "?param=first-repeated-parameter"
-          assert_includes @response.redirect_url, "&param=second-repeated-parameter"
-          assert_includes @response.redirect_url, "&_ga=#{@ga_client_id}"
         end
       end
 
@@ -261,7 +220,6 @@ class SessionsControllerTest < ActionController::TestCase
     stub_account_api_validates_auth_response(
       govuk_account_session: @govuk_account_session,
       redirect_path: @redirect_path,
-      ga_client_id: @ga_client_id,
       cookie_consent: @cookie_consent,
       feedback_consent: @feedback_consent,
     )

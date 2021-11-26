@@ -31,12 +31,9 @@ class SessionsController < ApplicationController
         callback["cookie_consent"] ? "accept" : "reject"
       end
 
-    # TODO: remove callback["ga_client_id"] when we have switched to
-    # Digital Identity in production
     if callback.key?("cookie_consent") && callback.key?("feedback_consent") && (callback["cookie_consent"].nil? || callback["feedback_consent"].nil?)
       use_account_layout
 
-      @ga_client_id = callback["ga_client_id"]
       @redirect_path = callback["redirect_path"]
       @govuk_account_session = callback["govuk_account_session"]
       render :first_time
@@ -46,7 +43,6 @@ class SessionsController < ApplicationController
         cookie_consent: @cookie_consent,
         update_saved_cookie_consent: update_saved_cookie_consent,
         govuk_account_session: callback["govuk_account_session"],
-        ga_client_id: callback["ga_client_id"],
       )
     end
   rescue GdsApi::HTTPUnauthorized
@@ -96,15 +92,7 @@ class SessionsController < ApplicationController
 
   def delete
     logout!
-    if params[:continue]
-      # TODO: remove this case when we have migrated to DI in production
-      redirect_with_analytics "#{Plek.find('account-manager')}/sign-out?done=#{params[:continue]}"
-    elsif params[:done]
-      # TODO: remove this case when we have migrated to DI in production
-      redirect_with_analytics Plek.new.website_root
-    else
-      redirect_with_analytics GdsApi.account_api.get_end_session_url(govuk_account_session: account_session_header)["end_session_uri"]
-    end
+    redirect_with_analytics GdsApi.account_api.get_end_session_url(govuk_account_session: account_session_header)["end_session_uri"]
   end
 
 protected
@@ -129,7 +117,7 @@ protected
     false
   end
 
-  def do_login(redirect_path:, cookie_consent:, update_saved_cookie_consent:, govuk_account_session:, ga_client_id: nil)
+  def do_login(redirect_path:, cookie_consent:, update_saved_cookie_consent:, govuk_account_session:)
     set_account_session_header(govuk_account_session)
 
     if update_saved_cookie_consent
@@ -142,7 +130,7 @@ protected
     redirect_to GovukPersonalisation::Redirect.build_url(
       redirect_path || account_home_path,
       {
-        _ga: ga_client_id || params[:_ga],
+        _ga: params[:_ga],
         cookie_consent: cookie_consent,
       }.compact,
     )

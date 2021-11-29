@@ -35,15 +35,4 @@ class AccountHomeTest < ActionDispatch::IntegrationTest
     visit account_home_path
     assert page.has_content?("See and manage the emails you get about updates to pages on GOV.UK")
   end
-
-  should "show the brexit checker panel for an account with brexit checker results" do
-    stub_account_api_user_info(
-      services: {
-        "transition_checker": "yes",
-      },
-    )
-
-    visit account_home_path
-    assert page.has_content?("Brexit checker results")
-  end
 end

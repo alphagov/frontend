@@ -27,13 +27,6 @@ cy:
         heading:
         link_text:
       heading:
-      transition:
-        description:
-        heading:
-        link1:
-        link1_description:
-        link2:
-        link2_description:
   and: a
   b: B
   bank-holidays: gwyliau-banc

@@ -47,7 +47,7 @@
 ///    @include columns($items: 9, $columns: 3, $flow:"column");
 ///  }
 ///
-@mixin columns($items, $columns, $selector: "*", $flow: "row") {
+@mixin columns($items, $columns, $selector: "*", $flow: row) {
   $rows: ceil($items / $columns);
 
   display: -ms-grid;

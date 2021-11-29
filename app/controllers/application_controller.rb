@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
 
+  before_action do
+    I18n.locale = I18n.default_locale
+  end
+
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503

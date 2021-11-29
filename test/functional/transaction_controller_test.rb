@@ -51,6 +51,7 @@ class TransactionControllerTest < ActionController::TestCase
     end
 
     should "set the locale to welsh" do
+      I18n.expects(:locale=).with(:en)
       I18n.expects(:locale=).with("cy")
       get :show, params: { slug: "chwilio-am-swydd" }
     end

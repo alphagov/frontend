@@ -6,17 +6,13 @@
 <% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>
 
 <main id="content" role="main">
-  <%= render partial: "homepage/inverse_header" %>
-  <%= render partial: "homepage/links_and_search" %>
-  <%= render partial: "homepage/services_and_information" %>
+  <%= render "homepage/inverse_header" %>
+  <%= render "homepage/links_and_search" %>
 
-  <div id="homepage" class="govuk-width-container">
+  <div class="govuk-width-container">
+    <%= render "homepage/services_and_information" %>
     <%= render "homepage/government_activity" %>
-
     <%= render "homepage/promotion-slots" %>
-
-    <hr class="home-divider" id="more-on-govuk" aria-hidden="true" />
-
     <%= render "homepage/more_on_govuk" %>
   </div>
 </main>

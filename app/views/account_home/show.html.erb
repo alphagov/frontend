@@ -44,29 +44,3 @@
     <p class="govuk-body"><%= t("account.your_account.emails.no_emails_description") %></p>
   </div>
 <% end %>
-<% if has_used? "transition_checker" %>
-  <div class="accounts-panel">
-    <%= render "govuk_publishing_components/components/heading", {
-      text: t("account.your_account.transition.heading"),
-      heading_level: 2,
-      font_size: "m",
-      margin_bottom: 4,
-    } %>
-
-    <p class="govuk-body"><%= t("account.your_account.transition.description") %></p>
-
-    <p class="govuk-body govuk-!-margin-0">
-      <a href="<%= transition_checker_path %>/saved-results" class="govuk-link" data-module="gem-track-click" data-track-category="account-manage" data-track-action="your-account" data-track-label="see-results">
-        <%= sanitize(t("account.your_account.transition.link1")) %>
-      </a>
-    </p>
-    <p class="govuk-body"><%= t("account.your_account.transition.link1_description") %></p>
-
-    <p class="govuk-body govuk-!-margin-0">
-      <a href="<%= transition_checker_path %>/edit-saved-results" class="govuk-link" data-module="gem-track-click" data-track-category="account-manage" data-track-action="your-account" data-track-label="update-results">
-        <%= t("account.your_account.transition.link2") %>
-      </a>
-    </p>
-    <p class="govuk-body"><%= t("account.your_account.transition.link2_description") %></p>
-  </div>
-<% end %>

@@ -28,13 +28,6 @@ en:
         see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
         manage_emails_link_text: Manage your GOV.UK email subscriptions
       heading: Your GOV.UK account
-      transition:
-        description: A personalised list of Brexit actions for you, your family and your business.
-        heading: 'Brexit checker results: what you need to do'
-        link1: See your <span class="govuk-visually-hidden">Brexit checker</span> results
-        link1_description: Go back to the Brexit checker results you’ve saved.
-        link2: Update your results and email alerts
-        link2_description: Answer the Brexit checker questions again to update your results.
   and: and
   b: B
   bank-holidays: bank-holidays

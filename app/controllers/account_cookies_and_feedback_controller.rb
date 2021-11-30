@@ -1,6 +1,6 @@
 class AccountCookiesAndFeedbackController < ApplicationController
   include GovukPersonalisation::ControllerConcern
-  before_action -> { set_slimmer_headers(template: "gem_layout_account_manager", remove_search: true, show_accounts: "signed-in") }
+  before_action -> { set_slimmer_headers(template: "gem_layout_account_manager_manage_your_account_active", remove_search: true, show_accounts: "signed-in") }
 
   def show
     result = do_or_logout do

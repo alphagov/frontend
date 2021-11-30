@@ -279,3 +279,37 @@
     margin-bottom: govuk-spacing(6);
   }
 }
+
+.homepage-links-and-search {
+  background: govuk-colour("light-grey");
+  padding-bottom: govuk-spacing(8);
+  padding-top: govuk-spacing(6);
+}
+
+.homepage-search {
+  @include govuk-media-query($until: "tablet") {
+    max-width: 420px;
+  }
+}
+
+.homepage-most-viewed-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 govuk-spacing(7) 0;
+
+  @include govuk-media-query($from: "tablet") {
+    padding-bottom: 0;
+  }
+
+  & > li {
+    margin-bottom: govuk-spacing(4);
+
+    @include govuk-media-query($from: "tablet") {
+      margin-bottom: govuk-spacing(2);
+    }
+  }
+}
+
+.homepage-most-viewed-list__item {
+  @include govuk-font($size: 19, $weight: "bold");
+}

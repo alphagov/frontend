@@ -321,7 +321,7 @@ en:
       - title: Policy papers and consultations
         description: Consultations and strategy
         link: /search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations
-      - title: Guidance and regulation 
+      - title: Guidance and regulation
         description: Detailed rules and legislation
         link: /search/guidance-and-regulation
       - title: Research and statistics
@@ -343,10 +343,24 @@ en:
         text: Welcome to GOV.UK
         html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
+      jobseekers_allowance: Jobseeker’s Allowance
+      merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link" data-track-category="homepageClicked" data-track-action="departmentsLink" data-track-label="/government/organisations" data-track-value="1" data-track-dimension="government departments" data-track-dimension-index="29">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 23
       meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
+      most_viewed: Most viewed
+      most_viewed_list:
+        - text: 'Coronavirus (COVID-19): guidance'
+          href: /guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/
+        - text: 'Brexit: check what you need to do'
+          href: /brexit
+        - text: Find a job
+          href: /find-a-job
+        - text: 'Personal tax account: sign in'
+          href: /personal-tax-account
+        - text: 'Universal Credit account: sign in'
+          href: /sign-in-universal-credit
       most_active: Most active
       other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
@@ -370,6 +384,17 @@ en:
           title: 'Travel abroad: step by step'
           href: /travel-abroad
           image_src: homepage/travel-abroad-step-by-step.png
+      promo_boxes:
+        text_1: Read the latest on the 26th UN Climate Change Conference of the Parties (COP26), hosted in Glasgow.
+        text_2: Get information about vaccinations on NHS.UK.
+        text_3: Check what you need to do to travel internationally.
+        title_1: COP26
+        title_2: COVID-19 vaccinations
+        title_3: 'Travel abroad: step by step'
+      running_limited_company: Running a limited company
+      search_label: Search
+      search_button: Search GOV.UK
+      see_all: Here you can see all
       services_and_information: Services and information
       tax_account: Sign in to your personal tax account
       uk_bank_holidays: UK bank holidays

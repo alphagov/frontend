@@ -18,7 +18,7 @@ COPY . ./
 RUN GOVUK_WEBSITE_ROOT=https://www.gov.uk GOVUK_APP_DOMAIN=www.gov.uk bin/bundle exec rails assets:precompile
 
 FROM $base_image
-ENV RAILS_ENV=production GOVUK_APP_NAME=frontend
+ENV RAILS_ENV=production RAILS_LOG_TO_STDOUT=1 GOVUK_APP_NAME=frontend
 # TODO: include nodejs in the base image (govuk-ruby).
 # TODO: apt-get upgrade in the base image
 RUN apt-get update -qy && \

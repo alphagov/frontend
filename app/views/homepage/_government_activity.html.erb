@@ -9,8 +9,9 @@ Created a custom section and header pattern to
     <div class="govuk-grid-column-two-thirds" data-module="gem-track-click">
       <div class="homepage-section__heading">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t("homepage.index.government_activity"),
+          font_size: "m",
           margin_bottom: 2,
+          text: t("homepage.index.government_activity"),
         } %>
 
         <%= render "govuk_publishing_components/components/lead_paragraph", {
@@ -34,6 +35,7 @@ Created a custom section and header pattern to
     <div class="govuk-grid-column-one-third">
       <div class="homepage-section__heading">
         <%= render "govuk_publishing_components/components/heading", {
+          font_size: "m",
           text: t("homepage.index.departments_and_organisations"),
         } %>
       </div>

@@ -24,7 +24,7 @@
     } %>
 
     <p class="govuk-body"><%= t("account.your_account.emails.see_and_manage") %></p>
-    <p class="govuk-body"><a class="govuk-link" href="/email/manage">
+    <p class="govuk-body"><a class="govuk-link" href="/email/manage" data-module="gem-track-click" data-track-category="Single-page-notification-button" data-track-action="Manage-subscription-account-home" data-track-label="<%= request.path %>">
       <%= sanitize(t("account.your_account.emails.manage_emails_link_text")) %>
     </a></p>
   </div>

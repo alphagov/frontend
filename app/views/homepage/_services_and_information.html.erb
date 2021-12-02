@@ -10,7 +10,7 @@
         } %>
       </div>
       
-      <ul class="homepage-services-and-info__list">
+      <ul class="homepage-services-and-info__list" data-module="gem-track-click">
         <% t("homepage.categories").each do | item | %>
           <%= render partial: "homepage/chevron_card", locals: {
             description: item[:description],

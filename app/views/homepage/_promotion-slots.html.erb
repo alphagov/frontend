@@ -12,50 +12,50 @@
 
   <div class="govuk-grid-row" data-module="gem-track-click">
     <% t("homepage.index.promotion_slots").each do | item | %>
-    <div class="govuk-grid-column-one-third">
-      <div class="home-promo">
-        <a href="<%= item[:href] %>"
-          aria-hidden="true"
-          tabindex="-1"
-          data-track-category="homepageClicked"
-          data-track-action="promoImageLink"
-          data-track-label="<%= item[:href] %>"
-          data-track-value="1"
-          data-track-dimension-index="29"
-          data-track-dimension="<%= item[:image_src] %>">
-          <%= image_tag item[:image_src], {
-            alt: "",
-            class: "home-promo__image",
-            height: 407,
-            loading: "lazy",
-            width: 610,
-            sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
-            srcset: item[:srcset],
+      <div class="govuk-grid-column-one-third">
+        <div class="home-promo">
+          <a href="<%= item[:href] %>"
+            aria-hidden="true"
+            tabindex="-1"
+            data-track-category="homepageClicked"
+            data-track-action="promoImageLink"
+            data-track-label="<%= item[:href] %>"
+            data-track-value="1"
+            data-track-dimension-index="29"
+            data-track-dimension="<%= item[:image_src] %>">
+            <%= image_tag item[:image_src], {
+              alt: "",
+              class: "home-promo__image",
+              height: 407,
+              loading: "lazy",
+              width: 610,
+              sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
+              srcset: item[:srcset],
+            } %>
+          </a>
+
+          <%= render "govuk_publishing_components/components/heading", {
+            font_size: "m",
+            heading_level: 3,
+            margin_bottom: 2,
+            text: link_to(item[:title], item[:href], {
+              class: "govuk-link",
+              data: {
+                track_category: "homepageClicked",
+                track_action: "promoTextLink",
+                track_label: item[:href],
+                track_value: 1,
+                track_dimension_index: 29,
+                track_dimension: item[:title],
+              }
+            }),
           } %>
-        </a>
 
-        <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
-          heading_level: 3,
-          margin_bottom: 2,
-          text: link_to(item[:title], "/travel-abroad", {
-            class: "govuk-link",
-            data: {
-              track_category: "homepageClicked",
-              track_action: "promoTextLink",
-              track_label: "/travel-abroad",
-              track_value: 1,
-              track_dimension_index: 29,
-              track_dimension: item[:title],
-            }
-          }),
-        } %>
-
-        <p class="govuk-body govuk-!-margin-bottom-0">
-          <%= item[:text] %>
-        </p>
+          <p class="govuk-body govuk-!-margin-bottom-0">
+            <%= item[:text] %>
+          </p>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </section>

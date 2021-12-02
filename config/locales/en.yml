@@ -345,19 +345,62 @@ en:
       ministerial_departments_count: 23
       meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
+      most_viewed: Most viewed
+      most_viewed_list:
+        - text: 'Coronavirus (COVID-19): guidance'
+          href: /guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/
+        - text: 'Brexit: check what you need to do'
+          href: /brexit
+        - text: Find a job
+          href: /find-a-job
+        - text: 'Personal tax account: sign in'
+          href: /personal-tax-account
+        - text: 'Universal Credit account: sign in'
+          href: /sign-in-universal-credit
       most_active: Most active
+      # If adding or removing items remember to update the `columns()` mixin in
+      # the homepage-most-active-list class in _homepage.scss.
+      most_active_list:
+          - title: Find a job
+            link: /find-a-job
+          - title: Log in to student finance
+            link: /student-finance-register-login
+          - title: Passport fees
+            link: /passport-fees
+          - title: Jobseeker's Allowance
+            link: /jobseekers-allowance
+          - title: Council Tax bands
+            link: /council-tax-bands
+          - title: Running a limited company
+            link: /running-a-limited-company
+          - title: Driving theory test
+            link: /book-theory-test
+          - title: Vehicle tax rates
+            link: /calculate-tax-rates-for-new-cars
+          - title: Renew vehicle tax
+            link: /vehicle-tax
+          - title: VAT rates
+            link: /vat-rates
       other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
       passport_fees: Passport fees
       popular: Popular on GOV.UK
-      promo_boxes:
-        text_1: Coronavirus cases remain high across the country. Find out how to stay safe.
-        text_2: Get information about vaccinations on NHS.UK.
-        text_3: Check what you need to do to travel internationally.
-        title_1: Coronavirus (COVID-19)
-        title_2: COVID-19 vaccinations
-        title_3: 'Travel abroad: step by step'
+      promotion_slots:
+        - text: Coronavirus cases remain high across the country. Find out how to stay safe.
+          title: Coronavirus (COVID-19)
+          href: /coronavirus
+          image_src: homepage/covid-19-promo.png
+        - text: Get information about vaccinations on NHS.UK.
+          title: COVID-19 vaccinations
+          href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/
+          image_src: homepage/covid-19-vaccine-promo.png
+        - text: Check what you need to do to travel internationally.
+          title: 'Travel abroad: step by step'
+          href: /travel-abroad
+          image_src: homepage/travel-abroad-step-by-step.png
       running_limited_company: Running a limited company
+      search_button: Search GOV.UK
+      search_label: Search
       services_and_information: Services and information
       student_finance_login: Log in to student finance
       tax_account: Sign in to your personal tax account

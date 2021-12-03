@@ -3,7 +3,6 @@ require "gds_api/test_helpers/content_store"
 
 class CalendarControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::ContentStore
-  include GovukAbTesting::MinitestHelpers
 
   context "GET 'calendar'" do
     setup do
@@ -28,18 +27,6 @@ class CalendarControllerTest < ActionController::TestCase
       should "set the expiry headers" do
         get :calendar, params: { scope: "bank-holidays" }
         assert_equal "max-age=3600, public", response.headers["Cache-Control"]
-      end
-
-      should "show the A variant" do
-        with_variant AccountBankHols: "A" do
-          get :calendar, params: { scope: "bank-holidays" }
-        end
-      end
-
-      should "show the B variant" do
-        with_variant AccountBankHols: "B" do
-          get :calendar, params: { scope: "bank-holidays" }
-        end
       end
     end
 

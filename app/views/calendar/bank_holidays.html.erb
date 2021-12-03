@@ -1,7 +1,3 @@
-<% content_for :extra_headers do %>
-  <%= @requested_variant.analytics_meta_tag.html_safe %>
-<% end %>
-
 <%= render :partial => "calendar_head" %>
 
 <main id="content" role="main" class="govuk-main-wrapper govuk-!-padding-top-0">
@@ -28,11 +24,6 @@
                   title: division.upcoming_event.date == Date.today ? t("common.today") : l(division.upcoming_event.date, format: "%e %B"),
                   append: division.upcoming_event.title
                 } %>
-              <% end %>
-
-              <% if @requested_variant.variant?("B") %>
-                <% nations = t(division.title, locale: :en).split(" and ") %>
-                <%= render "save_location", nation: t(division.title, locale: :en), nation_matches: nations %>
               <% end %>
 
               <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>

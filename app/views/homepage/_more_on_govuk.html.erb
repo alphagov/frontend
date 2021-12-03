@@ -1,15 +1,17 @@
-<section class="homepage-more-on-govuk">
-  <%= render "govuk_publishing_components/components/heading", {
-    font_size: "m",
-    margin_bottom: 6,
-    text: t("homepage.index.more"),
-  } %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: t("homepage.index.most_active"),
-    margin_bottom: 4,
-    font_size: "s",
-    heading_level: 3,
-  } %>
+<section class="homepage-section">
+  <div class="homepage-section__heading">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("homepage.index.more"),
+      margin_bottom: 6,
+      font_size: "m",
+    } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("homepage.index.most_active"),
+      margin_bottom: 4,
+      font_size: "s",
+      heading_level: 3,
+    } %>
+  </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half govuk-grid-column-two-thirds-from-desktop">

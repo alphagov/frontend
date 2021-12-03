@@ -76,17 +76,6 @@
   min-height: 40px;
 }
 
-.home-divider {
-  margin: govuk-spacing(4) 0;
-  clear: both;
-  border-top: 5px solid govuk-colour("black");
-}
-
-.home-divider--thin {
-  border: 0;
-  border-top: 1px solid $govuk-border-colour;
-}
-
 .home-info {
   @include govuk-font(24);
   margin: govuk-spacing(2) 0 govuk-spacing(4);
@@ -126,10 +115,6 @@
   font-weight: bold;
 }
 
-.homepage-more-on-govuk {
-  padding: govuk-spacing(4) 0 0 0;
-}
-
 .homepage-most-active-list {
   list-style: none;
   margin: 0 0 govuk-spacing(6) 0;
@@ -166,15 +151,6 @@
   @include govuk-link-style-inverse;
   @include govuk-link-style-no-underline;
   @include govuk-font($size: 36, $weight: bold);
-}
-
-.homepage-services-and-info {
-  padding-bottom: govuk-spacing(7);
-  padding-top: govuk-spacing(6);
-
-  @include govuk-media-query($from: desktop) {
-    padding-bottom: govuk-spacing(6);
-  }
 }
 
 .homepage-services-and-info__list {
@@ -257,13 +233,17 @@
   }
 }
 
-// Created a custom section and header pattern to
-// - display a border-top of 2px (to replace .home-divider)
-// - margin-bottom of 30px (both mobile and desktop)
-// - padding-top to create a gap between border and heading
-
 .homepage-section {
-  margin: govuk-spacing(4) 0 govuk-spacing(8);
+  padding: govuk-spacing(4) 0 govuk-spacing(6);
+}
+
+.homepage-section--links-and-search {
+  background: govuk-colour("light-grey");
+  padding: govuk-spacing(6) 0 govuk-spacing(8);
+}
+
+.homepage-section--services-and-info {
+  padding: govuk-spacing(6) 0 govuk-spacing(6);
 }
 
 .homepage-section__heading {
@@ -273,16 +253,15 @@
   padding: govuk-spacing(4) 0 0;
 }
 
+.homepage-section__heading--border-none {
+  border: none;
+  padding: 0;
+}
+
 .homepage-big-number__wrapper {
   &:nth-child(1) {
     margin-bottom: govuk-spacing(6);
   }
-}
-
-.homepage-links-and-search {
-  background: govuk-colour("light-grey");
-  padding-bottom: govuk-spacing(8);
-  padding-top: govuk-spacing(6);
 }
 
 .homepage-search {
@@ -306,6 +285,10 @@
     @include govuk-media-query($from: "desktop") {
       margin-bottom: govuk-spacing(3);
     }
+  }
+
+  & > li:last-child {
+    margin-bottom: 0;
   }
 }
 

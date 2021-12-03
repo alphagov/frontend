@@ -21,7 +21,7 @@
           data-track-action="promoImageLink"
           data-track-label="<%= item[:href] %>"
           data-track-value="1"
-          data-track-dimension-index="29"
+          data-track-dimension-index="<%= item[:track_dimension_index] %>"
           data-track-dimension="<%= item[:image_src] %>">
           <%= image_tag item[:image_src], {
             alt: "",
@@ -38,14 +38,14 @@
           font_size: "m",
           heading_level: 3,
           margin_bottom: 2,
-          text: link_to(item[:title], "/travel-abroad", {
+          text: link_to(item[:title], item[:href], {
             class: "govuk-link",
             data: {
               track_category: "homepageClicked",
               track_action: "promoTextLink",
-              track_label: "/travel-abroad",
+              track_label: item[:href],
               track_value: 1,
-              track_dimension_index: 29,
+              track_dimension_index: item[:track_dimension_index],
               track_dimension: item[:title],
             }
           }),

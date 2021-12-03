@@ -390,14 +390,17 @@ en:
           title: Coronavirus (COVID-19)
           href: /coronavirus
           image_src: homepage/covid-19-promo.png
+          track_dimension_index: 29
         - text: Get information about vaccinations on NHS.UK.
           title: COVID-19 vaccinations
           href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/
           image_src: homepage/covid-19-vaccine-promo.png
+          track_dimension_index: 36
         - text: Check what you need to do to travel internationally.
           title: 'Travel abroad: step by step'
           href: /travel-abroad
           image_src: homepage/travel-abroad-step-by-step.png
+          track_dimension_index: 29
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

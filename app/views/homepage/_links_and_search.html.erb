@@ -7,8 +7,7 @@
           margin_bottom: 4,
           text: t("homepage.index.most_viewed"),
         } %>
-
-        <ul class="homepage-most-viewed-list">
+        <ul class="homepage-most-viewed-list" data-module="gem-track-click">
           <% t("homepage.index.most_viewed_list").each do | item | %>
             <li>
               <%= link_to(item[:text], item[:href], {
@@ -26,17 +25,27 @@
           <% end %>
         </ul>
       </div>
+      
       <div class="govuk-grid-column-one-half govuk-grid-column-one-third-from-desktop homepage-search">
-        <%= render "govuk_publishing_components/components/search", {
-          button_text: t("homepage.index.search_button"),
-          inline_label: false,
-          label_margin_bottom: 4,
-          label_size: "m",
-          label_text: t("homepage.index.search_label"),
-          margin_bottom: 0,
-          wrap_label_in_a_heading: true,
-          size: "large",
-        } %>
+        <form action="/search" method="get" role="search">
+          <%= render "govuk_publishing_components/components/search", {
+            button_text: t("homepage.index.search_button"),
+            inline_label: false,
+            label_margin_bottom: 4,
+            label_size: "m",
+            label_text: t("homepage.index.search_label"),
+            margin_bottom: 0,
+            wrap_label_in_a_heading: true,
+            size: "large",
+            data_attributes: {
+              track_category: "homepageClicked",
+              track_action: "searchSubmitted",
+              track_label: "/search/all",
+              track_dimension_index: 29,
+              track_dimension: "Search on GOV.UK",
+            },
+          } %>
+        </form>
       </div>
     </div>
   </div>

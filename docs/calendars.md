@@ -25,13 +25,11 @@ The division `title` attribute is optional.  If this is not present the slug wil
 
 ## Publishing Calendars
 
-Send the calendars to the publishing-api:
+You'll need to run the `publishing_api:publish_calendars` rake task against the `frontend` app on the `frontend` machine.
 
-    `bundle exec rake publishing_api:publish_calendars`
+This will update <https://www.gov.uk/when-do-the-clocks-change> and <https://www.gov.uk/bank-holidays>.
 
-If you're using govuk-docker, you may need to `govuk-docker-up` on `publishing-api` in a separate shell. You may also need to run the rake task a couple of times if you encounter timeouts.
-
-Search indexing is performed automatically on data sent to publishing api.
+To test locally, you may need to `govuk-docker-up` on `publishing-api` in a separate shell, before you run the rake task. You may also need to run the rake task a couple of times if you encounter timeouts.
 
 ## Bank Holidays
 

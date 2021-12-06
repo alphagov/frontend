@@ -5,10 +5,10 @@
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",
           margin_bottom: 4,
-          text: t("homepage.index.most_viewed"),
+          text: t("homepage.index.popular_links_heading"),
         } %>
         <ul class="homepage-most-viewed-list" data-module="gem-track-click">
-          <% t("homepage.index.most_viewed_list").each do | item | %>
+          <% t("homepage.index.popular_links").each do | item | %>
             <li>
               <%= link_to(item[:text], item[:href], {
                 class: "govuk-link govuk-link--no-visited-state homepage-most-viewed-list__item",

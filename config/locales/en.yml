@@ -308,6 +308,12 @@ en:
     # If adding or removing items remember to update the `columns()` mixin in
     # the homepage-section__government-activity homepage-services-and-info__list class in _homepage.scss.
     government_activity:
+      - title: Departments
+        description: Departments, agencies and public bodies
+        link: /government/organisations
+      - title: Research and statistics
+        description: Research, analysis and official statistics
+        link: /search/research-and-statistics
       - title: News
         description: News articles, speeches and correspondence
         link: /search/news-and-communications
@@ -317,9 +323,6 @@ en:
       - title: Guidance and regulation
         description: Detailed rules and legislation
         link: /search/guidance-and-regulation
-      - title: Research and statistics
-        description: Research, analysis and official statistics
-        link: /search/research-and-statistics
       - title: Transparency documents
         description: Data, freedom of information releases and corporate reports
         link: /search/transparency-and-freedom-of-information-releases

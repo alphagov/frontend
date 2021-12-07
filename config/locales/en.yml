@@ -342,8 +342,8 @@ en:
       ministerial_departments_count: 23
       meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
-      most_viewed: Most viewed
-      most_viewed_list:
+      popular_links_heading: Popular on GOV.UK
+      popular_links:
         - text: 'Coronavirus (COVID-19): guidance'
           href: /guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/
         - text: 'Brexit: check what you need to do'
@@ -354,10 +354,9 @@ en:
           href: /personal-tax-account
         - text: 'Universal Credit account: sign in'
           href: /sign-in-universal-credit
-      most_active: Most active
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
-      most_active_list:
+      more_links:
           - title: Find a job
             link: /find-a-job
           - title: Log in to student finance

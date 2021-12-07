@@ -5,18 +5,12 @@
       margin_bottom: 6,
       font_size: "m",
     } %>
-    <%= render "govuk_publishing_components/components/heading", {
-      text: t("homepage.index.most_active"),
-      margin_bottom: 4,
-      font_size: "s",
-      heading_level: 3,
-    } %>
   </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half govuk-grid-column-two-thirds-from-desktop">
       <ul class="homepage-most-active-list" data-module="gem-track-click">
-        <% t("homepage.index.most_active_list").each do | item | %>
+        <% t("homepage.index.more_links").each do | item | %>
           <li>
             <%= link_to(
               item[:title],

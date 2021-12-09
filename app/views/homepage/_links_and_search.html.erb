@@ -1,7 +1,7 @@
 <section class="homepage-section homepage-section--links-and-search">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half govuk-grid-column-two-thirds-from-desktop">
+      <div class="govuk-grid-column-one-half">
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",
           margin_bottom: 4,
@@ -26,7 +26,7 @@
         </ul>
       </div>
       
-      <div class="govuk-grid-column-one-half govuk-grid-column-one-third-from-desktop homepage-search">
+      <div class="govuk-grid-column-one-half homepage-search">
         <form action="/search" method="get" role="search">
           <%= render "govuk_publishing_components/components/search", {
             button_text: t("homepage.index.search_button"),
@@ -42,7 +42,7 @@
               track_action: "searchSubmitted",
               track_label: "/search/all",
               track_dimension_index: 29,
-              track_dimension: "Search on GOV.UK",
+              track_dimension: "Search GOV.UK",
             },
           } %>
         </form>

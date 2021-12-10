@@ -5,6 +5,7 @@
   background-color: $govuk-brand-colour;
   padding-bottom: govuk-spacing(7);
   padding-top: govuk-spacing(8);
+  @include govuk-typography-common;
 
   @include govuk-media-query($from: desktop) {
     padding-bottom: govuk-spacing(8);
@@ -13,10 +14,10 @@
 }
 
 .homepage-inverse-header__title {
+  @include govuk-typography-weight-bold;
   color: govuk-colour("white");
   font-size: 32px;
   font-size: govuk-px-to-rem(32);
-  font-weight: bold;
   line-height: 1.2;
   margin: 0;
   padding-bottom: govuk-spacing(6);
@@ -41,7 +42,7 @@
 }
 
 .homepage-inverse-header__intro--bold {
-  font-weight: bold;
+  @include govuk-typography-weight-bold;
 }
 
 .homepage__ready-container {
@@ -256,6 +257,7 @@
 .homepage-section__heading {
   border-top-style: solid;
   border-top-width: 2px;
+  border-top-color: $govuk-text-colour;
   margin: 0 0 govuk-spacing(6);
   padding: govuk-spacing(3) 0 0;
 }

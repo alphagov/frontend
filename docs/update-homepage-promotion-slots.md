@@ -33,45 +33,25 @@ If the image is a photograph, or a detailed graphic, resize the image to all of 
 
 If the image is a simple graphic, and thus already a small file size, resize it to 610 x 407 pixels.
 
-## 3. Update the markup and phrases
+## 3. Update the content
 
-To apply the change you need to update the [app/views/homepage/_promotion-slots.html.erb](../app/views/homepage/_promotion-slots.html.erb) view by:
+The content for the promo slots can be found in the [`yml` translation file](../config/locales/en.yml). The specific key to look for is `promotion_slots`. Promo items are stored as a yml list in the order they appear on the homepage. The keys in each list item to update accordingly are:
 
-- changing the URL and the image paths - make sure you update any corresponding `data-` attributes
-- replacing the existing phrases in the [locale file](../config/locales/en.yml)
+- `text`: the promo description
+- `title`: the promo title
+- `href`: the link the promo goes to. This can either be internal (`/my-path`) or external (`https://www.mywebsite.com/my-path`)
+- `src`: the promo image location. Image should be in the [`homepage` asset directory](../assets/images/homepage) and can be pulled via `homepage/[my-image].png`
+- `srcset`: this is an optional attribute to define promo image `srcset` values.
 
-When updating the image you may need to either add or remove `srcset` attributes for the various image sizes.
+You can define `srcset` values in the yml like so:
 
-The markup for an image that has multiple sizes (such as a photograph) is:
-
-```erb
-<%= image_tag "homepage/path-to-610w.jpg", {
-  alt: "",
-  class: "home-promo__image",
-  height: 407,
-  loading: "lazy",
-  width: 610,
-  sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
-  srcset: {
-    "homepage/path-to-610w.jpg": "610w",
-    "homepage/path-to-480w.jpg": "480w",
-    "homepage/path-to-320w.jpg": "320w",
-    "homepage/path-to-240w.jpg": "240w",
-    "homepage/path-to-170w.jpg": "170w",
-  },
-} %>
-```
-
-The markup for an image that has a single size (such as a simple graphic) is:
-
-```erb
-<%= image_tag "homepage/path-to-610w.png", {
-  alt: "",
-  class: "home-promo__image",
-  height: 407,
-  loading: "lazy",
-  width: 610,
-} %>
+```yml
+srcset:
+  homepage/my-promo.jpg: 610w
+  homepage/my-promo-480.jpg: 480w
+  homepage/my-promo-320.jpg: 320w
+  homepage/my-promo-240.jpg: 240w
+  homepage/my-promo-170.jpg: 170w
 ```
 
 ## 4. Delete the previous images

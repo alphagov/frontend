@@ -176,11 +176,11 @@
   }
 
   .homepage-section__government-activity & {
-    @include columns($items: 5, $columns: 1, $selector: "li");
+    @include columns($items: 6, $columns: 1, $selector: "li");
     margin-bottom: govuk-spacing(4);
 
     @include govuk-media-query($from: "tablet") {
-      @include columns($items: 5, $columns: 2, $selector: "li");
+      @include columns($items: 6, $columns: 2, $selector: "li");
       margin-bottom: 0;
     }
   }

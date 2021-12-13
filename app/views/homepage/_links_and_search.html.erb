@@ -11,7 +11,7 @@
           <% t("homepage.index.popular_links").each do | item | %>
             <li>
               <%= link_to(item[:text], item[:href], {
-                class: "govuk-link govuk-link--no-visited-state homepage-most-viewed-list__item",
+                class: "govuk-link homepage-most-viewed-list__item",
                 data: {
                   track_category: "homepageClicked",
                   track_action: "popularLink",

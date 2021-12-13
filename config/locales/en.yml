@@ -319,7 +319,7 @@ en:
         link: /search/news-and-communications
       - title: Policy papers and consultations
         description: Consultations and strategy
-        link: /search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations
+        link: /search/policy-papers-and-consultations
       - title: Guidance and regulation
         description: Detailed guidance, regulations and rules
         link: /search/guidance-and-regulation

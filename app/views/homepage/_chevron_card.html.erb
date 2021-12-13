@@ -1,0 +1,31 @@
+<%
+  element ||= :li
+
+  tracking_attributes = {
+    track_action: track_action,
+    track_category: "homepageClicked",
+    track_dimension_index: 29,
+    track_dimension: raw(title),
+    track_label: link,
+    track_value: 1,
+  }
+
+  link = capture do
+    link_to(raw(title), link, {
+      class: "govuk-link govuk-link--no-visited-state chevron-card__link",
+      data: tracking_attributes,
+    })
+  end
+%>
+
+<%= content_tag(element, class: "chevron-card") do %>
+  <div class="chevron-card__wrapper">
+    <%= render("govuk_publishing_components/components/heading", {
+      text: link,
+      font_size: "s",
+      heading_level: 3,
+      margin_bottom: 2,
+    }) %>
+    <p class="govuk-body chevron-card__description"><%= raw(description) %></p>
+  </div>
+<% end %>

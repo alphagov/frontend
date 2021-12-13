@@ -1,0 +1,71 @@
+<section class="homepage-section homepage-section__government-activity">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop" data-module="gem-track-click">
+      <div class="homepage-section__heading">
+        <%= render "govuk_publishing_components/components/heading", {
+          font_size: "m",
+          text: t("homepage.index.government_activity"),
+        } %>
+
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: t("homepage.index.government_activity_description"),
+          margin_bottom: 0
+        } %>
+      </div>
+
+      <ul class="homepage-services-and-info__list">
+        <% t("homepage.government_activity").each do | item | %>
+          <%= render partial: "homepage/chevron_card", locals: {
+            description: item[:description],
+            link: item[:link],
+            title: item[:title],
+            track_action: "governmentactivityLink",
+          } %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+      <div class="homepage-section__heading">
+        <%= render "govuk_publishing_components/components/heading", {
+          font_size: "m",
+          text: t("homepage.index.departments_and_organisations"),
+        } %>
+      </div>
+      
+      <div class="homepage-section__depts" data-module="gem-track-click">
+        <div class="homepage-big-number__wrapper">
+          <%= render "govuk_publishing_components/components/big_number", {
+            number: t("homepage.index.ministerial_departments_count"),
+            label: t("homepage.index.ministerial_departments"),
+            href: "/government/organisations#ministerial_departments",
+            data_attributes: {
+              "track-category": "homepageClicked",
+              "track-action": "departmentsLink",
+              "track-label": "/government/organisations#ministerial_departments",
+              "track-dimension": "#{t("homepage.index.ministerial_departments_count")} #{t("homepage.index.ministerial_departments")}",
+              "track-dimension-index": 29,
+              "track-value": 1,
+            },
+          } %>
+        </div>
+
+        <div class="homepage-big-number__wrapper">
+          <%= render "govuk_publishing_components/components/big_number", {
+            number: t("homepage.index.other_agencies_count"),
+            label: t("homepage.index.other_agencies"),
+            href: "/government/organisations#agencies_and_other_public_bodies",
+            data_attributes: {
+              "track-category": "homepageClicked",
+              "track-action": "departmentsLink",
+              "track-label": "/government/organisations#agencies_and_other_public_bodies",
+              "track-dimension": "#{t("homepage.index.other_agencies_count")} #{t("homepage.index.other_agencies")}",
+              "track-dimension-index": 29,
+              "track-value": 1,
+            },
+          } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

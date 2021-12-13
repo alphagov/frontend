@@ -34,8 +34,8 @@ class HomepageTest < ActionDispatch::IntegrationTest
     should "use the English locale after visiting the Welsh content" do
       visit @payload[:base_path]
       visit "/"
-      assert page.has_content?(I18n.t("homepage.index.passport_fees", locale: :en))
-      assert_not page.has_content?(I18n.t("homepage.index.passport_fees", locale: :cy))
+      assert page.has_content?(I18n.t("homepage.index.services_and_information", locale: :en))
+      assert_not page.has_content?(I18n.t("homepage.index.services_and_information", locale: :cy))
     end
   end
 end

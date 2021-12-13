@@ -255,79 +255,177 @@ en:
       service_not_listed_text: If you’re looking for a different service, you can search for it.
   homepage:
     categories:
-      abroad: Passports, travel and living abroad
-      abroad_description: Includes renewing passports and travel advice by country
-      benefits: Benefits
-      benefits_description: Includes eligibility, appeals, tax credits and Universal Credit
-      births_deaths_marriages: Births, deaths, marriages and care
-      births_deaths_marriages_description: Parenting, civil partnerships, divorce and Lasting Power of Attorney
-      business: Business and self-employed
-      business_description: Tools and guidance for businesses
-      childcare_parenting: Childcare and parenting
-      childcare_parenting_description: Includes giving birth, fostering, adopting, benefits for children, childcare and schools
-      citizenship: Citizenship and living in the UK
-      citizenship_description: Voting, community participation, life in the UK, international projects
-      disabilities: Disabled people
-      disabilities_description: Includes carers, your rights, benefits and the Equality Act
-      driving: Driving and transport
-      driving_description: Includes vehicle tax, MOT and driving licences
-      education: Education and learning
-      education_description: Includes student loans, admissions and apprenticeships
-      employing_people: Employing people
-      employing_people_description: Includes pay, contracts, hiring and redundancies
-      environment_countryside: Environment and countryside
-      environment_countryside_description: Includes flooding, recycling and wildlife
-      housing_local_services: Housing and local services
-      housing_local_services_description: Owning or renting and council services
-      justice: Crime, justice and the law
-      justice_description: Legal processes, courts and the police
-      tax: Money and tax
-      tax_description: Includes debt and Self Assessment
-      visas_immigration: Visas and immigration
-      visas_immigration_description: Apply to visit, work, study, settle or seek asylum in the UK
-      working: Working, jobs and pensions
-      working_description: Includes holidays, finding a job and redundancy
+      # If adding or removing items remember to update the `columns()` mixin in
+      # the homepage-services-and-info__list class in _homepage.scss.
+      - title: Benefits
+        description: Includes eligibility, appeals, tax credits and Universal Credit
+        link: /browse/benefits
+      - title: Births, deaths, marriages and&nbsp;care
+        description: Parenting, civil partnerships, divorce and Lasting Power of Attorney
+        link: /browse/births-deaths-marriages
+      - title: Business and self-employed
+        description: Tools and guidance for businesses
+        link: /browse/business
+      - title:  Childcare and parenting
+        description: Includes giving birth, fostering, adopting, benefits for children, childcare and schools
+        link: /browse/childcare-parenting
+      - title: Citizenship and living in the&nbsp;UK
+        description: Voting, community participation, life in the UK, international projects
+        link: /browse/citizenship
+      - title: Crime, justice and the&nbsp;law
+        description: Legal processes, courts and the police
+        link: /browse/justice
+      - title: Disabled people
+        description: Includes carers, your rights, benefits and the Equality Act
+        link: /browse/disabilities
+      - title: Driving and transport
+        description: Includes vehicle tax, MOT and driving licences
+        link: /browse/driving
+      - title: Education and learning
+        description: Includes student loans, admissions and apprenticeships
+        link: /browse/education
+      - title: Employing people
+        description: Includes pay, contracts, hiring and redundancies
+        link: /browse/employing-people
+      - title: Environment and countryside
+        description: Includes flooding, recycling and wildlife
+        link: /browse/environment-countryside
+      - title: Housing and local services
+        description: Owning or renting and council services
+        link: /browse/housing-local-services
+      - title: Money and tax
+        description: Includes debt and Self&nbsp;Assessment
+        link: /browse/tax
+      - title: Passports, travel and living&nbsp;abroad
+        description: Includes renewing passports and travel advice by country
+        link: /browse/abroad
+      - title: Visas and immigration
+        description: Apply to visit, work, study, settle or seek asylum in the&nbsp;UK
+        link: /browse/visas-immigration
+      - title: Working, jobs and&nbsp;pensions
+        description: Includes holidays, finding a job and redundancy
+        link: /browse/working
+    # If adding or removing items remember to update the `columns()` mixin in
+    # the homepage-section__government-activity homepage-services-and-info__list class in _homepage.scss.
+    government_activity:
+      - title: Departments
+        description: Departments, agencies and public bodies
+        link: /government/organisations
+      - title: Research and statistics
+        description: Reports, analysis and official statistics
+        link: /search/research-and-statistics
+      - title: News
+        description: News stories, speeches, letters and notices
+        link: /search/news-and-communications
+      - title: Policy papers and consultations
+        description: Consultations and strategy
+        link: /search/policy-papers-and-consultations?content_store_document_type[]=open_consultations&content_store_document_type[]=closed_consultations
+      - title: Guidance and regulation
+        description: Detailed guidance, regulations and rules
+        link: /search/guidance-and-regulation
+      - title: Transparency documents
+        description: Data, Freedom of Information releases and corporate reports
+        link: /search/transparency-and-freedom-of-information-releases
     index:
       brexit: 'Brexit: check what you need to do'
-      calculate_vehicle_tax: Vehicle tax rates
-      consultations: consultations
-      council_tax_bands: Council Tax bands
       covid: 'Coronavirus (COVID-19): guidance'
-      departments_and_policy_html: Departments and&nbsp;policy
-      driving_test: Driving theory test
-      find_job: Find a job
-      intro: The best place to find government services and information
+      departments_and_organisations: Departments and organisations
+      featured: Featured
+      government_activity: Government activity
+      government_activity_description: Find out what the government is doing
+      intro_html: The best place to find government services and&nbsp;information
       intro_simpler: Simpler, clearer, faster
+      intro_title:
+        text: Welcome to GOV.UK
+        html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
-      jobseekers_allowance: Jobseeker's Allowance
+      jobseekers_allowance: Jobseeker’s Allowance
       merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link" data-track-category="homepageClicked" data-track-action="departmentsLink" data-track-label="/government/organisations" data-track-value="1" data-track-dimension="government departments" data-track-dimension-index="29">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 23
+      meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
-      most_active: Most active
-      news: news and communications
-      other_agencies: Other agencies and public&nbsp;bodies
+      popular_links_heading: Popular on GOV.UK
+      popular_links:
+        - text: 'Coronavirus (COVID-19): guidance'
+          href: /guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/
+        - text: 'Brexit: check what you need to do'
+          href: /brexit
+        - text: Find a job
+          href: /find-a-job
+        - text: 'Personal tax account: sign in'
+          href: /personal-tax-account
+        - text: 'Universal Credit account: sign in'
+          href: /sign-in-universal-credit
+      # If adding or removing items remember to update the `columns()` mixin in
+      # the homepage-most-active-list class in _homepage.scss.
+      more_links:
+          - title: Find a job
+            link: /find-a-job
+          - title: Log in to student finance
+            link: /student-finance-register-login
+          - title: Passport fees
+            link: /passport-fees
+          - title: Jobseeker's Allowance
+            link: /jobseekers-allowance
+          - title: Council Tax bands
+            link: /council-tax-bands
+          - title: Running a limited company
+            link: /running-a-limited-company
+          - title: Driving theory test
+            link: /book-theory-test
+          - title: Vehicle tax rates
+            link: /calculate-tax-rates-for-new-cars
+          - title: Renew vehicle tax
+            link: /vehicle-tax
+          - title: VAT rates
+            link: /vat-rates
+      other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
-      passport_fees: Passport fees
       popular: Popular on GOV.UK
-      promo_boxes:
-        text_1: Coronavirus cases remain high across the country. Find out how to stay safe.
-        text_2: Get information about vaccinations on NHS.UK.
-        text_3: Check what you need to do to travel internationally.
-        title_1: Coronavirus (COVID-19)
-        title_2: COVID-19 vaccinations
-        title_3: 'Travel abroad: step by step'
+      promotion_slots:
+        - text: Coronavirus cases remain high across the country. Find out how to stay safe.
+          title: Coronavirus (COVID-19)
+          href: /coronavirus
+          image_src: homepage/covid-19-promo.png
+        - text: Get information about vaccinations on NHS.UK.
+          title: COVID-19 vaccinations
+          href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/
+          image_src: homepage/covid-19-vaccine-promo.png
+        - text: Check what you need to do to travel internationally.
+          title: 'Travel abroad: step by step'
+          href: /travel-abroad
+          image_src: homepage/travel-abroad-step-by-step.png
       running_limited_company: Running a limited company
-      see_all: Here you can see all
-      services_and_information: Services and information
-      statistics: statistics
-      student_finance_login: Log in to student finance
+      search_button: Search GOV.UK
+      search_label: Search
+      services_and_information: Topics
       tax_account: Sign in to your personal tax account
       uk_bank_holidays: UK bank holidays
-      uk_bank_holidays_dates_html: Check the dates for <a href="/bank-holidays" class="govuk-link" data-track-category="homepageClicked" data-track-action="promoTextLink" data-track-label="/bank-holidays" data-track-value="1" data-track-dimension="%{dimension}" data-track-dimension-index="29">bank holidays</a> in England, Wales, Scotland and Northern Ireland.
       universal_credit: Sign in to your Universal Credit account
-      vat_rates: VAT rates
-      vehicle_tax: Renew vehicle tax
+    # If adding or removing items remember to update the `columns()` mixin in
+    # the homepage-most-active-list class in _homepage.scss.
+    most_active:
+      - title: Find a job
+        link: /find-a-job
+      - title: Log in to student finance
+        link: /student-finance-register-login
+      - title: Passport fees
+        link: /passport-fees
+      - title: Jobseeker's Allowance
+        link: /jobseekers-allowance
+      - title: Council Tax bands
+        link: /council-tax-bands
+      - title: Running a limited company
+        link: /running-a-limited-company
+      - title: Driving theory test
+        link: /book-theory-test
+      - title: Vehicle tax rates
+        link: /calculate-tax-rates-for-new-cars
+      - title: Renew vehicle tax
+        link: /vehicle-tax
+      - title: VAT rates
+        link: /vat-rates
   'no': 'No'
   or: or
   place:

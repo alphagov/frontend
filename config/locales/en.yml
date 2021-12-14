@@ -347,8 +347,8 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: 'Coronavirus (COVID-19): guidance'
-          href: /guidance/covid-19-coronavirus-restrictions-what-you-can-and-cannot-do/
+        - text: 'Coronavirus (COVID-19)'
+          href: /coronavirus
         - text: 'Brexit: check what you need to do'
           href: /brexit
         - text: Find a job

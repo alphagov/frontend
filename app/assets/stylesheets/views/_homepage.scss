@@ -92,6 +92,9 @@
 
 .home-promo__image {
   border-top: 1px solid $govuk-border-colour;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
   display: block;
   height: auto;
   margin-bottom: govuk-spacing(4);

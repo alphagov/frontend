@@ -1,5 +1,5 @@
 @import "govuk_publishing_components/components/mixins/prefixed-transform";
-@import "../mixins/grid-helper";
+@import "govuk_publishing_components/components/mixins/grid-helper";
 
 .homepage-inverse-header {
   background-color: $govuk-brand-colour;

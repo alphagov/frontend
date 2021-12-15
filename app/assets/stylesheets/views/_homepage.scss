@@ -265,6 +265,14 @@
   padding: govuk-spacing(3) 0 0;
 }
 
+.homepage-section__heading-wrapper {
+  margin-bottom: govuk-spacing(1);
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 0;
+  }
+}
+
 .homepage-section__heading--border-none {
   border: none;
   padding: 0;

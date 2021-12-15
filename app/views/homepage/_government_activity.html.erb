@@ -2,10 +2,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop" data-module="gem-track-click">
       <div class="homepage-section__heading">
-        <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
-          text: t("homepage.index.government_activity"),
-        } %>
+        <div class="homepage-section__heading-wrapper">
+          <%= render "govuk_publishing_components/components/heading", {
+            font_size: "m",
+            text: t("homepage.index.government_activity"),
+          } %>
+        </div>
 
         <%= render "govuk_publishing_components/components/lead_paragraph", {
           text: t("homepage.index.government_activity_description"),

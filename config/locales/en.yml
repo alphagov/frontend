@@ -88,41 +88,46 @@ en:
     upcoming_bank_holidays: Upcoming bank holidays
   continue: Continue
   cookies:
-    additional: Most services we link to are run by different government departments, for example DWP’s Universal Credit online, DVLA’s vehicle tax service, or HMRC’s webchat. These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.
     always_on: They always need to be on.
-    clicks: what you click on while you're visiting the site
+    clicks: what you click on while you're visiting these sites
     confirmation_message: Government services may set additional cookies and, if so, will have their own cookie policy and banner.
     confirmation_previous_referrer_link: Go back to the page you were looking at
     confirmation_title: Your cookie settings were saved
+    explanation_html: This page has a brief explanation of each type of cookie we use. If you want more details, <a href="/help/cookie-details" data-module="gem-track-click" data-track-category="cookieSettings" data-track-action="Find out more about cookies"> read our detailed cookie information</a>.
     cookie_settings: Cookie settings
     cookies_on_govuk: Cookies on GOV.UK
     essential_explanation: These essential cookies do things like remember your progress through a form (for example a licence application)
     explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
-    find_out: Find out more about cookies on GOV.UK
     four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
-    google_info: Google Analytics sets cookies that store anonymised information about
-    how_we_use: We use cookies to store information about how you use the GOV.UK website, such as the pages you visit.
-    how_you_got: how you got to the site
+    google:
+    google_info: "These cookies collect information about:"
+    google_collection: The information is collected in a way that does not directly identify you.
+    google_share: We do not allow Google or SpeedCurve to use or share the data about how you use these sites.
+    how_we_use: We use cookies to collect and store information about how you use the GOV.UK website and government digital services, such as the pages you visit. 'Government digital services' means any page with service.gov.uk in the URL.
+    how_you_got: how you got to these sites
     javascript: 'We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:'
     javascript_list:
     - reloading the page
     - turning on Javascript in your browser
-    lux_info: LUX software stores anonymised information about how well pages performed on your device (including JavaScript errors).
+    lux_explain: We also use LUX Real User Monitoring software cookies from SpeedCurve to measure your web performance experience while visiting GOV.UK.
+    lux_info: LUX software cookies collect and store information about how well pages performed on your device, including whether there were any performance bottlenecks or JavaScript errors.
     off-campaigns: Do not use cookies that help with communications and marketing
     off-settings: Do not use cookies that remember my settings on the site
     off-usage: Do not use cookies that measure my website use
     on-campaigns: Use cookies that help with communications and marketing
     on-settings: Use cookies that remember my settings on the site
     on-usage: Use cookies that measure my website use
-    pages_visited: the pages you visit on GOV.UK and government digital services, and how long you spend on each page
+    pages_visited: the pages you visit and how long you spend on each page
     save_changes: Save changes
+    services: Government digital services are run by different government departments, such as the Department for Work and Pensions (DWP) and HM Revenues and Customs (HMRC).
+    services_additional: These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.
     third_parties: These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
     types:
       campaigns: Cookies that help with our communications and marketing
       essential: Strictly necessary cookies
       settings: Cookies that remember your settings
       usage: Cookies that measure website use
-    usage_info: We use Google Analytics and LUX Real User Monitoring software from SpeedCurve to measure how you use the website and your web performance experience while visiting so we can improve it based on user needs. We do not allow Google or SpeedCurve to use or share the data about how you use this site.
+    usage_info: We use Google Analytics cookies to measure how you use GOV.UK and government digital services.
   electoral:
     registration:
       description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.

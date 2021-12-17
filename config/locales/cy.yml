@@ -87,7 +87,6 @@ cy:
     upcoming_bank_holidays: Gwyliau banc i ddod
   continue: Parhau
   cookies:
-    additional: Mae'r rhan fwyaf o wasanaethau rydyn ni'n cysylltu iddyn nhw yn cael eu rhedeg gan adrannau gwahanol o'r llywodraeth, er enghraifft Credyd Cynhwysol ar-lein gan DWP, gwasanaeth treth cerbyd y DVLA, neu we-sgwrs CThEM. Efallai y bydd y gwasanaethau hyn yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis eu hun a'u baner eu hun yn cysylltu ag ef.
     always_on: Mae angen iddynt fod ymlaen bob amser.
     clicks: beth rydych chi'n clicio arno wrth ymweld â'r wefan
     confirmation_message: Efallai y bydd gwasanaethau'r llywodraeth yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis a'u baner eu hun.
@@ -97,15 +96,18 @@ cy:
     cookies_on_govuk: Cwcis ar GOV.UK
     essential_explanation: Mae'r cwcis hanfodol hyn yn gwneud pethau fel cofio'ch cynnydd drwy ffurflen (er enghraifft, cais am drwydded)
     explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur pan fyddwch chi'n ymweld â gwefan yw cwcis.
-    find_out: Dysgwch fwy am gwcis ar GOV.UK
+    explanation_html:
     four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych chi'n hapus i ni eu defnyddio.
     google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
+    google_collection:
+    google_share:
     how_we_use: Rydyn ni'n defnyddio cwcis i storio gwybodaeth am sut rydych chi'n defnyddio gwefan GOV.UK, fel y tudalennau rydych chi'n ymweld â nhw.
     how_you_got: sut gyrhaeddoch chi'r wefan
     javascript: 'Rydyn ni''n defnyddio Javascript i osod y rhan fwyaf o''n cwcis. Yn anffodus, nid yw Javascript yn rhedeg ar eich porwr, felly nid oes modd i chi newid eich gosodiadau. Gallwch drio:'
     javascript_list:
     - ail-lwytho'r dudalen
     - troi Javascript ymlaen yn eich porwr
+    lux_explain:
     lux_info: Mae meddalwedd LUX yn storio gwybodaeth yn ddi-enw am ba mor dda y gwnaeth tudalennau berfformio ar eich dyfais (gan gynnwys gwallau JavaScript).
     off-campaigns: Peidiwch â defnyddio cwcis sy'n helpu gyda chyfathrebu a marchnata
     off-settings: Peidiwch â defnyddio cwcis sy'n cofio fy ngosodiadau ar y wefan
@@ -115,6 +117,8 @@ cy:
     on-usage: Defnyddiwch gwcis sy'n mesur fy nefnydd o'r wefan
     pages_visited: y tudalennau rydych chi'n ymweld â nhw ar GOV.UK a gwasanaethau digidol y llywodraeth, a pha mor hir rydych chi'n dreulio ar bob tudalen
     save_changes: Cadw'r newidiadau
+    services:
+    services_additional:
     third_parties: Efallai y caiff y cwcis hyn eu gosod gan wefannau trydydd parti ac y byddant yn gwneud pethau fel mesur sut rydych chi'n gwylio fideos YouTube sydd ar GOV.UK.
     types:
       campaigns: Cwcis sy'n helpu gyda chyfathrebu a marchnata

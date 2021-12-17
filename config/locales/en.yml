@@ -393,7 +393,7 @@ en:
           title: Coronavirus (COVID-19)
           href: /coronavirus
           image_src: homepage/covid-19-promo.png
-        - text: Get information about vaccinations on NHS.UK.
+        - text: Book your coronavirus vaccination and booster dose on the NHS website.
           title: COVID-19 vaccinations
           href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/
           image_src: homepage/covid-19-vaccine-promo.png

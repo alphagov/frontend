@@ -44,3 +44,18 @@
     <p class="govuk-body"><%= t("account.your_account.emails.no_emails_description") %></p>
   </div>
 <% end %>
+
+<%= render "govuk_publishing_components/components/heading", {
+  text: t("account.your_account.about_heading"),
+  heading_level: 2,
+  font_size: "s",
+  margin_bottom: 4,
+} %>
+
+<%= t("account.your_account.about_description_html") %>
+
+<%= render "govuk_publishing_components/components/details", {
+  title: t("account.your_account.about_detail_title")
+} do %>
+  <% t("account.your_account.about_detail_description_html") %>
+<% end %>

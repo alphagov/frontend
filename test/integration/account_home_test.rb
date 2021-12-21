@@ -35,4 +35,14 @@ class AccountHomeTest < ActionDispatch::IntegrationTest
     visit account_home_path
     assert page.has_content?("See and manage the emails you get about updates to pages on GOV.UK")
   end
+
+  should "show the account description" do
+    visit account_home_path
+    assert page.has_content?("About GOV.UK accounts")
+  end
+
+  should "show the account details title" do
+    visit account_home_path
+    assert page.has_content?("More about GOV.UK accounts")
+  end
 end

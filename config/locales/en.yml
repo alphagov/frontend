@@ -28,6 +28,10 @@ en:
         see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
         manage_emails_link_text: Manage your GOV.UK email subscriptions
       heading: Your GOV.UK account
+      about_heading: About GOV.UK accounts
+      about_description_html: <p class="govuk-body">GOV.UK accounts are new. At the moment you can only use your account to manage your GOV.UK email subscriptions.</p><p class="govuk-body">We’ll be adding more services and features in the next few months.</p>
+      about_detail_title: More about GOV.UK accounts
+      about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account where you can access all your government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>
   and: and
   b: B
   bank-holidays: bank-holidays

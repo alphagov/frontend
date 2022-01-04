@@ -21,6 +21,10 @@
   <% end %>
 
   <%= sab_page_variant.analytics_meta_tag.html_safe if is_testable_sab_page? %>
+
+  <% if ["/find-travel-test-provider"].include?(@content_item["base_path"]) %>
+    <meta name="govuk:scroll-tracker" content="" data-module="auto-scroll-tracker"/>
+  <% end %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {

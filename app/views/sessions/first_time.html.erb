@@ -27,8 +27,8 @@ content_for :title, title
 
   <%= form_with(url: new_govuk_session_first_time_path, method: :post) do %>
     <%= hidden_field_tag :_ga, params[:_ga] %>
-    <%= hidden_field_tag :redirect_path, (@redirect_path || params[:redirect_path]) %>
-    <%= hidden_field_tag :govuk_account_session, (@govuk_account_session || params[:govuk_account_session]) %>
+    <%= hidden_field_tag :redirect_path, params[:redirect_path] %>
+    <%= hidden_field_tag :govuk_account_session, @prefixed_govuk_account_session %>
 
     <%= render "govuk_publishing_components/components/heading", {
       text: t("sessions.first_time.cookie_consent.heading"),
@@ -51,12 +51,12 @@ content_for :title, title
         {
           value: "yes",
           text: t("yes"),
-          checked: (params[:cookie_consent] == "yes") || (@cookie_consent == "accept"),
+          checked: params[:cookie_consent] == "yes",
         },
         {
           value: "no",
           text: t("no"),
-          checked: (params[:cookie_consent] == "no") || (@cookie_consent == "reject"),
+          checked: params[:cookie_consent] == "no",
         }
       ]
     } %>

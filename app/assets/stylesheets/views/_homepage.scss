@@ -138,32 +138,6 @@
   }
 }
 
-.homepage-promo {
-  display: block;
-  box-sizing: border-box;
-  margin: 0;
-  padding: govuk-spacing(8);
-  background: $govuk-brand-colour;
-  text-align: center;
-  width: 100%;
-  max-width: 240px;
-
-  @include govuk-media-query($from: tablet) {
-    max-width: none;
-    padding: (govuk-spacing(9) + govuk-spacing(2)) govuk-spacing(3); // govuk spacing 9 (60px) + 2 (10px) to create a top and bottom of 70px each
-  }
-
-  @include govuk-media-query($from: desktop) {
-    padding: govuk-spacing(8) govuk-spacing(3);
-  }
-}
-
-.homepage-promo__link {
-  @include govuk-link-style-inverse;
-  @include govuk-link-style-no-underline;
-  @include govuk-font($size: 36, $weight: bold);
-}
-
 .homepage-services-and-info__list {
   @include columns($items: 16, $columns: 1, $selector: "li");
   list-style: none;

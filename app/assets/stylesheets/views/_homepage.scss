@@ -82,29 +82,6 @@
   margin: govuk-spacing(2) 0 govuk-spacing(4);
 }
 
-.home-promo {
-  margin-bottom: govuk-spacing(6);
-
-  @include govuk-media-query($from: desktop) {
-    margin-bottom: 0;
-  }
-}
-
-.home-promo__image {
-  border-top: 1px solid $govuk-border-colour;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  display: block;
-  height: auto;
-  margin-bottom: govuk-spacing(4);
-  max-width: 100%;
-
-  @include govuk-media-query($from: desktop) {
-    margin-bottom: govuk-spacing(6);
-  }
-}
-
 .home-more__title {
   @include govuk-font(36, $weight: bold);
   margin: 0 0 govuk-spacing(4) 0;

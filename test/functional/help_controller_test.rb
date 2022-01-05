@@ -11,7 +11,7 @@ class HelpControllerTest < ActionController::TestCase
     should "set the cache expiry headers" do
       get :index
 
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      honours_content_store_ttl
     end
   end
 
@@ -29,7 +29,7 @@ class HelpControllerTest < ActionController::TestCase
     should "set the cache expiry headers" do
       get :cookie_settings
 
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      honours_content_store_ttl
     end
   end
 
@@ -47,7 +47,7 @@ class HelpControllerTest < ActionController::TestCase
     should "set correct expiry headers" do
       get :tour
 
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      honours_content_store_ttl
     end
   end
 

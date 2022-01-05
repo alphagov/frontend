@@ -26,7 +26,7 @@ class CalendarControllerTest < ActionController::TestCase
 
       should "set the expiry headers" do
         get :show_calendar, params: { scope: "bank-holidays" }
-        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+        honours_content_store_ttl
       end
     end
 

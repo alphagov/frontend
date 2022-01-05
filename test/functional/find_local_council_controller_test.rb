@@ -11,7 +11,7 @@ class FindLocalCouncilControllerTest < ActionController::TestCase
   should "set correct expiry headers" do
     get :index
 
-    assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+    honours_content_store_ttl
   end
 
   should "return a 404 if the local authority can't be found" do

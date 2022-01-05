@@ -10,7 +10,7 @@ class PlaceController < ContentItemsController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
-    @location_error = location_error
+    @location_error = location_error if request.post?
     render :show, locals: locals
   end
 

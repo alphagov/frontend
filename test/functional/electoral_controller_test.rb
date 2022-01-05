@@ -14,7 +14,7 @@ class ElectoralControllerTest < ActionController::TestCase
       assert_template "local_transaction/search"
       assert_template partial: "electoral/_form"
       assert_template partial: "application/_location_form", count: 0
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      honours_content_store_ttl
     end
   end
 
@@ -28,7 +28,7 @@ class ElectoralControllerTest < ActionController::TestCase
           assert_response :success
           assert_template :results
           assert_requested(elections_api_stub)
-          assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+          honours_content_store_ttl
         end
       end
     end

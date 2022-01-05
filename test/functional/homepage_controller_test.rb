@@ -15,7 +15,7 @@ class HomepageControllerTest < ActionController::TestCase
 
     should "set correct expiry headers" do
       get :index
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      honours_content_store_ttl
     end
   end
 end

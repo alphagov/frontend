@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   include GovukPersonalisation::ControllerConcern
 
   before_action :set_no_cache_headers
+  before_action :set_up_first_time, only: %i[first_time first_time_post]
 
   def create
     redirect_path = http_referer_path
@@ -18,7 +19,7 @@ class SessionsController < ApplicationController
       state: params.require(:state),
     ).to_h
 
-    @cookie_consent =
+    cookie_consent =
       case params[:cookie_consent]
       when "accept"
         update_saved_cookie_consent = !callback["cookie_consent"]
@@ -32,15 +33,19 @@ class SessionsController < ApplicationController
       end
 
     if callback.key?("cookie_consent") && callback.key?("feedback_consent") && (callback["cookie_consent"].nil? || callback["feedback_consent"].nil?)
-      use_account_layout
+      # slightly hacky way of passing the session header along in the
+      # redirect without properly logging the user in: prefix it with
+      # "!" so the header isn't actually correct
+      set_account_session_header "!#{callback['govuk_account_session']}"
 
-      @redirect_path = callback["redirect_path"]
-      @govuk_account_session = callback["govuk_account_session"]
-      render :first_time
+      redirect_to GovukPersonalisation::Redirect.build_url(
+        new_govuk_session_first_time_path,
+        { _ga: params[:_ga], cookie_consent: cookie_consent, redirect_path: params[:redirect_path] }.compact,
+      )
     else
       do_login(
         redirect_path: callback["redirect_path"],
-        cookie_consent: @cookie_consent,
+        cookie_consent: cookie_consent,
         update_saved_cookie_consent: update_saved_cookie_consent,
         govuk_account_session: callback["govuk_account_session"],
       )
@@ -49,14 +54,9 @@ class SessionsController < ApplicationController
     head :bad_request
   end
 
-  def first_time
-    use_account_layout
+  def first_time; end
 
-    redirect_path = params[:redirect_path]
-    head :bad_request unless is_valid_redirect_path? redirect_path
-
-    govuk_account_session = params.fetch(:govuk_account_session)
-
+  def first_time_post
     @error_items = []
     unless %w[yes no].include? params[:cookie_consent]
       @cookie_consent_decision_error = I18n.t("sessions.first_time.cookie_consent.field.invalid")
@@ -76,15 +76,17 @@ class SessionsController < ApplicationController
           cookie_consent: cookie_consent_decision,
           feedback_consent: feedback_consent_decision,
         },
-        govuk_account_session: govuk_account_session,
+        govuk_account_session: @unprefixed_govuk_account_session,
       )
 
       do_login(
-        redirect_path: redirect_path,
+        redirect_path: params[:redirect_path],
         cookie_consent: cookie_consent_decision ? "accept" : "reject",
         update_saved_cookie_consent: false,
         govuk_account_session: response["govuk_account_session"],
       )
+    else
+      render :first_time
     end
   rescue GdsApi::HTTPUnauthorized
     head :bad_request
@@ -136,7 +138,13 @@ protected
     )
   end
 
-  def use_account_layout
+  def set_up_first_time
+    head :bad_request and return unless is_valid_redirect_path? params[:redirect_path]
+    head :bad_request and return unless account_session_header&.start_with? "!"
+
+    @prefixed_govuk_account_session = account_session_header
+    @unprefixed_govuk_account_session = @prefixed_govuk_account_session.delete_prefix("!")
+
     set_slimmer_headers(template: "gem_layout_account_manager_no_nav", remove_search: true, show_accounts: "signed-in")
   end
 end

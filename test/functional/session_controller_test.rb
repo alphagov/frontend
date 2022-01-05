@@ -122,16 +122,17 @@ class SessionsControllerTest < ActionController::TestCase
           stub_account_api
         end
 
-        should "not sign the user in" do
+        should "not sign the user in properly" do
           get :callback, params: { code: "code123", state: "state123" }
 
-          assert_nil @response.headers["GOVUK-Account-Session"]
+          assert_equal @response.headers["GOVUK-Account-Session"], "!#{@govuk_account_session}"
         end
 
-        should "render the consent form" do
+        should "redirect to the consent form" do
           get :callback, params: { code: "code123", state: "state123" }
 
-          assert_includes @response.body, I18n.t("sessions.first_time.title")
+          assert_response :redirect
+          assert_includes @response.redirect_url, "/sign-in/first-time"
         end
       end
 
@@ -141,57 +142,67 @@ class SessionsControllerTest < ActionController::TestCase
           stub_account_api
         end
 
-        should "not sign the user in" do
+        should "not sign the user in properly" do
           get :callback, params: { code: "code123", state: "state123" }
 
-          assert_nil @response.headers["GOVUK-Account-Session"]
+          assert_equal @response.headers["GOVUK-Account-Session"], "!#{@govuk_account_session}"
         end
 
         should "render the consent form" do
           get :callback, params: { code: "code123", state: "state123" }
 
-          assert_includes @response.body, I18n.t("sessions.first_time.title")
+          assert_response :redirect
+          assert_includes @response.redirect_url, "/sign-in/first-time"
         end
       end
     end
   end
 
   context "POST /sign-in/first-time" do
-    should "save the consents, sign the user in, and send them to the redirect path" do
-      stub_account_api_set_attributes(
-        attributes: {
-          cookie_consent: true,
-          feedback_consent: true,
-        },
-        govuk_account_session: "foo",
-        new_govuk_account_session: "bar",
-      )
-
-      post :first_time, params: { govuk_account_session: "foo", redirect_path: "/account/home", cookie_consent: "yes", feedback_consent: "yes" }
-      assert_response :redirect
-      assert_includes @response.redirect_url, "/account/home?cookie_consent=accept"
-      assert_equal @response.headers["GOVUK-Account-Session"], "bar"
-    end
-
-    should "return a 400 error if the :redirect_path is invalid" do
-      post :first_time, params: { govuk_account_session: "foo", redirect_path: "https://www.example.com" }
+    should "return a 400 error if the :govuk_account_session is missing" do
+      post :first_time_post, params: { redirect_path: "https://www.example.com" }
       assert_response :bad_request
     end
 
-    should "raise an error if the :govuk_account_session is missing" do
-      assert_raises ActionController::ParameterMissing do
-        post :first_time, params: { redirect_path: "/account/home" }
+    should "return a 400 error if the :govuk_account_session does not start with a '!'" do
+      mock_logged_in_session "foo"
+      post :first_time_post, params: { redirect_path: "https://www.example.com" }
+      assert_response :bad_request
+    end
+
+    context "there is a valid :govuk_account_session" do
+      setup { mock_logged_in_session "!foo" }
+
+      should "save the consents, sign the user in, and send them to the redirect path" do
+        stub_account_api_set_attributes(
+          attributes: {
+            cookie_consent: true,
+            feedback_consent: true,
+          },
+          govuk_account_session: "foo",
+          new_govuk_account_session: "bar",
+        )
+
+        post :first_time_post, params: { redirect_path: "/account/home", cookie_consent: "yes", feedback_consent: "yes" }
+        assert_response :redirect
+        assert_includes @response.redirect_url, "/account/home?cookie_consent=accept"
+        assert_equal @response.headers["GOVUK-Account-Session"], "bar"
       end
-    end
 
-    should "display an error message if the cookie consent is invalid" do
-      post :first_time, params: { govuk_account_session: "foo", redirect_path: "/account/home", cookie_consent: "nonsense", feedback_consent: "yes" }
-      assert_includes @response.body, I18n.t("sessions.first_time.cookie_consent.field.invalid")
-    end
+      should "return a 400 error if the :redirect_path is invalid" do
+        post :first_time_post, params: { redirect_path: "https://www.example.com" }
+        assert_response :bad_request
+      end
 
-    should "display an error message if the feedback consent is invalid" do
-      post :first_time, params: { govuk_account_session: "foo", redirect_path: "/account/home", cookie_consent: "yes", feedback_consent: "nonsense" }
-      assert_includes @response.body, I18n.t("sessions.first_time.feedback_consent.field.invalid")
+      should "display an error message if the cookie consent is invalid" do
+        post :first_time_post, params: { redirect_path: "/account/home", cookie_consent: "nonsense" }
+        assert_includes @response.body, I18n.t("sessions.first_time.cookie_consent.field.invalid")
+      end
+
+      should "display an error message if the feedback consent is invalid" do
+        post :first_time_post, params: { redirect_path: "/account/home", cookie_consent: "yes", feedback_consent: "nonsense" }
+        assert_includes @response.body, I18n.t("sessions.first_time.feedback_consent.field.invalid")
+      end
     end
   end
 

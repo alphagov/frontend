@@ -1,6 +1,6 @@
 <%= render layout: 'shared/base_page', locals: {
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition,
 } do %>
   <div class="interaction">
@@ -47,11 +47,11 @@
     <% end %>
   </div>
 
-  <% if @publication.more_information.present? %>
+  <% if publication.more_information.present? %>
     <section class="more">
       <div class="more">
         <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= raw @publication.more_information %>
+          <%= raw publication.more_information %>
         <% end %>
       </div>
     </section>

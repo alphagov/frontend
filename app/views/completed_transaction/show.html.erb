@@ -3,38 +3,38 @@
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition,
 } do %>
 
-  <% if @publication.promotion %>
+  <% if publication.promotion %>
     <div class="promotion">
-      <% if @publication.promotion['category'] == 'organ_donor' %>
+      <% if publication.promotion['category'] == 'organ_donor' %>
         <p class="govuk-body"> <%= t('formats.transaction.join_organ_donor') %> </p>
         <p class="govuk-body"><%= t('formats.transaction.organ_donation_laws') %> - <a href="https://www.organdonation.nhs.uk/uk-laws/" rel="external" class="govuk-link"><%= t('formats.transaction.organ_donation_in_your_country') %></a>.</p>
         <p class="govuk-body"><%= t('formats.transaction.organ_transplant_question') %></p>
         <p class="govuk-body"><%= t('formats.transaction.tell_your_family') %></p>
         <%= render "govuk_publishing_components/components/button", {
           text: t('formats.transaction.register_to_donate'),
-          href: @publication.promotion['url'],
+          href: publication.promotion['url'],
           rel: "external",
           info_text: t('formats.transaction.register_decision'),
           margin_bottom: true
         } %>
-      <% elsif @publication.promotion['category'] == 'mot_reminder' %>
+      <% elsif publication.promotion['category'] == 'mot_reminder' %>
         <p class="govuk-body"><%= t('formats.transaction.mot_reminder') %></p>
         <%= render "govuk_publishing_components/components/button", {
           text: t('sign_up'),
-          href: @publication.promotion['url'],
+          href: publication.promotion['url'],
           rel: "external",
           margin_bottom: true
         } %>
-      <% elsif @publication.promotion['category'] == 'electric_vehicle' %>
+      <% elsif publication.promotion['category'] == 'electric_vehicle' %>
         <p class="govuk-body"><%= t('formats.transaction.e_vehicle_info') %></p>
         <%= render "govuk_publishing_components/components/button", {
           text: t('formats.transaction.next_car_electric'),
-          href: @publication.promotion['url'],
+          href: publication.promotion['url'],
           rel: "external",
           margin_bottom: true
         } %>
@@ -44,10 +44,10 @@
   <% end %>
 
   <% if show_survey? %>
-    <% if AssistedDigitalSatisfactionSurvey.show_survey? @publication.slug %>
-      <%= render 'assisted_digital_satisfaction_survey', publication: @publication %>
+    <% if AssistedDigitalSatisfactionSurvey.show_survey? publication.slug %>
+      <%= render 'assisted_digital_satisfaction_survey', publication: publication %>
     <% else %>
-      <%= render 'standard_satisfaction_survey', publication: @publication %>
+      <%= render 'standard_satisfaction_survey', publication: publication %>
     <% end %>
   <% end %>
 <% end %>

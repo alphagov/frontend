@@ -26,7 +26,7 @@
         <p class="govuk-body">
           <%= link_to(
             t("formats.simple_smart_answer.start_again"),
-            simple_smart_answer_path(@publication.slug, :edition => @edition),
+            simple_smart_answer_path(publication.slug, :edition => @edition),
             class: "govuk-link"
           ) %>
         </p>
@@ -40,7 +40,7 @@
     <% if @flow_state.current_node.outcome? %>
       <div class="govuk-grid-column-one-third">
         <%= render "govuk_publishing_components/components/contextual_sidebar", {
-          content_item: @content_item
+          content_item: content_item_hash
         } %>
       </div>
     <% end %>

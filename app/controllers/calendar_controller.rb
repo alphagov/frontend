@@ -1,44 +1,47 @@
-class CalendarController < ApplicationController
+class CalendarController < ContentItemsController
+  include Cacheable
+
+  class InvalidCalendarScope < StandardError; end
+
   before_action :set_cors_headers, if: :json_request?
-  before_action :set_locale
-  before_action :load_calendar
-
   rescue_from Calendar::CalendarNotFound, with: :simple_404
+  rescue_from InvalidCalendarScope, with: :simple_404
+  prepend_before_action :validate_scope
+  skip_before_action :set_expiry, only: [:division]
 
-  def calendar
-    set_expiry 1.hour
-
+  def show_calendar
     respond_to do |format|
       format.html do
-        @content_item = GdsApi.content_store.content_item("/#{scope}").to_hash
-        section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
-        if section_name
-          @meta_section = section_name.downcase
-        end
-
-        @faq_presenter = FaqPresenter.new(scope, @calendar, @content_item, view_context)
+        @faq_presenter = FaqPresenter.new(scope, calendar, content_item_hash, view_context)
 
         render scope.tr("-", "_")
       end
       format.json do
-        render json: @calendar
+        set_expiry 1.hour
+        render json: calendar
       end
     end
   end
 
   def division
     handle_bank_holiday_ics_calendars
-    division = @calendar.division(params[:division])
+    div = calendar.division(params[:division])
     set_expiry 1.day
 
     respond_to do |format|
-      format.json { render json: division }
-      format.ics { render plain: IcsRenderer.new(division.events, request.path).render }
+      format.json { render json: div }
+      format.ics { render plain: IcsRenderer.new(div.events, request.path).render }
       format.all { simple_404 }
     end
   end
 
 private
+
+  helper_method :calendar
+
+  def content_item
+    @content_item ||= GdsApi.content_store.content_item("/#{scope}")
+  end
 
   def set_cors_headers
     headers["Access-Control-Allow-Origin"] = "*"
@@ -60,12 +63,12 @@ private
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  def load_calendar
-    unless params[:scope].match?(/\A[a-z-]+\z/)
-      simple_404
-      return
-    end
-    @calendar = Calendar.find(scope)
+  def calendar
+    @calendar ||= Calendar.find(scope)
+  end
+
+  def validate_scope
+    raise InvalidCalendarScope unless params[:scope].match?(/\A[a-z-]+\z/)
   end
 
   def simple_404

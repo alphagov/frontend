@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  helper_method :content_item, :content_item_hash, :publication
+
   def error_403
     error :forbidden
   end
@@ -57,37 +59,18 @@ protected
     end
   end
 
-  def fetch_and_setup_content_item(base_path)
-    setup_content_item(content_item(base_path))
-  rescue GdsApi::HTTPNotFound, GdsApi::HTTPGone
-    @content_item = nil
-    @meta_section = nil
+  # TODO: Remove these nil methods by moving logic down from application.html.erb
+  # to a content item specific view.
+  def publication
+    nil
   end
 
-  def setup_content_item(content_item)
-    @content_item = content_item.to_hash
-
-    section_name = @content_item.dig("links", "parent", 0, "links", "parent", 0, "title")
-    if section_name
-      @meta_section = section_name.downcase
-    end
+  def content_item
+    nil
   end
 
-  def set_content_item(presenter = ContentItemPresenter)
-    @publication = presenter.new(content_item)
-    set_language_from_publication
-  end
-
-  def set_language_from_publication
-    I18n.locale = if @publication.locale && I18n.available_locales.map(&:to_s).include?(@publication.locale)
-                    @publication.locale
-                  else
-                    I18n.default_locale
-                  end
-  end
-
-  def content_item(base_path = "/#{params[:slug]}")
-    @content_item ||= GdsApi.content_store.content_item(base_path)
+  def content_item_hash
+    nil
   end
 
 private

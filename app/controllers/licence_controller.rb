@@ -1,11 +1,8 @@
-class LicenceController < ApplicationController
+class LicenceController < ContentItemsController
   include Previewable
   include Cacheable
-  include Navigable
 
-  before_action :set_content_item
-
-  helper_method :postcode
+  helper_method :postcode, :licence_details
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze
@@ -13,40 +10,44 @@ class LicenceController < ApplicationController
   NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
 
   def start
-    if @publication.continuation_link.present?
+    if publication.continuation_link.present?
       render :continues_on
-    elsif @licence_details.local_authority_specific? && postcode_search_submitted?
+    elsif licence_details.local_authority_specific? && postcode_search_submitted?
       @postcode = postcode
       @location_error = location_error
 
       redirect_to licence_authority_path(slug: params[:slug], authority_slug: local_authority_slug) if local_authority_slug
-    elsif @licence_details.single_licence_authority_present?
-      redirect_to licence_authority_path(slug: params[:slug], authority_slug: @licence_details.authority["slug"])
-    elsif @licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
+    elsif licence_details.single_licence_authority_present?
+      redirect_to licence_authority_path(slug: params[:slug], authority_slug: licence_details.authority["slug"])
+    elsif licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
       redirect_to licence_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
     end
   end
 
   def authority
-    if @publication.continuation_link.present?
+    if publication.continuation_link.present?
       redirect_to licence_path(slug: params[:slug])
-    elsif @licence_details.local_authority_specific?
+    elsif licence_details.local_authority_specific?
+      # TODO: Shoud not override @license_details here
       @licence_details = LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
     end
   end
 
 private
 
-  def set_content_item
-    super(LicencePresenter)
-    @licence_details = LicenceDetailsPresenter.new(licence_details_from_api, params["authority_slug"], params[:interaction])
+  def publication_class
+    LicencePresenter
+  end
+
+  def licence_details
+    @licence_details ||= LicenceDetailsPresenter.new(licence_details_from_api, params["authority_slug"], params[:interaction])
   end
 
   def licence_details_from_api(snac = nil)
-    return {} if @publication.continuation_link.present?
+    return {} if publication.continuation_link.present?
 
     begin
-      GdsApi.licence_application.details_for_licence(@publication.licence_identifier, snac)
+      GdsApi.licence_application.details_for_licence(publication.licence_identifier, snac)
     rescue GdsApi::HTTPErrorResponse => e
       return {} if e.code == 404
 

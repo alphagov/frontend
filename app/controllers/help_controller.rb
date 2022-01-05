@@ -1,22 +1,20 @@
-class HelpController < ApplicationController
+class HelpController < ContentItemsController
   include Cacheable
 
+  skip_before_action :set_expiry, only: [:ab_testing]
+  skip_before_action :set_locale, only: [:ab_testing]
+
   def index
-    fetch_and_setup_content_item("/help")
     slimmer_template "gem_layout"
   end
 
   def tour
-    fetch_and_setup_content_item("/tour")
     slimmer_template "gem_layout"
   end
 
-  def cookie_settings
-    fetch_and_setup_content_item("/help/cookies")
-  end
+  def cookie_settings; end
 
   def ab_testing
-    fetch_and_setup_content_item("/help/ab-testing")
     ab_test = GovukAbTesting::AbTest.new("Example", dimension: 40)
     @requested_variant = ab_test.requested_variant(request.headers)
     @requested_variant.configure_response(response)
@@ -33,10 +31,13 @@ class HelpController < ApplicationController
         value: "guidance_and_regulation",
       },
     ]
-    fetch_and_setup_content_item("/sign-in")
   end
 
 private
+
+  def content_item_slug
+    request.path
+  end
 
   def slug_param
     params[:slug] || "help"

@@ -1,11 +1,10 @@
-class ElectoralController < ApplicationController
+class ElectoralController < ContentItemsController
+  include Cacheable
   include SabPagesTestable
-  before_action -> { fetch_and_setup_content_item(BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE) }
+
   BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE = "/contact-electoral-registration-office".freeze
 
   def show
-    @publication = LocalTransactionPresenter.new(@content_item)
-
     elections_api.make_request if valid_postcode? || valid_uprn?
 
     if elections_api.ok?
@@ -23,6 +22,14 @@ class ElectoralController < ApplicationController
   end
 
 private
+
+  def publication_class
+    LocalTransactionPresenter
+  end
+
+  def content_item_slug
+    BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE
+  end
 
   def location_error
     error_key = if invalid_postcode?

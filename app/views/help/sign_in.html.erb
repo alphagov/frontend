@@ -1,6 +1,6 @@
-<% content_for :title, "#{@content_item["title"]} - GOV.UK" %>
+<% content_for :title, "#{content_item_hash["title"]} - GOV.UK" %>
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= @content_item["description"] %>">
+  <meta name="description" content="<%= content_item_hash["description"] %>">
 <% end %>
 <%= render "govuk_publishing_components/components/breadcrumbs", {
   breadcrumbs: [
@@ -14,9 +14,9 @@
 <main id="content">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", title: @content_item["title"] %>
+      <%= render "govuk_publishing_components/components/title", title: content_item_hash["title"] %>
 
-      <%= sanitize(@content_item["details"]["body"]) %>
+      <%= sanitize(content_item_hash["details"]["body"]) %>
 
       <%= render "govuk_publishing_components/components/heading", {
         text: t('help.sign_in.service_not_listed_heading'),

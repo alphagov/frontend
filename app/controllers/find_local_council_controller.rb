@@ -1,8 +1,9 @@
 require "postcode_sanitizer"
 
-class FindLocalCouncilController < ApplicationController
-  before_action -> { fetch_and_setup_content_item(BASE_PATH) }
-  before_action :set_expiry
+class FindLocalCouncilController < ContentItemsController
+  include Cacheable
+
+  skip_before_action :set_locale
 
   BASE_PATH = "/find-local-council".freeze
   UNITARY_AREA_TYPES = %w[COI LBO LGD MTD UTA].freeze
@@ -42,6 +43,10 @@ class FindLocalCouncilController < ApplicationController
   end
 
 private
+
+  def content_item_slug
+    BASE_PATH
+  end
 
   def location_error
     return LocationError.new("invalidPostcodeFormat") if mapit_response.invalid_postcode? || mapit_response.blank_postcode?

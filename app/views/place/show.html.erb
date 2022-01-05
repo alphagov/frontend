@@ -1,20 +1,20 @@
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: @content_item %>
+    content_item: content_item_hash %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition,
 } do %>
   <section class="intro">
     <div class="get-started-intro">
       <div class="find-nearest">
-        <% if @publication.introduction.present? %>
+        <% if publication.introduction.present? %>
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
-            <%= raw @publication.introduction %>
+            <%= raw publication.introduction %>
           <% end %>
         <% end %>
         <%= render partial: 'location_form',
@@ -26,38 +26,38 @@
       </div>
     </div>
   </section>
-  <% if postcode_provided? && !@location_error %>
+  <% if postcode_provided? && !location_error %>
     <section class="places-results"
       data-module="auto-track-event"
-      data-track-category="<%= track_category_for_place_results(@publication.places) %>"
-      data-track-action="<%= track_action_for_place_results(@publication.places) %>"
-      data-track-label="<%= track_label_for_place_results(@publication.places) %>">
-      <% if @publication.places.any? %>
+      data-track-category="<%= track_category_for_place_results(publication.places) %>"
+      data-track-action="<%= track_action_for_place_results(publication.places) %>"
+      data-track-label="<%= track_label_for_place_results(publication.places) %>">
+      <% if publication.places.any? %>
         <%= render "govuk_publishing_components/components/heading", {
           text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
           margin_bottom: 4,
         } %>
         <ol id="options" class="govuk-list">
-          <%= render partial: option_partial ||= "option", locals: { places: @publication.places } %>
+          <%= render partial: option_partial ||= "option", locals: { places: publication.places } %>
         </ol>
       <% end %>
     </section>
   <% else %>
-    <% if @publication.need_to_know.present? || @publication.more_information.present? %>
+    <% if publication.need_to_know.present? || publication.more_information.present? %>
       <section class="more">
         <div class="further-information">
           <%= render "govuk_publishing_components/components/heading", {
             text: "Further information",
             margin_bottom: 4,
           } %>
-          <% if @publication.need_to_know.present? %>
+          <% if publication.need_to_know.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
-              <%= raw @publication.need_to_know %>
+              <%= raw publication.need_to_know %>
             <% end %>
           <% end %>
-          <% if @publication.more_information.present? %>
+          <% if publication.more_information.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
-              <%= raw @publication.more_information %>
+              <%= raw publication.more_information %>
             <% end %>
           <% end %>
         </div>

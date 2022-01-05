@@ -1,14 +1,14 @@
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: @content_item %>
+    content_item: content_item_hash %>
 
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :government_service,
-    content_item: @content_item %>
+    content_item: content_item_hash %>
 
-  <% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(@publication) %>
-    <% schema = MachineReadable::YamlFaqPageSchemaPresenter.new(@publication) %>
+  <% if MachineReadable::YamlFaqPageSchemaPresenter.configured?(publication) %>
+    <% schema = MachineReadable::YamlFaqPageSchemaPresenter.new(publication) %>
     <% if schema.current? %>
       <script type="application/ld+json">
         <%= raw schema.structured_data.to_json %>
@@ -16,7 +16,7 @@
     <% end %>
   <% end %>
 
-  <% if @publication.variant_slug.present? %>
+  <% if publication.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
   <% end %>
 
@@ -24,8 +24,8 @@
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition
 } do %>
   <%= render 'govuk_publishing_components/components/intervention', { suggestion_text: "Something" } if should_show_sab_intervention? %>
@@ -33,28 +33,28 @@
   <section class="intro">
     <div class="get-started-intro">
       <%= render "govuk_publishing_components/components/govspeak", { } do %>
-        <%= @publication.introductory_paragraph.try(:html_safe) %>
+        <%= publication.introductory_paragraph.try(:html_safe) %>
       <% end %>
     </div>
-    <% if @publication.downtime_message.present? %>
+    <% if publication.downtime_message.present? %>
       <%= render "govuk_publishing_components/components/warning_text", {
-        text: sanitize(@publication.downtime_message)
+        text: sanitize(publication.downtime_message)
       } %>
     <% end %>
     <p id="get-started" class="get-started group">
       <%
         data_attributes = {}
-        if @publication.department_analytics_profile.present?
+        if publication.department_analytics_profile.present?
           data_attributes["module"] =  "cross-domain-tracking"
-          data_attributes["tracking-code"] = @publication.department_analytics_profile
+          data_attributes["tracking-code"] = publication.department_analytics_profile
           data_attributes["tracking-name"] = "transactionTracker"
         end
       %>
-      <% info_text = "#{t('formats.transaction.on')} #{@publication.will_continue_on}" if @publication.will_continue_on.present? %>
+      <% info_text = "#{t('formats.transaction.on')} #{publication.will_continue_on}" if publication.will_continue_on.present? %>
       <%= render "govuk_publishing_components/components/button",
-                  text: @publication.start_button_text.html_safe,
+                  text: publication.start_button_text.html_safe,
                   rel: "external",
-                  href: @publication.transaction_start_link,
+                  href: publication.transaction_start_link,
                   start: true,
                   info_text: info_text,
                   margin_bottom: true,
@@ -63,10 +63,10 @@
   </section>
 
   <section class="more">
-    <%- if @publication.multiple_more_information_sections? -%>
-      <%= render :partial => 'additional_information_tabbed', :locals => {:transaction => @publication } %>
+    <%- if publication.multiple_more_information_sections? -%>
+      <%= render :partial => 'additional_information_tabbed', :locals => {:transaction => publication } %>
     <%- else -%>
-      <%= render :partial => 'additional_information_single', :locals => {:transaction => @publication } %>
+      <%= render :partial => 'additional_information_single', :locals => {:transaction => publication } %>
     <%- end -%>
   </section>
 <% end %>

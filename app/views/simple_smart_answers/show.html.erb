@@ -1,25 +1,25 @@
 <% content_for :extra_headers do %>
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
-    content_item: @content_item %>
+    content_item: content_item_hash %>
 <% end %>
 
 <%= render layout: "shared/base_page", locals: {
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition
 } do %>
   <div class="intro">
     <%= render "govuk_publishing_components/components/govspeak" do %>
-      <%= raw @publication.body %>
+      <%= raw publication.body %>
     <% end %>
     <p class="get-started">
       <%= render "govuk_publishing_components/components/button",
-        text: @publication.start_button_text.html_safe,
+        text: publication.start_button_text.html_safe,
         rel: "nofollow",
         start: true,
         margin_bottom: true,
-        href: smart_answer_flow_path(slug: @publication.slug, edition: @edition)
+        href: smart_answer_flow_path(slug: publication.slug, edition: @edition)
       %>
     </p>
   </div>

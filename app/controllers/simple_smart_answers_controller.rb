@@ -1,16 +1,13 @@
 require "simple_smart_answers/flow"
 
-class SimpleSmartAnswersController < ApplicationController
-  include Navigable
-
-  before_action :set_expiry
-  before_action -> { set_content_item(SimpleSmartAnswerPresenter) }
+class SimpleSmartAnswersController < ContentItemsController
+  include Cacheable
 
   def show; end
 
   def flow
     responses = params[:responses].to_s.split("/")
-    @flow = SimpleSmartAnswers::Flow.new(@publication.nodes)
+    @flow = SimpleSmartAnswers::Flow.new(publication.nodes)
     @flow_state = @flow.state_for_responses(responses)
 
     if params[:response] && !@flow_state.error?
@@ -28,9 +25,13 @@ private
     :smart_answer_path_for_responses,
   )
 
+  def publication_class
+    SimpleSmartAnswerPresenter
+  end
+
   def smart_answer_path_for_responses(responses, extra_attrs = {})
     responses_as_string = responses.any? ? responses.map(&:slug).join("/") : nil
-    attrs = { slug: @publication.slug, responses: responses_as_string, edition: params[:edition] }.merge(extra_attrs)
+    attrs = { slug: publication.slug, responses: responses_as_string, edition: params[:edition] }.merge(extra_attrs)
     smart_answer_flow_path attrs
   end
 
@@ -62,7 +63,7 @@ private
     end
 
     title << page_title
-    title << @publication.title
+    title << publication.title
     title << "GOV.UK"
 
     title.join(" - ")

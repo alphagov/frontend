@@ -1,7 +1,6 @@
-class PlaceController < ApplicationController
+class PlaceController < ContentItemsController
   include Previewable
   include Cacheable
-  include Navigable
 
   helper_method :postcode_provided?, :postcode
 
@@ -11,21 +10,21 @@ class PlaceController < ApplicationController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
-    set_content_item(PlacePresenter)
-
-    if request.post?
-      @location_error = location_error
-      if @location_error
-        @postcode = postcode
-      elsif imminence_response.places_found?
-        @publication = PlacePresenter.new(content_item, imminence_response.places)
-      end
-    end
-
+    @location_error = location_error
     render :show, locals: locals
   end
 
 private
+
+  helper_method :location_error
+
+  def publication
+    @publication ||= if request.post? && imminence_response.places_found?
+                       PlacePresenter.new(content_item_hash, imminence_response.places)
+                     else
+                       PlacePresenter.new(content_item_hash)
+                     end
+  end
 
   def locals
     if params[:slug] == REPORT_CHILD_ABUSE_SLUG
@@ -58,7 +57,7 @@ private
   def places_from_imminence
     if postcode.present?
       begin
-        places = Frontend.imminence_api.places_for_postcode(@publication.place_type, postcode, Frontend::IMMINENCE_QUERY_LIMIT)
+        places = Frontend.imminence_api.places_for_postcode(content_item_hash["details"]["place_type"], postcode, Frontend::IMMINENCE_QUERY_LIMIT)
       rescue GdsApi::HTTPErrorResponse => e
         error = e
       end

@@ -14,7 +14,7 @@
   <%= render "govuk_publishing_components/components/radio", {
     description: description,
     error_message: error_message,
-    heading_caption: @publication.title,
+    heading_caption: publication.title,
     heading_size: "l",
     heading: "#{@flow_state.current_question_number}. #{question.title}",
     heading_level: 1,

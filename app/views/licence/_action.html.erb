@@ -1,16 +1,16 @@
 <%= render "govuk_publishing_components/components/heading", text: "How to #{action}", margin_bottom: 4 %>
 
-<% if @licence_details.authority["actions"][action].size > 1 %>
+<% if licence_details.authority["actions"][action].size > 1 %>
   <p class="govuk-body">There is more than one online form available for this licence:</p>
 
   <ol class="govuk-list govuk-list--number">
-    <% @licence_details.authority["actions"][action].each_with_index do |link, i| %>
+    <% licence_details.authority["actions"][action].each_with_index do |link, i| %>
       <li><%= link_to link['description'], "#form-#{i+1}", class: "govuk-link" %></li>
     <% end %>
   </ol>
 <% end %>
 
-<% @licence_details.authority["actions"][action].each_with_index do |link, i| %>
+<% licence_details.authority["actions"][action].each_with_index do |link, i| %>
   <section>
     <h2 class="govuk-heading-l"><a class="govuk-link" id="form-<%= i+1 %>"></a><%= i+1 %>. <%= link['description'] %></h2>
 

@@ -1,11 +1,9 @@
-class LocalTransactionController < ApplicationController
+class LocalTransactionController < ContentItemsController
   include ActionView::Helpers::TextHelper
   include Cacheable
-  include Navigable
   include SabPagesTestable
 
-  before_action -> { set_content_item(LocalTransactionPresenter) }
-  before_action -> { response.headers["X-Frame-Options"] = "DENY" }
+  before_action :deny_framing
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
@@ -36,9 +34,9 @@ class LocalTransactionController < ApplicationController
     @local_authority = LocalAuthorityPresenter.new(@interaction_details["local_authority"])
     @country_name = @local_authority.country_name
 
-    if @publication.unavailable?(@country_name)
+    if publication.unavailable?(@country_name)
       render :unavailable_service
-    elsif @publication.devolved_administration_service?(@country_name)
+    elsif publication.devolved_administration_service?(@country_name)
       render :devolved_administration_service
     else
       render :results
@@ -47,12 +45,16 @@ class LocalTransactionController < ApplicationController
 
 private
 
+  def publication_class
+    LocalTransactionPresenter
+  end
+
   def local_authority_slug
-    @local_authority_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item)
+    @local_authority_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item_hash)
   end
 
   def country_name
-    @country_name ||= LocalTransactionLocationIdentifier.find_country(mapit_response.location.areas, content_item)
+    @country_name ||= LocalTransactionLocationIdentifier.find_country(mapit_response.location.areas, content_item_hash)
   end
 
   def location_error
@@ -87,11 +89,11 @@ private
   end
 
   def lgsl
-    content_item["details"]["lgsl_code"]
+    content_item_hash["details"]["lgsl_code"]
   end
 
   def lgil
-    content_item["details"]["lgil_code"] || content_item["details"]["lgil_override"]
+    content_item_hash["details"]["lgil_code"] || content_item_hash["details"]["lgil_override"]
   end
 
   def interaction_details

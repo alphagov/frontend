@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
 
       redirect_to GovukPersonalisation::Redirect.build_url(
         new_govuk_session_first_time_path,
-        { _ga: params[:_ga], cookie_consent: cookie_consent, redirect_path: params[:redirect_path] }.compact,
+        { _ga: params[:_ga], cookie_consent: cookie_consent, redirect_path: callback["redirect_path"] }.compact,
       )
     else
       do_login(

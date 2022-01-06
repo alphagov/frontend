@@ -119,6 +119,7 @@ class SessionsControllerTest < ActionController::TestCase
       context "account-api returns a nil :cookie_consent" do
         setup do
           @cookie_consent = nil
+          @redirect_path = "/bank-holiday"
           stub_account_api
         end
 
@@ -128,17 +129,19 @@ class SessionsControllerTest < ActionController::TestCase
           assert_equal @response.headers["GOVUK-Account-Session"], "!#{@govuk_account_session}"
         end
 
-        should "redirect to the consent form" do
+        should "redirect to the consent form, passing along the original redirect_path" do
           get :callback, params: { code: "code123", state: "state123" }
 
           assert_response :redirect
           assert_includes @response.redirect_url, "/sign-in/first-time"
+          assert_includes @response.redirect_url, "redirect_path=#{@redirect_path}"
         end
       end
 
       context "account-api returns a nil :feedback_consent" do
         setup do
           @feedback_consent = nil
+          @redirect_path = "/bank-holiday"
           stub_account_api
         end
 
@@ -148,11 +151,12 @@ class SessionsControllerTest < ActionController::TestCase
           assert_equal @response.headers["GOVUK-Account-Session"], "!#{@govuk_account_session}"
         end
 
-        should "render the consent form" do
+        should "render the consent form, passing along the original redirect_path" do
           get :callback, params: { code: "code123", state: "state123" }
 
           assert_response :redirect
           assert_includes @response.redirect_url, "/sign-in/first-time"
+          assert_includes @response.redirect_url, "redirect_path=#{@redirect_path}"
         end
       end
     end

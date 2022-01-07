@@ -35,6 +35,7 @@ group :development, :test do
   gem "jasmine_selenium_runner"
   gem "pact", require: false
   gem "pact_broker-client"
+  gem "percy-capybara"
   gem "pry-byebug"
   gem "rails_translation_manager"
   gem "rubocop-govuk"

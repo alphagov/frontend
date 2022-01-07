@@ -9,6 +9,7 @@ class HomepageTest < ActionDispatch::IntegrationTest
     visit "/"
     assert_equal 200, page.status_code
     assert_equal "Welcome to GOV.UK", page.title
+    page.percy_snapshot("Capybara snapshot")
   end
 
   context "when visiting a Welsh content item first" do

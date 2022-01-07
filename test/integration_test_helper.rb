@@ -1,6 +1,7 @@
 require "test_helper"
 require "capybara/rails"
 require "support/govuk_test"
+require "percy/capybara"
 
 require "slimmer/test"
 

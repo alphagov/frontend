@@ -249,6 +249,8 @@ GEM
     parser (3.0.3.2)
       ast (~> 2.4.1)
     parslet (2.0.0)
+    percy-capybara (5.0.0)
+      capybara (>= 3)
     phantomjs (2.1.1.0)
     plek (4.0.0)
     pry (0.13.1)
@@ -470,6 +472,7 @@ DEPENDENCIES
   mocha
   pact
   pact_broker-client
+  percy-capybara
   plek
   pry-byebug
   rack_strip_client_ip

@@ -148,7 +148,7 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_includes @response.redirect_url, "/sign-in/first-time"
-          assert_includes @response.redirect_url, "redirect_path=#{@redirect_path}"
+          assert_includes @response.redirect_url, "redirect_path=#{CGI.escape(@redirect_path)}"
         end
       end
 
@@ -170,7 +170,7 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_includes @response.redirect_url, "/sign-in/first-time"
-          assert_includes @response.redirect_url, "redirect_path=#{@redirect_path}"
+          assert_includes @response.redirect_url, "redirect_path=#{CGI.escape(@redirect_path)}"
         end
       end
     end

@@ -4,7 +4,7 @@ on:
       - main
 
 jobs:
-  visual-regression-test-components:
+  visual-regression-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

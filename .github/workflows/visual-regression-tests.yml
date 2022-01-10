@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12"
-This conversation was marked as resolved by injms
 - name: Get Yarn cache directory path
   id: yarn-cache-directory-path
   run: echo "::set-output name=dir::$(yarn cache dir)"

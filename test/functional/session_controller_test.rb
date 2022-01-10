@@ -114,6 +114,20 @@ class SessionsControllerTest < ActionController::TestCase
           assert_response :redirect
           assert_includes @response.redirect_url, @redirect_path
         end
+
+        context "the redirect path has a querystring" do
+          setup do
+            @redirect_path = "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
+            stub_account_api
+          end
+
+          should "preserve the querystring" do
+            get :callback, params: { code: "code123", state: "state123" }
+
+            assert_response :redirect
+            assert_includes @response.redirect_url, @redirect_path
+          end
+        end
       end
 
       context "account-api returns a nil :cookie_consent" do
@@ -134,7 +148,7 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_includes @response.redirect_url, "/sign-in/first-time"
-          assert_includes @response.redirect_url, "redirect_path=#{@redirect_path}"
+          assert_includes @response.redirect_url, "redirect_path=#{CGI.escape(@redirect_path)}"
         end
       end
 
@@ -156,7 +170,7 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_includes @response.redirect_url, "/sign-in/first-time"
-          assert_includes @response.redirect_url, "redirect_path=#{@redirect_path}"
+          assert_includes @response.redirect_url, "redirect_path=#{CGI.escape(@redirect_path)}"
         end
       end
     end
@@ -191,6 +205,23 @@ class SessionsControllerTest < ActionController::TestCase
         assert_response :redirect
         assert_includes @response.redirect_url, "/account/home?cookie_consent=accept"
         assert_equal @response.headers["GOVUK-Account-Session"], "bar"
+      end
+
+      should "preserve a querystring in the redirect path" do
+        stub_account_api_set_attributes(
+          attributes: {
+            cookie_consent: true,
+            feedback_consent: true,
+          },
+          govuk_account_session: "foo",
+          new_govuk_account_session: "bar",
+        )
+
+        redirect_path = "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
+        get :first_time_post, params: { redirect_path: redirect_path, cookie_consent: "yes", feedback_consent: "yes" }
+
+        assert_response :redirect
+        assert_includes @response.redirect_url, "#{redirect_path}&cookie_consent=accept"
       end
 
       should "return a 400 error if the :redirect_path is invalid" do

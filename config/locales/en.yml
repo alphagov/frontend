@@ -369,26 +369,26 @@ en:
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:
-          - title: Find a job
-            link: /find-a-job
-          - title: Log in to student finance
-            link: /student-finance-register-login
-          - title: Passport fees
-            link: /passport-fees
-          - title: Jobseeker's Allowance
-            link: /jobseekers-allowance
-          - title: Council Tax bands
-            link: /council-tax-bands
-          - title: Running a limited company
-            link: /running-a-limited-company
-          - title: Driving theory test
-            link: /book-theory-test
-          - title: Vehicle tax rates
-            link: /calculate-tax-rates-for-new-cars
-          - title: Renew vehicle tax
+          - title: "HMRC services: sign in"
+            link: /log-in-register-hmrc-online-services
+          - title: Check MOT history of a vehicle
+            link: /check-mot-history
+          - title: Tax your vehicle
             link: /vehicle-tax
-          - title: VAT rates
-            link: /vat-rates
+          - title: Universal Credit
+            link: /universal-credit
+          - title: Foreign travel advice
+            link: /foreign-travel-advice
+          - title: Check your State Pension age
+            link: /state-pension-age
+          - title: "Childcare account: sign in"
+            link: /sign-in-childcare-account
+          - title: "Student finance: sign in"
+            link: /student-finance-register-login
+          - title: Self Assessment tax returns
+            link: /self-assessment-tax-returns
+          - title: Apply for a passport
+            link: /apply-renew-passport
       other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
       popular: Popular on GOV.UK

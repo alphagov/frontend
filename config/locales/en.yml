@@ -444,129 +444,119 @@ en:
     actions_section:
       heading: What we’re working on
       items:
-      - heading: Always be available, accessible and accurate
+      - heading: Be available, accessible and accurate
         paragraph: Improve site resilience, security, navigation and publishing
         steps:
         - heading: Recently shipped
           items:
           - text: Made continuous updates and improvements to the most used content on GOV.UK
-          - text: Updated all guidance affected by Brexit
-          - text: Updated all the content affected by the 2021 to 2022 financial year rate changes
-          - text: Tested running GOV.UK on a different type of hosting platform, to identify and resolve areas of highest risk
-          - text: Launched a <a href="https://design-system.service.gov.uk/components/cookie-banner/" class="govuk-link">new cookie banner</a>, and added it to the Design System component library
+          - text: <a href="https://insidegovuk.blog.gov.uk/2021/11/11/launching-gov-uks-new-menu-bar/" class="govuk-link">Launched a new menu bar</a> to appear at the top of all GOV.UK pages, which structures pages by topic, department and government activity
+          - text: Improved translations of page labels and headings on non-English language pages
+          - text: Improved the way we manage subdomains of GOV.UK for the rest of government
+          - text: Completed cookies work, including guidance for other government departments
+          - text: Built and tested <a href="https://insidegovuk.blog.gov.uk/2021/12/13/updating-the-gov-uk-homepage/" class="govuk-link">updates to the design of the GOV.UK homepage</a>
         - heading: Working on now
           items:
-          - text: Find efficiencies in how we manage the most used content on GOV.UK
-          - text: Create the Alpha designs for the new GOV.UK navigation system and launch new site-wide navigation
-          - text: Set up regular accessibility audits and make necessary changes
-          - text: Improve translations of page labels and headings on non-English language pages
-          - text: Ongoing cookies work
-          - text: Improve the way we manage subdomains of GOV.UK for the rest of government
-          - text: Reduce the risk of disrupting teams when moving GOV.UK applications to a different type of hosting platform
+          - text: Update the most used content on GOV.UK, such as <a href="https://insidegovuk.blog.gov.uk/2021/07/14/a-team-effort-pair-writing-the-new-skilled-worker-visa-guidance-with-home-office-policy-experts/" class="govuk-link">guidance on visas</a>, immigration, benefits, tax and the environment
+          - text: Iterate our postcode lookup tool, to improve how we provide content that’s different based on the user’s location (for example, contact details for local councils)
+          - text: Run the annual accessibility audit and make necessary changes
+          - text: Test a new hosting platform for GOV.UK applications with GOV.UK developers who will be affected by the move
+          - text: Improve our site-wide monitoring and alerts so we spot problems faster
+          - text: Start work on new publishing tools and processes to help government departments create and manage content more effectively
+          - text: Identify new ways of working to help us manage the most used content on GOV.UK more efficiently
         - heading: Exploring
           items:
-          - text: Update the most used content on GOV.UK, such as guidance on visas, immigration, benefits, tax and the environment
           - text: Test designs for improving our taxonomy to simplify the navigation system
-          - text: Design and test a new design for the GOV.UK homepage
-          - text: Improve our site-wide monitoring and alerts so we spot problems more quickly and can deal with high numbers of visitors
-          - text: Identify applications that can be retired to reduce the support burden and make future enhancements quicker and easier
-          - text: Improve how we provide content based on postcodes provided by users
-          - text: Run a discovery on the future development of GOV.UK publishing applications
+          - text: Identify applications that can be retired to reduce the support burden and make future enhancements to GOV.UK quicker and easier
+          - text: Test the new design for topic pages including mainstream browse (for example <a href="https://www.gov.uk/browse/benefits" class="govuk-link">benefits</a>)
+          - text: Design and test improvements to content page navigation including related links and breadcrumbs
       - heading: Support the government’s priorities of the day
         paragraph: Communicate critical, changing information, and support government’s goal to make complex tasks easier
         steps:
         - heading: Recently shipped
           items:
-          - text: Made continuous updates to the <a href="/coronavirus" class="govuk-link">coronavirus landing page</a> and tools to help users find guidance, services and government support for coronavirus
-          - text: Updated Brexit guidance and tools to help users find and prepare for the new 2021 rules
-          - text: 'Launched the <a href="/travel-abroad" class="govuk-link">travel abroad step by step</a>: helping users plan travel according to Brexit and coronavirus rules'
-          - text: Built prototypes to simplify and join up the steps involved in starting a business
+          - text: Added a new feature which allows users in devolved nations to see information specific to their location on the <a href="https://www.gov.uk/coronavirus" class="govuk-link">coronavirus landing page</a>
+          - text: Highlighted live coronavirus statistics in a new feature on the <a href="https://www.gov.uk/coronavirus" class="govuk-link">coronavirus landing page</a>
+          - text: Simplified the <a href="https://www.gov.uk/brexit" class="govuk-link">Brexit landing page</a>, adding clear signposting for <a href="https://www.gov.uk/guidance/brexit-guidance-for-businesses" class="govuk-link">business</a> and <a href="https://www.gov.uk/guidance/brexit-guidance-for-individuals-and-families" class="govuk-link">individual users</a>
+          - text: Worked with departments to improve post-Brexit content on Rules of Origin and the Northern Ireland Protocol
+          - text: Built a tool that shows new business owners the <a href="https://www.gov.uk/next-steps-for-your-business" class="govuk-link">next steps in setting up their company</a>, all in one place
+          - text: Retired the Brexit checker in order to simplify user journeys to specific post-Brexit actions
         - heading: Working on now
           items:
-          - text: Continue iterating coronavirus guidance and products to meet the evolving user needs and support the government response
-          - text: Help users understand coronavirus data and the easing of lockdown restrictions
-          - text: Improve user journeys to coronavirus testing and vaccination services
-          - text: Continue updating the <a href="/brexit" class="govuk-link">Brexit landing page</a> and checker tool
-          - text: Build a tool that shows new business owners the next steps in setting up their company, all in one place
-          - text: Iterate guidance on international travel to help users navigate the new rules
+          - text: Continue iterating coronavirus guidance and products so that they reflect government policy and encourage people to protect themselves and others from coronavirus
+          - text: Improve user journeys to NHS coronavirus services and information
+          - text: Investigate content navigation tools to help users find and stay up to date with the latest travel rules
         - heading: Exploring
           items:
-          - text: How GOV.UK can support the UK's recovery from coronavirus through more responsive and joined-up guidance and services
-          - text: Improve post-Brexit content and navigation, such as for borders and trade
-          - text: Use the 'starting a business' work as a model for simplifying other complex, whole user journeys
-          - text: Test a prototype business hub page for different types and stages of business
-      - heading: Connect insights across GOV.UK to enable joined-up service delivery
-        paragraph: Analyse trends and patterns across whole journeys to help improve user experience
+          - text: Identify which complex user journeys we'll work on next, and define how we’ll work with multiple departments to improve them
+      - heading: Improve and connect data and insights to optimise user experience
+        paragraph: Understand our users and their needs by analysing trends, patterns and feedback
         steps:
         - heading: Recently shipped
           items:
-          - text: Expanded and automated our data reporting, including for coronavirus and Brexit content insights
+          - text: Polled a representative sample of the UK population to understand their perception of GOV.UK and inform future developments
         - heading: Working on now
           items:
-          - text: Build tools to create anonymous data visualisations so it's easier to analyse how users interact with digital government services
-          - text: Make anonymous reports that show how users move across platforms and services, so we can improve their experience
-          - text: Get a better understanding of cookie opt-in rates, so we have a more accurate idea of actual visitor trends
+          - text: Build tools to create data visualisations so it's easier to analyse how users interact with digital government services
+          - text: Analyse how users move across platforms and services, to improve their experience of ‘whole user journeys’
+          - text: Simplify <a href="https://insidegovuk.blog.gov.uk/2021/08/16/working-with-user-feedback-during-covid-19/" class="govuk-link">how feedback is analysed and gathered</a>, so we can better measure our impact and identify issues
         - heading: Exploring
           items:
-          - text: Find more ways to automate analysis so government can identify and respond to trends more quickly
-          - text: Experiment with audience analysis across sections of GOV.UK to understand page usage vs reading time to support product and content iteration
-          - text: Simplify how feedback is analysed and gathered, so we can better measure our impact and identify issues
-      - heading: Provide a personalised and proactive service
-        paragraph: Develop site-wide account features that offer users relevant information and more helpful notifications
+          - text: Find more ways to automate feedback analysis, so government can identify and respond to user problems and suggestions faster
+          - text: Experiment with different metrics, such as reading time, to develop benchmarks we can measure user engagement against
+          - text: Improve our understanding of cookie opt-in rates, so we have a more accurate idea of actual visitor trends
+      - heading: Ensure user journeys are simple, joined up and personalised
+        paragraph: Develop site-wide account and personalisation features to offer users relevant and helpful information
         steps:
         - heading: Recently shipped
           items:
-          - text: Defined different types of personalisation and how they relate to GOV.UK
-          - text: Worked with users to find out what they want from an account on GOV.UK
-          - text: Reviewed how users interacted with the new account functionality on the <a href="/transition-check/questions" class="govuk-link">Brexit checker</a>
+          - text: Tested a mockup user journey in the GOV.UK account, to see whether users would be comfortable with their information being shared between government departments
+          - text: Suggested relevant content to users looking at similar pages around starting a business
+          - text: Experimented with a <a href="https://www.gov.uk/sign-in" class="govuk-link">page that routes users to different government accounts</a>, to avoid confusion as we add more features to the GOV.UK account
         - heading: Working on now
           items:
-          - text: Experiment with showing users guidance based on what they tell us through accounts on GOV.UK, thereby making GOV.UK content more relevant to them
-          - text: Add more detailed metadata to GOV.UK pages so it’s easier to categorise them, find things, and show more relevant content
-          - text: Pilot features that could be part of site-wide accounts on GOV.UK, such as 'save a page' and setting a location
-        - heading: Exploring
-          items:
-          - text: Analyse common page-by-page routes through GOV.UK, to show users more relevant content
-          - text: Look at tools and techniques we could use to categorise user types (without accounts)
-          - text: Test using anonymised browsing data to suggest relevant next steps (e.g. if registering for a passport, we could suggest travel guidance)
-          - text: Review publishing applications to make sure they support personalised content
-          - text: Find out where an account on GOV.UK could be useful for other government services
+          - text: Allow users to more precisely tailor GOV.UK email updates, by letting them subscribe to individual pages on GOV.UK
+          - text: Pilot features that could be part of sitewide accounts on GOV.UK, such as personalised content and notifications
+          - text: Work with service teams across government to research and prototype ways the GOV.UK account can join up multiple-service journeys
           - text: Think about how to <a href="https://gds.blog.gov.uk/2020/11/05/new-approaches-to-gov-uk-content/?utm_medium=referral%20&utm_source=roadmap_gov&utm_campaign=roadmap_update" class="govuk-link">tag and categorise content segments</a> to support personalisation work
-          - text: Expand accounts on GOV.UK across the full website
-      - heading: Be channel agnostic
-        paragraph: Make GOV.UK's content available where the user is, such as search engines and voice assistants
+        - heading: Exploring
+          items:
+          - text: Look at ways users could manage different profiles (for example business and personal) within their single GOV.UK account
+      - heading: Meet users where they are
+        paragraph: Make GOV.UK's content available across different channels, such as search engines and voice assistants
         steps:
         - heading: Recently shipped
           items:
-          - text: Made use of schema.org standards to integrate local election content and services into search engine results
+          - text: Made use of schema.org standards to integrate content and services into search engine results
         - heading: Working on now
           items:
-          - text: Continue work to use <a href="https://dataingovernment.blog.gov.uk/2020/04/30/using-new-updates-to-schema-org-to-assist-our-response-to-the-coronavirus-pandemic/?utm_medium=referral%20&utm_source=roadmap_gov&utm_campaign=roadmap_update" class="govuk-link">schema.org standards on GOV.UK</a>
+          - text: Continue work to <a href="https://dataingovernment.blog.gov.uk/2020/04/30/using-new-updates-to-schema-org-to-assist-our-response-to-the-coronavirus-pandemic/" class="govuk-link">use schema.org standards on GOV.UK</a>
+          - text: Structure content into small sections so it can be re-used across GOV.UK and other channels
+          - text: Develop our publishing applications so we’re able to create structured content that can be used on other channels
         - heading: Exploring
           items:
           - text: Work with multiple third parties to test integrations of GOV.UK content and products where users are
-          - text: Structure content into small sections so it can be re-used across GOV.UK and other channels
-          - text: Develop our publishing applications so we’re able to create structured content that can be used on other channels
+          - text: Through a discovery, research how app technologies could help users by offering more proactive and personalised government services
     hero:
-      description: GOV.UK is the trusted source of government information, so we’re always working to better meet user needs. This is our current roadmap, which takes us through to late 2021.
+      description: GOV.UK is the digital home for the UK government. It’s run by the Government Digital Service (GDS), and we’re always working to better meet user needs. This is our current roadmap, which takes us through to early 2022.
       heading: GOV.UK roadmap
     numbers_section:
       footnote: We can only count visits to the GOV.UK website if users give us permission to.
       heading_large: GOV.UK in numbers
-      heading_small: From 1 January 2021 to 30 April 2021
-      last_updated: 'Last updated: May 2021'
+      heading_small: From 1 January 2021 to 31 December 2021
+      last_updated: 'Last updated: January 2022'
       numbers_columns:
-        column_one_count: 603
-        column_one_text: million visits
-        column_two_count: 1.5
+        column_one_count: 1.8
+        column_one_text: billion visits
+        column_two_count: 4.1
         column_two_text: billion page views
     page_title: Roadmap - GOV.UK
     updates_section:
-      heading: Programme updates
+      heading: Updates
       items:
-      - href: https://gds.blog.gov.uk/2021/03/29/whats-next-for-gov-uk-in-2021-to-2022/
+      - href: https://gds.blog.gov.uk/2021/05/20/government-digital-service-our-strategy-for-2021-2024/
         image_src: roadmap/updates-goals.jpg
-        heading_text: Our 5 objectives
+        heading_text: Our vision
       - href: https://gdscareers.gov.uk/
         image_src: roadmap/updates-work.jpg
         heading_text: Work at GDS

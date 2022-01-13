@@ -229,12 +229,6 @@
   padding: 0;
 }
 
-.homepage-big-number__wrapper {
-  &:nth-child(1) {
-    margin-bottom: govuk-spacing(6);
-  }
-}
-
 .homepage-search {
   @include govuk-media-query($until: "tablet") {
     max-width: 420px;

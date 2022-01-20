@@ -5,7 +5,7 @@ class SessionsControllerTest < ActionController::TestCase
   include GdsApi::TestHelpers::AccountApi
   include GovukPersonalisation::TestHelpers::Requests
 
-  context "GET /sign-in/redirect" do
+  context "GET /account" do
     setup do
       stub_account_api_get_sign_in_url
     end

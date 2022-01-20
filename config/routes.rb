@@ -25,13 +25,14 @@ Rails.application.routes.draw do
 
   # Accounts
   get "/sign-in", to: "help#sign_in"
-  get "/sign-in/redirect", to: "sessions#create", as: :new_govuk_session
+  get "/sign-in/redirect", to: "sessions#create"
   get "/sign-in/callback", to: "sessions#callback", as: :new_govuk_session_callback
   get "/sign-in/first-time", to: "sessions#first_time", as: :new_govuk_session_first_time
   post "/sign-in/first-time", to: "sessions#first_time_post"
   get "/sign-out", to: "sessions#delete", as: :end_govuk_session
 
   scope "/account" do
+    get "/", to: "sessions#create", as: :new_govuk_session
     get "/home", to: "account_home#show", as: :account_home
     get "/cookies-and-feedback", to: "account_cookies_and_feedback#show", as: :account_cookies_and_feedback
     post "/cookies-and-feedback", to: "account_cookies_and_feedback#update"

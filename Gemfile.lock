@@ -104,7 +104,7 @@ GEM
     execjs (2.8.1)
     expgen (0.1.1)
       parslet
-    faraday (2.0.1)
+    faraday (2.1.0)
       faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.1)
@@ -132,7 +132,7 @@ GEM
     govuk_personalisation (0.11.0)
       plek (>= 1.9.0)
       rails (~> 6)
-    govuk_publishing_components (28.2.0)
+    govuk_publishing_components (28.3.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -211,7 +211,7 @@ GEM
     multi_xml (0.6.0)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.13.0)
+    nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     null_logger (0.0.1)
@@ -310,7 +310,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
-    request_store (1.5.0)
+    request_store (1.5.1)
       rack (>= 1.4)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)

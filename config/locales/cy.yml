@@ -26,7 +26,17 @@ cy:
         description:
         heading:
         link_text:
+      emails:
+        heading:
+        no_emails_inset:
+        no_emails_description:
+        see_and_manage:
+        manage_emails_link_text:
       heading:
+      about_heading:
+      about_description_html:
+      about_detail_title:
+      about_detail_description_html:
   and: a
   b: B
   bank-holidays: gwyliau-banc
@@ -98,6 +108,7 @@ cy:
     explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur pan fyddwch chi'n ymweld â gwefan yw cwcis.
     explanation_html:
     four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych chi'n hapus i ni eu defnyddio.
+    google:
     google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     google_collection:
     google_share:

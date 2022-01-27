@@ -21,6 +21,11 @@ en:
       heading: Cookie and feedback settings
       success: Your feedback and cookie settings have been changed.
     your_account:
+      account_not_used:
+          action:
+          description:
+          heading:
+          link_text:
       emails:
         heading: Your GOV.UK email subscriptions
         no_emails_inset: You do not currently have any GOV.UK email subscriptions.

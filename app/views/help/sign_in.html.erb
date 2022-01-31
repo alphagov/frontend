@@ -2,15 +2,6 @@
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item_hash["description"] %>">
 <% end %>
-<%= render "govuk_publishing_components/components/breadcrumbs", {
-  breadcrumbs: [
-    {
-      title: "Home",
-      url: "/"
-    }
-  ]
-} %>
-
 <main id="content">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">

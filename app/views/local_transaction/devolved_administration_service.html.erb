@@ -1,6 +1,6 @@
 <%= render layout: "shared/base_page", locals: {
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition,
 } do %>
   <div class="interaction">
@@ -17,7 +17,7 @@
           text: t("formats.local_transaction.find_info_for", country_name: @country_name) ,
           rel: "external",
           margin_bottom: true,
-          href: @publication.devolved_administration_service_alternative_url(@country_name),
+          href: publication.devolved_administration_service_alternative_url(@country_name),
         } %>
       </p>
     </div>

@@ -13,20 +13,20 @@ class CalendarControllerTest < ActionController::TestCase
 
     context "HTML request (no format)" do
       should "load the calendar and show it" do
-        get :calendar, params: { scope: "bank-holidays" }
+        get :show_calendar, params: { scope: "bank-holidays" }
 
         assert_match "Brilliant holidays!", response.body
       end
 
       should "render the template corresponding to the given calendar" do
-        get :calendar, params: { scope: "bank-holidays" }
+        get :show_calendar, params: { scope: "bank-holidays" }
 
         assert_template "bank_holidays"
       end
 
       should "set the expiry headers" do
-        get :calendar, params: { scope: "bank-holidays" }
-        assert_equal "max-age=3600, public", response.headers["Cache-Control"]
+        get :show_calendar, params: { scope: "bank-holidays" }
+        honours_content_store_ttl
       end
     end
 
@@ -35,7 +35,7 @@ class CalendarControllerTest < ActionController::TestCase
         content_item = content_item_for_base_path("/bank-holidays")
         content_item["locale"] = "cy"
         stub_content_store_has_item("/bank-holidays", content_item)
-        get :calendar, params: { scope: "gwyliau-banc", locale: "cy" }
+        get :show_calendar, params: { scope: "gwyliau-banc", locale: "cy" }
         assert_equal :cy, I18n.locale
       end
     end
@@ -44,34 +44,36 @@ class CalendarControllerTest < ActionController::TestCase
       should "load the calendar and return its json representation" do
         Calendar.expects(:find).with("bank-holidays").returns(mock("Calendar", to_json: "json_calendar"))
 
-        get :calendar, params: { scope: "bank-holidays", format: :json }
+        get :show_calendar, params: { scope: "bank-holidays", format: :json }
 
         assert_equal "json_calendar", response.body
       end
 
       should "set the expiry headers" do
-        get :calendar, params: { scope: "bank-holidays", format: :json }
+        get :show_calendar, params: { scope: "bank-holidays", format: :json }
         assert_equal "max-age=3600, public", response.headers["Cache-Control"]
       end
 
       should "set the CORS headers" do
-        get :calendar, params: { scope: "bank-holidays", format: :json }
+        get :show_calendar, params: { scope: "bank-holidays", format: :json }
 
         assert_equal "*", response.headers["Access-Control-Allow-Origin"]
       end
     end
 
     should "404 for a non-existent calendar" do
+      stub_content_store_has_item("/something")
+
       Calendar.stubs(:find).raises(Calendar::CalendarNotFound)
 
-      get :calendar, params: { scope: "something" }
+      get :show_calendar, params: { scope: "something" }
       assert_equal 404, response.status
     end
 
     should "404 without looking up the calendar with an invalid slug format" do
       Calendar.expects(:find).never
 
-      get :calendar, params: { scope: "something..etc-passwd" }
+      get :show_calendar, params: { scope: "something..etc-passwd" }
       assert_equal 404, response.status
     end
 
@@ -79,7 +81,7 @@ class CalendarControllerTest < ActionController::TestCase
       stub_request(:get, "#{Plek.find('content-store')}/content/something-access-limited")
         .to_return(status: 403, headers: {})
 
-      get :calendar, params: { scope: "something-access-limited" }
+      get :show_calendar, params: { scope: "something-access-limited" }
       assert_equal 403, response.status
     end
   end
@@ -132,6 +134,7 @@ class CalendarControllerTest < ActionController::TestCase
     end
 
     should "404 for a non-existent calendar" do
+      stub_content_store_has_item("/something")
       Calendar.stubs(:find).raises(Calendar::CalendarNotFound)
 
       get :division, params: { scope: "something", division: "foo", format: "json" }

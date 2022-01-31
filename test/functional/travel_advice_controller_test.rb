@@ -26,10 +26,10 @@ class TravelAdviceControllerTest < ActionController::TestCase
         assert_template "index"
       end
 
-      should "set cache-control headers to 30 mins" do
+      should "set cache-control headers" do
         get :index
 
-        assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
+        honours_content_store_ttl
       end
 
       context "requesting atom" do

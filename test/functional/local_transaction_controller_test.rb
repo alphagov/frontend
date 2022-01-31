@@ -20,7 +20,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
     get :search, params: { slug: "a-slug" }
-    assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+    honours_content_store_ttl
   end
 
   context "given a local transaction exists in content store" do
@@ -97,7 +97,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
       should "set correct expiry headers" do
         get :search, params: { slug: "send-a-bear-to-your-local-council" }
 
-        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+        honours_content_store_ttl
       end
     end
 

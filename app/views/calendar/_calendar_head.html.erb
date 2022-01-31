@@ -1,14 +1,14 @@
-<% content_for :title, "#{@calendar.title} - GOV.UK" %>
+<% content_for :title, "#{calendar.title} - GOV.UK" %>
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= @calendar.description %>">
+  <meta name="description" content="<%= calendar.description %>">
 
-  <link rel="alternate" type="application/json" href="<%= calendar_path(@calendar, :format => :json) %>" />
-  <% @calendar.divisions.each do |division| %>
-    <link rel="alternate" type="application/json" href="<%= division_path(@calendar, division, :format => :json) %>" />
-    <link rel="alternate" type="text/calendar" href="<%= division_path(@calendar, division, :format => :ics) %>" />
+  <link rel="alternate" type="application/json" href="<%= calendar_path(calendar, :format => :json) %>" />
+  <% calendar.divisions.each do |division| %>
+    <link rel="alternate" type="application/json" href="<%= division_path(calendar, division, :format => :json) %>" />
+    <link rel="alternate" type="text/calendar" href="<%= division_path(calendar, division, :format => :ics) %>" />
   <% end %>
 
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: @content_item %>
+    content_item: content_item_hash %>
 <% end %>

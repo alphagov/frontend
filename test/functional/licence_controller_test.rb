@@ -15,7 +15,7 @@ class LicenceControllerTest < ActionController::TestCase
       should "set the cache expiry headers" do
         get :start, params: { slug: "licence-to-kill" }
 
-        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+        honours_content_store_ttl
       end
     end
   end
@@ -100,7 +100,7 @@ class LicenceControllerTest < ActionController::TestCase
       should "set the cache expiry headers" do
         get :authority, params: { slug: "licence-to-kill", authority_slug: "secret-service" }
 
-        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+        honours_content_store_ttl
       end
     end
   end

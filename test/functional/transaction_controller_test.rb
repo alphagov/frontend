@@ -12,7 +12,7 @@ class TransactionControllerTest < ActionController::TestCase
       should "set the cache expiry headers" do
         get :show, params: { slug: "foo" }
 
-        assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+        honours_content_store_ttl
       end
     end
 
@@ -41,7 +41,7 @@ class TransactionControllerTest < ActionController::TestCase
 
     should "set correct expiry headers" do
       get :show, params: { slug: "jobsearch" }
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      honours_content_store_ttl
     end
   end
 

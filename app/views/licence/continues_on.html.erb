@@ -1,7 +1,7 @@
 <%= render layout: 'shared/base_page', locals: {
   context: "Licence",
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition,
 } do %>
   <article role="article" class="content-block group">
@@ -11,14 +11,14 @@
           <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence", margin_bottom: 4 %>
 
           <p id="get-started" class="get-started group">
-            <% info_text = "#{t('formats.transaction.on')} #{@publication.will_continue_on}" if @publication.will_continue_on.present? %>
+            <% info_text = "#{t('formats.transaction.on')} #{publication.will_continue_on}" if publication.will_continue_on.present? %>
             <%= render "govuk_publishing_components/components/button",
                         text: "Start now",
                         rel: "external",
                         start: true,
                         info_text: info_text,
                         margin_bottom: true,
-                        href: @publication.continuation_link %>
+                        href: publication.continuation_link %>
           </p>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <%= render "govuk_publishing_components/components/heading", text: "Overview", margin_bottom: 4 %>
         <%= render "govuk_publishing_components/components/govspeak", {
         } do %>
-          <%= raw @publication.licence_overview %>
+          <%= raw publication.licence_overview %>
         <% end %>
       </div>
     </div>

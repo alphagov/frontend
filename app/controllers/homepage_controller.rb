@@ -1,5 +1,5 @@
-class HomepageController < ApplicationController
-  before_action :set_expiry
+class HomepageController < ContentItemsController
+  include Cacheable
   slimmer_template "gem_layout_full_width"
 
   def index
@@ -7,7 +7,5 @@ class HomepageController < ApplicationController
       template: "gem_layout_full_width",
       remove_search: true,
     )
-
-    fetch_and_setup_content_item("/")
   end
 end

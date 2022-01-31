@@ -1,8 +1,8 @@
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %> govuk-main-wrapper" <%= @lang_attribute %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", 
-        context: local_assigns[:context], 
+      <%= render "govuk_publishing_components/components/title",
+        context: local_assigns[:context],
         margin_top: 0,
         title: title %>
     </div>
@@ -16,15 +16,15 @@
     </div>
 
     <div class="govuk-grid-column-one-third">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', 
-        content_item: @content_item 
+      <%= render 'govuk_publishing_components/components/contextual_sidebar',
+        content_item: content_item_hash
       %>
     </div>
 
     <% content_for :after_content do %>
     <div class="govuk-grid-column-two-thirds">
-      <%= render 'govuk_publishing_components/components/contextual_footer', 
-        content_item: @content_item 
+      <%= render 'govuk_publishing_components/components/contextual_footer',
+        content_item: content_item_hash
       %>
     </div>
   </div>

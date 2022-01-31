@@ -1,15 +1,15 @@
 <%= render layout: 'shared/base_page', locals: {
-  main_class: ("multi-page" if @licence_details.authority),
+  main_class: ("multi-page" if licence_details.authority),
   context: "Licence",
-  title: @publication.title,
-  publication: @publication,
+  title: publication.title,
+  publication: publication,
   edition: @edition,
 } do %>
   <article role="article" class="group content-block">
     <div class="inner">
-      <% if @licence_details.present? %>
+      <% if licence_details.present? %>
         <div class="intro">
-        <% if @licence_details.local_authority_specific? %>
+        <% if licence_details.local_authority_specific? %>
           <div class="get-started-intro">
             <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence" %>
             <%= render partial: 'location_form',
@@ -23,9 +23,9 @@
           <% # TODO: replace this with the radio component %>
           <p class="govuk-body">Please choose an authority to apply for the licence from.</p>
           <p class="govuk-body">The authority you select will not affect the type of licence you apply for.</p>
-          <%= form_tag @publication.slug, method: 'get' do %>
+          <%= form_tag publication.slug, method: 'get' do %>
             <ul class="govuk-list govuk-list--bullet">
-              <% @licence_details.authorities.each do |authority| %>
+              <% licence_details.authorities.each do |authority| %>
                 <li><%= radio_button :authority, :slug, authority['slug'] %><%= label :authority, :slug, authority['name'], :value => authority['slug'] %></li>
               <% end %>
             </ul>
@@ -43,7 +43,7 @@
         <%= render "govuk_publishing_components/components/heading", text: "Overview", margin_bottom: 4 %>
         <%= render "govuk_publishing_components/components/govspeak", {
         } do %>
-          <%= raw @publication.licence_overview %>
+          <%= raw publication.licence_overview %>
         <% end %>
       </div>
     </div>

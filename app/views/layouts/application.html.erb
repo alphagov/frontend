@@ -6,8 +6,8 @@
       page_title = yield :title
       if page_title.present?
         page_title
-      elsif @publication
-        page_title(@publication)
+      elsif publication
+        page_title(publication)
       else
         "GOV.UK"
       end
@@ -22,26 +22,27 @@
     <%= javascript_include_tag 'application.js', integrity: false %>
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
-    <% if @content_item %>
-      <%= render 'govuk_publishing_components/components/meta_tags', content_item: @content_item %>
-    <% end %>
-    <% if @meta_section %>
-      <meta name="govuk:section" content="<%= @meta_section %>">
+    <% if content_item_hash %>
+      <%= render 'govuk_publishing_components/components/meta_tags', content_item: content_item_hash %>
+      <%# TODO: use content_item.meta_content %>
+      <% if meta_section(content_item_hash).present? %>
+        <meta name="govuk:section" content="<%= meta_section(content_item_hash) %>">
+      <% end %>
     <% end %>
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">
-    <div id="wrapper" class="<%= wrapper_class(@publication || @presenter) %>">
+    <div id="wrapper" class="<%= wrapper_class(publication || @presenter) %>">
       <% if @is_account && local_assigns %>
         <main id="content">
           <%= yield %>
         </main>
       <% else %>
-        <% if @publication && @publication.in_beta %>
+        <% if publication && publication.in_beta %>
           <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
         <% end %>
-        <% unless current_page?(root_path) || !(@publication || @calendar) %>
-          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: @content_item %>
+        <% unless current_page?(root_path) || !(publication || @calendar) %>
+          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
         <% end %>
         <% if local_assigns %>
           <%= yield %>

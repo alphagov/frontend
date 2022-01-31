@@ -1,10 +1,10 @@
-class TravelAdviceController < ApplicationController
+class TravelAdviceController < ContentItemsController
+  include Cacheable
+
   FOREIGN_TRAVEL_ADVICE_SLUG = "foreign-travel-advice".freeze
 
   def index
-    set_expiry
-    fetch_and_setup_content_item("/#{FOREIGN_TRAVEL_ADVICE_SLUG}")
-    @presenter = TravelAdviceIndexPresenter.new(@content_item)
+    @presenter = TravelAdviceIndexPresenter.new(content_item_hash)
 
     respond_to do |format|
       format.html do
@@ -15,5 +15,15 @@ class TravelAdviceController < ApplicationController
         headers["Access-Control-Allow-Origin"] = "*"
       end
     end
+  end
+
+private
+
+  # TODO: Controllers should provide a presenter or a publication.
+  # These objects duplicate roles (see `presenter || @publication`) in views.
+  def publication; end
+
+  def content_item_slug
+    "/#{FOREIGN_TRAVEL_ADVICE_SLUG}"
   end
 end

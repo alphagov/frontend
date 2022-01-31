@@ -9,7 +9,7 @@ class RoadmapControllerTest < ActionController::TestCase
     should "set the cache expiry headers" do
       get :index
 
-      assert_equal "max-age=1800, public", response.headers["Cache-Control"]
+      assert_equal "max-age=#{30.minutes.to_i}, public", response.headers["Cache-Control"]
     end
   end
 end

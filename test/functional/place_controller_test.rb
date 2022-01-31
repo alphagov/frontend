@@ -8,21 +8,40 @@ class PlaceControllerTest < ActionController::TestCase
   invalid_postcode = "1234 2AA"
 
   setup do
-    content_store_has_random_item(base_path: "/passport-interview-office", schema: "place")
-    stub_imminence_has_places_for_postcode([], "slug", valid_postcode, 10)
-    stub_imminence_has_places_for_postcode([], "slug", invalid_postcode, 10)
+    content_store_has_random_item(base_path: "/slug", schema: "place", details: { "place_type" => "slug" })
+    stub_imminence_has_places_for_postcode([{
+      "access_notes" => "The London Passport Office is fully accessible to wheelchair users. ",
+      "address1" => nil,
+      "address2" => "89 Eccleston Square",
+      "email" => nil,
+      "fax" => nil,
+      "general_notes" => "Monday to Saturday 8.00am - 6.00pm. ",
+      "location" => {
+        "longitude" => -0.14411606838362725,
+        "latitude" => 51.49338734529598,
+      },
+      "name" => "London IPS Office",
+      "phone" => "0800 123 4567",
+      "postcode" => "SW1V 1PN",
+      "text_phone" => nil,
+      "town" => "London",
+      "url" => "http://www.example.com/london_ips_office",
+    }], "slug", valid_postcode, 10)
+    query_hash = { "postcode" => invalid_postcode, "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+    return_data = { "error" => ImminenceResponse::INVALID_POSTCODE }
+    stub_imminence_places_request("slug", query_hash, return_data, 400)
   end
 
   context "GET show" do
     context "for live content" do
       should "set the cache expiry headers" do
-        get :show, params: { slug: "passport-interview-office" }
+        get :show, params: { slug: "slug" }
 
         honours_content_store_ttl
       end
 
       should "not show location error" do
-        get :show, params: { slug: "passport-interview-office" }
+        get :show, params: { slug: "slug" }
 
         assert_equal @controller.view_assigns["location_error"], nil
       end
@@ -30,11 +49,18 @@ class PlaceControllerTest < ActionController::TestCase
   end
 
   context "POST show" do
-    context "with invalid postcode" do
-      should "will show location error" do
-        post :show, params: { slug: "passport-interview-office", postcode: "1234" }
+    context "with valid postcode" do
+      should "not show location error" do
+        post :show, params: { slug: "slug", postcode: valid_postcode }
 
         assert_equal @controller.view_assigns["location_error"], nil
+      end
+    end
+    context "with invalid postcode" do
+      should "show location error" do
+        post :show, params: { slug: "slug", postcode: invalid_postcode }
+
+        assert_equal @controller.view_assigns["location_error"].postcode_error, LocationError.new(ImminenceResponse::INVALID_POSTCODE).postcode_error
       end
     end
   end

@@ -43,7 +43,7 @@ class PlaceControllerTest < ActionController::TestCase
       should "not show location error" do
         get :show, params: { slug: "slug" }
 
-        assert_equal @controller.view_assigns["location_error"], nil
+        assert_nil @controller.view_assigns["location_error"]
       end
     end
   end
@@ -53,7 +53,7 @@ class PlaceControllerTest < ActionController::TestCase
       should "not show location error" do
         post :show, params: { slug: "slug", postcode: valid_postcode }
 
-        assert_equal @controller.view_assigns["location_error"], nil
+        assert_nil @controller.view_assigns["location_error"]
       end
     end
     context "with invalid postcode" do

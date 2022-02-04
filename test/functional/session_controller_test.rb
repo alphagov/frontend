@@ -20,6 +20,56 @@ class SessionsControllerTest < ActionController::TestCase
       get :create, params: { _ga: "ga123" }
       assert_equal @response.headers["Location"], "http://auth/provider?_ga=ga123"
     end
+
+    context "HTTP Referer" do
+      context "with a referer on GOV.UK" do
+        setup do
+          @redirect_path = "/transition-check/results?c[]=import-wombats&c[]=practice-wizardry"
+          @referer = "#{Plek.new.website_root}#{@redirect_path}"
+          setup_referer
+        end
+
+        should "uses the path from the referer as the redirect_path" do
+          get :create
+
+          assert_response :redirect
+          assert_requested @stub_with_redirect_path
+          assert_not_requested @stub_without_redirect_path
+        end
+      end
+
+      context "with a protocol-relative redirect" do
+        setup do
+          @referer = "//protocol-relative-path"
+          @redirect_path = @referer
+          setup_referer
+        end
+
+        should "not take the redirect_path from the referer" do
+          get :create
+
+          assert_response :redirect
+          assert_not_requested @stub_with_redirect_path
+          assert_requested @stub_without_redirect_path
+        end
+      end
+
+      context "with a referer from outside GOV.UK" do
+        setup do
+          @referer = "https://www.some-other-website.gov.uk/path"
+          @redirect_path = "/path"
+          setup_referer
+        end
+
+        should "not take the redirect_path from the referer" do
+          get :create
+
+          assert_response :redirect
+          assert_not_requested @stub_with_redirect_path
+          assert_requested @stub_without_redirect_path
+        end
+      end
+    end
   end
 
   context "GET /sign-in/callback" do
@@ -260,6 +310,12 @@ class SessionsControllerTest < ActionController::TestCase
         assert_equal @response.redirect_url, @end_session_uri
       end
     end
+  end
+
+  def setup_referer
+    @stub_without_redirect_path = stub_account_api_get_sign_in_url
+    @stub_with_redirect_path = stub_account_api_get_sign_in_url(redirect_path: @redirect_path)
+    @request.headers["Referer"] = @referer
   end
 
   def stub_account_api

@@ -456,7 +456,7 @@ en:
           items:
           - text: Made continuous updates and improvements to the most used content on GOV.UK
           - text: <a href="https://insidegovuk.blog.gov.uk/2021/11/11/launching-gov-uks-new-menu-bar/" class="govuk-link">Launched a new menu bar</a> to appear at the top of all GOV.UK pages, which structures pages by topic, department and government activity
-          - text: Improved translations of page labels and headings on non-English language pages
+          - text: <a href="https://insidegovuk.blog.gov.uk/2022/02/09/how-we-improved-translations-on-gov-uk/?utm_medium=referral%20&utm_source=govukroadmap&utm_campaign=roadmap" class="govuk-link">Improved translations</a> of page labels and headings on non-English language pages
           - text: Improved the way we manage subdomains of GOV.UK for the rest of government
           - text: Completed cookies work, including guidance for other government departments
           - text: Built and tested <a href="https://insidegovuk.blog.gov.uk/2021/12/13/updating-the-gov-uk-homepage/" class="govuk-link">updates to the design of the GOV.UK homepage</a>

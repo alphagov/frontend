@@ -26,7 +26,6 @@ content_for :title, title
   <%= t("sessions.first_time.description_html") %>
 
   <%= form_with(url: new_govuk_session_first_time_path, method: :post) do %>
-    <%= hidden_field_tag :_ga, params[:_ga] %>
     <%= hidden_field_tag :redirect_path, params[:redirect_path] %>
     <%= hidden_field_tag :govuk_account_session, @prefixed_govuk_account_session %>
 

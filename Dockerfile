@@ -1,8 +1,4 @@
-FROM ruby:2.7.5
-# (unless we decide to use Bitnami instead)
-ARG base_image=ruby:2.7.3-slim-buster
-
-FROM $base_image AS builder
+FROM ruby:2.7.5 AS builder
 ENV RAILS_ENV=production
 # TODO: have a separate build image which already contains the build-only deps.
 RUN apt-get update -qy && \

@@ -1,4 +1,6 @@
-FROM ruby:2.7.5 AS builder
+ARG base_image=ruby:2.7.5
+FROM $base_image AS builder
+
 ENV RAILS_ENV=production
 # TODO: have a separate build image which already contains the build-only deps.
 RUN apt-get update -qy && \

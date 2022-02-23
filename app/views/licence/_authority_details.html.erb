@@ -3,7 +3,7 @@
 <nav role="navigation" class="page-navigation">
   <ol class="govuk-list govuk-list--number">
     <% if licence_details.action %>
-      <li><%= link_to "Overview", licence_authority_path(publication.slug, licence_details.authority["slug"]) %></li>
+      <li><%= link_to "Overview", licence_authority_path(publication.slug, licence_details.authority["slug"]), class: "govuk-link" %></li>
     <% else %>
       <li class="active">Overview</li>
     <% end %>

@@ -398,10 +398,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the plan to spread opportunity and prosperity across the UK.
-          title: Levelling up
-          href: /government/news/government-unveils-levelling-up-plan-that-will-transform-uk
-          image_src: homepage/levelup-promo-407.jpg
+        - text: Find out about the UK's response to the Russian government's invasion of Ukraine.
+          title: War in Ukraine
+          href: /government/topical-events/russian-invasion-of-ukraine-uk-government-response
+          image_src: homepage/ukraine-promo.jpg
         - text: Book your coronavirus vaccination and booster dose on the NHS website.
           title: COVID-19 vaccinations
           href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/

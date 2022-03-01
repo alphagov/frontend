@@ -31,7 +31,7 @@
           description: item[:text],
           font_size: "m",
           sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
-          srcset: item[:srcset],
+          srcset: item[:srcset].to_h {|url, size| [image_url(url), size]},
         } %>
       </div>
     <% end %>

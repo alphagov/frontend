@@ -398,10 +398,16 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the UK's response to the Russian government's invasion of Ukraine.
-          title: War in Ukraine
+        - text: test of srcset component with the afghan-image
+          title: SRCSET TEST
           href: /government/topical-events/russian-invasion-of-ukraine-uk-government-response
           image_src: homepage/ukraine-promo.jpg
+          srcset:
+            homepage/afghan-image-promo.jpg: 610w
+            homepage/afghan-image-promo-480.jpg: 480w
+            homepage/afghan-image-promo-320.jpg: 320w
+            homepage/afghan-image-promo-240.jpg: 240w
+            homepage/afghan-image-promo-170.jpg: 170w
         - text: Book your coronavirus vaccination and booster dose on the NHS website.
           title: COVID-19 vaccinations
           href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/

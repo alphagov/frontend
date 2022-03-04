@@ -5,12 +5,12 @@
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",
           margin_bottom: 4,
-          text: t("homepage.index.popular_links_heading"),
+          text: t("components.layout_super_navigation_header.popular_links_heading"),
         } %>
         <ul class="homepage-most-viewed-list" data-module="gem-track-click">
-          <% t("homepage.index.popular_links").each do | item | %>
+          <% t("components.layout_super_navigation_header.popular_links").each do | item | %>
             <li>
-              <%= link_to(item[:text], item[:href], {
+              <%= link_to(item[:label], item[:href], {
                 class: "govuk-link homepage-most-viewed-list__item",
                 data: {
                   track_category: "homepageClicked",
@@ -25,7 +25,7 @@
           <% end %>
         </ul>
       </div>
-      
+
       <div class="govuk-grid-column-one-half homepage-search">
         <form action="/search" method="get" role="search">
           <%= render "govuk_publishing_components/components/search", {

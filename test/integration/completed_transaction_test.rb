@@ -22,7 +22,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       visit "/done/vehicle-tax"
 
       assert_equal 200, page.status_code
-      page.assert_text "Join the 14,000 new drivers every month who make the switch to an electric vehicle."
+      page.assert_text "Find out how much money you can save on fuel by switching to an electric vehicle."
       page.assert_text "Make your next car electric"
       page.assert_selector "a[href='https://www.goultralow.com/ev-owners/benefits']"
     end

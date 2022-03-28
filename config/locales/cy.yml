@@ -202,7 +202,7 @@ cy:
       assistance_question: A gawsoch chi unrhyw gymorth i ddefnyddio'r gwasanaeth hwn heddiw?
       before_you_start: Cyn i chi ddechrau
       dissatisfied: Anfodlon
-      e_vehicle_info: Mae gwybodaeth ar gael am gerbydau trydan.
+      e_vehicle_info:
       friend_or_relative: Ffrind neu berthynas
       government_staff: Aelod o staff o'r adran gyfrifol o'r llywodraeth
       help_improve: Helpwch ni i wella'r gwasanaeth hwn

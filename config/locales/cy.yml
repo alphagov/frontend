@@ -269,79 +269,41 @@ cy:
       service_not_listed_text:
   homepage:
     categories:
-      abroad: Pasbortau, teithio a byw dramor
-      abroad_description: Yn cynnwys adnewyddu pasbortau a chyngor am deithio yn ôl gwlad
-      benefits: Budd-daliadau
-      benefits_description: Yn cynnwys cymhwysedd, apeliadau, credydau treth a Chredyd Cynhwysol
-      births_deaths_marriages: Genedigaethau, marwolaethau, priodasau a gofal
-      births_deaths_marriages_description: Rhianta, partneriaethau sifil, ysgariad ac Atwrneiaeth Arhosol
-      business: Busnesau a phobl hunangyflogedig
-      business_description: Offer a chanllawiau i fusnesau
-      childcare_parenting: Gofal plant a rhianta
-      childcare_parenting_description: Yn cynnwys rhoi genedigaeth, maethu, mabwysiadu, budd-daliadau ar gyfer plant, gofal plant ac ysgolion
-      citizenship: Dinasyddiaeth a byw yn y DU
-      citizenship_description: Pleidleisio, cyfranogi o'r gymuned, bywyd yn y DU, prosiectau rhyngwladol
-      disabilities: Pobl anabl
-      disabilities_description: Yn cynnwys gofalwyr, eich hawliau, budd-daliadau a'r Ddeddf Cydraddoldeb
-      driving: Gyrru a thrafnidiaeth
-      driving_description: Yn cynnwys treth cerbydau, MOT a thrwyddedau gyrru
-      education: Addysg a dysgu
-      education_description: Yn cynnwys benthyciadau myfyrwyr, derbyniadau a phrentisiaethau
-      employing_people: Cyflogi pobl
-      employing_people_description: Yn cynnwys tâl, contractau a recriwtio
-      environment_countryside: Yr amgylchedd a chefn gwlad
-      environment_countryside_description: Yn cynnwys llifogydd, ailgylchu a bywyd gwyllt
-      housing_local_services: Tai a gwasanaethau lleol
-      housing_local_services_description: Perchenogi neu rentu a gwasanaethau cynghorau
-      justice: Trosedd, cyfiawnder a'r gyfraith
-      justice_description: Prosesau cyfreithiol, y llysoedd a'r heddlu
-      tax: Arian a threth
-      tax_description: Yn cynnwys dyled a Hunanasesu
-      visas_immigration: Fisâu a mewnfudo
-      visas_immigration_description: Gwneud cais i ymweld, gweithio, astudio, setlo neu geisio lloches yn y DU
-      working: Gweithio, swyddi a phensiynau
-      working_description: Yn cynnwys gwyliau a dod o hyd i waith
+    government_activity:
     index:
-      brexit: 'Brexit: gwiriwch beth mae angen i chi wneud'
-      calculate_vehicle_tax: Cyfraddau treth cerbyd
-      consultations: ymgynghoriadau
-      council_tax_bands: Bandiau'r Dreth Gyngor
-      covid: 'Coronafeirws (COVID-19): rheolau'
-      departments_and_policy_html: Adrannau a&nbsp;pholisi
-      driving_test: Prawf theori gyrru
-      find_job: Dod o hyd i swydd
-      intro: Y lle gorau i gael gwasanaethau a gwybodaeth gan y llywodraeth
-      intro_simpler: Symlach, cliriach, cyflymach
-      job_search: Dod o hyd i swydd
-      jobseekers_allowance: Lwfans Ceisio Gwaith
-      merged_websites_html: Mae gwefannau holl <a href="/government/organisations" class="govuk-link">adrannau'r llywodraeth</a> a llawer o asiantaethau a chyrff cyhoeddus eraill wedi'u cyfuno o dan GOV.UK.
-      ministerial_departments: Adrannau gweinidogol
-      ministerial_departments_count: 23
-      more: Mwy ar GOV.UK
-      most_active: Mwyaf actif
-      news: newyddion a chyfathrebu
-      other_agencies: Asiantaethau a chyrff&nbsp;cyhoeddus eraill
-      other_agencies_count: 400+
-      passport_fees: Ffioedd pasbort
-      popular: Poblogaidd ar GOV.UK
-      promo_boxes:
-        text_1:
-        text_2:
-        text_3:
-        title_1:
-        title_2:
-        title_3:
-      running_limited_company: Rhedeg cwmni cyfyngedig
-      see_all: 'Yma gallwch weld pob un o''r canlynol:'
-      services_and_information: Gwasanaethau a gwybodaeth
-      statistics: ystadegau
-      student_finance_login: Mewngofnodi i gyllid myfyrwyr
-      tax_account: Mewngofnodi i'ch cyfrif treth personol
-      uk_bank_holidays: Gwyliau banc y DU
-      uk_bank_holidays_dates_html: Gwiriwch y dyddiadau ar gyfer <a href="/bank-holidays" class="govuk-link">gwyliau banc</a> yng Nghymru, Lloegr, yr Alban a Gogledd Iwerddon.
-      universal_credit: Mewngofnodi i'ch cyfrif Credyd Cynhwysol
-      vat_rates: Cyfraddau TAW
-      vehicle_tax: Adnewyddu'ch treth cerbyd
+      brexit:
+      covid:
+      departments_and_organisations:
+      featured:
+      government_activity:
+      government_activity_description:
+      intro_html:
+      intro_simpler:
+      intro_title:
+        text:
+        html:
+      job_search:
+      jobseekers_allowance:
+      merged_websites_html:
+      ministerial_departments:
+      ministerial_departments_count:
+      meta_description:
+      more:
+      popular_links_heading:
+      popular_links:
+      more_links:
+      other_agencies:
+      other_agencies_count:
+      popular:
+      promotion_slots:
+      running_limited_company:
+      search_button:
+      search_label:
+      services_and_information:
+      tax_account:
+      uk_bank_holidays:
+      universal_credit:
+    most_active:
   'no': Na
   or:
   place:

@@ -117,6 +117,6 @@ bundle exec rake
 - [Calendars](docs/calendars.md)
 - [Elections](docs/elections-api.md)
 
-## Licence
+## License
 
-[MIT Licence](LICENCE.txt)
+[MIT Licence](LICENSE)

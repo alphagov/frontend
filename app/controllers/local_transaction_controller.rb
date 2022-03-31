@@ -1,7 +1,6 @@
 class LocalTransactionController < ContentItemsController
   include ActionView::Helpers::TextHelper
   include Cacheable
-  include SabPagesTestable
 
   before_action :deny_framing
 

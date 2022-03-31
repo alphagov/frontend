@@ -1,6 +1,5 @@
 class TransactionController < ContentItemsController
   include Cacheable
-  include SabPagesTestable
 
   include LocaleHelper
 

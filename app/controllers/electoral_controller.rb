@@ -1,6 +1,5 @@
 class ElectoralController < ContentItemsController
   include Cacheable
-  include SabPagesTestable
 
   BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE = "/contact-electoral-registration-office".freeze
 

@@ -3,7 +3,6 @@ require "gds_api/test_helpers/mapit"
 require "gds_api/test_helpers/local_links_manager"
 
 class LocalTransactionsTest < ActionDispatch::IntegrationTest
-  include GovukAbTesting::MinitestHelpers
   include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LocalLinksManager
 
@@ -538,44 +537,5 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         rel: "external",
       )
     end
-  end
-
-  context "SaB A/B test: user is in segment A" do
-    should "not show the banner" do
-      with_variant StartABusinessSegment: "A" do
-        setup_for_sab_ab_test("true")
-        assert_not page.has_selector?(".gem-c-intervention")
-      end
-    end
-  end
-
-  context "SaB A/B test: user is in segment B" do
-    should "show the banner in a sab page" do
-      with_variant StartABusinessSegment: "B" do
-        setup_for_sab_ab_test("true")
-        assert page.has_selector?(".gem-c-intervention")
-      end
-    end
-  end
-
-  context "SaB A/B test: user is in segment C" do
-    should "not show the banner" do
-      with_variant StartABusinessSegment: "C" do
-        setup_for_sab_ab_test("true")
-        assert_not page.has_selector?(".gem-c-intervention")
-      end
-    end
-  end
-
-  def setup_for_sab_ab_test(is_sab_page_header_value)
-    content_store_has_example_item("/council-tax-bands-2", schema: "transaction", example: "transaction-with-variants")
-
-    headers = {
-      "HTTP_GOVUK_ABTEST_ISSTARTABUSINESSPAGE" => is_sab_page_header_value,
-    }
-    page.driver.options[:headers] ||= {}
-    page.driver.options[:headers].merge!(headers)
-
-    visit "/pay-bear-tax"
   end
 end

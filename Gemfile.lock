@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 5aeb11f9366c66488da58d84db80af13a48ee0c3
-  branch: strip-postcodes-from-more-document-types
+  revision: b7d48b79005f55ed8b66486af42aef070dc015b3
+  branch: test-frontend-with-meta-tags-component-update
   specs:
     govuk_publishing_components (29.3.0)
       govuk_app_config

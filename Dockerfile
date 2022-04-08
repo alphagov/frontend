@@ -5,7 +5,7 @@ ENV RAILS_ENV=production
 # TODO: have a separate build image which already contains the build-only deps.
 RUN apt-get update -qy && \
     apt-get upgrade -y && \
-    apt-get install -y build-essential nodejs
+    apt-get install -y build-essential nodejs git
 RUN mkdir /app
 WORKDIR /app
 COPY Gemfile Gemfile.lock .ruby-version ./

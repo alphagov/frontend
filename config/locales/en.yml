@@ -398,9 +398,9 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the UK's response to the Russian government's invasion of Ukraine.
+        - text: Find out about the UK's response to the Russian government's invasion of Ukraine and how you can help.
           title: War in Ukraine
-          href: /government/topical-events/russian-invasion-of-ukraine-uk-government-response
+          href: https://ukstandswithukraine.campaign.gov.uk/
           image_src: homepage/ukraine-promo.jpg
         - text: Book your coronavirus vaccination and booster dose on the NHS website.
           title: COVID-19 vaccinations

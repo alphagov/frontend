@@ -361,8 +361,8 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: Invasion of Ukraine
-          href: /government/topical-events/russian-invasion-of-ukraine-uk-government-response
+        - text: Moving to the UK from Ukraine
+          href: /guidance/move-to-the-uk-if-youre-from-ukraine
         - text: 'Coronavirus (COVID-19)'
           href: /coronavirus
         - text: Find a job

@@ -15,7 +15,7 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert page.has_css?(".gem-c-intervention")
-    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/s46554q1")
+    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://surveys.publishing.service.gov.uk/s/GY8Q11")
   end
 
   test "Recruitment Banner is displayed for any page tagged to Business and Self-employed" do
@@ -32,7 +32,7 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert page.has_css?(".gem-c-intervention")
-    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/s46554q1")
+    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://surveys.publishing.service.gov.uk/s/GY8Q11")
   end
 
   test "Recruitment Banner is not displayed unless page is tagged to a topic of interest" do
@@ -42,6 +42,6 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert_not page.has_css?(".gem-c-intervention")
-    assert_not page.has_link?("Take part in user research", href: "https://GDSUserResearch.optimalworkshop.com/treejack/s46554q1")
+    assert_not page.has_link?("Take part in user research", href: "https://surveys.publishing.service.gov.uk/s/GY8Q11")
   end
 end

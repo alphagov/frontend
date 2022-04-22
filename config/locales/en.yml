@@ -406,8 +406,8 @@ en:
           title: COVID-19 vaccinations
           href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/
           image_src: homepage/covid-19-vaccine-promo.png
-        - text: Check what you need to do to travel internationally.
-          title: 'Travel abroad: step by step'
+        - text: Check the rules on COVID-19 for travelling abroad.
+          title: 'Travel abroad'
           href: /travel-abroad
           image_src: homepage/travel-abroad-step-by-step.png
       running_limited_company: Running a limited company

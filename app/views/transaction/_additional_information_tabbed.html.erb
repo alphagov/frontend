@@ -1,10 +1,30 @@
-<div data-module="track-start-page-tabs">
+<div data-module="track-start-page-tabs gtm-click-tracking">
+  <%
+    total_tabs = 0
+    total_tabs += 1 if transaction.more_information.present?
+    total_tabs += 1 if transaction.what_you_need_to_know.present?
+    total_tabs += 1 if transaction.other_ways_to_apply.present?
+    last_tab_index = 2
+    last_tab_index = 3 if total_tabs == 3
+
+  %>
   <%= render "govuk_publishing_components/components/tabs", {
     panel_border: false,
     tabs: [
       {
         id: ('more-information' if transaction.more_information.present?),
         label: t('formats.transaction.more_information'),
+        tab_data_attributes: {
+          gtm_event_name: "select_content",
+          gtm_attributes: {
+            gtm_ui_type: "tabs",
+            gtm_ui_text: t('formats.transaction.more_information'),
+            gtm_ui_index: 1,
+            gtm_ui_index_total: total_tabs,
+            gtm_ui_section: 'n/a',
+            gtm_ui_state: 'n/a',
+          },
+        },
         content: render("govuk_publishing_components/components/govspeak", {}) do
                    raw(transaction.more_information)
                  end
@@ -12,6 +32,17 @@
       {
         id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
         label: t('formats.transaction.what_you_need_to_know'),
+        tab_data_attributes: {
+          gtm_event_name: "select_content",
+          gtm_attributes: {
+            gtm_ui_type: "tabs",
+            gtm_ui_text: t('formats.transaction.what_you_need_to_know'),
+            gtm_ui_index: 2,
+            gtm_ui_index_total: total_tabs,
+            gtm_ui_section: 'n/a',
+            gtm_ui_state: 'n/a',
+          },
+        },
         content: render("govuk_publishing_components/components/govspeak", {}) do
                    raw(transaction.what_you_need_to_know)
                  end
@@ -19,6 +50,17 @@
       {
         id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
         label: t('formats.transaction.other_ways_to_apply'),
+        tab_data_attributes: {
+          gtm_event_name: "select_content",
+          gtm_attributes: {
+            gtm_ui_type: "tabs",
+            gtm_ui_text: t('formats.transaction.other_ways_to_apply'),
+            gtm_ui_index: last_tab_index,
+            gtm_ui_index_total: total_tabs,
+            gtm_ui_section: 'n/a',
+            gtm_ui_state: 'n/a',
+          },
+        },
         content: render("govuk_publishing_components/components/govspeak", {}) do
                    raw(transaction.other_ways_to_apply)
                  end

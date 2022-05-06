@@ -1,12 +1,8 @@
 <div data-module="track-start-page-tabs gtm-click-tracking">
   <%
-    total_tabs = 0
-    total_tabs += 1 if transaction.more_information.present?
-    total_tabs += 1 if transaction.what_you_need_to_know.present?
-    total_tabs += 1 if transaction.other_ways_to_apply.present?
+    total_tabs = transaction.tab_count
     last_tab_index = 2
     last_tab_index = 3 if total_tabs == 3
-
   %>
   <%= render "govuk_publishing_components/components/tabs", {
     panel_border: false,

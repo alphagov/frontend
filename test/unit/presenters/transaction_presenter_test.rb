@@ -96,5 +96,15 @@ class TransactionPresenterTest < ActiveSupport::TestCase
       item = { details: { more_information: "carrots", what_you_need_to_know: "all about carrots" } }
       assert subject(item).multiple_more_information_sections?
     end
+
+    should "count two tabs" do
+      item = { details: { more_information: "potatoes", what_you_need_to_know: "all about potatoes" } }
+      assert_equal subject(item).tab_count, 2
+    end
+
+    should "count three tabs" do
+      item = { details: { more_information: "potatoes", what_you_need_to_know: "all about potatoes", other_ways_to_apply: "I just love potatoes" } }
+      assert_equal subject(item).tab_count, 3
+    end
   end
 end

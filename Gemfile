@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby File.read(".ruby-version")
 
-gem "rails", "6.1.5.1"
+gem "rails", "6.1.6"
 
 gem "addressable"
 gem "dalli"

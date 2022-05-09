@@ -1,0 +1,22 @@
+{
+  "srcDir": "public/assets/frontend",
+  "srcFiles": [
+    "test-dependencies-*.js",
+    "application-*.js",
+    "views/travel-advice-*.js"
+  ],
+  "specDir": "spec/javascripts",
+  "specFiles": [
+    "**/*[sS]pec.js"
+  ],
+  "helpers": [
+    "helpers/*.js",
+    "vendor/*.js"
+  ],
+  "env": {
+    "stopSpecOnExpectationFailure": false,
+    "stopOnSpecFailure": false,
+    "random": false
+  },
+  "browser": "headlessChrome"
+}

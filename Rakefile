@@ -19,4 +19,4 @@ Rake::TestTask.new(:test_unit) do |t|
 end
 
 Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
-task default: %i[test_unit jasmine:ci pact:verify lint]
+task default: %i[test_unit jasmine pact:verify lint]

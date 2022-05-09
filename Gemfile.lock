@@ -236,7 +236,7 @@ GEM
       diff-lcs (~> 1.4)
       expgen (~> 0.1)
       term-ansicolor (~> 1.0)
-    pact_broker-client (1.59.0)
+    pact_broker-client (1.61.1)
       dig_rb (~> 1.0)
       httparty (~> 0.18.1)
       rake (~> 13.0)
@@ -410,7 +410,7 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     timecop (0.9.4)
-    tins (1.31.0)
+    tins (1.31.1)
       sync
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)

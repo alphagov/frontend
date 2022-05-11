@@ -168,16 +168,6 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
     invalid_utf8_rejector (0.0.4)
-    jasmine (3.99.0)
-      jasmine-core (= 3.99.0)
-      phantomjs
-      rack (>= 2.1.4)
-      rake
-      webrick
-    jasmine-core (3.99.0)
-    jasmine_selenium_runner (3.0.0)
-      jasmine (~> 3.0)
-      selenium-webdriver (~> 3.8)
     json (2.6.1)
     json-schema (2.8.1)
       addressable (>= 2.4)
@@ -247,7 +237,6 @@ GEM
     parser (3.1.0.0)
       ast (~> 2.4.1)
     parslet (2.0.0)
-    phantomjs (2.1.1.0)
     plek (4.0.0)
     prometheus_exporter (2.0.2)
       webrick
@@ -457,8 +446,6 @@ DEPENDENCIES
   htmlentities
   i18n-coverage
   invalid_utf8_rejector
-  jasmine
-  jasmine_selenium_runner
   listen
   mocha
   pact

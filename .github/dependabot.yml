@@ -26,7 +26,9 @@ updates:
         dependency-type: direct
       - dependency-name: rspec-rails
         dependency-type: direct
-      - dependency-name: jasmine
+      - dependency-name: jasmine-browser-runner
+        dependency-type: direct
+      - dependency-name: jasmine-core
         dependency-type: direct
       - dependency-name: sassc-rails
         dependency-type: direct

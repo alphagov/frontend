@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def callback
-    redirect_to Plek.new.website_root and return unless params[:code] && params[:state]
+    redirect_to Plek.new.website_root, allow_other_host: true and return unless params[:code] && params[:state]
 
     callback = GdsApi.account_api.validate_auth_response(
       code: params.require(:code),

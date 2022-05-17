@@ -15,10 +15,10 @@ class RandomController < ApplicationController
 
     if result.starts_with?("/http")
       expires_in(0.seconds, public: true)
-      redirect_to Frontend.govuk_website_root + random_path
+      redirect_to Frontend.govuk_website_root + random_path, allow_other_host: true
     else
       expires_in(5.seconds, public: true)
-      redirect_to Frontend.govuk_website_root + result
+      redirect_to Frontend.govuk_website_root + result, allow_other_host: true
     end
   end
 end

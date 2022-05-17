@@ -25,4 +25,4 @@ RUN apt-get update -qy && \
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder /app /app/
 WORKDIR /app
-CMD bundle exec puma
+CMD GOVUK_PROMETHEUS_EXPORTER=true bundle exec puma

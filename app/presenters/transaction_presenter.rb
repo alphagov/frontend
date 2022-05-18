@@ -30,8 +30,12 @@ class TransactionPresenter < ContentItemPresenter
     content_item["title"]
   end
 
+  def tab_count
+    [more_information, what_you_need_to_know, other_ways_to_apply].count(&:present?)
+  end
+
   def multiple_more_information_sections?
-    [more_information, what_you_need_to_know, other_ways_to_apply].count(&:present?) > 1
+    tab_count > 1
   end
 
   def start_button_text

@@ -13,7 +13,7 @@
           title: @calendar.title
         } %>
 
-        <article role="article" data-module="gem-track-click" class="js-tab-track">
+        <article role="article" data-module="gem-track-click gtm-click-tracking" class="js-tab-track">
           <% tab_content ||= [] %>
           <% @calendar.divisions.each_with_index do |division, index| %>
             <% tab_content[index] = capture do %>
@@ -75,7 +75,16 @@
               :tab_data_attributes => {
                 track_category: "uk-public-holiday",
                 track_action: "tab",
-                track_label: "#{t "#{division.title}"}".gsub(/\s/,'-')
+                track_label: "#{t "#{division.title}"}".gsub(/\s/,'-'),
+                gtm_event_name: 'select_content',
+                gtm_attributes: {
+                  gtm_ui_type: "tabs",
+                  gtm_ui_text: t(division.title),
+                  gtm_ui_index: index,
+                  gtm_ui_index_total: @calendar.divisions.length,
+                  gtm_ui_section: 'n/a',
+                  gtm_ui_state: 'n/a',
+                }
               }
             } }
           } %>

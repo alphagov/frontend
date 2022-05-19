@@ -78,12 +78,12 @@
                 track_label: "#{t "#{division.title}"}".gsub(/\s/,'-'),
                 gtm_event_name: 'select_content',
                 gtm_attributes: {
-                  gtm_ui_type: "tabs",
-                  gtm_ui_text: t(division.title),
-                  gtm_ui_index: index,
-                  gtm_ui_index_total: @calendar.divisions.length,
-                  gtm_ui_section: 'n/a',
-                  gtm_ui_state: 'n/a',
+                  type: "tabs",
+                  text: t(division.title),
+                  index: index,
+                  'index-total': @calendar.divisions.length,
+                  section: 'n/a',
+                  state: 'n/a',
                 }
               }
             } }

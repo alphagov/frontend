@@ -26,7 +26,6 @@ $govuk-new-link-styles: true;
 // inset-text scss is needed for the "Sign in to a service" page
 // the content for that page, which references inset-text, comes from the content_item
 @import 'govuk_publishing_components/components/inset-text';
-@import 'govuk_publishing_components/components/intervention';
 @import 'govuk_publishing_components/components/label';
 @import 'govuk_publishing_components/components/lead-paragraph';
 @import 'govuk_publishing_components/components/notice';

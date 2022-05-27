@@ -398,14 +398,14 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
+        - text: Find out what financial support is available from the government.
+          title: Cost of living
+          href: https://costoflivingsupport.campaign.gov.uk/
+          image_src: homepage/cost-of-living.jpg
         - text: Find out about the UK's response to the Russian government's invasion of Ukraine and how you can help.
           title: War in Ukraine
           href: https://ukstandswithukraine.campaign.gov.uk/
           image_src: homepage/ukraine-promo.jpg
-        - text: Book your coronavirus vaccination and booster dose on the NHS website.
-          title: COVID-19 vaccinations
-          href: https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/
-          image_src: homepage/covid-19-vaccine-promo.png
         - text: Check the rules on COVID-19 for travelling abroad.
           title: 'Travel abroad'
           href: /guidance/travel-abroad-from-england-during-coronavirus-covid-19

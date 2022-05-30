@@ -1,4 +1,4 @@
-require "integration_test_helper"
+require_relative "../integration_test_helper"
 require "gds_api/test_helpers/account_api"
 require "gds_api/test_helpers/email_alert_api"
 
@@ -7,9 +7,9 @@ class SessionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::EmailAlertApi
   include GovukPersonalisation::TestHelpers::Features
 
-  context "Given a new user" do
+  context "Given a signing in user" do
     should "Log the user in and send them to the account dashboard" do
-      given_a_successful_login_attempt(cookie_consent: nil, feedback_consent: nil)
+      given_a_successful_login_attempt
       when_i_return_from_digital_identity
       and_i_see_the_dashboard
     end
@@ -17,7 +17,7 @@ class SessionsTest < ActionDispatch::IntegrationTest
     context "With a redirect path" do
       setup do
         @redirect_path = "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
-        given_a_successful_login_attempt(cookie_consent: nil, feedback_consent: nil)
+        given_a_successful_login_attempt
       end
 
       should "Log the user in and send them to the redirect path" do
@@ -26,37 +26,16 @@ class SessionsTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "Given a returning user" do
-    should "Log the user in and send them to the account dashboard" do
-      given_a_successful_login_attempt(cookie_consent: true, feedback_consent: false)
-      assert_this_redirects_me { when_i_return_from_digital_identity }
-      and_i_see_the_dashboard
-    end
-
-    context "With a redirect path" do
-      setup do
-        @redirect_path = "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
-        given_a_successful_login_attempt(cookie_consent: true, feedback_consent: false)
-      end
-
-      should "Log the user in and send them to the redirect path" do
-        assert_this_redirects_me { when_i_return_from_digital_identity }
-      end
-    end
-  end
-
-  def given_a_successful_login_attempt(cookie_consent:, feedback_consent:)
-    govuk_account_session = "session-id"
+  def given_a_successful_login_attempt
+    @govuk_account_session = "session-id"
 
     stub_account_api_validates_auth_response(
-      govuk_account_session: govuk_account_session,
+      govuk_account_session: @govuk_account_session,
       redirect_path: @redirect_path,
-      cookie_consent: cookie_consent,
-      feedback_consent: feedback_consent,
     )
 
-    @stub_user_info = stub_account_api_user_info(new_govuk_account_session: govuk_account_session)
-    stub_email_alert_api_authenticate_subscriber_by_govuk_account(govuk_account_session, "subscriber-id", "email@example.com")
+    @stub_user_info = stub_account_api_user_info(new_govuk_account_session: @govuk_account_session)
+    stub_email_alert_api_authenticate_subscriber_by_govuk_account(@govuk_account_session, "subscriber-id", "email@example.com")
     stub_email_alert_api_has_subscriber_subscriptions("subscriber-id", "example@example.com")
   end
 

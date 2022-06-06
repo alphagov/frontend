@@ -5,6 +5,7 @@ class AccountHomeController < ApplicationController
   def show
     @is_account = true
     @user = GdsApi.account_api.get_user(govuk_account_session: account_session_header).to_h
+    set_account_session_header(@user["govuk_account_session"])
     @has_email_subscriptions = has_email_subscriptions?
   rescue GdsApi::HTTPUnauthorized
     logout!

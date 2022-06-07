@@ -27,14 +27,18 @@ private
   end
 
   def locals
+    locals = {
+      results_anchor: "results",
+    }
+
     if params[:slug] == REPORT_CHILD_ABUSE_SLUG
-      {
+      locals.merge!({
         option_partial: "option_report_child_abuse",
         preposition: "for",
-      }
-    else
-      {}
+      })
     end
+
+    locals
   end
 
   def postcode_provided?

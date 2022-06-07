@@ -1,3 +1,5 @@
+<% action ||= nil %>
+
 <div class="postcode-search-form"
   data-module="track-submit"
   data-track-category="postcodeSearch:<%= publication_format %>"
@@ -22,7 +24,13 @@
     } %>
   <% end %>
 
-  <form method="post" id="local-locator-form" class="location-form govuk-!-margin-bottom-9">
+  <%= form_with(
+    id: "local-locator-form",
+    url: action,
+    class: "location-form govuk-!-margin-bottom-9",
+    method: "post",
+  ) do | form | %>
+
     <fieldset class="govuk-fieldset">
       <legend class=" govuk-fieldset__legend govuk-visually-hidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
 
@@ -53,5 +61,5 @@
         class: "govuk-body" 
       %>
     </fieldset>
-  </form>
+  <% end %>
 </div>

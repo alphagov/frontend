@@ -102,16 +102,44 @@
   padding: 0;
 
   @include govuk-media-query($from: desktop) {
-    @include columns($items: 10, $columns: 2, $selector: "li", $flow: column);
+    width: 66.66%;
+    columns: 2;
+    column-gap: 15px;
   }
+}
 
-  & > li {
-    margin: 0 0 govuk-spacing(4) 0;
-    @include govuk-font($size: 19);
+.homepage-most-active-list__item {
+  margin: 0 0 govuk-spacing(4) 0;
+  @include govuk-font($size: 19);
+  @include govuk-media-query($from: desktop) {
+    break-inside: avoid-column;
+    margin-bottom: 0;
+    padding-top: .1875rem;
+    padding-bottom: calc(#{govuk-spacing(2)} - .1875rem);
 
-    @include govuk-media-query($from: desktop) {
-      margin-bottom: govuk-spacing(2);
-    }
+    // After much experimentation, I've used break-inside: avoid-column
+    // and some tweaks to padding-top and padding-bottom on the list
+    // items. This prevents triggering a possible bug in Safari where
+    // focused anchors in a multi-column layout cause links to jump
+    // between columns.
+
+    // Magic numbers in CSS aren't recommended, but the .1875rem value
+    // used in the padding is to compensate for the value used in our
+    // global hover states for links, eg:
+
+    // text-decoration-thickness: max(3px, .1875rem, .12em);
+
+    // This value could be tweaked, and may not be "correct" but when
+    // added to the top padding, it prevents Safari from rendering a
+    // sliver of the focus state in the opposite column.
+
+    // The bottom margin was removed and the spacing instead added as
+    // padding-bottom -- this gives some space within the element for
+    // the focus/hover states to render without being cropped off,
+    // another possible Safari bug.
+
+    // This likely isn't a long-term robust solution and may require
+    // a full refactor in the future.
   }
 }
 

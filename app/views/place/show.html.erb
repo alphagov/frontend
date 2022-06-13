@@ -1,3 +1,5 @@
+<% results_anchor ||= nil %>
+
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
@@ -22,26 +24,31 @@
             format: 'service',
             publication_format: 'place',
             postcode: postcode,
-            } %>
+          }.merge(results_anchor ? {
+            action: "/#{params[:slug]}\##{results_anchor}",
+          } : {})
+        %>
       </div>
     </div>
   </section>
   <% if postcode_provided? && !location_error %>
-    <section class="places-results"
-      data-module="auto-track-event"
-      data-track-category="<%= track_category_for_place_results(publication.places) %>"
-      data-track-action="<%= track_action_for_place_results(publication.places) %>"
-      data-track-label="<%= track_label_for_place_results(publication.places) %>">
-      <% if publication.places.any? %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
-          margin_bottom: 4,
-        } %>
-        <ol id="options" class="govuk-list">
-          <%= render partial: option_partial ||= "option", locals: { places: publication.places } %>
-        </ol>
-      <% end %>
-    </section>
+    <%= content_tag "section", id: results_anchor, class: "places-results",
+      data: {
+        module: "auto-track-event",
+        track_category: track_category_for_place_results(publication.places),
+        track_action: track_action_for_place_results(publication.places),
+        track_label: track_label_for_place_results(publication.places),
+      } do %>
+        <% if publication.places.any? %>
+          <%= render "govuk_publishing_components/components/heading", {
+            text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
+            margin_bottom: 4,
+          } %>
+          <ol id="options" class="govuk-list">
+            <%= render partial: option_partial ||= "option", locals: { places: publication.places } %>
+          </ol>
+        <% end %>
+    <% end %>
   <% else %>
     <% if publication.need_to_know.present? || publication.more_information.present? %>
       <section class="more">

@@ -26,6 +26,7 @@
             postcode: postcode,
           }.merge(results_anchor ? {
             action: "/#{params[:slug]}\##{results_anchor}",
+            results_anchor: results_anchor,
           } : {})
         %>
       </div>

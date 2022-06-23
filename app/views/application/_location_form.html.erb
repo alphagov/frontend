@@ -1,4 +1,7 @@
-<% action ||= nil %>
+<%
+  action ||= nil
+  results_anchor ||= nil
+%>
 
 <div class="postcode-search-form"
   data-module="track-submit"
@@ -13,6 +16,7 @@
     %>
 
     <%= render "govuk_publishing_components/components/error_alert", {
+      id: results_anchor,
       message: t(@location_error.message, **@location_error.message_args),
       description: description,
       data_attributes: {

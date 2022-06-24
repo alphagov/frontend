@@ -257,7 +257,7 @@ GEM
       diff-lcs (~> 1.4)
       expgen (~> 0.1)
       term-ansicolor (~> 1.0)
-    pact_broker-client (1.64.0)
+    pact_broker-client (1.65.0)
       dig_rb (~> 1.0)
       httparty (~> 0.18.1)
       rake (~> 13.0)

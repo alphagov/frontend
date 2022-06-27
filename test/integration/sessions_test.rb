@@ -1,6 +1,7 @@
 require_relative "../integration_test_helper"
 require "gds_api/test_helpers/account_api"
 require "gds_api/test_helpers/email_alert_api"
+require "gds_api/test_helpers/content_store"
 
 class SessionsTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::AccountApi
@@ -8,10 +9,13 @@ class SessionsTest < ActionDispatch::IntegrationTest
   include GovukPersonalisation::TestHelpers::Features
 
   context "Given a signing in user" do
-    should "Log the user in and send them to the account dashboard" do
+    should "Log the user in and redirect them to manage their account" do
       given_a_successful_login_attempt
-      when_i_return_from_digital_identity
-      and_i_see_the_dashboard
+      get new_govuk_session_callback_path(code: "code", state: "state")
+      # initial redirect to /account/home which redirects on to the manage page
+      assert_response :redirect
+      follow_redirect!
+      assert response.location = GovukPersonalisation::Urls.manage
     end
 
     context "With a redirect path" do
@@ -21,7 +25,9 @@ class SessionsTest < ActionDispatch::IntegrationTest
       end
 
       should "Log the user in and send them to the redirect path" do
-        assert_this_redirects_me { when_i_return_from_digital_identity }
+        ClimateControl.modify GOVUK_PERSONALISATION_MANAGE_URI: "https://account.gov.uk/manage-your-account" do
+          assert_this_redirects_me { when_i_return_from_digital_identity }
+        end
       end
     end
   end
@@ -41,11 +47,6 @@ class SessionsTest < ActionDispatch::IntegrationTest
 
   def when_i_return_from_digital_identity
     visit new_govuk_session_callback_path(code: "code", state: "state")
-  end
-
-  def and_i_see_the_dashboard
-    assert page.has_content? I18n.t("account.your_account.heading")
-    assert_requested @stub_user_info
   end
 
   def assert_this_redirects_me

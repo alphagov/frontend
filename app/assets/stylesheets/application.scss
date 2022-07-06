@@ -10,24 +10,18 @@ $govuk-new-link-styles: true;
 @import "govuk_publishing_components/components/details";
 // document-list scss is needed for the "Sign in to a service" page
 // the content for that page, which references document-list, comes from the content_item
-@import "govuk_publishing_components/components/document-list";
 @import "govuk_publishing_components/components/error-alert";
-@import "govuk_publishing_components/components/error-summary";
-@import "govuk_publishing_components/components/fieldset";
 @import "govuk_publishing_components/components/govspeak";
 @import "govuk_publishing_components/components/image-card";
 // inset-text scss is needed for the "Sign in to a service" page
 // the content for that page, which references inset-text, comes from the content_item
-@import "govuk_publishing_components/components/inset-text";
 @import "govuk_publishing_components/components/intervention";
 @import "govuk_publishing_components/components/lead-paragraph";
-@import "govuk_publishing_components/components/notice";
 @import "govuk_publishing_components/components/panel";
 @import "govuk_publishing_components/components/phase-banner";
 @import "govuk_publishing_components/components/radio";
 @import "govuk_publishing_components/components/related-navigation";
 @import "govuk_publishing_components/components/select";
-@import "govuk_publishing_components/components/share-links";
 @import "govuk_publishing_components/components/step-by-step-nav";
 @import "govuk_publishing_components/components/step-by-step-nav-header";
 @import "govuk_publishing_components/components/step-by-step-nav-related";

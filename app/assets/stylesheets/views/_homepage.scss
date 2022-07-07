@@ -227,6 +227,12 @@
   padding: govuk-spacing(4) 0 govuk-spacing(6);
 }
 
+.homepage-section--cost-of-living {
+  background-color: #008269;
+  border-top: 1px solid govuk-colour("white");
+  padding: govuk-spacing(6) 0 govuk-spacing(7) 0;
+}
+
 .homepage-section--links-and-search {
   background: govuk-colour("light-grey");
   padding: govuk-spacing(6) 0 govuk-spacing(8);

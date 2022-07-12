@@ -3,6 +3,7 @@ $govuk-use-legacy-palette: false;
 $govuk-new-link-styles: true;
 // Components from govuk_publishing_components gem
 @import "govuk_publishing_components/govuk_frontend_support";
+@import "govuk_publishing_components/components/action-link";
 @import "govuk_publishing_components/components/back-link";
 @import "govuk_publishing_components/components/big-number";
 @import "govuk_publishing_components/components/character-count";

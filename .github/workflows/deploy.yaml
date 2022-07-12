@@ -17,6 +17,11 @@ on:
         - staging
         - production
         default: 'integration'
+      lockIfManualDeploy:
+        description: 'Lock application to this version if manually deployed'
+        required: true
+        type: boolean
+        default: true
   push:
     branches:
       - main
@@ -41,6 +46,7 @@ jobs:
       imageTag: ${{ needs.build-and-publish-image.outputs.imageTag }}
       manualDeploy: ${{ 'main' != github.event.inputs.gitRef }}
       environment: ${{ github.event.inputs.environment || 'integration' }}
+      lockIfManualDeploy: ${{ github.event.inputs.lockIfManualDeploy }}
     secrets:
       WEBHOOK_TOKEN: ${{ secrets.ARGO_EVENTS_WEBHOOK_TOKEN }}
       WEBHOOK_URL: ${{ secrets.ARGO_EVENTS_WEBHOOK_URL }}

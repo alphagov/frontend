@@ -35,12 +35,12 @@ If the image is a simple graphic, and thus already a small file size, resize it 
 
 ## 3. Update the content
 
-The content for the promo slots can be found in the [`yml` translation file](../config/locales/en.yml). The specific key to look for is `promotion_slots`. Promo items are stored as a yml list in the order they appear on the homepage. The keys in each list item to update accordingly are:
+The content for the promo slots can be found in the [`en.yml` translation file](../config/locales/en.yml) (no other locales need to be updated). The specific key to look for is `promotion_slots`. Promo items are stored as a yml list in the order they appear on the homepage. The keys in each list item to update accordingly are:
 
 - `text`: the promo description
 - `title`: the promo title
 - `href`: the link the promo goes to. This can either be internal (`/my-path`) or external (`https://www.mywebsite.com/my-path`)
-- `src`: the promo image location. Image should be in the [`homepage` asset directory](../assets/images/homepage) and can be pulled via `homepage/[my-image].png`
+- `image_src`: the promo image location. Image should be in the [`homepage` asset directory](https://github.com/alphagov/frontend/tree/main/app/assets/images/homepage) and can be pulled via `homepage/[my-image].png`
 - `srcset`: this is an optional attribute to define promo image `srcset` values.
 
 You can define `srcset` values in the yml like so:

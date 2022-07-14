@@ -398,10 +398,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out what financial support is available from the government.
-          title: Cost of living
-          href: https://costoflivingsupport.campaign.gov.uk/
-          image_src: homepage/cost-of-living.jpg
+        - text: Check what financial help you could get.
+          title: Get benefits and support
+          href: /check-benefits-financial-support
+          image_src: homepage/cost-of-living.png
         - text: Find out about the UK's response to the Russian government's invasion of Ukraine and how you can help.
           title: War in Ukraine
           href: https://ukstandswithukraine.campaign.gov.uk/

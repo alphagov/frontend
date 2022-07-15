@@ -5,4 +5,5 @@ module Frontend
   mattr_accessor :imminence_api
   mattr_accessor :local_links_manager_api
   mattr_accessor :govuk_website_root
+  mattr_accessor :locations_api
 end

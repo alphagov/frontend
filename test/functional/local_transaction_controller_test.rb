@@ -256,7 +256,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "return a 404 for an incorrect authority slug" do
-      stub_local_links_manager_does_not_have_required_objects("this-slug-should-not-exist", "8342", "8")
+      stub_local_links_manager_request_with_invalid_parameters(authority_slug: "this-slug-should-not-exist", lgsl: "8342", lgil: "8")
 
       get :results, params: { slug: "send-a-bear-to-your-local-council", local_authority_slug: "this-slug-should-not-exist" }
 

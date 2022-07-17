@@ -404,7 +404,7 @@ en:
           image_src: homepage/cost-of-living.jpg
         - text: High temperatures can be harmful to your health. Learn how to stay safe in hot weather.
           title: Staying safe in hot weather
-          href: https://www.gov.uk/government/publications/heatwave-plan-for-england/beat-the-heat-staying-safe-in-hot-weather
+          href: /government/publications/heatwave-plan-for-england/beat-the-heat-staying-safe-in-hot-weather
           image_src: homepage/red-weather-alert.png
         - text: Check the rules on COVID-19 for travelling abroad.
           title: 'Travel abroad'

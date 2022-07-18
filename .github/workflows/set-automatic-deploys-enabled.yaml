@@ -1,0 +1,37 @@
+name: Set automatic_deploys_enabled (optionally image_tag too)
+
+on:
+  workflow_dispatch:
+    inputs:
+      resetImageTag:
+        description: 'Whether to reset image tag to main'
+        required: false
+        default: false
+        type: boolean
+      automaticDeploysEnabled:
+        description: 'Set whether automatic deploys is active or not'
+        required: false
+        default: true
+        type: boolean
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: choice
+        options:
+        - integration
+        - staging
+        - production
+        default: 'integration'
+
+jobs:
+  set_automatic_deploys_enabled:
+    name: Set automatic_deploys_enabled to ${{ github.event.inputs.environment }}
+    uses: alphagov/govuk-infrastructure/.github/workflows/set-automatic-deploys-enabled.yaml@main
+    with:
+      resetImageTag: ${{ github.event.inputs.environment.resetImageTag }}
+      automaticDeploysEnabled: ${{ github.event.inputs.environment.automaticDeploysEnabled }}
+      environment: ${{ github.event.inputs.environment }}
+    secrets:
+      WEBHOOK_TOKEN: ${{ secrets.ARGO_EVENTS_WEBHOOK_TOKEN }}
+      WEBHOOK_URL: ${{ secrets.GOVUK_INTEGRATION_ARGO_EVENTS_WEBHOOK_URL }}
+      GOVUK_CI_GITHUB_API_TOKEN: ${{ secrets.GOVUK_CI_GITHUB_API_TOKEN }}

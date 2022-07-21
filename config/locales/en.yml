@@ -402,10 +402,10 @@ en:
           title: Get benefits and support
           href: /check-benefits-financial-support
           image_src: homepage/cost-of-living.jpg
-        - text: High temperatures can be harmful to your health. Learn how to stay safe in hot weather.
-          title: Staying safe in hot weather
-          href: /government/publications/heatwave-plan-for-england/beat-the-heat-staying-safe-in-hot-weather
-          image_src: homepage/red-weather-alert.png
+        - text: Find out about the UK's response to the Russian government's invasion of Ukraine and how you can help.
+          title: War in Ukraine
+          href: https://ukstandswithukraine.campaign.gov.uk/
+          image_src: homepage/ukraine-promo.jpg
         - text: Check the rules on COVID-19 for travelling abroad.
           title: 'Travel abroad'
           href: /guidance/travel-abroad-from-england-during-coronavirus-covid-19

@@ -21,6 +21,10 @@ cy:
       heading:
       success:
     your_account:
+      about_description_html:
+      about_detail_description_html:
+      about_detail_title:
+      about_heading:
       account_not_used:
         action:
         description:
@@ -28,15 +32,11 @@ cy:
         link_text:
       emails:
         heading:
-        no_emails_inset:
-        no_emails_description:
-        see_and_manage:
         manage_emails_link_text:
+        no_emails_description:
+        no_emails_inset:
+        see_and_manage:
       heading:
-      about_heading:
-      about_description_html:
-      about_detail_title:
-      about_detail_description_html:
   and: a
   b: B
   bank-holidays: gwyliau-banc
@@ -109,8 +109,8 @@ cy:
     explanation_html:
     four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych chi'n hapus i ni eu defnyddio.
     google:
-    google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     google_collection:
+    google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     google_share:
     how_we_use: Rydyn ni'n defnyddio cwcis i storio gwybodaeth am sut rydych chi'n defnyddio gwefan GOV.UK, fel y tudalennau rydych chi'n ymweld â nhw.
     how_you_got: sut gyrhaeddoch chi'r wefan
@@ -280,21 +280,21 @@ cy:
       intro_html:
       intro_simpler:
       intro_title:
-        text:
         html:
+        text:
       job_search:
       jobseekers_allowance:
       merged_websites_html:
+      meta_description:
       ministerial_departments:
       ministerial_departments_count:
-      meta_description:
       more:
-      popular_links_heading:
-      popular_links:
       more_links:
       other_agencies:
       other_agencies_count:
       popular:
+      popular_links:
+      popular_links_heading:
       promotion_slots:
       running_limited_company:
       search_button:

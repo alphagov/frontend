@@ -1,10 +1,11 @@
 require "integration_test_helper"
-require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/locations_api"
 require "gds_api/test_helpers/local_links_manager"
 
 class FindLocalCouncilTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LocationsApi
   include GdsApi::TestHelpers::LocalLinksManager
+  include LocationHelpers
 
   setup do
     content_store_has_random_item(base_path: "/find-local-council")
@@ -45,19 +46,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     context "for successful postcode lookup" do
       context "for unitary local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "SW1A 1AA",
-            [51.5010096, -0.1415870],
-            [
-              {
-                "ons" => "00BK",
-                "govuk_slug" => "westminster",
-                "name" => "Westminster City Council",
-                "type" => "LBO",
-              },
-            ],
-          )
-          stub_local_links_manager_has_a_local_authority("westminster")
+          configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
 
           visit "/find-local-council"
           fill_in "postcode", with: "SW1A 1AA"
@@ -104,26 +93,18 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "for district local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
+          stub_locations_api_has_location(
             "HP20 1UG",
-            [51.5010096, -0.1415870],
             [
               {
-                "ons" => "00BK",
-                "govuk_slug" => "aylesbury",
-                "name" => "Aylesbury District",
-                "type" => "DIS",
-              },
-              {
-                "ons" => "00",
-                "govuk_slug" => "buckinghamshire",
-                "name" => "Buckinghamshire County",
-                "type" => "CTY",
+                "latitude" => 51.5010096,
+                "longitude" => -0.1415870,
+                "local_custodian_code" => 440,
               },
             ],
           )
 
-          stub_local_links_manager_has_a_district_and_county_local_authority("aylesbury", "buckinghamshire")
+          stub_local_links_manager_has_a_district_and_county_local_authority("aylesbury", "buckinghamshire", local_custodian_code: 440)
 
           visit "/find-local-council"
           fill_in "postcode", with: "HP20 1UG"
@@ -178,19 +159,17 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
       context "when finding a local council without homepage" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
+          stub_locations_api_has_location(
             "SW1A 1AA",
-            [51.5010096, -0.1415870],
             [
               {
-                "ons" => "00BK",
-                "govuk_slug" => "westminster",
-                "name" => "Westminster City Council",
-                "type" => "LBO",
+                "latitude" => 51.5010096,
+                "longitude" => -0.1415870,
+                "local_custodian_code" => 5990,
               },
             ],
           )
-          stub_local_links_manager_has_a_local_authority_without_homepage("westminster")
+          stub_local_links_manager_has_a_local_authority_without_homepage("westminster", local_custodian_code: 5990)
 
           visit "/find-local-council"
           fill_in "postcode", with: "SW1A 1AA"
@@ -206,7 +185,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
     context "for unsuccessful postcode lookup" do
       context "with invalid postcode" do
         setup do
-          stub_mapit_does_not_have_a_bad_postcode("NO POSTCODE")
+          stub_locations_api_does_not_have_a_bad_postcode("NO POSTCODE")
 
           visit "/find-local-council"
           fill_in "postcode", with: "NO POSTCODE"
@@ -264,76 +243,9 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
       end
 
-      context "with a valid postcode that is not present in MapIt" do
-        setup do
-          stub_mapit_does_not_have_a_postcode("AB1 2AB")
-
-          visit "/find-local-council"
-          fill_in "postcode", with: "AB1 2AB"
-          click_on "Find"
-        end
-
-        should "remain on the find your local council page" do
-          assert_equal "/find-local-council", current_path
-
-          assert page.has_content?("Find your local council")
-          assert page.has_content?("Find the website for your local council.")
-        end
-
-        should "see an error message" do
-          assert page.has_content? "We couldn't find this postcode."
-          assert page.has_content? "Check it and enter it again."
-        end
-
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-alert")["data-track-action"]
-          track_label = page.find(".gem-c-error-alert")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: fullPostcodeNoMapitMatch", track_action
-          assert_equal "We couldn't find this postcode.", track_label
-        end
-      end
-
-      context "with a valid postcode that has no areas in MapIt" do
-        setup do
-          stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
-
-          visit "/find-local-council"
-          fill_in "postcode", with: "XM4 5HQ"
-          click_on "Find"
-        end
-
-        should "see an error message" do
-          assert page.has_content? "We couldn't find a council for this postcode."
-        end
-
-        should "re-populate the invalid input" do
-          assert page.has_field? "postcode", with: "XM4 5HQ"
-        end
-
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-alert")["data-track-action"]
-          track_label = page.find(".gem-c-error-alert")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: noLaMatch", track_action
-          assert_equal "We couldn't find a council for this postcode.", track_label
-        end
-      end
-
       context "when no local council is found" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "XM4 5HQ",
-            [0.00, -0.00],
-            [
-              {
-                "ons" => "00BK",
-                "govuk_slug" => "",
-                "name" => "Christmas HQ",
-                "type" => "DIS",
-              },
-            ],
-          )
+          stub_locations_api_has_no_location("XM4 5HQ")
 
           visit "/find-local-council"
           fill_in "postcode", with: "XM4 5HQ"

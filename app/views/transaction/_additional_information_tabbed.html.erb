@@ -11,12 +11,12 @@
         id: ('more-information' if transaction.more_information.present?),
         label: t('formats.transaction.more_information'),
         tab_data_attributes: {
-          gtm_event_name: "select_content",
-          gtm_attributes: {
+          ga4: {
+            event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.more_information'),
             index: 1,
-            'index-total': total_tabs,
+            index_total: total_tabs,
             section: 'n/a',
             action: 'n/a',
           },
@@ -29,12 +29,12 @@
         id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
         label: t('formats.transaction.what_you_need_to_know'),
         tab_data_attributes: {
-          gtm_event_name: "select_content",
-          gtm_attributes: {
+          ga4: {
+            event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.what_you_need_to_know'),
             index: 2,
-            'index-total': total_tabs,
+            index_total: total_tabs,
             section: 'n/a',
             action: 'n/a',
           },
@@ -47,12 +47,12 @@
         id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
         label: t('formats.transaction.other_ways_to_apply'),
         tab_data_attributes: {
-          gtm_event_name: "select_content",
-          gtm_attributes: {
+          ga4: {
+            event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.other_ways_to_apply'),
             index: last_tab_index,
-            'index-total': total_tabs,
+            index_total: total_tabs,
             section: 'n/a',
             action: 'n/a',
           },

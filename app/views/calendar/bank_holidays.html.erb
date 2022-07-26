@@ -76,12 +76,12 @@
                 track_category: "uk-public-holiday",
                 track_action: "tab",
                 track_label: "#{t "#{division.title}"}".gsub(/\s/,'-'),
-                gtm_event_name: 'select_content',
-                gtm_attributes: {
+                ga4: {
+                  event_name: 'select_content',
                   type: "tabs",
                   text: t(division.title),
                   index: index,
-                  'index-total': @calendar.divisions.length,
+                  index_total: @calendar.divisions.length,
                   section: 'n/a',
                   action: 'n/a',
                 }

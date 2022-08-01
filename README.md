@@ -87,7 +87,7 @@ Frontend is a Ruby on Rails application and should follow [our Rails app convent
 
 - [alphagov/static](https://github.com/alphagov/static) - provides shared templates, styles, and JavaScript
 - [alphagov/content-store](https://github.com/alphagov/content-store) - provides raw data for rendering formats
-- [alphagov/mapit](https://github.com/alphagov/mapit) - provides postcode lookups
+- [alphagov/locations-api](https://github.com/alphagov/locations-api) - provides postcode lookups
 - [alphagov/imminence](https://github.com/alphagov/imminence) - provides places lookups (e.g. for find-my-nearest)
 - [alphagov/publishing-api](https://github.com/alphagov/publishing-api) - this app sends data to the content-store
 
@@ -105,7 +105,7 @@ PLEK_SERVICE_STATIC_URI=http://static.dev.gov.uk ./startup.sh --live
 
 which uses a local copy of static and content from production.
 
-Note that you will have to have [GOV.UK Mapit](https://github.com/alphagov/mapit) running locally. A valid dataset will have to be loaded for Mapit or postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
+Note that you will have to have [GOV.UK Locations API](https://github.com/alphagov/locations-api) running locally. A valid dataset will have to be loaded for Locations API or postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
 
 ### Running the test suite
 

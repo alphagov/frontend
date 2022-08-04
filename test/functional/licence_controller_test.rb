@@ -1,10 +1,13 @@
 require "test_helper"
-require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/locations_api"
+require "gds_api/test_helpers/local_links_manager"
 require "gds_api/test_helpers/licence_application"
 
 class LicenceControllerTest < ActionController::TestCase
-  include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LocationsApi
+  include GdsApi::TestHelpers::LocalLinksManager
   include GdsApi::TestHelpers::LicenceApplication
+  include LocationHelpers
 
   context "GET start" do
     context "for live content" do
@@ -52,15 +55,7 @@ class LicenceControllerTest < ActionController::TestCase
 
       context "for an English local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "ST10 4DB",
-            [0, 0],
-            [
-              { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county" },
-              { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands" },
-              { "name" => "Cheadle and Checkley", "type" => "CED" },
-            ],
-          )
+          configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
 
           post :start, params: { slug: "licence-to-kill", postcode: "ST10 4DB" }
         end
@@ -72,14 +67,7 @@ class LicenceControllerTest < ActionController::TestCase
 
       context "for a Northern Irish local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "BT1 5GS",
-            [0, 0],
-            [
-              { "name" => "Belfast City Council", "type" => "LGD", "ons" => "N09000003", "govuk_slug" => "belfast" },
-              { "name" => "Shaftesbury", "type" => "LGW", "ons" => "95Z24" },
-            ],
-          )
+          configure_locations_api_and_local_authority("BT1 5GS", %w[belfast], 8132)
 
           post :start, params: { slug: "licence-to-kill", postcode: "BT1 5GS" }
         end

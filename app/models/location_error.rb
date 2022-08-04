@@ -2,6 +2,7 @@ class LocationError
   MESSAGES = {
     "fullPostcodeNoMapitMatch" => "formats.local_transaction.valid_postcode_no_match",
     "noLaMatch" => "formats.local_transaction.no_local_authority",
+    "fullPostcodeNoLocationsApiMatch" => "formats.local_transaction.valid_postcode_no_match",
     "validPostcodeNoLocation" => "formats.find_my_nearest.valid_postcode_no_locations",
     "invalidPostcodeFormat" => "formats.local_transaction.invalid_postcode",
     "invalidUprnFormat" => "formats.local_transaction.invalid_uprn",
@@ -11,6 +12,7 @@ class LocationError
 
   SUB_MESSAGES = {
     "fullPostcodeNoMapitMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
+    "fullPostcodeNoLocationsApiMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
     "invalidPostcodeFormat" => "formats.local_transaction.invalid_postcode_sub",
     "invalidUprnFormat" => "formats.local_transaction.invalid_uprn_sub",
     "validPostcodeNoElectionsMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",

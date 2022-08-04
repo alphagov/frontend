@@ -9,7 +9,7 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert page.has_css?(".gem-c-intervention")
-    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
+    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/b3cu012d")
   end
 
   test "Recruitment Banner is not displayed unless survey URL is specified for the base path" do
@@ -19,7 +19,7 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert_not page.has_css?(".gem-c-intervention")
-    assert_not page.has_link?("Take part in user research", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
+    assert_not page.has_link?("Take part in user research", href: "https://GDSUserResearch.optimalworkshop.com/treejack/b3cu012d")
   end
 
   test "Recruitment Banner is displayed for any page tagged to Working, jobs and pensions" do
@@ -36,7 +36,7 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert page.has_css?(".gem-c-intervention")
-    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
+    assert page.has_link?("Take part in user research (opens in a new tab)", href: "https://GDSUserResearch.optimalworkshop.com/treejack/b3cu012d")
   end
 
   test "Recruitment Banner is not displayed for pages tagged to other browse topics" do
@@ -53,6 +53,6 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     visit transaction["base_path"]
 
     assert_not page.has_css?(".gem-c-intervention")
-    assert_not page.has_link?("Take part in user research", href: "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6")
+    assert_not page.has_link?("Take part in user research", href: "https://GDSUserResearch.optimalworkshop.com/treejack/b3cu012d")
   end
 end

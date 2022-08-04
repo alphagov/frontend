@@ -1,6 +1,6 @@
 module ContentItem
   module RecruitmentBanner
-    SURVEY_URL_ONE = "https://GDSUserResearch.optimalworkshop.com/treejack/834dm2s6".freeze
+    SURVEY_URL_ONE = "https://GDSUserResearch.optimalworkshop.com/treejack/b3cu012d".freeze
     SURVEY_URLS = {
       "/bank-holidays" => SURVEY_URL_ONE,
       "/sold-bought-vehicle" => SURVEY_URL_ONE,

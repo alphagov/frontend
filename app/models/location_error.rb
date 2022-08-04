@@ -1,6 +1,6 @@
 class LocationError
   MESSAGES = {
-    "fullPostcodeNoLocationsApiMatch" => "formats.local_transaction.valid_postcode_no_match",
+    "fullPostcodeNoMapitMatch" => "formats.local_transaction.valid_postcode_no_match",
     "noLaMatch" => "formats.local_transaction.no_local_authority",
     "validPostcodeNoLocation" => "formats.find_my_nearest.valid_postcode_no_locations",
     "invalidPostcodeFormat" => "formats.local_transaction.invalid_postcode",
@@ -10,7 +10,7 @@ class LocationError
   }.freeze
 
   SUB_MESSAGES = {
-    "fullPostcodeNoLocationsApiMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
+    "fullPostcodeNoMapitMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
     "invalidPostcodeFormat" => "formats.local_transaction.invalid_postcode_sub",
     "invalidUprnFormat" => "formats.local_transaction.invalid_uprn_sub",
     "validPostcodeNoElectionsMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",

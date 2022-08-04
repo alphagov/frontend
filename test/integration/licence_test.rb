@@ -1,18 +1,34 @@
 require "integration_test_helper"
-require "gds_api/test_helpers/locations_api"
-require "gds_api/test_helpers/local_links_manager"
+require "gds_api/test_helpers/mapit"
 require "gds_api/test_helpers/licence_application"
 
 class LicenceTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::LocationsApi
-  include GdsApi::TestHelpers::LocalLinksManager
+  include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::LicenceApplication
-  include LocationHelpers
 
   context "given a location specific licence" do
     setup do
-      configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
-      stub_local_links_manager_does_not_have_an_authority("not-a-valid-council-name")
+      stub_mapit_has_a_postcode_and_areas(
+        "SW1A 1AA",
+        [51.5010096, -0.1415870],
+        [
+          { "ons" => "00BK", "govuk_slug" => "westminster", "name" => "Westminster City Council", "type" => "LBO" },
+          { "name" => "Greater London Authority", "type" => "GLA" },
+        ],
+      )
+
+      westminster = {
+        "id" => 2432,
+        "codes" => {
+          "ons" => "00BK",
+          "gss" => "E07000198",
+          "govuk_slug" => "westminster",
+        },
+        "name" => "Westminster",
+      }
+
+      stub_mapit_has_area_for_code("govuk_slug", "westminster", westminster)
+      stub_mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
 
       @payload = {
         base_path: "/licence-to-kill",
@@ -24,8 +40,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
         public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
-          lgsl_code: 461,
-          lgil_code: 8,
           licence_identifier: "1071-5-1",
           licence_overview: "You only live twice, Mr Bond.\n",
         },
@@ -208,8 +222,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
             public_updated_at: "2012-10-02T12:30:33.483Z",
             description: "Descriptive licence text.",
             details: {
-              lgsl_code: 461,
-              lgil_code: 8,
               licence_identifier: "999",
               licence_overview: "You only live twice, Mr Bond.\n",
             },
@@ -217,7 +229,26 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
           stub_content_store_has_item("/licence-to-thrill", @payload)
 
-          configure_locations_api_and_local_authority("HP20 2QF", %w[buckinghamshire], 440)
+          stub_mapit_has_a_postcode_and_areas(
+            "HP20 2QF",
+            [],
+            [
+              { "ons" => "11", "govuk_slug" => "buckinghamshire", "name" => "Buckinghamshire Council", "type" => "CTY" },
+              { "ons" => "11UB", "govuk_slug" => "aylesbury-vale", "name" => "Aylesbury Vale District Council", "type" => "DIS" },
+            ],
+          )
+
+          buckinghamshire = {
+            "id" => 2432,
+            "codes" => {
+              "ons" => "11",
+              "gss" => "E07000198",
+              "govuk_slug" => "buckinghamshire",
+            },
+            "name" => "Buckinghamshire",
+          }
+
+          stub_mapit_has_area_for_code("govuk_slug", "buckinghamshire", buckinghamshire)
 
           authorities = [
             {
@@ -260,7 +291,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
           ]
 
           stub_licence_exists(
-            "999/00BK",
+            "999/11",
             "isLocationSpecific" => true,
             "isOfferedByCounty" => true,
             "geographicalAvailability" => %w[England Wales],
@@ -359,7 +390,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
     context "when visiting the licence with an invalid formatted postcode" do
       setup do
-        stub_locations_api_does_not_have_a_bad_postcode("Not valid")
+        stub_mapit_does_not_have_a_bad_postcode("Not valid")
         visit "/licence-to-kill"
 
         fill_in "postcode", with: "Not valid"
@@ -379,9 +410,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the licence with a postcode not present in LocationsApi" do
+    context "when visiting the licence with a postcode not present in MapIt" do
       setup do
-        stub_locations_api_has_no_location("AB1 2AB")
+        stub_mapit_does_not_have_a_postcode("AB1 2AB")
 
         visit "/licence-to-kill"
 
@@ -402,11 +433,9 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the licence with a postcode that has no local authority" do
+    context "when visiting the licence with a postcode with no areas in MapIt" do
       setup do
-        stub_locations_api_has_location("XM4 5HQ", [{ "local_custodian_code" => 123 }])
-
-        stub_local_links_manager_does_not_have_a_custodian_code(123)
+        stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
 
         visit "/licence-to-kill"
 
@@ -679,8 +708,6 @@ class LicenceTest < ActionDispatch::IntegrationTest
         public_updated_at: "2012-10-02T12:30:33.483Z",
         description: "Descriptive licence text.",
         details: {
-          lgsl_code: 461,
-          lgil_code: 8,
           licence_identifier: "1071-5-1",
           licence_overview: "This is a licence.\n",
         },
@@ -688,8 +715,27 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       stub_content_store_has_item("/a-licence", @payload)
 
-      configure_locations_api_and_local_authority("SW1A 1AA", %w[a-council], 5990)
-      stub_local_links_manager_does_not_have_an_authority("not-a-valid-council-name")
+      stub_mapit_has_a_postcode_and_areas(
+        "SW1A 1AA",
+        [51.5010096, -0.1415870],
+        [
+          { "ons" => "00BK", "govuk_slug" => "a-council", "name" => "A council", "type" => "LBO" },
+          { "name" => "Greater London Authority", "type" => "GLA" },
+        ],
+      )
+
+      a_council = {
+        "id" => 2432,
+        "codes" => {
+          "ons" => "00BK",
+          "gss" => "E07000198",
+          "govuk_slug" => "a-council",
+        },
+        "name" => "Westminster",
+      }
+
+      stub_mapit_has_area_for_code("govuk_slug", "a-council", a_council)
+      stub_mapit_does_not_have_area_for_code("govuk_slug", "not-a-valid-council-name")
 
       authorities = [
         {

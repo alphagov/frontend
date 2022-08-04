@@ -5,7 +5,7 @@ class LocalTransactionController < ContentItemsController
   before_action :deny_framing
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
-  NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
+  NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze
   NO_MATCHING_AUTHORITY = "noLaMatch".freeze
   BANNED_POSTCODES = %w[ENTERPOSTCODE].freeze
 
@@ -15,7 +15,7 @@ class LocalTransactionController < ContentItemsController
 
       if @location_error
         @postcode = postcode
-      elsif mapit_response.location_found?
+      elsif locations_api_response.location_found?
         slug = if lgsl == 364 && country_name == "Northern Ireland"
                  "electoral-office-for-northern-ireland"
                else
@@ -48,17 +48,23 @@ private
     LocalTransactionPresenter
   end
 
+  def authority_results
+    @authority_results = Frontend.local_links_manager_api.local_authority_by_custodian_code(locations_api_response.local_custodian_codes.first)
+  rescue GdsApi::HTTPNotFound
+    @authority_results = {}
+  end
+
   def local_authority_slug
-    @local_authority_slug ||= LocalTransactionLocationIdentifier.find_slug(mapit_response.location.areas, content_item_hash)
+    authority_results.dig("local_authorities", 0, "slug")
   end
 
   def country_name
-    @country_name ||= LocalTransactionLocationIdentifier.find_country(mapit_response.location.areas, content_item_hash)
+    authority_results.dig("local_authorities", 0, "country_name")
   end
 
   def location_error
-    return LocationError.new(INVALID_POSTCODE) if banned_postcode? || mapit_response.invalid_postcode? || mapit_response.blank_postcode?
-    return LocationError.new(NO_MAPIT_MATCH) if mapit_response.location_not_found?
+    return LocationError.new(INVALID_POSTCODE) if banned_postcode? || locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
+    return LocationError.new(NO_LOCATIONS_API_MATCH) if locations_api_response.location_not_found?
     return LocationError.new(NO_MATCHING_AUTHORITY) unless local_authority_slug
   end
 
@@ -66,21 +72,21 @@ private
     BANNED_POSTCODES.include? postcode
   end
 
-  def mapit_response
-    @mapit_response ||= location_from_mapit
+  def locations_api_response
+    @locations_api_response ||= fetch_location(postcode)
   end
 
-  def location_from_mapit
+  def fetch_location(postcode)
     if postcode.present?
       begin
-        location = Frontend.mapit_api.location_for_postcode(postcode)
+        local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
       rescue GdsApi::HTTPNotFound
-        location = nil
+        local_custodian_codes = []
       rescue GdsApi::HTTPClientError => e
         error = e
       end
     end
-    MapitPostcodeResponse.new(postcode, location, error)
+    LocationsApiPostcodeResponse.new(postcode, local_custodian_codes, error)
   end
 
   def postcode

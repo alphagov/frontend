@@ -1,32 +1,14 @@
 require "integration_test_helper"
-require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/locations_api"
 require "gds_api/test_helpers/local_links_manager"
 
 class LocalTransactionsTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LocationsApi
   include GdsApi::TestHelpers::LocalLinksManager
+  include LocationHelpers
 
   setup do
-    stub_mapit_has_a_postcode_and_areas(
-      "SW1A 1AA",
-      [51.5010096, -0.1415870],
-      [
-        { "ons" => "00BK", "name" => "Westminster City Council", "type" => "LBO", "govuk_slug" => "westminster" },
-        { "name" => "Greater London Authority", "type" => "GLA" },
-      ],
-    )
-
-    westminster = {
-      "id" => 2432,
-      "codes" => {
-        "ons" => "00BK",
-        "gss" => "E07000198",
-        "govuk_slug" => "westminster",
-      },
-      "name" => "Westminster",
-    }
-
-    stub_mapit_has_area_for_code("govuk_slug", "westminster", westminster)
+    configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
 
     @payload = {
       analytics_identifier: nil,
@@ -69,6 +51,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         url: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
         country_name: "England",
         status: "ok",
+        local_custodian_code: 5990,
       )
     end
 
@@ -138,7 +121,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with an incorrect postcode" do
       setup do
-        stub_mapit_does_not_have_a_postcode("AB1 2AB")
+        stub_locations_api_has_no_location("AB1 2AB")
 
         visit "/pay-bear-tax"
 
@@ -159,7 +142,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         track_action = page.find(".gem-c-error-alert")["data-track-action"]
         track_label = page.find(".gem-c-error-alert")["data-track-label"]
 
-        assert_equal "postcodeErrorShown: fullPostcodeNoMapitMatch", track_action
+        assert_equal "postcodeErrorShown: fullPostcodeNoLocationsApiMatch", track_action
 
         assert_equal I18n.t("formats.local_transaction.valid_postcode_no_match"), track_label
       end
@@ -167,7 +150,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     context "when visiting the local transaction with an invalid postcode" do
       setup do
-        stub_mapit_does_not_have_a_bad_postcode("Not valid")
+        stub_locations_api_does_not_have_a_bad_postcode("Not valid")
 
         visit "/pay-bear-tax"
         fill_in "postcode", with: "Not valid"
@@ -255,9 +238,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the local transaction with a valid postcode that has no areas in MapIt" do
+    context "when visiting the local transaction with a valid postcode that has no local authority" do
       setup do
-        stub_mapit_has_a_postcode_and_areas("XM4 5HQ", [0.00, -0.00], {})
+        stub_locations_api_has_location("XM4 5HQ", [{ "local_custodian_code" => 123 }])
+        stub_local_links_manager_does_not_have_a_custodian_code(123)
 
         visit "/pay-bear-tax"
         fill_in "postcode", with: "XM4 5HQ"
@@ -389,38 +373,9 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
     end
   end
 
-  should "gracefully handle missing snac in mapit data" do
-    stub_mapit_has_a_postcode_and_areas(
-      "AL10 9AB",
-      [51.75287647301734, -0.24217323267679933],
-      [
-        { "name" => "Welwyn Hatfield Borough Council", "type" => "DIS" },
-      ],
-    )
-
-    visit "/pay-bear-tax"
-    fill_in "postcode", with: "AL10 9AB"
-    click_on "Find"
-
-    assert_current_url "/pay-bear-tax"
-
-    assert_selector(".gem-c-error-alert", text: I18n.t("formats.local_transaction.no_local_authority"))
-  end
-
   context "when a service is unavailable for a devolved administration with an interaction present" do
     setup do
-      stub_mapit_has_a_postcode_and_areas(
-        "WA8 8DX",
-        [0, 0],
-        [
-          {
-            "name" => "Cardiff",
-            "type" => "LGD",
-            "govuk_slug" => "cardiff",
-            "country_name" => "Wales",
-          },
-        ],
-      )
+      configure_locations_api_and_local_authority("WA8 8DX", %w[cardiff], 6815)
 
       stub_local_links_manager_has_a_link(
         authority_slug: "cardiff",
@@ -455,18 +410,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "when a service is unavailable for a devolved administration without an interaction or homepage present" do
     setup do
-      stub_mapit_has_a_postcode_and_areas(
-        "WA8 8DX",
-        [0, 0],
-        [
-          {
-            "name" => "Cardiff",
-            "type" => "LGD",
-            "govuk_slug" => "cardiff",
-            "country_name" => "Wales",
-          },
-        ],
-      )
+      configure_locations_api_and_local_authority("WA8 8DX", %w[cardiff], 6815)
 
       stub_local_links_manager_has_no_link_and_no_homepage_url(
         authority_slug: "cardiff",
@@ -499,18 +443,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
   context "when a service is handled differently for a devolved administration" do
     setup do
-      stub_mapit_has_a_postcode_and_areas(
-        "EH8 8DX",
-        [0, 0],
-        [
-          {
-            "name" => "Holyroodhouse",
-            "type" => "LGD",
-            "govuk_slug" => "edinburgh",
-            "country_name" => "Scotland",
-          },
-        ],
-      )
+      configure_locations_api_and_local_authority("EH8 8DX", %w[edinburgh], 9064)
 
       stub_local_links_manager_has_a_link(
         authority_slug: "edinburgh",

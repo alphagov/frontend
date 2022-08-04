@@ -2,7 +2,7 @@ class LocationErrorTest < ActiveSupport::TestCase
   context "#initialize" do
     context "when given a postcode error with a message and sub message" do
       should "set the message and the sub message" do
-        error = LocationError.new("fullPostcodeNoMapitMatch")
+        error = LocationError.new("fullPostcodeNoLocationsApiMatch")
         assert_equal(error.message, "formats.local_transaction.valid_postcode_no_match")
         assert_equal(error.sub_message, "formats.local_transaction.valid_postcode_no_match_sub_html")
       end

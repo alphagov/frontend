@@ -6,9 +6,6 @@ class FindLocalCouncilController < ContentItemsController
   skip_before_action :set_locale
 
   BASE_PATH = "/find-local-council".freeze
-  UNITARY_AREA_TYPES = %w[COI LBO LGD MTD UTA].freeze
-  DISTRICT_AREA_TYPE = "DIS".freeze
-  LOWEST_TIER_AREA_TYPES = [*UNITARY_AREA_TYPES, DISTRICT_AREA_TYPE].freeze
 
   def index; end
 
@@ -49,13 +46,12 @@ private
   end
 
   def location_error
-    return LocationError.new("invalidPostcodeFormat") if mapit_response.invalid_postcode? || mapit_response.blank_postcode?
-    return LocationError.new("fullPostcodeNoMapitMatch") if mapit_response.location_not_found?
-    return LocationError.new("noLaMatch") unless mapit_response.location_found? && mapit_response.areas_found? && authority_slug.present?
+    return LocationError.new("invalidPostcodeFormat") if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
+    return LocationError.new("noLaMatch") if locations_api_response.location_not_found?
   end
 
-  def mapit_response
-    @mapit_response ||= fetch_location(postcode)
+  def locations_api_response
+    @locations_api_response ||= fetch_location(postcode)
   end
 
   def postcode
@@ -63,27 +59,20 @@ private
   end
 
   def authority_slug
-    local_council.codes["govuk_slug"]
-  end
-
-  def local_council
-    @local_council ||= fetch_local_council_from_areas(mapit_response.location.areas)
-  end
-
-  def fetch_local_council_from_areas(areas)
-    areas.detect { |a| LOWEST_TIER_AREA_TYPES.include? a.type }
+    authority_results = Frontend.local_links_manager_api.local_authority_by_custodian_code(locations_api_response.local_custodian_codes.first)
+    authority_results["local_authorities"][0]["slug"]
   end
 
   def fetch_location(postcode)
     if postcode.present?
       begin
-        location = Frontend.mapit_api.location_for_postcode(postcode)
+        local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
       rescue GdsApi::HTTPNotFound
-        location = nil
+        local_custodian_codes = []
       rescue GdsApi::HTTPClientError => e
         error = e
       end
     end
-    MapitPostcodeResponse.new(postcode, location, error)
+    LocationsApiPostcodeResponse.new(postcode, local_custodian_codes, error)
   end
 end

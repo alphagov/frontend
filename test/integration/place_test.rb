@@ -1,14 +1,10 @@
 require "integration_test_helper"
-require "gds_api/test_helpers/mapit"
 require "gds_api/test_helpers/imminence"
 
 class PlacesTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::Mapit
   include GdsApi::TestHelpers::Imminence
 
   setup do
-    stub_mapit_has_a_postcode("SW1A 1AA", [51.5010096, -0.1415871])
-
     @payload = {
       title: "Find a passport interview office",
       base_path: "/passport-interview-office",
@@ -172,8 +168,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode for report child abuse" do
     setup do
-      stub_mapit_has_a_postcode("N5 1QL", [51.5505284612, -0.100467152148])
-
       @payload_for_report_child_abuse = {
         title: "Find your local child social care team",
         base_path: "/report-child-abuse-to-local-council",

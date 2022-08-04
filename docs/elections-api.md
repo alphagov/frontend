@@ -2,15 +2,14 @@
 
 The [Contact Electoral Registration Office](https://www.gov.uk/contact-electoral-registration-office)
 page is published as a Local Transaction format page. These usually do postcode
-lookups via Mapit and then get council and URL information from Local Links
+lookups via Locations API and then get council and URL information from Local Links
 Manager.
 
 Electoral Commission have [a public API](https://api.electoralcommission.org.uk/)
 for finding this information which they keep up to date.
 
 The API is also capable of disambiguating postcodes that span local authority
-boundaries which Mapit is not. (There is work underway to fix this for other
- postcode related services on GOV.UK by using a different postcode lookup product).
+boundaries.
 
 The API contains other information, such as dates and times of elections and where
 your local polling station is, however we're not using that yet.

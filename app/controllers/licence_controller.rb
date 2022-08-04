@@ -7,7 +7,7 @@ class LicenceController < ContentItemsController
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze
   NO_MATCHING_AUTHORITY = "noLaMatch".freeze
-  NO_MAPIT_MATCH = "fullPostcodeNoMapitMatch".freeze
+  NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze
 
   def start
     if publication.continuation_link.present?
@@ -62,7 +62,8 @@ private
   end
 
   def snac_from_slug
-    @snac_from_slug ||= AuthorityLookup.find_snac_from_slug(params[:authority_slug])
+    local_authority_results = Frontend.local_links_manager_api.local_authority(params[:authority_slug])
+    @snac_from_slug = local_authority_results.dig("local_authorities", 0, "snac")
   end
 
   def postcode_search_submitted?
@@ -74,33 +75,39 @@ private
   end
 
   def location_error
-    return LocationError.new(NO_MAPIT_MATCH) if mapit_response.location_not_found?
-    return LocationError.new(INVALID_POSTCODE) if mapit_response.invalid_postcode? || mapit_response.blank_postcode?
+    return LocationError.new(INVALID_POSTCODE) if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
+    return LocationError.new(NO_LOCATIONS_API_MATCH) if locations_api_response.location_not_found?
     return LocationError.new(NO_MATCHING_AUTHORITY) unless local_authority_slug
   end
 
-  def mapit_response
-    @mapit_response ||= location_from_mapit
+  def locations_api_response
+    @locations_api_response ||= fetch_location(postcode)
   end
 
-  def location_from_mapit
+  def fetch_location(postcode)
     if postcode.present?
       begin
-        location = Frontend.mapit_api.location_for_postcode(postcode)
+        local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
       rescue GdsApi::HTTPNotFound
-        location = nil
+        local_custodian_codes = []
       rescue GdsApi::HTTPClientError => e
         error = e
       end
     end
-    MapitPostcodeResponse.new(postcode, location, error)
+    LocationsApiPostcodeResponse.new(postcode, local_custodian_codes, error)
+  end
+
+  def authority_results
+    @authority_results ||= Frontend.local_links_manager_api.local_authority_by_custodian_code(locations_api_response.local_custodian_codes.first)
+  rescue GdsApi::HTTPNotFound
+    @authority_results = {}
   end
 
   def local_authority_slug
     @local_authority_slug ||= begin
-      return nil unless mapit_response.location_found?
+      return nil unless locations_api_response.location_found?
 
-      LocalAuthoritySlugFinder.call(mapit_response.location.areas, county_requested: @licence_details.offered_by_county?)
+      authority_results.dig("local_authorities", 0, "slug")
     end
   end
 

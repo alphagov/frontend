@@ -1,7 +1,7 @@
 require "test_helper"
 
 class PostcodeSanitizerTest < ActiveSupport::TestCase
-  context "postcodes are sanitized before being sent to MapIt" do
+  context "postcodes are sanitized before being sent to LocationsApi" do
     should "strip trailing spaces from entered postcodes" do
       assert_equal "WC2B 6NH", PostcodeSanitizer.sanitize("WC2B 6NH ")
     end

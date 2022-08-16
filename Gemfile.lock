@@ -134,7 +134,7 @@ GEM
     govuk-content-schema-test-helpers (1.6.1)
       json-schema (~> 2.8.0)
     govuk_ab_testing (2.4.2)
-    govuk_app_config (4.6.3)
+    govuk_app_config (4.7.0)
       logstasher (~> 2.1)
       prometheus_exporter (~> 2.0)
       puma (~> 5.6)

@@ -13,7 +13,7 @@
           title: @calendar.title
         } %>
 
-        <article role="article" data-module="gem-track-click gtm-click-tracking" class="js-tab-track">
+        <article role="article" data-module="gem-track-click ga4-event-tracker" class="js-tab-track">
           <% tab_content ||= [] %>
           <% @calendar.divisions.each_with_index do |division, index| %>
             <% tab_content[index] = capture do %>

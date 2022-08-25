@@ -1,0 +1,63 @@
+<% content_for :extra_headers do %>
+  <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
+  <meta name="description" content="<%= t("homepage.index.meta_description") %>">
+<% end %>
+<% content_for :title, t("homepage.index.intro_title.text") %>
+<% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>
+
+<main id="content" role="main">
+  <header class="homepage-inverse-header">
+    <div class="govuk-width-container">
+      <h1 class="homepage-inverse-header__title">
+        <%= @content_item.dig("details", "header_title") %>
+      </h1>
+      <div class="govspeak-wrapper">
+        <%= render "govuk_publishing_components/components/govspeak" do %>
+          <%= Govspeak::Document.new(@content_item.dig("details", "header_intro")).to_html.html_safe %>
+        <% end %>
+      </div>
+      <style>.govspeak-wrapper p { color: white !important; font-size: 150% !important; }</style>
+    </div>
+  </header>
+  <%= render "homepage/links_and_search" %>
+
+  <div class="govuk-width-container">
+    <%= render "homepage/services_and_information" %>
+    <%= render "homepage/government_activity" %>
+    <%= render "homepage/promotion-slots" %>
+
+<section class="homepage-section">
+  <div class="homepage-section__heading">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("homepage.index.more"),
+      margin_bottom: 6,
+      font_size: "m",
+    } %>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half govuk-grid-column-two-thirds-from-desktop">
+      <ul class="homepage-most-active-list" data-module="gem-track-click">
+        <% (@content_item.dig("details", "more_on_gov_uk_links") || []).each do |link| %>
+          <li>
+            <%= link_to(
+              link["text"],
+              link["target"],
+              class: "govuk-link",
+              data: {
+                "track-category": "homepageClicked",
+                "track-action": "moreLink",
+                "track-label": link["text"],
+                "track-value": "1",
+                "track-dimension": link["target"],
+                "track-dimension-index": "29",
+              }
+            ) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>
+  </div>
+</main>

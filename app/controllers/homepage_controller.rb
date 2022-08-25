@@ -8,4 +8,11 @@ class HomepageController < ContentItemsController
       remove_search: true,
     )
   end
+
+  def contentful
+    set_slimmer_headers(
+      template: "gem_layout_full_width",
+      remove_search: true,
+    )
+  end
 end

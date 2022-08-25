@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
   get "/homepage" => redirect("/")
+  get "/homepage-contentful" => "homepage#contentful", defaults: { slug: "homepage-contentful" }
 
   get "/random" => "random#random_page"
 

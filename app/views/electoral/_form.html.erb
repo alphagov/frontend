@@ -22,6 +22,14 @@
     } %>
   <% end %>
 
+    <%
+      #TODO: Add a visually hideen legend option to the fieldset component; then
+      #      the component can be used here.
+      if defined? @component_stylesheets
+        @component_stylesheets.add_stylesheet("fieldset")
+      end
+    %>
+
   <%= form_with url: electoral_services_path,
     method: :get,
     id: "local-locator-form",

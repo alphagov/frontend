@@ -34,6 +34,13 @@
     method: "post",
   ) do | form | %>
 
+    <%
+      #TODO: Add a visually hideen legend option to the fieldset component; then
+      #      the component can be used here.
+      if defined? @component_stylesheets
+        @component_stylesheets.add_stylesheet("fieldset")
+      end
+    %>
     <fieldset class="govuk-fieldset">
       <legend class=" govuk-fieldset__legend govuk-visually-hidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
 
@@ -62,7 +69,7 @@
         id: 'postcode-finder-link',
         class: "govuk-link",
         rel: "external"),
-        class: "govuk-body" 
+        class: "govuk-body"
       %>
     </fieldset>
   <% end %>

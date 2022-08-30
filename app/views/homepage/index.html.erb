@@ -14,6 +14,9 @@
   t("homepage.index.promotion_slots").length + 2 # added to account for the two hardcoded big number links
 %>
 
+<%
+  add_view_stylesheet("homepage")
+%>
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <meta name="description" content="<%= t("homepage.index.meta_description") %>">

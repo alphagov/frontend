@@ -1,4 +1,8 @@
-<% places ||= [] %>
+<%
+  add_view_stylesheet("report-child-abuse")
+
+  places ||= []
+%>
 <% places.each do |place| %>
   <li>
     <div class="place group">

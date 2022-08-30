@@ -3,6 +3,12 @@ ARG builder_image=ghcr.io/alphagov/govuk-ruby-builder:3.1.2
 
 FROM $builder_image AS builder
 
+RUN apt-get update -qy && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essential nodejs git
+
+RUN mkdir /app
+
 WORKDIR /app
 
 COPY Gemfile* .ruby-version ./

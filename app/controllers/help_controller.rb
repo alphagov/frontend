@@ -4,13 +4,9 @@ class HelpController < ContentItemsController
   skip_before_action :set_expiry, only: [:ab_testing]
   skip_before_action :set_locale, only: [:ab_testing]
 
-  def index
-    slimmer_template "gem_layout"
-  end
+  def index; end
 
-  def tour
-    slimmer_template "gem_layout"
-  end
+  def tour; end
 
   def cookie_settings; end
 

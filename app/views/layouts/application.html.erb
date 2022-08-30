@@ -17,6 +17,17 @@
     <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 
     <%= stylesheet_link_tag "application.css", :media => "all", integrity: false %>
+
+    <%=
+      if defined? @component_stylesheets
+        list_of_component_stylesheets = @component_stylesheets.get_stylesheets.map do | component |
+            stylesheet_link_tag(component, integrity: false)
+          end
+
+        raw(list_of_component_stylesheets.join(""))
+      end
+    %>
+
     <%= javascript_include_tag 'test-dependencies.js' if Rails.env.test? %>
     <%= javascript_include_tag 'application.js', integrity: false %>
     <%= yield :extra_javascript %>

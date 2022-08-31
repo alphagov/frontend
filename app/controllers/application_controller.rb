@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   before_action do
     I18n.locale = I18n.default_locale
     begin
-      @component_stylesheets = GovukPublishingComponents::AppHelpers::AssetHelper.new
+      @individual_stylesheets = GovukPublishingComponents::AppHelpers::AssetHelper.new
     rescue NameError
-      logger.warn("The version of the GOV.UK Components Gem being used doesn't support individual asset loading.")
+      logger.warn("The version of the components gem being used doesn't support individual asset loading.")
     end
   end
 

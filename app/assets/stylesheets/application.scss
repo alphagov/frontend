@@ -9,33 +9,8 @@ $govuk-include-default-font-face: false;
 
 @import "govuk_publishing_components/govuk_frontend_support";
 
-// These components aren't found in the templates, but the styles are still
-// needed as they're used within a page's `content_item`.
-//
-// Document list is needed for the "Sign in to a service" page.
-@import "govuk_publishing_components/components/document-list";
-// Inset text is needed for the "Sign in to a service" page.
-@import "govuk_publishing_components/components/inset-text";
-
-// local app components
-@import "components/calendar";
-@import "components/metadata";
-@import "components/subscribe";
-
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/truncated-url";
-
-// View stylesheets
-@import "views/calendars";
-@import "views/completed_transaction";
-@import "views/cookie-settings";
-@import "views/homepage";
-@import "views/travel-advice";
-@import "views/report-child-abuse";
-
-// exceptional format overrides
-@import "views/location_form";
-@import "views/local-transaction";
 
 // Reset some global styles from the `wrapper` layout
 .gem-c-related-navigation {

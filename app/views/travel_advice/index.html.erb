@@ -1,3 +1,9 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("travel-advice")
+  end
+%>
+
 <% content_for :extra_headers do %>
   <%= javascript_include_tag "views/travel-advice.js", integrity: false %>
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>

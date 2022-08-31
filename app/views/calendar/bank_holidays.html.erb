@@ -1,3 +1,9 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("calendars")
+  end
+%>
+
 <%= render :partial => "calendar_head" %>
 
 <main id="content" role="main" class="govuk-main-wrapper govuk-!-padding-top-0">

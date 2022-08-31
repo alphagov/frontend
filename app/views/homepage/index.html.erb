@@ -1,3 +1,8 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("homepage")
+  end
+%>
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <meta name="description" content="<%= t("homepage.index.meta_description") %>">

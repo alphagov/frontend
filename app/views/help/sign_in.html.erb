@@ -1,3 +1,11 @@
+<%
+  # These components aren't found in the templates, but the styles are still
+  # needed as they're used within the sign in page's `content_item`.
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("document-list")
+    @individual_stylesheets.add_view("inset-text")
+  end
+%>
 <% content_for :title, "#{content_item_hash["title"]} - GOV.UK" %>
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item_hash["description"] %>">

@@ -1,3 +1,10 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("calendars")
+    @individual_stylesheets.add_component("calendar")
+  end
+%>
+
 <%= render :partial => "calendar_head" %>
 
 <div class="govuk-width-container">
@@ -55,5 +62,3 @@
     </div>
   </main>
 </div>
-
-

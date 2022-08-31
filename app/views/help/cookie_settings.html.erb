@@ -1,3 +1,8 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("cookie-settings")
+  end
+%>
 <% content_for :title, "Cookies on GOV.UK" %>
 <main id="content" role="main">
   <div class="govuk-grid-row">

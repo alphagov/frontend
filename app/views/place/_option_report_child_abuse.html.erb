@@ -1,4 +1,10 @@
-<% places ||= [] %>
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("report-child-abuse")
+  end
+
+places ||= []
+%>
 <% places.each do |place| %>
   <li>
     <div class="place group">

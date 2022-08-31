@@ -1,4 +1,10 @@
-<% data ||= false %>
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_component("subscribe")
+  end
+
+data ||= false
+%>
 
 <%= tag.div class: "app-c-subscribe" do %>
   <%= link_to label, url, title: title, class: "app-c-subscribe__link govuk-link", data: data %>

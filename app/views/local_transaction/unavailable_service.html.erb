@@ -1,3 +1,8 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("local-transaction")
+  end
+%>
 <%= render layout: 'shared/base_page', locals: {
   title: t('formats.local_transaction.service_not_available', country_name: @country_name),
   publication: publication,

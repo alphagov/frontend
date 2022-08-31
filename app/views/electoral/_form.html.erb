@@ -1,3 +1,8 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("location_form")
+  end
+%>
 <div class="postcode-search-form"
       data-module="track-submit"
       data-track-category="postcodeSearch:local_transaction"
@@ -25,8 +30,8 @@
     <%
       #TODO: Add a visually hideen legend option to the fieldset component; then
       #      the component can be used here.
-      if defined? @component_stylesheets
-        @component_stylesheets.add_stylesheet("fieldset")
+      if defined? @individual_stylesheets
+        @individual_stylesheets.add_gem_component("fieldset")
       end
     %>
 

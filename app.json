@@ -16,7 +16,7 @@
       "value": "https://govuk-content-store-examples.herokuapp.com/api"
     },
     "PLEK_SERVICE_STATIC_URI": {
-      "value": "assets.digital.cabinet-office.gov.uk"
+      "value": "https://assets.publishing.service.gov.uk"
     },
     "RAILS_SERVE_STATIC_ASSETS": {
       "value": "yes"

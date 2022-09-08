@@ -227,23 +227,6 @@
   padding: govuk-spacing(4) 0 govuk-spacing(6);
 }
 
-.homepage-section--cost-of-living {
-  background-color: #008269;
-  border-top: 1px solid govuk-colour("white");
-  padding: govuk-spacing(6) 0 govuk-spacing(7) 0;
-}
-
-.homepage__cost-of-living-logo {
-  height: 36px;
-  margin-bottom: govuk-spacing(3);
-  width: 86px;
-
-  @include govuk-media-query($from: "desktop") {
-    height: 51px;
-    width: 122px;
-  }
-}
-
 .homepage-section--links-and-search {
   background: govuk-colour("light-grey");
   padding: govuk-spacing(6) 0 govuk-spacing(8);

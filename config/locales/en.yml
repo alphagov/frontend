@@ -405,14 +405,14 @@ en:
           title: 'Her Majesty Queen Elizabeth II'
           href: /government/topical-events/her-majesty-queen-elizabeth-ii
           image_src: homepage/her-majesty-queen-elizabeth-ii.jpg
-        - text: The guarantee limits how much you will be charged for each unit of gas or electricity from 1 October.
-          title: Energy Price Guarantee
-          href: /government/publications/energy-bills-support/energy-bills-support-factsheet-8-september-2022
-          image_src: homepage/cost-of-living.jpg
-        - text: Check if you’ll have to pay to replace cladding or to fix other safety problems.
-          title: Building safety costs
-          href: https://www.gov.uk/check-building-safety-costs
-          image_src: homepage/cladding-promo.png
+        - text: Prime Minister Liz Truss's statement on the death of Her Majesty The Queen.
+          title: Prime Minister Liz Truss's statement on the death of Her Majesty The Queen.
+          href: /government/speeches/prime-ministers-statement-on-the-death-of-her-majesty-queen-elizabeth-ii
+          image_src: homepage/queen-elizabeth-ii-profile.jpg
+        - text: Following the death of Her Majesty The Queen, all official flags, including the Union Flag, should be half-masted.
+          title: Flag flying guidance following the death of Her Majesty The Queen.
+          href: /government/news/death-of-her-majesty-the-queen
+          image_src: homepage/queen-elizabeth-ii-pink.jpg
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

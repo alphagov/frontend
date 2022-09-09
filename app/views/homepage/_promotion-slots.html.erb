@@ -23,7 +23,7 @@
             track_dimension_index: "29",
             track_dimension: item[:title],
           },
-          image_src: image_url(item[:image_src]),
+          image_src: image_path(item[:image_src]),
           image_alt: "",
           image_loading: "lazy",
           heading_level: 3,
@@ -31,7 +31,7 @@
           description: item[:text],
           font_size: "m",
           sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
-          srcset: item[:srcset],
+          srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence
         } %>
       </div>
     <% end %>

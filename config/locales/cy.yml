@@ -43,6 +43,7 @@ cy:
   bank_holidays:
     2nd_january: 2il o Ionawr
     add_clock_changes_to_calendar: Ychwanegwch newidiadau i'r cloc yn y DU at eich calendr (ICS, 2KB)
+    queens_bank_holiday: Gŵyl y Banc ar gyfer Angladd Gwladol y Frenhines Elizabeth II
     battle_boyne: Brwydr y Boyne (Dydd yr Orenwyr)
     boxing_day: Dydd San Steffan
     bst_explanation: Yr enw ar y cyfnod pan mae'r clociau 1 awr ymlaen yw Amser Haf Prydain (BST). Mae mwy o olau dydd gyda'r nos a llai yn y bore (gelwir weithiau'n Amser Arbed Golau Dydd).

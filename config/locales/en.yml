@@ -401,6 +401,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
+        - text: Arrangements following the death of Her Majesty The Queen.
+          title: 'Her Majesty Queen Elizabeth II'
+          href: /government/topical-events/her-majesty-queen-elizabeth-ii
+          image_src: homepage/her-majesty-queen-elizabeth-ii.jpg
         - text: The guarantee limits how much you will be charged for each unit of gas or electricity from 1 October.
           title: Energy Price Guarantee
           href: /government/publications/energy-bills-support/energy-bills-support-factsheet-8-september-2022
@@ -409,10 +413,6 @@ en:
           title: Building safety costs
           href: https://www.gov.uk/check-building-safety-costs
           image_src: homepage/cladding-promo.png
-        - text: Check the rules on COVID-19 for travelling abroad.
-          title: 'Travel abroad'
-          href: /guidance/travel-abroad-from-england-during-coronavirus-covid-19
-          image_src: homepage/travel-abroad-step-by-step.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

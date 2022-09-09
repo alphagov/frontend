@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     redirect_path = http_referer_path
     redirect_path = nil unless is_valid_redirect_path? redirect_path
 
-    redirect_with_analytics GdsApi.account_api.get_sign_in_url(redirect_path: redirect_path)["auth_uri"]
+    redirect_with_analytics GdsApi.account_api.get_sign_in_url(redirect_path:)["auth_uri"]
   end
 
   def callback
@@ -60,7 +60,7 @@ protected
       redirect_path.presence || account_home_path,
       {
         _ga: params[:_ga].presence,
-        cookie_consent: cookie_consent,
+        cookie_consent:,
       }.compact,
     )
   end

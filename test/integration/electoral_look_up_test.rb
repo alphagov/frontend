@@ -93,7 +93,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
         stub_api_postcode_lookup(postcode, response: with_multiple_addresses.to_json)
 
         with_electoral_api_url do
-          search_for(postcode: postcode)
+          search_for(postcode:)
 
           # Multiple addresses are displayed
           assert page.has_selector?("h1", text: "Choose your address")

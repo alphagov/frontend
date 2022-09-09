@@ -17,7 +17,7 @@ module LocationHelpers
       ],
     )
     authorities.each do |authority|
-      stub_local_links_manager_has_a_local_authority(authority, local_custodian_code: local_custodian_code, snac: snac)
+      stub_local_links_manager_has_a_local_authority(authority, local_custodian_code:, snac:)
     end
   end
 end

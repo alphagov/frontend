@@ -4,5 +4,5 @@ atom_feed(root_url: travel_advice_url, id: travel_advice_url) do |feed|
   feed.author do |author|
     author.name "GOV.UK"
   end
-  render partial: "country", collection: @presenter.countries_by_date.take(20), locals: { feed: feed }
+  render partial: "country", collection: @presenter.countries_by_date.take(20), locals: { feed: }
 end

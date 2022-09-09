@@ -11,7 +11,7 @@ class PlaceController < ContentItemsController
 
   def show
     @location_error = location_error if request.post?
-    render :show, locals: locals
+    render :show, locals:
   end
 
 private

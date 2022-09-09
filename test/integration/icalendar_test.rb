@@ -4,7 +4,7 @@ class IcalendarTest < ActionDispatch::IntegrationTest
   setup do
     ["/gwyliau-banc", "/bank-holidays"].each do |base_path|
       content_item = {
-        base_path: base_path,
+        base_path:,
         schema_name: "calendar",
         document_type: "calendar",
       }

@@ -41,14 +41,14 @@ module ContentStoreHelpers
 
   def stub_content_store_has_item_tagged_to_taxon(base_path:, payload:)
     content_item = payload.merge(
-      base_path: base_path,
+      base_path:,
       links: { taxons: [basic_taxon] },
     )
     stub_content_store_has_item(base_path, content_item)
   end
 
   def content_store_has_page(slug, schema: "placeholder", is_tagged_to_taxon: false)
-    content_store_has_random_item(base_path: "/#{slug}", schema: schema, is_tagged_to_taxon: is_tagged_to_taxon)
+    content_store_has_random_item(base_path: "/#{slug}", schema:, is_tagged_to_taxon:)
   end
 
   def content_store_does_not_have_page(slug)

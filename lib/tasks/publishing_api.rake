@@ -4,7 +4,7 @@ namespace :publishing_api do
     logger = Logger.new($stdout)
 
     publisher = SpecialRoutePublisher.new(
-      logger: logger,
+      logger:,
       publishing_api: GdsApi.publishing_api,
     )
 

@@ -43,6 +43,7 @@ en:
   bank_holidays:
     2nd_january: 2nd January
     add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)
+    queens_bank_holiday: Bank Holiday for the State Funeral of Queen Elizabeth II
     battle_boyne: Battle of the Boyne (Orangemen’s Day)
     boxing_day: Boxing Day
     bst_explanation: The period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).

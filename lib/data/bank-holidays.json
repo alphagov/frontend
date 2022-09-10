@@ -300,6 +300,12 @@
                 "bunting": true
               },
               {
+                "title": "bank_holidays.queens_bank_holiday",
+                "date": "19/09/2022",
+                "notes": "",
+                "bunting": false
+              },
+              {
                 "title": "bank_holidays.boxing_day",
                 "date": "26/12/2022",
                 "notes": "",
@@ -688,6 +694,12 @@
                 "date": "01/08/2022",
                 "notes": "",
                 "bunting": true
+              },
+              {
+                "title": "bank_holidays.queens_bank_holiday",
+                "date": "19/09/2022",
+                "notes": "",
+                "bunting": false
               },
               {
                 "title": "bank_holidays.st_andrew",
@@ -1132,6 +1144,12 @@
                 "date": "29/08/2022",
                 "notes": "",
                 "bunting": true
+              },
+              {
+                "title": "bank_holidays.queens_bank_holiday",
+                "date": "19/09/2022",
+                "notes": "",
+                "bunting": false
               },
               {
                 "title": "bank_holidays.boxing_day",

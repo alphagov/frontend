@@ -1134,6 +1134,12 @@
                 "bunting": true
               },
               {
+                "title": "bank_holidays.queen_funeral",
+                "date": "19/09/2022",
+                "notes": "",
+                "bunting": false
+              },
+              {
                 "title": "bank_holidays.boxing_day",
                 "date": "26/12/2022",
                 "notes": "",

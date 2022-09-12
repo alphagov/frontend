@@ -26,7 +26,7 @@ jobs:
   build-and-publish-image:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     name: Build and publish image
-    uses: alphagov/govuk-infrastructure/.github/workflows/ci-ecr.yaml@main
+    uses: alphagov/govuk-infrastructure/.github/workflows/ci-ecr.yaml@unexisting_ecr_builds_only
     with:
       gitRef: ${{ github.event.inputs.gitRef || github.ref }}
     secrets:

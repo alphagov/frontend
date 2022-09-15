@@ -54,6 +54,8 @@ module Frontend
       application.css
     ]
 
+    config.assets.precompile << GovukPublishingComponents::AppHelpers::AssetHelper::COMPONENT_CSS_PATHS
+
     # Path within public/ where assets are compiled to
     config.assets.prefix = "/assets/frontend"
 

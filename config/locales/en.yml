@@ -402,18 +402,18 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Arrangements following the death of Her Majesty The Queen.
-          title: 'Her Majesty Queen Elizabeth II'
-          href: /government/topical-events/her-majesty-queen-elizabeth-ii
-          image_src: homepage/young-queen.jpg
         - text: Visit the remembrance site and contribute to the Book of Condolence.
           title: Remembrance site for Her Majesty The Queen
           href: https://www.royal.uk/
           image_src: homepage/erii-cypher.jpg
-        - text: Guidance for the public and businesses on the period of National Mourning following the demise of Her Majesty Queen Elizabeth II.
-          title: National Mourning Guidance
-          href: /government/publications/the-demise-of-her-majesty-queen-elizabeth-ii-national-mourning-guidance
-          image_src: homepage/queen-elizabeth-ii-profile.jpg
+        - text: Find out about limits on how much you will pay for the gas and electricity you use.
+          title: Energy Price Guarantee
+          href: /government/publications/energy-bills-support/energy-bills-support-factsheet-8-september-2022
+          image_src: homepage/energy-bills.png
+        - text: Check what you need to do before you travel to the UK and what to do after you arrive.
+          title: Move to the UK if you’re coming from Ukraine
+          href: /guidance/move-to-the-uk-if-youre-from-ukraine
+          image_src: homepage/ukraine-promo.jpg
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

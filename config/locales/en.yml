@@ -365,12 +365,12 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: Her Majesty Queen Elizabeth II
-          href: /government/topical-events/her-majesty-queen-elizabeth-ii
         - text: Check benefits and financial support you can get
           href: /check-benefits-financial-support
         - text: 'Limits on energy prices: Energy Price Guarantee'
           href: /government/publications/energy-bills-support/energy-bills-support-factsheet-8-september-2022
+        - text: 'Find a job'
+          href: /find-a-job
         - text: 'Coronavirus (COVID-19)'
           href: /coronavirus
         - text: 'Universal Credit account: sign in'

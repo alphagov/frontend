@@ -9,9 +9,9 @@
 } do %>
 
   <% if publication.promotion %>
-    <div class="promotion">
-      <% if publication.promotion['category'] == 'organ_donor' %>
-        <p class="govuk-body"> <%= t('formats.transaction.join_organ_donor') %> </p>
+    <% if publication.promotion['category'] == 'organ_donor' %>
+      <div class="promotion organ_donor">
+        <p class="govuk-body"><%= t('formats.transaction.join_organ_donor') %></p>
         <p class="govuk-body"><%= t('formats.transaction.organ_donation_laws') %> - <a href="https://www.organdonation.nhs.uk/uk-laws/" rel="external" class="govuk-link"><%= t('formats.transaction.organ_donation_in_your_country') %></a>.</p>
         <p class="govuk-body"><%= t('formats.transaction.organ_transplant_question') %></p>
         <p class="govuk-body"><%= t('formats.transaction.tell_your_family') %></p>
@@ -22,24 +22,38 @@
           info_text: t('formats.transaction.register_decision'),
           margin_bottom: true
         } %>
-      <% elsif publication.promotion['category'] == 'mot_reminder' %>
-        <p class="govuk-body"><%= t('formats.transaction.mot_reminder') %></p>
-        <%= render "govuk_publishing_components/components/button", {
-          text: t('sign_up'),
-          href: publication.promotion['url'],
-          rel: "external",
-          margin_bottom: true
+      </div>
+    <% elsif publication.promotion['category'] == 'mot_reminder' %>
+      <div class="promotion">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('formats.transaction.mot_reminder_title'),
+          font_size: "s",
+          margin_bottom: 3
         } %>
-      <% elsif publication.promotion['category'] == 'electric_vehicle' %>
+
+        <p class="govuk-body">
+          <%= t('formats.transaction.mot_reminder') %>
+        </p>
+
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          <%= link_to "Get MOT reminders", publication.promotion['url'], { class: "govuk-link" } %>
+        </p>
+      </div>
+    <% elsif publication.promotion['category'] == 'electric_vehicle' %>
+      <div class="promotion">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('formats.transaction.e_vehicle_info_title'),
+          font_size: "s",
+          margin_bottom: 3
+        } %>
+
         <p class="govuk-body"><%= t('formats.transaction.e_vehicle_info') %></p>
-        <%= render "govuk_publishing_components/components/button", {
-          text: t('formats.transaction.next_car_electric'),
-          href: publication.promotion['url'],
-          rel: "external",
-          margin_bottom: true
-        } %>
-      <% end %>
-    </div>
+        
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          <%= link_to t('formats.transaction.next_car_electric'), publication.promotion['url'], { class: "govuk-link" } %>
+        </p>
+      </div>
+    <% end %>
     <hr class="govuk-section-break govuk-section-break--l">
   <% end %>
 

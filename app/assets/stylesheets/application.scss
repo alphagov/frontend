@@ -55,6 +55,7 @@ $govuk-include-default-font-face: false;
 
 // View stylesheets
 @import "views/calendars";
+@import "views/completed_transaction";
 @import "views/cookie-settings";
 @import "views/homepage";
 @import "views/travel-advice";

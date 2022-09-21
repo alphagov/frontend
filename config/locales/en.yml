@@ -204,6 +204,7 @@ en:
       before_you_start: Before you start
       dissatisfied: Dissatisfied
       e_vehicle_info: Find out how much money you can save on fuel by switching to an electric vehicle.
+      e_vehicle_info_title: Electric car promotion
       friend_or_relative: A friend or relative
       government_staff: A staff member of the responsible government department
       help_improve: Help us improve this service
@@ -212,6 +213,7 @@ en:
       join_organ_donor: Please join the NHS Organ Donor Register.
       more_information: More information
       mot_reminder: Get a text or email reminder when your MOT is due.
+      mot_reminder_title: MOT promotion
       neither: Neither satisfied or dissatisfied
       next_car_electric: Make your next car electric
       no_pii_hint: Do not include any personal or financial information, for example your National Insurance or credit card numbers.

@@ -204,6 +204,7 @@ cy:
       before_you_start: Cyn i chi ddechrau
       dissatisfied: Anfodlon
       e_vehicle_info:
+      e_vehicle_info_title:
       friend_or_relative: Ffrind neu berthynas
       government_staff: Aelod o staff o'r adran gyfrifol o'r llywodraeth
       help_improve: Helpwch ni i wella'r gwasanaeth hwn
@@ -212,6 +213,7 @@ cy:
       join_organ_donor: Ymunwch â Chofrestr Rhoddwyr Organau y GIG.
       more_information: Rhagor o wybodaeth
       mot_reminder: Mynnwch neges destun neu e-bost i'ch atgoffa pan fydd angen adnewyddu'ch MOT.
+      mot_reminder_title:
       neither: Ddim yn fodlon nac yn anfodlon
       next_car_electric: Gwnewch eich car nesaf yn un trydan
       no_pii_hint: Peidiwch â chynnwys unrhyw wybodaeth bersonol nac ariannol, er enghraifft eich rhif Yswiriant Gwladol neu rif cerdyn credyd

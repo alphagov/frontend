@@ -1,10 +1,10 @@
 require "test_helper"
 
-require "gds_api/test_helpers/mapit"
+require "gds_api/test_helpers/locations_api"
 require "gds_api/test_helpers/local_links_manager"
 
 class LocalTransactionControllerTest < ActionController::TestCase
-  include GdsApi::TestHelpers::Mapit
+  include GdsApi::TestHelpers::LocationsApi
   include GdsApi::TestHelpers::LocalLinksManager
   include LocationHelpers
 
@@ -104,15 +104,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     context "loading the local transaction when posting a location" do
       context "for an English local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "ST10 4DB",
-            [0, 0],
-            [
-              { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
-              { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
-              { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
-            ],
-          )
+          configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
         end
@@ -124,13 +116,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for a Northern Ireland local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "BT1 4QG",
-            [0, 0],
-            [
-              { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
-            ],
-          )
+          configure_locations_api_and_local_authority("BT1 4QG", %w[belfast], 8132)
 
           post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
         end
@@ -142,15 +128,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for electoral registration for an English local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "ST10 4DB",
-            [0, 0],
-            [
-              { "name" => "Staffordshire County Council", "type" => "CTY", "ons" => "41", "govuk_slug" => "staffordshire-county", "country_name" => "England" },
-              { "name" => "Staffordshire Moorlands District Council", "type" => "DIS", "ons" => "41UH", "govuk_slug" => "staffordshire-moorlands", "country_name" => "England" },
-              { "name" => "Cheadle and Checkley", "type" => "CED", "country_name" => "England" },
-            ],
-          )
+          configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
 
           post :search, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
         end
@@ -162,13 +140,8 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
       context "for electoral registration for a Northern Ireland local authority" do
         setup do
-          stub_mapit_has_a_postcode_and_areas(
-            "BT1 3QG",
-            [0, 0],
-            [
-              { "name" => "Belfast City Council", "type" => "LGD", "govuk_slug" => "belfast", "country_name" => "Northern Ireland" },
-            ],
-          )
+          stub_locations_api_has_location("BT1 3QG", [{ "local_custodian_code" => 8132 }])
+          stub_local_links_manager_has_a_local_authority("belfast", country_name: "Northern Ireland", local_custodian_code: 8132)
 
           post :search, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
         end
@@ -181,7 +154,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction when posting an invalid postcode" do
       setup do
-        stub_mapit_does_not_have_a_bad_postcode("BLAH")
+        stub_locations_api_does_not_have_a_bad_postcode("BLAH")
 
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
       end
@@ -194,7 +167,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction when posting a postcode with no matching areas" do
       setup do
-        stub_mapit_does_not_have_a_postcode("WC1E 9ZZ")
+        stub_locations_api_has_no_location("WC1E 9ZZ")
 
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
       end
@@ -207,7 +180,8 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction when posting a location that has no matching local authority" do
       setup do
-        stub_mapit_has_a_postcode_and_areas("AB1 2CD", [0, 0], [])
+        stub_locations_api_has_location("AB1 2CD", [{ "local_custodian_code" => 123 }])
+        stub_local_links_manager_does_not_have_a_custodian_code(123)
 
         post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
       end
@@ -220,17 +194,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction for an authority" do
       setup do
-        staffordshire_moorlands = {
-          "id" => 2432,
-          "codes" => {
-            "ons" => "41UH",
-            "gss" => "E07000198",
-            "govuk_slug" => "staffordshire-moorlands",
-          },
-          "name" => "Staffordshire Moorlands District Council",
-        }
-
-        stub_mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
+        configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire-moorlands], 3435)
 
         stub_local_links_manager_has_a_link(
           authority_slug: "staffordshire-moorlands",
@@ -293,17 +257,8 @@ class LocalTransactionControllerTest < ActionController::TestCase
         external_related_links: [],
       }
 
-      staffordshire_moorlands = {
-        "id" => 2432,
-        "codes" => {
-          "ons" => "41UH",
-          "gss" => "E07000198",
-          "govuk_slug" => "staffordshire-moorlands",
-        },
-        "name" => "Staffordshire Moorlands District Council",
-      }
+      configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire-moorlands], 3435)
 
-      stub_mapit_has_area_for_code("govuk_slug", "staffordshire-moorlands", staffordshire_moorlands)
       stub_local_links_manager_has_no_link(
         authority_slug: "staffordshire-moorlands",
         lgsl: 1234,
@@ -323,7 +278,26 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
   context "when visiting a local transaction which is in fact check" do
     setup do
-      configure_mapit_and_local_links(postcode: "SW1A 1AA", authority: "westminster", lgsl: 461, lgil: 8)
+      stub_locations_api_has_location(
+        "SW1A 1AA",
+        [
+          {
+            "latitude" => 51.5010096,
+            "longitude" => -0.1415870,
+            "local_custodian_code" => 5990,
+          },
+        ],
+      )
+      stub_local_links_manager_has_a_local_authority("westminster", local_custodian_code: 5990)
+
+      stub_local_links_manager_has_a_link(
+        authority_slug: "westminster",
+        lgsl: 461,
+        lgil: 8,
+        url: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
+        country_name: "England",
+        status: "ok",
+      )
 
       @payload = {
         base_path: "/pay-bear-tax",

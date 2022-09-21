@@ -15,7 +15,7 @@ class ImminenceResponse
   end
 
   def places_not_found?
-    postcode && (places.blank? || no_mapit_location?)
+    postcode && (places.blank? || no_location?)
   end
 
   def invalid_postcode?
@@ -28,7 +28,7 @@ class ImminenceResponse
 
 private
 
-  def no_mapit_location?
+  def no_location?
     error && error.error_details.fetch("error") == NO_LOCATION
   end
 end

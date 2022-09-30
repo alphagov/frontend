@@ -1,6 +1,4 @@
 .promotion {
-  &:not(.organ_donor) {
-    background: govuk-colour("light-grey");
-    padding: govuk-spacing(3);
-  }
+  background: govuk-colour("light-grey");
+  padding: govuk-spacing(3);
 }

@@ -7,24 +7,32 @@
   publication: publication,
   edition: @edition,
 } do %>
-
   <% if publication.promotion %>
-    <% if publication.promotion['category'] == 'organ_donor' %>
-      <div class="promotion organ_donor">
-        <p class="govuk-body"><%= t('formats.transaction.join_organ_donor') %></p>
-        <p class="govuk-body"><%= t('formats.transaction.organ_donation_laws') %> - <a href="https://www.organdonation.nhs.uk/uk-laws/" rel="external" class="govuk-link"><%= t('formats.transaction.organ_donation_in_your_country') %></a>.</p>
-        <p class="govuk-body"><%= t('formats.transaction.organ_transplant_question') %></p>
-        <p class="govuk-body"><%= t('formats.transaction.tell_your_family') %></p>
-        <%= render "govuk_publishing_components/components/button", {
-          text: t('formats.transaction.register_to_donate'),
-          href: publication.promotion['url'],
-          rel: "external",
-          info_text: t('formats.transaction.register_decision'),
-          margin_bottom: true
+    <div class="promotion">
+      <% if publication.promotion['category'] == 'organ_donor' %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('formats.transaction.organ_donation_title'),
+          font_size: "s",
+          margin_bottom: 3
         } %>
-      </div>
-    <% elsif publication.promotion['category'] == 'mot_reminder' %>
-      <div class="promotion">
+
+        <p class="govuk-body">
+          <%= t('formats.transaction.organ_donation_laws') %> - 
+          <%= link_to t('formats.transaction.organ_donation_in_your_country'), "https://www.organdonation.nhs.uk/uk-laws/", { class: "govuk-link" } %>.
+        </p>
+
+        <p class="govuk-body">
+          <%= t('formats.transaction.organ_transplant_question') %>
+        </p>
+
+        <p class="govuk-body">
+          <%= t('formats.transaction.tell_your_family') %>
+        </p>
+
+        <p class="govuk-body govuk-!-margin-bottom-0">
+          <%= link_to t('formats.transaction.register_to_donate'), publication.promotion['url'], { class: "govuk-link" } %>
+        </p>
+      <% elsif publication.promotion['category'] == 'mot_reminder' %>
         <%= render "govuk_publishing_components/components/heading", {
           text: t('formats.transaction.mot_reminder_title'),
           font_size: "s",
@@ -36,11 +44,9 @@
         </p>
 
         <p class="govuk-body govuk-!-margin-bottom-0">
-          <%= link_to "Get MOT reminders", publication.promotion['url'], { class: "govuk-link" } %>
+          <%= link_to t('formats.transaction.get_mot_reminders'), publication.promotion['url'], { class: "govuk-link" } %>
         </p>
-      </div>
-    <% elsif publication.promotion['category'] == 'electric_vehicle' %>
-      <div class="promotion">
+      <% elsif publication.promotion['category'] == 'electric_vehicle' %>
         <%= render "govuk_publishing_components/components/heading", {
           text: t('formats.transaction.e_vehicle_info_title'),
           font_size: "s",
@@ -52,8 +58,8 @@
         <p class="govuk-body govuk-!-margin-bottom-0">
           <%= link_to t('formats.transaction.next_car_electric'), publication.promotion['url'], { class: "govuk-link" } %>
         </p>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     <hr class="govuk-section-break govuk-section-break--l">
   <% end %>
 

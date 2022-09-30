@@ -188,6 +188,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
 
         within ".content-block" do
           assert page.has_selector?(".promotion")
+          assert page.has_selector?("h2", text: "MOT promotion")
           assert page.has_content?("Get a text or email reminder when your MOT is due.")
         end
       end

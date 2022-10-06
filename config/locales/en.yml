@@ -412,10 +412,10 @@ en:
           title: Energy Price Guarantee
           href: /government/publications/energy-bills-support/energy-bills-support-factsheet-8-september-2022
           image_src: homepage/energy-bills.png
-        - text: Find out about the Chancellor's plan, including changes to Corporation Tax, Income Tax and Stamp Duty.
-          title: The Growth Plan 2022
-          href: /government/topical-events/the-growth-plan
-          image_src: homepage/plan_for_growth.jpg
+        - text: Dyma dril o system y dudalen flaen. Rydym yn diweddaru dolen dan sylw.
+          title: Hanner a Hanner
+          href: /treth-incwm-cymru
+          image_src: homepage/plan_for_growth_drill.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

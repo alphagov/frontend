@@ -23,6 +23,8 @@ We want the GOV.UK homepage to be optimised towards a fast user experience with 
 
 You can use a web tool - [Squoosh](https://squoosh.app/) - to resize and compress the images at the same time. You can use the before and after view to establish the highest level of compression that can be applied before the image quality deteriorates.
 
+Most promo images should ideally be less than 30 kB in size (at time of writing, the current promos are 14 kB, 10.7 kB and 6.3 kB). You might also need to change the format of the image to fit the content - JPGs for a photograph, but maybe PNG for a graphic. It's worth testing to see what gives the smaller file size and the best visual result.
+
 If the image is a photograph, or a detailed graphic, resize the image to all of the following sizes:
 
 - 610 by 407 pixels

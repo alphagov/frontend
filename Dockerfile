@@ -7,7 +7,7 @@ RUN apt-get update -qy && \
     apt-get upgrade -y && \
     apt-get install -y build-essential nodejs git
 
-RUN mkdir /app
+RUN mkdir -p /app
 
 WORKDIR /app
 

@@ -2,7 +2,7 @@ class RandomController < ApplicationController
   def random_page
     # Redirect to a random GOV.UK page, for fun.
 
-    base_url = "#{Plek.new.find('search')}/search.json"
+    base_url = "#{Plek.new.find('search-api')}/search.json"
     total_documents = JSON.parse(RestClient.get("#{base_url}?count=0"))["total"]
 
     random_page_number = Random.rand(0..total_documents - 1)

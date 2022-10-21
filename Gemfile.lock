@@ -122,7 +122,7 @@ GEM
     ffi (1.15.5)
     filelock (1.1.1)
     find_a_port (1.0.1)
-    gds-api-adapters (83.0.0)
+    gds-api-adapters (84.0.0)
       addressable
       link_header
       null_logger

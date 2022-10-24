@@ -4,11 +4,17 @@
         content="Find your local authority in England, Wales, Scotland and Northern Ireland"/>
 <% end %>
 
-<main id="content" role="main" class="govuk-grid-column-two-thirds">
-  <%= render "govuk_publishing_components/components/title", title: t('formats.local_transaction.find_council') %>
-  <%= yield %>
+<main id="content" class="govuk-main-wrapper">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", title: t('formats.local_transaction.find_council'),
+        margin_top: 0 %>
+    </div>
+    <div class="govuk-grid-column-two-thirds article-container">
+      <%= yield %>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item_hash %>
+    </div>
+  </div>
 </main>
-
-<div class="govuk-grid-column-one-third govuk-!-margin-top-7">
-  <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item_hash %>
-</div>

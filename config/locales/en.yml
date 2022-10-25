@@ -404,18 +404,18 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Visit the remembrance site and contribute to the Book of Condolence.
-          title: Remembrance site for Her Majesty The Queen
-          href: https://www.royal.uk/
-          image_src: homepage/erii-cypher.jpg
+        - text: Check what financial help you can get.
+          title: Get benefits and support
+          href: https://www.gov.uk/check-benefits-financial-support
+          image_src: homepage/cost-of-living.jpg
         - text: Find out about limits on how much you will pay for the gas and electricity you use.
           title: Energy Price Guarantee
           href: /government/publications/energy-bills-support/energy-bills-support-factsheet-8-september-2022
           image_src: homepage/energy-bills.png
-        - text: Find out about the Chancellor's plan, including changes to Corporation Tax, Income Tax and Stamp Duty.
-          title: The Growth Plan 2022
-          href: /government/topical-events/the-growth-plan
-          image_src: homepage/plan_for_growth.jpg
+        - text: Check if you can get a free flu vaccine and COVID-19 booster.
+          title: Flu and COVID-19 vaccines
+          href: https://www.nhs.uk/conditions/vaccinations/flu-influenza-vaccine/
+          image_src: homepage/covid-19-vaccine-promo.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

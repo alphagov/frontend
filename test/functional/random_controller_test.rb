@@ -10,8 +10,8 @@ class RandomControllerTest < ActionController::TestCase
           { "link" => "http://www.wyreforestdc.gov.uk" },
         ] }
 
-        stub_request(:get, "#{Plek.new.find('search')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
-        stub_request(:get, %r{#{Plek.new.find('search')}/search.json\?count=1&fields=link&start=.}).to_return(status: 200, body: results.to_json)
+        stub_request(:get, "#{Plek.new.find('search-api')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
+        stub_request(:get, %r{#{Plek.new.find('search-api')}/search.json\?count=1&fields=link&start=.}).to_return(status: 200, body: results.to_json)
       end
 
       should "redirect to one of the pages returned by search unless they start with http" do
@@ -42,8 +42,8 @@ class RandomControllerTest < ActionController::TestCase
           { "link" => "/book-life-in-uk-test" },
         ] }
 
-        stub_request(:get, "#{Plek.new.find('search')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
-        stub_request(:get, %r{#{Plek.new.find('search')}/search.json\?count=1&fields=link&start=.}).to_return(status: 200, body: results.to_json)
+        stub_request(:get, "#{Plek.new.find('search-api')}/search.json?count=0").to_return(status: 200, body: '{ "total": 3 }')
+        stub_request(:get, %r{#{Plek.new.find('search-api')}/search.json\?count=1&fields=link&start=.}).to_return(status: 200, body: results.to_json)
       end
 
       should "not redirect to URLs that start with 'http' and start again" do

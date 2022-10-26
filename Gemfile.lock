@@ -130,8 +130,6 @@ GEM
       rest-client (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    govuk-content-schema-test-helpers (1.6.1)
-      json-schema (~> 2.8.0)
     govuk_ab_testing (2.4.2)
     govuk_app_config (4.9.0)
       logstasher (~> 2.1)
@@ -467,7 +465,6 @@ DEPENDENCIES
   dalli
   dotenv-rails
   gds-api-adapters
-  govuk-content-schema-test-helpers
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation

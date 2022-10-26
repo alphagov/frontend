@@ -15,8 +15,6 @@ require "webmock/minitest"
 WebMock.disable_net_connect!(allow_localhost: true)
 require "timecop"
 
-require "govuk-content-schema-test-helpers"
-
 Dir[Rails.root.join("test/support/*.rb")].sort.each { |f| require f }
 
 class ActiveSupport::TestCase
@@ -27,11 +25,6 @@ class ActiveSupport::TestCase
 
     GovukAbTesting.configure do |config|
       config.acceptance_test_framework = :active_support
-    end
-
-    GovukContentSchemaTestHelpers.configure do |config|
-      config.schema_type = "frontend"
-      config.project_root = Rails.root
     end
   end
 

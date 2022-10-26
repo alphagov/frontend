@@ -3,8 +3,7 @@ require "test_helper"
 class TravelAdviceIndexPresenterTest < ActiveSupport::TestCase
   context "handling countries" do
     setup do
-      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
-      attributes = JSON.parse(json)
+      attributes = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
       @presenter = TravelAdviceIndexPresenter.new(attributes)
     end
 

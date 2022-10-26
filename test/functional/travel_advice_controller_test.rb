@@ -7,8 +7,7 @@ class TravelAdviceControllerTest < ActionController::TestCase
   context "GET index" do
     context "given countries exist" do
       setup do
-        json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
-        @content_item = JSON.parse(json)
+        @content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
         base_path = @content_item.fetch("base_path")
 
         stub_content_store_has_item(base_path, @content_item)

@@ -1,16 +1,11 @@
 require "test_helper"
-require "govuk-content-schema-test-helpers/test_unit"
+require "govuk_schemas/assert_matchers"
 
 class HomepagePublisherTest < ActiveSupport::TestCase
-  include GovukContentSchemaTestHelpers::TestUnit
+  include GovukSchemas::AssertMatchers
 
   test ".publish! works without errors" do
     # TODO: add test helpers to govuk_schemas and use that
-    GovukContentSchemaTestHelpers.configure do |config|
-      config.schema_type = "publisher_v2"
-      config.project_root = Rails.root
-    end
-
     content_request = stub_request(:put, "http://publishing-api.dev.gov.uk/v2/content/f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a")
       .to_return(status: 200)
     publish_request = stub_request(:post, "http://publishing-api.dev.gov.uk/v2/content/f3bbdec2-0e62-4520-a7fd-6ffd5d36e03a/publish")
@@ -27,7 +22,7 @@ class HomepagePublisherTest < ActiveSupport::TestCase
 
     assert_requested(
       content_request.with do |req|
-        assert_valid_against_schema(JSON.parse(req.body), "homepage")
+        assert_valid_against_publisher_schema(JSON.parse(req.body), "homepage")
       end,
     )
 
@@ -42,10 +37,5 @@ class HomepagePublisherTest < ActiveSupport::TestCase
         assert_equal expected_links, JSON.parse(req.body)["links"]
       end,
     )
-
-    GovukContentSchemaTestHelpers.configure do |config|
-      config.schema_type = "frontend"
-      config.project_root = Rails.root
-    end
   end
 end

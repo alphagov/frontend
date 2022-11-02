@@ -5,8 +5,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
 
   context "aggregate feed" do
     should "display the list of countries as an atom feed" do
-      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
-      content_item = JSON.parse(json)
+      content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
       base_path = content_item.fetch("base_path")
       stub_content_store_has_item(base_path, content_item)
 
@@ -38,8 +37,7 @@ class TravelAdviceAtomTest < ActionDispatch::IntegrationTest
     end
 
     should "render a maximum of 20 countries" do
-      json = GovukContentSchemaTestHelpers::Examples.new.get("travel_advice_index", "index")
-      content_item = JSON.parse(json)
+      content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
       content_item["links"]["children"] = content_item["links"]["children"] * 5
       base_path = content_item.fetch("base_path")
       stub_content_store_has_item(base_path, content_item)

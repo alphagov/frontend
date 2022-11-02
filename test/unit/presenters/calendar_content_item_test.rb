@@ -1,15 +1,8 @@
 require "test_helper"
-require "govuk-content-schema-test-helpers/test_unit"
+require "govuk_schemas/assert_matchers"
 
 class CalendarContentItemTest < ActiveSupport::TestCase
-  include GovukContentSchemaTestHelpers::TestUnit
-
-  def setup
-    GovukContentSchemaTestHelpers.configure do |config|
-      config.schema_type = "publisher_v2"
-      config.project_root = Rails.root
-    end
-  end
+  include GovukSchemas::AssertMatchers
 
   def content_item(slug: nil)
     calendar = Calendar.find("bank-holidays")
@@ -19,7 +12,7 @@ class CalendarContentItemTest < ActiveSupport::TestCase
   def test_english_payload_contains_correct_data
     payload = content_item.payload
 
-    assert_valid_against_schema payload, "calendar"
+    assert_valid_against_publisher_schema payload, "calendar"
     assert_equal "UK bank holidays", payload[:title]
     assert_equal "en", payload[:locale]
   end
@@ -33,7 +26,7 @@ class CalendarContentItemTest < ActiveSupport::TestCase
   def test_welsh_payload_contains_correct_data
     payload = I18n.with_locale(:cy) { content_item.payload }
 
-    assert_valid_against_schema payload, "calendar"
+    assert_valid_against_publisher_schema payload, "calendar"
     assert_equal "Gwyliau banc y DU", payload[:title]
     assert_equal "cy", payload[:locale]
   end

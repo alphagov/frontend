@@ -1,15 +1,7 @@
 require "test_helper"
-require "govuk-content-schema-test-helpers/test_unit"
 
 class CalendarPublisherTest < ActiveSupport::TestCase
-  include GovukContentSchemaTestHelpers::TestUnit
-
   def test_publishing_to_publishing_api
-    GovukContentSchemaTestHelpers.configure do |config|
-      config.schema_type = "publisher_v2"
-      config.project_root = Rails.root
-    end
-
     publishing_api = Object.new
     publishing_api.expects(:put_content).with(
       "58f79dbd-e57f-4ab2-ae96-96df5767d1b2", valid_payload_for("calendar")

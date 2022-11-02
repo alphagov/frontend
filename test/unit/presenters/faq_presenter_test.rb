@@ -1,9 +1,6 @@
 require "test_helper"
-require "govuk-content-schema-test-helpers/test_unit"
 
 class FaqPresenterTest < ActiveSupport::TestCase
-  include GovukContentSchemaTestHelpers::TestUnit
-
   def setup
     @view_context = ApplicationController.new.view_context
   end

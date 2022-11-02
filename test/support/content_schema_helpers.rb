@@ -1,5 +1,3 @@
-require "govuk-content-schema-test-helpers/test_unit"
-
 module Mocha
   module ParameterMatchers
     def valid_payload_for(format_name)
@@ -14,7 +12,7 @@ module Mocha
 
       def matches?(available_parameters)
         payload = available_parameters.shift
-        validator = GovukContentSchemaTestHelpers::Validator.new(@format_name, "schema", JSON.dump(payload))
+        validator = GovukSchemas::Validator.new(@format_name, "publisher", JSON.dump(payload))
         validator.valid?
       end
     end

@@ -2,11 +2,6 @@ require "test_helper"
 
 class SpecialRoutePublisherTest < ActiveSupport::TestCase
   setup do
-    GovukContentSchemaTestHelpers.configure do |config|
-      config.schema_type = "publisher_v2"
-      config.project_root = Rails.root
-    end
-
     @publishing_api = Object.new
 
     logger = Logger.new($stdout)
@@ -36,12 +31,12 @@ class SpecialRoutePublisherTest < ActiveSupport::TestCase
   end
 
   def assert_valid_content_item(payload)
-    validator = GovukContentSchemaTestHelpers::Validator.new(
+    validator = GovukSchemas::Validator.new(
       "special_route",
-      "schema",
+      "publisher",
       payload,
     )
 
-    assert validator.valid?, validator.errors.join("\n")
+    assert validator.valid?, validator.error_message
   end
 end

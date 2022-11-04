@@ -6,7 +6,7 @@ class ElectionPostcode
     \s?
     [0-9][A-Z]{2} # Inward code, for example 2AA
     \Z
-  }xi.freeze
+  }xi
 
   delegate :present?, to: :sanitized_postcode
 

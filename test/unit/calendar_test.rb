@@ -48,9 +48,9 @@ class CalendarTest < ActiveSupport::TestCase
     end
 
     should "construct a division for each one in the data" do
-      Calendar::Division.expects(:new).with("kablooie", "2012" => [1], "2013" => [3]).returns(:kablooie)
-      Calendar::Division.expects(:new).with("fooey", "2012" => [1, 2], "2013" => [3, 4]).returns(:fooey)
-      Calendar::Division.expects(:new).with("gooey", "2012" => [2], "2013" => [4]).returns(:gooey)
+      Calendar::Division.expects(:new).with("kablooie", { "2012" => [1], "2013" => [3] }).returns(:kablooie)
+      Calendar::Division.expects(:new).with("fooey", { "2012" => [1, 2], "2013" => [3, 4] }).returns(:fooey)
+      Calendar::Division.expects(:new).with("gooey", { "2012" => [2], "2013" => [4] }).returns(:gooey)
 
       assert_equal %i[kablooie fooey gooey], @cal.divisions
     end

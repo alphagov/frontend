@@ -59,7 +59,7 @@ class FormatRoutingConstraintTest < ActiveSupport::TestCase
   end
 
   def request
-    stub(params: { slug: slug }, env: {})
+    stub(params: { slug: }, env: {})
   end
 
   def subject(format)

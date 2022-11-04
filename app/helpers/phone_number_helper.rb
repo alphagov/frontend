@@ -1,5 +1,5 @@
 module PhoneNumberHelper
-  UK_PHONE_REGEX = /^((\(?0\d{2}\)?\s?\d{4}\s?\d{4}))?/.freeze
+  UK_PHONE_REGEX = /^((\(?0\d{2}\)?\s?\d{4}\s?\d{4}))?/
 
   def phone_digits(phone_number)
     UK_PHONE_REGEX.match(phone_number)[0]

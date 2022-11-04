@@ -36,7 +36,7 @@ class ElectoralControllerTest < ActionController::TestCase
     context "that maps to multiple addresses" do
       setup do
         @response = { "address_picker" => true, "addresses" => [] }.to_json
-        stub_api_postcode_lookup("IP224DN", response: response)
+        stub_api_postcode_lookup("IP224DN", response:)
       end
 
       context "and there are no contact details" do

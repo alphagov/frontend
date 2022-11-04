@@ -4,15 +4,15 @@ class ActiveSupport::TestCase
   end
 
   def assert_has_button(text)
-    assert page.has_css?("button", text: text)
+    assert page.has_css?("button", text:)
   end
 
   def assert_has_button_as_link(text, attrs = {})
-    assert page.has_css?(process_button_attributes(attrs), text: text)
+    assert page.has_css?(process_button_attributes(attrs), text:)
   end
 
   def refute_has_button_component(text, attrs = {})
-    assert page.has_no_css?(process_button_attributes(attrs), text: text)
+    assert page.has_no_css?(process_button_attributes(attrs), text:)
   end
 
   def process_button_attributes(attrs)

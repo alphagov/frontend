@@ -7,12 +7,12 @@ module ElectionHelpers
 
   def stub_api_postcode_lookup(postcode, response: "{}", status: 200)
     stub_request(:get, "#{TEST_API_URL}/postcode/#{postcode}")
-      .to_return(status: status, body: response)
+      .to_return(status:, body: response)
   end
 
   def stub_api_address_lookup(uprn, response: "{}", status: 200)
     stub_request(:get, "#{TEST_API_URL}/address/#{uprn}")
-      .to_return(status: status, body: response)
+      .to_return(status:, body: response)
   end
 
   def api_response

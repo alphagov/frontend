@@ -9,7 +9,7 @@ class CalendarPublisherTest < ActiveSupport::TestCase
     publishing_api.expects(:publish).with("58f79dbd-e57f-4ab2-ae96-96df5767d1b2", nil, { locale: :en })
     publishing_api.expects(:patch_links).with(
       "58f79dbd-e57f-4ab2-ae96-96df5767d1b2",
-      links: { primary_publishing_organisation: %w[af07d5a5-df63-4ddc-9383-6a666845ebe9] },
+      { links: { primary_publishing_organisation: %w[af07d5a5-df63-4ddc-9383-6a666845ebe9] } },
     )
     GdsApi.expects(:publishing_api).at_least_once.returns(publishing_api)
 

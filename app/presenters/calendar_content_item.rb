@@ -23,7 +23,7 @@ class CalendarContentItem
     {
       title: calendar.title,
       description: calendar.description,
-      base_path: base_path,
+      base_path:,
       document_type: "calendar",
       schema_name: "calendar",
       publishing_app: "frontend",
@@ -37,7 +37,7 @@ class CalendarContentItem
         { type: "prefix", path: base_path },
         { type: "exact", path: "#{base_path}.json" },
       ],
-      update_type: update_type,
+      update_type:,
     }
   end
 

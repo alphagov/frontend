@@ -1,5 +1,5 @@
 class Uprn
-  UPRN_PATTERN = %r{^\d{1,12}$}.freeze
+  UPRN_PATTERN = %r{^\d{1,12}$}
 
   delegate :present?, to: :sanitized_uprn
 

@@ -10,8 +10,7 @@ module HomepagePublisher
       "title": "GOV.UK homepage",
       "description": "",
       "locale": "en",
-      "details": {
-      },
+      "details": {},
       "routes": [
         {
           "path": "/",

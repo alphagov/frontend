@@ -104,7 +104,7 @@ GEM
       rexml
     crass (1.0.6)
     csv (3.2.5)
-    dalli (3.2.2)
+    dalli (3.2.3)
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
     dig_rb (1.0.1)

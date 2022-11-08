@@ -53,6 +53,30 @@
           "date": "29/10/2023",
           "notes": "Clocks go back one hour"
         }
+      ],
+      "2024": [
+        {
+          "title": "Start of British Summer Time",
+          "date": "31/03/2024",
+          "notes": "Clocks go forward one hour"
+        },
+        {
+          "title": "End of British Summer Time",
+          "date": "27/10/2023",
+          "notes": "Clocks go back one hour"
+        }
+      ],
+      "2025": [
+        {
+          "title": "Start of British Summer Time",
+          "date": "30/03/2025",
+          "notes": "Clocks go forward one hour"
+        },
+        {
+          "title": "End of British Summer Time",
+          "date": "26/10/2025",
+          "notes": "Clocks go back one hour"
+        }
       ]
     }
   }

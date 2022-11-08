@@ -294,6 +294,12 @@
                 "bunting": true
               },
               {
+                "title": "bank_holidays.kings_coronation",
+                "date": "08/05/2023",
+                "notes": "",
+                "bunting": true
+              },
+              {
                 "title": "bank_holidays.spring",
                 "date": "29/05/2023",
                 "notes": "",
@@ -736,6 +742,12 @@
               {
                 "title": "bank_holidays.early_may",
                 "date": "01/05/2023",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.kings_coronation",
+                "date": "08/05/2023",
                 "notes": "",
                 "bunting": true
               },
@@ -1236,6 +1248,12 @@
               {
                 "title": "bank_holidays.early_may",
                 "date": "01/05/2023",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.kings_coronation",
+                "date": "08/05/2023",
                 "notes": "",
                 "bunting": true
               },

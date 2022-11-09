@@ -43,6 +43,7 @@ cy:
   bank_holidays:
     2nd_january: 2il o Ionawr
     add_clock_changes_to_calendar: Ychwanegwch newidiadau i'r cloc yn y DU at eich calendr (ICS, 2KB)
+    bank_holiday: Gŵyl y banc
     queens_bank_holiday: Gŵyl y Banc ar gyfer Angladd Gwladol y Frenhines Elizabeth II
     battle_boyne: Brwydr y Boyne (Dydd yr Orenwyr)
     boxing_day: Dydd San Steffan
@@ -54,6 +55,8 @@ cy:
     clock_change_explanation: Yn y DU mae'r clociau'n mynd ymlaen 1 awr am 1am ar ddydd Sul olaf mis Mawrth, ac yn ôl 1 awr am 2am ar ddydd Sul olaf mis Hydref.
     clocks_backward: Y clociau'n mynd yn ôl
     clocks_forward: Y clociau'n mynd ymlaen
+    date: Dyddiad
+    day_of_week: Diwrnod yr wythnos
     download_clock_changes: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu at raglen calendr fel iCal neu Outlook
     early_may: Gŵyl banc dechrau Mai
     early_may_ve: Gŵyl banc dechrau Mai (diwrnod VE)

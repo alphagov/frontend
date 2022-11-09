@@ -33,7 +33,18 @@
                 <%= render "components/calendar", {
                   title: caption,
                   year: year,
-                  events: events
+                  events: events,
+                  headings: [
+                    {
+                      text: I18n.t("bank_holidays.date")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.day_of_week")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.bank_holiday")
+                    }
+                  ]
                 } %>
               <% end %>
 
@@ -62,7 +73,18 @@
                 <%= render "components/calendar", {
                   title: caption,
                   year: year,
-                  events: events
+                  events: events,
+                  headings: [
+                    {
+                      text: I18n.t("bank_holidays.date")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.day_of_week")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.bank_holiday")
+                    }
+                  ]
                 } %>
               <% end %>
 

@@ -43,6 +43,7 @@ en:
   bank_holidays:
     2nd_january: 2nd January
     add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)
+    bank_holiday: Bank holiday
     queens_bank_holiday: Bank Holiday for the State Funeral of Queen Elizabeth II
     battle_boyne: Battle of the Boyne (Orangemen’s Day)
     boxing_day: Boxing Day
@@ -54,6 +55,8 @@ en:
     clock_change_explanation: In the UK the clocks go forward 1 hour at 1am on the last Sunday in March, and back 1 hour at 2am on the last Sunday in October.
     clocks_backward: Clocks go back
     clocks_forward: Clocks go forward
+    date: Date
+    day_of_week: Day of the week
     download_clock_changes: Download these dates so you can add them to a calendar application such as iCal or Outlook
     early_may: Early May bank holiday
     early_may_ve: Early May bank holiday (VE day)

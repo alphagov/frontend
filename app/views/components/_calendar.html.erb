@@ -2,6 +2,7 @@
 title ||= nil
 year ||= nil
 events ||= []
+headings ||= []
 %>
 
 <div class="app-c-calendar">
@@ -12,17 +13,7 @@ events ||= []
   <%= render "govuk_publishing_components/components/table", {
     caption: table_caption,
     caption_classes: "govuk-heading-s",
-    head: [
-      {
-        text: "Date"
-      },
-      {
-        text: "Day of the week"
-      },
-      {
-        text: "Bank holiday"
-      }
-    ],
+    head: headings,
     rows: events.each.map { |event| [
       { :text => l(event[:date], :format => '%e %B') },
       { :text => l(event[:date], :format => '%A') },

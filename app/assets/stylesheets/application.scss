@@ -46,12 +46,8 @@ $govuk-include-default-font-face: false;
 @import "components/metadata";
 @import "components/subscribe";
 
-// local styleguide includes
-@import "styleguide/conditionals";
-
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/truncated-url";
-@import "helpers/title-context-reset";
 
 // View stylesheets
 @import "views/calendars";
@@ -59,16 +55,11 @@ $govuk-include-default-font-face: false;
 @import "views/cookie-settings";
 @import "views/homepage";
 @import "views/travel-advice";
-@import "views/recruitment-banner";
 @import "views/report-child-abuse";
-@import "views/local-authority";
 
 // exceptional format overrides
 @import "views/location_form";
 @import "views/local-transaction";
-
-// account homepage stylesheet
-@import "views/accounts";
 
 // Reset some global styles from the `wrapper` layout
 .gem-c-related-navigation {

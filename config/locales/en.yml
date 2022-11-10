@@ -206,11 +206,11 @@ en:
       e_vehicle_info: Find out how much money you can save on fuel by switching to an electric vehicle.
       e_vehicle_info_title: Electric car promotion
       friend_or_relative: A friend or relative
+      get_mot_reminders: Get MOT reminders
       government_staff: A staff member of the responsible government department
       help_improve: Help us improve this service
       how_improve: How could we improve this service?
       improvement_question: Is there any way the assistance received could be improved?
-      join_organ_donor: Please join the NHS Organ Donor Register.
       more_information: More information
       mot_reminder: Get a text or email reminder when your MOT is due.
       mot_reminder_title: MOT promotion
@@ -221,13 +221,13 @@ en:
       online_satisfaction_check: Overall, how satisfied are you with the online service?
       organ_donation_in_your_country: find out how the laws affect the country you live in and what your choices are
       organ_donation_laws: Organ donation laws have changed
+      organ_donation_title: Organ donation
       organ_transplant_question: If you needed an organ transplant would you have one? If so please help others.
       other: Other (please specify)
       other_person: Tell us who the other person was
       other_ways_to_apply: Other ways to apply
       pii_warning: When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.
-      register_decision: Register your organ donation decision
-      register_to_donate: Register to donate
+      register_to_donate: Register a decision to donate
       satisfaction_check: How satisfied are you with the assistance received?
       satisfaction_survey: Satisfaction survey
       satisfied: Satisfied

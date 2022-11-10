@@ -33,13 +33,27 @@
                 <%= render "components/calendar", {
                   title: caption,
                   year: year,
-                  events: events
+                  events: events,
+                  headings: [
+                    {
+                      text: I18n.t("bank_holidays.date")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.day_of_week")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.bank_holiday")
+                    }
+                  ]
                 } %>
               <% end %>
 
               <p class="govuk-body"><%= t("common.bank_holiday_on_wkend") %></p>
               <p class="govuk-body"><%= t("common.holiday_entitlement_html") %></p>
               <p class="govuk-body"><%= t("common.bank_holiday_benefits_html") %></p>
+              <%= render "govuk_publishing_components/components/inset_text", {
+                text: t("common.bank_holiday_translation_html")
+              } %>
 
               <%= render "components/subscribe", {
                 label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
@@ -59,7 +73,18 @@
                 <%= render "components/calendar", {
                   title: caption,
                   year: year,
-                  events: events
+                  events: events,
+                  headings: [
+                    {
+                      text: I18n.t("bank_holidays.date")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.day_of_week")
+                    },
+                    {
+                      text: I18n.t("bank_holidays.bank_holiday")
+                    }
+                  ]
                 } %>
               <% end %>
 

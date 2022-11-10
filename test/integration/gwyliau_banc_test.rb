@@ -53,10 +53,12 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
             assert page.has_link?("Ychwanegu'r gwyliau banc ar gyfer Cymru a Lloegr at eich calendr (ICS, 14KB)", href: "/gwyliau-banc/cymru-a-lloegr.ics")
 
             assert_bank_holiday_table title: "Gwyliau banc i ddod yng Nghymru a Lloegr", year: "2012", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["25 Rhagfyr", "Dydd Mawrth", "Dydd Nadolig"],
               ["26 Rhagfyr", "Dydd Mercher", "Dydd San Steffan"],
             ]
             assert_bank_holiday_table title: "Gwyliau banc i ddod yng Nghymru a Lloegr", year: "2013", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["1 Ionawr", "Dydd Mawrth", "Dydd Calan"],
               ["29 Mawrth", "Dydd Gwener", "Gwener y Groglith"],
               ["1 Ebrill", "Dydd Llun", "Llun y Pasg"],
@@ -68,6 +70,7 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
             ]
 
             assert_bank_holiday_table title: "Gwyliau banc blaenorol yng Nghymru a Lloegr", year: "2012", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["27 Awst", "Dydd Llun", "Gŵyl banc yr haf"],
               ["5 Mehefin", "Dydd Mawrth", "Jiwbilî Ddiemwnt y Frenhines (gŵyl banc ychwanegol)"],
               ["4 Mehefin", "Dydd Llun", "Gŵyl banc y gwanwyn (diwrnod amgen)"],
@@ -82,10 +85,12 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
             assert page.has_link?("Ychwanegu'r gwyliau banc ar gyfer yr Alban at eich calendr (ICS, 14KB)", href: "/gwyliau-banc/yr-alban.ics")
 
             assert_bank_holiday_table title: "Gwyliau banc i ddod yn yr Alban", year: "2012", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["25 Rhagfyr", "Dydd Mawrth", "Dydd Nadolig"],
               ["26 Rhagfyr", "Dydd Mercher", "Dydd San Steffan"],
             ]
             assert_bank_holiday_table title: "Gwyliau banc i ddod yn yr Alban", year: "2013", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["1 Ionawr", "Dydd Mawrth", "Dydd Calan"],
               ["2 Ionawr", "Dydd Mercher", "2il o Ionawr"],
               ["29 Mawrth", "Dydd Gwener", "Gwener y Groglith"],
@@ -98,6 +103,7 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
             ]
 
             assert_bank_holiday_table title: "Gwyliau banc blaenorol yn yr Alban", year: "2012", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["30 Tachwedd", "Dydd Gwener", "Gŵyl Andreas"],
               ["6 Awst", "Dydd Llun", "Gŵyl banc yr haf"],
               ["5 Mehefin", "Dydd Mawrth", "Jiwbilî Ddiemwnt y Frenhines (gŵyl banc ychwanegol)"],
@@ -113,10 +119,12 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
             assert page.has_link?("Ychwanegu'r gwyliau banc ar gyfer Gogledd Iwerddon at eich calendr (ICS, 14KB)", href: "/gwyliau-banc/gogledd-iwerddon.ics")
 
             assert_bank_holiday_table title: "Gwyliau banc i ddod yng Ngogledd Iwerddon", year: "2012", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["25 Rhagfyr", "Dydd Mawrth", "Dydd Nadolig"],
               ["26 Rhagfyr", "Dydd Mercher", "Dydd San Steffan"],
             ]
             assert_bank_holiday_table title: "Gwyliau banc i ddod yng Ngogledd Iwerddon", year: "2013", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["1 Ionawr", "Dydd Mawrth", "Dydd Calan"],
               ["18 Mawrth",
                "Dydd Llun",
@@ -132,6 +140,7 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
             ]
 
             assert_bank_holiday_table title: "Gwyliau banc blaenorol yng Ngogledd Iwerddon", year: "2012", rows: [
+              ["Dyddiad", "Diwrnod yr wythnos", "Gŵyl y banc"],
               ["27 Awst", "Dydd Llun", "Gŵyl banc yr haf"],
               ["12 Gorffennaf", "Dydd Iau", "Brwydr y Boyne (Dydd yr Orenwyr)"],
               ["5 Mehefin",

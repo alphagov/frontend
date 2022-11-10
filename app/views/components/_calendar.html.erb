@@ -14,6 +14,7 @@ headings ||= []
     caption: table_caption,
     caption_classes: "govuk-heading-s",
     head: headings,
+    first_cell_is_header: true,
     rows: events.each.map { |event| [
       { :text => l(event[:date], :format => '%e %B') },
       { :text => l(event[:date], :format => '%A') },

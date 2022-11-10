@@ -219,10 +219,7 @@ en:
       no_pii_hint: Do not include any personal or financial information, for example your National Insurance or credit card numbers.
       'on': 'on'
       online_satisfaction_check: Overall, how satisfied are you with the online service?
-      organ_donation_in_your_country: find out how the laws affect the country you live in and what your choices are
-      organ_donation_laws: Organ donation laws have changed
       organ_donation_title: Organ donation
-      organ_transplant_question: If you needed an organ transplant would you have one? If so please help others.
       other: Other (please specify)
       other_person: Tell us who the other person was
       other_ways_to_apply: Other ways to apply

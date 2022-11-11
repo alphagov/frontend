@@ -202,79 +202,6 @@
   }
 } %>
 
-<%= render "govuk_publishing_components/components/contextual_footer", {
-  content_item: {
-    title: "A content item",
-    links: {
-      topics: [
-        {
-          title: "Apprenticeships, 14 to 19 education and training for work",
-          base_path: "/browse/education/find-course",
-          document_type: "topic"
-        },
-        {
-          title: "Finding a job",
-          base_path: "/browse/working/finding-job",
-          document_type: "topic"
-        },
-        {
-          title: "Apprenticeships",
-          base_path: "/topic/further-education-skills/apprenticeships",
-          document_type: "topic"
-        }
-      ],
-      topical_events: [
-        {
-          title: "UK-China High-Level People to People Dialogue 2017",
-          base_path: "/government/topical-events/uk-china-high-level-people-to-people-dialogue-2017",
-          document_type: "topical_event"
-        }
-      ],
-      related: [
-        {
-          title: "Pest Control",
-          base_path: "/pest-control",
-          document_type: "contact"
-        }
-      ],
-      related_statistical_data_sets: [
-        {
-          title: "International road fuel prices",
-          base_path: "/government/statistical-data-sets/comparisons-of-industrial-and-domestic-energy-prices-monthly-figures",
-          document_type: "statistical_data_set"
-        },
-        {
-          title: "Weekly road fuel prices",
-          base_path: "/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics",
-          document_type: "statistical_data_set"
-        }
-      ],
-      world_locations: [
-        {
-          title: "South Sudan",
-          base_path: "/world/south-sudan/news"
-        },
-        {
-          title: "USA",
-          base_path: "/world/usa/news"
-        }
-      ]
-    },
-    details: {
-      external_related_links: [
-        {
-          url: "http://media.slc.co.uk/sfe/1718/ft/sfe_terms_and_conditions_guide_1718_d.pdf",
-          title: "Student loans: terms and conditions 2017 to 2018 (PDF, 136KB)"
-        },
-        {
-          title: "The Student Room repaying your student loan",
-          url: "https://www.thestudentroom.co.uk/content.php?r=5967-Repaying-your-student-loan"
-        }
-      ]
-    }
-  }
-} %>
-
 <%= render "govuk_publishing_components/components/contextual_guidance", {
   html_for: "news-title",
   title: "Writing a news title",
@@ -322,9 +249,6 @@
   }
 } %>
 
-<%= render "govuk_publishing_components/components/cookie_banner", {
-} %>
-
 <%= render "govuk_publishing_components/components/copy_to_clipboard", {
   label: "Copy and send this link to someone and they’ll be able to preview your draft on GOV.UK.",
   copyable_content: "http://www.example.org",
@@ -337,173 +261,12 @@
   We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
 <% end %>
 
-<%= render "govuk_publishing_components/components/devolved_nations", {
-  national_applicability: {
-    england: {
-      applicable: true
-    }
-  }
-} %>
-
-<%= render "govuk_publishing_components/components/table", {
-  rows: [
-    [
-      {
-        text: "January"
-      },
-      {
-        text: "£85",
-        format: "numeric"
-      },
-      {
-        text: "£95",
-        format: "numeric"
-      }
-    ],
-    [
-      {
-        text: "February"
-      },
-      {
-        text: "£75",
-        format: "numeric"
-      },
-      {
-        text: "£55",
-        format: "numeric"
-      }
-    ],
-    [
-      {
-        text: "March"
-      },
-      {
-        text: "£165",
-        format: "numeric"
-      },
-      {
-        text: "£125",
-        format: "numeric"
-      }
-    ]
-  ]
-} %>
-
-<%= render "govuk_publishing_components/components/feedback", {
-} %>
-
-<%= render "govuk_publishing_components/components/character_count", {
-  textarea: {
-    label: {
-      text: "Can you provide more detail?"
-    },
-    name: "more-detail"
-  },
-  maxlength: 10
-} %>
-
-<%= render "govuk_publishing_components/components/checkboxes", {
-  name: "favourite_colour_default",
-  items: [
-    {
-      label: "Red",
-      value: "red_colour"
-    }
-  ]
-} %>
-
-<%= render "govuk_publishing_components/components/date_input", {
-} %>
-
-<%= render "govuk_publishing_components/components/error_message", {
-  text: "Please enter your National Insurance Number",
-  id: "error_id"
-} %>
-
-<%= render "govuk_publishing_components/components/error_summary", {
-  title: "Message to alert the user to a problem goes here",
-  description: "Optional description of the errors and how to correct them",
-  items: [
-    {
-      text: "Descriptive link to the question with an error opening in a new window",
-      href: "#example-error-1",
-      target: "_blank"
-    },
-    {
-      text: "Descriptive link to the question with an error opening in the same window",
-      href: "#example-error-2",
-      target: "_self"
-    }
-  ]
-} %>
-
 <%= render "govuk_publishing_components/components/file_upload", {
   label: {
     text: "Upload a file"
   },
   name: "file-upload"
 } %>
-
-<%= render "govuk_publishing_components/components/input", {
-  label: {
-    text: "Search for"
-  },
-  name: "name",
-  value: "moose"
-} %>
-
-<div class="govuk-!-width-one-third">
-  <%= render "govuk_publishing_components/components/image_card", {
-  href: "/not-a-page",
-  image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
-  image_alt: "some meaningful alt text please",
-  heading_text: "News headline"
-} %>
-</div>
-
-<%= render "govuk_publishing_components/components/inset_text", {
-  text: "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application."
-} %>
-
-<%= render "govuk_publishing_components/components/lead_paragraph", {
-  text: "UK Visas and Immigration is making changes to the Immigration Rules affecting various categories."
-} %>
-
-<%= render "govuk_publishing_components/components/list", {
-  items: [
-    sanitize("Tony&rsquo;s Chocolonely"),
-    sanitize("<a href=\"https://en.wikipedia.org/wiki/Cherry_Ripe_(chocolate_bar)\" rel=\"noopener\" class=\"govuk-link\">Cherry Ripe</a>"),
-    "Snickers",
-    "Chomp",
-    "Penguin",
-    "Boost"
-  ]
-} %>
-
-<%= render "govuk_publishing_components/components/notice", {
-  title: "Statistics release cancelled"
-} %>
-
-<%= render "govuk_publishing_components/components/panel", {
-  title: "Application complete",
-  description: sanitize("Your reference number<br>
-    <strong>HDJ2123F</strong>
-    ")
-} %>
-
-<%= render "govuk_publishing_components/components/phase_banner", {
-  phase: "beta"
-} %>
-
-<%= render "govuk_publishing_components/components/previous_and_next_navigation", {
-  previous_page: {
-    url: "previous-page",
-    title: "Previous page",
-    label: "1 of 3"
-  }
-} %>
-
-
 
 <%= render "govuk_publishing_components/components/reorderable_list", {
   items: [
@@ -528,22 +291,4 @@
       title: "Table 2.2: Measures announced at Autumn Budget 2017 or earlier that will take effect from November 2018 or later (£ million)"
     }
   ]
-} %>
-
-<%= render "govuk_publishing_components/components/search", {
-} %>
-
-
-<%= render "govuk_publishing_components/components/single_page_notification_button", {
-  base_path: "/current-page-path"
-} %>
-
-<%= render "govuk_publishing_components/components/subscription_links", {
-  email_signup_link: "/foreign-travel-advice/singapore/email-signup",
-  feed_link: "/foreign-travel-advice/singapore.atom"
-} %>
-
-<%= render "govuk_publishing_components/components/success_alert", {
-  message: "Message to alert the user to a successful action goes here",
-  margin_bottom: 3
 } %>

@@ -7,7 +7,7 @@ class PlaceController < ContentItemsController
   INVALID_POSTCODE = "invalidPostcodeError".freeze
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
-  REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
+  HIDE_ADDRESS_FROM_RESULTS_PAGE_SLUGS = %w[report-child-abuse-to-local-council report-radicalisation-council].freeze
 
   def show
     @location_error = location_error if request.post?
@@ -31,7 +31,7 @@ private
       results_anchor: "results",
     }
 
-    if params[:slug] == REPORT_CHILD_ABUSE_SLUG
+    if HIDE_ADDRESS_FROM_RESULTS_PAGE_SLUGS.include? params[:slug]
       locals.merge!({
         option_partial: "option_report_child_abuse",
         preposition: "for",

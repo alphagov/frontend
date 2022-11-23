@@ -1,0 +1,10 @@
+<%= render layout: 'base_page' do %>
+  <p class="govuk-body"><%= t('formats.local_transaction.find_council_website') %></p>
+
+  <p>Choose your address</p>
+  <ul>
+    <% @address_list.each do |address_result| %>
+      <li><%= address_result["address"] %> - <%= address_result["authority_slug"] %></li>
+    <% end %>
+  </ul>
+<% end %>

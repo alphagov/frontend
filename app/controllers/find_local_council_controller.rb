@@ -17,7 +17,10 @@ class FindLocalCouncilController < ContentItemsController
       return
     end
 
-    redirect_to "#{BASE_PATH}/#{authority_slug}"
+    return redirect_to "#{BASE_PATH}/#{authority_slug_from_lcc(locations_api_response.local_custodian_codes.first)}" if locations_api_response.single_authority?
+
+    @addresses = address_list
+    render :multiple_authorities
   end
 
   def result
@@ -54,13 +57,35 @@ private
     @locations_api_response ||= fetch_location(postcode)
   end
 
+  def single_authority_from_location_api?
+    locations_api_response.local_custodian_codes == 1
+  end
+
+  def address_list
+    @address_list ||= build_addresses(postcode)
+  end
+
+  def build_addresses(postcode)
+    base_addresses = fetch_addresses(postcode)
+    base_addresses.each do |ba|
+      ba["authority_slug"] = authority_slug_from_lcc(ba["local_custodian_code"])
+    end
+  end
+
   def postcode
     @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
   end
 
-  def authority_slug
-    authority_results = Frontend.local_links_manager_api.local_authority_by_custodian_code(locations_api_response.local_custodian_codes.first)
+  def authority_slug_from_lcc(local_custodian_code)
+    authority_results = Frontend.local_links_manager_api.local_authority_by_custodian_code(local_custodian_code)
     authority_results["local_authorities"][0]["slug"]
+  end
+
+  def fetch_addresses(postcode)
+    # We only do this after fetching location, so relatively safe to miss out
+    # some of the safeguards. But we can optimize this a bit
+    response = Frontend.locations_api.results_for_postcode(postcode)
+    response["results"]
   end
 
   def fetch_location(postcode)

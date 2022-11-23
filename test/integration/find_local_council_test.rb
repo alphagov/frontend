@@ -243,6 +243,36 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
       end
 
+      context "when multiple authorities are found" do
+        setup do
+          stub_locations_api_has_location(
+            "CH25 9BJ",
+            [
+              { "address" => "House 1", "local_custodian_code" => "1" },
+              { "address" => "House 2", "local_custodian_code" => "2" },
+              { "address" => "House 3", "local_custodian_code" => "3" },
+            ],
+          )
+          stub_local_links_manager_has_a_local_authority("Achester", local_custodian_code: 1)
+          stub_local_links_manager_has_a_local_authority("Beechester", local_custodian_code: 2)
+          stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
+
+          visit "/find-local-council"
+          fill_in "postcode", with: "CH25 9BJ"
+          click_on "Find"
+        end
+
+        should "prompt you to choose your address" do
+          assert page.has_content?("Choose your address")
+        end
+
+        should "contain a list of addresses mapped to authority slugs" do
+          assert page.has_content?("House 1 - Achester")
+          assert page.has_content?("House 2 - Beechester")
+          assert page.has_content?("House 3 - Ceechester")
+        end
+      end
+
       context "when no local council is found" do
         setup do
           stub_locations_api_has_no_location("XM4 5HQ")

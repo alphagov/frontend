@@ -22,4 +22,8 @@ class LocationsApiPostcodeResponse
   def blank_postcode?
     postcode.blank?
   end
+
+  def single_authority?
+    local_custodian_codes.count == 1
+  end
 end

@@ -344,3 +344,29 @@
                   content_type: "application/vnd.oasis.opendocument.text" }
 %>
 <% end %>
+
+<%= render "govuk_publishing_components/components/notice", {
+  title: "Statistics release cancelled",
+  description: sanitize("<p class=\"govuk-body\">The Oil &amp; Gas Authority launched a new website on 3 October 2016 to reflect its new status as a government company.</p><p class=\"govuk-body\">This formalises the transfer of the Secretary of State’s regulatory powers in respect of oil and gas to the OGA, and grants it new powers. This website will no longer be updated. Visitors should refer to <a class=\"govuk-link\" rel=\"external\" href=\"https://www.ogauthority.co.uk/news-publications/announcements/2015/establishment-of-the-oil-and-gas-authority-1/\">www.ogauthority.co.uk</a></p>")
+} %>
+
+<%= render "govuk_publishing_components/components/summary_list", {
+  title: "Title, summary and body",
+  items: [
+    {
+      field: "Title",
+      value: "Ethical standards for public service providers"
+    },
+    {
+      field: "Summary",
+      value: "Find out more about our reviews on the subject of ethical standards for public service providers, including our 2014 report, 2015 guidance and 2018 follow-up publication."
+    },
+    {
+      field: "Body",
+      value: "After the government decided in 2013 to expand the remit of the Committee to include public service providers, the Committee on Standards in Public Life produced our first report on the issue: Ethical Standards for Providers of Public Services in 2014."
+    }
+  ]
+} %>
+
+<%= render "govuk_publishing_components/components/print_link", {
+} %>

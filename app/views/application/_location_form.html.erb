@@ -79,10 +79,6 @@
   <% end %>
 </div>
 
-<%= render "govuk_publishing_components/components/print_link", {
-  text: "Print this manual"
-} %>
-
 <%= render "govuk_publishing_components/components/action_link", {
   text: "Go to NHS 111 online",
   href: "/page"
@@ -292,3 +288,59 @@
     }
   ]
 } %>
+
+<%= render "govuk_publishing_components/components/table", {
+  rows: [
+    [
+      {
+        text: "January"
+      },
+      {
+        text: "£85",
+        format: "numeric"
+      },
+      {
+        text: "£95",
+        format: "numeric"
+      }
+    ],
+    [
+      {
+        text: "February"
+      },
+      {
+        text: "£75",
+        format: "numeric"
+      },
+      {
+        text: "£55",
+        format: "numeric"
+      }
+    ],
+    [
+      {
+        text: "March"
+      },
+      {
+        text: "£165",
+        format: "numeric"
+      },
+      {
+        text: "£125",
+        format: "numeric"
+      }
+    ]
+  ]
+} %>
+
+<%= render "govuk_publishing_components/components/govspeak", {
+} do %>
+  <p>An attachment as a block</p>
+
+<%= render "govuk_publishing_components/components/attachment",
+    attachment: { url: "https://example.com/file.odt",
+                  title: "Attachment",
+                  file_size: 1024,
+                  content_type: "application/vnd.oasis.opendocument.text" }
+%>
+<% end %>

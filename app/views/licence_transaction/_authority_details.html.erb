@@ -1,0 +1,54 @@
+<p class="govuk-body">From <strong><%= licence_details.authority['name'] %></strong></p>
+
+<nav role="navigation" class="page-navigation">
+  <ol class="govuk-list govuk-list--number">
+    <% if licence_details.action %>
+      <li><%= link_to "Overview", licence_transaction_authority_path(@slug, licence_details.authority["slug"]), class: "govuk-link" %></li>
+    <% else %>
+      <li class="active">Overview</li>
+    <% end %>
+    <% licence_details.authority['actions'].keys.uniq.each do |action| %>
+      <% if licence_details.action == action %>
+        <li class="active"><%= "How to #{action}" %></li>
+      <% else %>
+        <li><%= link_to "How to #{action}", licence_transaction_authority_path(@slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</nav>
+
+<article role="article" class="content-block group">
+  <div id="overview" class="inner">
+    <% if licence_details.action.present? %>
+      <% if licence_details.uses_licensify %>
+        <%= render :partial => "action", :locals => {:action => licence_details.action } %>
+      <% elsif licence_details.uses_authority_url %>
+        <%= render :partial => 'authority_url', :locals => {:action => licence_details.action, :index => 0} %>
+      <% else %>
+        <%= render :partial => 'licensify_unavailable' %>
+      <% end %>
+    <% elsif publication.body.present? %>
+      <%= render "govuk_publishing_components/components/heading", text: "Overview", margin_bottom: 4 %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <%= raw publication.body %>
+      <% end %>
+    <% end %>
+
+    <% if licence_details.local_authority_specific? or licence_details.multiple_licence_authorities_present? %>
+      <div class="contact">
+        <p class="govuk-body">The issuing authority for this licence is <strong><%= licence_details.authority["name"] %></strong>
+          <%= link_to (licence_details.local_authority_specific? ? '(change location)' : '(change authority)'), licence_transaction_path(@slug), class: "govuk-link" %>
+        </p>
+
+        <% if licence_details.authority['contact'] and ! licence_details.authority['contact']['address'].blank? %>
+          <p class="govuk-body">You can contact them using the details below.</p>
+          <%= render "govuk_publishing_components/components/govspeak", {
+          } do %>
+            <%= simple_format licence_details.authority['contact']['address'] %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</article>

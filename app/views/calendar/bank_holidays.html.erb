@@ -9,6 +9,16 @@
       </div>
       <% end %>
       <section  class="app-o-main-container <%= "app-o-main-container--bunted" if @calendar.show_bunting? %>" lang="<%= I18n.locale %>">
+
+
+        <%= render "govuk_publishing_components/components/intervention", {
+          suggestion_text: "Help make GOV.UK better",
+          suggestion_link_text: "Take part in user research",
+          suggestion_link_url: "https://signup.take-part-in-research.service.gov.uk/?utm_campaign=GOV.UK&utm_source=govukhp&utm_medium=gov.uk&t=GDS&id=456",
+          new_tab: true,
+        } %>
+
+
         <%= render "govuk_publishing_components/components/title", {
           title: @calendar.title
         } %>

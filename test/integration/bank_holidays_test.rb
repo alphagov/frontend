@@ -10,6 +10,14 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
     stub_content_store_has_item("/bank-holidays", content_item)
   end
 
+  should "show research panel banner" do
+    Timecop.travel("2012-12-14")
+
+    visit "/bank-holidays"
+
+    assert_selector ".gem-c-intervention"
+  end
+
   should "display the bank holidays page" do
     Timecop.travel("2012-12-14")
 

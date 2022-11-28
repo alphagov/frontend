@@ -11,7 +11,7 @@
         id: ('more-information' if transaction.more_information.present?),
         label: t('formats.transaction.more_information'),
         tab_data_attributes: {
-          ga4: {
+          ga4_event: {
             event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.more_information'),
@@ -27,7 +27,7 @@
         id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
         label: t('formats.transaction.what_you_need_to_know'),
         tab_data_attributes: {
-          ga4: {
+          ga4_event: {
             event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.what_you_need_to_know'),
@@ -45,7 +45,7 @@
         id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
         label: t('formats.transaction.other_ways_to_apply'),
         tab_data_attributes: {
-          ga4: {
+          ga4_event: {
             event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.other_ways_to_apply'),

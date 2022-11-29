@@ -1,4 +1,4 @@
-<% content_for :title do %>Find your local council - GOV.UK<% end %>
+<% content_for :title do %><%= "Error: " if @location_error %>Find your local council - GOV.UK<% end %>
 <% content_for :extra_headers do %>
   <meta name="description"
         content="Find your local authority in England, Wales, Scotland and Northern Ireland"/>

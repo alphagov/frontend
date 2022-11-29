@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"
+  get "/find-local-council/multiple_authorities" => "find_local_council#multiple_authorities"
   get "/find-local-council/:authority_slug" => "find_local_council#result"
 
   get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice

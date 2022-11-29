@@ -20,7 +20,12 @@ class FindLocalCouncilController < ContentItemsController
     return redirect_to "#{BASE_PATH}/#{authority_slug_from_lcc(locations_api_response.local_custodian_codes.first)}" if locations_api_response.single_authority?
 
     @addresses = address_list
+    @options = options
     render :multiple_authorities
+  end
+
+  def multiple_authorities
+    redirect_to "#{BASE_PATH}/#{params[:authority_slug]}"
   end
 
   def result
@@ -63,6 +68,17 @@ private
 
   def address_list
     @address_list ||= build_addresses(postcode)
+  end
+
+  def options
+    items = []
+    address_list.each do |address_result|
+      address = {}
+      address[:text] = address_result["address"]
+      address[:value] = address_result["authority_slug"]
+      items.push(address)
+    end
+    items
   end
 
   def build_addresses(postcode)

@@ -151,6 +151,7 @@ cy:
     find_my_nearest:
       valid_postcode_no_locations: Doedden ni ddim yn gallu dod o hyd i unrhyw ganlyniadau ar gyfer y cod post hwn.
     local_transaction:
+      change: Newid
       choose_address: Dewiswch eich cyfeiriad
       council_tax: treth gyngor
       county_council_services: Mae cynghorau sir yn gyfrifol am wasanaethau fel
@@ -161,6 +162,7 @@ cy:
       county_district_council: Mae eich cod post mewn cyngor sir a chyngor dosbarth.
       district_council_services: Mae cynghorau dosbarth yn gyfrifol am wasanaethau fel
       enter_postcode: Ysgrifennwch god post
+      error_summary_title:
       find_council: Dod o hyd i'ch cyngor lleol
       find_council_website: Dod o hyd i wefan eich cyngor lleol.
       find_info_for:
@@ -176,11 +178,13 @@ cy:
       invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
       invalid_uprn_sub: Ysgrifennwch y cod post eto.
+      local_authority_html:
       local_authority_website:
       matched_postcode_html: Rydyn ni wedi paru'r cod post i <span class="local-authority">%{local_authority}</span>.
       no_local_authority: Doedden ni ddim yn gallu ffeindio cyngor ar gyfer y cod post hwn.
       no_local_authority_url_html:
       no_website: Does gyda ni ddim dolen ar gyfer eu gwefan.
+      postcode: Cod post
       postcode_hint: Er enghraifft CF99 1SN
       postcode_lookup: Chwilio am god post
       rubbish_recycling_collection: casglu sbwriel ac ailgylchu
@@ -191,6 +195,7 @@ cy:
       valid_postcode_no_match_sub_html: Gwiriwch a'i ysgrifennu eto.
       valid_uprn_no_match: Doedden ni ddim yn gallu dod o hyd i'r cyfeiriad hwn.
       valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
+      website:
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf

@@ -244,9 +244,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
 
     should "add google analytics for noResults" do
-      track_category = page.find(".gem-c-error-alert")["data-track-category"]
-      track_action = page.find(".gem-c-error-alert")["data-track-action"]
-      track_label = page.find(".gem-c-error-alert")["data-track-label"]
+      track_category = page.find(".gem-c-error-summary")["data-track-category"]
+      track_action = page.find(".gem-c-error-summary")["data-track-action"]
+      track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
       assert_equal "userAlerts: place", track_category
       assert_equal "postcodeErrorShown: validPostcodeNoLocation", track_action

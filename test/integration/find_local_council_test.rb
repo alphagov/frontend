@@ -58,11 +58,11 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "show the local authority result" do
-          assert page.has_content?("Your postcode is in:")
+          assert page.has_content?("Your local authority is")
 
           within(".unitary-result") do
             assert page.has_content?("Westminster")
-            assert page.has_link?("westminster.example.com", href: "http://westminster.example.com", exact: true)
+            assert page.has_link?("Go to Westminster website", href: "http://westminster.example.com", exact: true)
           end
         end
 
@@ -81,12 +81,8 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert_equal "1 Result", track_label
         end
 
-        should "show back link" do
-          assert page.has_link?("Back", href: "/find-local-council")
-        end
-
         should "add google analytics for exit link tracking" do
-          track_action = find_link("westminster.example.com")["data-track-action"]
+          track_action = find_link("Go to Westminster website")["data-track-action"]
           assert_equal "unitaryLinkClicked", track_action
         end
       end
@@ -199,6 +195,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Find the website for your local council.")
         end
 
+        should "add \"Error:\" to the beginning of the page title" do
+          assert page.has_selector?("title", text: "Error: Find your local council - GOV.UK", visible: false)
+        end
+
         should "see an error message" do
           assert page.has_content? "This isn't a valid postcode"
         end
@@ -208,8 +208,8 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-alert")["data-track-action"]
-          track_label = page.find(".gem-c-error-alert")["data-track-label"]
+          track_action = page.find(".gem-c-error-summary")["data-track-action"]
+          track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
           assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
           assert_equal "This isn't a valid postcode.", track_label
@@ -230,20 +230,24 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_content?("Find the website for your local council.")
         end
 
+        should "add \"Error:\" to the beginning of the page title" do
+          assert page.has_selector?("title", text: "Error: Find your local council - GOV.UK", visible: false)
+        end
+
         should "see an error message" do
           assert page.has_content? "This isn't a valid postcode"
         end
 
         should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-alert")["data-track-action"]
-          track_label = page.find(".gem-c-error-alert")["data-track-label"]
+          track_action = page.find(".gem-c-error-summary")["data-track-action"]
+          track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
           assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
           assert_equal "This isn't a valid postcode.", track_label
         end
       end
 
-      context "when multiple authorities are found" do
+      context "when multiple authorities (5 or less) are found" do
         setup do
           stub_locations_api_has_location(
             "CH25 9BJ",
@@ -263,13 +267,63 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "prompt you to choose your address" do
-          assert page.has_content?("Choose your address")
+          assert page.has_content?("Select an address")
+        end
+
+        should "display radio buttons" do
+          assert page.has_css?(".govuk-radios")
         end
 
         should "contain a list of addresses mapped to authority slugs" do
-          assert page.has_content?("House 1 - Achester")
-          assert page.has_content?("House 2 - Beechester")
-          assert page.has_content?("House 3 - Ceechester")
+          assert page.has_content?("House 1")
+          assert page.has_content?("House 2")
+          assert page.has_content?("House 3")
+        end
+      end
+
+      context "when multiple authorities (6 or more) are found" do
+        setup do
+          stub_locations_api_has_location(
+            "CH25 9BJ",
+            [
+              { "address" => "House 1", "local_custodian_code" => "1" },
+              { "address" => "House 2", "local_custodian_code" => "2" },
+              { "address" => "House 3", "local_custodian_code" => "3" },
+              { "address" => "House 4", "local_custodian_code" => "4" },
+              { "address" => "House 5", "local_custodian_code" => "5" },
+              { "address" => "House 6", "local_custodian_code" => "6" },
+              { "address" => "House 7", "local_custodian_code" => "7" },
+            ],
+          )
+          stub_local_links_manager_has_a_local_authority("Achester", local_custodian_code: 1)
+          stub_local_links_manager_has_a_local_authority("Beechester", local_custodian_code: 2)
+          stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
+          stub_local_links_manager_has_a_local_authority("Deechester", local_custodian_code: 4)
+          stub_local_links_manager_has_a_local_authority("Eeechester", local_custodian_code: 5)
+          stub_local_links_manager_has_a_local_authority("Feechester", local_custodian_code: 6)
+          stub_local_links_manager_has_a_local_authority("Geechester", local_custodian_code: 7)
+
+          visit "/find-local-council"
+          fill_in "postcode", with: "CH25 9BJ"
+          click_on "Find"
+        end
+
+        should "prompt you to choose your address" do
+          assert page.has_content?("Select an address")
+        end
+
+        should "display a dropdown select" do
+          assert page.has_css?(".govuk-select")
+        end
+
+        should "contain a list of addresses mapped to authority slugs" do
+          assert page.has_content?("House 1")
+          assert page.has_content?("House 2")
+          assert page.has_content?("House 3")
+          assert page.has_content?("House 4")
+          assert page.has_content?("House 5")
+          assert page.has_content?("House 6")
+          assert page.has_content?("House 7")
         end
       end
 
@@ -286,7 +340,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert_equal "/find-local-council", current_path
 
           assert page.has_content?("Find your local council")
-          assert page.has_content?("Find the website for your local council.")
         end
 
         should "see an error message" do
@@ -294,8 +347,8 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-alert")["data-track-action"]
-          track_label = page.find(".gem-c-error-alert")["data-track-label"]
+          track_action = page.find(".gem-c-error-summary")["data-track-action"]
+          track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
           assert_equal "postcodeErrorShown: noLaMatch", track_action
           assert_equal "We couldn't find a council for this postcode.", track_label
@@ -312,11 +365,11 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       end
 
       should "show the local authority result" do
-        assert page.has_content?("Your postcode is in:")
+        assert page.has_content?("Your local authority is")
 
         within(".unitary-result") do
           assert page.has_content?("Islington")
-          assert page.has_link?("islington.example.com", href: "http://islington.example.com", exact: true)
+          assert page.has_link?("Go to Islington website", href: "http://islington.example.com", exact: true)
         end
       end
     end

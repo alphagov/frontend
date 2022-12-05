@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc { |_env| [404, {}, ["Not Found"]] }
 
+  unless Rails.env.production?
+    get "/development", to: "development#index"
+  end
+
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"
   get "/find-local-council/:authority_slug" => "find_local_council#result"

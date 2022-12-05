@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>frontend development page</title>
+  <meta name="robots" content="noindex, nofollow">
+  <%= stylesheet_link_tag "application", integrity: false %>
+</head>
+<body>
+  <div id="wrapper">
+    <main class="govspeak">
+      <%= render "govuk_publishing_components/components/title", title: "frontend" %>
+
+      <% html = capture do %>
+        <p>Here is a list of the content types that frontend renders and an example page.</p>
+        <table>
+          <% @paths.each do |name, path| %>
+            <tr>
+              <td>
+                <%= name %>
+              </td>
+              <td>
+                <%= link_to path, path %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
+
+      <%= render 'govuk_publishing_components/components/govspeak', content: html %>
+    </main>
+  </div>
+</body>
+</html>

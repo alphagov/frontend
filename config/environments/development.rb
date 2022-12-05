@@ -61,6 +61,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.hosts << "frontend.dev.gov.uk"
+  config.hosts << /[a-z0-9-.]+\.gitpod\.io/
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true

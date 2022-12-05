@@ -112,7 +112,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
 
         should "show the local authority results for both district and county" do
-          assert page.has_content?("Your postcode is in a county council and a district council")
+          assert page.has_content?("Services in your area are provided by two local authorities")
 
           assert page.has_selector? ".county-result"
           assert page.has_selector? ".district-result"
@@ -120,13 +120,13 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           within(".county-result") do
             assert page.has_content?("Buckinghamshire")
             assert page.has_content?("County councils are responsible for services like:")
-            assert page.has_link?("buckinghamshire.example.com", href: "http://buckinghamshire.example.com")
+            assert page.has_link?("Go to Buckinghamshire website", href: "http://buckinghamshire.example.com")
           end
 
           within(".district-result") do
             assert page.has_content?("Aylesbury")
             assert page.has_content?("District councils are responsible for services like:")
-            assert page.has_link?("aylesbury.example.com", href: "http://aylesbury.example.com", exact: true)
+            assert page.has_link?("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
         end
 
@@ -140,13 +140,9 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert_equal "2 Results", track_label
         end
 
-        should "show back link" do
-          assert page.has_link?("Back", href: "/find-local-council")
-        end
-
         should "add google analytics for exit link tracking" do
-          district_track_action = find_link("aylesbury.example.com")["data-track-action"]
-          county_track_action = find_link("buckinghamshire.example.com")["data-track-action"]
+          district_track_action = find_link("Go to Aylesbury website")["data-track-action"]
+          county_track_action = find_link("Go to Buckinghamshire website")["data-track-action"]
 
           assert_equal "districtLinkClicked", district_track_action
           assert_equal "countyLinkClicked", county_track_action

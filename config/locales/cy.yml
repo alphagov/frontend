@@ -159,8 +159,9 @@ cy:
       - addysg
       - gofal cymdeithasol
       - trafnidiaeth
-      county_district_council: Mae eich cod post mewn cyngor sir a chyngor dosbarth.
+      county_district_council:
       district_council_services: Mae cynghorau dosbarth yn gyfrifol am wasanaethau fel
+      different_local_authorities:
       enter_postcode: Ysgrifennwch god post
       error_summary_title:
       find_council: Dod o hyd i'ch cyngor lleol

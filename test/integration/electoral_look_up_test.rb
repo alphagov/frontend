@@ -27,6 +27,17 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
   context "searching by postcode" do
     context "when a valid postcode is entered which matches a single address" do
+      should "display upcoming elections if available" do
+        with_electoral_api_url do
+          stub_api_postcode_lookup("LS11UR", response: api_response)
+
+          search_for(postcode: "LS11UR")
+          assert page.has_selector?("h2", text: "Next elections")
+          assert page.has_text?("2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons")
+          assert page.has_selector?("meta[name=robots][content=noindex]", visible: :all)
+        end
+      end
+
       should "display the electoral service (council) address if it's different to the registration office address" do
         with_different_address = JSON.parse(api_response)
         with_different_address["registration"] = { "address" => "foo" }
@@ -56,6 +67,19 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
 
           assert page.has_no_selector?("h2", text: "Your local council")
           assert page.has_no_text?("For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council.")
+        end
+      end
+
+      should "inform user if there are no upcoming elections " do
+        without_dates = JSON.parse(api_response)
+        without_dates["dates"] = []
+        stub_api_postcode_lookup("LS11UR", response: without_dates.to_json)
+
+        with_electoral_api_url do
+          search_for(postcode: "LS11UR")
+
+          assert page.has_selector?("h2", text: "Next elections")
+          assert page.has_text?("There are no upcoming elections for your area")
         end
       end
 

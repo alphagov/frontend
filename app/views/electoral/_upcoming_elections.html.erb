@@ -1,0 +1,14 @@
+<%= render "govuk_publishing_components/components/heading",
+      text: "Next elections",
+      font_size: "m",
+      margin_bottom: 4
+  %>
+<% if elections %>
+<p class="govuk-body">The upcoming elections for your area are as follows:</p>
+<%= render "govuk_publishing_components/components/list", {
+    visible_counters: true,
+    items: elections
+  } %>
+<% else %>
+  <p class="govuk-body">There are no upcoming elections for your area</p>
+<% end %>

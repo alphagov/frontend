@@ -45,7 +45,5 @@
     %>
   <% end %>
 
-  <% if @presenter.upcoming_elections? %>
-    <%= render partial: "upcoming_elections", locals: { elections: @presenter.upcoming_elections } %>
-  <% end %>  
+  <%= render partial: "upcoming_elections", locals: { elections: @presenter.upcoming_elections } %> 
 <% end %>

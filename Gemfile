@@ -15,6 +15,7 @@ gem "invalid_utf8_rejector"
 gem "plek"
 gem "rack_strip_client_ip"
 gem "rails-i18n"
+gem "rails_translation_manager"
 gem "sassc-rails"
 gem "slimmer"
 gem "sprockets-rails"
@@ -34,7 +35,6 @@ group :development, :test do
   gem "pact", require: false
   gem "pact_broker-client"
   gem "pry-byebug"
-  gem "rails_translation_manager"
   gem "rubocop-govuk"
 end
 

@@ -148,7 +148,7 @@ en:
       description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
       title: Get help with electoral registration
     service:
-      description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
+      description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council.
       matched_postcode_html: We've matched the postcode <strong>%{postcode}</strong> to <strong>%{electoral_service_name}</strong>.
       title: Your local council
   error: Error

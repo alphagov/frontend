@@ -21,11 +21,6 @@ en:
       heading: Cookie and feedback settings
       success: Your feedback and cookie settings have been changed.
     your_account:
-      account_not_used:
-        action:
-        description:
-        heading:
-        link_text:
       emails:
         heading: Your GOV.UK email subscriptions
         no_emails_inset: You do not currently have any GOV.UK email subscriptions.
@@ -114,7 +109,6 @@ en:
     essential_explanation: These essential cookies do things like remember your progress through a form (for example a licence application)
     explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
     four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
-    google:
     google_info: 'These cookies collect information about:'
     google_collection: The information is collected in a way that does not directly identify you.
     google_share: We do not allow Google or SpeedCurve to use or share the data about how you use these sites.

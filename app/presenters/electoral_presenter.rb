@@ -62,6 +62,12 @@ private
     end
   end
 
+  def present_ballots(date)
+    if date["ballots"].present?
+      date["ballots"].map { |b| "#{b['poll_open_date']} - #{b['ballot_title']}" }
+    end
+  end
+
   def no_contact_details?
     registration.nil? && electoral_services.nil?
   end

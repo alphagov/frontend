@@ -35,7 +35,7 @@
         </div>
       <% else %>
         <%= render "govuk_publishing_components/components/warning_text", {
-          text: sanitize("You can't apply for this licence online. #{link_to('Contact your local council', '/find-local-council', class: "govuk-link")}")
+          text: sanitize("You cannot apply for this licence online. #{link_to('Contact your local council', '/find-local-council', class: "govuk-link")}.")
         } %>
       <% end %>
 

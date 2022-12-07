@@ -763,8 +763,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
     should "show message to contact local council" do
       visit "/licence-to-kill"
 
-      assert page.has_content?("You can't apply for this licence online")
-      assert page.has_content?("Contact your local council")
+      assert page.has_content?("You cannot apply for this licence online")
+      assert page.has_content?("Contact your local council.")
     end
   end
 
@@ -866,8 +866,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "display the licence unavailable message" do
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
     end
 
@@ -940,8 +940,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           href: "/licence-to-kill/ministry-of-love/apply-1",
           start: true,
         )
-        assert_not page.has_content?("You can't apply for this licence online")
-        assert_not page.has_content?("Contact your local council")
+        assert_not page.has_content?("You cannot apply for this licence online")
+        assert_not page.has_content?("Contact your local council.")
       end
 
       should "not display the interactions for the licence if usesLicensify is set to false" do
@@ -954,8 +954,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           href: "/licence-to-kill/ministry-of-love/renew-1",
           start: true,
         )
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
     end
 
@@ -1013,8 +1013,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "not display the licence unavailable message on the main licence page" do
-        assert_not page.has_content?("You can't apply for this licence online")
-        assert_not page.has_content?("Contact your local council")
+        assert_not page.has_content?("You cannot apply for this licence online")
+        assert_not page.has_content?("Contact your local council.")
       end
 
       should "display the licence unavailable message after you click on the first action" do
@@ -1028,8 +1028,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           start: true,
         )
 
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
 
       should "display the licence unavailable message after you click on the second action" do
@@ -1043,8 +1043,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           start: true,
         )
 
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
     end
 
@@ -1114,8 +1114,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           start: true,
         )
 
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
 
       should "display interactions for licence with usesLicensify set to true" do
@@ -1129,8 +1129,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           start: true,
         )
 
-        assert_not page.has_content?("You can't apply for this licence online")
-        assert_not page.has_content?("Contact your local council")
+        assert_not page.has_content?("You cannot apply for this licence online")
+        assert_not page.has_content?("Contact your local council.")
       end
     end
 
@@ -1186,8 +1186,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
       end
 
       should "not display the licence unavailable message on the main licence page" do
-        assert_not page.has_content?("You can't apply for this licence online")
-        assert_not page.has_content?("Contact your local council")
+        assert_not page.has_content?("You cannot apply for this licence online")
+        assert_not page.has_content?("Contact your local council.")
       end
 
       should "display the licence unavailable message after you click on an action" do
@@ -1201,8 +1201,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           start: true,
         )
 
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
     end
 
@@ -1306,8 +1306,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           href: "/licence-to-kill/ministry-of-love/apply-2",
           start: true,
         )
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
 
       should "not display the interactions for the licence if usesLicensify is set to false or is missing for a link" do
@@ -1325,8 +1325,8 @@ class LicenceTest < ActionDispatch::IntegrationTest
           href: "/licence-to-kill/ministry-of-love/renew-2",
           start: true,
         )
-        assert page.has_content?("You can't apply for this licence online")
-        assert page.has_content?("Contact your local council")
+        assert page.has_content?("You cannot apply for this licence online")
+        assert page.has_content?("Contact your local council.")
       end
     end
   end

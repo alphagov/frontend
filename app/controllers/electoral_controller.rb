@@ -20,6 +20,23 @@ class ElectoralController < ContentItemsController
     end
   end
 
+  def upcoming
+    elections_api.make_request if valid_postcode? || valid_uprn?
+
+    if elections_api.ok?
+      @presenter = presented_result(elections_api.body)
+
+      if @presenter.show_picker?
+        render :address_picker and return
+      end
+
+      render :upcoming_elections
+    else
+      @location_error = location_error
+      render "local_transaction/search"
+    end
+  end
+
 private
 
   def publication_class

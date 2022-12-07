@@ -19,8 +19,7 @@
       </div>
     </section>
   <% end %>
-
-  <% if current_page?(electoral_services_path) %>
+  <% if current_page?(electoral_services_path) || current_page?(upcoming_elections_path) %>
     <%= render partial: "electoral/form" %>
   <% else %>
     <%= render partial: 'location_form',

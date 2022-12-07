@@ -21,8 +21,7 @@
       }
     } %>
   <% end %>
-
-  <%= form_with url: electoral_services_path,
+  <%= form_with url: current_page?(electoral_services_path)? electoral_services_path : upcoming_elections_path,
     method: :get,
     id: "local-locator-form",
     class: "location-form" do |form| %>

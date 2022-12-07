@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   # Electoral Registration Lookup Service
   # comment out this line to return to using a local transaction
   get "/contact-electoral-registration-office" => "electoral#show", as: :electoral_services
+  get "/view-upcoming-elections" => "electoral#upcoming", as: :upcoming_elections
 
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do

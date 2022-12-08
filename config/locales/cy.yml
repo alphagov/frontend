@@ -21,11 +21,6 @@ cy:
       heading:
       success:
     your_account:
-      account_not_used:
-        action:
-        description:
-        heading:
-        link_text:
       emails:
         heading:
         no_emails_inset:
@@ -114,7 +109,6 @@ cy:
     explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur pan fyddwch chi'n ymweld â gwefan yw cwcis.
     explanation_html:
     four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych chi'n hapus i ni eu defnyddio.
-    google:
     google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     google_collection:
     google_share:

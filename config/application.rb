@@ -52,7 +52,6 @@ module Frontend
       frontend.js
       tour.js
       application.css
-      print.css
     ]
 
     # Path within public/ where assets are compiled to

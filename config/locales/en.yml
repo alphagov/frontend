@@ -151,6 +151,7 @@ en:
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     local_transaction:
+      change: Change
       choose_address: Choose your address
       council_tax: council tax
       county_council_services: County councils are responsible for services like
@@ -158,9 +159,11 @@ en:
         - education
         - social care
         - transport
-      county_district_council: Your postcode is in a county council and a district council.
+      county_district_council: Services in your area are provided by two local authorities
       district_council_services: District councils are responsible for services like
+      different_local_authorities: Different local authorities are responsible for different services.
       enter_postcode: Enter a postcode
+      error_summary_title: There is a problem
       find_council: Find your local council
       find_council_website: Find the website for your local council.
       find_info_for: Find information for %{country_name}
@@ -176,11 +179,13 @@ en:
       invalid_postcode_sub: Check it and enter it again.
       invalid_uprn: This isn't a valid address.
       invalid_uprn_sub: Enter the postcode again.
+      local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website
       matched_postcode_html: We've matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
       no_website: We don't have a link for their website.
+      postcode: Postcode
       postcode_hint: For example SW1A 2AA
       postcode_lookup: Postcode lookup
       rubbish_recycling_collection: rubbish and recycling collection
@@ -191,6 +196,7 @@ en:
       valid_postcode_no_match_sub_html: Check it and enter it again.
       valid_uprn_no_match: We couldn't find this address.
       valid_uprn_no_match_sub_html: Check it and enter the postcode again.
+      website: You can get information on their website.
     simple_smart_answer:
       change: Change
       next_step: Next step

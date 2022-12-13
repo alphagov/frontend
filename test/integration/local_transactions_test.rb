@@ -135,12 +135,11 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "see an error message" do
         assert page.has_content? I18n.t("formats.local_transaction.valid_postcode_no_match")
-        assert page.has_content? I18n.t("formats.local_transaction.valid_postcode_no_match_sub_html")
       end
 
       should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-alert")["data-track-action"]
-        track_label = page.find(".gem-c-error-alert")["data-track-label"]
+        track_action = page.find(".gem-c-error-summary")["data-track-action"]
+        track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
         assert_equal "postcodeErrorShown: fullPostcodeNoLocationsApiMatch", track_action
 
@@ -174,8 +173,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-alert")["data-track-action"]
-        track_label = page.find(".gem-c-error-alert")["data-track-label"]
+        track_action = page.find(".gem-c-error-summary")["data-track-action"]
+        track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
         assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
@@ -206,8 +205,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-alert")["data-track-action"]
-        track_label = page.find(".gem-c-error-alert")["data-track-label"]
+        track_action = page.find(".gem-c-error-summary")["data-track-action"]
+        track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
         assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
@@ -230,8 +229,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-alert")["data-track-action"]
-        track_label = page.find(".gem-c-error-alert")["data-track-label"]
+        track_action = page.find(".gem-c-error-summary")["data-track-action"]
+        track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
         assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
         assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
@@ -257,8 +256,8 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
 
       should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-alert")["data-track-action"]
-        track_label = page.find(".gem-c-error-alert")["data-track-label"]
+        track_action = page.find(".gem-c-error-summary")["data-track-action"]
+        track_label = page.find(".gem-c-error-summary")["data-track-label"]
 
         assert_equal "postcodeErrorShown: noLaMatch", track_action
         assert_equal I18n.t("formats.local_transaction.no_local_authority"), track_label

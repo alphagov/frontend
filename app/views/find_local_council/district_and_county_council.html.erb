@@ -4,68 +4,85 @@
     margin_bottom: 4,
     font_size: "m",
   } %>
+
+  <p class="govuk-body govuk-!-margin-bottom-8">
+    <%= t('formats.local_transaction.different_local_authorities') %>
+  </p>
+
   <div class="local-authority-results"
        data-module="auto-track-event"
        data-track-category="postcodeSearch:find_local_council"
        data-track-action="postcodeResultShown"
        data-track-label="2 Results">
 
-    <div class="county-result group">
-      <p class="govuk-body"><%= @county["name"] %></p>
+    <div class="county-result group govuk-!-margin-bottom-8">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: @county["name"],
+        heading_level: 3,
+        font_size: 'm'
+      } %>
 
-      <p class="govuk-body">
-        <% if @county["homepage_url"].blank? %>
-          <%= t('formats.local_transaction.county_district_council') %>
-        <% else %>
-          <%= t('website') %>: <%= link_to extract_host(@county["homepage_url"]), @county["homepage_url"], class: "govuk-link",
-            data: {
-              module: 'gem-track-click',
-              track_category: 'pageElementInteraction',
-              track_action: 'countyLinkClicked',
-              track_label: @county["homepage_url"]
-            } %>
-        <% end %>
+      <p class="govuk-body govuk-!-margin-bottom-1">
+        <%= t('formats.local_transaction.county_council_services')%>:
       </p>
 
-      <p class="govuk-body"><%= t('formats.local_transaction.county_council_services')%>:</p>
       <ul class="govuk-list govuk-list--bullet">
         <% t('formats.local_transaction.county_council_services_list').each do |service| %>
           <li><%= service %></li>
         <% end %>
       </ul>
-    </div>
-
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-    <div class="district-result group">
-      <p class="govuk-body"><%= @district["name"] %></p>
 
       <p class="govuk-body">
-        <% if @district["homepage_url"].blank? %>
-          <%= t('formats.local_transaction.no_website') %>
+        <% if @county["homepage_url"].blank? %>
+          <%= t('formats.local_transaction.county_district_council') %>
         <% else %>
-          <%= t('website') %> <%= link_to extract_host(@district["homepage_url"]), @district["homepage_url"], class: "govuk-link",
-                              data: {
-                                module: 'gem-track-click',
-                                track_category: 'pageElementInteraction',
-                                track_action: 'districtLinkClicked',
-                                track_label: @district["homepage_url"]
-                              } %>
+          <%= link_to t("formats.local_transaction.local_authority_website",
+            local_authority_name: @county["name"]), @county["homepage_url"],
+            class: "govuk-link",
+            data: {
+              module: 'gem-track-click',
+              track_category: 'pageElementInteraction',
+              track_action: 'countyLinkClicked',
+              track_label: @county["homepage_url"]
+            }
+          %>
         <% end %>
       </p>
+    </div>
 
-      <p class="govuk-body"><%= t('formats.local_transaction.district_council_services')%>:</p>
+    <div class="district-result group">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: @district["name"],
+        heading_level: 3,
+        font_size: 'm'
+      } %>
+
+      <p class="govuk-body govuk-!-margin-bottom-1">
+        <%= t('formats.local_transaction.district_council_services')%>:
+      </p>
+
       <ul class="govuk-list govuk-list--bullet">
         <li><%= t('formats.local_transaction.rubbish_recycling_collection')%></li>
         <li><%= t('formats.local_transaction.council_tax')%></li>
         <li><%= t('formats.local_transaction.housing')%></li>
       </ul>
+
+      <p class="govuk-body">
+        <% if @district["homepage_url"].blank? %>
+          <%= t('formats.local_transaction.no_website') %>
+        <% else %>
+          <%= link_to t("formats.local_transaction.local_authority_website",
+            local_authority_name: @district["name"]), @district["homepage_url"],
+            class: "govuk-link",
+            data: {
+              module: 'gem-track-click',
+              track_category: 'pageElementInteraction',
+              track_action: 'districtLinkClicked',
+              track_label: @district["homepage_url"]
+            }
+          %>
+        <% end %>
+      </p>
     </div>
   </div>
-
-  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-  <%= render "govuk_publishing_components/components/back_link", {
-    href: "/find-local-council"
-  } %>
 <% end %>

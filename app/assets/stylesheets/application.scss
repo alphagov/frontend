@@ -9,11 +9,11 @@ $govuk-include-default-font-face: false;
 
 // Components from govuk_publishing_components gem
 @import "govuk_publishing_components/govuk_frontend_support";
-@import "govuk_publishing_components/components/back-link";
 @import "govuk_publishing_components/components/big-number";
 @import "govuk_publishing_components/components/character-count";
 @import "govuk_publishing_components/components/contextual-sidebar";
 @import "govuk_publishing_components/components/details";
+@import "govuk_publishing_components/components/error-alert";
 @import "govuk_publishing_components/components/error-summary";
 @import "govuk_publishing_components/components/govspeak";
 @import "govuk_publishing_components/components/image-card";

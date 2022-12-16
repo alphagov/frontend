@@ -89,6 +89,8 @@ module Frontend
     # to use CSS that has same function names as SCSS such as max.
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
+
+    config.action_view.preload_links_header = false
   end
 
   # Rotate SHA1 cookies to SHA256 (the new Rails 7 default)

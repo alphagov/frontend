@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: b492ce138c882429de02a6aa259c8e25584eb6c9
+  revision: 2a6d6b371d03214673d1134280d84a48b54e8876
   branch: individual-loading-stylesheets
   specs:
     govuk_publishing_components (34.1.0)

@@ -6,8 +6,8 @@
       font_size: "m",
     } %>
   </div>
-  <ul class="homepage-most-active-list" data-module="gem-track-click">
-    <% t("homepage.index.more_links").each do | item | %>
+  <ul class="homepage-most-active-list" data-module="gem-track-click ga4-link-tracker">
+    <% t("homepage.index.more_links").each_with_index do | item, index | %>
       <li class="homepage-most-active-list__item">
         <%= link_to(
           item[:title],
@@ -20,6 +20,13 @@
             "track-value": "1",
             "track-dimension": item[:title],
             "track-dimension-index": "29",
+            "ga4_link": {
+              'event_name': 'navigation',
+              'type': 'home page',
+              "index": "6.#{index + 1}",
+              "index_total": ga4_links_count,
+              "section": t("homepage.index.more", locale: :en)
+            }
           }
         ) %>
       </li>

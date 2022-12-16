@@ -7,8 +7,8 @@
           margin_bottom: 4,
           text: t("homepage.index.popular_links_heading"),
         } %>
-        <ul class="homepage-most-viewed-list" data-module="gem-track-click">
-          <% t("homepage.index.popular_links").each do | item | %>
+        <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
+          <% t("homepage.index.popular_links").each_with_index do | item, index | %>
             <li>
               <%= link_to(item[:text], item[:href], {
                 class: "govuk-link homepage-most-viewed-list__item",
@@ -19,6 +19,13 @@
                   track_value: 1,
                   track_dimension_index: 29,
                   track_dimension: item[:text],
+                  ga4_link: {
+                    'event_name': 'navigation',
+                    'type': 'home page',
+                    'index': "1.#{index + 1}",
+                    'index_total': ga4_links_count,
+                    'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
+                  }
                 }
               }) %>
             </li>

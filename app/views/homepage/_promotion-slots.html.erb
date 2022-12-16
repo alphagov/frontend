@@ -2,6 +2,7 @@
   Before updating a promotion slot please read the documentation.
   See: https://docs.publishing.service.gov.uk/apps/frontend/update-homepage-promotion-slots.html
 %>
+
 <section class="homepage-section">
   <div class="homepage-section__heading">
     <%= render "govuk_publishing_components/components/heading", {
@@ -11,7 +12,7 @@
   </div>
 
   <div class="govuk-grid-row">
-    <% t("homepage.index.promotion_slots").each do | item | %>
+    <% t("homepage.index.promotion_slots").each_with_index do | item, index | %>
       <div class="govuk-grid-column-one-third">
         <%= render "govuk_publishing_components/components/image_card", {
           href: item[:href],
@@ -22,6 +23,13 @@
             track_value: "1",
             track_dimension_index: "29",
             track_dimension: item[:title],
+            ga4_link: {
+              event_name: 'navigation',
+              type: 'home page',
+              index: "5.#{index + 1}",
+              index_total: ga4_links_count,
+              section: t("homepage.index.featured", locale: :en)
+            }
           },
           image_src: image_path(item[:image_src]),
           image_alt: "",

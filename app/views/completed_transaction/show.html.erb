@@ -1,3 +1,9 @@
+<%
+  if defined? @individual_stylesheets
+    @individual_stylesheets.add_view("completed_transaction")
+  end
+%>
+
 <% content_for :extra_headers do %>
   <meta name="robots" content="noindex, nofollow" />
 <% end %>

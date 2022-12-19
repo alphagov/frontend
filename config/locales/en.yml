@@ -207,6 +207,7 @@ en:
     transaction:
       assistance_question: Did you receive any assistance to use this service today?
       before_you_start: Before you start
+      completed_transaction_text: Thanks for visiting GOV.UK.
       dissatisfied: Dissatisfied
       e_vehicle_info: Find out how much money you can save on fuel by switching to an electric vehicle.
       e_vehicle_info_title: Electric car promotion

@@ -53,6 +53,7 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       visit "/done/transaction-finished"
 
       assert_not page.has_css?("h2.satisfaction-survey-heading")
+      assert page.has_content?("Thanks for visiting GOV.UK.")
     end
 
     should "not show the satisfaction survey for driving-transaction-finished" do

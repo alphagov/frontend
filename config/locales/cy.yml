@@ -347,6 +347,7 @@ cy:
     transaction:
       assistance_question: A gawsoch chi unrhyw gymorth i ddefnyddio'r gwasanaeth hwn heddiw?
       before_you_start: Cyn i chi ddechrau
+      completed_transaction_text:
       dissatisfied: Anfodlon
       e_vehicle_info:
       e_vehicle_info_title:

@@ -7,6 +7,10 @@
   publication: publication,
   edition: @edition,
 } do %>
+  <% if !show_survey? %>
+    <p class="govuk-body"><%= t('formats.transaction.completed_transaction_text')%></p>
+  <% end %>
+
   <% if publication.promotion %>
     <div class="promotion">
       <% if publication.promotion['category'] == 'organ_donor' %>

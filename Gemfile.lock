@@ -105,7 +105,7 @@ GEM
     crass (1.0.6)
     csv (3.2.5)
     dalli (3.2.3)
-    date (3.3.2)
+    date (3.3.3)
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
     dig_rb (1.0.1)
@@ -145,7 +145,7 @@ GEM
     govuk_personalisation (0.12.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (34.1.1)
+    govuk_publishing_components (34.1.2)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -215,7 +215,7 @@ GEM
     mocha (2.0.2)
       ruby2_keywords (>= 0.0.5)
     multi_xml (0.6.0)
-    net-imap (0.3.2)
+    net-imap (0.3.3)
       date
       net-protocol
     net-pop (0.1.2)
@@ -274,7 +274,7 @@ GEM
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
     public_suffix (5.0.0)
-    puma (6.0.0)
+    puma (6.0.1)
       nio4r (~> 2.0)
     racc (1.6.1)
     rack (2.2.4)
@@ -335,7 +335,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    rouge (4.0.0)
+    rouge (4.0.1)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -411,9 +411,9 @@ GEM
       rack
       rest-client
     smart_properties (1.17.0)
-    sprockets (4.1.1)
+    sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
-      rack (> 1, < 3)
+      rack (>= 2.2.4, < 4)
     sprockets-rails (3.4.2)
       actionpack (>= 5.2)
       activesupport (>= 5.2)

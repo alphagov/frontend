@@ -415,9 +415,9 @@ en:
           title: Flu and COVID-19 vaccines
           href: https://www.nhs.uk/conditions/vaccinations/flu-influenza-vaccine/
           image_src: homepage/covid-19-vaccine-promo.png
-        - text: Check what financial help you can get.
-          title: Get benefits and support
-          href: https://www.gov.uk/check-benefits-financial-support
+        - text: Find out payment dates and how to report if it's missing.
+          title: Cost of Living Payment
+          href: https://www.gov.uk/guidance/cost-of-living-payment
           image_src: homepage/cost-of-living.jpg
       running_limited_company: Running a limited company
       search_button: Search GOV.UK

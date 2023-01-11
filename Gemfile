@@ -4,6 +4,7 @@ ruby File.read(".ruby-version")
 gem "rails", "7.0.4"
 
 gem "addressable"
+gem "bootsnap", require: false
 gem "dalli"
 gem "gds-api-adapters"
 gem "govuk_ab_testing"

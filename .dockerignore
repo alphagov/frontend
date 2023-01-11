@@ -1,10 +1,16 @@
+.dockerignore
 .git
 .gitignore
-CONTRIBUTING.md
+.github
+Dockerfile
 Jenkinsfile
+Procfile
 README.md
+coverage
 docs
 log
+node_modules
 spec
 test
 tmp
+vendor

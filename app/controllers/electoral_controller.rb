@@ -16,7 +16,7 @@ class ElectoralController < ContentItemsController
       render :results
     else
       @location_error = location_error
-      render "local_transaction/search"
+      render "local_transaction/index"
     end
   end
 

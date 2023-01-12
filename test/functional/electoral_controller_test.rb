@@ -11,7 +11,7 @@ class ElectoralControllerTest < ActionController::TestCase
     should "GET show renders show page with form" do
       get :show
       assert_response :success
-      assert_template "local_transaction/search"
+      assert_template "local_transaction/index"
       assert_template partial: "electoral/_form"
       assert_template partial: "application/_location_form", count: 0
       honours_content_store_ttl

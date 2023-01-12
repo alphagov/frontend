@@ -1,0 +1,44 @@
+name: Run Pact tests
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        required: false
+        type: string
+      pact_consumer_version:
+        required: false
+        type: string
+        default: branch-main
+
+jobs:
+  pact_verify:
+    name: Verify pact tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup MongoDB
+        uses: alphagov/govuk-infrastructure/.github/actions/setup-mongodb@main
+        with:
+          version: 2.6
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          repository: alphagov/content-store
+          ref: ${{ inputs.ref }}
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Initialize database
+        env:
+          RAILS_ENV: test
+        run: bundle exec rails db:setup
+
+      - name: Run Pact tests
+        env:
+          RAILS_ENV: test
+          PACT_CONSUMER_VERSION: ${{ inputs.pact_consumer_version }}
+        run: bundle exec rake pact:verify

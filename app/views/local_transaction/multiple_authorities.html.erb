@@ -4,7 +4,7 @@
   edition: @edition,
 } do %>
   <p class="govuk-body">
-    <strong><%= @postcode %></strong> <%= link_to t("formats.local_transaction.change"), "/find-local-council", class: "govuk-link" %>
+    <strong><%= @postcode %></strong> <%= link_to t("formats.local_transaction.change"), @change_path, class: "govuk-link" %>
   </p>
 
   <%= form_tag(@onward_path, method: :get) do -%>

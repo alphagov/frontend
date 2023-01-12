@@ -23,6 +23,7 @@ class LocalTransactionController < ContentItemsController
 
     @addresses = address_list
     @options = options
+    @change_path = local_transaction_search_path(slug: params[:slug])
     @onward_path = local_transaction_multiple_authorities_path(slug: params[:slug])
     render :multiple_authorities
   end

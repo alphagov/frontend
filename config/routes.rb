@@ -71,8 +71,9 @@ Rails.application.routes.draw do
 
   # Local Transaction pages
   constraints FormatRoutingConstraint.new("local_transaction") do
-    get ":slug", to: "local_transaction#search", as: "local_transaction_search"
-    post ":slug", to: "local_transaction#search"
+    get ":slug", to: "local_transaction#index", as: "local_transaction_search"
+    post ":slug", to: "local_transaction#find"
+    get ":slug/multiple_authorities" => "local_transaction#multiple_authorities", as: "local_transaction_multiple_authorities"
     get ":slug/:local_authority_slug", to: "local_transaction#results", as: "local_transaction_results"
   end
 

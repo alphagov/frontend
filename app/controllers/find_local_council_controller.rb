@@ -2,6 +2,7 @@ require "postcode_sanitizer"
 
 class FindLocalCouncilController < ContentItemsController
   include Cacheable
+  include SplitPostcodeSupport
 
   skip_before_action :set_locale
 
@@ -66,42 +67,8 @@ private
     locations_api_response.local_custodian_codes == 1
   end
 
-  def address_list
-    @address_list ||= build_addresses(postcode)
-  end
-
-  def options
-    items = []
-    address_list.each do |address_result|
-      address = {}
-      address[:text] = address_result["address"]
-      address[:value] = address_result["authority_slug"]
-      items.push(address)
-    end
-    items
-  end
-
-  def build_addresses(postcode)
-    base_addresses = fetch_addresses(postcode)
-    base_addresses.each do |ba|
-      ba["authority_slug"] = authority_slug_from_lcc(ba["local_custodian_code"])
-    end
-  end
-
   def postcode
     @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def authority_slug_from_lcc(local_custodian_code)
-    authority_results = Frontend.local_links_manager_api.local_authority_by_custodian_code(local_custodian_code)
-    authority_results["local_authorities"][0]["slug"]
-  end
-
-  def fetch_addresses(postcode)
-    # We only do this after fetching location, so relatively safe to miss out
-    # some of the safeguards. But we can optimize this a bit
-    response = Frontend.locations_api.results_for_postcode(postcode)
-    response["results"]
   end
 
   def fetch_location(postcode)

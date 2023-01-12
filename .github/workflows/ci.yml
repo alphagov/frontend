@@ -41,3 +41,8 @@ jobs:
     name: Test Ruby
     uses: ./.github/workflows/minitest.yml
 
+  pact-tests:
+    name: Run Pact tests
+    uses: ./.github/workflows/pact-verify.yml
+    with:
+      ref: ${{ github.ref }}

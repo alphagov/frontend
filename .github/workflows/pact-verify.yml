@@ -16,26 +16,16 @@ jobs:
     name: Verify pact tests
     runs-on: ubuntu-latest
     steps:
-      - name: Setup MongoDB
-        uses: alphagov/govuk-infrastructure/.github/actions/setup-mongodb@main
-        with:
-          version: 2.6
-
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          repository: alphagov/content-store
+          repository: alphagov/frontend
           ref: ${{ inputs.ref }}
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
-      - name: Initialize database
-        env:
-          RAILS_ENV: test
-        run: bundle exec rails db:setup
 
       - name: Run Pact tests
         env:

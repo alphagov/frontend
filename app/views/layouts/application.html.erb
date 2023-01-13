@@ -37,14 +37,7 @@
           <%= yield %>
         </main>
       <% else %>
-      <% if publication && publication.recruitment_survey_url %>
-          <%= render "govuk_publishing_components/components/intervention", {
-            suggestion_text: "Help improve GOV.UK",
-            suggestion_link_text: "Take part in user research",
-            suggestion_link_url: publication.recruitment_survey_url,
-            new_tab: true,
-          } %>
-      <% elsif publication && publication.in_beta %>
+        <% if publication && publication.in_beta %>
           <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
         <% end %>
         <% unless current_page?(root_path) || !(publication || @calendar) %>

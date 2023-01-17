@@ -484,7 +484,6 @@ DEPENDENCIES
   i18n-coverage
   invalid_utf8_rejector
   listen
-  mail (~> 2.8.0)
   mocha
   pact
   pact_broker-client

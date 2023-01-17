@@ -187,7 +187,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
     invalid_utf8_rejector (0.0.4)
-    json (2.6.2)
+    json (2.6.3)
     json-schema (3.0.0)
       addressable (>= 2.8)
     kgio (2.11.4)
@@ -283,7 +283,7 @@ GEM
     puma (6.0.2)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.5)
+    rack (2.2.6)
     rack-proxy (0.7.4)
       rack
     rack-test (2.0.2)
@@ -409,7 +409,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    slimmer (18.0.0)
+    slimmer (18.1.0)
       json
       nokogiri (~> 1.7)
       null_logger

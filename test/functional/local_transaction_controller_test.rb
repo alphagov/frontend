@@ -12,14 +12,14 @@ class LocalTransactionControllerTest < ActionController::TestCase
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
     prevent_implicit_rendering
-    get :search, params: { slug: "a-slug" }
+    get :index, params: { slug: "a-slug" }
     assert_equal "DENY", @response.headers["X-Frame-Options"]
   end
 
   test "should set expiry headers for an edition" do
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
 
-    get :search, params: { slug: "a-slug" }
+    get :index, params: { slug: "a-slug" }
     honours_content_store_ttl
   end
 
@@ -88,14 +88,14 @@ class LocalTransactionControllerTest < ActionController::TestCase
 
     context "loading the local transaction edition without any location" do
       should "return the normal content for a page" do
-        get :search, params: { slug: "send-a-bear-to-your-local-council" }
+        get :index, params: { slug: "send-a-bear-to-your-local-council" }
 
         assert_response :success
         assert_equal assigns(:publication).title, "Send a bear to your local council"
       end
 
       should "set correct expiry headers" do
-        get :search, params: { slug: "send-a-bear-to-your-local-council" }
+        get :index, params: { slug: "send-a-bear-to-your-local-council" }
 
         honours_content_store_ttl
       end
@@ -106,7 +106,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         setup do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
 
-          post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
+          post :find, params: { slug: "send-a-bear-to-your-local-council", postcode: "ST10-4DB] " }
         end
 
         should "redirect to the local authority slug" do
@@ -118,7 +118,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         setup do
           configure_locations_api_and_local_authority("BT1 4QG", %w[belfast], 8132)
 
-          post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
+          post :find, params: { slug: "send-a-bear-to-your-local-council", postcode: "BT1-4QG] " }
         end
 
         should "redirect to the local authority slug" do
@@ -130,7 +130,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         setup do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
 
-          post :search, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
+          post :find, params: { slug: "get-on-electoral-register", postcode: "ST10-4DB] " }
         end
 
         should "redirect to the local authority slug" do
@@ -143,7 +143,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
           stub_locations_api_has_location("BT1 3QG", [{ "local_custodian_code" => 8132 }])
           stub_local_links_manager_has_a_local_authority("belfast", country_name: "Northern Ireland", local_custodian_code: 8132)
 
-          post :search, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
+          post :find, params: { slug: "get-on-electoral-register", postcode: "BT1-3QG] " }
         end
 
         should "redirect to the local authority slug" do
@@ -156,7 +156,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
       setup do
         stub_locations_api_does_not_have_a_bad_postcode("BLAH")
 
-        post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
+        post :find, params: { slug: "send-a-bear-to-your-local-council", postcode: "BLAH" }
       end
 
       should "responds successfully with an error message" do
@@ -169,7 +169,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
       setup do
         stub_locations_api_has_no_location("WC1E 9ZZ")
 
-        post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
+        post :find, params: { slug: "send-a-bear-to-your-local-council", postcode: "WC1E 9ZZ" }
       end
 
       should "responds successfully with an error message" do
@@ -183,7 +183,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
         stub_locations_api_has_location("AB1 2CD", [{ "local_custodian_code" => 123 }])
         stub_local_links_manager_does_not_have_a_custodian_code(123)
 
-        post :search, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
+        post :find, params: { slug: "send-a-bear-to-your-local-council", postcode: "AB1 2CD" }
       end
 
       should "responds successfully with an error message" do
@@ -316,7 +316,7 @@ class LocalTransactionControllerTest < ActionController::TestCase
     end
 
     should "redirect to the correct authority and pass cache and token as params" do
-      post :search, params: { slug: "pay-bear-tax", postcode: "SW1A 1AA", token: "123", cache: "abc" }
+      post :find, params: { slug: "pay-bear-tax", postcode: "SW1A 1AA", token: "123", cache: "abc" }
 
       assert_redirected_to "/pay-bear-tax/westminster?cache=abc&token=123"
     end

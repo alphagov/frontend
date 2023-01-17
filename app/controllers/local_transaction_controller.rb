@@ -1,6 +1,7 @@
 class LocalTransactionController < ContentItemsController
   include ActionView::Helpers::TextHelper
   include Cacheable
+  include SplitPostcodeSupport
 
   before_action :deny_framing
 
@@ -9,26 +10,29 @@ class LocalTransactionController < ContentItemsController
   NO_MATCHING_AUTHORITY = "noLaMatch".freeze
   BANNED_POSTCODES = %w[ENTERPOSTCODE].freeze
 
-  def search
-    if request.post?
-      @location_error = location_error
+  def index; end
 
-      if @location_error
-        @postcode = postcode
-      elsif locations_api_response.location_found?
-        slug = if lgsl == 364 && country_name == "Northern Ireland"
-                 "electoral-office-for-northern-ireland"
-               else
-                 local_authority_slug
-               end
-
-        redirect_to local_transaction_results_path(local_authority_slug: slug)
-      end
+  def find
+    @location_error = location_error
+    if @location_error
+      @postcode = params[:postcode]
+      return render :index
     end
+
+    return redirect_to local_transaction_results_path(local_authority_slug: translated_slug) if locations_api_response.single_authority?
+
+    @addresses = address_list
+    @options = options
+    @change_path = local_transaction_search_path(slug: params[:slug])
+    @onward_path = local_transaction_multiple_authorities_path(slug: params[:slug])
+    render :multiple_authorities
+  end
+
+  def multiple_authorities
+    redirect_to local_transaction_results_path(slug: params[:slug], local_authority_slug: params[:authority_slug])
   end
 
   def results
-    @postcode = postcode
     @interaction_details = interaction_details
     @local_authority = LocalAuthorityPresenter.new(@interaction_details["local_authority"])
     @country_name = @local_authority.country_name
@@ -43,6 +47,12 @@ class LocalTransactionController < ContentItemsController
   end
 
 private
+
+  def translated_slug
+    return "electoral-office-for-northern-ireland" if lgsl == 364 && country_name == "Northern Ireland"
+
+    local_authority_slug
+  end
 
   def publication_class
     LocalTransactionPresenter

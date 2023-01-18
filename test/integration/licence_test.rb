@@ -426,6 +426,88 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert page.has_field? "postcode", with: "XM4 5HQ"
       end
     end
+
+    context "when visiting the licence transaction with a postcode where multiple authorities are found" do
+      context "when there are 5 or fewer addresses to choose from" do
+        setup do
+          stub_locations_api_has_location(
+            "CH25 9BJ",
+            [
+              { "address" => "House 1", "local_custodian_code" => "1" },
+              { "address" => "House 2", "local_custodian_code" => "2" },
+              { "address" => "House 3", "local_custodian_code" => "3" },
+            ],
+          )
+          stub_local_links_manager_has_a_local_authority("Achester", local_custodian_code: 1)
+          stub_local_links_manager_has_a_local_authority("Beechester", local_custodian_code: 2)
+          stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
+
+          visit "/licence-to-kill"
+          fill_in "postcode", with: "CH25 9BJ"
+          click_on "Find"
+        end
+
+        should "prompt you to choose your address" do
+          assert page.has_content?("Select an address")
+        end
+
+        should "display radio buttons" do
+          assert page.has_css?(".govuk-radios")
+        end
+
+        should "contain a list of addresses mapped to authority slugs" do
+          assert page.has_content?("House 1")
+          assert page.has_content?("House 2")
+          assert page.has_content?("House 3")
+        end
+      end
+
+      context "when there are 6 or more addresses to choose from" do
+        setup do
+          stub_locations_api_has_location(
+            "CH25 9BJ",
+            [
+              { "address" => "House 1", "local_custodian_code" => "1" },
+              { "address" => "House 2", "local_custodian_code" => "2" },
+              { "address" => "House 3", "local_custodian_code" => "3" },
+              { "address" => "House 4", "local_custodian_code" => "4" },
+              { "address" => "House 5", "local_custodian_code" => "5" },
+              { "address" => "House 6", "local_custodian_code" => "6" },
+              { "address" => "House 7", "local_custodian_code" => "7" },
+            ],
+          )
+          stub_local_links_manager_has_a_local_authority("Achester", local_custodian_code: 1)
+          stub_local_links_manager_has_a_local_authority("Beechester", local_custodian_code: 2)
+          stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
+          stub_local_links_manager_has_a_local_authority("Deechester", local_custodian_code: 4)
+          stub_local_links_manager_has_a_local_authority("Eeechester", local_custodian_code: 5)
+          stub_local_links_manager_has_a_local_authority("Feechester", local_custodian_code: 6)
+          stub_local_links_manager_has_a_local_authority("Geechester", local_custodian_code: 7)
+
+          visit "/licence-to-kill"
+          fill_in "postcode", with: "CH25 9BJ"
+          click_on "Find"
+        end
+
+        should "prompt you to choose your address" do
+          assert page.has_content?("Select an address")
+        end
+
+        should "display a dropdown select" do
+          assert page.has_css?(".govuk-select")
+        end
+
+        should "contain a list of addresses mapped to authority slugs" do
+          assert page.has_content?("House 1")
+          assert page.has_content?("House 2")
+          assert page.has_content?("House 3")
+          assert page.has_content?("House 4")
+          assert page.has_content?("House 5")
+          assert page.has_content?("House 6")
+          assert page.has_content?("House 7")
+        end
+      end
+    end
   end
 
   context "given a non-location specific licence" do

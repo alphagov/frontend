@@ -290,6 +290,8 @@ cy:
   formats:
     find_my_nearest:
       valid_postcode_no_locations: Doedden ni ddim yn gallu dod o hyd i unrhyw ganlyniadau ar gyfer y cod post hwn.
+    licence:
+      change: Newid
     local_transaction:
       change: Newid
       choose_address: Dewiswch eich cyfeiriad

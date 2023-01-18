@@ -87,7 +87,8 @@ Rails.application.routes.draw do
   # Licence pages
   constraints FormatRoutingConstraint.new("licence") do
     get ":slug", to: "licence#start", as: "licence"
-    post ":slug", to: "licence#start" # Support for postcode submission which we treat as confidential data
+    post ":slug", to: "licence#find" # Support for postcode submission which we treat as confidential data
+    get ":slug/multiple_authorities" => "licence#multiple_authorities", as: "licence_multiple_authorities"
     get ":slug/:authority_slug(/:interaction)", to: "licence#authority", as: "licence_authority"
   end
 

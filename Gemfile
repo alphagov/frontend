@@ -13,7 +13,6 @@ gem "govuk_personalisation"
 gem "govuk_publishing_components"
 gem "htmlentities"
 gem "invalid_utf8_rejector"
-gem "mail", "~> 2.8.0"  # TODO: remove once https://github.com/mikel/mail/issues/1489 is fixed.
 gem "plek"
 gem "rails-i18n"
 gem "rails_translation_manager"

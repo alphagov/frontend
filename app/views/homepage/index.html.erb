@@ -1,3 +1,19 @@
+<%# 
+  The ga4_links_count variable is used to calculate the number of links within the homepage (ex. header and footer links) and this is passed to components rendered
+  on the homepage (e.g. services_and_information and government_activity) where it is used for analytics purposes.
+  
+  NB - Ministerial departments and other agencies "big number" links are hardcoded and therefore 2 is added to account for these links
+  (please see the _government_activity.html.erb template for further details)
+%>
+
+<% ga4_links_count = 
+  t("homepage.index.popular_links").length + 
+  t("homepage.categories").length + 
+  t("homepage.government_activity").length + 
+  t("homepage.index.more_links").length + 
+  t("homepage.index.promotion_slots").length + 2 # added to account for the two hardcoded big number links
+%>
+
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <meta name="description" content="<%= t("homepage.index.meta_description") %>">
@@ -7,12 +23,22 @@
 
 <main id="content" role="main">
   <%= render "homepage/inverse_header" %>
-  <%= render "homepage/links_and_search" %>
+  <%= render "homepage/links_and_search", {
+    ga4_links_count: ga4_links_count
+  } %>
 
   <div class="govuk-width-container">
-    <%= render "homepage/services_and_information" %>
-    <%= render "homepage/government_activity" %>
-    <%= render "homepage/promotion-slots" %>
-    <%= render "homepage/more_on_govuk" %>
+    <%= render "homepage/services_and_information", {
+      ga4_links_count: ga4_links_count
+    } %>
+    <%= render "homepage/government_activity", {
+      ga4_links_count: ga4_links_count
+    } %>
+    <%= render "homepage/promotion-slots", {
+      ga4_links_count: ga4_links_count
+    } %>
+    <%= render "homepage/more_on_govuk", {
+      ga4_links_count: ga4_links_count
+    } %>
   </div>
 </main>

@@ -407,10 +407,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the Chancellor of the Exchequer's Autumn Statement.
-          title: Autumn Statement 2022
-          href: https://www.gov.uk/government/topical-events/autumn-statement-2022
-          image_src: homepage/autumn_statement_22.jpg
+        - text: Find out about Self Assessment tax returns and when they are due.
+          title: Self Assessment
+          href: https://www.gov.uk/self-assessment-tax-returns
+          image_src: homepage/self-assessment.png
         - text: Check if you can get a free flu vaccine and COVID-19 booster.
           title: Flu and COVID-19 vaccines
           href: https://www.nhs.uk/conditions/vaccinations/flu-influenza-vaccine/

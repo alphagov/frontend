@@ -58,11 +58,6 @@ Rails.application.routes.draw do
   get "/find-licences/:slug/multiple_authorities" => "licence_transaction#multiple_authorities", as: "licence_transaction_multiple_authorities"
   get "/find-licences/:slug/:authority_slug(/:interaction)", to: "licence_transaction#authority", as: "licence_transaction_authority"
 
-  # Done pages
-  constraints FormatRoutingConstraint.new("completed_transaction") do
-    get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"
-  end
-
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do
     get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow

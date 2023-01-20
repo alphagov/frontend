@@ -351,53 +351,12 @@ cy:
       your_answers: Eich atebion
     start_now: Dechrau nawr
     transaction:
-      assistance_question: A gawsoch chi unrhyw gymorth i ddefnyddio'r gwasanaeth hwn heddiw?
       before_you_start: Cyn i chi ddechrau
-      completed_transaction_text:
-      dissatisfied: Anfodlon
-      electric_vehicle:
-        title:
-        description:
-        link_text: Gwnewch eich car nesaf yn un trydan
-      friend_or_relative: Ffrind neu berthynas
-      government_staff: Aelod o staff o'r adran gyfrifol o'r llywodraeth
-      help_improve: Helpwch ni i wella'r gwasanaeth hwn
-      how_improve: Sut allen ni wella'r gwasanaeth hwn?
-      improvement_question: Oes unrhyw ffordd y gallai'r cymorth a gawsoch fod yn well?
       more_information: Rhagor o wybodaeth
-      mot_reminder:
-        title:
-        description: Mynnwch neges destun neu e-bost i'ch atgoffa pan fydd angen adnewyddu'ch MOT.
-        link_text:
-      neither: Ddim yn fodlon nac yn anfodlon
-      no_pii_hint: Peidiwch â chynnwys unrhyw wybodaeth bersonol nac ariannol, er enghraifft eich rhif Yswiriant Gwladol neu rif cerdyn credyd
       'on': ar
-      online_satisfaction_check: Ar y cyfan, pa mor fodlon ydych chi gyda'r gwasanaeth ar-lein?
-      organ_donor:
-        title:
-        description: Dywedwch wrth eich teulu am eich penderfyniad am roi organau.
-        link_text:
-      other: Arall (nodwch)
-      other_person: Dywedwch wrthon ni pwy oedd y person arall
       other_ways_to_apply: Ffyrdd eraill o wneud cais
-      pii_warning: Pan fyddwch chi'n llenwi'r arolwg hwn, peidiwch â chynnwys unrhyw wybodaeth bersonol nac ariannol, er enghraifft eich rhif Yswiriant Gwladol neu rif cerdyn credyd.
-      photo_id:
-        title:
-        description:
-        link_text:
-      satisfaction_check: Pa mor fodlon ydych chi gyda'r cymorth a gawsoch?
-      satisfaction_survey: Arolwg o fodlonrwydd
-      satisfied: Bodlon
-      send_feedback: Anfon adborth
-      service_improvement_question: Oes unrhyw syniadau gyda chi am sut gellid gwella'r gwasanaeth hwn?
-      service_satisfaction_check: Ar y cyfan, sut oeddech chi'n teimlo am y gwasanaeth a gawsoch heddiw?
       sign_in: Mewngofnodi
-      very_dissatisfied: Anfodlon iawn
-      very_satisfied: Bodlon iawn
-      what_assistance: Pa gymorth gawsoch chi?
       what_you_need_to_know: Beth mae angen i chi wybod
-      who_assisted: Pwy roddodd y cymorth?
-      work_colleague: Cydweithiwr
   help:
     index:
       about: Ynghylch GOV.UK

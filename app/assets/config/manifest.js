@@ -9,7 +9,6 @@
 //= link components/_subscribe.css
 
 //= link views/_calendars.css
-//= link views/_completed_transaction.css
 //= link views/_cookie-settings.css
 //= link views/_homepage.css
 //= link views/_travel-advice.css

@@ -4,7 +4,6 @@
 # https://content-data.publishing.service.gov.uk/
 ---
 calendar: /bank-holidays
-completed_transaction: /done/vehicle-tax
 licence: /tv-licence
 local_transaction: /contact-electoral-registration-office
 help_page: /help/browsers

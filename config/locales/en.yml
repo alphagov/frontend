@@ -150,6 +150,8 @@ en:
   formats:
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
+    licence:
+      change: Change
     local_transaction:
       change: Change
       choose_address: Choose your address

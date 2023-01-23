@@ -23,7 +23,7 @@ class LicenceControllerTest < ActionController::TestCase
     end
   end
 
-  context "POST to start" do
+  context "POST to find" do
     setup do
       @payload = {
         base_path: "/licence-to-kill",
@@ -57,7 +57,7 @@ class LicenceControllerTest < ActionController::TestCase
         setup do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
 
-          post :start, params: { slug: "licence-to-kill", postcode: "ST10 4DB" }
+          post :find, params: { slug: "licence-to-kill", postcode: "ST10 4DB" }
         end
 
         should "redirect to the slug for the lowest level authority" do
@@ -69,7 +69,7 @@ class LicenceControllerTest < ActionController::TestCase
         setup do
           configure_locations_api_and_local_authority("BT1 5GS", %w[belfast], 8132)
 
-          post :start, params: { slug: "licence-to-kill", postcode: "BT1 5GS" }
+          post :find, params: { slug: "licence-to-kill", postcode: "BT1 5GS" }
         end
 
         should "redirect to the slug for the lowest level authority" do

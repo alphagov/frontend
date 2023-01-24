@@ -1,0 +1,39 @@
+<%= render layout: "shared/base_page", locals: {
+  main_class: ("multi-page" if licence_details.authority),
+  context: "Licence",
+  title: publication.title,
+  publication: publication,
+  edition: @edition,
+} do %>
+  <p class="govuk-body">
+    <strong><%= @postcode %></strong> <%= link_to t("formats.licence.change"), @change_path, class: "govuk-link" %>
+  </p>
+
+  <%= form_tag(@onward_path, method: :get) do -%>
+    <% if @addresses.count > 6 %>
+      <%= render "govuk_publishing_components/components/select", {
+        id: "authority_slug",
+        label: t("formats.local_transaction.select_address"),
+        options: @options
+      } %>
+    <% else %>
+      <%= render "govuk_publishing_components/components/radio", {
+        id: "authority_slug",
+        name: "authority_slug",
+        heading: t("formats.local_transaction.select_address"),
+        heading_size: "s",
+        items: @options
+      } %>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/button", {
+      text: t("continue"),
+      data_attributes: {
+        module: "gem-track-click",
+        track_category: "",
+        track_action: "",
+        track_label: ""
+      }
+    } %>
+  <% end %>
+<% end %>

@@ -1,6 +1,7 @@
 class LicenceTransactionController < ContentItemsController
   include Previewable
   include Cacheable
+  include SplitPostcodeSupport
 
   helper_method :postcode, :licence_details
 
@@ -12,16 +13,31 @@ class LicenceTransactionController < ContentItemsController
   def start
     if publication.licence_transaction_continuation_link.present?
       render :continues_on
-    elsif licence_details.local_authority_specific? && postcode_search_submitted?
-      @postcode = postcode
-      @location_error = location_error
-
-      redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: local_authority_slug) if local_authority_slug
     elsif licence_details.single_licence_authority_present?
       redirect_to licence_transaction_authority_path(slug:, authority_slug: licence_details.authority["slug"])
     elsif licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
       redirect_to licence_transaction_authority_path(slug:, authority_slug: CGI.escape(params[:authority][:slug]))
     end
+  end
+
+  def find
+    @location_error = location_error
+    if @location_error
+      @postcode = params[:postcode]
+      return render :start
+    end
+
+    return redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: local_authority_slug) if locations_api_response.single_authority?
+
+    @addresses = address_list
+    @options = options
+    @change_path = licence_path(slug: params[:slug])
+    @onward_path = licence_multiple_authorities_path(slug: params[:slug])
+    render :multiple_authorities
+  end
+
+  def multiple_authorities
+    redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: params[:authority_slug])
   end
 
   def authority
@@ -73,10 +89,6 @@ private
   def snac_from_slug
     local_authority_results = Frontend.local_links_manager_api.local_authority(params[:authority_slug])
     @snac_from_slug = local_authority_results.dig("local_authorities", 0, "snac")
-  end
-
-  def postcode_search_submitted?
-    params[:postcode] && request.post?
   end
 
   def authority_choice_submitted?

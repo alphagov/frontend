@@ -54,7 +54,8 @@ Rails.application.routes.draw do
 
   # Specialist Publisher licences
   get "/find-licences/:slug", to: "licence_transaction#start", as: "licence_transaction"
-  post "/find-licences/:slug", to: "licence_transaction#start"
+  post "/find-licences/:slug", to: "licence_transaction#find" # Support for postcode submission which we treat as confidential data
+  get "/find-licences/:slug/multiple_authorities" => "licence_transaction#multiple_authorities", as: "licence_transaction_multiple_authorities"
   get "/find-licences/:slug/:authority_slug(/:interaction)", to: "licence_transaction#authority", as: "licence_transaction_authority"
 
   # Done pages

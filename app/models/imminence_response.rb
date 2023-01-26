@@ -2,20 +2,25 @@ class ImminenceResponse
   INVALID_POSTCODE = "invalidPostcodeError".freeze
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
-  attr_reader :places, :error, :postcode
+  attr_reader :places, :addresses, :error, :postcode
 
-  def initialize(postcode, places, error)
+  def initialize(postcode, places, addresses, error)
     @postcode = postcode
-    @places = places
     @error = error
+    @places = places
+    @addresses = addresses
+  end
+
+  def addresses_returned?
+    addresses.any?
   end
 
   def places_found?
-    places.present?
+    places.any?
   end
 
   def places_not_found?
-    postcode && (places.blank? || no_location?)
+    postcode && (places.empty? || no_location?)
   end
 
   def invalid_postcode?

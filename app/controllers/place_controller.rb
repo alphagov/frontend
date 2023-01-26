@@ -10,7 +10,22 @@ class PlaceController < ContentItemsController
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
 
   def show
-    @location_error = location_error if request.post?
+    render :show, locals:
+  end
+
+  def find
+    @location_error = location_error
+
+    if imminence_response.addresses_returned?
+      @options = imminence_response.addresses.each.map do |address|
+        { text: address["address"], value: address["local_authority_slug"] }
+      end
+      @change_path = place_path(slug: params[:slug])
+      @onward_path = place_find_path(slug: params[:slug], anchor: "results")
+      @postcode = postcode
+      return render :multiple_authorities
+    end
+
     render :show, locals:
   end
 
@@ -49,6 +64,10 @@ private
     PostcodeSanitizer.sanitize(params[:postcode])
   end
 
+  def local_authority_slug
+    params[:local_authority_slug]
+  end
+
   def location_error
     return LocationError.new(INVALID_POSTCODE) if imminence_response.invalid_postcode? || imminence_response.blank_postcode?
     return LocationError.new(NO_LOCATION) if imminence_response.places_not_found?
@@ -61,11 +80,38 @@ private
   def places_from_imminence
     if postcode.present?
       begin
-        places = Frontend.imminence_api.places_for_postcode(content_item_hash["details"]["place_type"], postcode, Frontend::IMMINENCE_QUERY_LIMIT)
+        imminence_response = Frontend.imminence_api.places_for_postcode(
+          content_item_hash["details"]["place_type"],
+          postcode,
+          Frontend::IMMINENCE_QUERY_LIMIT,
+          local_authority_slug,
+        )
       rescue GdsApi::HTTPErrorResponse => e
         error = e
       end
     end
-    ImminenceResponse.new(postcode, places, error)
+    imminence_response_from_data(postcode, imminence_response, error)
+  end
+
+  def imminence_response_from_data(postcode, imminence_response, error)
+    return ImminenceResponse.new(postcode, [], [], error) if error
+
+    imminence_data = imminence_response.to_hash
+    places = []
+    addresses = []
+
+    # Temporary: allow both old and new imminence responses so that
+    # we can switch over seamlessly by deploying Frontend first
+
+    if !imminence_data.respond_to?(:key)
+      # Handle old-style returned array
+      # Remove this branch and temporary comment above when Imminence is switched over
+      places = imminence_data
+    elsif imminence_data["status"] == "ok"
+      places = imminence_data["places"]
+    else
+      addresses = imminence_data["addresses"]
+    end
+    ImminenceResponse.new(postcode, places, addresses, error)
   end
 end

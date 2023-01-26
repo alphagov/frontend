@@ -108,7 +108,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode" do
     setup do
-      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -192,7 +192,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         },
       ]
 
-      stub_imminence_has_places_for_postcode(@places_for_report_child_abuse, "find-child-social-care-team", "N5 1QL", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_imminence_has_places_for_postcode(@places_for_report_child_abuse, "find-child-social-care-team", "N5 1QL", Frontend::IMMINENCE_QUERY_LIMIT, nil)
 
       visit "/report-child-abuse-to-local-council"
       fill_in "Enter a postcode", with: "N5 1QL"
@@ -228,7 +228,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       @places = []
 
-      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -303,6 +303,26 @@ class PlacesTest < ActionDispatch::IntegrationTest
     should "reroute to the base slug if requested with part route" do
       visit "/passport-interview-office/old-part-route"
       assert_current_url "/passport-interview-office"
+    end
+  end
+
+  context "given a postcode which covers multiple authorities (and a local_authority place)" do
+    setup do
+      addresses = [
+        { "address" => "House 1", "local_authority_slug" => "achester" },
+        { "address" => "House 2", "local_authority_slug" => "beechester" },
+        { "address" => "House 3", "local_authority_slug" => "ceechester" },
+      ]
+
+      stub_imminence_has_multiple_authorities_for_postcode(addresses, "find-passport-offices", "CH25 9BJ", Frontend::IMMINENCE_QUERY_LIMIT)
+
+      visit "/passport-interview-office"
+      fill_in "Enter a postcode", with: "CH25 9BJ"
+      click_on "Find"
+    end
+
+    should "display the address chooser" do
+      assert page.has_content?("House 1")
     end
   end
 end

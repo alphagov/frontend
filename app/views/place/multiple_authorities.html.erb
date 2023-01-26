@@ -1,0 +1,44 @@
+<%= render layout: "shared/base_page", locals: {
+  title: publication.title,
+  publication: publication,
+  edition: @edition,
+} do %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: t("formats.place.postcode"),
+    heading_level: 2,
+    margin_bottom: 2
+  } %>
+
+  <p class="govuk-body">
+    <strong><%= @postcode %></strong> <%= link_to t("formats.place.change"), @change_path, class: "govuk-link" %>
+  </p>
+
+  <%= form_tag(@onward_path, method: :post) do -%>
+    <%= hidden_field_tag :postcode, @postcode %>
+    <% if @options.count > 6 %>
+      <%= render "govuk_publishing_components/components/select", {
+        id: "local_authority_slug",
+        label: t("formats.place.select_address"),
+        options: @options
+      } %>
+    <% else %>
+      <%= render "govuk_publishing_components/components/radio", {
+        id: "local_authority_slug",
+        name: "local_authority_slug",
+        heading: t("formats.place.select_address"),
+        heading_size: "s",
+        items: @options
+      } %>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/button", {
+      text: t("continue"),
+      data_attributes: {
+        module: "gem-track-click",
+        track_category: "",
+        track_action: "",
+        track_label: ""
+      }
+    } %>
+  <% end %>
+<% end %>

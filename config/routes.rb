@@ -52,6 +52,12 @@ Rails.application.routes.draw do
   # comment out this line to return to using a local transaction
   get "/contact-electoral-registration-office" => "electoral#show", as: :electoral_services
 
+  # Specialist Publisher licences
+  get "/find-licences/:slug", to: "licence_transaction#start", as: "licence_transaction"
+  post "/find-licences/:slug", to: "licence_transaction#find" # Support for postcode submission which we treat as confidential data
+  get "/find-licences/:slug/multiple_authorities" => "licence_transaction#multiple_authorities", as: "licence_transaction_multiple_authorities"
+  get "/find-licences/:slug/:authority_slug(/:interaction)", to: "licence_transaction#authority", as: "licence_transaction_authority"
+
   # Done pages
   constraints FormatRoutingConstraint.new("completed_transaction") do
     get "*slug", slug: %r{done/.+}, to: "completed_transaction#show"

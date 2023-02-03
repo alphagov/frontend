@@ -1,0 +1,14 @@
+<%= render layout: 'shared/base_page', locals: {
+  main_class: ("multi-page" if licence_details.authority),
+  context: "Licence",
+  title: publication.title,
+  publication: publication,
+  edition: @edition,
+} do %>
+
+  <% if licence_details.present? && licence_details.has_any_actions? %>
+    <%= render partial: 'authority_details' %>
+  <% else %>
+    <%= render partial: 'licensify_unavailable' %>
+  <% end %>
+<% end %>

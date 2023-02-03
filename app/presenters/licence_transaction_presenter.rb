@@ -14,4 +14,8 @@ class LicenceTransactionPresenter < ContentItemPresenter
   def body
     details["body"]
   end
+
+  def slug
+    URI.parse(base_path).path.split("/").last
+  end
 end

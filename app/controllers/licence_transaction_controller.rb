@@ -14,9 +14,9 @@ class LicenceTransactionController < ContentItemsController
     if publication.licence_transaction_continuation_link.present?
       render :continues_on
     elsif licence_details.single_licence_authority_present?
-      redirect_to licence_transaction_authority_path(slug:, authority_slug: licence_details.authority["slug"])
+      redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: licence_details.authority["slug"])
     elsif licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
-      redirect_to licence_transaction_authority_path(slug:, authority_slug: CGI.escape(params[:authority][:slug]))
+      redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
     end
   end
 
@@ -41,9 +41,8 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def authority
-    @slug = slug
     if publication.licence_transaction_continuation_link.present?
-      redirect_to licence_transaction_path(slug: @slug)
+      redirect_to licence_transaction_path(slug: params[:slug])
     elsif licence_details.local_authority_specific?
       # TODO: Shoud not override @license_details here
       @licence_details = LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
@@ -52,12 +51,8 @@ class LicenceTransactionController < ContentItemsController
 
 private
 
-  def slug
-    params[:slug]
-  end
-
   def content_item_slug
-    "/find-licences/#{slug}"
+    "/find-licences/#{params[:slug]}"
   end
 
   def publication_class

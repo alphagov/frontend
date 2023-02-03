@@ -3,7 +3,7 @@
 <nav role="navigation" class="page-navigation">
   <ol class="govuk-list govuk-list--number">
     <% if licence_details.action %>
-      <li><%= link_to "Overview", licence_transaction_authority_path(@slug, licence_details.authority["slug"]), class: "govuk-link" %></li>
+      <li><%= link_to "Overview", licence_transaction_authority_path(publication.slug, licence_details.authority["slug"]), class: "govuk-link" %></li>
     <% else %>
       <li class="active">Overview</li>
     <% end %>
@@ -11,7 +11,7 @@
       <% if licence_details.action == action %>
         <li class="active"><%= "How to #{action}" %></li>
       <% else %>
-        <li><%= link_to "How to #{action}", licence_transaction_authority_path(@slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
+        <li><%= link_to "How to #{action}", licence_transaction_authority_path(publication.slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
       <% end %>
     <% end %>
   </ol>
@@ -38,7 +38,7 @@
     <% if licence_details.local_authority_specific? or licence_details.multiple_licence_authorities_present? %>
       <div class="contact">
         <p class="govuk-body">The issuing authority for this licence is <strong><%= licence_details.authority["name"] %></strong>
-          <%= link_to (licence_details.local_authority_specific? ? '(change location)' : '(change authority)'), licence_transaction_path(@slug), class: "govuk-link" %>
+          <%= link_to (licence_details.local_authority_specific? ? '(change location)' : '(change authority)'), licence_transaction_path(publication.slug), class: "govuk-link" %>
         </p>
 
         <% if licence_details.authority['contact'] and ! licence_details.authority['contact']['address'].blank? %>

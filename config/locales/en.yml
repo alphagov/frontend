@@ -211,28 +211,36 @@ en:
       before_you_start: Before you start
       completed_transaction_text: Thanks for visiting GOV.UK.
       dissatisfied: Dissatisfied
-      e_vehicle_info: Find out how much money you can save on fuel by switching to an electric vehicle.
-      e_vehicle_info_title: Electric car promotion
+      electric_vehicle:
+        title: Electric car promotion
+        description: Find out how much money you can save on fuel by switching to an electric vehicle.
+        link_text: Make your next car electric
       friend_or_relative: A friend or relative
-      get_mot_reminders: Get MOT reminders
       government_staff: A staff member of the responsible government department
       help_improve: Help us improve this service
       how_improve: How could we improve this service?
       improvement_question: Is there any way the assistance received could be improved?
       more_information: More information
-      mot_reminder: Get a text or email reminder when your MOT is due.
-      mot_reminder_title: MOT promotion
+      mot_reminder:
+        title: MOT promotion
+        description: Get a text or email reminder when your MOT is due.
+        link_text: Get MOT reminders
       neither: Neither satisfied or dissatisfied
-      next_car_electric: Make your next car electric
       no_pii_hint: Do not include any personal or financial information, for example your National Insurance or credit card numbers.
       'on': 'on'
       online_satisfaction_check: Overall, how satisfied are you with the online service?
-      organ_donation_title: Organ donation
+      organ_donor:
+        title: Organ donation
+        description: Tell your family about your organ donation decision.
+        link_text: Register a decision to donate
       other: Other (please specify)
       other_person: Tell us who the other person was
       other_ways_to_apply: Other ways to apply
       pii_warning: When filling in this survey please don't include any personal or financial information, for example your National Insurance or credit card numbers.
-      register_to_donate: Register a decision to donate
+      photo_id:
+        title: Bring photo ID to vote
+        description: From 4 May 2023 you’ll need to show photo ID when you vote in person in some UK elections or referendums.
+        link_text: Check which photo ID you’ll need to vote
       satisfaction_check: How satisfied are you with the assistance received?
       satisfaction_survey: Satisfaction survey
       satisfied: Satisfied
@@ -240,7 +248,6 @@ en:
       service_improvement_question: Do you have any ideas for how this service could be improved?
       service_satisfaction_check: Overall, how did you feel about the service you received today?
       sign_in: Sign in
-      tell_your_family: Tell your family about your organ donation decision.
       very_dissatisfied: Very dissatisfied
       very_satisfied: Very satisfied
       what_assistance: What assistance did you receive?

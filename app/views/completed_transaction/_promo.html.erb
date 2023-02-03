@@ -1,0 +1,15 @@
+<div class="promotion">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: title,
+    font_size: "s",
+    margin_bottom: 3
+  } %>
+
+  <p class="govuk-body">
+    <%= description %>
+  </p>
+
+  <p class="govuk-body govuk-!-margin-bottom-0">
+    <%= link_to link_text, link_href, { class: "govuk-link" } %>
+  </p>    
+</div>

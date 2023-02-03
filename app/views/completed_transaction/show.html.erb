@@ -10,51 +10,9 @@
   <% if !show_survey? %>
     <p class="govuk-body"><%= t('formats.transaction.completed_transaction_text')%></p>
   <% end %>
-
-  <% if publication.promotion %>
-    <div class="promotion">
-      <% if publication.promotion['category'] == 'organ_donor' %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: t('formats.transaction.organ_donation_title'),
-          font_size: "s",
-          margin_bottom: 3
-        } %>
-
-        <p class="govuk-body">
-          <%= t('formats.transaction.tell_your_family') %>
-        </p>
-
-        <p class="govuk-body govuk-!-margin-bottom-0">
-          <%= link_to t('formats.transaction.register_to_donate'), publication.promotion['url'], { class: "govuk-link" } %>
-        </p>
-      <% elsif publication.promotion['category'] == 'mot_reminder' %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: t('formats.transaction.mot_reminder_title'),
-          font_size: "s",
-          margin_bottom: 3
-        } %>
-
-        <p class="govuk-body">
-          <%= t('formats.transaction.mot_reminder') %>
-        </p>
-
-        <p class="govuk-body govuk-!-margin-bottom-0">
-          <%= link_to t('formats.transaction.get_mot_reminders'), publication.promotion['url'], { class: "govuk-link" } %>
-        </p>
-      <% elsif publication.promotion['category'] == 'electric_vehicle' %>
-        <%= render "govuk_publishing_components/components/heading", {
-          text: t('formats.transaction.e_vehicle_info_title'),
-          font_size: "s",
-          margin_bottom: 3
-        } %>
-
-        <p class="govuk-body"><%= t('formats.transaction.e_vehicle_info') %></p>
-        
-        <p class="govuk-body govuk-!-margin-bottom-0">
-          <%= link_to t('formats.transaction.next_car_electric'), publication.promotion['url'], { class: "govuk-link" } %>
-        </p>
-      <% end %>
-    </div>
+  
+  <% if promotion %>
+    <%= render "promo", t("formats.transaction.#{promotion['category']}").merge({ link_href: promotion['url'] }) %>
     <hr class="govuk-section-break govuk-section-break--l">
   <% end %>
 

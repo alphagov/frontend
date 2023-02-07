@@ -3,6 +3,7 @@ require "frontend"
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "homepage#index", via: :get
+  post "/", to: proc { |_env| [404, {}, ["Not Found"]] }
 
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 

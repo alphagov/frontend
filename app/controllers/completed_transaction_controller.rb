@@ -32,7 +32,9 @@ class CompletedTransactionController < ContentItemsController
     done/view-prove-your-rights-uk
     done/brp-report-problem
     done/find-driving-schools-and-lessons
-    done/register-to-vot
+    done/register-to-vote
+    done/vehicle-tax
+    done/check-vehicle-tax
   ].freeze
 
   def show; end

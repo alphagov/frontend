@@ -1,6 +1,7 @@
 <%
   action ||= nil
   results_anchor ||= nil
+  form_method ||= "post"
 %>
 
 <div class="postcode-search-form"
@@ -31,7 +32,7 @@
     id: "local-locator-form",
     url: action,
     class: "location-form govuk-!-margin-bottom-9",
-    method: "post",
+    method: form_method,
   ) do | form | %>
 
     <fieldset class="govuk-fieldset">
@@ -52,9 +53,9 @@
         error_message: (t(@location_error.message, **@location_error.message_args) if @location_error)
       } %>
 
-      <%= render "govuk_publishing_components/components/button", 
-        text: t("find"), 
-        margin_bottom: true 
+      <%= render "govuk_publishing_components/components/button",
+        text: t("find"),
+        margin_bottom: true
       %>
 
       <%= tag.p link_to(t('formats.local_transaction.find_postcode_royal_mail'),
@@ -62,7 +63,7 @@
         id: 'postcode-finder-link',
         class: "govuk-link",
         rel: "external"),
-        class: "govuk-body" 
+        class: "govuk-body"
       %>
     </fieldset>
   <% end %>

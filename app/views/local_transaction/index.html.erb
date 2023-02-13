@@ -20,18 +20,15 @@
     </section>
   <% end %>
 
-  <% if current_page?(electoral_services_path) %>
-    <%= render partial: "electoral/form" %>
-  <% else %>
-    <%= render partial: 'location_form',
-             locals: {
-               method: 'post',
-               format: 'service',
-               publication_format: 'local_transaction',
-               postcode: @postcode
-             }
-    %>
-  <% end %>
+  <%= render partial: 'location_form',
+           locals: {
+             action: current_page?(electoral_services_path) && electoral_services_path,
+             form_method: current_page?(electoral_services_path) && 'get',
+             format: 'service',
+             publication_format: 'local_transaction',
+             postcode: current_page?(electoral_services_path) ? @postcode.sanitized_postcode : @postcode 
+           }
+  %>
 
   <% if publication.need_to_know.present? || publication.more_information.present? %>
     <section class="more">

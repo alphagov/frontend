@@ -165,28 +165,6 @@ class CompletedTransactionTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "photo id promotion" do
-      setup do
-        payload = @payload.merge(
-          base_path: "/done/find-pension-contact-details",
-          title: "Give feedback on Check the MOT history of a vehicle",
-        )
-
-        stub_content_store_has_item("/done/find-pension-contact-details", payload)
-        visit "/done/find-pension-contact-details"
-      end
-
-      should "show photo id promo if page is in list of pages to show photo id promo" do
-        assert_equal 200, page.status_code
-
-        within ".content-block" do
-          assert page.has_selector?(".promotion")
-          assert page.has_selector?("h2", text: "Bring photo ID to vote")
-          assert page.has_content?("From 4 May 2023 you’ll need to show photo ID when you vote in person in some UK elections or referendums.")
-        end
-      end
-    end
-
     context "promotions" do
       setup do
         payload = @payload.merge(

@@ -1,4 +1,8 @@
-<%= render layout: 'base_page' do %>
+<%= render layout: 'shared/base_page', locals: {
+  title: t('formats.local_transaction.find_council'),
+  publication: publication,
+  edition: @edition,
+} do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: t('formats.local_transaction.county_district_council'),
     margin_bottom: 4,

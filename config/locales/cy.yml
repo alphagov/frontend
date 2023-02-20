@@ -339,6 +339,10 @@ cy:
       valid_uprn_no_match: Doedden ni ddim yn gallu dod o hyd i'r cyfeiriad hwn.
       valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
       website:
+    place:
+      change: Newid
+      select_address: Dewiswch gyfeiriad
+      postcode: Cod post
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf
@@ -372,7 +376,7 @@ cy:
       organ_donor:
         title:
         description: Dywedwch wrth eich teulu am eich penderfyniad am roi organau.
-        link_text: 
+        link_text:
       other: Arall (nodwch)
       other_person: Dywedwch wrthon ni pwy oedd y person arall
       other_ways_to_apply: Ffyrdd eraill o wneud cais

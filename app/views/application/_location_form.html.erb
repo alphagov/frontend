@@ -2,13 +2,17 @@
   action ||= nil
   results_anchor ||= nil
   form_method ||= "post"
+  margin_top ||= nil
+
+  css_classes = %w[postcode-search-form]
+  css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
 %>
 
-<div class="postcode-search-form"
-  data-module="track-submit"
-  data-track-category="postcodeSearch:<%= publication_format %>"
-  data-track-action="postcodeSearchStarted">
-
+<%= tag.div class: css_classes, data: {
+          "module":"track-submit",
+          "track-category":"postcodeSearch:#{publication_format}",
+          "track-action":"postcodeSearchStarted",
+} do %>
   <% if @location_error %>
     <%= render "govuk_publishing_components/components/error_summary", {
       id: results_anchor,
@@ -67,4 +71,4 @@
       %>
     </fieldset>
   <% end %>
-</div>
+<% end %>

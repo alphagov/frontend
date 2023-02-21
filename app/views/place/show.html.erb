@@ -24,6 +24,7 @@
             format: 'service',
             publication_format: 'place',
             postcode: postcode,
+            margin_top: @location_error ? 5 : 0,
           }.merge(results_anchor ? {
             action: "/#{params[:slug]}\##{results_anchor}",
             results_anchor: results_anchor,

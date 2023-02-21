@@ -6,7 +6,7 @@ gem "rails", "7.0.4.2"
 gem "addressable"
 gem "bootsnap", require: false
 gem "dalli"
-gem "gds-api-adapters", git: "https://github.com/alphagov/gds-api-adapters.git"
+gem "gds-api-adapters"
 gem "govuk_ab_testing"
 gem "govuk_app_config"
 gem "govuk_personalisation"

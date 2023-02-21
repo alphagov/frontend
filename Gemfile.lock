@@ -1,14 +1,3 @@
-GIT
-  remote: https://github.com/alphagov/gds-api-adapters.git
-  revision: 56d37972f6842031284929bf856eb32ab4f65893
-  specs:
-    gds-api-adapters (86.0.0)
-      addressable
-      link_header
-      null_logger
-      plek (>= 1.9.0)
-      rest-client (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -136,6 +125,12 @@ GEM
     ffi (1.15.5)
     filelock (1.1.1)
     find_a_port (1.0.1)
+    gds-api-adapters (86.0.0)
+      addressable
+      link_header
+      null_logger
+      plek (>= 1.9.0)
+      rest-client (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     govuk_ab_testing (2.4.2)
@@ -481,7 +476,7 @@ DEPENDENCIES
   climate_control
   dalli
   dotenv-rails
-  gds-api-adapters!
+  gds-api-adapters
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation

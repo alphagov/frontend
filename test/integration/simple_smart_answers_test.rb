@@ -191,6 +191,18 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       )
     end
 
+    within ".gem-c-error-summary.govuk-error-summary" do
+      assert page.has_selector?(
+        ".govuk-error-summary__title",
+        exact_text: "There is a problem",
+      )
+
+      assert page.has_selector?(
+        ".gem-c-error-summary__list-item",
+        exact_text: "Please answer this question",
+      )
+    end
+
     # Choosing an option allows the simple smart answer to move onto the next
     # step.
     choose "Sir Lancelot of Camelot"

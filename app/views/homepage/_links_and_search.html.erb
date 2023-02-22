@@ -34,7 +34,14 @@
       </div>
       
       <div class="govuk-grid-column-one-half homepage-search">
-        <form action="/search" method="get" role="search">
+        <form 
+          action="/search" 
+          method="get" 
+          role="search" 
+          data-module="ga4-form-tracker"
+          data-ga4-form-include-text
+          data-ga4-form='{"event_name": "search", "type": "home page", "url": "/search/all", "section": "Search", "action": "Search"}'
+        >
           <%= render "govuk_publishing_components/components/search", {
             button_text: t("homepage.index.search_button"),
             inline_label: false,

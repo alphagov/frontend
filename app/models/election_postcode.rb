@@ -23,7 +23,7 @@ class ElectionPostcode
   end
 
   def valid?
-    sanitized_postcode.match?(UK_POSTCODE_PATTERN)
+    sanitized_postcode.match?(UK_POSTCODE_PATTERN) unless sanitized_postcode.nil?
   end
 
   def error

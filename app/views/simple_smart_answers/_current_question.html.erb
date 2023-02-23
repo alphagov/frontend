@@ -1,7 +1,24 @@
+<% error_message = t("formats.simple_smart_answer.please_answer") if @flow_state.error? %>
+<% field_id = question.title.parameterize(separator: '-') %>
+
+<% if error_message %>
+  <%= render "govuk_publishing_components/components/error_summary", {
+    title: t("formats.local_transaction.error_summary_title"),
+    data_attributes: {
+      module: "govuk-error-summary",
+    },
+    items: [
+      {
+        text: error_message,
+        href: "\##{field_id}"
+      }
+    ]
+  } %>
+<% end %>
+
 <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get" do %>
   <%= hidden_field_tag :edition, @edition if @edition.present? %>
   <%= hidden_field_tag 'response', '' %>
-  <% error_message = t("formats.simple_smart_answer.please_answer") if @flow_state.error? %>
 
   <% content_for :title do
       simple_smart_answer_page_title(question.title)
@@ -12,6 +29,7 @@
   end if question.body %>
 
   <%= render "govuk_publishing_components/components/radio", {
+    id: field_id,
     description: description,
     error_message: error_message,
     heading_caption: publication.title,

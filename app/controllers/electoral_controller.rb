@@ -43,11 +43,14 @@ private
   end
 
   def valid_postcode?
-    postcode.present? && postcode.valid?
+    !postcode_params.nil? && postcode.valid?
   end
 
   def invalid_postcode?
-    postcode.present? && !postcode.valid?
+    # Make sure that there is not an error message on the page
+    # when the user first loads it. If the postcode_params are
+    # nil, it means the user has not typed anything yet.
+    !postcode_params.nil? && !postcode.valid?
   end
 
   def valid_uprn?

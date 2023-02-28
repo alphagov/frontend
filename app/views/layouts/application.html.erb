@@ -41,7 +41,7 @@
           <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
         <% end %>
         <% unless current_page?(root_path) || !(publication || @calendar) %>
-          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
+          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, ga4_tracking: true %>
         <% end %>
         <% if local_assigns %>
           <%= yield %>

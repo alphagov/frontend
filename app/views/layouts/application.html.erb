@@ -1,3 +1,21 @@
+<% content_for :body do %>
+      <% if @is_account && local_assigns %>
+        <main id="content">
+          <%= yield %>
+        </main>
+      <% else %>
+        <% if publication && publication.in_beta %>
+          <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
+        <% end %>
+        <% unless current_page?(root_path) || !(publication || @calendar) %>
+          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, ga4_tracking: true %>
+        <% end %>
+        <% if local_assigns %>
+          <%= yield %>
+          <%= yield :after_content %>
+        <% end %>
+      <% end %>
+<% end %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,6 +35,11 @@
     <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml"/>
 
     <%= stylesheet_link_tag "application.css", :media => "all", integrity: false %>
+
+    <%=
+      render_component_stylesheets
+    %>
+
     <%= javascript_include_tag 'test-dependencies.js' if Rails.env.test? %>
     <%= javascript_include_tag 'application.js', integrity: false %>
     <%= yield :extra_javascript %>
@@ -32,22 +55,7 @@
 
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(publication || @presenter) %>">
-      <% if @is_account && local_assigns %>
-        <main id="content">
-          <%= yield %>
-        </main>
-      <% else %>
-        <% if publication && publication.in_beta %>
-          <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
-        <% end %>
-        <% unless current_page?(root_path) || !(publication || @calendar) %>
-          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, ga4_tracking: true %>
-        <% end %>
-        <% if local_assigns %>
-          <%= yield %>
-          <%= yield :after_content %>
-        <% end %>
-      <% end %>
+      <%= yield :body %>
     </div>
   </body>
 </html>

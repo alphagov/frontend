@@ -1,4 +1,6 @@
 <%
+  add_view_stylesheet("location_form")
+
   action ||= nil
   results_anchor ||= nil
   form_method ||= "post"
@@ -39,6 +41,11 @@
     method: form_method,
   ) do | form | %>
 
+    <%
+      #TODO: Add a visually hidden legend option to the fieldset component; then
+      #      the component can be used here.
+      add_gem_component_stylesheet("fieldset")
+    %>
     <fieldset class="govuk-fieldset">
       <legend class=" govuk-fieldset__legend govuk-visually-hidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
 

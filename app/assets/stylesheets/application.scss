@@ -7,60 +7,10 @@ $govuk-new-link-styles: true;
 // not needed here.
 $govuk-include-default-font-face: false;
 
-// Components from govuk_publishing_components gem
 @import "govuk_publishing_components/govuk_frontend_support";
-@import "govuk_publishing_components/components/big-number";
-@import "govuk_publishing_components/components/character-count";
-@import "govuk_publishing_components/components/contextual-sidebar";
-@import "govuk_publishing_components/components/details";
-@import "govuk_publishing_components/components/error-alert";
-@import "govuk_publishing_components/components/error-summary";
-@import "govuk_publishing_components/components/govspeak";
-@import "govuk_publishing_components/components/image-card";
-@import "govuk_publishing_components/components/intervention";
-@import "govuk_publishing_components/components/lead-paragraph";
-@import "govuk_publishing_components/components/panel";
-@import "govuk_publishing_components/components/phase-banner";
-@import "govuk_publishing_components/components/radio";
-@import "govuk_publishing_components/components/related-navigation";
-@import "govuk_publishing_components/components/select";
-@import "govuk_publishing_components/components/step-by-step-nav";
-@import "govuk_publishing_components/components/step-by-step-nav-header";
-@import "govuk_publishing_components/components/step-by-step-nav-related";
-@import "govuk_publishing_components/components/subscription-links";
-@import "govuk_publishing_components/components/success-alert";
-@import "govuk_publishing_components/components/summary-list";
-@import "govuk_publishing_components/components/table";
-@import "govuk_publishing_components/components/tabs";
-@import "govuk_publishing_components/components/warning-text";
-
-// These components aren't found in the templates, but the styles are still
-// needed as they're used within a page's `content_item`.
-//
-// Document list is needed for the "Sign in to a service" page.
-@import "govuk_publishing_components/components/document-list";
-// Inset text is needed for the "Sign in to a service" page.
-@import "govuk_publishing_components/components/inset-text";
-
-// local app components
-@import "components/calendar";
-@import "components/metadata";
-@import "components/subscribe";
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/truncated-url";
-
-// View stylesheets
-@import "views/calendars";
-@import "views/completed_transaction";
-@import "views/cookie-settings";
-@import "views/homepage";
-@import "views/travel-advice";
-@import "views/report-child-abuse";
-
-// exceptional format overrides
-@import "views/location_form";
-@import "views/local-transaction";
 
 // Reset some global styles from the `wrapper` layout
 .gem-c-related-navigation {

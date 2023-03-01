@@ -1,8 +1,8 @@
 <%
   # These components aren't found in the templates, but the styles are still
   # needed as they're used within the sign in page's `content_item`.
-  add_view_stylesheet("document-list")
-  add_view_stylesheet("inset-text")
+  add_gem_component_stylesheet("document-list")
+  add_gem_component_stylesheet("inset-text")
 %>
 <% content_for :title, "#{content_item_hash["title"]} - GOV.UK" %>
 <% content_for :extra_headers do %>

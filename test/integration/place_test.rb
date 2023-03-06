@@ -254,6 +254,25 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "given an empty postcode" do
+    setup do
+      visit "/passport-interview-office"
+      click_on "Find"
+    end
+
+    should "display error message" do
+      assert page.has_content?("This isn't a valid postcode")
+    end
+
+    should "display the postcode form" do
+      within ".location-form" do
+        assert page.has_field?("Enter a postcode")
+        assert page.has_field?("postcode")
+        assert_has_button("Find")
+      end
+    end
+  end
+
   context "given an invalid postcode" do
     setup do
       query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
@@ -323,6 +342,21 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "display the address chooser" do
       assert page.has_content?("House 1")
+    end
+  end
+
+  context "given an internal error response from imminence" do
+    setup do
+      query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      stub_imminence_places_request("find-passport-offices", query_hash, {}, 500)
+
+      visit "/passport-interview-office"
+      fill_in "Enter a postcode", with: "JE4 5TP"
+      click_on "Find"
+    end
+
+    should "reraise as a 503" do
+      assert_equal 503, page.status_code
     end
   end
 end

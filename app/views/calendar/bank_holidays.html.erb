@@ -110,8 +110,10 @@
                   event_name: 'select_content',
                   type: "tabs",
                   text: t(division.title),
-                  index: index + 1,
-                  index_total: @calendar.divisions.length,
+                  index: {
+                    index_section: index + 1,
+                    index_section_count: @calendar.divisions.length,
+                  },
                 }
               }
             } }

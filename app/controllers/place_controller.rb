@@ -16,7 +16,7 @@ class PlaceController < ContentItemsController
   def find
     @location_error = location_error
 
-    if imminence_response.addresses_returned?
+    if postcode_provided? && imminence_response.addresses_returned?
       @options = imminence_response.addresses.each.map do |address|
         { text: address["address"], value: address["local_authority_slug"] }
       end
@@ -34,7 +34,7 @@ private
   helper_method :location_error
 
   def publication
-    @publication ||= if request.post? && imminence_response.places_found?
+    @publication ||= if postcode_provided? && imminence_response.places_found?
                        PlacePresenter.new(content_item_hash, imminence_response.places)
                      else
                        PlacePresenter.new(content_item_hash)
@@ -69,7 +69,8 @@ private
   end
 
   def location_error
-    return LocationError.new(INVALID_POSTCODE) if imminence_response.invalid_postcode? || imminence_response.blank_postcode?
+    return LocationError.new(INVALID_POSTCODE) unless postcode_provided?
+    return LocationError.new(INVALID_POSTCODE) if imminence_response.invalid_postcode?
     return LocationError.new(NO_LOCATION) if imminence_response.places_not_found?
   end
 
@@ -78,19 +79,17 @@ private
   end
 
   def places_from_imminence
-    if postcode.present?
-      begin
-        imminence_response = Frontend.imminence_api.places_for_postcode(
-          content_item_hash["details"]["place_type"],
-          postcode,
-          Frontend::IMMINENCE_QUERY_LIMIT,
-          local_authority_slug,
-        )
-      rescue GdsApi::HTTPErrorResponse => e
-        error = e
-      end
-    end
-    imminence_response_from_data(postcode, imminence_response, error)
+    imminence_response = Frontend.imminence_api.places_for_postcode(
+      content_item_hash["details"]["place_type"],
+      postcode,
+      Frontend::IMMINENCE_QUERY_LIMIT,
+      local_authority_slug,
+    )
+    imminence_response_from_data(postcode, imminence_response, nil)
+  rescue GdsApi::HTTPErrorResponse => e
+    raise e unless ImminenceResponse.handled_error?(e)
+
+    imminence_response_from_data(postcode, nil, e)
   end
 
   def imminence_response_from_data(postcode, imminence_response, error)

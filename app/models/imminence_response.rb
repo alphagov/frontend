@@ -2,7 +2,13 @@ class ImminenceResponse
   INVALID_POSTCODE = "invalidPostcodeError".freeze
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
+  HANDLED_ERRORS = [INVALID_POSTCODE, NO_LOCATION].freeze
+
   attr_reader :places, :addresses, :error, :postcode
+
+  def self.handled_error?(error)
+    HANDLED_ERRORS.include?(error.error_details.fetch("error"))
+  end
 
   def initialize(postcode, places, addresses, error)
     @postcode = postcode
@@ -25,10 +31,6 @@ class ImminenceResponse
 
   def invalid_postcode?
     error && error.error_details.fetch("error") == INVALID_POSTCODE
-  end
-
-  def blank_postcode?
-    postcode.blank?
   end
 
 private

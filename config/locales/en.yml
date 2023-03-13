@@ -420,10 +420,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about Self Assessment tax returns and when they are due.
-          title: Self Assessment
-          href: https://www.gov.uk/self-assessment-tax-returns
-          image_src: homepage/self-assessment.png
+        - text: Find out about the Emergency Alerts national test on 19 March.
+          title: Emergency Alerts test
+          href: https://www.gov.uk/alerts
+          image_src: homepage/emergency-alerts.jpg
         - text: Check what photo ID you can use to vote in person from 4 May.
           title: Bring photo ID to vote
           href: https://www.gov.uk/how-to-vote/photo-id-youll-need

@@ -15,8 +15,10 @@
             event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.more_information'),
-            index: 1,
-            index_total: total_tabs,
+            index: {
+              index_section: 1,
+              index_section_count: total_tabs,
+            },
           },
         },
         content: render("govuk_publishing_components/components/govspeak", {}) do
@@ -31,8 +33,10 @@
             event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.what_you_need_to_know'),
-            index: 2,
-            index_total: total_tabs,
+            index: {
+              index_section: 2,
+              index_section_count: total_tabs,
+            },
             section: 'n/a',
             action: 'n/a',
           },
@@ -49,8 +53,10 @@
             event_name: "select_content",
             type: "tabs",
             text: t('formats.transaction.other_ways_to_apply'),
-            index: last_tab_index,
-            index_total: total_tabs,
+            index: {
+              index_section: last_tab_index,
+              index_section_count: total_tabs,
+            },
             section: 'n/a',
             action: 'n/a',
           },

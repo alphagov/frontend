@@ -27,7 +27,17 @@
           <%= link_to(
             t("formats.simple_smart_answer.start_again"),
             simple_smart_answer_path(publication.slug, :edition => @edition),
-            class: "govuk-link"
+            class: "govuk-link",
+            data: {
+              module: "ga4-link-tracker",
+              ga4_link: {
+                event_name: "form_start_again",
+                type: "simple smart answer",
+                section: @flow_state.current_node.title,
+                action: "start again",
+                tool_name: publication.title,
+              }
+            }
           ) %>
         </p>
 

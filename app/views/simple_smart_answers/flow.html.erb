@@ -5,7 +5,19 @@
 <main id="content" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <section class="simple-smart-answer__question-and-outcome">
+      <section 
+        class="simple-smart-answer__question-and-outcome" 
+        data-module="ga4-link-tracker" 
+        data-ga4-link='{
+          "event_name": "information_click", 
+          "type": "simple smart answer",
+          "section": "<%= @flow_state.current_node.title %>", 
+          "action": "information_click",
+          "tool_name": "<%= publication.title %>" 
+        }'
+        data-ga4-track-links-only
+        data-ga4-set-indexes
+      >
         <% if @flow_state.current_node.outcome? %>
           <%= render partial: "outcome", object: @flow_state.current_node %>
         <% else %>

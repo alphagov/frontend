@@ -1,6 +1,17 @@
 <% error_message = t("formats.simple_smart_answer.please_answer") if @flow_state.error? %>
 <% field_id = question.title.parameterize(separator: '-') %>
 
+<%
+  next_button_text = "Next step"
+  ga4_attributes = {
+    event_name: "form_response",
+    type: "simple smart answer",
+    section: question.title,
+    action: next_button_text,
+    tool_name: publication.title,
+  }.to_json
+%>
+
 <% if error_message %>
   <%= render "govuk_publishing_components/components/error_summary", {
     title: t("formats.local_transaction.error_summary_title"),
@@ -16,7 +27,7 @@
   } %>
 <% end %>
 
-<%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get" do %>
+<%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get", "data-module": "ga4-form-tracker" , "data-ga4-form": ga4_attributes do %>
   <%= hidden_field_tag :edition, @edition if @edition.present? %>
   <%= hidden_field_tag 'response', '' %>
 

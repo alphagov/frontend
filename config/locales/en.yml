@@ -380,8 +380,8 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: Check benefits and financial support you can get
-          href: /check-benefits-financial-support
+        - text: Get support with the cost of living
+          href: /cost-of-living
         - text: 'Find out about help you can get with your energy bills'
           href: /get-help-energy-bills
         - text: 'Find a job'

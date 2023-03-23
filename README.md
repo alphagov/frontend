@@ -8,7 +8,8 @@ some hard-coded routes including the GOV.UK homepage.
 ### Formats
 
 Simple smart answer
-* https://www.gov.uk/settle-in-the-uk
+* https://www.gov.uk/sold-bought-vehicle
+* https://www.gov.uk/contact-the-dvla
 
 Transaction start pages:
  * https://www.gov.uk/register-to-vote

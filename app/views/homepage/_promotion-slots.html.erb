@@ -26,7 +26,11 @@
             ga4_link: {
               event_name: 'navigation',
               type: 'home page',
-              index: "5.#{index + 1}",
+              index: {
+                index_section: 5,
+                index_link: index + 1,
+                index_section_count: 6,
+              },
               index_total: ga4_links_count,
               section: t("homepage.index.featured", locale: :en)
             }

@@ -17,7 +17,11 @@
             link: item[:link],
             title: item[:title],
             track_action: "topicsLink",
-            index: "2.#{index + 1}",
+            index_values: {
+              index_section: 2,
+              index_link: index + 1,
+              index_section_count: 6,
+            },
             index_total: ga4_links_count,
             section: t("homepage.index.services_and_information", locale: :en)
           } %>

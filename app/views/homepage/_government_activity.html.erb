@@ -22,7 +22,11 @@
             link: item[:link],
             title: item[:title],
             track_action: "governmentactivityLink",
-            index: "3.#{index + 1}",
+            index_values: {
+              index_section: 3,
+              index_link: index + 1,
+              index_section_count: 6,
+            },
             index_total: ga4_links_count,
             section: t("homepage.index.government_activity", locale: :en)
           } %>
@@ -61,7 +65,11 @@
             "ga4_link": {
               "event_name": "navigation",
               "type": "home page",
-              "index": 4.1,
+              "index": {
+                "index_section": 4,
+                "index_link": 1,
+                "index_section_count": 6,
+              },
               "index_total": ga4_links_count,
               "section": t("homepage.index.departments_and_organisations", locale: :en),
               "text": "#{t("homepage.index.ministerial_departments_count")} #{t("homepage.index.ministerial_departments", locale: :en)}"
@@ -83,7 +91,11 @@
             "ga4_link": {
               "event_name": "navigation",
               "type": "home page",
-              "index": 4.2,
+              "index": {
+                "index_section": 4,
+                "index_link": 2,
+                "index_section_count": 6,
+              },
               "index_total": ga4_links_count,
               "section": t("homepage.index.departments_and_organisations", locale: :en),
               "text": "#{t("homepage.index.other_agencies_count")} #{t("homepage.index.other_agencies", locale: :en)}"

@@ -1,19 +1,3 @@
-<%# 
-  The ga4_links_count variable is used to calculate the number of links within the homepage (ex. header and footer links) and this is passed to components rendered
-  on the homepage (e.g. services_and_information and government_activity) where it is used for analytics purposes.
-  
-  NB - Ministerial departments and other agencies "big number" links are hardcoded and therefore 2 is added to account for these links
-  (please see the _government_activity.html.erb template for further details)
-%>
-
-<% ga4_links_count = 
-  t("homepage.index.popular_links").length + 
-  t("homepage.categories").length + 
-  t("homepage.government_activity").length + 
-  t("homepage.index.more_links").length + 
-  t("homepage.index.promotion_slots").length + 2 # added to account for the two hardcoded big number links
-%>
-
 <%
   add_view_stylesheet("homepage")
 %>
@@ -25,23 +9,16 @@
 <% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>
 
 <main id="content" role="main">
+  <%#
+    The GA4 tracking on the homepage depends on some hardcoded values for index. If a section is added or removed, these values will need to be updated. Specifically 'index_section_count' (the total number of sections) and potentially 'index_section' (the index of the section e.g. 2 for the 2nd second).
+  %>
   <%= render "homepage/inverse_header" %>
-  <%= render "homepage/links_and_search", {
-    ga4_links_count: ga4_links_count
-  } %>
+  <%= render "homepage/links_and_search" %>
 
   <div class="govuk-width-container">
-    <%= render "homepage/services_and_information", {
-      ga4_links_count: ga4_links_count
-    } %>
-    <%= render "homepage/government_activity", {
-      ga4_links_count: ga4_links_count
-    } %>
-    <%= render "homepage/promotion-slots", {
-      ga4_links_count: ga4_links_count
-    } %>
-    <%= render "homepage/more_on_govuk", {
-      ga4_links_count: ga4_links_count
-    } %>
+    <%= render "homepage/services_and_information" %>
+    <%= render "homepage/government_activity" %>
+    <%= render "homepage/promotion-slots" %>
+    <%= render "homepage/more_on_govuk" %>
   </div>
 </main>

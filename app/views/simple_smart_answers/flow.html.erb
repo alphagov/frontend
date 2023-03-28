@@ -1,11 +1,27 @@
-<% content_for :extra_headers do %>
+<% 
+  ga4_attributes = {
+    event_name: "information_click",
+    type: "simple smart answer",
+    section: @flow_state.current_node.title,
+    action: "information_click",
+    tool_name: publication.title,
+  }.to_json
+
+  content_for :extra_headers do 
+%>
   <meta name="robots" content="noindex" />
 <% end %>
 
 <main id="content" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <section class="simple-smart-answer__question-and-outcome">
+      <section 
+        class="simple-smart-answer__question-and-outcome"
+        data-module="ga4-link-tracker"
+        data-ga4-link="<%= ga4_attributes %>"
+        data-ga4-track-links-only
+        data-ga4-set-indexes
+      >
         <% if @flow_state.current_node.outcome? %>
           <%= render partial: "outcome", object: @flow_state.current_node %>
         <% else %>
@@ -27,7 +43,17 @@
           <%= link_to(
             t("formats.simple_smart_answer.start_again"),
             simple_smart_answer_path(publication.slug, :edition => @edition),
-            class: "govuk-link"
+            class: "govuk-link",
+            data: {
+              module: "ga4-link-tracker",
+              ga4_link: {
+                event_name: "form_start_again",
+                type: "simple smart answer",
+                section: @flow_state.current_node.title,
+                action: "start again",
+                tool_name: publication.title,
+              }
+            }
           ) %>
         </p>
 

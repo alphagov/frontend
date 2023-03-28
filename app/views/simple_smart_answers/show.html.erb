@@ -19,7 +19,17 @@
         rel: "nofollow",
         start: true,
         margin_bottom: true,
-        href: smart_answer_flow_path(slug: publication.slug, edition: @edition)
+        href: smart_answer_flow_path(slug: publication.slug, edition: @edition),
+        data_attributes: {
+          module: 'ga4-link-tracker',
+          ga4_link: {
+            event_name: "form_start",
+            type: "simple smart answer",
+            section: "start page",
+            action: "start",
+            tool_name: publication.title,
+          }
+        }
       %>
     </p>
   </div>

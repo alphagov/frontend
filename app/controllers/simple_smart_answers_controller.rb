@@ -48,6 +48,16 @@ private
         edit: {
           href: change_completed_question_path(completed_question_counter),
           link_text: t("formats.simple_smart_answer.change"),
+          data_attributes: {
+            module: "ga4-link-tracker",
+            ga4_link: {
+              event_name: "form_change_response",
+              type: "simple smart answer",
+              section: question.question.title,
+              action: "change response",
+              tool_name: publication.title,
+            },
+          },
         },
       }
     end

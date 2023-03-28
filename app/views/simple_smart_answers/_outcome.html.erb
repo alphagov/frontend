@@ -2,8 +2,21 @@
   content_for :title do
     simple_smart_answer_page_title(outcome.title)
   end
+
+  ga4_attributes = {
+    event_name: "form_complete",
+    type: "simple smart answer",
+    section: @flow_state.current_node.title,
+    action: "complete",
+    tool_name: publication.title,
+  }.to_json
 %>
- <div data-module="track-smart-answer" data-smart-answer-node-type="outcome" data-smart-answer-slug="<%= outcome.slug %>">
+<div 
+  data-module="track-smart-answer ga4-auto-tracker" 
+  data-smart-answer-node-type="outcome" 
+  data-smart-answer-slug="<%= outcome.slug %>"
+  data-ga4-auto="<%= ga4_attributes %>"
+>
   <%= render "govuk_publishing_components/components/title", {
     context: publication.title,
     font_size: "l",

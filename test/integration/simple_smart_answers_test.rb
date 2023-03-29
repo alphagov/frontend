@@ -318,7 +318,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_current_url "/the-bridge-of-death/y"
 
     click_on "Next step"
-    assert page.has_selector?("[data-module='ga4-auto-tracker']")
+    assert page.has_selector?("[data-module='ga4-auto-tracker govuk-error-summary']")
     assert page.has_selector?("[data-ga4-auto='{\"event_name\":\"form_error\",\"type\":\"simple smart answer\",\"text\":\"Please answer this question\",\"section\":\"What...is your name?\",\"action\":\"error\",\"tool_name\":\"The Bridge of Death\"}']")
   end
 

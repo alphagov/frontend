@@ -38,10 +38,11 @@ class FindLocalCouncilController < ContentItemsController
 
       render :one_council
     else
-      # NOTE: the data doesn't support the situation where we get > 1 result
-      # and it's anything other than a county and a district, so the obvious
-      # problem with this code *shouldn't* happen. (sorry for when it does)
-      @county = authority_results["local_authorities"].detect { |auth| auth["tier"] == "county" }
+      # NOTE: Technically we should only get county/district pairs here, but during local authority
+      # merge periods, like the 1st April 2023 it is sometimes necessary to have a brief period where
+      # a district is still temporarily active but belongs to a unitary authority. If the system
+      # gets reengineered this might not be necessary, but for the moment we should allow it.
+      @county = authority_results["local_authorities"].detect { |auth| %w[county unitary].include?(auth["tier"]) }
       @district = authority_results["local_authorities"].detect { |auth| auth["tier"] == "district" }
 
       render :district_and_county_council

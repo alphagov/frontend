@@ -149,6 +149,69 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         end
       end
 
+      # See find_local_council_controller#result for more explanation
+      context "for district local authority with a unitary instead of county upper tier" do
+        setup do
+          stub_locations_api_has_location(
+            "HP20 1UG",
+            [
+              {
+                "latitude" => 51.5010096,
+                "longitude" => -0.1415870,
+                "local_custodian_code" => 440,
+              },
+            ],
+          )
+
+          stub_local_links_manager_has_a_district_and_unitary_local_authority("aylesbury", "buckinghamshire", local_custodian_code: 440)
+
+          visit "/find-local-council"
+          fill_in "postcode", with: "HP20 1UG"
+          click_on "Find"
+        end
+
+        should "redirect to the district authority slug" do
+          assert_equal "/find-local-council/aylesbury", current_path
+        end
+
+        should "show the local authority results for both district and unitary" do
+          assert page.has_content?("Services in your area are provided by two local authorities")
+
+          assert page.has_selector? ".county-result"
+          assert page.has_selector? ".district-result"
+
+          within(".county-result") do
+            assert page.has_content?("Buckinghamshire")
+            assert page.has_content?("County councils are responsible for services like:")
+            assert page.has_link?("Go to Buckinghamshire website", href: "http://buckinghamshire.example.com")
+          end
+
+          within(".district-result") do
+            assert page.has_content?("Aylesbury")
+            assert page.has_content?("District councils are responsible for services like:")
+            assert page.has_link?("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
+          end
+        end
+
+        should "add google analytics for postcodeResultsShown" do
+          track_category = page.find(".local-authority-results")["data-track-category"]
+          track_action = page.find(".local-authority-results")["data-track-action"]
+          track_label = page.find(".local-authority-results")["data-track-label"]
+
+          assert_equal "postcodeSearch:find_local_council", track_category
+          assert_equal "postcodeResultShown", track_action
+          assert_equal "2 Results", track_label
+        end
+
+        should "add google analytics for exit link tracking" do
+          district_track_action = find_link("Go to Aylesbury website")["data-track-action"]
+          county_track_action = find_link("Go to Buckinghamshire website")["data-track-action"]
+
+          assert_equal "districtLinkClicked", district_track_action
+          assert_equal "countyLinkClicked", county_track_action
+        end
+      end
+
       context "when finding a local council without homepage" do
         setup do
           stub_locations_api_has_location(

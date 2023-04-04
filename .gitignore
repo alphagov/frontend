@@ -13,3 +13,5 @@ node_modules
 yarn-error.log
 spec/reports/pacts
 .env
+.yarn/cache/
+.yarn/install-state.gz

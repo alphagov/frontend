@@ -299,14 +299,14 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_current_url "/the-bridge-of-death/y"
     assert page.has_no_selector?("[data-ga4-link='{\"event_name\":\"form_start\",\"type\":\"simple smart answer\",\"section\":\"start page\",\"action\":\"start\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-module='ga4-form-tracker']")
-    assert page.has_selector?("[data-ga4-form='{\"event_name\":\"form_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your name?\",\"action\":\"Next step\",\"tool_name\":\"The Bridge of Death\"}']")
+    assert page.has_selector?("[data-ga4-form='{\"event_name\":\"form_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your name?\",\"action\":\"next step\",\"tool_name\":\"The Bridge of Death\"}']")
 
     choose "Sir Lancelot of Camelot"
     click_on "Next step"
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
     assert page.has_no_selector?("[data-ga4-link='{\"event_name\":\"form_start\",\"type\":\"simple smart answer\",\"section\":\"start page\",\"action\":\"start\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-module='ga4-form-tracker']")
-    assert page.has_selector?("[data-ga4-form='{\"event_name\":\"form_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your favorite colour?\",\"action\":\"Next step\",\"tool_name\":\"The Bridge of Death\"}']")
+    assert page.has_selector?("[data-ga4-form='{\"event_name\":\"form_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your favorite colour?\",\"action\":\"next step\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"simple smart answer\",\"section\":\"What...is your favorite colour?\",\"action\":\"start again\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_change_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your name?\",\"action\":\"change response\",\"tool_name\":\"The Bridge of Death\"}']")
   end
@@ -341,7 +341,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     # TrackSmartAnswer JavaScript module doesn't feel like enough, but it'll do.
     assert page.has_selector?("[data-module='track-smart-answer ga4-auto-tracker'][data-smart-answer-node-type=outcome]")
     assert page.has_selector?("[data-ga4-auto='{\"event_name\":\"form_complete\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"complete\",\"tool_name\":\"The Bridge of Death\"}']")
-    assert page.has_selector?("[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"information_click\",\"tool_name\":\"The Bridge of Death\"}']")
+    assert page.has_selector?("[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"information click\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"start again\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_change_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your name?\",\"action\":\"change response\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_change_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your favorite colour?\",\"action\":\"change response\",\"tool_name\":\"The Bridge of Death\"}']")

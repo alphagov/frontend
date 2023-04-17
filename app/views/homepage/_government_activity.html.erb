@@ -22,8 +22,12 @@
             link: item[:link],
             title: item[:title],
             track_action: "governmentactivityLink",
-            index: "3.#{index + 1}",
-            index_total: ga4_links_count,
+            index_values: {
+              index_section: 3,
+              index_link: index + 1,
+              index_section_count: 6,
+            },
+            index_total: t("homepage.government_activity").length,
             section: t("homepage.index.government_activity", locale: :en)
           } %>
         <% end %>
@@ -38,13 +42,9 @@
         } %>
       </div>
 
-      <%# 
-        The "big number" component links below are hardcoded separately (i.e. not in a loop in this instance) and therefore their 'index' properties are also
-        hardcoded. Additionally, in order to account for these hardcoded components in the 'index_total' property, 2 is added to the ga4_links_counts variable 
-        (which is defined in homepage > index.html.erb). If a new "big number" component is added or removed, this will need to be reflected in the 'index' and
-        'index_total' properties to ensure that they remain accurate for tracking/analytics purposes.
-      %>
-      
+      <%#
+        The "big number" component links below are hardcoded separately (i.e. not in a loop in this instance) and therefore their 'index' properties are also hardcoded. If a new "big number" component is added or removed, this will need to be reflected in the 'index_link' and 'index_total' properties to ensure that they remain accurate for tracking/analytics purposes.
+      %>     
       <div class="homepage-section__depts" data-module="gem-track-click ga4-link-tracker">
         <%= render "govuk_publishing_components/components/big_number", {
           number: t("homepage.index.ministerial_departments_count"),
@@ -61,8 +61,12 @@
             "ga4_link": {
               "event_name": "navigation",
               "type": "home page",
-              "index": 4.1,
-              "index_total": ga4_links_count,
+              "index": {
+                "index_section": 4,
+                "index_link": 1,
+                "index_section_count": 6,
+              },
+              "index_total": 2,
               "section": t("homepage.index.departments_and_organisations", locale: :en),
               "text": "#{t("homepage.index.ministerial_departments_count")} #{t("homepage.index.ministerial_departments", locale: :en)}"
             }
@@ -83,8 +87,12 @@
             "ga4_link": {
               "event_name": "navigation",
               "type": "home page",
-              "index": 4.2,
-              "index_total": ga4_links_count,
+              "index": {
+                "index_section": 4,
+                "index_link": 2,
+                "index_section_count": 6,
+              },
+              "index_total": 2,
               "section": t("homepage.index.departments_and_organisations", locale: :en),
               "text": "#{t("homepage.index.other_agencies_count")} #{t("homepage.index.other_agencies", locale: :en)}"
             }

@@ -22,8 +22,12 @@
                   ga4_link: {
                     'event_name': 'navigation',
                     'type': 'home page',
-                    'index': "1.#{index + 1}",
-                    'index_total': ga4_links_count,
+                    'index': {
+                      'index_section': 1,
+                      'index_link': index + 1,
+                      'index_section_count': 6,
+                    },
+                    'index_total': t("homepage.index.popular_links").length,
                     'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
                   }
                 }

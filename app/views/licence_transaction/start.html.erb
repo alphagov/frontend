@@ -5,6 +5,9 @@
   publication: publication,
   edition: @edition,
 } do %>
+
+  <%= render "govuk_publishing_components/components/lead_paragraph", text: publication.description %>
+
   <article role="article" class="group content-block">
     <div class="inner">
       <% if licence_details.present? %>

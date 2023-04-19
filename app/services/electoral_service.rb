@@ -11,7 +11,7 @@ class ElectoralService
   def make_request
     @body = begin
       with_caching do
-        response = RestClient.get(request_url, headers)
+        response = RestClient.get(request_url, {})
         report_status_code(response.code)
         JSON.parse(response)
       end
@@ -62,13 +62,7 @@ private
 
   def request_url
     endpoint = postcode.present? ? "postcode/#{postcode}" : "address/#{uprn}"
-    "#{api_base_path}/#{endpoint}"
-  end
-
-  def headers
-    {
-      Authorization: "Token #{ENV['ELECTIONS_API_KEY']}",
-    }
+    "#{api_base_path}/#{endpoint}?token=#{ENV['ELECTIONS_API_KEY']}"
   end
 
   def api_base_path

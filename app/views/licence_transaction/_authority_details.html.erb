@@ -28,7 +28,6 @@
         <%= render :partial => 'licensify_unavailable' %>
       <% end %>
     <% elsif publication.body.present? %>
-      <%= render "govuk_publishing_components/components/heading", text: "Overview", margin_bottom: 4 %>
       <%= render "govuk_publishing_components/components/govspeak", {
       } do %>
         <%= raw publication.body %>

@@ -66,7 +66,6 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           assert page.has_no_content?("Please enter a valid full UK postcode.")
 
           within "#overview" do
-            assert page.has_content?("Overview")
             assert page.has_content? "You only live twice, Mr Bond."
           end
         end

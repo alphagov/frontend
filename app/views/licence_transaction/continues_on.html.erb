@@ -4,6 +4,9 @@
   publication: publication,
   edition: @edition,
 } do %>
+
+  <%= render "govuk_publishing_components/components/lead_paragraph", text: publication.description %>
+
   <article role="article" class="content-block group">
     <div class="inner">
       <div class="intro">

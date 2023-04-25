@@ -417,10 +417,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the government's new service to warn you if there is a danger to life nearby.
-          title: Emergency Alerts
-          href: https://www.gov.uk/alerts
-          image_src: homepage/emergency-alerts-promo.jpg
+        - text: Find out about the ceremony and events on 6 to 8 May.
+          title: The Coronation
+          href: https://www.gov.uk/government/topical-events/coronation
+          image_src: homepage/charles-and-camilla.jpg
         - text: Check what photo ID you can use to vote in person from 4 May.
           title: Bring photo ID to vote
           href: https://www.gov.uk/how-to-vote/photo-id-youll-need

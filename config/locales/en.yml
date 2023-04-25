@@ -424,7 +424,7 @@ en:
         - text: Check what photo ID you can use to vote in person from 4 May.
           title: Bring photo ID to vote
           href: https://www.gov.uk/how-to-vote/photo-id-youll-need
-          image_src: homepage/vote-promo.jpg
+          image_src: homepage/vote-id-promo.jpg
         - text: Find out payment dates and how to report if it's missing.
           title: Cost of Living Payment
           href: https://www.gov.uk/guidance/cost-of-living-payment

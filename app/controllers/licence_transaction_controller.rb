@@ -11,12 +11,10 @@ class LicenceTransactionController < ContentItemsController
   NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze
 
   def start
-    if publication.licence_transaction_continuation_link.present?
-      render :continues_on
-    elsif licence_details.single_licence_authority_present?
+    return render :continues_on if publication.licence_transaction_continuation_link.present?
+
+    if licence_details.single_licence_authority_present?
       redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: licence_details.authority["slug"])
-    elsif licence_details.multiple_licence_authorities_present? && authority_choice_submitted?
-      redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: CGI.escape(params[:authority][:slug]))
     end
   end
 
@@ -84,10 +82,6 @@ private
   def snac_from_slug
     local_authority_results = Frontend.local_links_manager_api.local_authority(params[:authority_slug])
     @snac_from_slug = local_authority_results.dig("local_authorities", 0, "snac")
-  end
-
-  def authority_choice_submitted?
-    params[:authority] && params[:authority][:slug]
   end
 
   def location_error

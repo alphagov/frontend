@@ -12,7 +12,6 @@
     <div class="inner">
       <% if licence_details.present? %>
         <div class="intro">
-        <% if licence_details.local_authority_specific? %>
           <div class="get-started-intro">
             <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence" %>
             <%= render partial: 'location_form',
@@ -23,19 +22,6 @@
                         margin_top: @location_error ? 5 : 0,
                        } %>
           </div>
-        <% else %>
-          <% # TODO: replace this with the radio component %>
-          <p class="govuk-body">Please choose an authority to apply for the licence from.</p>
-          <p class="govuk-body">The authority you select will not affect the type of licence you apply for.</p>
-          <%= form_tag publication.base_path, method: 'get' do %>
-            <ul class="govuk-list govuk-list--bullet">
-              <% licence_details.authorities.each do |authority| %>
-                <li><%= radio_button :authority, :slug, authority['slug'] %><%= label :authority, :slug, authority['name'], :value => authority['slug'] %></li>
-              <% end %>
-            </ul>
-            <%= render "govuk_publishing_components/components/button", text: "Get started", start: true, margin_bottom: true %>
-          <% end %>
-        <% end %>
         </div>
       <% else %>
         <%= render "govuk_publishing_components/components/warning_text", {

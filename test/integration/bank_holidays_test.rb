@@ -178,31 +178,31 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
     should "show bunting when today is a buntable bank holiday" do
       Timecop.travel(Date.parse("9th April 2012")) do
         visit "/bank-holidays"
-        assert page.has_css?(".app-o-epic-bunting")
-        assert page.has_css?(".app-o-main-container--bunted")
+        assert page.has_css?(".app-bunting")
+        assert page.has_css?(".app-bunting--spacer")
       end
     end
 
     should "not show bunting if today is a non-buntable bank holiday" do
       Timecop.travel(Date.parse("12th July 2013")) do
         visit "/bank-holidays"
-        assert page.has_no_css?(".app-o-epic-bunting")
-        assert page.has_no_css?(".app-o-main-container--bunted")
+        assert page.has_no_css?(".app-bunting")
+        assert page.has_no_css?(".app-bunting--spacer")
       end
     end
 
     should "not show bunting when today is not a bank holiday" do
       Timecop.travel(Date.parse("3rd Feb 2012")) do
         visit "/bank-holidays"
-        assert page.has_no_css?(".app-o-epic-bunting")
-        assert page.has_no_css?(".app-o-main-container--bunted")
+        assert page.has_no_css?(".app-bunting")
+        assert page.has_no_css?(".app-bunting--spacer")
       end
     end
 
     should "not use tinsel bunting in the middle of the year" do
       Timecop.travel(Date.parse("9th April 2012")) do
         visit "/bank-holidays"
-        assert page.has_no_css?(".app-o-epic-bunting__bunt--tinsel")
+        assert page.has_no_css?(".app-bunting__tinsel")
       end
     end
 
@@ -210,19 +210,19 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
       # For example, on a substitute day for St Andrew's Day
       Timecop.travel(Date.parse("2nd December 2013")) do
         visit "/bank-holidays"
-        assert page.has_no_css?(".app-o-epic-bunting__bunt--tinsel")
+        assert page.has_no_css?(".app-bunting__tinsel")
       end
     end
 
     should "use tinsel bunting for Christmas and New Year bank holidays" do
       Timecop.travel(Date.parse("25th December 2012")) do
         visit "/bank-holidays"
-        assert page.has_css?(".app-o-epic-bunting__bunt--tinsel")
+        assert page.has_css?(".app-bunting__tinsel")
       end
 
       Timecop.travel(Date.parse("2nd Jan 2012")) do
         visit "/bank-holidays"
-        assert page.has_css?(".app-o-epic-bunting__bunt--tinsel")
+        assert page.has_css?(".app-bunting__tinsel")
       end
     end
   end

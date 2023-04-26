@@ -50,7 +50,7 @@ class Calendar
     if christmas? || new_year?
       "tinsel"
     else
-      ""
+      "triangles"
     end
   end
 

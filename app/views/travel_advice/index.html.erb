@@ -68,10 +68,8 @@
             <%= render "govuk_publishing_components/components/subscription_links", {
               email_signup_link_text: "email",
               email_signup_link: @presenter.subscription_url,
-              feed_link_text: "feed",
-              feed_link: travel_advice_path(@presenter.slug, format: "atom"),
               hide_heading: true,
-              margin_bottom: 0,
+              margin_bottom: 0
             } %>
         </div>
       </div>

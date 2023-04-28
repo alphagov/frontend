@@ -21,7 +21,7 @@
                   track_dimension: item[:text],
                   ga4_link: {
                     'event_name': 'navigation',
-                    'type': 'home page',
+                    'type': 'homepage',
                     'index': {
                       'index_section': 1,
                       'index_link': index + 1,
@@ -44,7 +44,7 @@
           role="search" 
           data-module="ga4-form-tracker"
           data-ga4-form-include-text
-          data-ga4-form='{"event_name": "search", "type": "home page", "url": "/search/all", "section": "Search", "action": "Search"}'
+          data-ga4-form='{"event_name": "search", "type": "homepage", "url": "/search/all", "section": "Search", "action": "search"}'
         >
           <%= render "govuk_publishing_components/components/search", {
             button_text: t("homepage.index.search_button"),

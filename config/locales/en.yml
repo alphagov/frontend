@@ -419,15 +419,15 @@ en:
       promotion_slots:
         - text: Find out about the ceremony and events on 6 to 8 May.
           title: The Coronation
-          href: https://www.gov.uk/government/topical-events/coronation
+          href: /government/topical-events/coronation
           image_src: homepage/charles-and-camilla.jpg
         - text: Check what photo ID you can use to vote in person from 4 May.
           title: Bring photo ID to vote
-          href: https://www.gov.uk/how-to-vote/photo-id-youll-need
+          href: /how-to-vote/photo-id-youll-need
           image_src: homepage/vote-id-promo.jpg
         - text: Find out how to watch or attend events on 6 and 7 May.
           title: Watching the Coronation
-          href: https://www.gov.uk/government/publications/the-coronation-of-their-majesties-king-charles-iii-and-queen-camilla
+          href: /government/publications/the-coronation-of-their-majesties-king-charles-iii-and-queen-camilla
           image_src: homepage/watch-the-coronation.jpg
       running_limited_company: Running a limited company
       search_button: Search GOV.UK

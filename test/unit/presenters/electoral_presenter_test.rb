@@ -21,6 +21,14 @@ class ElectoralPresenterTest < ActiveSupport::TestCase
     end
   end
 
+  context "when dates and ballots are present in the api response" do
+    should "should present upcoming elections" do
+      subject = electoral_presenter(api_response)
+      expected = ["2017-05-04 - Cardiff local election Pontprennau/Old St. Mellons"]
+      assert_equal subject.upcoming_elections, expected
+    end
+  end
+
   context "presenting addresses" do
     context "when duplicate contact details are provided" do
       should "we should not show the electoral services address" do

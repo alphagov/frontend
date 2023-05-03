@@ -44,4 +44,6 @@
         }
     %>
   <% end %>
+
+  <%= render partial: "upcoming_elections", locals: { elections: @presenter.upcoming_elections } %> 
 <% end %>

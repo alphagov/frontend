@@ -417,18 +417,18 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the ceremony and events on 6 to 8 May.
+        - text: Find out about the Coronation and special events on 6 to 8 May.
           title: The Coronation
           href: /government/topical-events/coronation
           image_src: homepage/charles-and-camilla.jpg
-        - text: Check what photo ID you can use to vote in person from 4 May.
-          title: Bring photo ID to vote
-          href: /how-to-vote/photo-id-youll-need
-          image_src: homepage/vote-id-promo.jpg
-        - text: Find out how to watch or attend events on 6 and 7 May.
+        - text: Find out how you can get involved in local events on the Coronation website.
+          title: Celebrating the Coronation
+          href: https://coronation.gov.uk/
+          image_src: homepage/celebrating-the-coronation.jpg
+        - text: Find out how to watch the Coronation, processions and concert.
           title: Watching the Coronation
           href: /government/publications/the-coronation-of-their-majesties-king-charles-iii-and-queen-camilla
-          image_src: homepage/watch-the-coronation.jpg
+          image_src: homepage/watching-the-celebration.jpg
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

@@ -380,8 +380,6 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: 'Coronation of King Charles III and Queen Camilla'
-          href: /government/topical-events/coronation
         - text: Get support with the cost of living
           href: /cost-of-living
         - text: 'Find out about help you can get with your energy bills'
@@ -390,6 +388,8 @@ en:
           href: /find-a-job
         - text: 'Universal Credit account: sign in'
           href: /sign-in-universal-credit
+        - text: 'Check your National Insurance record'
+          href: /check-national-insurance-record
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:
@@ -417,18 +417,18 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the Coronation and special events on 6 to 8 May.
-          title: The Coronation
-          href: /government/topical-events/coronation
-          image_src: homepage/charles-and-camilla.jpg
-        - text: Find out how you can get involved in local events on the Coronation website.
-          title: Celebrating the Coronation
-          href: https://coronation.gov.uk/
-          image_src: homepage/celebrating-the-coronation.jpg
-        - text: Find out how to watch the Coronation, processions and concert.
-          title: Watching the Coronation
-          href: /government/publications/the-coronation-of-their-majesties-king-charles-iii-and-queen-camilla
-          image_src: homepage/watching-the-celebration.jpg
+        - text: Find out payment dates and how to report a payment is missing.
+          title: Cost of Living Payment
+          href: /guidance/cost-of-living-payment
+          image_src: homepage/cost-of-living-november-2022.jpg
+        - text: If you care for someone, check if you are eligible for Carer’s Allowance.
+          title: Carer’s Allowance
+          href: /carers-allowance
+          image_src: homepage/carers-allowance.jpg
+        - text: Check your record to see if you can add more contributions.
+          title: National Insurance
+          href: /check-national-insurance-record
+          image_src: homepage/check-your-contributions.jpg
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

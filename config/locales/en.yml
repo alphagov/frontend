@@ -380,8 +380,6 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: 'Coronation of King Charles III and Queen Camilla'
-          href: /government/topical-events/coronation
         - text: Get support with the cost of living
           href: /cost-of-living
         - text: 'Find out about help you can get with your energy bills'
@@ -390,6 +388,8 @@ en:
           href: /find-a-job
         - text: 'Universal Credit account: sign in'
           href: /sign-in-universal-credit
+        - text: 'Check your National Insurance record'
+          href: /check-national-insurance-record
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:

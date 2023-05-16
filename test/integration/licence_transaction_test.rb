@@ -264,6 +264,77 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         should "redirect to the appropriate authority slug" do
           assert_equal "/find-licences/licence-to-kill/buckinghamshire", current_path
         end
+
+        should "have an apply link" do
+          assert page.has_link? "How to apply", href: "/find-licences/licence-to-kill/buckinghamshire/apply"
+        end
+
+        context "when the local authority doesn't have a SNAC" do
+          setup do
+            configure_locations_api_and_local_authority("DT11 0SF", %w[dorset], 440, snac: nil, gss: "E06000069")
+
+            authorities = [
+              {
+                "authorityName" => "Dorset Council",
+                "authoritySlug" => "dorset",
+                "authorityContact" => {
+                  "website" => "",
+                  "email" => "",
+                  "phone" => "",
+                  "address" => "",
+                },
+                "authorityInteractions" => {
+                  "apply" => [
+                    {
+                      "url" => "/licence-to-kill/dorset/apply-1",
+                      "description" => "Apply for your licence to kill",
+                      "payment" => "none",
+                      "introduction" => "This licence is issued shaken, not stirred.",
+                      "usesLicensify" => true,
+                    },
+                    {
+                      "url" => "/licence-to-kill/dorset/apply-2",
+                      "description" => "Apply for your licence to hold gadgets",
+                      "payment" => "none",
+                      "introduction" => "Q-approval required.",
+                      "usesLicensify" => true,
+                    },
+                  ],
+                  "renew" => [
+                    {
+                      "url" => "/licence-to-kill/dorset/renew-1",
+                      "description" => "Renew your licence to kill",
+                      "payment" => "none",
+                      "introduction" => "",
+                      "usesLicensify" => true,
+                    },
+                  ],
+                },
+              },
+            ]
+
+            stub_licence_exists(
+              "1071-5-1/E06000069",
+              "isLocationSpecific" => true,
+              "isOfferedByCounty" => true,
+              "geographicalAvailability" => %w[England Wales],
+              "issuingAuthorities" => authorities,
+            )
+
+            visit "/find-licences/licence-to-kill"
+
+            fill_in "postcode", with: "DT11 0SF"
+            click_on "Find"
+          end
+
+          should "redirect to the appropriate authority slug" do
+            assert_equal "/find-licences/licence-to-kill/dorset", current_path
+          end
+
+          should "have an apply link" do
+            assert page.has_link? "How to apply", href: "/find-licences/licence-to-kill/dorset/apply"
+          end
+        end
       end
 
       context "when there are more than one authority" do

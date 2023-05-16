@@ -6,13 +6,14 @@ class LocalAuthorityPresenterTest < ActiveSupport::TestCase
       @local_authority_payload = {
         "name" => "Westminster City Council",
         "snac" => "00BK",
+        "gss" => "E060000034",
         "tier" => "district",
         "homepage_url" => "http://westminster.example.com/",
       }
       @local_authority_presenter = LocalAuthorityPresenter.new(@local_authority_payload)
     end
     %i[
-      name snac tier homepage_url
+      name snac gss tier homepage_url
     ].each do |exposed_attribute|
       should "expose value of #{exposed_attribute} from payload via a method" do
         assert @local_authority_presenter.respond_to? exposed_attribute

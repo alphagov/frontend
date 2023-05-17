@@ -337,7 +337,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         end
       end
 
-      context "when there are more than one authority" do
+      context "when there are more than one licensing authority" do
         setup do
           authorities = [
             {
@@ -399,7 +399,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           click_on "Find"
         end
 
-        should "show details for the first authority only" do
+        # Note - we no longer support multiple licensing authorities, so
+        # a safe behaviour if we do get more than one is to show only
+        # the first one.
+        should "show details for the first licensing authority only" do
           within("#overview") do
             assert page.has_content?("Westminster")
             assert_not page.has_content?("Kingsmen Tailors")

@@ -6,6 +6,7 @@ class LocalAuthorityPresenter
   PASS_THROUGH_KEYS = %i[
     name
     snac
+    gss
     tier
     homepage_url
     country_name

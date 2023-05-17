@@ -284,6 +284,77 @@ class LicenceTest < ActionDispatch::IntegrationTest
         should "redirect to the appropriate authority slug" do
           assert_equal "/licence-to-thrill/buckinghamshire", current_path
         end
+
+        should "have an apply link" do
+          assert page.has_link? "How to apply", href: "/licence-to-thrill/buckinghamshire/apply"
+        end
+
+        context "when the local authority doesn't have a SNAC" do
+          setup do
+            configure_locations_api_and_local_authority("DT11 0SF", %w[dorset], 440, snac: nil, gss: "E06000069")
+
+            authorities = [
+              {
+                "authorityName" => "Dorset Council",
+                "authoritySlug" => "dorset",
+                "authorityContact" => {
+                  "website" => "",
+                  "email" => "",
+                  "phone" => "",
+                  "address" => "",
+                },
+                "authorityInteractions" => {
+                  "apply" => [
+                    {
+                      "url" => "/licence-to-thrill/dorset/apply-1",
+                      "description" => "Apply for your licence to thrill",
+                      "payment" => "none",
+                      "introduction" => "This licence is issued shaken, not stirred.",
+                      "usesLicensify" => true,
+                    },
+                    {
+                      "url" => "/licence-to-thrill/dorset/apply-2",
+                      "description" => "Apply for your licence to hold gadgets",
+                      "payment" => "none",
+                      "introduction" => "Q-approval required.",
+                      "usesLicensify" => true,
+                    },
+                  ],
+                  "renew" => [
+                    {
+                      "url" => "/licence-to-thrill/dorset/renew-1",
+                      "description" => "Renew your licence to thrill",
+                      "payment" => "none",
+                      "introduction" => "",
+                      "usesLicensify" => true,
+                    },
+                  ],
+                },
+              },
+            ]
+
+            stub_licence_exists(
+              "999/E06000069",
+              "isLocationSpecific" => true,
+              "isOfferedByCounty" => true,
+              "geographicalAvailability" => %w[England Wales],
+              "issuingAuthorities" => authorities,
+            )
+
+            visit "/licence-to-thrill"
+
+            fill_in "postcode", with: "DT11 0SF"
+            click_on "Find"
+          end
+
+          should "redirect to the appropriate authority slug" do
+            assert_equal "/licence-to-thrill/dorset", current_path
+          end
+
+          should "have an apply link" do
+            assert page.has_link? "How to apply", href: "/licence-to-thrill/dorset/apply"
+          end
+        end
       end
 
       context "when there are more than one authority" do

@@ -59,11 +59,11 @@ private
     @licence_details ||= LicenceDetailsPresenter.new(licence_details_from_api, params["authority_slug"], params[:interaction])
   end
 
-  def licence_details_from_api(snac = nil)
+  def licence_details_from_api(local_authority_code = nil)
     return {} if publication.continuation_link.present?
 
     begin
-      GdsApi.licence_application.details_for_licence(publication.licence_identifier, snac)
+      GdsApi.licence_application.details_for_licence(publication.licence_identifier, local_authority_code)
     rescue GdsApi::HTTPErrorResponse => e
       return {} if e.code == 404
 
@@ -72,14 +72,18 @@ private
   end
 
   def licence_details_from_api_for_local_authority
-    raise RecordNotFound unless snac_from_slug
+    local_authority_code = local_authority_code_from_slug
+    raise RecordNotFound unless local_authority_code
 
-    licence_details_from_api(snac_from_slug)
+    licence_details_from_api(local_authority_code)
   end
 
-  def snac_from_slug
+  def local_authority_code_from_slug
     local_authority_results = Frontend.local_links_manager_api.local_authority(params[:authority_slug])
-    @snac_from_slug = local_authority_results.dig("local_authorities", 0, "snac")
+    snac = local_authority_results.dig("local_authorities", 0, "snac")
+    return snac if snac
+
+    local_authority_results.dig("local_authorities", 0, "gss")
   end
 
   def authority_choice_submitted?

@@ -5,7 +5,7 @@ module LocationHelpers
   include GdsApi::TestHelpers::LocationsApi
   include GdsApi::TestHelpers::LocalLinksManager
 
-  def configure_locations_api_and_local_authority(postcode, authorities, local_custodian_code, snac: "00BK")
+  def configure_locations_api_and_local_authority(postcode, authorities, local_custodian_code, snac: "00BK", gss: "E06000064")
     stub_locations_api_has_location(
       postcode,
       [
@@ -17,7 +17,7 @@ module LocationHelpers
       ],
     )
     authorities.each do |authority|
-      stub_local_links_manager_has_a_local_authority(authority, local_custodian_code:, snac:)
+      stub_local_links_manager_has_a_local_authority(authority, local_custodian_code:, snac:, gss:)
     end
   end
 end

@@ -1307,7 +1307,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
-    jasmine-browser-runner: ^1.2.0
+    jasmine-browser-runner: ^1.4.0
     jasmine-core: ^4.6.0
     standardx: ^7.0.0
     stylelint: ^15.6.1
@@ -1758,19 +1758,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-browser-runner@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "jasmine-browser-runner@npm:1.2.0"
+"jasmine-browser-runner@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "jasmine-browser-runner@npm:1.4.0"
   dependencies:
     ejs: ^3.1.6
     express: ^4.16.4
     glob: ^7.1.7
-    selenium-webdriver: ^4.1.0
+    selenium-webdriver: ">=4.1.0 <4.8.0"
   peerDependencies:
     jasmine-core: ^4.0.0
   bin:
     jasmine-browser-runner: bin/jasmine-browser-runner
-  checksum: ca71b678cd8cfeeb44b8151311e441a3d1e5fb8a94279358365716f4ace1adba1c3914e5e09a95427e90d06cf34137055b1c9d2014219af9e383a1566813bb74
+  checksum: 8d70da23654d8aa3cf4d472023ae2c53efcfe1650b632daaec1706fd1eacf5c91caeb9d5fad665e999c241d7f9ce70664585520230eb0e89fc53bad6eb506c34
   languageName: node
   linkType: hard
 
@@ -1867,15 +1867,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jszip@npm:^3.6.0":
-  version: 3.9.1
-  resolution: "jszip@npm:3.9.1"
+"jszip@npm:^3.10.0":
+  version: 3.10.1
+  resolution: "jszip@npm:3.10.1"
   dependencies:
     lie: ~3.3.0
     pako: ~1.0.2
     readable-stream: ~2.3.6
-    set-immediate-shim: ~1.0.1
-  checksum: 8c4c3e99beea3dad8a0f965f2f84d3d0f68aa7d936e069f64982fe393745d27ea6aa82c5dbd7376c73f94cfad1a0ecbf240c7a380419d3d1192148c4ef8a381d
+    setimmediate: ^1.0.5
+  checksum: abc77bfbe33e691d4d1ac9c74c8851b5761fba6a6986630864f98d876f3fcc2d36817dfc183779f32c00157b5d53a016796677298272a714ae096dfe6b1c8b60
   languageName: node
   linkType: hard
 
@@ -2911,14 +2911,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"selenium-webdriver@npm:^4.1.0":
-  version: 4.1.2
-  resolution: "selenium-webdriver@npm:4.1.2"
+"selenium-webdriver@npm:>=4.1.0 <4.8.0":
+  version: 4.7.1
+  resolution: "selenium-webdriver@npm:4.7.1"
   dependencies:
-    jszip: ^3.6.0
+    jszip: ^3.10.0
     tmp: ^0.2.1
-    ws: ">=7.4.6"
-  checksum: d55123d83baf23068acd2122ee3d6ece5db9fa09da8ba40cec02ccc89332dd5365f7782dd91e281c242c271e2c299e7b75bf1cc9a5e301c8a9697d65d2989630
+    ws: ">=8.7.0"
+  checksum: e308903fd9fc715a49edea073ef11e023a99f138024777e9ec59c12520abe8669fd1fd9e42c4c49984dd4a6a69a2945018430afda04df51a89cdeff74c7e3158
   languageName: node
   linkType: hard
 
@@ -2984,10 +2984,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"set-immediate-shim@npm:~1.0.1":
-  version: 1.0.1
-  resolution: "set-immediate-shim@npm:1.0.1"
-  checksum: 5085c84039d1e5eee73d2bf48ce765fcec76159021d0cc7b40e23bcdf62cb6d450ffb781e3c62c1118425242c48eae96df712cba0a20a437e86b0d4a15d51a11
+"setimmediate@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "setimmediate@npm:1.0.5"
+  checksum: c9a6f2c5b51a2dabdc0247db9c46460152ffc62ee139f3157440bd48e7c59425093f42719ac1d7931f054f153e2d26cf37dfeb8da17a794a58198a2705e527fd
   languageName: node
   linkType: hard
 
@@ -3671,18 +3671,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:>=7.4.6":
-  version: 8.6.0
-  resolution: "ws@npm:8.6.0"
+"ws@npm:>=8.7.0":
+  version: 8.13.0
+  resolution: "ws@npm:8.13.0"
   peerDependencies:
     bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
+    utf-8-validate: ">=5.0.2"
   peerDependenciesMeta:
     bufferutil:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: e2fca82059f1e087d0c78e2f37135e1b8332bc804fce46f83c2db1cb8571685abf9d2c99b964bab3752536ad90b99b46fb8d1428899aed3e560684ab4641bffd
+  checksum: 53e991bbf928faf5dc6efac9b8eb9ab6497c69feeb94f963d648b7a3530a720b19ec2e0ec037344257e05a4f35bd9ad04d9de6f289615ffb133282031b18c61c
   languageName: node
   linkType: hard
 

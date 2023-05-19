@@ -29,7 +29,7 @@
           type: "local transaction",
           text: t(@location_error.message, **@location_error.message_args, locale: :en),
           section: t('formats.local_transaction.enter_postcode', locale: :en),
-          "tool_name": publication_title
+          "tool_name": publication_title ||= nil
         }.to_json
       },
       items: [
@@ -53,7 +53,7 @@
         "type": "local transaction",
         "text": "Find",
         "section": t('formats.local_transaction.enter_postcode', locale: :en),
-        "tool_name": publication_title
+        "tool_name": publication_title ||= nil
       }.to_json
     }
   ) do | form | %>

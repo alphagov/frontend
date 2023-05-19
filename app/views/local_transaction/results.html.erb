@@ -25,7 +25,16 @@
       <p class="govuk-body">
         <%= t('formats.local_transaction.info_on_website') %>
       </p>
-      <p id="get-started" class="get-started group">
+      <p id="get-started" class="get-started group"
+        data-module="ga4-link-tracker"
+        data-ga4-track-links-only
+        data-ga4-set-indexes
+        data-ga4-link="<%= {
+          "event_name": "information_click",
+          "type": "local transaction",
+          "tool_name": publication.title,
+          "action": "information click"
+        }.to_json %>">
         <%= render "govuk_publishing_components/components/button", {
           text: t('formats.local_transaction.local_authority_website', local_authority_name: @local_authority.name),
           rel: "external",

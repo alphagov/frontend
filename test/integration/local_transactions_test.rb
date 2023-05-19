@@ -85,6 +85,17 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert_equal "postcodeSearch:local_transaction", track_category
         assert_equal "postcodeSearchStarted", track_action
       end
+
+      should "add the GA4 form tracker for form_submit events" do
+        data_module = page.find("form")["data-module"]
+        expected_data_module = "ga4-form-tracker"
+
+        ga4_form_attribute = page.find("form")["data-ga4-form"]
+        ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"local transaction\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_form_attribute
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do

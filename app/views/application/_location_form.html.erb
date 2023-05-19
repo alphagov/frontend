@@ -39,6 +39,16 @@
     url: action,
     class: "location-form govuk-!-margin-bottom-9",
     method: form_method,
+    data: {
+      "module": "ga4-form-tracker",
+      "ga4-form": {
+        "event_name": "form_submit",
+        "type": "local transaction",
+        "text": "Find",
+        "section": t('formats.local_transaction.enter_postcode', locale: :en),
+        "tool_name": publication_title
+      }.to_json
+    }
   ) do | form | %>
 
     <%

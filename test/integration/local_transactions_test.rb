@@ -148,6 +148,17 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_content? I18n.t("formats.local_transaction.valid_postcode_no_match")
       end
 
+      should "add the GA4 auto tracker to the error (form_error event)" do
+        data_module = page.find("#error")["data-module"]
+        expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+
+        ga4_error_attribute = page.find("#error")["data-ga4-auto"]
+        ga4_expected_object = "{\"event_name\":\"form_error\",\"type\":\"local transaction\",\"text\":\"We couldn't find this postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_error_attribute
+      end
+
       should "populate google analytics tags" do
         track_action = page.find(".gem-c-error-summary")["data-track-action"]
         track_label = page.find(".gem-c-error-summary")["data-track-label"]

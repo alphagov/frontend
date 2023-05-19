@@ -117,6 +117,28 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         )
       end
 
+      should "add the GA4 auto tracker around the result body (form_complete)" do
+        data_module = page.find(".interaction p:first-child")["data-module"]
+        expected_data_module = "auto-track-event ga4-auto-tracker"
+
+        ga4_auto_attribute = page.find(".interaction p:first-child")["data-ga4-auto"]
+        ga4_expected_object = "{\"event_name\":\"form_complete\",\"type\":\"local transaction\",\"text\":\"We've matched the postcode to Westminster.\",\"action\":\"complete\",\"tool_name\":\"Pay your bear tax\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_auto_attribute
+      end
+
+      should "add the GA4 link tracker around the result link (information_click)" do
+        data_module = page.find("#get-started")["data-module"]
+        expected_data_module = "ga4-link-tracker"
+
+        ga4_link_attribute = page.find("#get-started")["data-ga4-link"]
+        ga4_expected_object = "{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Pay your bear tax\",\"action\":\"information click\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_link_attribute
+      end
+
       should "not show the transaction information" do
         assert_not page.has_content?("owning or looking after a bear")
       end

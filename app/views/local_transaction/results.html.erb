@@ -8,10 +8,17 @@
 } do %>
   <div class="interaction">
     <p class="govuk-body"
-       data-module="auto-track-event"
+       data-module="auto-track-event ga4-auto-tracker"
        data-track-category="postcodeSearch:local_transaction"
        data-track-action="postcodeResultShown"
-       data-track-label="<%= @local_authority.name %>">
+       data-track-label="<%= @local_authority.name %>"
+       data-ga4-auto="<%= {
+        event_name: "form_complete",
+        type: "local transaction",
+        text: Nokogiri::HTML(t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name, locale: :en)).text,
+        action: "complete",
+        tool_name: publication.title
+       }.to_json %>">
       <%= t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name) %>
     </p>
     <% if @interaction_details['local_interaction'] %>

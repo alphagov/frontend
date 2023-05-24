@@ -8,7 +8,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
   include LocationHelpers
 
   setup do
-    content_store_has_random_item(base_path: "/find-local-council")
+    content_store_has_random_item(base_path: "/find-local-council", title: "Find your local council", description: "Find your local authority in England, Wales, Scotland and Northern Ireland")
   end
 
   context "when visiting the start page" do

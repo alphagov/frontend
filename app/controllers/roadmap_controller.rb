@@ -1,7 +1,5 @@
 class RoadmapController < ApplicationController
   include Cacheable
 
-  def index
-    slimmer_template "gem_layout"
-  end
+  def index; end
 end

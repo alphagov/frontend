@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
+  slimmer_template "gem_layout"
 
   before_action do
     I18n.locale = I18n.default_locale
@@ -14,8 +15,6 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
   rescue_from GdsApi::HTTPForbidden, with: :error_403
   rescue_from RecordNotFound, with: :cacheable_404
-
-  slimmer_template "gem_layout"
 
   if ENV["BASIC_AUTH_USERNAME"]
     http_basic_authenticate_with(

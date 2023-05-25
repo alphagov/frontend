@@ -39,12 +39,7 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def authority
-    if publication.licence_transaction_continuation_link.present?
-      redirect_to licence_transaction_path(slug: params[:slug])
-    elsif licence_details.local_authority_specific?
-      # TODO: Shoud not override @license_details here
-      @licence_details = LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
-    end
+    redirect_to licence_transaction_path(slug: params[:slug]) if publication.licence_transaction_continuation_link.present?
   end
 
 private
@@ -58,7 +53,14 @@ private
   end
 
   def licence_details
-    @licence_details ||= LicenceDetailsPresenter.new(licence_details_from_api, params[:authority_slug], params[:interaction])
+    @licence_details ||= fetch_licence_details
+  end
+
+  def fetch_licence_details
+    details = LicenceDetailsPresenter.new(licence_details_from_api, params[:authority_slug], params[:interaction])
+    return details unless params[:authority_slug].present? && details.local_authority_specific?
+
+    LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
   end
 
   def licence_details_from_api(local_authority_code = nil)

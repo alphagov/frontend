@@ -9,11 +9,19 @@
     <%= t('formats.local_transaction.different_local_authorities') %>
   </p>
 
+  <% ga4_type = content_item_hash["schema_name"].gsub("_", " ") %>
   <div class="local-authority-results"
-       data-module="auto-track-event"
+       data-module="auto-track-event ga4-auto-tracker"
        data-track-category="postcodeSearch:find_local_council"
        data-track-action="postcodeResultShown"
-       data-track-label="2 Results">
+       data-track-label="2 Results"
+       data-ga4-auto="<%= {
+         event_name: "form_complete",
+         action: "complete",
+         type: ga4_type,
+         text: "#{@county["name"]},#{@district["name"]}",
+         tool_name: t('formats.local_transaction.find_council', locale: :en)
+      }.to_json %>">
 
     <div class="county-result group govuk-!-margin-bottom-8">
       <%= render "govuk_publishing_components/components/heading", {
@@ -40,10 +48,20 @@
             local_authority_name: @county["name"]), @county["homepage_url"],
             class: "govuk-link",
             data: {
-              module: 'gem-track-click',
+              module: 'gem-track-click ga4-link-tracker',
               track_category: 'pageElementInteraction',
               track_action: 'countyLinkClicked',
-              track_label: @county["homepage_url"]
+              track_label: @county["homepage_url"],
+              ga4_link: {
+                event_name: "information_click",
+                action: "information click",
+                type: ga4_type,
+                index: {
+                  index_link: 1,
+                },
+                index_total: 2,
+                tool_name: t('formats.local_transaction.find_council', locale: :en)
+              }
             }
           %>
         <% end %>
@@ -75,10 +93,20 @@
             local_authority_name: @district["name"]), @district["homepage_url"],
             class: "govuk-link",
             data: {
-              module: 'gem-track-click',
+              module: 'gem-track-click ga4-link-tracker',
               track_category: 'pageElementInteraction',
               track_action: 'districtLinkClicked',
-              track_label: @district["homepage_url"]
+              track_label: @district["homepage_url"],
+              ga4_link: {
+                event_name: "information_click",
+                action: "information click",
+                type: ga4_type,
+                index: {
+                  index_link: 2,
+                },
+                index_total: 2,
+                tool_name: t('formats.local_transaction.find_council', locale: :en)
+              }
             }
           %>
         <% end %>

@@ -25,6 +25,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     should "return a 200 response" do
       assert_equal 200, page.status_code
     end
+
+    should "include a link to the parent document" do
+      assert page.has_link?("See more information about this guidance", href: parent_document_url)
+    end
   end
 
   context "when the asset does not exist" do

@@ -5,6 +5,21 @@
 <main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+        <% @content_item.dig("links", "organisations").each do |organisation| %>
+          <%= render "govuk_publishing_components/components/organisation_logo", {
+            organisation: {
+              name: sanitize(organisation.dig("details", "logo", "formatted_title")),
+              url: organisation["base_path"],
+              brand: organisation.dig("details", "brand"),
+              crest: organisation.dig("details", "logo", "crest"),
+            }
+          } %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         <p class="govuk-body">
           <%= link_to("See more information about this guidance", @asset["parent_document_url"], class: "govuk-link") %>

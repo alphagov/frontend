@@ -36,6 +36,20 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
           },
         ],
       },
+      links: {
+        organisations: [
+          {
+            base_path: "/government/organisations/department-of-publishing",
+            details: {
+              brand: "single-identity",
+              logo: {
+                crest: "single-identity",
+                formatted_title: "Department of Publishing",
+              },
+            },
+          },
+        ],
+      },
     }
     stub_content_store_has_item(parent_document_base_path, content_item)
   end
@@ -63,6 +77,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     should "include a link to download the CSV file" do
       assert page.has_link?("Download CSV 2 KB", href: "https://www.gov.uk/#{legacy_url_path}")
+    end
+
+    should "include a link to the organisation" do
+      assert page.has_link?("Department of Publishing", href: "/government/organisations/department-of-publishing")
     end
   end
 

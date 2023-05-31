@@ -7,3 +7,11 @@
     font-weight: bold;
   }
 }
+
+.csv-preview__download-link {
+  color: govuk-colour("white");
+
+  &:focus {
+    color: govuk-colour("black");
+  }
+}

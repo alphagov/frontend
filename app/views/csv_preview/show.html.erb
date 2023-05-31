@@ -22,7 +22,11 @@
             margin_bottom: 8,
             margin_top: 8,
           } %>
-          <p class="govuk-body csv-preview__updated">Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %></p>
+          <p class="govuk-body csv-preview__updated">
+            Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %>
+            <br>
+            <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata.first['file_size'])}".html_safe, @attachment_metadata.first['url'], class: "csv-preview__download-link") %>
+          </p>
         <% end %>
       </div>
     </div>

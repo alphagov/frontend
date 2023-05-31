@@ -27,10 +27,12 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
           {
             title: "Attachment 1",
             url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5678/filename.csv",
+            file_size: "1024",
           },
           {
             title: "Attachment 2",
-            url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}.csv",
+            url: "https://www.gov.uk/#{legacy_url_path}",
+            file_size: "2048",
           },
         ],
       },
@@ -57,6 +59,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     should "include the last updated date" do
       assert page.has_text?("Updated 27 May 2023")
+    end
+
+    should "include a link to download the CSV file" do
+      assert page.has_link?("Download CSV 2 KB", href: "https://www.gov.uk/#{legacy_url_path}")
     end
   end
 

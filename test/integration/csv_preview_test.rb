@@ -21,6 +21,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     content_item = {
       base_path: parent_document_base_path,
+      public_updated_at: "2023-05-27T08:00:07.000+00:00",
       details: {
         attachments: [
           {
@@ -52,6 +53,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     should "include the correct asset title from the content item" do
       assert page.has_text?("Attachment 2")
+    end
+
+    should "include the last updated date" do
+      assert page.has_text?("Updated 27 May 2023")
     end
   end
 

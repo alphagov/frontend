@@ -11,6 +11,7 @@
 //= link views/_calendars.css
 //= link views/_completed_transaction.css
 //= link views/_cookie-settings.css
+//= link views/_csv_preview.css
 //= link views/_homepage.css
 //= link views/_travel-advice.css
 //= link views/_report-child-abuse.css

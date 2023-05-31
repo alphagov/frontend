@@ -1,3 +1,7 @@
+<%
+  add_view_stylesheet("csv_preview")
+%>
+
 <main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
@@ -18,6 +22,7 @@
             margin_bottom: 8,
             margin_top: 8,
           } %>
+          <p class="govuk-body csv-preview__updated">Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %></p>
         <% end %>
       </div>
     </div>

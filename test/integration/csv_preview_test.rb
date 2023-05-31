@@ -21,6 +21,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     content_item = {
       base_path: parent_document_base_path,
+      document_type: "guidance",
       public_updated_at: "2023-05-27T08:00:07.000+00:00",
       details: {
         attachments: [
@@ -81,6 +82,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     should "include a link to the organisation" do
       assert page.has_link?("Department of Publishing", href: "/government/organisations/department-of-publishing")
+    end
+
+    should "include the type of the parent document" do
+      assert page.has_text?("Guidance")
     end
   end
 

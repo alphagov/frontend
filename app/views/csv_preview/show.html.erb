@@ -7,5 +7,19 @@
         </p>
       </div>
     </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <%= render 'govuk_publishing_components/components/inverse_header', {} do %>
+          <%= render "govuk_publishing_components/components/title", {
+            title: @attachment_metadata.first["title"],
+            font_size: "xl",
+            inverse: true,
+            margin_bottom: 8,
+            margin_top: 8,
+          } %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </main>

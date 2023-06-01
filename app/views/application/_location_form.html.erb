@@ -8,6 +8,9 @@
 
   css_classes = %w[postcode-search-form]
   css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
+
+  ga4_type = content_item_hash["schema_name"].gsub("_", " ")
+  ga4_section = t('formats.local_transaction.enter_postcode', locale: :en)
 %>
 
 <%= tag.div class: css_classes, data: {
@@ -26,10 +29,11 @@
         track_label: t(@location_error.message, **@location_error.message_args),
         ga4_auto: {
           event_name: "form_error",
-          type: "local transaction",
+          action: "error",
+          type: ga4_type,
           text: t(@location_error.message, **@location_error.message_args, locale: :en),
-          section: t('formats.local_transaction.enter_postcode', locale: :en),
-          "tool_name": publication_title ||= nil
+          section: ga4_section,
+          tool_name: publication_title ||= nil
         }.to_json
       },
       items: [
@@ -50,10 +54,10 @@
       "module": "ga4-form-tracker",
       "ga4-form": {
         "event_name": "form_submit",
-        "type": "local transaction",
-        "text": "Find",
-        "section": t('formats.local_transaction.enter_postcode', locale: :en),
-        "tool_name": publication_title ||= nil
+        "type": ga4_type,
+        "text": t("find", locale: :en),
+        "section": ga4_section,
+        "tool_name": publication_title ||= nil,
       }.to_json
     }
   ) do | form | %>

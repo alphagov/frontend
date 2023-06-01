@@ -175,7 +175,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
 
         ga4_error_attribute = page.find("#error")["data-ga4-auto"]
-        ga4_expected_object = "{\"event_name\":\"form_error\",\"type\":\"local transaction\",\"text\":\"We couldn't find this postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
+        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"local transaction\",\"text\":\"We couldn't find this postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
 
         assert_equal expected_data_module, data_module
         assert_equal ga4_expected_object, ga4_error_attribute

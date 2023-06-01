@@ -1,5 +1,7 @@
 PATH
   remote: ../govuk_publishing_components
+  revision: 304167f44714b26d47d73923f829496619b05efc
+  branch: ensure-components-render-without-static
   specs:
     govuk_publishing_components (35.5.0)
       govuk_app_config

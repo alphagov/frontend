@@ -1,0 +1,17 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.csv-preview__updated {
+  color: govuk-colour("white");
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+.csv-preview__download-link {
+  color: govuk-colour("white");
+
+  &:focus {
+    color: govuk-colour("black");
+  }
+}

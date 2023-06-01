@@ -4,7 +4,6 @@ class DevelopmentController < ApplicationController
   def index
     @schema_names = %w[
       calendar
-      completed_transaction
       homepage
       local_transaction
       place

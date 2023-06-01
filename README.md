@@ -43,23 +43,6 @@ Transaction start pages:
 * https://www.gov.uk/cooling-tower-notification
 * https://www.gov.uk/performing-animals-registration
 
-### Transaction done pages
-
-* https://www.gov.uk/done/transaction-finished
-* https://www.gov.uk/done/driving-transaction-finished
-
-### Transaction done with survey pages
-
-Standard survey:
-
-* https://www.gov.uk/done/check-settled-status
-
-Assisted digital satisfaction surveys:
-
-* https://www.gov.uk/done/register-flood-risk-exemption
-* https://www.gov.uk/done/waste-carrier-or-broker-registration
-* https://www.gov.uk/done/register-waste-exemption
-
 ### Calendars
 
 * https://www.gov.uk/bank-holidays

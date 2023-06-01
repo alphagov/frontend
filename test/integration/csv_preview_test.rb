@@ -87,6 +87,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     should "include the type of the parent document" do
       assert page.has_text?("Guidance")
     end
+
+    should "include the page title" do
+      assert page.has_title?("Attachment 2 - GOV.UK")
+    end
   end
 
   context "when the asset does not exist" do

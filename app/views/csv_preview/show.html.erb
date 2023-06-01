@@ -2,6 +2,8 @@
   add_view_stylesheet("csv_preview")
 %>
 
+<% content_for :title, "#{@attachment_metadata.first["title"]} - GOV.UK" %>
+
 <main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">

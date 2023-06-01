@@ -1,3 +1,15 @@
+PATH
+  remote: ../govuk_publishing_components
+  specs:
+    govuk_publishing_components (35.5.0)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -146,14 +158,6 @@ GEM
     govuk_personalisation (0.13.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
-    govuk_publishing_components (35.4.0)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
     govuk_schemas (4.6.0)
       json-schema (>= 2.8, < 4.1)
     govuk_test (3.0.1)
@@ -474,7 +478,7 @@ DEPENDENCIES
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   htmlentities

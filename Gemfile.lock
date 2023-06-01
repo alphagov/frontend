@@ -1,6 +1,6 @@
-PATH
-  remote: ../govuk_publishing_components
-  revision: 304167f44714b26d47d73923f829496619b05efc
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 9d20b937ed35a95cc37be64b7fa606b90fdaae18
   branch: ensure-components-render-without-static
   specs:
     govuk_publishing_components (35.5.0)

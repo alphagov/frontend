@@ -85,6 +85,17 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert_equal "postcodeSearch:local_transaction", track_category
         assert_equal "postcodeSearchStarted", track_action
       end
+
+      should "add the GA4 form tracker for form_submit events" do
+        data_module = page.find("form")["data-module"]
+        expected_data_module = "ga4-form-tracker"
+
+        ga4_form_attribute = page.find("form")["data-ga4-form"]
+        ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"local transaction\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_form_attribute
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do
@@ -104,6 +115,28 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
           href: "http://www.westminster.gov.uk/bear-the-cost-of-grizzly-ownership-2016-update",
           rel: "external",
         )
+      end
+
+      should "add the GA4 auto tracker around the result body (form_complete)" do
+        data_module = page.find(".interaction p:first-child")["data-module"]
+        expected_data_module = "auto-track-event ga4-auto-tracker"
+
+        ga4_auto_attribute = page.find(".interaction p:first-child")["data-ga4-auto"]
+        ga4_expected_object = "{\"event_name\":\"form_complete\",\"type\":\"local transaction\",\"text\":\"We've matched the postcode to Westminster.\",\"action\":\"complete\",\"tool_name\":\"Pay your bear tax\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_auto_attribute
+      end
+
+      should "add the GA4 link tracker around the result link (information_click)" do
+        data_module = page.find("#get-started")["data-module"]
+        expected_data_module = "ga4-link-tracker"
+
+        ga4_link_attribute = page.find("#get-started")["data-ga4-link"]
+        ga4_expected_object = "{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Pay your bear tax\",\"action\":\"information click\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_link_attribute
       end
 
       should "not show the transaction information" do
@@ -135,6 +168,17 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "see an error message" do
         assert page.has_content? I18n.t("formats.local_transaction.valid_postcode_no_match")
+      end
+
+      should "add the GA4 auto tracker to the error (form_error event)" do
+        data_module = page.find("#error")["data-module"]
+        expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+
+        ga4_error_attribute = page.find("#error")["data-ga4-auto"]
+        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"local transaction\",\"text\":\"We couldn't find this postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_error_attribute
       end
 
       should "populate google analytics tags" do

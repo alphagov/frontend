@@ -19,6 +19,11 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     }
     stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
 
+    csv_file = generate_test_csv(51, 1010)
+
+    stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
+      .to_return(body: csv_file, status: 200)
+
     content_item = {
       base_path: parent_document_base_path,
       document_type: "guidance",
@@ -91,6 +96,31 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     should "include the page title" do
       assert page.has_title?("Attachment 2 - GOV.UK")
     end
+
+    should "include the CSV headings" do
+      assert_selector ".csv-preview__inner th:nth-child(1)", text: "field_1"
+      assert_selector ".csv-preview__inner th:nth-child(2)", text: "field_2"
+      assert_selector ".csv-preview__inner th:nth-child(3)", text: "field_3"
+    end
+
+    should "include the CSV content" do
+      assert_selector ".csv-preview__inner tr:nth-child(1) td:nth-child(1)", text: "Value1"
+      assert_selector ".csv-preview__inner tr:nth-child(1) td:nth-child(2)", text: "Value2"
+      assert_selector ".csv-preview__inner tr:nth-child(1) td:nth-child(3)", text: "Value3"
+      assert_selector ".csv-preview__inner tr:nth-child(2) td:nth-child(1)", text: "Value1"
+      assert_selector ".csv-preview__inner tr:nth-child(2) td:nth-child(2)", text: "Value2"
+      assert_selector ".csv-preview__inner tr:nth-child(2) td:nth-child(3)", text: "Value3"
+    end
+
+    should "truncate at 50 columns" do
+      assert_selector ".csv-preview__inner th:nth-child(50)", text: "field_50"
+      assert_no_selector ".csv-preview__inner th:nth-child(51) td:nth-child(3)", text: "field_51"
+    end
+
+    should "truncate at 1000 rows" do
+      assert_selector ".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1"
+      assert_no_selector ".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1"
+    end
   end
 
   context "when the asset does not exist" do
@@ -102,5 +132,46 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     should "return a 404 response" do
       assert_equal 404, page.status_code
     end
+  end
+
+  context "when the asset is in windows-1252 encoding" do
+    setup do
+      csv_file = generate_test_csv(51, 1010).encode("windows-1252")
+
+      stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
+        .to_return(body: csv_file, status: 200)
+    end
+
+    should "include the CSV headings" do
+      assert_selector ".csv-preview__inner th:nth-child(1)", text: "field_1"
+      assert_selector ".csv-preview__inner th:nth-child(2)", text: "field_2"
+      assert_selector ".csv-preview__inner th:nth-child(3)", text: "field_3"
+    end
+
+    should "include the CSV content" do
+      assert_selector ".csv-preview__inner tr:nth-child(1) td:nth-child(1)", text: "Value1"
+      assert_selector ".csv-preview__inner tr:nth-child(1) td:nth-child(2)", text: "Value2"
+      assert_selector ".csv-preview__inner tr:nth-child(1) td:nth-child(3)", text: "Value3"
+      assert_selector ".csv-preview__inner tr:nth-child(2) td:nth-child(1)", text: "Value1"
+      assert_selector ".csv-preview__inner tr:nth-child(2) td:nth-child(2)", text: "Value2"
+      assert_selector ".csv-preview__inner tr:nth-child(2) td:nth-child(3)", text: "Value3"
+    end
+
+    should "truncate at 50 columns" do
+      assert_selector ".csv-preview__inner th:nth-child(50)", text: "field_50"
+      assert_no_selector ".csv-preview__inner th:nth-child(51) td:nth-child(3)", text: "field_51"
+    end
+
+    should "truncate at 1000 rows" do
+      assert_selector ".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1"
+      assert_no_selector ".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1"
+    end
+  end
+
+  def generate_test_csv(column_count, row_count)
+    csv_headers = CSV.generate_line((1..column_count).map { |column_number| "field_#{column_number}" })
+    csv_row = CSV.generate_line((1..column_count).map { |column_number| "Value#{column_number}" })
+    csv_rows = (1..row_count).map { |_| csv_row }
+    ([csv_headers] + csv_rows).join("")
   end
 end

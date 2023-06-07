@@ -48,5 +48,18 @@
         <% end %>
       </div>
     </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="csv-preview__outer">
+          <div class="csv-preview__inner">
+            <%= render "govuk_publishing_components/components/table", {
+                  head: @csv_rows.first,
+                  rows: @csv_rows.drop(1),
+                } %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </main>

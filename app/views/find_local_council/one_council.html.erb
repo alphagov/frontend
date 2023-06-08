@@ -1,9 +1,16 @@
 <%= render layout: "base_page" do %>
   <div class="local-authority-results"
-    data-module="auto-track-event"
+    data-module="auto-track-event ga4-auto-tracker"
     data-track-category="postcodeSearch:find_local_council"
     data-track-action="postcodeResultShown"
-    data-track-label="1 Result">
+    data-track-label="1 Result"
+    data-ga4-auto="<%= {
+      event_name: "form_complete",
+      action: "complete",
+      type: content_item_hash["schema_name"].gsub("_", " "),
+      text: @authority["name"],
+      tool_name: t('formats.local_transaction.find_council', locale: :en)
+    }.to_json %>">
 
     <div class="<%= @authority["tier"] %>-result group">
       <p class="govuk-body"><%= t("formats.local_transaction.local_authority_html", local_authority_name: @authority["name"]) %></p>
@@ -18,10 +25,20 @@
           href: @authority["homepage_url"],
           text: t("formats.local_transaction.local_authority_website", local_authority_name: @authority["name"]),
           data_attributes: {
-            module: "gem-track-click",
+            module: "gem-track-click ga4-link-tracker",
             track_category: "pageElementInteraction",
             track_action: "unitaryLinkClicked",
-            track_label: @authority["homepage_url"]
+            track_label: @authority["homepage_url"],
+            ga4_link: {
+              event_name: "information_click",
+              action: "information click",
+              type: content_item_hash["schema_name"].gsub("_", " "),
+              index: {
+                index_link: 1,
+              },
+              index_total: 1,
+              tool_name: t('formats.local_transaction.find_council', locale: :en)
+            }
           }
         } %>
       <% end %>

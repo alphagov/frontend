@@ -104,6 +104,17 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert_equal "postcodeSearch:place", track_category
       assert_equal "postcodeSearchStarted", track_action
     end
+
+    should "add GA4 form submit attributes" do
+      data_module = page.find("form")["data-module"]
+      expected_data_module = "ga4-form-tracker"
+
+      ga4_form_attribute = page.find("form")["data-ga4-form"]
+      ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"place\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find a passport interview office\"}"
+
+      assert_equal expected_data_module, data_module
+      assert_equal ga4_expected_object, ga4_form_attribute
+    end
   end
 
   context "given a valid postcode" do
@@ -163,6 +174,31 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert_equal "postcodeSearch:place", track_category
       assert_equal "postcodeResultShown", track_action
       assert_equal "London IPS Office", track_label
+    end
+
+    should "add GA4 form complete attributes" do
+      data_module = page.find(".places-results")["data-module"]
+      expected_data_module = "auto-track-event ga4-auto-tracker ga4-link-tracker"
+
+      ga4_auto_attribute = page.find(".places-results")["data-ga4-auto"]
+      ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"place\",\"text\":\"Results near [REDACTED]\",\"tool_name\":\"Find a passport interview office\"}"
+
+      assert_equal expected_data_module, data_module
+      assert_equal ga4_expected_object, ga4_auto_attribute
+    end
+
+    should "add GA4 information click attributes" do
+      data_module = page.find(".places-results")["data-module"]
+      expected_data_module = "auto-track-event ga4-auto-tracker ga4-link-tracker"
+
+      assert page.has_selector?("[data-ga4-set-indexes]")
+      assert page.has_selector?("[data-ga4-track-links-only]")
+
+      ga4_auto_attribute = page.find(".places-results")["data-ga4-link"]
+      ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"place\",\"tool_name\":\"Find a passport interview office\"}"
+
+      assert_equal expected_data_module, data_module
+      assert_equal ga4_expected_object, ga4_auto_attribute
     end
   end
 
@@ -262,6 +298,17 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "display error message" do
       assert page.has_content?("This isn't a valid postcode")
+    end
+
+    should "include GA4 form error attributes" do
+      data_module = page.find("#results")["data-module"]
+      expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+
+      ga4_error_attribute = page.find("#results")["data-ga4-auto"]
+      ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"place\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find a passport interview office\"}"
+
+      assert_equal expected_data_module, data_module
+      assert_equal ga4_expected_object, ga4_error_attribute
     end
 
     should "display the postcode form" do

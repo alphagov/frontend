@@ -31,6 +31,19 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       assert_equal "postcodeSearchStarted", track_action
     end
 
+    should "add GA4 attributes for form submit events" do
+      data_module = page.find("form")["data-module"]
+      expected_data_module = "ga4-form-tracker"
+
+      ga4_form_attribute = page.find("form")["data-ga4-form"]
+      # have to pull out the type as it is semi randomly generated
+      form_type = JSON.parse(ga4_form_attribute)
+      ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"#{form_type['type']}\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find your local council\"}"
+
+      assert_equal expected_data_module, data_module
+      assert_equal ga4_expected_object, ga4_form_attribute
+    end
+
     should "add the description as meta tag for SEO purposes" do
       description = page.find('meta[name="description"]', visible: false)["content"]
       assert_equal "Find your local authority in England, Wales, Scotland and Northern Ireland", description
@@ -84,6 +97,36 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
         should "add google analytics for exit link tracking" do
           track_action = find_link("Go to Westminster website")["data-track-action"]
           assert_equal "unitaryLinkClicked", track_action
+        end
+
+        should "add GA4 attributes for exit link tracking" do
+          element = page.find(".gem-c-button")
+
+          data_module = element["data-module"]
+          expected_data_module = "ga4-link-tracker"
+
+          ga4_link_attribute = element["data-ga4-link"]
+          # have to pull out the type as it is semi randomly generated
+          form_type = JSON.parse(ga4_link_attribute)
+          ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"#{form_type['type']}\",\"index\":{\"index_link\":1},\"index_total\":1,\"tool_name\":\"Find your local council\"}"
+
+          assert_includes data_module, expected_data_module
+          assert_equal ga4_expected_object, ga4_link_attribute
+        end
+
+        should "add GA4 attributes" do
+          element = page.find(".local-authority-results")
+
+          data_module = element["data-module"]
+          expected_data_module = "ga4-auto-tracker"
+
+          ga4_auto_attribute = element["data-ga4-auto"]
+          # have to pull out the type as it is semi randomly generated
+          form_type = JSON.parse(ga4_auto_attribute)
+          ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"#{form_type['type']}\",\"text\":\"Westminster\",\"tool_name\":\"Find your local council\"}"
+
+          assert_includes data_module, expected_data_module
+          assert_equal ga4_expected_object, ga4_auto_attribute
         end
       end
 
@@ -146,6 +189,40 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           assert_equal "districtLinkClicked", district_track_action
           assert_equal "countyLinkClicked", county_track_action
+        end
+
+        should "add GA4 attributes for exit link tracking" do
+          element = page.find(".local-authority-results")
+          links = element.all("a")
+
+          expected_data_module = "ga4-link-tracker"
+
+          links.each_with_index do |link, index|
+            data_module = link["data-module"]
+            assert_includes data_module, expected_data_module
+
+            ga4_link_attribute = link["data-ga4-link"]
+            # have to pull out the type as it is semi randomly generated
+            link_type = JSON.parse(ga4_link_attribute)
+            ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"#{link_type['type']}\",\"index\":{\"index_link\":#{index + 1}},\"index_total\":2,\"tool_name\":\"Find your local council\"}"
+
+            assert_equal ga4_expected_object, ga4_link_attribute
+          end
+        end
+
+        should "add GA4 attributes" do
+          element = page.find(".local-authority-results")
+
+          data_module = element["data-module"]
+          expected_data_module = "ga4-auto-tracker"
+
+          ga4_auto_attribute = element["data-ga4-auto"]
+          # have to pull out the type as it is semi randomly generated
+          form_type = JSON.parse(ga4_auto_attribute)
+          ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"#{form_type['type']}\",\"text\":\"Buckinghamshire,Aylesbury\",\"tool_name\":\"Find your local council\"}"
+
+          assert_includes data_module, expected_data_module
+          assert_equal ga4_expected_object, ga4_auto_attribute
         end
       end
 
@@ -272,6 +349,21 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
           assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
           assert_equal "This isn't a valid postcode.", track_label
+        end
+
+        should "include GA4 attributes" do
+          page_error = page.find("#error")
+
+          data_module = page_error["data-module"]
+          expected_data_module = "ga4-auto-tracker"
+
+          ga4_error_attribute = page_error["data-ga4-auto"]
+          # have to pull out the type as it is semi randomly generated
+          error_type = JSON.parse(ga4_error_attribute)
+          ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"#{error_type['type']}\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find your local council\"}"
+
+          assert_includes data_module, expected_data_module
+          assert_equal ga4_expected_object, ga4_error_attribute
         end
       end
 

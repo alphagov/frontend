@@ -82,6 +82,17 @@ class LicenceTest < ActionDispatch::IntegrationTest
         assert_equal "postcodeSearch:licence", track_category
         assert_equal "postcodeSearchStarted", track_action
       end
+
+      should "add GA4 form submit attributes" do
+        data_module = page.find("form")["data-module"]
+        expected_data_module = "ga4-form-tracker"
+
+        ga4_form_attribute = page.find("form")["data-ga4-form"]
+        ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"licence\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_form_attribute
+      end
     end
 
     context "when visiting the licence with a valid postcode" do
@@ -194,6 +205,35 @@ class LicenceTest < ActionDispatch::IntegrationTest
           visit "/licence-to-kill/not-a-valid-council-name"
 
           assert_equal 404, page.status_code
+        end
+
+        should "add GA4 form complete attributes" do
+          data_module = page.find("article")["data-module"]
+          expected_data_module = "ga4-auto-tracker ga4-link-tracker"
+
+          ga4_auto_attribute = page.find("article")["data-ga4-auto"]
+          ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"licence\",\"text\":\"From Westminster City Council\",\"tool_name\":\"Licence to kill\"}"
+
+          assert_equal expected_data_module, data_module
+          assert_equal ga4_expected_object, ga4_auto_attribute
+        end
+
+        should "add GA4 information click attributes" do
+          data_module = page.find("article")["data-module"]
+          expected_data_module = "ga4-auto-tracker ga4-link-tracker"
+
+          ga4_link_attribute = page.find("article")["data-ga4-link"]
+          ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"licence\",\"tool_name\":\"Licence to kill\"}"
+
+          assert_equal expected_data_module, data_module
+          assert_equal ga4_expected_object, ga4_link_attribute
+        end
+
+        should "add GA4 change response attributes" do
+          ga4_link_attribute = page.find(".contact > p > a")["data-ga4-link"]
+          ga4_expected_object = "{\"event_name\":\"form_change_response\",\"action\":\"change response\",\"type\":\"licence\",\"tool_name\":\"Licence to kill\"}"
+
+          assert_equal ga4_expected_object, ga4_link_attribute
         end
       end
 
@@ -447,6 +487,17 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
       should "re-populate the invalid input" do
         assert page.has_field? "postcode", with: "Not valid"
+      end
+
+      should "add the GA4 form error attributes" do
+        data_module = page.find("#error")["data-module"]
+        expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+
+        ga4_error_attribute = page.find("#error")["data-ga4-auto"]
+        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"licence\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
+
+        assert_equal expected_data_module, data_module
+        assert_equal ga4_expected_object, ga4_error_attribute
       end
     end
 

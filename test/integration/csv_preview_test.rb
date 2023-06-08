@@ -10,7 +10,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
   filename = "filename"
   legacy_url_path = "government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}.csv"
   parent_document_base_path = "/government/important-guidance"
-  parent_document_url = "https://www.gov.uk#{parent_document_base_path}"
+  parent_document_url = "https://www.test.gov.uk#{parent_document_base_path}"
 
   setup do
     asset_manager_response = {

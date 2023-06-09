@@ -1,26 +1,16 @@
-<div data-module="track-start-page-tabs ga4-event-tracker">
+<div data-module="track-start-page-tabs">
   <%
     total_tabs = transaction.tab_count
     last_tab_index = 2
     last_tab_index = 3 if total_tabs == 3
   %>
   <%= render "govuk_publishing_components/components/tabs", {
+    ga4_tracking: true,
     panel_border: false,
     tabs: [
       {
         id: ('more-information' if transaction.more_information.present?),
         label: t('formats.transaction.more_information'),
-        tab_data_attributes: {
-          ga4_event: {
-            event_name: "select_content",
-            type: "tabs",
-            text: t('formats.transaction.more_information'),
-            index: {
-              index_section: 1,
-              index_section_count: total_tabs,
-            },
-          },
-        },
         content: render("govuk_publishing_components/components/govspeak", {}) do
                    raw(transaction.more_information)
                  end
@@ -28,19 +18,6 @@
       {
         id: ('what-you-need-to-know' if transaction.what_you_need_to_know.present?),
         label: t('formats.transaction.what_you_need_to_know'),
-        tab_data_attributes: {
-          ga4_event: {
-            event_name: "select_content",
-            type: "tabs",
-            text: t('formats.transaction.what_you_need_to_know'),
-            index: {
-              index_section: 2,
-              index_section_count: total_tabs,
-            },
-            section: 'n/a',
-            action: 'n/a',
-          },
-        },
         content: render("govuk_publishing_components/components/govspeak", {}) do
                    raw(transaction.what_you_need_to_know)
                  end
@@ -48,19 +25,6 @@
       {
         id: ('other-ways-to-apply' if transaction.other_ways_to_apply.present?),
         label: t('formats.transaction.other_ways_to_apply'),
-        tab_data_attributes: {
-          ga4_event: {
-            event_name: "select_content",
-            type: "tabs",
-            text: t('formats.transaction.other_ways_to_apply'),
-            index: {
-              index_section: last_tab_index,
-              index_section_count: total_tabs,
-            },
-            section: 'n/a',
-            action: 'n/a',
-          },
-        },
         content: render("govuk_publishing_components/components/govspeak", {}) do
                    raw(transaction.other_ways_to_apply)
                  end

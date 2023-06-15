@@ -63,7 +63,12 @@
             </ul>
           </div>
         <% end %>
-        <div class="subscriptions-wrapper">
+        <div 
+          class="subscriptions-wrapper"
+          data-module="ga4-link-tracker"
+          data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index": { "index_link": 1 }, "index_total": 1, "section": "Footer" }'
+          data-ga4-track-links-only   
+        >
           <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Get updates for all countries</h2>
             <%= render "govuk_publishing_components/components/subscription_links", {
               email_signup_link_text: "email",

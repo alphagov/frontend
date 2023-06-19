@@ -123,6 +123,23 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "when the asset is draft and not served from the draft host" do
+    setup do
+      asset_manager_response = {
+        id: "https://asset-manager.dev.gov.uk/assets/foo",
+        parent_document_url:,
+        draft: true,
+      }
+      stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
+
+      visit "/#{legacy_url_path}/preview"
+    end
+
+    should "redirect to the draft assets host" do
+      assert_equal "http://draft-assets.dev.gov.uk/#{legacy_url_path}/preview", current_url
+    end
+  end
+
   context "when the asset does not exist" do
     setup do
       stub_asset_manager_does_not_have_a_whitehall_asset("government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv")

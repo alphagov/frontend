@@ -7,6 +7,10 @@ class CsvPreviewController < ApplicationController
   def show
     @asset = GdsApi.asset_manager.whitehall_asset(legacy_url_path).to_hash
 
+    if draft_asset? && !served_from_draft_host?
+      redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true)
+    end
+
     csv_preview = CSV.parse(media, encoding:, headers: true)
 
     @csv_rows = csv_preview.to_a.map { |row|
@@ -51,5 +55,13 @@ private
 
   def windows_1252_encoding?
     media.force_encoding("windows-1252").valid_encoding?
+  end
+
+  def draft_asset?
+    @asset["draft"] == true
+  end
+
+  def served_from_draft_host?
+    request.hostname == URI.parse(Plek.find("draft-assets")).hostname
   end
 end

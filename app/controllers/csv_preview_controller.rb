@@ -8,7 +8,7 @@ class CsvPreviewController < ApplicationController
     @asset = GdsApi.asset_manager.whitehall_asset(legacy_url_path).to_hash
 
     if draft_asset? && !served_from_draft_host?
-      redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true)
+      redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
     end
 
     csv_preview = CSV.parse(media, encoding:, headers: true)

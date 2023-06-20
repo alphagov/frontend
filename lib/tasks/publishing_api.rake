@@ -13,8 +13,6 @@ namespace :publishing_api do
         publisher.publish(route_type, route)
       end
     end
-
-    HomepagePublisher.publish!(GdsApi.publishing_api, logger)
   end
 
   desc "Publish calendars"

@@ -38,7 +38,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       ga4_form_attribute = page.find("form")["data-ga4-form"]
       # have to pull out the type as it is semi randomly generated
       form_type = JSON.parse(ga4_form_attribute)
-      ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"#{form_type['type']}\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find your local council\"}"
+      ga4_expected_object = "{\"event_name\":\"form_submit\",\"action\":\"submit\",\"type\":\"#{form_type['type']}\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find your local council\"}"
 
       assert_equal expected_data_module, data_module
       assert_equal ga4_expected_object, ga4_form_attribute

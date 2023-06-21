@@ -84,7 +84,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         expected_data_module = "ga4-form-tracker"
 
         ga4_form_attribute = page.find("form")["data-ga4-form"]
-        ga4_expected_object = "{\"event_name\":\"form_submit\",\"type\":\"specialist document\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
+        ga4_expected_object = "{\"event_name\":\"form_submit\",\"action\":\"submit\",\"type\":\"specialist document\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
 
         assert_equal expected_data_module, data_module
         assert_equal ga4_expected_object, ga4_form_attribute

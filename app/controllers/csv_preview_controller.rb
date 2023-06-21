@@ -16,7 +16,7 @@ class CsvPreviewController < ApplicationController
     @csv_rows = csv_preview.to_a.map { |row|
       row.map { |column|
         {
-          text: column,
+          text: column&.encode("UTF-8"),
         }
       }.take(MAXIMUM_COLUMNS)
     }.take(MAXIMUM_ROWS + 1)

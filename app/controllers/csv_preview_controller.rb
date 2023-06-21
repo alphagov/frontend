@@ -11,7 +11,19 @@ class CsvPreviewController < ApplicationController
       redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
     end
 
-    csv_preview = CSV.parse(media, encoding:, headers: true)
+    original_error = nil
+    row_sep = :auto
+    begin
+      csv_preview = CSV.parse(media, encoding:, headers: true, row_sep:)
+    rescue CSV::MalformedCSVError => e
+      if original_error.nil?
+        original_error = e
+        row_sep = "\r\n"
+        retry
+      else
+        raise original_error
+      end
+    end
 
     @csv_rows = csv_preview.to_a.map { |row|
       row.map { |column|

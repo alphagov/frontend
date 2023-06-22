@@ -145,17 +145,17 @@
 }
 
 .homepage-services-and-info__list {
-  @include columns($items: 17, $columns: 1, $selector: "li");
+  @include columns($items: 16, $columns: 1, $selector: "li");
   list-style: none;
   margin: 0 govuk-spacing(-3);
   padding: 0;
 
   @include govuk-media-query($from: "tablet") {
-    @include columns($items: 17, $columns: 2, $selector: "li");
+    @include columns($items: 16, $columns: 2, $selector: "li");
   }
 
   @include govuk-media-query($from: "desktop") {
-    @include columns($items: 17, $columns: 3, $selector: "li");
+    @include columns($items: 16, $columns: 3, $selector: "li");
   }
 
   .homepage-section__government-activity & {

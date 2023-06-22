@@ -181,7 +181,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       expected_data_module = "auto-track-event ga4-auto-tracker ga4-link-tracker"
 
       ga4_auto_attribute = page.find(".places-results")["data-ga4-auto"]
-      ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"place\",\"text\":\"Results near [REDACTED]\",\"tool_name\":\"Find a passport interview office\"}"
+      ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"place\",\"text\":\"Results near [postcode]\",\"tool_name\":\"Find a passport interview office\"}"
 
       assert_equal expected_data_module, data_module
       assert_equal ga4_expected_object, ga4_auto_attribute

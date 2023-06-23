@@ -157,6 +157,8 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
       stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
         .to_return(body: csv_file, status: 200)
+
+      visit "/#{legacy_url_path}/preview"
     end
 
     should "include the CSV headings" do

@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   mount GovukPublishingComponents::Engine, at: "/component-guide"
 
-  get "/homepage" => redirect("/")
-
   get "/random" => "random#random_page"
 
   get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }

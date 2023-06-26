@@ -1,6 +1,8 @@
 require "integration_test_helper"
 
 class BankHolidaysTest < ActionDispatch::IntegrationTest
+  include GovukAbTesting::MinitestHelpers
+
   setup do
     content_item = {
       base_path: "/bank-holidays",
@@ -8,6 +10,30 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
       document_type: "calendar",
     }
     stub_content_store_has_item("/bank-holidays", content_item)
+  end
+
+  context "AB testing spacing" do
+    should "have added spacing for the B variant" do
+      Timecop.travel("2012-12-14")
+
+      with_variant BankHolidaysTest: "B" do
+        visit "/bank-holidays"
+        within("#content") do
+          assert page.has_selector?(".bank-hols")
+        end
+      end
+    end
+
+    should "have not have additional spacing for the A variant" do
+      Timecop.travel("2012-12-14")
+
+      with_variant BankHolidaysTest: "A" do
+        visit "/bank-holidays"
+        within("#content") do
+          assert page.has_no_selector?(".bank-hols")
+        end
+      end
+    end
   end
 
   should "display the bank holidays page" do

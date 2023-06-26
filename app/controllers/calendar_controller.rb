@@ -1,5 +1,6 @@
 class CalendarController < ContentItemsController
   include Cacheable
+  include BankHolAbTestable
 
   class InvalidCalendarScope < StandardError; end
 

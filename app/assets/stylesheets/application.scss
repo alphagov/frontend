@@ -81,3 +81,7 @@ $govuk-include-default-font-face: false;
     margin-top: 0;
   }
 }
+
+.bank-hols .govuk-panel {
+  margin-bottom: govuk-spacing(6);
+}

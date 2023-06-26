@@ -27,4 +27,9 @@ namespace :publishing_api do
     I18n.locale = :cy
     CalendarPublisher.new(Calendar.find("bank-holidays"), slug: "gwyliau-banc").publish
   end
+
+  desc "Unpublish help.json"
+  task unpublish_help_json: :environment do
+    Services.publishing_api.unpublish("50aa0d27-ea4a-49b7-a1e6-98abd1115f60", type: "redirect", alternative_path: "/help", discard_drafts: true)
+  end
 end

@@ -30,6 +30,7 @@ namespace :publishing_api do
 
   desc "Unpublish help.json"
   task unpublish_help_json: :environment do
-    Services.publishing_api.unpublish("50aa0d27-ea4a-49b7-a1e6-98abd1115f60", type: "redirect", alternative_path: "/help", discard_drafts: true)
+    api_client = GdsApi::PublishingApi.new(Plek.find("publishing-api"), bearer_token: ENV["PUBLISHING_API_BEARER_TOKEN"])
+    api_client.unpublish("50aa0d27-ea4a-49b7-a1e6-98abd1115f60", type: "redirect", alternative_path: "/help", discard_drafts: true)
   end
 end

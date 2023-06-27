@@ -1,7 +1,7 @@
 module BankHolAbTestable
   CUSTOM_DIMENSION = 46
 
-  ALLOWED_VARIANTS = %w[A B Z].freeze
+  ALLOWED_VARIANTS = %w[A B].freeze
 
   def self.included(base)
     base.helper_method(
@@ -17,7 +17,6 @@ module BankHolAbTestable
       "BankHolidaysTest",
       dimension: CUSTOM_DIMENSION,
       allowed_variants: ALLOWED_VARIANTS,
-      control_variant: "Z",
     )
   end
 

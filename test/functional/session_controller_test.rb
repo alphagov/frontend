@@ -13,12 +13,12 @@ class SessionsControllerTest < ActionController::TestCase
     should "redirect the user to the GOV.UK Account service domain" do
       get :create
       assert_response :redirect
-      assert_equal @response.headers["Location"], "http://auth/provider"
+      assert_equal "https://home.account.gov.uk", @response.headers["Location"]
     end
 
     should "preserve the _ga tracking parameter if provided" do
       get :create, params: { _ga: "ga123" }
-      assert_equal @response.headers["Location"], "http://auth/provider?_ga=ga123"
+      assert_equal "https://home.account.gov.uk?_ga=ga123", @response.headers["Location"]
     end
 
     context "HTTP Referer" do
@@ -50,7 +50,7 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_not_requested @stub_with_redirect_path
-          assert_requested @stub_without_redirect_path
+          assert_equal "https://home.account.gov.uk", @response.headers["Location"]
         end
       end
 
@@ -66,7 +66,7 @@ class SessionsControllerTest < ActionController::TestCase
 
           assert_response :redirect
           assert_not_requested @stub_with_redirect_path
-          assert_requested @stub_without_redirect_path
+          assert_equal "https://home.account.gov.uk", @response.headers["Location"]
         end
       end
     end

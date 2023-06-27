@@ -49,12 +49,6 @@ class SpecialRoutePublisher
           description: "You can choose which cookies you're happy for GOV.UK to use.",
         },
         {
-          content_id: "50aa0d27-ea4a-49b7-a1e6-98abd1115f60",
-          base_path: "/help.json",
-          title: "Help using GOV.UK",
-          description: "Find out about GOV.UK, including the use of cookies, accessibility of the site, the privacy notice and terms and conditions of use rendered in JSON format here.",
-        },
-        {
           content_id: "3c991cea-cdee-4e58-b8d1-d38e7c0e6327",
           base_path: "/random",
           title: "GOV.UK random page",

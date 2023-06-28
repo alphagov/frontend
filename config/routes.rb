@@ -99,7 +99,7 @@ Rails.application.routes.draw do
   get "/gwyliau-banc", to: "calendar#show_calendar", defaults: { scope: "gwyliau-banc", locale: :cy }
   get "/gwyliau-banc/:division", to: "calendar#division", defaults: { scope: "gwyliau-banc", locale: :cy }
 
-  constraints FormatRoutingConstraint.new("calendar") do
+  constraints(path: /(\/bank-holidays(\/*)?)|(\/when-do-the-clocks-change(\/*)?)/) do
     get ":scope", to: "calendar#show_calendar", as: :calendar
     get ":scope/:division", to: "calendar#division", as: :division
   end

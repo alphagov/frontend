@@ -138,6 +138,9 @@ cy:
       usage: Cwcis sy'n mesur defnydd o'r wefan
     usage_info: Rydyn ni'n defnyddio Google Analytics a meddalwedd Real User Monitoring LUX gan SpeedCurve i fesur sut rydych chi'n defnyddio'r wefan a'ch profiad o berfformiad gwe tra byddwch chi'n ymweld â'r wefan fel y gallwn ni ei wella ar sail anghenion defnyddwyr. Dydyn ni ddim yn caniatáu i Google na SpeedCurve ddefnyddio na rhannu'r data am sut rydych chi'n defnyddio'r wefan hon.
   csv_preview:
+    access_limited:
+      title:
+      body:
     document_type:
       aaib_report:
         few:

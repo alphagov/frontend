@@ -4,6 +4,8 @@ class CsvPreviewController < ApplicationController
   MAXIMUM_COLUMNS = 50
   MAXIMUM_ROWS = 1000
 
+  rescue_from GdsApi::HTTPForbidden, with: :access_limited
+
   def show
     @asset = GdsApi.asset_manager.whitehall_asset(legacy_url_path).to_hash
 
@@ -39,6 +41,10 @@ class CsvPreviewController < ApplicationController
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
       attachment["url"] =~ /#{legacy_url_path}$/
     end
+  end
+
+  def access_limited
+    render :access_limited, status: :forbidden and return
   end
 
 private

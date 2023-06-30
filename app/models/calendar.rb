@@ -27,6 +27,25 @@ class Calendar
     I18n.t(slug)
   end
 
+  def json_path
+    "#{base_path}.json"
+  end
+
+  def base_path
+    byebug
+    case slug
+    when "bank-holidays"
+      I18n.locale == :en ? "/bank-holidays" : "/gwyliau-banc"
+    else
+      "/#{slug}"
+    end
+  end
+
+  def division_path(division_slug, format)
+    byebug
+    "#{base_path}/#{I18n.t(division_slug)}.#{format}"
+  end
+
   def divisions
     @divisions ||= @data["divisions"].map { |slug, data| Division.new(slug, data) }
   end

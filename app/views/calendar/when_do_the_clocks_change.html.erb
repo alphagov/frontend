@@ -41,7 +41,7 @@
 
           <%= render "components/subscribe", {
             label: t('bank_holidays.add_clock_changes_to_calendar'),
-            url: division_path(@calendar, division, :format => 'ics'),
+            url: @calendar.division_path(division.slug, :ics),
             title: t('bank_holidays.download_clock_changes')
           } %>
 

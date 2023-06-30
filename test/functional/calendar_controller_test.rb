@@ -107,9 +107,9 @@ class CalendarControllerTest < ActionController::TestCase
       @division.expects(:events).returns(:some_events)
       @calendar.expects(:division).with("a-division").returns(@division)
       Calendar.expects(:find).with("a-calendar").returns(@calendar)
-      IcsRenderer.expects(:new).with(:some_events, "/a-calendar/a-division.ics").returns(mock("Renderer", render: "ics_division"))
+      IcsRenderer.expects(:new).with(:some_events, "/bank-holidays/a-division.ics").returns(mock("Renderer", render: "ics_division"))
 
-      get :division, params: { scope: "a-calendar", division: "a-division", format: "ics" }
+      get :division, params: { scope: "bank-holidays", division: "a-division", format: "ics" }
       assert_equal "ics_division", @response.body
     end
 

@@ -98,11 +98,9 @@ Rails.application.routes.draw do
 
   get "/gwyliau-banc", to: "calendar#show_calendar", defaults: { scope: "gwyliau-banc", locale: :cy }
   get "/gwyliau-banc/:division", to: "calendar#division", defaults: { scope: "gwyliau-banc", locale: :cy }
-
-  constraints FormatRoutingConstraint.new("calendar") do
-    get ":scope", to: "calendar#show_calendar", as: :calendar
-    get ":scope/:division", to: "calendar#division", as: :division
-  end
+  get "/bank-holidays", to: "calendar#show_calendar", defaults: { scope: "bank-holidays", locale: :en }
+  get "/bank-holidays/:division", to: "calendar#division", defaults: { scope: "bank-holidays", locale: :en }
+  get "/when-do-the-clocks-change", to: "calendar#show_calendar", defaults: { scope: "when-do-the-clocks-change", locale: :en }
 
   get "/government/uploads/system/uploads/attachment_data/file/:id/:filename.csv/preview", to: "csv_preview#show", filename: /[^\/]+/
 

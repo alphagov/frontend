@@ -73,11 +73,11 @@
 
               <%= render "components/subscribe", {
                 label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-                url: division_path(@calendar, division, :format => 'ics'),
+                url: @calendar.division_path(division.slug, :ics),
                 title: t("common.download_ics"),
                 data: {
                   track_category: "Download link clicked",
-                  track_action: division_path(@calendar, division, :format => 'ics'),
+                  track_action: @calendar.division_path(division.slug, :ics),
                   track_label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
                 }
               } %>

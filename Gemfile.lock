@@ -1,3 +1,22 @@
+GIT
+  remote: https://github.com/alphagov/govuk_app_config.git
+  revision: 621f6259bd7a506ede87a92c12e4f0f45824fa7b
+  branch: sentry-otel
+  specs:
+    govuk_app_config (8.1.1)
+      logstasher (~> 2.1)
+      opentelemetry-exporter-otlp (~> 0.25.0)
+      opentelemetry-instrumentation-all (~> 0.39.1)
+      opentelemetry-sdk (~> 1.2)
+      plek (>= 4, < 6)
+      prometheus_exporter (~> 2.0)
+      puma (>= 5.6, < 7.0)
+      rack-proxy (~> 0.7)
+      sentry-opentelemetry (~> 5.9)
+      sentry-rails (~> 5.3)
+      sentry-ruby (~> 5.3)
+      statsd-ruby (~> 1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,18 +156,6 @@ GEM
     googleapis-common-protos-types (1.6.0)
       google-protobuf (~> 3.14)
     govuk_ab_testing (2.4.3)
-    govuk_app_config (8.1.1)
-      logstasher (~> 2.1)
-      opentelemetry-exporter-otlp (~> 0.25.0)
-      opentelemetry-instrumentation-all (~> 0.39.1)
-      opentelemetry-sdk (~> 1.2)
-      plek (>= 4, < 6)
-      prometheus_exporter (~> 2.0)
-      puma (>= 5.6, < 7.0)
-      rack-proxy (~> 0.7)
-      sentry-rails (~> 5.3)
-      sentry-ruby (~> 5.3)
-      statsd-ruby (~> 1.5)
     govuk_personalisation (0.13.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
@@ -595,6 +602,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-opentelemetry (5.9.0)
+      opentelemetry-sdk (~> 1.0)
+      sentry-ruby (~> 5.9.0)
     sentry-rails (5.9.0)
       railties (>= 5.0)
       sentry-ruby (~> 5.9.0)
@@ -670,7 +680,7 @@ DEPENDENCIES
   dotenv-rails
   gds-api-adapters
   govuk_ab_testing
-  govuk_app_config
+  govuk_app_config!
   govuk_personalisation
   govuk_publishing_components
   govuk_schemas

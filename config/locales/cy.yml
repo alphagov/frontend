@@ -81,7 +81,6 @@ cy:
     download_ics: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu at raglen calendr fel iCal neu Outlook
     extra_bank_holiday: Gŵyl banc ychwanegol
     holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">gwyliau â thâl i chi ar wyliau banc neu gyhoeddus</a>.
-    last_updated: Diweddarwyd ddiwethaf
     nations:
       england-and-wales: Cymru a Lloegr
       england-and-wales_for: ar gyfer Cymru a Lloegr

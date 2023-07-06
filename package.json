@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "standardx": "^7.0.0",
-    "stylelint": "^15.9.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-gds": "^0.3.0"
   },
   "packageManager": "yarn@3.5.0"

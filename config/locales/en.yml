@@ -138,6 +138,9 @@ en:
       usage: Cookies that measure website use
     usage_info: We use Google Analytics cookies to measure how you use GOV.UK and government digital services.
   csv_preview:
+    access_limited:
+      title: Access Forbidden
+      body: You are not authorised to see the preview of this CSV file because it is attached to an access limited draft document. It is not possible to preview CSVs attached to access limited draft documents. You can download the CSV file if you belong to the same organisation as the person who is publishing it.
     document_type:
       aaib_report:
         one: Air Accidents Investigation Branch report

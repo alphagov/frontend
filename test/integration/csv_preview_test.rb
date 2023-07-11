@@ -151,6 +151,19 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "when asset manager returns a 403 response" do
+    setup do
+      stub_request(:get, "#{ASSET_MANAGER_ENDPOINT}/whitehall_assets/government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv")
+          .to_return(status: 403)
+      visit "/government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv/preview"
+    end
+
+    should "return a 403 response" do
+      assert_equal 403, page.status_code
+      assert page.has_text?("You are not authorised to see the preview of this CSV file")
+    end
+  end
+
   context "when the asset is in windows-1252 encoding" do
     setup do
       csv_file = generate_test_csv(51, 1010).encode("windows-1252")

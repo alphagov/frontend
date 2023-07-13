@@ -22,6 +22,15 @@
     type: ga4_type,
     tool_name: publication.title
   }.to_json
+
+  ga4_data_modules = "ga4-link-tracker"
+
+  if !licence_details.action
+    # Only trigger a GA4 form complete if the user is currently on the first contents link.
+    trigger_ga4_form_complete = true
+    ga4_data_modules << " ga4-auto-tracker"
+  end
+
 %>
 
 <p class="govuk-body">From <strong><%= licence_details.authority['name'] %></strong></p>
@@ -46,8 +55,10 @@
 <article 
   role="article" 
   class="content-block group" 
-  data-module="ga4-auto-tracker ga4-link-tracker" 
-  data-ga4-auto="<%= ga4_form_complete_attributes %>"
+  data-module="<%= ga4_data_modules %>"
+  <% if trigger_ga4_form_complete %>
+    data-ga4-auto="<%= ga4_form_complete_attributes %>"
+  <% end %>
   data-ga4-link="<%= ga4_information_click_attributes %>"
   data-ga4-track-links-only
   data-ga4-set-indexes

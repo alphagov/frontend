@@ -39,7 +39,7 @@ class CsvPreviewController < ApplicationController
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
 
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
-      attachment["url"] =~ /#{legacy_url_path}$/
+      attachment["url"] =~ /#{Regexp.escape(legacy_url_path)}$/
     end
   end
 

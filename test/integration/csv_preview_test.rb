@@ -13,51 +13,9 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
   parent_document_url = "https://www.test.gov.uk#{parent_document_base_path}"
 
   setup do
-    asset_manager_response = {
-      id: "https://asset-manager.dev.gov.uk/assets/foo",
-      parent_document_url:,
-    }
-    stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
+    setup_asset_manager(legacy_url_path, parent_document_url)
 
-    csv_file = generate_test_csv(51, 1010)
-
-    stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
-      .to_return(body: csv_file, status: 200)
-
-    content_item = {
-      base_path: parent_document_base_path,
-      document_type: "guidance",
-      public_updated_at: "2023-05-27T08:00:07.000+00:00",
-      details: {
-        attachments: [
-          {
-            title: "Attachment 1",
-            url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5678/filename.csv",
-            file_size: "1024",
-          },
-          {
-            title: "Attachment 2",
-            url: "https://www.gov.uk/#{legacy_url_path}",
-            file_size: "2048",
-          },
-        ],
-      },
-      links: {
-        organisations: [
-          {
-            base_path: "/government/organisations/department-of-publishing",
-            details: {
-              brand: "single-identity",
-              logo: {
-                crest: "single-identity",
-                formatted_title: "Department of Publishing",
-              },
-            },
-          },
-        ],
-      },
-    }
-    stub_content_store_has_item(parent_document_base_path, content_item)
+    setup_content_item(legacy_url_path, parent_document_base_path)
   end
 
   context "when visiting the preview" do
@@ -120,6 +78,21 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     should "truncate at 1000 rows" do
       assert_selector ".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1"
       assert_no_selector ".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1"
+    end
+  end
+
+  context "when visiting the preview with special characters in filename" do
+    setup do
+      special_characters_filename = "filename+"
+      special_characters_url_path = "government/uploads/system/uploads/attachment_data/file/12345/#{special_characters_filename}.csv"
+      setup_asset_manager(special_characters_url_path, parent_document_url)
+      setup_content_item(special_characters_url_path, parent_document_base_path)
+
+      visit "/#{special_characters_url_path}/preview"
+    end
+
+    should "return a 200 response" do
+      assert_equal 200, page.status_code
     end
   end
 
@@ -198,6 +171,56 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
       assert_selector ".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1"
       assert_no_selector ".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1"
     end
+  end
+
+  def setup_asset_manager(legacy_url_path, parent_document_url)
+    asset_manager_response = {
+      id: "https://asset-manager.dev.gov.uk/assets/foo",
+      parent_document_url:,
+    }
+    stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
+
+    csv_file = generate_test_csv(51, 1010)
+
+    stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
+      .to_return(body: csv_file, status: 200)
+  end
+
+  def setup_content_item(legacy_url_path, parent_document_base_path)
+    content_item = {
+      base_path: parent_document_base_path,
+      document_type: "guidance",
+      public_updated_at: "2023-05-27T08:00:07.000+00:00",
+      details: {
+        attachments: [
+          {
+            title: "Attachment 1",
+            url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5678/filename.csv",
+            file_size: "1024",
+          },
+          {
+            title: "Attachment 2",
+            url: "https://www.gov.uk/#{legacy_url_path}",
+            file_size: "2048",
+          },
+        ],
+      },
+      links: {
+        organisations: [
+          {
+            base_path: "/government/organisations/department-of-publishing",
+            details: {
+              brand: "single-identity",
+              logo: {
+                crest: "single-identity",
+                formatted_title: "Department of Publishing",
+              },
+            },
+          },
+        ],
+      },
+    }
+    stub_content_store_has_item(parent_document_base_path, content_item)
   end
 
   def generate_test_csv(column_count, row_count)

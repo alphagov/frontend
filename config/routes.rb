@@ -106,6 +106,8 @@ Rails.application.routes.draw do
 
   get "/government/uploads/system/uploads/attachment_data/file/:id/:filename.csv/preview", to: "csv_preview#show", filename: /[^\/]+/
 
+  get "/government/placeholder", to: "placeholder#show"
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

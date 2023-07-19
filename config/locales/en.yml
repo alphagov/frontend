@@ -33,6 +33,10 @@ en:
       about_detail_title: More about GOV.UK accounts
       about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account that you can use to sign in to all government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>
   and: and
+  attachment:
+    virus_check:
+      intro: This attachment is being virus checked.
+      message: We are currently holding this attachment in quarantine until it has been virus checked. The attachment will be available at the original location shortly.
   b: B
   bank-holidays: bank-holidays
   bank_holidays:

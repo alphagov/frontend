@@ -33,6 +33,10 @@ cy:
       about_detail_title:
       about_detail_description_html:
   and: a
+  attachment:
+    virus_check:
+      intro: Mae'r atodiad hwn yn cael ei wirio am feirysau.
+      message: Rydyn ni'n dal yr atodiad hwn mewn cwarantîn ar hyn o bryd tan iddo gael ei wirio am feirysau. Bydd yr atodiad ar gael yn y lleoliad gwreiddiol cyn bo hir.
   b: B
   bank-holidays: gwyliau-banc
   bank_holidays:

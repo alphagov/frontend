@@ -209,7 +209,7 @@ class LicenceTest < ActionDispatch::IntegrationTest
 
         should "add GA4 form complete attributes" do
           data_module = page.find("article")["data-module"]
-          expected_data_module = "ga4-auto-tracker ga4-link-tracker"
+          expected_data_module = "ga4-link-tracker ga4-auto-tracker"
 
           ga4_auto_attribute = page.find("article")["data-ga4-auto"]
           ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"licence\",\"text\":\"From Westminster City Council\",\"tool_name\":\"Licence to kill\"}"
@@ -218,9 +218,20 @@ class LicenceTest < ActionDispatch::IntegrationTest
           assert_equal ga4_expected_object, ga4_auto_attribute
         end
 
+        should "not add ga4-auto if you're on a page other than '1. Overview'" do
+          visit "/licence-to-kill/westminster/apply"
+          data_module = page.find("article")["data-module"]
+          expected_data_module = "ga4-link-tracker"
+
+          ga4_auto_attribute = page.find("article")["data-ga4-auto"]
+
+          assert_equal expected_data_module, data_module
+          assert_nil ga4_auto_attribute
+        end
+
         should "add GA4 information click attributes" do
           data_module = page.find("article")["data-module"]
-          expected_data_module = "ga4-auto-tracker ga4-link-tracker"
+          expected_data_module = "ga4-link-tracker ga4-auto-tracker"
 
           ga4_link_attribute = page.find("article")["data-ga4-link"]
           ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"licence\",\"tool_name\":\"Licence to kill\"}"

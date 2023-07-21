@@ -38,7 +38,7 @@
 
               <% if place["email"].present? %>
                 <p class="govuk-body">
-                  <a class="govuk-link " href="mailto:<%= place["email"] %>"><%= place["email"] %></a>
+                  <a class="govuk-link " data-ga4-do-not-redact href="mailto:<%= place["email"] %>"><%= place["email"] %></a>
                 </p>
               <% end %>
 

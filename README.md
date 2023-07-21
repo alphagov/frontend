@@ -19,7 +19,6 @@ Transaction start pages:
 ### Hard-coded routes
 
 * https://www.gov.uk/ (homepage)
-* https://www.gov.uk/tour (tour of GOV.UK)
 * https://www.gov.uk/help (help index page)
 * https://www.gov.uk/help/cookies
 * https://www.gov.uk/help/ab-testing

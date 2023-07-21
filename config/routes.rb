@@ -40,7 +40,6 @@ Rails.application.routes.draw do
   # Help pages
   get "/help", to: "help#index"
   get "/help/ab-testing", to: "help#ab_testing"
-  get "/tour", to: "help#tour"
   get "/help/cookies", to: "help#cookie_settings"
 
   # GOVUK Public Roadmap

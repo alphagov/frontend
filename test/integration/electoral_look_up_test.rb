@@ -45,6 +45,19 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
         end
       end
 
+      should "have GA4 auto tracker enabled" do
+        with_different_address = JSON.parse(api_response)
+        with_different_address["registration"] = { "address" => "foo" }
+        with_different_address["electoral_services"] = { "address" => "bar" }
+        stub_api_postcode_lookup("LS11UR", response: with_different_address.to_json)
+
+        with_electoral_api_url do
+          search_for(postcode: "LS11UR")
+          assert page.has_selector?("p[data-module=ga4-auto-tracker]")
+          assert page.has_selector?("p[data-ga4-auto]")
+        end
+      end
+
       should "not display the electoral service (council) address if it's the same as the registration office address" do
         duplicate_contact_information = JSON.parse(api_response)
         duplicate_contact_information["registration"] = { "address" => "foo" }

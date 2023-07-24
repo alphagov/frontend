@@ -6,8 +6,6 @@ class HelpController < ContentItemsController
 
   def index; end
 
-  def tour; end
-
   def cookie_settings; end
 
   def ab_testing

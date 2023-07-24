@@ -16,7 +16,7 @@ class CsvPreviewController < ApplicationController
     original_error = nil
     row_sep = :auto
     begin
-      csv_preview = CSV.parse(media, encoding:, headers: true, row_sep:)
+      csv_preview = CSV.parse(media, encoding:, headers: true, row_sep:, liberal_parsing: true)
     rescue CSV::MalformedCSVError => e
       if original_error.nil?
         original_error = e

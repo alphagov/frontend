@@ -9,39 +9,58 @@
 } do %>
 
   <% if @presenter.electoral_services.present? %>
-    <p class="govuk-body">
+    <%
+      ga4_auto = {
+        event_name: "form_complete",
+        type: "local transaction",
+        text: Nokogiri::HTML(t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
+        action: "complete",
+        tool_name: publication.title
+      }.to_json
+    %>
+    <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
       <%= t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
     </p>
   <% end %>
-  <% if @presenter.use_electoral_services_contact_details? %>
-    <%= render partial: "contact_details",
-      locals: {
-        presenter: @presenter,
-        title: t("electoral.service.title"),
-        description: t("electoral.service.description"),
-        name: @presenter.electoral_service_name,
-        contact_details: @presenter.presented_electoral_service_address,
-        postcode: @presenter.electoral_services["postcode"],
-        website: @presenter.electoral_services["website"],
-        phone: @presenter.electoral_services["phone"],
-        email: @presenter.electoral_services["email"],
-        }
-    %>
-  <% end %>
+  <%
+    ga4_link = {
+      event_name: "information_click",
+      type: "local transaction",
+      tool_name: publication.title,
+      action: "information click"
+    }.to_json
+  %>
+  <div data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-track-links-only data-ga4-link="<%= ga4_link %>">
+    <% if @presenter.use_electoral_services_contact_details? %>
+      <%= render partial: "contact_details",
+        locals: {
+          presenter: @presenter,
+          title: t("electoral.service.title"),
+          description: t("electoral.service.description"),
+          name: @presenter.electoral_service_name,
+          contact_details: @presenter.presented_electoral_service_address,
+          postcode: @presenter.electoral_services["postcode"],
+          website: @presenter.electoral_services["website"],
+          phone: @presenter.electoral_services["phone"],
+          email: @presenter.electoral_services["email"],
+          }
+      %>
+    <% end %>
 
-  <% if @presenter.use_registration_contact_details? %>
-    <%= render partial: "contact_details",
-      locals: {
-        presenter: @presenter,
-        title: t("electoral.registration.title"),
-        description: t("electoral.registration.description"),
-        name: nil,
-        contact_details: @presenter.presented_registration_address,
-        postcode: @presenter.registration["postcode"],
-        website: @presenter.registration["website"],
-        phone: @presenter.registration["phone"],
-        email: @presenter.registration["email"]
-        }
-    %>
-  <% end %>
+    <% if @presenter.use_registration_contact_details? %>
+      <%= render partial: "contact_details",
+        locals: {
+          presenter: @presenter,
+          title: t("electoral.registration.title"),
+          description: t("electoral.registration.description"),
+          name: nil,
+          contact_details: @presenter.presented_registration_address,
+          postcode: @presenter.registration["postcode"],
+          website: @presenter.registration["website"],
+          phone: @presenter.registration["phone"],
+          email: @presenter.registration["email"]
+          }
+      %>
+    <% end %>
+  </div>
 <% end %>

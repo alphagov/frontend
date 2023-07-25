@@ -45,7 +45,7 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
         end
       end
 
-      should "have GA4 auto tracker enabled" do
+      should "have GA4 tracking attributes on the HTML" do
         with_different_address = JSON.parse(api_response)
         with_different_address["registration"] = { "address" => "foo" }
         with_different_address["electoral_services"] = { "address" => "bar" }
@@ -55,6 +55,11 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           search_for(postcode: "LS11UR")
           assert page.has_selector?("p[data-module=ga4-auto-tracker]")
           assert page.has_selector?("p[data-ga4-auto]")
+
+          assert page.has_selector?("div[data-module=ga4-link-tracker]")
+          assert page.has_selector?("div[data-ga4-track-links-only]")
+          assert page.has_selector?("div[data-ga4-set-indexes]")
+          assert page.has_selector?('div[data-ga4-link=\'{"event_name":"information_click","type":"local transaction","tool_name":"Contact your local Electoral Registration Office","action":"information click"}\']')
         end
       end
 

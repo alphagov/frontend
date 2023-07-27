@@ -6,6 +6,9 @@
           <%= render "govuk_publishing_components/components/heading", {
             font_size: "m",
             text: t("homepage.index.government_activity"),
+            data_attributes: {
+              ga4_scroll_marker: true,
+            },
           } %>
         </div>
 
@@ -39,6 +42,9 @@
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",
           text: t("homepage.index.departments_and_organisations"),
+          data_attributes: {
+            ga4_scroll_marker: true,
+          },
         } %>
       </div>
 

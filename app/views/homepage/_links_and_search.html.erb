@@ -6,6 +6,9 @@
           font_size: "m",
           margin_bottom: 4,
           text: t("homepage.index.popular_links_heading"),
+          data_attributes: {
+            ga4_scroll_marker: true,
+          },
         } %>
         <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
           <% t("homepage.index.popular_links").each_with_index do | item, index | %>
@@ -61,6 +64,7 @@
               track_label: "/search/all",
               track_dimension_index: 29,
               track_dimension: "Search GOV.UK",
+              ga4_scroll_marker: true,
             },
           } %>
         </form>

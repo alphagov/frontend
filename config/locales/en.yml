@@ -604,10 +604,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out payment dates and how to report a payment is missing.
-          title: Cost of Living Payment
-          href: /guidance/cost-of-living-payment
-          image_src: homepage/cost-of-living-november-2022.jpg
+        - text: Drill - Find out payment dates and how to report a payment is missing.
+          title: Drill - Cost of Living Payment
+          href: /random
+          image_src: homepage/plan_for_growth_drill.png
         - text: If you care for someone, check if you are eligible for Carer’s Allowance.
           title: Carer’s Allowance
           href: /carers-allowance

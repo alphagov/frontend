@@ -96,6 +96,23 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "when visiting the preview with special characters in the CSV" do
+    setup do
+      setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: true)
+      setup_content_item(legacy_url_path, parent_document_base_path)
+
+      visit "/#{legacy_url_path}/preview"
+    end
+
+    should "return a 200 response" do
+      assert_equal 200, page.status_code
+    end
+
+    should "include the error message" do
+      assert page.has_text?("This CSV cannot be viewed online.")
+    end
+  end
+
   context "when the asset is draft and not served from the draft host" do
     setup do
       asset_manager_response = {
@@ -173,14 +190,18 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
-  def setup_asset_manager(legacy_url_path, parent_document_url)
+  def setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: false)
     asset_manager_response = {
       id: "https://asset-manager.dev.gov.uk/assets/foo",
       parent_document_url:,
     }
     stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
 
-    csv_file = generate_test_csv(51, 1010)
+    csv_file = if use_special_characters_csv
+                 "\xEF\xBB\xBF\"Field 1\",\"Field 2\",\"Field 3 \n(details)\",\"Field 4 (\xC2\xA3m)\"\n\"Value 1\",\"Value 2\",\"Value 3\",\"Value 4 \xC2\xA33.8bn\"\n"
+               else
+                 generate_test_csv(51, 1010)
+               end
 
     stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
       .to_return(body: csv_file, status: 200)

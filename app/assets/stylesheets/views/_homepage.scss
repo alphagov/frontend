@@ -185,7 +185,7 @@
 }
 
 .chevron-card__link {
-  &:after {
+  &::after {
     bottom: 0;
     content: "";
     display: block;
@@ -195,7 +195,7 @@
     top: 0;
   }
 
-  &:before {
+  &::before {
     $dimension: 7px;
     $width: 3px;
 
@@ -212,13 +212,13 @@
   }
 
   &:hover {
-    &:before {
+    &::before {
       border-color: $govuk-link-hover-colour;
     }
   }
 
   &:focus {
-    &:before {
+    &::before {
       border-color: $govuk-focus-text-colour;
     }
   }

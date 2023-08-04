@@ -24,7 +24,14 @@
 
       <p class="govuk-body"><%= t('help.sign_in.service_not_listed_text') %></p>
 
-      <form action="/search/all" method="GET" role="search">
+      <form
+        action="/search/all"
+        method="GET"
+        role="search"
+        data-module="ga4-form-tracker"
+        data-ga4-form="<%= { event_name: 'search', type: 'content', url: '/search/all', section: t('help.sign_in.service_not_listed_heading', locale: :en), action: 'search' }.to_json %>"
+        data-ga4-form-include-text
+      >
         <% @search_services_facets.each do |facet| %>
           <input type="hidden" name="<%= facet[:key] %>" value="<%= facet[:value] %>">
         <% end %>

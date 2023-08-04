@@ -9,6 +9,8 @@ class CsvPreviewController < ApplicationController
   def show
     @asset = GdsApi.asset_manager.whitehall_asset(legacy_url_path).to_hash
 
+    return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
+
     if draft_asset? && !served_from_draft_host?
       redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
     end

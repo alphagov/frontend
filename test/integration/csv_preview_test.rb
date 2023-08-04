@@ -111,6 +111,19 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     should "include the error message" do
       assert page.has_text?("This CSV cannot be viewed online.")
     end
+
+    context "when visiting the preview that redirects to other asset" do
+      setup do
+        setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: true, asset_deleted: true)
+        setup_content_item(legacy_url_path, parent_document_base_path)
+
+        visit "/#{legacy_url_path}/preview"
+      end
+
+      should "return a 410 response" do
+        assert_equal 410, page.status_code
+      end
+    end
   end
 
   context "when the asset is draft and not served from the draft host" do
@@ -190,10 +203,11 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
-  def setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: false)
+  def setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: false, asset_deleted: false)
     asset_manager_response = {
       id: "https://asset-manager.dev.gov.uk/assets/foo",
       parent_document_url:,
+      deleted: asset_deleted,
     }
     stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
 

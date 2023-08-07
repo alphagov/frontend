@@ -9,8 +9,17 @@ class CsvPreviewController < ApplicationController
   def show
     @asset = GdsApi.asset_manager.whitehall_asset(legacy_url_path).to_hash
 
+    return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
+
     if draft_asset? && !served_from_draft_host?
       redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
+    end
+
+    parent_document_path = URI(@asset["parent_document_url"]).request_uri
+    @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
+
+    @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
+      attachment["url"] =~ /#{Regexp.escape(legacy_url_path)}$/
     end
 
     original_error = nil
@@ -23,7 +32,7 @@ class CsvPreviewController < ApplicationController
         row_sep = "\r\n"
         retry
       else
-        raise original_error
+        render :malformed_csv and return
       end
     end
 
@@ -34,13 +43,6 @@ class CsvPreviewController < ApplicationController
         }
       }.take(MAXIMUM_COLUMNS)
     }.take(MAXIMUM_ROWS + 1)
-
-    parent_document_path = URI(@asset["parent_document_url"]).request_uri
-    @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
-
-    @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
-      attachment["url"] =~ /#{Regexp.escape(legacy_url_path)}$/
-    end
   end
 
   def access_limited

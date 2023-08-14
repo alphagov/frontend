@@ -264,10 +264,14 @@
   }
 }
 
+.homepage-popular {
+  padding-top: govuk-spacing(7);
+}
+
 .homepage-most-viewed-list {
   list-style: none;
   margin: 0;
-  padding: 0 0 govuk-spacing(7) 0;
+  padding: 0;
 
   @include govuk-media-query($from: "tablet") {
     padding-bottom: 0;

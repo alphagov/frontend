@@ -30,18 +30,18 @@ Transaction start pages:
 
 ### Licence finders
 
-* https://www.gov.uk/premises-licence
-* https://www.gov.uk/temporary-events-notice
-* https://www.gov.uk/apply-skip-permit
-* https://www.gov.uk/street-collection-licence
-* https://www.gov.uk/zoo-licence
-* https://www.gov.uk/premises-licence-scotland
-* https://www.gov.uk/house-to-house-collection-licence
-* https://www.gov.uk/public-charitable-collection-permit-scotland
-* https://www.gov.uk/late-hours-catering-licence-scotland
-* https://www.gov.uk/food-business-registration
-* https://www.gov.uk/cooling-tower-notification
-* https://www.gov.uk/performing-animals-registration
+* https://www.gov.uk/find-licences/premises-licence
+* https://www.gov.uk/find-licences/temporary-events-notice
+* https://www.gov.uk/find-licences/apply-skip-permit
+* https://www.gov.uk/find-licences/street-collection-licence
+* https://www.gov.uk/find-licences/zoo-licence
+* https://www.gov.uk/find-licences/premises-licence-scotland
+* https://www.gov.uk/find-licences/house-to-house-collection-licence
+* https://www.gov.uk/find-licences/public-charitable-collection-permit-scotland
+* https://www.gov.uk/find-licences/late-hours-catering-licence-scotland
+* https://www.gov.uk/find-licences/food-business-registration
+* https://www.gov.uk/find-licences/cooling-tower-notification
+* https://www.gov.uk/find-licences/performing-animals-registration
 
 ### Calendars
 

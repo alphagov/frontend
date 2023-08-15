@@ -29,8 +29,8 @@ class LicenceTransactionController < ContentItemsController
 
     @addresses = address_list
     @options = options
-    @change_path = licence_path(slug: params[:slug])
-    @onward_path = licence_multiple_authorities_path(slug: params[:slug])
+    @change_path = licence_transaction_path(slug: params[:slug])
+    @onward_path = licence_transaction_multiple_authorities_path(slug: params[:slug])
     render :multiple_authorities
   end
 

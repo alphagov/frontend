@@ -3,7 +3,7 @@
   See: https://docs.publishing.service.gov.uk/repos/frontend/update-homepage-promotion-slots.html
 %>
 
-<section class='"hom'epage-section homepage-section--promotion-slots">
+<section class="homepage-section homepage-section--promotion-slots">
     <%= render "govuk_publishing_components/components/heading", {
       text: t("homepage.index.featured"),
       font_size: "m",
@@ -40,6 +40,7 @@
           image_loading: "lazy",
           heading_level: 3,
           heading_text: item[:title],
+          two_thirds: true,
           description: item[:text],
           font_size: "s",
           sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",

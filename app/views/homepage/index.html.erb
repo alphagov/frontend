@@ -17,8 +17,14 @@
   <%= render "homepage/links_and_search" %>
 
   <div class="govuk-width-container">
-    <%= render "homepage/services_and_information" %>
-    <%= render "homepage/promotion-slots" %>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
+        <%= render "homepage/services_and_information" %>
+      </div>
+      <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+        <%= render "homepage/promotion-slots" %>
+      </div>
+    </div>
     <%= render "homepage/government_activity" %>
     <%= render "homepage/more_on_govuk" %>
   </div>

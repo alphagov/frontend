@@ -1,6 +1,6 @@
-<section class="homepage-section homepage-section__government-activity">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop" data-module="gem-track-click ga4-link-tracker">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop" data-module="gem-track-click ga4-link-tracker">
+    <section class="homepage-section homepage-section__government-activity">
       <div class="homepage-section__heading">
         <div class="homepage-section__heading-wrapper">
           <%= render "govuk_publishing_components/components/heading", {
@@ -35,9 +35,11 @@
           } %>
         <% end %>
       </ul>
-    </div>
+    </section>
+  </div>
 
-    <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+  <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+    <section class="homepage-section homepage-section__departments-organisations">
       <div class="homepage-section__heading">
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",
@@ -105,6 +107,6 @@
           },
         } %>
       </div>
-    </div>
+    </section>
   </div>
-</section>
+</div>

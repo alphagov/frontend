@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half homepage-popular">
+      <div class="govuk-grid-column-full homepage-popular">
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",
           margin_bottom: 4,
@@ -43,9 +43,9 @@
         } %>
         <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
           <% t("homepage.index.popular_links").each_with_index do | item, index | %>
-            <li>
+            <li class="homepage-most-viewed-list__item">
               <%= link_to(item[:text], item[:href], {
-                class: "govuk-link homepage-most-viewed-list__item",
+                class: "govuk-link homepage-most-viewed-list__item-link",
                 data: {
                   track_category: "homepageClicked",
                   track_action: "popularLink",

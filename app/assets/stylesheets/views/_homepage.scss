@@ -145,28 +145,9 @@
 }
 
 .homepage-services-and-info__list {
-  @include columns($items: 16, $columns: 1, $selector: "li");
   list-style: none;
   margin: 0 govuk-spacing(-3);
   padding: 0;
-
-  @include govuk-media-query($from: "tablet") {
-    @include columns($items: 16, $columns: 2, $selector: "li");
-  }
-
-  @include govuk-media-query($from: "desktop") {
-    @include columns($items: 16, $columns: 3, $selector: "li");
-  }
-
-  .homepage-section__government-activity & {
-    @include columns($items: 6, $columns: 1, $selector: "li");
-    margin-bottom: govuk-spacing(4);
-
-    @include govuk-media-query($from: "tablet") {
-      @include columns($items: 6, $columns: 2, $selector: "li");
-      margin-bottom: 0;
-    }
-  }
 }
 
 .chevron-card {
@@ -181,7 +162,7 @@
 }
 
 .chevron-card__description {
-  margin: 0 govuk-spacing(-6) 0 0;
+  margin: 0 govuk-spacing(6) 0 0;
 }
 
 .chevron-card__link {
@@ -206,7 +187,7 @@
     height: $dimension;
     position: absolute;
     right: govuk-spacing(1);
-    top: govuk-spacing(3);
+    top: 50%;
     @include prefixed-transform($rotate: 45deg);
     width: $dimension;
   }
@@ -228,6 +209,10 @@
   padding: govuk-spacing(4) 0 govuk-spacing(6);
 }
 
+.homepage-section--promotion-slots {
+  padding-top: govuk-spacing(6);
+}
+
 .homepage-section--links-and-search {
   background: govuk-colour("light-grey");
   padding: govuk-spacing(6) 0 govuk-spacing(8);
@@ -235,6 +220,10 @@
 
 .homepage-section--services-and-info {
   padding: govuk-spacing(6) 0 0;
+
+  @include govuk-media-query($from: "desktop") {
+    padding-right: govuk-spacing(4);
+  }
 }
 
 .homepage-section__heading {
@@ -277,19 +266,26 @@
     padding-bottom: 0;
   }
 
-  & > li {
-    margin-bottom: govuk-spacing(4);
-
-    @include govuk-media-query($from: "desktop") {
-      margin-bottom: govuk-spacing(3);
-    }
-  }
-
-  & > li:last-child {
+  & > div:last-child li:last-child {
     margin-bottom: 0;
   }
 }
 
 .homepage-most-viewed-list__item {
+  margin-bottom: govuk-spacing(4);
+
+  @include govuk-media-query($from: "desktop") {
+    margin-bottom: govuk-spacing(6);
+    padding-right: govuk-spacing(8);
+  }
+}
+
+.homepage-most-viewed-list__item-link {
   @include govuk-font($size: 19, $weight: "bold");
+}
+
+.homepage-section__government-activity {
+  @include govuk-media-query($from: "desktop") {
+    padding-right: govuk-spacing(4);
+  }
 }

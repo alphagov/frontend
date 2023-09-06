@@ -1,5 +1,4 @@
 class ContentItemPresenter
-  include ContentItem::RecruitmentBanner
   attr_reader :content_item
 
   def initialize(content_item)

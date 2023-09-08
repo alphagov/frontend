@@ -7,7 +7,7 @@
     data-ga4-auto="<%= {
       event_name: "form_complete",
       action: "complete",
-      type: content_item_hash["schema_name"].gsub("_", " "),
+      type: content_item_hash["document_type"].gsub("_", " "),
       text: @authority["name"],
       tool_name: t('formats.local_transaction.find_council', locale: :en)
     }.to_json %>">
@@ -32,7 +32,7 @@
             ga4_link: {
               event_name: "information_click",
               action: "information click",
-              type: content_item_hash["schema_name"].gsub("_", " "),
+              type: content_item_hash["document_type"].gsub("_", " "),
               index: {
                 index_link: 1,
               },

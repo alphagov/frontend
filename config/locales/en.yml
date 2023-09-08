@@ -554,10 +554,9 @@ en:
       government_activity: Government activity
       government_activity_description: Find out what the government is doing
       intro_html: The best place to find government services and&nbsp;information
-      intro_simpler: Simpler, clearer, faster
       intro_title:
-        text: Welcome to GOV.UK
-        html: Welcome to&nbsp;GOV.UK
+        text: GOV.UK
+        html: GOV.UK
       job_search: Find a job
       jobseekers_allowance: Jobseeker’s Allowance
       merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link" data-track-category="homepageClicked" data-track-action="departmentsLink" data-track-label="/government/organisations" data-track-value="1" data-track-dimension="government departments" data-track-dimension-index="29">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.

@@ -8,7 +8,7 @@ class HomepageTest < ActionDispatch::IntegrationTest
   should "render the homepage" do
     visit "/"
     assert_equal 200, page.status_code
-    assert_equal "Welcome to GOV.UK", page.title
+    assert_equal "GOV.UK", page.title
   end
 
   context "when visiting a Welsh content item first" do

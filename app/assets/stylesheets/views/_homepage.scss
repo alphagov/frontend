@@ -5,40 +5,39 @@
 .homepage-inverse-header {
   background-color: $govuk-brand-colour;
   padding-bottom: govuk-spacing(7);
-  padding-top: govuk-spacing(8);
+  padding-top: govuk-spacing(4);
   @include govuk-typography-common;
 
   @include govuk-media-query($from: desktop) {
     padding-bottom: govuk-spacing(8);
-    padding-top: govuk-spacing(9);
+    padding-top: govuk-spacing(6);
   }
 }
 
 .homepage-inverse-header__title {
   @include govuk-typography-weight-bold;
   color: govuk-colour("white");
-  font-size: 32px;
-  font-size: govuk-px-to-rem(32);
+  font-size: 40px;
+  font-size: govuk-px-to-rem(40);
   line-height: 1.2;
   margin: 0;
-  padding-bottom: govuk-spacing(6);
 
   @include govuk-media-query($from: desktop) {
-    font-size: 48px;
-    font-size: govuk-px-to-rem(48);
+    font-size: 69px;
+    font-size: govuk-px-to-rem(69);
   }
 }
 
 .homepage-inverse-header__intro {
-  color: govuk-colour("white");
-  font-size: 19px;
-  font-size: govuk-px-to-rem(19);
+  color: #d2e2f1;
+  font-size: 40px;
+  font-size: govuk-px-to-rem(40);
   margin: 0;
   padding-bottom: govuk-spacing(2);
 
   @include govuk-media-query($from: desktop) {
-    font-size: 24px;
-    font-size: govuk-px-to-rem(24);
+    font-size: 69px;
+    font-size: govuk-px-to-rem(69);
   }
 }
 

@@ -1,37 +1,6 @@
 <section class="homepage-section homepage-section--links-and-search">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds homepage-search">
-        <form
-          action="/search"
-          method="get"
-          role="search"
-          data-module="ga4-form-tracker"
-          data-ga4-form-include-text
-          data-ga4-form='{"event_name": "search", "type": "homepage", "url": "/search/all", "section": "Search", "action": "search"}'
-        >
-          <%= render "govuk_publishing_components/components/search", {
-            button_text: t("homepage.index.search_button"),
-            inline_label: false,
-            label_margin_bottom: 4,
-            label_size: "m",
-            label_text: t("homepage.index.search_label"),
-            margin_bottom: 0,
-            wrap_label_in_a_heading: true,
-            size: "large-mobile",
-            data_attributes: {
-              track_category: "homepageClicked",
-              track_action: "searchSubmitted",
-              track_label: "/search/all",
-              track_dimension_index: 29,
-              track_dimension: "Search GOV.UK",
-              ga4_scroll_marker: true,
-            },
-          } %>
-        </form>
-      </div>
-    </div>
-    <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half homepage-popular">
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "m",

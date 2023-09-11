@@ -48,8 +48,10 @@
           <% end %>
 
           <li class="govuk-link govuk-grid-column-one-third homepage-most-viewed-list__item">
-            <%= link_to(item[:text], item[:href], {
-              class: "govuk-link homepage-most-viewed-list__item-link",
+            <%= render 'govuk_publishing_components/components/action_link', {
+              href: item[:href],
+              text: item[:text],
+              homepage_icon: true,
               data: {
                 track_category: "homepageClicked",
                 track_action: "popularLink",
@@ -69,7 +71,7 @@
                   'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
                 }
               }
-            }) %>
+            } %>
           </li>
 
           <% if index % 3 == 2 %>

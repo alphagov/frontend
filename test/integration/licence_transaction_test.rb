@@ -84,7 +84,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         expected_data_module = "ga4-form-tracker"
 
         ga4_form_attribute = page.find("form")["data-ga4-form"]
-        ga4_expected_object = "{\"event_name\":\"form_submit\",\"action\":\"submit\",\"type\":\"specialist document\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
+        ga4_expected_object = "{\"event_name\":\"form_submit\",\"action\":\"submit\",\"type\":\"licence transaction\",\"text\":\"Find\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
 
         assert_equal expected_data_module, data_module
         assert_equal ga4_expected_object, ga4_form_attribute
@@ -208,7 +208,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           expected_data_module = "ga4-link-tracker ga4-auto-tracker"
 
           ga4_auto_attribute = page.find("article")["data-ga4-auto"]
-          ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"specialist document\",\"text\":\"From Westminster City Council\",\"tool_name\":\"Licence to kill\"}"
+          ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"licence transaction\",\"text\":\"From Westminster City Council\",\"tool_name\":\"Licence to kill\"}"
 
           assert_equal expected_data_module, data_module
           assert_equal ga4_expected_object, ga4_auto_attribute
@@ -232,7 +232,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           expected_data_module = "ga4-link-tracker ga4-auto-tracker"
 
           ga4_link_attribute = page.find("article")["data-ga4-link"]
-          ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"specialist document\",\"tool_name\":\"Licence to kill\"}"
+          ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"licence transaction\",\"tool_name\":\"Licence to kill\"}"
 
           assert_equal expected_data_module, data_module
           assert_equal ga4_expected_object, ga4_link_attribute
@@ -240,7 +240,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
         should "add GA4 change response attributes" do
           ga4_link_attribute = page.find(".contact > p > a")["data-ga4-link"]
-          ga4_expected_object = "{\"event_name\":\"form_change_response\",\"action\":\"change response\",\"type\":\"specialist document\",\"tool_name\":\"Licence to kill\"}"
+          ga4_expected_object = "{\"event_name\":\"form_change_response\",\"action\":\"change response\",\"type\":\"licence transaction\",\"tool_name\":\"Licence to kill\"}"
 
           assert_equal ga4_expected_object, ga4_link_attribute
         end
@@ -490,7 +490,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
 
         ga4_error_attribute = page.find("#error")["data-ga4-auto"]
-        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"specialist document\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
+        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"licence transaction\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
 
         assert_equal expected_data_module, data_module
         assert_equal ga4_expected_object, ga4_error_attribute

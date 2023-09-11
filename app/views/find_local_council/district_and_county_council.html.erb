@@ -9,7 +9,7 @@
     <%= t('formats.local_transaction.different_local_authorities') %>
   </p>
 
-  <% ga4_type = content_item_hash["schema_name"].gsub("_", " ") %>
+  <% ga4_type = content_item_hash["document_type"].gsub("_", " ") %>
   <div class="local-authority-results"
        data-module="auto-track-event ga4-auto-tracker"
        data-track-category="postcodeSearch:find_local_council"

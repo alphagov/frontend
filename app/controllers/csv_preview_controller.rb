@@ -4,13 +4,12 @@ class CsvPreviewController < ApplicationController
   MAXIMUM_COLUMNS = 50
   MAXIMUM_ROWS = 1000
 
+  before_action :get_asset, only: [:show]
+
   rescue_from GdsApi::HTTPForbidden, with: :access_limited
 
   def show
-    @asset = GdsApi.asset_manager.whitehall_asset(legacy_url_path).to_hash
-
     return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
-
     if draft_asset? && !served_from_draft_host?
       redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
     end
@@ -19,13 +18,13 @@ class CsvPreviewController < ApplicationController
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
 
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
-      attachment["url"] =~ /#{Regexp.escape(legacy_url_path)}$/
+      attachment["url"] =~ /#{Regexp.escape(asset_path)}$/
     end
-
     original_error = nil
     row_sep = :auto
+    download_file = params[:legacy] ? whitehall_media_download : media_download
     begin
-      csv_preview = CSV.parse(media, encoding:, headers: true, row_sep:)
+      csv_preview = CSV.parse(download_file, encoding: encoding(download_file), headers: true, row_sep:)
     rescue CSV::MalformedCSVError => e
       if original_error.nil?
         original_error = e
@@ -51,29 +50,37 @@ class CsvPreviewController < ApplicationController
 
 private
 
-  def legacy_url_path
+  def get_asset
+    @asset = params[:legacy] ? GdsApi.asset_manager.whitehall_asset(asset_path).to_hash : GdsApi.asset_manager.asset(params[:id]).to_hash
+  end
+
+  def asset_path
     request.path.sub("/preview", "").sub(/^\//, "")
   end
 
-  def media
-    GdsApi.asset_manager.whitehall_media(legacy_url_path).body
+  def whitehall_media_download
+    GdsApi.asset_manager.whitehall_media(asset_path).body
   end
 
-  def encoding
-    @encoding ||= if utf_8_encoding?
+  def media_download
+    GdsApi.asset_manager.media(params[:id], params[:filename]).body
+  end
+
+  def encoding(media)
+    @encoding ||= if utf_8_encoding?(media)
                     "UTF-8"
-                  elsif windows_1252_encoding?
+                  elsif windows_1252_encoding?(media)
                     "windows-1252"
                   else
                     raise FileEncodingError, "File encoding not recognised"
                   end
   end
 
-  def utf_8_encoding?
+  def utf_8_encoding?(media)
     media.force_encoding("utf-8").valid_encoding?
   end
 
-  def windows_1252_encoding?
+  def windows_1252_encoding?(media)
     media.force_encoding("windows-1252").valid_encoding?
   end
 

@@ -10,7 +10,7 @@ gem "gds-api-adapters"
 gem "govuk_ab_testing"
 gem "govuk_app_config"
 gem "govuk_personalisation"
-gem "govuk_publishing_components", git: 'https://github.com/alphagov/govuk_publishing_components.git', ref: '6fe940fa557e9c0da85c58ad5948dbb1142be55d'
+gem "govuk_publishing_components", git: 'https://github.com/alphagov/govuk_publishing_components.git', ref: '572c9b9dd2dee87f56be0c500defb46240de1bf1'
 gem "htmlentities"
 gem "invalid_utf8_rejector"
 gem "plek"

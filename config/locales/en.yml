@@ -577,6 +577,8 @@ en:
           href: /sign-in-universal-credit
         - text: 'Check your National Insurance record'
           href: /check-national-insurance-record
+        - text: 'Check MOT history of a vehicle'
+          href: /check-mot-history
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:

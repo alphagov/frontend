@@ -270,19 +270,21 @@
     padding-bottom: 0;
   }
 
-  & > li {
+  & > div li {
     margin-bottom: govuk-spacing(4);
 
     @include govuk-media-query($from: "desktop") {
-      margin-bottom: govuk-spacing(3);
+      margin-bottom: govuk-spacing(6);
+      padding-right: govuk-spacing(4);
     }
   }
 
-  & > li:last-child {
+  & > div:last-child li:last-child {
     margin-bottom: 0;
   }
 }
 
-.homepage-most-viewed-list__item {
+.homepage-most-viewed-list__item-link {
+  padding-right: govuk-spacing(8);
   @include govuk-font($size: 19, $weight: "bold");
 }

@@ -31,52 +31,45 @@
         </form>
       </div>
     </div>
-    <div class="homepage-popular">
-      <%= render "govuk_publishing_components/components/heading", {
-        font_size: "m",
-        margin_bottom: 4,
-        text: t("homepage.index.popular_links_heading"),
-        data_attributes: {
-          ga4_scroll_marker: true,
-        },
-      } %>
-      <ul class="homepage-most-viewed-list " data-module="gem-track-click ga4-link-tracker">
-        <% t("homepage.index.popular_links").each_with_index do | item, index | %>
-
-          <% if index % 3 == 0 %>
-            <div class="govuk-grid-row">
-          <% end %>
-
-          <li class="govuk-link govuk-grid-column-one-third homepage-most-viewed-list__item">
-            <%= link_to(item[:text], item[:href], {
-              class: "govuk-link homepage-most-viewed-list__item-link",
-              data: {
-                track_category: "homepageClicked",
-                track_action: "popularLink",
-                track_label: item[:href],
-                track_value: 1,
-                track_dimension_index: 29,
-                track_dimension: item[:text],
-                ga4_link: {
-                  'event_name': 'navigation',
-                  'type': 'homepage',
-                  'index': {
-                    'index_section': 1,
-                    'index_link': index + 1,
-                    'index_section_count': 6,
-                  },
-                  'index_total': t("homepage.index.popular_links").length,
-                  'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half homepage-popular">
+        <%= render "govuk_publishing_components/components/heading", {
+          font_size: "m",
+          margin_bottom: 4,
+          text: t("homepage.index.popular_links_heading"),
+          data_attributes: {
+            ga4_scroll_marker: true,
+          },
+        } %>
+        <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
+          <% t("homepage.index.popular_links").each_with_index do | item, index | %>
+            <li>
+              <%= link_to(item[:text], item[:href], {
+                class: "govuk-link homepage-most-viewed-list__item",
+                data: {
+                  track_category: "homepageClicked",
+                  track_action: "popularLink",
+                  track_label: item[:href],
+                  track_value: 1,
+                  track_dimension_index: 29,
+                  track_dimension: item[:text],
+                  ga4_link: {
+                    'event_name': 'navigation',
+                    'type': 'homepage',
+                    'index': {
+                      'index_section': 1,
+                      'index_link': index + 1,
+                      'index_section_count': 6,
+                    },
+                    'index_total': t("homepage.index.popular_links").length,
+                    'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
+                  }
                 }
-              }
-            }) %>
-          </li>
-
-          <% if index % 3 == 2 %>
-            </div>
+              }) %>
+            </li>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

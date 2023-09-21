@@ -289,3 +289,10 @@
     padding-right: govuk-spacing(4);
   }
 }
+
+// temp override to remove the top border,
+// will need to update the image-card component in the gem
+// this can then be removed
+.homepage-section--promotion-slots .gem-c-image-card__image {
+  border-top: none;
+}

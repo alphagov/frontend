@@ -212,6 +212,16 @@
 .homepage-section--promotion-slots {
   padding-top: govuk-spacing(6);
 
+  @include govuk-media-query($until: "desktop") {
+    .gem-c-heading {
+      border-top-style: solid;
+      border-top-width: 2px;
+      border-top-color: $govuk-text-colour;
+      margin: 0 0 govuk-spacing(6);
+      padding: govuk-spacing(3) 0 0;
+    }
+  }
+
   // temp style overrides, will need to update the image-card component in the gem
   // so these can be removed
   .gem-c-image-card {

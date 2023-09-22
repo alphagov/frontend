@@ -216,6 +216,10 @@
 .homepage-section--links-and-search {
   background: govuk-colour("light-grey");
   padding: govuk-spacing(6) 0 govuk-spacing(8);
+
+  @include govuk-media-query($from: "desktop") {
+    padding-bottom: govuk-spacing(6);
+  }
 }
 
 .homepage-section--services-and-info {
@@ -265,7 +269,6 @@
 
   display: grid;
   grid-auto-flow: row;   // Use CSS grid to calculate the number of rows
-  grid-auto-rows: fractions(1); // Set all rows to same fractional height of the complete grid
   grid-template-columns: fractions(1);
 
   @include govuk-media-query($from: "desktop") {
@@ -289,6 +292,10 @@
   // internal margins.
   margin: 0 govuk-spacing(3);
   padding: 0 govuk-spacing(4) govuk-spacing(4) 0;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 }
 
 .homepage-most-viewed-list__item-link {

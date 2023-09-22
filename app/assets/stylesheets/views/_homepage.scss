@@ -211,6 +211,31 @@
 
 .homepage-section--promotion-slots {
   padding-top: govuk-spacing(6);
+
+  // temp style overrides, will need to update the image-card component in the gem
+  // so these can be removed
+  .gem-c-image-card {
+    @include govuk-media-query($until: "mobile") {
+      padding: 0 govuk-spacing(3);
+    }
+  }
+
+  // temp style override to ensure image has spacing between the text
+  .gem-c-image-card__image-wrapper {
+    @include govuk-media-query($until: "mobile") {
+      margin-bottom: govuk-spacing(2);
+    }
+  }
+
+  // temp override to remove the top border
+  .gem-c-image-card__image {
+    border-top: none;
+  }
+
+  // temp override to reduce white space on mobile between image and text
+  .gem-c-image-card__text-wrapper.gem-c-image-card__text-wrapper--two-thirds {
+    padding-left: 0;
+  }
 }
 
 .homepage-section--links-and-search {
@@ -306,11 +331,4 @@
   @include govuk-media-query($from: "desktop") {
     padding-right: govuk-spacing(4);
   }
-}
-
-// temp override to remove the top border,
-// will need to update the image-card component in the gem
-// this can then be removed
-.homepage-section--promotion-slots .gem-c-image-card__image {
-  border-top: none;
 }

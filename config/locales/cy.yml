@@ -919,6 +919,7 @@ cy:
       intro_simpler:
       intro_title:
         text:
+        short_text:
         html:
       job_search:
       jobseekers_allowance:

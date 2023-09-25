@@ -14,6 +14,8 @@
 //= link views/_homepage.css
 //= link views/_travel-advice.css
 //= link views/_report-child-abuse.css
+//= link views/_inverse_header.css
+//= link views/_homepage_header.css
 
 //= link views/_local-transaction.css
 //= link views/_location_form.css

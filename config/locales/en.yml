@@ -557,6 +557,7 @@ en:
       intro_simpler: Simpler, clearer, faster
       intro_title:
         text: Welcome to GOV.UK
+        short_text: GOV.UK
         html: Welcome to&nbsp;GOV.UK
       job_search: Find a job
       jobseekers_allowance: Jobseeker’s Allowance

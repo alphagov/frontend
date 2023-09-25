@@ -1,0 +1,49 @@
+<%
+  add_view_stylesheet("homepage_header")
+%>
+
+<header class="homepage-header">
+  <div class="govuk-width-container">
+    <div class="homepage-header__title-container">
+      <h1 class="homepage-header__title" data-ga4-scroll-marker>
+        <%= t('homepage.index.intro_title.short_text') %>
+      </h1>
+      <p class="homepage-header__intro homepage-inverse-header__intro--bold">
+        <%= t('homepage.index.intro_html') %>
+      </p>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="homepage-header__search">
+        <form
+          action="/search"
+          method="get"
+          role="search"
+          data-module="ga4-form-tracker"
+          data-ga4-form-include-text
+          data-ga4-form='{"event_name": "search", "type": "homepage", "url": "/search/all", "section": "Search", "action": "search"}'
+        >
+          <%= render "govuk_publishing_components/components/search", {
+              button_text: t("homepage.index.search_button"),
+              margin_bottom: 0,
+              size: "large",
+              label_size: "s",
+              label_margin_bottom: 3,
+              inline_label: false,
+              label_text: t("homepage.index.search_label"),
+              homepage: true,
+              on_govuk_blue: true,
+              margin_top: 7,
+              data_attributes: {
+                track_category: "homepageClicked",
+                track_action: "searchSubmitted",
+                track_label: "/search/all",
+                track_dimension_index: 29,
+                track_dimension: "Search GOV.UK",
+                ga4_scroll_marker: true,
+              },
+          } %>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>

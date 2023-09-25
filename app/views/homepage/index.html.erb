@@ -13,13 +13,10 @@
   <%#
     The GA4 tracking on the homepage depends on some hardcoded values for index. If a section is added or removed, these values will need to be updated. Specifically 'index_section_count' (the total number of sections) and potentially 'index_section' (the index of the section e.g. 2 for the 2nd second).
   %>
-  <%= render "homepage/inverse_header" %>
-  <%= render "homepage/links_and_search" %>
+
+  <%= render "homepage/head" %>
 
   <div class="govuk-width-container">
-    <%= render "homepage/services_and_information" %>
-    <%= render "homepage/promotion-slots" %>
-    <%= render "homepage/government_activity" %>
-    <%= render "homepage/more_on_govuk" %>
+    <%= render "homepage/body" %>
   </div>
 </main>

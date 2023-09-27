@@ -249,9 +249,17 @@
 }
 
 .homepage-section--links-and-search {
-  background: govuk-colour("light-grey");
+  background: govuk-colour("white");
   padding: govuk-spacing(6) 0 govuk-spacing(8);
 
+  @include govuk-media-query($from: "desktop") {
+    padding-bottom: govuk-spacing(6);
+  }
+}
+
+.homepage-section--links {
+  padding-bottom: govuk-spacing(8);
+  border-bottom: 4px solid $govuk-brand-colour;
   @include govuk-media-query($from: "desktop") {
     padding-bottom: govuk-spacing(6);
   }
@@ -326,7 +334,7 @@
   // We use grid to split the container into column widths, so manage the horizontal spacing with
   // internal margins.
   margin: 0 govuk-spacing(3);
-  padding: 0 govuk-spacing(4) govuk-spacing(4) 0;
+  padding: 0 0 govuk-spacing(4) 0;
 
   &:last-of-type {
     padding-bottom: 0;
@@ -348,4 +356,11 @@
     margin-top: govuk-spacing(6);
     margin-bottom: govuk-spacing(4);
   }
+}
+
+// Temp override to increase action link icon size
+.homepage .gem-c-action-link--light-icon::before {
+  width: 55px;
+  height: 40px;
+  background-size: 40px auto;
 }

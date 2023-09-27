@@ -31,21 +31,24 @@
         </form>
       </div>
     </div>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full homepage-popular">
-        <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
-          margin_bottom: 4,
-          text: t("homepage.index.popular_links_heading"),
-          data_attributes: {
-            ga4_scroll_marker: true,
-          },
-        } %>
-        <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
-          <% t("homepage.index.popular_links").each_with_index do | item, index | %>
+    <div class="homepage-section--links">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full homepage-popular">
+          <%= render "govuk_publishing_components/components/heading", {
+            font_size: "l",
+            margin_bottom: 6,
+            text: t("homepage.index.popular_links_heading"),
+            data_attributes: {
+              ga4_scroll_marker: true,
+            },
+          } %>
+          <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
+            <% t("homepage.index.popular_links").each_with_index do | item, index | %>
             <li class="homepage-most-viewed-list__item">
-              <%= link_to(item[:text], item[:href], {
-                class: "govuk-link homepage-most-viewed-list__item-link",
+              <%= render "govuk_publishing_components/components/action_link", {
+                text: item[:text],
+                href: item[:href],
+                light_icon: true,
                 data: {
                   track_category: "homepageClicked",
                   track_action: "popularLink",
@@ -63,10 +66,11 @@
                     'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
                   }
                 }
-              }) %>
+              } %>
             </li>
-          <% end %>
-        </ul>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

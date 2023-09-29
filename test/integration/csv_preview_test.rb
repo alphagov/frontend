@@ -243,6 +243,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
   end
 
   def setup_content_item_legacy(legacy_url_path, parent_document_base_path)
+    filename = legacy_url_path.split("/").last
     content_item = {
       base_path: parent_document_base_path,
       document_type: "guidance",
@@ -251,11 +252,13 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
         attachments: [
           {
             title: "Attachment 1",
-            url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5678/filename.csv",
+            filename: "file.csv",
+            url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5678/file.csv",
             file_size: "1024",
           },
           {
             title: "Attachment 2",
+            filename:,
             url: "https://www.gov.uk/#{legacy_url_path}",
             file_size: "2048",
           },
@@ -280,6 +283,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
   end
 
   def setup_content_item_non_legacy(non_legacy_url_path, parent_document_base_path)
+    filename = non_legacy_url_path.split("/").last
     content_item = {
       base_path: parent_document_base_path,
       document_type: "guidance",
@@ -288,11 +292,13 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
         attachments: [
           {
             title: "Attachment 1",
-            url: "https://www.gov.uk/media/5678/filename.csv",
+            filename: "file.csv",
+            url: "https://www.gov.uk/media/5678/file.csv",
             file_size: "1024",
           },
           {
             title: "Attachment 2",
+            filename:,
             url: "https://www.gov.uk/#{non_legacy_url_path}",
             file_size: "2048",
           },

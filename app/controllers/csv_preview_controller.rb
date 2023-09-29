@@ -16,10 +16,10 @@ class CsvPreviewController < ApplicationController
 
     parent_document_path = URI(@asset["parent_document_url"]).request_uri
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
-
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
-      attachment["url"] =~ /#{Regexp.escape(asset_path)}$/
+      attachment["filename"] == asset_filename
     end
+
     original_error = nil
     row_sep = :auto
     download_file = params[:legacy] ? whitehall_media_download : media_download
@@ -56,6 +56,10 @@ private
 
   def asset_path
     request.path.sub("/preview", "").sub(/^\//, "")
+  end
+
+  def asset_filename
+    asset_path.split("/").last
   end
 
   def whitehall_media_download

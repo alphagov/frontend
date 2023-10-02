@@ -340,7 +340,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     # Asserting that we have the right data attribtues to trigger the
     # TrackSmartAnswer JavaScript module doesn't feel like enough, but it'll do.
     assert page.has_selector?("[data-module='track-smart-answer ga4-auto-tracker'][data-smart-answer-node-type=outcome]")
-    assert page.has_selector?("[data-ga4-auto='{\"event_name\":\"form_complete\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"complete\",\"tool_name\":\"The Bridge of Death\"}']")
+    assert page.has_selector?("[data-ga4-auto='{\"event_name\":\"form_complete\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"complete\",\"tool_name\":\"The Bridge of Death\",\"text\":\"right-off-you-go\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"information click\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"start again\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_change_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your name?\",\"action\":\"change response\",\"tool_name\":\"The Bridge of Death\"}']")

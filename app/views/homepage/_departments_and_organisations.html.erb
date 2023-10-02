@@ -10,8 +10,9 @@
       } %>
     </div>
 
-    <%#
-      The "big number" component links below are hardcoded separately (i.e. not in a loop in this instance) and therefore their 'index' properties are also hardcoded. If a new "big number" component is added or removed, this will need to be reflected in the 'index_link' and 'index_total' properties to ensure that they remain accurate for tracking/analytics purposes.
+    <%
+      # The "big number" component links below are hardcoded separately (i.e. not in a loop in this instance) and therefore their 'index' properties are also hardcoded.
+      # If a new "big number" component is added or removed, this will need to be reflected in the 'index_link' and 'index_total' properties to ensure that they remain accurate for tracking/analytics purposes.
     %>
     <div class="homepage-section__depts" data-module="gem-track-click ga4-link-tracker">
       <%= render "govuk_publishing_components/components/big_number", {

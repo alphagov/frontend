@@ -20,6 +20,16 @@
 
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full homepage-section--user-research">
+        <%= render "govuk_publishing_components/components/intervention", {
+          suggestion_text: t("homepage.index.user_research_banner_suggestion_text"),
+          suggestion_link_text: t("homepage.index.user_research_banner_link_text"),
+          suggestion_link_url: t("homepage.index.user_research_banner_link_href"),
+          new_tab: true,
+        } %>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
       <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
         <%= render "homepage/services_and_information", locals: { index_section: 2, index_section_count: index_section_count } %>
       </div>

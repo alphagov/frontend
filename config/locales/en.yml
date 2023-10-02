@@ -625,6 +625,9 @@ en:
       tax_account: Sign in to your personal tax account
       uk_bank_holidays: UK bank holidays
       universal_credit: Sign in to your Universal Credit account
+      user_research_banner_suggestion_text: Help improve GOV.UK
+      user_research_banner_link_text: Take part in user research (opens in a new tab)
+      user_research_banner_link_href: https://surveys.publishing.service.gov.uk/s/GOVStudy1/
     # If adding or removing items remember to update the `columns()` mixin in
     # the homepage-most-active-list class in _homepage.scss.
     most_active:

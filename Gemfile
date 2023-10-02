@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby File.read(".ruby-version")
+ruby "~> 3.2.0"
 
 gem "rails", "7.0.8"
 

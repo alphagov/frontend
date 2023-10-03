@@ -1,0 +1,62 @@
+@import "govuk_publishing_components/individual_component_support";
+
+$pale-blue-colour: #d2e2f1;
+
+.homepage-header {
+  background-color: $govuk-brand-colour;
+  padding-bottom: govuk-spacing(7);
+  padding-top: govuk-spacing(4);
+  @include govuk-typography-common;
+
+  @include govuk-media-query($from: desktop) {
+    padding-bottom: govuk-spacing(8);
+    padding-top: govuk-spacing(6);
+  }
+}
+
+.homepage-header__title {
+  @include govuk-typography-weight-bold;
+  color: govuk-colour("white");
+  font-size: 40px;
+  font-size: govuk-px-to-rem(40);
+  line-height: 1.2;
+  padding-bottom: govuk-spacing(2);
+  margin: 0;
+
+  @include govuk-media-query($from: tablet) {
+    font-size: 60px;
+    font-size: govuk-px-to-rem(60);
+  }
+
+  @include govuk-media-query($from: desktop) {
+    font-size: 69px;
+    font-size: govuk-px-to-rem(69);
+  }
+}
+
+.homepage-header__intro {
+  @include govuk-typography-weight-bold;
+
+  color: $pale-blue-colour;
+  font-size: 40px;
+  font-size: govuk-px-to-rem(40);
+  margin: 0;
+  padding-bottom: govuk-spacing(2);
+  line-height: 1.07;
+
+  @include govuk-media-query($from: tablet) {
+    font-size: 60px;
+    font-size: govuk-px-to-rem(60);
+  }
+
+  @include govuk-media-query($from: desktop) {
+    font-size: 69px;
+    font-size: govuk-px-to-rem(69);
+  }
+}
+
+.homepage-header__search {
+  @include govuk-media-query($from: mobile) {
+    @include govuk-grid-column($width: two-thirds);
+  }
+}

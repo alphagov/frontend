@@ -2,50 +2,6 @@
 @import "govuk_publishing_components/components/mixins/prefixed-transform";
 @import "govuk_publishing_components/components/mixins/grid-helper";
 
-.homepage-inverse-header {
-  background-color: $govuk-brand-colour;
-  padding-bottom: govuk-spacing(7);
-  padding-top: govuk-spacing(8);
-  @include govuk-typography-common;
-
-  @include govuk-media-query($from: desktop) {
-    padding-bottom: govuk-spacing(8);
-    padding-top: govuk-spacing(9);
-  }
-}
-
-.homepage-inverse-header__title {
-  @include govuk-typography-weight-bold;
-  color: govuk-colour("white");
-  font-size: 32px;
-  font-size: govuk-px-to-rem(32);
-  line-height: 1.2;
-  margin: 0;
-  padding-bottom: govuk-spacing(6);
-
-  @include govuk-media-query($from: desktop) {
-    font-size: 48px;
-    font-size: govuk-px-to-rem(48);
-  }
-}
-
-.homepage-inverse-header__intro {
-  color: govuk-colour("white");
-  font-size: 19px;
-  font-size: govuk-px-to-rem(19);
-  margin: 0;
-  padding-bottom: govuk-spacing(2);
-
-  @include govuk-media-query($from: desktop) {
-    font-size: 24px;
-    font-size: govuk-px-to-rem(24);
-  }
-}
-
-.homepage-inverse-header__intro--bold {
-  @include govuk-typography-weight-bold;
-}
-
 .homepage__ready-container {
   margin: govuk-spacing(6) 0 govuk-spacing(7) 0;
 

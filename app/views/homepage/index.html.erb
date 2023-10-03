@@ -15,7 +15,13 @@
     # Specifically 'index_section_count' (the total number of sections) and 'index_section' (the index of the section e.g. 2 for the 2nd section).
     index_section_count = 6
   %>
-  <%= render "homepage/inverse_header" %>
+
+  <% if @new_design %>
+    <%= render "homepage_header" %>
+  <% else %>
+    <%= render "inverse_header" %>
+  <% end %>
+
   <%= render "homepage/links_and_search", locals: { index_section: 1, index_section_count: index_section_count } %>
 
   <div class="govuk-width-container">

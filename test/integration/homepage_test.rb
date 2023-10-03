@@ -16,6 +16,15 @@ class HomepageTest < ActionDispatch::IntegrationTest
     )
   end
 
+  context "when new design paramater is present" do
+    should "show the new design" do
+      visit "/?new_design=impact"
+
+      assert page.has_css?(".homepage-header__title")
+      assert page.has_no_css?(".homepage-inverse-header__title")
+    end
+  end
+
   context "when visiting a Welsh content item first" do
     setup do
       @payload = {

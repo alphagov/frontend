@@ -16,7 +16,7 @@
     index_section_count = 6
   %>
 
-  <% if @new_design %>
+  <% if new_design? %>
     <%= render "homepage_header" %>
   <% else %>
     <%= render "inverse_header" %>

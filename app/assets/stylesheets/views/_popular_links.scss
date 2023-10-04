@@ -3,11 +3,11 @@
 
 .homepage-section__popular-links {
   background: govuk-colour("white");
-  padding: govuk-spacing(6) 0 govuk-spacing(8) 0;
+  padding: 4px 0 govuk-spacing(8);
   border-bottom: 4px solid $govuk-brand-colour;
 
   @include govuk-media-query($from: "desktop") {
-    padding: govuk-spacing(6) 0;
+    padding: govuk-spacing(7) 0 28px;
   }
 }
 
@@ -42,29 +42,30 @@
   // We use grid to split the container into column widths, so manage the horizontal spacing with
   // internal margins.
   margin: 0 govuk-spacing(3);
-  padding: 0 0 govuk-spacing(4) 0;
+  padding: 0 0 24px;
+
+  a {
+    font-size: 19px;
+    font-size: px-to-rem(19);
+  }
 
   &:last-of-type {
     padding-bottom: 0;
   }
 
   @include govuk-media-query($from: "desktop") {
+    padding-bottom: 32px;
+
     &:last-of-type {
-      padding-bottom: govuk-spacing(4);
+      padding-bottom: 32px;
     }
   }
 }
 
-.homepage-most-viewed-list__item-link {
-  @include govuk-font($size: 19, $weight: "bold");
-}
-
 // Temp override to increase action link icon size
-@include govuk-media-query($from: "desktop") {
-  .homepage .gem-c-action-link--light-icon::before {
-    width: 55px;
-    height: 40px;
-    background-size: 40px auto;
-    background-position: 0 50%;
-  }
+.homepage .gem-c-action-link--light-icon::before {
+  width: 56px;
+  height: 40px;
+  background-size: 40px auto;
+  background-position: 0 50%;
 }

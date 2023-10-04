@@ -19,3 +19,5 @@
 
 //= link views/_local-transaction.css
 //= link views/_location_form.css
+//= link views/_links_and_search.css
+//= link views/_popular_links.css

@@ -18,11 +18,11 @@
 
   <% if new_design? %>
     <%= render "homepage_header" %>
+    <%= render "homepage/popular_links", locals: { index_section: 1, index_section_count: index_section_count } %>
   <% else %>
     <%= render "inverse_header" %>
+    <%= render "homepage/links_and_search", locals: { index_section: 1, index_section_count: index_section_count } %>
   <% end %>
-
-  <%= render "homepage/links_and_search", locals: { index_section: 1, index_section_count: index_section_count } %>
 
   <div class="govuk-width-container">
     <div class="govuk-grid-row">

@@ -13,7 +13,11 @@
   <%
     # The GA4 tracking on the homepage depends on some hardcoded values for index. If a section is added or removed, these values will need to be updated.
     # Specifically 'index_section_count' (the total number of sections) and 'index_section' (the index of the section e.g. 2 for the 2nd section).
-    index_section_count = 6
+    if new_design?
+      index_section_count = 5
+    else
+      index_section_count = 6
+    end
   %>
 
   <% if new_design? %>
@@ -44,10 +48,18 @@
         <%= render "homepage/promotion-slots", locals: { index_section: 3, index_section_count: index_section_count } %>
       </div>
     </div>
-    <div class="govuk-grid-row">
-      <%= render "homepage/government_activity", locals: { index_section: 4, index_section_count: index_section_count } %>
-      <%= render "homepage/departments_and_organisations", locals: { index_section: 5, index_section_count: index_section_count } %>
-    </div>
-    <%= render "homepage/more_on_govuk", locals: { index_section: 6, index_section_count: index_section_count } %>
+
+    <% if new_design? %>
+      <div class="govuk-grid-row">
+        <%= render "homepage/government_activity", locals: { index_section: 4, index_section_count: index_section_count } %>
+        <%= render "homepage/more_on_govuk_new", locals: { index_section: 5, index_section_count: index_section_count } %>
+      </div>
+    <% else %>
+      <div class="govuk-grid-row">
+        <%= render "homepage/government_activity", locals: { index_section: 4, index_section_count: index_section_count } %>
+        <%= render "homepage/departments_and_organisations", locals: { index_section: 5, index_section_count: index_section_count } %>
+      </div>
+      <%= render "homepage/more_on_govuk", locals: { index_section: 6, index_section_count: index_section_count } %>
+    <% end %>
   </div>
 </main>

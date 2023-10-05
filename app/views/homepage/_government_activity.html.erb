@@ -3,7 +3,7 @@
     <div class="homepage-section__heading">
       <div class="homepage-section__heading-wrapper">
         <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
+          font_size: new_design? ? "l" : "m",
           text: t("homepage.index.government_activity"),
           data_attributes: {
             ga4_scroll_marker: true,

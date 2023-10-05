@@ -3,7 +3,7 @@
     <div class="govuk-grid-column-full">
       <div class="homepage-section__heading homepage-section__heading--border-none">
         <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
+          font_size: new_design? ? "l" : "m",
           heading_level: 2,
           margin_bottom: 6,
           text: t("homepage.index.services_and_information"),

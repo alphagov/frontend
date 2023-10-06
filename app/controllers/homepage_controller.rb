@@ -4,7 +4,7 @@ class HomepageController < ContentItemsController
 
   def index
     set_slimmer_headers(
-      template: "gem_layout_homepage",
+      template: new_design? ? "gem_layout_homepage_new" : "gem_layout_homepage",
     )
   end
 

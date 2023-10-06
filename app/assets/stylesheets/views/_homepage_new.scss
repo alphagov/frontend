@@ -1,0 +1,200 @@
+@import "govuk_publishing_components/individual_component_support";
+@import "govuk_publishing_components/components/mixins/prefixed-transform";
+@import "govuk_publishing_components/components/mixins/grid-helper";
+
+.homepage__ready-container {
+  margin: govuk-spacing(6) 0 govuk-spacing(7) 0;
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: govuk-spacing(3);
+  }
+}
+
+.homepage__ready-heading {
+  margin-bottom: govuk-spacing(4);
+}
+
+.homepage__ready-call-to-action {
+  @include govuk-font(19, $weight: bold);
+  margin-bottom: 0;
+}
+
+.home-services {
+  padding-top: govuk-spacing(5);
+}
+
+.home-services__heading {
+  @include govuk-font(19, $weight: bold);
+  margin: 0 0 govuk-spacing(1) 0;
+}
+
+.home-services__para {
+  @include govuk-font(16);
+  margin: 0 0 govuk-spacing(3) 0;
+  min-height: 40px;
+}
+
+.home-info {
+  @include govuk-font(24);
+  margin: govuk-spacing(2) 0 govuk-spacing(4);
+}
+
+.home-more__title {
+  @include govuk-font(36, $weight: bold);
+  margin: 0 0 govuk-spacing(4) 0;
+}
+
+.home-more__subtitle {
+  @include govuk-font(24, $weight: bold);
+  margin: 0 0 govuk-spacing(2) 0;
+}
+
+.home-more__list {
+  font-weight: bold;
+}
+
+.homepage-services-and-info__list {
+  list-style: none;
+  margin: 0 govuk-spacing(-3);
+  padding: 0;
+}
+
+.chevron-card {
+  border-top: 1px solid $govuk-border-colour;
+  margin: 0 govuk-spacing(3);
+  padding: govuk-spacing(1) 0 govuk-spacing(4) 0;
+}
+
+.chevron-card__wrapper {
+  padding: govuk-spacing(2) govuk-spacing(6) govuk-spacing(2) 0;
+  position: relative;
+}
+
+.chevron-card__description {
+  margin: 0 govuk-spacing(6) 0 0;
+}
+
+.chevron-card__link {
+  &::after {
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &::before {
+    $dimension: 7px;
+    $width: 3px;
+
+    border-right: $width solid $govuk-brand-colour;
+    border-top: $width solid $govuk-brand-colour;
+    content: "";
+    display: block;
+    height: $dimension;
+    position: absolute;
+    right: govuk-spacing(1);
+    top: 50%;
+    @include prefixed-transform($rotate: 45deg);
+    width: $dimension;
+  }
+
+  &:hover {
+    &::before {
+      border-color: $govuk-link-hover-colour;
+    }
+  }
+
+  &:focus {
+    &::before {
+      border-color: $govuk-focus-text-colour;
+    }
+  }
+}
+
+.homepage-section {
+  padding: govuk-spacing(4) 0 govuk-spacing(6);
+}
+
+.homepage-section--promotion-slots {
+  padding-top: govuk-spacing(6);
+
+  @include govuk-media-query($until: "desktop") {
+    .gem-c-heading {
+      border-top-style: solid;
+      border-top-width: 2px;
+      border-top-color: $govuk-text-colour;
+      margin: 0 0 govuk-spacing(6);
+      padding: govuk-spacing(3) 0 0;
+    }
+  }
+
+  // temp style overrides, will need to update the image-card component in the gem
+  // so these can be removed
+  .gem-c-image-card {
+    @include govuk-media-query($until: "mobile") {
+      padding: 0 govuk-spacing(3);
+    }
+  }
+
+  // temp style override to ensure image has spacing between the text
+  .gem-c-image-card__image-wrapper {
+    @include govuk-media-query($until: "mobile") {
+      margin-bottom: govuk-spacing(2);
+    }
+  }
+
+  // temp override to remove the top border
+  .gem-c-image-card__image {
+    border-top: none;
+  }
+
+  // temp override to reduce white space on mobile between image and text
+  .gem-c-image-card__text-wrapper.gem-c-image-card__text-wrapper--two-thirds {
+    padding-left: 0;
+  }
+}
+
+.homepage-section--services-and-info {
+  padding: govuk-spacing(6) 0 0;
+
+  @include govuk-media-query($from: "desktop") {
+    padding-right: govuk-spacing(4);
+  }
+}
+
+.homepage-section__heading {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: $govuk-text-colour;
+  margin: 0 0 govuk-spacing(6);
+  padding: govuk-spacing(3) 0 0;
+}
+
+.homepage-section__heading-wrapper {
+  margin-bottom: govuk-spacing(1);
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.homepage-section__heading--border-none {
+  border: none;
+  padding: 0;
+}
+
+.homepage-section__government-activity {
+  @include govuk-media-query($from: "desktop") {
+    padding-right: govuk-spacing(4);
+  }
+}
+
+.homepage-section--user-research {
+  .gem-c-intervention {
+    margin-top: govuk-spacing(6);
+    margin-bottom: govuk-spacing(4);
+  }
+}

@@ -1,0 +1,52 @@
+<%
+  # Before updating a promotion slot please read the documentation.
+  # See: https://docs.publishing.service.gov.uk/repos/frontend/update-homepage-promotion-slots.html
+%>
+
+<section class="homepage-section homepage-section--promotion-slots">
+  <div class="homepage-section__heading">
+    <div class="homepage-section__heading-wrapper">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("homepage.index.featured"),
+        font_size: "l",
+        margin_bottom: 6,
+        data_attributes: {
+          ga4_scroll_marker: true,
+        },
+      } %>
+    </div>
+  </div>
+
+  <% t("homepage.index.promotion_slots").each_with_index do | item, index | %>
+    <%= render "govuk_publishing_components/components/image_card", {
+      href: item[:href],
+      href_data_attributes: {
+        track_category: "homepageClicked",
+        track_action: "promoLink",
+        track_label: item[:href],
+        track_value: "1",
+        track_dimension_index: "29",
+        track_dimension: item[:title],
+        ga4_link: {
+          event_name: 'navigation',
+          type: 'homepage',
+          index_section: locals[:index_section],
+          index_link: index + 1,
+          index_section_count: locals[:index_section_count],
+          index_total: t("homepage.index.promotion_slots").length,
+          section: t("homepage.index.featured", locale: :en)
+        }
+      },
+      image_src: image_path(item[:image_src]),
+      image_alt: "",
+      image_loading: "lazy",
+      heading_level: 3,
+      heading_text: item[:title],
+      two_thirds: true,
+      description: item[:text],
+      font_size: "s",
+      sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
+      srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence
+    } %>
+  <% end %>
+</section>

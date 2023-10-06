@@ -45,7 +45,11 @@
         <%= render "homepage/services_and_information", locals: { index_section: 2, index_section_count: index_section_count } %>
       </div>
       <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
-        <%= render "homepage/promotion-slots", locals: { index_section: 3, index_section_count: index_section_count } %>
+        <% if new_design? %>
+          <%= render "homepage/promotion_slots_new", locals: { index_section: 3, index_section_count: index_section_count } %>
+        <% else %>
+          <%= render "homepage/promotion-slots", locals: { index_section: 3, index_section_count: index_section_count } %>
+        <% end %>
       </div>
     </div>
 

@@ -119,7 +119,11 @@
 }
 
 .homepage-section--promotion-slots {
-  padding-top: govuk-spacing(6);
+  padding: 26px 0 govuk-spacing(4);
+
+  @include govuk-media-query($from: "desktop") {
+    padding: govuk-spacing(9) 0;
+  }
 
   // temp style overrides, will need to update the image-card component in the gem
   // so these can be removed
@@ -148,10 +152,10 @@
 }
 
 .homepage-section--services-and-info {
-  padding: govuk-spacing(6) 0 0;
+  padding: govuk-spacing(8) 0 0;
 
   @include govuk-media-query($from: "desktop") {
-    padding-right: govuk-spacing(4);
+    padding: govuk-spacing(9) govuk-spacing(4) govuk-spacing(9) 0;
   }
 }
 
@@ -160,7 +164,7 @@
   border-top-width: 4px;
   border-top-color: $govuk-brand-colour;
   margin: 0 0 govuk-spacing(6);
-  padding: govuk-spacing(3) 0 0;
+  padding: govuk-spacing(8) 0 0;
 
   @include govuk-media-query($from: "desktop") {
     border: none;
@@ -182,8 +186,19 @@
 }
 
 .homepage-section__government-activity {
+  padding: 0 0 24px;
+
   @include govuk-media-query($from: "desktop") {
+    padding-top: govuk-spacing(9);
     padding-right: govuk-spacing(4);
+  }
+}
+
+.homepage-section__more-on-govuk {
+  padding: 0 0 govuk-spacing(8);
+
+  @include govuk-media-query($from: "desktop") {
+    padding: govuk-spacing(9) 0;
   }
 }
 

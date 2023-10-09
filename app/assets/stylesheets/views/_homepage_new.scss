@@ -62,6 +62,7 @@
 .chevron-card {
   border-top: 1px solid $govuk-border-colour;
   margin: 0 govuk-spacing(3);
+  padding: govuk-spacing(1) 0 govuk-spacing(4) 0;
 
   &:first-child {
     border-top: none;
@@ -69,7 +70,7 @@
 }
 
 .chevron-card__wrapper {
-  padding: 24px 0;
+  padding: 19px 0 4px;
   position: relative;
 }
 
@@ -100,7 +101,7 @@
     position: absolute;
     right: govuk-spacing(1);
     top: 50%;
-    margin-top: -5px;
+    margin-top: 5px;
     @include prefixed-transform($rotate: 45deg);
     width: $dimension;
   }

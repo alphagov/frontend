@@ -1,0 +1,12 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.homepage-most-active-list {
+  list-style: none;
+  margin: 0 0 govuk-spacing(6) 0;
+  padding: 0;
+}
+
+.homepage-most-active-list__item {
+  margin: 0 0 govuk-spacing(4) 0;
+  @include govuk-font($size: 19, $weight: bold);
+}

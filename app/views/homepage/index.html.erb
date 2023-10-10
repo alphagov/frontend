@@ -1,5 +1,9 @@
 <%
-  add_view_stylesheet("homepage")
+  if new_design?
+    add_view_stylesheet("homepage_new")
+  else
+    add_view_stylesheet("homepage")
+  end
 %>
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
@@ -14,6 +18,7 @@
     # The GA4 tracking on the homepage depends on some hardcoded values for index. If a section is added or removed, these values will need to be updated.
     # Specifically 'index_section_count' (the total number of sections) and 'index_section' (the index of the section e.g. 2 for the 2nd section).
     index_section_count = 6
+    index_section_count = 5 if new_design?
   %>
 
   <% if new_design? %>
@@ -36,18 +41,38 @@
         } %>
       </div>
     </div>
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
-        <%= render "homepage/services_and_information", locals: { index_section: 2, index_section_count: index_section_count } %>
+
+    <% if new_design? %>
+      <div class="border-top-blue-from-desktop">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
+            <%= render "homepage/services_and_information", locals: { index_section: 2, index_section_count: index_section_count } %>
+          </div>
+          <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+            <%= render "homepage/promotion_slots_new", locals: { index_section: 3, index_section_count: index_section_count } %>
+          </div>
+        </div>
       </div>
-      <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
-        <%= render "homepage/promotion-slots", locals: { index_section: 3, index_section_count: index_section_count } %>
+      <div class="border-top-blue-from-desktop">
+        <div class="govuk-grid-row">
+          <%= render "homepage/government_activity", locals: { index_section: 4, index_section_count: index_section_count } %>
+          <%= render "homepage/more_on_govuk_new", locals: { index_section: 5, index_section_count: index_section_count } %>
+        </div>
       </div>
-    </div>
-    <div class="govuk-grid-row">
-      <%= render "homepage/government_activity", locals: { index_section: 4, index_section_count: index_section_count } %>
-      <%= render "homepage/departments_and_organisations", locals: { index_section: 5, index_section_count: index_section_count } %>
-    </div>
-    <%= render "homepage/more_on_govuk", locals: { index_section: 6, index_section_count: index_section_count } %>
+    <% else %>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full govuk-grid-column-two-thirds-from-desktop">
+          <%= render "homepage/services_and_information", locals: { index_section: 2, index_section_count: index_section_count } %>
+        </div>
+        <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+          <%= render "homepage/promotion-slots", locals: { index_section: 3, index_section_count: index_section_count } %>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <%= render "homepage/government_activity", locals: { index_section: 4, index_section_count: index_section_count } %>
+        <%= render "homepage/departments_and_organisations", locals: { index_section: 5, index_section_count: index_section_count } %>
+      </div>
+      <%= render "homepage/more_on_govuk", locals: { index_section: 6, index_section_count: index_section_count } %>
+    <% end %>
   </div>
 </main>

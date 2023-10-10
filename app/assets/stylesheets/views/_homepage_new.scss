@@ -63,10 +63,14 @@
   border-top: 1px solid $govuk-border-colour;
   margin: 0 govuk-spacing(3);
   padding: govuk-spacing(1) 0 govuk-spacing(4) 0;
+
+  &:first-child {
+    border-top: none;
+  }
 }
 
 .chevron-card__wrapper {
-  padding: govuk-spacing(2) govuk-spacing(6) govuk-spacing(2) 0;
+  padding: 19px 0 4px;
   position: relative;
 }
 
@@ -97,6 +101,7 @@
     position: absolute;
     right: govuk-spacing(1);
     top: 50%;
+    margin-top: 5px;
     @include prefixed-transform($rotate: 45deg);
     width: $dimension;
   }
@@ -119,16 +124,10 @@
 }
 
 .homepage-section--promotion-slots {
-  padding-top: govuk-spacing(6);
+  padding: 26px 0 govuk-spacing(4);
 
-  @include govuk-media-query($until: "desktop") {
-    .gem-c-heading {
-      border-top-style: solid;
-      border-top-width: 2px;
-      border-top-color: $govuk-text-colour;
-      margin: 0 0 govuk-spacing(6);
-      padding: govuk-spacing(3) 0 0;
-    }
+  @include govuk-media-query($from: "desktop") {
+    padding: govuk-spacing(9) 0;
   }
 
   // temp style overrides, will need to update the image-card component in the gem
@@ -158,19 +157,24 @@
 }
 
 .homepage-section--services-and-info {
-  padding: govuk-spacing(6) 0 0;
+  padding: govuk-spacing(8) 0 0;
 
   @include govuk-media-query($from: "desktop") {
-    padding-right: govuk-spacing(4);
+    padding: govuk-spacing(9) govuk-spacing(4) govuk-spacing(9) 0;
   }
 }
 
 .homepage-section__heading {
   border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: $govuk-text-colour;
+  border-top-width: 4px;
+  border-top-color: $govuk-brand-colour;
   margin: 0 0 govuk-spacing(6);
-  padding: govuk-spacing(3) 0 0;
+  padding: govuk-spacing(8) 0 0;
+
+  @include govuk-media-query($from: "desktop") {
+    border: none;
+    padding: 0;
+  }
 }
 
 .homepage-section__heading-wrapper {
@@ -187,8 +191,19 @@
 }
 
 .homepage-section__government-activity {
+  padding: 0 0 24px;
+
   @include govuk-media-query($from: "desktop") {
+    padding-top: govuk-spacing(9);
     padding-right: govuk-spacing(4);
+  }
+}
+
+.homepage-section__more-on-govuk {
+  padding: 0 0 govuk-spacing(8);
+
+  @include govuk-media-query($from: "desktop") {
+    padding: govuk-spacing(9) 0;
   }
 }
 
@@ -196,5 +211,13 @@
   .gem-c-intervention {
     margin-top: govuk-spacing(6);
     margin-bottom: govuk-spacing(4);
+  }
+}
+
+.border-top-blue-from-desktop {
+  border: none;
+
+  @include govuk-media-query($from: "desktop") {
+    border-top: 4px solid $govuk-brand-colour;
   }
 }

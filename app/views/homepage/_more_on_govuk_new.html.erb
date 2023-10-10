@@ -1,0 +1,46 @@
+<%
+  add_view_stylesheet("homepage_more_on_govuk_new")
+%>
+
+<div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
+  <section class="homepage-section homepage-section__more-on-govuk">
+    <div class="homepage-section__heading">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("homepage.index.more"),
+        margin_bottom: 6,
+        font_size: "l",
+        data_attributes: {
+          ga4_scroll_marker: true,
+        },
+      } %>
+    </div>
+    <ul class="homepage-most-active-list" data-module="gem-track-click ga4-link-tracker">
+      <% t("homepage.index.more_links").each_with_index do | item, index | %>
+        <li class="homepage-most-active-list__item">
+          <%= link_to(
+            item[:title],
+            item[:link],
+            class: "govuk-link",
+            data: {
+              "track-category": "homepageClicked",
+              "track-action": "moreLink",
+              "track-label": item[:link],
+              "track-value": "1",
+              "track-dimension": item[:title],
+              "track-dimension-index": "29",
+              "ga4_link": {
+                'event_name': 'navigation',
+                'type': 'homepage',
+                "index_section": locals[:index_section],
+                "index_link": index + 1,
+                "index_section_count": locals[:index_section_count],
+                "index_total": t("homepage.index.more_links").length,
+                "section": t("homepage.index.more", locale: :en)
+              }
+            }
+          ) %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>

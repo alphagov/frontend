@@ -3,18 +3,16 @@
     <div class="homepage-section__heading">
       <div class="homepage-section__heading-wrapper">
         <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
+          font_size: new_design? ? "l" : "m",
           text: t("homepage.index.government_activity"),
+          margin_bottom: 2,
           data_attributes: {
             ga4_scroll_marker: true,
           },
         } %>
       </div>
 
-      <%= render "govuk_publishing_components/components/lead_paragraph", {
-        text: t("homepage.index.government_activity_description"),
-        margin_bottom: 0
-      } %>
+      <p class="govuk-body"><%= t("homepage.index.government_activity_description") %></p>
     </div>
 
     <ul class="homepage-services-and-info__list">

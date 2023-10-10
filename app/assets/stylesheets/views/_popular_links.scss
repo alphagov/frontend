@@ -3,11 +3,10 @@
 
 .homepage-section__popular-links {
   background: govuk-colour("white");
-  padding: 4px 0 govuk-spacing(8);
-  border-bottom: 4px solid $govuk-brand-colour;
+  padding: govuk-spacing(8) 0 0;
 
   @include govuk-media-query($from: "desktop") {
-    padding: govuk-spacing(7) 0 28px;
+    padding: govuk-spacing(9) 0 28px;
   }
 }
 

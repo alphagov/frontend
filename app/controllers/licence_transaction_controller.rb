@@ -42,6 +42,8 @@ class LicenceTransactionController < ContentItemsController
 
   def authority
     redirect_to licence_transaction_path(slug: params[:slug]) if publication.licence_transaction_continuation_link.present?
+
+    render :licence_not_found unless licence_details.licence.present? && licence_details.has_any_actions?
   end
 
 private

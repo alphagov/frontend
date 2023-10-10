@@ -13,6 +13,8 @@ class LicenceTransactionController < ContentItemsController
   def start
     return render :continues_on if publication.licence_transaction_continuation_link.present?
 
+    return render :licence_not_found if licence_details.licence.blank?
+
     if licence_details.single_licence_authority_present?
       redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: licence_details.authority["slug"])
     end

@@ -30,18 +30,6 @@
   <% end %>
 
   <div class="govuk-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full homepage-section--user-research">
-        <%= render "govuk_publishing_components/components/intervention", {
-          suggestion_text: t("homepage.index.user_research_banner_suggestion_text"),
-          suggestion_link_text: t("homepage.index.user_research_banner_link_text"),
-          suggestion_link_url: t("homepage.index.user_research_banner_link_href"),
-          new_tab: true,
-          ga4_tracking: true,
-        } %>
-      </div>
-    </div>
-
     <% if new_design? %>
       <div class="border-top-blue-from-desktop">
         <div class="govuk-grid-row">

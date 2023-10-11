@@ -62,10 +62,10 @@
     <div id="overview" class="inner">
       <%= yield :main_content %>
 
-      <% if licence_details.local_authority_specific? or licence_details.multiple_licence_authorities_present? %>
+      <% if licence_details.local_authority_specific? %>
         <div class="contact">
           <p class="govuk-body">The issuing authority for this licence is <strong><%= licence_details.authority["name"] %></strong>
-            <%= link_to (licence_details.local_authority_specific? ? '(change location)' : '(change authority)'),
+            <%= link_to '(change location)',
               licence_transaction_path(publication.slug),
               class: "govuk-link",
               data: {

@@ -24,6 +24,25 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "Benefits user research banner is displayed on pages of interest" do
+    transaction = GovukSchemas::Example.find("transaction", example_name: "transaction")
+
+    pages_of_interest =
+      [
+        "/sign-in-universal-credit",
+        "/check-state-pension",
+      ]
+
+    pages_of_interest.each do |path|
+      transaction["base_path"] = path
+      stub_content_store_has_item(transaction["base_path"], transaction.to_json)
+      visit transaction["base_path"]
+
+      assert page.has_css?(".gem-c-intervention")
+      assert page.has_link?("Take part in user research", href: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Content_History&utm_source=Hold_gov_to_account&utm_medium=gov.uk&t=GDS&id=16")
+    end
+  end
+
   test "User research banner is not displayed on all pages" do
     transaction = GovukSchemas::Example.find("transaction", example_name: "transaction")
     transaction["base_path"] = "/nothing-to-see-here"
@@ -32,5 +51,6 @@ class RecruitmentBannerTest < ActionDispatch::IntegrationTest
 
     assert_not page.has_css?(".gem-c-intervention")
     assert_not page.has_link?("Sign up to take part in user research", href: "https://surveys.publishing.service.gov.uk/s/SNFVW1/")
+    assert_not page.has_link?("Take part in user research", href: "https://signup.take-part-in-research.service.gov.uk/home?utm_campaign=Content_History&utm_source=Hold_gov_to_account&utm_medium=gov.uk&t=GDS&id=16")
   end
 end

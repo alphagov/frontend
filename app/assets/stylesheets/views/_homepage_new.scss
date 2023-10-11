@@ -221,3 +221,44 @@
     border-top: 4px solid $govuk-brand-colour;
   }
 }
+
+// Override `govuk-width-container` margin only when in mobile view on the homepage
+@include govuk-media-query($until: "tablet") {
+  // Override width-container margins for mobile
+  // Design System Reference - https://github.com/alphagov/govuk-frontend/blob/e19593c04336802c1d6aec19b2219c75c1442b2c/packages/govuk-frontend/src/govuk/objects/_width-container.scss#L28
+  $govuk-gutter-homepage-mobile: 24px;
+
+  .govuk-width-container {
+    margin: 0 $govuk-gutter-homepage-mobile;  
+  }
+
+  // Respect 'display cutout' safe area (avoids notches and rounded corners)
+  @supports (margin: unquote("max(calc(0px))")) {
+    $gutter-safe-area-right-homepage-mobile: calc(#{$govuk-gutter-homepage-mobile} + env(safe-area-inset-right));
+    $gutter-safe-area-left-homepage-mobile: calc(#{$govuk-gutter-homepage-mobile} + env(safe-area-inset-left));
+
+    // Use max() to pick largest margin, default or with safe area
+    // Escaped due to Sass max() vs. CSS native max()
+    margin-right: unquote("max(#{$govuk-gutter-homepage-mobile}, #{$gutter-safe-area-right-homepage-mobile})");
+    margin-left: unquote("max(#{$govuk-gutter-homepage-mobile}, #{$gutter-safe-area-left-homepage-mobile})");
+  }
+
+  // Ensure search icon in the menu bar is correctly positioned
+  .gem-c-layout-super-navigation-header__button-container {
+    margin-right: -$govuk-gutter-homepage-mobile;
+  }
+
+  // Ensure feedback component still takes up the full width of the page
+  .gem-c-feedback {
+    margin-right: -$govuk-gutter-homepage-mobile;
+    margin-left: -$govuk-gutter-homepage-mobile;
+  }
+
+  .gem-c-feedback__prompt-content {
+    padding: 0 $govuk-gutter-homepage-mobile;
+  }
+
+  .gem-c-feedback__form {
+    padding: $govuk-gutter-homepage-mobile;
+  }
+}

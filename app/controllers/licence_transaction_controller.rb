@@ -3,7 +3,7 @@ class LicenceTransactionController < ContentItemsController
   include Cacheable
   include SplitPostcodeSupport
 
-  helper_method :postcode, :licence_details
+  helper_method :licence_details
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze
@@ -18,12 +18,14 @@ class LicenceTransactionController < ContentItemsController
     if licence_details.single_licence_authority_present?
       redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: licence_details.authority["slug"])
     end
+
+    @postcode = postcode
   end
 
   def find
     @location_error = location_error
     if @location_error
-      @postcode = params[:postcode]
+      @postcode = postcode
       return render :start
     end
 

@@ -4,6 +4,7 @@ class LicenceTransactionController < ContentItemsController
   include SplitPostcodeSupport
 
   helper_method :licence_details
+  before_action :redirect_to_continuation_licence, only: %i[multiple_authorities authority authority_interaction]
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze
@@ -43,18 +44,20 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def authority
-    redirect_to licence_transaction_path(slug: params[:slug]) if publication.licence_transaction_continuation_link.present?
-
     render :licence_not_found unless licence_details.licence.present? && licence_details.has_any_actions?
   end
 
   def authority_interaction
-    redirect_to licence_transaction_path(slug: params[:slug]) if publication.licence_transaction_continuation_link.present?
-
     render :licence_not_found unless licence_details.licence.present? && licence_details.has_any_actions?
   end
 
 private
+
+  def redirect_to_continuation_licence
+    if publication.licence_transaction_continuation_link.present?
+      redirect_to licence_transaction_path(slug: params[:slug])
+    end
+  end
 
   def content_item_slug
     "/find-licences/#{params[:slug]}"

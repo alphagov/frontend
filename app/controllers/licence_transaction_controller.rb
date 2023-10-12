@@ -13,11 +13,13 @@ class LicenceTransactionController < ContentItemsController
 
   def start
     return render :continues_on if publication.licence_transaction_continuation_link.present?
+    return render :licence_not_found if licence_without_authority_code.licence.blank?
 
-    return render :licence_not_found if licence_details.licence.blank?
-
-    if licence_details.single_licence_authority_present?
-      redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: licence_details.authority["slug"])
+    if licence_without_authority_code.single_licence_authority_present?
+      redirect_to licence_transaction_authority_path(
+        slug: params[:slug],
+        authority_slug: licence_without_authority_code.authority["slug"],
+      )
     end
 
     @postcode = postcode
@@ -30,7 +32,12 @@ class LicenceTransactionController < ContentItemsController
       return render :start
     end
 
-    return redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: local_authority_slug) if locations_api_response.single_authority?
+    if locations_api_response.single_authority?
+      return redirect_to licence_transaction_authority_path(
+        slug: params[:slug],
+        authority_slug: local_authority_slug,
+      )
+    end
 
     @addresses = address_list
     @options = options
@@ -40,7 +47,10 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def multiple_authorities
-    redirect_to licence_transaction_authority_path(slug: params[:slug], authority_slug: params[:authority_slug])
+    redirect_to licence_transaction_authority_path(
+      slug: params[:slug],
+      authority_slug: params[:authority_slug],
+    )
   end
 
   def authority
@@ -67,15 +77,22 @@ private
     LicenceTransactionPresenter
   end
 
+  def licence_without_authority_code
+    @licence_without_authority_code ||= LicenceDetailsPresenter.new(
+      licence_details_from_api, params[:authority_slug], params[:interaction]
+    )
+  end
+
   def licence_details
     @licence_details ||= fetch_licence_details
   end
 
   def fetch_licence_details
-    details = LicenceDetailsPresenter.new(licence_details_from_api, params[:authority_slug], params[:interaction])
-    return details unless params[:authority_slug].present? && details.local_authority_specific?
-
-    LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
+    if licence_without_authority_code.licence_authority_specific?
+      licence_without_authority_code
+    else
+      LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
+    end
   end
 
   def licence_details_from_api(local_authority_code = nil)

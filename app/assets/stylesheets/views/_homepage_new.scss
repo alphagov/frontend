@@ -126,6 +126,13 @@
 .homepage-section--promotion-slots {
   padding: 26px 0 govuk-spacing(4);
 
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0;
   }
@@ -158,6 +165,13 @@
 
 .homepage-section--services-and-info {
   padding: govuk-spacing(8) 0 0;
+
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
 
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) govuk-spacing(4) govuk-spacing(9) 0;
@@ -193,6 +207,13 @@
 .homepage-section__government-activity {
   padding: 0 0 24px;
 
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
   @include govuk-media-query($from: "desktop") {
     padding-top: govuk-spacing(9);
     padding-right: govuk-spacing(4);
@@ -201,6 +222,13 @@
 
 .homepage-section__more-on-govuk {
   padding: 0 0 govuk-spacing(8);
+
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
 
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0;

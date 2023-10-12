@@ -45,7 +45,6 @@
       two_thirds: true,
       description: item[:text],
       font_size: "s",
-      sizes: "(max-width: 640px) 100vw, (max-width: 1020px) 33vw, 300px",
       srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence
     } %>
   <% end %>

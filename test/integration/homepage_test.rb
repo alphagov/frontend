@@ -13,10 +13,12 @@ class HomepageTest < ActionDispatch::IntegrationTest
 
   context "when new design paramater is present" do
     should "show the new design" do
-      visit "/?new_design=impact"
+      ClimateControl.modify NEW_DESIGN: "impact" do
+        visit "/?new_design=impact"
 
-      assert page.has_css?(".homepage-header__title")
-      assert page.has_no_css?(".homepage-inverse-header__title")
+        assert page.has_css?(".homepage-header__title")
+        assert page.has_no_css?(".homepage-inverse-header__title")
+      end
     end
   end
 

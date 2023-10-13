@@ -11,6 +11,10 @@ class HomepageController < ContentItemsController
   helper_method :new_design?
 
   def new_design?
-    params[:new_design] == "impact"
+    (params[:new_design] == "impact") && integration_feature_flag?
+  end
+
+  def integration_feature_flag?
+    ENV["NEW_DESIGN"].present?
   end
 end

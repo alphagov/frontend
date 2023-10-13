@@ -611,14 +611,17 @@ en:
           title: Cost of Living Payment
           href: /guidance/cost-of-living-payment
           image_src: homepage/cost-of-living-november-2022.jpg
+          image_src_new: homepage/cost-of-living.png
         - text: If you care for someone, check if you are eligible for Carer’s Allowance.
           title: Carer’s Allowance
           href: /carers-allowance
           image_src: homepage/carers-allowance.jpg
+          image_src_new: homepage/carers-allowance.png
         - text: Check your record to see if you can add more contributions.
           title: National Insurance
           href: /check-national-insurance-record
           image_src: homepage/check-your-contributions.jpg
+          image_src_new: homepage/check-your-contributions.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

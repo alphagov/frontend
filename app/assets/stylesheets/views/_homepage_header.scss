@@ -8,6 +8,13 @@ $pale-blue-colour: #d2e2f1;
   padding-top: govuk-spacing(4);
   @include govuk-typography-common;
 
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
   @include govuk-media-query($from: desktop) {
     padding-bottom: govuk-spacing(8);
     padding-top: govuk-spacing(6);

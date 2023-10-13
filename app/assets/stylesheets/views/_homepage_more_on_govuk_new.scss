@@ -9,4 +9,10 @@
 .homepage-most-active-list__item {
   margin: 0 0 govuk-spacing(4) 0;
   @include govuk-font($size: 19, $weight: bold);
+
+  // Ensure font-size is 19px on mobile for the new homepage design
+  @include govuk-media-query($until: "tablet") {
+    font-size: 19px;
+    font-size: govuk-px-to-rem(19);
+  }
 }

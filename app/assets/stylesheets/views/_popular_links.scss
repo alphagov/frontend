@@ -12,6 +12,14 @@
     padding-right: 9px;
   }
 
+  .govuk-heading-l {
+    // Ensure font-size is 32px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 32px;
+      font-size: govuk-px-to-rem(32);
+    }
+  }
+
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0 28px;
   }

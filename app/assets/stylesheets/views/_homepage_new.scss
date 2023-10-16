@@ -72,6 +72,15 @@
 .chevron-card__wrapper {
   padding: 19px 0 4px;
   position: relative;
+
+  .govuk-heading-s,
+  .chevron-card__description {
+    // Ensure font-size is 19px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 19px;
+      font-size: govuk-px-to-rem(19);
+    }
+  }
 }
 
 .chevron-card__description {
@@ -161,6 +170,15 @@
   .gem-c-image-card__text-wrapper.gem-c-image-card__text-wrapper--two-thirds {
     padding-left: 0;
   }
+
+  .gem-c-image-card__title-link,
+  .gem-c-image-card__description {
+    // Ensure font-size is 19px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 19px;
+      font-size: govuk-px-to-rem(19);
+    }
+  }
 }
 
 .homepage-section--services-and-info {
@@ -184,6 +202,22 @@
   border-top-color: $govuk-brand-colour;
   margin: 0 0 govuk-spacing(6);
   padding: govuk-spacing(8) 0 0;
+
+  .govuk-body {
+    // Ensure font-size is 19px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 19px;
+      font-size: govuk-px-to-rem(19);
+    }
+  }
+
+  .govuk-heading-l {
+    // Ensure font-size is 32px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 32px;
+      font-size: govuk-px-to-rem(32);
+    }
+  }
 
   @include govuk-media-query($from: "desktop") {
     border: none;

@@ -4,7 +4,7 @@ $pale-blue-colour: #d2e2f1;
 
 .homepage-header {
   background-color: $govuk-brand-colour;
-  padding-bottom: govuk-spacing(7);
+  padding-bottom: 28px;
   padding-top: govuk-spacing(4);
   @include govuk-typography-common;
 
@@ -27,12 +27,13 @@ $pale-blue-colour: #d2e2f1;
   font-size: 40px;
   font-size: govuk-px-to-rem(40);
   line-height: 1.2;
-  padding-bottom: govuk-spacing(2);
+  padding-bottom: 8px;
   margin: 0;
 
   @include govuk-media-query($from: tablet) {
     font-size: 60px;
     font-size: govuk-px-to-rem(60);
+    padding-bottom: govuk-spacing(2);
   }
 
   @include govuk-media-query($from: desktop) {

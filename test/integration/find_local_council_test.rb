@@ -108,7 +108,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           ga4_link_attribute = element["data-ga4-link"]
           # have to pull out the type as it is semi randomly generated
           form_type = JSON.parse(ga4_link_attribute)
-          ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"#{form_type['type']}\",\"index\":{\"index_link\":1},\"index_total\":1,\"tool_name\":\"Find your local council\"}"
+          ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"#{form_type['type']}\",\"index_link\":1,\"index_total\":1,\"tool_name\":\"Find your local council\"}"
 
           assert_includes data_module, expected_data_module
           assert_equal ga4_expected_object, ga4_link_attribute
@@ -204,7 +204,7 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             ga4_link_attribute = link["data-ga4-link"]
             # have to pull out the type as it is semi randomly generated
             link_type = JSON.parse(ga4_link_attribute)
-            ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"#{link_type['type']}\",\"index\":{\"index_link\":#{index + 1}},\"index_total\":2,\"tool_name\":\"Find your local council\"}"
+            ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"#{link_type['type']}\",\"index_link\":#{index + 1},\"index_total\":2,\"tool_name\":\"Find your local council\"}"
 
             assert_equal ga4_expected_object, ga4_link_attribute
           end

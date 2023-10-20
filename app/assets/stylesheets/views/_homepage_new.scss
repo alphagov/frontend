@@ -66,6 +66,11 @@
 
   &:first-child {
     border-top: none;
+    padding-top: 0;
+
+    .chevron-card__wrapper {
+      padding-top: 0;
+    }
   }
 }
 

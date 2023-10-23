@@ -130,16 +130,6 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       ],
     }
 
-    @licence_multiple_authorities_licence = {
-      "isLocationSpecific" => false,
-      "isOfferedByCounty" => false,
-      "geographicalAvailability" => %w[England Wales],
-      "issuingAuthorities" => [
-        @the_one_licence_authority,
-        @the_other_licence_authority,
-      ],
-    }
-
     @multiple_authorities_and_location_specific_licence = {
       "isLocationSpecific" => true,
       "isOfferedByCounty" => false,
@@ -169,30 +159,6 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
     context "when authority non-present" do
       should "return false" do
         subject = LicenceDetailsPresenter.new(@licence_authority_licence.merge("issuingAuthorities" => []))
-
-        assert_not subject.single_licence_authority_present?
-      end
-    end
-  end
-
-  context "#multiple_licence_authorities_present?" do
-    context "when more than one authority present" do
-      should "return true for licence authority specific licence" do
-        subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
-
-        assert subject.multiple_licence_authorities_present?
-      end
-
-      should "return false for local authority specific licence" do
-        subject = LicenceDetailsPresenter.new(@local_authority_licence)
-
-        assert_not subject.single_licence_authority_present?
-      end
-    end
-
-    context "when zero or one authority present" do
-      should "return false" do
-        subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence.merge("issuingAuthorities" => []))
 
         assert_not subject.single_licence_authority_present?
       end
@@ -238,24 +204,6 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
       }
     end
 
-    context "#authorities" do
-      should "return a representative array of hashes" do
-        subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
-        expected_array = [
-          @presented_the_one_licence_authority,
-          @presented_the_other_licence_authority,
-        ]
-
-        assert_equal expected_array, subject.authorities
-      end
-
-      should "return an empty array if no authorities present" do
-        subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence.merge("issuingAuthorities" => []))
-
-        assert_equal [], subject.authorities
-      end
-    end
-
     context "#authority" do
       context "when one authority is present" do
         should "return the authority" do
@@ -289,7 +237,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
 
       context "when no authority is present" do
         should "return nil" do
-          subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence.merge("issuingAuthorities" => []))
+          subject = LicenceDetailsPresenter.new(@licence_authority_licence.merge("issuingAuthorities" => []))
 
           assert_nil subject.authority
         end
@@ -299,13 +247,13 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
 
   context "#uses_licensify" do
     should "return true if the action has a field to confirm that it uses licensify" do
-      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-one-licence-authority")
+      subject = LicenceDetailsPresenter.new(@licence_authority_licence, "the-one-licence-authority")
 
       assert_equal subject.uses_licensify("apply"), true
     end
 
     should "return true if the default action has uses_licensify set to true" do
-      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-one-licence-authority", "apply")
+      subject = LicenceDetailsPresenter.new(@licence_authority_licence, "the-one-licence-authority", "apply")
 
       assert_equal subject.uses_licensify, true
     end
@@ -323,7 +271,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
     end
 
     should "return false if authority is nil" do
-      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
+      subject = LicenceDetailsPresenter.new(@the_one_licence_authority)
 
       assert_equal subject.uses_licensify("apply"), false
     end
@@ -331,13 +279,13 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
 
   context "#uses_authority_url" do
     should "return true if the action has a field to confirm that it uses authority url" do
-      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-one-licence-authority")
+      subject = LicenceDetailsPresenter.new(@licence_authority_licence, "the-one-licence-authority")
 
       assert_equal subject.uses_authority_url("apply"), true
     end
 
     should "return true if the default action has uses_authority_url set to true" do
-      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence, "the-one-licence-authority", "apply")
+      subject = LicenceDetailsPresenter.new(@licence_authority_licence, "the-one-licence-authority", "apply")
 
       assert_equal subject.uses_authority_url, true
     end
@@ -355,7 +303,7 @@ class LicenceDetailsPresenterTest < ActiveSupport::TestCase
     end
 
     should "return false if authority is nil" do
-      subject = LicenceDetailsPresenter.new(@licence_multiple_authorities_licence)
+      subject = LicenceDetailsPresenter.new(@the_one_licence_authority)
 
       assert_equal subject.uses_authority_url("apply"), false
     end

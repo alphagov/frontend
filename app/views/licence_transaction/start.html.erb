@@ -1,5 +1,4 @@
 <%= render layout: 'shared/base_page', locals: {
-  main_class: ("multi-page" if licence_details.authority),
   context: "Licence",
   title: publication.title,
   publication: publication,
@@ -10,23 +9,19 @@
 
   <article role="article" class="group content-block">
     <div class="inner">
-      <% if licence_details.present? %>
-        <div class="intro">
-          <div class="get-started-intro">
-            <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence" %>
-            <%= render partial: 'location_form',
-                       locals: {
-                         format: 'licence',
-                         publication_format: 'licence',
-                         postcode: postcode,
-                        margin_top: @location_error ? 5 : 0,
-                        publication_title: publication.title,
-                       } %>
-          </div>
+      <div class="intro">
+        <div class="get-started-intro">
+          <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence" %>
+          <%= render partial: 'location_form',
+                     locals: {
+                       format: 'licence',
+                       publication_format: 'licence',
+                       postcode: @postcode,
+                      margin_top: @location_error ? 5 : 0,
+                      publication_title: publication.title,
+                     } %>
         </div>
-      <% else %>
-          <%= render partial: 'licensify_unavailable' %>
-      <% end %>
+      </div>
 
       <div id="overview">
         <%= render "govuk_publishing_components/components/govspeak", {

@@ -53,7 +53,8 @@ Rails.application.routes.draw do
   get "/find-licences/:slug", to: "licence_transaction#start", as: "licence_transaction"
   post "/find-licences/:slug", to: "licence_transaction#find" # Support for postcode submission which we treat as confidential data
   get "/find-licences/:slug/multiple_authorities" => "licence_transaction#multiple_authorities", as: "licence_transaction_multiple_authorities"
-  get "/find-licences/:slug/:authority_slug(/:interaction)", to: "licence_transaction#authority", as: "licence_transaction_authority"
+  get "/find-licences/:slug/:authority_slug", to: "licence_transaction#authority", as: "licence_transaction_authority"
+  get "/find-licences/:slug/:authority_slug/:interaction", to: "licence_transaction#authority_interaction", as: "licence_transaction_authority_interaction"
 
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do

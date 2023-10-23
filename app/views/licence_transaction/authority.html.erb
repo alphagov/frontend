@@ -1,14 +1,17 @@
-<%= render layout: 'shared/base_page', locals: {
-  main_class: ("multi-page" if licence_details.authority),
-  context: "Licence",
-  title: publication.title,
-  publication: publication,
-  edition: @edition,
-} do %>
+<% content_for :overview do %>
+  <li class="active">Overview</li>
+<% end %>
 
-  <% if licence_details.present? && licence_details.has_any_actions? %>
-    <%= render partial: 'authority_details' %>
-  <% else %>
-    <%= render partial: 'licensify_unavailable' %>
+<% content_for :interactions_contents_list do %>
+  <% licence_details.authority['actions'].keys.uniq.each do |action| %>
+    <li><%= link_to "How to #{action}", licence_transaction_authority_interaction_path(publication.slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
   <% end %>
 <% end %>
+
+<% content_for :main_content do %>
+  <%= render "govuk_publishing_components/components/govspeak", {} do %>
+    <%= raw publication.body %>
+  <% end %>
+<% end %>
+
+<%= render 'authority_base' %>

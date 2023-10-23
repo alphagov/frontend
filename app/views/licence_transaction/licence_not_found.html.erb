@@ -1,0 +1,22 @@
+<%= render layout: 'shared/base_page', locals: {
+  context: "Licence",
+  title: publication.title,
+  publication: publication,
+  edition: @edition,
+} do %>
+
+  <%= render "govuk_publishing_components/components/lead_paragraph", text: publication.description %>
+
+  <article role="article" class="group content-block">
+    <div class="inner">
+      <%= render partial: 'licensify_unavailable' %>
+
+      <div id="overview">
+        <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+          <%= raw publication.body %>
+        <% end %>
+      </div>
+    </div>
+  </article>
+<% end %>

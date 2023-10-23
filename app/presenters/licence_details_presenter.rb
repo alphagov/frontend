@@ -58,20 +58,10 @@ class LicenceDetailsPresenter
     licence_authority_specific? && authority
   end
 
-  def multiple_licence_authorities_present?
-    licence_authority_specific? && authorities.size > 1
-  end
-
-  def authorities
-    authorities_from_api_response
-  end
-
   def authority
     if authority_slug
-      authorities.detect { |a| a["slug"] == authority_slug }
-    elsif authorities.size == 1
-      authorities_from_api_response.first
-    elsif authorities.size > 1 && local_authority_specific?
+      authorities_from_api_response.find { |a| a["slug"] == authority_slug }
+    else
       authorities_from_api_response.first
     end
   end

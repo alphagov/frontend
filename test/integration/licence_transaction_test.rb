@@ -203,7 +203,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           assert_equal 404, page.status_code
         end
 
-        should "add GA4 form complete attributes" do
+        should "add GA4 form_complete attributes" do
           data_module = page.find("article")["data-module"]
           expected_data_module = "ga4-link-tracker ga4-auto-tracker"
 
@@ -830,7 +830,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
       expected_data_module = "ga4-auto-tracker"
 
       ga4_auto_attribute = page.find("div[data-ga4-auto]")["data-ga4-auto"]
-      ga4_expected_object = "{\"event_name\":\"form complete\",\"type\":\"licence transaction\",\"text\":\"You cannot apply for this licence online\",\"action\":\"complete\",\"tool_name\":\"Licence to kill\"}"
+      ga4_expected_object = "{\"event_name\":\"form_complete\",\"type\":\"licence transaction\",\"text\":\"You cannot apply for this licence online\",\"action\":\"complete\",\"tool_name\":\"Licence to kill\"}"
 
       assert_equal expected_data_module, data_module
       assert_equal ga4_expected_object, ga4_auto_attribute

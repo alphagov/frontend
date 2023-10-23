@@ -176,7 +176,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert_equal "London IPS Office", track_label
     end
 
-    should "add GA4 form complete attributes" do
+    should "add GA4 form_complete attributes" do
       data_module = page.find(".places-results")["data-module"]
       expected_data_module = "auto-track-event ga4-auto-tracker ga4-link-tracker"
 

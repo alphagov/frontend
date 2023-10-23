@@ -26,7 +26,7 @@
   ga4_data_modules = "ga4-link-tracker"
 
   if !licence_details.action
-    # Only trigger a GA4 form complete if the user is currently on the first contents link.
+    # Only trigger a GA4 form_complete event if the user is currently on the first contents link.
     trigger_ga4_form_complete = true
     ga4_data_modules << " ga4-auto-tracker"
   end

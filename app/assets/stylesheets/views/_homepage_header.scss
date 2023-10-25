@@ -16,8 +16,8 @@ $pale-blue-colour: #d2e2f1;
   }
 
   @include govuk-media-query($from: desktop) {
-    padding-bottom: govuk-spacing(8);
-    padding-top: govuk-spacing(6);
+    padding-bottom: govuk-spacing(9);
+    padding-top: govuk-spacing(3);
   }
 }
 

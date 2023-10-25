@@ -6,13 +6,11 @@
   <div class="govuk-width-container">
     <div class="homepage-header__title-container">
       <h1 class="homepage-header__title" data-ga4-scroll-marker>
-        <span class="govuk-!-margin-bottom-2 govuk-!-display-block">
-          <%= t('homepage.index.intro_title.short_text') %>
-        </span>
-        <span class="govuk-visually-hidden">: </span>
+        <%# The indentation of the spans below reflects the copy. Ticket to investigate a programmatic solution: https://trello.com/c/kroI3kLZ/684-stop-extra-whitespace-being-added-inside-homepage-h1
+         %>
+        <span class="govuk-!-margin-bottom-2 govuk-!-display-block"><%=t('homepage.index.intro_title.short_text')%></span><span class="govuk-visually-hidden">: </span>
         <span class="homepage-header__intro homepage-inverse-header__intro--bold">
-        <%= t('homepage.index.intro_html') %>
-        </span>
+        <%= t('homepage.index.intro_html') %></span>
       </h1>
     </div>
     <div class="govuk-grid-row">

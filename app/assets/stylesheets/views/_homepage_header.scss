@@ -51,6 +51,7 @@ $pale-blue-colour: #d2e2f1;
   margin: 0;
   padding-bottom: govuk-spacing(2);
   line-height: 1.07;
+  display: block;
 
   @include govuk-media-query($from: tablet) {
     font-size: 60px;

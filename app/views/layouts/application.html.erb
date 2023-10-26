@@ -4,15 +4,7 @@
           <%= yield %>
         </main>
       <% else %>
-        <% if publication && publication.recruitment_survey_url %>
-            <%= render "govuk_publishing_components/components/intervention", {
-              suggestion_text: "Help improve a new GOV.UK tool",
-              suggestion_link_text: "Sign up to take part in user research",
-              suggestion_link_url: publication.recruitment_survey_url,
-              new_tab: true,
-              ga4_tracking: true,
-            } %>
-        <% elsif publication && publication.benefits_recruitment_survey_url%>
+        <% if publication && publication.benefits_recruitment_survey_url%>
           <%= render "govuk_publishing_components/components/intervention", {
             suggestion_text: "Help improve GOV.UK",
             suggestion_link_text: "Take part in user research",

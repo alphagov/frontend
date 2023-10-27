@@ -12,18 +12,6 @@ $govuk-include-default-font-face: false;
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/truncated-url";
 
-// Reset some global styles from the `wrapper` layout
-.gem-c-related-navigation {
-  h3 {
-    font-size: 16px;
-  }
-
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-}
-
 // Reset some styles from the `.content` when it"s wrapped in the Govspeak
 // component. Can be removed when static is no longer being used.
 .content-block {

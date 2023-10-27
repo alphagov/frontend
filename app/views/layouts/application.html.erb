@@ -1,28 +1,28 @@
 <% content_for :body do %>
-      <% if @is_account && local_assigns %>
-        <main id="content">
-          <%= yield %>
-        </main>
-      <% else %>
-        <% if publication && publication.benefits_recruitment_survey_url%>
-          <%= render "govuk_publishing_components/components/intervention", {
-            suggestion_text: "Help improve GOV.UK",
-            suggestion_link_text: "Take part in user research",
-            suggestion_link_url: publication.benefits_recruitment_survey_url,
-            new_tab: true,
-            ga4_tracking: true,
-          } %>
-        <% elsif publication && publication.in_beta %>
-          <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta", ga4_tracking: true %>
-        <% end %>
-        <% unless current_page?(root_path) || !(publication || @calendar) %>
-          <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, ga4_tracking: true %>
-        <% end %>
-        <% if local_assigns %>
-          <%= yield %>
-          <%= yield :after_content %>
-        <% end %>
-      <% end %>
+  <% if @is_account && local_assigns %>
+    <main id="content">
+      <%= yield %>
+    </main>
+  <% else %>
+    <% if publication && publication.benefits_recruitment_survey_url%>
+      <%= render "govuk_publishing_components/components/intervention", {
+        suggestion_text: "Help improve GOV.UK",
+        suggestion_link_text: "Take part in user research",
+        suggestion_link_url: publication.benefits_recruitment_survey_url,
+        new_tab: true,
+        ga4_tracking: true,
+      } %>
+    <% elsif publication && publication.in_beta %>
+      <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta", ga4_tracking: true %>
+    <% end %>
+    <% unless current_page?(root_path) || !(publication || @calendar) %>
+      <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, ga4_tracking: true %>
+    <% end %>
+    <% if local_assigns %>
+      <%= yield %>
+      <%= yield :after_content %>
+    <% end %>
+  <% end %>
 <% end %>
 <!DOCTYPE html>
 <html lang="en">

@@ -46,12 +46,17 @@ $pale-blue-colour: #d2e2f1;
   @include govuk-typography-weight-bold;
 
   color: $pale-blue-colour;
-  font-size: 40px;
-  font-size: govuk-px-to-rem(40);
+  font-size: 27px;
+  font-size: govuk-px-to-rem(27);
   margin: 0;
   padding-bottom: govuk-spacing(2);
   line-height: 1.07;
   display: block;
+
+  @include govuk-media-query($from: mobile) {
+    font-size: 40px;
+    font-size: govuk-px-to-rem(40);
+  }
 
   @include govuk-media-query($from: tablet) {
     font-size: 60px;
@@ -65,7 +70,5 @@ $pale-blue-colour: #d2e2f1;
 }
 
 .homepage-header__search {
-  @include govuk-media-query($from: mobile) {
-    @include govuk-grid-column($width: two-thirds);
-  }
+  @include govuk-grid-column($width: two-thirds);
 }

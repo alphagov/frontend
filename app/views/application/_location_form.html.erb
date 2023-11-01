@@ -63,41 +63,32 @@
     }
   ) do | form | %>
 
-    <%
-      #TODO: Add a visually hidden legend option to the fieldset component; then
-      #      the component can be used here.
-      add_gem_component_stylesheet("fieldset")
+    <%= render partial: 'draft_fields' %>
+
+    <%= render "govuk_publishing_components/components/input", {
+      label: {
+        text: t('formats.local_transaction.enter_postcode')
+      },
+      value: postcode,
+      name: "postcode",
+      id: "postcode",
+      hint: t('formats.local_transaction.postcode_hint'),
+      invalid: @location_error ? 'true' : 'false',
+      autocomplete: "postal-code",
+      error_message: (t(@location_error.message, **@location_error.message_args) if @location_error)
+    } %>
+
+    <%= render "govuk_publishing_components/components/button",
+      text: t("find"),
+      margin_bottom: true
     %>
-    <fieldset class="govuk-fieldset">
-      <legend class=" govuk-fieldset__legend govuk-visually-hidden"><%= t('formats.local_transaction.postcode_lookup') %></legend>
 
-      <%= render partial: 'draft_fields' %>
-
-      <%= render "govuk_publishing_components/components/input", {
-        label: {
-          text: t('formats.local_transaction.enter_postcode')
-        },
-        value: postcode,
-        name: "postcode",
-        id: "postcode",
-        hint: t('formats.local_transaction.postcode_hint'),
-        invalid: @location_error ? 'true' : 'false',
-        autocomplete: "postal-code",
-        error_message: (t(@location_error.message, **@location_error.message_args) if @location_error)
-      } %>
-
-      <%= render "govuk_publishing_components/components/button",
-        text: t("find"),
-        margin_bottom: true
-      %>
-
-      <%= tag.p link_to(t('formats.local_transaction.find_postcode_royal_mail'),
-        "https://www.royalmail.com/find-a-postcode",
-        id: 'postcode-finder-link',
-        class: "govuk-link",
-        rel: "external"),
-        class: "govuk-body"
-      %>
-    </fieldset>
+    <%= tag.p link_to(t('formats.local_transaction.find_postcode_royal_mail'),
+      "https://www.royalmail.com/find-a-postcode",
+      id: 'postcode-finder-link',
+      class: "govuk-link",
+      rel: "external"),
+      class: "govuk-body"
+    %>
   <% end %>
 <% end %>

@@ -37,8 +37,8 @@ $pale-blue-colour: #d2e2f1;
   }
 
   @include govuk-media-query($from: desktop) {
-    font-size: 69px;
-    font-size: govuk-px-to-rem(69);
+    font-size: 64px;
+    font-size: govuk-px-to-rem(64);
   }
 }
 
@@ -59,8 +59,8 @@ $pale-blue-colour: #d2e2f1;
   }
 
   @include govuk-media-query($from: desktop) {
-    font-size: 69px;
-    font-size: govuk-px-to-rem(69);
+    font-size: 64px;
+    font-size: govuk-px-to-rem(64);
   }
 }
 

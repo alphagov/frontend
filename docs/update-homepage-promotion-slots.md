@@ -2,7 +2,7 @@
 
 The three promo boxes on the homepage are used to highlight important information on GOV.UK.
 
-![Example image of promotion slots on GOV.UK homepage](images/homepage-promotion-slots.jpg)
+![Example image of promotion slots on GOV.UK homepage](images/homepage-promotion-slots.png)
 
 To update these promo boxes, you must edit the underlying HTML template for the homepage.
 
@@ -11,11 +11,18 @@ To update these promo boxes, you must edit the underlying HTML template for the 
 Before updating the promotion slots you must have:
 
 - the URL of the page that is being promoted
-- an image that is at least 610 x 407 pixels in size in a landscape aspect ratio
+- an image that is 160 x 160 pixels
 - a title for the promotion (ideally under 25 characters to fit on a single line for most users)
 - some contextual text for the promotion (ideally under 80 characters to spread across two lines for most users)
 
 The image should not contain text as [per GOV.UK guidelines](https://www.gov.uk/guidance/content-design/images). Using text within an image creates accessibility problems. For example, the [past homepage promotion slots from March 2020](https://github.com/alphagov/frontend/pull/2292) used text in the images and this approach would now be strongly discouraged.
+
+A custom graphic is strongly recommended for the featured image, given the new dimensions and size, it may be difficult to see the detail in a photograph.
+
+If a photograph is essential, then we should ensure that:
+
+- The photograph follows the prerequisites listed above
+- The focus point of the image is clear and fits within the new 1:1 image aspect ratio
 
 ## 2. Resize and compress the images
 
@@ -23,17 +30,9 @@ We want the GOV.UK homepage to be optimised towards a fast user experience with 
 
 You can use a web tool - [Squoosh](https://squoosh.app/) - to resize and compress the images at the same time. You can use the before and after view to establish the highest level of compression that can be applied before the image quality deteriorates.
 
-Most promo images should ideally be less than 30 kB in size (at time of writing, the current promos are 14 kB, 10.7 kB and 6.3 kB). You might also need to change the format of the image to fit the content - JPGs for a photograph, but maybe PNG for a graphic. It's worth testing to see what gives the smaller file size and the best visual result.
+Most promo images should ideally be less than 10 kB in size (at time of writing, the current promos are 504 Bytes, 882 Bytes and 512 Bytes). You might also need to change the format of the image to fit the content - JPGs for a photograph, but maybe PNG for a graphic. It's worth testing to see what gives the smaller file size and the best visual result.
 
-If the image is a photograph, or a detailed graphic, resize the image to all of the following sizes:
-
-- 610 by 407 pixels
-- 480 by 320 pixels
-- 320 by 213 pixels
-- 240 by 160 pixels
-- 170 by 113 pixels
-
-If the image is a simple graphic, and thus already a small file size, resize it to 610 x 407 pixels.
+The featured images are lazy loaded, but it is worth keeping in mind that for larger screens, the featured images will be requested on page load.
 
 ## 3. Update the content
 
@@ -43,18 +42,6 @@ The content for the promo slots can be found in the [`en.yml` translation file](
 - `title`: the promo title
 - `href`: the link the promo goes to. This can either be internal (`/my-path`) or external (`https://www.mywebsite.com/my-path`)
 - `image_src`: the promo image location. Image should be in the [`homepage` asset directory](https://github.com/alphagov/frontend/tree/main/app/assets/images/homepage) and can be pulled via `homepage/[my-image].png`
-- `srcset`: this is an optional attribute to define promo image `srcset` values.
-
-You can define `srcset` values in the yml like so:
-
-```yml
-srcset:
-  homepage/my-promo.jpg: 610w
-  homepage/my-promo-480.jpg: 480w
-  homepage/my-promo-320.jpg: 320w
-  homepage/my-promo-240.jpg: 240w
-  homepage/my-promo-170.jpg: 170w
-```
 
 ## 4. Delete the previous images
 

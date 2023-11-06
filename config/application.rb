@@ -54,8 +54,6 @@ module Frontend
       application.css
     ]
 
-    config.assets.precompile << get_component_css_paths
-
     # Path within public/ where assets are compiled to
     config.assets.prefix = "/assets/frontend"
 

@@ -21,7 +21,7 @@ Pact.service_provider "Bank Holidays API" do
     if ENV["PACT_URI"]
       pact_uri(ENV["PACT_URI"])
     else
-      base_url = "https://pact-broker.cloudapps.digital"
+      base_url = "https://govuk-pact-broker-6991351eca05.herokuapp.com"
       path = "pacts/provider/#{url_encode(name)}/consumer/#{url_encode(consumer_name)}"
       version_modifier = "versions/#{url_encode(ENV.fetch('PACT_CONSUMER_VERSION', 'master'))}"
 

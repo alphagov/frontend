@@ -13,8 +13,7 @@
     index_section_count = 6
   %>
 
-  <% if new_design? %>
-    <%= render "homepage_header" %>
+  <%= render "homepage_header" %>
     <div class="govuk-width-container">
       <div class="homepage-section--user-research">
         <%= render "govuk_publishing_components/components/intervention", {
@@ -24,12 +23,8 @@
           new_tab: true,
         } %>
       </div>
-  </div>
-    <%= render "homepage/popular_links", locals: { index_section: 2, index_section_count: index_section_count } %>
-  <% else %>
-    <%= render "inverse_header" %>
-    <%= render "homepage/links_and_search", locals: { index_section: 1, index_section_count: index_section_count } %>
-  <% end %>
+    </div>
+  <%= render "homepage/popular_links", locals: { index_section: 2, index_section_count: index_section_count } %>
 
   <div class="govuk-width-container">
     <% if new_design? %>

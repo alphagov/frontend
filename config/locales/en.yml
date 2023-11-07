@@ -613,11 +613,11 @@ en:
           href: /guidance/cost-of-living-payment
           image_src: homepage/cost-of-living-november-2022.jpg
           image_src_new: homepage/cost-of-living.png
-        - text: If you care for someone, check if you are eligible for Carer’s Allowance.
-          title: Carer’s Allowance
-          href: /carers-allowance
-          image_src: homepage/carers-allowance.jpg
-          image_src_new: homepage/carers-allowance.png
+        - text: Find out what the government's priorities are for the next year.
+          title: King’s Speech 2023
+          href: https://pm-priorities.campaign.gov.uk/
+          image_src: homepage/kings-speech.jpg
+          image_src_new: homepage/kings-speech.png
         - text: Check your record to see if you can add more contributions.
           title: National Insurance
           href: /check-national-insurance-record

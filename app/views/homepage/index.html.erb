@@ -1,10 +1,4 @@
-<%
-  if new_design?
-    add_view_stylesheet("homepage_new")
-  else
-    add_view_stylesheet("homepage")
-  end
-%>
+<% add_view_stylesheet("homepage_new")%>
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <% if new_design? %>

@@ -1,11 +1,7 @@
 <% add_view_stylesheet("homepage_new")%>
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
-  <% if new_design? %>
-    <meta name="description" content="<%= t("homepage.index.meta_description_new") %>">
-  <% else %>
-    <meta name="description" content="<%= t("homepage.index.meta_description") %>">
-  <% end %>
+  <meta name="description" content="<%= t("homepage.index.meta_description_new") %>">
 <% end %>
 <% content_for :title, t("homepage.index.intro_title.text") %>
 <% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>

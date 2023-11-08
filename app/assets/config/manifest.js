@@ -19,4 +19,4 @@
 //= link views/_local-transaction.css
 //= link views/_location_form.css
 //= link views/_popular_links.css
-//= link views/_homepage_more_on_govuk_new.css
+//= link views/_homepage_more_on_govuk.css

@@ -1,4 +1,4 @@
-<% add_view_stylesheet("homepage_new")%>
+<% add_view_stylesheet("homepage")%>
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <meta name="description" content="<%= t("homepage.index.meta_description_new") %>">
@@ -33,14 +33,14 @@
           <%= render "homepage/services_and_information", locals: { index_section: 3, index_section_count: index_section_count } %>
         </div>
         <div class="govuk-grid-column-full govuk-grid-column-one-third-from-desktop">
-          <%= render "homepage/promotion_slots_new", locals: { index_section: 4, index_section_count: index_section_count } %>
+          <%= render "homepage/promotion_slots", locals: { index_section: 4, index_section_count: index_section_count } %>
         </div>
       </div>
     </div>
     <div class="border-top-blue-from-desktop">
       <div class="govuk-grid-row">
         <%= render "homepage/government_activity", locals: { index_section: 5, index_section_count: index_section_count } %>
-        <%= render "homepage/more_on_govuk_new", locals: { index_section: 6, index_section_count: index_section_count } %>
+        <%= render "homepage/more_on_govuk", locals: { index_section: 6, index_section_count: index_section_count } %>
       </div>
     </div>
   </div>

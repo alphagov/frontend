@@ -610,15 +610,15 @@ en:
         - text: Find out payment dates and how to report a payment is missing.
           title: Cost of Living Payment
           href: /guidance/cost-of-living-payment
-          image_src_new: homepage/cost-of-living.png
+          image_src: homepage/cost-of-living.png
         - text: Find out what the government's priorities are for the next year.
           title: King’s Speech 2023
           href: https://pm-priorities.campaign.gov.uk/
-          image_src_new: homepage/kings-speech.png
+          image_src: homepage/kings-speech.png
         - text: Check your record to see if you can add more contributions.
           title: National Insurance
           href: /check-national-insurance-record
-          image_src_new: homepage/check-your-contributions.png
+          image_src: homepage/check-your-contributions.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

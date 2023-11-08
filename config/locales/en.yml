@@ -549,7 +549,6 @@ en:
     index:
       brexit: 'Brexit: check what you need to do'
       covid: 'Coronavirus (COVID-19): guidance'
-      departments_and_organisations: Departments and organisations
       featured: Featured
       government_activity: Government activity
       government_activity_description: Find out what the government is doing
@@ -611,17 +610,14 @@ en:
         - text: Find out payment dates and how to report a payment is missing.
           title: Cost of Living Payment
           href: /guidance/cost-of-living-payment
-          image_src: homepage/cost-of-living-november-2022.jpg
           image_src_new: homepage/cost-of-living.png
         - text: Find out what the government's priorities are for the next year.
           title: King’s Speech 2023
           href: https://pm-priorities.campaign.gov.uk/
-          image_src: homepage/kings-speech.jpg
           image_src_new: homepage/kings-speech.png
         - text: Check your record to see if you can add more contributions.
           title: National Insurance
           href: /check-national-insurance-record
-          image_src: homepage/check-your-contributions.jpg
           image_src_new: homepage/check-your-contributions.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK

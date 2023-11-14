@@ -6,6 +6,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   function TrackStartPageTabs (module) {
     this.module = module
+    this.init()
   }
 
   TrackStartPageTabs.prototype.init = function () {

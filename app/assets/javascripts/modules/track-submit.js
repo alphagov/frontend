@@ -6,6 +6,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   function TrackSubmit (element) {
     this.$module = element
     this.formElement = this.$module.querySelector('form')
+    this.init()
   }
 
   TrackSubmit.prototype.init = function () {

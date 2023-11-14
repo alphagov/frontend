@@ -6,6 +6,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   function TrackSmartAnswer (element) {
     this.nodeType = element.getAttribute('data-smart-answer-node-type')
     this.flowSlug = element.getAttribute('data-smart-answer-slug')
+    this.init()
   }
 
   TrackSmartAnswer.prototype.init = function () {

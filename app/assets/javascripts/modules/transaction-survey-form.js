@@ -6,6 +6,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   function TransactionSurveyForm (module) {
     this.module = module
+    this.init()
   }
 
   TransactionSurveyForm.prototype.init = function () {

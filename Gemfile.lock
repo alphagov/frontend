@@ -691,8 +691,6 @@ GEM
       sync
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     uk_postcode (2.1.8)
     unicode-display_width (2.5.0)
     webmock (3.23.0)
@@ -745,8 +743,8 @@ DEPENDENCIES
   simplecov
   slimmer
   sprockets-rails
+  terser
   timecop
-  uglifier
   uk_postcode
   webmock
 

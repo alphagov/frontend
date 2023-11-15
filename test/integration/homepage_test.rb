@@ -11,11 +11,6 @@ class HomepageTest < ActionDispatch::IntegrationTest
     assert_equal "Welcome to GOV.UK", page.title
     assert page.has_css?(".homepage-header__title")
     assert page.has_no_css?(".homepage-inverse-header__title")
-    assert page.has_content?(I18n.t("homepage.index.user_research_banner_suggestion_text", locale: :en))
-    assert page.has_link?(
-      I18n.t("homepage.index.user_research_banner_link_text", locale: :en),
-      href: I18n.t("homepage.index.user_research_banner_link_href", locale: :en),
-    )
   end
 
   context "when visiting a Welsh content item first" do

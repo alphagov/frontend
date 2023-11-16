@@ -9,7 +9,7 @@ WORKDIR $APP_HOME
 COPY Gemfile* .ruby-version ./
 RUN bundle install
 COPY package.json yarn.lock ./
-RUN yarn install --immutable
+RUN npm install -g yarn@1.22.19 && yarn install --immutable
 COPY . .
 RUN bootsnap precompile --gemfile .
 RUN rails assets:precompile && rm -fr log

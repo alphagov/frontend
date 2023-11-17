@@ -2,6 +2,16 @@
 
 $pale-blue-colour: #d2e2f1;
 
+$min-font-size: govuk-px-to-rem(55);
+$max-font-size: govuk-px-to-rem(64);
+$preferred-size: calc(5vw + 1rem);
+
+// $govuk-breakpoints: (
+//   mobile: 320px,
+//   tablet: 641px,
+//   desktop: 769px
+// ) !default;
+
 .homepage-header {
   background-color: $govuk-brand-colour;
   padding-bottom: 28px;
@@ -16,7 +26,7 @@ $pale-blue-colour: #d2e2f1;
   }
 
   @include govuk-media-query($from: desktop) {
-    padding-bottom: govuk-spacing(9);
+    padding-bottom: govuk-spacing(7);
     padding-top: govuk-spacing(3);
   }
 }
@@ -31,14 +41,15 @@ $pale-blue-colour: #d2e2f1;
   margin: 0;
 
   @include govuk-media-query($from: tablet) {
-    font-size: 60px;
-    font-size: govuk-px-to-rem(60);
+    font-size: 50px;
+    font-size: govuk-px-to-rem(50);
     padding-bottom: govuk-spacing(2);
   }
 
   @include govuk-media-query($from: desktop) {
     font-size: 64px;
     font-size: govuk-px-to-rem(64);
+    font-size: clamp($min-font-size, $preferred-size, $max-font-size);
   }
 }
 
@@ -54,13 +65,14 @@ $pale-blue-colour: #d2e2f1;
   display: block;
 
   @include govuk-media-query($from: tablet) {
-    font-size: 60px;
-    font-size: govuk-px-to-rem(60);
+    font-size: 50px;
+    font-size: govuk-px-to-rem(50);
   }
 
   @include govuk-media-query($from: desktop) {
     font-size: 64px;
     font-size: govuk-px-to-rem(64);
+    font-size: clamp($min-font-size, $preferred-size, $max-font-size);
   }
 }
 

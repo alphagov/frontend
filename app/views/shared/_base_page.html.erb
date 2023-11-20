@@ -23,16 +23,14 @@
 
     <div class="govuk-grid-column-one-third">
       <%= render 'govuk_publishing_components/components/contextual_sidebar',
-        content_item: content_item_hash,
-        ga4_tracking: true
+        content_item: content_item_hash
       %>
     </div>
 
     <% content_for :after_content do %>
     <div class="govuk-grid-column-two-thirds">
       <%= render 'govuk_publishing_components/components/contextual_footer',
-        content_item: content_item_hash,
-        ga4_tracking: true
+        content_item: content_item_hash
       %>
     </div>
   </div>

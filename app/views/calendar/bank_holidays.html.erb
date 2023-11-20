@@ -109,7 +109,6 @@
 
           <%= render "govuk_publishing_components/components/tabs", {
             panel_border: false,
-            ga4_tracking: true,
             tabs: @calendar.divisions.each_with_index.map { |division, index| {
               :id => t(division.slug),
               :label => t(division.title),

@@ -1,4 +1,4 @@
-<% 
+<%
   ga4_attributes = {
     event_name: "information_click",
     type: "simple smart answer",
@@ -7,7 +7,7 @@
     tool_name: publication.title,
   }.to_json
 
-  content_for :extra_headers do 
+  content_for :extra_headers do
 %>
   <meta name="robots" content="noindex" />
 <% end %>
@@ -15,7 +15,7 @@
 <main id="content" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <section 
+      <section
         class="simple-smart-answer__question-and-outcome"
         data-module="ga4-link-tracker"
         data-ga4-link="<%= ga4_attributes %>"
@@ -66,8 +66,7 @@
     <% if @flow_state.current_node.outcome? %>
       <div class="govuk-grid-column-one-third">
         <%= render "govuk_publishing_components/components/contextual_sidebar", {
-          content_item: content_item_hash,
-          ga4_tracking: true
+          content_item: content_item_hash
         } %>
       </div>
     <% end %>

@@ -33,6 +33,10 @@ class LicenceTransactionController < ContentItemsController
     end
 
     if locations_api_response.single_authority?
+      unless local_authority_slug
+        return render :licence_not_found
+      end
+
       return redirect_to licence_transaction_authority_path(
         slug: params[:slug],
         authority_slug: local_authority_slug,
@@ -125,7 +129,7 @@ private
   def location_error
     return LocationError.new(INVALID_POSTCODE) if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
     return LocationError.new(NO_LOCATIONS_API_MATCH) if locations_api_response.location_not_found?
-    return LocationError.new(NO_MATCHING_AUTHORITY) unless local_authority_slug
+    return LocationError.new(NO_MATCHING_AUTHORITY) if authority_results.blank?
   end
 
   def locations_api_response
@@ -153,9 +157,15 @@ private
 
   def local_authority_slug
     @local_authority_slug ||= begin
-      return nil unless locations_api_response.location_found?
+      authority_with_actionable_licence = authority_results["local_authorities"].find do |authority|
+        local_authority_code = authority["snac"].presence || authority["gss"]
 
-      authority_results.dig("local_authorities", 0, "slug")
+        licence_details = LicenceDetailsPresenter.new(licence_details_from_api(local_authority_code))
+
+        licence_details.licence.present? && licence_details.has_any_actions?
+      end
+
+      authority_with_actionable_licence ? authority_with_actionable_licence["slug"] : nil
     end
   end
 

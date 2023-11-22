@@ -1,5 +1,7 @@
 class HomepageController < ContentItemsController
   include Cacheable
+  include HomepagePopularLinksAbTestable
+
   slimmer_template "gem_layout_homepage"
 
   def index

@@ -18,24 +18,24 @@
                 text: item[:text],
                 href: item[:href],
                 light_icon: true,
-                  data: {
-                    track_category: "homepageClicked",
-                    track_action: "popularLink",
-                    track_label: item[:href],
-                    track_value: 1,
-                    track_dimension_index: 29,
-                    track_dimension: item[:text],
-                    ga4_link: {
-                      'event_name': 'navigation',
-                      'type': 'homepage',
-                      'index_section': locals[:index_section],
-                      'index_link': index + 1,
-                      'index_section_count': locals[:index_section_count],
-                      'index_total': t("homepage.index.popular_links").length,
-                      'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
-                    }
+                data_attributes: {
+                  track_category: "homepageClicked",
+                  track_action: "popularLink",
+                  track_label: item[:href],
+                  track_value: 1,
+                  track_dimension_index: 29,
+                  track_dimension: item[:text],
+                  ga4_link: {
+                    'event_name': 'navigation',
+                    'type': 'homepage',
+                    'index_section': locals[:index_section],
+                    'index_link': index + 1,
+                    'index_section_count': locals[:index_section_count],
+                    'index_total': t("homepage.index.popular_links").length,
+                    'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
                   }
-                } %>
+                }
+              } %>
             </li>
           <% end %>
         </ul>

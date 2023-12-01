@@ -2,13 +2,17 @@
 
 .homepage-most-active-list {
   list-style: none;
-  margin: 0 0 govuk-spacing(6) 0;
+  margin: 0 0 govuk-spacing(9) 0;
   padding: 0;
 }
 
 .homepage-most-active-list__item {
   margin: 0 0 govuk-spacing(4) 0;
   @include govuk-font($size: 19, $weight: bold);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   // Ensure font-size is 19px on mobile for the new homepage design
   @include govuk-media-query($until: "tablet") {

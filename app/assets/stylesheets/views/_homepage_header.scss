@@ -21,6 +21,14 @@ $pale-blue-colour: #d2e2f1;
   }
 }
 
+// If the super navigation menu is open,
+// set padding top to 50px for the homepage-header on Desktop screen sizes
+@include govuk-media-query($from: desktop) {
+  .gem-c-layout-super-navigation-header--menu-open + .homepage .homepage-header {
+    padding-top: govuk-spacing(8);
+  }
+}
+
 .homepage-header__title {
   @include govuk-typography-weight-bold;
   color: govuk-colour("white");

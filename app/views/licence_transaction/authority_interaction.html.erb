@@ -7,7 +7,7 @@
     <% if licence_details.action == action %>
       <li class="active"><%= "How to #{action}" %></li>
     <% else %>
-      <li><%= link_to "How to #{action}", licence_transaction_authority_path(publication.slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
+      <li><%= link_to "How to #{action}", licence_transaction_authority_interaction_path(publication.slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
     <% end %>
   <% end %>
 <% end %>

@@ -48,36 +48,34 @@ class LicenceTransactionControllerTest < ActionController::TestCase
     context "loading the licence edition when posting a location" do
       setup do
         stub_licence_exists(
-          "1071-5-1",
+          "1071-5-1/00BK",
           "isLocationSpecific" => true,
           "isOfferedByCounty" => false,
           "geographicalAvailability" => %w[England Wales],
-          "issuingAuthorities" => [],
+          "issuingAuthorities" => [
+            {
+              "authorityName" => "Staffordshire",
+              "authoritySlug" => "staffordshire",
+              "authorityInteractions" => {
+                "apply" => [
+                  {
+                    "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                    "description" => "Apply for your Licence to kill",
+                    "payment" => "none",
+                    "introduction" => "",
+                    "usesLicensify" => true,
+                  },
+                ],
+              },
+            },
+          ],
         )
+        configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire], 3435)
+        post :find, params: { slug: "new-licence", postcode: "ST10 4DB" }
       end
 
-      context "for an English local authority" do
-        setup do
-          configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
-
-          post :find, params: { slug: "new-licence", postcode: "ST10 4DB" }
-        end
-
-        should "redirect to the slug for the lowest level authority" do
-          assert_redirected_to "/find-licences/new-licence/staffordshire-moorlands"
-        end
-      end
-
-      context "for a Northern Irish local authority" do
-        setup do
-          configure_locations_api_and_local_authority("BT1 5GS", %w[belfast], 8132)
-
-          post :find, params: { slug: "new-licence", postcode: "BT1 5GS" }
-        end
-
-        should "redirect to the slug for the lowest level authority" do
-          assert_redirected_to "/find-licences/new-licence/belfast"
-        end
+      should "redirect to the slug with actionable licence" do
+        assert_redirected_to "/find-licences/new-licence/staffordshire"
       end
     end
   end

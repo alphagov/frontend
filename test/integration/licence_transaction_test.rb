@@ -497,7 +497,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the licence with a postcode not present in LocationsApi" do
+    context "when visiting the licence with a postcode not present in Locations API" do
       setup do
         stub_locations_api_has_no_location("AB1 2AB")
 
@@ -542,6 +542,87 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
       should "re-populate the invalid input" do
         assert page.has_field? "postcode", with: "XM4 5HQ"
+      end
+    end
+
+    context "when visiting a licence that has district and county authorities" do
+      setup do
+        stub_locations_api_has_location(
+          "ST10 4DB",
+          [
+            {
+              "latitude" => 51.5010096,
+              "longitude" => -0.1415870,
+              "local_custodian_code" => 1234,
+            },
+          ],
+        )
+        authority_for_staffordshire = [
+          {
+            "authorityName" => "Staffordshire",
+            "authoritySlug" => "staffordshire",
+            "authorityInteractions" => {
+              "apply" => [
+                {
+                  "url" => "/licence-to-kill/ministry-of-love/apply-1",
+                  "description" => "Apply for your Licence to kill",
+                  "payment" => "none",
+                  "introduction" => "",
+                  "usesLicensify" => true,
+                },
+              ],
+            },
+          },
+        ]
+        authority_for_staffordshire_moorlands = [
+          {
+            "authorityName" => "Staffordshire Moorlands",
+            "authoritySlug" => "staffordshire-moorlands",
+            "authorityInteractions" => {},
+          },
+        ]
+        stub_local_links_manager_has_a_district_and_county_local_authority(
+          "staffordshire-moorlands", "staffordshire", district_snac: "41UH", county_snac: "41", local_custodian_code: 1234
+        )
+        stub_licence_exists(
+          "1071-5-1/41",
+          "isLocationSpecific" => true,
+          "isOfferedByCounty" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authority_for_staffordshire,
+        )
+        stub_licence_exists(
+          "1071-5-1/41UH",
+          "isLocationSpecific" => true,
+          "isOfferedByCounty" => false,
+          "geographicalAvailability" => %w[England Wales],
+          "issuingAuthorities" => authority_for_staffordshire_moorlands,
+        )
+        stub_local_links_manager_has_a_local_authority("staffordshire", local_custodian_code: 1234, snac: "41")
+
+        visit "/find-licences/licence-to-kill"
+        fill_in "postcode", with: "ST10 4DB"
+        click_on "Find"
+      end
+
+      should "return the first authority with an actionable licence" do
+        assert current_path == "/find-licences/licence-to-kill/staffordshire"
+      end
+    end
+
+    context "when visiting a authority licence that doesn't have any actionable licences" do
+      setup do
+        configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire-moorlands], 1234, snac: "41UH")
+        stub_licence_does_not_exist("1071-5-1/41UH")
+
+        visit "/find-licences/licence-to-kill"
+        fill_in "postcode", with: "ST10 4DB"
+        click_on "Find"
+      end
+
+      should "return licence not found template" do
+        assert current_path == "/find-licences/licence-to-kill"
+        assert page.has_content?("You cannot apply for this licence online.")
       end
     end
 

@@ -19,6 +19,12 @@ $pale-blue-colour: #d2e2f1;
     padding-bottom: govuk-spacing(7);
     padding-top: govuk-spacing(3);
   }
+
+  // Increase the header font-size and padding for large screen sizes
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    padding-bottom: govuk-spacing(9);
+    padding-top: govuk-spacing(3);
+  }
 }
 
 .homepage-header__title {
@@ -38,6 +44,11 @@ $pale-blue-colour: #d2e2f1;
   @include govuk-media-query($from: desktop) {
     font-size: 55px;
     font-size: govuk-px-to-rem(55);
+  }
+
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    font-size: 64px;
+    font-size: govuk-px-to-rem(64);
   }
 }
 
@@ -59,6 +70,11 @@ $pale-blue-colour: #d2e2f1;
   @include govuk-media-query($from: desktop) {
     font-size: 55px;
     font-size: govuk-px-to-rem(55);
+  }
+
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    font-size: 64px;
+    font-size: govuk-px-to-rem(64);
   }
 }
 

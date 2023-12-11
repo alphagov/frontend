@@ -52,6 +52,12 @@ $pale-blue-colour: #d2e2f1;
   }
 }
 
+.homepage-header__title-container {
+  @include govuk-media-query($from: desktop) {
+    max-width: 80%;
+  }
+}
+
 .homepage-header__intro {
   @include govuk-typography-weight-bold;
 

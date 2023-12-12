@@ -62,14 +62,6 @@ $govuk-include-default-font-face: false;
   }
 }
 
-.gem-c-intervention {
-  margin-top: govuk-spacing(7);
-
-  @include govuk-media-query($until: tablet) {
-    margin-top: 0;
-  }
-}
-
 .bank-hols .govuk-panel {
   margin-bottom: govuk-spacing(6);
 }

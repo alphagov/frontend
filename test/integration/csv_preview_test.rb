@@ -6,23 +6,21 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
   include GdsApi::TestHelpers::AssetManager
   include GdsApi::TestHelpers::ContentStore
 
-  attachment_id = 1234
   filename = "filename"
   asset_manager_id = 4321
-  legacy_url_path = "government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}.csv"
-  non_legacy_url_path = "media/#{asset_manager_id}/#{filename}.csv"
+  asset_media_url_path = "media/#{asset_manager_id}/#{filename}.csv"
   parent_document_base_path = "/government/important-guidance"
   parent_document_url = "https://www.test.gov.uk#{parent_document_base_path}"
 
   setup do
-    setup_asset_manager(legacy_url_path, parent_document_url)
+    setup_asset_manager(parent_document_url, asset_manager_id, filename)
 
-    setup_content_item_legacy(legacy_url_path, parent_document_base_path)
+    setup_content_item(asset_media_url_path, parent_document_base_path)
   end
 
   context "when visiting the preview" do
     setup do
-      visit "/#{legacy_url_path}/preview"
+      visit "/#{asset_media_url_path}/preview"
     end
 
     should "return a 200 response" do
@@ -42,7 +40,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
 
     should "include a link to download the CSV file" do
-      assert page.has_link?("Download CSV 2 KB", href: "https://www.gov.uk/#{legacy_url_path}")
+      assert page.has_link?("Download CSV 2 KB", href: "https://www.gov.uk/#{asset_media_url_path}")
     end
 
     should "include a link to the organisation" do
@@ -86,9 +84,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
   context "when visiting the preview with special characters in filename" do
     setup do
       special_characters_filename = "filename+"
-      special_characters_url_path = "government/uploads/system/uploads/attachment_data/file/12345/#{special_characters_filename}.csv"
-      setup_asset_manager(special_characters_url_path, parent_document_url)
-      setup_content_item_legacy(special_characters_url_path, parent_document_base_path)
+      special_characters_url_path = "media/#{asset_manager_id}/#{special_characters_filename}.csv"
+
+      setup_asset_manager(parent_document_url, asset_manager_id, special_characters_filename)
+      setup_content_item(special_characters_url_path, parent_document_base_path)
 
       visit "/#{special_characters_url_path}/preview"
     end
@@ -100,10 +99,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
   context "when visiting the preview with special characters in the CSV" do
     setup do
-      setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: true)
-      setup_content_item_legacy(legacy_url_path, parent_document_base_path)
+      setup_asset_manager(parent_document_url, asset_manager_id, filename, use_special_characters_csv: true)
+      setup_content_item(asset_media_url_path, parent_document_base_path)
 
-      visit "/#{legacy_url_path}/preview"
+      visit "/#{asset_media_url_path}/preview"
     end
 
     should "return a 200 response" do
@@ -116,10 +115,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     context "when visiting the preview that redirects to other asset" do
       setup do
-        setup_asset_manager(legacy_url_path, parent_document_url, use_special_characters_csv: true, asset_deleted: true)
-        setup_content_item_legacy(legacy_url_path, parent_document_base_path)
+        setup_asset_manager(parent_document_url, asset_manager_id, filename, use_special_characters_csv: true, asset_deleted: true)
+        setup_content_item(asset_media_url_path, parent_document_base_path)
 
-        visit "/#{legacy_url_path}/preview"
+        visit "/#{asset_media_url_path}/preview"
       end
 
       should "return a 410 response" do
@@ -135,20 +134,21 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
         parent_document_url:,
         draft: true,
       }
-      stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
+      stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, "/#{filename}.csv")
 
-      visit "/#{legacy_url_path}/preview"
+      visit "/#{asset_media_url_path}/preview"
     end
 
     should "redirect to the draft assets host" do
-      assert_equal "http://draft-assets.dev.gov.uk/#{legacy_url_path}/preview", current_url
+      assert_equal "http://draft-assets.dev.gov.uk/#{asset_media_url_path}/preview", current_url
     end
   end
 
   context "when the asset does not exist" do
     setup do
-      stub_asset_manager_does_not_have_a_whitehall_asset("government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv")
-      visit "/government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv/preview"
+      asset_manager_id_2 = 9876
+      stub_asset_manager_does_not_have_an_asset(asset_manager_id_2)
+      visit "/media/#{asset_manager_id_2}/#{filename}-2.csv/preview"
     end
 
     should "return a 404 response" do
@@ -158,9 +158,9 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
   context "when asset manager returns a 403 response" do
     setup do
-      stub_request(:get, "#{ASSET_MANAGER_ENDPOINT}/whitehall_assets/government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv")
+      stub_request(:get, "#{ASSET_MANAGER_ENDPOINT}/media/#{asset_manager_id}/#{filename}-2.csv")
         .to_return(status: 403)
-      visit "/government/uploads/system/uploads/attachment_data/file/#{attachment_id}/#{filename}-2.csv/preview"
+      visit "/media/#{asset_manager_id}/#{filename}-2.csv/preview"
     end
 
     should "return a 403 response" do
@@ -173,10 +173,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     setup do
       csv_file = generate_test_csv(51, 1010).encode("windows-1252")
 
-      stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
+      stub_request(:get, "#{Plek.find('asset-manager')}/#{asset_media_url_path}")
         .to_return(body: csv_file, status: 200)
 
-      visit "/#{legacy_url_path}/preview"
+      visit "/#{asset_media_url_path}/preview"
     end
 
     should "include the CSV headings" do
@@ -205,29 +205,21 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
-  should "get asset from legacy_url endpoint" do
-    visit "/#{legacy_url_path}/preview"
+  should "get asset from media endpoint" do
+    setup_asset_manager(parent_document_url, asset_manager_id, filename)
+    setup_content_item(asset_media_url_path, parent_document_base_path)
+
+    visit "/#{asset_media_url_path}/preview"
     assert page.has_title?("Attachment 2 - GOV.UK")
   end
 
-  should "get asset from non-legacy_url endpoint" do
-    setup_asset_manager(legacy_url_path, parent_document_url, asset_manager_id, filename)
-    setup_content_item_non_legacy(non_legacy_url_path, parent_document_base_path)
-
-    visit "/#{non_legacy_url_path}/preview"
-    assert page.has_title?("Attachment 2 - GOV.UK")
-  end
-
-  def setup_asset_manager(legacy_url_path, parent_document_url, asset_manager_id = nil, filename = nil, use_special_characters_csv: false, asset_deleted: false)
+  def setup_asset_manager(parent_document_url, asset_manager_id, filename = nil, use_special_characters_csv: false, asset_deleted: false)
     asset_manager_response = {
       id: "https://asset-manager.dev.gov.uk/assets/foo",
       parent_document_url:,
       deleted: asset_deleted,
     }
-    if asset_manager_id
-      stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, filename)
-    end
-    stub_asset_manager_has_a_whitehall_asset(legacy_url_path, asset_manager_response)
+    stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, filename)
 
     csv_file = if use_special_characters_csv
                  "\xEF\xBB\xBF\"Field 1\",\"Field 2\",\"Field 3 \n(details)\",\"Field 4 (\xC2\xA3m)\"\n\"Value 1\",\"Value 2\",\"Value 3\",\"Value 4 \xC2\xA33.8bn\"\n"
@@ -235,54 +227,11 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
                  generate_test_csv(51, 1010)
                end
 
-    stub_request(:get, "#{Plek.find('asset-manager')}/#{legacy_url_path}")
-      .to_return(body: csv_file, status: 200)
-
     stub_request(:get, "#{Plek.find('asset-manager')}/media/#{asset_manager_id}/#{filename}.csv")
       .to_return(body: csv_file, status: 200)
   end
 
-  def setup_content_item_legacy(legacy_url_path, parent_document_base_path)
-    filename = legacy_url_path.split("/").last
-    content_item = {
-      base_path: parent_document_base_path,
-      document_type: "guidance",
-      public_updated_at: "2023-05-27T08:00:07.000+00:00",
-      details: {
-        attachments: [
-          {
-            title: "Attachment 1",
-            filename: "file.csv",
-            url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/5678/file.csv",
-            file_size: "1024",
-          },
-          {
-            title: "Attachment 2",
-            filename:,
-            url: "https://www.gov.uk/#{legacy_url_path}",
-            file_size: "2048",
-          },
-        ],
-      },
-      links: {
-        organisations: [
-          {
-            base_path: "/government/organisations/department-of-publishing",
-            details: {
-              brand: "single-identity",
-              logo: {
-                crest: "single-identity",
-                formatted_title: "Department of Publishing",
-              },
-            },
-          },
-        ],
-      },
-    }
-    stub_content_store_has_item(parent_document_base_path, content_item)
-  end
-
-  def setup_content_item_non_legacy(non_legacy_url_path, parent_document_base_path)
+  def setup_content_item(non_legacy_url_path, parent_document_base_path)
     filename = non_legacy_url_path.split("/").last
     content_item = {
       base_path: parent_document_base_path,

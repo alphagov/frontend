@@ -4,11 +4,11 @@ class CsvPreviewController < ApplicationController
   MAXIMUM_COLUMNS = 50
   MAXIMUM_ROWS = 1000
 
-  before_action :get_asset, only: [:show]
-
   rescue_from GdsApi::HTTPForbidden, with: :access_limited
 
   def show
+    @asset = GdsApi.asset_manager.asset(params[:id]).to_hash
+
     return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
     if draft_asset? && !served_from_draft_host?
       redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
@@ -22,9 +22,9 @@ class CsvPreviewController < ApplicationController
 
     original_error = nil
     row_sep = :auto
-    download_file = params[:legacy] ? whitehall_media_download : media_download
+
     begin
-      csv_preview = CSV.parse(download_file, encoding: encoding(download_file), headers: true, row_sep:)
+      csv_preview = CSV.parse(media_download, encoding: encoding(media_download), headers: true, row_sep:)
     rescue CSV::MalformedCSVError => e
       if original_error.nil?
         original_error = e
@@ -49,10 +49,6 @@ class CsvPreviewController < ApplicationController
   end
 
 private
-
-  def get_asset
-    @asset = params[:legacy] ? GdsApi.asset_manager.whitehall_asset(asset_path).to_hash : GdsApi.asset_manager.asset(params[:id]).to_hash
-  end
 
   def asset_path
     request.path.sub("/preview", "").sub(/^\//, "")

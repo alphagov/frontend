@@ -424,6 +424,56 @@
                 "bunting": true
               }
             ],
+            "2026": [
+              {
+                "title": "bank_holidays.new_year",
+                "date": "01/01/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.good_friday",
+                "date": "03/04/2026",
+                "notes": "",
+                "bunting": false
+              },
+              {
+                "title": "bank_holidays.easter_monday",
+                "date": "06/04/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.early_may",
+                "date": "04/05/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.spring",
+                "date": "25/05/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.late_august",
+                "date": "31/08/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.christmas",
+                "date": "25/12/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.boxing_day",
+                "date": "28/12/2026",
+                "notes": "common.substitute_day",
+                "bunting": true
+              }
+            ],
             "slug": "common.nations.england-and-wales_slug",
             "title": "common.nations.england-and-wales"
         },
@@ -891,6 +941,62 @@
                 "title": "bank_holidays.boxing_day",
                 "date": "26/12/2025",
                 "notes": "",
+                "bunting": true
+              }
+            ],
+            "2026": [
+              {
+                "title": "bank_holidays.new_year",
+                "date": "01/01/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.2nd_january",
+                "date": "02/01/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.good_friday",
+                "date": "03/04/2026",
+                "notes": "",
+                "bunting": false
+              },
+              {
+                "title": "bank_holidays.early_may",
+                "date": "04/05/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.spring",
+                "date": "25/05/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.summer",
+                "date": "03/08/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.st_andrew",
+                "date": "30/11/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.christmas",
+                "date": "25/12/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.boxing_day",
+                "date": "28/12/2026",
+                "notes": "common.substitute_day",
                 "bunting": true
               }
             ],
@@ -1409,6 +1515,68 @@
                 "title": "bank_holidays.boxing_day",
                 "date": "26/12/2025",
                 "notes": "",
+                "bunting": true
+              }
+            ],
+            "2026": [
+              {
+                "title": "bank_holidays.new_year",
+                "date": "01/01/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.st_patrick",
+                "date": "17/03/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.good_friday",
+                "date": "03/04/2026",
+                "notes": "",
+                "bunting": false
+              },
+              {
+                "title": "bank_holidays.easter_monday",
+                "date": "06/04/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.early_may",
+                "date": "04/05/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.spring",
+                "date": "25/05/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.battle_boyne",
+                "date": "13/07/2026",
+                "notes": "common.substitute_day",
+                "bunting": false
+              },
+              {
+                "title": "bank_holidays.late_august",
+                "date": "31/08/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.christmas",
+                "date": "25/12/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.boxing_day",
+                "date": "28/12/2026",
+                "notes": "common.substitute_day",
                 "bunting": true
               }
             ],

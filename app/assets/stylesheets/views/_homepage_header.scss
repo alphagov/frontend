@@ -16,6 +16,12 @@ $pale-blue-colour: #d2e2f1;
   }
 
   @include govuk-media-query($from: desktop) {
+    padding-bottom: govuk-spacing(7);
+    padding-top: govuk-spacing(3);
+  }
+
+  // Increase the header font-size and padding for large screen sizes
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
     padding-bottom: govuk-spacing(9);
     padding-top: govuk-spacing(3);
   }
@@ -27,18 +33,28 @@ $pale-blue-colour: #d2e2f1;
   font-size: 40px;
   font-size: govuk-px-to-rem(40);
   line-height: 1.2;
-  padding-bottom: 8px;
+  padding-bottom: govuk-spacing(3);
   margin: 0;
 
   @include govuk-media-query($from: tablet) {
-    font-size: 60px;
-    font-size: govuk-px-to-rem(60);
-    padding-bottom: govuk-spacing(2);
+    font-size: 50px;
+    font-size: govuk-px-to-rem(50);
   }
 
   @include govuk-media-query($from: desktop) {
+    font-size: 55px;
+    font-size: govuk-px-to-rem(55);
+  }
+
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
     font-size: 64px;
     font-size: govuk-px-to-rem(64);
+  }
+}
+
+.homepage-header__title-container {
+  @include govuk-media-query($from: desktop) {
+    max-width: 80%;
   }
 }
 
@@ -49,16 +65,20 @@ $pale-blue-colour: #d2e2f1;
   font-size: 40px;
   font-size: govuk-px-to-rem(40);
   margin: 0;
-  padding-bottom: govuk-spacing(2);
   line-height: 1.07;
   display: block;
 
   @include govuk-media-query($from: tablet) {
-    font-size: 60px;
-    font-size: govuk-px-to-rem(60);
+    font-size: 50px;
+    font-size: govuk-px-to-rem(50);
   }
 
   @include govuk-media-query($from: desktop) {
+    font-size: 55px;
+    font-size: govuk-px-to-rem(55);
+  }
+
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
     font-size: 64px;
     font-size: govuk-px-to-rem(64);
   }

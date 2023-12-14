@@ -96,7 +96,6 @@ Rails.application.routes.draw do
     get ":scope/:division", to: "calendar#division", as: :division
   end
 
-  get "/government/uploads/system/uploads/attachment_data/file/:id/:filename.csv/preview", to: "csv_preview#show", filename: /[^\/]+/, legacy: true
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
 
   get "/government/placeholder", to: "placeholder#show"

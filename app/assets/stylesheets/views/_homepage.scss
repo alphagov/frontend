@@ -150,36 +150,6 @@
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0;
   }
-
-  // temp style overrides, will need to update the image-card component in the gem
-  // so these can be removed
-  .gem-c-image-card {
-    @include govuk-media-query($until: "mobile") {
-      padding: 0 govuk-spacing(3);
-    }
-  }
-
-  // temp style override to ensure image has spacing between the text
-  .gem-c-image-card__image-wrapper {
-    @include govuk-media-query($until: "mobile") {
-      margin-bottom: govuk-spacing(2);
-    }
-  }
-
-  // temp override to remove the top border
-  .gem-c-image-card__image {
-    border-top: none;
-  }
-
-
-  .gem-c-image-card__title-link,
-  .gem-c-image-card__description {
-    // Ensure font-size is 19px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: 19px;
-      font-size: govuk-px-to-rem(19);
-    }
-  }
 }
 
 .homepage-section--services-and-info {

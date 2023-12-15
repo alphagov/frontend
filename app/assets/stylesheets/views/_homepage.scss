@@ -70,6 +70,10 @@
 
     .chevron-card__wrapper {
       padding-top: 0;
+
+      @include govuk-media-query($media-type: print) {
+        padding-top: 19px;
+      }
     }
   }
 }

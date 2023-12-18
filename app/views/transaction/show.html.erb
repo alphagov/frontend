@@ -23,6 +23,53 @@
   <% if ["/find-travel-test-provider"].include?(@content_item["base_path"]) %>
     <meta name="govuk:scroll-tracker" content="" data-module="auto-scroll-tracker"/>
   <% end %>
+
+  <%
+    ga4_scroll_track_headings_paths = [
+      "/sign-in-universal-credit",
+      "/check-mot-history",
+      "/get-information-about-a-company",
+      "/vehicle-tax",
+      "/check-vehicle-tax",
+      "/sign-in-childcare-account",
+      "/view-driving-licence",
+      "/student-finance-register-login",
+      "/check-mot-status",
+      "/get-vehicle-information-from-dvla",
+      "/book-driving-test",
+      "/view-prove-immigration-status",
+      "/find-energy-certificate",
+      "/apply-renew-passport",
+      "/change-driving-test",
+      "/check-state-pension",
+      "/renew-driving-licence",
+      "/book-theory-test",
+      "/clean-air-zones",
+      "/apply-first-provisional-driving-licence",
+      "/register-to-vote",
+      "/find-a-job",
+      "/check-national-insurance-record",
+      "/estimate-income-tax",
+      "/make-a-sorn",
+      "/council-tax-bands",
+      "/view-right-to-work",
+      "/sign-in-to-manage-your-student-loan-balance",
+      "/apply-blue-badge",
+      "/search-property-information-land-registry",
+      "/mot-testing-service",
+      "/manage-your-tax-credits",
+      "/apply-online-to-replace-a-driving-licence",
+      "/trade-tariff",
+      "/request-copy-criminal-record",
+      "/renew-driving-licence-at-70",
+      "/file-your-confirmation-statement-with-companies-house",
+      "/check-driving-information",
+      "/calculate-child-maintenance"
+    ]
+  %>
+  <% if ga4_scroll_track_headings_paths.include?(@content_item["base_path"]) %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker"/>
+  <% end %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {

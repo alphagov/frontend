@@ -8,6 +8,7 @@ class PlaceController < ContentItemsController
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
   REPORT_CHILD_ABUSE_SLUG = "report-child-abuse-to-local-council".freeze
+  FIND_FAMILY_HUB_SLUG = "find-family-hub-local-area".freeze
 
   def show
     render :show, locals:
@@ -49,6 +50,13 @@ private
     if params[:slug] == REPORT_CHILD_ABUSE_SLUG
       locals.merge!({
         option_partial: "option_report_child_abuse",
+        preposition: "for",
+      })
+    end
+
+    if params[:slug] == FIND_FAMILY_HUB_SLUG
+      locals.merge!({
+        option_partial: "option_find_family_hub",
         preposition: "for",
       })
     end

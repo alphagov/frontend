@@ -15,3 +15,4 @@ spec/reports/pacts
 .env
 .yarn/cache/
 .yarn/install-state.gz
+.DS_Store

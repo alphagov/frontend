@@ -4,4 +4,8 @@ module CalendarHelper
   rescue StandardError
     Time.zone.today
   end
+
+  def format_date(date)
+    l date, format: "%e %B %Y"
+  end
 end

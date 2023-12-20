@@ -5,7 +5,6 @@
 //= link application.css
 
 //= link components/_calendar.css
-//= link components/_metadata.css
 //= link components/_subscribe.css
 
 //= link views/_calendars.css

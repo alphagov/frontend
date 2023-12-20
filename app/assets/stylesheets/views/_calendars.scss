@@ -38,15 +38,18 @@
 }
 
 .app-bunting__tinsel {
-  background-image: image-url("calendars/tinsel.png");
+  background-image: image-url("calendars/festive-lights-tinsel.svg");
   background-color: transparent;
   background-repeat: repeat-x;
   background-position: center top;
-  width: 99.9%;
-  height: 70px;
+  width: 100%;
+  @extend %responsive-bunting-height;
 
-  @include govuk-media-query($until: tablet) {
-    display: none;
+  // Ensure the background pattern repeats in IE11
+  background-size: 175px 40px;
+
+  @include govuk-media-query($from: desktop) {
+    background-size: 231px 52px;
   }
 }
 

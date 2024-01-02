@@ -1,6 +1,5 @@
 module HmrcTemporaryAbTestable
-  CUSTOM_DIMENSION = 47 ## Not sure if this is correct
-
+  CUSTOM_DIMENSION = 47
   ALLOWED_VARIANTS = %w[A B Z].freeze
 
   def self.included(base)

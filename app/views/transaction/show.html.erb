@@ -110,9 +110,9 @@
                   margin_bottom: true,
                   data_attributes: data_attributes %>
       <% if hmrc_temporary_ab_test_variant_b? %>
-      <p class="govuk-body govuk-!-padding-bottom-5">
-        <%= "#{t('ab_testing.ready_reckoner_video_test_html')}".html_safe %>
-      </p>
+        <div class="govuk-body govuk-!-padding-bottom-5">
+          <%= "#{t('ab_testing.ready_reckoner_video_test_html')}".html_safe %>
+        </div>
       <% end %>
     </p>
   </section>

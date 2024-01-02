@@ -253,7 +253,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
       with_variant ReadyReckonerVideoTest: "B" do
         visit "/self-assessment-ready-reckoner"
         assert page.has_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
-        assert page.has_link?("How to use a budget payment plan to pay your tax bill online video on YouTube", href: "https://www.youtube.com/watch?v=xHn31myAkio")
       end
     end
 

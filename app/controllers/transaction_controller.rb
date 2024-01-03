@@ -1,6 +1,6 @@
 class TransactionController < ContentItemsController
   include Cacheable
-
+  include HmrcTemporaryAbTestable
   include LocaleHelper
 
   before_action :deny_framing

@@ -6,6 +6,7 @@ cy:
     two_versions: Mae 2 fersiwn o'r dudalen hon. Rydych chi'n gweld y
     version: fersiwn
     visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld gwasanaethau a gwybodaeth y llywodraeth.
+    ready_reckoner_video_test_html:
   account:
     cookies_and_feedback:
       cookie_consent:

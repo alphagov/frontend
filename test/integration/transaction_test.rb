@@ -2,6 +2,7 @@ require "integration_test_helper"
 
 class TransactionTest < ActionDispatch::IntegrationTest
   include SchemaOrgHelpers
+  include GovukAbTesting::MinitestHelpers
 
   context "a transaction with all the optional things" do
     setup do
@@ -232,6 +233,33 @@ class TransactionTest < ActionDispatch::IntegrationTest
 
       within "head", visible: :all do
         assert page.has_selector?("meta[name='robots'][content='noindex, nofollow']", visible: false)
+      end
+    end
+  end
+
+  context "when hmrc temporary AB testing is live" do
+    setup do
+      content_store_has_example_item("/self-assessment-ready-reckoner", schema: "transaction", example: "transaction")
+    end
+
+    should "not add any additional content for the A variant" do
+      with_variant ReadyReckonerVideoTest: "A" do
+        visit "/self-assessment-ready-reckoner"
+        assert page.has_no_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
+      end
+    end
+
+    should "add an additional paragraph with link to video for the B variant" do
+      with_variant ReadyReckonerVideoTest: "B" do
+        visit "/self-assessment-ready-reckoner"
+        assert page.has_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
+      end
+    end
+
+    should "not add any additional content for the Z variant" do
+      with_variant ReadyReckonerVideoTest: "Z" do
+        visit "/self-assessment-ready-reckoner"
+        assert page.has_no_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
       end
     end
   end

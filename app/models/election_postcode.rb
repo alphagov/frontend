@@ -27,7 +27,7 @@ class ElectionPostcode
   end
 
   def error
-    return "invalidPostcodeFormat" unless valid?
+    "invalidPostcodeFormat" unless valid?
   end
 
 private

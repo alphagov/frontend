@@ -16,7 +16,7 @@ class Uprn
   end
 
   def error
-    return "invalidUprnFormat" unless valid?
+    "invalidUprnFormat" unless valid?
   end
 
 private

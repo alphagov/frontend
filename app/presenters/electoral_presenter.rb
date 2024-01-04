@@ -43,7 +43,7 @@ class ElectoralPresenter
   end
 
   def show_picker?
-    (address_picker.present? && no_contact_details?)
+    address_picker.present? && no_contact_details?
   end
 
 private

@@ -79,7 +79,8 @@ private
   def location_error
     return LocationError.new(INVALID_POSTCODE) unless postcode_provided?
     return LocationError.new(INVALID_POSTCODE) if imminence_response.invalid_postcode?
-    return LocationError.new(NO_LOCATION) if imminence_response.places_not_found?
+
+    LocationError.new(NO_LOCATION) if imminence_response.places_not_found?
   end
 
   def imminence_response

@@ -3,11 +3,11 @@
 %>
 
 <% if variant_b_page? %>
-  <% popular_links = t("homepage.index.popular_links") %>
+  <% popular_links = t("homepage.index.popular_links_b") %>
 <% elsif variant_c_page? %>
-  <% popular_links = t("homepage.index.popular_links") %>
+  <% popular_links = t("homepage.index.popular_links_c") %>
 <% elsif variant_d_page? %>
-  <% popular_links = t("homepage.index.popular_links") %>
+  <% popular_links = t("homepage.index.popular_links_d") %>
 <% else %>
   <% popular_links = t("homepage.index.popular_links") %>
 <% end %>
@@ -41,7 +41,7 @@
                     'index_section': locals[:index_section],
                     'index_link': index + 1,
                     'index_section_count': locals[:index_section_count],
-                    'index_total': t("homepage.index.popular_links").length,
+                    'index_total': popular_links.length,
                     'section': "#{t("homepage.index.popular_links_heading", locale: :en)}"
                   }
                 }

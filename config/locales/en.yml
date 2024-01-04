@@ -581,6 +581,45 @@ en:
           href: /check-national-insurance-record
         - text: 'Check MOT history of a vehicle'
           href: /check-mot-history
+      popular_links_b:
+        - text: 'Universal Credit account: sign in'
+          href: /sign-in-universal-credit
+        - text: 'Check MOT history of a vehicle'
+          href: /check-mot-history
+        - text: 'HMRC online services: sign in or set up an account'
+          href: /log-in-register-hmrc-online-services
+        - text: 'Get information about a company'
+          href: /get-information-about-a-company
+        - text: 'Tax your vehicle'
+          href: /vehicle-tax
+        - text: 'Check if a vehicle is taxed'
+          href: /check-vehicle-tax
+      popular_links_c:
+        - text: 'HMRC online services: sign in or set up an account'
+          href: /log-in-register-hmrc-online-services
+        - text: 'Check your State Pension forecast'
+          href: /check-state-pension
+        - text: 'Personal tax account: sign in or set up'
+          href: /personal-tax-account
+        - text: 'Sign in to your childcare account'
+          href: /sign-in-childcare-account
+        - text: 'File your Self Assessment tax return online'
+          href: /log-in-file-self-assessment-tax-return
+        - text: 'Universal Credit account: sign in'
+          href: /sign-in-universal-credit
+      popular_links_d:
+        - text: 'Change your driving test appointment'
+          href: /change-driving-test
+        - text: 'Book your driving test'
+          href: /book-driving-test
+        - text: 'Universal Credit account: sign in'
+          href: /sign-in-universal-credit
+        - text: 'HMRC online services: sign in or set up an account'
+          href: /log-in-register-hmrc-online-services
+        - text: 'Find an energy certificate'
+          href: /find-energy-certificate
+        - text: 'Student finance login'
+          href: /student-finance-register-login
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:

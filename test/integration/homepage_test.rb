@@ -46,7 +46,7 @@ class HomepageTest < ActionDispatch::IntegrationTest
     should "have different links for the B variant" do
       with_variant HomepagePopularLinksTest: "B" do
         visit "/"
-        assert page.has_text?("Find out about help you can get with your energy bills")
+        assert page.has_text?("Get information about a company")
       end
     end
 
@@ -67,14 +67,14 @@ class HomepageTest < ActionDispatch::IntegrationTest
     should "have different links for the C variant" do
       with_variant HomepagePopularLinksTest: "C" do
         visit "/"
-        assert page.has_text?("Find out about help you can get with your energy bills")
+        assert page.has_text?("Sign in to your childcare account")
       end
     end
 
     should "have different links for the D variant" do
       with_variant HomepagePopularLinksTest: "D" do
         visit "/"
-        assert page.has_text?("Find out about help you can get with your energy bills")
+        assert page.has_text?("Find an energy certificate")
       end
     end
   end

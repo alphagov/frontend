@@ -111,8 +111,7 @@ GEM
     diff-lcs (1.5.0)
     dig_rb (1.0.1)
     docile (1.4.0)
-    domain_name (0.5.20190701)
-      unf (>= 0.0.5, < 1.0.0)
+    domain_name (0.6.20231109)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -123,7 +122,7 @@ GEM
       parslet
     ffi (1.15.5)
     find_a_port (1.0.1)
-    gds-api-adapters (91.1.0)
+    gds-api-adapters (92.0.0)
       addressable
       link_header
       null_logger
@@ -215,9 +214,9 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
-    mime-types (3.5.1)
+    mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.0808)
+    mime-types-data (3.2023.1205)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
     minitest (5.20.0)
@@ -647,9 +646,6 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     uk_postcode (2.1.8)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.8.2)
     unicode-display_width (2.5.0)
     webmock (3.19.1)
       addressable (>= 2.8.0)

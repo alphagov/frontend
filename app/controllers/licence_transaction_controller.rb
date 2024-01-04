@@ -129,7 +129,8 @@ private
   def location_error
     return LocationError.new(INVALID_POSTCODE) if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
     return LocationError.new(NO_LOCATIONS_API_MATCH) if locations_api_response.location_not_found?
-    return LocationError.new(NO_MATCHING_AUTHORITY) if authority_results.blank?
+
+    LocationError.new(NO_MATCHING_AUTHORITY) if authority_results.blank?
   end
 
   def locations_api_response

@@ -57,7 +57,8 @@ private
 
   def location_error
     return LocationError.new("invalidPostcodeFormat") if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
-    return LocationError.new("noLaMatch") if locations_api_response.location_not_found?
+
+    LocationError.new("noLaMatch") if locations_api_response.location_not_found?
   end
 
   def locations_api_response

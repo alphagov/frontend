@@ -15,6 +15,6 @@ class MetadataComponentTest < ComponentTestCase
     render_component({
       last_updated: Date.parse("2-5-2008"),
     })
-    assert_select ".app-c-meta-data", text: "Last updated: 2 May 2008"
+    assert_select ".app-c-metadata", text: "Last updated: 2 May 2008"
   end
 end

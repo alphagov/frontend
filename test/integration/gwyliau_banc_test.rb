@@ -212,7 +212,7 @@ class GwyliauBancTest < ActionDispatch::IntegrationTest
     should "be translated and localised" do
       Timecop.travel(Date.parse("25th Dec 2012")) do
         visit "/gwyliau-banc"
-        within ".app-c-meta-data" do
+        within ".app-c-metadata" do
           assert page.has_content?("Diweddarwyd ddiwethaf: 25 Rhagfyr 2012")
         end
       end

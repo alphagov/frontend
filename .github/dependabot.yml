@@ -16,3 +16,8 @@ updates:
       interval: weekly
     ignore:
       - dependency-name: ruby
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily

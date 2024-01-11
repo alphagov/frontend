@@ -1,6 +1,6 @@
 <%
   add_app_component_stylesheet("metadata")
 %>
-<p class="app-c-meta-data">
-  <%= t 'common.last_updated' %>: <%= l last_updated, :format => '%e %B %Y' %>
+<p class="app-c-metadata">
+  <%= t 'common.last_updated' %>: <%= (l last_updated, :format => '%e %B %Y').squish %>
 </p>

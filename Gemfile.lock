@@ -111,7 +111,7 @@ GEM
     diff-lcs (1.5.0)
     dig_rb (1.0.1)
     docile (1.4.0)
-    domain_name (0.6.20231109)
+    domain_name (0.6.20240107)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -122,7 +122,7 @@ GEM
       parslet
     ffi (1.15.5)
     find_a_port (1.0.1)
-    gds-api-adapters (92.0.0)
+    gds-api-adapters (92.1.0)
       addressable
       link_header
       null_logger

@@ -1,8 +1,6 @@
 require "integration_test_helper"
 
 class HomepageTest < ActionDispatch::IntegrationTest
-  include GovukAbTesting::MinitestHelpers
-
   setup do
     stub_content_store_has_item("/", schema: "special_route")
   end
@@ -39,43 +37,6 @@ class HomepageTest < ActionDispatch::IntegrationTest
       visit @payload[:base_path]
       visit "/"
       assert page.has_content?(I18n.t("homepage.index.government_activity_description", locale: :en))
-    end
-  end
-
-  context "when AB testing different popular links" do
-    should "have different links for the B variant" do
-      with_variant HomepagePopularLinksTest: "B" do
-        visit "/"
-        assert page.has_text?("Get information about a company")
-      end
-    end
-
-    should "have different links for the A variant" do
-      with_variant HomepagePopularLinksTest: "A" do
-        visit "/"
-        assert page.has_text?("Find out about help you can get with your energy bills")
-      end
-    end
-
-    should "have different links for the Z variant" do
-      with_variant HomepagePopularLinksTest: "Z" do
-        visit "/"
-        assert page.has_text?("Find out about help you can get with your energy bills")
-      end
-    end
-
-    should "have different links for the C variant" do
-      with_variant HomepagePopularLinksTest: "C" do
-        visit "/"
-        assert page.has_text?("Sign in to your childcare account")
-      end
-    end
-
-    should "have different links for the D variant" do
-      with_variant HomepagePopularLinksTest: "D" do
-        visit "/"
-        assert page.has_text?("Find an energy certificate")
-      end
     end
   end
 end

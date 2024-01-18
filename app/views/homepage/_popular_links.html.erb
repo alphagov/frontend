@@ -2,16 +2,6 @@
   add_view_stylesheet("popular_links")
 %>
 
-<% if variant_b_page? %>
-  <% popular_links = t("homepage.index.popular_links") %>
-<% elsif variant_c_page? %>
-  <% popular_links = t("homepage.index.popular_links") %>
-<% elsif variant_d_page? %>
-  <% popular_links = t("homepage.index.popular_links") %>
-<% else %>
-  <% popular_links = t("homepage.index.popular_links") %>
-<% end %>
-
 <section class="homepage-section homepage-section__popular-links">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
@@ -22,7 +12,7 @@
           text: t("homepage.index.popular_links_heading"),
         } %>
         <ul class="homepage-most-viewed-list" data-module="gem-track-click ga4-link-tracker">
-          <% popular_links.each_with_index do | item, index | %>
+          <% t("homepage.index.popular_links").each_with_index do | item, index | %>
             <li class="homepage-most-viewed-list__item">
               <%= render "govuk_publishing_components/components/action_link", {
                 text: item[:text],

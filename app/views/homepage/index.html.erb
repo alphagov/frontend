@@ -1,6 +1,5 @@
 <% add_view_stylesheet("homepage")%>
 <% content_for :extra_headers do %>
-  <%= homepage_popular_links_ab_test_variant.analytics_meta_tag.html_safe if page_under_test? %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <meta name="description" content="<%= t("homepage.index.meta_description_new") %>">
 <% end %>

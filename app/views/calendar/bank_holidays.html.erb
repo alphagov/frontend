@@ -4,7 +4,6 @@
 
 <% content_for :extra_headers do %>
   <%= bank_hol_ab_test_variant.analytics_meta_tag.html_safe if page_under_test? %>
-  <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker"/>
 <% end %>
 
 <%= render :partial => "calendar_head" %>

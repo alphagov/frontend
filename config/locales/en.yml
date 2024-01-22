@@ -6,7 +6,7 @@ en:
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
-    ready_reckoner_video_test_html: <div class="gem-c-image-card gem-c-image-card--large" data-module="image-card" data-image-card-module-started="true"><div class="gem-c-image-card__text-wrapper"><div class="gem-c-image-card__header-and-context-wrapper"></div><div class="gem-c-image-card__description">Watch this video to find out how a budget payment plan can help you pay your tax bill on time.</div><figure class="gem-c-image-card__image-wrapper gem-c-image-card__image-wrapper--youtube-embed"><div class="gem-c-govspeak__youtube-video gem-c-image-card__youtube-video-embed"><iframe id="youtube-1" data-video-id="xHn31myAkio" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" title="How to use a budget payment plan to pay your tax bill online video on YouTube (video)" width="640" height="360" src="https://www.youtube-nocookie.com/embed/xHn31myAkio?enablejsapi=1&amp;origin=http%3A%2F%2F127.0.0.1%3A3090&amp;rel=0&amp;disablekb=1&amp;modestbranding=1&amp;channel&amp;widgetid=1"></iframe></div></figure></div>
+    ready_reckoner_video_description: Watch this video to find out how a budget payment plan can help you pay your tax bill on time.
   account:
     cookies_and_feedback:
       cookie_consent:

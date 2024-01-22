@@ -2,22 +2,6 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item_hash %>
-  <%
-    ga4_scroll_track_headings_paths = [
-      "/sold-bought-vehicle",
-      "/check-if-you-need-tax-return",
-      "/contact-the-dvla",
-      "/contact-ukvi-inside-outside-uk",
-      "/claim-tax-refund",
-      "/contact-student-finance-england",
-      "/register-for-self-assessment",
-      "/exchange-foreign-driving-licence",
-      "/legal-right-work-uk"
-    ]
-  %>
-  <% if ga4_scroll_track_headings_paths.include?(@content_item["base_path"]) %>
-    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker"/>
-  <% end %>
 <% end %>
 
 <%= render layout: "shared/base_page", locals: {

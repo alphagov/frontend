@@ -24,7 +24,7 @@ module Frontend
     include GovukPublishingComponents::AppHelpers::AssetHelper
     # Initialize configuration defaults for originally generated Rails version.
     require "frontend"
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.

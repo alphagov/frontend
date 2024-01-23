@@ -65,7 +65,7 @@
       <% if hmrc_temporary_ab_test_variant_b? %>
         <%= render "govuk_publishing_components/components/govspeak", {} do %>
           <p><%= t('ab_testing.ready_reckoner_video_description') %></p>
-          <p><a href="https://www.youtube.com/watch?v=xHn31myAkio">How do I budget for my Self Assessment tax bill?</a></p>
+          <p><a href="<%= t('ab_testing.ready_reckoner_video_link_href') %>"><%= t('ab_testing.ready_reckoner_video_link_text') %></a></p>
         <% end %>
       <% end %>
     </p>

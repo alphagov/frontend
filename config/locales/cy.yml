@@ -7,6 +7,8 @@ cy:
     version: fersiwn
     visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld gwasanaethau a gwybodaeth y llywodraeth.
     ready_reckoner_video_description:
+    ready_reckoner_video_link_href:
+    ready_reckoner_video_link_text:
   account:
     cookies_and_feedback:
       cookie_consent:

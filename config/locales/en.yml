@@ -3,10 +3,10 @@ en:
   a: A
   ab_testing:
     explanation: We sometimes test different versions of pages with different users to see which work better. This page shows us if the process is working.
+    ready_reckoner_video: <a href="https://www.youtube.com/watch?v=xHn31myAkio">Watch this video to find out how a budget payment plan can help you pay your tax bill on time</a>
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
-    ready_reckoner_video_description: Watch this video to find out how a budget payment plan can help you pay your tax bill on time.
   account:
     cookies_and_feedback:
       cookie_consent:

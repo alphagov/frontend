@@ -25,7 +25,7 @@ module HmrcTemporaryAbTestable
 
   def hmrc_temporary_ab_test
     @hmrc_temporary_ab_test ||= GovukAbTesting::AbTest.new(
-      "ReadyReckonerVideoTest",
+      "ReadyReckonerVideoTest2",
       dimension: CUSTOM_DIMENSION,
       allowed_variants: ALLOWED_VARIANTS,
       control_variant: "Z",

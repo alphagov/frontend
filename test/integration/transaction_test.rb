@@ -243,21 +243,21 @@ class TransactionTest < ActionDispatch::IntegrationTest
     end
 
     should "not add any additional content for the A variant" do
-      with_variant ReadyReckonerVideoTest: "A" do
+      with_variant ReadyReckonerVideoTest2: "A" do
         visit "/self-assessment-ready-reckoner"
         assert page.has_no_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
       end
     end
 
     should "add an additional paragraph with link to video for the B variant" do
-      with_variant ReadyReckonerVideoTest: "B" do
+      with_variant ReadyReckonerVideoTest2: "B" do
         visit "/self-assessment-ready-reckoner"
         assert page.has_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
       end
     end
 
     should "not add any additional content for the Z variant" do
-      with_variant ReadyReckonerVideoTest: "Z" do
+      with_variant ReadyReckonerVideoTest2: "Z" do
         visit "/self-assessment-ready-reckoner"
         assert page.has_no_content?("Watch this video to find out how a budget payment plan can help you pay your tax bill on time")
       end

@@ -17,6 +17,8 @@ class SimpleSmartAnswerPresenter < ContentItemPresenter
 
     if details["start_button_text"] == "Start now"
       I18n.t("formats.start_now")
+    elsif details["start_button_text"] == "Continue"
+      I18n.t("continue")
     else
       details["start_button_text"]
     end

@@ -24,7 +24,7 @@ class CsvPreviewController < ApplicationController
     row_sep = :auto
 
     begin
-      csv_preview = CSV.parse(media_download, encoding: encoding(media_download), headers: true, row_sep:)
+      csv_preview = CSV.parse(media_download_truncated, encoding: encoding(media_download_truncated), headers: true, row_sep:)
     rescue CSV::MalformedCSVError => e
       if original_error.nil?
         original_error = e
@@ -35,13 +35,13 @@ class CsvPreviewController < ApplicationController
       end
     end
 
-    @csv_rows = csv_preview.to_a.map { |row|
+    @csv_rows = csv_preview.to_a.map do |row|
       row.map { |column|
         {
           text: column&.encode("UTF-8"),
         }
       }.take(MAXIMUM_COLUMNS)
-    }.take(MAXIMUM_ROWS + 1)
+    end
   end
 
   def access_limited
@@ -62,8 +62,24 @@ private
     GdsApi.asset_manager.whitehall_media(asset_path).body
   end
 
-  def media_download
-    GdsApi.asset_manager.media(params[:id], params[:filename]).body
+  def media_download_truncated
+    @media_download_truncated ||= truncate_to_maximum_number_of_lines(
+      GdsApi.asset_manager.media(params[:id], params[:filename]).body,
+      MAXIMUM_ROWS + 1,
+    )
+  end
+
+  def truncate_to_maximum_number_of_lines(string, maximum_number_of_lines)
+    string[0..newline_or_last_char_index(string, maximum_number_of_lines - 1)]
+  end
+
+  def newline_or_last_char_index(string, newline_index)
+    (0..newline_index).inject(-1) do |current_index|
+      next_index = string.index("\n", current_index + 1)
+      return string.length - 1 if next_index.nil?
+
+      next_index
+    end
   end
 
   def encoding(media)

@@ -31,6 +31,7 @@ class CsvPreviewController < ApplicationController
     begin
       csv_preview = CSV.parse(media_download_truncated, encoding: encoding(media_download_truncated), headers: true, row_sep:)
     rescue CSV::MalformedCSVError => e
+      logger.error(e.full_message)
       if original_error.nil?
         original_error = e
         row_sep = "\r\n"
@@ -40,6 +41,8 @@ class CsvPreviewController < ApplicationController
       end
     end
 
+    logger.info('PREPARING ROWS')
+
     @csv_rows = csv_preview.to_a.map do |row|
       row.map { |column|
         {
@@ -47,6 +50,8 @@ class CsvPreviewController < ApplicationController
         }
       }.take(MAXIMUM_COLUMNS)
     end
+
+    logger.info(@csv_rows)
   end
 
   def access_limited

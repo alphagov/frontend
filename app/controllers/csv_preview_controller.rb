@@ -41,6 +41,8 @@ class CsvPreviewController < ApplicationController
       end
     end
 
+    logger.info('CSV_PREVIEW')
+    logger.info(csv_preview.to_a)
     logger.info('PREPARING ROWS')
 
     @csv_rows = csv_preview.to_a.map do |row|
@@ -51,6 +53,7 @@ class CsvPreviewController < ApplicationController
       }.take(MAXIMUM_COLUMNS)
     end
 
+    logger.info('CSV_ROWS')
     logger.info(@csv_rows)
   end
 

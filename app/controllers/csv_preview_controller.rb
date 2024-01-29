@@ -8,6 +8,8 @@ class CsvPreviewController < ApplicationController
 
   def show
     @asset = GdsApi.asset_manager.asset(params[:id]).to_hash
+    logger.info('SHOW')
+    logger.info(@asset)
 
     return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
     if draft_asset? && !served_from_draft_host?
@@ -19,6 +21,9 @@ class CsvPreviewController < ApplicationController
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
       attachment["filename"] == asset_filename
     end
+
+    logger.info(@content_item)
+    logger.info(@attachment_metadata)
 
     original_error = nil
     row_sep = :auto
@@ -67,6 +72,8 @@ private
       GdsApi.asset_manager.media(params[:id], params[:filename]).body,
       MAXIMUM_ROWS + 1,
     )
+    logger.info(@media_download_truncated)
+    @media_download_truncated
   end
 
   def truncate_to_maximum_number_of_lines(string, maximum_number_of_lines)

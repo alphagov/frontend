@@ -97,14 +97,6 @@ private
     end
   end
 
-  def nth_newline_or_last_char_index(string, n)
-    (1..n).inject(-1) do |current_index|
-      next_index = string.index("\n", current_index + 1)
-      return string.length - 1 if next_index.nil?
-      next_index
-    end
-  end
-
   def encoding(media)
     @encoding ||= if utf_8_encoding?(media)
                     "UTF-8"

@@ -19,6 +19,8 @@ class CsvPreviewController < ApplicationController
     parent_document_path = URI(@asset["parent_document_url"]).request_uri
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
+      logger.info(attachment["filename"])
+      logger.info(asset_filename)
       attachment["filename"] == asset_filename
     end
 

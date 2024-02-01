@@ -58,10 +58,6 @@ private
     asset_path.split("/").last
   end
 
-  def whitehall_media_download
-    GdsApi.asset_manager.whitehall_media(asset_path).body
-  end
-
   def media_download_truncated
     @media_download_truncated ||= truncate_to_maximum_number_of_lines(
       GdsApi.asset_manager.media(params[:id], params[:filename]).body,

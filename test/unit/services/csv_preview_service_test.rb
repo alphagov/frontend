@@ -1,6 +1,8 @@
 require "test_helper"
 
-class CsvPreviewControllerTest < ActionController::TestCase
+class CsvPreviewServiceTest < ActionController::TestCase
+  subject { CsvPreviewService.new(id: nil, filename: nil) }
+
   context "#newline_or_last_char_index" do
     context "when newline index is less than index of last newline" do
       should "return correct index" do

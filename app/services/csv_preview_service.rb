@@ -8,7 +8,7 @@ class CsvPreviewService
   end
 
   def csv_rows
-    raise CSV::MalformedCSVError
+    raise CSV::MalformedCSVError.new('WRONG', 1)
     original_error = nil
     row_sep = :auto
 

@@ -156,11 +156,30 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
+  context "when asset manager file name does not match content store file name" do
+    setup do
+      asset_manager_filename = "2023-01-10_filename"
+      content_store_filename = "2023-01-11_filename"
+      path_from_filename = ->(base_name) { "media/#{asset_manager_id}/#{base_name}.csv" }
+
+      setup_asset_manager(parent_document_url, asset_manager_id, asset_manager_filename)
+      setup_content_item(path_from_filename[content_store_filename], parent_document_base_path)
+
+      get "/#{path_from_filename[asset_manager_filename]}/preview"
+    end
+
+    should "redirect to parent" do
+      assert_redirected_to parent_document_url, status: :see_other
+    end
+  end
+
   context "when asset manager returns a 403 response" do
     setup do
-      stub_request(:get, "#{ASSET_MANAGER_ENDPOINT}/media/#{asset_manager_id}/#{filename}-2.csv")
-        .to_return(status: 403)
-      visit "/media/#{asset_manager_id}/#{filename}-2.csv/preview"
+      filename = "filename-2"
+      asset_media_url_path = "media/#{asset_manager_id}/#{filename}.csv"
+      setup_asset_manager(parent_document_url, asset_manager_id, filename, media_code: 403)
+      setup_content_item(asset_media_url_path, parent_document_base_path)
+      visit "/media/#{asset_manager_id}/#{filename}.csv/preview"
     end
 
     should "return a 403 response" do
@@ -213,7 +232,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     assert page.has_title?("Attachment 2 - GOV.UK")
   end
 
-  def setup_asset_manager(parent_document_url, asset_manager_id, filename = nil, use_special_characters_csv: false, asset_deleted: false)
+  def setup_asset_manager(parent_document_url, asset_manager_id, filename = nil, use_special_characters_csv: false, asset_deleted: false, media_code: 200)
     asset_manager_response = {
       id: "https://asset-manager.dev.gov.uk/assets/foo",
       parent_document_url:,
@@ -228,7 +247,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
                end
 
     stub_request(:get, "#{Plek.find('asset-manager')}/media/#{asset_manager_id}/#{filename}.csv")
-      .to_return(body: csv_file, status: 200)
+      .to_return(body: csv_file, status: media_code)
   end
 
   def setup_content_item(non_legacy_url_path, parent_document_base_path)

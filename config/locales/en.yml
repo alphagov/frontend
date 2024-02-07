@@ -612,10 +612,10 @@ en:
           title: Cost of Living Payment
           href: /guidance/cost-of-living-payment
           image_src: homepage/cost-of-living.png
-        - text: Find out about Self Assessment tax returns and when they are due.
-          title: Self Assessment
-          href: /self-assessment-tax-returns
-          image_src: homepage/self-assessment.png
+        - text: If you care for someone, check if you are eligible for Carer’s Allowance.
+          title: Carer’s Allowance
+          href: /carers-allowance
+          image_src: homepage/carers-allowance.png
         - text: Check how changes to employee contributions will affect you.
           title: National Insurance
           href: https://www.tax.service.gov.uk/estimate-jan-24-nic-changes

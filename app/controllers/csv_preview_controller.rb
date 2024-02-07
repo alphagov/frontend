@@ -14,10 +14,15 @@ class CsvPreviewController < ApplicationController
       redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
     end
 
-    parent_document_path = URI(@asset["parent_document_url"]).request_uri
+    parent_document_uri = @asset["parent_document_url"]
+    parent_document_path = URI(parent_document_uri).request_uri
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
     @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
       attachment["filename"] == asset_filename
+    end
+
+    if @attachment_metadata.empty?
+      redirect_to(parent_document_uri, status: :see_other, allow_other_host: true) and return
     end
 
     original_error = nil

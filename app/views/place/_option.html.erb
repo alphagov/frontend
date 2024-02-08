@@ -1,4 +1,5 @@
 <% places.each do |place| %>
+  <% show_location_details = place["address"].present? && place["town"].present? %>
   <li>
     <div class="place group">
       <div class="information">
@@ -17,12 +18,12 @@
                 <br /><span class="locality"><%= place["town"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
-              <% if place["postcode"].present? %>
+              <% if show_location_details && place["postcode"].present? %>
                 <br /><span class="postal-code"><%= place["postcode"] %></span>
               <% end %>
             </div>
 
-            <% if place["location"].present? %>
+            <% if show_location_details && place["location"].present? %>
               <ul class="govuk-list view-maps">
                 <li><a class="govuk-link" href="https://maps.google.com/maps?z=16&amp;ie=UTF8&amp;q=loc:<%= place["location"]["latitude"] %>%2C<%= place["location"]["longitude"] %>&amp;ll=<%= place["location"]["latitude"] %>%2C<%= place["location"]["longitude"] %>">View on Google Maps</a></li>
                 <li><a class="govuk-link" href="http://www.openstreetmap.org/index.html?mlat=<%= place["location"]["latitude"] %>&amp;mlon=<%= place["location"]["longitude"] %>&amp;zoom=16">View on Open Street Map</a></li>

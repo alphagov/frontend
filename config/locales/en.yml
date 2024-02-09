@@ -616,9 +616,9 @@ en:
           title: Self Assessment
           href: /self-assessment-tax-returns
           image_src: homepage/self-assessment.png
-        - text: Check how changes to employee contributions will affect you.
+        - text: Check your record to see if you can add more contributions.
           title: National Insurance
-          href: https://www.tax.service.gov.uk/estimate-jan-24-nic-changes
+          href: /check-national-insurance-record
           image_src: homepage/check-your-contributions.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK

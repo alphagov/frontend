@@ -3,7 +3,6 @@ cy:
   a: A
   ab_testing:
     explanation: Weithiau rydyn ni'n profi gwahanol fersiynau o dudalennau gyda gwahanol ddefnyddwyr i weld pa un sy'n gweithio orau. Mae'r dudalen hon yn dangos i ni a yw'r broses yn gweithio.
-    ready_reckoner_video:
     two_versions: Mae 2 fersiwn o'r dudalen hon. Rydych chi'n gweld y
     version: fersiwn
     visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld gwasanaethau a gwybodaeth y llywodraeth.

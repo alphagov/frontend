@@ -5,7 +5,7 @@ $pale-blue-colour: #d2e2f1;
 .homepage-header {
   background-color: $govuk-brand-colour;
   padding-bottom: 28px;
-  padding-top: govuk-spacing(4);
+  padding-top: govuk-spacing(3);
   @include govuk-typography-common;
 
   // Add 9px of padding to the left and right on mobile screen sizes
@@ -17,13 +17,11 @@ $pale-blue-colour: #d2e2f1;
 
   @include govuk-media-query($from: desktop) {
     padding-bottom: govuk-spacing(7);
-    padding-top: govuk-spacing(3);
   }
 
   // Increase the header font-size and padding for large screen sizes
   @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
     padding-bottom: govuk-spacing(9);
-    padding-top: govuk-spacing(3);
   }
 }
 

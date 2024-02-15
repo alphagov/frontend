@@ -8,7 +8,6 @@ class LocalTransactionController < ContentItemsController
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze
   NO_MATCHING_AUTHORITY = "noLaMatch".freeze
-  BANNED_POSTCODES = %w[ENTERPOSTCODE].freeze
 
   def index; end
 
@@ -73,14 +72,10 @@ private
   end
 
   def location_error
-    return LocationError.new(INVALID_POSTCODE) if banned_postcode? || locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
+    return LocationError.new(INVALID_POSTCODE) if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
     return LocationError.new(NO_LOCATIONS_API_MATCH) if locations_api_response.location_not_found?
 
     LocationError.new(NO_MATCHING_AUTHORITY) unless local_authority_slug
-  end
-
-  def banned_postcode?
-    BANNED_POSTCODES.include? postcode
   end
 
   def locations_api_response

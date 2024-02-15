@@ -225,38 +225,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       end
     end
 
-    context "when visiting the local transaction with a banned postcode" do
-      setup do
-        visit "/pay-bear-tax"
-        fill_in "postcode", with: "ENTERPOSTCODE"
-        click_on "Find"
-      end
-
-      should "remain on the local transaction page" do
-        assert_equal "/pay-bear-tax", current_path
-      end
-
-      should "see an error message" do
-        assert page.has_content? I18n.t("formats.local_transaction.invalid_postcode")
-      end
-
-      should "see the transaction information" do
-        assert page.has_content? "owning or looking after a bear"
-      end
-
-      should "re-populate the invalid input" do
-        assert page.has_field? "postcode", with: "ENTERPOSTCODE"
-      end
-
-      should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-summary")["data-track-action"]
-        track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-        assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-        assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
-      end
-    end
-
     context "when visiting the local transaction with a blank postcode" do
       setup do
         visit "/pay-bear-tax"

@@ -19,5 +19,15 @@ class HelpCookiesTest < ActionDispatch::IntegrationTest
         assert_has_component_title "Cookies on GOV.UK"
       end
     end
+
+    should "have radio buttons set to disable cookies by default" do
+      visit "/help/cookies"
+
+      within "#content" do
+        assert page.has_css?("input[name=cookies-usage][value=off][checked]")
+        assert page.has_css?("input[name=cookies-campaigns][value=off][checked]")
+        assert page.has_css?("input[name=cookies-settings][value=off][checked]")
+      end
+    end
   end
 end

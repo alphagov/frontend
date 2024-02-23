@@ -1,5 +1,5 @@
 <%= render layout: "shared/base_page", locals: {
-  title: publication.title,
+  title: "#{publication.title}: t("formats.local_transaction.select_address")",
   publication: publication,
   edition: @edition,
 } do %>

@@ -1,6 +1,8 @@
 <%
   add_view_stylesheet("local-transaction")
 %>
+<% content_for :title, "#{publication.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
+
 <%= render layout: "shared/base_page", locals: {
   title: publication.title,
   publication: publication,

@@ -419,6 +419,7 @@ en:
       postcode_hint: For example SW1A 2AA
       postcode_lookup: Postcode lookup
       rubbish_recycling_collection: rubbish and recycling collection
+      search_result: search result
       select_address: Select an address
       service_not_available: This service is not available in %{country_name}
       unknown_service: We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.

@@ -64,6 +64,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert_has_component_title "Pay your bear tax"
         assert page.has_content? "owning or looking after a bear"
         assert page.has_selector?(".gem-c-phase-banner")
+        assert page.has_title?("Pay your bear tax - GOV.UK", exact: true)
       end
 
       should "ask for a postcode" do
@@ -107,6 +108,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "redirect to the appropriate authority slug" do
         assert_equal "/pay-bear-tax/westminster", current_path
+      end
+
+      should "include the search result text in the page title" do
+        assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
       end
 
       should "show a get started button which links to the interaction" do
@@ -240,6 +245,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_content? I18n.t("formats.local_transaction.invalid_postcode")
       end
 
+      should "prefix 'Error: ' to the page title tag" do
+        assert page.has_title?("Error: Pay your bear tax - GOV.UK")
+      end
+
       should "populate google analytics tags" do
         track_action = page.find(".gem-c-error-summary")["data-track-action"]
         track_label = page.find(".gem-c-error-summary")["data-track-label"]
@@ -296,6 +305,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
           click_on "Find"
         end
 
+        should "include the select address text in the page title" do
+          assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
+        end
+
         should "prompt you to choose your address" do
           assert page.has_content?("Select an address")
         end
@@ -338,6 +351,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
           click_on "Find"
         end
 
+        should "include the search result text in the page title" do
+          assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
+        end
+
         should "prompt you to choose your address" do
           assert page.has_content?("Select an address")
         end
@@ -374,6 +391,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         visit "/pay-bear-tax"
       end
 
+      should "display the default page title" do
+        assert page.has_title?("Pay your bear tax - GOV.UK", exact: true)
+      end
+
       should "display the page content" do
         assert page.has_content? "Pay your bear tax"
         assert page.has_content? "owning or looking after a bear"
@@ -393,6 +414,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "redirect to the appropriate authority slug" do
         assert_equal "/pay-bear-tax/westminster", current_path
+      end
+
+      should "include the search result text in the page title" do
+        assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
       end
 
       should "show advisory message that no interaction is available" do
@@ -444,6 +469,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       assert page.has_no_link?(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"))
     end
 
+    should "include the search result text in the page title" do
+      assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
+    end
+
     should "show advisory message that we have no url" do
       assert page.has_content?(I18n.t("formats.local_transaction.no_website"))
       assert page.has_link?("local council search", href: "/find-local-council")
@@ -484,6 +513,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       click_on "Find"
     end
 
+    should "include the search result text in the page title" do
+      assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
+    end
+
     should "render results page for an unavailable service" do
       assert page.has_content? I18n.t("formats.local_transaction.service_not_available", country_name: "Wales")
     end
@@ -515,6 +548,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       visit "/pay-bear-tax"
       fill_in "postcode", with: "WA8 8DX"
       click_on "Find"
+    end
+
+    should "include the search result text in the page title" do
+      assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
     end
 
     should "render results page for an unavailable service" do
@@ -550,6 +587,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       visit "/pay-bear-tax"
       fill_in "postcode", with: "EH8 8DX"
       click_on "Find"
+    end
+
+    should "include the search result text in the page title" do
+      assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
     end
 
     should "render results page for a devolved administration service" do

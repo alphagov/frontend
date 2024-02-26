@@ -851,6 +851,7 @@ cy:
       postcode_hint: Er enghraifft CF99 1SN
       postcode_lookup: Chwilio am god post
       rubbish_recycling_collection: casglu sbwriel ac ailgylchu
+      search_result:
       select_address: Dewiswch gyfeiriad
       service_not_available:
       unknown_service: Dydyn ni ddim yn gwybod a ydyn nhw'n cynnig y gwasanaeth hwn. Edrychwch ar eu gwefan i weld a ydyn nhw'n gwneud, neu i weld pa wasanaethau eraill maen nhw'n eu cynnig.

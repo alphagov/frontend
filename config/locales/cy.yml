@@ -814,6 +814,7 @@ cy:
       change: Newid
     local_transaction:
       change: Newid
+      contact_council:
       choose_address: Dewiswch eich cyfeiriad
       council_tax: treth gyngor
       county_council_services: Mae cynghorau sir yn gyfrifol am wasanaethau fel

@@ -50,7 +50,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         assert_equal 200, page.status_code
 
         within "head", visible: :all do
-          assert page.has_selector?("title", text: "Licence to kill - GOV.UK", visible: :all)
+          assert page.has_title?("Licence to kill - GOV.UK", exact: true)
         end
 
         within "#content" do
@@ -151,6 +151,12 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           assert_equal "/find-licences/licence-to-kill/westminster", current_path
         end
 
+        should "include the authority name in the title element" do
+          within "head", visible: :all do
+            assert page.has_title?("Licence to kill: Westminster City Council - GOV.UK", exact: true)
+          end
+        end
+
         should "display the authority name" do
           within("#overview") do
             assert page.has_content?("Westminster")
@@ -173,6 +179,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         context "when visiting a licence action" do
           setup do
             click_link "How to apply"
+          end
+
+          should "include the action in the title element" do
+            assert page.has_title?("Licence to kill: How to apply - GOV.UK", exact: true)
           end
 
           should "display the page content" do
@@ -318,6 +328,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           assert_equal "/find-licences/licence-to-kill/buckinghamshire", current_path
         end
 
+        should "include the authority name in the title element" do
+          assert page.has_title?("Licence to kill: Buckinghamshire Council - GOV.UK", exact: true)
+        end
+
         should "have an apply link" do
           assert page.has_link? "How to apply", href: "/find-licences/licence-to-kill/buckinghamshire/apply"
         end
@@ -382,6 +396,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
           should "redirect to the appropriate authority slug" do
             assert_equal "/find-licences/licence-to-kill/dorset", current_path
+          end
+
+          should "include the authority name in the title element" do
+            assert page.has_title?("Licence to kill: Dorset Council - GOV.UK", exact: true)
           end
 
           should "have an apply link" do
@@ -461,6 +479,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
             assert_not page.has_content?("Kingsmen Tailors")
           end
         end
+
+        should "include the first licencing authority name only in the title element" do
+          assert page.has_title?("Licence to kill: Westminster City Council - GOV.UK", exact: true)
+        end
       end
     end
 
@@ -471,6 +493,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
         fill_in "postcode", with: "Not valid"
         click_on "Find"
+      end
+
+      should "prefix 'Error' in the title element" do
+        assert page.has_title?("Error: Licence to kill - GOV.UK", exact: true)
       end
 
       should "remain on the licence page" do
@@ -507,6 +533,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         click_on "Find"
       end
 
+      should "prefix 'Error' in the title element" do
+        assert page.has_title?("Error: Licence to kill - GOV.UK", exact: true)
+      end
+
       should "remain on the licence page" do
         assert_equal "/find-licences/licence-to-kill", current_path
       end
@@ -530,6 +560,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
         fill_in "postcode", with: "XM4 5HQ"
         click_on "Find"
+      end
+
+      should "prefix 'Error' in the title element" do
+        assert page.has_title?("Error: Licence to kill - GOV.UK", exact: true)
       end
 
       should "remain on the licence page" do
@@ -605,6 +639,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         click_on "Find"
       end
 
+      should "include the first licencing authority name only in the title element" do
+        assert page.has_title?("Licence to kill: Staffordshire - GOV.UK", exact: true)
+      end
+
       should "return the first authority with an actionable licence" do
         assert current_path == "/find-licences/licence-to-kill/staffordshire"
       end
@@ -618,6 +656,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         visit "/find-licences/licence-to-kill"
         fill_in "postcode", with: "ST10 4DB"
         click_on "Find"
+      end
+
+      should "include contact your council text in the title element" do
+        assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.contact_council')} - GOV.UK", exact: true)
       end
 
       should "return licence not found template" do
@@ -644,6 +686,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           visit "/find-licences/licence-to-kill"
           fill_in "postcode", with: "CH25 9BJ"
           click_on "Find"
+        end
+
+        should "include the select address text in the title element" do
+          assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do
@@ -686,6 +732,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           visit "/find-licences/licence-to-kill"
           fill_in "postcode", with: "CH25 9BJ"
           click_on "Find"
+        end
+
+        should "include the select address text in the title element" do
+          assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do
@@ -762,6 +812,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
           visit "/find-licences/licence-to-kill"
         end
 
+        should "include the authority name in the title element" do
+          assert page.has_title?("Licence to kill: Ministry of Love - GOV.UK", exact: true)
+        end
+
         should "display the title" do
           assert page.has_content?("Licence to kill")
         end
@@ -817,6 +871,10 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
       should "not see a location form" do
         assert_not page.has_field?("postcode")
+      end
+
+      should "use the default text for the title element" do
+        assert page.has_title?("Artistic License - GOV.UK", exact: true)
       end
 
       should "see a 'Start now' button" do
@@ -888,6 +946,11 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
       assert page.has_content? "To continue, go to"
       assert page.has_link? "A Council", href: "http://some-council-website"
     end
+
+    should "include the action in the title element" do
+      visit "/find-licences/licence-to-kill/a-council/apply"
+      assert page.has_title?("Licence to kill: How to apply - GOV.UK", exact: true)
+    end
   end
 
   context "given a licence which does not exist in licensify" do
@@ -902,6 +965,11 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
       assert page.has_content?("You cannot apply for this licence online")
       assert page.has_content?("Contact your local council")
+    end
+
+    should "include contact your council text in the title element" do
+      visit "/find-licences/licence-to-kill"
+      assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.contact_council')} - GOV.UK", exact: true)
     end
 
     should "contain GA4 auto attributes" do
@@ -1021,8 +1089,8 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         visit "/find-licences/licence-to-kill"
       end
 
-      should "display the title" do
-        assert page.has_content?("Licence to kill")
+      should "include the authority name in the title element" do
+        assert page.has_title?("Licence to kill: Ministry of Love - GOV.UK", exact: true)
       end
 
       should "display the authority" do

@@ -306,7 +306,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         end
 
         should "include the select address text in the page title" do
-          assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
+          assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do
@@ -352,7 +352,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         end
 
         should "include the search result text in the page title" do
-          assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
+          assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do

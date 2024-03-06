@@ -613,10 +613,10 @@ en:
           title: Cost of Living Payment
           href: /guidance/cost-of-living-payment
           image_src: homepage/cost-of-living.png
-        - text: If you care for someone, check if you are eligible for Carer’s Allowance.
-          title: Carer’s Allowance
-          href: /carers-allowance
-          image_src: homepage/carers-allowance.png
+        - text: Find out about the changes announced in the Spring Budget.
+          title: Spring Budget 2024
+          href: /government/topical-events/spring-budget-2024
+          image_src: homepage/budget.png
         - text: Check your record to see if you can add more contributions.
           title: National Insurance
           href: /check-national-insurance-record

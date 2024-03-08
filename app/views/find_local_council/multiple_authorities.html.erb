@@ -1,3 +1,5 @@
+<% content_for :title, "Find your local council: #{t('formats.local_transaction.select_address').downcase} - GOV.UK" %>
+
 <%= render layout: "base_page" do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: t("formats.local_transaction.postcode"),

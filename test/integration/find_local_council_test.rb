@@ -79,9 +79,8 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           end
         end
 
-        should "have the correct titles" do
-          assert_has_component_title "Find your local council"
-          assert_equal "Find your local council - GOV.UK", page.title
+        should "include the search result text in the page title" do
+          assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
         end
 
         should "add google analytics for postcodeResultsShown" do
@@ -152,6 +151,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "redirect to the district authority slug" do
           assert_equal "/find-local-council/aylesbury", current_path
+        end
+
+        should "include the search result text in the page title" do
+          assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
         end
 
         should "show the local authority results for both district and county" do
@@ -249,6 +252,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "redirect to the district authority slug" do
           assert_equal "/find-local-council/aylesbury", current_path
+        end
+
+        should "include the search result text in the page title" do
+          assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
         end
 
         should "show the local authority results for both district and unitary" do
@@ -417,6 +424,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           click_on "Find"
         end
 
+        should "include the select address text in the title element" do
+          assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
+        end
+
         should "prompt you to choose your address" do
           assert page.has_content?("Select an address")
         end
@@ -457,6 +468,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           visit "/find-local-council"
           fill_in "postcode", with: "CH25 9BJ"
           click_on "Find"
+        end
+
+        should "include the select address text in the title element" do
+          assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do
@@ -513,6 +528,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       setup do
         stub_local_links_manager_has_a_local_authority("islington")
         visit "/find-local-council/islington"
+      end
+
+      should "include the search result text in the page title" do
+        assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
       end
 
       should "show the local authority result" do

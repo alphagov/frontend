@@ -570,18 +570,18 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
-        - text: Get support with the cost of living
-          href: /cost-of-living
-        - text: 'Find out about help you can get with your energy bills'
-          href: /get-help-energy-bills
-        - text: 'Find a job'
-          href: /find-a-job
+        - text: 'HMRC account: sign in or set up'
+          href: /log-in-register-hmrc-online-services
         - text: 'Universal Credit account: sign in'
           href: /sign-in-universal-credit
-        - text: 'Check your National Insurance record'
-          href: /check-national-insurance-record
-        - text: 'Check MOT history of a vehicle'
-          href: /check-mot-history
+        - text: 'Self Assessment tax return: sign in'
+          href: /log-in-file-self-assessment-tax-return
+        - text: 'Personal tax account: sign in or set up'
+          href: /personal-tax-account
+        - text: Check your State Pension forecast
+          href: /check-state-pension
+        - text: 'Childcare account: sign in'
+          href: /sign-in-childcare-account
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:
@@ -609,14 +609,14 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out payment dates and how to report a payment is missing.
-          title: Cost of Living Payment
-          href: /guidance/cost-of-living-payment
+        - text: Find out what support is available to help with the cost of living.
+          title: Cost of Living support
+          href: /cost-of-living
           image_src: homepage/cost-of-living.png
-        - text: If you care for someone, check if you are eligible for Carer’s Allowance.
-          title: Carer’s Allowance
-          href: /carers-allowance
-          image_src: homepage/carers-allowance.png
+        - text: Search and apply for jobs in England, Scotland and Wales.
+          title: Find a Job
+          href: /find-a-job
+          image_src: homepage/find-a-job.png
         - text: Check your record to see if you can add more contributions.
           title: National Insurance
           href: /check-national-insurance-record

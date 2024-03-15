@@ -89,7 +89,7 @@ Rails.application.configure do
 
   config.assets.compress = true
   config.assets.digest = true
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = :terser
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = ENV["HEROKU_APP_NAME"] ? nil : "X-Sendfile"

@@ -163,7 +163,7 @@ GEM
       sentry-rails (~> 5.3)
       sentry-ruby (~> 5.3)
       statsd-ruby (~> 1.5)
-    govuk_personalisation (0.15.0)
+    govuk_personalisation (0.16.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
     govuk_publishing_components (37.8.1)
@@ -257,7 +257,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.0)
-    nokogiri (1.16.2)
+    nokogiri (1.16.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     null_logger (0.0.1)

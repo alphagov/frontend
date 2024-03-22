@@ -574,14 +574,14 @@ en:
           href: /log-in-register-hmrc-online-services
         - text: 'Universal Credit account: sign in'
           href: /sign-in-universal-credit
-        - text: 'Self Assessment tax return: sign in'
-          href: /log-in-file-self-assessment-tax-return
         - text: 'Personal tax account: sign in or set up'
           href: /personal-tax-account
-        - text: Check your State Pension forecast
-          href: /check-state-pension
+        - text: 'Self Assessment tax return: sign in'
+          href: /log-in-file-self-assessment-tax-return
         - text: 'Childcare account: sign in'
           href: /sign-in-childcare-account
+        - text: 'Get a share code to prove your immigration status'
+          href: /view-prove-immigration-status
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:

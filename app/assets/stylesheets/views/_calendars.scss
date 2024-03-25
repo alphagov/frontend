@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   overflow: visible;
-  border-top: 1px solid govuk-colour("mid-grey", $legacy: "grey-2");
+  border-top: 1px solid govuk-colour("mid-grey");
   @extend %responsive-bunting-height;
 }
 

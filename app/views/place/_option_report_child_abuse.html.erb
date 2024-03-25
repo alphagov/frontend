@@ -20,7 +20,7 @@
               <% if place["phone"].present? %>
                 <p class="tel-report-child-abuse govuk-body">
                   <% phone_digits = phone_digits(place["phone"]) %>
-                  <a class="tel govuk-link" href="tel://<%= phone_digits %>"><%= phone_digits %></a>
+                  <%= phone_digits %>
                   <%= phone_text(place["phone"]) %>
                 </p>
                 <% end %>
@@ -28,7 +28,7 @@
               <% if place["general_notes"].present? %>
                 <p class="tel-report-child-abuse govuk-body">
                   <% out_of_hours_digits = phone_digits(place["general_notes"]) %>
-                  <a class="tel govuk-link" href="tel://<%= out_of_hours_digits %>"><%= out_of_hours_digits %></a>
+                  <%= out_of_hours_digits %>
                   <%= phone_text(place["general_notes"]) %>
                 </p>
               <% end %>

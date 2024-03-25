@@ -44,19 +44,19 @@
 
               <% if place["phone"].present? %>
                 <p class="govuk-body">
-                  Phone: <a class="govuk-link tel" href="tel://<%= place["phone"] %>"><%= place["phone"] %></a>
+                  Phone: <%= place["phone"] %>
                 </p>
               <% end %>
 
               <% if place["fax"].present? %>
                 <p class="govuk-body">
-                  Fax: <a class="govuk-link tel" href="tel://<%= place["fax"] %>"><%= place["fax"] %></a>
+                  Fax: <%= place["fax"] %>
                 </p>
               <% end %>
 
               <% if place["text_phone"].present? %>
                 <p class="govuk-body">
-                  Text Phone: <a class="govuk-link tel" href="tel://<%= place["text_phone"] %>"><%= place["text_phone"] %></a>
+                  Text Phone: <%= place["text_phone"] %></a>
                 </p>
               <% end %>
 

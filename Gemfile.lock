@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/alphagov/slimmer.git
+  revision: 54506c45b09f9ee63f859e0cc6dedf5d9524f655
+  branch: 2495-sentry-errors-investigate-frontend-nomethoderror-1
+  specs:
+    slimmer (18.4.1)
+      json
+      nokogiri (~> 1.7)
+      null_logger
+      plek (>= 1.1.0)
+      rack (>= 3.0)
+      rest-client
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,7 +197,7 @@ GEM
       selenium-webdriver (>= 4.0)
     hashdiff (1.1.0)
     highline (2.0.3)
-    html_tokenizer (0.0.7)
+    html_tokenizer (0.0.8)
     htmlentities (4.3.4)
     http-accept (1.7.0)
     http-cookie (1.0.5)
@@ -195,14 +208,14 @@ GEM
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     i18n-coverage (0.2.0)
-    i18n-tasks (1.0.11)
+    i18n-tasks (1.0.13)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
-      better_html (~> 1.0)
+      better_html (>= 1.0, < 3.0)
       erubi
       highline (>= 2.0.0)
       i18n
-      parser (>= 2.2.3.0)
+      parser (>= 3.2.2.1)
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
@@ -654,13 +667,6 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    slimmer (18.4.0)
-      json
-      nokogiri (~> 1.7)
-      null_logger
-      plek (>= 1.1.0)
-      rack (>= 3.0)
-      rest-client
     smart_properties (1.17.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -736,7 +742,7 @@ DEPENDENCIES
   rubocop-govuk
   shoulda-context
   simplecov
-  slimmer
+  slimmer!
   sprockets-rails
   timecop
   uglifier

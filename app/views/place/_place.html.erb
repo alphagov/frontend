@@ -17,7 +17,7 @@
                 <br /><span class="locality"><%= place["town"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
-              <% if place["postcode"].present? %>
+              <% if place["postcode"].present? && (place["address"].present? || place["town"].present?) %>
                 <br /><span class="postal-code"><%= place["postcode"] %></span>
               <% end %>
             </div>
@@ -43,21 +43,15 @@
               <% end %>
 
               <% if place["phone"].present? %>
-                <p class="govuk-body">
-                  Phone: <a class="govuk-link tel" href="tel://<%= place["phone"] %>"><%= place["phone"] %></a>
-                </p>
+                <p class="govuk-body">Phone: <%= place["phone"] %></p>
               <% end %>
 
               <% if place["fax"].present? %>
-                <p class="govuk-body">
-                  Fax: <a class="govuk-link tel" href="tel://<%= place["fax"] %>"><%= place["fax"] %></a>
-                </p>
+                <p class="govuk-body">Fax: <%= place["fax"] %></p>
               <% end %>
 
               <% if place["text_phone"].present? %>
-                <p class="govuk-body">
-                  Text Phone: <a class="govuk-link tel" href="tel://<%= place["text_phone"] %>"><%= place["text_phone"] %></a>
-                </p>
+                <p class="govuk-body">Text Phone: <%= place["text_phone"] %></p>
               <% end %>
 
               <%= render "govuk_publishing_components/components/govspeak" do %>

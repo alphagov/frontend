@@ -11,8 +11,8 @@ APP_STYLESHEETS = {
   "views/_homepage.scss" => "views/_homepage.css",
   "views/_local-transaction.scss" => "views/_local-transaction.css",
   "views/_location_form.scss" => "views/_location_form.css",
+  "views/_place-list.scss" => "views/_place-list.css",
   "views/_popular_links.scss" => "views/_popular_links.css",
-  "views/_report-child-abuse.scss" => "views/_report-child-abuse.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
 }.freeze
 

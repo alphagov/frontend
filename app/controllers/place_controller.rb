@@ -24,7 +24,7 @@ class PlaceController < ContentItemsController
       return render :multiple_authorities
     end
 
-    render :show, locals:
+    render :show, locals: { results_anchor: "results" }
   end
 
 private
@@ -37,12 +37,6 @@ private
                      else
                        PlacePresenter.new(content_item_hash)
                      end
-  end
-
-  def locals
-    {
-      results_anchor: "results",
-    }
   end
 
   def postcode_provided?

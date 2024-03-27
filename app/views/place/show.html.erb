@@ -10,7 +10,7 @@
     event_name: "form_complete",
     action: "complete",
     type: ga4_type,
-    text: "Results #{preposition ||= "near"} [postcode]",
+    text: "Results #{publication.preposition} [postcode]",
     tool_name: publication.title
   }.to_json
 
@@ -70,7 +70,7 @@
       } do %>
         <% if publication.places.any? %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
+            text: "Results #{publication.preposition} <strong>#{postcode}</strong>".html_safe,
             margin_bottom: 4,
           } %>
           <ol id="options" class="govuk-list place-list">

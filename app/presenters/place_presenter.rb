@@ -19,6 +19,10 @@ class PlacePresenter < ContentItemPresenter
     @places = format_places(places)
   end
 
+  def preposition
+    @places.first["gss"].empty? ? "near" : "for"
+  end
+
 private
 
   def format_places(places)

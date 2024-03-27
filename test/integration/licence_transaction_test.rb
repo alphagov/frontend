@@ -689,7 +689,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         end
 
         should "include the select address text in the title element" do
-          assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
+          assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do
@@ -735,7 +735,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         end
 
         should "include the select address text in the title element" do
-          assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.select_address')} - GOV.UK", exact: true)
+          assert page.has_title?("Licence to kill: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
         end
 
         should "prompt you to choose your address" do

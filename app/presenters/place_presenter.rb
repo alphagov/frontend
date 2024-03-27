@@ -20,7 +20,7 @@ class PlacePresenter < ContentItemPresenter
   end
 
   def preposition
-    return "near" unless @places.any?
+    return "near" unless @places&.any?
 
     @places.first["gss"].empty? ? "near" : "for"
   end

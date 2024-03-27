@@ -8,7 +8,7 @@ class PlaceController < ContentItemsController
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
   def show
-    render :show, locals:
+    render :show, locals: { results_anchor: "results" }
   end
 
   def find

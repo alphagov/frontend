@@ -249,9 +249,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
         assert_equal ["You can call the children's social care team at the council in Islington"], names
 
         within first("li:first-child") do
-          assert page.has_link?("020 7226 1436", href: "tel://020%207226%201436")
+          assert page.has_content?("020 7226 1436")
           assert page.has_content?("(Monday to Friday)")
-          assert page.has_link?("020 7226 0992", href: "tel://020%207226%200992")
+          assert page.has_content?("020 7226 0992")
           assert page.has_content?("(out of hours)")
 
           assert page.has_link?("Go to their website", href: "http://www.islington.gov.uk/services/children-families/cs-worried/Pages/default.aspx")

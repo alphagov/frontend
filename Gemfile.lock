@@ -139,7 +139,7 @@ GEM
       parslet
     ffi (1.16.3)
     find_a_port (1.0.1)
-    gds-api-adapters (95.0.0)
+    gds-api-adapters (95.0.1)
       addressable
       link_header
       null_logger

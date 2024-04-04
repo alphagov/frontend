@@ -1,3 +1,6 @@
+<% 
+  content_for :title, "#{publication.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" 
+%>
 <% places.each do |place| %>
   <li>
     <div class="place group">

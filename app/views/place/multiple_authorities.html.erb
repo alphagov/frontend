@@ -1,3 +1,5 @@
+<% content_for :title, "#{publication.title}: #{t('formats.local_transaction.select_address').downcase} - GOV.UK" %>
+
 <%= render layout: "shared/base_page", locals: {
   title: publication.title,
   publication: publication,

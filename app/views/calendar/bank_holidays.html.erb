@@ -79,6 +79,11 @@
                   track_category: "Download link clicked",
                   track_action: division_path(@calendar, division, :format => 'ics'),
                   track_label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+                  module: "ga4-link-tracker",
+                  ga4_link: {
+                    event_name: "file_download",
+                    type: "generic download"
+                  }
                 }
               } %>
 

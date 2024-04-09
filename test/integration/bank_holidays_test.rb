@@ -263,4 +263,19 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  context "GA4 tracking" do
+    should "have GA4 tracking on the .ics file links" do
+      visit "/bank-holidays"
+      link_parents = page.all(".app-c-subscribe")
+      link_parents.each do |link_parent|
+        within link_parent do
+          assert link_parent.has_selector?("a[data-module='ga4-link-tracker']")
+          ga4_link = link_parent.find("a[data-ga4-link]")["data-ga4-link"]
+          ga4_expected_object = "{\"event_name\":\"file_download\",\"type\":\"generic download\"}"
+          assert_equal ga4_link, ga4_expected_object
+        end
+      end
+    end
+  end
 end

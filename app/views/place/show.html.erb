@@ -1,4 +1,8 @@
-<% 
+<%
+  add_view_stylesheet("place-list")
+%>
+
+<%
   results_anchor ||= nil
   ga4_type = content_item_hash["document_type"].gsub("_", " ")
 
@@ -6,10 +10,10 @@
     event_name: "form_complete",
     action: "complete",
     type: ga4_type,
-    text: "Results #{preposition ||= "near"} [postcode]",
+    text: "Results #{publication.preposition} [postcode]",
     tool_name: publication.title
   }.to_json
-  
+
   ga4_information_click_attributes = {
     event_name: "information_click",
     action: "information click",
@@ -66,11 +70,11 @@
       } do %>
         <% if publication.places.any? %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Results #{preposition ||= "near"} <strong>#{postcode}</strong>".html_safe,
+            text: "Results #{publication.preposition} <strong>#{postcode}</strong>".html_safe,
             margin_bottom: 4,
           } %>
-          <ol id="options" class="govuk-list">
-            <%= render partial: option_partial ||= "option", locals: { places: publication.places } %>
+          <ol id="options" class="govuk-list place-list">
+            <%= render partial: "place", locals: { places: publication.places } %>
           </ol>
         <% end %>
     <% end %>

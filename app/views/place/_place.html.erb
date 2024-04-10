@@ -1,6 +1,6 @@
 <% places.each do |place| %>
   <li>
-    <div class="place group">
+    <div class="place group place-list__item">
       <div class="information">
         <div class="address vcard">
           <div class="adr org fn">
@@ -17,12 +17,12 @@
                 <br /><span class="locality"><%= place["town"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
-              <% if place["postcode"].present? %>
+              <% if place["postcode"].present? && (place["address1"].present? || place["town"].present?) %>
                 <br /><span class="postal-code"><%= place["postcode"] %></span>
               <% end %>
             </div>
 
-            <% if place["location"].present? %>
+            <% if place["location"].present? && (place["address1"].present? || place["town"].present?) %>
               <ul class="govuk-list view-maps">
                 <li><a class="govuk-link" href="https://maps.google.com/maps?z=16&amp;ie=UTF8&amp;q=loc:<%= place["location"]["latitude"] %>%2C<%= place["location"]["longitude"] %>&amp;ll=<%= place["location"]["latitude"] %>%2C<%= place["location"]["longitude"] %>">View on Google Maps</a></li>
                 <li><a class="govuk-link" href="http://www.openstreetmap.org/index.html?mlat=<%= place["location"]["latitude"] %>&amp;mlon=<%= place["location"]["longitude"] %>&amp;zoom=16">View on Open Street Map</a></li>
@@ -43,21 +43,15 @@
               <% end %>
 
               <% if place["phone"].present? %>
-                <p class="govuk-body">
-                  Phone: <%= place["phone"] %>
-                </p>
+                <p class="govuk-body">Phone: <%= place["phone"] %></p>
               <% end %>
 
               <% if place["fax"].present? %>
-                <p class="govuk-body">
-                  Fax: <%= place["fax"] %>
-                </p>
+                <p class="govuk-body">Fax: <%= place["fax"] %></p>
               <% end %>
 
               <% if place["text_phone"].present? %>
-                <p class="govuk-body">
-                  Text Phone: <%= place["text_phone"] %></a>
-                </p>
+                <p class="govuk-body">Text Phone: <%= place["text_phone"] %></p>
               <% end %>
 
               <%= render "govuk_publishing_components/components/govspeak" do %>

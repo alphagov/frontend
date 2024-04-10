@@ -23,7 +23,7 @@ class CsvPreviewController < ApplicationController
       redirect_to(parent_document_uri, status: :see_other, allow_other_host: true) and return
     end
 
-    @csv_rows = CsvPreviewService
+    @csv_rows, @truncated = CsvPreviewService
       .new(GdsApi.asset_manager.media(params[:id], params[:filename]).body)
       .csv_rows
   end

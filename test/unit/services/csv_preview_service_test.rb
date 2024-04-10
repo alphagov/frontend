@@ -27,7 +27,11 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
       subject { CsvPreviewService.new(@csv).csv_rows }
 
       should "parse the CSV correctly" do
-        assert_equal @parsed_csv, subject
+        assert_equal @parsed_csv, subject.first
+      end
+
+      should "indicate that it is not truncated" do
+        assert_not subject.second
       end
     end
 
@@ -35,7 +39,7 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
       subject { CsvPreviewService.new(@crlf_csv).csv_rows }
 
       should "parse the CSV correctly" do
-        assert_equal @parsed_csv, subject
+        assert_equal @parsed_csv, subject.first
       end
     end
 
@@ -43,7 +47,11 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
       subject { CsvPreviewService.new(@long_csv).csv_rows }
 
       should "return only the header row and less or equal to the maximum number of normal rows" do
-        assert_operator subject.length, :<=, CsvPreviewService::MAXIMUM_ROWS + 1
+        assert_operator subject.first.length, :<=, CsvPreviewService::MAXIMUM_ROWS + 1
+      end
+
+      should "indicate that it is truncated" do
+        assert subject.second
       end
     end
 
@@ -51,7 +59,11 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
       subject { CsvPreviewService.new(@csv_with_many_columns).csv_rows }
 
       should "return only less than or equal the maximum number of columns" do
-        assert_operator subject.first.length, :<=, CsvPreviewService::MAXIMUM_COLUMNS
+        assert_operator subject.first.first.length, :<=, CsvPreviewService::MAXIMUM_COLUMNS
+      end
+
+      should "indicate that it is truncated" do
+        assert subject.second
       end
     end
 
@@ -59,7 +71,7 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
       subject { CsvPreviewService.new("zażółć gęślą jaźń\n").csv_rows }
 
       should "parse the CSV correctly" do
-        assert_equal [[{ text: "zażółć gęślą jaźń" }]], subject
+        assert_equal [[{ text: "zażółć gęślą jaźń" }]], subject.first
       end
     end
 
@@ -67,7 +79,7 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
       subject { CsvPreviewService.new("\xfe\xe6r he feoll his tw\xe6gen gebro\xf0ra\n").csv_rows }
 
       should "parse the CSV and convert it to UTF-8" do
-        assert_equal [[{ text: "þær he feoll his twægen gebroðra" }]], subject
+        assert_equal [[{ text: "þær he feoll his twægen gebroðra" }]], subject.first
       end
     end
   end

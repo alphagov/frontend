@@ -79,6 +79,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
       assert_selector ".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1"
       assert_no_selector ".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1"
     end
+
+    should "include truncation notice, if necessary" do
+      assert page.has_text?("Download the file to see all the information")
+    end
   end
 
   context "when visiting the preview with special characters in filename" do

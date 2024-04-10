@@ -2,8 +2,11 @@ class CsvPreviewService
   MAXIMUM_COLUMNS = 50
   MAXIMUM_ROWS = 1000
 
+  attr_reader :truncated
+
   def initialize(csv)
     @csv = csv
+    @truncated = false
   end
 
   def csv_rows
@@ -26,12 +29,13 @@ class CsvPreviewService
         raise
       end
     end
-    converted_and_restricted_csv(parsed_csv)
+    [converted_and_restricted_csv(parsed_csv), truncated]
   end
 
 private
 
   attr_reader :id, :filename
+  attr_writer :truncated
 
   def newline_or_last_char_index(string, newline_index)
     (0..newline_index).inject(-1) do |current_index|
@@ -43,7 +47,9 @@ private
   end
 
   def truncate_to_maximum_number_of_lines(string, maximum_number_of_lines)
-    string[0..newline_or_last_char_index(string, maximum_number_of_lines - 1)]
+    truncation_index = newline_or_last_char_index(string, maximum_number_of_lines - 1)
+    self.truncated ||= (truncation_index != string.length - 1)
+    string[0..truncation_index]
   end
 
   def csv_truncated
@@ -70,11 +76,13 @@ private
 
   def converted_and_restricted_csv(parsed_csv)
     @converted_and_restricted_csv ||= parsed_csv.to_a.map do |row|
-      row.map { |column|
+      columns = row.map do |column|
         {
           text: column&.encode("UTF-8"),
         }
-      }.take(MAXIMUM_COLUMNS)
+      end
+      self.truncated ||= (columns.length > MAXIMUM_COLUMNS)
+      columns.take(MAXIMUM_COLUMNS)
     end
   end
 end

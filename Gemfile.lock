@@ -499,7 +499,7 @@ GEM
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
-    plek (5.0.0)
+    plek (5.1.0)
     prometheus_exporter (2.1.0)
       webrick
     pry (0.14.1)

@@ -2,7 +2,7 @@ require "csv"
 
 class CsvPreviewController < ApplicationController
   rescue_from GdsApi::HTTPForbidden, with: :access_limited
-  rescue_from CSV::MalformedCSVError, with: :malformed_csv
+  rescue_from CSV::MalformedCSVError, CsvPreviewService::FileEncodingError, with: :malformed_csv
 
   def show
     @asset = GdsApi.asset_manager.asset(params[:id]).to_hash

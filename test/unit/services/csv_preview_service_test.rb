@@ -82,6 +82,16 @@ class CsvPreviewServiceTest < ActiveSupport::TestCase
         assert_equal [[{ text: "þær he feoll his twægen gebroðra" }]], subject.first
       end
     end
+
+    context "with CSV with bytes that cannot be converted to UTF-8" do
+      subject { CsvPreviewService.new("F\x8ed\x8eration Fran\x8daise\n") }
+
+      should "raise FileEncodingError" do
+        assert_raises CsvPreviewService::FileEncodingError do
+          subject.csv_rows
+        end
+      end
+    end
   end
 
   context "#newline_or_last_char_index" do

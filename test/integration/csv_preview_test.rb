@@ -101,9 +101,9 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "when visiting the preview with special characters in the CSV" do
+  context "when visiting the preview with malformed CSV" do
     setup do
-      setup_asset_manager(parent_document_url, asset_manager_id, filename, use_special_characters_csv: true)
+      setup_asset_manager(parent_document_url, asset_manager_id, filename, malformed: true)
       setup_content_item(asset_media_url_path, parent_document_base_path)
 
       visit "/#{asset_media_url_path}/preview"
@@ -119,7 +119,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
 
     context "when visiting the preview that redirects to other asset" do
       setup do
-        setup_asset_manager(parent_document_url, asset_manager_id, filename, use_special_characters_csv: true, asset_deleted: true)
+        setup_asset_manager(parent_document_url, asset_manager_id, filename, malformed: true, asset_deleted: true)
         setup_content_item(asset_media_url_path, parent_document_base_path)
 
         visit "/#{asset_media_url_path}/preview"
@@ -128,6 +128,23 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
       should "return a 410 response" do
         assert_equal 410, page.status_code
       end
+    end
+  end
+
+  context "when visiting the preview with nonconvertible characters in the CSV" do
+    setup do
+      setup_asset_manager(parent_document_url, asset_manager_id, filename, nonconvertible: true)
+      setup_content_item(asset_media_url_path, parent_document_base_path)
+
+      visit "/#{asset_media_url_path}/preview"
+    end
+
+    should "return a 200 response" do
+      assert_equal 200, page.status_code
+    end
+
+    should "include the error message" do
+      assert page.has_text?("This CSV cannot be viewed online.")
     end
   end
 
@@ -236,7 +253,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     assert page.has_title?("Attachment 2 - GOV.UK")
   end
 
-  def setup_asset_manager(parent_document_url, asset_manager_id, filename = nil, use_special_characters_csv: false, asset_deleted: false, media_code: 200)
+  def setup_asset_manager(parent_document_url, asset_manager_id, filename = nil, malformed: false, nonconvertible: false, asset_deleted: false, media_code: 200)
     asset_manager_response = {
       id: "https://asset-manager.dev.gov.uk/assets/foo",
       parent_document_url:,
@@ -244,8 +261,10 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     }
     stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, filename)
 
-    csv_file = if use_special_characters_csv
-                 "\xEF\xBB\xBF\"Field 1\",\"Field 2\",\"Field 3 \n(details)\",\"Field 4 (\xC2\xA3m)\"\n\"Value 1\",\"Value 2\",\"Value 3\",\"Value 4 \xC2\xA33.8bn\"\n"
+    csv_file = if malformed
+                 " \"Field 1\"\n"
+               elsif nonconvertible
+                 "\x8D\n"
                else
                  generate_test_csv(51, 1010)
                end

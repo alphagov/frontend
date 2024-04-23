@@ -2,6 +2,8 @@ class CsvPreviewService
   MAXIMUM_COLUMNS = 50
   MAXIMUM_ROWS = 1000
 
+  class FileEncodingError < StandardError; end
+
   attr_reader :truncated
 
   def initialize(csv)
@@ -84,5 +86,7 @@ private
       self.truncated ||= (columns.length > MAXIMUM_COLUMNS)
       columns.take(MAXIMUM_COLUMNS)
     end
+  rescue Encoding::UndefinedConversionError
+    raise FileEncodingError, "Character cannot be converted"
   end
 end

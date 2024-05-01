@@ -44,7 +44,7 @@ class CsvPreviewTest < ActionDispatch::IntegrationTest
     end
 
     should "include a link to the organisation" do
-      assert page.has_link?("Department of Publishing", href: "/government/organisations/department-of-publishing")
+      assert page.has_link?("Department of Publishing", href: "http://www.dev.gov.uk/government/organisations/department-of-publishing")
     end
 
     should "include the type of the parent document" do

@@ -12,7 +12,7 @@
           <%= render "govuk_publishing_components/components/organisation_logo", {
             organisation: {
               name: sanitize(organisation.dig("details", "logo", "formatted_title")),
-              url: organisation["base_path"],
+              url: Plek.website_root + organisation["base_path"],
               brand: organisation.dig("details", "brand"),
               crest: organisation.dig("details", "logo", "crest"),
             }

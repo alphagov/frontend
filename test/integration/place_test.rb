@@ -266,7 +266,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
       return_data = { "error" => "invalidPostcodeError" }
-      stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
+      stub_places_manager_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "BAD POSTCODE"
@@ -295,7 +295,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
       query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
       return_data = { "error" => "validPostcodeNoLocation" }
 
-      stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
+      stub_places_manager_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "JE4 5TP"
@@ -337,7 +337,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
   context "given an internal error response from imminence" do
     setup do
       query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
-      stub_imminence_places_request("find-passport-offices", query_hash, {}, 500)
+      stub_places_manager_places_request("find-passport-offices", query_hash, {}, 500)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "JE4 5TP"

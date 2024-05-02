@@ -63,7 +63,7 @@ private
   end
 
   def places_from_imminence
-    imminence_response = Frontend.imminence_api.places_for_postcode(
+    imminence_response = Frontend.places_manager.places_for_postcode(
       content_item_hash["details"]["place_type"],
       postcode,
       Frontend::IMMINENCE_QUERY_LIMIT,

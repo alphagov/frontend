@@ -322,7 +322,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         { "address" => "House 3", "local_authority_slug" => "ceechester" },
       ]
 
-      stub_imminence_has_multiple_authorities_for_postcode(addresses, "find-passport-offices", "CH25 9BJ", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_places_manager_has_multiple_authorities_for_postcode(addresses, "find-passport-offices", "CH25 9BJ", Frontend::IMMINENCE_QUERY_LIMIT)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "CH25 9BJ"

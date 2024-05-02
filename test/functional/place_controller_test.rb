@@ -1,8 +1,8 @@
 require "test_helper"
-require "gds_api/test_helpers/imminence"
+require "gds_api/test_helpers/places_manager"
 
 class PlaceControllerTest < ActionController::TestCase
-  include GdsApi::TestHelpers::Imminence
+  include GdsApi::TestHelpers::PlacesManager
 
   valid_postcode = "SW1A 2AA"
   invalid_postcode = "1234 2AA"

@@ -1,8 +1,8 @@
 require "integration_test_helper"
-require "gds_api/test_helpers/imminence"
+require "gds_api/test_helpers/places_manager"
 
 class PlacesTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::Imminence
+  include GdsApi::TestHelpers::PlacesManager
 
   setup do
     @payload = {

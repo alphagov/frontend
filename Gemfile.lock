@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/alphagov/gds-api-adapters.git
+  revision: 27cf519652312e1f442d4aa9a716c6107c21b9d7
+  branch: rename-Imminence-to-places-manager
+  specs:
+    gds-api-adapters (95.1.0)
+      addressable
+      link_header
+      null_logger
+      plek (>= 1.9.0)
+      rack (>= 2.2.0)
+      rest-client (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,13 +151,6 @@ GEM
       parslet
     ffi (1.16.3)
     find_a_port (1.0.1)
-    gds-api-adapters (95.1.0)
-      addressable
-      link_header
-      null_logger
-      plek (>= 1.9.0)
-      rack (>= 2.2.0)
-      rest-client (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.25.3)
@@ -714,7 +720,7 @@ DEPENDENCIES
   dalli
   dartsass-rails
   dotenv-rails
-  gds-api-adapters
+  gds-api-adapters!
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation

@@ -1,5 +1,5 @@
-require "gds_api/imminence"
+require "gds_api/places_manager"
 
-Frontend.imminence_api = GdsApi::Imminence.new(Plek.new.find("imminence"))
+Frontend.places_manager_api = GdsApi::PlacesManager.new(Plek.new.find("places-manager"))
 
 Frontend::IMMINENCE_QUERY_LIMIT = 10

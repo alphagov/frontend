@@ -7,7 +7,7 @@ gem "addressable"
 gem "bootsnap", require: false
 gem "dalli"
 gem "dartsass-rails"
-gem "gds-api-adapters"
+gem "gds-api-adapters", git: "https://github.com/alphagov/gds-api-adapters.git", branch: "rename-Imminence-to-places-manager"
 gem "govuk_ab_testing"
 gem "govuk_app_config"
 gem "govuk_personalisation"

@@ -119,7 +119,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode" do
     setup do
-      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
+      stub_plcaes_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -206,7 +206,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       @places = []
 
-      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
+      stub_plcaes_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"

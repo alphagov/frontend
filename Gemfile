@@ -19,7 +19,7 @@ gem "rails-i18n"
 gem "rails_translation_manager"
 gem "slimmer"
 gem "sprockets-rails"
-gem "uglifier"
+gem "terser"
 gem "uk_postcode"
 
 group :development do

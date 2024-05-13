@@ -14,8 +14,8 @@ class PlaceController < ContentItemsController
   def find
     @location_error = location_error
 
-    if postcode_provided? && imminence_response.addresses_returned?
-      @options = imminence_response.addresses.each.map do |address|
+    if postcode_provided? && places_manager_response.addresses_returned?
+      @options = places_manager_response.addresses.each.map do |address|
         { text: address["address"], value: address["local_authority_slug"] }
       end
       @change_path = place_path(slug: params[:slug])
@@ -32,8 +32,8 @@ private
   helper_method :location_error
 
   def publication
-    @publication ||= if postcode_provided? && imminence_response.places_found?
-                       PlacePresenter.new(content_item_hash, imminence_response.places)
+    @publication ||= if postcode_provided? && places_manager_response.places_found?
+                       PlacePresenter.new(content_item_hash, places_manager_response.places)
                      else
                        PlacePresenter.new(content_item_hash)
                      end
@@ -53,41 +53,41 @@ private
 
   def location_error
     return LocationError.new(INVALID_POSTCODE) unless postcode_provided?
-    return LocationError.new(INVALID_POSTCODE) if imminence_response.invalid_postcode?
+    return LocationError.new(INVALID_POSTCODE) if places_manager_response.invalid_postcode?
 
-    LocationError.new(NO_LOCATION) if imminence_response.places_not_found?
+    LocationError.new(NO_LOCATION) if places_manager_response.places_not_found?
   end
 
-  def imminence_response
-    @imminence_response ||= places_from_imminence
+  def places_manager_response
+    @places_manager_response ||= places_from_places_manager
   end
 
-  def places_from_imminence
-    imminence_response = Frontend.imminence_api.places_for_postcode(
+  def places_from_places_manager
+    places_manager_response = Frontend.places_manager_api.places_for_postcode(
       content_item_hash["details"]["place_type"],
       postcode,
-      Frontend::IMMINENCE_QUERY_LIMIT,
+      Frontend::PLACES_MANAGER_QUERY_LIMIT,
       local_authority_slug,
     )
-    imminence_response_from_data(postcode, imminence_response, nil)
+    places_manager_response_from_data(postcode, places_manager_response, nil)
   rescue GdsApi::HTTPErrorResponse => e
-    raise e unless ImminenceResponse.handled_error?(e)
+    raise e unless PlacesManagerResponse.handled_error?(e)
 
-    imminence_response_from_data(postcode, nil, e)
+    places_manager_response_from_data(postcode, nil, e)
   end
 
-  def imminence_response_from_data(postcode, imminence_response, error)
-    return ImminenceResponse.new(postcode, [], [], error) if error
+  def places_manager_response_from_data(postcode, places_manager_response, error)
+    return PlacesManagerResponse.new(postcode, [], [], error) if error
 
-    imminence_data = imminence_response.to_hash
+    places_manager_data = places_manager_response.to_hash
     places = []
     addresses = []
 
-    if imminence_data["status"] == "ok"
-      places = imminence_data["places"]
+    if places_manager_data["status"] == "ok"
+      places = places_manager_data["places"]
     else
-      addresses = imminence_data["addresses"]
+      addresses = places_manager_data["addresses"]
     end
-    ImminenceResponse.new(postcode, places, addresses, error)
+    PlacesManagerResponse.new(postcode, places, addresses, error)
   end
 end

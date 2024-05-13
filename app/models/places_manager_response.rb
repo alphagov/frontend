@@ -1,4 +1,4 @@
-class ImminenceResponse
+class PlacesManagerResponse
   INVALID_POSTCODE = "invalidPostcodeError".freeze
   NO_LOCATION = "validPostcodeNoLocation".freeze
 

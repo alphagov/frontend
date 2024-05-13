@@ -1,15 +1,15 @@
 require "test_helper"
-require "gds_api/test_helpers/imminence"
+require "gds_api/test_helpers/places_manager"
 
 class PlaceControllerTest < ActionController::TestCase
-  include GdsApi::TestHelpers::Imminence
+  include GdsApi::TestHelpers::PlacesManager
 
   valid_postcode = "SW1A 2AA"
   invalid_postcode = "1234 2AA"
 
   setup do
     content_store_has_random_item(base_path: "/slug", schema: "place", details: { "place_type" => "slug" })
-    stub_imminence_has_places_for_postcode([{
+    stub_places_manager_has_places_for_postcode([{
       "access_notes" => "The London Passport Office is fully accessible to wheelchair users. ",
       "address1" => nil,
       "address2" => "89 Eccleston Square",
@@ -27,9 +27,9 @@ class PlaceControllerTest < ActionController::TestCase
       "town" => "London",
       "url" => "http://www.example.com/london_ips_office",
     }], "slug", valid_postcode, 10, nil)
-    query_hash = { "postcode" => invalid_postcode, "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
-    return_data = { "error" => ImminenceResponse::INVALID_POSTCODE }
-    stub_imminence_places_request("slug", query_hash, return_data, 400)
+    query_hash = { "postcode" => invalid_postcode, "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
+    return_data = { "error" => PlacesManagerResponse::INVALID_POSTCODE }
+    stub_places_manager_places_request("slug", query_hash, return_data, 400)
   end
 
   context "GET show" do
@@ -59,7 +59,7 @@ class PlaceControllerTest < ActionController::TestCase
     context "with invalid postcode" do
       should "show location error" do
         post :find, params: { slug: "slug", postcode: invalid_postcode }
-        assert_equal @controller.view_assigns["location_error"].postcode_error, LocationError.new(ImminenceResponse::INVALID_POSTCODE).postcode_error
+        assert_equal @controller.view_assigns["location_error"].postcode_error, LocationError.new(PlacesManagerResponse::INVALID_POSTCODE).postcode_error
       end
     end
   end

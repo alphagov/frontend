@@ -28,7 +28,7 @@ class PlaceControllerTest < ActionController::TestCase
       "url" => "http://www.example.com/london_ips_office",
     }], "slug", valid_postcode, 10, nil)
     query_hash = { "postcode" => invalid_postcode, "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
-    return_data = { "error" => ImminenceResponse::INVALID_POSTCODE }
+    return_data = { "error" => PlacesManagerResponse::INVALID_POSTCODE }
     stub_places_manager_places_request("slug", query_hash, return_data, 400)
   end
 
@@ -59,7 +59,7 @@ class PlaceControllerTest < ActionController::TestCase
     context "with invalid postcode" do
       should "show location error" do
         post :find, params: { slug: "slug", postcode: invalid_postcode }
-        assert_equal @controller.view_assigns["location_error"].postcode_error, LocationError.new(ImminenceResponse::INVALID_POSTCODE).postcode_error
+        assert_equal @controller.view_assigns["location_error"].postcode_error, LocationError.new(PlacesManagerResponse::INVALID_POSTCODE).postcode_error
       end
     end
   end

@@ -1,8 +1,8 @@
 require "integration_test_helper"
-require "gds_api/test_helpers/imminence"
+require "gds_api/test_helpers/places_manager"
 
 class PlacesTest < ActionDispatch::IntegrationTest
-  include GdsApi::TestHelpers::Imminence
+  include GdsApi::TestHelpers::PlacesManager
 
   setup do
     @payload = {
@@ -119,7 +119,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode" do
     setup do
-      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
+      stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -206,7 +206,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
     setup do
       @places = []
 
-      stub_imminence_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::IMMINENCE_QUERY_LIMIT, nil)
+      stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "SW1A 1AA"
@@ -264,9 +264,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given an invalid postcode" do
     setup do
-      query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
       return_data = { "error" => "invalidPostcodeError" }
-      stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
+      stub_places_manager_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "BAD POSTCODE"
@@ -292,10 +292,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
   context "given a valid postcode with no locations returned" do
     setup do
-      query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
+      query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
       return_data = { "error" => "validPostcodeNoLocation" }
 
-      stub_imminence_places_request("find-passport-offices", query_hash, return_data, 400)
+      stub_places_manager_places_request("find-passport-offices", query_hash, return_data, 400)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "JE4 5TP"
@@ -322,7 +322,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
         { "address" => "House 3", "local_authority_slug" => "ceechester" },
       ]
 
-      stub_imminence_has_multiple_authorities_for_postcode(addresses, "find-passport-offices", "CH25 9BJ", Frontend::IMMINENCE_QUERY_LIMIT)
+      stub_places_manager_has_multiple_authorities_for_postcode(addresses, "find-passport-offices", "CH25 9BJ", Frontend::PLACES_MANAGER_QUERY_LIMIT)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "CH25 9BJ"
@@ -334,10 +334,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
     end
   end
 
-  context "given an internal error response from imminence" do
+  context "given an internal error response from places manager" do
     setup do
-      query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::IMMINENCE_QUERY_LIMIT }
-      stub_imminence_places_request("find-passport-offices", query_hash, {}, 500)
+      query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
+      stub_places_manager_places_request("find-passport-offices", query_hash, {}, 500)
 
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "JE4 5TP"

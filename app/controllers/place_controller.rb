@@ -83,14 +83,7 @@ private
     places = []
     addresses = []
 
-    # Temporary: allow both old and new imminence responses so that
-    # we can switch over seamlessly by deploying Frontend first
-
-    if !imminence_data.respond_to?(:key)
-      # Handle old-style returned array
-      # Remove this branch and temporary comment above when Imminence is switched over
-      places = imminence_data
-    elsif imminence_data["status"] == "ok"
+    if imminence_data["status"] == "ok"
       places = imminence_data["places"]
     else
       addresses = imminence_data["addresses"]

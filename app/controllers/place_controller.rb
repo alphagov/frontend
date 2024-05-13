@@ -66,7 +66,7 @@ private
     imminence_response = Frontend.imminence_api.places_for_postcode(
       content_item_hash["details"]["place_type"],
       postcode,
-      Frontend::IMMINENCE_QUERY_LIMIT,
+      Frontend::PLACES_MANAGER_QUERY_LIMIT,
       local_authority_slug,
     )
     imminence_response_from_data(postcode, imminence_response, nil)

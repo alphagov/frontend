@@ -127,9 +127,9 @@ GEM
     dig_rb (1.0.1)
     docile (1.4.0)
     domain_name (0.6.20240107)
-    dotenv (3.1.1)
-    dotenv-rails (3.1.1)
-      dotenv (= 3.1.1)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.12.0)
@@ -571,7 +571,7 @@ GEM
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
-    reline (0.5.6)
+    reline (0.5.7)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
@@ -700,7 +700,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.13)
+    zeitwerk (2.6.14)
 
 PLATFORMS
   ruby

@@ -3,7 +3,7 @@
 @import "govuk_publishing_components/components/mixins/grid-helper";
 
 .homepage__ready-container {
-  margin: govuk-spacing(6) 0 govuk-spacing(7) 0;
+  margin: govuk-spacing(6) 0 govuk-spacing(7);
 
   @include govuk-media-query($from: desktop) {
     margin-bottom: govuk-spacing(3);
@@ -25,12 +25,12 @@
 
 .home-services__heading {
   @include govuk-font(19, $weight: bold);
-  margin: 0 0 govuk-spacing(1) 0;
+  margin: 0 0 govuk-spacing(1);
 }
 
 .home-services__para {
   @include govuk-font(16);
-  margin: 0 0 govuk-spacing(3) 0;
+  margin: 0 0 govuk-spacing(3);
   min-height: 40px;
 }
 
@@ -41,12 +41,12 @@
 
 .home-more__title {
   @include govuk-font(36, $weight: bold);
-  margin: 0 0 govuk-spacing(4) 0;
+  margin: 0 0 govuk-spacing(4);
 }
 
 .home-more__subtitle {
   @include govuk-font(24, $weight: bold);
-  margin: 0 0 govuk-spacing(2) 0;
+  margin: 0 0 govuk-spacing(2);
 }
 
 .home-more__list {
@@ -62,7 +62,7 @@
 .chevron-card {
   border-top: 1px solid $govuk-border-colour;
   margin: 0 govuk-spacing(3);
-  padding: govuk-spacing(1) 0 govuk-spacing(4) 0;
+  padding: govuk-spacing(1) 0 govuk-spacing(4);
 
   &:first-child {
     border-top: none;

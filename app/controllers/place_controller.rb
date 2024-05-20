@@ -55,7 +55,7 @@ private
     return LocationError.new(INVALID_POSTCODE) unless postcode_provided?
     return LocationError.new(INVALID_POSTCODE) if places_manager_response.invalid_postcode?
 
-    LocationError.new(NO_LOCATION) if places_manager_response.places_not_found?
+    LocationError.new(NO_LOCATION) if places_manager_response.places_not_found? && !places_manager_response.addresses_returned?
   end
 
   def places_manager_response

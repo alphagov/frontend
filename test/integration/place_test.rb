@@ -130,6 +130,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert_current_url "/passport-interview-office"
     end
 
+    should "include the search result text in the page title" do
+      assert page.has_title?("Find a passport interview office: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
+    end
+
     should "not display an error message" do
       assert page.has_no_content?("Please enter a valid full UK postcode.")
     end
@@ -327,6 +331,10 @@ class PlacesTest < ActionDispatch::IntegrationTest
       visit "/passport-interview-office"
       fill_in "Enter a postcode", with: "CH25 9BJ"
       click_on "Find"
+    end
+
+    should "include the select address text in the page title" do
+      assert page.has_title?("Find a passport interview office: #{I18n.t('formats.local_transaction.select_address').downcase} - GOV.UK", exact: true)
     end
 
     should "display the address chooser" do

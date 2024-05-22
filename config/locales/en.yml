@@ -533,18 +533,18 @@ en:
       - title: Departments
         description: Departments, agencies and public bodies
         link: /government/organisations
-      - title: Research and statistics
-        description: Reports, analysis and official statistics
-        link: /search/research-and-statistics
       - title: News
         description: News stories, speeches, letters and notices
         link: /search/news-and-communications
-      - title: Policy papers and consultations
-        description: Consultations and strategy
-        link: /search/policy-papers-and-consultations
       - title: Guidance and regulation
         description: Detailed guidance, regulations and rules
         link: /search/guidance-and-regulation
+      - title: Research and statistics
+        description: Reports, analysis and official statistics
+        link: /search/research-and-statistics
+      - title: Policy papers and consultations
+        description: Consultations and strategy
+        link: /search/policy-papers-and-consultations
       - title: Transparency documents
         description: Data, Freedom of Information releases and corporate reports
         link: /search/transparency-and-freedom-of-information-releases

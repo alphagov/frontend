@@ -1,17 +1,4 @@
-<% content_for :overview do %>
-  <li><%= link_to "Overview", licence_transaction_authority_path(publication.slug, licence_details.authority["slug"]), class: "govuk-link" %></li>
-<% end %>
-
-<% content_for :interactions_contents_list do %>
-  <% licence_details.authority['actions'].keys.uniq.each do |action| %>
-    <% if licence_details.action == action %>
-      <li class="active"><%= "How to #{action}" %></li>
-      <% content_for :title, "#{publication.title}: How to #{action} - GOV.UK" %>
-    <% else %>
-      <li><%= link_to "How to #{action}", licence_transaction_authority_interaction_path(publication.slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
-    <% end %>
-  <% end %>
-<% end %>
+<% content_for :title, "#{publication.title}: How to #{licence_details.action} - GOV.UK" %>
 
 <% content_for :main_content do %>
   <% if licence_details.action.present? %>

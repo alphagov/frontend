@@ -41,12 +41,11 @@
 
   <p class="govuk-body">From <strong><%= licence_details.authority['name'] %></strong></p>
 
-  <nav role="navigation" class="page-navigation">
-    <ol class="govuk-list govuk-list--number">
-      <%= yield :overview %>
-      <%= yield :interactions_contents_list %>
-    </ol>
-  </nav>
+  <%= render "govuk_publishing_components/components/contents_list",
+    underline_links: true,
+    format_numbers: true,
+    contents: licence_details.actions_for_contents_list_component(publication)
+  %>
 
   <article
     role="article"

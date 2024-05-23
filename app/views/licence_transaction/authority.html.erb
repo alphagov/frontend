@@ -1,15 +1,5 @@
 <% content_for :title, "#{publication.title}: #{licence_details.authority['name']} - GOV.UK" %>
 
-<% content_for :overview do %>
-  <li class="active">Overview</li>
-<% end %>
-
-<% content_for :interactions_contents_list do %>
-  <% licence_details.authority['actions'].keys.uniq.each do |action| %>
-    <li><%= link_to "How to #{action}", licence_transaction_authority_interaction_path(publication.slug, licence_details.authority["slug"], action), class: "govuk-link" %></li>
-  <% end %>
-<% end %>
-
 <% content_for :main_content do %>
   <%= render "govuk_publishing_components/components/govspeak", {} do %>
     <%= raw publication.body %>

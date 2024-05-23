@@ -3,15 +3,20 @@ class TransactionController < ContentItemsController
   include LocaleHelper
 
   before_action :deny_framing
+  attr_accessor :variant_slug
+
+  helper_method :variant_slug
 
   def show
-    publication.variant_slug = params["variant"]
-    @lang_attribute = lang_attribute(publication.locale.presence)
+    @variant_slug = params["variant"]
   end
 
 private
 
-  def publication_class
-    TransactionPresenter
+  def publication
+    @publication ||= begin
+      response = GovukGraphQl.transaction(basePath: request.path)
+      TransactionGraphqlPresenter.new(response.data.transaction)
+    end
   end
 end

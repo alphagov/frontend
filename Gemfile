@@ -4,6 +4,7 @@ ruby "~> 3.2.0"
 gem "rails", "7.1.3.2"
 
 gem "addressable"
+gem "artemis"
 gem "bootsnap", require: false
 gem "dalli"
 gem "dartsass-rails"

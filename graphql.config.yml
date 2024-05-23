@@ -1,0 +1,2 @@
+schema: vendor/graphql/schema/govuk_graph_ql.json
+documents: '**/*.graphql'

@@ -1,0 +1,27 @@
+query($basePath: String!){
+  transaction(basePath: $basePath) {
+    basePath
+    title
+    description
+    phase
+    schemaName
+
+    introductoryParagraph
+
+    downtimeMessage
+    departmentAnalyticsProfile
+    willContinueOn
+    otherWaysToApply
+    whatYouNeedToKnow
+
+    startButtonText
+    transactionStartLink
+    
+    moreInformation
+    
+    relatedLinks {
+      title
+      basePath
+    }
+  }
+}

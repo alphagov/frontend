@@ -77,6 +77,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
+    artemis (1.0.2)
+      activesupport (>= 4.0.0)
+      graphql
+      graphql-client (>= 0.13.0)
+      railties (>= 4.0.0)
     ast (2.4.2)
     awesome_print (1.9.2)
     base64 (0.2.0)
@@ -182,6 +187,11 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
+    graphql (2.3.4)
+      base64
+    graphql-client (0.22.0)
+      activesupport (>= 3.0)
+      graphql (>= 1.13.0)
     hashdiff (1.1.0)
     highline (2.0.3)
     htmlentities (4.3.4)
@@ -712,6 +722,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
+  artemis
   better_errors
   binding_of_caller
   bootsnap

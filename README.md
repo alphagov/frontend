@@ -72,7 +72,7 @@ Frontend is a Ruby on Rails application and should follow [our Rails app convent
 - [alphagov/static](https://github.com/alphagov/static) - provides shared templates, styles, and JavaScript
 - [alphagov/content-store](https://github.com/alphagov/content-store) - provides raw data for rendering formats
 - [alphagov/locations-api](https://github.com/alphagov/locations-api) - provides postcode lookups
-- [alphagov/imminence](https://github.com/alphagov/imminence) - (Now called Places Manager) provides places lookups (e.g. for find-my-nearest)
+- [alphagov/places-manager](https://github.com/alphagov/places-manager) - provides places lookups (e.g. for find-my-nearest)
 - [alphagov/publishing-api](https://github.com/alphagov/publishing-api) - this app sends data to the content-store
 
 ### Running the application

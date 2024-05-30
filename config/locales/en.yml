@@ -609,7 +609,7 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text:  Make sure you've registered to vote in the General Election.
+        - text:  Register by 18 June to vote in the General Election on 4 July.
           title: Register to vote
           href: /register-to-vote
           image_src: homepage/register-to-vote.png

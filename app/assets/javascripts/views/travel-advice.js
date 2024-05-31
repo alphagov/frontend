@@ -13,14 +13,16 @@
 
     this.container = searchInput.closest('.js-travel-container')
 
-    searchInput.addEventListener('keyup', function (event) {
+    searchInput.addEventListener('keydown', function (event) {
       if (event.keyCode === enterKeyCode) {
         event.preventDefault()
-      } else {
-        var filter = this.value
-        filterInst.filterListItems(filter)
-        filterInst.track(filter)
       }
+    })
+
+    searchInput.addEventListener('keyup', function () {
+      var filter = this.value
+      filterInst.filterListItems(filter)
+      filterInst.track(filter)
     })
 
     if (this.container) {

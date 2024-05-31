@@ -121,11 +121,11 @@ describe('CountryFilter', function () {
       expect(filter.filterListItems).toHaveBeenCalled()
     })
 
-    it('Should cancel events bound to keyup when enter is pressed', function () {
+    it('Should prevent form submission and filtering when enter key is pressed', function () {
       filter = new GOVUK.countryFilter($input[0])
       spyOn(filter, 'filterListItems')
 
-      window.GOVUK.triggerEvent($input[0], 'keyup', { keyCode: 13 })
+      window.GOVUK.triggerEvent($input[0], 'keydown', { keyCode: 13 })
       expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 

@@ -1,4 +1,6 @@
 class LicenceDetailsPresenter
+  include Rails.application.routes.url_helpers
+
   attr_reader :licence, :authority_slug, :interaction
 
   def initialize(licence, authority_slug = nil, interaction = nil)
@@ -19,6 +21,26 @@ class LicenceDetailsPresenter
 
   def has_any_actions?
     authority && authority["actions"].present?
+  end
+
+  def actions_for_contents_list_component(publication)
+    items = [
+      {
+        text: "1. Overview",
+        href: !action ? nil : licence_transaction_authority_path(publication.slug, authority_slug, interaction: nil),
+        active: !action,
+      },
+    ]
+
+    authority["actions"].keys.each_with_index do |action_key, index|
+      items << {
+        text: "#{index + 2}. How to #{action_key}",
+        href: action == action_key ? nil : licence_transaction_authority_interaction_path(publication.slug, authority_slug, action_key),
+        active: action == action_key,
+      }
+    end
+
+    items
   end
 
   def uses_licensify(chosen_action = action)

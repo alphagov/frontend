@@ -19,12 +19,8 @@
     first_cell_is_header: true,
     rows: events.each.map { |event|
       date = event[:date]
-      time_tag = tag.time(datetime: date) do
-        l(date, :format => '%e %B')
-      end
-
       [
-        { :text => time_tag.html_safe },
+        { :text => time_tag_safe(date) },
         { :text => l(date, :format => '%A') },
         { :text => event[:title] + (event[:notes].blank? ? '' : " (#{event[:notes].downcase})") }
       ]

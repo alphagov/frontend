@@ -21,6 +21,7 @@
     <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
       <%= t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
     </p>
+    <p class="govuk-body"><%= t('electoral.service.search_postcode_html') %></p>
   <% end %>
   <%
     ga4_link = {

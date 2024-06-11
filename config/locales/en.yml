@@ -609,10 +609,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text:  Register by 18 June to vote in the General Election on 4 July.
-          title: Register to vote
-          href: /register-to-vote
-          image_src: homepage/register-to-vote.png
+        - text:  Check what photo ID you'll need to vote in person in the General Election on 4 July.
+          title: Bring photo ID to vote
+          href: /how-to-vote/photo-id-youll-need
+          image_src: homepage/photo-id-featured.png
         - text: Search and apply for jobs in England, Scotland and Wales.
           title: Find a job
           href: /find-a-job

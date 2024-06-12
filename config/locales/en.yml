@@ -371,7 +371,8 @@ en:
       title: Get help with electoral registration
     service:
       description: For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council."
-      matched_postcode_html: We've matched the postcode <strong>%{postcode}</strong> to <strong>%{electoral_service_name}</strong>.
+      matched_postcode_html: We’ve matched the postcode <strong>%{postcode}</strong> to <strong>%{electoral_service_name}</strong>.
+      search_postcode_html: <a href="/contact-electoral-registration-office" class="govuk-link">Search for a different postcode</a>
       title: Your local council
   error: Error
   find: Find

@@ -664,6 +664,7 @@ cy:
     service:
       description: Os oes gennych gwestiwn am eich cerdyn pleidleisio, eich man pleidleisio, neu am ddychwelyd eich papur pleidleisio drwy'r post, cysylltwch â'ch cyngor."
       matched_postcode_html: Rydyn ni wedi paru'r cod post <strong>%{postcode}</strong> i <strong>%{electoral_service_name}</strong>.
+      search_postcode_html: Chwiliwch am god post gwahanol
       title: Eich cyngor lleol
   error:
   find: Ffeindio

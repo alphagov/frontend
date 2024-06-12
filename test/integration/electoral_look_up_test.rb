@@ -122,7 +122,11 @@ class ElectoralLookUpTest < ActionDispatch::IntegrationTest
           # Click on one of the suggested addresses
           stub_api_address_lookup("1234", response: api_response)
           click_button "Continue"
-          assert page.has_selector?("p", text: "We've matched the postcode to Cardiff Council")
+          assert page.has_selector?("p", text: "We’ve matched the postcode to Cardiff Council")
+          assert page.has_link?(
+            "Search for a different postcode",
+            href: "/contact-electoral-registration-office",
+          )
         end
       end
 

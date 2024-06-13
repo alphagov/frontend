@@ -1,0 +1,31 @@
+<% content_for :title, "#{t('contact.title')} - GOV.UK" %>
+
+<%= render "govuk_publishing_components/components/breadcrumbs", {
+  collapse_on_mobile: true,
+  breadcrumbs: @breadcrumbs
+} %>
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+        title: t('contact.title')
+      } %>
+      
+      <%= render "govuk_publishing_components/components/document_list", {
+        items: @popular_links
+      } %>
+
+      <%= render "govuk_publishing_components/components/details", {
+        title: "More topics"
+      } do %>
+        <%= render "govuk_publishing_components/components/document_list", {
+          items: @long_tail_links
+        } %>
+      <% end %>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <p class="govuk-body"><%= t('contact.form_html') %></p>
+      <p class="govuk-body"><%= t('contact.pages_html') %></p>
+    </div>
+  </div>
+</div>

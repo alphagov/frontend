@@ -100,6 +100,57 @@ en:
     substitute_day: Substitute day
     today: today
     upcoming_bank_holidays: Upcoming bank holidays
+  contact:
+    title: Find contact details for services
+    form_html: "Use the <a class='govuk-link' href='/contact/govuk'>GOV.UK contact form</a> to send your questions or comments about the website."
+    pages_html: "Check the <a class='govuk-link' href='/help'>GOV.UK help pages</a> to find out about the use of cookies, accessibility of the site, the privacy policy and terms and conditions of use."
+    popular:
+      - url: /universal-credit/contact-universal-credit
+        title: Universal Credit
+        description: Contact the Universal Credit team to get help with applying for Universal Credit or managing your claim.
+      - url: /contact-the-dvla
+        title: Driving licences and car tax
+        description: Contact DVLA for questions about driving, vehicle tax and registrations.
+      - url: /government/organisations/hm-revenue-customs/contact
+        title: HM Revenue and Customs (HMRC)
+        description: Contact HMRC for questions about tax, including self assessment and PAYE.
+      - url: /passport-advice-line
+        title: Passport advice and complaints
+        description: Get help with your passport application and renewals if you're a British Citizen.
+      - url: /contact-student-finance-england
+        title: Student Finance England
+        description: Get help with student loan applications and grants.
+      - url: /contact-jobcentre-plus
+        title: Jobcentre Plus
+        description: Get advice on benefits such as Jobseeker's Allowance (JSA).
+      - url: /contact-ukvi-inside-outside-uk
+        title: UK Visas and Immigration
+        description: Contact UK Visas and Immigration about your application.
+    long_tail:
+      - url: https://www.actionfraud.police.uk/contact-us
+        title: Report Fraud
+        description: Contact Action Fraud to report fraud and cyber crime, or to tell them you've been the victim of a scam.
+      - url: /contact-child-benefit-office
+        title: Child Benefit
+        description: Contact the Child Benefit Office to report a change of circumstance, get your Child Benefit number, or make a general enquiry.
+      - url: https://forms.dft.gov.uk/contact-dft-and-agencies
+        title: Department for Transport (DfT)
+        description: Contact Department for Transport and transport agencies.
+      - url: /disclosure-barring-service-check/contact-disclosure-and-barring-service
+        title: DBS checks (previously CRB)
+        description: Contact the Disclosure and Barring Service with questions about checks needed for certain types of paid and voluntary work.
+      - url: /contact-dvsa
+        title: Driving tests and vehicle testing
+        description: Contact the Driver and Vehicle Standards Agency (DVSA) for information about driving tests or vehicle testing schemes, activities and enforcement policy or general driving and vehicle safety advice.
+      - url: /passport-advice-line
+        title: Overseas British Passport applications
+        description: Get advice with renewing or applying for a British passport if you live overseas.
+      - url: /contact-pension-service
+        title: State Pension
+        description: Contact the Pension Service to get help claiming your State Pension, helps with State Pension eligibility, claims and payments. You can also make a complaint about the Pension Service.
+      - url: government/organisations/hm-revenue-customs/contact/tax-credits-enquiries
+        title: Tax credits
+        description: Get advice on tax credits and tell HMRC about changes to your address, job or salary.
   continue: Continue
   cookies:
     always_on: They always need to be on.

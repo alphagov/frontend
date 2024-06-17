@@ -571,6 +571,8 @@ en:
       more: More on GOV.UK
       popular_links_heading: Popular on GOV.UK
       popular_links:
+        - text: 'Report Nyctosaurus'
+          href: /report-nyctosaurus
         - text: 'HMRC account: sign in or set up'
           href: /log-in-register-hmrc-online-services
         - text: 'Universal Credit account: sign in'

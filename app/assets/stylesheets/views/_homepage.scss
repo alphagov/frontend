@@ -251,3 +251,17 @@
     border-top: 4px solid $govuk-brand-colour;
   }
 }
+
+// Temporary overrides for global bar styling on homepage.
+// Doing this here avoids the need for republishing the
+// gem and therefore will be easier to remove later.
+.homepage.global-bar-present .global-bar {
+  border: 0;
+}
+
+.homepage.global-bar-present .homepage-header {
+  @include govuk-responsive-padding(7, "top");
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    padding-top: govuk-spacing(8);
+  }
+}

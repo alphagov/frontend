@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   include Slimmer::Template
   slimmer_template "gem_layout"
 
+  before_action :force_html_format_before_action
+
   before_action do
     I18n.locale = I18n.default_locale
   end
@@ -23,9 +25,44 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  class << self
+  protected
+
+    def force_html_format(only: nil, except: nil)
+      only_copy = only && only.collect(&:to_sym).freeze
+      except_copy = except && except.collect(&:to_sym).freeze
+      define_method(:force_html_format_only) { only_copy }
+      define_method(:force_html_format_except) { except_copy }
+    end
+  end
+
 protected
 
   helper_method :content_item, :content_item_hash, :publication
+
+  def force_html_format_only
+    [] # do not force html for any actions by default
+  end
+
+  def force_html_format_except
+    nil # do not exclude any actions by default
+  end
+
+  def force_html_format_before_action
+    request.format = :html if force_html_format?
+  end
+
+  def force_html_format?
+    action_name_sym = action_name.to_sym
+    (
+      force_html_format_only.nil? ||
+      force_html_format_only.include?(action_name_sym)
+    ) &&
+      (
+        force_html_format_except.nil? ||
+        !force_html_format_except.include?(action_name_sym)
+      )
+  end
 
   def error_403
     error :forbidden

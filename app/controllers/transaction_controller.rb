@@ -2,6 +2,8 @@ class TransactionController < ContentItemsController
   include Cacheable
   include LocaleHelper
 
+  force_html_format
+
   before_action :deny_framing
 
   def show

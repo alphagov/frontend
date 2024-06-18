@@ -10,6 +10,14 @@ Rails.application.routes.draw do
 
   get "/contact", format: false, to: "contact#index"
 
+  namespace :contact do
+    get "govuk", to: "govuk#new", format: false
+    post "govuk", to: "govuk#create", format: false
+
+    get "govuk/anonymous-feedback/thankyou", to: "govuk#anonymous_feedback_thankyou", format: false, as: "anonymous_feedback_thankyou"
+    get "govuk/thankyou", to: "govuk#named_contact_thankyou", format: false, as: "named_contact_thankyou"
+  end
+
   get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }
   get "/healthcheck/ready", to: GovukHealthcheck.rack_response
 

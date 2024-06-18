@@ -130,6 +130,12 @@ GEM
     execjs (2.9.1)
     expgen (0.1.1)
       parslet
+    faraday (2.9.2)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.1.0)
+      net-http
     ffi (1.16.3)
     find_a_port (1.0.1)
     gds-api-adapters (96.0.1)
@@ -139,6 +145,9 @@ GEM
       plek (>= 1.9.0)
       rack (>= 2.2.0)
       rest-client (~> 2.0)
+    gds_zendesk (3.7.0)
+      null_logger (~> 0)
+      zendesk_api (>= 1.37, < 4.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.25.3)
@@ -177,6 +186,7 @@ GEM
       puma
       selenium-webdriver (>= 4.0)
     hashdiff (1.1.0)
+    hashie (5.0.0)
     highline (3.0.1)
     htmlentities (4.3.4)
     http-accept (1.7.0)
@@ -199,6 +209,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    inflection (1.0.0)
     invalid_utf8_rejector (0.0.4)
     io-console (0.7.2)
     irb (1.13.1)
@@ -237,7 +248,10 @@ GEM
     msgpack (1.7.2)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
+    multipart-post (2.4.1)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.12)
       date
       net-protocol
@@ -655,6 +669,8 @@ GEM
     sentry-ruby (5.17.3)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+    shoulda-matchers (6.2.0)
+      activesupport (>= 5.2.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -696,6 +712,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uk_postcode (2.1.8)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
     webmock (3.23.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -708,6 +725,13 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.15)
+    zendesk_api (3.0.5)
+      faraday (> 2.0.0)
+      faraday-multipart
+      hashie (>= 3.5.2, < 6.0.0)
+      inflection
+      mini_mime
+      multipart-post (~> 2.0)
 
 PLATFORMS
   ruby
@@ -723,6 +747,7 @@ DEPENDENCIES
   dartsass-rails
   dotenv-rails
   gds-api-adapters
+  gds_zendesk
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation
@@ -743,6 +768,7 @@ DEPENDENCIES
   rails_translation_manager
   rspec-rails
   rubocop-govuk
+  shoulda-matchers
   simplecov
   slimmer
   sprockets-rails

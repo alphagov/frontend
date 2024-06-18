@@ -104,6 +104,27 @@ cy:
     title: 
     form_html:
     pages_html:
+    govuk:
+      title:
+      hint_text:
+      warning_text:
+      intro_text_one:
+      intro_text_two:
+      intro_text_three:
+      intro_text_four_html:
+      leave_details:
+      your_name:
+      your_email:
+      your_email_hint:
+      submit_text:
+      feedback_thankyou:
+        title:
+        success: 
+        return:
+      questions:
+        link:
+        textdetails:
+        contact:
     popular:
       - url: 
         title: 

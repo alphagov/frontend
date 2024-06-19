@@ -3,6 +3,7 @@ class TransactionController < ContentItemsController
   include LocaleHelper
 
   before_action :deny_framing
+  before_action :html_only
 
   def show
     publication.variant_slug = params["variant"]

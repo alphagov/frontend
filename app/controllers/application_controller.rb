@@ -31,6 +31,10 @@ protected
     error :forbidden
   end
 
+  def error_406
+    error :not_acceptable
+  end
+
   def error_410
     error :gone
   end
@@ -70,6 +74,10 @@ protected
 
   def content_item_hash
     nil
+  end
+
+  def html_only
+    error_406 unless request.format.html?
   end
 
 private

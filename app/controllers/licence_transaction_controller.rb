@@ -5,6 +5,7 @@ class LicenceTransactionController < ContentItemsController
 
   helper_method :licence_details
   before_action :redirect_to_continuation_licence, only: %i[multiple_authorities authority authority_interaction]
+  skip_before_action :verify_authenticity_token, only: [:find]
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATION_ERROR = "validPostcodeNoLocation".freeze

@@ -4,6 +4,7 @@ class LocalTransactionController < ContentItemsController
   include SplitPostcodeSupport
 
   before_action :deny_framing
+  skip_before_action :verify_authenticity_token, only: [:find]
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze
   NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze

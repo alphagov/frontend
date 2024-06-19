@@ -5,6 +5,7 @@ class FindLocalCouncilController < ContentItemsController
   include SplitPostcodeSupport
 
   skip_before_action :set_locale
+  skip_before_action :verify_authenticity_token, only: [:find]
 
   BASE_PATH = "/find-local-council".freeze
 

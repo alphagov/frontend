@@ -2,6 +2,7 @@ class PlaceController < ContentItemsController
   include Previewable
   include Cacheable
 
+  skip_before_action :verify_authenticity_token, only: [:find]
   helper_method :postcode_provided?, :postcode
 
   INVALID_POSTCODE = "invalidPostcodeError".freeze

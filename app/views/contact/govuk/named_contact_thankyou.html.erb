@@ -1,0 +1,14 @@
+<% title = t("contact.govuk.feedback_thankyou.title") %>
+
+<% content_for :title, "#{title} - GOV.UK" %>
+
+<%= render "govuk_publishing_components/components/title", {
+  title: title
+} %>
+
+<% success_message = t("contact.govuk.feedback_thankyou.success") %>
+
+<p class="govuk-body" 
+  data-module="ga4-auto-tracker"
+  data-ga4-auto="<%= { event_name: "form_complete", type: "contact", text: success_message, action: "complete", tool_name: "Contact GOV.UK", section: title }.to_json %>"><%= success_message %></p>
+<p class="govuk-body"><a class="govuk-link" href="/"><%= t("contact.govuk.feedback_thankyou.return")%></a>.</p>

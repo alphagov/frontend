@@ -27,6 +27,10 @@ protected
 
   helper_method :content_item, :content_item_hash, :publication
 
+  def hide_report_a_problem_form_in_response
+    @hide_feedback_component = true
+  end
+
   def error_403
     error :forbidden
   end

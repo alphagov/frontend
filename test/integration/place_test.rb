@@ -97,14 +97,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
       assert page.has_selector?(".gem-c-phase-banner")
     end
 
-    should "add google analytics tags for postcodeSearchStarted" do
-      track_category = page.find(".postcode-search-form")["data-track-category"]
-      track_action = page.find(".postcode-search-form")["data-track-action"]
-
-      assert_equal "postcodeSearch:place", track_category
-      assert_equal "postcodeSearchStarted", track_action
-    end
-
     should "add GA4 form submit attributes" do
       data_module = page.find("form")["data-module"]
       expected_data_module = "ga4-form-tracker"

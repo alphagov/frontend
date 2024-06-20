@@ -13,11 +13,7 @@
   ga4_section = t('formats.local_transaction.enter_postcode', locale: :en)
 %>
 
-<%= tag.div class: css_classes, data: {
-          "module":"track-submit",
-          "track-category":"postcodeSearch:#{publication_format}",
-          "track-action":"postcodeSearchStarted",
-} do %>
+<%= tag.div class: css_classes do %>
   <% if @location_error %>
     <%= render "govuk_publishing_components/components/error_summary", {
       id: results_anchor,

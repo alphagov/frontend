@@ -81,7 +81,7 @@ You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-do
 
 If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
 
-If you are using the `startup.sh` script, first run [static]()https://github.com/alphagov/static) and execute the following command:
+If you are using the `startup.sh` script, first run [static](https://github.com/alphagov/static) and execute the following command:
 
 ```
 PLEK_SERVICE_STATIC_URI=http://static.dev.gov.uk ./startup.sh --live

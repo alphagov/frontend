@@ -1,3 +1,34 @@
+GIT
+  remote: https://github.com/alphagov/govuk_app_config.git
+  revision: f6d9b500926e2f9f49d6fc4e8f6baea6e4928ddb
+  branch: 2495-sentry-errors-fix-frontend-nomethoderror
+  specs:
+    govuk_app_config (9.12.0)
+      logstasher (~> 2.1)
+      opentelemetry-exporter-otlp (>= 0.25, < 0.29)
+      opentelemetry-instrumentation-all (>= 0.39.1, < 0.62.0)
+      opentelemetry-sdk (~> 1.2)
+      plek (>= 4, < 6)
+      prometheus_exporter (~> 2.0)
+      puma (>= 5.6, < 7.0)
+      rack-proxy (~> 0.7)
+      sentry-rails (~> 5.3)
+      sentry-ruby (~> 5.3)
+      statsd-ruby (~> 1.5)
+
+GIT
+  remote: https://github.com/alphagov/slimmer.git
+  revision: 21eaaa13fbc3441c2075827774e32cf585ac243b
+  branch: 2495-sentry-errors-fix-frontend-nomethoderror-2
+  specs:
+    slimmer (18.5.2)
+      json
+      nokogiri (~> 1.7)
+      null_logger
+      plek (>= 1.1.0)
+      rack (>= 3.0)
+      rest-client
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -145,18 +176,6 @@ GEM
     googleapis-common-protos-types (1.15.0)
       google-protobuf (>= 3.18, < 5.a)
     govuk_ab_testing (2.4.3)
-    govuk_app_config (9.11.2)
-      logstasher (~> 2.1)
-      opentelemetry-exporter-otlp (>= 0.25, < 0.27)
-      opentelemetry-instrumentation-all (>= 0.39.1, < 0.61.0)
-      opentelemetry-sdk (~> 1.2)
-      plek (>= 4, < 6)
-      prometheus_exporter (~> 2.0)
-      puma (>= 5.6, < 7.0)
-      rack-proxy (~> 0.7)
-      sentry-rails (~> 5.3)
-      sentry-ruby (~> 5.3)
-      statsd-ruby (~> 1.5)
     govuk_personalisation (0.16.0)
       plek (>= 1.9.0)
       rails (>= 6, < 8)
@@ -658,13 +677,6 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    slimmer (18.5.2)
-      json
-      nokogiri (~> 1.7)
-      null_logger
-      plek (>= 1.1.0)
-      rack (>= 3.0)
-      rest-client
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -720,7 +732,7 @@ DEPENDENCIES
   dotenv-rails
   gds-api-adapters
   govuk_ab_testing
-  govuk_app_config
+  govuk_app_config!
   govuk_personalisation
   govuk_publishing_components
   govuk_schemas
@@ -741,7 +753,7 @@ DEPENDENCIES
   rubocop-govuk
   shoulda-context
   simplecov
-  slimmer
+  slimmer!
   sprockets-rails
   terser
   timecop

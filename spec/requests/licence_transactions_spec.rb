@@ -1,32 +1,27 @@
-require "test_helper"
 require "gds_api/test_helpers/locations_api"
 require "gds_api/test_helpers/local_links_manager"
 require "gds_api/test_helpers/licence_application"
 
-class LicenceTransactionControllerTest < ActionController::TestCase
+RSpec.describe "Licence Transactions" do
   include GdsApi::TestHelpers::LocationsApi
   include GdsApi::TestHelpers::LocalLinksManager
   include GdsApi::TestHelpers::LicenceApplication
   include LocationHelpers
 
   context "GET start" do
-    context "for live content" do
-      setup do
-        content_store_has_example_item(
-          "/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction"
-        )
-      end
+    before do
+      content_store_has_example_item("/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction")
+    end
 
-      should "set the cache expiry headers" do
-        get :start, params: { slug: "new-licence" }
+    it "sets the cache expiry headers" do
+      get "/find-licences/new-licence"
 
-        honours_content_store_ttl
-      end
+      honours_content_store_ttl
     end
   end
 
   context "POST to find" do
-    setup do
+    before do
       @payload = {
         base_path: "/find-licences/new-licence",
         document_type: "licence_transaction",
@@ -41,12 +36,11 @@ class LicenceTransactionControllerTest < ActionController::TestCase
           },
         },
       }
-
       stub_content_store_has_item("/find-licences/new-licence", @payload)
     end
 
     context "loading the licence edition when posting a location" do
-      setup do
+      before do
         stub_licence_exists(
           "1071-5-1/00BK",
           "isLocationSpecific" => true,
@@ -71,28 +65,24 @@ class LicenceTransactionControllerTest < ActionController::TestCase
           ],
         )
         configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire], 3435)
-        post :find, params: { slug: "new-licence", postcode: "ST10 4DB" }
+        post "/find-licences/new-licence/", params: { postcode: "ST10 4DB" }
       end
 
-      should "redirect to the slug with actionable licence" do
-        assert_redirected_to "/find-licences/new-licence/staffordshire"
+      it "redirects to the slug with actionable licence" do
+        expect(response).to redirect_to("/find-licences/new-licence/staffordshire")
       end
     end
   end
 
   context "GET authority" do
-    context "for live content" do
-      setup do
-        content_store_has_example_item(
-          "/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction"
-        )
-      end
+    before do
+      content_store_has_example_item("/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction")
+    end
 
-      should "set the cache expiry headers" do
-        get :authority, params: { slug: "new-licence", authority_slug: "secret-service" }
+    it "sets the cache expiry headers" do
+      get "/find-licences/new-licence/secret-service"
 
-        honours_content_store_ttl
-      end
+      honours_content_store_ttl
     end
   end
 end

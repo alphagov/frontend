@@ -1,21 +1,17 @@
-require "integration_test_helper"
+RSpec.describe "Icalendar", type: :system do
+  include CalendarHelpers
 
-class IcalendarTest < ActionDispatch::IntegrationTest
-  setup do
+  before do
     ["/gwyliau-banc", "/bank-holidays"].each do |base_path|
-      content_item = {
-        base_path:,
-        schema_name: "calendar",
-        document_type: "calendar",
-      }
+      content_item = { base_path:, schema_name: "calendar", document_type: "calendar" }
       stub_content_store_has_item(base_path, content_item)
+      mock_calendar_fixtures
     end
   end
 
   context "getting ICS version" do
-    setup do
-      # This timestamp is used to generate the DTSTAMP entries
-      File.stubs(:mtime).with(Rails.root.join("REVISION")).returns(Time.zone.parse("2012-10-17 01:00:00"))
+    before do
+      allow(File).to receive(:mtime).with(Rails.root.join("REVISION")).and_return(Time.zone.parse("2012-10-17 01:00:00"))
     end
 
     calendars = {
@@ -26,24 +22,21 @@ class IcalendarTest < ActionDispatch::IntegrationTest
       "english-scotland" => "/bank-holidays/scotland.ics",
       "english-northern-ireland" => "/bank-holidays/northern-ireland.ics",
     }
-
     calendars.each do |calendar, calendar_path|
-      should "contain all events in #{calendar}" do
-        get calendar_path
-        assert_equal response.status, 200
+      it "contains all events in #{calendar}" do
+        visit(calendar_path)
 
+        expect(page.status_code).to eq(200)
         expected_non_scottish_events = [
           { "date" => "20120102", "title" => I18n.t("bank_holidays.new_year") },
           { "date" => "20120604", "title" => I18n.t("bank_holidays.spring") },
           { "date" => "20120827", "title" => I18n.t("bank_holidays.summer") },
         ]
-
         expected_scottish_events = [
           { "date" => "20120103", "title" => I18n.t("bank_holidays.new_year") },
           { "date" => "20120604", "title" => I18n.t("bank_holidays.spring") },
           { "date" => "20120806", "title" => I18n.t("bank_holidays.summer") },
         ]
-
         common_expected_events = [
           { "date" => "20120605", "title" => I18n.t("bank_holidays.queen_diamond") },
           { "date" => "20121225", "title" => I18n.t("bank_holidays.christmas") },
@@ -53,40 +46,31 @@ class IcalendarTest < ActionDispatch::IntegrationTest
           { "date" => "20131225", "title" => I18n.t("bank_holidays.christmas") },
           { "date" => "20131226", "title" => I18n.t("bank_holidays.boxing_day") },
         ]
-
         expected_events = if calendar.include?("scotland")
-                            expected_scottish_events + common_expected_events
+                            (expected_scottish_events + common_expected_events)
                           else
-                            expected_non_scottish_events + common_expected_events
+                            (expected_non_scottish_events + common_expected_events)
                           end
 
-        assert(
-          response.body.start_with?(
-            "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nPRODID:-//uk.gov/GOVUK calendars//EN\r\nCALSCALE:GREGORIAN\r\n",
-          ),
-        )
-
-        assert_equal "text/calendar; charset=utf-8", response.content_type
-        assert_equal "max-age=86400, public", response.headers["Cache-Control"]
-
+        expect(page.body).to start_with("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nPRODID:-//uk.gov/GOVUK calendars//EN\r\nCALSCALE:GREGORIAN\r\n")
+        expect(page.response_headers["content-type"]).to eq("text/calendar; charset=utf-8")
+        expect(page.response_headers["Cache-Control"]).to eq("max-age=86400, public")
         expected_events.each do |event|
           end_date = (Date.parse(event["date"]) + 1.day).strftime("%Y%m%d")
           expected = "BEGIN:VEVENT\r\nDTEND;VALUE=DATE:#{end_date}\r\nDTSTART;VALUE=DATE:#{event['date']}\r\nSUMMARY:#{event['title']}\r\n"
-
-          assert(response.body.include?(expected))
+          expect(page.body).to include(expected)
         end
       end
     end
-
-    should "have redirect for old 'ni' division" do
-      get "/bank-holidays/ni.ics"
-      assert_equal 301, response.status
-      assert_equal "http://www.example.com/bank-holidays/northern-ireland.ics", response.location
+    it "redirects old 'ni' division" do
+      visit "/bank-holidays/ni.ics"
+      expect(page.current_url).to eq("http://www.example.com/bank-holidays/northern-ireland.ics")
     end
 
-    should "404 if the division does not exist" do
-      get "/bank-holidays/never-never-land.ics"
-      assert_equal 404, response.status
+    it "returns 404 if the division does not exist" do
+      visit "/bank-holidays/never-never-land.ics"
+
+      expect(page.status_code).to eq(404)
     end
   end
 end

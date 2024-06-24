@@ -22,7 +22,6 @@
     searchInput.addEventListener('keyup', function () {
       var filter = this.value
       filterInst.filterListItems(filter)
-      filterInst.track(filter)
     })
 
     if (this.container) {
@@ -146,18 +145,6 @@
     if (showingCount == 0) { // this is intentional type-conversion
       counter.appendChild(document.createTextNode(' results'))
     }
-  }
-
-  CountryFilter.prototype._trackTimeout = false
-
-  CountryFilter.prototype.track = function (search) {
-    clearTimeout(this._trackTimeout)
-    var pagePath = this.pagePath()
-    this._trackTimeout = root.setTimeout(function () {
-      if (pagePath) {
-        GOVUK.analytics.trackEvent('searchBoxFilter', search, { label: pagePath, nonInteraction: true })
-      }
-    }, 1000)
   }
 
   CountryFilter.prototype.pagePath = function () {

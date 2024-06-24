@@ -1,20 +1,17 @@
-require "integration_test_helper"
+RSpec.describe "Homepage" do
+  before { stub_content_store_has_item("/", schema: "special_route", links: {}) }
 
-class HomepageTest < ActionDispatch::IntegrationTest
-  setup do
-    stub_content_store_has_item("/", schema: "special_route", links: {})
-  end
-
-  should "render the homepage" do
+  it "renders the homepage" do
     visit "/"
-    assert_equal 200, page.status_code
-    assert_equal "Welcome to GOV.UK", page.title
-    assert page.has_css?(".homepage-header__title")
-    assert page.has_no_css?(".homepage-inverse-header__title")
+
+    expect(page.status_code).to eq(200)
+    expect(page.title).to eq("Welcome to GOV.UK")
+    expect(page).to have_css(".homepage-header__title")
+    expect(page).not_to have_css(".homepage-inverse-header__title")
   end
 
   context "when visiting a Welsh content item first" do
-    setup do
+    before do
       @payload = {
         base_path: "/cymraeg",
         content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
@@ -33,10 +30,11 @@ class HomepageTest < ActionDispatch::IntegrationTest
       stub_content_store_has_item("/cymraeg", @payload)
     end
 
-    should "use the English locale after visiting the Welsh content" do
+    it "uses the English locale after visiting the Welsh content" do
       visit @payload[:base_path]
       visit "/"
-      assert page.has_content?(I18n.t("homepage.index.government_activity_description", locale: :en))
+
+      expect(page).to have_content(I18n.t("homepage.index.government_activity_description", locale: :en))
     end
   end
 end

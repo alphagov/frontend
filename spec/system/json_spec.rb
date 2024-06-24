@@ -1,54 +1,49 @@
-require "integration_test_helper"
+RSpec.describe "JSON", type: :system do
+  include CalendarHelpers
 
-class JSONTest < ActionDispatch::IntegrationTest
-  setup do
-    content_item = {
-      base_path: "/bank-holidays",
-      schema_name: "calendar",
-      document_type: "calendar",
-    }
+  before do
+    content_item = { base_path: "/bank-holidays", schema_name: "calendar", document_type: "calendar" }
     stub_content_store_has_item("/bank-holidays", content_item)
+    mock_calendar_fixtures
   end
 
   context "GET /calendars/<calendar>.json" do
-    should "contain calendar with division" do
-      get "/bank-holidays/england-and-wales.json"
-
+    it "contains calendar with division" do
+      visit "/bank-holidays/england-and-wales.json"
       expected = {
         "division" => "england-and-wales",
         "events" => [
-          { "date" => "2012-01-02", "notes" => "Substitute day", "title" => "New Year’s Day", "bunting" => true },
+          { "date" => "2012-01-02", "notes" => "Substitute day", "title" => "New Year\u2019s Day", "bunting" => true },
           { "date" => "2012-06-04", "notes" => "Substitute day", "title" => "Spring bank holiday", "bunting" => true },
-          { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen’s Diamond Jubilee", "bunting" => true },
+          { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen\u2019s Diamond Jubilee", "bunting" => true },
           { "date" => "2012-08-27", "notes" => "", "title" => "Summer bank holiday", "bunting" => true },
           { "date" => "2012-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
           { "date" => "2012-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
-          { "date" => "2013-01-01", "notes" => "", "title" => "New Year’s Day", "bunting" => true },
+          { "date" => "2013-01-01", "notes" => "", "title" => "New Year\u2019s Day", "bunting" => true },
           { "date" => "2013-03-29", "notes" => "", "title" => "Good Friday", "bunting" => false },
           { "date" => "2013-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
           { "date" => "2013-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
         ],
       }
+      actual = JSON.parse(page.body)
 
-      actual = JSON.parse(@response.body)
-      assert((expected["events"] - actual["events"]).empty?)
-      assert_equal expected["division"], actual["division"]
+      expect((expected["events"] - actual["events"]).empty?).to be true
+      expect(actual["division"]).to eq(expected["division"])
     end
 
-    should "have the full calendar json view" do
-      get "/bank-holidays.json"
-
+    it "has the full calendar json view" do
+      visit "/bank-holidays.json"
       expected = {
         "england-and-wales" => {
           "division" => "england-and-wales",
           "events" => [
-            { "date" => "2012-01-02", "notes" => "Substitute day", "title" => "New Year’s Day", "bunting" => true },
+            { "date" => "2012-01-02", "notes" => "Substitute day", "title" => "New Year\u2019s Day", "bunting" => true },
             { "date" => "2012-06-04", "notes" => "Substitute day", "title" => "Spring bank holiday", "bunting" => true },
-            { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen’s Diamond Jubilee", "bunting" => true },
+            { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen\u2019s Diamond Jubilee", "bunting" => true },
             { "date" => "2012-08-27", "notes" => "", "title" => "Summer bank holiday", "bunting" => true },
             { "date" => "2012-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
             { "date" => "2012-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
-            { "date" => "2013-01-01", "notes" => "", "title" => "New Year’s Day", "bunting" => true },
+            { "date" => "2013-01-01", "notes" => "", "title" => "New Year\u2019s Day", "bunting" => true },
             { "date" => "2013-03-29", "notes" => "", "title" => "Good Friday", "bunting" => false },
             { "date" => "2013-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
             { "date" => "2013-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
@@ -58,15 +53,15 @@ class JSONTest < ActionDispatch::IntegrationTest
           "division" => "scotland",
           "events" => [
             { "date" => "2012-01-02", "notes" => "", "title" => "2nd January", "bunting" => true },
-            { "date" => "2012-01-03", "notes" => "Substitute day", "title" => "New Year’s Day", "bunting" => true },
+            { "date" => "2012-01-03", "notes" => "Substitute day", "title" => "New Year\u2019s Day", "bunting" => true },
             { "date" => "2012-06-04", "notes" => "Substitute day", "title" => "Spring bank holiday", "bunting" => true },
-            { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen’s Diamond Jubilee", "bunting" => true },
+            { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen\u2019s Diamond Jubilee", "bunting" => true },
             { "date" => "2012-08-06", "notes" => "", "title" => "Summer bank holiday", "bunting" => true },
             { "date" => "2012-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
             { "date" => "2012-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
-            { "date" => "2013-01-01", "notes" => "", "title" => "New Year’s Day", "bunting" => true },
+            { "date" => "2013-01-01", "notes" => "", "title" => "New Year\u2019s Day", "bunting" => true },
             { "date" => "2013-03-29", "notes" => "", "title" => "Good Friday", "bunting" => false },
-            { "date" => "2013-12-02", "notes" => "Substitute day", "title" => "St Andrew’s Day", "bunting" => true },
+            { "date" => "2013-12-02", "notes" => "Substitute day", "title" => "St Andrew\u2019s Day", "bunting" => true },
             { "date" => "2013-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
             { "date" => "2013-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
           ],
@@ -74,33 +69,34 @@ class JSONTest < ActionDispatch::IntegrationTest
         "northern-ireland" => {
           "division" => "northern-ireland",
           "events" => [
-            { "date" => "2012-01-02", "notes" => "Substitute day", "title" => "New Year’s Day", "bunting" => true },
-            { "date" => "2012-03-19", "notes" => "Substitute day", "title" => "St Patrick’s Day", "bunting" => true },
+            { "date" => "2012-01-02", "notes" => "Substitute day", "title" => "New Year\u2019s Day", "bunting" => true },
+            { "date" => "2012-03-19", "notes" => "Substitute day", "title" => "St Patrick\u2019s Day", "bunting" => true },
             { "date" => "2012-06-04", "notes" => "", "title" => "Spring bank holiday", "bunting" => true },
-            { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen’s Diamond Jubilee", "bunting" => true },
+            { "date" => "2012-06-05", "notes" => "Extra bank holiday", "title" => "Queen\u2019s Diamond Jubilee", "bunting" => true },
             { "date" => "2012-08-27", "notes" => "", "title" => "Summer bank holiday", "bunting" => true },
             { "date" => "2012-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
             { "date" => "2012-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
-            { "date" => "2013-01-01", "notes" => "", "title" => "New Year’s Day", "bunting" => true },
+            { "date" => "2013-01-01", "notes" => "", "title" => "New Year\u2019s Day", "bunting" => true },
             { "date" => "2013-03-29", "notes" => "", "title" => "Good Friday", "bunting" => false },
-            { "date" => "2013-07-12", "notes" => "", "title" => "Battle of the Boyne (Orangemen’s Day)", "bunting" => false },
+            { "date" => "2013-07-12", "notes" => "", "title" => "Battle of the Boyne (Orangemen\u2019s Day)", "bunting" => false },
             { "date" => "2013-12-25", "notes" => "", "title" => "Christmas Day", "bunting" => true },
             { "date" => "2013-12-26", "notes" => "", "title" => "Boxing Day", "bunting" => true },
           ],
         },
       }
-      actual = JSON.parse(@response.body)
+      actual = JSON.parse(page.body)
+
       expected.each do |nation, expected_bank_holidays|
         actual_bank_holidays = actual.fetch(nation)
-        assert((expected_bank_holidays["events"] - actual_bank_holidays["events"]).empty?)
-        assert_equal expected_bank_holidays["division"], actual_bank_holidays["division"]
+        expect((expected_bank_holidays["events"] - actual_bank_holidays["events"]).empty?).to be true
+        expect(actual_bank_holidays["division"]).to eq(expected_bank_holidays["division"])
       end
     end
 
-    should "have redirect for old 'ni' division" do
-      get "/bank-holidays/ni.json"
-      assert_equal 301, response.status
-      assert_equal "http://www.example.com/bank-holidays/northern-ireland.json", response.location
+    it "has redirect for old 'ni' division" do
+      visit "/bank-holidays/ni.json"
+
+      expect(page.current_url).to eq("http://www.example.com/bank-holidays/northern-ireland.json")
     end
   end
 end

@@ -162,19 +162,9 @@ class PlacesTest < ActionDispatch::IntegrationTest
       end
     end
 
-    should "add google analytics for postcodeResultsShown" do
-      track_category = page.find(".places-results")["data-track-category"]
-      track_action = page.find(".places-results")["data-track-action"]
-      track_label = page.find(".places-results")["data-track-label"]
-
-      assert_equal "postcodeSearch:place", track_category
-      assert_equal "postcodeResultShown", track_action
-      assert_equal "London IPS Office", track_label
-    end
-
     should "add GA4 form_complete attributes" do
       data_module = page.find(".places-results")["data-module"]
-      expected_data_module = "auto-track-event ga4-auto-tracker ga4-link-tracker"
+      expected_data_module = "ga4-auto-tracker ga4-link-tracker"
 
       ga4_auto_attribute = page.find(".places-results")["data-ga4-auto"]
       ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"place\",\"text\":\"Results near [postcode]\",\"tool_name\":\"Find a passport interview office\"}"
@@ -185,7 +175,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "add GA4 information click attributes" do
       data_module = page.find(".places-results")["data-module"]
-      expected_data_module = "auto-track-event ga4-auto-tracker ga4-link-tracker"
+      expected_data_module = "ga4-auto-tracker ga4-link-tracker"
 
       assert page.has_selector?("[data-ga4-set-indexes]")
       assert page.has_selector?("[data-ga4-track-links-only]")
@@ -215,16 +205,6 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "inform the user on the lack of results" do
       assert page.has_content?("We couldn't find any results for this postcode.")
-    end
-
-    should "add google analytics for noResults" do
-      track_category = page.find(".gem-c-error-summary")["data-track-category"]
-      track_action = page.find(".gem-c-error-summary")["data-track-action"]
-      track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-      assert_equal "userAlerts: place", track_category
-      assert_equal "postcodeErrorShown: validPostcodeNoLocation", track_action
-      assert_equal "We couldn't find any results for this postcode.", track_label
     end
   end
 

@@ -12,11 +12,7 @@
     <p class="govuk-body">
         <%= t("formats.local_transaction.info_on_country_website.#{@country_name.parameterize(separator: "_")}") %>
     </p>
-    <div class="local-authority-result"
-         data-module="auto-track-event"
-         data-track-category="postcodeSearch:local_transaction"
-         data-track-action="postcodeResultShown:devolvedAdministrationService"
-         data-track-label="<%= @country_name %>">
+    <div class="local-authority-result">
       <p id="get-started" class="get-started group">
         <%= render "govuk_publishing_components/components/button", {
           text: t("formats.local_transaction.find_info_for", country_name: @country_name) ,

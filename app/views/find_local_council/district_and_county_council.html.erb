@@ -13,10 +13,7 @@
 
   <% ga4_type = content_item_hash["document_type"].gsub("_", " ") %>
   <div class="local-authority-results"
-       data-module="auto-track-event ga4-auto-tracker"
-       data-track-category="postcodeSearch:find_local_council"
-       data-track-action="postcodeResultShown"
-       data-track-label="2 Results"
+       data-module="ga4-auto-tracker"
        data-ga4-auto="<%= {
          event_name: "form_complete",
          action: "complete",

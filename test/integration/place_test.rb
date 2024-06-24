@@ -220,7 +220,7 @@ class PlacesTest < ActionDispatch::IntegrationTest
 
     should "include GA4 form error attributes" do
       data_module = page.find("#results")["data-module"]
-      expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+      expected_data_module = "ga4-auto-tracker govuk-error-summary"
 
       ga4_error_attribute = page.find("#results")["data-ga4-auto"]
       ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"place\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find a passport interview office\"}"

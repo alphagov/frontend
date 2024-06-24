@@ -342,14 +342,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_field? "postcode", with: "NO POSTCODE"
         end
 
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-summary")["data-track-action"]
-          track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-          assert_equal "This isn't a valid postcode.", track_label
-        end
-
         should "include GA4 attributes" do
           page_error = page.find("#error")
 
@@ -386,14 +378,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "see an error message" do
           assert page.has_content? "This isn't a valid postcode"
-        end
-
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-summary")["data-track-action"]
-          track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-          assert_equal "This isn't a valid postcode.", track_label
         end
       end
 
@@ -502,14 +486,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "see an error message" do
           assert page.has_content? "We couldn't find a council for this postcode."
-        end
-
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-summary")["data-track-action"]
-          track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: noLaMatch", track_action
-          assert_equal "We couldn't find a council for this postcode.", track_label
         end
       end
     end

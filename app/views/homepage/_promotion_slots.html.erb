@@ -17,17 +17,8 @@
   <% t("homepage.index.promotion_slots").each_with_index do | item, index | %>
     <%= render "govuk_publishing_components/components/image_card", {
       href: item[:href],
-      href_data_attributes: {
-        track_category: "homepageClicked",
-        track_action: "promoLink",
-        track_label: item[:href],
-        track_value: "1",
-        track_dimension_index: "29",
-        track_dimension: item[:title],
-      },
       data_attributes: {
         module: "ga4-link-tracker",
-        track_links_only: '',
         ga4_link: {
           event_name: 'navigation',
           type: 'homepage',

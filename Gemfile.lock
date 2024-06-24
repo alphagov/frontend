@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: https://github.com/alphagov/slimmer.git
-  revision: 21eaaa13fbc3441c2075827774e32cf585ac243b
-  branch: 2495-sentry-errors-fix-frontend-nomethoderror-2
+  revision: d80976382602ad70edebf2ee1a25ebc8a5c0e495
+  branch: 2495-testing
   specs:
     slimmer (18.5.2)
       json

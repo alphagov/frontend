@@ -23,13 +23,7 @@
 
 <%= render "govuk_publishing_components/components/list", {
   items: [
-    sanitize(link_to website, website, class: "govuk-link",
-    data: {
-      module: 'gem-track-click',
-      track_category: 'pageElementInteraction',
-      track_action: 'electionsLinkClicked',
-      track_label: website
-    }),
+    sanitize(link_to website, website, class: "govuk-link"),
     phone,
     email,
   ]

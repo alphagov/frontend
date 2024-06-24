@@ -24,10 +24,7 @@
           href: @authority["homepage_url"],
           text: t("formats.local_transaction.local_authority_website", local_authority_name: @authority["name"]),
           data_attributes: {
-            module: "gem-track-click ga4-link-tracker",
-            track_category: "pageElementInteraction",
-            track_action: "unitaryLinkClicked",
-            track_label: @authority["homepage_url"],
+            module: "ga4-link-tracker",
             ga4_link: {
               event_name: "information_click",
               action: "information click",

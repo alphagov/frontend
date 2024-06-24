@@ -75,21 +75,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
         end
 
-        should "add google analytics for postcodeResultsShown" do
-          track_category = page.find(".local-authority-results")["data-track-category"]
-          track_action = page.find(".local-authority-results")["data-track-action"]
-          track_label = page.find(".local-authority-results")["data-track-label"]
-
-          assert_equal "postcodeSearch:find_local_council", track_category
-          assert_equal "postcodeResultShown", track_action
-          assert_equal "1 Result", track_label
-        end
-
-        should "add google analytics for exit link tracking" do
-          track_action = find_link("Go to Westminster website")["data-track-action"]
-          assert_equal "unitaryLinkClicked", track_action
-        end
-
         should "add GA4 attributes for exit link tracking" do
           element = page.find(".gem-c-button")
 
@@ -166,24 +151,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             assert page.has_content?("District councils are responsible for services like:")
             assert page.has_link?("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
-        end
-
-        should "add google analytics for postcodeResultsShown" do
-          track_category = page.find(".local-authority-results")["data-track-category"]
-          track_action = page.find(".local-authority-results")["data-track-action"]
-          track_label = page.find(".local-authority-results")["data-track-label"]
-
-          assert_equal "postcodeSearch:find_local_council", track_category
-          assert_equal "postcodeResultShown", track_action
-          assert_equal "2 Results", track_label
-        end
-
-        should "add google analytics for exit link tracking" do
-          district_track_action = find_link("Go to Aylesbury website")["data-track-action"]
-          county_track_action = find_link("Go to Buckinghamshire website")["data-track-action"]
-
-          assert_equal "districtLinkClicked", district_track_action
-          assert_equal "countyLinkClicked", county_track_action
         end
 
         should "add GA4 attributes for exit link tracking" do
@@ -267,24 +234,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             assert page.has_content?("District councils are responsible for services like:")
             assert page.has_link?("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
-        end
-
-        should "add google analytics for postcodeResultsShown" do
-          track_category = page.find(".local-authority-results")["data-track-category"]
-          track_action = page.find(".local-authority-results")["data-track-action"]
-          track_label = page.find(".local-authority-results")["data-track-label"]
-
-          assert_equal "postcodeSearch:find_local_council", track_category
-          assert_equal "postcodeResultShown", track_action
-          assert_equal "2 Results", track_label
-        end
-
-        should "add google analytics for exit link tracking" do
-          district_track_action = find_link("Go to Aylesbury website")["data-track-action"]
-          county_track_action = find_link("Go to Buckinghamshire website")["data-track-action"]
-
-          assert_equal "districtLinkClicked", district_track_action
-          assert_equal "countyLinkClicked", county_track_action
         end
       end
 

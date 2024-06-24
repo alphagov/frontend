@@ -394,14 +394,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "not show the transaction information" do
         assert_not page.has_content?("owning or looking after a bear")
       end
-
-      should "add google analytics tags" do
-        track_category = page.find(".local-authority-result")["data-track-category"]
-        track_action = page.find(".local-authority-result")["data-track-action"]
-
-        assert_equal "userAlerts:local_transaction", track_category
-        assert_equal "postcodeResultShown:laMatchNoLink", track_action
-      end
     end
   end
 
@@ -443,14 +435,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     should "not present the form again" do
       assert page.has_no_field? "postcode"
-    end
-
-    should "add google analytics tags" do
-      track_category = page.find(".local-authority-result")["data-track-category"]
-      track_action = page.find(".local-authority-result")["data-track-action"]
-
-      assert_equal "userAlerts:local_transaction", track_category
-      assert_equal "postcodeResultShown:laMatchNoLinkNoAuthorityUrl", track_action
     end
   end
 

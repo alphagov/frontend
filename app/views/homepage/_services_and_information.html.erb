@@ -10,13 +10,12 @@
         } %>
       </div>
 
-      <ul class="homepage-services-and-info__list" data-module="gem-track-click ga4-link-tracker">
+      <ul class="homepage-services-and-info__list" data-module="ga4-link-tracker">
         <% t("homepage.categories").each_with_index do | item, index | %>
           <%= render partial: "homepage/chevron_card", locals: {
             description: item[:description],
             link: item[:link],
             title: item[:title],
-            track_action: "topicsLink",
             index_section: locals[:index_section],
             index_link: index + 1,
             index_section_count: locals[:index_section_count],

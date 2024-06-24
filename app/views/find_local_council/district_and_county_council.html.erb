@@ -47,10 +47,7 @@
             local_authority_name: @county["name"]), @county["homepage_url"],
             class: "govuk-link",
             data: {
-              module: 'gem-track-click ga4-link-tracker',
-              track_category: 'pageElementInteraction',
-              track_action: 'countyLinkClicked',
-              track_label: @county["homepage_url"],
+              module: 'ga4-link-tracker',
               ga4_link: {
                 event_name: "information_click",
                 action: "information click",
@@ -90,10 +87,7 @@
             local_authority_name: @district["name"]), @district["homepage_url"],
             class: "govuk-link",
             data: {
-              module: 'gem-track-click ga4-link-tracker',
-              track_category: 'pageElementInteraction',
-              track_action: 'districtLinkClicked',
-              track_label: @district["homepage_url"],
+              module: 'ga4-link-tracker',
               ga4_link: {
                 event_name: "information_click",
                 action: "information click",

@@ -39,14 +39,6 @@
       } %>
     <% end %>
     <p id="get-started" class="get-started group">
-      <%
-        data_attributes = {}
-        if publication.department_analytics_profile.present?
-          data_attributes["module"] =  "cross-domain-tracking"
-          data_attributes["tracking-code"] = publication.department_analytics_profile
-          data_attributes["tracking-name"] = "transactionTracker"
-        end
-      %>
       <% info_text = "#{t('formats.transaction.on')} #{publication.will_continue_on}" if publication.will_continue_on.present? %>
       <%= render "govuk_publishing_components/components/button",
                   text: publication.start_button_text.html_safe,
@@ -54,8 +46,7 @@
                   href: publication.transaction_start_link,
                   start: true,
                   info_text: info_text,
-                  margin_bottom: true,
-                  data_attributes: data_attributes %>
+                  margin_bottom: true %>
     </p>
   </section>
 

@@ -155,11 +155,6 @@ class TransactionTest < ActionDispatch::IntegrationTest
         rel: "external",
         href: "http://cti.voa.gov.uk/cti/inits.asp",
         start: true,
-        data_attributes: {
-          "module" => "cross-domain-tracking",
-          "tracking-code" => "UA-12345-6",
-          "tracking-name" => "transactionTracker",
-        },
       )
     end
   end

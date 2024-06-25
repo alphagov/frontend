@@ -16,4 +16,6 @@ Dir[Rails.root.join("spec/support/*.rb")].sort.each { |f| require f }
 
 GovukTest.configure
 
-RSpec.configure
+RSpec.configure do |config|
+  config.include ComponentHelpers, type: :view
+end

@@ -130,6 +130,8 @@ GEM
     execjs (2.9.1)
     expgen (0.1.1)
       parslet
+    faker (3.4.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
     find_a_port (1.0.1)
     gds-api-adapters (96.0.1)
@@ -169,7 +171,8 @@ GEM
       rouge
       sprockets (>= 3)
       sprockets-rails
-    govuk_schemas (5.0.2)
+    govuk_schemas (5.0.4)
+      faker (~> 3.4.1)
       json-schema (>= 2.8, < 4.4)
     govuk_test (4.1.0)
       brakeman (>= 5.0.2)

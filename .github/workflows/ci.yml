@@ -61,3 +61,10 @@ jobs:
     uses: ./.github/workflows/pact-verify.yml
     with:
       ref: ${{ github.ref }}
+
+  test-coverage:
+    name: Check test coverage
+    needs:
+      - test-ruby
+      - pact-tests
+    uses: ./.github/workflows/test-coverage.yml

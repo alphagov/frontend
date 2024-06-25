@@ -46,4 +46,12 @@ jobs:
         env:
           RAILS_ENV: test
           GOVUK_CONTENT_SCHEMAS_PATH: vendor/publishing-api/content_schemas
+          TEST_COVERAGE_EXCLUDED_PATHS: '{lib/bank_holiday_generator.rb,lib/frontend.rb,lib/*_routing_constraint.rb}'
         run: bundle exec rake test
+
+      - name: Store test coverage statistics
+        uses: actions/upload-artifact@v4
+        with:
+          name: minitest-test-coverage
+          path: coverage/statistics.txt
+          retention-days: 1

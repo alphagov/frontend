@@ -1,6 +1,5 @@
-require "simplecov"
-SimpleCov.start "rails"
-
+require_relative "test_coverage"
+TestCoverage.start
 require "i18n/coverage"
 require "i18n/coverage/printers/file_printer"
 I18n::Coverage.config.printer = I18n::Coverage::Printers::FilePrinter

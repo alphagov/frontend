@@ -1,0 +1,44 @@
+name: Check test coverage
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: 'The branch, tag or SHA to checkout'
+        required: false
+        type: string
+
+jobs:
+  check_ruby_test_coverage:
+    name: Check Ruby test coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          repository: alphagov/frontend
+          ref: ${{ inputs.ref || github.ref }}
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Retrieve minitest test coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: minitest-test-coverage
+          path: minitest-test-coverage
+
+      - name: Retrieve pact test coverage
+        uses: actions/download-artifact@v4
+        with:
+          name: pact-test-coverage
+          path: pact-test-coverage
+
+      - name: Check Ruby test coverage
+        run: >-
+          bundle exec ruby -e 'require_relative "test/test_coverage.rb"; TestCoverage.check_test_coverage'
+          minitest-test-coverage/statistics.txt
+          pact-test-coverage/statistics.txt
+

@@ -59,12 +59,6 @@ module ContentStoreHelpers
     content_store_has_random_item(base_path: "/#{slug}")
   end
 
-  def content_store_throws_exception_for(path, exception)
-    content_store = stub
-    content_store.stubs(:content_item).with(path).raises(exception)
-    GdsApi.stubs(:content_store).returns(content_store)
-  end
-
   def content_store_has_archived_page(slug)
     stub_content_store_has_gone_item("/#{slug}")
   end

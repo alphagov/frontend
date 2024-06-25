@@ -7,4 +7,8 @@ module FeatureHelpers
       assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
     end
   end
+
+  def assert_page_has_content(text)
+    assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
+  end
 end

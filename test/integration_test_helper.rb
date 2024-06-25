@@ -31,10 +31,6 @@ class ActionDispatch::IntegrationTest
     content_item
   end
 
-  def assert_page_has_content(text)
-    assert page.has_content?(text), %(expected there to be content #{text} in #{page.text.inspect})
-  end
-
   def assert_page_is_full_width
     assert_not page.has_css?(".govuk-grid-row")
   end

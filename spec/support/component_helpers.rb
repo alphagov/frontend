@@ -1,4 +1,16 @@
-class ActiveSupport::TestCase
+module ComponentHelpers
+  def component_name
+    raise NotImplementedError, "Override this method in your test class"
+  end
+
+  def render_component(locals, &block)
+    if block_given?
+      render("components/#{component_name}", locals, &block)
+    else
+      render "components/#{component_name}", locals
+    end
+  end
+
   def assert_has_component_title(title)
     assert page.has_css?("h1", text: title)
   end

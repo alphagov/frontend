@@ -1,10 +1,9 @@
-require "integration_test_helper"
-
-class TransactionTest < ActionDispatch::IntegrationTest
+RSpec.describe "Transaction", type: :system do
+  include ButtonAsLinkHelpers
   include SchemaOrgHelpers
 
   context "a transaction with all the optional things" do
-    setup do
+    before do
       @payload = {
         analytics_identifier: nil,
         base_path: "/carrots",
@@ -23,8 +22,7 @@ class TransactionTest < ActionDispatch::IntegrationTest
         links: {},
         description: "Descriptive carrots text.",
         details: {
-          introductory_paragraph: "This is the introduction to carrots
-          <h2>Next bit</h2>If you'd like some carrots, you need to prove that you're not a rabbit",
+          introductory_paragraph: "This is the introduction to carrots\n          <h2>Next bit</h2>If you'd like some carrots, you need to prove that you're not a rabbit",
           transaction_start_link: "http://carrots.example.com",
           will_continue_on: "Carrotworld",
           start_button_text: "Eat Carrots Now",
@@ -33,85 +31,57 @@ class TransactionTest < ActionDispatch::IntegrationTest
         },
         external_related_links: [],
       }
-
       stub_content_store_has_item("/carrots", @payload)
     end
 
-    should "render the main information" do
+    it "renders the main information" do
       visit "/carrots"
 
-      assert_equal 200, page.status_code
-
-      within "head", visible: :all do
-        assert page.has_selector?("title", text: "Carrots - GOV.UK", visible: false)
-        assert_not page.has_selector?("meta[name='robots']", visible: false)
+      expect(page.status_code).to eq(200)
+      within("head", visible: :all) do
+        expect(page).to have_selector("title", text: "Carrots - GOV.UK", visible: false)
+        expect(page.has_selector?("meta[name='robots']", visible: false)).to be false
       end
-
-      within "#content" do
-        within ".gem-c-title" do
-          assert_has_component_title "Carrots"
-        end
-
-        within ".article-container" do
-          within "section.intro" do
-            assert page.has_selector?(".get-started-intro", text: "This is the introduction to carrots")
-
-            assert_has_button_as_link(
-              "Eat Carrots Now",
-              href: "http://carrots.example.com",
-              start: true,
-              rel: "external",
-            )
-
-            assert page.has_content?("Carrotworld")
+      within("#content") do
+        within(".gem-c-title") { expect(page).to have_title("Carrots") }
+        within(".article-container") do
+          within("section.intro") do
+            expect(page).to have_selector(".get-started-intro", text: "This is the introduction to carrots")
+            expect(page).to have_button_as_link("Eat Carrots Now", href: "http://carrots.example.com", start: true, rel: "external")
+            expect(page).to have_content("Carrotworld")
           end
         end
       end
-
       within(".gem-c-warning-text") do
-        assert page.has_content?("CarrotServe will be offline next week.")
+        expect(page).to have_content("CarrotServe will be offline next week.")
       end
     end
 
-    should "present the FAQ schema correctly until voting closes" do
+    it "presents the FAQ schema correctly until voting closes" do
       setup_register_to_vote
-
       when_voting_is_open do
         visit "/register-to-vote"
         faq_schema = find_schema_of_type("FAQPage")
 
-        assert_equal SchemaOrgHelpers::REGISTER_TO_VOTE_SCHEMA, faq_schema
+        expect(faq_schema).to eq(SchemaOrgHelpers::REGISTER_TO_VOTE_SCHEMA)
       end
     end
 
-    should "not present the custom FAQ schema once voting has closed" do
+    it "does not present the custom FAQ schema once voting has closed" do
       setup_register_to_vote
-
       when_voting_is_closed do
         visit "/register-to-vote"
         faq_schema = find_schema_of_type("FAQPage")
 
-        assert_nil faq_schema
+        expect(faq_schema).to be_nil
       end
     end
 
-    should "contain GovernmentService schema.org information" do
-      carrot_service_with_org = @payload.merge(
-        links: {
-          organisations: [
-            {
-              title: "Department for Carrots",
-              web_url: "https://www.gov.uk/department-for-carrots",
-            },
-          ],
-        },
-      )
+    it "contains GovernmentService schema.org information" do
+      carrot_service_with_org = @payload.merge(links: { organisations: [{ title: "Department for Carrots", web_url: "https://www.gov.uk/department-for-carrots" }] })
       stub_content_store_has_item("/carrots", carrot_service_with_org)
-
       visit "/carrots"
-
       service_schema = find_schema_of_type("GovernmentService")
-
       expected_service = {
         "@context" => "http://schema.org",
         "@type" => "GovernmentService",
@@ -126,56 +96,42 @@ class TransactionTest < ActionDispatch::IntegrationTest
           },
         ],
       }
-
-      assert_equal expected_service, service_schema
+      expect(service_schema).to eq(expected_service)
     end
   end
 
   context "jobsearch page" do
-    should "render ok" do
+    it "renders ok" do
       content_store_has_example_item("/jobsearch", schema: "transaction", example: "jobsearch")
       visit "/jobsearch"
 
-      assert_equal 200, page.status_code
-      assert_has_button_as_link(
-        "Start now",
-        href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx",
-      )
+      expect(page.status_code).to eq(200)
+      expect(page).to have_button_as_link("Start now", href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx")
     end
   end
 
   context "start page which should have cross domain analytics" do
-    should "include cross domain analytics javascript" do
+    it "includes cross domain analytics javascript" do
       content_store_has_example_item("/foo", schema: "transaction", example: "transaction")
       visit "/foo"
 
-      assert_equal 200, page.status_code
-      assert_has_button_as_link(
-        "Start now",
-        rel: "external",
-        href: "http://cti.voa.gov.uk/cti/inits.asp",
-        start: true,
-      )
+      expect(page.status_code).to eq(200)
+      expect(page).to have_button_as_link("Start now", rel: "external", href: "http://cti.voa.gov.uk/cti/inits.asp", start: true)
     end
   end
 
   context "start page format which shouldn't have cross domain analytics" do
-    should "not include cross domain analytics javascript" do
+    it "does not include cross domain analytics javascript" do
       content_store_has_example_item("/foo", schema: "transaction", example: "jobsearch")
       visit "/foo"
 
-      assert_equal 200, page.status_code
-      assert_has_button_as_link(
-        "Start now",
-        rel: "external",
-        start: true,
-        href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx",
-      )
+      expect(page.status_code).to eq(200)
+      expect(page).to have_button_as_link("Start now", rel: "external", start: true, href: "https://jobsearch.direct.gov.uk/JobSearch/PowerSearch.aspx")
     end
   end
 
   context "locale is 'cy'" do
-    setup do
+    before do
       @payload = {
         base_path: "/cymraeg",
         content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
@@ -194,39 +150,29 @@ class TransactionTest < ActionDispatch::IntegrationTest
       stub_content_store_has_item("/cymraeg", @payload)
     end
 
-    should "render start button text 'Dechrau nawr'" do
+    it "renders start button text 'Dechrau nawr'" do
       visit "/cymraeg"
 
-      within ".article-container" do
-        within "section.intro" do
-          assert_has_button_as_link(
-            "Dechrau nawr",
-            rel: "external",
-            start: true,
-            href: "http://cymraeg.example.com",
-          )
+      within(".article-container") do
+        within("section.intro") do
+          expect(page).to have_button_as_link("Dechrau nawr", rel: "external", start: true, href: "http://cymraeg.example.com")
         end
       end
     end
   end
 
   context "a transaction has variants" do
-    should "render correct content including robots meta tag" do
+    it "renders correct content including robots meta tag" do
       content_store_has_example_item("/council-tax-bands-2", schema: "transaction", example: "transaction-with-variants")
       visit "/council-tax-bands-2/council-tax-bands-2-staging"
 
-      assert_equal 200, page.status_code
-      assert_has_button_as_link(
-        "Start now",
-        href: "http://cti-staging.voa.gov.uk/cti/inits.asp",
-      )
-
-      within ".gem-c-title" do
-        assert_has_component_title "Check your Council Tax band (staging)"
+      expect(page.status_code).to eq(200)
+      expect(page).to have_button_as_link("Start now", href: "http://cti-staging.voa.gov.uk/cti/inits.asp")
+      within(".gem-c-title") do
+        expect(page).to have_title("Check your Council Tax band (staging)")
       end
-
-      within "head", visible: :all do
-        assert page.has_selector?("meta[name='robots'][content='noindex, nofollow']", visible: false)
+      within("head", visible: :all) do
+        expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: false)
       end
     end
   end

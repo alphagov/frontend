@@ -47,13 +47,4 @@ class ActionDispatch::IntegrationTest
       assert_equal Rack::Utils.parse_query(expected.query), Rack::Utils.parse_query(current.query)
     end
   end
-
-  def assert_bank_holiday_table(attrs)
-    table = page.find("caption", text: "#{attrs[:title]} #{attrs[:year]}").ancestor("table")
-    if attrs[:rows]
-      actual_rows = table.all("tr").map { |r| r.all("th, td").map(&:text).map(&:strip) }
-      assert_equal attrs[:rows], actual_rows
-      assert_match(/\d{4}-\d{2}-\d{2}/, table.first("time")[:datetime], "datetime attributes should be formatted correctly.")
-    end
-  end
 end

@@ -632,7 +632,6 @@ GEM
     rubocop-rspec (3.0.1)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-embedded (1.69.7)
       google-protobuf (~> 3.25)
@@ -648,7 +647,6 @@ GEM
     sentry-ruby (5.18.1)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    shoulda-context (2.0.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -727,7 +725,6 @@ DEPENDENCIES
   i18n-coverage
   invalid_utf8_rejector
   listen
-  mocha
   pact
   pact_broker-client
   plek
@@ -738,7 +735,6 @@ DEPENDENCIES
   rails_translation_manager
   rspec-rails
   rubocop-govuk
-  shoulda-context
   simplecov
   slimmer
   sprockets-rails

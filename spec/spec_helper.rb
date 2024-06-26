@@ -19,6 +19,7 @@ GovukTest.configure
 RSpec.configure do |config|
   config.include ComponentHelpers, type: :feature
   config.include ContentStoreHelpers, type: :feature
+  config.include FeatureHelpers, type: :feature
 
   config.include ComponentHelpers, type: :view
 end

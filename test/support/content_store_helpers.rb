@@ -35,8 +35,4 @@ module ContentStoreHelpers
   def content_store_has_archived_page(slug)
     stub_content_store_has_gone_item("/#{slug}")
   end
-
-  def honours_content_store_ttl
-    assert_equal "max-age=#{15.minutes.to_i}, public", response.headers["Cache-Control"]
-  end
 end

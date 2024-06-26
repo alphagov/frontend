@@ -44,4 +44,8 @@ module ContentStoreHelpers
     allow(content_store).to receive(:content_item).with(path).and_raise(exception)
     allow(GdsApi).to receive(:content_store).and_return(content_store)
   end
+
+  def honours_content_store_ttl
+    assert_equal "max-age=#{15.minutes.to_i}, public", response.headers["Cache-Control"]
+  end
 end

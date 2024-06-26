@@ -377,7 +377,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "does not show the transaction information" do
-        expect(page.has_content?("owning or looking after a bear")).to be false
+        expect(page).not_to have_content("owning or looking after a bear")
       end
     end
   end

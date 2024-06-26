@@ -20,6 +20,7 @@ GovukTest.configure
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
+  config.include ContentStoreHelpers, type: :request
   config.include ContentStoreHelpers, type: :system
 
   config.include ComponentHelpers, type: :view

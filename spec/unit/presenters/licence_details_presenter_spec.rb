@@ -12,7 +12,7 @@ RSpec.describe LicenceDetailsPresenter, type: :model do
     @multiple_authorities_and_location_specific_licence = { "isLocationSpecific" => true, "isOfferedByCounty" => false, "geographicalAvailability" => %w[England Wales], "issuingAuthorities" => [@the_other_licence_authority, @the_one_licence_authority] }
   end
 
-  context "#single_licence_authority_present?" do
+  describe "#single_licence_authority_present?" do
     context "when authority present" do
       it "returns true for licence authority specific licence" do
         subject = LicenceDetailsPresenter.new(@licence_authority_licence)
@@ -42,7 +42,7 @@ RSpec.describe LicenceDetailsPresenter, type: :model do
       @presented_the_other_licence_authority = { "name" => "The Other Licence Authority", "slug" => "the-other-licence-authority", "contact" => nil, "actions" => { "apply" => [{ "url" => "the-other-licence-authority/apply-1", "introduction" => nil, "description" => nil, "payment" => nil, "uses_licensify" => true, "uses_authority_url" => true }] } }
     end
 
-    context "#authority" do
+    describe "#authority" do
       context "when one authority is present" do
         it "returns the authority" do
           subject = LicenceDetailsPresenter.new(@licence_authority_licence)
@@ -61,7 +61,7 @@ RSpec.describe LicenceDetailsPresenter, type: :model do
         it "returns nil if no matched authority found" do
           subject = LicenceDetailsPresenter.new(@multiple_authorities_and_location_specific_licence, "a-funky-licence-authority")
 
-          expect(subject.authority).to(be_nil)
+          expect(subject.authority).to be_nil
         end
 
         context "no authority_slug is provided" do
@@ -77,7 +77,7 @@ RSpec.describe LicenceDetailsPresenter, type: :model do
         it "returns nil" do
           subject = LicenceDetailsPresenter.new(@licence_authority_licence.merge("issuingAuthorities" => []))
 
-          expect(subject.authority).to(be_nil)
+          expect(subject.authority).to be_nil
         end
       end
     end
@@ -152,7 +152,7 @@ RSpec.describe LicenceDetailsPresenter, type: :model do
     it "raises RecordNotFound if not available" do
       subject = LicenceDetailsPresenter.new(@local_authority_licence, nil, "complain")
 
-      expect { subject.action }.to(raise_error(RecordNotFound))
+      expect { subject.action }.to raise_error(RecordNotFound)
     end
   end
 end

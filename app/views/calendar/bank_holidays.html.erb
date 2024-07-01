@@ -24,7 +24,7 @@
           title: @calendar.title
         } %>
 
-        <article role="article" data-module="gem-track-click" class="js-tab-track">
+        <article role="article">
           <% tab_content ||= [] %>
           <% @calendar.divisions.each_with_index do |division, index| %>
             <% tab_content[index] = capture do %>
@@ -76,9 +76,6 @@
                 url: division_path(@calendar, division, :format => 'ics'),
                 title: t("common.download_ics"),
                 data: {
-                  track_category: "Download link clicked",
-                  track_action: division_path(@calendar, division, :format => 'ics'),
-                  track_label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
                   module: "ga4-link-tracker",
                   ga4_link: {
                     event_name: "file_download",
@@ -118,11 +115,6 @@
               :id => t(division.slug),
               :label => t(division.title),
               :content => tab_content[index],
-              :tab_data_attributes => {
-                track_category: "uk-public-holiday",
-                track_action: "tab",
-                track_label: "#{t "#{division.title}"}".gsub(/\s/,'-'),
-              }
             } }
           } %>
         </article>

@@ -10,10 +10,7 @@
 } do %>
   <div class="interaction">
     <p class="govuk-body"
-       data-module="auto-track-event ga4-auto-tracker"
-       data-track-category="postcodeSearch:local_transaction"
-       data-track-action="postcodeResultShown"
-       data-track-label="<%= @local_authority.name %>"
+       data-module="ga4-auto-tracker"
        data-ga4-auto="<%= {
         event_name: "form_complete",
         type: "local transaction",
@@ -49,10 +46,7 @@
         <p class="govuk-body">
           <%= t('formats.local_transaction.unknown_service') %>
         </p>
-        <div class="local-authority-result"
-             data-module="auto-track-event"
-             data-track-category="userAlerts:local_transaction"
-             data-track-action="postcodeResultShown:laMatchNoLink">
+        <div class="local-authority-result">
           <p id="get-started" class="get-started group">
             <%= render "govuk_publishing_components/components/button", {
               text: t('formats.local_transaction.local_authority_website', local_authority_name: @local_authority.name),

@@ -17,12 +17,7 @@
       <%= t('formats.local_transaction.service_not_available', country_name: @country_name) %>.
     </p>
 
-    <div class="local-authority-result"
-         data-module="auto-track-event"
-         data-track-category="postcodeSearch:local_transaction"
-         data-track-action="postcodeResultShown:devolvedAdministrationUnavailable"
-         data-track-label="<%= @country_name %>">
-
+    <div class="local-authority-result">
       <% if @local_authority.url.present? %>
         <p class="govuk-body">
           <%= t('formats.local_transaction.find_other_services') %>

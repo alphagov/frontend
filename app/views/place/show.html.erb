@@ -59,10 +59,7 @@
   <% if postcode_provided? && !location_error %>
     <%= content_tag "section", id: results_anchor, class: "places-results",
       data: {
-        module: "auto-track-event ga4-auto-tracker ga4-link-tracker",
-        track_category: track_category_for_place_results(publication.places),
-        track_action: track_action_for_place_results(publication.places),
-        track_label: track_label_for_place_results(publication.places),
+        module: "ga4-auto-tracker ga4-link-tracker",
         ga4_auto: ga4_form_complete_attributes,
         ga4_link: ga4_information_click_attributes,
         ga4_track_links_only: "",

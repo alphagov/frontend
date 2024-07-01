@@ -11,7 +11,7 @@
         font_size: "l",
       } %>
     </div>
-    <ul class="homepage-most-active-list" data-module="gem-track-click ga4-link-tracker">
+    <ul class="homepage-most-active-list" data-module="ga4-link-tracker">
       <% t("homepage.index.more_links").each_with_index do | item, index | %>
         <li class="homepage-most-active-list__item">
           <%= link_to(
@@ -19,12 +19,6 @@
             item[:link],
             class: "govuk-link",
             data: {
-              "track-category": "homepageClicked",
-              "track-action": "moreLink",
-              "track-label": item[:link],
-              "track-value": "1",
-              "track-dimension": item[:title],
-              "track-dimension-index": "29",
               "ga4_link": {
                 'event_name': 'navigation',
                 'type': 'homepage',

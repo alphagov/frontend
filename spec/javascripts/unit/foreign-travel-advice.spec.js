@@ -129,28 +129,6 @@ describe('CountryFilter', function () {
       expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 
-    it('Should track search input via timeouts', function (done) {
-      GOVUK.analytics = GOVUK.analytics || { trackEvent: function (args) {} }
-
-      filter = new GOVUK.countryFilter($input[0])
-
-      expect(filter._trackTimeout).toBeFalsy()
-
-      spyOn(filter, 'filterListItems')
-      spyOn(filter, 'track').and.callThrough()
-      spyOn(filter, 'pagePath').and.returnValue('travel-advice')
-      spyOn(GOVUK.analytics, 'trackEvent')
-
-      window.GOVUK.triggerEvent($input[0], 'keyup')
-
-      expect(filter.track).toHaveBeenCalled()
-
-      setTimeout(function () {
-        expect(GOVUK.analytics.trackEvent).toHaveBeenCalled()
-        done()
-      }, 1100)
-    })
-
     it('Should set aria attributes on `.js-country-count`', function () {
       var $container = $("<div class='js-travel-container' />")
       var $countriesWrapper = $("<div class='js-country-count' />")

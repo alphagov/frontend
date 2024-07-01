@@ -285,7 +285,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
       end
     end
 
-    within "[data-module='track-smart-answer ga4-auto-tracker']" do
+    within "[data-module='ga4-auto-tracker']" do
       within("h1") { assert_page_has_content "Right, off you go." }
       assert_page_has_content "Oh! Well, thank you. Thank you very much."
     end
@@ -326,12 +326,12 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     visit "/the-bridge-of-death"
     click_on "Start now"
     assert_current_url "/the-bridge-of-death/y"
-    assert page.has_no_selector?("[data-module='track-smart-answer ga4-auto-tracker'][data-smart-answer-node-type=outcome]")
+    assert page.has_no_selector?("[data-module='ga4-auto-tracker']")
 
     choose "Sir Lancelot of Camelot"
     click_on "Next step"
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot"
-    assert page.has_no_selector?("[data-module='track-smart-answer ga4-auto-tracker'][data-smart-answer-node-type=outcome]")
+    assert page.has_no_selector?("[data-module='ga4-auto-tracker']")
 
     choose "Blue"
     click_on "Next step"
@@ -339,7 +339,7 @@ class SimpleSmartAnswersTest < ActionDispatch::IntegrationTest
     assert_current_url "/the-bridge-of-death/y/sir-lancelot-of-camelot/blue"
     # Asserting that we have the right data attribtues to trigger the
     # TrackSmartAnswer JavaScript module doesn't feel like enough, but it'll do.
-    assert page.has_selector?("[data-module='track-smart-answer ga4-auto-tracker'][data-smart-answer-node-type=outcome]")
+    assert page.has_selector?("[data-module='ga4-auto-tracker']")
     assert page.has_selector?("[data-ga4-auto='{\"event_name\":\"form_complete\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"complete\",\"tool_name\":\"The Bridge of Death\",\"text\":\"right-off-you-go\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"information click\",\"tool_name\":\"The Bridge of Death\"}']")
     assert page.has_selector?("[data-ga4-link='{\"event_name\":\"form_start_again\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"start again\",\"tool_name\":\"The Bridge of Death\"}']")

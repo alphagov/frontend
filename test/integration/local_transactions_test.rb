@@ -79,14 +79,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_selector?("a#postcode-finder-link")
       end
 
-      should "add google analytics tags for postcodeSearchStarted" do
-        track_category = page.find(".postcode-search-form")["data-track-category"]
-        track_action = page.find(".postcode-search-form")["data-track-action"]
-
-        assert_equal "postcodeSearch:local_transaction", track_category
-        assert_equal "postcodeSearchStarted", track_action
-      end
-
       should "add the GA4 form tracker for form_submit events" do
         data_module = page.find("form")["data-module"]
         expected_data_module = "ga4-form-tracker"
@@ -124,7 +116,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "add the GA4 auto tracker around the result body (form_complete)" do
         data_module = page.find(".interaction p:first-child")["data-module"]
-        expected_data_module = "auto-track-event ga4-auto-tracker"
+        expected_data_module = "ga4-auto-tracker"
 
         ga4_auto_attribute = page.find(".interaction p:first-child")["data-ga4-auto"]
         ga4_expected_object = "{\"event_name\":\"form_complete\",\"type\":\"local transaction\",\"text\":\"We've matched the postcode to Westminster.\",\"action\":\"complete\",\"tool_name\":\"Pay your bear tax\"}"
@@ -177,22 +169,13 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "add the GA4 auto tracker to the error (form_error event)" do
         data_module = page.find("#error")["data-module"]
-        expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+        expected_data_module = "ga4-auto-tracker govuk-error-summary"
 
         ga4_error_attribute = page.find("#error")["data-ga4-auto"]
         ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"local transaction\",\"text\":\"We couldn't find this postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
 
         assert_equal expected_data_module, data_module
         assert_equal ga4_expected_object, ga4_error_attribute
-      end
-
-      should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-summary")["data-track-action"]
-        track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-        assert_equal "postcodeErrorShown: fullPostcodeNoLocationsApiMatch", track_action
-
-        assert_equal I18n.t("formats.local_transaction.valid_postcode_no_match"), track_label
       end
     end
 
@@ -220,14 +203,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "re-populate the invalid input" do
         assert page.has_field? "postcode", with: "Not valid"
       end
-
-      should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-summary")["data-track-action"]
-        track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-        assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-        assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
-      end
     end
 
     context "when visiting the local transaction with a blank postcode" do
@@ -248,14 +223,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "prefix 'Error: ' to the page title tag" do
         assert page.has_title?("Error: Pay your bear tax - GOV.UK")
       end
-
-      should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-summary")["data-track-action"]
-        track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-        assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-        assert_equal I18n.t("formats.local_transaction.invalid_postcode"), track_label
-      end
     end
 
     context "when visiting the local transaction with a valid postcode that has no local authority" do
@@ -274,14 +241,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
       should "re-populate the invalid input" do
         assert page.has_field? "postcode", with: "XM4 5HQ"
-      end
-
-      should "populate google analytics tags" do
-        track_action = page.find(".gem-c-error-summary")["data-track-action"]
-        track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-        assert_equal "postcodeErrorShown: noLaMatch", track_action
-        assert_equal I18n.t("formats.local_transaction.no_local_authority"), track_label
       end
     end
 
@@ -435,14 +394,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
       should "not show the transaction information" do
         assert_not page.has_content?("owning or looking after a bear")
       end
-
-      should "add google analytics tags" do
-        track_category = page.find(".local-authority-result")["data-track-category"]
-        track_action = page.find(".local-authority-result")["data-track-action"]
-
-        assert_equal "userAlerts:local_transaction", track_category
-        assert_equal "postcodeResultShown:laMatchNoLink", track_action
-      end
     end
   end
 
@@ -484,14 +435,6 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
 
     should "not present the form again" do
       assert page.has_no_field? "postcode"
-    end
-
-    should "add google analytics tags" do
-      track_category = page.find(".local-authority-result")["data-track-category"]
-      track_action = page.find(".local-authority-result")["data-track-action"]
-
-      assert_equal "userAlerts:local_transaction", track_category
-      assert_equal "postcodeResultShown:laMatchNoLinkNoAuthorityUrl", track_action
     end
   end
 

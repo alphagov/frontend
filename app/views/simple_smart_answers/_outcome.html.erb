@@ -12,10 +12,8 @@
     text: outcome.slug
   }.to_json
 %>
-<div 
-  data-module="track-smart-answer ga4-auto-tracker" 
-  data-smart-answer-node-type="outcome" 
-  data-smart-answer-slug="<%= outcome.slug %>"
+<div
+  data-module="ga4-auto-tracker"
   data-ga4-auto="<%= ga4_attributes %>"
 >
   <%= render "govuk_publishing_components/components/title", {

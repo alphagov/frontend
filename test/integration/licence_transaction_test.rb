@@ -71,14 +71,6 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
         end
       end
 
-      should "add google analytics tags for postcodeSearchStarted" do
-        track_category = page.find(".postcode-search-form")["data-track-category"]
-        track_action = page.find(".postcode-search-form")["data-track-action"]
-
-        assert_equal "postcodeSearch:licence", track_category
-        assert_equal "postcodeSearchStarted", track_action
-      end
-
       should "add GA4 form submit attributes" do
         data_module = page.find("form")["data-module"]
         expected_data_module = "ga4-form-tracker"
@@ -513,7 +505,7 @@ class LicenceTransactionTest < ActionDispatch::IntegrationTest
 
       should "add the GA4 form error attributes" do
         data_module = page.find("#error")["data-module"]
-        expected_data_module = "auto-track-event ga4-auto-tracker govuk-error-summary"
+        expected_data_module = "ga4-auto-tracker govuk-error-summary"
 
         ga4_error_attribute = page.find("#error")["data-ga4-auto"]
         ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"licence transaction\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"

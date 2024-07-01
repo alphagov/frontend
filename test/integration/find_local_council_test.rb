@@ -23,14 +23,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
       assert page.has_field?("postcode")
     end
 
-    should "add google analytics tags for postcodeSearchStarted" do
-      track_category = page.find(".postcode-search-form")["data-track-category"]
-      track_action = page.find(".postcode-search-form")["data-track-action"]
-
-      assert_equal "postcodeSearch:find_local_council", track_category
-      assert_equal "postcodeSearchStarted", track_action
-    end
-
     should "add GA4 attributes for form submit events" do
       data_module = page.find("form")["data-module"]
       expected_data_module = "ga4-form-tracker"
@@ -81,21 +73,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "include the search result text in the page title" do
           assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
-        end
-
-        should "add google analytics for postcodeResultsShown" do
-          track_category = page.find(".local-authority-results")["data-track-category"]
-          track_action = page.find(".local-authority-results")["data-track-action"]
-          track_label = page.find(".local-authority-results")["data-track-label"]
-
-          assert_equal "postcodeSearch:find_local_council", track_category
-          assert_equal "postcodeResultShown", track_action
-          assert_equal "1 Result", track_label
-        end
-
-        should "add google analytics for exit link tracking" do
-          track_action = find_link("Go to Westminster website")["data-track-action"]
-          assert_equal "unitaryLinkClicked", track_action
         end
 
         should "add GA4 attributes for exit link tracking" do
@@ -174,24 +151,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             assert page.has_content?("District councils are responsible for services like:")
             assert page.has_link?("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
-        end
-
-        should "add google analytics for postcodeResultsShown" do
-          track_category = page.find(".local-authority-results")["data-track-category"]
-          track_action = page.find(".local-authority-results")["data-track-action"]
-          track_label = page.find(".local-authority-results")["data-track-label"]
-
-          assert_equal "postcodeSearch:find_local_council", track_category
-          assert_equal "postcodeResultShown", track_action
-          assert_equal "2 Results", track_label
-        end
-
-        should "add google analytics for exit link tracking" do
-          district_track_action = find_link("Go to Aylesbury website")["data-track-action"]
-          county_track_action = find_link("Go to Buckinghamshire website")["data-track-action"]
-
-          assert_equal "districtLinkClicked", district_track_action
-          assert_equal "countyLinkClicked", county_track_action
         end
 
         should "add GA4 attributes for exit link tracking" do
@@ -276,24 +235,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
             assert page.has_link?("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
         end
-
-        should "add google analytics for postcodeResultsShown" do
-          track_category = page.find(".local-authority-results")["data-track-category"]
-          track_action = page.find(".local-authority-results")["data-track-action"]
-          track_label = page.find(".local-authority-results")["data-track-label"]
-
-          assert_equal "postcodeSearch:find_local_council", track_category
-          assert_equal "postcodeResultShown", track_action
-          assert_equal "2 Results", track_label
-        end
-
-        should "add google analytics for exit link tracking" do
-          district_track_action = find_link("Go to Aylesbury website")["data-track-action"]
-          county_track_action = find_link("Go to Buckinghamshire website")["data-track-action"]
-
-          assert_equal "districtLinkClicked", district_track_action
-          assert_equal "countyLinkClicked", county_track_action
-        end
       end
 
       context "when finding a local council without homepage" do
@@ -350,14 +291,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           assert page.has_field? "postcode", with: "NO POSTCODE"
         end
 
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-summary")["data-track-action"]
-          track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-          assert_equal "This isn't a valid postcode.", track_label
-        end
-
         should "include GA4 attributes" do
           page_error = page.find("#error")
 
@@ -394,14 +327,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "see an error message" do
           assert page.has_content? "This isn't a valid postcode"
-        end
-
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-summary")["data-track-action"]
-          track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: invalidPostcodeFormat", track_action
-          assert_equal "This isn't a valid postcode.", track_label
         end
       end
 
@@ -510,14 +435,6 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
 
         should "see an error message" do
           assert page.has_content? "We couldn't find a council for this postcode."
-        end
-
-        should "populate google analytics tags" do
-          track_action = page.find(".gem-c-error-summary")["data-track-action"]
-          track_label = page.find(".gem-c-error-summary")["data-track-label"]
-
-          assert_equal "postcodeErrorShown: noLaMatch", track_action
-          assert_equal "We couldn't find a council for this postcode.", track_label
         end
       end
     end

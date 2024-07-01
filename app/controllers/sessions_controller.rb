@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     redirect_path = http_referer_path
     redirect_path = nil unless is_valid_redirect_path? redirect_path
 
-    return redirect_with_analytics GovukPersonalisation::Urls.your_account unless redirect_path
+    return redirect_with_analytics GovukPersonalisation::Urls.one_login_your_services unless redirect_path
 
     redirect_with_analytics GdsApi.account_api.get_sign_in_url(redirect_path:)["auth_uri"]
   end

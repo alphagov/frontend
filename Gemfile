@@ -39,11 +39,11 @@ group :development, :test do
 end
 
 group :test do
+  gem "capybara"
   gem "govuk_schemas"
   gem "i18n-coverage"
-  gem "mocha"
   gem "rails-controller-testing"
-  gem "shoulda-context"
+  gem "rspec-rails"
   gem "simplecov"
   gem "timecop"
   gem "webmock"

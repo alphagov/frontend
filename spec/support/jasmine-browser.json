@@ -1,16 +1,21 @@
 {
-  "srcDir": "public/assets/frontend",
+  "srcDir": ".",
   "srcFiles": [
-    "test-dependencies-*.js",
-    "application-*.js",
-    "views/travel-advice-*.js"
+    "public/assets/frontend/test-dependencies-*.js",
+    "public/assets/frontend/dependencies-*.js",
+    ".nyc_output/assets/main-*.js",
+    ".nyc_output/assets/views/travel-advice-*.js"
   ],
   "specDir": "spec/javascripts",
   "specFiles": [
     "**/*[sS]pec.js"
   ],
   "helpers": [
+    "helpers/*.mjs",
     "vendor/*.js"
   ],
-  "browser": "headlessChrome"
+  "browser": "headlessChrome",
+  "reporters": [
+    "./spec/support/reporters/test-coverage.mjs"
+  ]
 }

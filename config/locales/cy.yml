@@ -704,7 +704,8 @@ cy:
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
       invalid_uprn_sub: Ysgrifennwch y cod post eto.
       local_authority_html:
-      local_authority_website:
+      local_authority_website: Ewch i wefan %{local_authority_name}
+      what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
       matched_postcode_html: Rydyn ni wedi paru'r cod post i <span class="local-authority">%{local_authority}</span>.
       no_local_authority: Doedden ni ddim yn gallu ffeindio cyngor ar gyfer y cod post hwn.
       no_local_authority_url_html:

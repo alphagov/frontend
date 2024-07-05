@@ -611,10 +611,10 @@ en:
       other_agencies_count: 400+
       popular: Popular on GOV.UK
       promotion_slots:
-        - text: Find out about the General Election on 4 July.
+        - text: Find out the latest updates following the General Election.
           title: Election 2024
           href: /government/topical-events/election-2024
-          image_src: homepage/register-to-vote-purple.png
+          image_src: homepage/election-2024.png
         - text: Search and apply for jobs in England, Scotland and Wales.
           title: Find a job
           href: /find-a-job

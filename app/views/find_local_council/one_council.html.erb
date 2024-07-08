@@ -13,6 +13,7 @@
 
     <div class="<%= @authority["tier"] %>-result group">
       <p class="govuk-body"><%= t("formats.local_transaction.local_authority_html", local_authority_name: @authority["name"]) %></p>
+      <p class="govuk-body"><%= link_to t('formats.local_transaction.search_for_a_different_postcode'), find_local_council_path, class: "govuk-link" %></p>
       <% if @authority["homepage_url"].blank? %>
         <p class="govuk-body">
           <%= t("formats.local_transaction.no_website") %>

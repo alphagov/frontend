@@ -106,6 +106,10 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         assert page.has_title?("Pay your bear tax: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
       end
 
+      should "include the search for another postcode link" do
+        assert page.has_link?("Search for a different postcode", href: "/pay-bear-tax")
+      end
+
       should "show a get started button which links to the interaction" do
         assert_has_button_as_link(
           I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"),
@@ -119,7 +123,7 @@ class LocalTransactionsTest < ActionDispatch::IntegrationTest
         expected_data_module = "ga4-auto-tracker"
 
         ga4_auto_attribute = page.find(".interaction p:first-child")["data-ga4-auto"]
-        ga4_expected_object = "{\"event_name\":\"form_complete\",\"type\":\"local transaction\",\"text\":\"We've matched the postcode to Westminster.\",\"action\":\"complete\",\"tool_name\":\"Pay your bear tax\"}"
+        ga4_expected_object = "{\"event_name\":\"form_complete\",\"type\":\"local transaction\",\"text\":\"We’ve matched the postcode to Westminster.\",\"action\":\"complete\",\"tool_name\":\"Pay your bear tax\"}"
 
         assert_equal expected_data_module, data_module
         assert_equal ga4_expected_object, ga4_auto_attribute

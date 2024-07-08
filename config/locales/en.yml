@@ -410,10 +410,11 @@ en:
       invalid_postcode_sub: Check it and enter it again.
       invalid_uprn: This isn't a valid address.
       invalid_uprn_sub: Enter the postcode again.
+      search_for_a_different_postcode: Search for a different postcode
       local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website
       what_you_need_to_know: What you need to know
-      matched_postcode_html: We've matched the postcode to <span class="local-authority">%{local_authority}</span>.
+      matched_postcode_html: We’ve matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
       no_website: We don't have a link for their website.

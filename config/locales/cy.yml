@@ -702,6 +702,7 @@ cy:
       invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
       invalid_uprn_sub: Ysgrifennwch y cod post eto.
+      search_for_a_different_postcode:
       local_authority_html:
       local_authority_website: Ewch i wefan %{local_authority_name}
       what_you_need_to_know: Yr hyn y mae angen i chi ei wybod

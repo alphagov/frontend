@@ -257,8 +257,8 @@ class BankHolidaysTest < ActionDispatch::IntegrationTest
     should "be formatted correctly" do
       Timecop.travel(Date.parse("5th Dec 2012")) do
         visit "/bank-holidays"
-        within ".app-c-metadata" do
-          assert page.has_content?("Last updated: 5 December 2012")
+        within ".gem-c-metadata" do
+          assert page.has_content?("Last updated 5 December 2012")
         end
       end
     end

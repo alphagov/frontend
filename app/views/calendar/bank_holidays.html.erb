@@ -119,8 +119,8 @@
           } %>
         </article>
 
-        <%= render "components/metadata", {
-          last_updated: last_updated_date
+        <%= render "govuk_publishing_components/components/metadata", {
+          last_updated: format_date(last_updated_date)
         } %>
       </section>
     </div>

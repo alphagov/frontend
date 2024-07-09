@@ -1,7 +1,0 @@
-name: Metadata
-description: Calendar page metadata (i.e. last updated date). Should be called with a date object e.g. Date.parse("2-5-2008")
-accessibility_criteria: Elements must have sufficient color contrast
-examples:
-  default:
-    data:
-      last_updated: 2019-01-07

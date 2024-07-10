@@ -2,7 +2,7 @@
 var GOVUKTest = {
   countryFilter: {
     threeCategories: '<div id="W" class="list">' +
-      '<h3>' +
+      '<h3 class="countries-initial-letter">' +
       '<span class="govuk-visually-hidden">Countries starting with </span>W</h3>' +
       '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/wallis-and-futuna">Wallis and Futuna</a></li>' +
@@ -10,14 +10,14 @@ var GOVUKTest = {
       '</ul>' +
       '</div>' +
       '<div id="Y" class="list">' +
-      '<h3>' +
+      '<h3 class="countries-initial-letter">' +
       '<span class="govuk-visually-hidden">Countries starting with </span>Y</h3>' +
       '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/yemen">Yemen</a></li>' +
       '</ul>' +
       '</div>' +
       '<div id="Z" class="list">' +
-      '<h3>' +
+      '<h3 class="countries-initial-letter">' +
       '<span class="govuk-visually-hidden">Countries starting with </span>Z</h3>' +
       '<ul class="countries js-countries-list">' +
       '<li data-synonyms=""><a href="/foreign-travel-advice/zambia">Zambia</a></li>' +
@@ -126,6 +126,14 @@ describe('CountryFilter', function () {
       spyOn(filter, 'filterListItems')
 
       window.GOVUK.triggerEvent($input[0], 'keydown', { keyCode: 13 })
+      expect(filter.filterListItems).not.toHaveBeenCalled()
+    })
+
+    it('Should work normally for another key pressed', function () {
+      filter = new GOVUK.countryFilter($input[0])
+      spyOn(filter, 'filterListItems')
+
+      window.GOVUK.triggerEvent($input[0], 'keydown', { keyCode: 65 })
       expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 
@@ -288,6 +296,28 @@ describe('CountryFilter', function () {
         .find('ul.js-countries-list li')
         .filter(function () { return this.style.display !== 'none' })
       expect(visibleCountries.length).toEqual(2)
+    })
+
+    it("Should only have one country visible for the 'Sahe' search term", function () {
+      var visibleCountries
+
+      filter.filterListItems('Sahe')
+      visibleCountries = $countries
+        .find('ul.js-countries-list li')
+        .filter(function () { return this.style.display !== 'none' })
+
+      expect(visibleCountries.length).toEqual(1)
+    })
+
+    it('Should have all countries for empty search term', function () {
+      var visibleCountries
+
+      filter.filterListItems('')
+      visibleCountries = $countries
+        .find('ul.js-countries-list li')
+        .filter(function () { return this.style.display !== 'none' })
+
+      expect(visibleCountries.length).toEqual(5)
     })
   })
 })

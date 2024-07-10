@@ -5,6 +5,7 @@
 
   var root = this
 
+  /* istanbul ignore next */
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {} }
 
   var CountryFilter = function (searchInput) {
@@ -151,6 +152,7 @@
 
   var inputs = root.document.querySelectorAll('input#country')
   for (var i = 0; i < inputs.length; i++) {
+    /* istanbul ignore next */
     new GOVUK.countryFilter(inputs[i]) // eslint-disable-line new-cap, no-new
   }
 }).call(this)

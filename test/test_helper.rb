@@ -1,5 +1,12 @@
 require "simplecov"
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  enable_coverage :branch
+  minimum_coverage 95
+  add_filter "/lib/api_error_routing_constraint.rb"
+  add_filter "/lib/bank_holiday_generator.rb"
+  add_filter "/lib/format_routing_constraint.rb"
+  add_filter "/lib/frontend.rb"
+end
 
 require "i18n/coverage"
 require "i18n/coverage/printers/file_printer"

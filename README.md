@@ -104,4 +104,3 @@ bundle exec rake
 ## Licence
 
 [MIT Licence](LICENCE.txt)
-

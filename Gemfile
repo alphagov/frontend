@@ -34,8 +34,12 @@ group :development, :test do
   gem "govuk_test"
   gem "pact", require: false
   gem "pact_broker-client"
+  gem "prettier_print"
   gem "pry-byebug"
   gem "rubocop-govuk"
+  gem "syntax_tree"
+  gem "syntax_tree-haml"
+  gem "syntax_tree-rbs"
 end
 
 group :test do

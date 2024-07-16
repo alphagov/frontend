@@ -17,7 +17,7 @@ module ElectionHelpers
   end
 
   def api_response
-    path = Rails.root.join("test/fixtures/electoral-result.json")
+    path = Rails.root.join("spec/fixtures/electoral-result.json")
     File.read(path)
   end
 end

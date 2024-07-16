@@ -581,8 +581,8 @@ en:
           href: /log-in-file-self-assessment-tax-return
         - text: 'Childcare account: sign in'
           href: /sign-in-childcare-account
-        - text: 'Visit the UK on a Standard Visitor visa'
-          href: /standard-visitor
+        - text: 'Check your State Pension forecast'
+          href: /check-state-pension
       # If adding or removing items remember to update the `columns()` mixin in
       # the homepage-most-active-list class in _homepage.scss.
       more_links:

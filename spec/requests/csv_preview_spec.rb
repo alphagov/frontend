@@ -39,7 +39,41 @@ RSpec.describe "CSV Preview", type: :request do
 
   def setup_content_item(non_legacy_url_path, parent_document_base_path)
     filename = non_legacy_url_path.split "/".last
-    content_item = { base_path: parent_document_base_path, document_type: "guidance", public_updated_at: "2023-05-27T08:00:07.000+00:00", details: { attachments: [{ title: "Attachment 1", filename: "file.csv", url: "https://www.gov.uk/media/5678/file.csv", file_size: "1024" }, { title: "Attachment 2", filename:, url: "https://www.gov.uk/#{non_legacy_url_path}", file_size: "2048" }] }, links: { organisations: [{ base_path: "/government/organisations/department-of-publishing", details: { brand: "single-identity", logo: { crest: "single-identity", formatted_title: "Department of Publishing" } } }] } }
+    content_item = {
+      base_path: parent_document_base_path,
+      document_type: "guidance",
+      public_updated_at: "2023-05-27T08:00:07.000+00:00",
+      details: {
+        attachments: [
+          {
+            title: "Attachment 1",
+            filename: "file.csv",
+            url: "https://www.gov.uk/media/5678/file.csv",
+            file_size: "1024",
+          },
+          {
+            title: "Attachment 2",
+            filename:,
+            url: "https://www.gov.uk/#{non_legacy_url_path}",
+            file_size: "2048",
+          },
+        ],
+      },
+      links: {
+        organisations: [
+          {
+            base_path: "/government/organisations/department-of-publishing",
+            details: {
+              brand: "single-identity",
+              logo: {
+                crest: "single-identity",
+                formatted_title: "Department of Publishing",
+              },
+            },
+          },
+        ],
+      },
+    }
     stub_content_store_has_item(parent_document_base_path, content_item)
   end
 

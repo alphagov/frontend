@@ -18,7 +18,10 @@
         action: "complete",
         tool_name: publication.title
        }.to_json %>">
-      <%= t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name) %>
+      <%= t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name) %>    
+    </p>
+    <p class="govuk-body">
+      <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), local_transaction_search_path(publication.slug), class: "govuk-link" %>
     </p>
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">

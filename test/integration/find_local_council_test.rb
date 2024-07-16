@@ -71,6 +71,10 @@ class FindLocalCouncilTest < ActionDispatch::IntegrationTest
           end
         end
 
+        should "include the search for another postcode link" do
+          assert page.has_link?("Search for a different postcode", href: "/find-local-council")
+        end
+
         should "include the search result text in the page title" do
           assert page.has_title?("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
         end

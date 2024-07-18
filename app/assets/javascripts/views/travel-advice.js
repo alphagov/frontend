@@ -147,10 +147,6 @@
     }
   }
 
-  CountryFilter.prototype.pagePath = function () {
-    window.location.pathname.split('/').pop()
-  }
-
   GOVUK.countryFilter = CountryFilter
 
   var inputs = root.document.querySelectorAll('input#country')

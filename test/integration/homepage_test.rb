@@ -2,7 +2,7 @@ require "integration_test_helper"
 
 class HomepageTest < ActionDispatch::IntegrationTest
   setup do
-    stub_content_store_has_item("/", schema: "special_route")
+    stub_content_store_has_item("/", schema: "special_route", links: {})
   end
 
   should "render the homepage" do

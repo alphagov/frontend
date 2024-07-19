@@ -12,11 +12,11 @@
           text: t("homepage.index.popular_links_heading"),
         } %>
         <ul class="homepage-most-viewed-list" data-module="ga4-link-tracker">
-          <% t("homepage.index.popular_links").each_with_index do | item, index | %>
+          <% publication.popular_links.each_with_index do | item, index | %>
             <li class="homepage-most-viewed-list__item">
               <%= render "govuk_publishing_components/components/action_link", {
-                text: item[:text],
-                href: item[:href],
+                text: item[:title],
+                href: item[:url],
                 light_icon: true,
                 data_attributes: {
                   ga4_link: {

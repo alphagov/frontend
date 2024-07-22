@@ -11,6 +11,10 @@
     <%= t('formats.local_transaction.different_local_authorities') %>
   </p>
 
+  <p class="govuk-body">
+    <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), find_local_council_path, class: "govuk-link" %>
+  </p>
+  
   <% ga4_type = content_item_hash["document_type"].gsub("_", " ") %>
   <div class="local-authority-results"
        data-module="ga4-auto-tracker"

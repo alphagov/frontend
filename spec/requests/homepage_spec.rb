@@ -1,20 +1,18 @@
-require "test_helper"
-
-class HomepageControllerTest < ActionController::TestCase
-  include GovukAbTesting::MinitestHelpers
+RSpec.describe "Homepage" do
+  include GovukAbTesting::RspecHelpers
 
   context "loading the homepage" do
-    setup do
-      stub_content_store_has_item("/", schema: "special_route", links: {})
+    before { stub_content_store_has_item("/", schema: "special_route", links: {}) }
+
+    it "responds with success" do
+      get "/"
+
+      expect(response).to have_http_status(:ok)
     end
 
-    should "respond with success" do
-      get :index
-      assert_response :success
-    end
+    it "sets correct expiry headers" do
+      get "/"
 
-    should "set correct expiry headers" do
-      get :index
       honours_content_store_ttl
     end
 
@@ -37,17 +35,19 @@ class HomepageControllerTest < ActionController::TestCase
         stub_content_store_has_item("/", schema: "special_route", links:)
       end
 
-      should "show popular links" do
-        get :index
-        assert_match "Some popular links title", @response.body
+      it "shows popular links" do
+        get "/"
+
+        expect(response.body).to match("Some popular links title")
       end
     end
 
     context "with popular links not in the content item" do
-      should "show popular links" do
-        get :index
+      it "shows popular links" do
+        get "/"
+
         I18n.t("homepage.index.popular_links").each do |item|
-          assert_match item[:title], @response.body
+          expect(response.body).to match(item[:title])
         end
       end
     end

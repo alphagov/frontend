@@ -7,8 +7,12 @@
     font_size: "m",
   } %>
 
+  <p class="govuk-body">
+    <%= t('formats.local_transaction.different_local_authorities') %>   
+  </p>
+
   <p class="govuk-body govuk-!-margin-bottom-8">
-    <%= t('formats.local_transaction.different_local_authorities') %>
+    <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), find_local_council_path, class: "govuk-link" %>
   </p>
 
   <% ga4_type = content_item_hash["document_type"].gsub("_", " ") %>

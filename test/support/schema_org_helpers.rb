@@ -10,7 +10,7 @@ module SchemaOrgHelpers
       "url" => "https://www.gov.uk",
       "logo" => {
         "@type" => "ImageObject",
-        "url" => "/assets/frontend/govuk_publishing_components/govuk-logo-b15a4d254746d1642b8187217576d1e8fe50b51352d352fda13eee55d3c1c80a.png",
+        "url" => "/assets/shared/govuk_publishing_components/govuk-logo-b15a4d254746d1642b8187217576d1e8fe50b51352d352fda13eee55d3c1c80a.png",
       },
     },
     "mainEntity" => [

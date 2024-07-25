@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/KludgeKML/asset_gem_test.git
-  revision: 1049b6d3c114dc67238e7d4eee1af1a3e4056388
+  revision: 5af3a75b35737874b1685686d82fb86b9842e20a
   specs:
     asset_gem_test (0.1.0)
       rails (>= 7.1.3.4)

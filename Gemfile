@@ -4,6 +4,7 @@ ruby "~> 3.2.0"
 gem "rails", "7.1.3.4"
 
 gem "addressable"
+gem "asset_gem_test", git: "https://github.com/KludgeKML/asset_gem_test.git"
 gem "bootsnap", require: false
 gem "dalli"
 gem "dartsass-rails"
@@ -48,5 +49,3 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
-
-gem "asset_gem_test", path: "asset_gem_test"

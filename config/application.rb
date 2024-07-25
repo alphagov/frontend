@@ -48,9 +48,6 @@ module Frontend
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # Path within public/ where assets are compiled to
-    config.assets.prefix = "/assets"
-
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += %i[password postcode]
 

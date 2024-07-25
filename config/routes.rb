@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "homepage#index", via: :get
 
   mount GovukPublishingComponents::Engine, at: "/component-guide"
+  mount AssetGemTest::Engine, at: "/asg/only"
 
   get "/random" => "random#random_page"
 

@@ -48,3 +48,5 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
+
+gem 'asset_gem_test', path: 'asset_gem_test'

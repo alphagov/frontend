@@ -49,4 +49,4 @@ group :test do
   gem "webmock"
 end
 
-gem 'asset_gem_test', path: 'asset_gem_test'
+gem "asset_gem_test", path: "asset_gem_test"

@@ -4,7 +4,7 @@
   .country-filter-form {
     display: none;
 
-    .js-enabled & {
+    .govuk-frontend-supported & {
       display: block;
     }
   }
@@ -17,7 +17,7 @@
 
   .subscriptions-wrapper {
     @include govuk-media-query($from: tablet) {
-      .js-enabled & {
+      .govuk-frontend-supported & {
         text-align: right;
       }
     }

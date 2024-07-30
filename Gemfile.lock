@@ -1,3 +1,10 @@
+PATH
+  remote: ../govuk_web_banners
+  specs:
+    govuk_web_banners (0.1.0)
+      govuk_publishing_components
+      rails (>= 7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -721,6 +728,7 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_schemas
   govuk_test
+  govuk_web_banners!
   htmlentities
   i18n-coverage
   invalid_utf8_rejector

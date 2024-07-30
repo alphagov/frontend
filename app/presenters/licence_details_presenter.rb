@@ -77,7 +77,7 @@ class LicenceDetailsPresenter
   end
 
   def single_licence_authority_present?
-    licence_authority_specific? && authority
+    licence_authority_specific? && authority.present?
   end
 
   def authority

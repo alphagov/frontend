@@ -3,20 +3,15 @@
 
 begin
   require "pact/tasks"
+  require "rspec/core/rake_task"
+  RSpec::Core::RakeTask.new
 rescue LoadError
-  # Pact isn't available in all environments
+  # Pact/RSpec not available in all environments
 end
 
 require File.expand_path("config/application", __dir__)
-require "rake/testtask"
 
 Rails.application.load_tasks
 
-Rake::TestTask.new(:test_unit) do |t|
-  t.libs << "test"
-  t.test_files = FileList["test/**/*_test.rb"]
-  t.warning = false
-end
-
 Rake::Task[:default].clear if Rake::Task.task_defined?(:default)
-task default: %i[test_unit jasmine pact:verify lint]
+task default: %i[lint spec jasmine pact:verify]

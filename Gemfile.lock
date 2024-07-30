@@ -591,6 +591,14 @@ GEM
     rspec-mocks (3.12.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
+    rspec-rails (6.1.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
     rspec-support (3.12.1)
     rubocop (1.64.1)
       json (~> 2.3)
@@ -624,7 +632,6 @@ GEM
     rubocop-rspec (3.0.1)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
-    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sass-embedded (1.69.7)
       google-protobuf (~> 3.25)
@@ -640,7 +647,6 @@ GEM
     sentry-ruby (5.18.1)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    shoulda-context (2.0.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -703,6 +709,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
+  capybara
   climate_control
   dalli
   dartsass-rails
@@ -718,7 +725,6 @@ DEPENDENCIES
   i18n-coverage
   invalid_utf8_rejector
   listen
-  mocha
   pact
   pact_broker-client
   plek
@@ -727,8 +733,8 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n
   rails_translation_manager
+  rspec-rails
   rubocop-govuk
-  shoulda-context
   simplecov
   slimmer
   sprockets-rails

@@ -1,4 +1,6 @@
 <% content_for :body do %>
+  <%= render partial: "govuk_web_banners/recruitment_banner" if recruitment_banner.present? %>
+
   <% if @is_account && local_assigns %>
     <main id="content">
       <%= yield %>
@@ -56,7 +58,6 @@
 
   <body class="mainstream <%= yield :body_classes %>">
     <div id="wrapper" class="<%= wrapper_class(publication || @presenter) %>">
-      <%= render partial: "govuk_web_banners/recruitment_banner" if recruitment_banner.present? %>
       <%= yield :body %>
     </div>
   </body>

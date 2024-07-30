@@ -3,13 +3,13 @@
 .cookie-settings__form-wrapper {
   display: none;
 
-  .js-enabled & {
+  .govuk-frontend-supported & {
     display: block;
   }
 }
 
 .cookie-settings__no-js {
-  .js-enabled & {
+  .govuk-frontend-supported & {
     display: none;
   }
 }

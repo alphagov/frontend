@@ -84,7 +84,7 @@ class TravelAdviceTest < ActionDispatch::IntegrationTest
 
       # For some reason the headless driver isn't executing this script at the top of the <body> element,
       # so we have to repeat it here.
-      page.execute_script "document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');"
+      page.execute_script "document.body.className = ((document.body.className) ? document.body.className + ' govuk-frontend-supported' : 'govuk-frontend-supported');"
 
       assert page.has_selector?("#country-filter")
 

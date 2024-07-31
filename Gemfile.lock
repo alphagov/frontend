@@ -1,5 +1,6 @@
-PATH
-  remote: ../govuk_web_banners
+GIT
+  remote: https://github.com/alphagov/govuk_web_banners.git
+  revision: d328df5b5070057af0f1beef1a1d14d593537fee
   specs:
     govuk_web_banners (0.1.0)
       govuk_publishing_components

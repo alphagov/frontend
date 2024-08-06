@@ -1,0 +1,21 @@
+{
+  "all": true,
+  "branches": 95,
+  "lines": 95,
+  "check-coverage": true,
+  "compact": false,
+  "exclude": [
+    "public/assets/frontend/component_guide",
+    "public/assets/frontend/govuk_publishing_components*",
+    "public/assets/frontend/manifest-*",
+    "public/assets/frontend/application-*",
+    "public/assets/frontend/test-dependencies-*",
+    "public/assets/frontend/dependencies-*",
+    "public/assets/frontend/es6-components-*"
+  ],
+  "report-dir": "coverage/javascript",
+  "reporter": [
+    "text"
+  ],
+  "source-map": false
+}

@@ -31,4 +31,19 @@ describe('Transaction survey form module', function () {
 
     document.body.removeChild(form)
   })
+
+  it('does not throw an error if the button does not exist', function () {
+    var form = document.createElement('form')
+    document.body.appendChild(form)
+
+    var module = new GOVUK.Modules.TransactionSurveyForm(form)
+    module.init()
+
+    // prevent submit causing navigation
+    form.addEventListener('submit', function (e) { e.preventDefault() })
+
+    form.requestSubmit()
+
+    document.body.removeChild(form)
+  })
 })

@@ -1,0 +1,23 @@
+name: Run Jasmine
+
+on:
+  workflow_call:
+
+jobs:
+  run-jasmine:
+    name: Run Jasmine
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: alphagov/govuk-infrastructure/.github/actions/setup-node@main
+
+      - name: Run Jasmine
+        run: yarn run jasmine:ci

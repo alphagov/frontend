@@ -48,9 +48,7 @@ jobs:
 
   test-javascript:
     name: Test JavaScript
-    uses: alphagov/govuk-infrastructure/.github/workflows/jasmine.yml@main
-    with:
-      useWithRails: true
+    uses: ./.github/workflows/jasmine.yml
 
   test-ruby:
     name: Test Ruby

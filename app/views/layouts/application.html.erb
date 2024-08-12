@@ -1,4 +1,6 @@
 <% content_for :body do %>
+  <%= render partial: "govuk_web_banners/recruitment_banner" if recruitment_banner.present? %>
+
   <% if @is_account && local_assigns %>
     <main id="content">
       <%= yield %>

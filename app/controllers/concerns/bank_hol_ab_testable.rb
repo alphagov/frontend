@@ -1,6 +1,4 @@
 module BankHolAbTestable
-  CUSTOM_DIMENSION = 46
-
   ALLOWED_VARIANTS = %w[A B].freeze
 
   def self.included(base)
@@ -15,7 +13,6 @@ module BankHolAbTestable
   def bank_hol_ab_test
     @bank_hol_ab_test ||= GovukAbTesting::AbTest.new(
       "BankHolidaysTest",
-      dimension: CUSTOM_DIMENSION,
       allowed_variants: ALLOWED_VARIANTS,
     )
   end

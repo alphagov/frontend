@@ -34,6 +34,15 @@
               type: "text",
               search_icon: true,
               width: 20,
+              data: {
+                module: "ga4-focus-loss-tracker",
+                ga4_focus_loss: {
+                  event_name: "filter",
+                  type: "filter",
+                  action: "filter",
+                  section: @presenter.title
+                }
+              }
             } %>
           </fieldset>
         </form>

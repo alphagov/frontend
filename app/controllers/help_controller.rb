@@ -9,7 +9,7 @@ class HelpController < ContentItemsController
   def cookie_settings; end
 
   def ab_testing
-    ab_test = GovukAbTesting::AbTest.new("Example", dimension: 40)
+    ab_test = GovukAbTesting::AbTest.new("Example")
     @requested_variant = ab_test.requested_variant(request.headers)
     @requested_variant.configure_response(response)
   end

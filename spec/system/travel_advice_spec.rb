@@ -72,7 +72,7 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_content("Foreign travel advice")
 
-      page.execute_script("document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');")
+      page.execute_script("document.body.className = ((document.body.className) ? document.body.className + ' govuk-frontend-supported' : 'govuk-frontend-supported');")
 
       expect(page).to have_selector("#country-filter")
 

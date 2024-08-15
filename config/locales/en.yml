@@ -117,10 +117,11 @@ en:
     google_share: We do not allow Google or SpeedCurve to use or share this data for their own purposes.
     how_we_use: We use cookies to collect and store information about how you use the GOV.UK website and government digital services, such as the pages you visit. 'Government digital services' means any page with service.gov.uk in the URL.
     how_you_got: how you got to these sites
-    javascript: 'We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:'
+    javascript: 'We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings on this page. You can try:'
     javascript_list:
       - reloading the page
       - turning on Javascript in your browser
+    javascript_extra: You can also remove any previously stored cookies through your browser. Look for 'Preferences', 'Settings', or 'Options' in your browser menu.
     lux_explain: We also use LUX Real User Monitoring software cookies from SpeedCurve to measure your web performance experience while visiting GOV.UK.
     lux_info: LUX software cookies collect and store information about how well pages performed on your device, including whether there were any performance bottlenecks or JavaScript errors.
     off-campaigns: Do not use cookies that help with communications and marketing

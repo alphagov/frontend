@@ -121,6 +121,7 @@ cy:
     javascript_list:
     - ail-lwytho'r dudalen
     - troi Javascript ymlaen yn eich porwr
+    javascript_extra:
     lux_explain:
     lux_info: Mae meddalwedd LUX yn storio gwybodaeth yn ddi-enw am ba mor dda y gwnaeth tudalennau berfformio ar eich dyfais (gan gynnwys gwallau JavaScript).
     off-campaigns: Peidiwch â defnyddio cwcis sy'n helpu gyda chyfathrebu a marchnata

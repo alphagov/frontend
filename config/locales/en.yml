@@ -480,8 +480,6 @@ en:
       service_not_listed_text: If you’re looking for a different service, you can search for it.
   homepage:
     categories:
-      # If adding or removing items remember to update the `columns()` mixin in
-      # the homepage-services-and-info__list class in _homepage.scss.
       - title: Benefits
         description: Includes eligibility, appeals, tax credits and Universal Credit
         link: /browse/benefits
@@ -530,8 +528,6 @@ en:
       - title: Working, jobs and&nbsp;pensions
         description: Includes holidays, finding a job and redundancy
         link: /browse/working
-    # If adding or removing items remember to update the `columns()` mixin in
-    # the homepage-section__government-activity homepage-services-and-info__list class in _homepage.scss.
     government_activity:
       - title: Departments
         description: Departments, agencies and public bodies
@@ -585,8 +581,6 @@ en:
           url: /sign-in-childcare-account
         - title: 'Check your State Pension forecast'
           url: /check-state-pension
-      # If adding or removing items remember to update the `columns()` mixin in
-      # the homepage-most-active-list class in _homepage.scss.
       more_links:
         - title: 'HMRC services: sign in'
           link: /log-in-register-hmrc-online-services
@@ -631,8 +625,6 @@ en:
       tax_account: Sign in to your personal tax account
       uk_bank_holidays: UK bank holidays
       universal_credit: Sign in to your Universal Credit account
-    # If adding or removing items remember to update the `columns()` mixin in
-    # the homepage-most-active-list class in _homepage.scss.
     most_active:
       - title: Find a job
         link: /find-a-job

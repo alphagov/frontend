@@ -53,87 +53,10 @@
   font-weight: bold;
 }
 
-.homepage-services-and-info__list {
-  list-style: none;
-  margin: 0 govuk-spacing(-3);
-  padding: 0;
-}
-
-.chevron-card {
-  border-top: 1px solid $govuk-border-colour;
-  margin: 0 govuk-spacing(3);
-  padding: govuk-spacing(1) 0 govuk-spacing(4);
-
-  &:first-child {
-    border-top: none;
-    padding-top: 0;
-
-    .chevron-card__wrapper {
-      padding-top: 0;
-
-      @include govuk-media-query($media-type: print) {
-        padding-top: 19px;
-      }
-    }
-  }
-}
-
-.chevron-card__wrapper {
-  padding: 19px 0 4px;
-  position: relative;
-
-  .govuk-heading-s,
-  .chevron-card__description {
-    // Ensure font-size is 19px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: 19px;
-      font-size: govuk-px-to-rem(19);
-    }
-  }
-}
-
-.chevron-card__description {
-  margin: 0 govuk-spacing(6) 0 0;
-}
-
-.chevron-card__link {
-  &::after {
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  &::before {
-    $dimension: 7px;
-    $width: 3px;
-
-    border-right: $width solid $govuk-brand-colour;
-    border-top: $width solid $govuk-brand-colour;
-    content: "";
-    display: block;
-    height: $dimension;
-    position: absolute;
-    right: govuk-spacing(1);
-    top: 50%;
-    margin-top: 5px;
-    @include prefixed-transform($rotate: 45deg);
-    width: $dimension;
-  }
-
-  &:hover {
-    &::before {
-      border-color: $govuk-link-hover-colour;
-    }
-  }
-
-  &:focus {
-    &::before {
-      border-color: $govuk-focus-text-colour;
-    }
+.gem-c-cards__list-item-wrapper {
+  .gem-c-cards__sub-heading,
+  .gem-c-cards__description {
+    max-width: 100%;
   }
 }
 

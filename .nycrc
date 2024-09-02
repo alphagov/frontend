@@ -10,8 +10,7 @@
     "public/assets/frontend/manifest-*",
     "public/assets/frontend/application-*",
     "public/assets/frontend/test-dependencies-*",
-    "public/assets/frontend/dependencies-*",
-    "public/assets/frontend/es6-components-*"
+    "public/assets/frontend/dependencies-*"
   ],
   "report-dir": "coverage/javascript",
   "reporter": [

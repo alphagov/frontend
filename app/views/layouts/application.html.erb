@@ -42,7 +42,7 @@
 
     <%= javascript_include_tag 'test-dependencies.js', type: "module" if Rails.env.test? %>
     <%= javascript_include_tag 'application.js', integrity: false, type: "module" %>
-    <%= javascript_include_tag 'es6-components.js', type: "module" %>
+
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
     <% if content_item_hash %>

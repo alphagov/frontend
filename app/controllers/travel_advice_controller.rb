@@ -26,6 +26,8 @@ private
   def publication; end
 
   def content_item_path
-    "/#{FOREIGN_TRAVEL_ADVICE_SLUG}"
+    return "/#{FOREIGN_TRAVEL_ADVICE_SLUG}" if params[:country].blank?
+
+    "/#{FOREIGN_TRAVEL_ADVICE_SLUG}/#{params[:country]}"
   end
 end

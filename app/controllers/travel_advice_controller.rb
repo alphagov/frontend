@@ -17,6 +17,8 @@ class TravelAdviceController < ContentItemsController
     end
   end
 
+  def show; end
+
 private
 
   # TODO: Controllers should provide a presenter or a publication.

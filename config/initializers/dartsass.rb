@@ -1,6 +1,7 @@
 APP_STYLESHEETS = {
   "application.scss" => "application.css",
   "components/_calendar.scss" => "components/_calendar.css",
+  "components/_figure.scss" => "components/_figure.css",
   "components/_subscribe.scss" => "components/_subscribe.css",
   "views/_calendars.scss" => "views/_calendars.css",
   "views/_cookie-settings.scss" => "views/_cookie-settings.css",

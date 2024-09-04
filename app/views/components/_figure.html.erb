@@ -1,0 +1,25 @@
+<% add_app_component_stylesheet("figure") %>
+<%
+  alt ||= ''
+  caption ||= ''
+  credit ||= ''
+%>
+<figure class="app-c-figure" lang="en">
+  <% if src.present? %>
+    <img class="app-c-figure__image" src="<%= src %>" alt="<%= alt %>">
+  <% end %>
+  <% if caption.present? || credit.present? %>
+    <figcaption class="app-c-figure__figcaption">
+      <% if caption.present? %>
+        <p class="app-c-figure__figcaption-text">
+          <%= caption %>
+        </p>
+      <% end %>
+      <% if credit.present? %>
+        <p class="app-c-figure__figcaption-text">
+          <%= I18n.t("components.figure.image_credit", credit: credit) %>
+        </p>
+      <% end %>
+    </figcaption>
+  <% end %>
+</figure>

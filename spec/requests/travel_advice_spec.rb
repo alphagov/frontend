@@ -25,7 +25,11 @@ RSpec.describe "Travel Advice" do
       end
 
       context "requesting atom" do
-        before { get "#{@base_path}.atom" }
+        before do
+          atom_base_path = "#{@base_path}.atom"
+          stub_content_store_has_item(atom_base_path, @content_item)
+          get atom_base_path
+        end
 
         it "returns an aggregate of country atom feeds" do
           expect(response).to have_http_status(:ok)

@@ -22,7 +22,7 @@ private
   end
 
   def content_item
-    @content_item ||= request.env[:content_item] || request_content_item(content_item_slug || "/#{params[:slug]}")
+    @content_item ||= ContentItemFactory.build(request.env[:content_item] || request_content_item(content_item_slug || "/#{params[:slug]}"))
   end
 
   def content_item_slug
@@ -53,8 +53,8 @@ private
   end
 
   def set_locale
-    I18n.locale = if content_item["locale"] && I18n.available_locales.map(&:to_s).include?(content_item["locale"])
-                    content_item["locale"]
+    I18n.locale = if content_item.locale && I18n.available_locales.map(&:to_s).include?(content_item.locale)
+                    content_item.locale
                   else
                     I18n.default_locale
                   end

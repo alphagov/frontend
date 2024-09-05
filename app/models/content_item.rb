@@ -14,8 +14,20 @@ class ContentItem
     @title = content_store_hash["title"]
     @base_path = content_store_hash["base_path"]
     @locale = content_store_hash["locale"]
+
+    content_store_hash["links"]["ordered_related_items"] = ordered_related_items(content_store_hash["links"]) if content_store_hash["links"]
   end
 
   alias_method :to_h, :content_store_hash
   delegate :cache_control, to: :content_store_response
+
+private
+
+  def ordered_related_items(links)
+    return [] if links["ordered_related_items_overrides"].present?
+
+    links["ordered_related_items"].presence || links.fetch(
+      "suggested_ordered_related_items", []
+    )
+  end
 end

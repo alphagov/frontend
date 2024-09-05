@@ -8,6 +8,9 @@ $govuk-include-default-font-face: false;
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/truncated-url";
 
+// frontend mixins
+@import "mixins/margins";
+
 // Reset some styles from the `.content` when it"s wrapped in the Govspeak
 // component. Can be removed when static is no longer being used.
 .content-block {

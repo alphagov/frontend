@@ -22,6 +22,8 @@ class ContentItem
     @public_updated_at = content_store_hash["public_updated_at"]
 
     @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
+
+    content_store_hash["links"]["ordered_related_items"] = ordered_related_items(content_store_hash["links"]) if content_store_hash["links"]
   end
 
   alias_method :to_h, :content_store_hash
@@ -47,5 +49,13 @@ private
     return [] unless attachment_hash
 
     attachment_hash.map { OpenStruct.new(_1) }
+  end
+
+  def ordered_related_items(links)
+    return [] if links["ordered_related_items_overrides"].present?
+
+    links["ordered_related_items"].presence || links.fetch(
+      "suggested_ordered_related_items", []
+    )
   end
 end

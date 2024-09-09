@@ -1,0 +1,14 @@
+---
+az:
+  formats:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkənin bölgələrinə zəruri səyahət istisna olmaqla heç birini məsləhət görmürlər.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkəyə ümumi zəruri səyahət istisna olmaqla heç birini məsləhət görmürlər.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkənin bölgələrinə bütün səyahətləri məsləhət görmürlər.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkəyə ümumilikdə bütün səyahətləri məsləhət görmürlər.
+      context: Xaricə səyahət üzrə məsləhət
+      pages:
+      still_current_at: Hələ də qüvvədədir
+      summary: İcmal
+      updated: Yenilənib

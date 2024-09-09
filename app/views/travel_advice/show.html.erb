@@ -18,9 +18,9 @@
 
    <%= render "govuk_publishing_components/components/govspeak", {
     } do %>
-       <% @content_item.alert_status.each do |text| %>
+       <% @content_item.alert_status.each do |status| %>
         <%= render "govuk_publishing_components/components/warning_text",
-          text: text
+          text: I18n.t("formats.travel_advice.alert_status.#{status}_html", country: @content_item.country_name).html_safe
         %>
       <% end %>
     <% end %>

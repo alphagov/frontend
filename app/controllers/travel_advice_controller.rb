@@ -18,6 +18,8 @@ class TravelAdviceController < ContentItemsController
   end
 
   def show
+    request.variant = :print if params[:variant] == :print
+
     respond_to do |format|
       format.html
       format.atom

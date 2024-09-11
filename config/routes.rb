@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   get "/find-local-council/:authority_slug" => "find_local_council#result"
 
   get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice
-  get "/foreign-travel-advice/:country/*slug", to: "travel_advice#show"
+  get "/foreign-travel-advice/:country", to: "travel_advice#show"
+  get "/foreign-travel-advice/:country/print", to: "travel_advice#show", defaults: { variant: :print }
+  get "/foreign-travel-advice/:country/:slug", to: "travel_advice#show"
 
   scope "/landing-page" do
     get "/", to: "landing_page#show"

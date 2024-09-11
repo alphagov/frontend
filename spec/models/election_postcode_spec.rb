@@ -8,6 +8,12 @@ RSpec.describe ElectionPostcode do
   end
 
   describe "#valid?" do
+    it "rejects nil postcodes" do
+      subject = described_class.new(nil)
+
+      expect(subject.valid?).to be false
+    end
+
     it "rejects invalid postcodes" do
       subject = described_class.new("NOTVALID")
 
@@ -37,7 +43,7 @@ RSpec.describe ElectionPostcode do
     end
   end
 
-  describe "#errors" do
+  describe "#error" do
     it "returns an errors for an empty postcode after validation" do
       subject = described_class.new("  +  ")
 
@@ -48,6 +54,12 @@ RSpec.describe ElectionPostcode do
       subject = described_class.new("Also invalid")
 
       expect(subject.error).to eq("invalidPostcodeFormat")
+    end
+
+    it "returns nil errors for a valid postcode" do
+      subject = described_class.new("SW1A 1AA")
+
+      expect(subject.error).to be_nil
     end
   end
 end

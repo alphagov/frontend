@@ -32,8 +32,4 @@ private
   def content_item_slug
     request.path
   end
-
-  def slug_param
-    params[:slug] || "help"
-  end
 end

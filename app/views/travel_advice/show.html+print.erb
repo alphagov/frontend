@@ -32,7 +32,7 @@
           <%= part['title'] %>
         </h1>
 
-        <%= render 'shared/travel_advice_first_part', content_item: @content_item if i == 0 %>
+        <%= render 'first_part', content_item: @content_item if i == 0 %>
 
         <%= render 'govuk_publishing_components/components/govspeak',
           content: part['body'].html_safe,

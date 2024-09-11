@@ -1,4 +1,6 @@
 class TravelAdvice < ContentItem
+  include Parts
+
   ALERT_STATUSES = %w[
     avoid_all_but_essential_travel_to_parts
     avoid_all_travel_to_parts

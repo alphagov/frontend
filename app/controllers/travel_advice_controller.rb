@@ -17,7 +17,9 @@ class TravelAdviceController < ContentItemsController
     end
   end
 
-  def show; end
+  def show
+    @content_item.set_current_part(params[:slug])
+  end
 
 private
 

@@ -100,6 +100,9 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+  components:
+    print_link:
+      text: Print this page
   continue: Continue
   cookies:
     always_on: They always need to be on.
@@ -659,6 +662,11 @@ en:
       - title: VAT rates
         link: /vat-rates
   'no': 'No'
+  multi_page:
+    next_page: Next
+    previous_page: Previous
+    print_entire_guide: View a printable version of the whole guide
+    printable_version: Printable version
   or: or
   place:
     children_social_care: You can call the children's social care team at the council in

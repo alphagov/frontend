@@ -19,6 +19,11 @@ class TravelAdviceController < ContentItemsController
 
   def show
     @content_item.set_current_part(params[:slug])
+
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
 
 private

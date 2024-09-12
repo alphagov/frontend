@@ -9,7 +9,9 @@
 <div class="govuk-grid-row" id="travel-advice-print">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-!-margin-bottom-6">
-      <%= render 'govuk_publishing_components/components/title', @content_item.title_and_context %>
+      <%= render 'govuk_publishing_components/components/title', 
+        context: I18n.t("formats.travel_advice.context"),
+        title: @content_item.country_name %>
     </div>
 
     <div class="govuk-!-display-none-print">

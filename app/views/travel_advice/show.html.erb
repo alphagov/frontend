@@ -28,7 +28,11 @@
     <% end %>
 
     <aside class="part-navigation-container" role="complementary">
-      <%= render "govuk_publishing_components/components/contents_list", aria: { label: t("formats.travel_advice.pages") }, contents: @content_item.part_link_elements, underline_links: true %>
+      <%= render "govuk_publishing_components/components/contents_list", 
+        aria: { label: t("formats.travel_advice.pages") }, 
+        contents: part_link_elements(@content_item.parts, @content_item.current_part), 
+        underline_links: true 
+      %>
 
       <div
         data-module="ga4-link-tracker"
@@ -59,7 +63,9 @@
         <%= raw(@content_item.current_part_body) %>
       <% end %>
 
-      <%= render 'govuk_publishing_components/components/previous_and_next_navigation', @content_item.previous_and_next_navigation %>
+      <%= render 'govuk_publishing_components/components/previous_and_next_navigation', 
+        previous_and_next_navigation(@content_item.previous_part, @content_item.next_part) 
+      %>
 
       <div class="responsive-bottom-margin">
         <a href="<%= print_link(@content_item.base_path) %>"

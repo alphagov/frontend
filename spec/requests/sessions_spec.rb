@@ -44,7 +44,7 @@ RSpec.describe "Sessions" do
         end
 
         it "does not take the redirect_path from the referer" do
-          get "/account"
+          get "/account", headers: { "Referer" => @referer }
 
           expect(@stub_with_redirect_path).not_to have_been_requested
           expect(response).to redirect_to("https://home.account.gov.uk")
@@ -59,7 +59,7 @@ RSpec.describe "Sessions" do
         end
 
         it "does not take the redirect_path from the referer" do
-          get "/account"
+          get "/account", headers: { "Referer" => @referer }
 
           expect(@stub_with_redirect_path).not_to have_been_requested
           expect(response).to redirect_to("https://home.account.gov.uk")

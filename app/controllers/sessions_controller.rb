@@ -42,8 +42,10 @@ protected
         http_referer = request.headers["HTTP_REFERER"]
 
         if http_referer&.start_with?(Plek.new.website_root)
-          http_referer.delete_prefix Plek.new.website_root
+          http_referer = http_referer.delete_prefix Plek.new.website_root
         end
+
+        http_referer
       end
   end
 
@@ -51,7 +53,6 @@ protected
     return true if value.blank?
     return false if value.starts_with? "//"
     return true if value.starts_with? "/"
-    return true if value.starts_with?("http://") && Rails.env.development?
 
     false
   end

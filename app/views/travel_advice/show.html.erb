@@ -49,7 +49,7 @@
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
       <%= render 'govuk_publishing_components/components/heading', heading_level: 1, font_size: 'l', margin_bottom: 6, text: @content_item.current_part_title %>
 
-      <% if @content_item.no_part_slug_provided? %>
+      <% if @content_item.parts.empty? %>
         <%= render 'first_part', content_item: @content_item %>
       <% end %>
 

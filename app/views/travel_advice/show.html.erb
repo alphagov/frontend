@@ -62,7 +62,7 @@
       <%= render 'govuk_publishing_components/components/previous_and_next_navigation', @content_item.previous_and_next_navigation %>
 
       <div class="responsive-bottom-margin">
-        <a href="<%= @content_item.print_link %>"
+        <a href="<%= print_link(@content_item.base_path) %>"
           class="govuk-link govuk-link--no-visited-state govuk-body"
           data-module="ga4-link-tracker"
           data-ga4-link="<%= {

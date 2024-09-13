@@ -614,10 +614,10 @@ en:
           title: National Insurance
           href: /check-national-insurance-record
           image_src: homepage/national-insurance-featured.png
-        - text: Find out what support is available to help with the cost of living.
-          title: Cost of living support
-          href: /cost-of-living
-          image_src: homepage/cost-of-living.png
+        - text: The best place to find government services and information
+          title: Search GOV.UK 
+          href: /seach
+          image_src: homepage/search-solid.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

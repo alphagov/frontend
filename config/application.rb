@@ -24,10 +24,15 @@ module Frontend
     include GovukPublishingComponents::AppHelpers::AssetHelper
     # Initialize configuration defaults for originally generated Rails version.
     require "frontend"
-    config.load_defaults 7.1
+    config.load_defaults 7.2
+
+    # Please, add to the `ignore` list any other `lib` subdirectories that do
+    # not contain `.rb` files, or that should not be reloaded or eager loaded.
+    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.eager_load_paths += %W[#{config.root}/app/presenters #{config.root}/lib]
+    config.eager_load_paths += %W[#{config.root}/app/presenters]
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

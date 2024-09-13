@@ -529,9 +529,9 @@ sq:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Tjetër
+    previous_page: I mëparshëm
+    print_entire_guide: Printo komplet udhëzimin
     printable_version:
   'no':
   or:

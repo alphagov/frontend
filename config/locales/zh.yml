@@ -529,9 +529,9 @@ zh:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: 下一步
+    previous_page: 上一步
+    print_entire_guide: 打印全部指南
     printable_version:
   'no':
   or:

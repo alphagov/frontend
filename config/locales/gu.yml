@@ -529,9 +529,9 @@ gu:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: આગળનું
+    previous_page: પહેલાનું
+    print_entire_guide: સંપૂર્ણ માર્ગદર્શિકા પ્રિન્ટ કરો
     printable_version:
   'no':
   or:

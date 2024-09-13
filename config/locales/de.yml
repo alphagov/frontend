@@ -529,9 +529,9 @@ de:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Weiter
+    previous_page: Zurück
+    print_entire_guide: Kompletten Leitfaden ausdrucken
     printable_version:
   'no':
   or:

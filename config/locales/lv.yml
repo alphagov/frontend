@@ -529,9 +529,9 @@ lv:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Tālāk
+    previous_page: Atpakaļ
+    print_entire_guide: Drukāt visu ceļvedi
     printable_version:
   'no':
   or:

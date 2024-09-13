@@ -529,9 +529,9 @@ lt:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Kitas
+    previous_page: Ankstesnis
+    print_entire_guide: Atsispausdinti visą vadovą
     printable_version:
   'no':
   or:

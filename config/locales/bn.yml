@@ -529,9 +529,9 @@ bn:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: পরবর্তী
+    previous_page: পূর্ববর্তী
+    print_entire_guide: সম্পূর্ণ নির্দেশিকাটি প্রিন্ট করুন
     printable_version:
   'no':
   or:

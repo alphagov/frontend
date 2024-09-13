@@ -529,9 +529,9 @@ ur:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: اگلا
+    previous_page: گزشتہ
+    print_entire_guide: پوری رہنمائی کا پرنٹ لیں
     printable_version:
   'no':
   or:

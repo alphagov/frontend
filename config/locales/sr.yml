@@ -529,9 +529,9 @@ sr:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Sledeće
+    previous_page: Prethodno
+    print_entire_guide: Odštampaj ceo vodič
     printable_version:
   'no':
   or:

@@ -529,9 +529,9 @@ es-419:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Siguiente
+    previous_page: Anterior
+    print_entire_guide: Imprimir la guía completa
     printable_version:
   'no':
   or:

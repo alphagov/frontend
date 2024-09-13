@@ -529,9 +529,9 @@ id:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Selanjutnya
+    previous_page: Sebelumnya
+    print_entire_guide: Cetak seluruh panduan
     printable_version:
   'no':
   or:

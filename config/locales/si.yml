@@ -529,9 +529,9 @@ si:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: ඊළඟ
+    previous_page: පෙර
+    print_entire_guide: සම්පූර්ණ මාර්ගෝපදේශය මුද්රණය කරන්න
     printable_version:
   'no':
   or:

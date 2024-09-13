@@ -529,9 +529,9 @@ gd:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Ag leanúint
+    previous_page: Roimhe seo
+    print_entire_guide: Priontáil an treoir iomlán
     printable_version:
   'no':
   or:

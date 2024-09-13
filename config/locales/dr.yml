@@ -529,9 +529,9 @@ dr:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: قبلی
+    previous_page: قبلی
+    print_entire_guide: تمام راهنما را پرنت نمایید
     printable_version:
   'no':
   or:

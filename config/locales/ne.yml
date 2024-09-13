@@ -529,9 +529,9 @@ ne:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: अर्को
+    previous_page: अघिल्लो
+    print_entire_guide: सम्पूर्ण गाइड छाप्नुहोस्
     printable_version:
   'no':
   or:

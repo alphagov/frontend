@@ -529,9 +529,9 @@ az:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Sonrakı
+    previous_page: Əvvəlki
+    print_entire_guide: Təlimatı bütünlüklə çap edin
     printable_version:
   'no':
   or:

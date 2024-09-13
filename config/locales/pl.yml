@@ -529,9 +529,9 @@ pl:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Następny
+    previous_page: Poprzedni
+    print_entire_guide: Wydrukuj cały przewodnik
     printable_version:
   'no':
   or:

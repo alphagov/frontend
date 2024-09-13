@@ -529,9 +529,9 @@ fa:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: بعدی
+    previous_page: قبلی
+    print_entire_guide: چاپ کل راهنما
     printable_version:
   'no':
   or:

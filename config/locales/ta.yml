@@ -529,9 +529,9 @@ ta:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: அடுத்து
+    previous_page: முந்தையது
+    print_entire_guide: முழு வழிகாட்டுதலையும் அச்செடுக்க
     printable_version:
   'no':
   or:

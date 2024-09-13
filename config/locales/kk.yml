@@ -529,9 +529,9 @@ kk:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Келесі
+    previous_page: Алдыңғы
+    print_entire_guide: Нұсқаулықты толығымен басып шығару
     printable_version:
   'no':
   or:

@@ -529,9 +529,9 @@ be:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Далей
+    previous_page: Папярэдні
+    print_entire_guide: Надрукаваць усё кіраўніцтва
     printable_version:
   'no':
   or:

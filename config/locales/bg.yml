@@ -529,9 +529,9 @@ bg:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Следваща
+    previous_page: Предишна
+    print_entire_guide: Отпечатване на цялото ръководство
     printable_version:
   'no':
   or:

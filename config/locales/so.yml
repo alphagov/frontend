@@ -529,9 +529,9 @@ so:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Ku xiga
+    previous_page: Hore
+    print_entire_guide: Ku qor tilmaamta guud
     printable_version:
   'no':
   or:

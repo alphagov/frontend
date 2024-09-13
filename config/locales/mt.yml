@@ -529,9 +529,9 @@ mt:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Li jmiss
+    previous_page: Ta' qabel
+    print_entire_guide: Stampa l-gwida kollu
     printable_version:
   'no':
   or:

@@ -529,9 +529,9 @@ uz:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Кейинги
+    previous_page: Олдинги
+    print_entire_guide: Бутун қўлланмани чоп этишга чиқариш
     printable_version:
   'no':
   or:

@@ -529,9 +529,9 @@ cs:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Další
+    previous_page: Předchozí
+    print_entire_guide: Vytisknout celou příručku
     printable_version:
   'no':
   or:

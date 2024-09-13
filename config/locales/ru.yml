@@ -529,9 +529,9 @@ ru:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Следующий
+    previous_page: Предыдущий
+    print_entire_guide: Распечатать всё руководство
     printable_version:
   'no':
   or:

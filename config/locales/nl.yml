@@ -529,9 +529,9 @@ nl:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Volgende
+    previous_page: Vorige
+    print_entire_guide: Volledige gids afdrukken
     printable_version:
   'no':
   or:

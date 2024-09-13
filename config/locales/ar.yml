@@ -529,9 +529,9 @@ ar:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: التالي
+    previous_page: السابق
+    print_entire_guide: طباعة الدليل بأكمله
     printable_version:
   'no':
   or:

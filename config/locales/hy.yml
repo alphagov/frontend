@@ -529,9 +529,9 @@ hy:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Հաջորդ
+    previous_page: Նախորդ
+    print_entire_guide: Տպել ամբողջ ուղեցույցը
     printable_version:
   'no':
   or:

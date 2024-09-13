@@ -529,9 +529,9 @@ pa:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: ਅਗਲਾ
+    previous_page: ਪਿਛਲਾ
+    print_entire_guide: ਸਾਰੀ ਗਾਈਡ ਛਾਪੋ
     printable_version:
   'no':
   or:

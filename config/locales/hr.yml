@@ -529,9 +529,9 @@ hr:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Sljedeće
+    previous_page: Prethodno
+    print_entire_guide: Ispišite cijeli vodič
     printable_version:
   'no':
   or:

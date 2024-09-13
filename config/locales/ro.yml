@@ -529,9 +529,9 @@ ro:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Continuare
+    previous_page: Înapoi
+    print_entire_guide: Imprimați întreg ghidul
     printable_version:
   'no':
   or:

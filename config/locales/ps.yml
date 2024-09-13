@@ -529,9 +529,9 @@ ps:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: بل
+    previous_page: مخکینی
+    print_entire_guide: ټول لارښود چاپ کړئ
     printable_version:
   'no':
   or:

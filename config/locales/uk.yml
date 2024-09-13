@@ -529,9 +529,9 @@ uk:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: Далі
+    previous_page: Назад
+    print_entire_guide: Роздрукувати весь посібник
     printable_version:
   'no':
   or:

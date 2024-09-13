@@ -529,9 +529,9 @@ hi:
   i18n:
     direction:
   multi_page:
-    next_page:
-    previous_page:
-    print_entire_guide:
+    next_page: अगला
+    previous_page: पिछला
+    print_entire_guide: पूरी गाइड प्रिंट करें
     printable_version:
   'no':
   or:

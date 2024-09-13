@@ -33,7 +33,7 @@ module Parts
     end
 
     def current_part_body
-      current_part["body"]
+      current_part["body"] || ""
     end
 
     def current_part_path

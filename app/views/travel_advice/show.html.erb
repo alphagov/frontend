@@ -6,7 +6,7 @@
 
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
-    canonical_url: @content_item.canonical_url,
+    canonical_url: canonical_url(@content_item.current_part_path), 
     title: @content_item.page_title,
     body: @content_item.current_part_body,
     content_item: @content_item.to_h %>

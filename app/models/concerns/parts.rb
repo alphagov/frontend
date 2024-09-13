@@ -35,6 +35,10 @@ module Parts
     def current_part_body
       current_part["body"] || ""
     end
+
+    def current_part_path
+      current_part["full_path"]
+    end
   end
 
   def current_part

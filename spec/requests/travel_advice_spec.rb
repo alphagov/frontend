@@ -46,4 +46,63 @@ RSpec.describe "Travel Advice" do
       end
     end
   end
+
+  context "GET show" do
+    context "first part" do
+      before do
+        @content_item = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
+        @country_path = @content_item.fetch("base_path")
+        stub_content_store_has_item(@country_path, @content_item)
+      end
+
+      it "succeeds" do
+        get @country_path
+
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "renders the show template" do
+        get @country_path
+
+        expect(response).to render_template(:show)
+      end
+
+      it "renders the print variant" do
+        get "#{@country_path}/print"
+
+        expect(response).to render_template(:show)
+      end
+
+      it "sets cache-control headers" do
+        get @country_path
+        honours_content_store_ttl
+      end
+    end
+
+    context("second part") do
+      before do
+        @content_item = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
+        @country_path = @content_item.fetch("base_path")
+        @part_slug =  @content_item.dig("details", "parts").last["slug"]
+        stub_content_store_has_item(@country_path, @content_item)
+      end
+
+      it "succeeds" do
+        get "#{@country_path}/#{@part_slug}"
+
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "renders the show template" do
+        get "#{@country_path}/#{@part_slug}"
+
+        expect(response).to render_template(:show)
+      end
+
+      it "sets cache-control headers" do
+        get "#{@country_path}/#{@part_slug}"
+        honours_content_store_ttl
+      end
+    end
+  end
 end

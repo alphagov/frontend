@@ -31,7 +31,7 @@ class CalendarController < ContentItemsController
 
     respond_to do |format|
       format.json { render json: div }
-      format.ics { render plain: IcsRenderer.new(div.events, request.path).render }
+      format.ics { render plain: IcsRenderer.new(div.events, request.path, I18n.locale).render }
       format.all { simple_404 }
     end
   end

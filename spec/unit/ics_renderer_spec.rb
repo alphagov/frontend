@@ -3,7 +3,7 @@ require "ics_renderer"
 RSpec.describe IcsRenderer do
   context "generating complete ics file" do
     it "generates correct ics header and footer" do
-      r = IcsRenderer.new([], "/foo/ics")
+      r = IcsRenderer.new([], "/foo/ics", :en)
 
       expected = "BEGIN:VCALENDAR\r\n"
       (expected << "VERSION:2.0\r\n")
@@ -14,8 +14,14 @@ RSpec.describe IcsRenderer do
       expect(r.render).to eq(expected)
     end
 
+    it "handles locale correctly" do
+      r = IcsRenderer.new([], "/foo/ics", :cy)
+
+      expect(r.render).to match("PRODID:-//uk.gov/GOVUK calendars//CY")
+    end
+
     it "generates an event for each given event" do
-      r = IcsRenderer.new(%i[e1 e2], "/foo/ics")
+      r = IcsRenderer.new(%i[e1 e2], "/foo/ics", :en)
 
       expect(r).to receive(:render_event).with(:e1).and_return("Event1 ics\r\n")
       expect(r).to receive(:render_event).with(:e2).and_return("Event2 ics\r\n")
@@ -34,7 +40,7 @@ RSpec.describe IcsRenderer do
   context "generating an event" do
     before do
       @path = "/foo/ics"
-      @r = IcsRenderer.new([], @path)
+      @r = IcsRenderer.new([], @path, :en)
       allow_any_instance_of(IcsRenderer).to receive(:dtstamp).and_return("20121017T0100Z")
     end
 
@@ -57,7 +63,7 @@ RSpec.describe IcsRenderer do
   context "generating a uid" do
     before do
       @path = "/foo/bar.ics"
-      @r = IcsRenderer.new([], @path)
+      @r = IcsRenderer.new([], @path, :en)
       @hash = Digest::MD5.hexdigest(@path)
       @first_event = Calendar::Event.new("title" => "bank_holidays.new_year", "date" => Date.new(1982, 5, 28))
       @second_event = Calendar::Event.new("title" => "bank_holidays.good_friday", "date" => Date.new(1984, 1, 16))
@@ -75,7 +81,7 @@ RSpec.describe IcsRenderer do
   end
 
   context "generating dtstamp" do
-    before { @r = IcsRenderer.new([], "/foo/ics") }
+    before { @r = IcsRenderer.new([], "/foo/ics", :en) }
 
     it "returns the mtime of the REVISION file" do
       expect(File).to receive(:mtime).with(Rails.root.join("REVISION")).and_return(Time.zone.parse("2012-04-06 14:53:54Z"))

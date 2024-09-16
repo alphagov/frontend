@@ -1,14 +1,15 @@
 class IcsRenderer
-  def initialize(events, cal_path)
+  def initialize(events, cal_path, locale)
     @events = events
     @cal_path = cal_path
+    @locale = locale
   end
 
   def render
     output =  "BEGIN:VCALENDAR\r\n"
     output << "VERSION:2.0\r\n"
     output << "METHOD:PUBLISH\r\n"
-    output << "PRODID:-//uk.gov/GOVUK calendars//EN\r\n"
+    output << "PRODID:-//uk.gov/GOVUK calendars//#{@locale.upcase}\r\n"
     output << "CALSCALE:GREGORIAN\r\n"
     @events.each { |event| output << render_event(event) }
     output << "END:VCALENDAR\r\n"

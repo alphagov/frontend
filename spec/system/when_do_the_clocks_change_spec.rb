@@ -13,7 +13,7 @@ RSpec.describe "When Do The Clocks Change" do
       expect(page).to have_selector("title", text: "When do the clocks change? - GOV.UK", visible: false)
       desc = page.find("meta[name=description]", visible: false)
 
-      expect(desc["content"]).to eq("Dates when the clocks go back or forward in 2012, 2013, 2014 - includes British Summer Time, Greenwich Mean Time")
+      expect(desc["content"]).to eq("Dates when the clocks go back or forward - includes British Summer Time, Greenwich Mean Time")
       expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/when-do-the-clocks-change/united-kingdom.json']", visible: false)
       expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/when-do-the-clocks-change/united-kingdom.ics']", visible: false)
     end
@@ -44,7 +44,7 @@ RSpec.describe "When Do The Clocks Change" do
     Timecop.travel(Date.parse("2012-11-15")) do
       visit "/when-do-the-clocks-change"
       within(".govuk-panel") do
-        expect(page).to have_content("The clocks advance")
+        expect(page).to have_content("The clocks go forward")
         expect(page).to have_content("31 March")
       end
     end

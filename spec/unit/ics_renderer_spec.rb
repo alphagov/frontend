@@ -39,14 +39,14 @@ RSpec.describe IcsRenderer do
     end
 
     it "generates an event" do
-      e = Calendar::Event.new("title" => "An Event", "date" => "2012-04-14")
+      e = Calendar::Event.new("title" => "bank_holidays.good_friday", "date" => "2012-04-14")
 
       expect(Digest::MD5).to receive(:hexdigest).with(@path).once.and_return("hash")
       expected = "BEGIN:VEVENT\r\n"
       (expected << "DTEND;VALUE=DATE:20120415\r\n")
       (expected << "DTSTART;VALUE=DATE:20120414\r\n")
-      (expected << "SUMMARY:An Event\r\n")
-      (expected << "UID:hash-2012-04-14-AnEvent@gov.uk\r\n")
+      (expected << "SUMMARY:Good Friday\r\n")
+      (expected << "UID:hash-2012-04-14-GoodFriday@gov.uk\r\n")
       (expected << "SEQUENCE:0\r\n")
       (expected << "DTSTAMP:20121017T0100Z\r\n")
       (expected << "END:VEVENT\r\n")
@@ -59,18 +59,18 @@ RSpec.describe IcsRenderer do
       @path = "/foo/bar.ics"
       @r = IcsRenderer.new([], @path)
       @hash = Digest::MD5.hexdigest(@path)
-      @first_event = Calendar::Event.new("title" => "Somebody\u2019s important event", "date" => Date.new(1982, 5, 28))
-      @second_event = Calendar::Event.new("title" => "Another important event", "date" => Date.new(1984, 1, 16))
+      @first_event = Calendar::Event.new("title" => "bank_holidays.new_year", "date" => Date.new(1982, 5, 28))
+      @second_event = Calendar::Event.new("title" => "bank_holidays.good_friday", "date" => Date.new(1984, 1, 16))
     end
 
     it "uses calendar path, event title and event date to create a uid" do
-      expect(@r.uid(@first_event)).to eq("#{@hash}-1982-05-28-Somebodysimportantevent@gov.uk")
+      expect(@r.uid(@first_event)).to eq("#{@hash}-1982-05-28-NewYearsDay@gov.uk")
     end
 
     it "caches the hash generation" do
       expect(Digest::MD5).to receive(:hexdigest).with(@path).once.and_return(@hash)
       @r.uid(@first_event)
-      expect(@r.uid(@second_event)).to eq("#{@hash}-1984-01-16-Anotherimportantevent@gov.uk")
+      expect(@r.uid(@second_event)).to eq("#{@hash}-1984-01-16-GoodFriday@gov.uk")
     end
   end
 

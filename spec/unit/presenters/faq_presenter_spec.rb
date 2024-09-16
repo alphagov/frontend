@@ -23,7 +23,7 @@ RSpec.describe FaqPresenter do
   end
 
   it "uses wdtcc body for wdtcc" do
-    expected = [q_and_a("When do the clocks change?", "The clocks advance on the 25th of March")]
+    expected = [q_and_a("When do the clocks change?", "The clocks go forward on the 25th of March")]
     Timecop.travel(Date.parse("2012-03-24")) do
       scope = "when-do-the-clocks-change"
       calendar = Calendar.find(scope)

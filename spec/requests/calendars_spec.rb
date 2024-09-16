@@ -1,7 +1,7 @@
 RSpec.describe "Calendars" do
   context "GET 'calendar'" do
     before do
-      allow(Calendar).to receive(:find).and_return(Calendar.new("something", "title" => "Brilliant holidays!", "divisions" => []))
+      allow(Calendar).to receive(:find).and_return(Calendar.new("bank-holidays", "title" => "Brilliant holidays!", "divisions" => []))
       stub_content_store_has_item("/bank-holidays", {
         schema_name: "calendar",
         title: "Brilliant holidays!",

@@ -1,44 +1,44 @@
 {
-  "title": "When do the clocks change?",
+  "title": "when_do_the_clocks_change.calendar.title",
   "need_id": 100933,
   "content_id": "41c78b38-f70e-4729-815b-680f9b90db30",
   "description": "when_do_the_clocks_change.calendar.description",
   "divisions": {
-    "united-kingdom": {
+    "common.united-kingdom_slug": {
       "2012": [
         {
-          "title": "Start of British Summer Time",
+          "title": "when_do_the_clocks_change.start_title",
           "date": "25/03/2012",
-          "notes": "Clocks advance one hour"
+          "notes": "when_do_the_clocks_change.start_notes"
         },
         {
-          "title": "End of British Summer Time",
+          "title": "when_do_the_clocks_change.end_title",
           "date": "28/10/2012",
-          "notes": "Clocks go back one hour"
+          "notes": "when_do_the_clocks_change.end_notes"
         }
       ],
       "2013": [
         {
-          "title": "Start of British Summer Time",
+          "title": "when_do_the_clocks_change.start_title",
           "date": "31/03/2013",
-          "notes": "Clocks advance one hour"
+          "notes": "when_do_the_clocks_change.start_notes"
         },
         {
-          "title": "End of British Summer Time",
+          "title": "when_do_the_clocks_change.end_title",
           "date": "27/10/2013",
-          "notes": "Clocks go back one hour"
+          "notes": "when_do_the_clocks_change.end_notes"
         }
       ],
       "2014": [
         {
-          "title": "Start of British Summer Time",
+          "title": "when_do_the_clocks_change.start_title",
           "date": "30/03/2014",
-          "notes": "Clocks go back one hour"
+          "notes": "when_do_the_clocks_change.start_notes"
         },
         {
-          "title": "End of British Summer Time",
+          "title": "when_do_the_clocks_change.end_title",
           "date": "26/10/2014",
-          "notes": "Clocks go back one hour"
+          "notes": "when_do_the_clocks_change.end_notes"
         }
       ]
     }

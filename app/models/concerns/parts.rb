@@ -37,8 +37,6 @@ module Parts
     end
   end
 
-private
-
   def current_part
     if part_slug
       parts.find { |part| part["slug"] == part_slug }
@@ -46,6 +44,8 @@ private
       parts.first
     end
   end
+
+private
 
   def current_part_index
     parts.index(current_part)

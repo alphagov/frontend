@@ -24,11 +24,13 @@ class Calendar
   end
 
   def to_param
-    I18n.t(slug)
+    slug
   end
 
   def divisions
-    @divisions ||= @data["divisions"].map { |slug, data| Division.new(slug, data) }
+    return [] unless @data.key?("divisions")
+
+    @divisions ||= @data["divisions"].map { |slug, data| Division.new(I18n.t(slug), data) }
   end
 
   def division(slug)
@@ -56,7 +58,7 @@ class Calendar
 
   def as_json(_options = nil)
     divisions.each_with_object({}) do |division, hash|
-      hash[I18n.t(division.slug)] = division.as_json
+      hash[division.slug] = division.as_json
     end
   end
 

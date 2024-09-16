@@ -18,7 +18,7 @@ class Calendar
     end
 
     def to_param
-      I18n.t(slug)
+      slug
     end
 
     def years
@@ -61,7 +61,7 @@ class Calendar
 
     def as_json(_options = {})
       {
-        "division" => I18n.t(@slug),
+        "division" => @slug,
         "events" => events,
       }
     end

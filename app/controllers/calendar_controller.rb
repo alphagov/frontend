@@ -25,7 +25,7 @@ class CalendarController < ContentItemsController
   end
 
   def division
-    handle_bank_holiday_ics_calendars
+    set_locale
     div = calendar.division(params[:division])
     set_expiry 1.day
 
@@ -66,13 +66,5 @@ private
 
   def simple_404
     head :not_found
-  end
-
-  def handle_bank_holiday_ics_calendars
-    if scope == "bank-holidays"
-      division_slug = Calendar::Division::SLUGS[params[:division]]
-
-      params[:division] = "common.nations.#{division_slug}"
-    end
   end
 end

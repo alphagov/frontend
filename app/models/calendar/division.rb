@@ -12,7 +12,7 @@ class Calendar
     attr_reader :slug, :title
 
     def initialize(slug, data = {})
-      @slug = data["slug"] || slug
+      @slug = slug
       @title = data.delete("title") || slug.underscore.humanize
       @data = data
     end

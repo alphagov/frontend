@@ -13,9 +13,9 @@ class CalendarController < ContentItemsController
   def show_calendar
     respond_to do |format|
       format.html do
-        @faq_presenter = FaqPresenter.new(scope, calendar, content_item_hash, view_context)
+        @faq_presenter = FaqPresenter.new(calendar.scope, calendar, content_item_hash, view_context)
 
-        render scope.tr("-", "_")
+        render calendar.scope.tr("-", "_")
       end
       format.json do
         set_expiry 1.hour

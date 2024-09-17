@@ -5,7 +5,7 @@ class Calendar
   end
 
   def self.find(slug)
-    json_file = Rails.root.join(REPOSITORY_PATH, "#{slug}.json")
+    json_file = Rails.root.join(REPOSITORY_PATH, "#{slug_to_scope(slug)}.json")
     if File.exist?(json_file)
       data = JSON.parse(File.read(json_file))
       new(slug, data)
@@ -14,13 +14,18 @@ class Calendar
     end
   end
 
-  attr_reader :slug, :title, :description
+  def self.slug_to_scope(slug)
+    slug == "gwyliau-banc" ? "bank-holidays" : slug
+  end
+
+  attr_reader :slug, :title, :scope, :description
 
   def initialize(slug, data = {})
     @slug = slug
     @data = data
     @title = I18n.t(data["title"])
     @description = I18n.t(data["description"])
+    @scope = Calendar.slug_to_scope(slug)
   end
 
   def to_param

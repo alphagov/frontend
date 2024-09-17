@@ -41,7 +41,7 @@ private
   helper_method :calendar
 
   def content_item
-    @content_item ||= GdsApi.content_store.content_item("/#{scope}")
+    @content_item ||= GdsApi.content_store.content_item("/#{params[:scope]}")
   end
 
   def set_cors_headers
@@ -52,20 +52,12 @@ private
     request.format.symbol == :json
   end
 
-  def scope
-    if params[:scope] == "gwyliau-banc"
-      "bank-holidays"
-    else
-      params[:scope]
-    end
-  end
-
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def calendar
-    @calendar ||= Calendar.find(scope)
+    @calendar ||= Calendar.find(params[:scope])
   end
 
   def validate_scope

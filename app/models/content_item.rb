@@ -1,4 +1,6 @@
 class ContentItem
+  include Withdrawal
+
   attr_reader :content_store_response, :body, :image, :description, :document_type, :title, :base_path, :locale
 
   def initialize(content_store_response)

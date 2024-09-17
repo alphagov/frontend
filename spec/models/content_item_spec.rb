@@ -1,4 +1,6 @@
 RSpec.describe ContentItem do
+  it_behaves_like "it can be withdrawn", "detailed_guide", "withdrawn_detailed_guide"
+
   let(:subject) { build(:content_item_with_data_attachments, schema_name: "fancy_page_type") }
 
   describe "ordered_related_items attribute" do

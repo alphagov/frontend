@@ -19,6 +19,7 @@ class TravelAdviceController < ContentItemsController
 
   def show
     content_item.set_current_part(params[:slug])
+    @travel_advice_presenter = TravelAdvicePresenter.new(content_item)
 
     request.variant = :print if params[:variant] == :print
 

@@ -15,8 +15,7 @@ RSpec.describe FaqPresenter do
     Timecop.travel(Date.parse("2012-03-24")) do
       scope = "bank-holidays"
       calendar = Calendar.find(scope)
-      content_item = CalendarContentItem.new(calendar).payload
-      presenter = described_class.new(scope, calendar, content_item, @view_context)
+      presenter = described_class.new(scope, calendar, payload(calendar), @view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end
@@ -27,8 +26,7 @@ RSpec.describe FaqPresenter do
     Timecop.travel(Date.parse("2012-03-24")) do
       scope = "when-do-the-clocks-change"
       calendar = Calendar.find(scope)
-      content_item = CalendarContentItem.new(calendar).payload
-      presenter = described_class.new(scope, calendar, content_item, @view_context)
+      presenter = described_class.new(scope, calendar, payload(calendar), @view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end
@@ -41,6 +39,13 @@ private
       "@type" => "Question",
       "name" => question,
       "acceptedAnswer" => { "@type" => "Answer", "text" => answer },
+    }
+  end
+
+  def payload(calendar)
+    {
+      title: calendar.title,
+      description: calendar.description,
     }
   end
 end

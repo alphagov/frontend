@@ -98,6 +98,7 @@ cy:
     past_bank_holidays: Gwyliau banc blaenorol
     substitute_day: Diwrnod amgen
     today: heddiw
+    united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
   continue: Parhau
   cookies:
@@ -865,4 +866,13 @@ cy:
       title:
   sign_up: Cofrestru
   website: Gwefan
+  when_do_the_clocks_change:
+    calendar:
+      description:
+      title:
+      body:
+    start_title: 
+    start_notes: 
+    end_title:   
+    end_notes: 
   'yes': Ie

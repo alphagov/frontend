@@ -33,18 +33,18 @@ RSpec.describe Calendar do
         "a-calendar",
         "title" => "UK bank holidays",
         "divisions" => {
-          "kablooie" => { "2012" => [1], "2013" => [3] },
-          "fooey" => { "2012" => [1, 2], "2013" => [3, 4] },
-          "gooey" => { "2012" => [2], "2013" => [4] },
+          "common.nations.england-and-wales_slug" => { "2012" => [1], "2013" => [3] },
+          "common.nations.scotland_slug" => { "2012" => [1, 2], "2013" => [3, 4] },
+          "common.nations.northern-ireland_slug" => { "2012" => [2], "2013" => [4] },
         },
       )
     end
 
     it "constructs a division for each one in the data" do
-      expect(Calendar::Division).to receive(:new).with("kablooie", { "2012" => [1], "2013" => [3] }).and_return(:kablooie)
-      expect(Calendar::Division).to receive(:new).with("fooey", { "2012" => [1, 2], "2013" => [3, 4] }).and_return(:fooey)
-      expect(Calendar::Division).to receive(:new).with("gooey", { "2012" => [2], "2013" => [4] }).and_return(:gooey)
-      expect(@cal.divisions).to eq(%i[kablooie fooey gooey])
+      expect(Calendar::Division).to receive(:new).with("england-and-wales", { "2012" => [1], "2013" => [3] }).and_return(:england_and_wales)
+      expect(Calendar::Division).to receive(:new).with("scotland", { "2012" => [1, 2], "2013" => [3, 4] }).and_return(:scotland)
+      expect(Calendar::Division).to receive(:new).with("northern-ireland", { "2012" => [2], "2013" => [4] }).and_return(:northern_ireland)
+      expect(@cal.divisions).to eq(%i[england_and_wales scotland northern_ireland])
     end
 
     it "caches the constructed instances" do
@@ -56,10 +56,10 @@ RSpec.describe Calendar do
 
     context "finding a division by slug" do
       it "returns the division with the matching slug" do
-        div = @cal.division("fooey")
+        div = @cal.division("england-and-wales")
 
         expect(div.class).to eq(Calendar::Division)
-        expect(div.title).to eq("Fooey")
+        expect(div.title).to eq("England and wales")
       end
 
       it "raises exception when division doesn't exist" do
@@ -94,7 +94,7 @@ RSpec.describe Calendar do
 
   context "attribute accessors" do
     before do
-      @cal = Calendar.new("a-calendar", "title" => "UK bank holidays", "description" => "UK bank holidays description")
+      @cal = Calendar.new("a-calendar", "title" => "bank_holidays.calendar.title", "description" => "bank_holidays.calendar.description")
     end
 
     it "has an accessor for the title" do
@@ -102,7 +102,7 @@ RSpec.describe Calendar do
     end
 
     it "has an accessor for the description" do
-      expect(@cal.description).to eq("UK bank holidays description")
+      expect(@cal.description).to eq("Find out when bank holidays are in England, Wales, Scotland and Northern Ireland - including past and future bank holidays")
     end
   end
 

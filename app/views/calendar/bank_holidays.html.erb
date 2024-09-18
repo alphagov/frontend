@@ -112,7 +112,7 @@
           <%= render "govuk_publishing_components/components/tabs", {
             panel_border: false,
             tabs: @calendar.divisions.each_with_index.map { |division, index| {
-              :id => t(division.slug),
+              :id => division.slug,
               :label => t(division.title),
               :content => tab_content[index],
             } }

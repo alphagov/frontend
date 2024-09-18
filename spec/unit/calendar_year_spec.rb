@@ -6,14 +6,14 @@ RSpec.describe Calendar::Year do
   describe "#events" do
     before do
       @y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
       ])
     end
 
     it "builds an event for each event in the data" do
-      foo = Calendar::Event.new("title" => "foo", "date" => Date.civil(2012, 1, 2))
-      bar = Calendar::Event.new("title" => "bar", "date" => Date.civil(2012, 8, 27))
+      foo = Calendar::Event.new("title" => "bank_holidays.new_year", "date" => Date.civil(2012, 1, 2))
+      bar = Calendar::Event.new("title" => "bank_holidays.good_friday", "date" => Date.civil(2012, 8, 27))
 
       expect(@y.events).to eq([foo, bar])
     end
@@ -35,8 +35,8 @@ RSpec.describe Calendar::Year do
 
     it "returns nil with no future events" do
       y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
       ])
 
       expect(y.upcoming_event).to be_nil
@@ -44,38 +44,38 @@ RSpec.describe Calendar::Year do
 
     it "returns the first event that's in the future" do
       y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
       ])
       Timecop.travel(Date.parse("2012-03-24")) do
-        expect(y.upcoming_event.title).to eq("bar")
+        expect(y.upcoming_event.title).to eq("Good Friday")
       end
     end
 
     it "counts an event today as a future event" do
       y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
       ])
       Timecop.travel(Date.parse("2012-08-27")) do
-        expect(y.upcoming_event.title).to eq("bar")
+        expect(y.upcoming_event.title).to eq("Good Friday")
       end
     end
 
     it "caches the event" do
       y = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
       ])
       Timecop.travel(Date.parse("2012-03-24")) do
         y.upcoming_event
 
         expect(y).not_to receive(:events)
 
-        expect(y.upcoming_event.title).to eq("bar")
+        expect(y.upcoming_event.title).to eq("Good Friday")
       end
     end
   end
@@ -83,15 +83,15 @@ RSpec.describe Calendar::Year do
   describe "#upcoming_events" do
     before do
       @year = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
       ])
     end
 
     it "returns all future events including today" do
       Timecop.travel("2012-08-27") do
-        expect(@year.upcoming_events.map(&:title)).to eq(%w[bar baz])
+        expect(@year.upcoming_events.map(&:title)).to eq(["Good Friday", "Easter Monday"])
       end
     end
 
@@ -107,15 +107,15 @@ RSpec.describe Calendar::Year do
   describe "#past_events" do
     before do
       @year = Calendar::Year.new("1234", :a_division, [
-        { "title" => "foo", "date" => "02/01/2012" },
-        { "title" => "bar", "date" => "27/08/2012" },
-        { "title" => "baz", "date" => "16/10/2012" },
+        { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
+        { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
+        { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
       ])
     end
 
     it "returns all past events excluding today" do
       Timecop.travel("2012-08-27") do
-        expect(@year.past_events.map(&:title)).to eq(%w[foo])
+        expect(@year.past_events.map(&:title)).to eq(["New Year’s Day"])
       end
     end
 

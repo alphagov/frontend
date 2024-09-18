@@ -56,7 +56,8 @@ RSpec.describe "Icalendar" do
                             (expected_non_scottish_events + common_expected_events)
                           end
 
-        expect(page.body).to start_with("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nPRODID:-//uk.gov/GOVUK calendars//EN\r\nCALSCALE:GREGORIAN\r\n")
+        locale = calendar.start_with?("welsh") ? "CY" : "EN"
+        expect(page.body).to start_with("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\nPRODID:-//uk.gov/GOVUK calendars//#{locale}\r\nCALSCALE:GREGORIAN\r\n")
         expect(page.response_headers["content-type"]).to eq("text/calendar; charset=utf-8")
         expect(page.response_headers["Cache-Control"]).to eq("max-age=86400, public")
         expected_events.each do |event|

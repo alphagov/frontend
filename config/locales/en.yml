@@ -98,6 +98,7 @@ en:
     past_bank_holidays: Past bank holidays
     substitute_day: Substitute day
     today: today
+    united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
   continue: Continue
   cookies:
@@ -810,4 +811,13 @@ en:
       title: Control how we use information about you
   sign_up: Sign up
   website: Website
+  when_do_the_clocks_change:
+    calendar:
+      description: Dates when the clocks go back or forward - includes British Summer Time, Greenwich Mean Time
+      title: When do the clocks change?
+      body: In the UK the clocks go forward 1 hour at 1am on the last Sunday in March, and back 1 hour at 2am on the last Sunday in October.\nThe period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).\nWhen the clocks go back, the UK is on Greenwich Mean Time (GMT).
+    start_title: Start of British Summer Time
+    start_notes: Clocks go forward one hour
+    end_title: End of British Summer Time
+    end_notes: Clocks go back one hour
   'yes': 'Yes'

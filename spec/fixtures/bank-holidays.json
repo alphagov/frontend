@@ -3,9 +3,8 @@
     "need_id": 100128,
     "content_id": "58f79dbd-e57f-4ab2-ae96-96df5767d1b2",
     "description": "bank_holidays.calendar.description",
-    "body": "",
     "divisions": {
-        "england-and-wales": {
+        "common.nations.england-and-wales_slug": {
             "2012": [
                 {
                     "title": "bank_holidays.new_year",
@@ -265,7 +264,7 @@
             "slug": "common.nations.england-and-wales_slug",
             "title": "common.nations.england-and-wales"
         },
-        "scotland": {
+        "common.nations.scotland_slug": {
             "2012": [
                 {
                     "title": "bank_holidays.2nd_january",
@@ -555,7 +554,7 @@
             "slug": "common.nations.scotland_slug",
             "title": "common.nations.scotland"
         },
-        "northern-ireland": {
+        "common.nations.northern-ireland_slug": {
             "2012": [
                 {
                     "title": "bank_holidays.new_year",

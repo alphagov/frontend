@@ -13,9 +13,9 @@ class CalendarController < ContentItemsController
   def show_calendar
     respond_to do |format|
       format.html do
-        @faq_presenter = FaqPresenter.new(scope, calendar, content_item_hash, view_context)
+        @faq_presenter = FaqPresenter.new(calendar.scope, calendar, content_item_hash, view_context)
 
-        render scope.tr("-", "_")
+        render calendar.scope.tr("-", "_")
       end
       format.json do
         set_expiry 1.hour
@@ -25,13 +25,13 @@ class CalendarController < ContentItemsController
   end
 
   def division
-    handle_bank_holiday_ics_calendars
+    set_locale
     div = calendar.division(params[:division])
     set_expiry 1.day
 
     respond_to do |format|
       format.json { render json: div }
-      format.ics { render plain: IcsRenderer.new(div.events, request.path).render }
+      format.ics { render plain: IcsRenderer.new(div.events, request.path, I18n.locale).render }
       format.all { simple_404 }
     end
   end
@@ -41,7 +41,7 @@ private
   helper_method :calendar
 
   def content_item
-    @content_item ||= GdsApi.content_store.content_item("/#{scope}")
+    @content_item ||= GdsApi.content_store.content_item("/#{params[:scope]}")
   end
 
   def set_cors_headers
@@ -52,20 +52,12 @@ private
     request.format.symbol == :json
   end
 
-  def scope
-    if params[:scope] == "gwyliau-banc"
-      "bank-holidays"
-    else
-      params[:scope]
-    end
-  end
-
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def calendar
-    @calendar ||= Calendar.find(scope)
+    @calendar ||= Calendar.find(params[:scope])
   end
 
   def validate_scope
@@ -74,13 +66,5 @@ private
 
   def simple_404
     head :not_found
-  end
-
-  def handle_bank_holiday_ics_calendars
-    if scope == "bank-holidays"
-      division_slug = Calendar::Division::SLUGS[params[:division]]
-
-      params[:division] = "common.nations.#{division_slug}"
-    end
   end
 end

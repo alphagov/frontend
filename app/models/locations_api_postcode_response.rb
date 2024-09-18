@@ -7,10 +7,6 @@ class LocationsApiPostcodeResponse
     @error = error
   end
 
-  def location_found?
-    local_custodian_codes.present?
-  end
-
   def location_not_found?
     postcode && local_custodian_codes.empty? && error.nil?
   end

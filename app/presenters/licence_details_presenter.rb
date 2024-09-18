@@ -72,10 +72,6 @@ class LicenceDetailsPresenter
     interaction
   end
 
-  def offered_by_county?
-    licence_details["is_offered_by_county"]
-  end
-
   def single_licence_authority_present?
     licence_authority_specific? && authority.present?
   end

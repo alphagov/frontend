@@ -42,4 +42,12 @@ class TravelAdvice < ContentItem
   def change_history
     content_store_response["details"]["change_history"]
   end
+
+  def reviewed_at
+    content_store_response["details"]["reviewed_at"]
+  end
+
+  def updated_at
+    content_store_response["details"]["updated_at"]
+  end
 end

@@ -1854,6 +1854,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"foreground-child@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "foreground-child@npm:3.3.0"
+  dependencies:
+    cross-spawn: ^7.0.0
+    signal-exit: ^4.0.1
+  checksum: 1989698488f725b05b26bc9afc8a08f08ec41807cd7b92ad85d96004ddf8243fd3e79486b8348c64a3011ae5cc2c9f0936af989e1f28339805d8bc178a75b451
+  languageName: node
+  linkType: hard
+
 "forwarded@npm:0.2.0":
   version: 0.2.0
   resolution: "forwarded@npm:0.2.0"
@@ -1881,7 +1891,7 @@ __metadata:
   dependencies:
     jasmine-browser-runner: ^2.5.0
     jasmine-core: ^5.3.0
-    nyc: ^17.0.0
+    nyc: ^17.1.0
     standardx: ^7.0.0
     stylelint: ^16.9.0
     stylelint-config-gds: ^2.0.0
@@ -3091,9 +3101,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nyc@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "nyc@npm:17.0.0"
+"nyc@npm:^17.1.0":
+  version: 17.1.0
+  resolution: "nyc@npm:17.1.0"
   dependencies:
     "@istanbuljs/load-nyc-config": ^1.0.0
     "@istanbuljs/schema": ^0.1.2
@@ -3102,7 +3112,7 @@ __metadata:
     decamelize: ^1.2.0
     find-cache-dir: ^3.2.0
     find-up: ^4.1.0
-    foreground-child: ^2.0.0
+    foreground-child: ^3.3.0
     get-package-type: ^0.1.0
     glob: ^7.1.6
     istanbul-lib-coverage: ^3.0.0
@@ -3124,7 +3134,7 @@ __metadata:
     yargs: ^15.0.2
   bin:
     nyc: bin/nyc.js
-  checksum: e10fe59393ef569745ed4e9026bc5f5e84fe81cac43c82b348c9faad8a1b71fd3a880fb5f379b4be55269d3a541b7c6c14e7b90adb925973ebc9c9593f60a1af
+  checksum: 725b396a1e2e35fc7c347090c80b48473e4da038c18bef9890c5c1bc42549de6b8400437c286caf8a0fc439f5e2b25327af7a878f121677084be30bc25bcbbbb
   languageName: node
   linkType: hard
 

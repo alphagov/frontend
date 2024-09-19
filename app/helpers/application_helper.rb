@@ -28,4 +28,8 @@ module ApplicationHelper
   def current_path_without_query_string
     request.original_fullpath.split("?", 2).first
   end
+
+  def display_date(timestamp, format = "%-d %B %Y")
+    I18n.l(Time.zone.parse(timestamp), format:, locale: "en") if timestamp
+  end
 end

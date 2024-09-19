@@ -812,6 +812,11 @@ cy:
       uk_bank_holidays:
       universal_credit:
     most_active:
+  i18n:
+    direction: ltr
+  language_names:
+    cy: Cymraeg
+    en:
   'no': Na
   or:
   place:
@@ -874,8 +879,8 @@ cy:
       description:
       title:
       body:
-    start_title: 
-    start_notes: 
-    end_title:   
-    end_notes: 
+    start_title:
+    start_notes:
+    end_title:
+    end_notes:
   'yes': Ie

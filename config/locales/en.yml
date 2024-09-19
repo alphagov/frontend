@@ -650,6 +650,11 @@ en:
         link: /vehicle-tax
       - title: VAT rates
         link: /vat-rates
+  i18n:
+    direction: ltr
+  language_names:
+    cy: Welsh
+    en: English
   'no': 'No'
   or: or
   place:

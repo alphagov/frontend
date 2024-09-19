@@ -17,6 +17,12 @@ class ContentItem
   delegate :to_h, to: :content_store_response
   delegate :cache_control, to: :content_store_response
 
+  def available_translations
+    translations = content_store_response["links"]["available_translations"] || []
+
+    translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
+  end
+
 private
 
   def ordered_related_items(links)

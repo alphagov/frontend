@@ -38,5 +38,12 @@ class TravelAdvice < ContentItem
   def change_description
     content_store_response["details"]["change_description"]
   end
-end
 
+  def reviewed_at
+    content_store_response["details"]["reviewed_at"]
+  end
+
+  def updated_at
+    content_store_response["details"]["updated_at"]
+  end
+end

@@ -812,6 +812,11 @@ cy:
       uk_bank_holidays:
       universal_credit:
     most_active:
+  i18n:
+    direction: ltr
+  language_names:
+    cy: Cymraeg
+    en:
   'no': Na
   or:
   place:

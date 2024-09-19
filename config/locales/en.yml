@@ -631,25 +631,30 @@ en:
       universal_credit: Sign in to your Universal Credit account
     most_active:
     - title: Find a job
-      link: "/find-a-job"
+      link: /find-a-job
     - title: Log in to student finance
-      link: "/student-finance-register-login"
+      link: /student-finance-register-login
     - title: Passport fees
-      link: "/passport-fees"
+      link: /passport-fees
     - title: Jobseeker's Allowance
-      link: "/jobseekers-allowance"
+      link: /jobseekers-allowance
     - title: Council Tax bands
-      link: "/council-tax-bands"
+      link: /council-tax-bands
     - title: Running a limited company
-      link: "/running-a-limited-company"
+      link: /running-a-limited-company
     - title: Driving theory test
-      link: "/book-theory-test"
+      link: /book-theory-test
     - title: Vehicle tax rates
-      link: "/calculate-tax-rates-for-new-cars"
+      link: /calculate-tax-rates-for-new-cars
     - title: Renew vehicle tax
-      link: "/vehicle-tax"
+      link: /vehicle-tax
     - title: VAT rates
-      link: "/vat-rates"
+      link: /vat-rates
+  i18n:
+    direction: ltr
+  language_names:
+    cy: Welsh
+    en: English
   'no': 'No'
   or: or
   place:

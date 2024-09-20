@@ -65,6 +65,7 @@ $pale-blue-colour: #d2e2f1;
   margin: 0;
   line-height: 1.07;
   display: block;
+  text-wrap: balance;
 
   @include govuk-media-query($from: tablet) {
     font-size: 50px;

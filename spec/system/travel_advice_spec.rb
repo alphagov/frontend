@@ -57,37 +57,37 @@ RSpec.describe "TravelAdvice" do
 
       expect(page.find("#wrapper")["class"]).to include("travel-advice")
     end
-  end
 
-  context "index with the javascript driver" do
-    before do
-      content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
-      base_path = content_item.fetch("base_path")
-      stub_content_store_has_item(base_path, content_item)
-      Capybara.current_driver = Capybara.javascript_driver
-    end
-
-    it "loads the page and performs filtering correctly" do
-      visit "/foreign-travel-advice"
-
-      expect(page).to have_content("Foreign travel advice")
-
-      page.execute_script("document.body.className = ((document.body.className) ? document.body.className + ' govuk-frontend-supported' : 'govuk-frontend-supported');")
-
-      expect(page).to have_selector("#country-filter")
-
-      within("#country-filter") { fill_in("country", with: "In") }
-
-      within(".countries-wrapper") do
-        expect(page).to have_selector("#I li")
-        expect(page).to have_selector("#F li")
-        expect(page).to have_selector("#S li")
-        expect(page).not_to have_selector("#A li")
-        expect(page).not_to have_selector("#M li")
+    context "with the javascript driver" do
+      before do
+        content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
+        base_path = content_item.fetch("base_path")
+        stub_content_store_has_item(base_path, content_item)
+        Capybara.current_driver = Capybara.javascript_driver
       end
-
-      within(".js-country-count") do
-        expect(page).to have_selector(".js-filter-count", text: "4")
+  
+      it "loads the page and performs filtering correctly" do
+        visit "/foreign-travel-advice"
+  
+        expect(page).to have_content("Foreign travel advice")
+  
+        page.execute_script("document.body.className = ((document.body.className) ? document.body.className + ' govuk-frontend-supported' : 'govuk-frontend-supported');")
+  
+        expect(page).to have_selector("#country-filter")
+  
+        within("#country-filter") { fill_in("country", with: "In") }
+  
+        within(".countries-wrapper") do
+          expect(page).to have_selector("#I li")
+          expect(page).to have_selector("#F li")
+          expect(page).to have_selector("#S li")
+          expect(page).not_to have_selector("#A li")
+          expect(page).not_to have_selector("#M li")
+        end
+  
+        within(".js-country-count") do
+          expect(page).to have_selector(".js-filter-count", text: "4")
+        end
       end
     end
   end

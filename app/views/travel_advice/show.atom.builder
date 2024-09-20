@@ -8,7 +8,7 @@ atom_feed(root_url: @content_item.web_url, id: @content_item.web_url) do |feed|
     entry.title(@content_item.title)
     entry.link(rel: "self", type: "application/atom+xml", href: "#{@content_item.web_url}.atom")
     entry.summary(type: :xhtml) do |summary|
-      summary << @content_item.atom_change_description
+      summary << format_atom_change_description(@content_item.change_description)
     end
   end
 end

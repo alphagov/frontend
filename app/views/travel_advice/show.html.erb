@@ -1,7 +1,7 @@
 <% add_view_stylesheet("travel-advice") %>
 <% content_for :simple_header, true %>
 
-<% content_for :extra_head_content do %>
+<% content_for :extra_headers do %>
   <%= auto_discovery_link_tag :atom, @content_item.feed_link, title: "Recent updates for #{@content_item.country_name}" %>
 
   <%= render "govuk_publishing_components/components/machine_readable_metadata",

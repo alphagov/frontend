@@ -1,4 +1,7 @@
 <% add_view_stylesheet("travel-advice") %>
+<% content_for :title do %>
+  <%=  @travel_advice_presenter.page_title %> - GOV.UK
+<% end %>
 <% content_for :simple_header, true %>
 
 <% content_for :extra_head_content do %>

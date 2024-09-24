@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc { |_env| [404, {}, ["Not Found"]] }
 
+  # Favicon redirect
+  get "/favicon.ico", to: "favicon#redirect_to_asset"
+
   unless Rails.env.production?
     get "/development", to: "development#index"
   end

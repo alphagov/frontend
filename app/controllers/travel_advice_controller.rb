@@ -18,6 +18,7 @@ class TravelAdviceController < ContentItemsController
   end
 
   def show
+    @content_item = content_item
     @content_item.set_current_part(params[:slug])
     @travel_advice_presenter = TravelAdvicePresenter.new(@content_item)
 

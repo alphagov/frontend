@@ -28,9 +28,7 @@ class TravelAdviceIndexPresenter
 
   def countries_grouped_by_initial_letter
     groups = countries.group_by do |country|
-      if country&.name
-        ordered_country_name(country.name)[0]
-      end
+      ordered_country_name(country.name)[0]
     end
 
     groups.sort_by { |initial, _| initial }

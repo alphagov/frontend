@@ -40,6 +40,12 @@ RSpec.describe Uprn do
   end
 
   describe "#error" do
+    it "returns nil for a valid Uprn" do
+      subject = described_class.new("012345678910")
+
+      expect(subject.error).to be_nil
+    end
+
     it "detects empty uprn as invalid" do
       subject = described_class.new("    ")
 

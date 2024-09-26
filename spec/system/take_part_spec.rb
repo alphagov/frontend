@@ -1,4 +1,6 @@
 RSpec.describe "TakePart" do
+  it_behaves_like "it has meta tags"
+
   before do
     content_store_has_example_item("/government/get-involved/take-part/tp1", schema: :take_part)
   end

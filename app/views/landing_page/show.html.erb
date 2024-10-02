@@ -1,0 +1,6 @@
+
+<div class="landing-page">
+  <% @content_item.blocks.each do |block| %>
+    <%= render "landing_page/blocks/#{block["type"]}", locals: block %>
+  <% end %>
+</div>

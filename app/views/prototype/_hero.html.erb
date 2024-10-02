@@ -1,9 +1,19 @@
 <%
   add_view_stylesheet("hero")
+  image ||= false
+  video ||= false
 %>
-
 <div class="app-b-hero">
-  <%= image_tag image, alt: alt_text, class: "app-b-hero__image" %>
+  <% if image %>
+    <%= image_tag image, alt: alt_text, class: "app-b-hero__image" %>
+  <% elsif video %>
+    <div class="app-b-hero__videowrapper">
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <p><a href="<%= video %>">The first 24 hours as Prime Minister - Behind the Scenes with Keir Starmer</a></p>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="govuk-width-container">
     <div class="govuk-grid-row">

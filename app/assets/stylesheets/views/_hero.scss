@@ -4,12 +4,17 @@
   margin-bottom: govuk-spacing(4);
 }
 
+.app-b-hero__videowrapper,
 .app-b-hero__image {
   display: block;
   position: relative;
   max-height: 600px;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.app-b-hero__videowrapper {
+  max-width: 1000px;
 }
 
 .app-b-hero__textbox {

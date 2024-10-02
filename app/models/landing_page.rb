@@ -1,10 +1,10 @@
 class LandingPage < ContentItem
+  attr_reader :blocks
+
   def initialize(content_store_response)
     super(content_store_response.deep_merge(load_additional_content(content_store_response["base_path"])))
-  end
 
-  def blocks
-    content_store_response.dig("details", "blocks")
+    @blocks = @content_store_response.dig("details", "blocks").map { |block_hash| BlockFactory.build(block_hash) }
   end
 
 private

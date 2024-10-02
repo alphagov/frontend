@@ -1,5 +1,6 @@
 APP_STYLESHEETS = {
   "application.scss" => "application.css",
+  "views/_hero.scss" => "views/_hero.css",
   "components/_calendar.scss" => "components/_calendar.css",
   "components/_subscribe.scss" => "components/_subscribe.css",
   "views/_calendars.scss" => "views/_calendars.css",

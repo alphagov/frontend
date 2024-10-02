@@ -1,0 +1,27 @@
+<%
+  add_view_stylesheet("hero")
+%>
+
+<div class="app-b-hero">
+  <%= image_tag image, alt: alt_text, class: "app-b-hero__image" %>
+
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="app-b-hero__textbox">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: text_heading,
+            margin_bottom: 4,
+            inverse: true
+          } %>
+          <%= render "govuk_publishing_components/components/govspeak", {
+            inverse: true
+          } do %>
+            <%= text_content %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

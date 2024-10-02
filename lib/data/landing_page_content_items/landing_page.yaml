@@ -12,3 +12,11 @@ blocks:
     content: Here's the content for item two
 - type: paragraph
   content: Here's some more content!
+- type: two_column_layout
+  theme: two_thirds_one_third
+  left:
+    type: paragraph
+    content: Left content!
+  right:
+    type: paragraph
+    content: Right content!

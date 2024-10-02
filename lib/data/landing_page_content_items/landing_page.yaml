@@ -1,0 +1,14 @@
+blocks:
+- type: paragraph
+  content: Here's some content!
+- type: tabs
+  id: landing-pages-item-selector
+  tab_items:
+  - id: tab-1
+    label: Item 1
+    content: Here's the content for item one
+  - id: tab-2
+    label: Item 2
+    content: Here's the content for item two
+- type: paragraph
+  content: Here's some more content!

@@ -48,6 +48,8 @@ Rails.application.routes.draw do
   # GOVUK Public Roadmap
   get "/roadmap", to: "roadmap#index"
 
+  get "/prototype", to: "prototype#index"
+
   # Electoral Registration Lookup Service
   # comment out this line to return to using a local transaction
   get "/contact-electoral-registration-office" => "electoral#show", as: :electoral_services

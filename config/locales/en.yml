@@ -21,17 +21,17 @@ en:
       heading: Cookie and feedback settings
       success: Your feedback and cookie settings have been changed.
     your_account:
+      about_description_html: <p class="govuk-body">GOV.UK accounts are new. At the moment you can only use your account to manage your GOV.UK email subscriptions.</p><p class="govuk-body">We’re working on adding more features and services.</p>
+      about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account that you can use to sign in to all government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>
+      about_detail_title: More about GOV.UK accounts
+      about_heading: About GOV.UK accounts
       emails:
         heading: Your GOV.UK email subscriptions
-        no_emails_inset: You do not currently have any GOV.UK email subscriptions.
-        no_emails_description: Some GOV.UK pages have a link to 'get emails'. You can use that link to subscribe to pages or topics you’re interested in.
-        see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
         manage_emails_link_text: Manage your GOV.UK email subscriptions
+        no_emails_description: Some GOV.UK pages have a link to 'get emails'. You can use that link to subscribe to pages or topics you’re interested in.
+        no_emails_inset: You do not currently have any GOV.UK email subscriptions.
+        see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
       heading: Your GOV.UK account
-      about_heading: About GOV.UK accounts
-      about_description_html: <p class="govuk-body">GOV.UK accounts are new. At the moment you can only use your account to manage your GOV.UK email subscriptions.</p><p class="govuk-body">We’re working on adding more features and services.</p>
-      about_detail_title: More about GOV.UK accounts
-      about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account that you can use to sign in to all government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>
   and: and
   attachment:
     virus_check:
@@ -43,7 +43,6 @@ en:
     2nd_january: 2nd January
     add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)
     bank_holiday: Bank holiday
-    queens_bank_holiday: Bank Holiday for the State Funeral of Queen Elizabeth II
     battle_boyne: Battle of the Boyne (Orangemen’s Day)
     boxing_day: Boxing Day
     bst_explanation: The period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).
@@ -67,6 +66,7 @@ en:
     new_year: New Year’s Day
     queen_diamond: Queen’s Diamond Jubilee
     queen_platinum: Platinum Jubilee bank holiday
+    queens_bank_holiday: Bank Holiday for the State Funeral of Queen Elizabeth II
     spring: Spring bank holiday
     st_andrew: St Andrew’s Day
     st_patrick: St Patrick’s Day
@@ -76,8 +76,8 @@ en:
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
-    bank_holiday_translation_html: This guide is also available <a href="/gwyliau-banc" title="Gwyliau banc y DU" class="govuk-link">in Welsh (Cymraeg)</a>.
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
+    bank_holiday_translation_html: This guide is also available <a href="/gwyliau-banc" title="Gwyliau banc y DU" class="govuk-link">in Welsh (Cymraeg)</a>.
     download_ics: Download these dates so you can add them to a calendar application such as iCal or Outlook
     extra_bank_holiday: Extra bank holiday
     holiday_entitlement_html: Your employer does not have to give you <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">paid leave on bank or public holidays</a>.
@@ -107,22 +107,22 @@ en:
     confirmation_message: Government services may set additional cookies and, if so, will have their own cookie policy and banner.
     confirmation_previous_referrer_link: Go back to the page you were looking at
     confirmation_title: Your cookie settings were saved
-    explanation_html: This page has a brief explanation of each type of cookie we use. If you want more details, <a href="/help/cookie-details"> read our detailed cookie information</a>.
     cookie_settings: Cookie settings
     cookies_on_govuk: Cookies on GOV.UK
     essential_explanation: These essential cookies do things like remember your progress through a form (for example a licence application)
     explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
+    explanation_html: This page has a brief explanation of each type of cookie we use. If you want more details, <a href="/help/cookie-details"> read our detailed cookie information</a>.
     four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
-    google_info: 'These cookies collect information about:'
     google_collection: The information is collected in a way that does not directly identify you.
+    google_info: 'These cookies collect information about:'
     google_share: We do not allow Google or SpeedCurve to use or share this data for their own purposes.
     how_we_use: We use cookies to collect and store information about how you use the GOV.UK website and government digital services, such as the pages you visit. 'Government digital services' means any page with service.gov.uk in the URL.
     how_you_got: how you got to these sites
     javascript: 'We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings on this page. You can try:'
-    javascript_list:
-      - reloading the page
-      - turning on Javascript in your browser
     javascript_extra: You can also remove any previously stored cookies through your browser. Look for 'Preferences', 'Settings', or 'Options' in your browser menu.
+    javascript_list:
+    - reloading the page
+    - turning on Javascript in your browser
     lux_explain: We also use LUX Real User Monitoring software cookies from SpeedCurve to measure your web performance experience while visiting GOV.UK.
     lux_info: LUX software cookies collect and store information about how well pages performed on your device, including whether there were any performance bottlenecks or JavaScript errors.
     off-campaigns: Do not use cookies that help with communications and marketing
@@ -144,8 +144,8 @@ en:
     usage_info: We use Google Analytics cookies to measure how you use GOV.UK and government digital services.
   csv_preview:
     access_limited:
-      title: Access Forbidden
       body: You are not authorised to see the preview of this CSV file because it is attached to an access limited draft document. It is not possible to preview CSVs attached to access limited draft documents. You can download the CSV file if you belong to the same organisation as the person who is publishing it.
+      title: Access Forbidden
     document_type:
       aaib_report:
         one: Air Accidents Investigation Branch report
@@ -384,17 +384,17 @@ en:
       change: Change
     local_transaction:
       change: Change
-      contact_council: contact your council
       choose_address: Choose your address
+      contact_council: contact your council
       council_tax: council tax
       county_council_services: County councils are responsible for services like
       county_council_services_list:
-        - education
-        - social care
-        - transport
+      - education
+      - social care
+      - transport
       county_district_council: Services in your area are provided by two local authorities
-      district_council_services: District councils are responsible for services like
       different_local_authorities: Different local authorities are responsible for different services.
+      district_council_services: District councils are responsible for services like
       enter_postcode: Enter a postcode
       error_summary_title: There is a problem
       find_council: Find your local council
@@ -412,10 +412,8 @@ en:
       invalid_postcode_sub: Check it and enter it again.
       invalid_uprn: This isn't a valid address.
       invalid_uprn_sub: Enter the postcode again.
-      search_for_a_different_postcode: Search for a different postcode
       local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website
-      what_you_need_to_know: What you need to know
       matched_postcode_html: We’ve matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
@@ -424,6 +422,7 @@ en:
       postcode_hint: For example SW1A 2AA
       postcode_lookup: Postcode lookup
       rubbish_recycling_collection: rubbish and recycling collection
+      search_for_a_different_postcode: Search for a different postcode
       search_result: search result
       select_address: Select an address
       service_not_available: This service is not available in %{country_name}
@@ -433,10 +432,11 @@ en:
       valid_uprn_no_match: We couldn't find this address.
       valid_uprn_no_match_sub_html: Check it and enter the postcode again.
       website: You can get information on their website.
+      what_you_need_to_know: What you need to know
     place:
-      select_address: Select an address
       change: Change
       postcode: Postcode
+      select_address: Select an address
     simple_smart_answer:
       change: Change
       next_step: Next step
@@ -481,73 +481,73 @@ en:
       service_not_listed_text: If you’re looking for a different service, you can search for it.
   homepage:
     categories:
-      - title: Benefits
-        description: Includes eligibility, appeals, tax credits and Universal Credit
-        link: /browse/benefits
-      - title: Births, deaths, marriages and&nbsp;care
-        description: Parenting, civil partnerships, divorce and Lasting Power of Attorney
-        link: /browse/births-deaths-marriages
-      - title: Business and self-employed
-        description: Tools and guidance for businesses
-        link: /browse/business
-      - title: Childcare and parenting
-        description: Includes giving birth, fostering, adopting, benefits for children, childcare and schools
-        link: /browse/childcare-parenting
-      - title: Citizenship and living in the&nbsp;UK
-        description: Voting, community participation, life in the UK, international projects
-        link: /browse/citizenship
-      - title: Crime, justice and the&nbsp;law
-        description: Legal processes, courts and the police
-        link: /browse/justice
-      - title: Disabled people
-        description: Includes carers, your rights, benefits and the Equality Act
-        link: /browse/disabilities
-      - title: Driving and transport
-        description: Includes vehicle tax, MOT and driving licences
-        link: /browse/driving
-      - title: Education and learning
-        description: Includes student loans, admissions and apprenticeships
-        link: /browse/education
-      - title: Employing people
-        description: Includes pay, contracts, hiring and redundancies
-        link: /browse/employing-people
-      - title: Environment and countryside
-        description: Includes flooding, recycling, farming and wildlife
-        link: /browse/environment-countryside
-      - title: Housing and local services
-        description: Owning or renting and council services
-        link: /browse/housing-local-services
-      - title: Money and tax
-        description: Includes debt and Self&nbsp;Assessment
-        link: /browse/tax
-      - title: Passports, travel and living&nbsp;abroad
-        description: Includes renewing passports and travel advice by country
-        link: /browse/abroad
-      - title: Visas and immigration
-        description: Apply to visit, work, study, settle or seek asylum in the&nbsp;UK
-        link: /browse/visas-immigration
-      - title: Working, jobs and&nbsp;pensions
-        description: Includes holidays, finding a job and redundancy
-        link: /browse/working
+    - title: Benefits
+      description: Includes eligibility, appeals, tax credits and Universal Credit
+      link: "/browse/benefits"
+    - title: Births, deaths, marriages and&nbsp;care
+      description: Parenting, civil partnerships, divorce and Lasting Power of Attorney
+      link: "/browse/births-deaths-marriages"
+    - title: Business and self-employed
+      description: Tools and guidance for businesses
+      link: "/browse/business"
+    - title: Childcare and parenting
+      description: Includes giving birth, fostering, adopting, benefits for children, childcare and schools
+      link: "/browse/childcare-parenting"
+    - title: Citizenship and living in the&nbsp;UK
+      description: Voting, community participation, life in the UK, international projects
+      link: "/browse/citizenship"
+    - title: Crime, justice and the&nbsp;law
+      description: Legal processes, courts and the police
+      link: "/browse/justice"
+    - title: Disabled people
+      description: Includes carers, your rights, benefits and the Equality Act
+      link: "/browse/disabilities"
+    - title: Driving and transport
+      description: Includes vehicle tax, MOT and driving licences
+      link: "/browse/driving"
+    - title: Education and learning
+      description: Includes student loans, admissions and apprenticeships
+      link: "/browse/education"
+    - title: Employing people
+      description: Includes pay, contracts, hiring and redundancies
+      link: "/browse/employing-people"
+    - title: Environment and countryside
+      description: Includes flooding, recycling, farming and wildlife
+      link: "/browse/environment-countryside"
+    - title: Housing and local services
+      description: Owning or renting and council services
+      link: "/browse/housing-local-services"
+    - title: Money and tax
+      description: Includes debt and Self&nbsp;Assessment
+      link: "/browse/tax"
+    - title: Passports, travel and living&nbsp;abroad
+      description: Includes renewing passports and travel advice by country
+      link: "/browse/abroad"
+    - title: Visas and immigration
+      description: Apply to visit, work, study, settle or seek asylum in the&nbsp;UK
+      link: "/browse/visas-immigration"
+    - title: Working, jobs and&nbsp;pensions
+      description: Includes holidays, finding a job and redundancy
+      link: "/browse/working"
     government_activity:
-      - title: Departments
-        description: Departments, agencies and public bodies
-        link: /government/organisations
-      - title: News
-        description: News stories, speeches, letters and notices
-        link: /search/news-and-communications
-      - title: Guidance and regulation
-        description: Detailed guidance, regulations and rules
-        link: /search/guidance-and-regulation
-      - title: Research and statistics
-        description: Reports, analysis and official statistics
-        link: /search/research-and-statistics
-      - title: Policy papers and consultations
-        description: Consultations and strategy
-        link: /search/policy-papers-and-consultations
-      - title: Transparency documents
-        description: Data, Freedom of Information releases and corporate reports
-        link: /search/transparency-and-freedom-of-information-releases
+    - title: Departments
+      description: Departments, agencies and public bodies
+      link: "/government/organisations"
+    - title: News
+      description: News stories, speeches, letters and notices
+      link: "/search/news-and-communications"
+    - title: Guidance and regulation
+      description: Detailed guidance, regulations and rules
+      link: "/search/guidance-and-regulation"
+    - title: Research and statistics
+      description: Reports, analysis and official statistics
+      link: "/search/research-and-statistics"
+    - title: Policy papers and consultations
+      description: Consultations and strategy
+      link: "/search/policy-papers-and-consultations"
+    - title: Transparency documents
+      description: Data, Freedom of Information releases and corporate reports
+      link: "/search/transparency-and-freedom-of-information-releases"
     index:
       brexit: 'Brexit: check what you need to do'
       covid: 'Coronavirus (COVID-19): guidance'
@@ -557,68 +557,68 @@ en:
       intro_html: The best place to find government services and information
       intro_simpler: Simpler, clearer, faster
       intro_title:
-        text: Welcome to GOV.UK
-        short_text: GOV.UK
         html: Welcome to&nbsp;GOV.UK
+        short_text: GOV.UK
+        text: Welcome to GOV.UK
       job_search: Find a job
       jobseekers_allowance: Jobseeker’s Allowance
       merged_websites_html: The websites of all <a href="/government/organisations" class="govuk-link">government departments</a> and many other agencies and public bodies have been merged into GOV.UK.
+      meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
+      meta_description_new: GOV.UK - The best place to find government services and information.
       ministerial_departments: Ministerial departments
       ministerial_departments_count: 24
-      meta_description_new: GOV.UK - The best place to find government services and information.
-      meta_description: GOV.UK - The place to find government services and information - simpler, clearer, faster.
       more: More on GOV.UK
-      popular_links_heading: Popular on GOV.UK
-      popular_links:
-        - title: 'HMRC account: sign in or set up'
-          url: /log-in-register-hmrc-online-services
-        - title: 'Universal Credit account: sign in'
-          url: /sign-in-universal-credit
-        - title: 'Personal tax account: sign in or set up'
-          url: /personal-tax-account
-        - title: 'Self Assessment tax return: sign in'
-          url: /log-in-file-self-assessment-tax-return
-        - title: 'Childcare account: sign in'
-          url: /sign-in-childcare-account
-        - title: 'Check your State Pension forecast'
-          url: /check-state-pension
       more_links:
-        - title: 'HMRC services: sign in'
-          link: /log-in-register-hmrc-online-services
-        - title: Check MOT history of a vehicle
-          link: /check-mot-history
-        - title: Tax your vehicle
-          link: /vehicle-tax
-        - title: Universal Credit
-          link: /universal-credit
-        - title: Foreign travel advice
-          link: /foreign-travel-advice
-        - title: Check your State Pension age
-          link: /state-pension-age
-        - title: 'Childcare account: sign in'
-          link: /sign-in-childcare-account
-        - title: 'Student finance: sign in'
-          link: /student-finance-register-login
-        - title: Self Assessment tax returns
-          link: /self-assessment-tax-returns
-        - title: Apply for a passport
-          link: /apply-renew-passport
+      - title: 'HMRC services: sign in'
+        link: "/log-in-register-hmrc-online-services"
+      - title: Check MOT history of a vehicle
+        link: "/check-mot-history"
+      - title: Tax your vehicle
+        link: "/vehicle-tax"
+      - title: Universal Credit
+        link: "/universal-credit"
+      - title: Foreign travel advice
+        link: "/foreign-travel-advice"
+      - title: Check your State Pension age
+        link: "/state-pension-age"
+      - title: 'Childcare account: sign in'
+        link: "/sign-in-childcare-account"
+      - title: 'Student finance: sign in'
+        link: "/student-finance-register-login"
+      - title: Self Assessment tax returns
+        link: "/self-assessment-tax-returns"
+      - title: Apply for a passport
+        link: "/apply-renew-passport"
       other_agencies: Other agencies and public bodies
       other_agencies_count: 400+
       popular: Popular on GOV.UK
+      popular_links:
+      - title: 'HMRC account: sign in or set up'
+        url: "/log-in-register-hmrc-online-services"
+      - title: 'Universal Credit account: sign in'
+        url: "/sign-in-universal-credit"
+      - title: 'Personal tax account: sign in or set up'
+        url: "/personal-tax-account"
+      - title: 'Self Assessment tax return: sign in'
+        url: "/log-in-file-self-assessment-tax-return"
+      - title: 'Childcare account: sign in'
+        url: "/sign-in-childcare-account"
+      - title: Check your State Pension forecast
+        url: "/check-state-pension"
+      popular_links_heading: Popular on GOV.UK
       promotion_slots:
-        - text: Search and apply for jobs in England, Scotland and Wales.
-          title: Find a job
-          href: /find-a-job
-          image_src: homepage/find-a-job.png
-        - text: Check your record to see if you can add more contributions.
-          title: National Insurance
-          href: /check-national-insurance-record
-          image_src: homepage/national-insurance-featured.png
-        - text: Find out what support is available to help with the cost of living.
-          title: Cost of living support
-          href: /cost-of-living
-          image_src: homepage/cost-of-living.png
+      - text: Search and apply for jobs in England, Scotland and Wales.
+        title: Find a job
+        href: "/find-a-job"
+        image_src: homepage/find-a-job.png
+      - text: Check your record to see if you can add more contributions.
+        title: National Insurance
+        href: "/check-national-insurance-record"
+        image_src: homepage/national-insurance-featured.png
+      - text: Find out what support is available to help with the cost of living.
+        title: Cost of living support
+        href: "/cost-of-living"
+        image_src: homepage/cost-of-living.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search
@@ -627,26 +627,26 @@ en:
       uk_bank_holidays: UK bank holidays
       universal_credit: Sign in to your Universal Credit account
     most_active:
-      - title: Find a job
-        link: /find-a-job
-      - title: Log in to student finance
-        link: /student-finance-register-login
-      - title: Passport fees
-        link: /passport-fees
-      - title: Jobseeker's Allowance
-        link: /jobseekers-allowance
-      - title: Council Tax bands
-        link: /council-tax-bands
-      - title: Running a limited company
-        link: /running-a-limited-company
-      - title: Driving theory test
-        link: /book-theory-test
-      - title: Vehicle tax rates
-        link: /calculate-tax-rates-for-new-cars
-      - title: Renew vehicle tax
-        link: /vehicle-tax
-      - title: VAT rates
-        link: /vat-rates
+    - title: Find a job
+      link: "/find-a-job"
+    - title: Log in to student finance
+      link: "/student-finance-register-login"
+    - title: Passport fees
+      link: "/passport-fees"
+    - title: Jobseeker's Allowance
+      link: "/jobseekers-allowance"
+    - title: Council Tax bands
+      link: "/council-tax-bands"
+    - title: Running a limited company
+      link: "/running-a-limited-company"
+    - title: Driving theory test
+      link: "/book-theory-test"
+    - title: Vehicle tax rates
+      link: "/calculate-tax-rates-for-new-cars"
+    - title: Renew vehicle tax
+      link: "/vehicle-tax"
+    - title: VAT rates
+      link: "/vat-rates"
   'no': 'No'
   or: or
   place:
@@ -656,99 +656,99 @@ en:
     actions_section:
       heading: What we’re working on
       items:
-        - heading: Be available, accessible and accurate
-          paragraph: Improve site resilience, security, navigation and publishing
-          steps:
-            - heading: Recently shipped
-              items:
-                - text: Made continuous updates and improvements to the most used content on GOV.UK
-                - text: <a href="https://insidegovuk.blog.gov.uk/2021/11/11/launching-gov-uks-new-menu-bar/" class="govuk-link">Launched a new menu bar</a> to appear at the top of all GOV.UK pages, which structures pages by topic, department and government activity
-                - text: <a href="https://insidegovuk.blog.gov.uk/2022/02/09/how-we-improved-translations-on-gov-uk/?utm_medium=referral%20&utm_source=govukroadmap&utm_campaign=roadmap" class="govuk-link">Improved translations</a> of page labels and headings on non-English language pages
-                - text: Improved the way we manage subdomains of GOV.UK for the rest of government
-                - text: Completed cookies work, including guidance for other government departments
-                - text: Built and tested <a href="https://insidegovuk.blog.gov.uk/2021/12/13/updating-the-gov-uk-homepage/" class="govuk-link">updates to the design of the GOV.UK homepage</a>
-            - heading: Working on now
-              items:
-                - text: Update the most used content on GOV.UK, such as <a href="https://insidegovuk.blog.gov.uk/2021/07/14/a-team-effort-pair-writing-the-new-skilled-worker-visa-guidance-with-home-office-policy-experts/" class="govuk-link">guidance on visas</a>, immigration, benefits, tax and the environment
-                - text: Iterate our postcode lookup tool, to improve how we provide content that’s different based on the user’s location (for example, contact details for local councils)
-                - text: Run the annual accessibility audit and make necessary changes
-                - text: Test a new hosting platform for GOV.UK applications with GOV.UK developers who will be affected by the move
-                - text: Improve our site-wide monitoring and alerts so we spot problems faster
-                - text: Start work on new publishing tools and processes to help government departments create and manage content more effectively
-                - text: Identify new ways of working to help us manage the most used content on GOV.UK more efficiently
-            - heading: Exploring
-              items:
-                - text: Test designs for improving our taxonomy to simplify the navigation system
-                - text: Identify applications that can be retired to reduce the support burden and make future enhancements to GOV.UK quicker and easier
-                - text: Test the new design for topic pages including mainstream browse (for example <a href="https://www.gov.uk/browse/benefits" class="govuk-link">benefits</a>)
-                - text: Design and test improvements to content page navigation including related links and breadcrumbs
-        - heading: Support the government’s priorities of the day
-          paragraph: Communicate critical, changing information, and support government’s goal to make complex tasks easier
-          steps:
-            - heading: Recently shipped
-              items:
-                - text: Added a new feature which allows users in devolved nations to see information specific to their location on the <a href="https://www.gov.uk/coronavirus" class="govuk-link">coronavirus landing page</a>
-                - text: Highlighted live coronavirus statistics in a new feature on the <a href="https://www.gov.uk/coronavirus" class="govuk-link">coronavirus landing page</a>
-                - text: Simplified the <a href="https://www.gov.uk/brexit" class="govuk-link">Brexit landing page</a>, adding clear signposting for <a href="https://www.gov.uk/guidance/brexit-guidance-for-businesses" class="govuk-link">business</a> and <a href="https://www.gov.uk/guidance/brexit-guidance-for-individuals-and-families" class="govuk-link">individual users</a>
-                - text: Worked with departments to improve post-Brexit content on Rules of Origin and the Northern Ireland Protocol
-                - text: Built a tool that shows new business owners the <a href="https://www.gov.uk/next-steps-for-your-business" class="govuk-link">next steps in setting up their company</a>, all in one place
-                - text: Retired the Brexit checker in order to simplify user journeys to specific post-Brexit actions
-            - heading: Working on now
-              items:
-                - text: Continue iterating coronavirus guidance and products so that they reflect government policy and encourage people to protect themselves and others from coronavirus
-                - text: Improve user journeys to NHS coronavirus services and information
-                - text: Investigate content navigation tools to help users find and stay up to date with the latest travel rules
-            - heading: Exploring
-              items:
-                - text: Identify which complex user journeys we'll work on next, and define how we’ll work with multiple departments to improve them
-        - heading: Improve and connect data and insights to optimise user experience
-          paragraph: Understand our users and their needs by analysing trends, patterns and feedback
-          steps:
-            - heading: Recently shipped
-              items:
-                - text: Polled a representative sample of the UK population to understand their perception of GOV.UK and inform future developments
-            - heading: Working on now
-              items:
-                - text: Build tools to create data visualisations so it's easier to analyse how users interact with digital government services
-                - text: Analyse how users move across platforms and services, to improve their experience of ‘whole user journeys’
-                - text: Simplify <a href="https://insidegovuk.blog.gov.uk/2021/08/16/working-with-user-feedback-during-covid-19/" class="govuk-link">how feedback is analysed and gathered</a>, so we can better measure our impact and identify issues
-            - heading: Exploring
-              items:
-                - text: Find more ways to automate feedback analysis, so government can identify and respond to user problems and suggestions faster
-                - text: Experiment with different metrics, such as reading time, to develop benchmarks we can measure user engagement against
-                - text: Improve our understanding of cookie opt-in rates, so we have a more accurate idea of actual visitor trends
-        - heading: Ensure user journeys are simple, joined up and personalised
-          paragraph: Develop site-wide account and personalisation features to offer users relevant and helpful information
-          steps:
-            - heading: Recently shipped
-              items:
-                - text: Tested a mockup user journey in the GOV.UK account, to see whether users would be comfortable with their information being shared between government departments
-                - text: Suggested relevant content to users looking at similar pages around starting a business
-                - text: Experimented with a <a href="https://www.gov.uk/sign-in" class="govuk-link">page that routes users to different government accounts</a>, to avoid confusion as we add more features to the GOV.UK account
-            - heading: Working on now
-              items:
-                - text: Allow users to more precisely tailor GOV.UK email updates, by letting them subscribe to individual pages on GOV.UK
-                - text: Pilot features that could be part of sitewide accounts on GOV.UK, such as personalised content and notifications
-                - text: Work with service teams across government to research and prototype ways the GOV.UK account can join up multiple-service journeys
-                - text: Think about how to <a href="https://gds.blog.gov.uk/2020/11/05/new-approaches-to-gov-uk-content/?utm_medium=referral%20&utm_source=roadmap_gov&utm_campaign=roadmap_update" class="govuk-link">tag and categorise content segments</a> to support personalisation work
-            - heading: Exploring
-              items:
-                - text: Look at ways users could manage different profiles (for example business and personal) within their single GOV.UK account
-        - heading: Meet users where they are
-          paragraph: Make GOV.UK's content available across different channels, such as search engines and voice assistants
-          steps:
-            - heading: Recently shipped
-              items:
-                - text: Made use of schema.org standards to integrate content and services into search engine results
-            - heading: Working on now
-              items:
-                - text: Continue work to <a href="https://dataingovernment.blog.gov.uk/2020/04/30/using-new-updates-to-schema-org-to-assist-our-response-to-the-coronavirus-pandemic/" class="govuk-link">use schema.org standards on GOV.UK</a>
-                - text: Structure content into small sections so it can be re-used across GOV.UK and other channels
-                - text: Develop our publishing applications so we’re able to create structured content that can be used on other channels
-            - heading: Exploring
-              items:
-                - text: Work with multiple third parties to test integrations of GOV.UK content and products where users are
-                - text: Through a discovery, research how app technologies could help users by offering more proactive and personalised government services
+      - heading: Be available, accessible and accurate
+        paragraph: Improve site resilience, security, navigation and publishing
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Made continuous updates and improvements to the most used content on GOV.UK
+          - text: <a href="https://insidegovuk.blog.gov.uk/2021/11/11/launching-gov-uks-new-menu-bar/" class="govuk-link">Launched a new menu bar</a> to appear at the top of all GOV.UK pages, which structures pages by topic, department and government activity
+          - text: <a href="https://insidegovuk.blog.gov.uk/2022/02/09/how-we-improved-translations-on-gov-uk/?utm_medium=referral%20&utm_source=govukroadmap&utm_campaign=roadmap" class="govuk-link">Improved translations</a> of page labels and headings on non-English language pages
+          - text: Improved the way we manage subdomains of GOV.UK for the rest of government
+          - text: Completed cookies work, including guidance for other government departments
+          - text: Built and tested <a href="https://insidegovuk.blog.gov.uk/2021/12/13/updating-the-gov-uk-homepage/" class="govuk-link">updates to the design of the GOV.UK homepage</a>
+        - heading: Working on now
+          items:
+          - text: Update the most used content on GOV.UK, such as <a href="https://insidegovuk.blog.gov.uk/2021/07/14/a-team-effort-pair-writing-the-new-skilled-worker-visa-guidance-with-home-office-policy-experts/" class="govuk-link">guidance on visas</a>, immigration, benefits, tax and the environment
+          - text: Iterate our postcode lookup tool, to improve how we provide content that’s different based on the user’s location (for example, contact details for local councils)
+          - text: Run the annual accessibility audit and make necessary changes
+          - text: Test a new hosting platform for GOV.UK applications with GOV.UK developers who will be affected by the move
+          - text: Improve our site-wide monitoring and alerts so we spot problems faster
+          - text: Start work on new publishing tools and processes to help government departments create and manage content more effectively
+          - text: Identify new ways of working to help us manage the most used content on GOV.UK more efficiently
+        - heading: Exploring
+          items:
+          - text: Test designs for improving our taxonomy to simplify the navigation system
+          - text: Identify applications that can be retired to reduce the support burden and make future enhancements to GOV.UK quicker and easier
+          - text: Test the new design for topic pages including mainstream browse (for example <a href="https://www.gov.uk/browse/benefits" class="govuk-link">benefits</a>)
+          - text: Design and test improvements to content page navigation including related links and breadcrumbs
+      - heading: Support the government’s priorities of the day
+        paragraph: Communicate critical, changing information, and support government’s goal to make complex tasks easier
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Added a new feature which allows users in devolved nations to see information specific to their location on the <a href="https://www.gov.uk/coronavirus" class="govuk-link">coronavirus landing page</a>
+          - text: Highlighted live coronavirus statistics in a new feature on the <a href="https://www.gov.uk/coronavirus" class="govuk-link">coronavirus landing page</a>
+          - text: Simplified the <a href="https://www.gov.uk/brexit" class="govuk-link">Brexit landing page</a>, adding clear signposting for <a href="https://www.gov.uk/guidance/brexit-guidance-for-businesses" class="govuk-link">business</a> and <a href="https://www.gov.uk/guidance/brexit-guidance-for-individuals-and-families" class="govuk-link">individual users</a>
+          - text: Worked with departments to improve post-Brexit content on Rules of Origin and the Northern Ireland Protocol
+          - text: Built a tool that shows new business owners the <a href="https://www.gov.uk/next-steps-for-your-business" class="govuk-link">next steps in setting up their company</a>, all in one place
+          - text: Retired the Brexit checker in order to simplify user journeys to specific post-Brexit actions
+        - heading: Working on now
+          items:
+          - text: Continue iterating coronavirus guidance and products so that they reflect government policy and encourage people to protect themselves and others from coronavirus
+          - text: Improve user journeys to NHS coronavirus services and information
+          - text: Investigate content navigation tools to help users find and stay up to date with the latest travel rules
+        - heading: Exploring
+          items:
+          - text: Identify which complex user journeys we'll work on next, and define how we’ll work with multiple departments to improve them
+      - heading: Improve and connect data and insights to optimise user experience
+        paragraph: Understand our users and their needs by analysing trends, patterns and feedback
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Polled a representative sample of the UK population to understand their perception of GOV.UK and inform future developments
+        - heading: Working on now
+          items:
+          - text: Build tools to create data visualisations so it's easier to analyse how users interact with digital government services
+          - text: Analyse how users move across platforms and services, to improve their experience of ‘whole user journeys’
+          - text: Simplify <a href="https://insidegovuk.blog.gov.uk/2021/08/16/working-with-user-feedback-during-covid-19/" class="govuk-link">how feedback is analysed and gathered</a>, so we can better measure our impact and identify issues
+        - heading: Exploring
+          items:
+          - text: Find more ways to automate feedback analysis, so government can identify and respond to user problems and suggestions faster
+          - text: Experiment with different metrics, such as reading time, to develop benchmarks we can measure user engagement against
+          - text: Improve our understanding of cookie opt-in rates, so we have a more accurate idea of actual visitor trends
+      - heading: Ensure user journeys are simple, joined up and personalised
+        paragraph: Develop site-wide account and personalisation features to offer users relevant and helpful information
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Tested a mockup user journey in the GOV.UK account, to see whether users would be comfortable with their information being shared between government departments
+          - text: Suggested relevant content to users looking at similar pages around starting a business
+          - text: Experimented with a <a href="https://www.gov.uk/sign-in" class="govuk-link">page that routes users to different government accounts</a>, to avoid confusion as we add more features to the GOV.UK account
+        - heading: Working on now
+          items:
+          - text: Allow users to more precisely tailor GOV.UK email updates, by letting them subscribe to individual pages on GOV.UK
+          - text: Pilot features that could be part of sitewide accounts on GOV.UK, such as personalised content and notifications
+          - text: Work with service teams across government to research and prototype ways the GOV.UK account can join up multiple-service journeys
+          - text: Think about how to <a href="https://gds.blog.gov.uk/2020/11/05/new-approaches-to-gov-uk-content/?utm_medium=referral%20&utm_source=roadmap_gov&utm_campaign=roadmap_update" class="govuk-link">tag and categorise content segments</a> to support personalisation work
+        - heading: Exploring
+          items:
+          - text: Look at ways users could manage different profiles (for example business and personal) within their single GOV.UK account
+      - heading: Meet users where they are
+        paragraph: Make GOV.UK's content available across different channels, such as search engines and voice assistants
+        steps:
+        - heading: Recently shipped
+          items:
+          - text: Made use of schema.org standards to integrate content and services into search engine results
+        - heading: Working on now
+          items:
+          - text: Continue work to <a href="https://dataingovernment.blog.gov.uk/2020/04/30/using-new-updates-to-schema-org-to-assist-our-response-to-the-coronavirus-pandemic/" class="govuk-link">use schema.org standards on GOV.UK</a>
+          - text: Structure content into small sections so it can be re-used across GOV.UK and other channels
+          - text: Develop our publishing applications so we’re able to create structured content that can be used on other channels
+        - heading: Exploring
+          items:
+          - text: Work with multiple third parties to test integrations of GOV.UK content and products where users are
+          - text: Through a discovery, research how app technologies could help users by offering more proactive and personalised government services
     hero:
       description: GOV.UK is the digital home for the UK government. It’s run by the Government Digital Service (GDS), and we’re always working to better meet user needs. This is our current roadmap, which takes us through to early 2022.
       heading: GOV.UK roadmap
@@ -766,15 +766,15 @@ en:
     updates_section:
       heading: Updates
       items:
-        - href: https://gds.blog.gov.uk/2021/05/20/government-digital-service-our-strategy-for-2021-2024/
-          image_src: roadmap/updates-goals.jpg
-          heading_text: Our vision
-        - href: https://gdscareers.gov.uk/
-          image_src: roadmap/updates-work.jpg
-          heading_text: Work at GDS
-        - href: https://insidegovuk.blog.gov.uk/
-          image_src: roadmap/updates-blog.jpg
-          heading_text: Inside GOV.UK blog
+      - href: https://gds.blog.gov.uk/2021/05/20/government-digital-service-our-strategy-for-2021-2024/
+        image_src: roadmap/updates-goals.jpg
+        heading_text: Our vision
+      - href: https://gdscareers.gov.uk/
+        image_src: roadmap/updates-work.jpg
+        heading_text: Work at GDS
+      - href: https://insidegovuk.blog.gov.uk/
+        image_src: roadmap/updates-blog.jpg
+        heading_text: Inside GOV.UK blog
   save: Save
   sessions:
     first_time:
@@ -798,8 +798,7 @@ en:
         <p class="govuk-body">We may also use your information to produce anonymised reports to help us get a better understanding of GOV.UK account users. For example, to create a report on the proportion of users who are students in the UK. We’ll use this data to decide what features or services to add to GOV.UK accounts in future. These reports will not identify you personally.</p>
         <p class="govuk-body">You can read the <a href="https://www.gov.uk/government/publications/govuk-accounts-trial-full-privacy-notice-and-accessibility-statement" class="govuk-link">full privacy notice</a> for more detail on how your information is stored, shared and used.</p>
       feedback_consent:
-        description_html:
-          '<p class="govuk-body">As we add more features to your account, we would like to email you to find out any thoughts or suggestions you might have.</p>
+        description_html: '<p class="govuk-body">As we add more features to your account, we would like to email you to find out any thoughts or suggestions you might have.</p>
 
           '
         field:
@@ -813,11 +812,11 @@ en:
   website: Website
   when_do_the_clocks_change:
     calendar:
+      body: In the UK the clocks go forward 1 hour at 1am on the last Sunday in March, and back 1 hour at 2am on the last Sunday in October.\nThe period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).\nWhen the clocks go back, the UK is on Greenwich Mean Time (GMT).
       description: Dates when the clocks go back or forward - includes British Summer Time, Greenwich Mean Time
       title: When do the clocks change?
-      body: In the UK the clocks go forward 1 hour at 1am on the last Sunday in March, and back 1 hour at 2am on the last Sunday in October.\nThe period when the clocks are 1 hour ahead is called British Summer Time (BST). There’s more daylight in the evenings and less in the mornings (sometimes called Daylight Saving Time).\nWhen the clocks go back, the UK is on Greenwich Mean Time (GMT).
-    start_title: Start of British Summer Time
-    start_notes: Clocks go forward one hour
-    end_title: End of British Summer Time
     end_notes: Clocks go back one hour
+    end_title: End of British Summer Time
+    start_notes: Clocks go forward one hour
+    start_title: Start of British Summer Time
   'yes': 'Yes'

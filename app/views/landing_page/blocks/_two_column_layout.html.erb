@@ -1,10 +1,8 @@
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <% block = local_assigns[:locals]["left"] %>
-    <%= render "landing_page/blocks/#{block["type"]}", locals: block %>
+  <div class="<%= block.left_class %>">
+    <%= render "landing_page/blocks/#{block.left.type}", block: block.left %>
   </div>
-  <div class="govuk-grid-column-one-third">
-    <% block = local_assigns[:locals]["right"] %>
-    <%= render "landing_page/blocks/#{block["type"]}", locals: block %>
+  <div class="<%= block.right_class %>">
+    <%= render "landing_page/blocks/#{block.right.type}", block: block.right %>
   </div>
 </div>

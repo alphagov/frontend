@@ -13,7 +13,7 @@ blocks:
 - type: paragraph
   content: Here's some more content!
 - type: two_column_layout
-  theme: two_thirds_one_third
+  theme: one_third_two_thirds
   left:
     type: paragraph
     content: Left content!

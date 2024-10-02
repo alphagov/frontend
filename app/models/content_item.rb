@@ -1,5 +1,15 @@
 class ContentItem
-  attr_reader :content_store_response, :body, :image, :description, :document_type, :title, :base_path, :locale
+  include Withdrawal
+
+  attr_reader :content_store_response,
+              :body,
+              :image,
+              :description,
+              :document_type,
+              :title,
+              :base_path,
+              :locale,
+              :public_updated_at
 
   def initialize(content_store_response)
     @content_store_response = content_store_response
@@ -10,6 +20,7 @@ class ContentItem
     @title = content_store_response["title"]
     @base_path = content_store_response["base_path"]
     @locale = content_store_response["locale"]
+    @public_updated_at = content_store_response["public_updated_at"]
   end
 
   delegate :to_h, to: :content_store_response

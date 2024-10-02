@@ -100,6 +100,9 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+  components:
+    figure:
+      image_credit: 'Image credit: %{credit}'
   continue: Continue
   cookies:
     always_on: They always need to be on.
@@ -444,6 +447,9 @@ en:
       start_again: Start again
       your_answers: Your answers
     start_now: Start now
+    take_part:
+      one: Take part
+      other: Take part
     transaction:
       before_you_start: Before you start
       more_information: More information
@@ -647,6 +653,11 @@ en:
         link: /vehicle-tax
       - title: VAT rates
         link: /vat-rates
+  i18n:
+    direction: ltr
+  language_names:
+    cy: Welsh
+    en: English
   'no': 'No'
   or: or
   place:

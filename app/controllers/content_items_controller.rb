@@ -26,7 +26,7 @@ private
   end
 
   def content_item_slug
-    nil # set to override content item fetched from Content Store
+    request.path
   end
 
   def content_item_hash

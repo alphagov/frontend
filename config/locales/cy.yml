@@ -100,6 +100,9 @@ cy:
     today: heddiw
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
+  components:
+    figure:
+      image_credit: 'Delwedd gan: %{credit}'
   continue: Parhau
   cookies:
     always_on: Mae angen iddynt fod ymlaen bob amser.
@@ -736,6 +739,13 @@ cy:
       start_again: Dechrau eto
       your_answers: Eich atebion
     start_now: Dechrau nawr
+    take_part:
+      few:
+      many:
+      one: Cymryd rhan
+      other: Cymryd rhan
+      two:
+      zero:
     transaction:
       before_you_start: Cyn i chi ddechrau
       more_information: Rhagor o wybodaeth
@@ -809,6 +819,11 @@ cy:
       uk_bank_holidays:
       universal_credit:
     most_active:
+  i18n:
+    direction: ltr
+  language_names:
+    cy: Cymraeg
+    en:
   'no': Na
   or:
   place:
@@ -871,8 +886,8 @@ cy:
       description:
       title:
       body:
-    start_title: 
-    start_notes: 
-    end_title:   
-    end_notes: 
+    start_title:
+    start_notes:
+    end_title:
+    end_notes:
   'yes': Ie

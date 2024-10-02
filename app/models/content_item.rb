@@ -10,8 +10,26 @@ class ContentItem
     @title = content_store_response["title"]
     @base_path = content_store_response["base_path"]
     @locale = content_store_response["locale"]
+
+    content_store_response["links"]["ordered_related_items"] = ordered_related_items(content_store_response["links"]) if content_store_response["links"]
   end
 
   delegate :to_h, to: :content_store_response
   delegate :cache_control, to: :content_store_response
+
+  def available_translations
+    translations = content_store_response["links"]["available_translations"] || []
+
+    translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
+  end
+
+private
+
+  def ordered_related_items(links)
+    return [] if links["ordered_related_items_overrides"].present?
+
+    links["ordered_related_items"].presence || links.fetch(
+      "suggested_ordered_related_items", []
+    )
+  end
 end

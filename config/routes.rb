@@ -101,7 +101,12 @@ Rails.application.routes.draw do
 
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
 
-  get "/government/placeholder", to: "placeholder#show"
+  scope "/government" do
+    get "/placeholder", to: "placeholder#show"
+    scope "/get-involved" do
+      get "/take-part/:slug", to: "take_part#show"
+    end
+  end
 
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do

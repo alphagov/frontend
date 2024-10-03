@@ -64,6 +64,10 @@ Rails.application.routes.draw do
   get "/find-licences/:slug/:authority_slug", to: "licence_transaction#authority", as: "licence_transaction_authority"
   get "/find-licences/:slug/:authority_slug/:interaction", to: "licence_transaction#authority_interaction", as: "licence_transaction_authority_interaction"
 
+  constraints FormatRoutingConstraint.new("landing_page") do
+    get ":slug", to: "landing_page#show"
+  end
+
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do
     get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow

@@ -21,17 +21,17 @@ cy:
       heading:
       success:
     your_account:
+      about_description_html:
+      about_detail_description_html:
+      about_detail_title:
+      about_heading:
       emails:
         heading:
-        no_emails_inset:
-        no_emails_description:
-        see_and_manage:
         manage_emails_link_text:
+        no_emails_description:
+        no_emails_inset:
+        see_and_manage:
       heading:
-      about_heading:
-      about_description_html:
-      about_detail_title:
-      about_detail_description_html:
   and: a
   attachment:
     virus_check:
@@ -43,7 +43,6 @@ cy:
     2nd_january: 2il o Ionawr
     add_clock_changes_to_calendar: Ychwanegwch newidiadau i'r cloc yn y DU at eich calendr (ICS, 2KB)
     bank_holiday: Gŵyl y banc
-    queens_bank_holiday: Gŵyl y Banc ar gyfer Angladd Gwladol y Frenhines Elizabeth II
     battle_boyne: Brwydr y Boyne (Dydd yr Orenwyr)
     boxing_day: Dydd San Steffan
     bst_explanation: Yr enw ar y cyfnod pan mae'r clociau 1 awr ymlaen yw Amser Haf Prydain (BST). Mae mwy o olau dydd gyda'r nos a llai yn y bore (gelwir weithiau'n Amser Arbed Golau Dydd).
@@ -67,6 +66,7 @@ cy:
     new_year: Dydd Calan
     queen_diamond: Jiwbilî Ddiemwnt y Frenhines
     queen_platinum: Gŵyl banc Jiwbilî Blatinwm
+    queens_bank_holiday: Gŵyl y Banc ar gyfer Angladd Gwladol y Frenhines Elizabeth II
     spring: Gŵyl banc y gwanwyn
     st_andrew: Gŵyl Andreas
     st_patrick: Gŵyl Sant Padrig
@@ -76,8 +76,8 @@ cy:
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
-    bank_holiday_translation_html: Mae'r canllaw hwn hefyd ar gael <a href="/bank-holidays" title="UK bank holidays" class="govuk-link">yn Saesneg (English)</a>.
     bank_holiday_on_wkend: Os yw gŵyl banc yn cwympo ar benwythnos, bydd dydd o'r wythnos yn dod yn ŵyl banc 'amgen' yn ei le, fel arfer y dydd Llun canlynol.
+    bank_holiday_translation_html: Mae'r canllaw hwn hefyd ar gael <a href="/bank-holidays" title="UK bank holidays" class="govuk-link">yn Saesneg (English)</a>.
     download_ics: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu at raglen calendr fel iCal neu Outlook
     extra_bank_holiday: Gŵyl banc ychwanegol
     holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">gwyliau â thâl i chi ar wyliau banc neu gyhoeddus</a>.
@@ -113,16 +113,16 @@ cy:
     explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur pan fyddwch chi'n ymweld â gwefan yw cwcis.
     explanation_html:
     four_types: Rydyn ni'n defnyddio 4 math o gwci. Gallwch ddewis pa gwcis rydych chi'n hapus i ni eu defnyddio.
-    google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     google_collection:
+    google_info: Mae Google Analytics yn gosod cwcis sy'n storio gwybodaeth yn ddi-enw am
     google_share:
     how_we_use: Rydyn ni'n defnyddio cwcis i storio gwybodaeth am sut rydych chi'n defnyddio gwefan GOV.UK, fel y tudalennau rydych chi'n ymweld â nhw.
     how_you_got: sut gyrhaeddoch chi'r wefan
     javascript: 'Rydyn ni''n defnyddio Javascript i osod y rhan fwyaf o''n cwcis. Yn anffodus, nid yw Javascript yn rhedeg ar eich porwr, felly nid oes modd i chi newid eich gosodiadau. Gallwch drio:'
+    javascript_extra:
     javascript_list:
     - ail-lwytho'r dudalen
     - troi Javascript ymlaen yn eich porwr
-    javascript_extra:
     lux_explain:
     lux_info: Mae meddalwedd LUX yn storio gwybodaeth yn ddi-enw am ba mor dda y gwnaeth tudalennau berfformio ar eich dyfais (gan gynnwys gwallau JavaScript).
     off-campaigns: Peidiwch â defnyddio cwcis sy'n helpu gyda chyfathrebu a marchnata
@@ -144,8 +144,8 @@ cy:
     usage_info: Rydyn ni'n defnyddio Google Analytics a meddalwedd Real User Monitoring LUX gan SpeedCurve i fesur sut rydych chi'n defnyddio'r wefan a'ch profiad o berfformiad gwe tra byddwch chi'n ymweld â'r wefan fel y gallwn ni ei wella ar sail anghenion defnyddwyr. Dydyn ni ddim yn caniatáu i Google na SpeedCurve ddefnyddio na rhannu'r data am sut rydych chi'n defnyddio'r wefan hon.
   csv_preview:
     access_limited:
-      title:
       body:
+      title:
     document_type:
       aaib_report:
         few:
@@ -676,8 +676,8 @@ cy:
       change: Newid
     local_transaction:
       change: Newid
-      contact_council:
       choose_address: Dewiswch eich cyfeiriad
+      contact_council:
       council_tax: treth gyngor
       county_council_services: Mae cynghorau sir yn gyfrifol am wasanaethau fel
       county_council_services_list:
@@ -685,8 +685,8 @@ cy:
       - gofal cymdeithasol
       - trafnidiaeth
       county_district_council:
-      district_council_services: Mae cynghorau dosbarth yn gyfrifol am wasanaethau fel
       different_local_authorities:
+      district_council_services: Mae cynghorau dosbarth yn gyfrifol am wasanaethau fel
       enter_postcode: Ysgrifennwch god post
       error_summary_title: Mae problem wedi codi
       find_council: Dod o hyd i'ch cyngor lleol
@@ -704,10 +704,8 @@ cy:
       invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
       invalid_uprn_sub: Ysgrifennwch y cod post eto.
-      search_for_a_different_postcode:
       local_authority_html:
       local_authority_website: Ewch i wefan %{local_authority_name}
-      what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
       matched_postcode_html: Rydyn ni wedi paru'r cod post i <span class="local-authority">%{local_authority}</span>.
       no_local_authority: Doedden ni ddim yn gallu ffeindio cyngor ar gyfer y cod post hwn.
       no_local_authority_url_html:
@@ -716,6 +714,7 @@ cy:
       postcode_hint: Er enghraifft CF99 1SN
       postcode_lookup: Chwilio am god post
       rubbish_recycling_collection: casglu sbwriel ac ailgylchu
+      search_for_a_different_postcode:
       search_result:
       select_address: Dewiswch gyfeiriad
       service_not_available:
@@ -725,10 +724,11 @@ cy:
       valid_uprn_no_match: Doedden ni ddim yn gallu dod o hyd i'r cyfeiriad hwn.
       valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
       website:
+      what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
     place:
       change: Newid
-      select_address: Dewiswch gyfeiriad
       postcode: Cod post
+      select_address: Dewiswch gyfeiriad
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf
@@ -783,23 +783,23 @@ cy:
       intro_html:
       intro_simpler:
       intro_title:
-        text:
-        short_text:
         html:
+        short_text:
+        text:
       job_search:
       jobseekers_allowance:
       merged_websites_html:
-      ministerial_departments:
-      ministerial_departments_count:
       meta_description:
       meta_description_new:
+      ministerial_departments:
+      ministerial_departments_count:
       more:
-      popular_links_heading:
-      popular_links:
       more_links:
       other_agencies:
       other_agencies_count:
       popular:
+      popular_links:
+      popular_links_heading:
       promotion_slots:
       running_limited_company:
       search_button:
@@ -868,11 +868,11 @@ cy:
   website: Gwefan
   when_do_the_clocks_change:
     calendar:
+      body:
       description:
       title:
-      body:
-    start_title: 
-    start_notes: 
-    end_title:   
-    end_notes: 
+    end_notes:
+    end_title:
+    start_notes:
+    start_title:
   'yes': Ie

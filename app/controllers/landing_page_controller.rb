@@ -1,14 +1,12 @@
 class LandingPageController < ContentItemsController
 private
 
-  def content_item_slug
-    request.path
-  end
-
   # SCAFFOLDING: can be removed when basic content items are available
   # from content-store
-  def content_item
-    @content_item ||= ContentItemFactory.build(fake_data)
+  def request_content_item(_base_path)
+    GdsApi.content_store.content_item(request.path).to_h
+  rescue StandardError
+    fake_data
   end
 
   # SCAFFOLDING: can be removed when basic content items are available

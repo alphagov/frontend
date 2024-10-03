@@ -4,7 +4,11 @@ class LandingPage < ContentItem
   ADDITIONAL_CONTENT_PATH = "lib/data/landing_page_content_items".freeze
 
   def initialize(content_store_response)
-    super(content_store_response.deep_merge(load_additional_content(content_store_response["base_path"])))
+    if content_store_response.dig("details", "blocks")
+      super(content_store_response)
+    else
+      super(content_store_response.deep_merge(load_additional_content(content_store_response["base_path"])))
+    end
 
     @blocks = @content_store_response.dig("details", "blocks").map { |block_hash| BlockFactory.build(block_hash) }
   end

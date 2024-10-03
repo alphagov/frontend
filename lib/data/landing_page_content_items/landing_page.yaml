@@ -1,6 +1,6 @@
 blocks:
-- type: paragraph
-  content: Here's some content!
+- type: govspeak
+  content: <p>Here's some content!</p>
 - type: tabs
   id: landing-pages-item-selector
   tab_items:
@@ -10,13 +10,13 @@ blocks:
   - id: tab-2
     label: Item 2
     content: Here's the content for item two
-- type: paragraph
-  content: Here's some more content!
+- type: govspeak
+  content: <p>Here's some more content!</p>
 - type: two_column_layout
   theme: one_third_two_thirds
   left:
-    type: paragraph
-    content: Left content!
+    type: govspeak
+    content: <p>Left content!</p>
   right:
-    type: paragraph
-    content: Right content!
+    type: govspeak
+    content: <p>Right content!</p>

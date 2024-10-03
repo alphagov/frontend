@@ -11,16 +11,16 @@ module Block
       @theme = data["theme"]
     end
 
-    def left_class
-      return "govuk-grid-column-two-thirds" if theme == "two_thirds_one_third"
-
-      "govuk-grid-column-one-third"
+    def left_column_size
+      theme == "two_thirds_one_third" ? 2 : 1
     end
 
-    def right_class
-      return "govuk-grid-column-two-thirds" if theme == "one_third_two_thirds"
+    def right_column_size
+      theme == "one_third_two_thirds" ? 2 : 1
+    end
 
-      "govuk-grid-column-one-third"
+    def total_columns
+      left_column_size + right_column_size
     end
   end
 end

@@ -13,12 +13,14 @@ blocks:
 - type: govspeak
   content: <p>Here's some more content!</p>
 - type: two_column_layout
-  theme: one_third_two_thirds
+  theme: two_thirds_one_third
   blocks:
   - type: govspeak
     content: <p>Left content!</p>
   - type: govspeak
     content: <p>Right content!</p>
+- type: govspeak
+  content: <h2>Statistics</h2>
 - type: columns_layout
   blocks:
   - type: big_number

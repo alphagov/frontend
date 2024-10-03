@@ -3,4 +3,7 @@
   <% @content_item.blocks.each do |block| %>
     <%= render "landing_page/blocks/#{block.type}", block: %>
   <% end %>
+  <% if @content_item.blocks.empty? %>
+    Warning: No blocks specified for this page
+  <% end %>
 </div>

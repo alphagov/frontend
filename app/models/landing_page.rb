@@ -10,7 +10,7 @@ class LandingPage < ContentItem
       super(content_store_response.deep_merge(load_additional_content(content_store_response["base_path"])))
     end
 
-    @blocks = @content_store_response.dig("details", "blocks").map { |block_hash| BlockFactory.build(block_hash) }
+    @blocks = (@content_store_response.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash) }
   end
 
 private

@@ -14,9 +14,8 @@ blocks:
   content: <p>Here's some more content!</p>
 - type: two_column_layout
   theme: one_third_two_thirds
-  left:
-    type: govspeak
+  blocks:
+  - type: govspeak
     content: <p>Left content!</p>
-  right:
-    type: govspeak
+  - type: govspeak
     content: <p>Right content!</p>

@@ -73,6 +73,14 @@ cy:
     summer: Gŵyl banc yr haf
     year: Blwyddyn
   cancel:
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: cuddio pob diweddariad
+      last_updated: Diweddarwyd ddiwethaf ar %{date}
+      published: Cyhoeddwyd ar %{date}
+      see_all_updates: gweld pob diweddariad
+      show_all_updates: dangos pob diweddariad
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.

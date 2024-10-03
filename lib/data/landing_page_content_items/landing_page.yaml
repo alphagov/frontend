@@ -17,8 +17,13 @@ blocks:
   blocks:
   - type: govspeak
     content: <p>Left content!</p>
-  - type: govspeak
-    content: <p>Right content!</p>
+  - type: image
+    # TODO:
+    # - provide high res images for higher DPI screens
+    # - use srcset / sizes to provide better image resolutions
+    # - consider whether we want a separate picture component that allows some art direction (or maybe just for hero images?)
+    alt: "A photograph of the GDS get together 2024. A dark auditorium with a slide on the large presentation screen saying 'The GDS Get Together, Tuesday October 1st 2024'"
+    src: "landing-pages/example/gds-get-together.jpg"
 - type: govspeak
   content: <h2>Statistics</h2>
 - type: columns_layout
@@ -32,4 +37,3 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-

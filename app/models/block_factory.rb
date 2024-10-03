@@ -5,7 +5,7 @@ class BlockFactory
 
   def self.block_class(type)
     klass = "Block::#{type.camelize}".constantize
-    klass.superclass == Block::Base ? klass : Block::Base
+    klass.ancestors.include?(Block::Base) ? klass : Block::Base
   rescue StandardError
     Block::Base
   end

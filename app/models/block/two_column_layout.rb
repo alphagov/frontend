@@ -1,12 +1,13 @@
 module Block
-  class TwoColumnLayout < Block::Base
+  class TwoColumnLayout < Block::LayoutBase
     attr_reader :left, :right, :theme
+    alias_method :columns, :blocks
 
     def initialize(block_hash)
       super(block_hash)
 
-      @left = BlockFactory.build(data["left"])
-      @right = BlockFactory.build(data["right"])
+      @left = columns[0]
+      @right = columns[1]
       @theme = data["theme"]
     end
 

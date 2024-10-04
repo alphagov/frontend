@@ -1,5 +1,5 @@
 class ContentItem
-  attr_reader :content_store_response, :body, :image, :description, :document_type, :title, :base_path, :locale
+  attr_reader :content_store_response, :body, :image, :description, :document_type, :title, :base_path, :locale, :last_updated, :schema_name
 
   def initialize(content_store_response)
     @content_store_response = content_store_response
@@ -10,6 +10,8 @@ class ContentItem
     @title = content_store_response["title"]
     @base_path = content_store_response["base_path"]
     @locale = content_store_response["locale"]
+    @last_updated = content_store_response["public_updated_at"]
+    @schema_name = content_store_response["schema_name"]
   end
 
   delegate :to_h, to: :content_store_response

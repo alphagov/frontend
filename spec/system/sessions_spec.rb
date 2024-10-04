@@ -6,7 +6,12 @@ RSpec.describe "Sessions" do
   include GdsApi::TestHelpers::EmailAlertApi
   include GovukPersonalisation::TestHelpers::Features
 
+  path = "/email/subscriptions/account/confirm"
+
   before do
+    stub_request(:get, "http://content-store.dev.gov.uk/content#{path}")
+    .to_return(status: 200, body: { details: { body: "" }, links: {} }.to_json, headers: {})
+
     stub_content_store_has_item("/", schema: "special_route", links: {})
 
     # The redirect test needs a route to actually exist to redirect to
@@ -16,7 +21,7 @@ RSpec.describe "Sessions" do
     Rails.application.routes.disable_clear_and_finalize = true
 
     Rails.application.routes.draw do
-      get "/email/subscriptions/account/confirm", to: "homepage#index"
+      get path, to: "homepage#index"
     end
   end
 
@@ -31,7 +36,7 @@ RSpec.describe "Sessions" do
     end
 
     it "Logs the user in and send them to a redirect path if supplied" do
-      redirect_path = "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
+      redirect_path = "#{path}?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
       given_a_successful_login_attempt(redirect_path:)
       visit new_govuk_session_callback_path(code: "code", state: "state")
 

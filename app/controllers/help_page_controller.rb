@@ -1,0 +1,2 @@
+class HelpPageController < ContentItemsController
+end

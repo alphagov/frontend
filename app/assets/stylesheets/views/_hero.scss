@@ -1,10 +1,18 @@
 @import "govuk_publishing_components/individual_component_support";
 
+.nav-wrapper {
+  background: govuk-colour("black");
+}
+
 .app-b-hero {
   margin-bottom: govuk-spacing(4);
 }
 
-.app-b-hero__videowrapper,
+.app-b-hero__imagewrapper,
+.app-b-hero__videowrapper {
+  background: govuk-colour("dark-grey");
+}
+
 .app-b-hero__image {
   display: block;
   position: relative;
@@ -14,7 +22,13 @@
 }
 
 .app-b-hero__videowrapper {
-  max-width: 1000px;
+  .app-b-hero__videowrapper-inner {
+    display: block;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: -10px; // this counters a margin top of 10px on the govspeak video element, inside the component
+  }
 }
 
 .app-b-hero__textbox {

@@ -5,13 +5,17 @@
 %>
 <div class="app-b-hero">
   <% if image %>
-    <%= image_tag image, alt: alt_text, class: "app-b-hero__image" %>
+    <div class="app-b-hero__imagewrapper">
+      <%= image_tag image, alt: alt_text, class: "app-b-hero__image" %>
+    </div>
   <% elsif video %>
     <div class="app-b-hero__videowrapper">
-      <%= render "govuk_publishing_components/components/govspeak", {
-      } do %>
-        <p><a href="<%= video %>">The first 24 hours as Prime Minister - Behind the Scenes with Keir Starmer</a></p>
-      <% end %>
+      <div class="app-b-hero__videowrapper-inner">
+        <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+          <p><a href="<%= video %>">The first 24 hours as Prime Minister - Behind the Scenes with Keir Starmer</a></p>
+        <% end %>
+      </div>
     </div>
   <% end %>
 

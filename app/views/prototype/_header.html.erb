@@ -1,0 +1,25 @@
+<div class="nav-wrapper">
+  <div class="gem-c-layout-for-public__blue-bar govuk-width-container"></div>
+</div>
+<div class="landing-page__header">
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/breadcrumbs", {
+      collapse_on_mobile: true,
+      breadcrumbs: [
+        {
+          title: "Home",
+          url: "/"
+        },
+        {
+          title: "Organisations",
+          url: "/"
+        },
+        {
+          title: "Prime Minister's Office 10 Downing Street",
+          url: "/"
+        },
+      ],
+      inverse: true
+    } %>
+  </div>
+</div>

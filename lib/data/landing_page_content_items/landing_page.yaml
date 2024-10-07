@@ -59,7 +59,7 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-- type: chart
+- type: chart_layout
   title: "Chart to visually represent data"
   x_axis_label: "X Axis"
   y_axis_label: "Y Axis"

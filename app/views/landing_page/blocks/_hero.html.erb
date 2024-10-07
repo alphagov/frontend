@@ -1,0 +1,25 @@
+<%
+  add_view_stylesheet("landing_page/hero")
+%>
+
+<div class="app-b-hero">
+  <%= picture_tag({ class: "app-b-hero__imagewrapper"}) do %>
+    <%= tag(:source, srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)") %>
+    <%= tag(:source, srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)") %>
+    <%= tag(:source, srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)") %>
+    <%= image_tag(block.image.sources.desktop, alt: block.image.alt, class: "app-b-hero__image") %>
+  <% end %>
+
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="app-b-hero__textbox">
+          <% block.hero_content.each do |subblock| %>
+            <%= render "landing_page/blocks/#{subblock.type}", block: subblock, inverse: true %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

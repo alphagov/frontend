@@ -1,0 +1,43 @@
+blocks:
+- type: govspeak
+  content: |
+    <h2>Here's a heading</h2>
+    <p>Here's some content!</p>
+    <p>Here's some more content</p>
+    <ul>
+      <li>What?</li>
+      <li>When?</li>
+    </ul>
+    <a href="/landing-page/sub-page-1">Visit sub-page 1</a>
+- type: tabs
+  id: landing-pages-item-selector
+  tab_items:
+  - id: tab-1
+    label: Item 1
+    content: Here's the content for item one
+  - id: tab-2
+    label: Item 2
+    content: Here's the content for item two
+- type: govspeak
+  content: <p>Here's some more content!</p>
+- type: two_column_layout
+  theme: two_thirds_one_third
+  blocks:
+  - type: govspeak
+    content: <p>Left content!</p>
+  - type: govspeak
+    content: <p>Right content!</p>
+- type: govspeak
+  content: <h2>Statistics</h2>
+- type: columns_layout
+  blocks:
+  - type: big_number
+    number: £75m
+    label: amount of money that looks big
+  - type: big_number
+    number: 100%
+    label: increase in the number of big_number components added to the columns at this point
+  - type: big_number
+    number: £43
+    label: Cost of a cup of coffee in Covent Garden
+

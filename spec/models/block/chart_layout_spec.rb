@@ -29,4 +29,16 @@ RSpec.describe Block::ChartLayout do
       end
     end
   end
+
+  describe "chart data" do
+    # describe "#csv_path" do
+    # end
+
+    describe "rows" do
+      it "returns the row data for the chart" do
+        expected_rows = []
+        expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+      end
+    end
+  end
 end

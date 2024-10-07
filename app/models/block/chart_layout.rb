@@ -1,3 +1,5 @@
+require "csv"
+
 module Block
   class ChartLayout < Block::Base
     attr_reader :chart_id
@@ -22,6 +24,12 @@ module Block
       content["y_axis_label"]
     end
 
+    def rows
+      File.open(csv_data_path) do |file|
+        CSV.read(file)
+      end
+    end
+
   private
 
     def content
@@ -32,6 +40,10 @@ module Block
 
         YAML.load_file(filename)
       end
+    end
+
+    def csv_data_path
+      @csv_data_path ||= Rails.root.join("#{CHART_DATA_PATH}/csvs/#{chart_id}.csv")
     end
   end
 end

@@ -5,6 +5,7 @@
   results_anchor ||= "error"
   form_method ||= "post"
   margin_top ||= nil
+  publication_format ||= nil
 
   css_classes = %w[postcode-search-form]
   css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
@@ -72,7 +73,7 @@
     } %>
 
     <%= render "govuk_publishing_components/components/button",
-      text: t("find"),
+      text: button_text(publication_format),
       margin_bottom: true
     %>
 

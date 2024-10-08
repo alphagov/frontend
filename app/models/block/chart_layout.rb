@@ -24,16 +24,16 @@ module Block
       data["y_axis_label"]
     end
 
-    def rows
-      File.open(csv_data_path) do |file|
-        CSV.read(file)
-      end
+    def row_header
+      CSV.read(csv_file_path, headers: true).headers
     end
 
-  private
+    def rows
+      CSV.read(csv_file_path, headers: true).map(&:to_h)
+    end
 
-    def csv_data_path
-      @csv_data_path ||= Rails.root.join("#{CHART_DATA_PATH}/#{data['csv_file']}")
+    def csv_file_path
+      @csv_file_path ||= Rails.root.join("#{CHART_DATA_PATH}/#{data['csv_file']}")
     end
   end
 end

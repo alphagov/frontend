@@ -35,13 +35,25 @@ RSpec.describe Block::ChartLayout do
   end
 
   describe "chart data" do
-    # describe "#csv_path" do
-    # end
-
-    describe "rows" do
+    describe "#rows" do
       it "returns the row data for the chart" do
-        expected_rows = []
+        expected_rows = [
+          {"Date"=>"2024-01-01", "value"=>"10", "variable"=>"chart_variable"},
+          {"Date"=>"2024-02-01", "value"=>"11", "variable"=>"chart_variable"},
+          {"Date"=>"2024-03-01", "value"=>"12", "variable"=>"chart_variable"},
+          {"Date"=>"2024-04-01", "value"=>"13", "variable"=>"chart_variable"},
+          {"Date"=>"2024-05-01", "value"=>"14", "variable"=>"chart_variable"},
+          {"Date"=>"2024-06-01", "value"=>"15", "variable"=>"chart_variable"},
+        ]
+
         expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+      end
+    end
+
+    describe "#csv_file_path" do
+      it "returns the link to the chart data for a block" do
+        expected_path = "/spec/fixtures/landing_page_chart_data/chart_one.csv"
+        expect(described_class.new(blocks_hash).csv_file_path).to eq(expected_path)
       end
     end
   end

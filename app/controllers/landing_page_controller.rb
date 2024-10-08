@@ -1,6 +1,10 @@
 class LandingPageController < ContentItemsController
   slimmer_template "gem_layout_full_width"
 
+  def download
+    send_file(Rails.root.join("lib/data/landing_page_content_items/chart_data/chart_one.csv"), type: "text/csv", disposition: "attachment")
+  end
+
 private
 
   # SCAFFOLDING: can be removed when basic content items are available

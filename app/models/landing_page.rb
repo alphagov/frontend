@@ -22,6 +22,6 @@ private
     filename = Rails.root.join("#{ADDITIONAL_CONTENT_PATH}/#{file_slug}.yaml")
     return { "details" => {} } unless File.exist?(filename)
 
-    { "details" => YAML.load(File.read(filename)) }
+    { "details" => YAML.load_file(filename, permitted_classes: [Date]) }
   end
 end

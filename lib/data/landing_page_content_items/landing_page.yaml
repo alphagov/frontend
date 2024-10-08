@@ -59,4 +59,17 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-
+- type: video_collection
+  videos:
+    - title: Never gonna give you up
+      url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+      date: 1987-07-27
+    - title: Video killed the radio star
+      url: https://www.youtube.com/watch?v=W8r-tXRLazs
+      date: 1979-09-07
+    - title: Video games
+      url: https://www.youtube.com/watch?v=cE6wxDqdOV0
+      date: 2011-10-07
+    - title: What is GOV.UK?
+      url: https://www.youtube.com/watch?v=ucjmWjJ25Ho
+      date: 2015-09-17

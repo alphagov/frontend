@@ -4,7 +4,7 @@ module Block
   class ChartLayout < Block::Base
     attr_reader :chart_id
 
-    CHART_DATA_PATH = "lib/data/landing_page_content_items/chart_data".freeze
+    CHART_DATA_PATH = "lib/data/landing_page_content_items/statistics".freeze
 
     def initialize(block_hash)
       super(block_hash)
@@ -30,6 +30,10 @@ module Block
 
     def rows
       CSV.read(csv_file_path, headers: true).map(&:to_h)
+    end
+
+    def csv_file_name
+      data["csv_file"]
     end
 
     def csv_file_path

@@ -8,10 +8,10 @@ module Block
     def initialize(block_hash)
       super(block_hash)
 
-      alt, sources = block_hash.fetch("image").values_at("alt", "sources")
+      alt, sources = data.fetch("image").values_at("alt", "sources")
       sources = HeroImageSources.new(**sources)
       @image = HeroImage.new(alt:, sources:)
-      @hero_content = block_hash.dig("hero_content", "blocks")&.map { |subblock_hash| BlockFactory.build(subblock_hash) }
+      @hero_content = data.dig("hero_content", "blocks")&.map { |subblock_hash| BlockFactory.build(subblock_hash) }
     end
 
     def full_width?

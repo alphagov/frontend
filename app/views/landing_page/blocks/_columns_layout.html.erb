@@ -1,0 +1,5 @@
+<div class="govuk-grid-row">
+  <% block.columns.each do |column| %>
+    <div class="<%= column_class_for_equal_columns(block.columns.count) %>"><%= render "landing_page/blocks/#{column.type}", block: column %></div>
+  <% end %>
+</div>

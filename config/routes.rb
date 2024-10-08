@@ -29,6 +29,11 @@ Rails.application.routes.draw do
 
   get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice
 
+  scope "/landing-page" do
+    get "/", to: "landing_page#show"
+    get "/*any", to: "landing_page#show"
+  end
+
   # Accounts
   get "/sign-in", to: "help#sign_in"
   get "/sign-in/redirect", to: "sessions#create"
@@ -58,6 +63,10 @@ Rails.application.routes.draw do
   get "/find-licences/:slug/multiple_authorities" => "licence_transaction#multiple_authorities", as: "licence_transaction_multiple_authorities"
   get "/find-licences/:slug/:authority_slug", to: "licence_transaction#authority", as: "licence_transaction_authority"
   get "/find-licences/:slug/:authority_slug/:interaction", to: "licence_transaction#authority_interaction", as: "licence_transaction_authority_interaction"
+
+  constraints FormatRoutingConstraint.new("landing_page") do
+    get ":slug", to: "landing_page#show"
+  end
 
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do

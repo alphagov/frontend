@@ -41,5 +41,14 @@ RSpec.describe "LandingPage" do
       assert_selector ".govuk-block__hero picture"
       assert_selector ".govuk-block__hero .app-b-hero__textbox"
     end
+
+    it "renders a card" do
+      visit base_path
+
+      assert_selector ".landing-page .app-b-card"
+      assert_selector ".app-b-card .app-b-card__textbox"
+      assert_selector ".app-b-card .app-b-card__figure"
+      assert_selector ".app-b-card__figure .app-b-card__image"
+    end
   end
 end

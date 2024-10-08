@@ -1,0 +1,41 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-b-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: govuk-spacing(6);
+  background-color: govuk-colour("dark-blue");
+  color: govuk-colour("white");
+}
+
+.app-b-card__textbox {
+  padding: govuk-spacing(6) govuk-spacing(7);
+  background-color: govuk-colour("dark-blue");
+  color: govuk-colour("white");
+}
+
+.app-b-card__figure {
+  border-style: solid;
+  border-width: 0 1px 1px;
+  border-color: govuk-colour("mid-grey");
+  margin: auto 0 0;
+  background-color: govuk-colour("white");
+}
+
+.app-b-card__image {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+@include govuk-media-query($media-type: print) {
+  .app-b-card {
+    background: none;
+    padding: 0;
+
+    * {
+      color: $govuk-print-text-colour !important; // stylelint-disable-line declaration-no-important
+    }
+  }
+}

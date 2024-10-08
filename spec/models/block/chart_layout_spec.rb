@@ -1,6 +1,6 @@
 RSpec.describe Block::ChartLayout do
   let(:blocks_hash) do
-    { 
+    {
       "type" => "chart_layout",
       "chart_id" => "chart_one",
       "title" => "Chart to visually represent data",
@@ -21,13 +21,13 @@ RSpec.describe Block::ChartLayout do
       end
     end
 
-    describe  "#x_axis_label" do
+    describe "#x_axis_label" do
       it "gets the label for the x-axix" do
         expect(described_class.new(blocks_hash).x_axis_label).to eq("X Axis")
       end
     end
 
-    describe  "#y_axis_label" do
+    describe "#y_axis_label" do
       it "gets the label for the y-axis" do
         expect(described_class.new(blocks_hash).y_axis_label).to eq("Y Axis")
       end
@@ -38,12 +38,12 @@ RSpec.describe Block::ChartLayout do
     describe "#rows" do
       it "returns the row data for the chart" do
         expected_rows = [
-          {"Date"=>"2024-01-01", "value"=>"10", "variable"=>"chart_variable"},
-          {"Date"=>"2024-02-01", "value"=>"11", "variable"=>"chart_variable"},
-          {"Date"=>"2024-03-01", "value"=>"12", "variable"=>"chart_variable"},
-          {"Date"=>"2024-04-01", "value"=>"13", "variable"=>"chart_variable"},
-          {"Date"=>"2024-05-01", "value"=>"14", "variable"=>"chart_variable"},
-          {"Date"=>"2024-06-01", "value"=>"15", "variable"=>"chart_variable"},
+          { "Date" => "2024-01-01", "value" => "10", "variable" => "chart_variable" },
+          { "Date" => "2024-02-01", "value" => "11", "variable" => "chart_variable" },
+          { "Date" => "2024-03-01", "value" => "12", "variable" => "chart_variable" },
+          { "Date" => "2024-04-01", "value" => "13", "variable" => "chart_variable" },
+          { "Date" => "2024-05-01", "value" => "14", "variable" => "chart_variable" },
+          { "Date" => "2024-06-01", "value" => "15", "variable" => "chart_variable" },
         ]
 
         expect(described_class.new(blocks_hash).rows).to eq(expected_rows)

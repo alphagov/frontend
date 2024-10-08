@@ -9,7 +9,7 @@ module Block
     def initialize(block_hash)
       super(block_hash)
 
-      @chart_id = chart_id = data["chart_id"]
+      @chart_id = data["chart_id"]
     end
 
     def title

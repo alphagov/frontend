@@ -103,6 +103,13 @@ Rails.application.routes.draw do
 
   get "/government/placeholder", to: "placeholder#show"
 
+  scope "/government" do
+    get "/placeholder", to: "placeholder#show"
+    scope "/get-involved" do
+      get "/:slug", to: "get_involved#show"      
+    end
+  end
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

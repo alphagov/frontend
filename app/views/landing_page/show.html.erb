@@ -1,7 +1,9 @@
 
 <div class="landing-page">
   <% @content_item.blocks.each do |block| %>
-    <%= render "landing_page/blocks/#{block.type}", block: %>
+    <%= tag.div class: ["govuk-block__#{block.type}", ("govuk-width-container" unless block.full_width?)] do
+      render "landing_page/blocks/#{block.type}", block:
+    end %>
   <% end %>
   <% if @content_item.blocks.empty? %>
     Warning: No blocks specified for this page

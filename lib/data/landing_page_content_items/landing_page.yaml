@@ -1,4 +1,23 @@
 blocks:
+- type: hero
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: govspeak
+        content: |
+          <h2>This is a heading</h2>
+          <p>Lorem ipsum...</p>
+      - type: action_link
+        text: "See the missions"
+        href: "todo"
 - type: govspeak
   content: |
     <h2>Here's a heading</h2>

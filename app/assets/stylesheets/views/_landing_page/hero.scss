@@ -1,0 +1,25 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-b-hero {
+  margin-bottom: govuk-spacing(4);
+}
+
+.app-b-hero__image {
+  display: block;
+  position: relative;
+  max-height: 600px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.app-b-hero__textbox {
+  position: relative;
+  padding: govuk-spacing(4);
+  margin-top: -(100px);
+  background: govuk-colour("dark-blue");
+  color: govuk-colour("white");
+
+  @include govuk-media-query($until: tablet) {
+    margin-top: -(govuk-spacing(2));
+  }
+}

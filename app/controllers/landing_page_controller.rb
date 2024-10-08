@@ -1,4 +1,6 @@
 class LandingPageController < ContentItemsController
+  slimmer_template "gem_layout_full_width"
+
 private
 
   # SCAFFOLDING: can be removed when basic content items are available

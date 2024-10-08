@@ -7,5 +7,9 @@ module Block
       @id = data["id"]
       @type = data["type"]
     end
+
+    def full_width?
+      false
+    end
   end
 end

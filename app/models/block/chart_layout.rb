@@ -36,6 +36,8 @@ module Block
       data["csv_file"]
     end
 
+private
+
     def csv_file_path
       @csv_file_path ||= Rails.root.join("#{CHART_DATA_PATH}/#{data['csv_file']}")
     end

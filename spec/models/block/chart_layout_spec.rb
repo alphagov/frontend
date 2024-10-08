@@ -50,10 +50,9 @@ RSpec.describe Block::ChartLayout do
       end
     end
 
-    describe "#csv_file_path" do
+    describe "#csv_file_name" do
       it "returns the link to the chart data for a block" do
-        expected_path = "/spec/fixtures/landing_page_chart_data/chart_one.csv"
-        expect(described_class.new(blocks_hash).csv_file_path).to eq(expected_path)
+        expect(described_class.new(blocks_hash).csv_file_name).to eq("chart_one.csv")
       end
     end
   end

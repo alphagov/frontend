@@ -1,4 +1,20 @@
 blocks:
+- type: main_navigation
+  links:
+  - label: Ipsums for Lorem
+    link: /ipsum
+    active: true
+  - label: Our Lorem
+    link: /our-lorem
+    active: false
+    children:
+      - label: Child 1
+        link: /a
+        active: false
+      - label: Child 2
+        link: /b
+        active: false
+  title: Orienting Title
 - type: hero
   image:
     alt: "Placeholder alt text"

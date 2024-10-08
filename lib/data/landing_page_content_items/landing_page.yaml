@@ -1,4 +1,15 @@
 blocks:
+- type: main_navigation
+  links:
+  - label: Lorem for Ipsum
+    link: /ipsum-1
+    active: true
+  - label: Ipsums for Lorem
+    link: /ipsum-2
+    active: false
+  - label: Our Lorem
+    link: /our-lorem
+    active: false
 - type: hero
   image:
     alt: "Placeholder alt text"
@@ -59,4 +70,3 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-

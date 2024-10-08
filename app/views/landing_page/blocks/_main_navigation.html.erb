@@ -1,0 +1,22 @@
+<%
+  add_view_stylesheet("landing_page/main-navigation")
+%>
+
+<nav>
+  <ul class="app-b-main-navigation">
+    <% block.data["links"].each do |link| %>
+      <%
+        li_classes = "app-b-main-navigation__listitem"
+        li_classes << " app-b-main-navigation__listitem--active" if link["active"]
+        li_data = { aria_current: true } if link["active"]
+      %>
+      <%= tag.li(class: li_classes, data: li_data) do %>
+        <% if link["active"] %>
+          <%= link["label"] %>
+        <% else %>
+          <a href="<%= link["link"]%>" class="govuk-link govuk-link--no-underline"><%= link["label"]%></a>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</nav>

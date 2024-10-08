@@ -1,0 +1,30 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-b-main-navigation {
+  padding-top: govuk-spacing(3);
+  padding-bottom: govuk-spacing(6);
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+
+  .app-b-main-navigation__listitem:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.app-b-main-navigation__listitem {
+  list-style: none;
+  display: inline-block;
+  margin-right: govuk-spacing(9);
+  margin-top: govuk-spacing(3);
+
+  @include govuk-media-query($until: "desktop") {
+    display: block;
+  }
+
+  @include govuk-font(19, $weight: normal);
+
+  &--active {
+    @include govuk-font(19, $weight: bold);
+  }
+}

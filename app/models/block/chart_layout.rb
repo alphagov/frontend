@@ -13,15 +13,15 @@ module Block
     end
 
     def title
-      content["title"]
+      data["title"]
     end
 
     def x_axis_label
-      content["x_axis_label"]
+      data["x_axis_label"]
     end
 
     def y_axis_label
-      content["y_axis_label"]
+      data["y_axis_label"]
     end
 
     def rows
@@ -32,18 +32,8 @@ module Block
 
   private
 
-    def content
-      @content ||= begin
-        filename = Rails.root.join("#{CHART_DATA_PATH}/#{chart_id}.yaml")
-
-        return unless File.exist?(filename)
-
-        YAML.load_file(filename)
-      end
-    end
-
     def csv_data_path
-      @csv_data_path ||= Rails.root.join("#{CHART_DATA_PATH}/csvs/#{chart_id}.csv")
+      @csv_data_path ||= Rails.root.join("#{CHART_DATA_PATH}/#{data['csv_file']}")
     end
   end
 end

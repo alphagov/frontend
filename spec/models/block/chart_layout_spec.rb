@@ -3,6 +3,10 @@ RSpec.describe Block::ChartLayout do
     { 
       "type" => "chart_layout",
       "chart_id" => "chart_one",
+      "title" => "Chart to visually represent data",
+      "x_axis_label" => "X Axis",
+      "y_axis_label" => "Y Axis",
+      "csv_file" => "chart_one.csv",
     }
   end
 

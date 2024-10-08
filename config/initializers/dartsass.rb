@@ -13,6 +13,7 @@ APP_STYLESHEETS = {
   "views/_place-list.scss" => "views/_place-list.css",
   "views/_popular_links.scss" => "views/_popular_links.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
+  "views/_landing_page/card.scss" => "views/_landing_page/card.css",
   "views/_landing_page/hero.scss" => "views/_landing_page/hero.css",
   "views/_landing_page/featured.scss" => "views/_landing_page/featured.css",
 }.freeze

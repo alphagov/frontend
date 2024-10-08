@@ -65,4 +65,10 @@ blocks:
   x_axis_label: "X Axis"
   y_axis_label: "Y Axis"
   csv_file: "chart_one.csv"
+- type: chart_layout
+  id: chart_two
+  title: "Chart to visually represent data"
+  x_axis_label: "X Axis"
+  y_axis_label: "Y Axis"
+  csv_file: "chart_two.csv"
 

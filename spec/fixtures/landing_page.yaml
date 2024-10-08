@@ -3,12 +3,12 @@ blocks:
   image:
     alt: "todo alt text"
     sources:
-      desktop_2x: "landing_page/placeholder_desktop_2x.png"
-      desktop: "landing_page/placeholder_desktop.png"
-      tablet_2x: "landing_page/placeholder_tablet_2x.png"
-      tablet: "landing_page/placeholder_tablet.png"
-      mobile_2x: "landing_page/placeholder_mobile_2x.png"
-      mobile: "landing_page/placeholder_mobile.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      desktop: "landing_page/placeholder/desktop.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
   hero_content:
     blocks:
       - type: govspeak

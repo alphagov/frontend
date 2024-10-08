@@ -33,4 +33,5 @@ RSpec.describe "LandingPage" do
 
       expect(page.status_code).to eq(200)
     end
+  end
 end

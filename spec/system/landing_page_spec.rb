@@ -33,5 +33,13 @@ RSpec.describe "LandingPage" do
 
       expect(page.status_code).to eq(200)
     end
+
+    it "renders a hero" do
+      visit base_path
+
+      assert_selector ".landing-page .govuk-block__hero"
+      assert_selector ".govuk-block__hero picture"
+      assert_selector ".govuk-block__hero .app-b-hero__textbox"
+    end
   end
 end

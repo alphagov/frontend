@@ -4,3 +4,17 @@
   padding: govuk-spacing(1) 0;
   background: govuk-colour("dark-grey");
 }
+
+.landing-page__nav {
+  padding: govuk-spacing(3) 0;
+  margin: 0;
+}
+
+.landing-page__nav-listitem {
+  display: inline-block;
+  padding-right: govuk-spacing(3);
+}
+
+.landing-page__nav-listitem--active {
+  font-weight: bold;
+}

@@ -17,9 +17,5 @@ RSpec.describe Block::LayoutBase do
     it "builds blocks of the correct type" do
       expect(described_class.new(blocks_hash).blocks.first.type).to eq("big_number")
     end
-
-    it "sets blocks to full width by default" do
-      expect(described_class.new("blocks" => [{ "type" => "unknown" }]).blocks.first.full_width?).to eq(false)
-    end
   end
 end

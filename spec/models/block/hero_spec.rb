@@ -41,4 +41,10 @@ RSpec.describe Block::Hero do
       expect(result.second.data).to eq("type" => "govspeak", "content" => "<p>More content!</p>")
     end
   end
+
+  describe "#full_width?" do
+    it "is true" do
+      expect(described_class.new(blocks_hash).full_width?).to eq(true)
+    end
+  end
 end

@@ -1,4 +1,3 @@
-# TODO: tests (WIP)
 module Block
   Video = Data.define(:title, :url, :date)
 

@@ -75,6 +75,32 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
+- type: grid_container
+  blocks:
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 3 govspeak title</a></h2>
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:

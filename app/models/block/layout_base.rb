@@ -5,7 +5,7 @@ module Block
     def initialize(block_hash)
       super(block_hash)
 
-      @blocks = data["blocks"].map { |subblock_hash| BlockFactory.build(subblock_hash) }
+      @blocks = BlockFactory.build_all(data["blocks"])
     end
   end
 end

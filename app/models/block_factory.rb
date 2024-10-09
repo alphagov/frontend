@@ -1,4 +1,8 @@
 class BlockFactory
+  def self.build_all(block_array)
+    (block_array || []).map { |block| build(block) }
+  end
+
   def self.build(block_hash)
     block_class(block_hash["type"]).new(block_hash)
   end

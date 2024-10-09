@@ -32,11 +32,11 @@ module Block
       CSV.read(csv_file_path, headers: true).map(&:to_h)
     end
 
-    def csv_file_name
-      data["csv_file"]
+    def data_source_link
+      data["data_source_link"]
     end
 
-private
+  private
 
     def csv_file_path
       @csv_file_path ||= Rails.root.join("#{CHART_DATA_PATH}/#{data['csv_file']}")

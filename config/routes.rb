@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice
 
   scope "/landing-page" do
-    get "/download/:file_name", to: "landing_page#download", as: :landing_page_download
     get "/", to: "landing_page#show"
     get "/*any", to: "landing_page#show"
   end

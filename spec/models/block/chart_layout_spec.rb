@@ -7,6 +7,7 @@ RSpec.describe Block::ChartLayout do
       "x_axis_label" => "X Axis",
       "y_axis_label" => "Y Axis",
       "csv_file" => "chart_one.csv",
+      "data_source_link" => "https://www.example.com",
     }
   end
 
@@ -50,9 +51,9 @@ RSpec.describe Block::ChartLayout do
       end
     end
 
-    describe "#csv_file_name" do
-      it "returns the link to the chart data for a block" do
-        expect(described_class.new(blocks_hash).csv_file_name).to eq("chart_one.csv")
+    describe "#data_source_link" do
+      it "returns the link to the external data source" do
+        expect(described_class.new(blocks_hash).data_source_link).to eq("https://www.example.com")
       end
     end
   end

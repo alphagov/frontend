@@ -39,11 +39,5 @@ RSpec.describe "Landing Page" do
 
       expect(response).to render_template(:show)
     end
-
-    it "downloads the csv" do
-      get "/landing-page/download/chart_one.csv"
-
-      expect(response).to have_http_status(:ok)
-    end
   end
 end

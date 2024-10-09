@@ -1,12 +1,6 @@
 class LandingPageController < ContentItemsController
   slimmer_template "gem_layout_full_width"
 
-  def download
-    download_path = "lib/data/landing_page_content_items/statistics"
-    file_path = Rails.root.join("#{download_path}/#{params[:file_name]}.csv")
-    send_file(file_path, type: "text/csv", disposition: "attachment")
-  end
-
 private
 
   # SCAFFOLDING: can be removed when basic content items are available

@@ -11,7 +11,7 @@ module Block
       alt, sources = data.fetch("image").values_at("alt", "sources")
       sources = HeroImageSources.new(**sources)
       @image = HeroImage.new(alt:, sources:)
-      @hero_content = data.dig("hero_content", "blocks")&.map { |subblock_hash| BlockFactory.build(subblock_hash) }
+      @hero_content = BlockFactory.build_all(data.dig("hero_content", "blocks"))
     end
 
     def full_width?

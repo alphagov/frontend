@@ -2,7 +2,6 @@ blocks:
 - type: main_navigation
   links:
   - label: Lorem for Ipsum
-    link: /ipsum-1
     active: true
   - label: Ipsums for Lorem
     link: /ipsum-2

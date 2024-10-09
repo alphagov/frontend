@@ -18,12 +18,12 @@
           <% if link["active"] %>
             <%= link["label"] %>
           <% else %>
-            <a href="<%= link["link"]%>" class="govuk-link govuk-link--no-underline"><%= link["label"]%></a>
+            <%= link_to link["label"], link["link"], class: "govuk-link govuk-link--no-underline" %>
             <% if link["children"] %>
               <ul class="app-b-main-navigation__childlist">
                 <% link["children"].each do |child_link| %>
                   <li class="app-b-main-navigation__listitem">
-                    <a href="<%= child_link["link"]%>" class="govuk-link govuk-link--no-underline"><%= child_link["label"]%></a>
+                    <%= link_to child_link["label"], child_link["link"], class: "govuk-link govuk-link--no-underline" %>
                   </li>
                 <% end %>
               </ul>

@@ -1,6 +1,6 @@
 class ContentItemFactory
-  def self.build(content_hash)
-    content_item_class(content_hash["document_type"]).new(content_hash)
+  def self.build(content_store_response)
+    content_item_class(content_store_response["document_type"]).new(content_store_response)
   end
 
   def self.content_item_class(document_type)

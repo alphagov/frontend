@@ -16,6 +16,7 @@ APP_STYLESHEETS = {
   "views/_landing_page/card.scss" => "views/_landing_page/card.css",
   "views/_landing_page/hero.scss" => "views/_landing_page/hero.css",
   "views/_landing_page/featured.scss" => "views/_landing_page/featured.css",
+  "views/_landing_page/grid.scss" => "views/_landing_page/grid.css",
 }.freeze
 
 all_stylesheets = APP_STYLESHEETS.merge(GovukPublishingComponents::Config.all_stylesheets)

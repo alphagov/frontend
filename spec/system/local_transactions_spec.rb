@@ -79,6 +79,10 @@ RSpec.describe "LocalTransactions" do
         expect(page).to have_selector("a#postcode-finder-link")
       end
 
+      it "has the correct postcode finder button text" do
+        expect(page).to have_button("Find your local council")
+      end
+
       it "adds the GA4 form tracker for form_submit events" do
         data_module = page.find("form")["data-module"]
         expected_data_module = "ga4-form-tracker"
@@ -94,7 +98,7 @@ RSpec.describe "LocalTransactions" do
       before do
         visit "/pay-bear-tax"
         fill_in("postcode", with: "SW1A 1AA")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "redirects to the appropriate authority slug" do
@@ -153,7 +157,7 @@ RSpec.describe "LocalTransactions" do
         stub_locations_api_has_no_location("AB1 2AB")
         visit "/pay-bear-tax"
         fill_in("postcode", with: "AB1 2AB")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "remains on the pay bear tax page" do
@@ -180,7 +184,7 @@ RSpec.describe "LocalTransactions" do
         stub_locations_api_does_not_have_a_bad_postcode("Not valid")
         visit "/pay-bear-tax"
         fill_in("postcode", with: "Not valid")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "remains on the local transaction page" do
@@ -204,7 +208,7 @@ RSpec.describe "LocalTransactions" do
       before do
         visit "/pay-bear-tax"
         fill_in("postcode", with: "")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "remains on the local transaction page" do
@@ -226,7 +230,7 @@ RSpec.describe "LocalTransactions" do
         stub_local_links_manager_does_not_have_a_custodian_code(123)
         visit "/pay-bear-tax"
         fill_in("postcode", with: "XM4 5HQ")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "shows an error message" do
@@ -254,7 +258,7 @@ RSpec.describe "LocalTransactions" do
           stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
           visit "/pay-bear-tax"
           fill_in("postcode", with: "CH25 9BJ")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "includes the select address text in the page title" do
@@ -299,7 +303,7 @@ RSpec.describe "LocalTransactions" do
           stub_local_links_manager_has_a_local_authority("Geechester", local_custodian_code: 7)
           visit "/pay-bear-tax"
           fill_in("postcode", with: "CH25 9BJ")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "includes the search result text in the page title" do
@@ -353,7 +357,7 @@ RSpec.describe "LocalTransactions" do
       before do
         visit "/pay-bear-tax"
         fill_in("postcode", with: "SW1A 1AA")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "redirects to the appropriate authority slug" do
@@ -387,7 +391,7 @@ RSpec.describe "LocalTransactions" do
       stub_local_links_manager_has_no_link_and_no_homepage_url(authority_slug: "westminster", lgsl: 461, lgil: 8, country_name: "England")
       visit "/pay-bear-tax"
       fill_in("postcode", with: "SW1A 1AA")
-      click_on("Find")
+      click_on("Find your local council")
     end
 
     it "redirects to the appropriate authority slug" do
@@ -429,7 +433,7 @@ RSpec.describe "LocalTransactions" do
       )
       visit "/pay-bear-tax"
       fill_in("postcode", with: "WA8 8DX")
-      click_on("Find")
+      click_on("Find your local council")
     end
 
     it "includes the search result text in the page title" do
@@ -459,7 +463,7 @@ RSpec.describe "LocalTransactions" do
       stub_local_links_manager_has_no_link_and_no_homepage_url(authority_slug: "cardiff", lgsl: 461, lgil: 8, country_name: "Wales")
       visit "/pay-bear-tax"
       fill_in("postcode", with: "WA8 8DX")
-      click_on("Find")
+      click_on("Find your local council")
     end
 
     it "includes the search result text in the page title" do
@@ -496,7 +500,7 @@ RSpec.describe "LocalTransactions" do
       )
       visit "/pay-bear-tax"
       fill_in("postcode", with: "EH8 8DX")
-      click_on("Find")
+      click_on("Find your local council")
     end
 
     it "includes the search result text in the page title" do

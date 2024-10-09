@@ -17,14 +17,14 @@
   display: inline-block;
   margin-right: govuk-spacing(9);
   margin-top: govuk-spacing(3);
+  @include govuk-font(19, $weight: normal);
 
   @include govuk-media-query($until: "desktop") {
     display: block;
   }
 
-  @include govuk-font(19, $weight: normal);
+}
 
-  &--active {
-    @include govuk-font(19, $weight: bold);
-  }
+.app-b-main-navigation__listitem--active {
+  @include govuk-font(19, $weight: bold);
 }

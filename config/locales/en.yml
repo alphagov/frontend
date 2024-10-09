@@ -73,14 +73,6 @@ en:
     summer: Summer bank holiday
     year: Year
   cancel: cancel
-  components:
-    published_dates:
-      hidden_heading: Updates to this page
-      hide_all_updates: hide all updates
-      last_updated: Last updated %{date}
-      published: Published %{date}
-      see_all_updates: See all updates
-      show_all_updates: show all updates
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
@@ -108,6 +100,14 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+  components:
+    published_dates:
+      hidden_heading: Updates to this page
+      hide_all_updates: hide all updates
+      last_updated: Last updated %{date}
+      published: Published %{date}
+      see_all_updates: See all updates
+      show_all_updates: show all updates
   continue: Continue
   cookies:
     always_on: They always need to be on.
@@ -655,6 +655,8 @@ en:
       link: "/vehicle-tax"
     - title: VAT rates
       link: "/vat-rates"
+  i18n:
+    direction: ltr
   'no': 'No'
   or: or
   place:

@@ -10,6 +10,13 @@ blocks:
   - label: Our Lorem
     link: /our-lorem
     active: false
+    children:
+      - label: Child 1
+        link: /a
+        active: false
+      - label: Child 2
+        link: /b
+        active: false
 - type: hero
   image:
     alt: "Placeholder alt text"

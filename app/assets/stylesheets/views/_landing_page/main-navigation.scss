@@ -1,6 +1,13 @@
 @import "govuk_publishing_components/individual_component_support";
 
-.app-b-main-navigation {
+
+.js-app-b-main-navigation__nav {
+  @include govuk-media-query($until: "desktop") {
+    display: none;
+  }
+}
+
+.app-b-main-navigation__ul {
   padding-top: govuk-spacing(3);
   padding-bottom: govuk-spacing(6);
   padding-left: 0;
@@ -9,6 +16,55 @@
 
   .app-b-main-navigation__listitem:last-of-type {
     margin-right: 0;
+  }
+
+  @include govuk-media-query($until: "desktop") {
+    padding-top: 0;
+  }
+
+}
+
+.app-b-main-navigation__button {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+  color: govuk-colour("blue");
+
+  @include govuk-font(19, $weight: bold);
+
+  @include govuk-media-query($until: "desktop") {
+    display: block;
+
+    &.js-app-b-main-navigation__button {
+      display: none;
+    }
+  }
+}
+
+.app-b-main-navigation__button[aria-expanded="true"]::after {
+  position: absolute;
+  font-size: 15px;
+  top: 4px;
+  width: 20px;
+  content: "▲"
+}
+
+.app-b-main-navigation__button[aria-expanded="false"]::after {
+  position: absolute;
+  font-size: 15px;
+  top: 4px;
+  width: 20px;
+  content: "▼"
+}
+
+.app-b-main-navigation__heading,
+.app-b-main-navigation__childlist {
+  display: none;
+  @include govuk-media-query($until: "desktop") {
+    display: block;
   }
 }
 
@@ -27,4 +83,7 @@
 
 .app-b-main-navigation__listitem--active {
   @include govuk-font(19, $weight: bold);
+  @include govuk-media-query($until: "desktop") {
+    display: none;
+  }
 }

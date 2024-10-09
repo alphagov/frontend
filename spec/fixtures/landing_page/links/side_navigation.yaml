@@ -1,0 +1,4 @@
+- title: Landing Page
+  base_path: "/landing-page"
+- title: Sub Page 1
+  base_path: "/sub-page-1"

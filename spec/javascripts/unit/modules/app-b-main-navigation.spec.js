@@ -1,7 +1,7 @@
 describe('Main Navigation Block module', function () {
   'use strict'
 
-  var el
+  var el, module
 
   beforeEach(function () {
     var DOM =
@@ -33,7 +33,7 @@ describe('Main Navigation Block module', function () {
     el = document.createElement('div')
     el.innerHTML = DOM
     document.body.appendChild(el)
-    var module = new GOVUK.Modules.AppBMainNavigation(el)
+    module = new GOVUK.Modules.AppBMainNavigation(el)
     module.init()
   })
 
@@ -62,6 +62,14 @@ describe('Main Navigation Block module', function () {
     window.GOVUK.triggerEvent(button, 'click')
     expect(document.querySelector('.js-app-b-main-navigation__nav')).toBe(null)
     window.GOVUK.triggerEvent(button, 'click')
+    expect(document.querySelector('.js-app-b-main-navigation__nav')).not.toBe(null)
+  })
+
+  it('toggles the show/hide class when the toggleMenu function is called', function () {
+    expect(document.querySelector('.js-app-b-main-navigation__nav')).not.toBe(null)
+    module.toggleMenu()
+    expect(document.querySelector('.js-app-b-main-navigation__nav')).toBe(null)
+    module.toggleMenu()
     expect(document.querySelector('.js-app-b-main-navigation__nav')).not.toBe(null)
   })
 })

@@ -145,3 +145,9 @@ blocks:
           - type: govspeak
             inverse: true
             content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: side_navigation
+  - type: govspeak
+    content: <h2>On the right</h2>

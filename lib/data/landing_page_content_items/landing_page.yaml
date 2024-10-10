@@ -75,6 +75,32 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
+- type: grid_container
+  blocks:
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 3 govspeak title</a></h2>
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -89,9 +115,7 @@ blocks:
       card_content:
         blocks:
           - type: govspeak
-            content: |
-              <h2><a href="http://somewhere.com">Priority 1 govspeak title goes here</a></h2>
-              <p>Priority content 1, Nunc vulputate libero et velit interdum, ac aliquet odio mattis class. Yorem ipsum dolor sit amet.</p>
+            content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
     - type: card
       image:
         alt: "Placeholder alt text"
@@ -99,5 +123,4 @@ blocks:
       card_content:
         blocks:
           - type: govspeak
-            content: |
-              <h2>Priority 2 govspeak title goes here</h2>
+            content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>

@@ -18,6 +18,22 @@ blocks:
       - type: action_link
         text: "See the missions"
         href: "todo"
+- type: featured
+  image:
+    alt: example alt text
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  featured_content:
+    blocks:
+      - type: govspeak
+        content: |
+          <h2>Title of the content</h2>
+          <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
 - type: govspeak
   content: |
     <h2>Here's a heading</h2>

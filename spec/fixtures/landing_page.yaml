@@ -106,7 +106,7 @@ blocks:
   blocks:
   - type: govspeak
     content: <p>Left content!</p>
-  - type: columns_layout
+  - type: blocks_container
     blocks:
     - type: card
       image:

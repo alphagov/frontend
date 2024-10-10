@@ -56,5 +56,11 @@ RSpec.describe "LandingPage" do
 
       assert_selector ".landing-page .grid-container"
     end
+
+    it "renders a blocks container" do
+      visit base_path
+
+      assert_selector ".landing-page .blocks-container"
+    end
   end
 end

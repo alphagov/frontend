@@ -80,7 +80,7 @@ blocks:
   blocks:
   - type: govspeak
     content: <p>Left content!</p>
-  - type: grid_container
+  - type: blocks_container
     blocks:
     - type: card
       image:

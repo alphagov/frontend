@@ -5,17 +5,21 @@
 }
 
 .app-b-hero__imagewrapper {
-  display: block;
-  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 610px;
+
+  @include govuk-media-query($until: desktop) {
+    height: 512px;
+  }
+  @include govuk-media-query($until: tablet) {
+    height: 427px;
+  }
 }
 
-// assuming the image is the right height and sets the height of the block
 .app-b-hero__image {
   display: block;
-  position: relative;
-  max-height: 610px;
-  max-width: 100%;
-  margin: 0 auto;
 }
 
 .app-b-hero__textbox {

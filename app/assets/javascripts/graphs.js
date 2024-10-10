@@ -3,17 +3,22 @@
 window.onload = function() {
   var container = document.getElementById('container')
   var data = JSON.parse(container.getAttribute('data-rows'))
+  console.log(data)
 
   var firstel = data[0]
   var lastel = data[data.length - 1]
+  // FIXME would be good if the data already contained the ranges for the axes
   var min = 0
   var max = 0
+  var actualData = []
   data.forEach(el => {
     console.log(el)
+    actualData.push([el["Date"], el["value"]])
     if (el["value"] > max) {
       max = el["value"]
     }
   })
+  console.log(actualData)
 
   // Declare the chart dimensions and margins.
   const width = 640;
@@ -47,6 +52,47 @@ window.onload = function() {
   svg.append("g")
       .attr("transform", `translate(${marginLeft},0)`)
       .call(d3.axisLeft(y));
+
+  // Declare the line generator.
+  // const line = d3.line()
+  //     .x(d => x(d.date))
+  //     .y(d => y(d.close));
+
+  var xScale = d3.scaleLinear().domain([0, 100]).range([0, width])
+  var yScale = d3.scaleLinear().domain([0, 200]).range([height, 0])
+
+  var dataset1 = [
+    [1,1], [12,20], [24,36],
+    [32, 50], [40, 70], [50, 100],
+    [55, 106], [65, 123], [73, 130],
+    [78, 134], [83, 136], [89, 138],
+    [100, 140]
+];
+
+  svg.append('g')
+  .selectAll("dot")
+  .data(dataset1)
+  .enter()
+  .append("circle")
+  .attr("cx", function (d) { return xScale(d[0]); } )
+  .attr("cy", function (d) { return yScale(d[1]); } )
+  .attr("r", 2)
+  .attr("transform", "translate(" + 100 + "," + 100 + ")")
+  .style("fill", "#CC0000");
+
+  // var line = d3.line()
+  //   .x(function(d) { return xScale(d[0]); })
+  //   .y(function(d) { return yScale(d[1]); })
+  //   .curve(d3.curveMonotoneX)
+
+  // svg.append("path")
+  //   .datum(data)
+  //   .attr("class", "line")
+  //   .attr("transform", "translate(" + 100 + "," + 100 + ")")
+  //   .attr("d", line)
+  //   .style("fill", "none")
+  //   .style("stroke", "#CC0000")
+  //   .style("stroke-width", "2");
 
   // Append the SVG element.
   container.append(svg.node());

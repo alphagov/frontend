@@ -1,7 +1,17 @@
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag 'graphs.js', integrity: false, type: "module" %>
+<% end %>
+
 <p>Placeholder statistics partial</p>
-<%= block.row_header %>
+row_header: <%= block.row_header %>
 <br>
-<%= block.rows %>
+<br/>
+rows: <%= block.rows %>
 <br>
+<br/>
 <%= link_to block.data["data_source_link_text"], block.data_source_link %>
 
+<div id="container"
+  data-rows="<%= block.rows.to_json %>"
+  >
+</div>

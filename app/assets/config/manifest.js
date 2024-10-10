@@ -6,3 +6,4 @@
 //= link views/travel-advice.js
 
 //= link_tree ../builds
+//= link graphs.js

@@ -1,0 +1,36 @@
+<%
+  add_view_stylesheet("landing_page/main-navigation")
+%>
+
+<div data-module="app-b-main-navigation">
+  <h2 class="app-b-main-navigation__heading govuk-heading-s"><span class="govuk-visually-hidden">You are currently on </span>[Place Current Menu Selection Here]</h2>
+  <button class="app-b-main-navigation__button js-app-b-main-navigation__button govuk-link" aria-expanded="false" aria-controls="app-b-main-navigation__nav" type="button">Menu</button>
+
+  <nav id="app-b-main-navigation__nav">
+    <ul class="app-b-main-navigation__ul">
+      <% block.data["links"].each do |link| %>
+        <%
+          li_classes = "app-b-main-navigation__listitem"
+          li_classes << " app-b-main-navigation__listitem--active" if link["active"]
+          li_data = { aria_current: true } if link["active"]
+        %>
+        <%= tag.li(class: li_classes, data: li_data) do %>
+          <% if link["active"] %>
+            <%= link["label"] %>
+          <% else %>
+            <%= link_to link["label"], link["link"], class: "govuk-link govuk-link--no-underline" %>
+            <% if link["children"] %>
+              <ul class="app-b-main-navigation__childlist">
+                <% link["children"].each do |child_link| %>
+                  <li class="app-b-main-navigation__listitem">
+                    <%= link_to child_link["label"], child_link["link"], class: "govuk-link govuk-link--no-underline" %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </nav>
+</div>

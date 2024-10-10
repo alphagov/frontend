@@ -59,4 +59,9 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: side_navigation
+  - type: govspeak
+    content: <h2>On the right</h2>

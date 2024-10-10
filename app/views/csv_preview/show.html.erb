@@ -7,16 +7,18 @@
 <main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full govuk-!-margin-bottom-3">
+      <div class="govuk-grid-column-full">
         <% @content_item.dig("links", "organisations").each do |organisation| %>
-          <%= render "govuk_publishing_components/components/organisation_logo", {
-            organisation: {
-              name: sanitize(organisation.dig("details", "logo", "formatted_title")),
-              url: Plek.website_root + organisation["base_path"],
-              brand: organisation.dig("details", "brand"),
-              crest: organisation.dig("details", "logo", "crest"),
-            }
-          } %>
+          <div class="govuk-!-margin-bottom-6">
+            <%= render "govuk_publishing_components/components/organisation_logo", {
+              organisation: {
+                name: sanitize(organisation.dig("details", "logo", "formatted_title")),
+                url: Plek.website_root + organisation["base_path"],
+                brand: organisation.dig("details", "brand"),
+                crest: organisation.dig("details", "logo", "crest"),
+              }
+            } %>
+          </div>
         <% end %>
       </div>
     </div>

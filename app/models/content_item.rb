@@ -12,6 +12,22 @@ class ContentItem
     @locale = content_store_response["locale"]
   end
 
+  def open_consultation_count    
+    Services.search_api.search({ filter_content_store_document_type: "open_consultation", count: 0 })["total"]
+  end
+
+  def next_closing_consultation
+    query = {
+      filter_content_store_document_type: "open_consultation",
+      filter_end_date: "from: #{Time.zone.now.to_date}",
+      fields: "end_date,title,link",
+      order: "end_date",
+      count: 1,
+    }
+
+    Services.search_api.search(query)["results"].first
+  end
+
   delegate :to_h, to: :content_store_response
   delegate :cache_control, to: :content_store_response
 end

@@ -1,43 +1,45 @@
 RSpec.describe "Landing Page" do
   context "GET show" do
-    let(:content_item) do
-      {
-        "base_path" => "/landing-page",
-        "title" => "Landing Page",
-        "description" => "A landing page example",
-        "locale" => "en",
-        "document_type" => "landing_page",
-        "schema_name" => "landing_page",
-        "publishing_app" => "whitehall",
-        "rendering_app" => "frontend",
-        "update_type" => "major",
-        "details" => {},
-        "routes" => [
-          {
-            "type" => "exact",
-            "path" => "/landing-page",
-          },
-        ],
-      }
+    context "when a content item does exist" do
+      before do
+        stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
+        @content_item = GovukSchemas::Example.find("landing_page", example_name: "landing_page")
+        @base_path = @content_item.fetch("base_path")
+        stub_content_store_has_item(@base_path, @content_item)
+      end
+
+      it "succeeds" do
+        get @base_path
+
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "renders the show template" do
+        get @base_path
+
+        expect(response).to render_template(:show)
+      end
     end
 
-    let(:base_path) { content_item["base_path"] }
+    context "when a content item does not exist" do
+      let(:base_path) { "/landing-page" }
 
-    before do
-      stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
-      stub_content_store_has_item(base_path, content_item)
-    end
+      before do
+        stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
+        stub_content_store_does_not_have_item(base_path)
+      end
 
-    it "succeeds" do
-      get base_path
+      it "succeeds" do
+        get base_path
 
-      expect(response).to have_http_status(:ok)
-    end
+        expect(response).to have_http_status(:ok)
+      end
 
-    it "renders the show template" do
-      get base_path
+      it "renders the show template" do
+        get base_path
 
-      expect(response).to render_template(:show)
+        expect(response).to render_template(:show)
+      end
     end
   end
 end

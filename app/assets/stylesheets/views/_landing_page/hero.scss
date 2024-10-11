@@ -1,25 +1,36 @@
 @import "govuk_publishing_components/individual_component_support";
 
 .app-b-hero {
-  margin-bottom: govuk-spacing(4);
+  margin-bottom: govuk-spacing(6);
+}
+
+.app-b-hero__imagewrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 610px;
+
+  @include govuk-media-query($until: desktop) {
+    height: 512px;
+  }
+  @include govuk-media-query($until: tablet) {
+    height: 427px;
+  }
 }
 
 .app-b-hero__image {
   display: block;
-  position: relative;
-  max-height: 600px;
-  max-width: 100%;
-  margin: 0 auto;
 }
 
 .app-b-hero__textbox {
   position: relative;
-  padding: govuk-spacing(4);
+  padding: govuk-spacing(6);
   margin-top: -(100px);
   background: govuk-colour("dark-blue");
   color: govuk-colour("white");
 
   @include govuk-media-query($until: tablet) {
-    margin-top: -(govuk-spacing(2));
+    padding: govuk-spacing(4);
+    margin-top: -(govuk-spacing(6));
   }
 }

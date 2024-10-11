@@ -59,7 +59,7 @@ blocks:
   theme: two_thirds_one_third
   blocks:
   - type: govspeak
-    content: <p>Left content!</p>
+    content: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="govuk-link">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>
   - type: govspeak
     content: <p>Right content!</p>
 - type: govspeak

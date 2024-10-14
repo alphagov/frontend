@@ -1,0 +1,123 @@
+blocks:
+- type: main_navigation
+  links:
+  - text: Ipsums for Lorem
+    href: /ipsum
+  - text: Our Lorem
+    href: /landing-page/sub-page-1
+    children:
+      - text: Child 1
+        href: /a
+      - text: Child 2
+        href: /b
+  title: Service name
+  title_link: /landing-page
+- type: hero
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: govspeak
+        inverse: true
+        content: |
+          <h2>Rorem ipsum dolor sit</h2>
+          <p>Yorem ipsum dolor sit amet, consectetur 
+          adipiscing elit. Nunc vulputate libero et velit 
+          interdum, ac aliquet odio mattis class.</p>
+      - type: action_link
+        inverse: true
+        text: "Learn more about our goals"
+        href: "todo"
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: side_navigation
+  - type: blocks_container
+    blocks:
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+    - type: statistics
+      title: "Chart to visually represent data"
+      x_axis_label: "X Axis"
+      y_axis_label: "Y Axis"
+      csv_file: "data_one.csv"
+      data_source_link_text: "Data source"
+      data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+- type: hero
+  mid_page: true
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: quote
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class"
+        cite: "Lorem ipsum dolor sit, 28 September 2024"
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: govspeak
+    content: <br>
+  - type: blocks_container
+    blocks:
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+        <h2>Porem ipsum dolor</h2>
+        <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+#### Curated links go here ###
+- type: share_links
+  links:
+    - href: "/twitter-share-link"
+      text: "Twitter"
+      icon: "twitter"
+    - href: "/instagram-share-link"
+      text: "Instagram"
+      icon: "instagram"
+    - href: "/flickr-share-link"
+      text: "Flickr"
+      icon: "flickr"
+    - href: "/facebook-share-link"
+      text: "Facebook"
+      icon: "facebook"
+    - href: "/youtube-share-link"
+      text: "YouTube"
+      icon: "youtube"

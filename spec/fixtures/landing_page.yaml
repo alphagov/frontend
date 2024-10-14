@@ -1,14 +1,14 @@
 blocks:
 - type: hero
   image:
-    alt: "todo alt text"
+    alt: "Placeholder alt text"
     sources:
-      desktop_2x: "landing_page/placeholder/desktop_2x.png"
       desktop: "landing_page/placeholder/desktop.png"
-      tablet_2x: "landing_page/placeholder/tablet_2x.png"
-      tablet: "landing_page/placeholder/tablet.png"
-      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
       mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
   hero_content:
     blocks:
       - type: govspeak
@@ -18,6 +18,22 @@ blocks:
       - type: action_link
         text: "See the missions"
         href: "todo"
+- type: featured
+  image:
+    alt: example alt text
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  featured_content:
+    blocks:
+      - type: govspeak
+        content: |
+          <h2>Title of the content</h2>
+          <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
 - type: govspeak
   content: |
     <h2>Here's a heading</h2>
@@ -43,7 +59,7 @@ blocks:
   theme: two_thirds_one_third
   blocks:
   - type: govspeak
-    content: <p>Left content!</p>
+    content: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="govuk-link">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>
   - type: govspeak
     content: <p>Right content!</p>
 - type: govspeak
@@ -59,4 +75,52 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-
+- type: grid_container
+  blocks:
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          content: <h2><a href="http://gov.uk">Title 3 govspeak title</a></h2>
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: govspeak
+    content: <p>Left content!</p>
+  - type: blocks_container
+    blocks:
+    - type: card
+      image:
+        alt: "Placeholder alt text"
+        source: "landing_page/placeholder/chart.png"
+      card_content:
+        blocks:
+          - type: govspeak
+            content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
+    - type: card
+      image:
+        alt: "Placeholder alt text"
+        source: "landing_page/placeholder/chart.png"
+      card_content:
+        blocks:
+          - type: govspeak
+            content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>

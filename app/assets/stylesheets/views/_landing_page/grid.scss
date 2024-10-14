@@ -1,0 +1,9 @@
+@import "govuk_publishing_components/individual_component_support";
+
+@include govuk-media-query($from: desktop) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: govuk-spacing(6);
+  }
+}

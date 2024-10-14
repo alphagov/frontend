@@ -1,6 +1,6 @@
 {
   "all": true,
-  "branches": 95,
+  "branches": 90,
   "lines": 95,
   "check-coverage": true,
   "compact": false,

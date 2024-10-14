@@ -1,11 +1,5 @@
-<%
-  # Note: using inverse rather than light_text to be consistent
-  # with other components such as govspeak
-  light_text = inverse || false
-%>
-
 <%= render "govuk_publishing_components/components/action_link", {
-  light_text:,
+  inverse:,
   text: block.data["text"],
   href: block.data["href"]
 } %>

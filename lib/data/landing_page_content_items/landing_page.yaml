@@ -16,7 +16,7 @@ blocks:
           <h2>This is a heading</h2>
           <p>Lorem ipsum...</p>
       - type: action_link
-        text: "See the missions"
+        text: "See the tasks"
         href: "todo"
 - type: featured
   image:

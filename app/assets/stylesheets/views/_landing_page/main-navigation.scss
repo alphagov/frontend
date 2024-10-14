@@ -65,10 +65,20 @@
   content: "▼"
 }
 
-.app-b-main-nav__heading {
+.app-b-main-nav__heading-p {
   display: inline-block;
   margin-bottom: 0;
   margin-right: govuk-spacing(9);
+}
+
+.app-b-main-nav__heading-link {
+  &:link,
+  &:visited {
+    color: govuk-colour("black");
+  }
+  @include govuk-media-query($until: "desktop") {
+    margin-bottom: 0;
+  }
 }
 
 .app-b-main-nav__childlist {

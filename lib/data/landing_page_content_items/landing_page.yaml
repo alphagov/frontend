@@ -14,7 +14,8 @@ blocks:
       - label: Child 2
         link: /b
         active: false
-  title: Orienting Title
+  title: Service name
+  title_link: /landing-page
 - type: hero
   image:
     alt: "Placeholder alt text"

@@ -3,7 +3,7 @@
 %>
 
 <div class="app-b-main-nav" data-module="app-b-main-navigation">
-  <p class="app-b-main-nav__heading govuk-heading-s"><%= block.data["title"]%></p>
+  <p class="app-b-main-nav__heading-p govuk-heading-s"><%= link_to block.data["title"], block.data["title_link"], class: "govuk-link govuk-link--no-underline app-b-main-nav__heading-link" %></p>
   <button class="app-b-main-nav__button js-app-b-main-nav__button govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav__nav" type="button">Menu<span class="app-b-main-nav__icon" aria-hidden="true"></span></button>
 
   <nav id="app-b-main-nav__nav">

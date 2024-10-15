@@ -1,4 +1,17 @@
 blocks:
+- type: main_navigation
+  links:
+  - text: Ipsums for Lorem
+    href: /ipsum
+  - text: Our Lorem
+    href: /landing-page/sub-page-1
+    children:
+      - text: Child 1
+        href: /a
+      - text: Child 2
+        href: /b
+  title: Service name
+  title_link: /landing-page
 - type: hero
   image:
     alt: "Placeholder alt text"

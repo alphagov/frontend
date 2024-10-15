@@ -62,5 +62,11 @@ RSpec.describe "LandingPage" do
 
       assert_selector ".landing-page .blocks-container"
     end
+
+    it "renders main navigation" do
+      visit base_path
+
+      assert_selector ".app-b-main-nav .app-b-main-nav__heading-p"
+    end
   end
 end

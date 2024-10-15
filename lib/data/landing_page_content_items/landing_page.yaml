@@ -141,3 +141,20 @@ blocks:
         blocks:
           - type: govspeak
             content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
+- type: share_links
+  links:
+    - href: "/twitter-share-link"
+      text: "Twitter"
+      icon: "twitter"
+    - href: "/instagram-share-link"
+      text: "Instagram"
+      icon: "instagram"
+    - href: "/flickr-share-link"
+      text: "Flickr"
+      icon: "flickr"
+    - href: "/facebook-share-link"
+      text: "Facebook"
+      icon: "facebook"
+    - href: "/youtube-share-link"
+      text: "YouTube"
+      icon: "youtube"

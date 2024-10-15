@@ -7,6 +7,7 @@ module ContentsListHelper
       }
 
       content[:active] = true if current_path == link["href"]
+      content[:items] = contents_list(current_path, link["items"]) if link["items"].present?
 
       content
     end

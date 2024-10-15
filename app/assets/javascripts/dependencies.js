@@ -8,3 +8,5 @@
 //= require govuk_publishing_components/components/step-by-step-nav
 //= require govuk_publishing_components/components/table
 //= require govuk_publishing_components/components/tabs
+
+//= require govuk_publishing_components/components/chart

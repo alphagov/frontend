@@ -16,6 +16,10 @@ module Block
       data["y_axis_label"]
     end
 
+    def hide_legend
+      data["hide_legend"]
+    end
+
     def row_header
       CSV.read(csv_file_path, headers: true).headers
     end

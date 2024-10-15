@@ -1,0 +1,27 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-b-quote {
+  color: govuk-colour("white");
+}
+
+.app-b-quote__svg {
+  margin-bottom: govuk-spacing(4);
+}
+
+.app-b-quote__blockquote {
+  margin: 0;
+}
+
+.app-b-quote__text {
+  margin: 0 0 govuk-spacing(8);
+  @include govuk-font(19, $weight: "regular", $tabular: false, $line-height: false);
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: 127px;
+  }
+}
+
+.app-b-quote__cite {
+  font-style: normal;
+  @include govuk-font(19, $weight: "regular", $tabular: false, $line-height: false);
+}

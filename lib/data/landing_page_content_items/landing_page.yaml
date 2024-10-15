@@ -1,19 +1,15 @@
 blocks:
 - type: main_navigation
   links:
-  - label: Ipsums for Lorem
-    link: /ipsum
-    active: true
-  - label: Our Lorem
-    link: /our-lorem
-    active: false
+  - text: Ipsums for Lorem
+    href: /ipsum
+  - text: Our Lorem
+    href: /landing-page/sub-page-1
     children:
-      - label: Child 1
-        link: /a
-        active: false
-      - label: Child 2
-        link: /b
-        active: false
+      - text: Child 1
+        href: /a
+      - text: Child 2
+        href: /b
   title: Service name
   title_link: /landing-page
 - type: hero

@@ -1,7 +1,7 @@
 class ContentItem
   attr_reader :content_store_response, :body, :image, :description, :document_type, :title, :base_path, :locale, :take_part_pages
 
-  def initialize(content_store_response)
+  def initialize(content_store_response)  
     @content_store_response = content_store_response
     @body = content_store_response.dig("details", "body")
     @image = content_store_response.dig("details", "image")
@@ -47,10 +47,6 @@ class ContentItem
 
   def recent_outcomes
     filtered_links(recent_consultation_outcomes, I18n.t("get_involved.closed"))
-  end
-
-  def take_part_pages
-    @content_item = content_store_response.dig("links", "take_part_pages")
   end
 
   def time_until_closure(consultation)

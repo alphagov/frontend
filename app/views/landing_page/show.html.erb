@@ -2,7 +2,7 @@
 <div class="landing-page" id="content">
   <% @content_item.blocks.each do |block| %>
     <%= tag.div class: ["govuk-block__#{block.type}", ("govuk-width-container" unless block.full_width?)] do
-      render "landing_page/blocks/#{block.type}", block:
+      render_block(block)
     end %>
   <% end %>
   <% if @content_item.blocks.empty? %>

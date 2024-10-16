@@ -15,7 +15,7 @@
       <div class="govuk-grid-column-two-thirds">
         <div class="app-b-hero__textbox">
           <% block.hero_content.each do |subblock| %>
-            <%= render "landing_page/blocks/#{subblock.type}", block: subblock, inverse: true %>
+            <%= render_block(subblock) %>
           <% end %>
         </div>
       </div>

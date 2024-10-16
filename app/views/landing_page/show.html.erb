@@ -4,6 +4,8 @@
 
 <div class="landing-page-header">
   <div class="govuk-width-container">
+    <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: Hash.new, inverse: true %>
+
     <div class="landing-page-header__org">
       <%= render "govuk_publishing_components/components/organisation_logo", {
         organisation: {

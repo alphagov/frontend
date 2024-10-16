@@ -12,10 +12,12 @@ blocks:
   hero_content:
     blocks:
       - type: govspeak
+        inverse: true
         content: |
           <h2>This is a heading</h2>
           <p>Lorem ipsum...</p>
       - type: action_link
+        inverse: true
         text: "See the missions"
         href: "todo"
 - type: featured
@@ -31,6 +33,7 @@ blocks:
   featured_content:
     blocks:
       - type: govspeak
+        inverse: true
         content: |
           <h2>Title of the content</h2>
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
@@ -84,6 +87,7 @@ blocks:
     card_content:
       blocks:
         - type: govspeak
+          inverse: true
           content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
   - type: card
     image:
@@ -92,6 +96,7 @@ blocks:
     card_content:
       blocks:
         - type: govspeak
+          inverse: true 
           content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
   - type: card
     image:
@@ -100,6 +105,7 @@ blocks:
     card_content:
       blocks:
         - type: govspeak
+          inverse: true
           content: <h2><a href="http://gov.uk">Title 3 govspeak title</a></h2>
 - type: two_column_layout
   theme: one_third_two_thirds
@@ -115,6 +121,7 @@ blocks:
       card_content:
         blocks:
           - type: govspeak
+            inverse: true
             content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
     - type: card
       image:
@@ -123,4 +130,5 @@ blocks:
       card_content:
         blocks:
           - type: govspeak
+            inverse: true
             content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>

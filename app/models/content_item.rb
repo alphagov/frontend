@@ -20,4 +20,18 @@ class ContentItem
 
   alias_method :to_h, :content_store_hash
   delegate :cache_control, to: :content_store_response
+
+  REGEX_IS_A = /is_an?_(.*)\?/
+
+  def respond_to_missing?(method_name, _include_private = false)
+    method_name.to_s =~ REGEX_IS_A ? true : super
+  end
+
+  def method_missing(method_name, *_args, &_block)
+    if method_name.to_s =~ REGEX_IS_A
+      schema == ::Regexp.last_match(1)
+    else
+      super
+    end
+  end
 end

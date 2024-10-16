@@ -4,6 +4,6 @@
 
 <div class="grid-container">
   <% block.children.each do |child| %>
-    <%= render "landing_page/blocks/#{child.type}", block: child %>
+    <%= render_block(child) %>
   <% end %>
 </div>

@@ -7,7 +7,7 @@
 <div class="app-b-card">
   <div class="app-b-card__textbox">
     <% block.card_content.each do |subblock| %>
-      <%= render "landing_page/blocks/#{subblock.type}", block: subblock, inverse: true %>
+      <%= render_block(subblock)  %>
     <% end %>
   </div>
   <figure class="app-b-card__figure">

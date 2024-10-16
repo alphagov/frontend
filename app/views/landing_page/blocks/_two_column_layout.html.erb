@@ -2,7 +2,9 @@
   <div class="<%= column_class_for_assymetric_columns(block.total_columns, block.left_column_size) %>">
     <%= render "landing_page/blocks/#{block.left.type}", block: block.left %>
   </div>
-  <div class="<%= column_class_for_assymetric_columns(block.total_columns, block.right_column_size) %>">
-    <%= render "landing_page/blocks/#{block.right.type}", block: block.right %>
-  </div>
+  <% if block.right.present? %>
+    <div class="<%= column_class_for_assymetric_columns(block.total_columns, block.right_column_size) %>">
+      <%= render "landing_page/blocks/#{block.right.type}", block: block.right %>
+    </div>
+  <% end %>
 </div>

@@ -100,6 +100,14 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+  components:
+    published_dates:
+      hidden_heading: Updates to this page
+      hide_all_updates: hide all updates
+      last_updated: Last updated %{date}
+      published: Published %{date}
+      see_all_updates: See all updates
+      show_all_updates: show all updates
   continue: Continue
   cookies:
     always_on: They always need to be on.

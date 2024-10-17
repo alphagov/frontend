@@ -1,3 +1,10 @@
 ---
 et:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: peida kõik värskendused
+      last_updated: Viimati värskendatud %{date}
+      published: Avaldatud %{date}
+      see_all_updates: vt kõiki värskendusi
+      show_all_updates: kuva kõik värskendused

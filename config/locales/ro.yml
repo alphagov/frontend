@@ -1,3 +1,10 @@
 ---
 ro:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: ascundeți toate actualizările
+      last_updated: Ultima actualizare %{date}
+      published: Publicat pe %{date}
+      see_all_updates: vedeți toate actualizările
+      show_all_updates: afișați toate actualizările

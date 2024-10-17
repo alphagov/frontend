@@ -1,3 +1,10 @@
 ---
 cs:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: skrýt všechny aktualizace
+      last_updated: Poslední aktualizace %{date}
+      published: Zveřejněno %{date}
+      see_all_updates: vidět všechny aktualizace
+      show_all_updates: zobrazit všechny aktualizace

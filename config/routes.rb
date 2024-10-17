@@ -50,6 +50,11 @@ Rails.application.routes.draw do
   get "/help/ab-testing", to: "help#ab_testing"
   get "/help/cookies", to: "help#cookie_settings"
 
+  # Government pages
+  scope "/government" do
+    get "/get-involved", to: "get_involved#show"
+  end
+
   # GOVUK Public Roadmap
   get "/roadmap", to: "roadmap#index"
 

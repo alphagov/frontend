@@ -13,14 +13,14 @@ $desktop-height: 610px;
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: $desktop-height;
+  min-height: $desktop-height;
 
   @include govuk-media-query($until: desktop) {
-    height: $tablet-height;
+    min-height: $tablet-height;
   }
 
   @include govuk-media-query($until: tablet) {
-    height: $mobile-height;
+    min-height: $mobile-height;
   }
 }
 
@@ -63,10 +63,12 @@ $desktop-height: 610px;
 
   .app-b-hero__textbox-wrapper {
     @include govuk-media-query($from: desktop) {
+      box-sizing: border-box;
       align-items: center;
       display: flex;
-      height: $desktop-height;
+      min-height: $desktop-height;
       margin-top: -$desktop-height;
+      padding: govuk-spacing(6) 0;
     }
   }
 

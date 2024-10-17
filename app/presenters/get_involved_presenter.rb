@@ -1,6 +1,6 @@
 class GetInvolvedPresenter < ContentItemPresenter
   def open_consultation_count
-    Services.search_api.search({ filter_content_store_document_type: "open_consultation", count: 0 })["total"]
+    GdsApi.search.search({ filter_content_store_document_type: "open_consultation", count: 0 })["total"]
   end
 
   def closed_consultation_count
@@ -10,7 +10,7 @@ class GetInvolvedPresenter < ContentItemPresenter
       count: 0,
     }
 
-    Services.search_api.search(query)["total"]
+    GdsApi.search.search(query)["total"]
   end
 
   def next_closing_consultation
@@ -22,11 +22,7 @@ class GetInvolvedPresenter < ContentItemPresenter
       count: 1,
     }
 
-    Services.search_api.search(query)["results"].first
-  end
-
-  def take_part_pages
-    content_item.dig("links", "take_part_pages")
+    GdsApi.search.search(query)["results"].first
   end
 
   def recently_opened
@@ -66,7 +62,7 @@ private
       count: 3,
     }
 
-    Services.search_api.search(query)["results"]
+    GdsApi.search.search(query)["results"]
   end
 
   def recent_consultation_outcomes
@@ -78,7 +74,7 @@ private
       count: 3,
     }
 
-    Services.search_api.search(query)["results"]
+    GdsApi.search.search(query)["results"]
   end
 
   def filtered_links(array, close_status)

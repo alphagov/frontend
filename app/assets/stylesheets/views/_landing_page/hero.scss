@@ -1,20 +1,26 @@
 @import "govuk_publishing_components/individual_component_support";
 
+$mobile-height: 427px;
+$tablet-height: 512px;
+$desktop-height: 610px;
+
 .app-b-hero {
   margin-bottom: govuk-spacing(6);
+  position: relative;
 }
 
 .app-b-hero__imagewrapper {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: 610px;
+  min-height: $desktop-height;
 
   @include govuk-media-query($until: desktop) {
-    height: 512px;
+    min-height: $tablet-height;
   }
+
   @include govuk-media-query($until: tablet) {
-    height: 427px;
+    min-height: $mobile-height;
   }
 }
 
@@ -32,5 +38,49 @@
   @include govuk-media-query($until: tablet) {
     padding: govuk-spacing(4);
     margin-top: -(govuk-spacing(6));
+  }
+}
+
+.app-b-hero--mid-page {
+  overflow: hidden;
+  min-height: $desktop-height;
+
+  @include govuk-media-query($until: desktop) {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: $tablet-height;
+  }
+
+  @include govuk-media-query($until: tablet) {
+    min-height: $mobile-height;
+  }
+
+  .app-b-hero__image {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .app-b-hero__textbox-wrapper {
+    @include govuk-media-query($from: desktop) {
+      box-sizing: border-box;
+      align-items: center;
+      display: flex;
+      min-height: $desktop-height;
+      margin-top: -$desktop-height;
+      padding: govuk-spacing(6) 0;
+    }
+  }
+
+  .app-b-hero__textbox {
+    margin-top: 0;
+
+    @include govuk-media-query($until: desktop) {
+      margin-bottom: -(govuk-spacing(8));
+    }
+
+    @include govuk-media-query($until: tablet) {
+      margin-bottom: -(govuk-spacing(6));
+    }
   }
 }

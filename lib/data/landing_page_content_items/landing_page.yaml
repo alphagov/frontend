@@ -80,6 +80,22 @@ blocks:
     content: <p>Right content!</p>
 - type: govspeak
   content: <h2>Statistics</h2>
+- type: hero
+  theme: middle_left
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: quote
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class"
+        cite: "Lorem ipsum dolor sit, 28 September 2024"
 - type: columns_layout
   blocks:
   - type: big_number

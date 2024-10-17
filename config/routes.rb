@@ -45,6 +45,10 @@ Rails.application.routes.draw do
   get "/help/ab-testing", to: "help#ab_testing"
   get "/help/cookies", to: "help#cookie_settings"
 
+  scope "/government" do
+    get "/get-involved", to: "get_involved#show"
+  end
+
   # GOVUK Public Roadmap
   get "/roadmap", to: "roadmap#index"
 
@@ -102,10 +106,6 @@ Rails.application.routes.draw do
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
 
   get "/government/placeholder", to: "placeholder#show"
-
-  scope "/government" do
-    get "/get-involved", to: "get_involved#show"
-  end
 
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do

@@ -24,9 +24,9 @@ private
   def content_item
     @content_item ||= ContentItemFactory.build(request.env[:content_item] || request_content_item(content_item_slug || "/#{params[:slug]}"))
   end
-  
+
   def content_item_slug
-     request.path  
+    request.path
   end
 
   def content_item_hash

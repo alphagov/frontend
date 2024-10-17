@@ -1,16 +1,32 @@
 RSpec.describe "Get Involved" do
   before do
-    stub_content_store_has_item("/government/get-involved", GovukSchemas::Example.find("get_involved", example_name: "get_involved"))
+    content_store_has_example_item("/government/get-involved", schema: :get_involved)
     stub_search_query(query: hash_including(filter_content_store_document_type: "open_consultation"), response: { "results" => [], "total" => 83 })
     stub_search_query(query: hash_including(filter_content_store_document_type: "closed_consultation"), response: { "results" => [], "total" => 110 })
     stub_search_query(query: hash_including(filter_content_store_document_type: "consultation_outcome"), response: { "results" => [consultation_result] })
+    visit "/government/get-involved"
   end
 
-  context "GET index" do
-    it "responds with success" do
-      get "/government/get-involved"
-      expect(response).to have_http_status(:ok)
-      expect(response.body).to include("Get Involved")
+  context "when visiting get involved page" do
+    it "displays the get involved page with the correct title" do
+      expect(page).to have_title("Get involved - GOV.UK")
+    end
+
+    it "includes the correct number of open consultations" do
+      assert page.has_selector?(".gem-c-big-number", text: /83.+Open consultations/m)
+    end
+
+    it "includes the correct number of closed consultations" do
+      assert page.has_selector?(".gem-c-big-number", text: /110.+Closed consultations/m)
+    end
+
+    it "includes the next closing consultation" do
+      assert page.has_text?("Consulting on time zones")
+    end
+
+    it "shows the take part pages" do
+      assert page.has_text?("Volunteer")
+      assert page.has_text?("National Citizen Service")
     end
   end
 end

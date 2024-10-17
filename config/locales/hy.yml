@@ -8,3 +8,5 @@ hy:
       published: Հրապարակվել է՝ %{date}
       see_all_updates: դիտել բոլոր թարմացումները
       show_all_updates: ցույց տալ բոլոր թարմացումները
+  i18n:
+    direction:

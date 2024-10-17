@@ -8,3 +8,5 @@ gu:
       published: પ્રકાશિત થયો %{date}
       see_all_updates: બધા અપડેટ્સ જુઓ
       show_all_updates: બધા અપડેટ્સ બતાવો
+  i18n:
+    direction:

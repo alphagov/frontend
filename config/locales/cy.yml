@@ -817,6 +817,8 @@ cy:
       uk_bank_holidays:
       universal_credit:
     most_active:
+  i18n:
+    direction:
   'no': Na
   or:
   place:

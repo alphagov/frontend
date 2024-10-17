@@ -8,3 +8,5 @@ nl:
       published: Gepubliceerd %{date}
       see_all_updates: zie alle updates
       show_all_updates: toon alle updates
+  i18n:
+    direction:

@@ -8,3 +8,5 @@ fi:
       published: Julkaistu %{date}
       see_all_updates: katso kaikki palvelut
       show_all_updates: näytä kaikki päivitykset
+  i18n:
+    direction:

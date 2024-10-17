@@ -8,3 +8,5 @@ hr:
       published: Objavljeno %{date}
       see_all_updates: pogledajte sva ažuriranja
       show_all_updates: prikaži sva ažuriranja
+  i18n:
+    direction:

@@ -8,3 +8,5 @@ bn:
       published: প্রকাশিত হওয়ার তারিখ %{date}
       see_all_updates: সকল আপডেট দেখুন
       show_all_updates: সকল আপডেট দেখান
+  i18n:
+    direction:

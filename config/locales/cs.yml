@@ -8,3 +8,5 @@ cs:
       published: Zveřejněno %{date}
       see_all_updates: vidět všechny aktualizace
       show_all_updates: zobrazit všechny aktualizace
+  i18n:
+    direction:

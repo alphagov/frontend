@@ -8,3 +8,5 @@ sw:
       published: Ulichapishwa tarehe %{date}
       see_all_updates: angalia taarifa zote
       show_all_updates: Onyesha taarifa zote
+  i18n:
+    direction:

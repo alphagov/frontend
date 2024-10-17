@@ -8,3 +8,5 @@ dr:
       published: منتشر شده%{date}
       see_all_updates: تمام آپدیت ها را مشاهده نمایید
       show_all_updates: تمام آپدیت ها را نمایش دهید
+  i18n:
+    direction: rtl

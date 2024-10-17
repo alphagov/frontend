@@ -8,3 +8,5 @@ pa-pk:
       published: شائع ہویا %{date}
       see_all_updates: ساری تازہ ترین صورتِ حال
       show_all_updates: ساری تازہ ترین صورتِ حال وکھاؤ
+  i18n:
+    direction: rtl

@@ -8,3 +8,5 @@ ka:
       published: გამოქვეყნდა %{date}
       see_all_updates: ყველა ცვლილების ნახვა
       show_all_updates: ყველა ცვლილების ჩვენება
+  i18n:
+    direction:

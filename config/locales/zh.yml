@@ -8,3 +8,5 @@ zh:
       published: 发布 %{date}
       see_all_updates: 查看全部更新
       show_all_updates: 显示全部更新
+  i18n:
+    direction:

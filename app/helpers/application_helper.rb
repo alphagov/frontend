@@ -28,4 +28,14 @@ module ApplicationHelper
   def current_path_without_query_string
     request.original_fullpath.split("?", 2).first
   end
+
+  def remove_breadcrumbs(content_item)
+    remove_breadcrumbs = false
+
+    if content_item.respond_to?(:is_a_landing_page?) && content_item.is_a_landing_page?
+      remove_breadcrumbs = true
+    end
+
+    remove_breadcrumbs
+  end
 end

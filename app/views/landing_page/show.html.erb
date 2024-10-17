@@ -1,3 +1,27 @@
+<%
+  add_view_stylesheet("landing_page")
+%>
+
+<div class="landing-page-header">
+  <div class="govuk-width-container">
+    <div class="landing-page-header__blue-bar">
+    </div>
+    
+    <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: Hash.new, inverse: true %>
+
+    <div class="landing-page-header__org">
+      <%= render "govuk_publishing_components/components/organisation_logo", {
+        organisation: {
+          name: sanitize("Prime Minister's Office<br>10 Downing Street"),
+          url: "/government/organisations/prime-ministers-office-10-downing-street",
+          brand: "prime-ministers-office-10-downing-street",
+          crest: "eo",
+        },
+        inverse: true,
+      } %>
+    </div>
+  </div>
+</div>
 
 <div class="landing-page" id="content">
   <% @content_item.blocks.each do |block| %>

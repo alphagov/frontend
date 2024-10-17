@@ -1,16 +1,16 @@
 blocks:
 - type: main_navigation
   links:
-  - text: Ipsums for Lorem
-    href: /ipsum
-  - text: Our Lorem
-    href: /landing-page/sub-page-1
+  - text: Goals
+    href: /landing-page/goals
+  - text: Tasks
+    href: /landing-page/tasks
     children:
       - text: Child 1
         href: /a
       - text: Child 2
         href: /b
-  title: Service name
+  title: Landing page
   title_link: /landing-page
 - type: hero
   image:

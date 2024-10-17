@@ -8,3 +8,5 @@ ta:
       published: வெளியிடப்பட்ட தேதி %{date}
       see_all_updates: அனைத்து புதுப்பித்தல்களையும் பார்க்க
       show_all_updates: அனைத்து புதுப்பித்தல்களையும் காட்டு
+  i18n:
+    direction:

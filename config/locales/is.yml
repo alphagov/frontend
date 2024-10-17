@@ -8,3 +8,5 @@ is:
       published: Birt %{date}
       see_all_updates: sjá allar uppfærslur
       show_all_updates: sýna allar uppfærslur
+  i18n:
+    direction:

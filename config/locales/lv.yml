@@ -8,3 +8,5 @@ lv:
       published: Publicēts %{date}
       see_all_updates: skatīt visus atjauninājumus
       show_all_updates: rādīt visus atjauninājumus
+  i18n:
+    direction:

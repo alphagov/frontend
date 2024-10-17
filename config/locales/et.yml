@@ -8,3 +8,5 @@ et:
       published: Avaldatud %{date}
       see_all_updates: vt kõiki värskendusi
       show_all_updates: kuva kõik värskendused
+  i18n:
+    direction:

@@ -8,3 +8,5 @@ ms:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua kemas kini
       show_all_updates: tunjuk semua kemas kini
+  i18n:
+    direction:

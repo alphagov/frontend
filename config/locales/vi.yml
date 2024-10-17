@@ -8,3 +8,5 @@ vi:
       published: Ngày xuất bản %{date}
       see_all_updates: xem tất cả nội dung cập nhật
       show_all_updates: hiển thị tất cả nội dung cập nhật
+  i18n:
+    direction:

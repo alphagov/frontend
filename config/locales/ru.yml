@@ -8,3 +8,5 @@ ru:
       published: Опубликовано %{date}
       see_all_updates: Посмотреть всю поледнюю информацию
       show_all_updates: Показать всю поледнюю информацию
+  i18n:
+    direction:

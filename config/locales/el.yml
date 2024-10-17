@@ -8,3 +8,5 @@ el:
       published: Δημοσιεύτηκε %{date}
       see_all_updates: δείτε όλες τις ενημερώσεις
       show_all_updates: εμφάνιση όλων των ενημερώσεων
+  i18n:
+    direction:

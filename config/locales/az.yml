@@ -8,3 +8,5 @@ az:
       published: 'Dərc edilib: %{date}'
       see_all_updates: bütün yeniləmələrə baxın
       show_all_updates: bütün yeniləmələri göstər
+  i18n:
+    direction:

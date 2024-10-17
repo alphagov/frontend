@@ -656,6 +656,8 @@ en:
       link: "/vehicle-tax"
     - title: VAT rates
       link: "/vat-rates"
+  i18n:
+    direction: ltr
   'no': 'No'
   or: or
   place:

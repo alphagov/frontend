@@ -8,3 +8,5 @@ ps:
       published: خپور شوی%{date}
       see_all_updates: ټول تازه معلومات وګورئ
       show_all_updates: ټول تازه معلومات وښایاست
+  i18n:
+    direction: rtl

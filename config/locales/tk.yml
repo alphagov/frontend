@@ -8,3 +8,5 @@ tk:
       published: Çap edilen %{date}
       see_all_updates: ähli täzelenmelere serediň
       show_all_updates: ähli täzelenmeleri görkez
+  i18n:
+    direction:

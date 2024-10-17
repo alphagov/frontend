@@ -8,3 +8,5 @@ uk:
       published: Опубліковано %{date}
       see_all_updates: переглянути всі оновлення
       show_all_updates: показати всі оновлення
+  i18n:
+    direction:

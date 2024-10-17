@@ -8,3 +8,5 @@ mt:
       published: Ippubblikat %{date}
       see_all_updates: ara l-aġġornamenti kollha
       show_all_updates: uri l-aġġornamenti kollha
+  i18n:
+    direction:

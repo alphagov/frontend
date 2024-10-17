@@ -8,3 +8,5 @@ tr:
       published: Yayınlama %{date}
       see_all_updates: tüm güncellemeleri görün
       show_all_updates: tüm güncellemeleri göster
+  i18n:
+    direction:

@@ -8,3 +8,5 @@ ur:
       published: شائع کردہ %{date}
       see_all_updates: تمام اپ ڈیٹس دیکھیں
       show_all_updates: تمام اپ ڈیٹس دکھائیں
+  i18n:
+    direction: rtl

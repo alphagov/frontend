@@ -8,3 +8,5 @@ be:
       published: Апублікавана %{date}
       see_all_updates: паглядзець усе абнаўленні
       show_all_updates: паказаць усе абнаўленні
+  i18n:
+    direction:

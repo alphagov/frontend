@@ -8,3 +8,5 @@ uz:
       published: Нашр қилинган %{date}
       see_all_updates: Барча янгиланишларни кўриш
       show_all_updates: янгиланишларни барчасини кўрсатиш
+  i18n:
+    direction:

@@ -8,3 +8,5 @@ th:
       published: เผยแพร่เมื่อ %{date}
       see_all_updates: ดูอัปเดตทั้งหมด
       show_all_updates: แสดงอัปเดตทั้งหมด
+  i18n:
+    direction:

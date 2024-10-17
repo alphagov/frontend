@@ -8,3 +8,5 @@ gd:
       published: Arna chur suas ar %{date}
       see_all_updates: féach gach nuashonrú
       show_all_updates: Taispeáin gach nuashonrú
+  i18n:
+    direction:

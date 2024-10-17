@@ -8,3 +8,5 @@ it:
       published: Pubblicato %{date}
       see_all_updates: vedi tutti gli aggiornamenti
       show_all_updates: mostra tutti gli aggiornamenti
+  i18n:
+    direction:

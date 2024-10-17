@@ -8,3 +8,5 @@ bg:
       published: Публикувано на %{date}
       see_all_updates: вижте всички актуализации
       show_all_updates: показване на всички актуализации
+  i18n:
+    direction:

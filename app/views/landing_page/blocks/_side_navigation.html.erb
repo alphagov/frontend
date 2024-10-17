@@ -1,1 +1,5 @@
-<%= render "govuk_publishing_components/components/contents_list", contents: contents_list(request.path, block.links) %>
+<%= render "govuk_publishing_components/components/contents_list", {
+	alternative_line_style: block.data["alternative_line_style"],
+	title: block.data["title"],
+	contents: contents_list(request.path, block.links)
+} %>

@@ -123,8 +123,9 @@ blocks:
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
-  - type: govspeak
-    content: <p>Left content!</p>
+  - type: side_navigation
+    title: Alternate title
+    alternative_line_style: true
   - type: blocks_container
     blocks:
     - type: card
@@ -162,9 +163,3 @@ blocks:
     - href: "/youtube-share-link"
       text: "YouTube"
       icon: "youtube"
-- type: two_column_layout
-  theme: one_third_two_thirds
-  blocks:
-  - type: side_navigation
-  - type: govspeak
-    content: <h2>On the right</h2>

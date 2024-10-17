@@ -15,9 +15,9 @@
 }
 
 .cookie-settings__confirmation {
-  @include govuk-font(19);
   display: none;
   margin-top: govuk-spacing(3);
+  @include govuk-font(19);
 }
 
 .cookie-settings__gov-services {

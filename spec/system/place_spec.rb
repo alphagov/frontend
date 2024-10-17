@@ -2,6 +2,7 @@ require "gds_api/test_helpers/places_manager"
 
 RSpec.describe "Places" do
   include GdsApi::TestHelpers::PlacesManager
+  include ContentStoreHelpers
 
   before do
     @payload = {
@@ -82,7 +83,7 @@ RSpec.describe "Places" do
 
         expect(page).to have_content("Enter your postcode to find a passport interview office near you.")
         expect(page).to have_field("Enter a postcode")
-        expect(page).to have_css("button", text: "Find")
+        expect(page).to have_css("button", text: "Find results near you")
         expect(page).not_to have_content("Please enter a valid full UK postcode.")
 
         within(".further-information") do
@@ -112,7 +113,7 @@ RSpec.describe "Places" do
       stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)
       visit "/passport-interview-office"
       fill_in("Enter a postcode", with: "SW1A 1AA")
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "redirects to same page and not put postcode as URL query parameter" do
@@ -184,7 +185,7 @@ RSpec.describe "Places" do
       stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)
       visit "/passport-interview-office"
       fill_in("Enter a postcode", with: "SW1A 1AA")
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "does not error on a bad postcode" do
@@ -199,7 +200,7 @@ RSpec.describe "Places" do
   context "given an empty postcode" do
     before do
       visit "/passport-interview-office"
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "displays error message" do
@@ -232,7 +233,7 @@ RSpec.describe "Places" do
       stub_places_manager_places_request("find-passport-offices", query_hash, return_data, 400)
       visit "/passport-interview-office"
       fill_in("Enter a postcode", with: "BAD POSTCODE")
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "displays error message" do
@@ -247,7 +248,7 @@ RSpec.describe "Places" do
       within(".location-form") do
         expect(page).to have_field("Enter a postcode")
         expect(page).to have_field("postcode", with: "BAD POSTCODE")
-        expect(page).to have_css("button", text: "Find")
+        expect(page).to have_css("button", text: "Find results near you")
       end
     end
   end
@@ -259,7 +260,7 @@ RSpec.describe "Places" do
       stub_places_manager_places_request("find-passport-offices", query_hash, return_data, 400)
       visit "/passport-interview-office"
       fill_in("Enter a postcode", with: "JE4 5TP")
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "displays the 'no locations found' message" do
@@ -285,7 +286,7 @@ RSpec.describe "Places" do
       stub_places_manager_has_multiple_authorities_for_postcode(addresses, "find-passport-offices", "CH25 9BJ", Frontend::PLACES_MANAGER_QUERY_LIMIT)
       visit "/passport-interview-office"
       fill_in("Enter a postcode", with: "CH25 9BJ")
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "displays the address chooser" do
@@ -299,11 +300,25 @@ RSpec.describe "Places" do
       stub_places_manager_places_request("find-passport-offices", query_hash, {}, 500)
       visit "/passport-interview-office"
       fill_in("Enter a postcode", with: "JE4 5TP")
-      click_on("Find")
+      click_on("Find results near you")
     end
 
     it "reraises as a 503" do
       expect(page.status_code).to eq(503)
+    end
+  end
+
+  context "Find a register office page" do
+    before do
+      content_item = GovukSchemas::Example.find("place", example_name: "find-regional-passport-office")
+      content_item["title"] = "Find a register office"
+      content_item["base_path"] = "/register-offices"
+      stub_content_store_has_item("/register-offices", content_item)
+    end
+
+    it "uses the page title as the button text" do
+      visit "/register-offices"
+      expect(page).to have_css("button", text: "Find a register office")
     end
   end
 end

@@ -729,6 +729,7 @@ cy:
       change: Newid
       postcode: Cod post
       select_address: Dewiswch gyfeiriad
+      find_results:
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf

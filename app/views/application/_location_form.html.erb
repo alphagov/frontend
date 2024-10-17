@@ -6,6 +6,7 @@
   form_method ||= "post"
   margin_top ||= nil
   publication_format ||= nil
+  publication_title ||= nil
 
   css_classes = %w[postcode-search-form]
   css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
@@ -73,7 +74,7 @@
     } %>
 
     <%= render "govuk_publishing_components/components/button",
-      text: button_text(publication_format),
+      text: button_text(publication_format, publication_title),
       margin_bottom: true
     %>
 

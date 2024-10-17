@@ -1,3 +1,10 @@
 ---
 sv:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: dölj alla uppdateringar
+      last_updated: Senast uppdaterad %{date}
+      published: Publicerad %{date}
+      see_all_updates: se alla uppdateringar
+      show_all_updates: Visa alla uppdateringar

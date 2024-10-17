@@ -100,6 +100,14 @@ cy:
     today: heddiw
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: cuddio pob diweddariad
+      last_updated: Diweddarwyd ddiwethaf ar %{date}
+      published: Cyhoeddwyd ar %{date}
+      see_all_updates: gweld pob diweddariad
+      show_all_updates: dangos pob diweddariad
   continue: Parhau
   cookies:
     always_on: Mae angen iddynt fod ymlaen bob amser.

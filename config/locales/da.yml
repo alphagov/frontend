@@ -1,3 +1,10 @@
 ---
 da:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: skjule alle opdateringer
+      last_updated: Senest opdateret %{date}
+      published: Udgivet %{date}
+      see_all_updates: se alle opdateringer
+      show_all_updates: vis alle opdateringer

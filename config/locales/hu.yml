@@ -1,3 +1,10 @@
 ---
 hu:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: minden frissítés elrejtése
+      last_updated: 'Utolsó frissítés: %{date}'
+      published: 'közzététel dátuma: %{date}'
+      see_all_updates: minden frissítés megtekintése
+      show_all_updates: minden frissítés megjelenítése

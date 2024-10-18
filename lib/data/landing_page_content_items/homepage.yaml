@@ -88,6 +88,9 @@ blocks:
         - type: govspeak
           inverse: true
           content: <h2><a href="http://gov.uk">Korem ipsum dolor sit</a></h2>
+- type: govspeak
+  content: |
+    <p><a href="/landing-page/priorities">See the latest data on our progress</a></p>
 - type: share_links
   links:
     - href: "/twitter-share-link"

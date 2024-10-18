@@ -24,7 +24,7 @@ module Block
       @x_axis_keys ||= csv_rows.map { |row| row[row.keys.first] }.uniq
     end
 
-    def rows
+    def csv_rows
       CSV.read(csv_file_path, headers: true).map(&:to_h)
     end
 

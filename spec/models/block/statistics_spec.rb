@@ -42,7 +42,7 @@ RSpec.describe Block::Statistics do
   end
 
   describe "chart data" do
-    describe "#rows" do
+    describe "#csv_rows" do
       it "returns the row data for the chart" do
         expected_rows = [
           { "Date" => "2024-01-01", "value" => "10", "variable" => "variable_name" },
@@ -53,7 +53,7 @@ RSpec.describe Block::Statistics do
           { "Date" => "2024-06-01", "value" => "15", "variable" => "variable_name" },
         ]
 
-        expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+        expect(described_class.new(blocks_hash).csv_rows).to eq(expected_rows)
       end
     end
 

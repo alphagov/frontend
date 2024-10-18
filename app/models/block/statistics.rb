@@ -25,30 +25,12 @@ module Block
     end
 
     def rows
-      lines = {}
-      rows = []
-
-      csv_rows.each_with_index do |row, _i|
-        if lines.key?(row["variable"].to_sym)
-          lines[row["variable"].to_sym][:values] << row["value"].to_i
-        else
-          lines[row["variable"].to_sym] = {
-            label: row["Date"],
-            values: [
-              row["value"].to_i,
-            ],
-          }
-        end
-      end
-
-      lines.each_key do |key|
-        rows << {
+      row_lines.map do |key, value|
+        {
           label: key.to_s,
-          values: lines[key][:values],
+          values: value[:values],
         }
       end
-
-      rows
     end
 
     def data_source_link
@@ -57,8 +39,27 @@ module Block
 
   private
 
+    def row_lines
+      csv_rows.each_with_object({}) do |row, lines|
+        label = row.keys.first
+        variable_name = row.values.second
+        value = row.values.last
+        if lines.key?(variable_name)
+          lines[variable_name][:values] << value.to_i
+        else
+          lines[variable_name] = {
+            label:,
+            values: [
+              value.to_i,
+            ],
+          }
+        end
+      end
+    end
+
     def csv_rows
-      CSV.read(csv_file_path, headers: true).map(&:to_h)
+      rows = CSV.read(csv_file_path, headers: true).map(&:to_h)
+      rows.each(&:deep_symbolize_keys!)
     end
 
     def csv_file_path

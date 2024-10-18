@@ -42,21 +42,6 @@ RSpec.describe Block::Statistics do
   end
 
   describe "chart data" do
-    describe "#csv_rows" do
-      it "returns the row data for the chart" do
-        expected_rows = [
-          { "Date" => "2024-01-01", "value" => "10", "variable" => "variable_name" },
-          { "Date" => "2024-02-01", "value" => "11", "variable" => "variable_name" },
-          { "Date" => "2024-03-01", "value" => "12", "variable" => "variable_name" },
-          { "Date" => "2024-04-01", "value" => "13", "variable" => "variable_name" },
-          { "Date" => "2024-05-01", "value" => "14", "variable" => "variable_name" },
-          { "Date" => "2024-06-01", "value" => "15", "variable" => "variable_name" },
-        ]
-
-        expect(described_class.new(blocks_hash).csv_rows).to eq(expected_rows)
-      end
-    end
-
     describe "#data_source_link" do
       it "returns the link to the external data source" do
         expect(described_class.new(blocks_hash).data_source_link).to eq("https://www.example.com")

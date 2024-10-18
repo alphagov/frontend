@@ -51,15 +51,15 @@ module Block
       rows
     end
 
-    def csv_rows
-      CSV.read(csv_file_path, headers: true).map(&:to_h)
-    end
-
     def data_source_link
       data["data_source_link"]
     end
 
   private
+
+    def csv_rows
+      CSV.read(csv_file_path, headers: true).map(&:to_h)
+    end
 
     def csv_file_path
       @csv_file_path ||= Rails.root.join("#{STATISTICS_DATA_PATH}/#{data['csv_file']}")

@@ -22,3 +22,23 @@
     text-decoration: none;
   }
 }
+
+// Consistent lower margins for top-level blocks
+// Self-chaining the class name gives higher
+// specificty and avoids the use of !important.
+//
+// Note the desktop size is hardcoded here as the
+// govuk-spacing(x) helper does not include large
+// enough sizes.
+
+.app-margin-bottom-responsive.app-margin-bottom-responsive  {
+  margin-bottom: govuk-spacing(6);
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: govuk-spacing(8);
+  }
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 80px;
+  }
+}

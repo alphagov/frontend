@@ -1,3 +1,12 @@
 ---
 sl:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: Skrij vse posodobitve
+      last_updated: Zadnjič posodobljeno %{date}
+      published: Objavljeno %{date}
+      see_all_updates: poglej vse posodobitve
+      show_all_updates: prikaži vse posodobitve
+  i18n:
+    direction:

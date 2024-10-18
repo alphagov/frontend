@@ -1,3 +1,12 @@
 ---
 kk:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: барлық жаңартуларды жасыру
+      last_updated: Соңғы рет %{date} жаңартылды
+      published: "%{date} күні жарияланды"
+      see_all_updates: барлық жаңартуларды қарау
+      show_all_updates: барлық жаңартуларды көрсету
+  i18n:
+    direction:

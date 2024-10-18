@@ -99,6 +99,32 @@ RSpec.describe "Help" do
     end
   end
 
+  context "GET /:slug" do
+    before do
+      content_store_has_random_item(base_path: "/help/about-govuk", schema: "help_page")
+      content_store_has_random_item(base_path: "/help/cookies", schema: "help_page")
+      content_store_has_random_item(base_path: "/help/ab-testing", schema: "help_page")
+    end
+
+    it "renders the template corresponding to help_page#show" do
+      get "/help/about-govuk"
+
+      expect(response).to render_template(:show)
+    end
+
+    it "renders the template corresponding to help#cookie_settings due to the route constraint" do
+      get "/help/cookies"
+
+      expect(response).to render_template(:cookie_settings)
+    end
+
+    it "renders the template corresponding to help#ab_testing due to the route constraint" do
+      get "/help/ab-testing"
+
+      expect(response).to render_template(:ab_testing)
+    end
+  end
+
   def stub_at_request
     request_headers = {}
     @request = double

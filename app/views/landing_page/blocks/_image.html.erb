@@ -1,0 +1,5 @@
+<%= image_tag(
+      block.data["src"],
+      alt: block.data["alt"],
+      class: ("govuk-!-width-full" if block.data["theme"] == "full_width")
+    ) %>

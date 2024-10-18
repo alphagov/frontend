@@ -51,7 +51,7 @@ RSpec.describe ApplicationHelper do
 
   describe "#remove_breadcrumbs" do
     describe "when is_landing_page? is true" do
-      let(:content_item) { ContentItem.new({ "schema" => "landing_page" }) }
+      let(:content_item) { ContentItem.new({ "schema_name" => "landing_page" }) }
 
       it "removes breadcrumbs" do
         expect(remove_breadcrumbs(content_item)).to eq(true)
@@ -59,7 +59,7 @@ RSpec.describe ApplicationHelper do
     end
 
     describe "when is_landing_page? is false" do
-      let(:content_item) { ContentItem.new({ "schema" => "a_different_page" }) }
+      let(:content_item) { ContentItem.new({ "schema_name" => "a_different_page" }) }
 
       it "does not remove breadcrumbs" do
         expect(remove_breadcrumbs(content_item)).to eq(false)

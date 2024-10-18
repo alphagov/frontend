@@ -1,12 +1,12 @@
 RSpec.describe ContentItem do
   describe "#is_a_xxxx?" do
-    let(:subject) { described_class.new({ "schema" => "landing_page" }) }
+    let(:subject) { described_class.new({ "schema_name" => "landing_page" }) }
 
-    it "returns true when called with the schema of the object" do
+    it "returns true when called with the schema name of the object" do
       expect(subject.is_a_landing_page?).to be true
     end
 
-    it "returns false when called with a mismatching schema" do
+    it "returns false when called with a mismatching schema name" do
       expect(subject.is_a_place?).to be false
     end
 

@@ -52,9 +52,10 @@ blocks:
         content: |
           <h2><a href="http://gov.uk">Lorem ipsum dolor sit</a></h2>
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
+- type: heading
+  text: Porem ipsum dolor
 - type: govspeak
   content: |
-    <h2>Porem ipsum dolor</h2>
     <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
 - type: govspeak
   content: |

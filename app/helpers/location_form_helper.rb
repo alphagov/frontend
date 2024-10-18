@@ -3,6 +3,8 @@ module LocationFormHelper
     case publication_format
     when "local_transaction", "licence"
       I18n.t("formats.local_transaction.find_council")
+    when "place"
+      I18n.t("formats.place.find_results")
     else
       I18n.t("find")
     end

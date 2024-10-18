@@ -1,7 +1,7 @@
 <%
   add_view_stylesheet("landing_page/featured")
 %>
-<div class="featured">
+<div class="featured app-margin-bottom-responsive">
   <div class="featured__child featured__child--content">
     <% block.featured_content.each do |subblock| %>
       <%= render_block(subblock) %>

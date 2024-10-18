@@ -46,4 +46,34 @@ RSpec.describe Block::Statistics do
       expect(described_class.new(blocks_hash).x_axis_keys).to eq(expected_keys)
     end
   end
+
+  describe "#rows" do
+    it "gets the rows for one line of data" do
+      expected_rows = [
+        {
+          label: "variable_name",
+          values: [10, 11, 12, 13, 14, 15],
+        },
+      ]
+
+      expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+    end
+
+    it "gets the rows for multiple lines of data" do
+      expected_rows = [
+        {
+          label: "variable_name",
+          values: [10, 11, 12],
+        },
+        {
+          label: "variable_name_two",
+          values: [13, 14, 15],
+        },
+      ]
+
+      blocks_hash["csv_file"] = "data_two.csv"
+
+      expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+    end
+  end
 end

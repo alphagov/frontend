@@ -3,9 +3,7 @@
 
   rows = []
   lines = {}
-  keys = []
   block.rows.each_with_index do |row, i|
-    keys << row["Date"]
     if lines.key?(row["variable"].to_sym)
       lines[row["variable"].to_sym][:values] << row["value"].to_i
     else
@@ -32,7 +30,7 @@
   h_axis_title: block.x_axis_label,
   v_axis_title: block.y_axis_label,
   hide_legend: block.hide_legend,
-  keys: keys,
+  keys: block.x_axis_keys,
   rows: rows,
 } %>
 <%= link_to block.data["data_source_link_text"], block.data_source_link %>

@@ -20,6 +20,10 @@ module Block
       data["hide_legend"]
     end
 
+    def x_axis_keys
+      @x_axis_keys ||= csv_rows.map { |row| row[row.keys.first] }.uniq
+    end
+
     def rows
       CSV.read(csv_file_path, headers: true).map(&:to_h)
     end

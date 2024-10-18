@@ -62,5 +62,31 @@ RSpec.describe Block::Statistics do
         expect(described_class.new(blocks_hash).data_source_link).to eq("https://www.example.com")
       end
     end
+
+    describe "#x_axis_keys" do
+      it "gets all of the x-axis data points" do
+        expected_keys = %w[
+          2024-01-01
+          2024-02-01
+          2024-03-01
+          2024-04-01
+          2024-05-01
+          2024-06-01
+        ]
+
+        expect(described_class.new(blocks_hash).x_axis_keys).to eq(expected_keys)
+      end
+
+      it "gets all of the unique x-axis data points" do
+        expected_keys = %w[
+          2024-01-01
+          2024-02-01
+          2024-03-01
+        ]
+        blocks_hash["csv_file"] = "data_two.csv"
+
+        expect(described_class.new(blocks_hash).x_axis_keys).to eq(expected_keys)
+      end
+    end
   end
 end

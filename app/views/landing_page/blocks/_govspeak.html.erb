@@ -1,3 +1,18 @@
+<%-
+  margin_top = block.data["margin_top"]
+  margin_bot = block.data["margin_bottom"]
+
+  classes = ""
+  classes << "govuk-!-margin-top-#{margin_top} " if margin_top
+  classes << "govuk-!-margin-bottom-#{margin_bot} " if margin_bot
+%>
+
+<% if classes.present? %>
+  <div class="<%= classes %>">
+<% end %>
 <%= render "govuk_publishing_components/components/govspeak", { inverse: block.data["inverse"] } do %>
   <%= block.data["content"].html_safe %>
+<% end %>
+<% if classes.present? %>
+  </div>
 <% end %>

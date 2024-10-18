@@ -107,6 +107,21 @@ RSpec.describe "Places" do
     end
   end
 
+  context "When the start page button text reflects the page title" do
+    before do
+      content_item = GovukSchemas::Example.find("place", example_name: "find-regional-passport-office")
+      content_item["title"] = "Find a register office"
+      content_item["base_path"] = "/register-offices"
+      stub_content_store_has_item("/register-offices", content_item)
+    end
+
+    it "on the Find a register office page with an en locale" do
+      visit "/register-offices"
+      expect(page).to have_css("button", text: "Find a register office")
+      expect(page).not_to have_css("button", text: "Find results near you")
+    end
+  end
+
   context "given a valid postcode" do
     before do
       stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)

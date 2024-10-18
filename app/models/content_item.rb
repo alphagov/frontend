@@ -1,6 +1,6 @@
 class ContentItem
   attr_reader :content_store_response, :content_store_hash, :body, :image, :description,
-              :document_type, :schema, :title, :base_path, :locale
+              :document_type, :schema, :title, :base_path, :locale, :take_part_pages
 
   # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
   # content items including block details are available from content-store
@@ -16,6 +16,7 @@ class ContentItem
     @title = content_store_hash["title"]
     @base_path = content_store_hash["base_path"]
     @locale = content_store_hash["locale"]
+    @take_part_pages = content_store_hash.dig("links", "take_part_pages")
   end
 
   alias_method :to_h, :content_store_hash

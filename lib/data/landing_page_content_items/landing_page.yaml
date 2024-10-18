@@ -74,6 +74,11 @@ blocks:
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:
+    - type: govspeak
+      content: <p>Look ma! No right column!</p>
+- type: two_column_layout
+  theme: two_thirds_one_third
+  blocks:
   - type: govspeak
     content: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="govuk-link">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>
   - type: govspeak

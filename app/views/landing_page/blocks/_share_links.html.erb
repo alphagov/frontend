@@ -1,0 +1,12 @@
+<% if block.links.any? %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Share links heading",
+    padding: true
+  } %>
+
+  <%= render "govuk_publishing_components/components/share_links", {
+    square_icons: true,
+    columns: true,
+    links: block.links
+  } %>
+<% end %>

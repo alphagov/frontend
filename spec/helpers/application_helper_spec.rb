@@ -48,4 +48,30 @@ RSpec.describe ApplicationHelper do
       expect(current_path_without_query_string).to eq("/foo/bar")
     end
   end
+
+  describe "#remove_breadcrumbs" do
+    describe "when is_landing_page? is true" do
+      let(:content_item) { ContentItem.new({ "schema" => "landing_page" }) }
+
+      it "removes breadcrumbs" do
+        expect(remove_breadcrumbs(content_item)).to eq(true)
+      end
+    end
+
+    describe "when is_landing_page? is false" do
+      let(:content_item) { ContentItem.new({ "schema" => "a_different_page" }) }
+
+      it "does not remove breadcrumbs" do
+        expect(remove_breadcrumbs(content_item)).to eq(false)
+      end
+    end
+
+    describe "when is_landing_page? is undefined" do
+      let(:content_item) { ContentItem.new({}) }
+
+      it "does not remove breadcrumbs" do
+        expect(remove_breadcrumbs(content_item)).to eq(false)
+      end
+    end
+  end
 end

@@ -1,0 +1,16 @@
+<%
+  add_view_stylesheet("landing_page/card")
+
+  link_classes = %w(app-b-card__link govuk-link gem-print-link)
+%>
+
+<div class="app-b-card">
+  <div class="app-b-card__textbox">
+    <% block.card_content.each do |subblock| %>
+      <%= render_block(subblock)  %>
+    <% end %>
+  </div>
+  <figure class="app-b-card__figure">
+    <%= image_tag(block.image.source, alt: block.image.alt, class: "app-b-card__image") %>
+  </figure>
+</div>

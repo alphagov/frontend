@@ -1,0 +1,45 @@
+<%
+  add_view_stylesheet("landing_page/main-navigation")
+%>
+
+<div class="app-b-main-nav" data-module="app-b-main-navigation">
+  <p class="app-b-main-nav__heading-p govuk-heading-s"><%= link_to block.data["title"], block.data["title_link"], class: "govuk-link govuk-link--no-underline app-b-main-nav__heading-link" %></p>
+  <button class="app-b-main-nav__button js-app-b-main-nav__button govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav__nav" type="button">Menu<span class="app-b-main-nav__icon" aria-hidden="true"></span></button>
+
+  <nav id="app-b-main-nav__nav">
+    <ul class="app-b-main-nav__ul">
+      <% contents_list(request.path, block.data["links"]).each do |link| %>
+        <%
+          li_classes = "app-b-main-nav__listitem"
+          li_aria = { current: true } if link[:active]
+        %>
+        <%= tag.li(class: li_classes, aria: li_aria) do %>
+          <%
+            link_classes = "app-b-main-nav__link govuk-link govuk-link--no-underline"
+            link_classes << " app-b-main-nav__link--active" if link[:active]
+          %>
+          <%= tag.a(href: link[:href], class: link_classes) do %>
+            <span class="app-b-main-nav__mobile-border"></span>
+            <%= link[:text] %>
+          <% end %>
+          <% if link[:items] %>
+            <ul class="app-b-main-nav__childlist">
+              <% link[:items].each do |child_link| %>
+                <%
+                  child_link_classes = "app-b-main-nav__link govuk-link govuk-link--no-underline"
+                  child_link_classes << " app-b-main-nav__link--active" if child_link[:active]
+                %>
+                <li class="app-b-main-nav__listitem">
+                  <%= tag.a(href: child_link[:href], class: child_link_classes) do %>
+                    <span class="app-b-main-nav__mobile-border"></span>
+                    <%= child_link[:text] %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </nav>
+</div>

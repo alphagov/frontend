@@ -15,8 +15,8 @@
 }
 
 .homepage__ready-call-to-action {
-  @include govuk-font(19, $weight: bold);
   margin-bottom: 0;
+  @include govuk-font(19, $weight: bold);
 }
 
 .home-services {
@@ -24,29 +24,29 @@
 }
 
 .home-services__heading {
-  @include govuk-font(19, $weight: bold);
   margin: 0 0 govuk-spacing(1);
+  @include govuk-font(19, $weight: bold);
 }
 
 .home-services__para {
-  @include govuk-font(16);
   margin: 0 0 govuk-spacing(3);
   min-height: 40px;
+  @include govuk-font(16);
 }
 
 .home-info {
-  @include govuk-font(24);
   margin: govuk-spacing(2) 0 govuk-spacing(4);
+  @include govuk-font(24);
 }
 
 .home-more__title {
-  @include govuk-font(36, $weight: bold);
   margin: 0 0 govuk-spacing(4);
+  @include govuk-font(36, $weight: bold);
 }
 
 .home-more__subtitle {
-  @include govuk-font(24, $weight: bold);
   margin: 0 0 govuk-spacing(2);
+  @include govuk-font(24, $weight: bold);
 }
 
 .home-more__list {
@@ -184,6 +184,7 @@
 
 .homepage.global-bar-present .homepage-header {
   @include govuk-responsive-padding(7, "top");
+
   @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
     padding-top: govuk-spacing(8);
   }

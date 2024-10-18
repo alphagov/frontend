@@ -122,7 +122,7 @@ RSpec.describe "LicenceTransaction" do
           )
           visit "/find-licences/licence-to-kill"
           fill_in("postcode", with: "SW1A 1AA")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "redirects to the appropriate authority slug" do
@@ -283,7 +283,7 @@ RSpec.describe "LicenceTransaction" do
           )
           visit "/find-licences/licence-to-kill"
           fill_in("postcode", with: "HP20 2QF")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "redirects to the appropriate authority slug" do
@@ -349,7 +349,7 @@ RSpec.describe "LicenceTransaction" do
             )
             visit "/find-licences/licence-to-kill"
             fill_in("postcode", with: "DT11 0SF")
-            click_on("Find")
+            click_on("Find your local council")
           end
 
           it "redirects to the appropriate authority slug" do
@@ -421,7 +421,7 @@ RSpec.describe "LicenceTransaction" do
           )
           visit "/find-licences/licence-to-kill"
           fill_in("postcode", with: "SW1A 1AA")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "shows details for the first licensing authority only" do
@@ -442,7 +442,7 @@ RSpec.describe "LicenceTransaction" do
         stub_locations_api_does_not_have_a_bad_postcode("Not valid")
         visit "/find-licences/licence-to-kill"
         fill_in("postcode", with: "Not valid")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "prefixes 'Error' in the title element" do
@@ -477,7 +477,7 @@ RSpec.describe "LicenceTransaction" do
         stub_locations_api_has_no_location("AB1 2AB")
         visit "/find-licences/licence-to-kill"
         fill_in("postcode", with: "AB1 2AB")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "prefixes 'Error' in the title element" do
@@ -503,7 +503,7 @@ RSpec.describe "LicenceTransaction" do
         stub_local_links_manager_does_not_have_a_custodian_code(123)
         visit "/find-licences/licence-to-kill"
         fill_in("postcode", with: "XM4 5HQ")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "prefixes 'Error' in the title element" do
@@ -568,7 +568,7 @@ RSpec.describe "LicenceTransaction" do
         stub_local_links_manager_has_a_local_authority("staffordshire", local_custodian_code: 1234, snac: "41")
         visit "/find-licences/licence-to-kill"
         fill_in("postcode", with: "ST10 4DB")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "includes the first licencing authority name only in the title element" do
@@ -586,7 +586,7 @@ RSpec.describe "LicenceTransaction" do
         stub_licence_does_not_exist("1071-5-1/41UH")
         visit "/find-licences/licence-to-kill"
         fill_in("postcode", with: "ST10 4DB")
-        click_on("Find")
+        click_on("Find your local council")
       end
 
       it "includes contact your council text in the title element" do
@@ -615,7 +615,7 @@ RSpec.describe "LicenceTransaction" do
           stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
           visit "/find-licences/licence-to-kill"
           fill_in("postcode", with: "CH25 9BJ")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "includes the select address text in the title element" do
@@ -660,7 +660,7 @@ RSpec.describe "LicenceTransaction" do
           stub_local_links_manager_has_a_local_authority("Geechester", local_custodian_code: 7)
           visit "/find-licences/licence-to-kill"
           fill_in("postcode", with: "CH25 9BJ")
-          click_on("Find")
+          click_on("Find your local council")
         end
 
         it "includes the select address text in the title element" do

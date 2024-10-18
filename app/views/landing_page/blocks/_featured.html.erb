@@ -4,7 +4,7 @@
 <div class="featured">
   <div class="featured__child featured__child--content">
     <% block.featured_content.each do |subblock| %>
-      <%= render "landing_page/blocks/#{subblock.type}", block: subblock, inverse: true %>
+      <%= render_block(subblock) %>
     <% end %>
   </div>
   <div class="featured__child featured__child--image">

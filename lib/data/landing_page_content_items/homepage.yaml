@@ -1,0 +1,107 @@
+blocks:
+- type: main_navigation
+  links:
+  - text: Ipsums for Lorem
+    href: /ipsum
+  - text: Our Lorem
+    href: /landing-page/sub-page-1
+    children:
+      - text: Child 1
+        href: /a
+      - text: Child 2
+        href: /b
+  title: Service name
+  title_link: /landing-page
+- type: hero
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: govspeak
+        inverse: true
+        content: |
+          <h2>Rorem ipsum dolor sit</h2>
+          <p>Yorem ipsum dolor sit amet, consectetur 
+          adipiscing elit. Nunc vulputate libero et velit 
+          interdum, ac aliquet odio mattis class.</p>
+      - type: action_link
+        inverse: true
+        text: "Learn more about our goals"
+        href: "todo"
+- type: featured
+  image:
+    alt: example alt text
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  featured_content:
+    blocks:
+      - type: govspeak
+        inverse: true
+        content: |
+          <h2><a href="http://gov.uk">Lorem ipsum dolor sit</a></h2>
+          <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
+- type: govspeak
+  content: |
+    <h2>Porem ipsum dolor</h2>
+    <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
+- type: govspeak
+  content: |
+    <h2>Dorem ipsum dolor sit</h2>
+- type: grid_container
+  blocks:
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          inverse: true
+          content: <h2><a href="http://gov.uk">Korem ipsum dolor sit</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          inverse: true
+          content: <h2><a href="http://gov.uk">Korem ipsum dolor sit</a></h2>
+  - type: card
+    image:
+      alt: "Placeholder alt text"
+      source: "landing_page/placeholder/chart.png"
+    card_content:
+      blocks:
+        - type: govspeak
+          inverse: true
+          content: <h2><a href="http://gov.uk">Korem ipsum dolor sit</a></h2>
+- type: share_links
+  links:
+    - href: "/twitter-share-link"
+      text: "Twitter"
+      icon: "twitter"
+    - href: "/instagram-share-link"
+      text: "Instagram"
+      icon: "instagram"
+    - href: "/flickr-share-link"
+      text: "Flickr"
+      icon: "flickr"
+    - href: "/facebook-share-link"
+      text: "Facebook"
+      icon: "facebook"
+    - href: "/youtube-share-link"
+      text: "YouTube"
+      icon: "youtube"

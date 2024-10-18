@@ -1,28 +1,5 @@
 <%
   add_gem_component_stylesheet("chart")
-
-  rows = []
-  lines = {}
-  block.rows.each_with_index do |row, i|
-    if lines.key?(row["variable"].to_sym)
-      lines[row["variable"].to_sym][:values] << row["value"].to_i
-    else
-      lines[row["variable"].to_sym] = {
-        label: row["Date"],
-        values: [
-          row["value"].to_i
-        ]
-      }
-    end
-
-  end
-
-  lines.each do |key, array|
-    rows << {
-      label: key.to_s,
-      values: lines[key][:values]
-    }
-  end
 %>
 
 <%= render "govuk_publishing_components/components/chart", {
@@ -31,6 +8,6 @@
   v_axis_title: block.y_axis_label,
   hide_legend: block.hide_legend,
   keys: block.x_axis_keys,
-  rows: rows,
+  rows: block.rows,
 } %>
 <%= link_to block.data["data_source_link_text"], block.data_source_link %>

@@ -100,9 +100,6 @@ Rails.application.routes.draw do
     get "/bank-holidays/ni", to: redirect("/bank-holidays/northern-ireland.%{format}")
   end
 
-  get "/gwyliau-banc", to: "calendar#show_calendar", defaults: { scope: "gwyliau-banc", locale: :cy }
-  get "/gwyliau-banc/:division", to: "calendar#division", defaults: { scope: "gwyliau-banc", locale: :cy }
-
   constraints FormatRoutingConstraint.new("calendar") do
     get ":slug", to: "calendar#show_calendar", as: :calendar
     get ":slug/:division", to: "calendar#division", as: :division

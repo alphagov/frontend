@@ -40,10 +40,6 @@ private
 
   helper_method :calendar
 
-  def content_item
-    @content_item ||= GdsApi.content_store.content_item("/#{params[:slug]}")
-  end
-
   def set_cors_headers
     headers["Access-Control-Allow-Origin"] = "*"
   end
@@ -53,7 +49,7 @@ private
   end
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = content_item.locale || I18n.default_locale
   end
 
   def calendar

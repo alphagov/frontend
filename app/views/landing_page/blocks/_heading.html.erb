@@ -1,0 +1,9 @@
+<%
+  heading_level = block.data["heading_level"] || 2
+%>
+
+<%= render "govuk_publishing_components/components/heading", {
+  text: block.data["text"],
+  heading_level: heading_level,
+  padding: true
+} %>

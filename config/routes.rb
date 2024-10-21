@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   get "/find-licences/:slug/:authority_slug/:interaction", to: "licence_transaction#authority_interaction", as: "licence_transaction_authority_interaction"
 
   constraints FormatRoutingConstraint.new("landing_page") do
-    get ":slug", to: "landing_page#show"
+    get "*slug", to: "landing_page#show"
   end
 
   # Simple Smart Answer pages

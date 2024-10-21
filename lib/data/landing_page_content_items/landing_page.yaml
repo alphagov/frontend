@@ -85,6 +85,8 @@ blocks:
     content: <p>Right content!</p>
 - type: govspeak
   content: <h2>Statistics</h2>
+  margin_top: 5
+  margin_bottom: 5
 - type: hero
   theme: middle_left
   image:

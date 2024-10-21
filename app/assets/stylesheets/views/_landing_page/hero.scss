@@ -5,8 +5,8 @@ $tablet-height: 512px;
 $desktop-height: 610px;
 
 .app-b-hero {
-  margin-bottom: govuk-spacing(6);
   position: relative;
+  @include govuk-responsive-margin(9, "bottom");
 }
 
 .app-b-hero__imagewrapper {

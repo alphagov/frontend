@@ -1,3 +1,6 @@
-<%= render "govuk_publishing_components/components/govspeak", { inverse: block.data["inverse"] } do %>
+<%= render "govuk_publishing_components/components/govspeak", {
+  inverse: block.data["inverse"],
+  margin_bottom: 9
+} do %>
   <%= block.data["content"].html_safe %>
 <% end %>

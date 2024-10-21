@@ -2,8 +2,8 @@
 
 .featured {
   display: flex;
-  margin-bottom: govuk-spacing(6);
   background: govuk-colour("dark-blue");
+  @include govuk-responsive-margin(9, "bottom");
 
   @include govuk-media-query($until: desktop) {
     flex-direction: column;

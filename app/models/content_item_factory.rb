@@ -3,6 +3,10 @@ class ContentItemFactory
     content_item_class(content_store_response["schema_name"]).new(content_store_response)
   end
 
+  def self.build_hardcoded
+    ContentItem.new({ "schema_name" => "hardcoded_page", "document_type" => "hardcoded_page" })
+  end
+
   def self.content_item_class(schema_name)
     klass = schema_name.camelize.constantize
     klass.superclass == ContentItem ? klass : ContentItem

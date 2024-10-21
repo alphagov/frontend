@@ -104,8 +104,8 @@ Rails.application.routes.draw do
   get "/gwyliau-banc/:division", to: "calendar#division", defaults: { scope: "gwyliau-banc", locale: :cy }
 
   constraints FormatRoutingConstraint.new("calendar") do
-    get ":scope", to: "calendar#show_calendar", as: :calendar
-    get ":scope/:division", to: "calendar#division", as: :division
+    get ":slug", to: "calendar#show_calendar", as: :calendar
+    get ":slug/:division", to: "calendar#division", as: :division
   end
 
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/

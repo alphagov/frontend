@@ -41,7 +41,7 @@ private
   helper_method :calendar
 
   def content_item
-    @content_item ||= GdsApi.content_store.content_item("/#{params[:scope]}")
+    @content_item ||= GdsApi.content_store.content_item("/#{params[:slug]}")
   end
 
   def set_cors_headers
@@ -57,11 +57,11 @@ private
   end
 
   def calendar
-    @calendar ||= Calendar.find(params[:scope])
+    @calendar ||= Calendar.find(params[:slug])
   end
 
   def validate_scope
-    raise InvalidCalendarScope unless params[:scope].match?(/\A[a-z-]+\z/)
+    raise InvalidCalendarScope unless params[:slug].match?(/\A[a-z-]+\z/)
   end
 
   def simple_404

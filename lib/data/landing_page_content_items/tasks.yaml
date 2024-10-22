@@ -24,10 +24,12 @@ blocks:
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
   hero_content:
     blocks:
+      - type: heading
+        content: Rorem ipsum dolor sit
+        inverse: true
       - type: govspeak
         inverse: true
         content: |
-          <h2>Rorem ipsum dolor sit</h2>
           <p>Yorem ipsum dolor sit amet, consectetur 
           adipiscing elit. Nunc vulputate libero et velit 
           interdum, ac aliquet odio mattis class.</p>
@@ -47,45 +49,50 @@ blocks:
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Rorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2> 
     - type: card
       image:
         alt: "Placeholder alt text"
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Rorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2> 
     - type: card
       image:
         alt: "Placeholder alt text"
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Rorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2> 
     - type: card
       image:
         alt: "Placeholder alt text"
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Rorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2>  
     - type: card
       image:
         alt: "Placeholder alt text"
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Rorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2>
 - type: share_links
   links:
     - href: "/twitter-share-link"

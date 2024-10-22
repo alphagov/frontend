@@ -12,7 +12,8 @@ blocks:
         href: /b
   title: Service name
   title_link: /landing-page
+- type: heading
+  content: Sub Page 1
 - type: govspeak
   content: |
-    <h2>Sub Page 1</h2>
     <a href="/landing-page">Back to main landing page</a>

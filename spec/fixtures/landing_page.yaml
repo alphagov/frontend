@@ -24,10 +24,12 @@ blocks:
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
   hero_content:
     blocks:
+      - type: heading
+        content: This is a heading
+        inverse: true
       - type: govspeak
         inverse: true
         content: |
-          <h2>This is a heading</h2>
           <p>Lorem ipsum...</p>
       - type: action_link
         inverse: true
@@ -45,14 +47,17 @@ blocks:
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
   featured_content:
     blocks:
+      - type: heading
+        content: Title of the content
+        inverse: true
       - type: govspeak
         inverse: true
         content: |
-          <h2>Title of the content</h2>
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
+- type: heading
+  content: Here's a heading
 - type: govspeak
   content: |
-    <h2>Here's a heading</h2>
     <p>Here's some content!</p>
     <p>Here's some more content</p>
     <ul>
@@ -78,8 +83,8 @@ blocks:
     content: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="govuk-link">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>
   - type: govspeak
     content: <p>Right content!</p>
-- type: govspeak
-  content: <h2>Statistics</h2>
+- type: heading
+  content: Statistics
 - type: columns_layout
   blocks:
   - type: big_number
@@ -99,27 +104,30 @@ blocks:
       source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
-        - type: govspeak
+        - type: heading
+          content: Title 1 govspeak title goes here
+          path: http://gov.uk
           inverse: true
-          content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
   - type: card
     image:
       alt: "Placeholder alt text"
       source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
-        - type: govspeak
-          inverse: true 
-          content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
+        - type: heading
+          content: Title 2 govspeak title goes here
+          path: http://gov.uk
+          inverse: true
   - type: card
     image:
       alt: "Placeholder alt text"
       source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
-        - type: govspeak
+        - type: heading
+          content: Title 3 govspeak title goes here
+          path: http://gov.uk
           inverse: true
-          content: <h2><a href="http://gov.uk">Title 3 govspeak title</a></h2>
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -134,18 +142,20 @@ blocks:
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Title 1 govspeak title goes here
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Title 1 govspeak title goes here</a></h2>
     - type: card
       image:
         alt: "Placeholder alt text"
         source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
-          - type: govspeak
+          - type: heading
+            content: Title 2 govspeak title goes here
+            path: http://gov.uk
             inverse: true
-            content: <h2><a href="http://gov.uk">Title 2 govspeak title goes here</a></h2>
 - type: statistics
   title: "Chart to visually represent data"
   x_axis_label: "X Axis"

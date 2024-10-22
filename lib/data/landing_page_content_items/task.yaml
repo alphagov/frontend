@@ -24,10 +24,12 @@ blocks:
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
   hero_content:
     blocks:
+      - type: heading
+        content: Rorem ipsum dolor sit
+        inverse: true
       - type: govspeak
         inverse: true
         content: |
-          <h2>Rorem ipsum dolor sit</h2>
           <p>Yorem ipsum dolor sit amet, consectetur 
           adipiscing elit. Nunc vulputate libero et velit 
           interdum, ac aliquet odio mattis class.</p>
@@ -97,7 +99,9 @@ blocks:
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
-        <h2>Porem ipsum dolor</h2>
+    - type: heading
+      content: Porem ipsum dolor
+    - type: govspeak
         <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla

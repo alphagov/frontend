@@ -2,8 +2,8 @@ RSpec.describe "Icalendar" do
   include CalendarHelpers
 
   before do
-    ["/gwyliau-banc", "/bank-holidays"].each do |base_path|
-      content_item = { base_path:, schema_name: "calendar", document_type: "calendar" }
+    [["/gwyliau-banc", "cy"], ["/bank-holidays", "en"]].each do |base_path, locale|
+      content_item = { base_path:, locale:, schema_name: "calendar", document_type: "calendar" }
       stub_content_store_has_item(base_path, content_item)
       mock_calendar_fixtures
     end

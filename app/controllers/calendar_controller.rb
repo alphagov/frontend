@@ -40,10 +40,6 @@ private
 
   helper_method :calendar
 
-  def content_item
-    @content_item ||= GdsApi.content_store.content_item("/#{params[:scope]}")
-  end
-
   def set_cors_headers
     headers["Access-Control-Allow-Origin"] = "*"
   end
@@ -53,15 +49,15 @@ private
   end
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = content_item.locale || I18n.default_locale
   end
 
   def calendar
-    @calendar ||= Calendar.find(params[:scope])
+    @calendar ||= Calendar.find(params[:slug])
   end
 
   def validate_scope
-    raise InvalidCalendarScope unless params[:scope].match?(/\A[a-z-]+\z/)
+    raise InvalidCalendarScope unless params[:slug].match?(/\A[a-z-]+\z/)
   end
 
   def simple_404

@@ -1,9 +1,11 @@
 <%
   heading_level = block.data["heading_level"] || 2
+  inverse = block.data["inverse"] || false
 %>
 
 <%= render "govuk_publishing_components/components/heading", {
   text: block.data["text"],
   heading_level: heading_level,
-  margin_bottom: 6
+  margin_bottom: 6,
+  inverse: 
 } %>

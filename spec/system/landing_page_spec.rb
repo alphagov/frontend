@@ -68,5 +68,11 @@ RSpec.describe "LandingPage" do
 
       assert_selector ".app-b-main-nav .app-b-main-nav__heading-p"
     end
+
+    it "renders a heading with an inverse link" do
+      visit base_path
+
+      assert_selector ".govuk-link.govuk-link--inverse"
+    end
   end
 end

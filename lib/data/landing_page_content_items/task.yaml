@@ -67,7 +67,7 @@ blocks:
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
 - type: hero
-  mid_page: true
+  theme: middle_left
   image:
     alt: "Placeholder alt text"
     sources:

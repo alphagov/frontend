@@ -102,6 +102,24 @@ blocks:
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
+    - type: heading
+      text: Porem ipsum dolor
+    - type: document_list
+      items:
+      - text: An example link
+        path: https://www.gov.uk
+        document_type: Press release
+        public_updated_at: "2016-06-27 10:29:44 +0000"
+      - text: Another example link
+        path: https://www.gov.uk
+        document_type: News article
+        public_updated_at: "2021-01-16 11:34:12 +0000"
+      - text: A third example link
+        path: https://www.gov.uk
+        document_type: Consultation
+        public_updated_at: "2024-02-01 09:00:11 +0000"
+
+
 #### Curated links go here ###
 - type: share_links
   links:

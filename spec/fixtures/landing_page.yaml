@@ -163,3 +163,17 @@ blocks:
   csv_file: "data_one.csv"
   data_source_link_text: "Data source"
   data_source_link: https://www.example.com
+- type: document_list
+  items:
+  - text: An example link
+    path: https://www.gov.uk
+    document_type: Press release
+    public_updated_at: "2016-06-27 10:29:44 +0000"
+  - text: Another example link
+    path: https://www.gov.uk
+    document_type: News article
+    public_updated_at: "2021-01-16 11:34:12 +0000"
+  - text: A third example link
+    path: https://www.gov.uk
+    document_type: Consultation
+    public_updated_at: "2024-02-01 09:00:11 +0000"

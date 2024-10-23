@@ -13,6 +13,8 @@ RSpec.describe "Calendars" do
   end
 
   it "does not route an invalid slug format, and does not try to look up the calendar" do
+    stub_content_store_does_not_have_item("/something..etc-passwd", schema_name: "calendar")
+
     expect(Calendar).not_to receive(:find)
     expect(get("/something..etc-passwd")).not_to route_to(controller: "calendar")
   end

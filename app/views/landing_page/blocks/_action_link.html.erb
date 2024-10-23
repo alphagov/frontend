@@ -1,5 +1,6 @@
+<% inverse = options[:inverse] || false %>
 <%= render "govuk_publishing_components/components/action_link", {
-  inverse: block.data["inverse"],
+  inverse: inverse,
   text: block.data["text"],
   href: block.data["href"]
 } %>

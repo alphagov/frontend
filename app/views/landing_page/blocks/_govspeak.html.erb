@@ -1,5 +1,6 @@
+<% inverse = options[:inverse] || false %>
 <%= render "govuk_publishing_components/components/govspeak", {
-  inverse: block.data["inverse"],
+  inverse: inverse,
   margin_bottom: 9
 } do %>
   <%= block.data["content"].html_safe %>

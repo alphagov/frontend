@@ -22,7 +22,8 @@
       <%= content_tag("div", class: grid_class) do %>
         <%= content_tag("div", class: "app-b-hero__textbox") do %>
           <% block.hero_content.each do |subblock| %>
-            <%= render_block(subblock) %>
+            <% options = { inverse: true } %>
+            <%= render_block(subblock, options:) %>
           <% end %>
         <% end %>
       <% end %>

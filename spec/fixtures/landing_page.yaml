@@ -26,13 +26,10 @@ blocks:
     blocks:
       - type: heading
         content: This is a heading
-        inverse: true
       - type: govspeak
-        inverse: true
         content: |
           <p>Lorem ipsum...</p>
       - type: action_link
-        inverse: true
         text: "See the missions"
         href: "todo"
 - type: featured
@@ -49,9 +46,7 @@ blocks:
     blocks:
       - type: heading
         content: Title of the content
-        inverse: true
       - type: govspeak
-        inverse: true
         content: |
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
 - type: heading
@@ -107,7 +102,6 @@ blocks:
         - type: heading
           content: Title 1 govspeak title goes here
           path: http://gov.uk
-          inverse: true
   - type: card
     image:
       alt: "Placeholder alt text"
@@ -117,7 +111,6 @@ blocks:
         - type: heading
           content: Title 2 govspeak title goes here
           path: http://gov.uk
-          inverse: true
   - type: card
     image:
       alt: "Placeholder alt text"
@@ -127,7 +120,6 @@ blocks:
         - type: heading
           content: Title 3 govspeak title goes here
           path: http://gov.uk
-          inverse: true
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -145,7 +137,6 @@ blocks:
           - type: heading
             content: Title 1 govspeak title goes here
             path: http://gov.uk
-            inverse: true
     - type: card
       image:
         alt: "Placeholder alt text"
@@ -155,7 +146,6 @@ blocks:
           - type: heading
             content: Title 2 govspeak title goes here
             path: http://gov.uk
-            inverse: true
 - type: statistics
   title: "Chart to visually represent data"
   x_axis_label: "X Axis"

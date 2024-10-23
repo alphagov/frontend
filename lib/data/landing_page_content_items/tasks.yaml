@@ -26,15 +26,12 @@ blocks:
     blocks:
       - type: heading
         content: Rorem ipsum dolor sit
-        inverse: true
       - type: govspeak
-        inverse: true
         content: |
-          <p>Yorem ipsum dolor sit amet, consectetur 
-          adipiscing elit. Nunc vulputate libero et velit 
+          <p>Yorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc vulputate libero et velit
           interdum, ac aliquet odio mattis class.</p>
       - type: action_link
-        inverse: true
         text: "Learn more about our goals"
         href: "todo"
 - type: two_column_layout
@@ -44,55 +41,60 @@ blocks:
   - type: blocks_container
     blocks:
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
             path: http://gov.uk
-            inverse: true
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
             path: http://gov.uk
-            inverse: true
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
             path: http://gov.uk
-            inverse: true
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
             path: http://gov.uk
-            inverse: true
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
             path: http://gov.uk
-            inverse: true
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: share_links
   links:
     - href: "/twitter-share-link"

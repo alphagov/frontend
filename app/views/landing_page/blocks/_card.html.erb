@@ -5,11 +5,13 @@
   <% block.card_content.each do |subblock| %>
     <% if subblock.data["type"] == "heading" %>
       <div class="app-b-card__textbox">
-        <%= render_block(subblock)  %>
+        <% options = { margin_bottom: 0, inverse: true } %>
+        <%= render_block(subblock, options:)  %>
       </div>
     <% elsif subblock.data["type"] == "statistics" %>
       <div class="app-b-card__chart">
-        <%= render_block(subblock)  %>
+        <% options = { margin_bottom: 0, height: 200 } %>
+        <%= render_block(subblock, options:)  %>
       </div>
     <% else %>
       <%= render_block(subblock)  %>

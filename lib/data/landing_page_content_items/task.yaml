@@ -26,9 +26,7 @@ blocks:
     blocks:
       - type: heading
         content: Rorem ipsum dolor sit
-        inverse: true
       - type: govspeak
-        inverse: true
         content: |
           <p>Yorem ipsum dolor sit amet, consectetur
           adipiscing elit. Nunc vulputate libero et velit

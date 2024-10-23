@@ -1,10 +1,8 @@
 <%
   add_gem_component_stylesheet("chart")
 
-  margin_bottom = 8
-  margin_bottom = 0 if block.data["minimal"]
-  height = 400
-  height = 200 if block.data["minimal"]
+  margin_bottom = options[:margin_bottom] || 8
+  height = options[:height] || 400
 %>
 <%= render "govuk_publishing_components/components/chart", {
   chart_heading: block.data["title"],

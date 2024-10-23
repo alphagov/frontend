@@ -4,7 +4,8 @@
 <div class="featured">
   <div class="featured__child featured__child--content">
     <% block.featured_content.each do |subblock| %>
-      <%= render_block(subblock) %>
+      <% options = { inverse: true } %>
+      <%= render_block(subblock, options:) %>
     <% end %>
   </div>
   <div class="featured__child featured__child--image">

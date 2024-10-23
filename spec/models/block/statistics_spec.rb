@@ -6,7 +6,6 @@ RSpec.describe Block::Statistics do
       "x_axis_label" => "X Axis",
       "y_axis_label" => "Y Axis",
       "csv_file" => "data_one.csv",
-      "data_source_link_text" => "Data source",
       "data_source_link" => "https://www.example.com",
     }
   end

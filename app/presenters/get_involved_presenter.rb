@@ -1,9 +1,9 @@
 class GetInvolvedPresenter < ContentItemPresenter
-
   def initialize(content_item)
+    super(content_item)
     @content_item = content_item
   end
-  
+
   def open_consultation_count
     GdsApi.search.search({ filter_content_store_document_type: "open_consultation", count: 0 })["total"]
   end

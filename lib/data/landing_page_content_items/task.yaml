@@ -30,13 +30,9 @@ blocks:
       - type: govspeak
         inverse: true
         content: |
-          <p>Yorem ipsum dolor sit amet, consectetur 
-          adipiscing elit. Nunc vulputate libero et velit 
+          <p>Yorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc vulputate libero et velit
           interdum, ac aliquet odio mattis class.</p>
-      - type: action_link
-        inverse: true
-        text: "Learn more about our goals"
-        href: "todo"
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -54,7 +50,6 @@ blocks:
       x_axis_label: "X Axis"
       y_axis_label: "Y Axis"
       csv_file: "data_one.csv"
-      data_source_link_text: "Data source"
       data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
     - type: govspeak
       content: |
@@ -71,7 +66,7 @@ blocks:
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
 - type: hero
-  mid_page: true
+  theme: middle_left
   image:
     alt: "Placeholder alt text"
     sources:
@@ -107,6 +102,24 @@ blocks:
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
+    - type: heading
+      text: Porem ipsum dolor
+    - type: document_list
+      items:
+      - text: An example link
+        path: https://www.gov.uk
+        document_type: Press release
+        public_updated_at: "2016-06-27 10:29:44 +0000"
+      - text: Another example link
+        path: https://www.gov.uk
+        document_type: News article
+        public_updated_at: "2021-01-16 11:34:12 +0000"
+      - text: A third example link
+        path: https://www.gov.uk
+        document_type: Consultation
+        public_updated_at: "2024-02-01 09:00:11 +0000"
+
+
 #### Curated links go here ###
 - type: share_links
   links:

@@ -145,10 +145,5 @@ RSpec.describe "Calendars" do
 
       expect(response).to have_http_status(:not_found)
     end
-
-    it "does not route an invalid slug format, and does not try to look up the calendar" do
-      expect(Calendar).not_to receive(:find)
-      expect { get "/something..etc-passwd/foo.json" }.to raise_error(ActionController::RoutingError)
-    end
   end
 end

@@ -120,35 +120,53 @@ blocks:
 - type: grid_container
   blocks:
   - type: card
-    image:
-      alt: "Placeholder alt text"
-      source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
         - type: heading
           content: Title 1 heading title goes here
           path: http://gov.uk
           inverse: true
+          margin_bottom: 0
+        - type: statistics
+          title: "Chart to visually represent some data"
+          x_axis_label: "X Axis"
+          y_axis_label: "Y Axis"
+          csv_file: "data_one.csv"
+          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+          minimal: true
+          minimal_link: /landing-page/task
   - type: card
-    image:
-      alt: "Placeholder alt text"
-      source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
         - type: heading
           content: Title 2 heading title goes here
           path: http://gov.uk
           inverse: true
+          margin_bottom: 0
+        - type: statistics
+          title: "Chart to visually represent some data"
+          x_axis_label: "X Axis"
+          y_axis_label: "Y Axis"
+          csv_file: "data_one.csv"
+          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+          minimal: true
+          minimal_link: /landing-page/task
   - type: card
-    image:
-      alt: "Placeholder alt text"
-      source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
         - type: heading
           content: Title 3 heading title goes here
           path: http://gov.uk
           inverse: true
+          margin_bottom: 0
+        - type: statistics
+          title: "Chart to visually represent some data"
+          x_axis_label: "X Axis"
+          y_axis_label: "Y Axis"
+          csv_file: "data_one.csv"
+          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+          minimal: true
+          minimal_link: /landing-page/task
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -158,25 +176,33 @@ blocks:
   - type: blocks_container
     blocks:
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Title 1 heading title goes here
             path: http://gov.uk
             inverse: true
+            margin_bottom: 0
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            margin_bottom: 0
     - type: card
-      image:
-        alt: "Placeholder alt text"
-        source: "landing_page/placeholder/chart.png"
       card_content:
         blocks:
           - type: heading
             content: Title 2 heading title goes here
             path: http://gov.uk
             inverse: true
+            margin_bottom: 0
+          - type: statistics
+            x_axis_label: "X Axis"
+            y_axis_label: "Y Axis"
+            csv_file: "data_one.csv"
+            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            margin_bottom: 0
 - type: statistics
   title: "Chart to visually represent some data"
   x_axis_label: "X Axis"

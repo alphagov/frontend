@@ -30,8 +30,8 @@ blocks:
       - type: govspeak
         inverse: true
         content: |
-          <p>Yorem ipsum dolor sit amet, consectetur 
-          adipiscing elit. Nunc vulputate libero et velit 
+          <p>Yorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc vulputate libero et velit
           interdum, ac aliquet odio mattis class.</p>
       - type: action_link
         inverse: true
@@ -67,35 +67,53 @@ blocks:
 - type: grid_container
   blocks:
   - type: card
-    image:
-      alt: "Placeholder alt text"
-      source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
         - type: heading
           content: Korem ipsum dolor sit
-          path: http://gov.uk
+          path: /landing-page/task
           inverse: true
+          margin_bottom: 0
+        - type: statistics
+          title: "Chart to visually represent some data"
+          x_axis_label: "X Axis"
+          y_axis_label: "Y Axis"
+          csv_file: "data_one.csv"
+          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+          minimal: true
+          minimal_link: /landing-page/task
   - type: card
-    image:
-      alt: "Placeholder alt text"
-      source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
         - type: heading
           content: Korem ipsum dolor sit
-          path: http://gov.uk
+          path: /landing-page/task
           inverse: true
+          margin_bottom: 0
+        - type: statistics
+          title: "Chart to visually represent some data"
+          x_axis_label: "X Axis"
+          y_axis_label: "Y Axis"
+          csv_file: "data_one.csv"
+          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+          minimal: true
+          minimal_link: /landing-page/task
   - type: card
-    image:
-      alt: "Placeholder alt text"
-      source: "landing_page/placeholder/chart.png"
     card_content:
       blocks:
         - type: heading
           content: Korem ipsum dolor sit
-          path: http://gov.uk
+          path: /landing-page/task
           inverse: true
+          margin_bottom: 0
+        - type: statistics
+          title: "Chart to visually represent some data"
+          x_axis_label: "X Axis"
+          y_axis_label: "Y Axis"
+          csv_file: "data_one.csv"
+          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+          minimal: true
+          minimal_link: /landing-page/task
 - type: govspeak
   content: |
     <p><a href="/landing-page/priorities">See the latest data on our progress</a></p>

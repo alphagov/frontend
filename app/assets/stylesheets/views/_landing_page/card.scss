@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: govuk-spacing(6);
-  background-color: govuk-colour("dark-blue");
   color: govuk-colour("white");
 }
 
@@ -13,6 +12,10 @@
   padding: govuk-spacing(6) govuk-spacing(7);
   background-color: govuk-colour("dark-blue");
   color: govuk-colour("white");
+}
+
+.app-b-card__chart {
+  border: solid 1px $govuk-border-colour;
 }
 
 .app-b-card__figure {

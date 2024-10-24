@@ -7,19 +7,19 @@
 .app-b-main-nav__container {
   padding-bottom: govuk-spacing(1);
 
-  @include govuk-media-query($from: "desktop") {
+  @include govuk-media-query($from: "tablet") {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
-  @include govuk-media-query($until: "desktop") {
+  @include govuk-media-query($until: "tablet") {
     padding-top: govuk-spacing(4);
     padding-bottom: govuk-spacing(4);
   }
 }
 
 .app-b-main-nav__nav--hidden {
-  @include govuk-media-query($until: "desktop") {
+  @include govuk-media-query($until: "tablet") {
     display: none;
   }
 }
@@ -49,7 +49,7 @@
   color: govuk-colour("blue");
   @include govuk-font(19, $weight: bold);
 
-  @include govuk-media-query($until: "desktop") {
+  @include govuk-media-query($until: "tablet") {
     display: block;
 
     &.js-app-b-main-nav__button {
@@ -84,6 +84,7 @@
   &:visited {
     color: govuk-colour("black");
   }
+
   @include govuk-media-query($until: "desktop") {
     margin-bottom: 0;
   }
@@ -92,7 +93,7 @@
 .app-b-main-nav__childlist {
   display: none;
   padding-left: govuk-spacing(2);
-  @include govuk-media-query($until: "desktop") {
+  @include govuk-media-query($until: "tablet") {
     display: block;
   }
 }
@@ -106,7 +107,7 @@
   margin-bottom: govuk-spacing(3);
   @include govuk-font(19, $weight: normal);
 
-  @include govuk-media-query($until: "desktop") {
+  @include govuk-media-query($until: "tablet") {
     display: block;
     margin-top: govuk-spacing(4);
     margin-left: govuk-spacing(2);
@@ -114,13 +115,13 @@
 }
 
 .app-b-main-nav__listitem:last-of-type {
-  @include govuk-media-query($until: "desktop") {
+  @include govuk-media-query($until: "tablet") {
     margin-bottom: 0;
   }
 }
 
 .app-b-main-nav__link {
-  @include govuk-media-query($from: "desktop") {
+  @include govuk-media-query($from: "tablet") {
     padding-bottom: govuk-spacing(3);
   }
 }
@@ -137,12 +138,8 @@
     height: 100%;
     width: 15px;
 
-    @include govuk-media-query($until: "desktop") {
-      border-left: 6px solid govuk-colour("blue");
-      left: -40px;
-    }
-
     @include govuk-media-query($until: "tablet") {
+      border-left: 6px solid govuk-colour("blue");
       left: -25px;
     }
   }
@@ -152,9 +149,6 @@
 .app-b-main-nav__childlist .app-b-main-nav__link:hover,
 .app-b-main-nav__childlist .app-b-main-nav__link:focus  {
   .app-b-main-nav__mobile-border {
-    @include govuk-media-query($until: "desktop") {
-      left: -60px;
-    }
     @include govuk-media-query($until: "tablet") {
       left: -45px;
     }
@@ -164,14 +158,14 @@
 
 .app-b-main-nav__link--active,
 .app-b-main-nav__link:hover {
-  @include govuk-media-query($from: "desktop") {
+  @include govuk-media-query($from: "tablet") {
     border-bottom: 6px solid govuk-colour("blue");
   }
 }
 
 .app-b-main-nav__link--active:hover,
 .app-b-main-nav__link:hover {
-  @include govuk-media-query($from: "desktop") {
+  @include govuk-media-query($from: "tablet") {
     border-color: govuk-colour("dark-blue");
   }
 }

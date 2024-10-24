@@ -1,12 +1,20 @@
 @import "govuk_publishing_components/individual_component_support";
 
 .app-b-main-nav {
+  border-bottom: 2px solid $govuk-border-colour;
+}
+
+.app-b-main-nav__container {
   padding-bottom: govuk-spacing(1);
 
   @include govuk-media-query($from: "desktop") {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+  }
+  @include govuk-media-query($until: "desktop") {
+    padding-top: govuk-spacing(4);
+    padding-bottom: govuk-spacing(4);
   }
 }
 
@@ -68,7 +76,7 @@
 .app-b-main-nav__heading-p {
   display: inline-block;
   margin-bottom: 0;
-  margin-right: govuk-spacing(9);
+  margin-right: govuk-spacing(7);
 }
 
 .app-b-main-nav__heading-link {
@@ -83,6 +91,7 @@
 
 .app-b-main-nav__childlist {
   display: none;
+  padding-left: govuk-spacing(2);
   @include govuk-media-query($until: "desktop") {
     display: block;
   }
@@ -99,13 +108,19 @@
 
   @include govuk-media-query($until: "desktop") {
     display: block;
-    margin-top: govuk-spacing(3);
+    margin-top: govuk-spacing(4);
+    margin-left: govuk-spacing(2);
+  }
+}
+
+.app-b-main-nav__listitem:last-of-type {
+  @include govuk-media-query($until: "desktop") {
+    margin-bottom: 0;
   }
 }
 
 .app-b-main-nav__link {
   @include govuk-media-query($from: "desktop") {
-    padding-top: govuk-spacing(3);
     padding-bottom: govuk-spacing(3);
   }
 }
@@ -124,11 +139,11 @@
 
     @include govuk-media-query($until: "desktop") {
       border-left: 6px solid govuk-colour("blue");
-      left: -30px;
+      left: -40px;
     }
 
     @include govuk-media-query($until: "tablet") {
-      left: -15px;
+      left: -25px;
     }
   }
 }
@@ -138,10 +153,10 @@
 .app-b-main-nav__childlist .app-b-main-nav__link:focus  {
   .app-b-main-nav__mobile-border {
     @include govuk-media-query($until: "desktop") {
-      left: -70px;
+      left: -60px;
     }
     @include govuk-media-query($until: "tablet") {
-      left: -55px;
+      left: -45px;
     }
   }
 }

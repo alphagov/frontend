@@ -5,13 +5,19 @@ blocks:
     href: /landing-page/goals
   - text: Tasks
     href: /landing-page/tasks
-    children:
-      - text: Child 1
-        href: /a
-      - text: Child 2
-        href: /b
+    items:
+      - text: Be kinder
+        href: "/landing-page/be-kinder"
+      - text: Exercise more
+        href: "/landing-page/exercise-more"
+      - text: Donate to charity
+        href: "/landing-page/donate-to-charity"
+      - text: Learn something new
+        href: "/landing-page/learn-something-new"
+      - text: Be thankful
+        href: "/landing-page/be-thankful"
   title: Landing page
-  title_link: /landing-page
+  title_link: /landing-page/homepage/
 - type: hero
   image:
     alt: "Placeholder alt text"
@@ -25,8 +31,10 @@ blocks:
   hero_content:
     blocks:
       - type: heading
-        content: Rorem ipsum dolor sit
+        content: Learn something new
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Yorem ipsum dolor sit amet, consectetur
           adipiscing elit. Nunc vulputate libero et velit
@@ -116,9 +124,6 @@ blocks:
         path: https://www.gov.uk
         document_type: Consultation
         public_updated_at: "2024-02-01 09:00:11 +0000"
-
-
-#### Curated links go here ###
 - type: share_links
   links:
     - href: "/twitter-share-link"

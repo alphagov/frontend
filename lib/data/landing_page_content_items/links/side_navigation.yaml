@@ -1,4 +1,10 @@
-- text: Landing Page
-  href: "/landing-page"
-- text: Sub Page 1
-  href: "/landing-page/sub-page-1"
+- text: Be kinder
+  href: "/landing-page/be-kinder"
+- text: Exercise more
+  href: "/landing-page/exercise-more"
+- text: Donate to charity
+  href: "/landing-page/donate-to-charity"
+- text: Learn something new
+  href: "/landing-page/learn-something-new"
+- text: Be thankful
+  href: "/landing-page/be-thankful"

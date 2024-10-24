@@ -1,0 +1,143 @@
+blocks:
+- type: main_navigation
+  links:
+  - text: Goals
+    href: /landing-page/goals
+  - text: Tasks
+    href: /landing-page/tasks
+    items:
+      - text: Be kinder
+        href: "/landing-page/be-kinder"
+      - text: Exercise more
+        href: "/landing-page/exercise-more"
+      - text: Donate to charity
+        href: "/landing-page/donate-to-charity"
+      - text: Learn something new
+        href: "/landing-page/learn-something-new"
+      - text: Be thankful
+        href: "/landing-page/be-thankful"
+  title: Landing page
+  title_link: /landing-page/homepage/
+- type: hero
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: heading
+        content: Exercise more
+        inverse: true
+      - type: govspeak
+        inverse: true
+        content: |
+          <p>Yorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc vulputate libero et velit
+          interdum, ac aliquet odio mattis class.</p>
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: side_navigation
+  - type: blocks_container
+    blocks:
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+    - type: statistics
+      title: "Chart to visually represent data"
+      x_axis_label: "X Axis"
+      y_axis_label: "Y Axis"
+      csv_file: "data_one.csv"
+      data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+- type: hero
+  theme: middle_left
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "landing_page/placeholder/desktop.png"
+      desktop_2x: "landing_page/placeholder/desktop_2x.png"
+      mobile: "landing_page/placeholder/mobile.png"
+      mobile_2x: "landing_page/placeholder/mobile_2x.png"
+      tablet: "landing_page/placeholder/tablet.png"
+      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  hero_content:
+    blocks:
+      - type: quote
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class"
+        cite: "Lorem ipsum dolor sit, 28 September 2024"
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: govspeak
+    content: <br>
+  - type: blocks_container
+    blocks:
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+    - type: heading
+      content: Porem ipsum dolor
+    - type: govspeak
+        <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+    - type: heading
+      text: Porem ipsum dolor
+    - type: document_list
+      items:
+      - text: An example link
+        path: https://www.gov.uk
+        document_type: Press release
+        public_updated_at: "2016-06-27 10:29:44 +0000"
+      - text: Another example link
+        path: https://www.gov.uk
+        document_type: News article
+        public_updated_at: "2021-01-16 11:34:12 +0000"
+      - text: A third example link
+        path: https://www.gov.uk
+        document_type: Consultation
+        public_updated_at: "2024-02-01 09:00:11 +0000"
+- type: share_links
+  links:
+    - href: "/twitter-share-link"
+      text: "Twitter"
+      icon: "twitter"
+    - href: "/instagram-share-link"
+      text: "Instagram"
+      icon: "instagram"
+    - href: "/flickr-share-link"
+      text: "Flickr"
+      icon: "flickr"
+    - href: "/facebook-share-link"
+      text: "Facebook"
+      icon: "facebook"
+    - href: "/youtube-share-link"
+      text: "YouTube"
+      icon: "youtube"

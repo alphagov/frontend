@@ -42,7 +42,7 @@ blocks:
     blocks:
     - type: govspeak
       content: |
-        <p>From: <a href="/number10">Prime Minister's Office, 10 Downing Street</a>
+        <p>From: <a href="https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street">Prime Minister's Office, 10 Downing Street</a>
         <p>Published 26 September 2024</p>
 
         <p><a href="https://www.youtube.com/watch?v=k7_dDHMG6bc">Watch a video about government goals</a></p>

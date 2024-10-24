@@ -71,8 +71,8 @@ blocks:
     card_content:
       blocks:
         - type: heading
-          content: Korem ipsum dolor sit
-          path: /landing-page/task
+          content: Be kinder
+          path: /landing-page/be-kinder
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -85,8 +85,8 @@ blocks:
     card_content:
       blocks:
         - type: heading
-          content: Korem ipsum dolor sit
-          path: /landing-page/task
+          content: Exercise more
+          path: /landing-page/exercise-more
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -99,8 +99,8 @@ blocks:
     card_content:
       blocks:
         - type: heading
-          content: Korem ipsum dolor sit
-          path: /landing-page/task
+          content: Donate to charity
+          path: /landing-page/donate-to-charity
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"

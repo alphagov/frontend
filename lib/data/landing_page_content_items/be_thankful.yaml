@@ -43,6 +43,9 @@ blocks:
   theme: one_third_two_thirds
   blocks:
   - type: side_navigation
+    title: Navigation Title
+    alternative_line_style: true
+    underline_links: true
   - type: blocks_container
     blocks:
     - type: govspeak

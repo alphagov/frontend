@@ -9,7 +9,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.module.button = this.module.querySelector('button')
     this.module.nav = this.module.querySelector('#app-b-main-nav__nav')
     this.module.nav.classList.add('app-b-main-nav__nav--hidden')
-    this.module.button.classList.remove('js-app-b-main-nav__button')
+    this.module.button.classList.remove('app-b-main-nav__button--no-js')
   }
 
   AppBMainNavigation.prototype.init = function () {

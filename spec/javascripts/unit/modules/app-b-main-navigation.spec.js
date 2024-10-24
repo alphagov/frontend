@@ -46,7 +46,7 @@ describe('Main Navigation Block module', function () {
   })
 
   it('removes a class that was hiding the Menu button for non-JS users', function () {
-    expect(document.querySelector('.js-app-b-main-nav__button')).toBe(null)
+    expect(document.querySelector('.app-b-main-nav__button--no-js')).toBe(null)
   })
 
   it('toggles aria expanded on the button when it is clicked', function () {

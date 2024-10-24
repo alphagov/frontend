@@ -1,12 +1,13 @@
 <% if block.links.any? %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: "Share links heading",
+    text: "Our social media profiles",
     margin_bottom: 6
   } %>
 
   <%= render "govuk_publishing_components/components/share_links", {
     square_icons: true,
     flexbox: true,
-    links: block.links
+    links: block.links,
+    track_as_follow: true
   } %>
 <% end %>

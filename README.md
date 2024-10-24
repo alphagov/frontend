@@ -71,6 +71,8 @@ Transaction start pages:
 
 Frontend is a Ruby on Rails application and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
+See the [CONTRIBUTING](CONTRIBUTING.md) guide for more information.
+
 ### Dependencies
 
 - [alphagov/static](https://github.com/alphagov/static) - provides shared templates, styles, and JavaScript

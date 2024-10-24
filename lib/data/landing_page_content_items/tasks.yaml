@@ -103,18 +103,23 @@ blocks:
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: share_links
   links:
-    - href: "/twitter-share-link"
-      text: "Twitter"
-      icon: "twitter"
-    - href: "/instagram-share-link"
-      text: "Instagram"
-      icon: "instagram"
-    - href: "/flickr-share-link"
-      text: "Flickr"
-      icon: "flickr"
-    - href: "/facebook-share-link"
-      text: "Facebook"
-      icon: "facebook"
-    - href: "/youtube-share-link"
-      text: "YouTube"
-      icon: "youtube"
+    - href: /twitter-profile
+      text: Twitter
+      icon: twitter
+      hidden_text: Follow us on
+    - href: /instagram-profile
+      text: Instagram
+      icon: instagram
+      hidden_text: Follow us on
+    - href: /flickr-profile
+      text: Flickr
+      icon: flickr
+      hidden_text: Follow us on
+    - href: /facebook-profile
+      text: Facebook
+      icon: facebook
+      hidden_text: Follow us on
+    - href: /youtube-profile
+      text: YouTube
+      icon: youtube
+      hidden_text: Follow us on

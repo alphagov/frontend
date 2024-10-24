@@ -39,7 +39,7 @@ blocks:
           interdum, ac aliquet odio mattis class.</p>
       - type: action_link
         text: "Learn more about our goals"
-        href: "todo"
+        href: "/landing-page/goals"
 - type: featured
   image:
     alt: example alt text
@@ -53,8 +53,8 @@ blocks:
   featured_content:
     blocks:
       - type: heading
-        content: Lorem ipsum dolor sit
-        path: http://gov.uk
+        content: Our tasks
+        path: /landing-page/tasks
       - type: govspeak
         content: |
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
@@ -111,7 +111,7 @@ blocks:
           minimal_link: /landing-page/task
 - type: govspeak
   content: |
-    <p><a href="/landing-page/priorities">See the latest data on our progress</a></p>
+    <p><a href="/landing-page/tasks">See the latest data on our progress</a></p>
 - type: share_links
   links:
     - href: "/twitter-share-link"

@@ -47,11 +47,11 @@
 
   @include govuk-media-query($until: "tablet") {
     display: block;
-
-    &.js-app-b-main-nav__button {
-      display: none;
-    }
   }
+}
+
+.app-b-main-nav__button--no-js {
+  display: none;
 }
 
 .app-b-main-nav__icon::after {

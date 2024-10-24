@@ -39,7 +39,7 @@ blocks:
           interdum, ac aliquet odio mattis class.</p>
       - type: action_link
         text: "Learn more about our goals"
-        href: "todo"
+        href: /landing-page/goals
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -50,8 +50,8 @@ blocks:
       card_content:
         blocks:
           - type: heading
-            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-            path: http://gov.uk
+            content: Be kinder
+            path: /landing-page/be-kinder
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
@@ -61,8 +61,8 @@ blocks:
       card_content:
         blocks:
           - type: heading
-            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-            path: http://gov.uk
+            content: Exercise more
+            path: /landing-page/exercise-more
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
@@ -72,8 +72,8 @@ blocks:
       card_content:
         blocks:
           - type: heading
-            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-            path: http://gov.uk
+            content: Donate to charity
+            path: /landing-page/donate-to-charity
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
@@ -83,8 +83,8 @@ blocks:
       card_content:
         blocks:
           - type: heading
-            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-            path: http://gov.uk
+            content: Learn something new
+            path: /landing-page/learn-something-new
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
@@ -94,8 +94,8 @@ blocks:
       card_content:
         blocks:
           - type: heading
-            content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
-            path: http://gov.uk
+            content: Be thankful
+            path: /landing-page/be-thankful
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"

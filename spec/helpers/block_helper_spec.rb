@@ -42,7 +42,7 @@ RSpec.describe BlockHelper do
       end
 
       it "returns govuk-grid-column-two-thirds when the column size is 2" do
-        expect(column_class_for_assymetric_columns(3, 2)).to eq("govuk-grid-column-two-thirds")
+        expect(column_class_for_assymetric_columns(3, 2)).to eq("govuk-grid-column-two-thirds-from-desktop")
       end
     end
 

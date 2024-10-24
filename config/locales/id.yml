@@ -1,3 +1,12 @@
 ---
 id:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: sembunyikan semua pembaruan
+      last_updated: Terakhir diperbarui %{date}
+      published: Diterbitkan %{date}
+      see_all_updates: lihat semua pembaruan
+      show_all_updates: Tampilkan semua pembaruan
+  i18n:
+    direction:

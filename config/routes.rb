@@ -46,9 +46,12 @@ Rails.application.routes.draw do
   end
 
   # Help pages
-  get "/help", to: "help#index"
-  get "/help/ab-testing", to: "help#ab_testing"
-  get "/help/cookies", to: "help#cookie_settings"
+  scope "/help" do
+    get "/:slug", to: "help_page#show", constraints: { slug: /(?!(ab-testing|cookies)$).*/ }
+    get "/", to: "help#index", as: :help
+    get "/ab-testing", to: "help#ab_testing"
+    get "/cookies", to: "help#cookie_settings"
+  end
 
   # GOVUK Public Roadmap
   get "/roadmap", to: "roadmap#index"

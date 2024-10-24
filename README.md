@@ -16,6 +16,10 @@ Transaction start pages:
  * https://www.gov.uk/vehicle-tax
  * https://www.gov.uk/find-a-job
 
+### Help
+
+* https://www.gov.uk/help/browsers
+
 ### Hard-coded routes
 
 * https://www.gov.uk/ (homepage)

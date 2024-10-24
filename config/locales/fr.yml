@@ -1,3 +1,12 @@
 ---
 fr:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: masquer toutes les mises à jour
+      last_updated: Dernière mise à jour le %{date}
+      published: Publié le %{date}
+      see_all_updates: afficher toutes les mises à jour
+      show_all_updates: afficher toutes les mises à jour
+  i18n:
+    direction:

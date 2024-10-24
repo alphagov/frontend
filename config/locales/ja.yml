@@ -1,3 +1,12 @@
 ---
 ja:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: すべての更新を非表示
+      last_updated: 最終更新日：%{date}
+      published: 公開日：%{date}
+      see_all_updates: すべての更新を見る
+      show_all_updates: すべての更新を表示
+  i18n:
+    direction:

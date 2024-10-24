@@ -1,3 +1,12 @@
 ---
 yi:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates:
+      last_updated:
+      published:
+      see_all_updates:
+      show_all_updates:
+  i18n:
+    direction: rtl

@@ -1,3 +1,12 @@
 ---
 tr:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: tüm güncellemeleri gizle
+      last_updated: Son güncelleme %{date}
+      published: Yayınlama %{date}
+      see_all_updates: tüm güncellemeleri görün
+      show_all_updates: tüm güncellemeleri göster
+  i18n:
+    direction:

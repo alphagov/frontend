@@ -1,3 +1,12 @@
 ---
 it:
-
+  components:
+    published_dates:
+      hidden_heading:
+      hide_all_updates: nascondi tutti gli aggiornamenti
+      last_updated: Ultimo aggiornamento %{date}
+      published: Pubblicato %{date}
+      see_all_updates: vedi tutti gli aggiornamenti
+      show_all_updates: mostra tutti gli aggiornamenti
+  i18n:
+    direction:

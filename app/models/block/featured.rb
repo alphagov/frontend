@@ -5,8 +5,8 @@ module Block
   class Featured < Block::Base
     attr_reader :image, :featured_content
 
-    def initialize(block_hash)
-      super(block_hash)
+    def initialize(block_hash, landing_page)
+      super
 
       alt, sources = data.fetch("image").values_at("alt", "sources")
       sources = FeaturedImageSources.new(**sources)

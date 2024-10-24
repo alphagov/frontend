@@ -32,10 +32,6 @@
   .app-b-main-nav__listitem:last-of-type {
     margin-right: 0;
   }
-
-  @include govuk-media-query($until: "desktop") {
-    padding-top: 0;
-  }
 }
 
 .app-b-main-nav__button {
@@ -83,10 +79,6 @@
   &:link,
   &:visited {
     color: govuk-colour("black");
-  }
-
-  @include govuk-media-query($until: "desktop") {
-    margin-bottom: 0;
   }
 }
 

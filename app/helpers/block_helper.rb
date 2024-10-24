@@ -36,7 +36,7 @@ module BlockHelper
       when 1
         "govuk-grid-column-one-third"
       when 2
-        "govuk-grid-column-two-thirds"
+        "govuk-grid-column-two-thirds-from-desktop"
       end
     when 4
       case column_size

@@ -10,7 +10,10 @@
       </div>
     <% elsif subblock.data["type"] == "statistics" %>
       <div class="app-b-card__chart">
-        <% options = { margin_bottom: 0, height: 200 } %>
+        <%
+          options = { margin_bottom: 0 }
+          options[:height] = 200 if subblock.data["minimal"]
+        %>
         <%= render_block(subblock, options:)  %>
       </div>
     <% else %>

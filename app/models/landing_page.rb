@@ -13,7 +13,11 @@ class LandingPage < ContentItem
       )
     end
 
-    @blocks = (content_store_hash.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash) }
+    @blocks = (content_store_hash.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash, self) }
+  end
+
+  def collection_groups
+    @collection_groups ||= retrieve_collection_groups
   end
 
 private
@@ -30,5 +34,23 @@ private
     content_hash.deep_merge(
       "details" => YAML.load_file(filename),
     )
+  end
+
+  def retrieve_collection_groups
+    if content_store_hash.dig("links", "documents")
+      group_hashable_array = (content_store_hash.dig("details", "collection_groups") || {}).map do |collection_group_hash|
+        group = DocumentCollectionGroup.new(
+          collection_group_hash,
+          content_store_hash.dig("links", "documents"),
+        )
+        [group.title, group]
+      end
+      group_hashable_array.to_h
+    else
+      # This is a sub-page, pointing to another page which is the actual document collection
+      # We need to load _that_ content item, and copy its collection_groups value
+      landing_page_source = ContentItemFactory.build(GdsApi.content_store.content_item(content_store_hash.dig("links", "document_collections").first["base_path"]))
+      landing_page_source.collection_groups
+    end
   end
 end

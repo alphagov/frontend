@@ -1,10 +1,7 @@
 module Block
   class SideNavigation < Block::Base
-    LINKS_FILE_PATH = "lib/data/landing_page_content_items/links/side_navigation.yaml".freeze
-
     def links
-      file_path = Rails.root.join(LINKS_FILE_PATH)
-      YAML.load(File.read(file_path))
+      landing_page.collection_groups["Side navigation"].documents
     end
   end
 end

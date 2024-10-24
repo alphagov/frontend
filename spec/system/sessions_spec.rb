@@ -15,7 +15,7 @@ RSpec.describe "Sessions" do
     # been redirected, then when the test is done we remove the test route.
     Rails.application.routes.disable_clear_and_finalize = true
 
-    Rails.application.routes.draw do
+    Rails.application.routes.prepend do
       get "/email/subscriptions/account/confirm", to: "homepage#index"
     end
   end

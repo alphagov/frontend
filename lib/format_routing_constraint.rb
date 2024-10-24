@@ -11,17 +11,21 @@ class FormatRoutingConstraint
   def set_content_item(request)
     return request.env[:content_item] if already_cached?(request)
 
-    slug = request.params.fetch(:slug)
-
     begin
-      request.env[:content_item] = GdsApi.content_store.content_item("/#{slug}")
+      request.env[:content_item] = GdsApi.content_store.content_item(key(request))
     rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
       request.env[:content_item_error] = e
       nil
     end
   end
 
+private
+
   def already_cached?(request)
     request.env.include?(:content_item) || request.env.include?(:content_item_error)
+  end
+
+  def key(request)
+    "/#{request.params.fetch(:slug)}"
   end
 end

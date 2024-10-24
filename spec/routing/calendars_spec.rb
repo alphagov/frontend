@@ -9,10 +9,12 @@ RSpec.describe "Calendars" do
     allow(Calendar).to receive(:find).and_raise(Calendar::CalendarNotFound)
     get "/something"
 
-    expect(get("/something")).to route_to(controller: "calendar", action: "show_calendar", scope: "something")
+    expect(get("/something")).to route_to(controller: "calendar", action: "show_calendar", slug: "something")
   end
 
   it "does not route an invalid slug format, and does not try to look up the calendar" do
+    stub_content_store_does_not_have_item("/something..etc-passwd", schema_name: "calendar")
+
     expect(Calendar).not_to receive(:find)
     expect(get("/something..etc-passwd")).not_to route_to(controller: "calendar")
   end

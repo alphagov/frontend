@@ -64,9 +64,11 @@ Rails.application.routes.draw do
   get "/find-licences/:slug/:authority_slug", to: "licence_transaction#authority", as: "licence_transaction_authority"
   get "/find-licences/:slug/:authority_slug/:interaction", to: "licence_transaction#authority_interaction", as: "licence_transaction_authority_interaction"
 
-  constraints FormatRoutingConstraint.new("landing_page") do
-    get ":slug", to: "landing_page#show"
-  end
+  # Media previews
+  get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
+
+  # Placeholder for attachments being virus-scanned
+  get "/government/placeholder", to: "placeholder#show"
 
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do
@@ -105,9 +107,9 @@ Rails.application.routes.draw do
     get ":slug/:division", to: "calendar#division", as: :division
   end
 
-  get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
-
-  get "/government/placeholder", to: "placeholder#show"
+  constraints FullPathFormatRoutingConstraint.new("landing_page") do
+    get "*path", to: "landing_page#show"
+  end
 
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do

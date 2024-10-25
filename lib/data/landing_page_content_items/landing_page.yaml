@@ -169,6 +169,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
       href: http://gov.uk
       content: Title 2 heading title goes here
@@ -179,6 +180,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
 - type: statistics
   title: "Chart to visually represent some data"
   x_axis_label: "X Axis"

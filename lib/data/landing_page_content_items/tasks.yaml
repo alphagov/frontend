@@ -59,6 +59,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
       href: /landing-page/be-kinder
       content: Exercise more
@@ -69,6 +70,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
       href: /landing-page/donate-to-charity
       content: Donate to charity
@@ -79,6 +81,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
       href: /landing-page/learn-something-new
       content: Learn something new
@@ -89,6 +92,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
       href: /landing-page/be-thankful
       content: Be thankful
@@ -99,6 +103,7 @@ blocks:
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
 - type: share_links
   links:
     - href: /twitter-profile

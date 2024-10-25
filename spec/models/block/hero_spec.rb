@@ -20,9 +20,11 @@ RSpec.describe Block::Hero do
       } }
   end
 
+  let(:landing_page) { nil }
+
   describe "#image" do
     it "returns the properties of the image" do
-      result = described_class.new(blocks_hash).image
+      result = described_class.new(blocks_hash, landing_page).image
       expect(result.alt).to eq "some alt text"
       expect(result.sources.desktop).to eq "landing_page/desktop.jpeg"
       expect(result.sources.desktop_2x).to eq "landing_page/desktop_2x.jpeg"
@@ -35,7 +37,7 @@ RSpec.describe Block::Hero do
 
   describe "#hero_content" do
     it "returns an array of instantiated blocks" do
-      result = described_class.new(blocks_hash).hero_content
+      result = described_class.new(blocks_hash, landing_page).hero_content
       expect(result.size).to eq 2
       expect(result.first.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")
       expect(result.second.data).to eq("type" => "govspeak", "content" => "<p>More content!</p>")
@@ -44,7 +46,7 @@ RSpec.describe Block::Hero do
 
   describe "#full_width?" do
     it "is true" do
-      expect(described_class.new(blocks_hash).full_width?).to eq(true)
+      expect(described_class.new(blocks_hash, landing_page).full_width?).to eq(true)
     end
   end
 end

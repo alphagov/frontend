@@ -5,17 +5,17 @@ module Block
     def initialize(block_hash, landing_page)
       super
 
-      @title = top_menu_document_collection.first["text"]
-      @title_link = top_menu_document_collection.first["href"]
-      @links = top_menu_document_collection[1..]
+      @title = block_hash.fetch("title")
+      @title_link = block_hash.fetch("title_link")
+      @links = documents(block_hash.fetch("collection_group_name"))
     end
 
     def full_width?
       true
     end
 
-    def top_menu_document_collection
-      landing_page.collection_groups["Top menu"].documents
+    def documents(collection_group_name)
+      landing_page.collection_groups[collection_group_name]&.documents
     end
   end
 end

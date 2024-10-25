@@ -13,9 +13,11 @@ RSpec.describe Block::Card do
       } }
   end
 
+  let(:landing_page) { nil }
+
   describe "#image" do
     it "returns the properties of the image" do
-      result = described_class.new(blocks_hash).image
+      result = described_class.new(blocks_hash, landing_page).image
       expect(result.alt).to eq "some alt text"
       expect(result.source).to eq "landing_page/placeholder/chart.png"
     end
@@ -23,7 +25,7 @@ RSpec.describe Block::Card do
 
   describe "#card_content" do
     it "returns an array of instantiated blocks" do
-      result = described_class.new(blocks_hash).card_content
+      result = described_class.new(blocks_hash, landing_page).card_content
       expect(result.size).to eq 2
       expect(result.first.data).to eq("type" => "govspeak", "content" => "<h2>Title</h2>")
       expect(result.second.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")

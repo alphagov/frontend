@@ -11,7 +11,7 @@ module Block
       alt, sources = data.fetch("image").values_at("alt", "sources")
       sources = FeaturedImageSources.new(**sources)
       @image = FeaturedImage.new(alt:, sources:)
-      @featured_content = data.dig("featured_content", "blocks")&.map { |subblock_hash| BlockFactory.build(subblock_hash) }
+      @featured_content = BlockFactory.build_all(data.dig("featured_content", "blocks"), landing_page)
     end
 
     def full_width?

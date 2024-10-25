@@ -9,7 +9,7 @@ RSpec.describe Block::SideNavigation do
 
   describe "#links" do
     it "returns all of the side navigation links" do
-      links = described_class.new(block_hash).links
+      links = described_class.new(block_hash, landing_page).links
       expect(links.count).to eq(2)
       expect(links.first["text"]).to eq("Landing Page")
       expect(links.first["href"]).to eq("/landing-page")

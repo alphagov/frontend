@@ -1,4 +1,4 @@
-class BlockFactory
+class LandingPage::BlockFactory
   def self.build_all(block_array)
     (block_array || []).map { |block| build(block) }
   end
@@ -8,9 +8,9 @@ class BlockFactory
   end
 
   def self.block_class(type)
-    klass = "Block::#{type.camelize}".constantize
-    klass.ancestors.include?(Block::Base) ? klass : Block::Base
+    klass = "LandingPage::Block::#{type.camelize}".constantize
+    klass.ancestors.include?(LandingPage::Block::Base) ? klass : LandingPage::Block::Base
   rescue StandardError
-    Block::Base
+    LandingPage::Block::Base
   end
 end

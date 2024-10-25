@@ -1,6 +1,7 @@
 @import "govuk_publishing_components/individual_component_support";
 
 .app-b-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,6 +15,18 @@
 .app-b-card__textbox {
   padding: govuk-spacing(6) govuk-spacing(7);
   color: govuk-colour("white");
+}
+
+.app-b-card__textbox-link {
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .app-b-card__chart {

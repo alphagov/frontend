@@ -1,4 +1,4 @@
-RSpec.describe Block::LayoutBase do
+RSpec.describe LandingPage::Block::LayoutBase do
   describe "#blocks" do
     let(:blocks_hash) do
       {

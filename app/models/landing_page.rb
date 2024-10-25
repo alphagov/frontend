@@ -1,7 +1,12 @@
 class LandingPage < ContentItem
-  attr_reader :blocks
+  attr_reader :blocks, :document_collections, :documents, :collection_groups
 
   ADDITIONAL_CONTENT_PATH = "lib/data/landing_page_content_items".freeze
+
+  def self.fetch_by_base_path(base_path)
+    content_store_response = GdsApi.content_store.content_item(base_path)
+    new(content_store_response)
+  end
 
   def initialize(content_store_response)
     if content_store_response.dig("details", "blocks")
@@ -14,6 +19,9 @@ class LandingPage < ContentItem
     end
 
     @blocks = (content_store_hash.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash) }
+    @document_collections = content_store_hash.dig("links", "document_collections")
+    @documents = content_store_hash.dig("links", "documents")
+    @collection_groups = content_store_hash.dig("details", "collection_groups")
   end
 
 private

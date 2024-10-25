@@ -1,7 +1,7 @@
-module Block
+module LandingPage::Block
   CardImage = Data.define(:alt, :source)
 
-  class Card < Block::Base
+  class Card < Base
     attr_reader :image, :card_content
 
     def initialize(block_hash)
@@ -12,7 +12,7 @@ module Block
         @image = CardImage.new(alt:, source:)
       end
 
-      @card_content = BlockFactory.build_all(data.dig("card_content", "blocks"))
+      @card_content = LandingPage::BlockFactory.build_all(data.dig("card_content", "blocks"))
     end
   end
 end

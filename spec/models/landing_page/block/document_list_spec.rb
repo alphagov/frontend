@@ -1,4 +1,4 @@
-RSpec.describe Block::DocumentList do
+RSpec.describe LandingPage::Block::DocumentList do
   let(:blocks_hash) do
     { "type" => "document_list",
       "items" => [

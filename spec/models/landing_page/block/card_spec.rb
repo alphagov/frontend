@@ -1,4 +1,4 @@
-RSpec.describe Block::Card do
+RSpec.describe LandingPage::Block::Card do
   let(:blocks_hash) do
     { "type" => "card",
       "image" => {

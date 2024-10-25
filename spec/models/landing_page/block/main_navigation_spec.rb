@@ -1,4 +1,4 @@
-RSpec.describe Block::MainNavigation do
+RSpec.describe LandingPage::Block::MainNavigation do
   let(:blocks_hash) do
     { "type" => "main_navigation",
       "title" => "Service Name",

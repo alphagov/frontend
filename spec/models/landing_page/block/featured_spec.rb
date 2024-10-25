@@ -1,4 +1,4 @@
-RSpec.describe Block::Featured do
+RSpec.describe LandingPage::Block::Featured do
   let(:blocks_hash) do
     { "type" => "featured",
       "image" => {

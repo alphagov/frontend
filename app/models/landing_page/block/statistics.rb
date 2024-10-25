@@ -1,7 +1,7 @@
 require "csv"
 
-module Block
-  class Statistics < Block::Base
+module LandingPage::Block
+  class Statistics < Base
     STATISTICS_DATA_PATH = "lib/data/landing_page_content_items/statistics".freeze
 
     def x_axis_keys

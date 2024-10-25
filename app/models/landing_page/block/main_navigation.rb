@@ -1,5 +1,5 @@
-module Block
-  class MainNavigation < Block::Base
+module LandingPage::Block
+  class MainNavigation < Base
     attr_reader :title, :title_link, :links
 
     def initialize(block_hash)

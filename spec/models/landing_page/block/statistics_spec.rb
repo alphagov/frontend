@@ -1,4 +1,4 @@
-RSpec.describe Block::Statistics do
+RSpec.describe LandingPage::Block::Statistics do
   let(:blocks_hash) do
     {
       "type" => "statistics",
@@ -11,13 +11,13 @@ RSpec.describe Block::Statistics do
   end
 
   before do
-    Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
-    Block::Statistics.const_set("STATISTICS_DATA_PATH", "spec/fixtures/landing_page_statistics_data")
+    LandingPage::Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
+    LandingPage::Block::Statistics.const_set("STATISTICS_DATA_PATH", "spec/fixtures/landing_page_statistics_data")
   end
 
   after do
-    Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
-    Block::Statistics.const_set("STATISTICS_DATA_PATH", "lib/data/landing_page_content_items/statistics")
+    LandingPage::Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
+    LandingPage::Block::Statistics.const_set("STATISTICS_DATA_PATH", "lib/data/landing_page_content_items/statistics")
   end
 
   describe "#x_axis_keys" do

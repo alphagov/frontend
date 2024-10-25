@@ -1,4 +1,4 @@
-module Block
+module LandingPage::Block
   class Base
     attr_reader :id, :type, :data
 

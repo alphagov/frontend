@@ -1,5 +1,5 @@
-module Block
-  class TwoColumnLayout < Block::LayoutBase
+module LandingPage::Block
+  class TwoColumnLayout < LayoutBase
     attr_reader :left, :right, :theme
     alias_method :columns, :blocks
 

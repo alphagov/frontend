@@ -1,5 +1,5 @@
-module Block
-  class DocumentList < Block::Base
+module LandingPage::Block
+  class DocumentList < Base
     def full_width?
       false
     end

@@ -1,4 +1,12 @@
 RSpec.describe LandingPage do
+  let(:details) do
+    {}
+  end
+
+  let(:links) do
+    {}
+  end
+
   let(:content_item) do
     http_response = instance_double(RestClient::Response)
     allow(http_response).to receive(:body).and_return(
@@ -12,7 +20,8 @@ RSpec.describe LandingPage do
         "publishing_app" => "whitehall",
         "rendering_app" => "frontend",
         "update_type" => "major",
-        "details" => {},
+        "details" => details,
+        "links" => links,
         "routes" => [
           {
             "type" => "exact",
@@ -40,6 +49,61 @@ RSpec.describe LandingPage do
       expected_type = @blocks_content["blocks"].first["type"]
 
       expect(described_class.new(content_item).blocks.first.type).to eq(expected_type)
+    end
+  end
+
+  describe "#collection_groups" do
+    context "is a document collection" do
+      # The landing page has both collection_groups and links / documents
+      let(:details) do
+        {
+          "blocks" => [],
+          "collection_groups" => [
+            {
+              "title" => "collection group 1",
+              "documents" => %w[
+                00000000-0000-0000-0000-000000000000
+              ],
+            },
+            {
+              "title" => "collection group 2",
+              "documents" => %w[
+                00000000-0000-0000-0000-000000000001
+                00000000-0000-0000-0000-000000000002
+              ],
+            }
+          ]
+        }
+      end
+
+      let(:links) do
+        {
+          "documents" => [
+            {
+              "base_path" => "/some-base-path-1",
+              "content_id" => "00000000-0000-0000-0000-000000000000",
+              "title" => "Some document 1",
+            },
+            {
+              "base_path" => "/some-base-path-2",
+              "content_id" => "00000000-0000-0000-0000-000000000001",
+              "title" => "Some document 2",
+            },
+            {
+              "base_path" => "/some-base-path-3",
+              "content_id" => "00000000-0000-0000-0000-000000000002",
+              "title" => "Some document 3",
+            },
+          ]
+        }
+      end
+
+      it "expands collection groups" do
+        expect(described_class.new(content_item).collection_groups).to match(
+          "collection group 1" => an_instance_of(DocumentCollectionGroup),
+          "collection group 2" => an_instance_of(DocumentCollectionGroup),
+        )
+      end
     end
   end
 end

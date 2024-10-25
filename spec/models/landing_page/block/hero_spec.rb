@@ -1,4 +1,4 @@
-RSpec.describe Block::Hero do
+RSpec.describe LandingPage::Block::Hero do
   let(:blocks_hash) do
     { "type" => "hero",
       "image" => {

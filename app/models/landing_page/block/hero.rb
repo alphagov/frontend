@@ -1,8 +1,8 @@
-module Block
+module LandingPage::Block
   HeroImageSources = Data.define(:desktop, :desktop_2x, :tablet, :tablet_2x, :mobile, :mobile_2x)
   HeroImage = Data.define(:alt, :sources)
 
-  class Hero < Block::Base
+  class Hero < Base
     attr_reader :image, :hero_content
 
     def initialize(block_hash)
@@ -11,7 +11,7 @@ module Block
       alt, sources = data.fetch("image").values_at("alt", "sources")
       sources = HeroImageSources.new(**sources)
       @image = HeroImage.new(alt:, sources:)
-      @hero_content = BlockFactory.build_all(data.dig("hero_content", "blocks"))
+      @hero_content = LandingPage::BlockFactory.build_all(data.dig("hero_content", "blocks"))
     end
 
     def full_width?

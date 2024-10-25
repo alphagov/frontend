@@ -113,7 +113,7 @@ blocks:
     card_content:
       blocks:
         - type: heading
-          content: Title 1 heading title goes here
+          content: Title 1
           path: http://gov.uk
         - type: statistics
           title: "Chart to visually represent some data"
@@ -127,7 +127,7 @@ blocks:
     card_content:
       blocks:
         - type: heading
-          content: Title 2 heading title goes here
+          content: Title 2 heading title goes here and on and on
           path: http://gov.uk
         - type: statistics
           title: "Chart to visually represent some data"

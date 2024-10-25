@@ -4,18 +4,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 1 1;
+  min-width: 0;
   margin-bottom: govuk-spacing(6);
   color: govuk-colour("white");
+  background-color: govuk-colour("dark-blue");
 }
 
 .app-b-card__textbox {
   padding: govuk-spacing(6) govuk-spacing(7);
-  background-color: govuk-colour("dark-blue");
   color: govuk-colour("white");
 }
 
 .app-b-card__chart {
   border: solid 1px $govuk-border-colour;
+  background: govuk-colour("white");
 }
 
 .app-b-card__figure {

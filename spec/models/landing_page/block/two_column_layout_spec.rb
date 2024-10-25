@@ -1,4 +1,4 @@
-RSpec.describe Block::TwoColumnLayout do
+RSpec.describe LandingPage::Block::TwoColumnLayout do
   let(:blocks_hash) do
     { "type" => "two_column_layout",
       "theme" => "two_thirds_one_third",

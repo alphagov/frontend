@@ -1,5 +1,5 @@
-module Block
-  class ShareLinks < Block::Base
+module LandingPage::Block
+  class ShareLinks < Base
     attr_reader :links
 
     def initialize(block_hash)

@@ -76,5 +76,15 @@ module Frontend
     # to use CSS that has same function names as SCSS such as max.
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
+
+    # Protect from "invalid byte sequence in UTF-8" errors,
+    # when a query or a cookie is a string with incorrect UTF-8 encoding.
+    config.middleware.insert_before(
+      0,
+      Rack::UTF8Sanitizer,
+      sanitizable_content_types: [],
+      only: %w[QUERY_STRING],
+      strategy: :exception,
+    )
   end
 end

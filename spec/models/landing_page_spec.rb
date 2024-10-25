@@ -53,6 +53,14 @@ RSpec.describe LandingPage do
   end
 
   describe "#collection_groups" do
+    let(:details) { { "blocks" => [] } }
+
+    context "is not a document collection" do
+      it "returns empty collection groups" do
+        expect(described_class.new(content_item).collection_groups).to eq({})
+      end
+    end
+
     context "is a document collection" do
       # The landing page has both collection_groups and links / documents
       let(:details) do
@@ -103,6 +111,56 @@ RSpec.describe LandingPage do
           "collection group 1" => an_instance_of(DocumentCollectionGroup),
           "collection group 2" => an_instance_of(DocumentCollectionGroup),
         )
+      end
+    end
+  end
+
+  describe "#parent_collection" do
+    let(:details) { { "blocks" => [] } }
+
+    context "does not belong to a document collection" do
+      it "returns nil" do
+        expect(described_class.new(content_item).parent_collection).to eq(nil)
+      end
+    end
+
+    context "belongs to a landing page via document_collections" do
+      let(:links) do
+        {
+          "document_collections" => [
+            {
+              "base_path" => "/some-parent-landing-page",
+              "schema_name" => "landing_page",
+              "title" => "Some parent landing page",
+            }
+          ]
+        }
+      end
+
+      before do
+        parent_landing_page = {
+          "base_path" => "/some-parent-landing-page",
+          "title" => "Some parent landing page",
+          "document_type" => "landing_page",
+          "schema_name" => "landing_page",
+          "details" => {
+            "blocks" => []
+          },
+          "routes" => [
+            {
+              "type" => "exact",
+              "path" => "/some-parent-landing-page",
+            },
+          ],
+        }
+        stub_request(:get, "#{Plek.find('content-store')}/content/some-parent-landing-page").
+          to_return(status: 200, body: parent_landing_page.to_json)
+      end
+
+      it "should return the parent landing page" do
+        parent_collection = described_class.new(content_item).parent_collection
+        expect(parent_collection).to be_a(LandingPage)
+        expect(parent_collection.base_path).to eq("/some-parent-landing-page")
       end
     end
   end

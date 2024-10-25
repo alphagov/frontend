@@ -1,6 +1,9 @@
 RSpec.describe LandingPage::Block::Card do
   let(:blocks_hash) do
     { "type" => "card",
+      "href" => "/landing-page/something",
+      "content" => "This is a link",
+      "link_cover_block" => true,
       "image" => {
         "alt" => "some alt text",
         "source" => "landing_page/placeholder/chart.png",
@@ -11,6 +14,15 @@ RSpec.describe LandingPage::Block::Card do
           { "type" => "govspeak", "content" => "<p>Some content!</p>" },
         ],
       } }
+  end
+
+  describe "#link" do
+    it "includes a link" do
+      result = described_class.new(blocks_hash)
+      expect(result.href).to eq "/landing-page/something"
+      expect(result.content).to eq "This is a link"
+      expect(result.link_cover_block).to eq true
+    end
   end
 
   describe "#image" do

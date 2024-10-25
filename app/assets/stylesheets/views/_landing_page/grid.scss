@@ -2,8 +2,8 @@
 
 @include govuk-media-query($from: desktop) {
   .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-between;
     gap: govuk-spacing(6);
   }
 }

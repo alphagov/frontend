@@ -68,11 +68,11 @@ blocks:
 - type: grid_container
   blocks:
   - type: card
+    href: /landing-page/be-kinder
+    content: Be kinder
+    link_cover_block: true
     card_content:
       blocks:
-        - type: heading
-          content: Be kinder
-          path: /landing-page/be-kinder
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -80,13 +80,12 @@ blocks:
           csv_file: "data_one.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
-          minimal_link: /landing-page/task
   - type: card
+    href: /landing-page/exercise-more
+    content: Exercise more
+    link_cover_block: true
     card_content:
       blocks:
-        - type: heading
-          content: Exercise more
-          path: /landing-page/exercise-more
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -94,13 +93,12 @@ blocks:
           csv_file: "data_one.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
-          minimal_link: /landing-page/task
   - type: card
+    href: /landing-page/donate-to-charity
+    content: Donate to charity
+    link_cover_block: true
     card_content:
       blocks:
-        - type: heading
-          content: Donate to charity
-          path: /landing-page/donate-to-charity
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -108,7 +106,6 @@ blocks:
           csv_file: "data_one.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
-          minimal_link: /landing-page/task
 - type: govspeak
   content: |
     <p><a href="/landing-page/tasks">See the latest data on our progress</a></p>

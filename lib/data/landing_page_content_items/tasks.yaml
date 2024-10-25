@@ -50,60 +50,60 @@ blocks:
   - type: blocks_container
     blocks:
     - type: card
+      href: /landing-page/be-kinder
+      content: Be kinder
       card_content:
         blocks:
-          - type: heading
-            content: Be kinder
-            path: /landing-page/be-kinder
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
+      href: /landing-page/be-kinder
+      content: Exercise more
       card_content:
         blocks:
-          - type: heading
-            content: Exercise more
-            path: /landing-page/exercise-more
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
+      href: /landing-page/donate-to-charity
+      content: Donate to charity
       card_content:
         blocks:
-          - type: heading
-            content: Donate to charity
-            path: /landing-page/donate-to-charity
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
+      href: /landing-page/learn-something-new
+      content: Learn something new
       card_content:
         blocks:
-          - type: heading
-            content: Learn something new
-            path: /landing-page/learn-something-new
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
     - type: card
+      href: /landing-page/be-thankful
+      content: Be thankful
       card_content:
         blocks:
-          - type: heading
-            content: Be thankful
-            path: /landing-page/be-thankful
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+            padding: true
 - type: share_links
   links:
     - href: /twitter-profile

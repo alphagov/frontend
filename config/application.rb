@@ -14,6 +14,7 @@ require "active_support/time"
 require "action_view/railtie"
 # require "action_cable/engine"
 require "rails/test_unit/railtie"
+require_relative "../lib/sanitiser/strategy"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -29,7 +30,7 @@ module Frontend
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks])
+    config.autoload_lib(ignore: %w[assets tasks sanitiser])
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.eager_load_paths += %W[#{config.root}/app/presenters]
@@ -76,5 +77,15 @@ module Frontend
     # to use CSS that has same function names as SCSS such as max.
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
+
+    # Protect from "invalid byte sequence in UTF-8" errors,
+    # when a query or a cookie is a string with incorrect UTF-8 encoding.
+    config.middleware.insert_before(
+      0,
+      Rack::UTF8Sanitizer,
+      sanitizable_content_types: [],
+      only: %w[QUERY_STRING],
+      strategy: Sanitiser::Strategy,
+    )
   end
 end

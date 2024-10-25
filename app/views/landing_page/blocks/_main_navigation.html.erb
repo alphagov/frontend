@@ -27,6 +27,7 @@
                 <% link[:items].each do |child_link| %>
                   <%
                     child_link_classes = "app-b-main-nav__link govuk-link govuk-link--no-underline govuk-link--no-visited-state"
+                    child_link_aria = { current: true } if child_link[:active]
                     child_li_classes = "app-b-main-nav__listitem"
                     child_li_classes << " app-b-main-nav__listitem--active" if child_link[:active]
                   %>

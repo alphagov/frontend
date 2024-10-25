@@ -13,8 +13,12 @@
 }
 
 .app-b-card__textbox {
-  padding: govuk-spacing(6) govuk-spacing(7);
+  padding: govuk-spacing(6);
   color: govuk-colour("white");
+
+  @include govuk-media-query($until: tablet) {
+    padding: govuk-spacing(4);
+  }
 }
 
 .app-b-card__textbox-link {

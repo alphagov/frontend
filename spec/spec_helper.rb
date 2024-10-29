@@ -19,6 +19,7 @@ GovukTest.configure
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
+  config.include FactoryBot::Syntax::Methods
 
   config.include ContentStoreHelpers, type: :request
   config.include ContentStoreHelpers, type: :system

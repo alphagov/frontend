@@ -9,6 +9,7 @@ RSpec.describe LandingPage::Block::Statistics do
       "data_source_link" => "https://www.example.com",
     }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   before do
     LandingPage::Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
@@ -31,7 +32,7 @@ RSpec.describe LandingPage::Block::Statistics do
         2024-06-01
       ]
 
-      expect(described_class.new(blocks_hash).x_axis_keys).to eq(expected_keys)
+      expect(subject.x_axis_keys).to eq(expected_keys)
     end
 
     it "gets all of the unique x-axis data points" do
@@ -42,7 +43,7 @@ RSpec.describe LandingPage::Block::Statistics do
       ]
       blocks_hash["csv_file"] = "data_two.csv"
 
-      expect(described_class.new(blocks_hash).x_axis_keys).to eq(expected_keys)
+      expect(subject.x_axis_keys).to eq(expected_keys)
     end
   end
 
@@ -55,7 +56,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+      expect(subject.rows).to eq(expected_rows)
     end
 
     it "gets the rows for multiple lines of data" do
@@ -72,7 +73,7 @@ RSpec.describe LandingPage::Block::Statistics do
 
       blocks_hash["csv_file"] = "data_two.csv"
 
-      expect(described_class.new(blocks_hash).rows).to eq(expected_rows)
+      expect(subject.rows).to eq(expected_rows)
     end
   end
 end

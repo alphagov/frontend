@@ -13,7 +13,7 @@ class LandingPage < ContentItem
       )
     end
 
-    @blocks = (content_store_hash.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash) }
+    @blocks = (content_store_hash.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash, self) }
   end
 
 private

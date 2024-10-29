@@ -19,32 +19,31 @@ RSpec.describe LandingPage::Block::Featured do
         ],
       } }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   describe "#image" do
     it "returns the properties of the image" do
-      result = described_class.new(blocks_hash).image
-      expect(result.alt).to eq "some alt text"
-      expect(result.sources.desktop).to eq "landing_page/desktop.jpeg"
-      expect(result.sources.desktop_2x).to eq "landing_page/desktop_2x.jpeg"
-      expect(result.sources.mobile).to eq "landing_page/mobile.jpeg"
-      expect(result.sources.mobile_2x).to eq "landing_page/mobile_2x.jpeg"
-      expect(result.sources.tablet).to eq "landing_page/tablet.jpeg"
-      expect(result.sources.tablet_2x).to eq "landing_page/tablet_2x.jpeg"
+      expect(subject.image.alt).to eq "some alt text"
+      expect(subject.image.sources.desktop).to eq "landing_page/desktop.jpeg"
+      expect(subject.image.sources.desktop_2x).to eq "landing_page/desktop_2x.jpeg"
+      expect(subject.image.sources.mobile).to eq "landing_page/mobile.jpeg"
+      expect(subject.image.sources.mobile_2x).to eq "landing_page/mobile_2x.jpeg"
+      expect(subject.image.sources.tablet).to eq "landing_page/tablet.jpeg"
+      expect(subject.image.sources.tablet_2x).to eq "landing_page/tablet_2x.jpeg"
     end
   end
 
   describe "#featured_content" do
     it "returns an array of instantiated blocks" do
-      result = described_class.new(blocks_hash).featured_content
-      expect(result.size).to eq 2
-      expect(result.first.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")
-      expect(result.second.data).to eq("type" => "govspeak", "content" => "<p>More content!</p>")
+      expect(subject.featured_content.size).to eq 2
+      expect(subject.featured_content.first.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")
+      expect(subject.featured_content.second.data).to eq("type" => "govspeak", "content" => "<p>More content!</p>")
     end
   end
 
   describe "#full_width?" do
     it "is false" do
-      expect(described_class.new(blocks_hash).full_width?).to eq(false)
+      expect(subject.full_width?).to eq(false)
     end
   end
 end

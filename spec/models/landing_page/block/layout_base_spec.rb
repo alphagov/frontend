@@ -9,13 +9,14 @@ RSpec.describe LandingPage::Block::LayoutBase do
         ],
       }
     end
+    let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
     it "builds all of the blocks" do
-      expect(described_class.new(blocks_hash).blocks.count).to eq 3
+      expect(subject.blocks.count).to eq 3
     end
 
     it "builds blocks of the correct type" do
-      expect(described_class.new(blocks_hash).blocks.first.type).to eq("big_number")
+      expect(subject.blocks.first.type).to eq("big_number")
     end
   end
 end

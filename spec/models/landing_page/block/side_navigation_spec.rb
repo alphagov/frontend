@@ -1,7 +1,8 @@
 RSpec.describe LandingPage::Block::SideNavigation do
-  let(:block_hash) do
+  let(:blocks_hash) do
     { "type" => "side_navigation" }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   before do
     LandingPage::Block::SideNavigation.send(:remove_const, "LINKS_FILE_PATH")
@@ -15,10 +16,9 @@ RSpec.describe LandingPage::Block::SideNavigation do
 
   describe "#links" do
     it "returns all of the side navigation links" do
-      links = described_class.new(block_hash).links
-      expect(links.count).to eq(2)
-      expect(links.first["text"]).to eq("Landing Page")
-      expect(links.first["href"]).to eq("/landing-page")
+      expect(subject.links.count).to eq(2)
+      expect(subject.links.first["text"]).to eq("Landing Page")
+      expect(subject.links.first["href"]).to eq("/landing-page")
     end
   end
 end

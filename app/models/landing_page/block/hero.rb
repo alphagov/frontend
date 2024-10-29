@@ -5,13 +5,13 @@ module LandingPage::Block
   class Hero < Base
     attr_reader :image, :hero_content
 
-    def initialize(block_hash)
-      super(block_hash)
+    def initialize(block_hash, landing_page)
+      super
 
       alt, sources = data.fetch("image").values_at("alt", "sources")
       sources = HeroImageSources.new(**sources)
       @image = HeroImage.new(alt:, sources:)
-      @hero_content = LandingPage::BlockFactory.build_all(data.dig("hero_content", "blocks"))
+      @hero_content = LandingPage::BlockFactory.build_all(data.dig("hero_content", "blocks"), landing_page)
     end
 
     def full_width?

@@ -4,8 +4,8 @@ module LandingPage::Block
   class Card < Base
     attr_reader :image, :card_content, :href, :content, :link_cover_block
 
-    def initialize(block_hash)
-      super(block_hash)
+    def initialize(block_hash, landing_page)
+      super
 
       @href = data["href"] || ""
       @content = data["content"] || ""
@@ -16,7 +16,7 @@ module LandingPage::Block
         @image = CardImage.new(alt:, source:)
       end
 
-      @card_content = LandingPage::BlockFactory.build_all(data.dig("card_content", "blocks"))
+      @card_content = LandingPage::BlockFactory.build_all(data.dig("card_content", "blocks"), landing_page)
     end
   end
 end

@@ -15,30 +15,28 @@ RSpec.describe LandingPage::Block::Card do
         ],
       } }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   describe "#link" do
     it "includes a link" do
-      result = described_class.new(blocks_hash)
-      expect(result.href).to eq "/landing-page/something"
-      expect(result.content).to eq "This is a link"
-      expect(result.link_cover_block).to eq true
+      expect(subject.href).to eq "/landing-page/something"
+      expect(subject.content).to eq "This is a link"
+      expect(subject.link_cover_block).to eq true
     end
   end
 
   describe "#image" do
     it "returns the properties of the image" do
-      result = described_class.new(blocks_hash).image
-      expect(result.alt).to eq "some alt text"
-      expect(result.source).to eq "landing_page/placeholder/chart.png"
+      expect(subject.image.alt).to eq "some alt text"
+      expect(subject.image.source).to eq "landing_page/placeholder/chart.png"
     end
   end
 
   describe "#card_content" do
     it "returns an array of instantiated blocks" do
-      result = described_class.new(blocks_hash).card_content
-      expect(result.size).to eq 2
-      expect(result.first.data).to eq("type" => "govspeak", "content" => "<h2>Title</h2>")
-      expect(result.second.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")
+      expect(subject.card_content.size).to eq 2
+      expect(subject.card_content.first.data).to eq("type" => "govspeak", "content" => "<h2>Title</h2>")
+      expect(subject.card_content.second.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")
     end
   end
 end

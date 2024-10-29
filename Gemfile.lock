@@ -127,6 +127,11 @@ GEM
     execjs (2.9.1)
     expgen (0.1.1)
       parslet
+    factory_bot (6.5.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.4)
+      factory_bot (~> 6.5)
+      railties (>= 5.0.0)
     faker (3.4.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
@@ -715,6 +720,7 @@ DEPENDENCIES
   dalli
   dartsass-rails
   dotenv-rails
+  factory_bot_rails
   gds-api-adapters
   govuk_ab_testing
   govuk_app_config

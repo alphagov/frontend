@@ -6,19 +6,14 @@ RSpec.describe LandingPage::Block::Statistics do
       "x_axis_label" => "X Axis",
       "y_axis_label" => "Y Axis",
       "csv_file" => "data_one.csv",
-      "data_source_link" => "https://www.example.com",
     }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_data_attachments)) }
 
   before do
-    LandingPage::Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
-    LandingPage::Block::Statistics.const_set("STATISTICS_DATA_PATH", "spec/fixtures/landing_page_statistics_data")
-  end
-
-  after do
-    LandingPage::Block::Statistics.send(:remove_const, "STATISTICS_DATA_PATH")
-    LandingPage::Block::Statistics.const_set("STATISTICS_DATA_PATH", "lib/data/landing_page_content_items/statistics")
+    stub_request(:get, "https://www.asset.test.gov.uk/data_one.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
+    stub_request(:get, "https://www.asset.test.gov.uk/data_two.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_two.csv"), headers: {})
   end
 
   describe "#x_axis_keys" do

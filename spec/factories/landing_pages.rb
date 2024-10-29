@@ -11,5 +11,37 @@ FactoryBot.define do
     end
 
     factory :landing_page_with_data_attachments, traits: [:attachments]
+
+    factory :landing_page_with_navigation_groups do
+      details do
+        {
+          blocks: [],
+          navigation_groups: [
+            {
+              id: "Top Menu",
+              links: [
+                { href: "https://www.gov.uk", text: "Service Name" },
+                { href: "/hello", text: "Test 1" },
+                {
+                  href: "/goodbye",
+                  text: "Test 2",
+                  links: [
+                    { href: "/a", text: "Child a" },
+                    { href: "/b", text: "Child b" },
+                  ],
+                },
+              ],
+            },
+            {
+              id: "Submenu",
+              links: [
+                { href: "/a", text: "Child a" },
+                { href: "/b", text: "Child b" },
+              ],
+            },
+          ],
+        }
+      end
+    end
   end
 end

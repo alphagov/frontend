@@ -15,7 +15,7 @@ RSpec.describe LandingPage::Block::SideNavigation do
   end
 
   describe "#links" do
-    it "returns all of the side navigation links" do
+    it "returns all of the navigation links from the specified navigation group" do
       expect(subject.links.count).to eq(2)
       expect(subject.links.first["text"]).to eq("Landing Page")
       expect(subject.links.first["href"]).to eq("/landing-page")

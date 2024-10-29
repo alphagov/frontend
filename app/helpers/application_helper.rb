@@ -9,17 +9,8 @@ module ApplicationHelper
     html_classes = []
 
     if publication
-      if publication.respond_to?(:wrapper_classes)
-        html_classes = publication.wrapper_classes
-      else
-        if publication.format
-          html_classes << publication.format
-        end
-
-        if services.include? publication.format
-          html_classes << "service"
-        end
-      end
+      html_classes << publication.format if publication.format
+      html_classes << "service" if services.include? publication.format
     end
 
     html_classes.join(" ")

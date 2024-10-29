@@ -5,7 +5,21 @@ RSpec.describe "Landing Page" do
         stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
         @content_item = GovukSchemas::Example.find("landing_page", example_name: "landing_page")
         @base_path = @content_item.fetch("base_path")
+        @content_item["details"]["attachments"] = [
+          {
+            "accessible" => false,
+            "attachment_type" => "document",
+            "content_type" => "text/csv",
+            "file_size" => 123,
+            "filename" => "data_one.csv",
+            "id" => 12_345,
+            "preview_url" => "https://www.asset.test.gov.uk/data_one.csv/preview",
+            "title" => "Data One",
+            "url" => "https://www.asset.test.gov.uk/data_one.csv",
+          },
+        ]
         stub_content_store_has_item(@base_path, @content_item)
+        stub_request(:get, "https://www.asset.test.gov.uk/data_one.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
       end
 
       it "succeeds" do

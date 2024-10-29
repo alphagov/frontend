@@ -1,13 +1,12 @@
 module LandingPage::Block
   class MainNavigation < Base
-    attr_reader :title, :title_link, :links
+    attr_reader :links
 
     def initialize(block_hash, landing_page)
       super
 
-      @title = data.fetch("title")
-      @title_link = data.fetch("title_link")
-      @links = data.fetch("links")
+      navigation_group = landing_page.navigation_groups[data["navigation_group_id"]]
+      @links = navigation_group["links"]
     end
 
     def full_width?

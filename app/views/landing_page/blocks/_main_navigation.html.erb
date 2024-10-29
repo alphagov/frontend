@@ -3,12 +3,12 @@
 %>
 <div class="app-b-main-nav" data-module="app-b-main-navigation">
   <div class="app-b-main-nav__container govuk-width-container">
-    <p class="app-b-main-nav__heading-p govuk-heading-s"><%= link_to block.title, block.title_link, class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state app-b-main-nav__heading-link" %></p>
+    <p class="app-b-main-nav__heading-p govuk-heading-s"><%= link_to block.links.first["text"], block.links.first["href"], class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state app-b-main-nav__heading-link" %></p>
     <button class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav__nav" type="button">Menu<span class="app-b-main-nav__icon" aria-hidden="true"></span></button>
 
     <nav id="app-b-main-nav__nav" aria-label="Secondary">
       <ul class="app-b-main-nav__ul">
-        <% contents_list(request.path, block.links).each do |link| %>
+        <% contents_list(request.path, block.links[1..]).each do |link| %>
           <%
             li_classes = "app-b-main-nav__listitem"
             li_classes << " app-b-main-nav__listitem--active" if link[:active]

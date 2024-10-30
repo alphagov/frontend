@@ -1,6 +1,8 @@
 ---
 el:
   components:
+    figure:
+      image_credit: 'Εικόνα από: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: απόκρυψη όλων των ενημερώσεων

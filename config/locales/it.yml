@@ -1,6 +1,8 @@
 ---
 it:
   components:
+    figure:
+      image_credit: 'Credito d’immagine: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: nascondi tutti gli aggiornamenti

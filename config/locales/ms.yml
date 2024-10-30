@@ -1,6 +1,8 @@
 ---
 ms:
   components:
+    figure:
+      image_credit: 'Imej kredit: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: sorok semua kemas kini

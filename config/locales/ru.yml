@@ -1,6 +1,8 @@
 ---
 ru:
   components:
+    figure:
+      image_credit: 'Графические материалы предоставлены: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: Скрыть всю последнюю информацию

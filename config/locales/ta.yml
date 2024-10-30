@@ -1,6 +1,8 @@
 ---
 ta:
   components:
+    figure:
+      image_credit: 'பட உதவி: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: அனைத்து புதுப்பித்தல்களையும் மறை

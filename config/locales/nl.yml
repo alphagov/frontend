@@ -1,6 +1,8 @@
 ---
 nl:
   components:
+    figure:
+      image_credit: 'Image credit: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: verberg alle updates

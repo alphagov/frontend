@@ -1,6 +1,8 @@
 ---
 hi:
   components:
+    figure:
+      image_credit: 'इमेज क्रेडिट: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: सारे अपडेट छिपाएं

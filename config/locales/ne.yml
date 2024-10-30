@@ -1,6 +1,8 @@
 ---
 ne:
   components:
+    figure:
+      image_credit: 'छवि श्रेय: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: सबै अद्यावधिक लुकाउनुहोस्

@@ -1,6 +1,8 @@
 ---
 be:
   components:
+    figure:
+      image_credit: 'Крэдыт выявы: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: схаваць усе абнаўленні

@@ -1,6 +1,8 @@
 ---
 sq:
   components:
+    figure:
+      image_credit: 'Kreditet e imazhit: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: fshih të gjitha përditësimet

@@ -1,6 +1,8 @@
 ---
 si:
   components:
+    figure:
+      image_credit: 'රූප සඳහා ස්තූතියි: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: සියලු යාවත්කාලීන සඟවන්න

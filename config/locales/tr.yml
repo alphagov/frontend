@@ -1,6 +1,8 @@
 ---
 tr:
   components:
+    figure:
+      image_credit: 'Resim sahibi: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: tüm güncellemeleri gizle

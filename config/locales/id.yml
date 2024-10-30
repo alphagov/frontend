@@ -1,6 +1,8 @@
 ---
 id:
   components:
+    figure:
+      image_credit: 'Kredit gambar: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: sembunyikan semua pembaruan

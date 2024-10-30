@@ -1,6 +1,8 @@
 ---
 fi:
   components:
+    figure:
+      image_credit: 'Kuvaluotto: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: piilota kaikki päivitykset

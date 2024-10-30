@@ -1,6 +1,8 @@
 ---
 vi:
   components:
+    figure:
+      image_credit: 'Nguồn hình ảnh: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: ẩn tất cả các cập nhật

@@ -1,6 +1,8 @@
 ---
 pa:
   components:
+    figure:
+      image_credit: 'ਚਿੱਤਰ ਕ੍ਰੈਡਿਟ: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: ਸਾਰੇ ਅਪਡੇਟਾਂ ਨੂੰ ਲੁਕਾਓ

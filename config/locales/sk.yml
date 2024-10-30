@@ -1,6 +1,8 @@
 ---
 sk:
   components:
+    figure:
+      image_credit: 'Obrázok: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: skryť všetky aktualizácie

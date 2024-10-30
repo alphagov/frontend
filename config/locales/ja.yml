@@ -1,6 +1,8 @@
 ---
 ja:
   components:
+    figure:
+      image_credit: 画像著作権：%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: すべての更新を非表示

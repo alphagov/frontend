@@ -1,6 +1,8 @@
 ---
 hu:
   components:
+    figure:
+      image_credit: 'Képaláírás: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: minden frissítés elrejtése

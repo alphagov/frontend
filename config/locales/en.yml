@@ -101,6 +101,8 @@ en:
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
   components:
+    figure:
+      image_credit: 'Image credit: %{credit}'
     published_dates:
       hidden_heading: Updates to this page
       hide_all_updates: hide all updates

@@ -1,6 +1,8 @@
 ---
 ps:
   components:
+    figure:
+      image_credit: د انځور کریډیټ:%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: ټول تازه معلومات پټ کړئ

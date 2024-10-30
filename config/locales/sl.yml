@@ -1,6 +1,8 @@
 ---
 sl:
   components:
+    figure:
+      image_credit: 'Avtor slike: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: Skrij vse posodobitve

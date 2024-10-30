@@ -1,6 +1,8 @@
 ---
 es-419:
   components:
+    figure:
+      image_credit: 'Crédito de la imagen: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: ocultar todas las novedades

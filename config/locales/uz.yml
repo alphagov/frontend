@@ -1,6 +1,8 @@
 ---
 uz:
   components:
+    figure:
+      image_credit: 'График материаллар тақдим этилган: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: Барча янгиланишларни яшириш

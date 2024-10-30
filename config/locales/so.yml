@@ -1,6 +1,8 @@
 ---
 so:
   components:
+    figure:
+      image_credit: 'Xuquuqda sawirka: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: qari dhamaan waxa cusub

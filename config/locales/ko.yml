@@ -1,6 +1,8 @@
 ---
 ko:
   components:
+    figure:
+      image_credit: '이미지 저작권: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: 모든 업데이트 숨기기

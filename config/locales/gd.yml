@@ -1,6 +1,8 @@
 ---
 gd:
   components:
+    figure:
+      image_credit: 'Creidmheas íomhá: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: gach nuashonrú a cheilt

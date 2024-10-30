@@ -101,6 +101,8 @@ cy:
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
   components:
+    figure:
+      image_credit: 'Delwedd gan: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: cuddio pob diweddariad

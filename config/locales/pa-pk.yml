@@ -1,6 +1,8 @@
 ---
 pa-pk:
   components:
+    figure:
+      image_credit: 'امیج کریڈٹ: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: سارے تازہ ترین حالات نوں لُکا لوؤ

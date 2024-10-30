@@ -1,6 +1,8 @@
 ---
 tk:
   components:
+    figure:
+      image_credit: 'Surat krediti: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: ähli täzelenmeleri gizle

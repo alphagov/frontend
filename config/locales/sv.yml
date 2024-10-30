@@ -1,6 +1,8 @@
 ---
 sv:
   components:
+    figure:
+      image_credit: 'Bild: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: dölj alla uppdateringar

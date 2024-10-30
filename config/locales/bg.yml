@@ -1,6 +1,8 @@
 ---
 bg:
   components:
+    figure:
+      image_credit: 'Изображението е от: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: скриване на всички актуализации

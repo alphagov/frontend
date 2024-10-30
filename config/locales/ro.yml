@@ -1,6 +1,8 @@
 ---
 ro:
   components:
+    figure:
+      image_credit: 'Autor imagine: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: ascundeți toate actualizările

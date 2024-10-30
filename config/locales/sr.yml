@@ -1,6 +1,8 @@
 ---
 sr:
   components:
+    figure:
+      image_credit: 'Vlasnik slike: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: sakrij sva ažuriranja

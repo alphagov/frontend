@@ -1,6 +1,8 @@
 ---
 pl:
   components:
+    figure:
+      image_credit: Obrazek:%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: ukryj wszystkie aktualizacje

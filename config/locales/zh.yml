@@ -1,6 +1,8 @@
 ---
 zh:
   components:
+    figure:
+      image_credit: 图片提供：%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: 隐藏全部更新

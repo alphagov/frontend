@@ -1,6 +1,8 @@
 ---
 fa:
   components:
+    figure:
+      image_credit: 'اعتبار تصویر: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: مخفی کردن تمام بروزرسانی‌ها

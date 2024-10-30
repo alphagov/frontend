@@ -443,9 +443,9 @@ en:
       what_you_need_to_know: What you need to know
     place:
       change: Change
+      find_results: Find results near you
       postcode: Postcode
       select_address: Select an address
-      find_results: Find results near you
     simple_smart_answer:
       change: Change
       next_step: Next step

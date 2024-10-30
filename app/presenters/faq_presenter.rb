@@ -46,8 +46,6 @@ private
     when "when-do-the-clocks-change"
       title = content_item[:title]
       body = "The #{division.upcoming_event.notes.gsub(' one hour', '').downcase} on #{date}"
-    else
-      raise "Unknown scope"
     end
 
     {

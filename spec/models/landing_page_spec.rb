@@ -41,5 +41,9 @@ RSpec.describe LandingPage do
 
       expect(described_class.new(content_item).blocks.first.type).to eq(expected_type)
     end
+
+    it "loads blocks from the content item if present instead of using hardcoded data" do
+      expect(build(:landing_page_with_one_block).blocks.count).to eq(1)
+    end
   end
 end

@@ -1,6 +1,7 @@
 class ContentItem
-  attr_reader :content_store_response, :content_store_hash, :body, :image, :description,
-              :document_type, :schema_name, :title, :base_path, :locale, :public_updated_at
+  attr_reader :attachments, :content_store_response, :content_store_hash, :body, :image,
+              :description, :document_type, :schema_name, :title, :base_path, :locale,
+              :public_updated_at
 
   # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
   # content items including block details are available from content-store
@@ -17,7 +18,11 @@ class ContentItem
     @base_path = content_store_hash["base_path"]
     @locale = content_store_hash["locale"]
     @public_updated_at = content_store_hash["public_updated_at"]
+
+    @attachments = (content_store_hash.dig("details", "attachments") || []).map { Attachment.new(**_1) }
   end
+
+  Attachment = Data.define(:accessible, :attachment_type, :content_type, :file_size, :filename, :id, :preview_url, :title, :url)
 
   alias_method :to_h, :content_store_hash
   delegate :cache_control, to: :content_store_response

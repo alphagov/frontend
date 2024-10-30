@@ -11,7 +11,21 @@ RSpec.describe "LandingPage" do
         "publishing_app" => "whitehall",
         "rendering_app" => "frontend",
         "update_type" => "major",
-        "details" => {},
+        "details" => {
+          "attachments" => [
+            {
+              "accessible" => false,
+              "attachment_type" => "document",
+              "content_type" => "text/csv",
+              "file_size" => 123,
+              "filename" => "data_one.csv",
+              "id" => 12_345,
+              "preview_url" => "https://www.asset.test.gov.uk/data_one.csv/preview",
+              "title" => "Data One",
+              "url" => "https://www.asset.test.gov.uk/data_one.csv",
+            },
+          ],
+        },
         "routes" => [
           {
             "type" => "exact",
@@ -26,6 +40,7 @@ RSpec.describe "LandingPage" do
     before do
       stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
       stub_content_store_has_item(base_path, content_item)
+      stub_request(:get, "https://www.asset.test.gov.uk/data_one.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
     end
 
     it "displays the page" do

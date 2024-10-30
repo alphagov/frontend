@@ -11,7 +11,7 @@
   hide_legend: block.data["hide_legend"],
   keys: block.x_axis_keys,
   rows: block.rows,
-  link: block.data["data_source_link"],
+  link: block.attachment&.url || block.data["data_source_link"],
   margin_bottom: margin_bottom,
   minimal: block.data["minimal"],
   height: height,

@@ -24,9 +24,12 @@ RSpec.describe LandingPage do
     GdsApi::Response.new(http_response)
   end
 
+  before do
+    stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
+  end
+
   describe "#blocks" do
     before do
-      stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
       @blocks_content = YAML.load_file(Rails.root.join("spec/fixtures/landing_page.yaml"))
     end
 
@@ -44,6 +47,14 @@ RSpec.describe LandingPage do
 
     it "loads blocks from the content item if present instead of using hardcoded data" do
       expect(build(:landing_page_with_one_block).blocks.count).to eq(1)
+    end
+  end
+
+  describe "#navigation_groups" do
+    it "returns a map of navigation_groups" do
+      expect(described_class.new(content_item).navigation_groups["Top Menu"]["id"]).to eq("Top Menu")
+      expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"].count).to eq(2)
+      expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"][1]["links"].count).to eq(2)
     end
   end
 end

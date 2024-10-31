@@ -1,6 +1,8 @@
 blocks:
 - type: main_navigation
   links:
+  - text: Landing page
+    href: /landing-page/homepage/
   - text: Goals
     href: /landing-page/goals
   - text: Tasks
@@ -16,8 +18,9 @@ blocks:
         href: "/landing-page/learn-something-new"
       - text: Be thankful
         href: "/landing-page/be-thankful"
-  title: Landing page
-  title_link: /landing-page/homepage/
+blocks:
+- type: main_navigation
+  navigation_group_id: Top Menu
 - type: hero
   image:
     alt: "Placeholder alt text"

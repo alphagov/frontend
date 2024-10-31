@@ -1,12 +1,24 @@
+navigation_groups:
+- id: "Top Menu"
+  links:
+  - href: "/homepage"
+    text: "Homepage"
+  - href: "/goals"
+    text: "Goals"
+    links:
+    - href: "/a"
+      text: "Child a"
+    - href: "/b"
+      text: "Child b"
+- id: "Sidebar"
+  links:
+  - href: "/a"
+    text: "Child a"
+  - href: "/b"
+    text: "Child b"
 blocks:
 - type: main_navigation
-  links:
-  - text: Ipsums for Lorem
-    href: /ipsum
-  - text: Our Lorem
-    href: /landing-page/sub-page-1
-  title: Service name
-  title_link: /landing-page/homepage/
+  navigation_group_id: "Top Menu"
 - type: hero
   image:
     alt: "Placeholder alt text"
@@ -119,6 +131,7 @@ blocks:
   theme: one_third_two_thirds
   blocks:
   - type: side_navigation
+    navigation_group_id: "Sidebar"
     title: Alternate title
     alternative_line_style: true
   - type: blocks_container

@@ -43,7 +43,7 @@ RSpec.describe ContentsListHelper do
           {
             "href" => "/our-lorem",
             "text" => "Our Lorem",
-            "items" => [
+            "links" => [
               {
                 "href" => "/a",
                 "text" => "Child 1",
@@ -64,7 +64,7 @@ RSpec.describe ContentsListHelper do
           {
             href: "/our-lorem",
             text: "Our Lorem",
-            items: [
+            links: [
               {
                 href: "/a",
                 text: "Child 1",
@@ -89,7 +89,7 @@ RSpec.describe ContentsListHelper do
           {
             "href" => "/our-lorem",
             "text" => "Our Lorem",
-            "items" => [
+            "links" => [
               {
                 "href" => "/a",
                 "text" => "Child 1",
@@ -110,7 +110,7 @@ RSpec.describe ContentsListHelper do
           {
             href: "/our-lorem",
             text: "Our Lorem",
-            items: [
+            links: [
               {
                 href: "/a",
                 text: "Child 1",

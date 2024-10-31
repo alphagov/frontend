@@ -1,5 +1,5 @@
 class LandingPage < ContentItem
-  attr_reader :blocks
+  attr_reader :blocks, :navigation_groups
 
   ADDITIONAL_CONTENT_PATH = "lib/data/landing_page_content_items".freeze
 
@@ -13,6 +13,7 @@ class LandingPage < ContentItem
       )
     end
 
+    @navigation_groups = (content_store_hash.dig("details", "navigation_groups") || []).map { [_1["id"], _1] }.to_h
     @blocks = (content_store_hash.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash, self) }
   end
 

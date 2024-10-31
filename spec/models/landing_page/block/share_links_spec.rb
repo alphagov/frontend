@@ -18,13 +18,13 @@ RSpec.describe LandingPage::Block::ShareLinks do
       ],
     }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   it "returns all of the side navigation links" do
-    links = described_class.new(blocks_hash).links
-    expect(links.count).to eq(2)
-    expect(links.first[:text]).to eq("Twitter")
-    expect(links.first[:href]).to eq("/twitter-profile")
-    expect(links.first[:icon]).to eq("twitter")
-    expect(links.first[:hidden_text]).to eq("Follow us on")
+    expect(subject.links.count).to eq(2)
+    expect(subject.links.first[:text]).to eq("Twitter")
+    expect(subject.links.first[:href]).to eq("/twitter-profile")
+    expect(subject.links.first[:icon]).to eq("twitter")
+    expect(subject.links.first[:hidden_text]).to eq("Follow us on")
   end
 end

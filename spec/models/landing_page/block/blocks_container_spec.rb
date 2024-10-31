@@ -18,8 +18,9 @@ RSpec.describe LandingPage::Block::BlocksContainer do
       ],
     }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   it "has children blocks" do
-    expect(described_class.new(blocks_hash).children.size).to eq(3)
+    expect(subject.children.size).to eq(3)
   end
 end

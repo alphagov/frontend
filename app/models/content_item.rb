@@ -1,3 +1,5 @@
+require "ostruct"
+
 class ContentItem
   attr_reader :attachments, :content_store_response, :content_store_hash, :body, :image,
               :description, :document_type, :schema_name, :title, :base_path, :locale,
@@ -19,10 +21,8 @@ class ContentItem
     @locale = content_store_hash["locale"]
     @public_updated_at = content_store_hash["public_updated_at"]
 
-    @attachments = (content_store_hash.dig("details", "attachments") || []).map { Attachment.new(**_1) }
+    @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
   end
-
-  Attachment = Data.define(:accessible, :attachment_type, :content_type, :file_size, :filename, :id, :preview_url, :title, :url)
 
   alias_method :to_h, :content_store_hash
   delegate :cache_control, to: :content_store_response
@@ -39,5 +39,13 @@ class ContentItem
     else
       super
     end
+  end
+
+private
+
+  def get_attachments(attachment_hash)
+    return [] unless attachment_hash
+
+    attachment_hash.map { OpenStruct.new(_1) }
   end
 end

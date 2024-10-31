@@ -2,7 +2,7 @@ navigation_groups:
 - id: Top Menu
   links:
   - text: Landing page
-  - href: /landing-page/homepage/
+    href: /landing-page/homepage/
   - text: Goals
     href: /landing-page/goals
   - text: Tasks

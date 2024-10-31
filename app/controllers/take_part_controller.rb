@@ -1,0 +1,2 @@
+class TakePartController < ContentItemsController
+end

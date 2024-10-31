@@ -660,6 +660,73 @@ en:
       link: "/vat-rates"
   i18n:
     direction: ltr
+  language_names:
+    ar: Arabic
+    az: Azeri
+    be: Belarusian
+    bg: Bulgarian
+    bn: Bangla
+    cs: Czech
+    cy: Welsh
+    da: Danish
+    de: German
+    dr: Dari
+    el: Greek
+    en: English
+    es: Spanish
+    es-419: Latin American Spanish
+    et: Estonian
+    fa: Persian
+    fi: Finish
+    fr: French
+    gd: Irish
+    gu: Gujarati
+    he: Hebrew
+    hi: Hindi
+    hr: Croatian
+    hu: Hungarian
+    hy: Armenian
+    id: Indonesian
+    is: Icelandic
+    it: Italian
+    ja: Japanese
+    ka: Georgian
+    kk: Kazakh
+    ko: Korean
+    lt: Lithuanian
+    lv: Latvian
+    ms: Malay
+    mt: Maltese
+    ne: Nepali
+    nl: Dutch
+    'no': Norwegian
+    pa: Punjabi Gurmukhi
+    pa-pk: Punjabi Shahmukhi
+    pl: Polish
+    ps: Pashto
+    pt: Portuguese
+    ro: Romanian
+    ru: Russian
+    si: Sinhala
+    sk: Slovakian
+    sl: Slovenian
+    so: Somali
+    sq: Albanian
+    sr: Serbian
+    sv: Swedish
+    sw: Swahili
+    ta: Tamil
+    th: Thai
+    tk: Turkmen
+    tr: Turkish
+    uk: Ukrainian
+    ur: Urdu
+    uz: Uzbeki
+    vi: Vietnamese
+    yi: Yiddish
+    zh: Chinese
+    zh-hk: Cantonese
+    zh-tw: Traditional Chinese
   'no': 'No'
   or: or
   place:

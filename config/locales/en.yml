@@ -616,10 +616,6 @@ en:
         url: "/check-state-pension"
       popular_links_heading: Popular on GOV.UK
       promotion_slots:
-      - text: Find out about the changes announced in the Autumn Budget.
-        title: Autumn Budget 2024
-        href: "/government/topical-events/autumn-budget-2024"
-        image_src: homepage/autumn-budget.png
       - text: Search and apply for jobs in England, Scotland and Wales.
         title: Find a job
         href: "/find-a-job"
@@ -628,6 +624,10 @@ en:
         title: National Insurance
         href: "/check-national-insurance-record"
         image_src: homepage/national-insurance-featured.png
+      - text: Find out what support is available to help with the cost of living.
+        title: Cost of living support
+        href: "/cost-of-living"
+        image_src: homepage/cost-of-living.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

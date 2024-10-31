@@ -10,6 +10,10 @@ sw:
       published: Ulichapishwa tarehe %{date}
       see_all_updates: angalia taarifa zote
       show_all_updates: Onyesha taarifa zote
+  formats:
+    take_part:
+      one: Shiriki
+      other: Shiriki
   i18n:
     direction:
   language_names:

@@ -10,6 +10,10 @@ si:
       published: පළ කළේ %{date}
       see_all_updates: සියලුම යාවත්කාලීනයන් බලන්න
       show_all_updates: සියලු යාවත්කාලීනයන් පෙන්වන්න
+  formats:
+    take_part:
+      one: සහභාගී වන්න
+      other: සහභාගී වන්න
   i18n:
     direction:
   language_names:

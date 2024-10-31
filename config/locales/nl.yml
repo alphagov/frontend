@@ -10,6 +10,10 @@ nl:
       published: Gepubliceerd %{date}
       see_all_updates: zie alle updates
       show_all_updates: toon alle updates
+  formats:
+    take_part:
+      one: Neem deel
+      other: Deelnemen
   i18n:
     direction:
   language_names:

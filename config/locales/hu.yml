@@ -10,6 +10,10 @@ hu:
       published: 'közzététel dátuma: %{date}'
       see_all_updates: minden frissítés megtekintése
       show_all_updates: minden frissítés megjelenítése
+  formats:
+    take_part:
+      one: Részvétel
+      other: Részvétel
   i18n:
     direction:
   language_names:

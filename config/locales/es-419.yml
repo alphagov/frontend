@@ -10,6 +10,10 @@ es-419:
       published: Publicado %{date}
       see_all_updates: ver todas las novedades
       show_all_updates: mostrar todas las actualizaciones
+  formats:
+    take_part:
+      one: Participe
+      other: Participe
   i18n:
     direction:
   language_names:

@@ -10,6 +10,9 @@ th:
       published: เผยแพร่เมื่อ %{date}
       see_all_updates: ดูอัปเดตทั้งหมด
       show_all_updates: แสดงอัปเดตทั้งหมด
+  formats:
+    take_part:
+      other: มีส่วนร่วม
   i18n:
     direction:
   language_names:

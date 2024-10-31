@@ -10,6 +10,12 @@ gd:
       published: Arna chur suas ar %{date}
       see_all_updates: féach gach nuashonrú
       show_all_updates: Taispeáin gach nuashonrú
+  formats:
+    take_part:
+      few:
+      one: Chun páirt a ghlacadh
+      other: Chun páirt a ghlacadh
+      two:
   i18n:
     direction:
   language_names:

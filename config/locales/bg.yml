@@ -10,6 +10,10 @@ bg:
       published: Публикувано на %{date}
       see_all_updates: вижте всички актуализации
       show_all_updates: показване на всички актуализации
+  formats:
+    take_part:
+      one: Вземете участие
+      other: Вземете участие
   i18n:
     direction:
   language_names:

@@ -10,6 +10,9 @@ ja:
       published: 公開日：%{date}
       see_all_updates: すべての更新を見る
       show_all_updates: すべての更新を表示
+  formats:
+    take_part:
+      other: 参加する
   i18n:
     direction:
   language_names:

@@ -10,6 +10,10 @@ et:
       published: Avaldatud %{date}
       see_all_updates: vt kõiki värskendusi
       show_all_updates: kuva kõik värskendused
+  formats:
+    take_part:
+      one: Osa võtma
+      other: Osa võtma
   i18n:
     direction:
   language_names:

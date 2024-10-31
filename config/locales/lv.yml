@@ -10,6 +10,10 @@ lv:
       published: Publicēts %{date}
       see_all_updates: skatīt visus atjauninājumus
       show_all_updates: rādīt visus atjauninājumus
+  formats:
+    take_part:
+      one: Piedalīties
+      other: Piedalīties
   i18n:
     direction:
   language_names:

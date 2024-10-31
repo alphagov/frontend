@@ -10,6 +10,10 @@ tr:
       published: Yayınlama %{date}
       see_all_updates: tüm güncellemeleri görün
       show_all_updates: tüm güncellemeleri göster
+  formats:
+    take_part:
+      one: Katıl
+      other: Katıl
   i18n:
     direction:
   language_names:

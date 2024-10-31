@@ -10,6 +10,10 @@ fi:
       published: Julkaistu %{date}
       see_all_updates: katso kaikki palvelut
       show_all_updates: näytä kaikki päivitykset
+  formats:
+    take_part:
+      one: Osallistu
+      other: Osallistu
   i18n:
     direction:
   language_names:

@@ -10,6 +10,10 @@ yi:
       published:
       see_all_updates:
       show_all_updates:
+  formats:
+    take_part:
+      one:
+      other:
   i18n:
     direction: rtl
   language_names:

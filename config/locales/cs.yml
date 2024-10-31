@@ -10,6 +10,11 @@ cs:
       published: Zveřejněno %{date}
       see_all_updates: vidět všechny aktualizace
       show_all_updates: zobrazit všechny aktualizace
+  formats:
+    take_part:
+      few:
+      one: Zúčastněte se
+      other: Zúčastněte se
   i18n:
     direction:
   language_names:

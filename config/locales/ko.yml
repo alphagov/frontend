@@ -10,6 +10,9 @@ ko:
       published: 발행일 %{date}
       see_all_updates: 모든 업데이트 보기
       show_all_updates: 모든 업데이트 보기
+  formats:
+    take_part:
+      other: 참여하기
   i18n:
     direction:
   language_names:

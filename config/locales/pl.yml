@@ -10,6 +10,12 @@ pl:
       published: Opublikowano %{date}
       see_all_updates: zobacz wszystkie aktualizacje
       show_all_updates: pokaż wszystkie aktualizacje
+  formats:
+    take_part:
+      few:
+      many:
+      one: Weź udział
+      other: Weź udział
   i18n:
     direction:
   language_names:

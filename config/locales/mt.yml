@@ -10,6 +10,12 @@ mt:
       published: Ippubblikat %{date}
       see_all_updates: ara l-aġġornamenti kollha
       show_all_updates: uri l-aġġornamenti kollha
+  formats:
+    take_part:
+      few:
+      many:
+      one: Ħu sehem
+      other: Ħu sehem
   i18n:
     direction:
   language_names:

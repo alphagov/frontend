@@ -10,6 +10,10 @@ sq:
       published: Publikuar %{date}
       see_all_updates: shih të gjitha përditësimet
       show_all_updates: shfaq të gjitha përditësimet
+  formats:
+    take_part:
+      one: Merr pjesë
+      other: Merr pjesë
   i18n:
     direction:
   language_names:

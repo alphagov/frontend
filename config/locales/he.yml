@@ -10,6 +10,10 @@ he:
       published: פורסם %{date}
       see_all_updates: ראה כל העדכונים
       show_all_updates: הצג כל עדכונים
+  formats:
+    take_part:
+      one: קח חלק
+      other: קח חלק
   i18n:
     direction: rtl
   language_names:

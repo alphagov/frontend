@@ -10,6 +10,14 @@ ar:
       published: تاريخ النشر %{date}
       see_all_updates: اطلع على كل التحديثات
       show_all_updates: إظهار كل التحديثات
+  formats:
+    take_part:
+      few:
+      many:
+      one:
+      other: شارك
+      two:
+      zero:
   i18n:
     direction: rtl
   language_names:

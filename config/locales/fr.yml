@@ -10,6 +10,10 @@ fr:
       published: Publié le %{date}
       see_all_updates: afficher toutes les mises à jour
       show_all_updates: afficher toutes les mises à jour
+  formats:
+    take_part:
+      one: Participer
+      other: Participer
   i18n:
     direction:
   language_names:

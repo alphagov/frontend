@@ -10,6 +10,9 @@ id:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua pembaruan
       show_all_updates: Tampilkan semua pembaruan
+  formats:
+    take_part:
+      other: Ikut serta
   i18n:
     direction:
   language_names:

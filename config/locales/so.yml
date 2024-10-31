@@ -10,6 +10,10 @@ so:
       published: La daabacay %{date}
       see_all_updates: eeg dhamaan cusboonaysiinaha
       show_all_updates: muuji dhamaan cusboonaysiinaha
+  formats:
+    take_part:
+      one: Ka qeybgal
+      other: Ka qeybgal
   i18n:
     direction:
   language_names:

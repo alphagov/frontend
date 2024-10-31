@@ -10,6 +10,10 @@ kk:
       published: "%{date} күні жарияланды"
       see_all_updates: барлық жаңартуларды қарау
       show_all_updates: барлық жаңартуларды көрсету
+  formats:
+    take_part:
+      one: Қатысу
+      other: Қатысу
   i18n:
     direction:
   language_names:

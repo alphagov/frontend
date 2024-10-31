@@ -747,6 +747,13 @@ cy:
       start_again: Dechrau eto
       your_answers: Eich atebion
     start_now: Dechrau nawr
+    take_part:
+      few:
+      many:
+      one: Cymryd rhan
+      other: Cymryd rhan
+      two:
+      zero:
     transaction:
       before_you_start: Cyn i chi ddechrau
       more_information: Rhagor o wybodaeth

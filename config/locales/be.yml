@@ -10,6 +10,12 @@ be:
       published: Апублікавана %{date}
       see_all_updates: паглядзець усе абнаўленні
       show_all_updates: паказаць усе абнаўленні
+  formats:
+    take_part:
+      few:
+      many:
+      one: Прыняць удзел
+      other: Прыняць удзел
   i18n:
     direction:
   language_names:

@@ -10,6 +10,10 @@ ta:
       published: வெளியிடப்பட்ட தேதி %{date}
       see_all_updates: அனைத்து புதுப்பித்தல்களையும் பார்க்க
       show_all_updates: அனைத்து புதுப்பித்தல்களையும் காட்டு
+  formats:
+    take_part:
+      one: பங்கெடுத்தல்
+      other: பங்கெடுத்தல்
   i18n:
     direction:
   language_names:

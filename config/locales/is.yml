@@ -10,6 +10,10 @@ is:
       published: Birt %{date}
       see_all_updates: sjá allar uppfærslur
       show_all_updates: sýna allar uppfærslur
+  formats:
+    take_part:
+      one: Taka þátt
+      other: Taka þátt
   i18n:
     direction:
   language_names:

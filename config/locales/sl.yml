@@ -10,6 +10,12 @@ sl:
       published: Objavljeno %{date}
       see_all_updates: poglej vse posodobitve
       show_all_updates: prikaži vse posodobitve
+  formats:
+    take_part:
+      few:
+      one: Sodelujte
+      other: Sodelujte
+      two:
   i18n:
     direction:
   language_names:

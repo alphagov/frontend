@@ -10,6 +10,9 @@ zh-hk:
       published: 已發佈 %{date}
       see_all_updates: 查看所有更新
       show_all_updates: 顯示所有更新
+  formats:
+    take_part:
+      other: 參加活動
   i18n:
     direction:
   language_names:

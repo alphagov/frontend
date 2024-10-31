@@ -455,6 +455,9 @@ en:
       start_again: Start again
       your_answers: Your answers
     start_now: Start now
+    take_part:
+      one: Take part
+      other: Take part
     transaction:
       before_you_start: Before you start
       more_information: More information

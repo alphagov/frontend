@@ -10,6 +10,10 @@ gu:
       published: પ્રકાશિત થયો %{date}
       see_all_updates: બધા અપડેટ્સ જુઓ
       show_all_updates: બધા અપડેટ્સ બતાવો
+  formats:
+    take_part:
+      one: ભાગ લો
+      other: ભાગ લો
   i18n:
     direction:
   language_names:

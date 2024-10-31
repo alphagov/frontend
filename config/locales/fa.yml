@@ -10,6 +10,10 @@ fa:
       published: منشتر شده %{date}
       see_all_updates: مشاهده تمام بروزرسانی‌ها
       show_all_updates: نمایش تمام بروزرسانی‌ها
+  formats:
+    take_part:
+      one: مشارکت
+      other: مشارکت
   i18n:
     direction: rtl
   language_names:

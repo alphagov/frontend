@@ -10,6 +10,10 @@ it:
       published: Pubblicato %{date}
       see_all_updates: vedi tutti gli aggiornamenti
       show_all_updates: mostra tutti gli aggiornamenti
+  formats:
+    take_part:
+      one: Prendere parte
+      other: Prendere parte
   i18n:
     direction:
   language_names:

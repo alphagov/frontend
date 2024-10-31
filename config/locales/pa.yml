@@ -10,6 +10,10 @@ pa:
       published: ਪ੍ਰਕਾਸ਼ਿਤ %{date}
       see_all_updates: ਸਾਰੇ ਅਪਡੇਟਸ ਵੇਖੋ
       show_all_updates: ਸਾਰੇ ਅਪਡੇਟ ਦਿਖਾਉ
+  formats:
+    take_part:
+      one: ਹਿੱਸਾ ਲੈਣਾ
+      other: ਹਿੱਸਾ ਲੈਣਾ
   i18n:
     direction:
   language_names:

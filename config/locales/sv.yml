@@ -10,6 +10,10 @@ sv:
       published: Publicerad %{date}
       see_all_updates: se alla uppdateringar
       show_all_updates: Visa alla uppdateringar
+  formats:
+    take_part:
+      one: Delta
+      other: Delta
   i18n:
     direction:
   language_names:

@@ -10,6 +10,10 @@ tk:
       published: Çap edilen %{date}
       see_all_updates: ähli täzelenmelere serediň
       show_all_updates: ähli täzelenmeleri görkez
+  formats:
+    take_part:
+      one: Gatnaşmak
+      other: Gatnaşmak
   i18n:
     direction:
   language_names:

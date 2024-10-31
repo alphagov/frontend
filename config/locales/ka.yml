@@ -10,6 +10,10 @@ ka:
       published: გამოქვეყნდა %{date}
       see_all_updates: ყველა ცვლილების ნახვა
       show_all_updates: ყველა ცვლილების ჩვენება
+  formats:
+    take_part:
+      one: მონაწილეობის მიღება
+      other: მონაწილეობის მიღება
   i18n:
     direction:
   language_names:

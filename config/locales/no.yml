@@ -10,6 +10,10 @@
       published: Publisert %{date}
       see_all_updates: se alle oppdateringer
       show_all_updates: vis alle oppdateringer
+  formats:
+    take_part:
+      one: Delta
+      other: Delta
   i18n:
     direction:
   language_names:

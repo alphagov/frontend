@@ -10,6 +10,9 @@ ms:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua kemas kini
       show_all_updates: tunjuk semua kemas kini
+  formats:
+    take_part:
+      other: Ambil bahagian
   i18n:
     direction:
   language_names:

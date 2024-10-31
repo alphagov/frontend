@@ -10,6 +10,11 @@ sr:
       published: Objavljeno %{date}
       see_all_updates: pogledajte sva ažuriranja
       show_all_updates: prikaži sva ažuriranja
+  formats:
+    take_part:
+      few:
+      one: Učešće
+      other: Učešće
   i18n:
     direction:
   language_names:

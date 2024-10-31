@@ -10,6 +10,10 @@ el:
       published: Δημοσιεύτηκε %{date}
       see_all_updates: δείτε όλες τις ενημερώσεις
       show_all_updates: εμφάνιση όλων των ενημερώσεων
+  formats:
+    take_part:
+      one: Συμμετοχή
+      other: Συμμετοχή
   i18n:
     direction:
   language_names:

@@ -10,6 +10,10 @@ uz:
       published: Нашр қилинган %{date}
       see_all_updates: Барча янгиланишларни кўриш
       show_all_updates: янгиланишларни барчасини кўрсатиш
+  formats:
+    take_part:
+      one: Иштирок этиш
+      other: Иштирок этиш
   i18n:
     direction:
   language_names:

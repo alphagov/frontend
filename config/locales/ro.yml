@@ -10,6 +10,11 @@ ro:
       published: Publicat pe %{date}
       see_all_updates: vedeți toate actualizările
       show_all_updates: afișați toate actualizările
+  formats:
+    take_part:
+      few:
+      one: Participă
+      other: Participă
   i18n:
     direction:
   language_names:

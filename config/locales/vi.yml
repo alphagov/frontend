@@ -10,6 +10,9 @@ vi:
       published: Ngày xuất bản %{date}
       see_all_updates: xem tất cả nội dung cập nhật
       show_all_updates: hiển thị tất cả nội dung cập nhật
+  formats:
+    take_part:
+      other: Tham gia
   i18n:
     direction:
   language_names:

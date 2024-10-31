@@ -10,6 +10,11 @@ hr:
       published: Objavljeno %{date}
       see_all_updates: pogledajte sva ažuriranja
       show_all_updates: prikaži sva ažuriranja
+  formats:
+    take_part:
+      few:
+      one: Sudjelovati
+      other: Sudjelovati
   i18n:
     direction:
   language_names:

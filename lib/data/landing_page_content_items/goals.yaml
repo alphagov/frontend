@@ -1,5 +1,5 @@
-blocks:
-- type: main_navigation
+navigation_groups:
+- id: Top Menu
   links:
   - text: Landing page
     href: /landing-page/homepage/

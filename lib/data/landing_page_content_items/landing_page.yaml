@@ -1,12 +1,26 @@
-blocks:
-- type: main_navigation
+navigation_groups:
+- id: Top Menu
   links:
+  - text: Landing page
+  - href: /landing-page/homepage/
   - text: Goals
     href: /landing-page/goals
   - text: Tasks
     href: /landing-page/tasks
-  title: Landing page
-  title_link: /landing-page/homepage/
+- id: Sidebar
+  - text: Be kinder
+    href: "/landing-page/be-kinder"
+  - text: Exercise more
+    href: "/landing-page/exercise-more"
+  - text: Donate to charity
+    href: "/landing-page/donate-to-charity"
+  - text: Learn something new
+    href: "/landing-page/learn-something-new"
+  - text: Be thankful
+    href: "/landing-page/be-thankful"
+blocks:
+- type: main_navigation
+  navigation_group_id: Top Menu
 - type: hero
   image:
     alt: "Placeholder alt text"
@@ -157,6 +171,7 @@ blocks:
     underline_links: true
     title: Alternate title
     alternative_line_style: true
+    navigation_group_id: Sidebar
   - type: blocks_container
     blocks:
     - type: card

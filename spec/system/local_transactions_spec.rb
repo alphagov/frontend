@@ -256,6 +256,15 @@ RSpec.describe "LocalTransactions" do
           stub_local_links_manager_has_a_local_authority("Achester", local_custodian_code: 1)
           stub_local_links_manager_has_a_local_authority("Beechester", local_custodian_code: 2)
           stub_local_links_manager_has_a_local_authority("Ceechester", local_custodian_code: 3)
+          stub_local_links_manager_has_a_link(
+            authority_slug: "Beechester",
+            lgsl: 461,
+            lgil: 8,
+            url: "http://www.beechester.gov.uk/what-is-the-deal",
+            country_name: "England",
+            status: "ok",
+            local_custodian_code: 5990,
+          )
           visit "/pay-bear-tax"
           fill_in("postcode", with: "CH25 9BJ")
           click_on("Find your local council")
@@ -277,6 +286,13 @@ RSpec.describe "LocalTransactions" do
           expect(page).to have_content("House 1")
           expect(page).to have_content("House 2")
           expect(page).to have_content("House 3")
+        end
+
+        it "redirects to the correct authority when an address is chosen" do
+          choose("House 2")
+          click_on("Continue")
+
+          expect(page).to have_content("We’ve matched the postcode to Beechester")
         end
       end
 

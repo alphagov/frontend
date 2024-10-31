@@ -39,18 +39,16 @@ module LandingPage::Block
   private
 
     def csv_rows
-      @csv_rows ||= load_csv
-    end
-
-    def load_csv
-      rows = if attachment
-               CSV.new(URI.parse(attachment.url).open, headers: true).map(&:to_h)
-             else
-               # SCAFFOLDING
-               csv_file_path = Rails.root.join("#{STATISTICS_DATA_PATH}/#{data['csv_file']}")
-               CSV.read(csv_file_path, headers: true).map(&:to_h)
-             end
-      rows.each(&:deep_symbolize_keys!)
+      @csv_rows ||= begin
+        rows = if attachment
+                 CSV.new(URI.parse(attachment.url).open, headers: true).map(&:to_h)
+               else
+                 # SCAFFOLDING
+                 csv_file_path = Rails.root.join("#{STATISTICS_DATA_PATH}/#{data['csv_file']}")
+                 CSV.read(csv_file_path, headers: true).map(&:to_h)
+               end
+        rows.each(&:deep_symbolize_keys!)
+      end
     end
   end
 end

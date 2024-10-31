@@ -18,8 +18,9 @@ RSpec.describe LandingPage::Block::ColumnsLayout do
       ],
     }
   end
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
 
   it "has column blocks" do
-    expect(described_class.new(blocks_hash).columns.size).to eq(3)
+    expect(subject.columns.size).to eq(3)
   end
 end

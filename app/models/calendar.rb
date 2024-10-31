@@ -33,8 +33,6 @@ class Calendar
   end
 
   def divisions
-    return [] unless @data.key?("divisions")
-
     @divisions ||= @data["divisions"].map { |slug, data| Division.new(I18n.t(slug), data) }
   end
 
@@ -65,14 +63,6 @@ class Calendar
     divisions.each_with_object({}) do |division, hash|
       hash[division.slug] = division.as_json
     end
-  end
-
-  def content_id
-    @data["content_id"]
-  end
-
-  def body
-    @data["body"]
   end
 
   def christmas?

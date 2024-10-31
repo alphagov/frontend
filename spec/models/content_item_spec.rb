@@ -81,4 +81,26 @@ RSpec.describe ContentItem do
       expect(subject.attachments[0].title).to eq("Data One")
     end
   end
+
+  describe "#available_translations" do
+    let(:subject) do
+      described_class.new(
+        {
+          "links" => {
+            "available_translations" => [
+              { "locale" => "cy" },
+              { "locale" => "en" },
+            ],
+          },
+        },
+      )
+    end
+
+    it "returns sorted translations with default translation at the top" do
+      expect(subject.available_translations).to eq([
+        { "locale" => "en" },
+        { "locale" => "cy" },
+      ])
+    end
+  end
 end

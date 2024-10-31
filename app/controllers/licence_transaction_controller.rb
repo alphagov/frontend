@@ -104,8 +104,12 @@ private
     return {} if publication.licence_transaction_continuation_link.present?
 
     begin
+      puts "CALLING LICENSIFY"
+      puts "publication.licence_transaction_licence_identifier = #{publication.licence_transaction_licence_identifier}"
+      puts "local_authority_code = #{local_authority_code}"
       GdsApi.licence_application.details_for_licence(publication.licence_transaction_licence_identifier, local_authority_code)
     rescue GdsApi::HTTPErrorResponse => e
+      puts e
       return {} if e.code == 404
 
       raise

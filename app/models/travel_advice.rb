@@ -35,3 +35,8 @@ class TravelAdvice < ContentItem
     alert_statuses.filter_map { |alert| alert if ALERT_STATUSES.include?(alert) }
   end
 
+  def change_description
+    content_store_response["details"]["change_description"]
+  end
+end
+

@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "~> 3.2.0"
 
-gem "rails", "7.2.1.2"
+gem "rails", "7.2.2"
 
 gem "addressable"
 gem "bootsnap", require: false

@@ -18,6 +18,8 @@ class TravelAdviceController < ContentItemsController
   end
 
   def show
+    content_item.set_current_part(params[:slug])
+
     request.variant = :print if params[:variant] == :print
 
     respond_to do |format|

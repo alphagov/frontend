@@ -8,7 +8,7 @@
     schema: :article,
     canonical_url: @content_item.canonical_url,
     title: @content_item.page_title,
-    body: @content_item.body_for_metadata,
+    body: @content_item.current_part_body,
     content_item: @content_item.to_h %>
 <% end %>
 

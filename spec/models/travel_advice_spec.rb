@@ -1,4 +1,6 @@
 RSpec.describe TravelAdvice do
+  it_behaves_like "it has parts", "travel_advice", "full-country"
+
   before do
     @content_store_response = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
   end

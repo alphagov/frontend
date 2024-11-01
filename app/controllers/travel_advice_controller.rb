@@ -17,7 +17,12 @@ class TravelAdviceController < ContentItemsController
     end
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.atom
+    end
+  end
 
 private
 

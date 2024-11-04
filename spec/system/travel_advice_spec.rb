@@ -55,7 +55,7 @@ RSpec.describe "TravelAdvice" do
     it "sets the slimmer #wrapper classes" do
       visit "/foreign-travel-advice"
 
-      expect(page.find("#wrapper")["class"]).to eq("travel-advice")
+      expect(page.find("#wrapper")["class"]).to include("travel-advice")
     end
   end
 

@@ -7,6 +7,9 @@
     <% if publication && publication.in_beta %>
       <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
     <% end %>
+
+    <%= render partial: "govuk_web_banners/recruitment_banner" if recruitment_banner.present? %>
+
     <% unless current_page?(root_path) || !(publication || @calendar) || remove_breadcrumbs(content_item) %>
       <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
     <% end %>

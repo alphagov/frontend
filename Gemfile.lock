@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/alphagov/govuk_web_banners.git
+  revision: ea257b921840ad4b9736cce0e4d3ece9a9b42041
+  branch: add-recruitment-banners
+  specs:
+    govuk_web_banners (0.1.0)
+      govuk_publishing_components
+      rails (>= 7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -731,6 +740,7 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_schemas
   govuk_test
+  govuk_web_banners!
   htmlentities
   i18n-coverage
   listen

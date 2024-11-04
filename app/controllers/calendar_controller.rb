@@ -40,6 +40,10 @@ private
 
   helper_method :calendar
 
+  def content_item_path
+    "/#{params[:slug]}"
+  end
+
   def set_cors_headers
     headers["Access-Control-Allow-Origin"] = "*"
   end

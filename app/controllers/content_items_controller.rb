@@ -22,19 +22,15 @@ private
   end
 
   def content_item
-    @content_item ||= ContentItemFactory.build(request.env[:content_item] || request_content_item(content_item_slug || "/#{params[:slug]}"))
+    @content_item ||= ContentItemFactory.build(ContentItemLoader.load(content_item_path))
   end
 
-  def content_item_slug
+  def content_item_path
     request.path
   end
 
   def content_item_hash
     @content_item_hash ||= content_item.to_h
-  end
-
-  def request_content_item(base_path = "/#{params[:slug]}")
-    GdsApi.content_store.content_item(base_path)
   end
 
   # NOTE: Frontend honours the max-age directive  provided

@@ -1,6 +1,8 @@
 class ErrorController < ApplicationController
   def handler
-    # defer any errors to be handled in ApplicationController
-    raise request.env[:content_item_error]
+    # We know at this point that the ContentItemLoader has stored
+    # an exception to deal with, so just retrieve it and raise it
+    # to be handled in ApplicationController
+    raise ContentItemLoader.load(request.path)
   end
 end

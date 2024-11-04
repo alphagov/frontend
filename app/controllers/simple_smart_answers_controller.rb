@@ -25,6 +25,10 @@ private
     :smart_answer_path_for_responses,
   )
 
+  def content_item_path
+    "/#{params[:slug]}"
+  end
+
   def publication_class
     SimpleSmartAnswerPresenter
   end

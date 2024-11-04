@@ -4,26 +4,11 @@ class FormatRoutingConstraint
   end
 
   def matches?(request)
-    content_item = set_content_item(request)
-    @format == content_item&.[]("schema_name")
-  end
-
-  def set_content_item(request)
-    return request.env[:content_item] if already_cached?(request)
-
-    begin
-      request.env[:content_item] = GdsApi.content_store.content_item(key(request))
-    rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
-      request.env[:content_item_error] = e
-      nil
-    end
+    content_item = ContentItemLoader.load(key(request))
+    content_item.is_a?(GdsApi::Response) && content_item["schema_name"] == @format
   end
 
 private
-
-  def already_cached?(request)
-    request.env.include?(:content_item) || request.env.include?(:content_item_error)
-  end
 
   def key(request)
     "/#{request.params.fetch(:slug)}"

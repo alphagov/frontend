@@ -93,7 +93,7 @@ blocks:
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
           y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
+          csv_file: "data_two.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
   - type: card
@@ -106,7 +106,7 @@ blocks:
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
           y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
+          csv_file: "data_three.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
 - type: govspeak

@@ -35,14 +35,14 @@ blocks:
   navigation_group_id: Top Menu
 - type: hero
   image:
-    alt: "Placeholder alt text"
+    alt_text: "Placeholder alt text"
     sources:
-      desktop: "landing_page/placeholder/desktop.png"
-      desktop_2x: "landing_page/placeholder/desktop_2x.png"
-      mobile: "landing_page/placeholder/mobile.png"
-      mobile_2x: "landing_page/placeholder/mobile_2x.png"
-      tablet: "landing_page/placeholder/tablet.png"
-      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+      hero_desktop_1x: landing_page/placeholder/desktop.png
+      hero_desktop_2x: landing_page/placeholder/desktop_2x.png
+      hero_tablet_1x: landing_page/placeholder/tablet.png
+      hero_tablet_2x: landing_page/placeholder/tablet_2x.png
+      hero_mobile_1x: landing_page/placeholder/mobile.png
+      hero_mobile_2x: landing_page/placeholder/mobile_2x.png
   hero_content:
     blocks:
       - type: heading
@@ -91,14 +91,14 @@ blocks:
 - type: hero
   theme: middle_left
   image:
-    alt: "Placeholder alt text"
+    alt_text: "Placeholder alt text"
     sources:
-      desktop: "landing_page/placeholder/desktop.png"
-      desktop_2x: "landing_page/placeholder/desktop_2x.png"
-      mobile: "landing_page/placeholder/mobile.png"
-      mobile_2x: "landing_page/placeholder/mobile_2x.png"
-      tablet: "landing_page/placeholder/tablet.png"
-      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+      hero_desktop_1x: landing_page/placeholder/desktop.png
+      hero_desktop_2x: landing_page/placeholder/desktop_2x.png
+      hero_tablet_1x: landing_page/placeholder/tablet.png
+      hero_tablet_2x: landing_page/placeholder/tablet_2x.png
+      hero_mobile_1x: landing_page/placeholder/mobile.png
+      hero_mobile_2x: landing_page/placeholder/mobile_2x.png
   hero_content:
     blocks:
       - type: quote

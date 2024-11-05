@@ -67,4 +67,14 @@ RSpec.describe BlockHelper do
       expect(render_block(block)).to be_empty
     end
   end
+
+  describe "#block_image_path" do
+    it "returns an image path for a local image" do
+      expect(block_image_path("landing_page/placeholder/desktop.png")).to eq("/images/landing_page/placeholder/desktop.png")
+    end
+
+    it "returns the original url for a remote image" do
+      expect(block_image_path("http://www.gov.uk/favicon.png")).to eq("http://www.gov.uk/favicon.png")
+    end
+  end
 end

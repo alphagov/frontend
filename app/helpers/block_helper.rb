@@ -49,4 +49,10 @@ module BlockHelper
       end
     end
   end
+
+  # SCAFFOLDING: remove and remove all references when all images are coming from
+  # assets in the content item, rather than potentially being included in the repo
+  def block_image_path(url)
+    url.start_with?("http") ? url : image_path(url)
+  end
 end

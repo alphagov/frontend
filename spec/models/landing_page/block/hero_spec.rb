@@ -4,12 +4,12 @@ RSpec.describe LandingPage::Block::Hero do
       "image" => {
         "alt" => "some alt text",
         "sources" => {
-          "desktop" => "landing_page/desktop.jpeg",
-          "desktop_2x" => "landing_page/desktop_2x.jpeg",
-          "mobile" => "landing_page/mobile.jpeg",
-          "mobile_2x" => "landing_page/mobile_2x.jpeg",
-          "tablet" => "landing_page/tablet.jpeg",
-          "tablet_2x" => "landing_page/tablet_2x.jpeg",
+          "hero_desktop_1x" => "landing_page/desktop.png",
+          "hero_desktop_2x" => "landing_page/desktop_2x.png",
+          "hero_tablet_1x" => "landing_page/tablet.png",
+          "hero_tablet_2x" => "landing_page/tablet_2x.png",
+          "hero_mobile_1x" => "landing_page/mobile.png",
+          "hero_mobile_2x" => "landing_page/mobile_2x.png",
         },
       },
       "hero_content" => {
@@ -24,12 +24,19 @@ RSpec.describe LandingPage::Block::Hero do
   describe "#image" do
     it "returns the properties of the image" do
       expect(subject.image.alt).to eq "some alt text"
-      expect(subject.image.sources.desktop).to eq "landing_page/desktop.jpeg"
-      expect(subject.image.sources.desktop_2x).to eq "landing_page/desktop_2x.jpeg"
-      expect(subject.image.sources.mobile).to eq "landing_page/mobile.jpeg"
-      expect(subject.image.sources.mobile_2x).to eq "landing_page/mobile_2x.jpeg"
-      expect(subject.image.sources.tablet).to eq "landing_page/tablet.jpeg"
-      expect(subject.image.sources.tablet_2x).to eq "landing_page/tablet_2x.jpeg"
+    end
+
+    it "allows access by source version" do
+      expect(subject.image.sources.hero_desktop_1x).to eq "landing_page/desktop.png"
+      expect(subject.image.sources.hero_desktop_2x).to eq "landing_page/desktop_2x.png"
+      expect(subject.image.sources.hero_tablet_1x).to eq "landing_page/tablet.png"
+      expect(subject.image.sources.hero_tablet_2x).to eq "landing_page/tablet_2x.png"
+      expect(subject.image.sources.hero_mobile_1x).to eq "landing_page/mobile.png"
+      expect(subject.image.sources.hero_mobile_2x).to eq "landing_page/mobile_2x.png"
+    end
+
+    it "returns nil if the requested version doesn't exist" do
+      expect(subject.image.sources.hero_desktop_5x).to be_nil
     end
   end
 

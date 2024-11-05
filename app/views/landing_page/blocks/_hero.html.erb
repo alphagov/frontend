@@ -11,10 +11,10 @@
 
 <%= content_tag("div", class: hero_classes) do %>
   <%= picture_tag(class: "app-b-hero__imagewrapper") do %>
-    <%= tag.source srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)" %>
-    <%= tag.source srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
-    <%= tag.source srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)" %>
-    <%= image_tag(block.image.sources.desktop, alt: block.image.alt, class: "app-b-hero__image") %>
+    <%= tag.source srcset: "#{block_image_path(block.image.sources.hero_desktop_1x)}, #{block_image_path(block.image.sources.hero_desktop_2x)} 2x", media: "(min-width: 769px)" %>
+    <%= tag.source srcset: "#{block_image_path(block.image.sources.hero_tablet_1x)}, #{block_image_path(block.image.sources.hero_tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
+    <%= tag.source srcset: "#{block_image_path(block.image.sources.hero_mobile_1x)}, #{block_image_path(block.image.sources.hero_mobile_2x)} 2x", media: "(max-width: 640px)" %>
+    <%= image_tag(block.image.sources.hero_desktop_1x, alt: block.image.alt, class: "app-b-hero__image") %>
   <% end %>
 
   <div class="govuk-width-container app-b-hero__textbox-wrapper">

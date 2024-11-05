@@ -1,6 +1,8 @@
 ---
 ar:
   components:
+    figure:
+      image_credit: 'حقوق ملكية الصورة: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: إخفاء كافة التحديثات
@@ -8,5 +10,80 @@ ar:
       published: تاريخ النشر %{date}
       see_all_updates: اطلع على كل التحديثات
       show_all_updates: إظهار كل التحديثات
+  formats:
+    take_part:
+      few:
+      many:
+      one:
+      other: شارك
+      two:
+      zero:
   i18n:
     direction: rtl
+  language_names:
+    ar: العربيَّة
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

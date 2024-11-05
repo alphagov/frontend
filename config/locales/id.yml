@@ -1,6 +1,8 @@
 ---
 id:
   components:
+    figure:
+      image_credit: 'Kredit gambar: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: sembunyikan semua pembaruan
@@ -8,5 +10,75 @@ id:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua pembaruan
       show_all_updates: Tampilkan semua pembaruan
+  formats:
+    take_part:
+      other: Ikut serta
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id: Bahasa Indonesia
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

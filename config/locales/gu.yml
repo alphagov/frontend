@@ -1,6 +1,8 @@
 ---
 gu:
   components:
+    figure:
+      image_credit: ઇમેજ ક્રેડિટ:%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: બધા અપડેટ્સને હાઈડ કરો
@@ -8,5 +10,76 @@ gu:
       published: પ્રકાશિત થયો %{date}
       see_all_updates: બધા અપડેટ્સ જુઓ
       show_all_updates: બધા અપડેટ્સ બતાવો
+  formats:
+    take_part:
+      one: ભાગ લો
+      other: ભાગ લો
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu: જોર્જિયન
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

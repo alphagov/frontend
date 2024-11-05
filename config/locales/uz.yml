@@ -1,6 +1,8 @@
 ---
 uz:
   components:
+    figure:
+      image_credit: 'График материаллар тақдим этилган: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: Барча янгиланишларни яшириш
@@ -8,5 +10,76 @@ uz:
       published: Нашр қилинган %{date}
       see_all_updates: Барча янгиланишларни кўриш
       show_all_updates: янгиланишларни барчасини кўрсатиш
+  formats:
+    take_part:
+      one: Иштирок этиш
+      other: Иштирок этиш
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz: Ўзбеклар
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

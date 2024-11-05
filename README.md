@@ -52,6 +52,10 @@ Transaction start pages:
 * https://www.gov.uk/bank-holidays
 * https://www.gov.uk/when-do-the-clocks-change
 
+### Take Part
+
+* https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing
+
 ### Misc
 
 | URL  | Related views |

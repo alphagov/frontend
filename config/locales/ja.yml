@@ -1,6 +1,8 @@
 ---
 ja:
   components:
+    figure:
+      image_credit: 画像著作権：%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: すべての更新を非表示
@@ -8,5 +10,75 @@ ja:
       published: 公開日：%{date}
       see_all_updates: すべての更新を見る
       show_all_updates: すべての更新を表示
+  formats:
+    take_part:
+      other: 参加する
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja: 日本語
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

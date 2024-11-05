@@ -1,6 +1,8 @@
 ---
 sk:
   components:
+    figure:
+      image_credit: 'Obrázok: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: skryť všetky aktualizácie
@@ -8,5 +10,77 @@ sk:
       published: Zverejnené %{date}
       see_all_updates: pozrite si všetky aktualizácie
       show_all_updates: zobraziť všetky aktualizácie
+  formats:
+    take_part:
+      few:
+      one: Zúčastniť sa
+      other: Zúčastniť sa
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk: Slovensky
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

@@ -70,8 +70,14 @@ Rails.application.routes.draw do
   # Media previews
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
 
-  # Placeholder for attachments being virus-scanned
-  get "/government/placeholder", to: "placeholder#show"
+  scope "/government" do
+    # Placeholder for attachments being virus-scanned
+    get "/placeholder", to: "placeholder#show"
+
+    scope "/get-involved" do
+      get "/take-part/:slug", to: "take_part#show"
+    end
+  end
 
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do

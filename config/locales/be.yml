@@ -1,6 +1,8 @@
 ---
 be:
   components:
+    figure:
+      image_credit: 'Крэдыт выявы: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: схаваць усе абнаўленні
@@ -8,5 +10,78 @@ be:
       published: Апублікавана %{date}
       see_all_updates: паглядзець усе абнаўленні
       show_all_updates: паказаць усе абнаўленні
+  formats:
+    take_part:
+      few:
+      many:
+      one: Прыняць удзел
+      other: Прыняць удзел
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be: Беларуская
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

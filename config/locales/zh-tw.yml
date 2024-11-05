@@ -1,6 +1,8 @@
 ---
 zh-tw:
   components:
+    figure:
+      image_credit: 圖片來源： %{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: 隱藏所有更新
@@ -8,5 +10,75 @@ zh-tw:
       published: 發布於 %{date}
       see_all_updates: 查看所有更新
       show_all_updates: 展開所有更新
+  formats:
+    take_part:
+      other: 參與
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw: 繁體中文

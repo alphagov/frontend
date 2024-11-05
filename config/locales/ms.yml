@@ -1,6 +1,8 @@
 ---
 ms:
   components:
+    figure:
+      image_credit: 'Imej kredit: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: sorok semua kemas kini
@@ -8,5 +10,75 @@ ms:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua kemas kini
       show_all_updates: tunjuk semua kemas kini
+  formats:
+    take_part:
+      other: Ambil bahagian
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms: Bahasa Melayu
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

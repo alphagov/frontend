@@ -1,0 +1,44 @@
+<% content_for :title do %>
+  <%= @content_item.title %> - GOV.UK
+<% end %>
+
+<% content_for :extra_headers do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: @content_item.to_h, schema: :article } %>
+  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+<% end %>
+
+
+<main role="main" id="content" class="take-part" <%= lang_attribute(@content_item.locale) %>>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/title", {
+          title: @content_item.title,
+          context: I18n.t("formats.#{@content_item.document_type}", count: 1),
+          context_locale: t_locale_fallback("formats.#{@content_item.document_type}", count: 1),
+        }
+      %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
+    </div>
+
+    <%= render 'shared/translations' %>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render 'components/figure',
+      src: @content_item.image["url"],
+      alt: @content_item.image["alt_text"],
+      credit: @content_item.image["credit"],
+      caption: @content_item.image["caption"] if @content_item.image %>
+
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction
+      } do %>
+      <%= raw(@content_item.body) %>
+      <% end %>
+    </div>
+    <%= render 'shared/sidebar_navigation' %>
+  </div>
+</main>
+
+<%= render 'shared/footer_navigation' %>

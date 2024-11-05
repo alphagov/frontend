@@ -1,6 +1,8 @@
 ---
 uk:
   components:
+    figure:
+      image_credit: 'Зображення: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: приховати всі оновлення
@@ -8,5 +10,78 @@ uk:
       published: Опубліковано %{date}
       see_all_updates: переглянути всі оновлення
       show_all_updates: показати всі оновлення
+  formats:
+    take_part:
+      few:
+      many:
+      one: Взяти участь
+      other: Взяти участь
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk: Українська
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

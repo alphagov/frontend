@@ -1,6 +1,8 @@
 ---
 et:
   components:
+    figure:
+      image_credit: 'Pildi autoriõigus: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: peida kõik värskendused
@@ -8,5 +10,76 @@ et:
       published: Avaldatud %{date}
       see_all_updates: vt kõiki värskendusi
       show_all_updates: kuva kõik värskendused
+  formats:
+    take_part:
+      one: Osa võtma
+      other: Osa võtma
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et: Eesti
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

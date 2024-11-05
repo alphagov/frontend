@@ -1,6 +1,8 @@
 ---
 hu:
   components:
+    figure:
+      image_credit: 'Képaláírás: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: minden frissítés elrejtése
@@ -8,5 +10,76 @@ hu:
       published: 'közzététel dátuma: %{date}'
       see_all_updates: minden frissítés megtekintése
       show_all_updates: minden frissítés megjelenítése
+  formats:
+    take_part:
+      one: Részvétel
+      other: Részvétel
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu: Magyar
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

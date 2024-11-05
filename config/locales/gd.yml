@@ -1,6 +1,8 @@
 ---
 gd:
   components:
+    figure:
+      image_credit: 'Creidmheas íomhá: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: gach nuashonrú a cheilt
@@ -8,5 +10,78 @@ gd:
       published: Arna chur suas ar %{date}
       see_all_updates: féach gach nuashonrú
       show_all_updates: Taispeáin gach nuashonrú
+  formats:
+    take_part:
+      few:
+      one: Chun páirt a ghlacadh
+      other: Chun páirt a ghlacadh
+      two:
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd: Gaeilge
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

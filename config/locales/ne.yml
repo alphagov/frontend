@@ -1,6 +1,8 @@
 ---
 ne:
   components:
+    figure:
+      image_credit: 'छवि श्रेय: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: सबै अद्यावधिक लुकाउनुहोस्
@@ -8,5 +10,76 @@ ne:
       published: प्रकाशित %{date}
       see_all_updates: सबै अद्यावधिक हेर्नुहोस्
       show_all_updates: सबै अद्यावधिक देखाउनुहोस्
+  formats:
+    take_part:
+      one: सहभागी हुनु
+      other: सहभागी हुनु
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne: नेपाली
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

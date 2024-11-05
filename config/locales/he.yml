@@ -1,6 +1,8 @@
 ---
 he:
   components:
+    figure:
+      image_credit: 'קרדיט תמונה: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: להסתיר כל עדכונים
@@ -8,5 +10,76 @@ he:
       published: פורסם %{date}
       see_all_updates: ראה כל העדכונים
       show_all_updates: הצג כל עדכונים
+  formats:
+    take_part:
+      one: קח חלק
+      other: קח חלק
   i18n:
     direction: rtl
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he: עברית
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

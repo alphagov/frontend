@@ -1,6 +1,8 @@
 ---
 nl:
   components:
+    figure:
+      image_credit: 'Image credit: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: verberg alle updates
@@ -8,5 +10,76 @@ nl:
       published: Gepubliceerd %{date}
       see_all_updates: zie alle updates
       show_all_updates: toon alle updates
+  formats:
+    take_part:
+      one: Neem deel
+      other: Deelnemen
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl: Nederlands
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

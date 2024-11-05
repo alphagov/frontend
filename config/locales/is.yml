@@ -1,6 +1,8 @@
 ---
 is:
   components:
+    figure:
+      image_credit: Uppruni myndar %{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: fela allar uppfærslur
@@ -8,5 +10,76 @@ is:
       published: Birt %{date}
       see_all_updates: sjá allar uppfærslur
       show_all_updates: sýna allar uppfærslur
+  formats:
+    take_part:
+      one: Taka þátt
+      other: Taka þátt
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is: Íslenska
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

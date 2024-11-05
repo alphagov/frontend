@@ -1,6 +1,8 @@
 ---
 lv:
   components:
+    figure:
+      image_credit: 'Attēla autortiesības: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: paslēpt visus atjauninājumus
@@ -8,5 +10,76 @@ lv:
       published: Publicēts %{date}
       see_all_updates: skatīt visus atjauninājumus
       show_all_updates: rādīt visus atjauninājumus
+  formats:
+    take_part:
+      one: Piedalīties
+      other: Piedalīties
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv: Latviešu
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

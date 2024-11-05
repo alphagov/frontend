@@ -1,6 +1,8 @@
 ---
 pl:
   components:
+    figure:
+      image_credit: Obrazek:%{credit}
     published_dates:
       hidden_heading:
       hide_all_updates: ukryj wszystkie aktualizacje
@@ -8,5 +10,78 @@ pl:
       published: Opublikowano %{date}
       see_all_updates: zobacz wszystkie aktualizacje
       show_all_updates: pokaż wszystkie aktualizacje
+  formats:
+    take_part:
+      few:
+      many:
+      one: Weź udział
+      other: Weź udział
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl: Polski
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

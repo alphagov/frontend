@@ -1,6 +1,8 @@
 ---
 ur:
   components:
+    figure:
+      image_credit: 'تصویری کریڈٹ: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: تمام اپ ڈیٹس کو پوشیدہ کریں
@@ -8,5 +10,76 @@ ur:
       published: شائع کردہ %{date}
       see_all_updates: تمام اپ ڈیٹس دیکھیں
       show_all_updates: تمام اپ ڈیٹس دکھائیں
+  formats:
+    take_part:
+      one: شرکت کریں
+      other: شرکت کریں
   i18n:
     direction: rtl
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur: اردو
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

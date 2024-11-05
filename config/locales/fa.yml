@@ -1,6 +1,8 @@
 ---
 fa:
   components:
+    figure:
+      image_credit: 'اعتبار تصویر: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: مخفی کردن تمام بروزرسانی‌ها
@@ -8,5 +10,76 @@ fa:
       published: منشتر شده %{date}
       see_all_updates: مشاهده تمام بروزرسانی‌ها
       show_all_updates: نمایش تمام بروزرسانی‌ها
+  formats:
+    take_part:
+      one: مشارکت
+      other: مشارکت
   i18n:
     direction: rtl
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa: فارسی
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

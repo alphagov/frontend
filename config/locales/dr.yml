@@ -1,6 +1,8 @@
 ---
 dr:
   components:
+    figure:
+      image_credit: "%{credit}:کریدت تصویر\n"
     published_dates:
       hidden_heading:
       hide_all_updates: مخفی کردن تمام آپدیت ها
@@ -8,5 +10,76 @@ dr:
       published: منتشر شده%{date}
       see_all_updates: تمام آپدیت ها را مشاهده نمایید
       show_all_updates: تمام آپدیت ها را نمایش دهید
+  formats:
+    take_part:
+      one: سهم بگیرید
+      other: سهم بگیرید
   i18n:
     direction: rtl
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr: دری
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:

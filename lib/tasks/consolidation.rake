@@ -8,14 +8,17 @@ namespace :consolidation do
     Usage:
       rake "consolidation:copy_translation[components]" # copies the whole components tree
       rake "consolidation:copy_translation[components.figure]" # copies just the components.figure tree
+      rake "consolidation:copy_translation[components.figure,component_details.figure]" # copies just the components.figure tree, but puts it into component_details.figure in frontend
 
     Note that government-frontend needs to be checked out out in a sibling directory
   END_DESC
-  task :copy_translation, [:key] => :environment do |_, args|
+  task :copy_translation, %i[key target_key] => :environment do |_, args|
     abort("government-frontend not checked out in a sibling directory") unless Dir.exist?(Rails.root.join("../government-frontend"))
 
     key = args.fetch(:key, nil)
+    target_key = args.fetch(:target_key, key)
     key_parts = key.split(".")
+    target_key_parts = target_key.split(".")
     abort("You need to specify a key to copy") unless key
 
     puts("Copying #{key} translations from government-frontend to frontend")
@@ -28,10 +31,11 @@ namespace :consolidation do
       translation_tree = government_frontend_keys.dig(*locale_key_parts)
       abort("key #{key} not found in government-frontend's #{flf}") unless translation_tree
 
+      target_locale_key_parts = [flf.gsub(".yml", "")] + target_key_parts
       if translation_tree.is_a?(Hash)
-        get_leaf_paths(translation_tree).each { |leaf_path| LocaleUpdater.add_key(locale_key_parts.join(".") + leaf_path[0], leaf_path[1]) }
+        get_leaf_paths(translation_tree).each { |leaf_path| LocaleUpdater.add_key(target_locale_key_parts.join(".") + leaf_path[0], leaf_path[1]) }
       else
-        LocaleUpdater.add_key(locale_key_parts.join("."), translation_tree)
+        LocaleUpdater.add_key(target_locale_key_parts.join("."), translation_tree)
       end
     end
   end

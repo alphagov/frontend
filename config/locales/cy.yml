@@ -101,6 +101,8 @@ cy:
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
   components:
+    figure:
+      image_credit: 'Delwedd gan: %{credit}'
     published_dates:
       hidden_heading:
       hide_all_updates: cuddio pob diweddariad
@@ -745,6 +747,13 @@ cy:
       start_again: Dechrau eto
       your_answers: Eich atebion
     start_now: Dechrau nawr
+    take_part:
+      few:
+      many:
+      one: Cymryd rhan
+      other: Cymryd rhan
+      two:
+      zero:
     transaction:
       before_you_start: Cyn i chi ddechrau
       more_information: Rhagor o wybodaeth
@@ -820,6 +829,73 @@ cy:
     most_active:
   i18n:
     direction:
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy: Cymraeg
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:
   'no': Na
   or:
   place:

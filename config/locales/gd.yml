@@ -639,6 +639,11 @@ gd:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Cás-staidéir
+      other: Tuarascálacha staidéir
+      two:
     take_part:
       few:
       one: Chun páirt a ghlacadh

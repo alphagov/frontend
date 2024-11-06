@@ -1,0 +1,14 @@
+<div class="govuk-grid-row govuk-!-margin-top-3">
+  <div class="metadata-logo-wrapper<%= ' responsive-bottom-margin' if @content_item.try(:logo) %>">
+    <div class="govuk-grid-column-two-thirds metadata-column">
+      <%= render 'govuk_publishing_components/components/metadata', @metadata_presenter.metadata_component_options %>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <% if @content_item.try(:logo) %>
+        <%= image_tag @content_item.logo[:path],
+          alt: @content_item.logo[:alt_text],
+          class: "metadata-logo" %>
+      <% end %>
+    </div>
+  </div>
+</div>

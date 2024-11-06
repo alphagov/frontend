@@ -77,7 +77,7 @@ RSpec.describe ContentItem do
 
   describe "#attachments" do
     it "loads the attachment data from the content item" do
-      expect(subject.attachments.count).to eq(2)
+      expect(subject.attachments.count).to eq(4)
       expect(subject.attachments[0].title).to eq("Data One")
     end
   end

@@ -14,59 +14,105 @@ RSpec.describe LandingPage::Block::Statistics do
   before do
     stub_request(:get, "https://www.asset.test.gov.uk/data_one.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
     stub_request(:get, "https://www.asset.test.gov.uk/data_two.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_two.csv"), headers: {})
+    stub_request(:get, "https://www.asset.test.gov.uk/data_three.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_three.csv"), headers: {})
+    stub_request(:get, "https://www.asset.test.gov.uk/data_four.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_four.csv"), headers: {})
   end
 
   describe "#x_axis_keys" do
     it "gets all of the x-axis data points" do
       expected_keys = %w[
-        2024-01-01
-        2024-02-01
-        2024-03-01
-        2024-04-01
-        2024-05-01
-        2024-06-01
+        1/6/2013
+        1/6/2014
+        1/6/2015
+        1/6/2016
+        1/6/2017
+        1/6/2018
+        1/6/2019
       ]
-
-      expect(subject.x_axis_keys).to eq(expected_keys)
-    end
-
-    it "gets all of the unique x-axis data points" do
-      expected_keys = %w[
-        2024-01-01
-        2024-02-01
-        2024-03-01
-      ]
-      blocks_hash["csv_file"] = "data_two.csv"
 
       expect(subject.x_axis_keys).to eq(expected_keys)
     end
   end
 
   describe "#rows" do
-    it "gets the rows for one line of data" do
+    it "gets the rows for one line of data with decimals" do
       expected_rows = [
         {
-          label: "variable_name",
-          values: [10, 11, 12, 13, 14, 15],
+          label: "Percentage of people being kinder to one and other",
+          values: [
+            0.5,
+            0.6,
+            0.7,
+            0.5,
+            0.6,
+            0.7,
+            0.55,
+          ],
         },
       ]
 
       expect(subject.rows).to eq(expected_rows)
     end
 
-    it "gets the rows for multiple lines of data" do
+    it "gets the rows for one line of data with whole numbers" do
+      blocks_hash["csv_file"] = "data_three.csv"
+
       expected_rows = [
         {
-          label: "variable_name",
-          values: [10, 11, 12],
-        },
-        {
-          label: "variable_name_two",
-          values: [13, 14, 15],
+          label: "The number of people working smarter not harder",
+          values: [
+            45_775.0,
+            47_518.0,
+            50_546.0,
+            56_042.0,
+            45_768.0,
+            34_530.0,
+            29_585.0,
+          ],
         },
       ]
 
+      expect(subject.rows).to eq(expected_rows)
+    end
+
+    it "gets the rows for one line of data when some rows are missing" do
       blocks_hash["csv_file"] = "data_two.csv"
+
+      expected_rows = [
+        {
+          label: "Percentage of people being kinder to one and other",
+          values: [
+            0.5,
+            0.6,
+            0.7,
+            0.5,
+            0.6,
+            0.7,
+            0.5,
+            0.0,
+            0.0,
+            0.5,
+            0.6,
+          ],
+        },
+      ]
+
+      expect(subject.rows).to eq(expected_rows)
+    end
+
+    it "gets the rows for two lines of data" do
+      blocks_hash["csv_file"] = "data_four.csv"
+
+      expected_rows = [
+        {
+          label: "Generation X",
+          values: [10.0, 20.0, 25.0, 30.0],
+        },
+        {
+          label: "Millenials",
+          values: [15.0, 25.0, 30.0, 35.0],
+        },
+      ]
 
       expect(subject.rows).to eq(expected_rows)
     end

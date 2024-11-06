@@ -493,6 +493,9 @@ bn:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: কেস স্টাডি
+      other: কেস স্টাডিসমূহ
     take_part:
       one: অংশ নিন
       other: অংশ নিন

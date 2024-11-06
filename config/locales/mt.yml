@@ -639,6 +639,11 @@ mt:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      many:
+      one: Studju ta' Każ
+      other: Studju ta' Każijiet
     take_part:
       few:
       many:

@@ -1,6 +1,8 @@
 RSpec.describe ContentItem do
   subject(:content_item) { build(:content_item_with_data_attachments, schema_name: "fancy_page_type") }
 
+  it_behaves_like "it can have organisations", "case_study", "doing-business-in-spain"
+
   describe "ordered_related_items attribute" do
     it "leaves ordered_related_items if set" do
       subject = described_class.new(
@@ -100,6 +102,39 @@ RSpec.describe ContentItem do
       expect(content_item.available_translations).to eq([
         { "locale" => "en" },
         { "locale" => "cy" },
+      ])
+    end
+  end
+
+  describe "#contributors" do
+    subject(:content_item) do
+      described_class.new(
+        {
+          "links" => {
+            "organisations" => [
+              {
+                "analytics_identifier" => "8888",
+                "content_id" => "11234500",
+                "api_path" => "/api/content/government/organisations/uk-health-security-agency",
+                "api_url" => "https://www.gov.uk/api/content/government/organisations/uk-health-security-agency",
+                "base_path" => "/government/organisations/uk-health-security-agency",
+                "document_type" => "organisation",
+                "title" => "UK Health Security Agency",
+                "web_url" => "https://www.gov.uk/government/organisations/uk-health-security-agency",
+              },
+            ],
+          },
+        },
+      )
+    end
+
+    it "returns the organisations content_id, base_path and title" do
+      expect(content_item.contributors).to eq([
+        {
+          "content_id" => "11234500",
+          "base_path" => "/government/organisations/uk-health-security-agency",
+          "title" => "UK Health Security Agency",
+        },
       ])
     end
   end

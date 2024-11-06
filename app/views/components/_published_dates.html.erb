@@ -37,7 +37,7 @@
           <ol class="app-c-published-dates__list">
             <% history.each do |change| %>
               <li class="app-c-published-dates__change-item">
-                <time class="app-c-published-dates__change-date timestamp" datetime="<%= change[:timestamp] %>"><%= change[:display_time] %></time>
+                <time class="app-c-published-dates__change-date timestamp" datetime="<%= change[:timestamp] %>"><%= display_date(change[:display_time]) %></time>
                 <p class="app-c-published-dates__change-note"><%= change[:note].strip %></p>
               </li>
             <% end %>

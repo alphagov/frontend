@@ -4,7 +4,7 @@
   metadata_component_options[:last_updated] = display_date(metadata_component_options[:last_updated])
 %>
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-margin-top-3">
   <div class="metadata-logo-wrapper<%= ' responsive-bottom-margin' if @content_item.try(:logo) %>">
     <div class="govuk-grid-column-two-thirds metadata-column">
       <%= render 'govuk_publishing_components/components/metadata', metadata_component_options %>

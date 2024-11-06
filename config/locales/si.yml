@@ -388,6 +388,9 @@ si:
   error:
   find:
   formats:
+    case_study:
+      one: සිද්ධි අධ්යයනය
+      other: සිද්ධි අධ්යයන
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

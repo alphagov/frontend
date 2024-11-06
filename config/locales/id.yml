@@ -315,6 +315,8 @@ id:
   error:
   find:
   formats:
+    case_study:
+      other: Studi kasus
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

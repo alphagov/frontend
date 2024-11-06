@@ -461,6 +461,10 @@ ro:
   error:
   find:
   formats:
+    case_study:
+      few:
+      one: Studiu de caz
+      other: Studii de caz
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

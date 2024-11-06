@@ -388,6 +388,9 @@ bn:
   error:
   find:
   formats:
+    case_study:
+      one: কেস স্টাডি
+      other: কেস স্টাডিসমূহ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

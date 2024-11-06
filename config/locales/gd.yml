@@ -534,6 +534,11 @@ gd:
   error:
   find:
   formats:
+    case_study:
+      few:
+      one: Cás-staidéir
+      other: Tuarascálacha staidéir
+      two:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

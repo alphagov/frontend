@@ -388,6 +388,9 @@ sv:
   error:
   find:
   formats:
+    case_study:
+      one: Fallstudie
+      other: Fallstudier
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

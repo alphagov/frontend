@@ -388,6 +388,9 @@ es:
   error:
   find:
   formats:
+    case_study:
+      one: Caso de estudio práctico
+      other: Casos de estudio práctico
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

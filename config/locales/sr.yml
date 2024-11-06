@@ -461,6 +461,10 @@ sr:
   error:
   find:
   formats:
+    case_study:
+      few:
+      one: Studija slučaja
+      other: Studije slučaja
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

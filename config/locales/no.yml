@@ -388,6 +388,9 @@
   error:
   find:
   formats:
+    case_study:
+      one: Casestudie
+      other: Casestudier
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

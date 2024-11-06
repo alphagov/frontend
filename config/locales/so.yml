@@ -493,6 +493,9 @@ so:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Daraasad
+      other: Daraasado
     take_part:
       one: Ka qeybgal
       other: Ka qeybgal

@@ -566,6 +566,10 @@ lt:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Atvejo analizė
+      other: Atvejų analizės
     take_part:
       few:
       one: Dalyvauti

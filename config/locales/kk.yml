@@ -493,6 +493,9 @@ kk:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Тақырыптық зерттеу
+      other: Тақырыптық зерттеулер
     take_part:
       one: Қатысу
       other: Қатысу

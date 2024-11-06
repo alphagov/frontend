@@ -420,6 +420,8 @@ ms:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: Kajian kes
     take_part:
       other: Ambil bahagian
     transaction:

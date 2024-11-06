@@ -639,6 +639,11 @@ ru:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      many:
+      one: Причинный анализ
+      other: Причинные анализы
     take_part:
       few:
       many:

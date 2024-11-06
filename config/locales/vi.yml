@@ -420,6 +420,8 @@ vi:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: Nghiên cứu điển hình
     take_part:
       other: Tham gia
     transaction:

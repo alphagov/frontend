@@ -493,6 +493,9 @@ yi:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one:
+      other:
     take_part:
       one:
       other:

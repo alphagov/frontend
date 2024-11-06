@@ -493,6 +493,9 @@ hu:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Esettanulmány
+      other: Esettanulmányok
     take_part:
       one: Részvétel
       other: Részvétel

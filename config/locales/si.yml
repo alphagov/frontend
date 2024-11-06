@@ -493,6 +493,9 @@ si:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: සිද්ධි අධ්යයනය
+      other: සිද්ධි අධ්යයන
     take_part:
       one: සහභාගී වන්න
       other: සහභාගී වන්න

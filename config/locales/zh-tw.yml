@@ -420,6 +420,8 @@ zh-tw:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: 案例分析
     take_part:
       other: 參與
     transaction:

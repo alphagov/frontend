@@ -493,6 +493,9 @@ et:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Juhtumiuuring
+      other: Juhtumiuuringud
     take_part:
       one: Osa võtma
       other: Osa võtma

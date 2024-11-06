@@ -420,6 +420,8 @@ ja:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: ケーススタディ
     take_part:
       other: 参加する
     transaction:

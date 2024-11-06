@@ -566,6 +566,10 @@ hr:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Studija slučaja
+      other: Studije slučaja
     take_part:
       few:
       one: Sudjelovati

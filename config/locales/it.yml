@@ -493,6 +493,9 @@ it:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Caso di studio
+      other: Casi di studio
     take_part:
       one: Prendere parte
       other: Prendere parte

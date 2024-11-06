@@ -493,6 +493,9 @@ az:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Nümunə üzrə araşdırma
+      other: Nümunə üzrə araşdırmalar
     take_part:
       one: İştirak edin
       other: İştirak edin

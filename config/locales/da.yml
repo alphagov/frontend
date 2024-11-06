@@ -493,6 +493,9 @@ da:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Casestudie
+      other: Casestudie
     take_part:
       one: Deltage
       other: Deltage

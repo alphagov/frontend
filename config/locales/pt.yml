@@ -493,6 +493,9 @@ pt:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Estudo de caso
+      other: Estudos de caso
     take_part:
       one: Participar
       other: Participar

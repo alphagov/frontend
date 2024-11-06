@@ -420,6 +420,8 @@ id:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: Studi kasus
     take_part:
       other: Ikut serta
     transaction:

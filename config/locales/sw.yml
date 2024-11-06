@@ -493,6 +493,9 @@ sw:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Uchunguzi kifani
+      other: Uchunguzi kifani
     take_part:
       one: Shiriki
       other: Shiriki

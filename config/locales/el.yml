@@ -493,6 +493,9 @@ el:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Μελέτη περίπτωσης
+      other: Μελέτες περιπτώσεων
     take_part:
       one: Συμμετοχή
       other: Συμμετοχή

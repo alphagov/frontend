@@ -306,6 +306,13 @@ RSpec.describe "FindLocalCouncil" do
           expect(page).to have_content("House 2")
           expect(page).to have_content("House 3")
         end
+
+        it "redirects to the correct authority when an address is chosen" do
+          choose("House 2")
+          click_on("Continue")
+
+          expect(page).to have_content("Your local authority is Beechester.")
+        end
       end
 
       context "when multiple authorities (6 or more) are found" do

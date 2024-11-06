@@ -66,10 +66,6 @@ private
     @locations_api_response ||= fetch_location(postcode)
   end
 
-  def single_authority_from_location_api?
-    locations_api_response.local_custodian_codes == 1
-  end
-
   def postcode
     @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
   end

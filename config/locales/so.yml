@@ -388,6 +388,9 @@ so:
   error:
   find:
   formats:
+    case_study:
+      one: Daraasad
+      other: Daraasado
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

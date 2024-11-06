@@ -388,6 +388,9 @@ kk:
   error:
   find:
   formats:
+    case_study:
+      one: Тақырыптық зерттеу
+      other: Тақырыптық зерттеулер
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

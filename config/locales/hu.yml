@@ -388,6 +388,9 @@ hu:
   error:
   find:
   formats:
+    case_study:
+      one: Esettanulmány
+      other: Esettanulmányok
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

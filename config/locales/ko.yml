@@ -315,6 +315,8 @@ ko:
   error:
   find:
   formats:
+    case_study:
+      other: 사례 연구
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

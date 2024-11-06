@@ -388,6 +388,9 @@ el:
   error:
   find:
   formats:
+    case_study:
+      one: Μελέτη περίπτωσης
+      other: Μελέτες περιπτώσεων
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

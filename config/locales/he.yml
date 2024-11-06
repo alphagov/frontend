@@ -388,6 +388,9 @@ he:
   error:
   find:
   formats:
+    case_study:
+      one: מקרה בוחן
+      other: מקרי בוחן
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

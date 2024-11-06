@@ -388,6 +388,9 @@ ta:
   error:
   find:
   formats:
+    case_study:
+      one: நிகழ்வு ஆய்வு
+      other: நிகழ்வு ஆய்வுகள்
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -388,6 +388,9 @@ hy:
   error:
   find:
   formats:
+    case_study:
+      one: Մասնավոր դեպքի ուսումնասիրություն
+      other: Մասնավոր դեպքի ուսումնասիրություններ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

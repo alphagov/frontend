@@ -461,6 +461,10 @@ sk:
   error:
   find:
   formats:
+    case_study:
+      few:
+      one: Prípadová štúdia
+      other: Prípadové štúdie
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

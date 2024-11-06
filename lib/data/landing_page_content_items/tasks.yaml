@@ -88,7 +88,7 @@ blocks:
             hide_heading: true
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
-            csv_file: "data_one.csv"
+            csv_file: "data_two.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
     - type: card
@@ -101,7 +101,7 @@ blocks:
             hide_heading: true
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
-            csv_file: "data_one.csv"
+            csv_file: "data_three.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
     - type: card
@@ -114,7 +114,7 @@ blocks:
             hide_heading: true
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
-            csv_file: "data_one.csv"
+            csv_file: "data_four.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
     - type: card

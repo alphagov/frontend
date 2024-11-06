@@ -11,25 +11,16 @@ module LandingPage::Block
     end
 
     def rows
-      rows = []
-
-      csv_rows.each do |row|
-        variable_name = row.values.second
-        value = row.values.last
-
-        existing_row = rows.find { |item| item[:label].include?(variable_name) }
-
-        if existing_row.present?
-          existing_row[:values] << value.to_i
-        else
-          rows << {
-            label: variable_name,
-            values: [value.to_i],
-          }
+      csv_headers[1..].map do |header|
+        values = csv_rows.map do |row|
+          row[header].to_f
         end
-      end
 
-      rows
+        {
+          label: header,
+          values:,
+        }
+      end
     end
 
     def attachment
@@ -39,16 +30,24 @@ module LandingPage::Block
   private
 
     def csv_rows
-      @csv_rows ||= begin
-        rows = if attachment
-                 CSV.new(URI.parse(attachment.url).open, headers: true).map(&:to_h)
-               else
-                 # SCAFFOLDING
-                 csv_file_path = Rails.root.join("#{STATISTICS_DATA_PATH}/#{data['csv_file']}")
-                 CSV.read(csv_file_path, headers: true).map(&:to_h)
-               end
-        rows.each(&:deep_symbolize_keys!)
-      end
+      @csv_rows ||= opened_csv.map(&:to_h)
+    end
+
+    def csv_headers
+      opened_csv.headers
+    end
+
+    def opened_csv
+      @opened_csv ||= attachment ? csv_from_url : csv_from_file
+    end
+
+    def csv_from_url
+      CSV.parse(URI.parse(attachment.url).open, headers: true)
+    end
+
+    def csv_from_file
+      csv_file_path = Rails.root.join("#{STATISTICS_DATA_PATH}/#{data['csv_file']}")
+      CSV.read(csv_file_path, headers: true)
     end
   end
 end

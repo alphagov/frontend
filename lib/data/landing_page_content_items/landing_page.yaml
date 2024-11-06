@@ -130,7 +130,7 @@ blocks:
     card_content:
       blocks:
         - type: statistics
-          title: "Chart to visually represent some data"
+          title: "Chart to visually represent some data with float data"
           x_axis_label: "X Axis"
           y_axis_label: "Y Axis"
           csv_file: "data_one.csv"
@@ -143,10 +143,10 @@ blocks:
     card_content:
       blocks:
         - type: statistics
-          title: "Chart to visually represent some data"
+          title: "Chart to visually represent some data with whole numbers"
           x_axis_label: "X Axis"
           y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
+          csv_file: "data_three.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
   - type: card
@@ -156,10 +156,10 @@ blocks:
     card_content:
       blocks:
         - type: statistics
-          title: "Chart to visually represent some data"
+          title: "Chart to visually represent some data with missing data"
           x_axis_label: "X Axis"
           y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
+          csv_file: "data_three.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
 - type: two_column_layout
@@ -193,7 +193,7 @@ blocks:
           - type: statistics
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
-            csv_file: "data_one.csv"
+            csv_file: "data_three.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
 - type: statistics
@@ -207,7 +207,7 @@ blocks:
   title: "Chart to visually represent some more data"
   x_axis_label: "X Axis"
   y_axis_label: "Y Axis"
-  csv_file: "data_two.csv"
+  csv_file: "data_three.csv"
   data_source_link: https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/l55o/mm23
 - type: share_links
   links:

@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     get "/*any", to: "landing_page#show"
   end
 
+  get "/full-width-images" => "full_width_images#index"
+
   # Accounts
   get "/sign-in", to: "help#sign_in"
   get "/sign-in/redirect", to: "sessions#create"

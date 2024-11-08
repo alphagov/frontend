@@ -1,0 +1,91 @@
+<% content_for :title, "Full width images - GOV.UK" %>
+
+<main id="content" role="main">
+  <div class="herotest herotest--full-width">
+    <div class="herotest-wrapper">
+      <%= image_tag 'herotest.png', class: 'herotest-image', alt: '' %>
+    </div>
+
+    <div class="herotest-text-wrapper">
+      <div class="govuk-width-container">
+        <div class="herotest-text-box">
+          <h1 class="govuk-heading-m">True full width</h1>
+          <p class="govuk-body">This image is true full width. It will always be the full width of the browser window.</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Good: true full width image</li>
+            <li>Bad: no control over image height, so this box could overlap onto content below on smaller screens</li>
+            <li>Bad: position of content in the image varies, so this box could obscure people's faces</li>
+            <li>Bad: image height scales with browser size, so for large screens maybe no page content is seen on page load, only image</li>
+            <li>Bad: to make the image look good, needs a very large filesize</li>
+            <li>Bad: breaks page layout before image has loaded, or if it fails to load</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="herotest herotest--limited-width">
+    <div class="herotest-wrapper">
+      <%= image_tag 'herotest.png', class: 'herotest-image', alt: '' %>
+    </div>
+
+    <div class="herotest-text-wrapper">
+      <div class="govuk-width-container">
+        <div class="herotest-text-box">
+          <h1 class="govuk-heading-m">Full width up to a limit</h1>
+          <p class="govuk-body">This image is wide but limited (to 1200px), after which a gap will appear either side of the image.</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Good: height of image doesn't change</li>
+            <li>Good: position of content within image much more static</li>
+            <li>Bad: gap either side of the image for some users (a background colour can improve this as shown, particularly if the colour is similar to the image)</li>
+            <li>Bad: some control over image height, but this box could still overlap onto content below on smaller screens</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="herotest herotest--fixed-height">
+    <div class="herotest-wrapper">
+      <%= image_tag 'herotest.png', class: 'herotest-image', alt: '' %>
+    </div>
+
+    <div class="herotest-text-wrapper">
+      <div class="govuk-width-container">
+        <div class="herotest-text-box">
+          <h1 class="govuk-heading-m">Full width with fixed height</h1>
+          <p class="govuk-body"></p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Good: height is fixed</li>
+            <li>Good: position of content is known</li>
+            <li>Bad: won't be full width on largest screens</li>
+            <li>Bad: image content is lost either side as browser gets narrower</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="herotest herotest--true-full-fixed-height">
+    <div class="herotest-wrapper">
+      <%= image_tag 'herotest.png', class: 'herotest-image', alt: '' %>
+    </div>
+
+    <div class="herotest-text-wrapper">
+      <div class="govuk-width-container">
+        <div class="herotest-text-box">
+          <h1 class="govuk-heading-m">True full width with fixed height</h1>
+          <p class="govuk-body"></p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Good: true full width</li>
+            <li>Good: image content is mostly predictable</li>
+            <li>Bad: bottom of image is lost on larger screens</li>
+            <li>Bad: image leaves a gap underneath on smaller screens</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

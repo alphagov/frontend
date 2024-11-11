@@ -62,8 +62,6 @@ $govuk-include-default-font-face: false;
   margin-bottom: govuk-spacing(6);
 }
 
-
-
 .herotest {
   position: relative;
   background:  govuk-colour("mid-grey");
@@ -89,9 +87,6 @@ $govuk-include-default-font-face: false;
   padding: govuk-spacing(4);
   background: govuk-colour("light-grey");
   border: solid 1px $govuk-border-colour;
-}
-
-.herotest--full-width {
 }
 
 .herotest--limited-width {
@@ -129,5 +124,30 @@ $govuk-include-default-font-face: false;
     top: 0;
     left: 0;
     width: 100%;
+  }
+}
+
+.herotest--image-fade {
+  .herotest-additional-wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 150px;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(177,180,182,1) 0%, rgba(2,0,36,0) 100%);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(177,180,182,1) 100%);
+    }
   }
 }

@@ -53,7 +53,7 @@
     <div class="herotest-text-wrapper">
       <div class="govuk-width-container">
         <div class="herotest-text-box">
-          <h1 class="govuk-heading-m">Full width with fixed height</h1>
+          <h1 class="govuk-heading-m">Full width with fixed height (chosen option)</h1>
           <p class="govuk-body"></p>
           <ul class="govuk-list govuk-list--bullet">
             <li>Good: height is fixed</li>
@@ -82,6 +82,30 @@
             <li>Good: image content is mostly predictable</li>
             <li>Bad: bottom of image is lost on larger screens</li>
             <li>Bad: image leaves a gap underneath on smaller screens</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="herotest herotest--fixed-height herotest--image-fade">
+    <div class="herotest-wrapper">
+      <div class="herotest-additional-wrapper">
+        <%= image_tag 'herotest.png', class: 'herotest-image', alt: '' %>
+      </div>
+    </div>
+
+    <div class="herotest-text-wrapper">
+      <div class="govuk-width-container">
+        <div class="herotest-text-box">
+          <h1 class="govuk-heading-m">Full width, fixed height, fade out</h1>
+          <p class="govuk-body"></p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Good: height is fixed</li>
+            <li>Good: position of content is known</li>
+            <li>Good: fade out helps reduce jarring edge of image on large screens</li>
+            <li>Bad: won't be full width on largest screens</li>
+            <li>Bad: image content is lost either side as browser gets narrower</li>
           </ul>
         </div>
       </div>

@@ -41,7 +41,7 @@ class ContentItemLoader
                YAML.load(File.read(local_yaml_filename(base_path))).to_json
              end
 
-      GdsApi::Response.new(OpenStruct.new(code: 200, body:, headers: { cache_control: "", expires: "" }))
+      GdsApi::Response.new(OpenStruct.new(code: 200, body:, headers: { cache_control: "max-age=0, public", expires: "" }))
     end
   end
 end

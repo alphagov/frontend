@@ -1,13 +1,11 @@
 RSpec.shared_examples "it has meta tags" do |schema, path|
   before do
-    example_doc = GovukSchemas::RandomExample.for_schema(frontend_schema: schema) do |random|
-      random.merge!(
-        "title" => "Zhe title",
-        "withdrawn_notice" => {},
-      )
-      random["links"]["available_translations"] = []
-      random
-    end
+    example_doc = GovukSchemas::Example.find(schema, example_name: schema)
+    example_doc.merge!(
+      "title" => "Zhe title",
+      "withdrawn_notice" => {},
+    )
+    example_doc["links"]["available_translations"] = []
 
     stub_content_store_has_item(path, example_doc.to_json)
   end
@@ -21,16 +19,14 @@ end
 
 RSpec.shared_examples "it has meta tags for images" do |schema, path|
   before do
-    example_doc = GovukSchemas::RandomExample.for_schema(frontend_schema: schema) do |random|
-      random["details"].merge!(
-        "image" => {
-          "url" => "https://example.org/image.jpg",
-          "alt_text" => "An accessible alt text",
-        },
-      )
-      random["links"]["available_translations"] = []
-      random
-    end
+    example_doc = GovukSchemas::Example.find(schema, example_name: schema)
+    example_doc["details"].merge!(
+      "image" => {
+        "url" => "https://example.org/image.jpg",
+        "alt_text" => "An accessible alt text",
+      },
+    )
+    example_doc["links"]["available_translations"] = []
 
     stub_content_store_has_item(path, example_doc.to_json)
   end

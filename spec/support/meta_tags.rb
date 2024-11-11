@@ -1,4 +1,4 @@
-RSpec.shared_examples "it has meta tags" do |schema, base_path|
+RSpec.shared_examples "it has meta tags" do |schema, path|
   before do
     example_doc = GovukSchemas::RandomExample.for_schema(frontend_schema: schema) do |random|
       random.merge!(
@@ -9,17 +9,17 @@ RSpec.shared_examples "it has meta tags" do |schema, base_path|
       random
     end
 
-    stub_content_store_has_item("#{base_path}/some-page", example_doc.to_json)
+    stub_content_store_has_item(path, example_doc.to_json)
   end
 
   it "renders the correct meta tags for the title" do
-    visit "#{base_path}/some-page"
+    visit path
 
     expect(page).to have_css("meta[property='og:title'][content='Zhe title']", visible: false)
   end
 end
 
-RSpec.shared_examples "it has meta tags for images" do |schema, base_path|
+RSpec.shared_examples "it has meta tags for images" do |schema, path|
   before do
     example_doc = GovukSchemas::RandomExample.for_schema(frontend_schema: schema) do |random|
       random["details"].merge!(
@@ -32,11 +32,11 @@ RSpec.shared_examples "it has meta tags for images" do |schema, base_path|
       random
     end
 
-    stub_content_store_has_item("#{base_path}/some-page", example_doc.to_json)
+    stub_content_store_has_item(path, example_doc.to_json)
   end
 
   it "renders image tags" do
-    visit "#{base_path}/some-page"
+    visit path
 
     expect(page).to have_css("meta[name='twitter:card'][content='summary_large_image']", visible: false)
     expect(page).to have_css("meta[name='twitter:image'][content='https://example.org/image.jpg']", visible: false)

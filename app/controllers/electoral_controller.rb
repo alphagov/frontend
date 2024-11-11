@@ -26,7 +26,7 @@ private
     LocalTransactionPresenter
   end
 
-  def content_item_slug
+  def content_item_path
     BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE
   end
 

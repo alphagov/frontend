@@ -22,10 +22,10 @@ private
   end
 
   def content_item
-    @content_item ||= ContentItemFactory.build(ContentItemLoader.load(content_item_slug || "/#{params[:slug]}"))
+    @content_item ||= ContentItemFactory.build(ContentItemLoader.load(content_item_path))
   end
 
-  def content_item_slug
+  def content_item_path
     request.path
   end
 

@@ -52,7 +52,7 @@ class FindLocalCouncilController < ContentItemsController
 
 private
 
-  def content_item_slug
+  def content_item_path
     BASE_PATH
   end
 

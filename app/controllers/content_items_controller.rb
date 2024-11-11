@@ -1,4 +1,6 @@
 class ContentItemsController < ApplicationController
+  include Cacheable
+
   before_action :set_locale, if: -> { request.format.html? }
 
 protected
@@ -35,16 +37,11 @@ private
 
   # NOTE: Frontend honours the max-age directive  provided
   # in Content Store's Cache-Control response header.
-  def set_expiry(expiry = nil)
-    if expiry
-      expires_in(expiry, public: true)
-      return
-    end
-    unless Rails.env.development?
-      expires_in(
-        content_item.cache_control.max_age,
-        public: !content_item.cache_control.private?,
-      )
+  def set_expiry(duration = nil)
+    if duration
+      expires_in(duration, public: true)
+    else
+      expires_in(content_item.cache_control.max_age, public: !content_item.cache_control.private?)
     end
   end
 

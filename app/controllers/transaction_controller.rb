@@ -1,5 +1,4 @@
 class TransactionController < ContentItemsController
-  include Cacheable
   include LocaleHelper
 
   before_action :deny_framing

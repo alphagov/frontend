@@ -57,10 +57,8 @@ protected
     error :not_found
   end
 
-  def set_expiry(duration = 30.minutes)
-    unless Rails.env.development?
-      expires_in(duration, public: true)
-    end
+  def set_expiry(duration = Rails.application.config.default_expiry)
+    expires_in(duration, public: true)
   end
 
   # TODO: Remove these nil methods by moving logic down from application.html.erb

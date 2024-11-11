@@ -1,6 +1,5 @@
 class LicenceTransactionController < ContentItemsController
   include Previewable
-  include Cacheable
   include SplitPostcodeSupport
 
   helper_method :licence_details

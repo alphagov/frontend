@@ -1,8 +1,6 @@
 require "simple_smart_answers/flow"
 
 class SimpleSmartAnswersController < ContentItemsController
-  include Cacheable
-
   def show; end
 
   def flow

@@ -1,6 +1,4 @@
 class HelpController < ContentItemsController
-  include Cacheable
-
   skip_before_action :set_expiry, only: [:ab_testing]
   skip_before_action :set_locale, only: [:ab_testing]
 

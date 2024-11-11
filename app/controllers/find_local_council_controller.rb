@@ -1,7 +1,6 @@
 require "postcode_sanitizer"
 
 class FindLocalCouncilController < ContentItemsController
-  include Cacheable
   include SplitPostcodeSupport
 
   skip_before_action :set_locale

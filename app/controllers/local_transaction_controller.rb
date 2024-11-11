@@ -1,6 +1,5 @@
 class LocalTransactionController < ContentItemsController
   include ActionView::Helpers::TextHelper
-  include Cacheable
   include SplitPostcodeSupport
 
   before_action :deny_framing

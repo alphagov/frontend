@@ -1,6 +1,4 @@
 class TravelAdviceController < ContentItemsController
-  include Cacheable
-
   FOREIGN_TRAVEL_ADVICE_SLUG = "foreign-travel-advice".freeze
 
   def index

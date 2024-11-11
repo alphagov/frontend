@@ -24,6 +24,13 @@ Transaction start pages:
 
  * https://www.gov.uk/government/get-involved
 
+### Call for evidence
+
+* https://www.gov.uk/government/calls-for-evidence/call-for-evidence-national-security-and-investment-act
+* https://www.gov.uk/government/calls-for-evidence/safety-of-journalists-call-for-evidence
+* https://www.gov.uk/government/calls-for-evidence/review-of-civil-legal-aid-call-for-evidence
+
+
 ### Hard-coded routes
 
 * https://www.gov.uk/ (homepage)

@@ -633,6 +633,8 @@ id:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ini diterbitkan di bawah %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

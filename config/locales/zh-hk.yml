@@ -634,6 +634,8 @@ zh-hk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 此項乃依據 %{government} 發佈
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -20,6 +20,11 @@ navigation_groups:
   - text: Be thankful
     href: "/landing-page/be-thankful"
 blocks:
+- type: component
+  component_name: back_link
+  config:
+    text: "Back to GOV.UK Homepage"
+    href: "/"
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero

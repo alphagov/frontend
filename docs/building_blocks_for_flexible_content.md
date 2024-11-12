@@ -29,6 +29,7 @@ Simple blocks generally render one component or "thing". They can either be rend
 
 - [Action link](#action-link)
 - [Big number](#big-number)
+- [Component](#component)
 - [Document list](#document-list)
 - [Govspeak](#govspeak)
 - [Heading](#heading)
@@ -63,6 +64,21 @@ A wrapper around the [Big number component](https://components.publishing.servic
   label: amount of money that looks big
 ```
 
+#### Component
+
+Renders a named component from the [Component Guide](https://components.publishing.service.gov.uk/component-guide/). The `component_name` key is used to identify the component to render, and everything under `config` is passed directly to the component.
+
+#### Example
+
+```yaml
+- type: component
+  component_name: back_link
+  config:
+    href: "/main-page"
+    text: 'Back to main page'
+    disable_ga4: true
+```
+
 #### Document list
 
 A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list)
@@ -88,7 +104,7 @@ A wrapper around the [Document list component](https://components.publishing.ser
 
 #### Govspeak
 
-A wrapper around the [Govspeak content component](https://components.publishing.service.gov.uk/component-guide/govspeak). 
+A wrapper around the [Govspeak content component](https://components.publishing.service.gov.uk/component-guide/govspeak).
 
 Content for this block can either be written as [govspeak](https://govspeak-preview.publishing.service.gov.uk/guide) or HTML. If you are adding a Govspeak block in config in the `frontend` application, it must be added as HTML. This is because, despite the name, the Govspeak component it calls actually renders HTML content.
 
@@ -411,7 +427,7 @@ Like the blocks container, but uses `display: flex` to lay out the child blocks.
 
 The grid container automatically arranges blocks into their own columns, independently of using the design system’s row/columns approach. These new columns are equally sized and spaced to a maximum of three. If more than three, a second row is started. It was created to give us control of the three columns of charts on the landing page homepage, but could be used to arrange other content into columns too.
 
-Note: The grid container was developed specifically to be used with card blocks and has not been tested with other block types. It was necessary when the design had cards that had three elements: Title, body text, chart. The grid container was required to get all the charts to line up regardless of how much body text was in the card. It may be possible to remove this block as there is no longer a requirement for body text. 
+Note: The grid container was developed specifically to be used with card blocks and has not been tested with other block types. It was necessary when the design had cards that had three elements: Title, body text, chart. The grid container was required to get all the charts to line up regardless of how much body text was in the card. It may be possible to remove this block as there is no longer a requirement for body text.
 
 ##### Example
 

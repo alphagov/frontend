@@ -46,7 +46,13 @@ RSpec.describe "LandingPage" do
     it "displays the page" do
       visit base_path
 
-      expect(page.status_code).to eq(200)
+      expect(page).to have_http_status(:ok)
+    end
+
+    it "renders a component (back_link)" do
+      visit base_path
+
+      expect(page).to have_selector "a.govuk-back-link"
     end
 
     it "renders a hero" do

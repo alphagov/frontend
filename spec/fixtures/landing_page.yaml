@@ -19,6 +19,11 @@ navigation_groups:
 blocks:
 - type: main_navigation
   navigation_group_id: "Top Menu"
+- type: component
+  component_name: back_link
+  config:
+    text: "Back to GOV.UK Homepage"
+    href: "/"
 - type: hero
   image:
     alt: "Placeholder alt text"

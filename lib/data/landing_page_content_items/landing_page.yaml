@@ -8,6 +8,7 @@ navigation_groups:
   - text: Tasks
     href: /landing-page/tasks
 - id: Sidebar
+  links:
   - text: Be kinder
     href: "/landing-page/be-kinder"
   - text: Exercise more
@@ -19,6 +20,11 @@ navigation_groups:
   - text: Be thankful
     href: "/landing-page/be-thankful"
 blocks:
+- type: component
+  component_name: back_link
+  config:
+    text: "Back to GOV.UK Homepage"
+    href: "/"
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero
@@ -180,6 +186,7 @@ blocks:
       card_content:
         blocks:
           - type: statistics
+            title: "not sure what goes here"
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
@@ -191,6 +198,7 @@ blocks:
       card_content:
         blocks:
           - type: statistics
+            title: "not sure what goes here"
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_three.csv"

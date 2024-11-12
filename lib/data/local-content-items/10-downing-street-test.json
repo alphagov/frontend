@@ -1,0 +1,137 @@
+{
+  "analytics_identifier": null,
+  "base_path": "/10-downing-street-test",
+  "content_id": "82d744b4-5941-4514-bfc9-efa2a5dd05da",
+  "description": "The history of 10 Downing Street",
+  "details": {
+    "attachments": [],
+    "blocks": [
+      {
+        "content": "\u003ch2 id=\"downing-street\"\u003e10 Downing Street\u003c/h2\u003e\n\n\u003cul\u003e\n  \u003cli\u003eA building\u003c/li\u003e\n  \u003cli\u003esome guy lives there\u003c/li\u003e\n  \u003cli\u003ea cat too.\u003c/li\u003e\n\u003c/ul\u003e\n",
+        "type": "govspeak"
+      }
+    ]
+  },
+  "document_type": "landing_page",
+  "first_published_at": null,
+  "links": {
+    "available_translations": [
+      {
+        "api_path": "/api/content/10-downing-street-test",
+        "api_url": "https://www.integration.publishing.service.gov.uk/api/content/10-downing-street-test",
+        "base_path": "/10-downing-street-test",
+        "content_id": "82d744b4-5941-4514-bfc9-efa2a5dd05da",
+        "document_type": "landing_page",
+        "links": {},
+        "locale": "en",
+        "public_updated_at": "2024-11-12T10:31:32Z",
+        "schema_name": "landing_page",
+        "title": "10 Downing Street",
+        "web_url": "https://www.integration.publishing.service.gov.uk/10-downing-street-test",
+        "withdrawn": false
+      }
+    ],
+    "organisations": [
+      {
+        "analytics_identifier": "OT1056",
+        "api_path": "/api/content/government/organisations/government-digital-service",
+        "api_url": "https://www.integration.publishing.service.gov.uk/api/content/government/organisations/government-digital-service",
+        "base_path": "/government/organisations/government-digital-service",
+        "content_id": "af07d5a5-df63-4ddc-9383-6a666845ebe9",
+        "details": {
+          "acronym": "GDS",
+          "brand": "department-for-science-innovation-and-technology",
+          "default_news_image": null,
+          "logo": {
+            "crest": "single-identity",
+            "formatted_title": "Government Digital Service"
+          },
+          "organisation_govuk_status": {
+            "status": "live",
+            "updated_at": null,
+            "url": null
+          }
+        },
+        "document_type": "organisation",
+        "links": {},
+        "locale": "en",
+        "schema_name": "organisation",
+        "title": "Government Digital Service",
+        "web_url": "https://www.integration.publishing.service.gov.uk/government/organisations/government-digital-service",
+        "withdrawn": false
+      }
+    ],
+    "original_primary_publishing_organisation": [
+      {
+        "analytics_identifier": "OT1056",
+        "api_path": "/api/content/government/organisations/government-digital-service",
+        "api_url": "https://www.integration.publishing.service.gov.uk/api/content/government/organisations/government-digital-service",
+        "base_path": "/government/organisations/government-digital-service",
+        "content_id": "af07d5a5-df63-4ddc-9383-6a666845ebe9",
+        "details": {
+          "acronym": "GDS",
+          "brand": "department-for-science-innovation-and-technology",
+          "default_news_image": null,
+          "logo": {
+            "crest": "single-identity",
+            "formatted_title": "Government Digital Service"
+          },
+          "organisation_govuk_status": {
+            "status": "live",
+            "updated_at": null,
+            "url": null
+          }
+        },
+        "document_type": "organisation",
+        "links": {},
+        "locale": "en",
+        "schema_name": "organisation",
+        "title": "Government Digital Service",
+        "web_url": "https://www.integration.publishing.service.gov.uk/government/organisations/government-digital-service",
+        "withdrawn": false
+      }
+    ],
+    "primary_publishing_organisation": [
+      {
+        "analytics_identifier": "OT1056",
+        "api_path": "/api/content/government/organisations/government-digital-service",
+        "api_url": "https://www.integration.publishing.service.gov.uk/api/content/government/organisations/government-digital-service",
+        "base_path": "/government/organisations/government-digital-service",
+        "content_id": "af07d5a5-df63-4ddc-9383-6a666845ebe9",
+        "details": {
+          "acronym": "GDS",
+          "brand": "department-for-science-innovation-and-technology",
+          "default_news_image": null,
+          "logo": {
+            "crest": "single-identity",
+            "formatted_title": "Government Digital Service"
+          },
+          "organisation_govuk_status": {
+            "status": "live",
+            "updated_at": null,
+            "url": null
+          }
+        },
+        "document_type": "organisation",
+        "links": {},
+        "locale": "en",
+        "schema_name": "organisation",
+        "title": "Government Digital Service",
+        "web_url": "https://www.integration.publishing.service.gov.uk/government/organisations/government-digital-service",
+        "withdrawn": false
+      }
+    ]
+  },
+  "locale": "en",
+  "phase": "live",
+  "public_updated_at": "2024-11-12T10:31:32+00:00",
+  "publishing_app": "whitehall",
+  "publishing_request_id": null,
+  "publishing_scheduled_at": null,
+  "rendering_app": "frontend",
+  "scheduled_publishing_delay_seconds": null,
+  "schema_name": "landing_page",
+  "title": "10 Downing Street",
+  "updated_at": "2024-11-12T10:31:32+00:00",
+  "withdrawn_notice": {}
+}

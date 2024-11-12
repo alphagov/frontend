@@ -8,6 +8,7 @@ navigation_groups:
   - text: Tasks
     href: /landing-page/tasks
 - id: Sidebar
+  links:
   - text: Be kinder
     href: "/landing-page/be-kinder"
   - text: Exercise more
@@ -180,6 +181,7 @@ blocks:
       card_content:
         blocks:
           - type: statistics
+            title: "not sure what goes here"
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_one.csv"
@@ -191,6 +193,7 @@ blocks:
       card_content:
         blocks:
           - type: statistics
+            title: "not sure what goes here"
             x_axis_label: "X Axis"
             y_axis_label: "Y Axis"
             csv_file: "data_three.csv"

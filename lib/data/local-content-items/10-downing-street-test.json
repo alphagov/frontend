@@ -7,10 +7,81 @@
     "attachments": [],
     "blocks": [
       {
-        "content": "\u003ch2 id=\"downing-street\"\u003e10 Downing Street\u003c/h2\u003e\n\n\u003cul\u003e\n  \u003cli\u003eA building\u003c/li\u003e\n  \u003cli\u003esome guy lives there\u003c/li\u003e\n  \u003cli\u003ea cat too.\u003c/li\u003e\n\u003c/ul\u003e\n",
-        "type": "govspeak"
+        "blocks": [
+          {
+            "blocks": [
+              {
+                "content": "\u003cp\u003eIMAGE GOES HERE\u003c/p\u003e\n",
+                "type": "govspeak"
+              },
+              {
+                "navigation_group_id": "sidebar",
+                "type": "side_navigation"
+              }
+            ],
+            "type": "blocks_container"
+          },
+          {
+            "content": "\u003ch2 id=\"introduction-ndash-by-sir-anthony-seldon\"\u003eIntroduction – by Sir Anthony Seldon\u003c/h2\u003e\n\n\u003cp\u003e10 Downing Street, the locale of British prime ministers since 1735, vies with the White House as being the most important political building anywhere in the world in the modern era. Behind its black door have been taken the most important decisions affecting Britain for the last 275 years.\u003c/p\u003e\n\n\u003cp\u003eIn the 20th century alone, the First and Second World Wars were directed from within it, as were the key decisions about the end of the empire, the building of the British nuclear bomb, the handling of economic crises from the Great Depression in 1929 to the great recession, and the building up of the welfare state.\u003c/p\u003e\n\n\u003cp\u003eSome of the most famous political figures of modern history have lived and worked in Number 10, including Robert Walpole, Pitt the Younger, Benjamin Disraeli, William Gladstone, David Lloyd George, Winston Churchill and Margaret Thatcher.\u003c/p\u003e\n\n\u003cp\u003eNumber 10 has 3 overlapping functions. It is the official residence of the British Prime Minister: it is their office, and it is also the place where the Prime Minister has entertained guests from Her Late Majesty Queen Elizabeth II to presidents of the United States and other world leaders. The Prime Minister hosts countless receptions and events for a whole range of British and overseas guests, with charitable receptions high up the list.\u003c/p\u003e\n\n\u003cp\u003eThe building is much larger than it appears from its frontage. The hall with the chequered floor immediately behind the front door lets on to a warren of rooms and staircases. The house in Downing Street was joined to a more spacious and elegant building behind it in the early 18th century. Number 10 has also spread itself out to the left of the front door, and has taken over much of 12 Downing Street, which is accessed by a corridor that runs through 11 Downing Street – the official residence of the Chancellor of the Exchequer.\u003c/p\u003e\n\n\u003ch2 id=\"explore-10-downing-street\"\u003eExplore 10 Downing Street\u003c/h2\u003e\n\n\u003cp\u003eTake a virtual tour inside 10 Downing Street and explore its most famous rooms and significant events at the \u003ca rel=\"external\" href=\"https://www.google.com/culturalinstitute/beta/u/0/partner/10-downing-street\"\u003eGoogle Cultural Institute\u003c/a\u003e.\u003c/p\u003e\n\n\u003ch2 id=\"origins-and-early-inhabitants\"\u003eOrigins and early inhabitants\u003c/h2\u003e\n\n\u003cp\u003eThe area around Downing Street was home to ancient Roman, Anglo-Saxon and Norman settlements, and was already a prestigious centre of government 1,000 years ago.\u003c/p\u003e\n\n\u003cp\u003eThe Romans first came to Britain under the command of Julius Caesar in 55 BC. Making their capital at Londinium downriver, the Romans chose Thorney Island – a marshy piece of land lying between two branches of the river Tyburn that flowed from Hampstead Heath to the Thames – as the site for their early settlement.\u003c/p\u003e\n\n\u003cp\u003eThese Roman settlements, and those of the Anglo-Saxons and Normans who supplanted them, were not very successful. The area was prone to plague and its inhabitants were very poor. A charter granted by the Mercian King Offa in the year 785 refers to “the terrible place called Thorney Island”. It took royal patronage to give the area prestige. King Canute (reigned 1017 to 1035) built a palace in the area, and Edward the Confessor (reigned 1042 to 1066) and William the Conqueror (reigned 1066 to 1087) maintained a royal presence there. The position of Westminster (as the area became known) as the centre of government and the church was solidified following the construction of the great abbey nearby, on Edward’s orders.\u003c/p\u003e\n\n\u003cp\u003eIMAGE GOES HERE\u003c/p\u003e\n\n\u003cp\u003eThe earliest building known to have stood on the site of Downing Street was the Axe brewery owned by the Abbey of Abingdon in the Middle Ages. By the early 1500s, it had fallen into disuse.\u003c/p\u003e\n\n\u003cp\u003eHenry VIII (reigned 1509 to 1547) developed Westminster’s importance further by building an extravagant royal residence there.\u003c/p\u003e\n\n\u003cp\u003eWhitehall Palace was created when Henry VIII confiscated York House from Cardinal Wolsey in 1530 and extended the complex. Today’s Downing Street is located on the edge of the Palace site.\u003c/p\u003e\n\n\u003cp\u003eThe huge residence included tennis courts, a tiltyard for jousting, a bowling green, and a cockpit for bird fights. Stretching from St James’s Park to the Thames, it was the official residence of Tudor and Stuart monarchs until it was destroyed by fire in 1698. It made the surrounding real estate some of the most important and valuable in London – and the natural home of power.\u003c/p\u003e\n\n\u003cp\u003eThe first domestic house known to have been built on the site of Number 10 was a large building leased to Sir Thomas Knyvet in 1581 by Queen Elizabeth I (reigned 1558 to 1603). He was one of the Queen’s favourites and was an MP for Thetford as well as a justice of the peace for Westminster. His claim to fame was the arrest of Guy Fawkes for his role in the gunpowder plot of 1605. He was knighted in 1604 by Elizabeth’s successor, King James I (reigned 1603 to 1625), and the house was extended.\u003c/p\u003e\n\n\u003cp\u003eAfter the death of Sir Knyvet and his wife, the house passed to their niece, Elizabeth Hampden, who continued to live there for the next 40 years.\u003c/p\u003e\n\n\u003cp\u003eThe middle of the 17th century was a period of political upheaval and Mrs Hampden’s family was right in the middle of it. Her son, John Hampden, was one of the MPs who opposed King Charles I (reigned 1625 to 1649), and Oliver Cromwell, the Lord Protector, was Mrs Hampden’s nephew.\u003c/p\u003e\n\n\u003cp\u003eHampden House, as it was then known, gave Mrs Hampden a prime view of the tumultuous events during the Civil War and the Commonwealth and the early years of the Restoration.\u003c/p\u003e\n\n\u003cp\u003eThe execution of Charles I in 1649 took place on a scaffold in front of Banqueting House in Whitehall, within earshot of the house. Mrs Hampden was still living there when King Charles II (reigned in Scotland from 1649 to 1685) was restored to the English throne in 1660.\u003c/p\u003e\n\n\u003cp\u003eThe Parliamentary Commissioners, who took over Crown lands during the time of the Commonwealth, described the house in 1650:\u003c/p\u003e\n\n\u003cblockquote\u003e\n  \u003cp class=\"last-child\"\u003eBuilt part of Bricke and part with Tymber and Flemish qalle and covered with Tyle, consistinge of a Large and spacious hall, wainscoted round, well lighted, and Paved with brick Pavements, two parls wherof one is Wainscoted round from the seelinge to ye floor, one Buttery, one seller, one Large kitchen well paved with stone and well fitted and Joynted and well fitted with dresser boards.\nAnd above stayres in the first story one large and spacious dyneinge Roome, Wainscoted round from the seelinge to the floore, well flored, Lighted and seeled, and fitted with a faire Chimney with a foote pace of paynted Tyle in the same. Also 6 more Roomes and 3 Closetts in the same flore all well lighted and seeled. And in the second story 4 garretts\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003ch2 id=\"the-emergence-of-downing-street\"\u003eThe emergence of Downing Street\u003c/h2\u003e\n\n\u003cp\u003eGeorge Downing gave his name to the most famous street in the world. It is unfortunate that he was such an unpleasant man. Able as a diplomat and a government administrator, he was miserly and at times brutal.\u003c/p\u003e\n\n\u003cp\u003eHowever, George Downing was responsible for the street, its name and the building we know today. A former diplomat at The Hague serving the Commonwealth, he changed allegiance with finesse. He traded enough secrets to gain a royal pardon in March 1660 and, by the Restoration in May 1660, to be rewarded with a knighthood.\u003c/p\u003e\n",
+            "type": "govspeak"
+          }
+        ],
+        "theme": "one_third_two_thirds",
+        "type": "two_column_layout"
       }
-    ]
+    ],
+    "navigation_groups": [
+      {
+        "id": "sidebar",
+        "links": [
+          {
+            "href": "#introduction-ndash-by-sir-anthony-seldon",
+            "text": "Introduction"
+          },
+          {
+            "href": "#explore-10-downing-street",
+            "text": "Explore 10 Downing Street"
+          },
+          {
+            "href": "#origins-and-early-inhabitants",
+            "text": "Origins and Early Inhabitants"
+          },
+          {
+            "href": "#emergence-of-downing-street",
+            "text": "The Emergence of Downing Street"
+          },
+          {
+            "href": "#pelham-to-pitt",
+            "text": "Pelham to Pitt"
+          },
+          {
+            "href": "#fall-and-rise",
+            "text": "Fall and Rise of Number 10"
+          },
+          {
+            "href": "#number-10-at-war",
+            "text": "Number 10 at War"
+          },
+          {
+            "href": "#restoration-and-modernisation",
+            "text": "Restoration and Modernisation"
+          },
+          {
+            "href": "#a-place-of-entertainment",
+            "text": "A Place of Entertainment"
+          },
+          {
+            "href": "#installations-at-number-10-timeline",
+            "text": "Installations at Number 10 Timeline"
+          },
+          {
+            "href": "#larry-chief-mouser",
+            "text": "Larry, Chief Mouser to the Cabinet\u0026nbsp;Office"
+          }
+        ]
+      }
+    ],
+    "theme": "default"
   },
   "document_type": "landing_page",
   "first_published_at": null,
@@ -24,7 +95,7 @@
         "document_type": "landing_page",
         "links": {},
         "locale": "en",
-        "public_updated_at": "2024-11-12T10:31:32Z",
+        "public_updated_at": "2024-11-12T15:43:59Z",
         "schema_name": "landing_page",
         "title": "10 Downing Street",
         "web_url": "https://www.integration.publishing.service.gov.uk/10-downing-street-test",
@@ -124,7 +195,7 @@
   },
   "locale": "en",
   "phase": "live",
-  "public_updated_at": "2024-11-12T10:31:32+00:00",
+  "public_updated_at": "2024-11-12T15:43:59+00:00",
   "publishing_app": "whitehall",
   "publishing_request_id": null,
   "publishing_scheduled_at": null,
@@ -132,6 +203,6 @@
   "scheduled_publishing_delay_seconds": null,
   "schema_name": "landing_page",
   "title": "10 Downing Street",
-  "updated_at": "2024-11-12T10:31:32+00:00",
+  "updated_at": "2024-11-12T15:43:59+00:00",
   "withdrawn_notice": {}
 }

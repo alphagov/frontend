@@ -1,7 +1,6 @@
 {
   "name": "Frontend",
   "repository": "https://github.com/alphagov/frontend",
-  "stack": "heroku-20",
   "env": {
     "GOVUK_APP_DOMAIN": {
       "value": "www.gov.uk"
@@ -39,6 +38,9 @@
   },
   "image": "heroku/ruby",
   "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    },
     {
       "url": "https://github.com/heroku/heroku-buildpack-ruby"
     }

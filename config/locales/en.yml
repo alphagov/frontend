@@ -947,6 +947,8 @@ en:
         heading: Feedback about your GOV.UK account
       invalid: There was a problem
       title: Control how we use information about you
+  shared:
+    historically_political: This was published under the %{government}
   sign_up: Sign up
   website: Website
   when_do_the_clocks_change:

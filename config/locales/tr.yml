@@ -709,6 +709,8 @@ tr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: "%{government} kapsamında yayınlandı"
   sign_up:
   website:
   when_do_the_clocks_change:

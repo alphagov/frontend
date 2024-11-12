@@ -709,6 +709,8 @@ so:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tani waxa la daabacayaa iyadoo kujirta %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

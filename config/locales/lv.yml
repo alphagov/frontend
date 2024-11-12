@@ -709,6 +709,8 @@ lv:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Šis tika publicēts saskaņā ar %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

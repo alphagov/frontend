@@ -634,6 +634,8 @@ ja:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 本件は、%{government}で公開されました
   sign_up:
   website:
   when_do_the_clocks_change:

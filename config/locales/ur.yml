@@ -709,6 +709,8 @@ ur:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: اسے %{government} کے تحت شائع کیا گیا تھا
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -709,6 +709,8 @@ sq:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Kjo u botua nën %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -709,6 +709,8 @@ pa:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: ਇਹ %{government} ਦੇ ਅਧੀਨ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤਾ ਗਿਆ ਸੀ
   sign_up:
   website:
   when_do_the_clocks_change:

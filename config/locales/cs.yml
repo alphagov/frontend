@@ -784,6 +784,8 @@ cs:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tento dokument byl zveřejněn pod hlavičkou %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

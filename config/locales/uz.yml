@@ -709,6 +709,8 @@ uz:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Бу %{government} номидан бўлган
   sign_up:
   website:
   when_do_the_clocks_change:

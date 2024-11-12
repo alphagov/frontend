@@ -859,6 +859,8 @@ gd:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Foilsíodh an doiciméad seo go deimhin faoi chuimsiú an %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -709,6 +709,8 @@ pa-pk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: اینوں ایس دے تحت شائع کیتا گیا %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

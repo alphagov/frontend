@@ -709,6 +709,8 @@ hu:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: A jelen kiadvány a(z) %{government} alatt került kiadásra
   sign_up:
   website:
   when_do_the_clocks_change:

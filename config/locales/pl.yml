@@ -859,6 +859,8 @@ pl:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Zostało to opublikowane w ramach %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

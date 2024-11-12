@@ -8,48 +8,30 @@
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/title", title: "Help using GOV.UK" %>
       <p class="govuk-body govuk-!-margin-bottom-8"><%= t('help.index.find_out') %></p>
-      <ul class="govuk-list">
-        <li>
-          <a href="/help/about-govuk" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.about') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.about_description') %></p>
-        </li>
-        <li>
-          <a href="/help/accessibility" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.accessibility') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.accessibility_description') %></p>
-        </li>
-        <li>
-          <a href="/help/beta" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.beta') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.beta_description') %></p>
-        </li>
-        <li>
-          <a href="/help/browsers" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.browsers') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.browsers_description') %></p>
-        </li>
-        <li>
-          <a href="/help/cookies" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.cookies') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.cookies_description') %></p>
-        </li>
-        <li>
-          <a href="/help/update-email-notifications" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.email') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.email_description') %></p>
-        </li>
-        <li>
-          <a href="/help/privacy-notice" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.privacy_notice') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.privacy_notice_description') %></p>
-        </li>
-        <li>
-          <a href="/help/report-vulnerability" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.vulnerability') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.vulnerability_description') %></p>
-        </li>
-        <li>
-          <a href="/help/reuse-govuk-content" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.reuse_content') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.reuse_content_description') %></p>
-        </li>
-        <li>
-          <a href="/help/terms-conditions" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold"><%= t('help.index.terms') %></a>
-          <p class="govuk-body govuk-!-margin-top-1"><%= t('help.index.terms_description') %></p>
-        </li>
-      </ul>
+      <%= render "govuk_publishing_components/components/list", {
+        items: [
+          sanitize("<a href='/help/about-govuk' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.about') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.about_description') + "</p>"),
+          sanitize("<a href='/help/accessibility' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.accessibility') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.accessibility_description') + "</p>"),
+          sanitize("<a href='/help/beta' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.beta') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.beta_description') + "</p>"),
+          sanitize("<a href='/help/browsers' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.browsers') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.browsers_description') + "</p>"),
+          sanitize("<a href='/help/cookies' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.cookies') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.cookies_description') + "</p>"),
+          sanitize("<a href='/help/update-email-notifications' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.email') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.email_description') + "</p>"),
+          sanitize("<a href='/help/privacy-notice' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.privacy_notice') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.privacy_notice_description') + "</p>"),
+          sanitize("<a href='/help/report-vulnerability' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.vulnerability') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.vulnerability_description') + "</p>"),
+          sanitize("<a href='/help/reuse-govuk-content' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.reuse_content') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.reuse_content_description') + "</p>"),
+          sanitize("<a href='/help/terms-conditions' class='govuk-link govuk-!-font-weight-bold'>" + t('help.index.terms') + "</a>
+          <p class='govuk-body govuk-!-margin-top-1'>" + t('help.index.terms_description') + "</p>")
+        ]
+      } %>
     </div>
 
     <div class="govuk-grid-column-one-third govuk-!-margin-top-8">

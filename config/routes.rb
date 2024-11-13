@@ -75,6 +75,7 @@ Rails.application.routes.draw do
     get "/placeholder", to: "placeholder#show"
 
     scope "/get-involved" do
+      get "/", to: "get_involved#show"
       get "/take-part/:slug", to: "take_part#show"
     end
   end

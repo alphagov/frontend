@@ -1,0 +1,2 @@
+class GetInvolvedController < ContentItemsController
+end

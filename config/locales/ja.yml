@@ -103,6 +103,8 @@ ja:
   components:
     figure:
       image_credit: 画像著作権：%{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: すべての更新を非表示
@@ -427,6 +429,17 @@ ja:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title = "Foreign and Commonwealth Office">FCO</abbr> は、国内一部地域への必要不可欠ものを除くすべての移動を控えるよう勧告しています。
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title = "Foreign and Commonwealth Office">FCO</abbr> は、国内での必要不可欠ものを除くすべての移動を控えるよう勧告しています。
+        avoid_all_travel_to_parts_html: <abbr title = "Foreign and Commonwealth Office">FCO</abbr> は、国内一部地域へのすべての移動を控えるよう勧告しています。
+        avoid_all_travel_to_whole_country_html: <abbr title = "Foreign and Commonwealth Office">FCO</abbr> は、国内すべての移動を控えるよう勧告しています。
+      context: 海外旅行のアドバイス
+      pages:
+      still_current_at: 現状：
+      summary: 概要
+      updated: 更新済み
   help:
     index:
       about:
@@ -562,6 +575,11 @@ ja:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: 次へ
+    previous_page: 前へ
+    print_entire_guide: ガイド全体を印刷する
+    printable_version:
   'no':
   or:
   place:

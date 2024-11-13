@@ -103,6 +103,8 @@ sv:
   components:
     figure:
       image_credit: 'Bild: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: dölj alla uppdateringar
@@ -501,6 +503,17 @@ sv:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> avråder från alla utom nödvändiga resor till delar av landet.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> avråder från alla utom nödvändiga resor till hela landet.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> avråder från alla resor till delar av landet.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> avråder från alla resor till hela landet.
+      context: Råd för resor utomlands
+      pages:
+      still_current_at: Fortfarande aktuell på
+      summary: Sammanfattning
+      updated: Uppdaterad
   help:
     index:
       about:
@@ -636,6 +649,11 @@ sv:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Nästa
+    previous_page: Föregående
+    print_entire_guide: Skriv ut hela guiden
+    printable_version:
   'no':
   or:
   place:

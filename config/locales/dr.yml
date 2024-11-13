@@ -103,6 +103,8 @@ dr:
   components:
     figure:
       image_credit: "%{credit}:کریدت تصویر\n"
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: مخفی کردن تمام آپدیت ها
@@ -501,6 +503,17 @@ dr:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: این<abbr title="Foreign and Commonwealth Office">FCO</abbr> در مورد هر گونه سفر ضروری به تمام نقاط کشور توصیه مینماید.
+        avoid_all_but_essential_travel_to_whole_country_html: این<abbr title="Foreign and Commonwealth Office">FCO</abbr> در مورد هرگونه سفر ضروری به تمام کشور توصیه مینماید.
+        avoid_all_travel_to_parts_html: این<abbr title="Foreign and Commonwealth Office">FCO</abbr> درمورد سفر به تمام نقاط کشور توصیه مینماید.
+        avoid_all_travel_to_whole_country_html: این<abbr title="Foreign and Commonwealth Office">FCO</abbr>در مورد سفر به تمام کشور توصیه مینماید.
+      context: مشاوره سفر هایی خارجی
+      pages:
+      still_current_at: هنور هم در
+      summary: خلاصه
+      updated: آپدیت شده
   help:
     index:
       about:
@@ -636,6 +649,11 @@ dr:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: قبلی
+    previous_page: قبلی
+    print_entire_guide: تمام راهنما را پرنت نمایید
+    printable_version:
   'no':
   or:
   place:

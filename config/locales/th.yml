@@ -103,6 +103,8 @@ th:
   components:
     figure:
       image_credit: 'เครดิตภาพ: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: ซ่อนอัปเดตทั้งหมด
@@ -427,6 +429,17 @@ th:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ไม่แนะนำให้เดินทางไปยังบางส่วนของประเทศ นอกจากมีเหตุจำเป็น
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ไม่แนะนำให้เดินทางไปยังทุกส่วนของประเทศ นอกจากมีเหตุจำเป็น
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ไม่แนะนำให้เดินทางไปยังบางส่วนของประเทศในทุกกรณี
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ไม่แนะนำให้เดินทางไปทุกส่วนของประเทศในทุกกรณี
+      context: คำแนะนำการเดินทางไปต่างประเทศ
+      pages:
+      still_current_at: ยังคงเป็นปัจจุบันเมื่อ
+      summary: สรุป
+      updated: ปรับปรุงแล้ว
   help:
     index:
       about:
@@ -562,6 +575,11 @@ th:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: ถัดไป
+    previous_page: ก่อนหน้า
+    print_entire_guide: พิมพ์คู่มือทั้งฉบับ
+    printable_version:
   'no':
   or:
   place:

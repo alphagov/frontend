@@ -103,6 +103,8 @@ sw:
   components:
     figure:
       image_credit: 'Mpiga picha: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: ficha masasisho yote
@@ -501,6 +503,17 @@ sw:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote isipokuwa usafiri muhimu katika sehemu fulani za nchi.
+        avoid_all_but_essential_travel_to_whole_country_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote isipokuwa usafiri muhimu nchini kote.
+        avoid_all_travel_to_parts_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote katika sehemu fulani za nchi.
+        avoid_all_travel_to_whole_country_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote nchini kote.
+      context: Ushauri wa safari za nje ya nchi
+      pages:
+      still_current_at: Bado unapatikana katika
+      summary: Muhtasari
+      updated: Ulisasishwa
   help:
     index:
       about:
@@ -636,6 +649,11 @@ sw:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Unaofuata
+    previous_page: Uliotangulia
+    print_entire_guide: Chapisha mwongozo wote
+    printable_version:
   'no':
   or:
   place:

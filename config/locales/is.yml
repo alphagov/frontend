@@ -103,6 +103,8 @@ is:
   components:
     figure:
       image_credit: Uppruni myndar %{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: fela allar uppfærslur
@@ -501,6 +503,17 @@ is:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ráðleggur gegn öllum ferðalögum til hluta landsins nema þeim allra nauðsynlegustu.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ráðleggur gegn öllum ferðalögum til alls landsins nema þeim allra nauðsynlegustu.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ráðleggur gegn öllum ferðalögum til hluta landsins.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ráðleggur gegn öllum ferðalögum til alls landsins.
+      context: Ráðleggingar um ferðalög erlendis
+      pages:
+      still_current_at: Enn uppfært þann
+      summary: Samantekt
+      updated: Uppfært
   help:
     index:
       about:
@@ -636,6 +649,11 @@ is:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Næsta
+    previous_page: Fyrri
+    print_entire_guide: Prenta allar leiðbeiningarnar
+    printable_version:
   'no':
   or:
   place:

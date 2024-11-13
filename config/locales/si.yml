@@ -103,6 +103,8 @@ si:
   components:
     figure:
       image_credit: 'රූප සඳහා ස්තූතියි: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: සියලු යාවත්කාලීන සඟවන්න
@@ -501,6 +503,17 @@ si:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> රටේ කොටස් වලට සියලු සංචාරවලට එරෙහිව උපදෙස් ලබා දෙන නමුත් අත්‍යවශ්‍ය සංවාරයක යෙදිය හැකිය.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> සමස්ථ රටටම සියලු සංචාරවලට එරෙහිව උපදෙස් ලබා දෙන නමුත් අත්‍යවශ්‍ය සංවාරයක යෙදිය හැකිය.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> රටේ කොටස් වලට සියලු සංචාරවලට එරෙහිව උපදෙස් ලබා දෙයි.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> සමස්ථ රටටම සියලු සංචාරවලට එරෙහිව උපදෙස් ලබා දෙයි.
+      context: විදේශ ගමන් උපදෙස්
+      pages:
+      still_current_at: තවමත් වත්මන්
+      summary: සාරාංශය
+      updated: යාවත්කාලීන කෙරිණි
   help:
     index:
       about:
@@ -636,6 +649,11 @@ si:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: ඊළඟ
+    previous_page: පෙර
+    print_entire_guide: සම්පූර්ණ මාර්ගෝපදේශය මුද්රණය කරන්න
+    printable_version:
   'no':
   or:
   place:

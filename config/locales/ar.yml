@@ -103,6 +103,8 @@ ar:
   components:
     figure:
       image_credit: 'حقوق ملكية الصورة: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: إخفاء كافة التحديثات
@@ -797,6 +799,17 @@ ar:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: ينصح <abbr title="Foreign and Commonwealth Office">FCO</abbr> بعدم السفر إلى بعض أجزاء البلد إلا للضرورة.
+        avoid_all_but_essential_travel_to_whole_country_html: ينصح <abbr title="Foreign and Commonwealth Office">FCO</abbr> بعد السفر إلى جميع أنحاء البلد إلا للضرورة.
+        avoid_all_travel_to_parts_html: ينصح <abbr title="Foreign and Commonwealth Office">FCO</abbr> بعدم السفر إلى بعض أجزاء البلد.
+        avoid_all_travel_to_whole_country_html: ينصح <abbr title="Foreign and Commonwealth Office">FCO</abbr> بعدم السفر إلى جميع أنحاء البلد.
+      context: نصائح السفر إلى الخارج
+      pages:
+      still_current_at: لا يزال ساريًا في
+      summary: ملخص
+      updated: تاريخ التحديث
   help:
     index:
       about:
@@ -932,6 +945,11 @@ ar:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: التالي
+    previous_page: السابق
+    print_entire_guide: طباعة الدليل بأكمله
+    printable_version:
   'no':
   or:
   place:

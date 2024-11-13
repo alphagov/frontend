@@ -103,6 +103,8 @@ kk:
   components:
     figure:
       image_credit: 'Суретті түсірген: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: барлық жаңартуларды жасыру
@@ -501,6 +503,17 @@ kk:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> маңыздысынан басқа елдің барлық аймақтарына барудан бас тартуға кеңес береді.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> қажеттісінен басқа бүкіл елге барудан бас тартуға кеңес береді.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> елдің барлық аймақтарына барудан бас тартуға кеңес береді.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> бүкіл елге баруға тыйым салады.
+      context: Шетелге саяхат туралы кеңес
+      pages:
+      still_current_at: Әлі де ағымдағы
+      summary: Қысқаша мазмұны
+      updated: Жаңартылды
   help:
     index:
       about:
@@ -636,6 +649,11 @@ kk:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Келесі
+    previous_page: Алдыңғы
+    print_entire_guide: Нұсқаулықты толығымен басып шығару
+    printable_version:
   'no':
   or:
   place:

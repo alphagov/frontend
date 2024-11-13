@@ -103,6 +103,8 @@ tr:
   components:
     figure:
       image_credit: 'Resim sahibi: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: tüm güncellemeleri gizle
@@ -501,6 +503,17 @@ tr:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ülkenin bazı bölgelerine zorunlu seyahatler haricinde seyahat edilmemesini tavsiye etmektedir.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> zorunlu seyahatler haricinde ülke geneline seyahat edilmemesini tavsiye etmektedir.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ülkeye bazı kısımlarına hiçbir seyahat yapılmamasını tavsiye etmektedir.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ülke geneline hiçbir seyahat yapılmamasını tavsiye etmektedir.
+      context: Yurtdışı seyahat tavsiyesi
+      pages:
+      still_current_at: Halen şurada
+      summary: Özet
+      updated: Güncelleme
   help:
     index:
       about:
@@ -636,6 +649,11 @@ tr:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Sonraki
+    previous_page: Önceki
+    print_entire_guide: Tüm kılavuzu yazdır
+    printable_version:
   'no':
   or:
   place:

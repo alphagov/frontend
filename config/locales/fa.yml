@@ -103,6 +103,8 @@ fa:
   components:
     figure:
       image_credit: 'اعتبار تصویر: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: مخفی کردن تمام بروزرسانی‌ها
@@ -501,6 +503,17 @@ fa:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: وزارت امور خارجه بریتانیا <abbr title="Foreign and Commonwealth Office">(FCO)</abbr> توصیه می‌کند از سفرهای غیر ضروری به بخش‌هایی از این کشور خودداری کنید.
+        avoid_all_but_essential_travel_to_whole_country_html: وزارت امور خارجه بریتانیا <abbr title="Foreign and Commonwealth Office">(FCO)</abbr> توصیه می‌کند از سفرهای غیر ضروری به تمام نقاط این کشور خودداری کنید.
+        avoid_all_travel_to_parts_html: وزارت امور خارجه بریتانیا <abbr title="Foreign and Commonwealth Office">(FCO)</abbr> توصیه می‌کند از سفر به بخش‌هایی از این کشور خودداری کنید.
+        avoid_all_travel_to_whole_country_html: وزارت امور خارجه بریتانیا <abbr title="Foreign and Commonwealth Office">(FCO)</abbr> توصیه می‌کند از سفر به تمام نقاط این کشور خودداری کنید.
+      context: توصیه‌های مربوط به سفر خارجی
+      pages:
+      still_current_at: همچنان جاری است در
+      summary: خلاصه
+      updated: بروز شده
   help:
     index:
       about:
@@ -636,6 +649,11 @@ fa:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: بعدی
+    previous_page: قبلی
+    print_entire_guide: چاپ کل راهنما
+    printable_version:
   'no':
   or:
   place:

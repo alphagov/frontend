@@ -103,6 +103,8 @@ be:
   components:
     figure:
       image_credit: 'Крэдыт выявы: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: схаваць усе абнаўленні
@@ -649,6 +651,17 @@ be:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Міністэрства замежных спраў і па справах Садружнасці <abbr title="Foreign and Commonwealth Office">FCO</abbr> раяць устрымацца ад усіх падарожжаў, апроч самых патрэбных, у некаторыя раёны краіны.
+        avoid_all_but_essential_travel_to_whole_country_html: Міністэрства замежных спраў і па справах Садружнасці <abbr title="Foreign and Commonwealth Office">FCO</abbr> раяць устрымацца ад усіх падарожжаў, апроч самых патрэбных, у некаторыя раёны краіны.
+        avoid_all_travel_to_parts_html: Міністэрства замежных спраў і па справах Садружнасці <abbr title="Foreign and Commonwealth Office">FCO</abbr> раяць устрымацца ад усіх падарожжаў, апроч самых патрэбных, у некаторыя раёны краіны.
+        avoid_all_travel_to_whole_country_html: Міністэрства замежных спраў і па справах Садружнасці <abbr title="Foreign and Commonwealth Office">FCO</abbr> раяць устрымацца ад усіх падарожжаў, апроч самых патрэбных, у некаторыя раёны краіны.
+      context: Рады па замежных падарожжах
+      pages:
+      still_current_at: Усё яшчэ актуальна
+      summary: Рэзюмэ
+      updated: Адноўлена
   help:
     index:
       about:
@@ -784,6 +797,11 @@ be:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Далей
+    previous_page: Папярэдні
+    print_entire_guide: Надрукаваць усё кіраўніцтва
+    printable_version:
   'no':
   or:
   place:

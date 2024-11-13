@@ -103,6 +103,8 @@ gu:
   components:
     figure:
       image_credit: ઇમેજ ક્રેડિટ:%{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: બધા અપડેટ્સને હાઈડ કરો
@@ -501,6 +503,17 @@ gu:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">વિદેશી - કોમનવેલ્થ અને વિકાસ કચેરી</abbr> જરૂરી મુસાફરી સિવાય દેશના કેટલાક ભાગોમાં પ્રવાસ ન કરવાની સલાહ આપે છે.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">વિદેશી - કોમનવેલ્થ અને વિકાસ કચેરી</abbr> જરૂરી મુસાફરી સિવાય, સંપૂર્ણ દેશમાં પ્રવાસ ન કરવાની સલાહ આપે છે.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">વિદેશી - કોમનવેલ્થ અને વિકાસ કચેરી</abbr> દેશના કેટલાક ભાગોમાં કોઈ પણ પ્રકારનો પ્રવાસ ન કરવાની સલાહ આપે છે.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">વિદેશી - કોમનવેલ્થ અને વિકાસ કચેરી</abbr> સંપૂર્ણ દેશમાં કોઈ પણ પ્રકારનો પ્રવાસ ન કરવાની સલાહ આપે છે.
+      context: વિદેશ પ્રવાસ અંગે સલાહ
+      pages:
+      still_current_at: પર હજુ પણ ચાલુ
+      summary: સારાંશ
+      updated: અપડેટ કરેલ
   help:
     index:
       about:
@@ -636,6 +649,11 @@ gu:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: આગળનું
+    previous_page: પહેલાનું
+    print_entire_guide: સંપૂર્ણ માર્ગદર્શિકા પ્રિન્ટ કરો
+    printable_version:
   'no':
   or:
   place:

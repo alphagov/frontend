@@ -103,6 +103,8 @@ da:
   components:
     figure:
       image_credit: 'Billede kredit: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: skjule alle opdateringer
@@ -501,6 +503,17 @@ da:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Den <abbr title="Foreign and Commonwealth Office">FCO</abbr> fraråde alle, men væsentlige rejser til dele af landet.
+        avoid_all_but_essential_travel_to_whole_country_html: Den <abbr title="Foreign and Commonwealth Office">FCO</abbr> fraråde alle, men væsentlige rejser til hele landet.
+        avoid_all_travel_to_parts_html: Den <abbr titel = "Foreign and Commonwealth Office">FCO</abbr> fraråde alle, men væsentlige rejser til dele af landet.
+        avoid_all_travel_to_whole_country_html: Den <abbr titel = "Udenrigs-og Commonwealth Office">FCO</abbr> fraråde alle, men væsentlige rejser til dele af landet.
+      context: Udenlandsk rejserådgivning
+      pages:
+      still_current_at: Stadig aktuel på
+      summary: Resumé
+      updated: Opdateret
   help:
     index:
       about:
@@ -636,6 +649,11 @@ da:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Næste
+    previous_page: Forrige
+    print_entire_guide: Udskriv hele hjælpelinjen
+    printable_version:
   'no':
   or:
   place:

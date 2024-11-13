@@ -103,6 +103,8 @@ az:
   components:
     figure:
       image_credit: 'Təqdim edilmiş qrafik material: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: bütün yenilmələri gizlət
@@ -501,6 +503,17 @@ az:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkənin bölgələrinə zəruri səyahət istisna olmaqla heç birini məsləhət görmürlər.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkəyə ümumi zəruri səyahət istisna olmaqla heç birini məsləhət görmürlər.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkənin bölgələrinə bütün səyahətləri məsləhət görmürlər.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkəyə ümumilikdə bütün səyahətləri məsləhət görmürlər.
+      context: Xaricə səyahət üzrə məsləhət
+      pages:
+      still_current_at: Hələ də qüvvədədir
+      summary: İcmal
+      updated: Yenilənib
   help:
     index:
       about:
@@ -636,6 +649,11 @@ az:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Sonrakı
+    previous_page: Əvvəlki
+    print_entire_guide: Təlimatı bütünlüklə çap edin
+    printable_version:
   'no':
   or:
   place:

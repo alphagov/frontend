@@ -103,6 +103,8 @@ fi:
   components:
     figure:
       image_credit: 'Kuvaluotto: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: piilota kaikki päivitykset
@@ -501,6 +503,17 @@ fi:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> kehottaa välttämään kaikkia muita kuin välttämättömiä matkoja osissa maata.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> kehottaa välttämään kaikkia muita kuin välttämättömiä matkoja koko maahan.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> kehottaa välttämään kaikkia matkoja osissa maata.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> kehottaa välttämään kaikkia matkoja koko maahan.
+      context: Ulkomaan matkustusneuvonta
+      pages:
+      still_current_at: Vielä ajankohtainen klo
+      summary: Yhteenveto
+      updated: Päivitetty
   help:
     index:
       about:
@@ -636,6 +649,11 @@ fi:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Seuraava
+    previous_page: Edellinen
+    print_entire_guide: Tulosta koko opas
+    printable_version:
   'no':
   or:
   place:

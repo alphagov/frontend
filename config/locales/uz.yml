@@ -103,6 +103,8 @@ uz:
   components:
     figure:
       image_credit: 'График материаллар тақдим этилган: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: Барча янгиланишларни яшириш
@@ -501,6 +503,17 @@ uz:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">Ташқи ишлар ва Ҳамдўстлик ишлари бўйича вазирлиги</abbr> ўта заруратсиз мамлакатнинг муайян минтақаларига сафарларни амалга оширишни тавсия этмайди.
+        avoid_all_but_essential_travel_to_whole_country_html: The <abbr title="Foreign and Commonwealth Office">Ташқи ишлар ва Ҳамдўстлик ишлари бўйича вазирлиги</abbr> ўта заруратсиз бутун мамлакатнинг ҳудуди бўйлаб сақарларни амалга оширишни тавсия этмайди.
+        avoid_all_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">Ташқи ишлар ва Ҳамдўстлик ишлари бўйича вазирлиги</abbr> мамлакатнинг муайян минтақаларига сафарларни амалга оширишни тавсия этмайди.
+        avoid_all_travel_to_whole_country_html: The <abbr title="Foreign and Commonwealth Office">Ташқи ишлар ва Ҳамдўстлик ишлари бўйича вазирлиги</abbr> бутун мамлакат ҳудуди бўйлаб сафарларни амалга оширишни тавсия этмайди.
+      context: Хорижга сафарларга нисбатан маслаҳат бериш
+      pages:
+      still_current_at: Ҳанузгача кучда
+      summary: Жамланма маълумот
+      updated: Янгиланган
   help:
     index:
       about:
@@ -636,6 +649,11 @@ uz:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Кейинги
+    previous_page: Олдинги
+    print_entire_guide: Бутун қўлланмани чоп этишга чиқариш
+    printable_version:
   'no':
   or:
   place:

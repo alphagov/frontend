@@ -103,6 +103,8 @@ ko:
   components:
     figure:
       image_credit: '이미지 저작권: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: 모든 업데이트 숨기기
@@ -427,6 +429,17 @@ ko:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가의 각지를 여행하지 말라고 권고합니다.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가의 전역을 여행하지 말라고 권고합니다.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가 각지로의 모든 여행을 삼가라고 권고합니다.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가 전역으로의 모든 여행을 삼가라고 권고합니다.
+      context: 외국 여행 권고
+      pages:
+      still_current_at: 최신 상태
+      summary: 요약
+      updated: 업데이트
   help:
     index:
       about:
@@ -562,6 +575,11 @@ ko:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: 다음
+    previous_page: 이전
+    print_entire_guide: 전체 지침 출력하기
+    printable_version:
   'no':
   or:
   place:

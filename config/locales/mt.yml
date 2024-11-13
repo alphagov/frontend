@@ -103,6 +103,8 @@ mt:
   components:
     figure:
       image_credit: 'Kreditu għall-immaġni:  %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: aħbi l-aġġornamenti kollha
@@ -649,6 +651,17 @@ mt:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Il- <abbr title="Foreign and Commonwealth Office">FCO</abbr> jirrakkomanda li ma jsiru l-ebda vjaġġi ħlief dawk essenzjali.
+        avoid_all_but_essential_travel_to_whole_country_html: Il- <abbr title="Foreign and Commonwealth Office">FCO</abbr> jirrakkomanda li ma jsiru l-ebda vjaġġi ħlief dawk essenzjali fil-pajjiż kollu.
+        avoid_all_travel_to_parts_html: Il- <abbr title="Foreign and Commonwealth Office">FCO</abbr> jirrakkomanda li ma jsiru l-ebda vjaġġi lejn xi partijiet tal-pajjiż.
+        avoid_all_travel_to_whole_country_html: Il- <abbr title="Foreign and Commonwealth Office">FCO</abbr> jirrakkomanda li ma jsiru l-ebda vjaġġi fil-pajjiż kollu.
+      context: Rakkomandazzjonijiet dwar ivvjaġġar barra mill-pajjiż
+      pages:
+      still_current_at: Għadu jeżisti fuq
+      summary: Sommarju
+      updated: Aġġornat
   help:
     index:
       about:
@@ -784,6 +797,11 @@ mt:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Li jmiss
+    previous_page: Ta' qabel
+    print_entire_guide: Stampa l-gwida kollu
+    printable_version:
   'no':
   or:
   place:

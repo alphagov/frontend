@@ -103,6 +103,8 @@ pl:
   components:
     figure:
       image_credit: Obrazek:%{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: ukryj wszystkie aktualizacje
@@ -649,6 +651,17 @@ pl:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odradza wszelkie podróże do niektórych części kraju, z wyjątkiem tych niezbędnych.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odradza wszelkie podróże do kraju, z wyjątkiem tych niezbędnych.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odradza wszelkie podróże do niektórych części kraju.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odradza wszelkie podróże do kraju.
+      context: Porady dotyczące podróży zagranicznych
+      pages:
+      still_current_at: Aktualne na dzień
+      summary: Podsumowanie
+      updated: Zaktualizowano
   help:
     index:
       about:
@@ -784,6 +797,11 @@ pl:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Następny
+    previous_page: Poprzedni
+    print_entire_guide: Wydrukuj cały przewodnik
+    printable_version:
   'no':
   or:
   place:

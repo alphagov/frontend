@@ -103,6 +103,8 @@ bg:
   components:
     figure:
       image_credit: 'Изображението е от: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: скриване на всички актуализации
@@ -501,6 +503,17 @@ bg:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> препоръчва да не се пътува до някои части на страната, освен ако това не е необходимо.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> препоръчва да не се пътува из цялата страна, освен ако не е необходимо.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> препоръчва да не се пътува до някои части на страната.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> препоръчва да не се пътува из цялата страна.
+      context: Съвети при пътуване в чужбина
+      pages:
+      still_current_at: Все още актуален в
+      summary: Обобщение
+      updated: Актуализиран
   help:
     index:
       about:
@@ -636,6 +649,11 @@ bg:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Следваща
+    previous_page: Предишна
+    print_entire_guide: Отпечатване на цялото ръководство
+    printable_version:
   'no':
   or:
   place:

@@ -103,6 +103,8 @@ et:
   components:
     figure:
       image_credit: 'Pildi autoriõigus: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: peida kõik värskendused
@@ -501,6 +503,17 @@ et:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> soovitab mitte reisida riigi osadesse muidu kui hädavajadusel.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> soovitab mitte reisida kogu riigis muidu kui hädavajadusel.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> soovitab mitte reisida riigi osades.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> soovitab mitte reisida kogu riigis.
+      context: Välisreiside nõuanded
+      pages:
+      still_current_at: Ikka praegune
+      summary: Kokkuvõte
+      updated: Uuendatud
   help:
     index:
       about:
@@ -636,6 +649,11 @@ et:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Edasi
+    previous_page: Eelmine
+    print_entire_guide: Printige kogu juhend
+    printable_version:
   'no':
   or:
   place:

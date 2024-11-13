@@ -9,6 +9,14 @@
       {
         "blocks": [
           {
+            "type": "component",
+            "component_name": "title",
+            "config": {
+              "context": "history",
+              "title": "10 Downing Street"
+            }
+          },
+          {
             "blocks": [
               {
                 "content": "\u003cp\u003eIMAGE GOES HERE\u003c/p\u003e\n",

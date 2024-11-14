@@ -2,6 +2,9 @@
   "name": "Frontend",
   "repository": "https://github.com/alphagov/frontend",
   "env": {
+    "ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE": {
+      "value": "true"
+    },
     "GOVUK_APP_DOMAIN": {
       "value": "www.gov.uk"
     },

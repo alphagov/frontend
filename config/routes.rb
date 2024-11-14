@@ -76,6 +76,7 @@ Rails.application.routes.draw do
   scope "/government" do
     # Placeholder for attachments being virus-scanned
     get "/placeholder", to: "placeholder#show"
+    get "/speeches/:slug", to: "speech#show"
 
     scope "/get-involved" do
       get "/", to: "get_involved#show"

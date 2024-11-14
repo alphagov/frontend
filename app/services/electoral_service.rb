@@ -43,10 +43,6 @@ private
     end
   end
 
-  def monitoring_path
-    postcode.present? ? "postcode" : "address"
-  end
-
   def request_url
     endpoint = postcode.present? ? "postcode/#{postcode}" : "address/#{uprn}"
     "#{api_base_path}/#{endpoint}?token=#{ENV['ELECTIONS_API_KEY']}"

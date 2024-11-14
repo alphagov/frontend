@@ -13,7 +13,7 @@ module LandingPage::Block
     def rows
       csv_headers[1..].map do |header|
         values = csv_rows.map do |row|
-          row[header].to_f
+          row[header].to_f if row[header].present?
         end
 
         {

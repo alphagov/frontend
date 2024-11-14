@@ -3867,14 +3867,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"selenium-webdriver@npm:^4.12.0":
-  version: 4.12.0
-  resolution: "selenium-webdriver@npm:4.12.0"
+"selenium-webdriver@npm:4.17.0":
+  version: 4.17.0
+  resolution: "selenium-webdriver@npm:4.17.0"
   dependencies:
     jszip: ^3.10.1
     tmp: ^0.2.1
-    ws: ">=8.13.0"
-  checksum: e02f131359fb5575f757fa5389f5e6bad145cdf4f5a8e066d73793d806041bdbdd1c8422ef3d7658ef33e52597b85561df397a3e58ee355215c9e32bce588b3e
+    ws: ">=8.14.2"
+  checksum: 0f559c8cf5b3e6c366083fb8822305f7fb7beac58a40ea4f536ff2a2f9a8adbdd93d68ad78c965c34a3814bc0ce2efbbcde23faa8686d01914ec32596bcde0de
   languageName: node
   linkType: hard
 
@@ -4801,9 +4801,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:>=8.13.0":
-  version: 8.17.1
-  resolution: "ws@npm:8.17.1"
+"ws@npm:>=8.14.2":
+  version: 8.18.0
+  resolution: "ws@npm:8.18.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ">=5.0.2"
@@ -4812,7 +4812,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 442badcce1f1178ec87a0b5372ae2e9771e07c4929a3180321901f226127f252441e8689d765aa5cfba5f50ac60dd830954afc5aeae81609aefa11d3ddf5cecf
+  checksum: 91d4d35bc99ff6df483bdf029b9ea4bfd7af1f16fc91231a96777a63d263e1eabf486e13a2353970efc534f9faa43bdbf9ee76525af22f4752cbc5ebda333975
   languageName: node
   linkType: hard
 

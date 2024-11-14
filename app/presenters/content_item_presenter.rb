@@ -27,8 +27,4 @@ class ContentItemPresenter
   def format
     @content_item["schema_name"]
   end
-
-  def short_description
-    nil
-  end
 end

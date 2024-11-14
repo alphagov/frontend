@@ -21,12 +21,6 @@ RSpec.describe ContentItemPresenter do
     end
   end
 
-  describe "#short_description" do
-    it "returns nil for an empty subject" do
-      expect(subject({}).short_description).to be_nil
-    end
-  end
-
   describe "#updated_at" do
     it "returns the subject public_updated_at" do
       datetime = 1.minute.ago

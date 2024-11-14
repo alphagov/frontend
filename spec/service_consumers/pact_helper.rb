@@ -23,7 +23,7 @@ Pact.service_provider "Bank Holidays API" do
     else
       base_url = "https://govuk-pact-broker-6991351eca05.herokuapp.com"
       path = "pacts/provider/#{url_encode(name)}/consumer/#{url_encode(consumer_name)}"
-      version_modifier = "versions/#{url_encode(ENV.fetch('PACT_CONSUMER_VERSION', 'master'))}"
+      version_modifier = "versions/#{url_encode(ENV.fetch('PACT_CONSUMER_VERSION', 'branch-main'))}"
 
       pact_uri("#{base_url}/#{path}/#{version_modifier}")
     end
@@ -38,6 +38,7 @@ Pact.provider_states_for "GDS API Adapters" do
         schema_name: "calendar",
         document_type: "calendar",
       }
+
       stub_content_store_has_item("/bank-holidays", content_item)
     end
   end

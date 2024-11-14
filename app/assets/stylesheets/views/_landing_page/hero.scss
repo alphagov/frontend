@@ -3,6 +3,7 @@
 $mobile-height: 427px;
 $tablet-height: 512px;
 $desktop-height: 610px;
+$large-desktop-height: 610px;
 
 .app-b-hero {
   position: relative;
@@ -10,10 +11,15 @@ $desktop-height: 610px;
 }
 
 .app-b-hero__imagewrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   overflow: hidden;
   min-height: $desktop-height;
+
+  @media (min-width: 1281px) {
+    min-height: $large-desktop-height;
+  }
 
   @include govuk-media-query($until: desktop) {
     min-height: $tablet-height;
@@ -26,6 +32,14 @@ $desktop-height: 610px;
 
 .app-b-hero__image {
   display: block;
+
+  @media (min-width: 1281px) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    min-width: 100%;
+    transform: translate(-50%);
+  }
 }
 
 .app-b-hero__textbox {

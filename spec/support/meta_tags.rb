@@ -7,6 +7,7 @@ RSpec.shared_examples "it has meta tags" do |schema, path|
     )
     example_doc["links"]["available_translations"] = []
 
+    clear_content_item_loader_cache
     stub_content_store_has_item(path, example_doc.to_json)
   end
 
@@ -28,6 +29,7 @@ RSpec.shared_examples "it has meta tags for images" do |schema, path|
     )
     example_doc["links"]["available_translations"] = []
 
+    clear_content_item_loader_cache
     stub_content_store_has_item(path, example_doc.to_json)
   end
 

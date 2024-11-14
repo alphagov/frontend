@@ -13,7 +13,6 @@ class TravelAdviceIndexPresenter
     self.slug = attributes.fetch("base_path")[1..]
     self.title = attributes.fetch("title")
     self.subscription_url = details.fetch("email_signup_link")
-    self.format = "travel-advice"
   end
 
   def countries_by_date

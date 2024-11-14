@@ -19,7 +19,7 @@ RSpec.describe ApplicationHelper do
 
   describe "#wrapper_class" do
     it "marks local transactions as a service" do
-      local_transaction = OpenStruct.new(format: "local_transaction")
+      local_transaction = OpenStruct.new(schema_name: "local_transaction")
 
       expect(wrapper_class(local_transaction).split.include?("service")).to be true
     end

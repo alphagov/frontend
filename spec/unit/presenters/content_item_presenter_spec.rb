@@ -15,12 +15,6 @@ RSpec.describe ContentItemPresenter do
     end
   end
 
-  describe "#format" do
-    it "returns the subject format" do
-      expect(subject(schema_name: "foo").format).to eq("foo")
-    end
-  end
-
   describe "#updated_at" do
     it "returns the subject public_updated_at" do
       datetime = 1.minute.ago

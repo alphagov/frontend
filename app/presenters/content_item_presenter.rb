@@ -23,8 +23,4 @@ class ContentItemPresenter
     date = @content_item["public_updated_at"]
     Time.zone.parse(date) if date
   end
-
-  def format
-    @content_item["schema_name"]
-  end
 end

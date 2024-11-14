@@ -1,34 +1,42 @@
-describe('Main Navigation Block module', function () {
+describe('Main Menu Block module', function () {
   'use strict'
 
   var el, module
 
   beforeEach(function () {
     var DOM =
-      `
-        <div data-module="app-b-main-navigation">
-          <h2 class="app-b-main-nav__heading govuk-heading-s">
-            <span class="govuk-visually-hidden">You are currently on </span>[Place Current Menu Selection Here]
-          </h2>
-          <button class="app-b-main-nav__button js-app-b-main-nav__button govuk-link" aria-expanded="false" aria-controls="app-b-main-nav__nav" type="button">
-            Menu </button>
-          <nav id="app-b-main-nav__nav">
-            <ul class="app-b-main-nav__ul ">
-              <li class="app-b-main-nav__listitem app-b-main-nav__listitem--active" data-aria-current="true"> Lorem for Ipsum </li>
-              <li class="app-b-main-nav__listitem">
-                <a href="/ipsum-2" class="govuk-link govuk-link--no-underline">Ipsums for Lorem</a>
-              </li>
-              <li class="app-b-main-nav__listitem">
-                <a href="/our-lorem" class="govuk-link govuk-link--no-underline">Our Lorem</a>
-                <ul class="app-b-main-nav__childlist">
-                  <li class="app-b-main-nav__listitem">
-                    <a href="/a" class="govuk-link govuk-link--no-underline">Child 1</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+      `<div class="app-b-main-nav" data-module="app-b-main-nav">
+        <h2 class="govuk-visually-hidden">Secondary navigation menu</h2>
+        <div class="app-b-main-nav__button-container app-b-main-nav__button-container--collapsed js-app-b-main-nav__button-container">
+          <div class="govuk-width-container">
+            <button type="button" class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav__nav-container">
+              Landing page menu
+            </button>
+          </div>
+        </div>
+        <div class="app-b-main-nav__nav-container app-b-main-nav__nav-container--js-hidden govuk-width-container js-app-b-main-nav__nav-container" id="app-b-main-nav__nav-container">
+          <nav aria-label="Secondary">
+              <h3 class="govuk-heading-s">First heading</h3>
+              <ul class="app-b-main-nav__list">
+                <li class="app-b-main-nav__list-item">
+                  <a class="govuk-link govuk-link--no-underline govuk-link--no-visited-state" href="/landing-page/homepage">Landing page homepage very long text here to demonstrate wrapping</a>
+                </li>
+              </ul>
+              <h3 class="govuk-heading-s">Goals</h3>
+              <ul class="app-b-main-nav__list">
+                <li class="app-b-main-nav__list-item">
+                  <a class="govuk-link govuk-link--no-underline govuk-link--no-visited-state" href="/landing-page/goal-1">Goal 1</a>
+                </li>
+              </ul>
+              <h3 class="govuk-heading-s">Tasks</h3>
+              <ul class="app-b-main-nav__list">
+                <li class="app-b-main-nav__list-item">
+                  <a class="govuk-link govuk-link--no-underline govuk-link--no-visited-state" href="/landing-page/be-kinder">Be kinder</a>
+                </li>
+              </ul>
           </nav>
         </div>
+      </div>
       `
     el = document.createElement('div')
     el.innerHTML = DOM
@@ -41,12 +49,8 @@ describe('Main Navigation Block module', function () {
     document.body.removeChild(el)
   })
 
-  it('adds a class to hide the nav when JS is enabled', function () {
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).not.toBe(null)
-  })
-
-  it('removes a class that was hiding the Menu button for non-JS users', function () {
-    expect(document.querySelector('.app-b-main-nav__button--no-js')).toBe(null)
+  it('removes the no-js class from the button on initialisation', function () {
+    expect(document.querySelector('app-b-main-nav__button--no-js')).toBe(null)
   })
 
   it('toggles aria expanded on the button when it is clicked', function () {
@@ -58,18 +62,30 @@ describe('Main Navigation Block module', function () {
 
   it('toggles the show/hide class when the button is clicked', function () {
     var button = el.querySelector('button')
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).not.toBe(null)
+    var toggledClass = '.app-b-main-nav__nav-container--js-hidden'
+    expect(document.querySelector(toggledClass)).not.toBe(null)
     window.GOVUK.triggerEvent(button, 'click')
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).toBe(null)
+    expect(document.querySelector(toggledClass)).toBe(null)
     window.GOVUK.triggerEvent(button, 'click')
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).not.toBe(null)
+    expect(document.querySelector(toggledClass)).not.toBe(null)
+  })
+
+  it('toggles the button container border when the button is clicked', function () {
+    var button = el.querySelector('button')
+    var toggledClass = '.app-b-main-nav__button-container--collapsed'
+    expect(document.querySelector(toggledClass)).not.toBe(null)
+    window.GOVUK.triggerEvent(button, 'click')
+    expect(document.querySelector(toggledClass)).toBe(null)
+    window.GOVUK.triggerEvent(button, 'click')
+    expect(document.querySelector(toggledClass)).not.toBe(null)
   })
 
   it('toggles the show/hide class when the toggleMenu function is called', function () {
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).not.toBe(null)
+    var toggledClass = '.app-b-main-nav__nav-container--js-hidden'
+    expect(document.querySelector(toggledClass)).not.toBe(null)
     module.toggleMenu()
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).toBe(null)
+    expect(document.querySelector(toggledClass)).toBe(null)
     module.toggleMenu()
-    expect(document.querySelector('.app-b-main-nav__nav--hidden')).not.toBe(null)
+    expect(document.querySelector(toggledClass)).not.toBe(null)
   })
 })

@@ -1,23 +1,42 @@
 navigation_groups:
 - id: Top Menu
   links:
-  - text: Landing page
-    href: /landing-page/homepage/
-  - text: Goals
-    href: /landing-page/goals
-  - text: Tasks
-    href: /landing-page/tasks
+  - heading: First heading
     links:
-      - text: Be kinder
-        href: "/landing-page/be-kinder"
-      - text: Exercise more
-        href: "/landing-page/exercise-more"
-      - text: Donate to charity
-        href: "/landing-page/donate-to-charity"
-      - text: Learn something new
-        href: "/landing-page/learn-something-new"
-      - text: Be thankful
-        href: "/landing-page/be-thankful"
+    - text: Landing page homepage very long text here to demonstrate wrapping
+      href: "/landing-page/homepage"
+    - text: Landing page homepage
+      href: "/landing-page/homepage"
+    - text: Landing page homepage
+      href: "/landing-page/homepage"
+  - heading: Goals
+    links:
+    - text: Goals homepage
+      href: "/landing-page/goals"
+    - text: Goal 1
+      href: "/goal-1"
+    - text: Goal 2
+      href: "/goal-2"
+    - text: Goal 3
+      href: "/goal-3"
+    - text: Goal 4
+      href: "/goal-4"
+    - text: Goal 5
+      href: "/goal-5"
+  - heading: Tasks
+    links:
+    - text: Tasks homepage
+      href: "/landing-page/tasks"
+    - text: Be kinder
+      href: "/landing-page/be-kinder"
+    - text: Exercise more
+      href: "/landing-page/exercise-more"
+    - text: Donate to charity
+      href: "/landing-page/donate-to-charity"
+    - text: Learn something new
+      href: "/landing-page/learn-something-new"
+    - text: Be thankful
+      href: "/landing-page/be-thankful"
 - id: Sidebar
   links:
   - text: Be kinder

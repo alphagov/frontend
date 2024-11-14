@@ -53,8 +53,8 @@ RSpec.describe LandingPage do
   describe "#navigation_groups" do
     it "returns a map of navigation_groups" do
       expect(described_class.new(content_item).navigation_groups["Top Menu"]["id"]).to eq("Top Menu")
-      expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"].count).to eq(2)
-      expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"][1]["links"].count).to eq(2)
+      expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"].count).to eq(1)
+      expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"][0]["links"].count).to eq(2)
     end
   end
 end

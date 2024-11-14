@@ -15,10 +15,6 @@ class ContentItemPresenter
     end
   end
 
-  def in_beta
-    @content_item["phase"] == "beta"
-  end
-
   def slug
     URI.parse(base_path).path.sub(%r{\A/}, "")
   end

@@ -9,16 +9,6 @@ RSpec.describe ContentItemPresenter do
     end
   end
 
-  describe "#in_beta" do
-    it "returns false if the phase is live" do
-      expect(subject(phase: "live").in_beta).to be false
-    end
-
-    it "returns true if the phase is beta" do
-      expect(subject(phase: "beta").in_beta).to be true
-    end
-  end
-
   describe "#slug" do
     it "returns the subject slug" do
       expect(subject(base_path: "foo").slug).to eq("foo")

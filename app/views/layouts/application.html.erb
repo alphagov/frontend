@@ -4,7 +4,7 @@
       <%= yield %>
     </main>
   <% else %>
-    <% if publication && publication.in_beta %>
+    <% if content_item.to_h["phase"] == "beta" %>
       <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
     <% end %>
     <% unless current_page?(root_path) || !(publication || @calendar) || remove_breadcrumbs(content_item) %>

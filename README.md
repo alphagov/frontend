@@ -31,6 +31,7 @@ some hard-coded routes.
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap
 |Simple smart answer    |[simple_smart_answer](https://docs.publishing.service.gov.uk/content-schemas/simple_smart_answer.html)|https://www.gov.uk/sold-bought-vehicle|
 |                       ||https://www.gov.uk/contact-the-dvla|
+|Speech                 |[speech](https://docs.publishing.service.gov.uk/content-schemas/speech.html)|https://www.gov.uk/government/speeches/motorcycle-testing|
 |Take part              |[take_part](https://docs.publishing.service.gov.uk/content-schemas/take_part.html)|https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing|
 |Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
 |                       ||https://www.gov.uk/vehicle-tax|

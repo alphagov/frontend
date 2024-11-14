@@ -48,5 +48,8 @@
     "stylelint": "^16.10.0",
     "stylelint-config-gds": "^2.0.0"
   },
+  "resolutions": {
+    "selenium-webdriver": "4.17.0"
+  },
   "packageManager": "yarn@3.5.0"
 }

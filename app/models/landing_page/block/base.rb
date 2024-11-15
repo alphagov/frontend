@@ -14,11 +14,7 @@ module LandingPage::Block
     end
 
     def full_background?
-      @data["full_background"]
-    end
-
-    def full_background_padding?
-      @data["full_background_padding"]
+      data["full_background"].present? && data["full_background"] == true
     end
   end
 end

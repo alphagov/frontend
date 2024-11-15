@@ -12,5 +12,13 @@ module LandingPage::Block
     def full_width?
       false
     end
+
+    def full_background?
+      @data["full_background"]
+    end
+
+    def full_background_padding?
+      @data["full_background_padding"]
+    end
   end
 end

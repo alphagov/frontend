@@ -22,3 +22,20 @@
     text-decoration: none;
   }
 }
+
+.landing-page__full-background {
+  background: govuk-colour("light-grey");
+  margin-bottom: govuk-spacing(9);
+
+  &:has(+ .landing-page__full-background) {
+    margin-bottom: 0;
+  }
+}
+
+.landing-page__full-background--padding {
+  padding: govuk-spacing(4) 0;
+
+  &:has(+ .landing-page__full-background) {
+    padding-bottom: 0.05px;
+  }
+}

@@ -3,7 +3,7 @@
   text = block.data["content"]
   path = block.data["path"] || nil
   inverse = options[:inverse] || false
-  margin_bottom = options[:margin_bottom] || 6
+  margin_bottom = options[:margin_bottom] || block.data["margin_bottom"] || 6
 %>
 <%= render "govuk_publishing_components/components/heading", {
   text: govuk_styled_link(text, path:, inverse:),

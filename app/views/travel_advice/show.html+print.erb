@@ -6,42 +6,44 @@
   <meta name="robots" content="noindex, nofollow">
 <% end %>
 
-<div class="govuk-grid-row" id="travel-advice-print">
-  <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-!-margin-bottom-6">
-      <%= render 'govuk_publishing_components/components/title', 
-        context: I18n.t("formats.travel_advice.context"),
-        title: @content_item.country_name %>
-    </div>
+<main role="main" id="content" class="travel-advice" <%= lang_attribute(@content_item.locale) %>>
+  <div class="govuk-grid-row" id="travel-advice-print">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-!-margin-bottom-6">
+        <%= render 'govuk_publishing_components/components/title', 
+          context: I18n.t("formats.travel_advice.context"),
+          title: @content_item.country_name %>
+      </div>
 
-    <div class="govuk-!-display-none-print">
-      <%= render 'govuk_publishing_components/components/lead_paragraph', {
-        margin_bottom: 6,
-        text: t("multi_page.printable_version"),
+      <div class="govuk-!-display-none-print">
+        <%= render 'govuk_publishing_components/components/lead_paragraph', {
+          margin_bottom: 6,
+          text: t("multi_page.printable_version"),
+        } %>
+      </div>
+
+      <%= render 'govuk_publishing_components/components/print_link', {
+        margin_bottom: 8,
+        text: t("components.print_link.text"),
+      } %>
+
+      <% @content_item.parts.each_with_index do |part, i| %>
+        <section>
+          <h1 class="part-title">
+            <%= part['title'] %>
+          </h1>
+
+          <%= render 'first_part', content_item: @content_item if i == 0 %>
+
+          <%= render 'govuk_publishing_components/components/govspeak',
+            content: part['body'].html_safe,
+            direction: page_text_direction %>
+        </section>
+      <% end %>
+
+      <%= render 'govuk_publishing_components/components/print_link', {
+        text: t("components.print_link.text")
       } %>
     </div>
-
-    <%= render 'govuk_publishing_components/components/print_link', {
-      margin_bottom: 8,
-      text: t("components.print_link.text"),
-    } %>
-
-    <% @content_item.parts.each_with_index do |part, i| %>
-      <section>
-        <h1 class="part-title">
-          <%= part['title'] %>
-        </h1>
-
-        <%= render 'first_part', content_item: @content_item if i == 0 %>
-
-        <%= render 'govuk_publishing_components/components/govspeak',
-          content: part['body'].html_safe,
-          direction: page_text_direction %>
-      </section>
-    <% end %>
-
-    <%= render 'govuk_publishing_components/components/print_link', {
-      text: t("components.print_link.text")
-    } %>
   </div>
-</div>
+</main>

@@ -14,11 +14,7 @@
   <% block.card_content.each do |subblock| %>
     <% if subblock.data["type"] == "statistics" %>
       <div class="app-b-card__chart">
-        <%
-          options = { margin_bottom: 0 }
-          options[:height] = 200 if subblock.data["minimal"]
-        %>
-        <%= render_block(subblock, options:)  %>
+        <%= render_block(subblock)  %>
       </div>
     <% else %>
       <%= render_block(subblock)  %>

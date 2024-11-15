@@ -47,7 +47,9 @@ blocks:
     blocks:
       - type: heading
         content: Government tasks
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Yorem ipsum dolor sit amet, consectetur
           adipiscing elit. Nunc vulputate libero et velit
@@ -55,6 +57,7 @@ blocks:
       - type: action_link
         text: "Learn more about our goals"
         href: /landing-page/goals
+        inverse: true
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:
@@ -78,6 +81,7 @@ blocks:
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
+            margin_bottom: 0
     - type: card
       href: /landing-page/be-kinder
       content: Exercise more
@@ -91,6 +95,7 @@ blocks:
             csv_file: "data_two.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
+            margin_bottom: 0
     - type: card
       href: /landing-page/donate-to-charity
       content: Donate to charity
@@ -104,6 +109,7 @@ blocks:
             csv_file: "data_three.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
+            margin_bottom: 0
     - type: card
       href: /landing-page/learn-something-new
       content: Learn something new
@@ -117,6 +123,7 @@ blocks:
             csv_file: "data_four.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
+            margin_bottom: 0
     - type: card
       href: /landing-page/be-thankful
       content: Be thankful
@@ -130,6 +137,7 @@ blocks:
             csv_file: "data_one.csv"
             data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
             padding: true
+            margin_bottom: 0
 - type: share_links
   links:
     - href: /twitter-profile

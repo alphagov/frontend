@@ -35,7 +35,9 @@ blocks:
     blocks:
       - type: heading
         content: Government Goals
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Culpa atque nostrum numquam eveniet. Cum exercitationem perferendis accusamus minima possimus dolor enim eius. Et est impedit vel voluptate sunt.</p>
 - type: two_column_layout

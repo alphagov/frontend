@@ -33,12 +33,15 @@ blocks:
     blocks:
       - type: heading
         content: This is a heading
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Lorem ipsum...</p>
       - type: action_link
         text: "See the missions"
         href: "todo"
+        inverse: true
 - type: featured
   image:
     alt: example alt text

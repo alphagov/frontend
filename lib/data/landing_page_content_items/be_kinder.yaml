@@ -47,7 +47,9 @@ blocks:
     blocks:
       - type: heading
         content: Be kinder
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Yorem ipsum dolor sit amet, consectetur
           adipiscing elit. Nunc vulputate libero et velit

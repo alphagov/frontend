@@ -35,7 +35,9 @@ blocks:
     blocks:
       - type: heading
         content: Rorem ipsum dolor sit
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Yorem ipsum dolor sit amet, consectetur
           adipiscing elit. Nunc vulputate libero et velit
@@ -43,6 +45,7 @@ blocks:
       - type: action_link
         text: "Learn more about our goals"
         href: "/landing-page/goals"
+        inverse: true
 - type: featured
   image:
     alt: example alt text
@@ -58,7 +61,9 @@ blocks:
       - type: heading
         content: Our tasks
         path: /landing-page/tasks
+        inverse: true
       - type: govspeak
+        inverse: true
         content: |
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
 - type: heading
@@ -83,6 +88,8 @@ blocks:
           csv_file: "data_one.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
+          margin_bottom: 0
+          height: 200
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
@@ -96,6 +103,8 @@ blocks:
           csv_file: "data_two.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
+          margin_bottom: 0
+          height: 200
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
@@ -109,6 +118,8 @@ blocks:
           csv_file: "data_three.csv"
           data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
           minimal: true
+          margin_bottom: 0
+          height: 200
 - type: govspeak
   content: |
     <p><a href="/landing-page/tasks">See the latest data on our progress</a></p>

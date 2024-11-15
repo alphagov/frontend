@@ -63,13 +63,9 @@ blocks:
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
 - type: heading
   full_background: true
-  full_background_padding: true
-  margin_bottom: 0
   content: Porem ipsum dolor
 - type: govspeak
   full_background: true
-  full_background_padding: true
-  margin_bottom: 2
   content: |
     <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
 - type: heading

@@ -1,6 +1,11 @@
-<%
+<% 
   inverse = options[:inverse] || false
-  margin_bottom = block.data["margin_bottom"] || 9
+
+  margin_bottom = if block.full_background?
+                    2
+                  else
+                    9
+                  end
 %>
 <%= render "govuk_publishing_components/components/govspeak", {
   inverse: inverse,

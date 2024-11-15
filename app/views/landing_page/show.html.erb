@@ -29,7 +29,7 @@
     <%
       classes = %w[]
       classes << "landing-page__full-background" if block.full_background?
-      classes << "landing-page__full-background--padding" if block.full_background_padding?
+      classes << "landing-page__full-background--padding" if block.full_background?
     %>
     <%= tag.div class: classes do %>
       <%= tag.div class: ["govuk-block__#{block.type}", ("govuk-width-container" unless block.full_width?)] do

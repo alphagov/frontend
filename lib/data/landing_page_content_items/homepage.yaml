@@ -126,7 +126,7 @@ blocks:
           minimal: true
 - type: govspeak
   content: |
-    <p><a href="/landing-page/tasks">See the latest data on our progress</a></p>
+    <p class="govuk-!-font-weight-bold"><a href="/landing-page/tasks">See the latest data on our progress</a></p>
 - type: share_links
   links:
     - href: /twitter-profile

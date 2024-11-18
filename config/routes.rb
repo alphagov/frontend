@@ -81,6 +81,9 @@ Rails.application.routes.draw do
       get "/", to: "get_involved#show"
       get "/take-part/:slug", to: "take_part#show"
     end
+
+    # Calls for evidence pages
+    get "/calls-for-evidence/:slug(.:locale)", to: "call_for_evidence#show"
   end
 
   # Simple Smart Answer pages

@@ -99,6 +99,7 @@ blocks:
       mobile_2x: "landing_page/placeholder/mobile_2x.png"
       tablet: "landing_page/placeholder/tablet.png"
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
+  mission_type: 4
   hero_content:
     blocks:
       - type: quote

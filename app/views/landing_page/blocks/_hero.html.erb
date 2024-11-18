@@ -7,6 +7,9 @@
 
   grid_class = "govuk-grid-column-two-thirds-from-desktop"
   grid_class = "govuk-grid-column-one-third-from-desktop"  if block.data["theme"] == "middle_left"
+
+  hero_textbox_classes = %w[app-b-hero__textbox]
+  hero_textbox_classes << "border-top--#{MissionTypeHelper.style(4)}" if block.data["mission_type"]
 %>
 
 <%= content_tag("div", class: hero_classes) do %>
@@ -20,7 +23,7 @@
   <div class="govuk-width-container app-b-hero__textbox-wrapper">
     <div class="govuk-grid-row">
       <%= content_tag("div", class: grid_class) do %>
-        <%= content_tag("div", class: "app-b-hero__textbox") do %>
+        <%= content_tag("div", class: hero_textbox_classes) do %>
           <% block.hero_content.each do |subblock| %>
             <% options = { position: block.data["position"] } %>
             <%= render_block(subblock, options:) %>

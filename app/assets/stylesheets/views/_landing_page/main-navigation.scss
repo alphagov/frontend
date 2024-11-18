@@ -1,5 +1,9 @@
 @import "govuk_publishing_components/individual_component_support";
 
+.govuk-block__main_navigation {
+  margin-bottom: 0;
+}
+
 .app-b-main-nav {
   border-bottom: 2px solid $govuk-border-colour;
 }
@@ -113,7 +117,7 @@
   }
 }
 
-.app-b-main-nav__listitem--active > .app-b-main-nav__link, 
+.app-b-main-nav__listitem--active > .app-b-main-nav__link,
 .app-b-main-nav__childlist .app-b-main-nav__listitem--active {
   .app-b-main-nav__mobile-border {
     position: absolute;

@@ -9,3 +9,9 @@
   #     - /foreign-travel-advice
 
 banners:
+  - name: HMRC banner 21/11/2024
+    suggestion_text: "Help improve GOV.UK"
+    suggestion_link_text: "Take part in user research"
+    survey_url: "https://www.gov.uk/guidance/help-make-govuk-better-sign-up-to-take-part-in-research"
+    page_paths:
+      - /student-finance-register-login

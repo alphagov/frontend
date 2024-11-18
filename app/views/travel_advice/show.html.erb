@@ -15,6 +15,8 @@
     content_item: @content_item.to_h %>
 <% end %>
 
+<%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
+
 <main role="main" id="content" class="travel-advice" <%= lang_attribute(@content_item.locale) %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds travel-advice__header">

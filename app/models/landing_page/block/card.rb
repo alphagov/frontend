@@ -2,13 +2,14 @@ module LandingPage::Block
   CardImage = Data.define(:alt, :source)
 
   class Card < Base
-    attr_reader :image, :card_content, :href, :content, :link_cover_block, :border_top
+    attr_reader :image, :card_content, :href, :content, :body_content, :link_cover_block, :border_top
 
     def initialize(block_hash, landing_page)
       super
 
       @href = data["href"] || ""
       @content = data["content"] || ""
+      @body_content = data["body_content"] || ""
       @link_cover_block = data["link_cover_block"] || false
       @border_top = data["border_top"] || false
 

@@ -4,7 +4,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1 1;
   min-width: 0;
   margin-bottom: govuk-spacing(6);
@@ -12,7 +11,7 @@
 }
 
 .app-b-card__textbox {
-  padding: govuk-spacing(6);
+  padding: govuk-spacing(6) 0;
   color: govuk-colour("white");
 
   @include govuk-media-query($until: tablet) {

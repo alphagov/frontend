@@ -96,16 +96,19 @@ blocks:
     content: Be kinder
     link_cover_block: true
     border_top: true
+    body_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
     link_cover_block: true
     border_top: true
+    body_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
     link_cover_block: true
     border_top: true
+    body_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     card_content:
       blocks:
         - type: statistics

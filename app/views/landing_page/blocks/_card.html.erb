@@ -1,7 +1,11 @@
 <%
   add_view_stylesheet("landing_page/card")
+  border_top ||= false
+  card_classes = "app-b-card"
+  card_classes << " app-b-card--border-top" if block.data["border_top"]
 %>
-<div class="app-b-card">
+
+<div class="<%= card_classes %>">
   <div class="app-b-card__textbox">
     <%= render "govuk_publishing_components/components/heading", {
       text: govuk_styled_link(block.content, path: block.href, card_link: block.link_cover_block),

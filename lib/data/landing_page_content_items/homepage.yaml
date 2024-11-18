@@ -95,32 +95,17 @@ blocks:
     href: /landing-page/be-kinder
     content: Be kinder
     link_cover_block: true
-    card_content:
-      blocks:
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
+    border_top: true
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
     link_cover_block: true
-    card_content:
-      blocks:
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_two.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
+    border_top: true
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
     link_cover_block: true
+    border_top: true
     card_content:
       blocks:
         - type: statistics

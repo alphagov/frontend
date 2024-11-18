@@ -1,0 +1,26 @@
+<% add_app_component_stylesheet("banner") %>
+<%
+  title ||= false
+  aside ||= false
+  large_text = !title && !aside
+%>
+<% content_block = capture do %>
+  <% if title %>
+    <h2 class="app-c-banner__title"><%= title %></h2>
+  <% end %>
+  <p class="app-c-banner__<% if large_text %>text<% else %>desc<% end %>">
+    <%= text %>
+  </p>
+<% end %>
+<section
+  class="app-c-banner<% if aside %> app-c-banner--aside<% end %>" 
+  aria-label="Notice"
+  lang="en"
+  data-module="ga4-link-tracker"
+  data-ga4-track-links-only
+  data-ga4-link="<%= { event_name: "navigation", type: "callout" }.to_json %>">
+  <%= content_block %>
+  <% if aside %>
+    <p class="app-c-banner__desc"><%= aside %></p>
+  <% end %>
+</section>

@@ -15,6 +15,18 @@
     <% if block.data["body_content"] %>
       <%= render "govuk_publishing_components/components/govspeak", {
       } do %>
+        <% if block.data["big_number"] %>
+          <% if block.data["big_number"]["preface"] %>
+            <p><%= block.data["big_number"]["preface"] %></p>
+          <% end %>
+          <% if block.data["big_number"]["number"] %>
+            <div class="stat-headline">
+              <p>
+                <em><%= block.data["big_number"]["number"] %></em>
+              </p>
+            </div>
+          <% end %>
+        <% end %>
         <p><%= block.data["body_content"] %></p>
       <% end %>
     <% end %>

@@ -96,12 +96,18 @@ blocks:
     content: Be kinder
     link_cover_block: true
     border_top: true
+    big_number:
+      preface: In the past 4 weeks
+      number: £75m
     body_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
     link_cover_block: true
     border_top: true
+    big_number:
+      preface: In the past 4 weeks
+      number: 15hr
     body_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   - type: card
     href: /landing-page/donate-to-charity

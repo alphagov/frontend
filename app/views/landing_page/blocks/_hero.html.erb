@@ -24,8 +24,10 @@
     <div class="govuk-grid-row">
       <%= content_tag("div", class: grid_class) do %>
         <%= content_tag("div", class: hero_textbox_classes) do %>
-          <% block.hero_content.each do |subblock| %>
-            <% options = { position: block.data["position"] } %>
+          <% block.hero_content.each_with_index do |subblock, index| %>
+            <% options = {
+              position: block.data["position"],
+              margin_bottom: (0 if block.hero_content.length - 1 == index) } %>
             <%= render_block(subblock, options:) %>
           <% end %>
         <% end %>

@@ -45,8 +45,7 @@ $large-desktop-height: 610px;
   position: relative;
   padding: govuk-spacing(6);
   margin-top: -(100px);
-  background: govuk-colour("dark-blue");
-  color: govuk-colour("white");
+  background: govuk-colour("light-grey");
 
   @include govuk-media-query($until: tablet) {
     padding: govuk-spacing(4);

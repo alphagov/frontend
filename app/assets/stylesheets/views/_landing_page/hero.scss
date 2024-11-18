@@ -7,7 +7,6 @@ $large-desktop-height: 610px;
 
 .app-b-hero {
   position: relative;
-  @include govuk-responsive-margin(9, "bottom");
 }
 
 .app-b-hero__imagewrapper {

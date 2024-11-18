@@ -6,7 +6,7 @@
   <div class="govuk-width-container">
     <div class="landing-page-header__blue-bar">
     </div>
-    
+
     <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, inverse: true %>
 
     <div class="landing-page-header__org">
@@ -26,9 +26,15 @@
 
 <main class="landing-page" id="content">
   <% @content_item.blocks.each do |block| %>
-    <%= tag.div class: ["govuk-block__#{block.type}", ("govuk-width-container" unless block.full_width?)] do
-      render_block(block)
-    end %>
+    <%= tag.div class: ["govuk-block govuk-block__#{block.type}", ("govuk-block--background" if block.full_width_background?)] do %>
+      <% if block.full_width? %>
+        <%= render_block(block) %>
+      <% else %>
+        <div class="govuk-width-container">
+          <%= render_block(block) %>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
   <% if @content_item.blocks.empty? %>
     Warning: No blocks specified for this page

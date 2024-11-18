@@ -4,6 +4,7 @@
   path = block.data["path"] || nil
   inverse = options[:inverse] || false
   margin_bottom = options[:margin_bottom] || 6
+  margin_bottom = 0 if block.full_width_background?
 %>
 <%= render "govuk_publishing_components/components/heading", {
   text: govuk_styled_link(text, path:, inverse:),

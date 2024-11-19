@@ -492,6 +492,10 @@ sq:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Dorëzuar më
+      location: Vendndodhja
+      written_on: Shkruar në
     start_now:
     take_part:
       one: Merr pjesë

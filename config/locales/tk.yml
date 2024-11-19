@@ -492,6 +492,10 @@ tk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 'Gowşuryldy:'
+      location: Ýerleşýän ýeri
+      written_on: 'Ýazylan:'
     start_now:
     take_part:
       one: Gatnaşmak

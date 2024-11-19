@@ -492,6 +492,10 @@ si:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: බෙදාහරින ලද දිනය
+      location: ස්ථානය
+      written_on: ලියන ලද දිනය
     start_now:
     take_part:
       one: සහභාගී වන්න

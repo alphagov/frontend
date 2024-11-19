@@ -492,6 +492,10 @@ fi:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Toimitettu
+      location: Sijainti
+      written_on: Kirjoitettu
     start_now:
     take_part:
       one: Osallistu

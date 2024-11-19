@@ -492,6 +492,10 @@ it:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Consegnato il
+      location: Posizione
+      written_on: Scritto il
     start_now:
     take_part:
       one: Prendere parte

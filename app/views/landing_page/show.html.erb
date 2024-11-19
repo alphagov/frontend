@@ -2,6 +2,13 @@
   add_view_stylesheet("landing_page")
 %>
 
+<% content_for :extra_headers do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", {
+    content_item: @content_item.to_h,
+    schema: :article
+  } %>
+<% end %>
+
 <div class="landing-page-header">
   <div class="govuk-width-container">
     <div class="landing-page-header__blue-bar">

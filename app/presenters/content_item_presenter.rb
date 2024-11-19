@@ -15,24 +15,7 @@ class ContentItemPresenter
     end
   end
 
-  def in_beta
-    @content_item["phase"] == "beta"
-  end
-
   def slug
     URI.parse(base_path).path.sub(%r{\A/}, "")
-  end
-
-  def updated_at
-    date = @content_item["public_updated_at"]
-    Time.zone.parse(date) if date
-  end
-
-  def format
-    @content_item["schema_name"]
-  end
-
-  def short_description
-    nil
   end
 end

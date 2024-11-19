@@ -4,13 +4,14 @@ module ApplicationHelper
     [title, "GOV.UK"].select(&:present?).join(" - ")
   end
 
-  def wrapper_class(publication = nil)
+  def wrapper_class(content_item = nil)
     services = %w[transaction local_transaction place]
     html_classes = []
 
-    if publication
-      html_classes << publication.format if publication.format
-      html_classes << "service" if services.include? publication.format
+    if content_item
+      html_classes << content_item.schema_name if content_item.schema_name
+      html_classes << "travel-advice" if content_item.schema_name == "travel_advice_index"
+      html_classes << "service" if services.include? content_item.schema_name
     end
 
     html_classes.join(" ")

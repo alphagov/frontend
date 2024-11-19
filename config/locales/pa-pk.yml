@@ -492,6 +492,10 @@ pa-pk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: حوالے کیتا گیا
+      location: تھاں
+      written_on: ایس  تے لکھیا گیا
     start_now:
     take_part:
       one: حصہ لوؤ

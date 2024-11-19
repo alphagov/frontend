@@ -492,6 +492,10 @@ tr:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 'Teslim tarihi:'
+      location: Konum
+      written_on: 'Yazılma tarihi:'
     start_now:
     take_part:
       one: Katıl

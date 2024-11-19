@@ -303,6 +303,8 @@ A featured block renders a vertical column of blocks on the left of a large (but
 
 A hero block renders a vertical column of blocks in a two-thirds-width block on the lower-left of a full-width image. Like the featured block, it uses a picture element to allow multiple image versions for different devices.
 
+As hero images are intended to be decorative, it's not possible to configure them with alt text.
+
 ##### Example
 
 The YAML structure for hero images is slightly different depending on whether you're looking at the content item in Content Store (or a hardcoded YAML block which has to match the Content Store format), or in Whitehall.
@@ -312,7 +314,6 @@ In content store / when hardcoded, the block should look like this:
 ```yaml
 - type: hero
   image:
-    alt: "Placeholder alt text"
     sources:
       desktop: "landing_page/placeholder/desktop.png"
       desktop_2x: "landing_page/placeholder/desktop_2x.png"
@@ -331,7 +332,6 @@ When authored in Whitehall, you should upload the images and then refer to them 
 ```yaml
 - type: hero
   image:
-    alt: "Placeholder alt text"
     sources:
       desktop: "[Image: desktop.png]"
       mobile: "[Image: mobile.png]"

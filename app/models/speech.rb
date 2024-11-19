@@ -1,6 +1,5 @@
-class Speech < ContentItem
-  include Body
-  include Linkable
+class Speech < ContentItem  
+  include Organisations
   include Political
   include Updatable
   include Metadata

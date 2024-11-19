@@ -1,0 +1,20 @@
+
+<% if attachments_for_components.any? %>
+  <section id="<%= title.parameterize %>">
+    <%= render 'govuk_publishing_components/components/heading',
+      text: title,
+      mobile_top_margin: true
+    %>
+    <% add_gem_component_stylesheet("details") %>
+    <% attachments_for_components.each do |details| %>
+      <%= render 'govuk_publishing_components/components/attachment', {
+        heading_level: 3,
+        attachment: details.to_h,
+        margin_bottom: 6,
+        details_ga4_attributes: {
+          index_section_count: @content_item.attachments_with_details
+        }
+      } %>
+    <% end %>
+  </section>
+<% end %>

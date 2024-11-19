@@ -7,7 +7,6 @@
   <meta name="description" content="<%= strip_tags(@content_item.description) %>">
 <% end %>
 
-<main role="main" id="content" class="get-involved" <%= lang_attribute(@content_item.locale) %>>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", {
@@ -70,7 +69,7 @@
         <%= render "govuk_publishing_components/components/heading", {
           text: @presenter.time_until_next_closure,
           heading_level: 3
-        } %> 
+        } %>
         <p class="govuk-body">
           <%= @content_item.next_closing_consultation['title'] %>
         </p>

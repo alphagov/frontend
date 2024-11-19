@@ -2,6 +2,7 @@
   add_view_stylesheet("landing_page")
 %>
 
+<% content_for :before_content do %>
 <div class="landing-page-header">
   <div class="govuk-width-container">
     <div class="landing-page-header__blue-bar">
@@ -23,20 +24,19 @@
     </div>
   </div>
 </div>
+<% end %>
 
-<main class="landing-page" id="content">
-  <% @content_item.blocks.each do |block| %>
-    <%= tag.div class: ["govuk-block govuk-block__#{block.type}", ("govuk-block--background" if block.full_width_background?)] do %>
-      <% if block.full_width? %>
+<% @content_item.blocks.each do |block| %>
+  <%= tag.div class: ["govuk-block govuk-block__#{block.type}", ("govuk-block--background" if block.full_width_background?)] do %>
+    <% if block.full_width? %>
+      <%= render_block(block) %>
+    <% else %>
+      <div class="govuk-width-container">
         <%= render_block(block) %>
-      <% else %>
-        <div class="govuk-width-container">
-          <%= render_block(block) %>
-        </div>
-      <% end %>
+      </div>
     <% end %>
   <% end %>
-  <% if @content_item.blocks.empty? %>
-    Warning: No blocks specified for this page
-  <% end %>
-</main>
+<% end %>
+<% if @content_item.blocks.empty? %>
+  Warning: No blocks specified for this page
+<% end %>

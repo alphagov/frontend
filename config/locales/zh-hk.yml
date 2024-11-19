@@ -419,6 +419,10 @@ zh-hk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 交付時間
+      location: 地點
+      written_on: 記載於
     start_now:
     take_part:
       other: 參加活動

@@ -638,6 +638,10 @@ uk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Доставлено
+      location: Розташування
+      written_on: Написано
     start_now:
     take_part:
       few:

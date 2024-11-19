@@ -492,6 +492,10 @@ hy:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Ուղարկվել է
+      location: Տեղանք
+      written_on: Գրվել է
     start_now:
     take_part:
       one: Մասնակցություն

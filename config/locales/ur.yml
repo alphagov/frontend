@@ -492,6 +492,10 @@ ur:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: ترسیل کردہ بتاریخ
+      location: مقام
+      written_on: تحریر کردہ بتاریخ
     start_now:
     take_part:
       one: شرکت کریں

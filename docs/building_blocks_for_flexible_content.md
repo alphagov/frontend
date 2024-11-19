@@ -15,7 +15,7 @@ blocks:
 - type: block_type
 ```
 
-...and may include a top-level `navigation_groups` element for use by blocks (See [Navigation Groups](#navigation-groups))
+...and may include a top-level `navigation_groups` element for use by blocks (See [Navigation Groups](#navigation-groups)), or a top-level `extends` element to inherit configuration from another landing page (See [Extending a page (Whitehall Only)](#extending-a-page-whitehall-only)).
 
 Block configuration is designed to be as flexible as possible, so blocks can be nested inside other blocks. An example configuration for each type of block is shown below.
 

@@ -496,6 +496,10 @@ hi:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: इस पर डिलीवरी किया गया
+      location: स्थान
+      written_on: पर लिखा
     start_now:
     take_part:
       one: हिस्सा लें

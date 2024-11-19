@@ -496,6 +496,10 @@ da:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Leveret den
+      location: Placering
+      written_on: Skrevet på
     start_now:
     take_part:
       one: Deltage

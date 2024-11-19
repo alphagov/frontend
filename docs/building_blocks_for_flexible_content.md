@@ -305,6 +305,10 @@ A hero block renders a vertical column of blocks in a two-thirds-width block on 
 
 ##### Example
 
+The YAML structure for hero images is slightly different depending on whether you're looking at the content item in Content Store (or a hardcoded YAML block which has to match the Content Store format), or in Whitehall.
+
+In content store / when hardcoded, the block should look like this:
+
 ```yaml
 - type: hero
   image:
@@ -320,15 +324,27 @@ A hero block renders a vertical column of blocks in a two-thirds-width block on 
     blocks:
       - type: heading
         content: Rorem ipsum dolor sit
-      - type: govspeak
-        content: |
-          <p>Yorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nunc vulputate libero et velit
-          interdum, ac aliquet odio mattis class.</p>
-      - type: action_link
-        text: "Learn more about our goals"
-        href: "/landing-page/goals"
 ```
+
+When authored in Whitehall, you should upload the images and then refer to them using their markdown syntax as follows:
+
+```yaml
+- type: hero
+  image:
+    alt: "Placeholder alt text"
+    sources:
+      desktop: "[Image: desktop.png]"
+      mobile: "[Image: mobile.png]"
+      tablet: "[Image: tablet.png]"
+  hero_content:
+    blocks:
+      - type: heading
+        content: Rorem ipsum dolor sit
+```
+
+Note that you don't need to provide separate `_2x` resolutions in Whitehall, as it will do this automatically.
+
+Also note that you must wrap the `[Image: desktop.png]` syntax in quotes (`"[Image: desktop.png]"`) to ensure that YAML treats it as a string and not an array.
 
 ### Layout blocks
 

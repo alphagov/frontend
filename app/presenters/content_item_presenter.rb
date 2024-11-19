@@ -18,9 +18,4 @@ class ContentItemPresenter
   def slug
     URI.parse(base_path).path.sub(%r{\A/}, "")
   end
-
-  def updated_at
-    date = @content_item["public_updated_at"]
-    Time.zone.parse(date) if date
-  end
 end

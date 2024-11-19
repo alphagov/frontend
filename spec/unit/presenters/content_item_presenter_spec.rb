@@ -15,17 +15,6 @@ RSpec.describe ContentItemPresenter do
     end
   end
 
-  describe "#updated_at" do
-    it "returns the subject public_updated_at" do
-      datetime = 1.minute.ago
-      expect(subject(public_updated_at: datetime.to_s).updated_at.to_i).to eq(datetime.to_i)
-    end
-
-    it "returns the subject public_updated_at" do
-      expect(subject({}).updated_at).to be_nil
-    end
-  end
-
   describe "#locale" do
     it "returns the subject locale" do
       expect(subject(locale: "foo").locale).to eq("foo")

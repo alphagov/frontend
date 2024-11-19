@@ -492,6 +492,10 @@ yi:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on:
+      location:
+      written_on:
     start_now:
     take_part:
       one:

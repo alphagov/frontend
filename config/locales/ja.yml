@@ -419,6 +419,10 @@ ja:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 配信日：
+      location: 場所
+      written_on: 記述日：
     start_now:
     take_part:
       other: 参加する

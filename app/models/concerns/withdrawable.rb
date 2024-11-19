@@ -1,15 +1,13 @@
 module Withdrawable
-  extend ActiveSupport::Concern
-
-  included do
-    def withdrawn?
-      withdrawal_notice.present?
+    extend ActiveSupport::Concern
+  
+    included do
+      def withdrawn?
+        withdrawal_notice.present?
+      end
+  
+      def withdrawal_notice
+        content_store_hash["withdrawn_notice"]
+      end
     end
   end
-
-private
-
-  def withdrawal_notice
-    content_store_response["withdrawn_notice"]
-  end
-end

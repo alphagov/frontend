@@ -423,6 +423,10 @@ id:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Dikirim pada
+      location: Lokasi
+      written_on: Ditulis pada
     start_now:
     take_part:
       other: Ikut serta

@@ -793,6 +793,10 @@ ar:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: تاريخ التسليم
+      location: الموقع
+      written_on: تاريخ الكتابة
     start_now:
     take_part:
       few:

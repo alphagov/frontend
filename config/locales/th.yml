@@ -423,6 +423,10 @@ th:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: ส่งมอบเมื่อ
+      location: ตำแหน่งที่ตั้ง
+      written_on: เขียนเมื่อ
     start_now:
     take_part:
       other: มีส่วนร่วม

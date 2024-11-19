@@ -497,6 +497,10 @@ bg:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Доставено на
+      location: Местоположение
+      written_on: Написано на
     start_now:
     take_part:
       one: Вземете участие

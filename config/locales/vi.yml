@@ -423,6 +423,10 @@ vi:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Ngày giao
+      location: Vị trí
+      written_on: Ngày viết
     start_now:
     take_part:
       other: Tham gia

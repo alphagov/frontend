@@ -497,6 +497,10 @@ sw:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Iliwasilishwa mnamo
+      location: Mahali
+      written_on: Iliandikwa mnamo
     start_now:
     take_part:
       one: Shiriki

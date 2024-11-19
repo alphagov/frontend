@@ -497,6 +497,10 @@
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Levert på
+      location: Plassering
+      written_on: Skrevet på
     start_now:
     take_part:
       one: Delta

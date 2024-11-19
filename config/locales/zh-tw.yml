@@ -423,6 +423,10 @@ zh-tw:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 運送
+      location: 地點
+      written_on: 寫在
     start_now:
     take_part:
       other: 參與

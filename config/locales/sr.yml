@@ -571,6 +571,10 @@ sr:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Isporučeno
+      location: Lokacija
+      written_on: Napisano
     start_now:
     take_part:
       few:

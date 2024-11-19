@@ -645,6 +645,10 @@ mt:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Kunsinnat f'
+      location: Post
+      written_on: Miktub nhar
     start_now:
     take_part:
       few:

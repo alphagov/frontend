@@ -423,6 +423,10 @@ ko:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 행사 일시
+      location: 위치
+      written_on: 작성 날짜
     start_now:
     take_part:
       other: 참여하기

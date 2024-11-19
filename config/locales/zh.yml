@@ -423,6 +423,10 @@ zh:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 提交日期
+      location: 位置
+      written_on: 书写日期
     start_now:
     take_part:
       other: 参加

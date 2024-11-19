@@ -497,6 +497,10 @@ ne:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: मा वितरण गरियो
+      location: स्थान
+      written_on: मा लेखिएको छ
     start_now:
     take_part:
       one: सहभागी हुनु

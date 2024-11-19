@@ -492,6 +492,10 @@ bn:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: পাঠানো হয়েছে
+      location: অবস্থান
+      written_on: যখন লেখা হয়েছে
     start_now:
     take_part:
       one: অংশ নিন

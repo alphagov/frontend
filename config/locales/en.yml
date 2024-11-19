@@ -497,6 +497,10 @@ en:
       please_answer: Please answer this question
       start_again: Start again
       your_answers: Your answers
+    speech:
+      delivered_on: Delivered on
+      location: Location
+      written_on: Written on
     start_now: Start now
     take_part:
       one: Take part

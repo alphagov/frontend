@@ -25,6 +25,8 @@ class PlaceController < ContentItemsController
       return render :multiple_authorities
     end
 
+    @places = places_manager_response.places
+
     render :show, locals: { results_anchor: "results" }
   end
 

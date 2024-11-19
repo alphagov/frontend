@@ -11,7 +11,10 @@
       <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
     <% end %>
     <% if local_assigns %>
-      <%= yield %>
+      <%= yield :before_content %>
+      <main role="main" id="content" class="<%= content_item.schema_name.dasherize %>%" <%= lang_attribute(@content_item.locale) %>>
+        <%= yield %>
+      </main>
       <%= yield :after_content %>
     <% end %>
   <% end %>

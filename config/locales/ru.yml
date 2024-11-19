@@ -644,6 +644,10 @@ ru:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Доставлено на
+      location: Место
+      written_on: Написано на
     start_now:
     take_part:
       few:

@@ -496,6 +496,10 @@ dr:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: تحویل داده شد به
+      location: موقعیت
+      written_on: نوشته شده است د
     start_now:
     take_part:
       one: سهم بگیرید

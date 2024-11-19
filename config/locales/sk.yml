@@ -570,6 +570,10 @@ sk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Doručené dňa
+      location: Umiestnenie
+      written_on: Napísané dňa
     start_now:
     take_part:
       few:

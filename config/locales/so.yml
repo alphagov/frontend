@@ -496,6 +496,10 @@ so:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Loo diray
+      location: Goobta
+      written_on: Lagu qoray
     start_now:
     take_part:
       one: Ka qeybgal

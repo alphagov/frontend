@@ -570,6 +570,10 @@ cs:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Doručeno dne
+      location: Sídlo
+      written_on: Odepsané
     start_now:
     take_part:
       few:

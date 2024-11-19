@@ -496,6 +496,10 @@ az:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Çatdırılıb
+      location: Yer
+      written_on: Yazılma tarixi
     start_now:
     take_part:
       one: İştirak edin

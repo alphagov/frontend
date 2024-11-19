@@ -496,6 +496,10 @@ lv:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Piegādāts
+      location: Atrašanās vieta
+      written_on: Uzrakstīts uz
     start_now:
     take_part:
       one: Piedalīties

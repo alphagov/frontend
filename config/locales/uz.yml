@@ -496,6 +496,10 @@ uz:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Етказиб берилди
+      location: Жойлашиш жойи
+      written_on: Ёзилган
     start_now:
     take_part:
       one: Иштирок этиш

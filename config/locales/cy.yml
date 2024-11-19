@@ -797,6 +797,10 @@ cy:
       please_answer: Mae angen ateb y cwestiwn hwn
       start_again: Dechrau eto
       your_answers: Eich atebion
+    speech:
+      delivered_on: Cyflawnwyd ar
+      location: Lleoliad
+      written_on: Ysgrifennwyd ar
     start_now: Dechrau nawr
     take_part:
       few:

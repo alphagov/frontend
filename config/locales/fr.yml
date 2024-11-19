@@ -496,6 +496,10 @@ fr:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Livré le
+      location: Emplacement
+      written_on: Rédigé le
     start_now:
     take_part:
       one: Participer

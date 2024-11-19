@@ -496,6 +496,10 @@ ka:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: გადაეცა
+      location: მდებარეობა
+      written_on: დაწერილი
     start_now:
     take_part:
       one: მონაწილეობის მიღება

@@ -1,0 +1,21 @@
+$mission-1-colour: #e60067;
+$mission-2-colour: #73a312;
+$mission-3-colour: #b55e08;
+$mission-4-colour: #b900ff;
+$mission-5-colour: #2c72db;
+$mission-6-colour: #62162d;
+
+// The following map is used by the borders and backgrounds helpers to through 'mission' color options and 
+// generate utility classes for each color variation e.g.
+// .border-top--mission-1 {
+//   border-top: 20px solid #e60067;
+// }
+
+$colours: (
+  "1": $mission-1-colour,
+  "2": $mission-2-colour,
+  "3": $mission-3-colour,
+  "4": $mission-4-colour,
+  "5": $mission-5-colour,
+  "6": $mission-6-colour,
+);

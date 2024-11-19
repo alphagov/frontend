@@ -1,0 +1,7 @@
+@import "colours";
+
+@each $name, $colour in $colours {
+  .background-color--mission-#{$name} {
+    background-color: $colour;
+  }
+}

@@ -2,10 +2,11 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
+  include Organisations
 
   attr_reader :attachments, :content_store_response, :content_store_hash, :body, :image,
               :description, :document_type, :schema_name, :title, :base_path, :locale,
-              :public_updated_at
+              :public_updated_at, :first_public_at, :first_published_at
 
   # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
   # content items including block details are available from content-store
@@ -22,6 +23,8 @@ class ContentItem
     @base_path = content_store_hash["base_path"]
     @locale = content_store_hash["locale"]
     @public_updated_at = content_store_hash["public_updated_at"]
+    @first_published_at = content_store_hash["first_published_at"]
+    @first_public_at = content_store_hash.dig("details", "first_public_at")
 
     @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
 
@@ -49,6 +52,10 @@ class ContentItem
     translations = content_store_response["links"]["available_translations"] || []
 
     translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
+  end
+
+  def related_entities
+    linkable_organisations
   end
 
 private

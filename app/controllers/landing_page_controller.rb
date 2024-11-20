@@ -5,9 +5,16 @@ private
 
   # SCAFFOLDING: can be removed when basic content items are available
   # from content-store
-  def request_content_item(_base_path)
-    GdsApi.content_store.content_item(request.path).to_h
-  rescue StandardError
+  def content_item
+    @content_item ||= ContentItemFactory.build(old_scaffolding_content_item)
+  end
+
+  # SCAFFOLDING: can be removed when basic content items are available
+  # from content-store
+  def old_scaffolding_content_item
+    result = ContentItemLoader.load(request.path)
+    return result.to_h if result.is_a?(GdsApi::Response)
+
     fake_data
   end
 

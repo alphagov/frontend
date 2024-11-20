@@ -74,7 +74,7 @@ private
     end
   end
 
-  def content_item_slug
+  def content_item_path
     "/find-licences/#{params[:slug]}"
   end
 

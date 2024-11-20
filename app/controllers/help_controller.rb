@@ -26,10 +26,4 @@ class HelpController < ContentItemsController
       },
     ]
   end
-
-private
-
-  def content_item_slug
-    request.path
-  end
 end

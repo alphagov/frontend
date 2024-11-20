@@ -23,7 +23,7 @@ private
   # These objects duplicate roles (see `presenter || @publication`) in views.
   def publication; end
 
-  def content_item_slug
+  def content_item_path
     "/#{FOREIGN_TRAVEL_ADVICE_SLUG}"
   end
 end

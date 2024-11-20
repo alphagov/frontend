@@ -3,6 +3,7 @@
 bundle check || bundle install
 
 if [[ $1 == "--live" ]] ; then
+  ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true \
   GOVUK_APP_DOMAIN=www.gov.uk \
   GOVUK_WEBSITE_ROOT=https://www.gov.uk \
   GOVUK_PROXY_STATIC_ENABLED=true \

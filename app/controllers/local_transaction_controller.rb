@@ -54,6 +54,10 @@ private
     local_authority_slug
   end
 
+  def content_item_path
+    "/#{params[:slug]}"
+  end
+
   def publication_class
     LocalTransactionPresenter
   end

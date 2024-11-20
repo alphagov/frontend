@@ -1,6 +1,5 @@
 @import "govuk_publishing_components/individual_component_support";
 
-$mobile-height: 427px;
 $desktop-height: 400px;
 $large-desktop-height: 400px;
 
@@ -52,15 +51,10 @@ $large-desktop-height: 400px;
 
 .app-b-hero--mid-page {
   overflow: hidden;
-  min-height: $desktop-height;
 
   @include govuk-media-query($until: desktop) {
     display: flex;
     flex-direction: column-reverse;
-  }
-
-  @include govuk-media-query($until: tablet) {
-    min-height: $mobile-height;
   }
 
   .app-b-hero__textbox-wrapper {

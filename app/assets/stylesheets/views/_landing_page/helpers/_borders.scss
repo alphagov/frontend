@@ -1,0 +1,7 @@
+@import "colours";
+
+@each $name, $colour in $colours {
+  .border-top--mission-#{$name} {
+    border-top: 20px solid $colour;
+  }
+}

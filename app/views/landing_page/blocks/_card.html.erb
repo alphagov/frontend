@@ -1,7 +1,7 @@
 <%
   add_view_stylesheet("landing_page/card")
 %>
-<div class="app-b-card <%= "border-top--mission-#{block.data["mission"]}" %>">
+<div class="app-b-card <%= "border-top--#{MissionTypeHelper.style(block.data["mission_type"])}" %>">
   <div class="app-b-card__textbox">
     <%= render "govuk_publishing_components/components/heading", {
       text: govuk_styled_link(block.content, path: block.href),
@@ -10,12 +10,11 @@
   </div>
 
   <% block.card_content.each do |subblock| %>
-    <% if subblock.data["type"] == "statistics" %>
-      <%
-        options = { margin_bottom: 0 }
-        options[:height] = 200 if subblock.data["minimal"]
-      %>
-    <% end %>
+    <%
+      options = {}
+      options[:margin_bottom] = 0 if subblock.data["type"] == "govspeak"
+      options[:height] = 200 if subblock.data["minimal"] && subblock.data["type"] == "statistics"
+    %>
     <%= render_block(subblock, options:)  %>
   <% end %>
 

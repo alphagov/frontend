@@ -78,7 +78,7 @@ blocks:
 - type: card
   href: /landing-page/be-kinder
   content: Be kinder
-  mission: 1
+  mission_type: 1
   card_content:
     blocks:
       - type: two_column_layout
@@ -97,7 +97,7 @@ blocks:
 - type: card
   href: /landing-page/be-kinder
   content: Exercise more
-  mission: 2
+  mission_type: 2
   card_content:
     blocks:
       - type: two_column_layout
@@ -116,7 +116,7 @@ blocks:
 - type: card
   href: /landing-page/donate-to-charity
   content: Donate to charity
-  mission: 3
+  mission_type: 3
   card_content:
     blocks:
       - type: two_column_layout
@@ -135,7 +135,7 @@ blocks:
 - type: card
   href: /landing-page/learn-something-new
   content: Learn something new
-  mission: 4
+  mission_type: 4
   card_content:
     blocks:
       - type: two_column_layout
@@ -154,7 +154,7 @@ blocks:
 - type: card
   href: /landing-page/be-thankful
   content: Be thankful
-  mission: 5
+  mission_type: 5
   card_content:
     blocks:
       - type: two_column_layout

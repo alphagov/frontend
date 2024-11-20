@@ -6,7 +6,7 @@
   hero_classes << "app-b-hero--mid-page" if block.data["theme"] == "middle_left"
 
   grid_class = "govuk-grid-column-two-thirds-from-desktop"
-  grid_class = "govuk-grid-column-one-third-from-desktop"  if block.data["theme"] == "middle_left"
+  grid_class = "govuk-grid-column-one-third-from-desktop" if block.data["theme"] == "middle_left"
 
   hero_textbox_classes = %w[app-b-hero__textbox]
   hero_textbox_classes << "border-top--#{MissionTypeHelper.style(4)}" if block.data["mission_type"]

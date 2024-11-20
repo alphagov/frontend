@@ -1,36 +1,33 @@
 @import "govuk_publishing_components/individual_component_support";
 
 $mobile-height: 427px;
-$tablet-height: 512px;
-$desktop-height: 610px;
-$large-desktop-height: 610px;
-
-.app-b-hero {
-  position: relative;
-}
+$desktop-height: 400px;
+$large-desktop-height: 400px;
 
 .app-b-hero__imagewrapper {
   position: relative;
   display: flex;
   justify-content: center;
   overflow: hidden;
-  min-height: $desktop-height;
+
+  @include govuk-media-query($from: desktop) {
+    height: $desktop-height;
+  }
 
   @media (min-width: 1281px) {
-    min-height: $large-desktop-height;
-  }
-
-  @include govuk-media-query($until: desktop) {
-    min-height: $tablet-height;
-  }
-
-  @include govuk-media-query($until: tablet) {
-    min-height: $mobile-height;
+    height: $large-desktop-height;
   }
 }
 
+.app-b-hero {
+  position: relative;
+}
+
 .app-b-hero__image {
-  display: block;
+  @include govuk-media-query($until: desktop) {
+    aspect-ratio: 4/3 auto;
+    width: 100%;
+  }
 
   @media (min-width: 1281px) {
     position: absolute;
@@ -60,17 +57,10 @@ $large-desktop-height: 610px;
   @include govuk-media-query($until: desktop) {
     display: flex;
     flex-direction: column-reverse;
-    min-height: $tablet-height;
   }
 
   @include govuk-media-query($until: tablet) {
     min-height: $mobile-height;
-  }
-
-  .app-b-hero__image {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
   }
 
   .app-b-hero__textbox-wrapper {

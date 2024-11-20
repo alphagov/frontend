@@ -57,4 +57,23 @@ RSpec.describe LandingPage do
       expect(described_class.new(content_item).navigation_groups["Top Menu"]["links"][0]["links"].count).to eq(2)
     end
   end
+
+  describe "#breadcrumbs" do
+    it "returns nil if there are no breadcrumbs" do
+      # Setting this prevents the YAML file from overloading the content
+      content_item["details"]["blocks"] = []
+
+      content_item["details"]["breadcrumbs"] = nil
+      expect(described_class.new(content_item).breadcrumbs).to be(nil)
+    end
+
+    it "returns breadcrumbs in the structure expected by govuk_publishing_components" do
+      # Note the config in the YAML file is { "title" => ..., "href" => ... } rather than { title: ..., url: ...}
+      # this is for consistency with the blocks, which tend to use href for their URLs.
+      expect(described_class.new(content_item).breadcrumbs).to eq([
+        { title: "Some breadcrumb", url: "/some-breadcrumb" },
+        { title: "Some other breadcrumb", url: "/some-other-breadcrumb" },
+      ])
+    end
+  end
 end

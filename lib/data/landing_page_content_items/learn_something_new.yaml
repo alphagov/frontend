@@ -1,3 +1,8 @@
+breadcrumbs:
+- title: Home
+  href: /
+- title: Goals
+  href: /landing-page/goals
 navigation_groups:
 - id: Top Menu
   links:

@@ -1,3 +1,8 @@
+breadcrumbs:
+- title: Some breadcrumb
+  href: /some-breadcrumb
+- title: Some other breadcrumb
+  href: /some-other-breadcrumb
 navigation_groups:
 - id: "Top Menu"
   links:

@@ -158,6 +158,7 @@ blocks:
   csv_file: "data_one.csv"
   data_source_link: https://www.example.com
 - type: document_list
+  taxon_base_path: /a-taxon
   items:
   - text: An example link
     path: https://www.gov.uk

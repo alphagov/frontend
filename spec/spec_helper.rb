@@ -17,6 +17,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 GovukTest.configure
 
+GovukAbTesting.configure do |config|
+  config.acceptance_test_framework = :capybara
+end
+
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include FactoryBot::Syntax::Methods

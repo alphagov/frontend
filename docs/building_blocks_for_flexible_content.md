@@ -149,7 +149,7 @@ A simple image.
 
 #### Main Navigation
 
-The landing-page top-level navigation. It supports a row of links, and sub-menus that will only appear on mobile (where the entire menu is compressed into a single drop-down). The only supported keys are the `type` key and the `navigation_group_id` key, which should point to an id of a [navigation group](#navigation-groups) to use for the menu items. Note that the styling of the first link is different, and it is assumed to be the homepage in a group of landing pages.
+The landing-page top-level navigation. It supports multiple headings, each with a row of links. The only supported keys are the `type` key and the `navigation_group_id` key, which should point to an id of a [navigation group](#navigation-groups) to use for the menu items.
 
 ##### Example
 

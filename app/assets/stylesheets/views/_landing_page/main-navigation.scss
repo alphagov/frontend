@@ -5,146 +5,143 @@
 }
 
 .app-b-main-nav {
-  border-bottom: 2px solid $govuk-border-colour;
+  border-bottom: 1px solid $govuk-border-colour;
+  @include govuk-font(19);
 }
 
-.app-b-main-nav__container {
-  padding: govuk-spacing(2) 0;
-
-  @include govuk-media-query($from: "tablet") {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  @include govuk-media-query($until: "tablet") {
-    padding-top: govuk-spacing(4);
-    padding-bottom: govuk-spacing(4);
-  }
+.app-b-main-nav__button-container {
+  background-color: govuk-colour("light-grey");
+  border-bottom: 1px solid govuk-colour("mid-grey");
 }
 
-.app-b-main-nav__nav--hidden {
-  @include govuk-media-query($until: "tablet") {
-    display: none;
-  }
-}
-
-.app-b-main-nav__ul {
-  padding-left: 0;
-  padding-right: 0;
-  margin: 0;
-
-  .app-b-main-nav__listitem:last-of-type {
-    margin-right: 0;
-  }
+.app-b-main-nav__button-container--collapsed {
+  border-bottom: 0;
 }
 
 .app-b-main-nav__button {
-  display: none;
-  background: none;
-  border: none;
-  padding: 0;
-  position: relative;
-  margin-top: govuk-spacing(3);
-  cursor: pointer;
+  height: 70px;
   color: govuk-colour("blue");
-  @include govuk-font(19, $weight: bold);
+  @include govuk-font(19);
+  background: none;
+  border: 0;
+  padding-left: govuk-spacing(3);
+  padding-right: govuk-spacing(3);
+  margin-left: govuk-spacing(-3); // Ensures the button looks perfectly left-aligned with content.
 
-  @include govuk-media-query($until: "tablet") {
-    display: block;
+  // Invisible border so the width of the collapsed button is the same as the expanded one.
+  border-left: 1px solid govuk-colour("light-grey");
+  border-right: 1px solid govuk-colour("light-grey");
+  cursor: pointer;
+  position: relative;
+}
+
+// Shared styles for the expanded and collapsed arrow icon. Based off of the super navigation menu button.
+.app-b-main-nav__button::before {
+  border-bottom: 2px solid govuk-colour("blue");
+  border-right: 2px solid govuk-colour("blue");
+  content: "";
+  display: inline-block;
+  height: 8px;
+  margin: 0 10px 0 2px;
+  vertical-align: middle;
+  width: 8px;
+}
+
+.app-b-main-nav__button:focus {
+  border-color: $govuk-focus-colour;
+  box-shadow: 0 0, 0 4px govuk-colour("black");
+  z-index: 999; // Prevents focus style black bottom border being obscured
+
+  &.app-b-main-nav__button::before {
+    border-color: govuk-colour("black");
   }
+}
+
+.app-b-main-nav__button[aria-expanded="false"]::before {
+  // Collapsed arrow icon
+  -webkit-transform: translateY(-35%) rotate(45deg) scale(1);
+  -ms-transform: translateY(-35%) rotate(45deg) scale(1);
+  transform: translateY(-35%) rotate(45deg) scale(1);
+}
+
+.app-b-main-nav__button[aria-expanded="true"] {
+  border-color: govuk-colour("mid-grey");
+  background-color: govuk-colour("white");
+
+  @include govuk-media-query($until: tablet) {
+    border-left: 1px solid govuk-colour("light-grey"); // Hide left border on mobile while preserving button width.
+  }
+
+  // Expanded arrow icon
+  &.app-b-main-nav__button::before {
+    -webkit-transform: translateY(1px) rotate(225deg) scale(1);
+    -ms-transform: translateY(1px) rotate(225deg) scale(1);
+    transform: translateY(1px) rotate(225deg) scale(1);
+  }
+}
+
+.app-b-main-nav__button[aria-expanded="true"]:focus {
+  background-color: $govuk-focus-colour;
+  border-color: $govuk-focus-colour;
+}
+
+// Adds a white border at the bottom of the button when the button is expanded. Used to make the button look like a tab that's seamlessly connected to element below it.
+.app-b-main-nav__button[aria-expanded="true"]::after {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid govuk-colour("white");
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+}
+
+// Removes the white border on bottom of button when focus styles are active.
+.app-b-main-nav__button[aria-expanded="true"]:focus::after {
+  border: 0;
 }
 
 .app-b-main-nav__button--no-js {
   display: none;
 }
 
-.app-b-main-nav__icon::after {
-  position: absolute;
-  font-size: 15px;
-  top: 4px;
-  width: 20px;
+.app-b-main-nav__button:hover::before {
+  border-color: govuk-colour("dark-blue");
 }
 
-.app-b-main-nav__button[aria-expanded="true"] .app-b-main-nav__icon::after {
-  content: "▲"
+.app-b-main-nav__nav-container {
+  margin-top: govuk-spacing(7);
+  margin-bottom: govuk-spacing(9);
 }
 
-.app-b-main-nav__button[aria-expanded="false"] .app-b-main-nav__icon::after {
-  content: "▼"
-}
-
-.app-b-main-nav__heading-p {
-  display: inline-block;
-  margin-bottom: 0;
-  margin-right: govuk-spacing(7);
-}
-
-.app-b-main-nav__heading-link {
-  &:link,
-  &:visited {
-    color: govuk-colour("black");
+.js-enabled {
+  .app-b-main-nav__nav-container--js-hidden {
+    display: none;
   }
 }
 
-.app-b-main-nav__childlist {
-  display: none;
-  padding-left: govuk-spacing(2);
-  @include govuk-media-query($until: "tablet") {
-    display: block;
+.app-b-main-nav__heading {
+  margin-bottom: govuk-spacing(2);
+}
+
+.app-b-main-nav__list {
+  padding-left: 0;
+  margin-top: 0;
+  display: grid;
+  column-gap: govuk-spacing(7);
+  row-gap: 12px;
+  grid-template-columns: 1fr;
+
+  @include govuk-media-query($from: tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include govuk-media-query($from: desktop) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-.app-b-main-nav__listitem {
-  position: relative;
+.app-b-main-nav__list-item {
   list-style: none;
-  display: inline-block;
-  margin-right: govuk-spacing(7);
-  padding-top: govuk-spacing(3);
-  padding-bottom: govuk-spacing(3);
-  @include govuk-font(19, $weight: normal);
-
-  @include govuk-media-query($until: "tablet") {
-    display: block;
-    margin-top: govuk-spacing(4);
-    padding-top: govuk-spacing(0);
-    padding-bottom: govuk-spacing(0);
-  }
-}
-
-.app-b-main-nav__listitem:last-of-type {
-  @include govuk-media-query($until: "tablet") {
-    margin-bottom: 0;
-  }
-}
-
-.app-b-main-nav__listitem--active > .app-b-main-nav__link,
-.app-b-main-nav__childlist .app-b-main-nav__listitem--active {
-  .app-b-main-nav__mobile-border {
-    position: absolute;
-    height: 100%;
-    width: 15px;
-
-    @include govuk-media-query($until: "tablet") {
-      border-left: 6px solid govuk-colour("blue");
-      left: -15px;
-    }
-  }
-}
-
-.app-b-main-nav__childlist .app-b-main-nav__listitem--active {
-  .app-b-main-nav__mobile-border {
-    @include govuk-media-query($until: "tablet") {
-      left: -25px;
-    }
-  }
-}
-
-
-.app-b-main-nav__listitem--active {
-  @include govuk-media-query($from: "tablet") {
-    text-decoration-line: underline;
-    text-decoration-color: govuk-colour("blue");
-    text-decoration-thickness: 6px;
-    text-underline-offset: govuk-spacing(5);
+  @include govuk-media-query($until: mobile) {
+    margin-top: govuk-spacing(3);
   }
 }

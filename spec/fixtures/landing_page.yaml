@@ -1,15 +1,12 @@
 navigation_groups:
 - id: "Top Menu"
   links:
-  - href: "/homepage"
-    text: "Homepage"
-  - href: "/goals"
-    text: "Goals"
+  - text: "Heading"
     links:
-    - href: "/a"
-      text: "Child a"
-    - href: "/b"
-      text: "Child b"
+    - href: "/homepage"
+      text: "Homepage"
+    - href: "/goals"
+      text: "Goals"
 - id: "Sidebar"
   links:
   - href: "/a"

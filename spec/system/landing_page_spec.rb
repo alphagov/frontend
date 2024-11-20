@@ -81,7 +81,7 @@ RSpec.describe "LandingPage" do
     it "renders main navigation" do
       visit base_path
 
-      assert_selector ".app-b-main-nav .app-b-main-nav__heading-p"
+      assert_selector ".app-b-main-nav"
     end
 
     it "renders a heading with an inverse link" do

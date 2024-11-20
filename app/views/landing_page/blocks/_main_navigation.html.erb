@@ -2,47 +2,26 @@
   add_view_stylesheet("landing_page/main-navigation")
 %>
 <div class="app-b-main-nav" data-module="app-b-main-navigation">
-  <div class="app-b-main-nav__container govuk-width-container">
-    <p class="app-b-main-nav__heading-p govuk-heading-s"><%= link_to block.links.first["text"], block.links.first["href"], class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state app-b-main-nav__heading-link" %></p>
-    <button class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav__nav" type="button">Menu<span class="app-b-main-nav__icon" aria-hidden="true"></span></button>
-
-    <nav id="app-b-main-nav__nav" aria-label="Secondary">
-      <ul class="app-b-main-nav__ul">
-        <% contents_list(request.path, block.links[1..]).each do |link| %>
-          <%
-            li_classes = "app-b-main-nav__listitem"
-            li_classes << " app-b-main-nav__listitem--active" if link[:active]
-          %>
-          <%= tag.li(class: li_classes) do %>
-            <%
-              link_classes = "app-b-main-nav__link govuk-link govuk-link--no-underline govuk-link--no-visited-state"
-              link_aria = { current: true } if link[:active]
-            %>
-            <%= tag.a(href: link[:href], class: link_classes, aria: link_aria) do %>
-              <span class="app-b-main-nav__mobile-border"></span>
-              <%= link[:text] %>
-            <% end %>
-            <% if link[:links] %>
-              <ul class="app-b-main-nav__childlist">
-                <% link[:links].each do |child_link| %>
-                  <%
-                    child_link_classes = "app-b-main-nav__link govuk-link govuk-link--no-underline govuk-link--no-visited-state"
-                    child_link_aria = { current: true } if child_link[:active]
-                    child_li_classes = "app-b-main-nav__listitem"
-                    child_li_classes << " app-b-main-nav__listitem--active" if child_link[:active]
-                  %>
-                  <%= tag.li(class: child_li_classes) do %>
-                    <%= tag.a(href: child_link[:href], class: child_link_classes, aria: child_link_aria) do %>
-                      <span class="app-b-main-nav__mobile-border"></span>
-                      <%= child_link[:text] %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </ul>
-            <% end %>
+  <h2 class="govuk-visually-hidden" id="app-b-main-navigation-heading">Secondary navigation menu</h2>
+  <div class="app-b-main-nav__button-container app-b-main-nav__button-container--collapsed js-app-b-main-nav__button-container">
+    <div class="govuk-width-container">
+      <button type="button" class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav-container">
+        Landing page menu
+      </button>
+    </div>
+  </div>
+  <div class="app-b-main-nav__nav-container app-b-main-nav__nav-container--js-hidden govuk-width-container js-app-b-main-nav__nav-container" id="app-b-main-nav-container">
+    <nav aria-labelledby="app-b-main-navigation-heading">
+      <% contents_list(request.path, block.links).each do |link_group| %>
+        <h3 class="app-b-main-nav__heading govuk-heading-s"><%= link_group[:text] %></h3>
+        <ul class="app-b-main-nav__list">
+          <% link_group[:links].each do |link| %>
+          <li class="app-b-main-nav__list-item">
+            <%= link_to link[:text], link[:href], class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %>
+          </li>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      <% end %>
     </nav>
   </div>
 </div>

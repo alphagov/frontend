@@ -1,18 +1,20 @@
 <%
   add_view_stylesheet("landing_page/main-navigation")
+  menu_items = contents_list(request.path, block.links)
+  button_label = menu_items.shift()
 %>
 <div class="app-b-main-nav" data-module="app-b-main-navigation">
   <h2 class="govuk-visually-hidden" id="app-b-main-navigation-heading">Secondary navigation menu</h2>
   <div class="app-b-main-nav__button-container app-b-main-nav__button-container--collapsed js-app-b-main-nav__button-container">
     <div class="govuk-width-container">
       <button type="button" class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav-container">
-        Landing page menu
+        <%= button_label[:text] %>
       </button>
     </div>
   </div>
   <div class="app-b-main-nav__nav-container app-b-main-nav__nav-container--js-hidden govuk-width-container js-app-b-main-nav__nav-container" id="app-b-main-nav-container">
     <nav aria-labelledby="app-b-main-navigation-heading">
-      <% contents_list(request.path, block.links).each do |link_group| %>
+      <% menu_items.each do |link_group| %>
         <h3 class="app-b-main-nav__heading govuk-heading-s"><%= link_group[:text] %></h3>
         <ul class="app-b-main-nav__list">
           <% link_group[:links].each do |link| %>

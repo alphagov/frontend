@@ -555,7 +555,7 @@ In the example above only the text in the govspeak and header blocks will be sea
 
 ## Navigation Groups
 
-The top-level key `navigation_groups` contains an array of items with the keys `id` and `links`. The id is used to identify the group for navigation blocks like [main navigation](#main-navigation) and [side navigation](#side-navigation), which reference a navigation group with their `navigation_group_id` key. The `links` key contains an array of `text` keys. These `text` keys represent headings that are rendered on the navigation element. These `text` values also contain a child `links` item, with `links` being an array of links related to that heading.
+The top-level key `navigation_groups` contains an array of items with the keys `id` and `links`. The id is used to identify the group for navigation blocks like [main navigation](#main-navigation) and [side navigation](#side-navigation), which reference a navigation group with their `navigation_group_id` key. The `links` key contains an array of `text` keys. The first `text` key represents the text for the menu button. The corresponding `text` keys represent headings that are rendered within the navigation element. The heading `text` values also contain a child `links` item, with `links` being an array of links related to that heading.
 
 ```yaml
 navigation_groups:

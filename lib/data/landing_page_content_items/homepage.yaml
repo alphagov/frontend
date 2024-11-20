@@ -41,27 +41,28 @@ blocks:
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero
+  position: top
   image:
     alt: "Placeholder alt text"
     sources:
-      desktop: "landing_page/placeholder/desktop.png"
-      desktop_2x: "landing_page/placeholder/desktop_2x.png"
-      mobile: "landing_page/placeholder/mobile.png"
-      mobile_2x: "landing_page/placeholder/mobile_2x.png"
-      tablet: "landing_page/placeholder/tablet.png"
-      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+      desktop: "landing_page/placeholder/missions_hero_desktop.jpg"
+      desktop_2x: "landing_page/placeholder/missions_hero_desktop_2x.jpg"
+      mobile: "landing_page/placeholder/missions_hero_mobile.jpg"
+      mobile_2x: "landing_page/placeholder/missions_hero_mobile_2x.jpg"
+      tablet: "landing_page/placeholder/missions_hero_tablet.jpg"
+      tablet_2x: "landing_page/placeholder/missions_hero_tablet_2x.jpg"
   hero_content:
     blocks:
       - type: heading
         content: Rorem ipsum dolor sit
       - type: govspeak
         content: |
-          <p>Yorem ipsum dolor sit amet, consectetur
+          <p class="govuk-body govuk-!-font-size-27">Yorem ipsum dolor sit amet, consectetur
           adipiscing elit. Nunc vulputate libero et velit
           interdum, ac aliquet odio mattis class.</p>
-      - type: action_link
-        text: "Learn more about our goals"
-        href: "/landing-page/goals"
+          <p class="govuk-!-font-weight-bold">
+            <a href="/landing-page/goals">Learn more about our goals</a>
+          </p>
 - type: featured
   image:
     alt: example alt text

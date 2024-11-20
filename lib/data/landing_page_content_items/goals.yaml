@@ -41,6 +41,7 @@ blocks:
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero
+  position: top
   image:
     alt: "Placeholder alt text"
     sources:
@@ -56,7 +57,7 @@ blocks:
         content: Government Goals
       - type: govspeak
         content: |
-          <p>Culpa atque nostrum numquam eveniet. Cum exercitationem perferendis accusamus minima possimus dolor enim eius. Et est impedit vel voluptate sunt.</p>
+          <p class="govuk-body govuk-!-font-size-27">Culpa atque nostrum numquam eveniet. Cum exercitationem perferendis accusamus minima possimus dolor enim eius. Et est impedit vel voluptate sunt.</p>
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:
@@ -92,12 +93,13 @@ blocks:
   image:
     alt: "Placeholder alt text"
     sources:
-      desktop: "landing_page/placeholder/desktop.png"
-      desktop_2x: "landing_page/placeholder/desktop_2x.png"
-      mobile: "landing_page/placeholder/mobile.png"
-      mobile_2x: "landing_page/placeholder/mobile_2x.png"
-      tablet: "landing_page/placeholder/tablet.png"
-      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+      desktop: "landing_page/placeholder/missions_hero_desktop.jpg"
+      desktop_2x: "landing_page/placeholder/missions_hero_desktop_2x.jpg"
+      mobile: "landing_page/placeholder/missions_hero_mobile.jpg"
+      mobile_2x: "landing_page/placeholder/missions_hero_mobile_2x.jpg"
+      tablet: "landing_page/placeholder/missions_hero_tablet.jpg"
+      tablet_2x: "landing_page/placeholder/missions_hero_tablet_2x.jpg"
+  mission_type: 4
   hero_content:
     blocks:
       - type: quote

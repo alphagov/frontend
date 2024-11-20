@@ -95,7 +95,7 @@ blocks:
     href: /landing-page/be-kinder
     content: Be kinder
     link_cover_block: true
-    border_top: true
+    mission: 1
     big_number:
       preface: In the past 4 weeks
       number: £75m
@@ -104,7 +104,7 @@ blocks:
     href: /landing-page/exercise-more
     content: Exercise more
     link_cover_block: true
-    border_top: true
+    mission: 2
     big_number:
       preface: In the past 4 weeks
       number: 15hr
@@ -113,7 +113,7 @@ blocks:
     href: /landing-page/donate-to-charity
     content: Donate to charity
     link_cover_block: true
-    border_top: true
+    mission: 3
     body_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     card_content:
       blocks:

@@ -1,5 +1,6 @@
 <div class="blocks-container">
   <% block.children.each do |child| %>
-    <%= render_block(child)  %>
+    <% options = { margin_bottom: 6 } if child.type == 'heading' %>
+    <%= render_block(child, options: options)  %>
   <% end %>
 </div>

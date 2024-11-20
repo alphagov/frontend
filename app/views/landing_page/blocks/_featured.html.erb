@@ -4,7 +4,10 @@
 <div class="featured">
   <div class="featured__child featured__child--content">
     <% block.featured_content.each do |subblock| %>
-      <% options = { inverse: true } %>
+      <%
+        options = { inverse: true }
+        options[:margin_bottom] = 6 if subblock.type == "heading"
+      %>
       <%= render_block(subblock, options:) %>
     <% end %>
   </div>

@@ -75,81 +75,101 @@ blocks:
           <p class="govuk-!-font-weight-bold">
             <a href="/landing-page/goals">Learn more about our goals</a>
           </p>
-- type: two_column_layout
-  theme: one_third_two_thirds
-  blocks:
-  - type: side_navigation
-    title: Navigation Title
-    alternative_line_style: true
-    underline_links: true
-    navigation_group_id: Sidebar
-  - type: blocks_container
+- type: card
+  href: /landing-page/be-kinder
+  content: Be kinder
+  mission_type: 1
+  card_content:
     blocks:
-    - type: card
-      href: /landing-page/be-kinder
-      content: Be kinder
-      card_content:
+      - type: two_column_layout
+        theme: two_thirds_one_third
         blocks:
-          - type: statistics
-            title: "Chart heading"
-            hide_heading: true
-            x_axis_label: "X Axis"
-            y_axis_label: "Y Axis"
-            csv_file: "data_one.csv"
-            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-            padding: true
-    - type: card
-      href: /landing-page/be-kinder
-      content: Exercise more
-      card_content:
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+      - type: statistics
+        title: "Chart heading"
+        hide_heading: true
+        x_axis_label: "X Axis"
+        y_axis_label: "Y Axis"
+        csv_file: "data_one.csv"
+        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+- type: card
+  href: /landing-page/be-kinder
+  content: Exercise more
+  mission_type: 2
+  card_content:
+    blocks:
+      - type: two_column_layout
+        theme: two_thirds_one_third
         blocks:
-          - type: statistics
-            title: "Chart heading"
-            hide_heading: true
-            x_axis_label: "X Axis"
-            y_axis_label: "Y Axis"
-            csv_file: "data_two.csv"
-            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-            padding: true
-    - type: card
-      href: /landing-page/donate-to-charity
-      content: Donate to charity
-      card_content:
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+      - type: statistics
+        title: "Chart heading"
+        hide_heading: true
+        x_axis_label: "X Axis"
+        y_axis_label: "Y Axis"
+        csv_file: "data_two.csv"
+        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+- type: card
+  href: /landing-page/donate-to-charity
+  content: Donate to charity
+  mission_type: 3
+  card_content:
+    blocks:
+      - type: two_column_layout
+        theme: two_thirds_one_third
         blocks:
-          - type: statistics
-            title: "Chart heading"
-            hide_heading: true
-            x_axis_label: "X Axis"
-            y_axis_label: "Y Axis"
-            csv_file: "data_three.csv"
-            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-            padding: true
-    - type: card
-      href: /landing-page/learn-something-new
-      content: Learn something new
-      card_content:
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+      - type: statistics
+        title: "Chart heading"
+        hide_heading: true
+        x_axis_label: "X Axis"
+        y_axis_label: "Y Axis"
+        csv_file: "data_three.csv"
+        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+- type: card
+  href: /landing-page/learn-something-new
+  content: Learn something new
+  mission_type: 4
+  card_content:
+    blocks:
+      - type: two_column_layout
+        theme: two_thirds_one_third
         blocks:
-          - type: statistics
-            title: "Chart heading"
-            hide_heading: true
-            x_axis_label: "X Axis"
-            y_axis_label: "Y Axis"
-            csv_file: "data_four.csv"
-            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-            padding: true
-    - type: card
-      href: /landing-page/be-thankful
-      content: Be thankful
-      card_content:
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+      - type: statistics
+        title: "Chart heading"
+        hide_heading: true
+        x_axis_label: "X Axis"
+        y_axis_label: "Y Axis"
+        csv_file: "data_four.csv"
+        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
+- type: card
+  href: /landing-page/be-thankful
+  content: Be thankful
+  mission_type: 5
+  card_content:
+    blocks:
+      - type: two_column_layout
+        theme: two_thirds_one_third
         blocks:
-          - type: statistics
-            title: "Chart heading"
-            hide_heading: true
-            x_axis_label: "X Axis"
-            y_axis_label: "Y Axis"
-            csv_file: "data_one.csv"
-            data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-            padding: true
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+      - type: statistics
+        title: "Chart heading"
+        hide_heading: true
+        x_axis_label: "X Axis"
+        y_axis_label: "Y Axis"
+        csv_file: "data_one.csv"
+        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: share_links
   links:
     - href: /twitter-profile

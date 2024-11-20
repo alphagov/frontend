@@ -5,6 +5,12 @@ module LandingPage::Block
     end
 
     def items
+      explicitly_configured_items
+    end
+
+  private
+
+    def explicitly_configured_items
       data.fetch("items").map do |i|
         {
           link: {

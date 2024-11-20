@@ -45,12 +45,12 @@ blocks:
   image:
     alt: "Placeholder alt text"
     sources:
-      desktop: "landing_page/placeholder/desktop.png"
-      desktop_2x: "landing_page/placeholder/desktop_2x.png"
-      mobile: "landing_page/placeholder/mobile.png"
-      mobile_2x: "landing_page/placeholder/mobile_2x.png"
-      tablet: "landing_page/placeholder/tablet.png"
-      tablet_2x: "landing_page/placeholder/tablet_2x.png"
+      desktop: "landing_page/placeholder/missions_hero_desktop.jpg"
+      desktop_2x: "landing_page/placeholder/missions_hero_desktop_2x.jpg"
+      mobile: "landing_page/placeholder/missions_hero_mobile.jpg"
+      mobile_2x: "landing_page/placeholder/missions_hero_mobile_2x.jpg"
+      tablet: "landing_page/placeholder/missions_hero_tablet.jpg"
+      tablet_2x: "landing_page/placeholder/missions_hero_tablet_2x.jpg"
   hero_content:
     blocks:
       - type: heading

@@ -555,27 +555,24 @@ In the example above only the text in the govspeak and header blocks will be sea
 
 ## Navigation Groups
 
-The top-level key `navigation_groups` contains an array of items with the keys `id` and `links`. The id is used to identify the group for navigation blocks like [main navigation](#main-navigation) and [side navigation](#side-navigation), which reference a navigation group with their `navigation_group_id` key. The links key is an array of `text`/`href` values, although a links item can itself contain a `links` key pointing to an array of links for a submenu (main navigation supports sub menus, side navigation does not)
+The top-level key `navigation_groups` contains an array of items with the keys `id` and `links`. The id is used to identify the group for navigation blocks like [main navigation](#main-navigation) and [side navigation](#side-navigation), which reference a navigation group with their `navigation_group_id` key. The `links` key contains an array of `text` keys. These `text` keys represent headings that are rendered on the navigation element. These `text` values also contain a child `links` item, with `links` being an array of links related to that heading.
 
 ```yaml
 navigation_groups:
 - id: Top Menu
   links:
-  - text: Goals
-    href: /landing-page/goals
-  - text: Tasks
-    href: /landing-page/tasks
+  - text: First heading
     links:
-      - text: Be kinder
-        href: "/landing-page/be-kinder"
-      - text: Exercise more
-        href: "/landing-page/exercise-more"
-      - text: Donate to charity
-        href: "/landing-page/donate-to-charity"
-      - text: Learn something new
-        href: "/landing-page/learn-something-new"
-      - text: Be thankful
-        href: "/landing-page/be-thankful"
+    - text: Landing page
+      href: /landing-page/homepage/
+    - text: Another link
+      href: /landing-page/example/
+  - text: Second heading
+    links:
+    - text: Goal 1
+      href: /goal-1
+    - text: Goal 2
+      href: /goal-2
 ```
 
 ## Extending a page (Whitehall Only)

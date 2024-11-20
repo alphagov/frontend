@@ -1,7 +1,8 @@
 navigation_groups:
 - id: Top Menu
   links:
-  - heading: First heading
+  - text: Landing page menu
+  - text: First heading
     links:
     - text: Landing page homepage very long text here to demonstrate wrapping
       href: "/landing-page/homepage"
@@ -9,7 +10,7 @@ navigation_groups:
       href: "/landing-page/homepage"
     - text: Landing page homepage
       href: "/landing-page/homepage"
-  - heading: Goals
+  - text: Goals
     links:
     - text: Goals homepage
       href: "/landing-page/goals"
@@ -23,7 +24,7 @@ navigation_groups:
       href: "/goal-4"
     - text: Goal 5
       href: "/goal-5"
-  - heading: Tasks
+  - text: Tasks
     links:
     - text: Tasks homepage
       href: "/landing-page/tasks"

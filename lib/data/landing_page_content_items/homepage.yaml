@@ -1,6 +1,7 @@
 navigation_groups:
 - id: Top Menu
   links:
+  - text: Landing page menu
   - text: First heading
     links:
     - text: Landing page homepage very long text here to demonstrate wrapping

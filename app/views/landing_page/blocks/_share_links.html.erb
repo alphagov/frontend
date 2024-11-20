@@ -1,7 +1,9 @@
 <% if block.links.any? %>
   <%= render "govuk_publishing_components/components/heading", {
     text: "Our social media profiles",
-    margin_bottom: 6
+    margin_bottom: 1,
+    padding: true,
+    border_top: 5
   } %>
 
   <%= render "govuk_publishing_components/components/share_links", {

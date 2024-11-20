@@ -126,7 +126,6 @@ blocks:
   - type: card
     href: /link
     content: Title 1
-    link_cover_block: true
     card_content:
       blocks:
         - type: statistics
@@ -139,7 +138,6 @@ blocks:
   - type: card
     href: http://gov.uk
     content: Title 2 heading title goes here and on and on
-    link_cover_block: true
     card_content:
       blocks:
         - type: statistics
@@ -152,7 +150,6 @@ blocks:
   - type: card
     href: http://gov.uk
     content: Title 3 heading title goes here
-    link_cover_block: true
     card_content:
       blocks:
         - type: statistics

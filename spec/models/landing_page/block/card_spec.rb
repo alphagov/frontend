@@ -3,7 +3,6 @@ RSpec.describe LandingPage::Block::Card do
     { "type" => "card",
       "href" => "/landing-page/something",
       "content" => "This is a link",
-      "link_cover_block" => true,
       "image" => {
         "alt" => "some alt text",
         "source" => "landing_page/placeholder/chart.png",
@@ -21,7 +20,6 @@ RSpec.describe LandingPage::Block::Card do
     it "includes a link" do
       expect(subject.href).to eq "/landing-page/something"
       expect(subject.content).to eq "This is a link"
-      expect(subject.link_cover_block).to eq true
     end
   end
 

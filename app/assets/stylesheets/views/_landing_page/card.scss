@@ -8,34 +8,14 @@
   flex: 1 1;
   min-width: 0;
   margin-bottom: govuk-spacing(6);
-  color: govuk-colour("white");
-  background-color: govuk-colour("dark-blue");
 }
 
 .app-b-card__textbox {
-  padding: govuk-spacing(6);
-  color: govuk-colour("white");
+  padding: govuk-spacing(4) 0;
 
   @include govuk-media-query($until: tablet) {
     padding: govuk-spacing(4);
   }
-}
-
-.app-b-card__textbox-link {
-  &::after {
-    content: "";
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.app-b-card__chart {
-  border: solid 1px $govuk-border-colour;
-  background: govuk-colour("white");
 }
 
 .app-b-card__figure {

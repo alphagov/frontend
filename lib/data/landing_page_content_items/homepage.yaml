@@ -89,15 +89,18 @@ blocks:
   content: |
     <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
 - type: heading
-  content: Dorem ipsum dolor sit
+  content: Latest data
 - type: grid_container
   blocks:
   - type: card
     href: /landing-page/be-kinder
     content: Be kinder
-    link_cover_block: true
+    mission: 1
     card_content:
       blocks:
+        - type: govspeak
+          content: |
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -108,9 +111,12 @@ blocks:
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
-    link_cover_block: true
+    mission: 2
     card_content:
       blocks:
+        - type: govspeak
+          content: |
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"
@@ -121,9 +127,12 @@ blocks:
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
-    link_cover_block: true
+    mission: 3
     card_content:
       blocks:
+        - type: govspeak
+          content: |
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         - type: statistics
           title: "Chart to visually represent some data"
           x_axis_label: "X Axis"

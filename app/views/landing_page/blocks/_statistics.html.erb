@@ -3,6 +3,7 @@
 
   margin_bottom = options[:margin_bottom] || 8
   height = options[:height] || 400
+  point_size = block.data["point_size"] || 0
 %>
 <%= render "govuk_publishing_components/components/chart", {
   chart_heading: block.data["title"],
@@ -18,5 +19,7 @@
   height: height,
   padding: block.data["padding"],
   table_direction: "vertical",
-  point_size: block.data["point_size"],
+  point_size: point_size,
+  chart_type: block.data["chart_type"],
+  y_axis_auto_adjust: block.data["y_axis_auto_adjust"],
 } %>

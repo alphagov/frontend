@@ -141,13 +141,14 @@ blocks:
     - type: heading
       content: Porem ipsum dolor
     - type: govspeak
+      content: |
         <p><a href="https://youtu.be/C770bSvGr_E?feature=shared" class="govuk-link">https://youtu.be/C770bSvGr_E?feature=shared</a></p>
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
     - type: heading
-      text: Porem ipsum dolor
+      content: Porem ipsum dolor
     - type: document_list
       taxon_base_path: /government/government-efficiency-transparency-and-accountability
       items:

@@ -147,6 +147,7 @@ blocks:
     - type: heading
       text: Porem ipsum dolor
     - type: document_list
+      taxon_base_path: /government/government-efficiency-transparency-and-accountability
       items:
       - text: An example link
         path: https://www.gov.uk

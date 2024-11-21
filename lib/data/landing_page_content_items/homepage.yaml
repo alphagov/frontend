@@ -81,10 +81,12 @@ blocks:
     blocks:
       - type: heading
         content: Our tasks
-        path: /landing-page/tasks
       - type: govspeak
         content: |
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
+      - type: govspeak
+        content: |
+          <p><a href="/landing-page/tasks" class="govuk-link govuk-!-font-weight-bold">Find out more about our tasks</a></p>
 - type: heading
   content: Porem ipsum dolor
   full_width_background: true

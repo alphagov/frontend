@@ -26,7 +26,7 @@
             ga4_search_index_section_count: 6,
           }
         ) do %>
-          <%= render "govuk_publishing_components/components/search", {
+          <%= render "govuk_publishing_components/components/#{search_component}", {
               name: "keywords",
               button_text: t("homepage.index.search_button"),
               margin_bottom: 0,
@@ -39,6 +39,8 @@
               on_govuk_blue: true,
               margin_top: 5,
               disable_corrections: true,
+              source_url: [Frontend.govuk_website_root, "/api/search/autocomplete.json"].join,
+              source_key: "suggestions",
           } %>
         <% end %>
       </div>

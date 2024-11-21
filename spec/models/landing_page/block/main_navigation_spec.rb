@@ -29,6 +29,12 @@ RSpec.describe LandingPage::Block::MainNavigation do
     end
   end
 
+  describe "#name" do
+    it "returns the name of the navigation group" do
+      expect(subject.name).to eq("Some navigation group name")
+    end
+  end
+
   describe "#full_width?" do
     it "is true" do
       expect(subject.full_width?).to eq(true)

@@ -19,6 +19,7 @@ FactoryBot.define do
           navigation_groups: [
             {
               id: "Top Menu",
+              name: "Some navigation group name",
               links: [
                 { href: "https://www.gov.uk", text: "Service Name" },
                 { href: "/hello", text: "Test 1" },

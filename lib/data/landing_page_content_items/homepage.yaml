@@ -1,5 +1,6 @@
 navigation_groups:
 - id: Top Menu
+  name: Menu
   links:
   - text: First heading
     links:

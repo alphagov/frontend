@@ -21,12 +21,6 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include FactoryBot::Syntax::Methods
 
-  config.include ContentItemLoaderHelpers
-
-  config.before(:each) do
-    clear_content_item_loader_cache
-  end
-
   config.include ContentStoreHelpers, type: :request
   config.include ContentStoreHelpers, type: :system
 

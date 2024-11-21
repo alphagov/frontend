@@ -4,11 +4,11 @@ RSpec.describe ContentItemLoader do
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
 
   describe ".load" do
-    it "caches calls to the content store" do
+    it "does not cache calls to the content store" do
       ContentItemLoader.load("/my-random-item")
       ContentItemLoader.load("/my-random-item")
 
-      expect(item_request).to have_been_made.once
+      expect(item_request).to have_been_made.twice
     end
 
     context "with a missing content item" do

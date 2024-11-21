@@ -10,6 +10,8 @@
 
   hero_textbox_classes = %w[app-b-hero__textbox]
   hero_textbox_classes << "border-top--#{MissionTypeHelper.style(4)}" if block.data["mission_type"]
+
+  image_alt_text = block.image.alt || ""
 %>
 
 <%= content_tag("div", class: hero_classes) do %>
@@ -17,7 +19,7 @@
     <%= tag.source srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)" %>
     <%= tag.source srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
     <%= tag.source srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)" %>
-    <%= image_tag(block.image.sources.desktop, alt: block.image.alt, class: "app-b-hero__image") %>
+    <%= image_tag(block.image.sources.desktop, alt: image_alt_text, class: "app-b-hero__image") %>
   <% end %>
 
   <div class="govuk-width-container app-b-hero__textbox-wrapper">

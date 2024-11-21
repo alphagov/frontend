@@ -47,7 +47,6 @@ blocks:
 - type: hero
   position: top
   image:
-    alt: "Placeholder alt text"
     sources:
       desktop: "landing_page/placeholder/desktop.png"
       desktop_2x: "landing_page/placeholder/desktop_2x.png"
@@ -92,7 +91,6 @@ blocks:
 - type: hero
   theme: middle_left
   image:
-    alt: "Placeholder alt text"
     sources:
       desktop: "landing_page/placeholder/missions_hero_desktop.jpg"
       desktop_2x: "landing_page/placeholder/missions_hero_desktop_2x.jpg"

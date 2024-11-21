@@ -18,11 +18,10 @@
 
 .featured__child--content-with-image {
   flex: 1 1 33.333%;
-  padding: 0 govuk-spacing(6) govuk-spacing(6) 0;
   box-sizing: border-box;
 
-  @include govuk-media-query($until: desktop) {
-    padding-bottom: 0;
+  @include govuk-media-query($from: desktop) {
+    padding: 0 govuk-spacing(6) govuk-spacing(6) 0;
   }
 }
 

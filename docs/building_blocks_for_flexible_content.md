@@ -274,7 +274,7 @@ A card block renders its `card_content:` value as a [Heading component](https://
 
 #### Featured
 
-A featured block renders a vertical column of blocks on the left of a large (but not full-width) image. It uses a picture element to allow multiple image versions for different devices.
+A featured block renders either a vertical column of blocks on the left of a large (but not full-width) image (it uses a picture element to allow multiple image versions for different devices) or a block of text without an image. The latter can be rendered by omitting the `image` value as demonstrated in the second example below.
 
 ##### Example
 
@@ -293,7 +293,17 @@ A featured block renders a vertical column of blocks on the left of a large (but
     blocks:
       - type: heading
         content: Our tasks
-        path: /landing-page/tasks
+      - type: govspeak
+        content: |
+          <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>
+```
+
+```yaml
+- type: featured
+  featured_content:
+    blocks:
+      - type: heading
+        content: Our tasks
       - type: govspeak
         content: |
           <p>Lorem ipsum dolor sit amet. In voluptas dolorum vel veniam nisi et voluptate dolores id voluptatem distinctio. Et quia accusantium At ducimus quis aut voluptates iusto aut esse suscipit.</p>

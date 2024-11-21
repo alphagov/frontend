@@ -15,12 +15,13 @@
     <% end %>
   <% end %>
   <% if block.image %>
+    <% image_alt_text = block.image.alt || "" %>
     <div class="featured__child featured__child--image">
       <%= picture_tag do %>
         <%= tag.source srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)" %>
         <%= tag.source srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
         <%= tag.source srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)" %>
-        <%= image_tag(block.image.sources.desktop, alt: block.image.alt, class: "featured__image") %>
+        <%= image_tag(block.image.sources.desktop, alt: image_alt_text, class: "featured__image") %>
       <% end %>
     </div>
   <% end %>

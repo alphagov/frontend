@@ -1,19 +1,24 @@
 <%
   add_view_stylesheet("landing_page/featured")
+  featured_child_content_classes = "featured_child"
+  block.image ? featured_child_content_classes << " featured__child--content-with-image" : featured_child_content_classes << " featured__child--content"
 %>
+
 <div class="featured">
-  <div class="featured__child featured__child--content">
+  <%= tag.div class: featured_child_content_classes do %>
     <% block.featured_content.each do |subblock| %>
       <% options = { inverse: true } %>
       <%= render_block(subblock, options:) %>
     <% end %>
-  </div>
-  <div class="featured__child featured__child--image">
-    <%= picture_tag do %>
-      <%= tag.source srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)" %>
-      <%= tag.source srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
-      <%= tag.source srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)" %>
-      <%= image_tag(block.image.sources.desktop, alt: block.image.alt, class: "featured__image") %>
-    <% end %>
-  </div>
+  <% end %>
+  <% if block.image %>
+    <div class="featured__child featured__child--image">
+      <%= picture_tag do %>
+        <%= tag.source srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)" %>
+        <%= tag.source srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
+        <%= tag.source srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)" %>
+        <%= image_tag(block.image.sources.desktop, alt: block.image.alt, class: "featured__image") %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

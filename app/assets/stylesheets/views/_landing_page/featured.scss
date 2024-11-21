@@ -10,6 +10,14 @@
 }
 
 .featured__child--content {
+  width: 66.666%;
+
+  @include govuk-media-query($until: desktop) {
+    width: 100%;
+  }
+}
+
+.featured__child--content-with-image {
   flex: 1 1 33.333%;
   padding: govuk-spacing(6);
   box-sizing: border-box;

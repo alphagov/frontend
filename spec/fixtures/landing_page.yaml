@@ -24,7 +24,6 @@ blocks:
   navigation_group_id: "Top Menu"
 - type: hero
   image:
-    alt: "Placeholder alt text"
     sources:
       desktop: "landing_page/placeholder/desktop.png"
       desktop_2x: "landing_page/placeholder/desktop_2x.png"

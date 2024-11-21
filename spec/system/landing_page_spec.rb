@@ -83,5 +83,11 @@ RSpec.describe "LandingPage" do
 
       assert_selector ".app-b-main-nav"
     end
+
+    it "renders breadcrumbs" do
+      visit base_path
+
+      assert_selector ".govuk-breadcrumbs"
+    end
   end
 end

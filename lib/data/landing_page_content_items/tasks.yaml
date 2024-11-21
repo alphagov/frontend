@@ -1,3 +1,6 @@
+breadcrumbs:
+- title: Home
+  href: /
 navigation_groups:
 - id: Top Menu
   name: Menu

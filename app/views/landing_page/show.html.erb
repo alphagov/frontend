@@ -14,7 +14,13 @@
     <div class="landing-page-header__blue-bar">
     </div>
 
-    <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash, inverse: true %>
+    <% if @content_item.breadcrumbs.present? %>
+      <%= render 'govuk_publishing_components/components/breadcrumbs', {
+        collapse_on_mobile: true,
+        inverse: true,
+        breadcrumbs: @content_item.breadcrumbs
+      } %>
+    <% end %>
 
     <div class="landing-page-header__org">
       <%= render "govuk_publishing_components/components/organisation_logo", {

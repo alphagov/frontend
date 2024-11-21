@@ -1,5 +1,8 @@
-<div class="govuk-grid-row">
-  <% block.columns.each do |column| %>
-    <div class="<%= column_class_for_equal_columns(block.columns.count) %>"><%= render "landing_page/blocks/#{column.type}", block: column %></div>
+<%
+  add_view_stylesheet("landing_page/columns_layout")
+%>
+<div class="app-b-columns-layout" data-columns="<%= block.data["columns"] || 3 %>">
+  <% block.blocks.each do |child| %>
+    <%= render "landing_page/blocks/#{child.type}", block: child %>
   <% end %>
 </div>

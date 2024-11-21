@@ -253,9 +253,31 @@ For a "minimal" chart add "minimal" attributes the block config
 
 Compound blocks generally render more than one component and can contain nested blocks. The nested blocks can be simple blocks or themselves compound blocks
 
+- [Box](#box)
 - [Card](#card)
 - [Featured](#featured)
 - [Hero](#hero)
+
+#### Box
+
+A box block renders its `content:` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). If an `href:` is specified, the heading will link to that location. Subblocks are laid out vertically beneath the heading.
+
+Box blocks have a light grey background and can be styled with a predefined top border for colour-coded content using the `mission_type` property.
+
+##### Example
+
+```yaml
+- type: box
+  content: This is a heading
+  href: https://www.gov.uk
+  mission_type: 1
+  box_content:
+    blocks:
+      - type: govspeak
+        content: |
+          <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+
+```
 
 #### Card
 

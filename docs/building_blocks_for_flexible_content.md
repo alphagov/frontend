@@ -616,7 +616,7 @@ blocks:
   content: <p>Hello from the child!</p>
 ```
 
-...the navigation_groups element will be copied into the child page when it is saved (allowing you to specify a shared menu in one page and simply republish all the child pages with a standard Whitehall rake task).
+...the navigation_groups element will be copied into the child page when it is saved (allowing you to specify a shared menu in one page and simply [republish all the child pages](#republishing-all-landing-pages) in Whitehall).
 
 The extends keyword copies over everything from the parent to the child. It then replaces parent elements with what's in the child if a duplicate top-level element exists in the child. For example, if the child page didn't specify any blocks, those too would be copied over from the parent. That's because `extends` does a shallow merge of everything in the `details` element of the parent. This means that it is possible to add more top-level elements that can be shared across child pages.
 
@@ -643,7 +643,22 @@ The merging of elements is only visible in the content item. In the Whitehall ed
   }
 ]
 ```
-If a `navigation_group` is modified on a parent page, all of the child pages will need to be republished to pick up the changes. There is a [rake task](https://github.com/alphagov/whitehall/blob/ab6322aeca5011ad58210961400950c011daf750/lib/tasks/publishing_api.rake#L189) in Whitehall to aid with this:
+
+### Republishing all Landing Pages
+
+If a `navigation_group` is modified on a parent page, all of the child pages will need to be republished to pick up the changes. 
+
+Whitehall has a UI to help you do this.
+
+1. Go to "More" in menu (top right)
+2. Click on "Republish content"
+3. Scroll down to "Bulk republishing"
+4. Scroll to "All by type" and click "Republish"
+5. Select "LandingPage" from the drop-down and click "Continue"
+6. Provide a reason for the republish and click "Confirm republishing"
+7. You should see a Success message with "All by type 'LandingPage' have been queued for republishing"
+
+As a last ditch option there is also a [rake task](https://github.com/alphagov/whitehall/blob/ab6322aeca5011ad58210961400950c011daf750/lib/tasks/publishing_api.rake#L189) that does the same thing:
 
 ```ruby
 rake publishing_api:document_type["LandingPage"]

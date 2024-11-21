@@ -12,10 +12,10 @@ RSpec.describe LandingPage::Block::Statistics do
   let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_data_attachments)) }
 
   before do
-    stub_request(:get, "https://www.asset.test.gov.uk/data_one.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
-    stub_request(:get, "https://www.asset.test.gov.uk/data_two.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_two.csv"), headers: {})
-    stub_request(:get, "https://www.asset.test.gov.uk/data_three.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_three.csv"), headers: {})
-    stub_request(:get, "https://www.asset.test.gov.uk/data_four.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_four.csv"), headers: {})
+    stub_request(:get, %r{/media/000000000000000000000001/data_one.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
+    stub_request(:get, %r{/media/000000000000000000000002/data_two.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_two.csv"), headers: {})
+    stub_request(:get, %r{/media/000000000000000000000003/data_three.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_three.csv"), headers: {})
+    stub_request(:get, %r{/media/000000000000000000000004/data_four.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_four.csv"), headers: {})
   end
 
   describe "#x_axis_keys" do

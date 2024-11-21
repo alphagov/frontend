@@ -1,0 +1,24 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-b-columns-layout {
+  display: grid;
+  grid-gap: govuk-spacing(6);
+
+  @include govuk-media-query($from: desktop) {
+    @for $i from 2 through 3 {
+      &[data-columns="#{$i}"]{
+        grid-template-columns: repeat(#{$i}, 1fr);
+      }
+    }
+  }
+
+}
+@include govuk-media-query($media-type: print) {
+  .app-b-columns-layout  {
+    display: block;
+
+    > * {
+      margin-bottom: govuk-spacing(6);
+    }
+  }
+}

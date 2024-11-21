@@ -440,12 +440,20 @@ This example uses the `blocks_container` for the element type in the second [two
 
 #### Columns layout
 
-Columns layout spreads its blocks out horizontally. Depending on the number of child blocks, each column will take all (1 block), 1/2 (2 blocks), 1/3 (3 blocks), or 1/4 (4 or more blocks) of the width. If there are more than 4 blocks, blocks will wrap around after every fourth block.
+Columns layout spreads its blocks out horizontally. The `columns` property determines how many columns will be in each row, and can accept the following values:
+- `columns: 2` Two columns, each taking up half of the available space.
+- `columns: 3` Three columns, each taking up one-third of the available space.
+- any other value for `columns` will have no effect: all child elements will render the full width of this container.
+
+If `columns` is missing entirely, three columns will be rendered by default.
 
 ##### Example
 
+In the following example, the first two `big_number` blocks will be side-by-side on the first row and the third block will drop down onto the next row, taking up the left hand column.
+
 ```yaml
 - type: columns_layout
+  columns: 2
   blocks:
   - type: big_number
     number: £75m

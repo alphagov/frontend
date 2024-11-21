@@ -1,0 +1,13 @@
+<% if block.items.any? %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Press Notices",
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3
+  } %>
+
+  <%= render "govuk_publishing_components/components/document_list", {
+    margin_bottom: 0,
+    items: block.items,
+  } %>
+<% end %>

@@ -2,7 +2,6 @@
 
 .featured {
   display: flex;
-  background: govuk-colour("dark-blue");
 
   @include govuk-media-query($until: desktop) {
     flex-direction: column;
@@ -10,9 +9,20 @@
 }
 
 .featured__child--content {
+  width: 66.666%;
+
+  @include govuk-media-query($until: desktop) {
+    width: 100%;
+  }
+}
+
+.featured__child--content-with-image {
   flex: 1 1 33.333%;
-  padding: govuk-spacing(6);
   box-sizing: border-box;
+
+  @include govuk-media-query($from: desktop) {
+    padding: 0 govuk-spacing(6) govuk-spacing(6) 0;
+  }
 }
 
 .featured__child--image {

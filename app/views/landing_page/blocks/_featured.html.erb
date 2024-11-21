@@ -7,7 +7,10 @@
 <div class="featured">
   <%= tag.div class: featured_child_content_classes do %>
     <% block.featured_content.each do |subblock| %>
-      <% options = { inverse: true } %>
+      <%
+        options = {}
+        options[:position] = "top" if subblock.type == "heading"
+      %>
       <%= render_block(subblock, options:) %>
     <% end %>
   <% end %>

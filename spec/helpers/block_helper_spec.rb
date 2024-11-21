@@ -17,24 +17,6 @@ RSpec.describe BlockHelper do
     end
   end
 
-  describe "#column_class_for_equal_columns" do
-    it "returns govuk-grid-column when there is one column" do
-      expect(column_class_for_equal_columns(1)).to eq("govuk-grid-column")
-    end
-
-    it "returns govuk-grid-column-one-half when there is two columns" do
-      expect(column_class_for_equal_columns(2)).to eq("govuk-grid-column-one-half")
-    end
-
-    it "returns govuk-grid-column-one-third when there is three columns" do
-      expect(column_class_for_equal_columns(3)).to eq("govuk-grid-column-one-third")
-    end
-
-    it "returns govuk-grid-column-one-quarter when there more than three columns" do
-      expect(column_class_for_equal_columns(4)).to eq("govuk-grid-column-one-quarter")
-    end
-  end
-
   describe "#column_class_for_assymetric_columns" do
     context "when there are three columns" do
       it "returns govuk-grid-column-one-third when the column size is 1" do

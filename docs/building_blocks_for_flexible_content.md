@@ -67,10 +67,15 @@ A wrapper around the [Big number component](https://components.publishing.servic
 
 A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list)
 
+The document list can either be populate with the most recent content tagged to a taxon, or from a hard-coded list.
+
+If the `taxon_base_path` is provided, the taxon exists and it has content tagged to it, the document list will be populated with that content, otherwise it will default to the hard-coded list.
+
 ##### Example
 
 ```yaml
 - type: document_list
+  taxon_base_path: /government/government-efficiency-transparency-and-accountability
   items:
   - text: An example link
     path: https://www.gov.uk

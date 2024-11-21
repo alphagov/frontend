@@ -1,4 +1,8 @@
+require "gds_api/test_helpers/search"
+
 RSpec.describe "LandingPage" do
+  include GdsApi::TestHelpers::Search
+
   context "show" do
     let(:content_item) do
       {
@@ -41,6 +45,8 @@ RSpec.describe "LandingPage" do
       stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
       stub_content_store_has_item(base_path, content_item)
       stub_request(:get, "https://www.asset.test.gov.uk/data_one.csv").to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
+      stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+      stub_any_search_to_return_no_results
     end
 
     it "displays the page" do

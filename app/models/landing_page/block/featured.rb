@@ -8,7 +8,7 @@ module LandingPage::Block
     def initialize(block_hash, landing_page)
       super
 
-      if data["image"]
+      if data["image"].present?
         alt, sources = data.fetch("image").values_at("alt", "sources")
         sources = FeaturedImageSources.new(**sources)
         @image = FeaturedImage.new(alt:, sources:)

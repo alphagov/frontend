@@ -112,7 +112,7 @@ blocks:
       mobile_2x: "landing_page/placeholder/missions_hero_mobile_2x.jpg"
       tablet: "landing_page/placeholder/missions_hero_tablet.jpg"
       tablet_2x: "landing_page/placeholder/missions_hero_tablet_2x.jpg"
-  mission_type: 4
+  theme_colour: 4
   hero_content:
     blocks:
       - type: quote

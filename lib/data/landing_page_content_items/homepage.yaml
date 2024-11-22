@@ -100,7 +100,7 @@ blocks:
   - type: card
     href: /landing-page/be-kinder
     content: Be kinder
-    mission_type: 1
+    theme_colour: 1
     card_content:
       blocks:
         - type: govspeak
@@ -116,7 +116,7 @@ blocks:
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
-    mission_type: 2
+    theme_colour: 2
     card_content:
       blocks:
         - type: govspeak
@@ -132,7 +132,7 @@ blocks:
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
-    mission_type: 3
+    theme_colour: 3
     card_content:
       blocks:
         - type: govspeak

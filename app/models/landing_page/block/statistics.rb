@@ -7,10 +7,16 @@ module LandingPage::Block
     STATISTICS_DATA_PATH = "lib/data/landing_page_content_items/statistics".freeze
 
     def x_axis_keys
-      @x_axis_keys ||= csv_rows.map { |row| row[row.keys.first] }.uniq
+      @x_axis_keys ||= begin
+        return [] unless csv_data?
+
+        csv_rows.map { |row| row[row.keys.first] }.uniq
+      end
     end
 
     def rows
+      return [] unless csv_data?
+
       csv_headers[1..].map do |header|
         values = csv_rows.map do |row|
           row[header].to_f if row[header].present?
@@ -28,6 +34,12 @@ module LandingPage::Block
     end
 
   private
+
+    def csv_data?
+      return true if opened_csv.present?
+
+      false
+    end
 
     def csv_rows
       @csv_rows ||= opened_csv.map(&:to_h)
@@ -47,6 +59,8 @@ module LandingPage::Block
 
     def csv_from_file
       csv_file_path = Rails.root.join("#{STATISTICS_DATA_PATH}/#{data['csv_file']}")
+      return unless File.exist?(csv_file_path)
+
       CSV.read(csv_file_path, headers: true)
     end
   end

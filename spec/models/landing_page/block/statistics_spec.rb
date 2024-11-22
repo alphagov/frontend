@@ -32,6 +32,12 @@ RSpec.describe LandingPage::Block::Statistics do
 
       expect(subject.x_axis_keys).to eq(expected_keys)
     end
+
+    it "returns an empty array if the csv_file doesn't exist" do
+      blocks_hash["csv_file"] = "dat_one.csv"
+
+      expect(subject.x_axis_keys).to eq([])
+    end
   end
 
   describe "#rows" do
@@ -115,6 +121,12 @@ RSpec.describe LandingPage::Block::Statistics do
       ]
 
       expect(subject.rows).to eq(expected_rows)
+    end
+
+    it "returns an empty array if the csv_file doesn't exist" do
+      blocks_hash["csv_file"] = "dat_one.csv"
+
+      expect(subject.rows).to eq([])
     end
   end
 end

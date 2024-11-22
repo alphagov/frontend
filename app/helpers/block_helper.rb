@@ -16,19 +16,6 @@ module BlockHelper
     end
   end
 
-  def column_class_for_equal_columns(number_of_columns)
-    case number_of_columns
-    when 1
-      "govuk-grid-column"
-    when 2
-      "govuk-grid-column-one-half"
-    when 3
-      "govuk-grid-column-one-third"
-    else
-      "govuk-grid-column-one-quarter"
-    end
-  end
-
   def column_class_for_assymetric_columns(number_of_columns, column_size)
     case number_of_columns
     when 3

@@ -18,6 +18,7 @@ APP_STYLESHEETS = {
   "views/_landing_page.scss" => "views/_landing_page.css",
   "views/_landing_page/box.scss" => "views/_landing_page/box.css",
   "views/_landing_page/card.scss" => "views/_landing_page/card.css",
+  "views/_landing_page/columns_layout.scss" => "views/_landing_page/columns_layout.css",
   "views/_landing_page/hero.scss" => "views/_landing_page/hero.css",
   "views/_landing_page/featured.scss" => "views/_landing_page/featured.css",
   "views/_landing_page/grid.scss" => "views/_landing_page/grid.css",

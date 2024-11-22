@@ -1,0 +1,22 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-b-box {
+  padding: govuk-spacing(4);
+  background-color: govuk-colour("light-grey");
+
+  @include govuk-media-query($until: desktop) {
+    margin-bottom: govuk-spacing(6);
+  }
+}
+
+@include govuk-media-query($media-type: print) {
+  .app-b-box {
+    background: none;
+    border-top: 2pt solid $govuk-print-text-colour;
+    padding-inline: 0;
+
+    * {
+      color: $govuk-print-text-colour !important; // stylelint-disable-line declaration-no-important
+    }
+  }
+}

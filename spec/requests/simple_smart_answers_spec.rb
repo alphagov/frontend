@@ -25,6 +25,8 @@ RSpec.describe "Simple Smart Answers" do
   end
 
   context "GET 'start page'" do
+    it_behaves_like "it can render the govuk_chat promo banner", "/the-bridge-of-death"
+
     before do
       content_store_has_random_item(base_path: "/the-bridge-of-death", schema: "simple_smart_answer")
     end

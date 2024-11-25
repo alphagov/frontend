@@ -2,7 +2,7 @@ RSpec.describe ApiErrorRoutingConstraint do
   include ContentStoreHelpers
 
   let(:subject) { described_class.new }
-  let(:request) { double(path: "/slug") }
+  let(:request) { double(path: "/slug", env: {}) }
 
   it "returns true if there's a cached error" do
     stub_content_store_does_not_have_item("/slug")

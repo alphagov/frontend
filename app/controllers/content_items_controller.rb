@@ -22,7 +22,7 @@ private
   end
 
   def content_item
-    @content_item ||= ContentItemFactory.build(ContentItemLoader.load(content_item_path))
+    @content_item ||= ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path))
   end
 
   def content_item_path

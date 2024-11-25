@@ -12,7 +12,7 @@ private
   # SCAFFOLDING: can be removed when basic content items are available
   # from content-store
   def old_scaffolding_content_item
-    result = ContentItemLoader.load(request.path)
+    result = ContentItemLoader.for_request(request).load(request.path)
     return result.to_h if result.is_a?(GdsApi::Response)
 
     fake_data

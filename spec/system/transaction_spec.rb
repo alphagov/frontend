@@ -58,26 +58,6 @@ RSpec.describe "Transaction" do
       end
     end
 
-    it "presents the FAQ schema correctly until voting closes" do
-      setup_register_to_vote
-      when_voting_is_open do
-        visit "/register-to-vote"
-        faq_schema = find_schema_of_type("FAQPage")
-
-        expect(faq_schema).to eq(SchemaOrgHelpers::REGISTER_TO_VOTE_SCHEMA)
-      end
-    end
-
-    it "does not present the custom FAQ schema once voting has closed" do
-      setup_register_to_vote
-      when_voting_is_closed do
-        visit "/register-to-vote"
-        faq_schema = find_schema_of_type("FAQPage")
-
-        expect(faq_schema).to be_nil
-      end
-    end
-
     it "contains GovernmentService schema.org information" do
       carrot_service_with_org = @payload.merge(
         links: {

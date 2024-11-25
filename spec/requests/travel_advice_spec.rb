@@ -79,7 +79,7 @@ RSpec.describe "Travel Advice" do
       end
     end
 
-    context("second part") do
+    context "second part" do
       before do
         @content_item = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
         @country_path = @content_item.fetch("base_path")
@@ -102,6 +102,19 @@ RSpec.describe "Travel Advice" do
       it "sets cache-control headers" do
         get "#{@country_path}/#{@part_slug}"
         honours_content_store_ttl
+      end
+    end
+
+    context "missing part" do
+      before do
+        @content_item = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
+        @country_path = @content_item.fetch("base_path")
+        stub_content_store_has_item(@country_path, @content_item)
+      end
+      it "returns a 404 if the part doesn't exist" do
+        get "#{@country_path}/i-dont-exist"
+
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

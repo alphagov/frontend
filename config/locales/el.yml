@@ -103,6 +103,8 @@ el:
   components:
     figure:
       image_credit: 'Εικόνα από: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: απόκρυψη όλων των ενημερώσεων
@@ -501,6 +503,17 @@ el:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Το <abbr title="Foreign and Commonwealth Office">FCO</abbr> σας συμβουλεύει να αποφύγετε τα ταξίδια, πλην των απαραίτητων, σε μέρη της χώρας.
+        avoid_all_but_essential_travel_to_whole_country_html: Το <abbr title="Foreign and Commonwealth Office">FCO</abbr> σας συμβουλεύει να αποφύγετε τα ταξίδια, πλην των απαραίτητων, σε ολόκληρη την χώρα.
+        avoid_all_travel_to_parts_html: Το <abbr title="Foreign and Commonwealth Office">FCO</abbr> σας συμβουλεύει να αποφύγετε τα ταξίδια σε μέρη της χώρας.
+        avoid_all_travel_to_whole_country_html: Το <abbr title="Foreign and Commonwealth Office">FCO</abbr> σας συμβουλεύει να αποφύγετε τα ταξίδια σε ολόκληρη την χώρα.
+      context: Συμβουλές για ταξίδια στο εξωτερικό
+      pages:
+      still_current_at: Ακόμα επίκαιρο στο
+      summary: Περίληψη
+      updated: Ενημερωμένο
   help:
     index:
       about:
@@ -636,6 +649,11 @@ el:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Επόμενο
+    previous_page: Προηγούμενο
+    print_entire_guide: Εκτύπωση ολόκληρου του οδηγού
+    printable_version:
   'no':
   or:
   place:

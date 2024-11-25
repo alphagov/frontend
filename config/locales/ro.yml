@@ -103,6 +103,8 @@ ro:
   components:
     figure:
       image_credit: 'Autor imagine: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: ascundeți toate actualizările
@@ -575,6 +577,17 @@ ro:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile neesențiale în anumite părți ale țării.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile neesențiale în întreaga țară.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile în anumite părți ale țării.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile în întreaga țară.
+      context: Sfaturi pentru călătoriile în străinătate
+      pages:
+      still_current_at: În acest moment la
+      summary: Rezumat
+      updated: Actualizat
   help:
     index:
       about:
@@ -710,6 +723,11 @@ ro:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Continuare
+    previous_page: Înapoi
+    print_entire_guide: Imprimați întreg ghidul
+    printable_version:
   'no':
   or:
   place:

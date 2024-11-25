@@ -103,6 +103,8 @@ bn:
   components:
     figure:
       image_credit: 'ছবির কৃতিত্ব: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: সকল আপডেট লুকান
@@ -501,6 +503,17 @@ bn:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> দেশের কিছু অংশে শুধু প্রয়োজনীয় ভ্রমণ ছাড়া সকল ধরনের ভ্রমণের বিরুদ্ধে পরামর্শ দিয়েছে।
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> সমগ্র দেশে শুধু প্রয়োজনীয় ভ্রমণ ছাড়া সকল ধরনের ভ্রমণের বিরুদ্ধে পরামর্শ দিয়েছে।
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> দেশের কিছু অংশে সকল ধরনের ভ্রমণের বিরুদ্ধে পরামর্শ দিয়েছে।
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> সমগ্র দেশে সকল ধরনের ভ্রমণের বিরুদ্ধে পরামর্শ দিয়েছে।
+      context: বিদেশ ভ্রমণ সম্পর্কিত পরামর্শ
+      pages:
+      still_current_at: এখানে এখনও চলমান
+      summary: সারসংক্ষেপ
+      updated: হালনাগাদ করা হয়েছে
   help:
     index:
       about:
@@ -636,6 +649,11 @@ bn:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: পরবর্তী
+    previous_page: পূর্ববর্তী
+    print_entire_guide: সম্পূর্ণ নির্দেশিকাটি প্রিন্ট করুন
+    printable_version:
   'no':
   or:
   place:

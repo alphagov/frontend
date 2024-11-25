@@ -17,6 +17,18 @@ class TravelAdviceController < ContentItemsController
     end
   end
 
+  def show
+    content_item.set_current_part(params[:slug])
+    @travel_advice_presenter = TravelAdvicePresenter.new(content_item)
+
+    request.variant = :print if params[:variant] == :print
+
+    respond_to do |format|
+      format.html
+      format.atom
+    end
+  end
+
 private
 
   # TODO: Controllers should provide a presenter or a publication.
@@ -24,6 +36,8 @@ private
   def publication; end
 
   def content_item_path
-    "/#{FOREIGN_TRAVEL_ADVICE_SLUG}"
+    return "/#{FOREIGN_TRAVEL_ADVICE_SLUG}" if params[:country].blank?
+
+    "/#{FOREIGN_TRAVEL_ADVICE_SLUG}/#{params[:country]}"
   end
 end

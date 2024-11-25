@@ -103,6 +103,8 @@ lt:
   components:
     figure:
       image_credit: 'Nuotrauka: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: slėpti visą naują informacij
@@ -575,6 +577,17 @@ lt:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> pataria keliauti į skirtingas šalies vietas tik būtinais tikslais.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> pataria keliauti po šalį tik būtinais tikslais.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nepataria keliauti į skirtingas šalies veitas.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nepataria keliauti po šalį.
+      context: Patarimai dėl keliavimo po užsienį
+      pages:
+      still_current_at: Vis dar
+      summary: Santrauka
+      updated: Atnaujinta
   help:
     index:
       about:
@@ -710,6 +723,11 @@ lt:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Kitas
+    previous_page: Ankstesnis
+    print_entire_guide: Atsispausdinti visą vadovą
+    printable_version:
   'no':
   or:
   place:

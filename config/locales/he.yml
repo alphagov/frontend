@@ -103,6 +103,8 @@ he:
   components:
     figure:
       image_credit: 'קרדיט תמונה: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: להסתיר כל עדכונים
@@ -501,6 +503,17 @@ he:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: ' <abbr title="Foreign and Commonwealth Office">FCO</abbr> להמליץ על כל נסיעות מלבד חיוניות לחלקי הארץ.'
+        avoid_all_but_essential_travel_to_whole_country_html: ' <abbr title="Foreign and Commonwealth Office">FCO</abbr>להמנע מכל נסיעה חיונית לכל הארץ.'
+        avoid_all_travel_to_parts_html: ' <abbr title="Foreign and Commonwealth Office">FCO</abbr> ממליץ לא לנסוע לאזורים שונים בארץ.'
+        avoid_all_travel_to_whole_country_html: ' <abbr title="Foreign and Commonwealth Office">FCO</abbr> ממליץ לא לטייל בכל רחבי הארץ.'
+      context: ייעוץ לטיולי חוץ
+      pages:
+      still_current_at: עדיין עדכני ב
+      summary: סיכום
+      updated: מעודכן
   help:
     index:
       about:
@@ -636,6 +649,11 @@ he:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: הבא
+    previous_page: הקודם
+    print_entire_guide: הדפס את כל המדריך
+    printable_version:
   'no':
   or:
   place:

@@ -60,6 +60,10 @@ Transaction start pages:
 
 * https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing
 
+### Travel Advice Country pages
+
+* https://www.gov.uk/foreign-travel-advice/azerbaijan
+
 ### Misc
 
 | URL  | Related views |

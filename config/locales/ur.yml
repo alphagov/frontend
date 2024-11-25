@@ -103,6 +103,8 @@ ur:
   components:
     figure:
       image_credit: 'تصویری کریڈٹ: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: تمام اپ ڈیٹس کو پوشیدہ کریں
@@ -501,6 +503,17 @@ ur:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> سوائے ملک کے کچھ حصوں میں ضروری سفر کرنے کے ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> سوائے پورے ملک میں ضروری سفر کرنے کے ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ملک کے کچھ حصوں میں ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> پورے ملک میں ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔
+      context: غیر ملکی سفر کی مشاورت
+      pages:
+      still_current_at: ابھی تک حالیہ ہے از
+      summary: خلاصہ
+      updated: اپ ڈیٹ کردہ
   help:
     index:
       about:
@@ -636,6 +649,11 @@ ur:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: اگلا
+    previous_page: گزشتہ
+    print_entire_guide: پوری رہنمائی کا پرنٹ لیں
+    printable_version:
   'no':
   or:
   place:

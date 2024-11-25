@@ -103,6 +103,8 @@ pa-pk:
   components:
     figure:
       image_credit: 'امیج کریڈٹ: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: سارے تازہ ترین حالات نوں لُکا لوؤ
@@ -501,6 +503,17 @@ pa-pk:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: ایہ<abbr title="Foreign and Commonwealth Office">FCO</abbr> مُلک دے سارے علاقیاں وچ  ضروری سفر کرن  لئی کیتی گئی نصحیت۔
+        avoid_all_but_essential_travel_to_whole_country_html: ایہ<abbr title="Foreign and Commonwealth Office">FCO</abbr> سارے مُلک دے وچ  ضروری سفر کرن لئی کیتی گئی نصحیت۔
+        avoid_all_travel_to_parts_html: ایہ<abbr title="Foreign and Commonwealth Office">FCO</abbr> مُلک دے ساریاں علاقیاں وچ سفر کرن لئی نصحیت۔
+        avoid_all_travel_to_whole_country_html: ایہ<abbr title="Foreign and Commonwealth Office">FCO</abbr> مُلک دےسارےعلاقے وچ ہر طراں دا سفر کرن لئی کیتی گئی نصحیت۔
+      context: غیر مُلکی سفر لئی نصحیت
+      pages:
+      still_current_at: ہون ایس ویلے وی اوتھے ای اے
+      summary: خلاصہ
+      updated: تازہ ترین حال
   help:
     index:
       about:
@@ -636,6 +649,11 @@ pa-pk:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: اگلا
+    previous_page: پچھلا
+    print_entire_guide: سارا ورقہ چھاپو
+    printable_version:
   'no':
   or:
   place:

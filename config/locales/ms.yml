@@ -103,6 +103,8 @@ ms:
   components:
     figure:
       image_credit: 'Imej kredit: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: sorok semua kemas kini
@@ -427,6 +429,17 @@ ms:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> menasihati supaya tidak membuat perjalanan kecuali yang perlu sahaja ke bahagian-bahagian tertentu negara ini.
+        avoid_all_but_essential_travel_to_whole_country_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> menasihati supaya tidak membuat perjalanan kecuali yang perlu sahaja ke seluruh negara.
+        avoid_all_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> menasihati supaya tidak membuat sebarang perjalanan ke bahagian-bahagian tertentu negara ini.
+        avoid_all_travel_to_whole_country_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> menasihati supaya tidak membuat sebarang perjalanan ke seluruh negara..
+      context: Nasihat perjalanan ke negara luar
+      pages:
+      still_current_at: Masih semasa di
+      summary: Ringkasan
+      updated: Dikemas kini
   help:
     index:
       about:
@@ -562,6 +575,11 @@ ms:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Seterusnya
+    previous_page: Sebelumnya
+    print_entire_guide: Cetak keseluruhan panduan
+    printable_version:
   'no':
   or:
   place:

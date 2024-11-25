@@ -103,6 +103,8 @@ sl:
   components:
     figure:
       image_credit: 'Avtor slike: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: Skrij vse posodobitve
@@ -649,6 +651,17 @@ sl:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odsvetuje vsa nenujna potovanja v dele države.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odsvetuje vsa nenujna potovanja v državo.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odsvetuje vsa potovanja v dele države.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odsvetuje vsa potovanja v državo.
+      context: Nasveti za potovanja v tujino
+      pages:
+      still_current_at: Še vedno aktualno ob
+      summary: Povzetek
+      updated: Posodobljeno
   help:
     index:
       about:
@@ -784,6 +797,11 @@ sl:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Naslednji
+    previous_page: Prejšnji
+    print_entire_guide: Natisni cel vodič
+    printable_version:
   'no':
   or:
   place:

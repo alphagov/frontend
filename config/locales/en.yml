@@ -103,6 +103,8 @@ en:
   components:
     figure:
       image_credit: 'Image credit: %{credit}'
+    print_link:
+      text: Print this page
     published_dates:
       hidden_heading: Updates to this page
       hide_all_updates: hide all updates
@@ -506,6 +508,17 @@ en:
       other_ways_to_apply: Other ways to apply
       sign_in: Sign in
       what_you_need_to_know: What you need to know
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> advises against all but essential travel to parts of %{country}.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> advises against all but essential travel to %{country}.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> advises against all travel to parts of %{country}.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> advises against all travel to %{country}.
+      context: Foreign travel advice
+      pages: Travel advice pages
+      still_current_at: Still current at
+      summary: Summary
+      updated: Updated
   help:
     index:
       about: About GOV.UK
@@ -771,6 +784,11 @@ en:
     zh: Chinese
     zh-hk: Cantonese
     zh-tw: Traditional Chinese
+  multi_page:
+    next_page: Next
+    previous_page: Previous
+    print_entire_guide: View a printable version of the whole guide
+    printable_version: Printable version
   'no': 'No'
   or: or
   place:

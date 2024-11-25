@@ -103,6 +103,8 @@ cy:
   components:
     figure:
       image_credit: 'Delwedd gan: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: cuddio pob diweddariad
@@ -802,6 +804,17 @@ cy:
       other_ways_to_apply: Ffyrdd eraill o wneud cais
       sign_in: Mewngofnodi
       what_you_need_to_know: Beth mae angen i chi wybod
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Mae'r <abbr title="Foreign and Commonwealth Office">Swyddfa Dramor, y Gymanwlad a Datblygu</abbr> yn cynghori yn erbyn pob taith, oni fo'n hanfodol, i rannau o'r wlad.
+        avoid_all_but_essential_travel_to_whole_country_html: Mae'r <abbr title="Foreign and Commonwealth Office">Swyddfa Dramor, y Gymanwlad a Datblygu</abbr> yn cynghori yn erbyn pob taith, oni fo'n hanfodol, i'r wlad gyfan.
+        avoid_all_travel_to_parts_html: Mae'r <abbr title="Foreign and Commonwealth Office">Swyddfa Dramor, y Gymanwlad a Datblygu</abbr> yn cynghori yn erbyn pob taith i rannau o'r wlad.
+        avoid_all_travel_to_whole_country_html: Mae'r <abbr title="Foreign and Commonwealth Office">Swyddfa Dramor, y Gymanwlad a Datblygu</abbr> yn cynghori yn erbyn pob taith i'r wlad gyfan.
+      context: Cyngor ar deithio dramor
+      pages:
+      still_current_at: Yn gyfredol o hyd ar
+      summary: Crynodeb
+      updated: Diweddarwyd
   help:
     index:
       about: Ynghylch GOV.UK
@@ -937,6 +950,11 @@ cy:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Nesaf
+    previous_page: Blaenorol
+    print_entire_guide: Argraffu'r canllaw cyfan
+    printable_version:
   'no': Na
   or:
   place:

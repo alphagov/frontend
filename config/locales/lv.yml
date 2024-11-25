@@ -103,6 +103,8 @@ lv:
   components:
     figure:
       image_credit: 'Attēla autortiesības: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: paslēpt visus atjauninājumus
@@ -501,6 +503,17 @@ lv:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> iesaka izvairīties no jebkādas ceļošanas, izņemot neatliekamus braucienus uz noteiktām valsts daļām.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> iesaka izvairīties no jebkādas ceļošanas, izņemot neatliekamus braucienus pa valsti.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> iesaka izvairīties no jebkādas ceļošanas uz noteiktām valsts daļām.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> iesaka izvairīties no jebkādas ceļošanas pa valsti.
+      context: Ieteikums ārzemju ceļojumiem
+      pages:
+      still_current_at: Joprojām aktuāli
+      summary: Kopsavilkums
+      updated: Atjaunināts
   help:
     index:
       about:
@@ -636,6 +649,11 @@ lv:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Tālāk
+    previous_page: Atpakaļ
+    print_entire_guide: Drukāt visu ceļvedi
+    printable_version:
   'no':
   or:
   place:

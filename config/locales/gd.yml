@@ -103,6 +103,8 @@ gd:
   components:
     figure:
       image_credit: 'Creidmheas íomhá: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: gach nuashonrú a cheilt
@@ -649,6 +651,17 @@ gd:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: Molann an <abbr title="Foreign and Commonwealth Office">FCO</abbr> gach taisteal ach an taisteal is riachtanaí chuig áiteanna áirithe sa tír a sheachaint.
+        avoid_all_but_essential_travel_to_whole_country_html: Molann an <abbr title="Foreign and Commonwealth Office">FCO</abbr> gach taisteal, seachas taisteal riachtanach, a sheachaint ar fud na tíre.
+        avoid_all_travel_to_parts_html: Molann an <abbr title="Foreign and Commonwealth Office">FCO</abbr> gach taisteal chuig codanna den tír a sheachaint.
+        avoid_all_travel_to_whole_country_html: Molann an <abbr title="Foreign and Commonwealth Office">FCO</abbr> duit gach taisteal ar fud na tíre a sheachaint.
+      context: Comhairle phraiticiúil do thaistealaithe eachtracha
+      pages:
+      still_current_at: Bailí i gcónaí ar
+      summary: Coimriú
+      updated: Athnuachan
   help:
     index:
       about:
@@ -784,6 +797,11 @@ gd:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Ag leanúint
+    previous_page: Roimhe seo
+    print_entire_guide: Priontáil an treoir iomlán
+    printable_version:
   'no':
   or:
   place:

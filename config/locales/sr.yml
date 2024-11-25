@@ -103,6 +103,8 @@ sr:
   components:
     figure:
       image_credit: 'Vlasnik slike: %{credit}'
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: sakrij sva ažuriranja
@@ -575,6 +577,17 @@ sr:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ne preporučuje putovanja koja nisu esencijalna za delove zemlje.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ne preporučuje putovanja koja nisu esencijalna za celu zemlju.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ne preporučuje putovanja za delove zemlje.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ne preporučuje putovanja za celu zemlju.
+      context: Preporuka o putovanjima van zemlje
+      pages:
+      still_current_at: Još važi za
+      summary: Rezime
+      updated: Ažurirano
   help:
     index:
       about:
@@ -710,6 +723,11 @@ sr:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Sledeće
+    previous_page: Prethodno
+    print_entire_guide: Odštampaj ceo vodič
+    printable_version:
   'no':
   or:
   place:

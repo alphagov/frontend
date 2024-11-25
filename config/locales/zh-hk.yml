@@ -103,6 +103,8 @@ zh-hk:
   components:
     figure:
       image_credit: 圖片來源： %{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: 隱藏所有更新
@@ -427,6 +429,17 @@ zh-hk:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="外交及聯邦事務部">FCO</abbr> 建議，如非必要，請勿前往該國部份地區。
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="外交及聯邦事務部">FCO</abbr> 建議，如非必要，請勿前往該國全部地區。
+        avoid_all_travel_to_parts_html: <abbr title="外交及聯邦事務部">FCO</abbr> 建議，切勿前往該國部份地區。
+        avoid_all_travel_to_whole_country_html: <abbr title="外交及聯邦事務部">FCO</abbr> 建議，切勿前往該國全部地區。
+      context: 海外旅行建議
+      pages:
+      still_current_at: 目前仍在
+      summary: 摘要
+      updated: 已更新
   help:
     index:
       about:
@@ -562,6 +575,11 @@ zh-hk:
     zh:
     zh-hk: 中文
     zh-tw:
+  multi_page:
+    next_page: 下一項
+    previous_page: 上一項
+    print_entire_guide: 列印完整指引
+    printable_version:
   'no':
   or:
   place:

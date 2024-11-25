@@ -103,6 +103,8 @@ hy:
   components:
     figure:
       image_credit: Նկարը՝ %{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: թաքցնել բոլոր թարմացումները
@@ -501,6 +503,17 @@ hy:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr>-ը խորհուրդ է տալիս չմեկնել տվյալ երկրի ամբողջ տարածք, բացառությամբ էական նշանակություն ունեցող հատվածների։
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr>-ը խորհուրդ է տալիս չմեկնել տվյալ երկիր, բացառությամբ էական նշանակություն ունեցող դեպքերի։
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr>-ը խորհուրդ է տալիս չմեկնել տվյալ երկրի որոշ հատվածներ։
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr>-ը խորհուրդ է տալիս չմեկնել տվյալ երկիր։
+      context: Օտար երկիր ճամփորդելու վերաբերյալ օգտակար խորհուրդներ
+      pages:
+      still_current_at: Դեռևս ընթացիկ
+      summary: Ամփոփ
+      updated: Թարմացված
   help:
     index:
       about:
@@ -636,6 +649,11 @@ hy:
     zh:
     zh-hk:
     zh-tw:
+  multi_page:
+    next_page: Հաջորդ
+    previous_page: Նախորդ
+    print_entire_guide: Տպել ամբողջ ուղեցույցը
+    printable_version:
   'no':
   or:
   place:

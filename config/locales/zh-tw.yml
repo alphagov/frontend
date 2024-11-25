@@ -103,6 +103,8 @@ zh-tw:
   components:
     figure:
       image_credit: 圖片來源： %{credit}
+    print_link:
+      text:
     published_dates:
       hidden_heading:
       hide_all_updates: 隱藏所有更新
@@ -427,6 +429,17 @@ zh-tw:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議非必要的旅行，不要前往該國部分地區。
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議非必要的旅行，不要前往該國。
+        avoid_all_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議不要前往該國部分地區。
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議不要前往該國。
+      context: 國外旅行建議
+      pages:
+      still_current_at: 目前仍
+      summary: 概括
+      updated: 更新
   help:
     index:
       about:
@@ -562,6 +575,11 @@ zh-tw:
     zh:
     zh-hk:
     zh-tw: 繁體中文
+  multi_page:
+    next_page: 接續
+    previous_page: 先前
+    print_entire_guide: 列印全指南
+    printable_version:
   'no':
   or:
   place:

@@ -111,10 +111,10 @@ RSpec.describe "Travel Advice" do
         @country_path = @content_item.fetch("base_path")
         stub_content_store_has_item(@country_path, @content_item)
       end
-      it "returns a 404 if the part doesn't exist" do
+      it "redirects to the base_path if the part doesn't exist" do
         get "#{@country_path}/i-dont-exist"
 
-        expect(response).to have_http_status(:not_found)
+        expect(response).to redirect_to(@country_path)
       end
     end
   end

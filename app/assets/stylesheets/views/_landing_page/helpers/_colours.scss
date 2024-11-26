@@ -12,6 +12,7 @@ $theme-6-colour: #62162d;
 // }
 
 $colours: (
+  "default": govuk-colour("black"), // This helps us see where branding was missed, as we don't want to fall back to an actual brand colour.
   "1": $theme-1-colour,
   "2": $theme-2-colour,
   "3": $theme-3-colour,

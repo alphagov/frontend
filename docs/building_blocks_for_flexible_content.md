@@ -21,7 +21,9 @@ Block configuration is designed to be as flexible as possible, so blocks can be 
 
 ## Types of Block
 
-Each block is rendered using its own partial template. The full list of available types of block available can be found by looking at the contents of: `app/views/landing_page/blocks`
+Each block is rendered using its own partial template. The full list of available types of block available can be found by looking at the contents of: `app/views/landing_page/blocks`.
+
+Blocks can be given a full width light grey background by setting `full_width_background: true` in the content item. This will not change the layout of the block itself. Note that sequential blocks given this option will fit together without a gap, because backgrounds are often required on areas of the page consisting of more than one block.
 
 ### Simple blocks
 

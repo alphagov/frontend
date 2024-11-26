@@ -128,5 +128,15 @@ RSpec.describe LandingPage::Block::Statistics do
 
       expect(subject.rows).to eq([])
     end
+
+    context "with an unparseable attachment URL" do
+      let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_unparseable_data_attachments)) }
+
+      it "returns an empty array" do
+        blocks_hash["csv_file"] = "data_one.csv"
+
+        expect(subject.rows).to eq([])
+      end
+    end
   end
 end

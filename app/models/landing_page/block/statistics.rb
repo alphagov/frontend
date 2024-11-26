@@ -51,6 +51,9 @@ module LandingPage::Block
 
     def opened_csv
       @opened_csv ||= attachment ? csv_from_url : csv_from_file
+    rescue StandardError => e
+      Rails.logger.error(e)
+      nil
     end
 
     def csv_from_url

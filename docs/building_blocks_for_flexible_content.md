@@ -46,8 +46,6 @@ Simple blocks generally render one component or "thing". They can either be rend
 
 A wrapper around the [action link component](https://components.publishing.service.gov.uk/component-guide/action_link).
 
-##### Example
-
 ```yaml
 - type: action_link
   text: "Learn more about our goals"
@@ -57,8 +55,6 @@ A wrapper around the [action link component](https://components.publishing.servi
 #### Big number
 
 A wrapper around the [Big number component](https://components.publishing.service.gov.uk/component-guide/big_number)
-
-##### Example
 
 ```yaml
 - type: big_number
@@ -73,8 +69,6 @@ A wrapper around the [Document list component](https://components.publishing.ser
 The document list can either be populate with the most recent content tagged to a taxon, or from a hard-coded list.
 
 If the `taxon_base_path` is provided, the taxon exists and it has content tagged to it, the document list will be populated with that content, otherwise it will default to the hard-coded list.
-
-##### Example
 
 ```yaml
 - type: document_list
@@ -102,8 +96,6 @@ Content for this block can either be written as [govspeak](https://govspeak-prev
 
 If you are adding the block in config in Whitehall you have a choice of writing it in either govspeak or HTML. That is because govspeak content added in Whitehall is automatically converted to HTML by publishing-api. However, if you use govspeak, you'll need to supply the `content_type` (see second example).
 
-##### Examples
-
 ```yaml
 - type: govspeak
   content: |
@@ -127,8 +119,6 @@ If you are adding the block in config in Whitehall you have a choice of writing 
 
 A wrapper around the [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). Note, though, that the block uses `content` where the component uses `text` for the title text key. This is so that headings can appear in search (only values inside a `content` key will be indexed when being published from Whitehall - see [Indexing block content in search](#indexing-block-content-in-search))
 
-##### Example
-
 ```yaml
 - type: heading
   content: Porem ipsum dolor
@@ -139,8 +129,6 @@ A wrapper around the [Heading component](https://components.publishing.service.g
 A simple image.
 
 6 versions of the image need to be supplied. This is also true for blocks like [Featured](#featured) and [Hero](#hero) that contain images.
-
-##### Example
 
 ```yaml
 - type:
@@ -158,8 +146,6 @@ A simple image.
 #### Main Navigation
 
 The landing-page top-level navigation. It supports multiple headings, each with a row of links. The only supported keys are the `type` key and the `navigation_group_id` key, which should point to an id of a [navigation group](#navigation-groups) to use for the menu items.
-
-##### Example
 
 ```yaml
 - type: main_navigation
@@ -198,8 +184,6 @@ If the `taxon_base_path` is provided, the taxon exists and it has content tagged
 
 A blockquote.
 
-##### Example
-
 ```yaml
 - type: quote
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class"
@@ -211,8 +195,6 @@ A blockquote.
 A wrapper around a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading) followed by a [Share links component](https://components.publishing.service.gov.uk/component-guide/share_links)
 
 Currently the heading is hard-coded in the share links view and cannot be configured in the block.
-
-##### Example
 
 ```yaml
 - type: share_links
@@ -243,8 +225,6 @@ Currently the heading is hard-coded in the share links view and cannot be config
 
 A navigation item suitable for use in a sidebar. It supports a single column of links. The only supported keys are the `type` key and the `navigation_group_id` key, which should point to an id of a [navigation group](#navigation-groups) to use for the menu items.
 
-##### Example
-
 ```yaml
 - type: side_navigation
   navigation_group_id: Sidebar
@@ -253,8 +233,6 @@ A navigation item suitable for use in a sidebar. It supports a single column of 
 #### Statistics
 
 A wrapper around the [Chart](https://components.publishing.service.gov.uk/component-guide/chart) component. The `csv_file` key can be an uploaded file (from /lib/data/landing_page_content_items/statistics), or (preferably) an attachment from the content item, in which case the filename of the attachment will be matched to the `csv_file` key.
-
-##### Example
 
 ```yaml
 - type: statistics
@@ -267,7 +245,7 @@ A wrapper around the [Chart](https://components.publishing.service.gov.uk/compon
 
 Extra options:
 
-For a "minimal" chart add "minimal" attributes the block config
+For a "minimal" chart add "minimal" attributes to the block config.
 
 ```yaml
 - type: statistics
@@ -295,8 +273,6 @@ A box block renders its `content:` value as a [Heading component](https://compon
 
 Box blocks have a light grey background and can be styled with a predefined top border for colour-coded content using the `mission_type` property.
 
-##### Example
-
 ```yaml
 - type: box
   content: This is a heading
@@ -307,14 +283,11 @@ Box blocks have a light grey background and can be styled with a predefined top 
       - type: govspeak
         content: |
           <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
-
 ```
 
 #### Card
 
 A card block renders its `card_content:` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading), followed by the subblocks laid out vertically, followed by an image (if specified - at time of writing the image in the card block can not be taken from the content item and must be present in frontend).
-
-##### Example
 
 ```yaml
 - type: card
@@ -333,8 +306,6 @@ A card block renders its `card_content:` value as a [Heading component](https://
 #### Featured
 
 A featured block renders either a vertical column of blocks on the left of a large (but not full-width) image (it uses a picture element to allow multiple image versions for different devices) or a block of text without an image. The latter can be rendered by omitting the `image` value as demonstrated in the second example below.
-
-##### Example
 
 ```yaml
 - type: featured
@@ -373,11 +344,11 @@ A hero block renders a vertical column of blocks in a two-thirds-width block on 
 
 As hero images are intended to be decorative, it's not possible to configure them with alt text.
 
-##### Example
+##### Structure
 
 The YAML structure for hero images is slightly different depending on whether you're looking at the content item in Content Store (or a hardcoded YAML block which has to match the Content Store format), or in Whitehall.
 
-In content store / when hardcoded, the block should look like this:
+In content store or when hardcoded, the block should look like this:
 
 ```yaml
 - type: hero
@@ -430,8 +401,6 @@ hold other elements. It is used when we don't want to want to create a row/grid 
 
 It does nothing except contain other blocks and is only required as the top level element within columns created by two column layouts. Without a blocks container, there’s no way to add more than one sub-block in the column or arrange blocks on top of each other in a single column.
 
-##### Example
-
 ```yaml
 - type: blocks_container
   blocks:
@@ -472,13 +441,12 @@ This example uses the `blocks_container` for the element type in the second [two
 #### Columns layout
 
 Columns layout spreads its blocks out horizontally. The `columns` property determines how many columns will be in each row, and can accept the following values:
+
 - `columns: 2` Two columns, each taking up half of the available space.
 - `columns: 3` Three columns, each taking up one-third of the available space.
 - any other value for `columns` will have no effect: all child elements will render the full width of this container.
 
 If `columns` is missing entirely, three columns will be rendered by default.
-
-##### Example
 
 In the following example, the first two `big_number` blocks will be side-by-side on the first row and the third block will drop down onto the next row, taking up the left hand column.
 
@@ -504,8 +472,6 @@ Like the blocks container, but uses `display: flex` to lay out the child blocks.
 The grid container automatically arranges blocks into their own columns, independently of using the design system’s row/columns approach. These new columns are equally sized and spaced to a maximum of three. If more than three, a second row is started. It was created to give us control of the three columns of charts on the landing page homepage, but could be used to arrange other content into columns too.
 
 Note: The grid container was developed specifically to be used with card blocks and has not been tested with other block types. It was necessary when the design had cards that had three elements: Title, body text, chart. The grid container was required to get all the charts to line up regardless of how much body text was in the card. It may be possible to remove this block as there is no longer a requirement for body text.
-
-##### Example
 
 ```yaml
 - type: grid_container
@@ -557,8 +523,6 @@ Note: The grid container was developed specifically to be used with card blocks 
 #### Two column layout
 
 A two column layout takes one or two blocks, and depending on the theme (`one_third_two_thirds` or `two_thirds_one_third`), it lays them out horizontally with the first (left) or second (right) block getting twice the width of the other.
-
-##### Example
 
 Theme: one third / two thirds
 
@@ -655,8 +619,6 @@ navigation_groups:
 ## Extending a page (Whitehall Only)
 
 When editing a page in Whitehall, you may wish to use data from another flexible content page. Adding the top-level key `extends`, and the path of another landing page, will cause the data from the current block to be merged over the data from the extended block before publishing. This is a shallow merge (ie only top-level values are checked), and is currently used so that navigation groups can be specified in one page and used by sub-pages.
-
-### Example
 
 If you have a homepage (at /landing-page/homepage) like this:
 

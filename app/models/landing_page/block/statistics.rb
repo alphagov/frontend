@@ -51,10 +51,20 @@ module LandingPage::Block
 
     def opened_csv
       @opened_csv ||= attachment ? csv_from_url : csv_from_file
+    rescue StandardError => e
+      Rails.logger.error(e)
+      nil
     end
 
     def csv_from_url
-      CSV.parse(URI.parse(attachment.url).open, headers: true)
+      # TODO: asset_id is a 24 char hexadecimal number which doesn't appear elsewhere in the attachment hash.
+      #       We should get Whitehall to provide it rather than parsing the URL.
+      match = attachment.url.match(%r{/media/(?<asset_id>[[:xdigit:]]{24})/(?<filename>[^/]+[.]csv)\z})
+      raise "Unexpected URL format #{attachment.url} - cannot load CSV" unless match
+
+      asset_id, filename = match.values_at(:asset_id, :filename)
+      body = GdsApi.asset_manager.media(asset_id, filename).body
+      CSV.parse(body, headers: true)
     end
 
     def csv_from_file

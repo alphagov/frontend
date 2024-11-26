@@ -22,7 +22,10 @@ private
   end
 
   def content_item
-    @content_item ||= ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path))
+    loader_response = ContentItemLoader.for_request(request).load(content_item_path)
+    raise loader_response if loader_response.is_a?(StandardError)
+
+    @content_item ||= ContentItemFactory.build(loader_response)
   end
 
   def content_item_path

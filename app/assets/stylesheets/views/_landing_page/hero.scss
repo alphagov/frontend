@@ -39,11 +39,13 @@ $large-desktop-height: 400px;
 
 .app-b-hero__textbox {
   position: relative;
+  min-height: 170px;
   padding: govuk-spacing(6);
-  margin-top: -(200px);
+  margin-top: -(170px);
   background: govuk-colour("light-grey");
 
   @include govuk-media-query($until: tablet) {
+    min-height: 0;
     padding: govuk-spacing(4);
     margin-top: -(govuk-spacing(6));
   }

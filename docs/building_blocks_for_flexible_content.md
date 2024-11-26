@@ -8,14 +8,14 @@ Blocks are rendered in the order that they appear in the content item.
 
 Blocks are added to the content item in the `details` hash. The landing page editor is currently a work in progress. At time of writing, the config for blocks need to be added in YAML format in Whitehall. This YAML config is then merged into the `details` hash when the landing page is saved and published.
 
-The YAML config must include a top-level `blocks` element. e.g.
+The YAML config must include a top-level `blocks` element.
 
 ```yaml
 blocks:
 - type: block_type
 ```
 
-...and may include a top-level `navigation_groups` element for use by blocks (See [Navigation Groups](#navigation-groups)), or a top-level `extends` element to inherit configuration from another landing page (See [Extending a page (Whitehall Only)](#extending-a-page-whitehall-only)).
+This may include a top-level `navigation_groups` element for use by blocks (See [Navigation Groups](#navigation-groups)), or a top-level `extends` element to inherit configuration from another landing page (See [Extending a page (Whitehall Only)](#extending-a-page-whitehall-only)).
 
 Block configuration is designed to be as flexible as possible, so blocks can be nested inside other blocks. An example configuration for each type of block is shown below.
 
@@ -66,9 +66,9 @@ A wrapper around the [Big number component](https://components.publishing.servic
 
 A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list)
 
-The document list can either be populate with the most recent content tagged to a taxon, or from a hard-coded list.
+The document list can either be populated with the most recent content tagged to a taxon or from a hard-coded list.
 
-If the `taxon_base_path` is provided, the taxon exists and it has content tagged to it, the document list will be populated with that content, otherwise it will default to the hard-coded list.
+If the `taxon_base_path` is provided and the taxon exists and it has content tagged to it, the document list will be populated with that content. If not, it will default to the hard-coded list.
 
 ```yaml
 - type: document_list
@@ -90,11 +90,9 @@ If the `taxon_base_path` is provided, the taxon exists and it has content tagged
 
 #### Govspeak
 
-A wrapper around the [Govspeak content component](https://components.publishing.service.gov.uk/component-guide/govspeak).
+A wrapper around the [Govspeak content component](https://components.publishing.service.gov.uk/component-guide/govspeak). Content for this block can be written as [govspeak markdown](https://govspeak-preview.publishing.service.gov.uk/guide) or HTML, depending on how the block is added.
 
-Content for this block can either be written as [govspeak](https://govspeak-preview.publishing.service.gov.uk/guide) or HTML. If you are adding a Govspeak block in config in the `frontend` application, it must be added as HTML. This is because, despite the name, the Govspeak component it calls actually renders HTML content.
-
-If you are adding the block in config in Whitehall you have a choice of writing it in either govspeak or HTML. That is because govspeak content added in Whitehall is automatically converted to HTML by publishing-api. However, if you use govspeak, you'll need to supply the `content_type` (see second example).
+When added to a YAML file within the `frontend` application content must be written in HTML.
 
 ```yaml
 - type: govspeak
@@ -103,6 +101,8 @@ If you are adding the block in config in Whitehall you have a choice of writing 
     <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
     molestie, dictum esta, mattis tellus.</p>
 ```
+
+When added through Whitehall content can either be written in HTML or govspeak markdown, but `content-type` must be specified if using govspeak markdown.
 
 ```yaml
 - type: govspeak
@@ -117,7 +117,7 @@ If you are adding the block in config in Whitehall you have a choice of writing 
 
 #### Heading
 
-A wrapper around the [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). Note, though, that the block uses `content` where the component uses `text` for the title text key. This is so that headings can appear in search (only values inside a `content` key will be indexed when being published from Whitehall - see [Indexing block content in search](#indexing-block-content-in-search))
+A wrapper around the [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). This block uses `content` where the component uses `text` for the title text key. This is so that headings can appear in search (only values inside a `content` key will be indexed when being published from Whitehall - see [Indexing block content in search](#indexing-block-content-in-search))
 
 ```yaml
 - type: heading
@@ -145,7 +145,7 @@ A simple image.
 
 #### Main Navigation
 
-The landing-page top-level navigation. It supports multiple headings, each with a row of links. The only supported keys are the `type` key and the `navigation_group_id` key, which should point to an id of a [navigation group](#navigation-groups) to use for the menu items.
+The top-level navigation. It supports multiple headings, each with a row of links. The only supported keys are the `type` key and the `navigation_group_id` key, which should point to an id of a [navigation group](#navigation-groups) to use for the menu items.
 
 ```yaml
 - type: main_navigation
@@ -192,9 +192,9 @@ A blockquote.
 
 #### Share links
 
-A wrapper around a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading) followed by a [Share links component](https://components.publishing.service.gov.uk/component-guide/share_links)
+A wrapper around a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading) and a [Share links component](https://components.publishing.service.gov.uk/component-guide/share_links).
 
-Currently the heading is hard-coded in the share links view and cannot be configured in the block.
+The heading is hard-coded in the share links view and cannot be configured in the block.
 
 ```yaml
 - type: share_links
@@ -232,7 +232,7 @@ A navigation item suitable for use in a sidebar. It supports a single column of 
 
 #### Statistics
 
-A wrapper around the [Chart](https://components.publishing.service.gov.uk/component-guide/chart) component. The `csv_file` key can be an uploaded file (from /lib/data/landing_page_content_items/statistics), or (preferably) an attachment from the content item, in which case the filename of the attachment will be matched to the `csv_file` key.
+A wrapper around the [Chart](https://components.publishing.service.gov.uk/component-guide/chart) component. The `csv_file` key can be an uploaded file (from `/lib/data/landing_page_content_items/statistics`), or (preferably) an attachment from the content item, in which case the filename of the attachment will be matched to the `csv_file` key.
 
 ```yaml
 - type: statistics
@@ -243,9 +243,7 @@ A wrapper around the [Chart](https://components.publishing.service.gov.uk/compon
   data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 ```
 
-Extra options:
-
-For a "minimal" chart add "minimal" attributes to the block config.
+For a minimal chart add `minimal: true` to the block config. This will output a simplified graph with no interactivity.
 
 ```yaml
 - type: statistics
@@ -269,15 +267,15 @@ Compound blocks generally render more than one component and can contain nested 
 
 #### Box
 
-A box block renders its `content:` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). If an `href:` is specified, the heading will link to that location. Subblocks are laid out vertically beneath the heading.
+A box block renders its `content` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). If an `href:` is specified, the heading will link to that location. Subblocks are laid out vertically beneath the heading.
 
-Box blocks have a light grey background and can be styled with a predefined top border for colour-coded content using the `mission_type` property.
+Box blocks have a light grey background and can be styled with a predefined top border for colour-coded content using the `theme_colour` property.
 
 ```yaml
 - type: box
   content: This is a heading
   href: https://www.gov.uk
-  mission_type: 1
+  theme_colour: 1
   box_content:
     blocks:
       - type: govspeak
@@ -287,7 +285,7 @@ Box blocks have a light grey background and can be styled with a predefined top 
 
 #### Card
 
-A card block renders its `card_content:` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading), followed by the subblocks laid out vertically, followed by an image (if specified - at time of writing the image in the card block can not be taken from the content item and must be present in frontend).
+A card block renders its `card_content` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading), followed by the subblocks laid out vertically, followed by an image (if specified - at time of writing the image in the card block can not be taken from the content item and must be present in frontend).
 
 ```yaml
 - type: card
@@ -340,13 +338,17 @@ A featured block renders either a vertical column of blocks on the left of a lar
 
 #### Hero
 
-A hero block renders a vertical column of blocks in a two-thirds-width block on the lower-left of a full-width image. Like the featured block, it uses a picture element to allow multiple image versions for different devices.
+A hero block displays a full screen width image with an optional text box, that can contain further blocks.
+
+The text box will be two thirds width (default, intended for use at the top of a page) or one third for use part way down a page (configured using `theme: middle_left`).
+
+Like the featured block, it uses a picture element to allow multiple image versions for different devices.
 
 As hero images are intended to be decorative, it's not possible to configure them with alt text.
 
 ##### Structure
 
-The YAML structure for hero images is slightly different depending on whether you're looking at the content item in Content Store (or a hardcoded YAML block which has to match the Content Store format), or in Whitehall.
+The YAML structure for hero images is slightly different depending on whether the content item is in Content Store (or a hardcoded YAML block which has to match the Content Store format), or in Whitehall.
 
 In content store or when hardcoded, the block should look like this:
 
@@ -366,7 +368,7 @@ In content store or when hardcoded, the block should look like this:
         content: Rorem ipsum dolor sit
 ```
 
-When authored in Whitehall, you should upload the images and then refer to them using their markdown syntax as follows:
+When authored in Whitehall, uploaded images should be referred to using markdown syntax.
 
 ```yaml
 - type: hero
@@ -381,9 +383,9 @@ When authored in Whitehall, you should upload the images and then refer to them 
         content: Rorem ipsum dolor sit
 ```
 
-Note that you don't need to provide separate `_2x` resolutions in Whitehall, as it will do this automatically.
+Whitehall will automatically create separate `_2x` images for high density screens.
 
-Also note that you must wrap the `[Image: desktop.png]` syntax in quotes (`"[Image: desktop.png]"`) to ensure that YAML treats it as a string and not an array.
+Note that the `[Image: desktop.png]` syntax must be wrapped in quotes (`"[Image: desktop.png]"`) to ensure that YAML treats it as a string and not an array.
 
 ### Layout blocks
 
@@ -396,8 +398,7 @@ Layout blocks are similar to compound blocks in that they contain nested blocks.
 
 #### Blocks container
 
-A blocks container is used as an empty unstyled parent container to
-hold other elements. It is used when we don't want to want to create a row/grid layout to contain nested blocks. It is for situations where the grids and columns have already been defined, and you are nesting other blocks within them. (See second example)
+A blocks container is used as an empty unstyled parent container to hold other elements. It is used when we don't want to want to create a row/grid layout to contain nested blocks. It is for situations where the grids and columns have already been defined, and you are nesting other blocks within them (see second example).
 
 It does nothing except contain other blocks and is only required as the top level element within columns created by two column layouts. Without a blocks container, there’s no way to add more than one sub-block in the column or arrange blocks on top of each other in a single column.
 

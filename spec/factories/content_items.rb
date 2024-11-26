@@ -2,6 +2,26 @@ FactoryBot.define do
   factory :content_item do
     initialize_with { new(attributes.deep_stringify_keys) }
 
+    trait :unparsable_attachments do
+      details do
+        {
+          attachments: [
+            {
+              accessible: false,
+              attachment_type: "document",
+              content_type: "text/csv",
+              file_size: 123,
+              filename: "data_one.csv",
+              id: 12_345,
+              preview_url: "https://ignored-asset-domain/media/000000000000000000000001/data_one.csv/preview",
+              title: "Data One",
+              url: "https://ignored-asset-domain/media/broken/data_one.csv",
+            },
+          ],
+        }
+      end
+    end
+
     trait :attachments do
       details do
         {

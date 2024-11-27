@@ -2,10 +2,9 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-
   attr_reader :attachments, :content_store_response, :content_store_hash, :body, :image,
               :description, :document_type, :schema_name, :title, :base_path, :locale,
-              :public_updated_at
+              :public_updated_at, :first_published_at, :first_public_at
 
   # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
   # content items including block details are available from content-store
@@ -24,6 +23,8 @@ class ContentItem
     @public_updated_at = content_store_hash["public_updated_at"]
 
     @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
+    @first_published_at = content_store_hash["first_published_at"]
+    @first_public_at = content_store_hash.dig("details", "first_public_at") || first_published_at
 
     content_store_hash["links"]["ordered_related_items"] = ordered_related_items(content_store_hash["links"]) if content_store_hash["links"]
   end

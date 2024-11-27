@@ -118,6 +118,20 @@ RSpec.describe LandingPage::Block::DocumentList do
         expect(result.first).to eq(expected_first_result)
       end
     end
+
+    context "when there is nothing tagged to the taxon and a hard-coded list is not provided" do
+      let(:blocks_hash) do
+        { "type" => "document_list",
+          "taxon_base_path" => basic_taxon["base_path"] }
+      end
+
+      it "returns an empty list" do
+        stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+        stub_any_search_to_return_no_results
+
+        expect(described_class.new(blocks_hash, build(:landing_page)).items).to eq([])
+      end
+    end
   end
 
   def stub_taxon_search_results

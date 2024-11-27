@@ -20,6 +20,8 @@ module LandingPage::Block
 
     def items
       items_from_taxon.presence || explicitly_configured_items
+    rescue StandardError
+      []
     end
 
   private

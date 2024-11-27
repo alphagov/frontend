@@ -58,11 +58,13 @@ blocks:
     blocks:
       - type: heading
         content: Rorem ipsum dolor sit
+      - type: lead_paragraph
+        content: |
+          Yorem ipsum dolor sit amet, consectetur
+          adipiscing elit. Nunc vulputate libero et velit
+          interdum, ac aliquet odio mattis class.
       - type: govspeak
         content: |
-          <p class="govuk-body govuk-!-font-size-27">Yorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nunc vulputate libero et velit
-          interdum, ac aliquet odio mattis class.</p>
           <p class="govuk-!-font-weight-bold">
             <a href="/landing-page/goals">Learn more about our goals</a>
           </p>

@@ -179,15 +179,15 @@ blocks:
   - type: press_notices
     items:
     - text: An example title for this press notice 1
-      href: "https://www.gov.uk"
+      path: "https://www.gov.uk"
       document_type: Press release
       public_updated_at: "2024-10-27 10:29:44 +0000"
     - text: An example title for this press notice 2
-      href: "https://www.gov.uk"
+      path: "https://www.gov.uk"
       document_type: Press release
       public_updated_at: "2024-10-16 11:34:12 +0000"
     - text: An example title for this press notice 3
-      href: "https://www.gov.uk"
+      path: "https://www.gov.uk"
       document_type: Press release
       public_updated_at: "2024-09-10 09:00:11 +0000"
 - type: share_links

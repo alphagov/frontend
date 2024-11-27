@@ -2,8 +2,8 @@ RSpec.describe LandingPage::Block::PressNotices do
   let(:blocks_hash) do
     { "type" => "press_notices",
       "items" => [
-        { "text" => "link 1", "href" => "/a-link", "document_type" => "Press release", "public_updated_at" => "2024-01-01 10:24:00" },
-        { "text" => "link 2", "href" => "/another-link", "document_type" => "Press release", "public_updated_at" => "2023-01-01 10:24:00" },
+        { "text" => "link 1", "path" => "/a-link", "document_type" => "Press release", "public_updated_at" => "2024-01-01 10:24:00" },
+        { "text" => "link 2", "path" => "/another-link", "document_type" => "Press release", "public_updated_at" => "2023-01-01 10:24:00" },
       ] }
   end
 

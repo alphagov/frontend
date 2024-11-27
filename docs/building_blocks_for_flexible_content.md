@@ -34,6 +34,7 @@ Simple blocks generally render one component or "thing". They can either be rend
 - [Heading](#heading)
 - [Image](#image)
 - [Main Navigation](#main-navigation)
+- [Press notices](#press-notices)
 - [Quote](#quote)
 - [Share links](#share-links)
 - [Side Navigation](#side-navigation)
@@ -93,7 +94,7 @@ If the `taxon_base_path` is provided, the taxon exists and it has content tagged
 
 #### Govspeak
 
-A wrapper around the [Govspeak content component](https://components.publishing.service.gov.uk/component-guide/govspeak). 
+A wrapper around the [Govspeak content component](https://components.publishing.service.gov.uk/component-guide/govspeak).
 
 Content for this block can either be written as [govspeak](https://govspeak-preview.publishing.service.gov.uk/guide) or HTML. If you are adding a Govspeak block in config in the `frontend` application, it must be added as HTML. This is because, despite the name, the Govspeak component it calls actually renders HTML content.
 
@@ -162,6 +163,34 @@ The landing-page top-level navigation. It supports multiple headings, each with 
 - type: main_navigation
   navigation_group_id: Top Menu
 ```
+
+#### Press notices
+
+A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list) with a hardcoded title that will only appear if there are any items in the list (if the list is entirely empty the heading will not appear either)
+
+The document list can either be populate with the most recent content tagged to a taxon, or from a hard-coded list.
+
+If the `taxon_base_path` is provided, the taxon exists and it has content tagged to it, the document list will be populated with that content, otherwise it will default to the hard-coded list.
+
+##### Example
+
+```yaml
+- type: press_notices
+  taxon_base_path: /government/government-efficiency-transparency-and-accountability
+  items:
+  - text: An example link
+    path: https://www.gov.uk
+    document_type: Press release
+    public_updated_at: "2016-06-27 10:29:44 +0000"
+  - text: Another example link
+    path: https://www.gov.uk
+    document_type: News article
+    public_updated_at: "2021-01-16 11:34:12 +0000"
+  - text: A third example link
+    path: https://www.gov.uk
+    document_type: Consultation
+    public_updated_at: "2024-02-01 09:00:11 +0000"
+
 
 #### Quote
 
@@ -472,7 +501,7 @@ Like the blocks container, but uses `display: flex` to lay out the child blocks.
 
 The grid container automatically arranges blocks into their own columns, independently of using the design system’s row/columns approach. These new columns are equally sized and spaced to a maximum of three. If more than three, a second row is started. It was created to give us control of the three columns of charts on the landing page homepage, but could be used to arrange other content into columns too.
 
-Note: The grid container was developed specifically to be used with card blocks and has not been tested with other block types. It was necessary when the design had cards that had three elements: Title, body text, chart. The grid container was required to get all the charts to line up regardless of how much body text was in the card. It may be possible to remove this block as there is no longer a requirement for body text. 
+Note: The grid container was developed specifically to be used with card blocks and has not been tested with other block types. It was necessary when the design had cards that had three elements: Title, body text, chart. The grid container was required to get all the charts to line up regardless of how much body text was in the card. It may be possible to remove this block as there is no longer a requirement for body text.
 
 ##### Example
 
@@ -686,7 +715,7 @@ The merging of elements is only visible in the content item. In the Whitehall ed
 
 ### Republishing all Landing Pages
 
-If a `navigation_group` is modified on a parent page, all of the child pages will need to be republished to pick up the changes. 
+If a `navigation_group` is modified on a parent page, all of the child pages will need to be republished to pick up the changes.
 
 Whitehall has a UI to help you do this.
 

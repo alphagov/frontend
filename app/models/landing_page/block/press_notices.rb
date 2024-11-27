@@ -5,7 +5,7 @@ module LandingPage::Block
     end
 
     def items
-      data.fetch("items").map do |i|
+      data.fetch("items", []).map do |i|
         {
           link: {
             text: i["text"],

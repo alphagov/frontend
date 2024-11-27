@@ -8,6 +8,11 @@ RSpec.describe LandingPage::Block::PressNotices do
   end
 
   describe "#items" do
+    it "doesn't error if nothing found" do
+      result = described_class.new({}, build(:landing_page)).items
+      expect(result.size).to eq 0
+    end
+
     it "returns an array of link details" do
       result = described_class.new(blocks_hash, build(:landing_page)).items
       expect(result.size).to eq 2

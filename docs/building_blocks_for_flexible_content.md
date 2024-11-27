@@ -97,7 +97,7 @@ A wrapper around the [Govspeak content component](https://components.publishing.
 
 Content for this block can either be written as [govspeak](https://govspeak-preview.publishing.service.gov.uk/guide) or HTML. If you are adding a Govspeak block in config in the `frontend` application, it must be added as HTML. This is because, despite the name, the Govspeak component it calls actually renders HTML content.
 
-If you are adding the block in config in Whitehall you have a choice of writing it in either govspeak or HTML. That is because govspeak content added in Whitehall is automatically converted to HTML by publishing-api. However, if you use govspeak, you'll need to supply the `content-type` (see second example).
+If you are adding the block in config in Whitehall you have a choice of writing it in either govspeak or HTML. That is because govspeak content added in Whitehall is automatically converted to HTML by publishing-api. However, if you use govspeak, you'll need to supply the `content_type` (see second example).
 
 ##### Examples
 
@@ -112,7 +112,7 @@ If you are adding the block in config in Whitehall you have a choice of writing 
 ```yaml
 - type: govspeak
   content:
-    content-type: text/govspeak
+    content_type: text/govspeak
     content: |
       ### Lorem heading
 

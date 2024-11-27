@@ -5,18 +5,6 @@
   "description": "when_do_the_clocks_change.calendar.description",
   "divisions": {
     "common.united-kingdom_slug": {
-      "2024": [
-        {
-          "title": "when_do_the_clocks_change.start_title",
-          "date": "31/03/2024",
-          "notes": "when_do_the_clocks_change.start_notes"
-        },
-        {
-          "title": "when_do_the_clocks_change.end_title",
-          "date": "27/10/2024",
-          "notes": "when_do_the_clocks_change.end_notes"
-        }
-      ],
       "2025": [
         {
           "title": "when_do_the_clocks_change.start_title",
@@ -38,6 +26,18 @@
         {
           "title": "when_do_the_clocks_change.end_title",
           "date": "25/10/2026",
+          "notes": "when_do_the_clocks_change.end_notes"
+        }
+      ],
+      "2027": [
+        {
+          "title": "when_do_the_clocks_change.start_title",
+          "date": "28/03/2027",
+          "notes": "when_do_the_clocks_change.start_notes"
+        },
+        {
+          "title": "when_do_the_clocks_change.end_title",
+          "date": "31/10/2027",
           "notes": "when_do_the_clocks_change.end_notes"
         }
       ]

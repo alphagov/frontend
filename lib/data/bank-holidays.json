@@ -5,56 +5,6 @@
     "description": "bank_holidays.calendar.description",
     "divisions": {
         "common.nations.england-and-wales_slug": {
-            "2018": [
-              {
-                "title": "bank_holidays.new_year",
-                "date": "01/01/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.good_friday",
-                "date": "30/03/2018",
-                "notes": "",
-                "bunting": false
-              },
-              {
-                "title": "bank_holidays.easter_monday",
-                "date": "02/04/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.early_may",
-                "date": "07/05/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.spring",
-                "date": "28/05/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.late_august",
-                "date": "27/08/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.christmas",
-                "date": "25/12/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.boxing_day",
-                "date": "26/12/2018",
-                "notes": "",
-                "bunting": true
-              }
-            ],
             "2019": [
                 {
                     "title": "bank_holidays.new_year",
@@ -473,66 +423,60 @@
                 "bunting": true
               }
             ],
-            "slug": "common.nations.england-and-wales_slug",
-            "title": "common.nations.england-and-wales"
-        },
-        "common.nations.scotland_slug": {
-            "2018": [
+            "2027": [
               {
                 "title": "bank_holidays.new_year",
-                "date": "01/01/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.2nd_january",
-                "date": "02/01/2018",
+                "date": "01/01/2027",
                 "notes": "",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.good_friday",
-                "date": "30/03/2018",
+                "date": "26/03/2027",
                 "notes": "",
                 "bunting": false
               },
               {
+                "title": "bank_holidays.easter_monday",
+                "date": "29/03/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
                 "title": "bank_holidays.early_may",
-                "date": "07/05/2018",
+                "date": "03/05/2027",
                 "notes": "",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.spring",
-                "date": "28/05/2018",
+                "date": "31/05/2027",
                 "notes": "",
                 "bunting": true
               },
               {
-                "title": "bank_holidays.summer",
-                "date": "06/08/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
-                "title": "bank_holidays.st_andrew",
-                "date": "30/11/2018",
+                "title": "bank_holidays.late_august",
+                "date": "30/08/2027",
                 "notes": "",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.christmas",
-                "date": "25/12/2018",
-                "notes": "",
+                "date": "27/12/2027",
+                "notes": "common.substitute_day",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.boxing_day",
-                "date": "26/12/2018",
-                "notes": "",
+                "date": "28/12/2027",
+                "notes": "common.substitute_day",
                 "bunting": true
               }
             ],
+            "slug": "common.nations.england-and-wales_slug",
+            "title": "common.nations.england-and-wales"
+        },
+        "common.nations.scotland_slug": {
             "2019": [
               {
                 "title": "bank_holidays.new_year",
@@ -999,72 +943,66 @@
                 "bunting": true
               }
             ],
-            "slug": "common.nations.scotland_slug",
-            "title": "common.nations.scotland"
-        },
-        "common.nations.northern-ireland_slug": {
-            "2018": [
+            "2027": [
               {
                 "title": "bank_holidays.new_year",
-                "date": "01/01/2018",
+                "date": "01/01/2027",
                 "notes": "",
                 "bunting": true
               },
               {
-                "title": "bank_holidays.st_patrick",
-                "date": "19/03/2018",
+                "title": "bank_holidays.2nd_january",
+                "date": "04/01/2027",
                 "notes": "common.substitute_day",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.good_friday",
-                "date": "30/03/2018",
+                "date": "26/03/2027",
                 "notes": "",
                 "bunting": false
               },
               {
-                "title": "bank_holidays.easter_monday",
-                "date": "02/04/2018",
-                "notes": "",
-                "bunting": true
-              },
-              {
                 "title": "bank_holidays.early_may",
-                "date": "07/05/2018",
+                "date": "03/05/2027",
                 "notes": "",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.spring",
-                "date": "28/05/2018",
+                "date": "31/05/2027",
                 "notes": "",
                 "bunting": true
               },
               {
-                "title": "bank_holidays.battle_boyne",
-                "date": "12/07/2018",
+                "title": "bank_holidays.summer",
+                "date": "30/08/2027",
                 "notes": "",
-                "bunting": false
+                "bunting": true
               },
               {
-                "title": "bank_holidays.late_august",
-                "date": "27/08/2018",
+                "title": "bank_holidays.st_andrew",
+                "date": "30/11/2027",
                 "notes": "",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.christmas",
-                "date": "25/12/2018",
-                "notes": "",
+                "date": "27/12/2027",
+                "notes": "common.substitute_day",
                 "bunting": true
               },
               {
                 "title": "bank_holidays.boxing_day",
-                "date": "26/12/2018",
-                "notes": "",
+                "date": "28/12/2027",
+                "notes": "common.substitute_day",
                 "bunting": true
               }
             ],
+            "slug": "common.nations.scotland_slug",
+            "title": "common.nations.scotland"
+        },
+        "common.nations.northern-ireland_slug": {
             "2019": [
               {
                 "title": "bank_holidays.new_year",
@@ -1575,6 +1513,68 @@
               {
                 "title": "bank_holidays.boxing_day",
                 "date": "28/12/2026",
+                "notes": "common.substitute_day",
+                "bunting": true
+              }
+            ],
+            "2027": [
+              {
+                "title": "bank_holidays.new_year",
+                "date": "01/01/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.st_patrick",
+                "date": "17/03/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.good_friday",
+                "date": "26/03/2027",
+                "notes": "",
+                "bunting": false
+              },
+              {
+                "title": "bank_holidays.easter_monday",
+                "date": "29/03/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.early_may",
+                "date": "03/05/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.spring",
+                "date": "31/05/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.battle_boyne",
+                "date": "12/07/2027",
+                "notes": "",
+                "bunting": false
+              },
+              {
+                "title": "bank_holidays.late_august",
+                "date": "30/08/2027",
+                "notes": "",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.christmas",
+                "date": "27/12/2027",
+                "notes": "common.substitute_day",
+                "bunting": true
+              },
+              {
+                "title": "bank_holidays.boxing_day",
+                "date": "28/12/2027",
                 "notes": "common.substitute_day",
                 "bunting": true
               }

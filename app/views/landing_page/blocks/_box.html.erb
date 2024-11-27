@@ -10,10 +10,6 @@
   } %>
 
   <% block.box_content.each do |subblock| %>
-    <%
-      options = {}
-      options[:margin_bottom] = 0 if subblock.data["type"] == "govspeak"
-    %>
-    <%= render_block(subblock, options:)  %>
+    <%= render_block(subblock)  %>
   <% end %>
 </div>

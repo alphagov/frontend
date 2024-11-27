@@ -12,7 +12,6 @@
   <% block.card_content.each do |subblock| %>
     <%
       options = {}
-      options[:margin_bottom] = 0 if subblock.data["type"] == "govspeak"
       options[:height] = 200 if subblock.data["minimal"] && subblock.data["type"] == "statistics"
     %>
     <%= render_block(subblock, options:)  %>

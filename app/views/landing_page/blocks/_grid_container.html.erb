@@ -1,9 +1,0 @@
-<%
-  add_view_stylesheet("landing_page/grid")
-%>
-
-<div class="grid-container">
-  <% block.children.each do |child| %>
-    <%= render_block(child) %>
-  <% end %>
-</div>

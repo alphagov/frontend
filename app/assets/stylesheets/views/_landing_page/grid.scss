@@ -1,9 +1,0 @@
-@import "govuk_publishing_components/individual_component_support";
-
-@include govuk-media-query($from: desktop) {
-  .grid-container {
-    display: flex;
-    justify-content: space-between;
-    gap: govuk-spacing(6);
-  }
-}

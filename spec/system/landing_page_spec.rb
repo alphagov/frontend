@@ -72,10 +72,10 @@ RSpec.describe "LandingPage" do
       assert_selector ".app-b-card__figure .app-b-card__image"
     end
 
-    it "renders a grid container" do
+    it "renders a column layout" do
       visit base_path
 
-      assert_selector ".landing-page .grid-container"
+      assert_selector ".landing-page .app-b-columns-layout"
     end
 
     it "renders a blocks container" do

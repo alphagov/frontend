@@ -22,7 +22,6 @@ APP_STYLESHEETS = {
   "views/_landing_page/columns_layout.scss" => "views/_landing_page/columns_layout.css",
   "views/_landing_page/hero.scss" => "views/_landing_page/hero.css",
   "views/_landing_page/featured.scss" => "views/_landing_page/featured.css",
-  "views/_landing_page/grid.scss" => "views/_landing_page/grid.css",
   "views/_landing_page/main-navigation.scss" => "views/_landing_page/main-navigation.css",
   "views/_landing_page/quote.scss" => "views/_landing_page/quote.css",
 }.freeze

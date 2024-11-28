@@ -100,7 +100,7 @@ blocks:
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-- type: grid_container
+- type: columns_layout
   blocks:
   - type: card
     image:

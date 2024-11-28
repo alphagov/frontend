@@ -393,7 +393,6 @@ Layout blocks are similar to compound blocks in that they contain nested blocks.
 
 - [Blocks container](#blocks-container)
 - [Columns layout](#columns-layout)
-- [Grid Container](#grid-container)
 - [Two column layout](#two-column-layout)
 
 #### Blocks container
@@ -464,61 +463,6 @@ In the following example, the first two `big_number` blocks will be side-by-side
   - type: big_number
     number: £43
     label: Cost of a cup of coffee in Covent Garden
-```
-
-#### Grid Container
-
-Like the blocks container, but uses `display: flex` to lay out the child blocks.
-
-The grid container automatically arranges blocks into their own columns, independently of using the design system’s row/columns approach. These new columns are equally sized and spaced to a maximum of three. If more than three, a second row is started. It was created to give us control of the three columns of charts on the landing page homepage, but could be used to arrange other content into columns too.
-
-Note: The grid container was developed specifically to be used with card blocks and has not been tested with other block types. It was necessary when the design had cards that had three elements: Title, body text, chart. The grid container was required to get all the charts to line up regardless of how much body text was in the card. It may be possible to remove this block as there is no longer a requirement for body text.
-
-```yaml
-- type: grid_container
-  blocks:
-  - type: card
-    card_content:
-      blocks:
-        - type: heading
-          content: Korem ipsum dolor sit
-          path: /landing-page/task
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
-          minimal_link: /landing-page/task
-  - type: card
-    card_content:
-      blocks:
-        - type: heading
-          content: Korem ipsum dolor sit
-          path: /landing-page/task
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
-          minimal_link: /landing-page/task
-  - type: card
-    card_content:
-      blocks:
-        - type: heading
-          content: Korem ipsum dolor sit
-          path: /landing-page/task
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
-          minimal_link: /landing-page/task
 ```
 
 #### Two column layout

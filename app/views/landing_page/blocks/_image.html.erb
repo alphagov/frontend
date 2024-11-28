@@ -1,10 +1,25 @@
-<% 
-  img_class = ("govuk-!-width-full" if block.data["theme"] == "full_width")
-  img_class << " govuk-!-margin-bottom-6"
+<%
+  img_classes = [
+    ("govuk-!-width-full" if block.full_width?),
+    "govuk-!-margin-bottom-6",
+  ]
 %>
 
 <%= image_tag(
-      block.data["src"],
-      alt: block.data["alt"],
-      class: img_class
-    ) %>
+  block.image.sources.desktop,
+  alt: block.image.alt,
+  srcset: {
+    block.image.sources.desktop => "630w",
+    block.image.sources.desktop_2x => "1260w",
+    block.image.sources.tablet => "708w",
+    block.image.sources.tablet_2x => "1416w",
+    block.image.sources.mobile => "610w",
+    block.image.sources.mobile_2x => "1220w",
+  },
+  sizes: [
+    "(max-width: 640px) 610px",
+    "(max-width: 768px) 707px",
+    "630px",
+  ].join(","),
+  class: img_classes,
+) %>

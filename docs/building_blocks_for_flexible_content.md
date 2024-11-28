@@ -128,10 +128,14 @@ A wrapper around the [Heading component](https://components.publishing.service.g
 
 A simple image.
 
-6 versions of the image need to be supplied. This is also true for blocks like [Featured](#featured) and [Hero](#hero) that contain images.
+3 versions of the image need to be supplied. This is also true for blocks like [Featured](#featured) and [Hero](#hero) that contain images.
+
+NB: Like [Hero](#hero) if you are adding this block in Whitehall you do not need to manually specify the `_x2` variants.
+
+NB: Unlike [Hero](#hero) this image usually displays 3 different versions of the same image, with the same ratio, so although in Whitehall you have to specify the three tags (desktop, mobile, and tablet), you can usually use the same markdown image tag.
 
 ```yaml
-- type:
+- type: image
   image:
     alt: "Placeholder alt text"
     sources:
@@ -508,10 +512,6 @@ Theme: two thirds / one third
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
     - type: heading
       content: "Title of content"
-    - type: image
-      theme: full_width
-      src: "landing_page/placeholder/960x640.png"
-      alt: "Placeholder image"
     - type: govspeak
       content: |
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>

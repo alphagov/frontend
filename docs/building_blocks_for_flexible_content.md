@@ -564,10 +564,6 @@ Theme: two thirds / one third
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
     - type: heading
       content: "Title of content"
-    - type: image
-      theme: full_width
-      src: "landing_page/placeholder/960x640.png"
-      alt: "Placeholder image"
     - type: govspeak
       content: |
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>

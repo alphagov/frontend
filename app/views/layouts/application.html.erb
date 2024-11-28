@@ -10,6 +10,7 @@
     <% unless current_page?(root_path) || !(publication || @calendar) || remove_breadcrumbs(content_item) %>
       <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
     <% end %>
+    <%= render "govuk_web_banners/recruitment_banner" %>
     <% if local_assigns %>
       <%= yield %>
       <%= yield :after_content %>

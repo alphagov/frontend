@@ -16,9 +16,5 @@ module LandingPage::Block
         @image = ImageData.new(alt:, sources:)
       end
     end
-
-    def full_width?
-      data["theme"] == "full_width"
-    end
   end
 end

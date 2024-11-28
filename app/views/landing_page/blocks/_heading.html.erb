@@ -1,6 +1,6 @@
 <%
   heading_level = block.data["heading_level"] || 2
-  font_size = options[:position] == "top" ? "l" : "m"
+  font_size = options.fetch(:heading_font_size, "m")
   text = block.data["content"]
   path = block.data["path"] || nil
   inverse = options[:inverse] || false

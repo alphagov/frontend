@@ -41,6 +41,37 @@ RSpec.describe LandingPage::Block::Hero do
     end
   end
 
+  describe "#theme" do
+    it "defaults to default" do
+      expect(subject.theme).to eq("default")
+    end
+
+    it "returns the theme from config" do
+      blocks_hash["theme"] = "middle_left"
+
+      expect(subject.theme).to eq("middle_left")
+    end
+  end
+
+  describe "#theme_colour" do
+    it "defaults to nil" do
+      expect(subject.theme_colour).to eq(nil)
+    end
+
+    it "returns the theme_colour from config" do
+      blocks_hash["theme_colour"] = 2
+
+      expect(subject.theme_colour).to eq(2)
+    end
+  end
+
+  describe "#image.alt" do
+    it "defaults to empty string" do
+      blocks_hash["image"].delete("alt")
+      expect(subject.image.alt).to eq("")
+    end
+  end
+
   describe "#full_width?" do
     it "is true" do
       expect(subject.full_width?).to eq(true)

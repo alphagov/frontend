@@ -37,18 +37,18 @@ RSpec.describe "ImportantMetadataComponent", type: :view do
     expect(rendered).to have_css(".app-c-important-metadata dt", text: "Case type:")
     expect(rendered).to have_css(".app-c-important-metadata dd", text: "Mergers")
     expect(rendered).to have_css(".app-c-important-metadata dd a[href='https://www.gov.uk/cma-cases?case_type%5B%5D=mergers']",
-                  text: "Mergers")
+                                 text: "Mergers")
     expect(rendered).to have_css(".app-c-important-metadata dt", text: "Case state:")
     expect(rendered).to have_css(".app-c-important-metadata dd", text: "Open")
     expect(rendered).to have_css(".app-c-important-metadata dd a[href='https://www.gov.uk/cma-cases?case_state%5B%5D=open']",
-                  text: "Open")
+                                 text: "Open")
     expect(rendered).to have_css(".app-c-important-metadata dt", text: "Market sector:")
     expect(rendered).to have_css(".app-c-important-metadata dd", text: "Motor industry")
     expect(rendered).to have_css(".app-c-important-metadata dd a[href='https://www.gov.uk/cma-cases?market_sector%5B%5D=motor-industry']",
-                  text: "Motor industry")
+                                 text: "Motor industry")
     expect(rendered).to have_css(".app-c-important-metadata dt", text: "Outcome:")
     expect(rendered).to have_css(".app-c-important-metadata dd", text: "Mergers - phase 2 clearance with remedies")
     expect(rendered).to have_css(".app-c-important-metadata dd a[href='https://www.gov.uk/cma-cases?outcome_type%5B%5D=mergers-phase-2-clearance-with-remedies']",
-                  text: "Mergers - phase 2 clearance with remedies")
+                                 text: "Mergers - phase 2 clearance with remedies")
   end
 end

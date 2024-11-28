@@ -1,6 +1,4 @@
 RSpec.describe "Homepage" do
-  include GovukAbTesting::RspecHelpers
-
   before { stub_content_store_has_item("/", schema: "special_route", links: {}) }
 
   it "renders the homepage" do
@@ -12,31 +10,11 @@ RSpec.describe "Homepage" do
     expect(page).not_to have_css(".homepage-inverse-header__title")
   end
 
-  context "search autocomplete AB test" do
-    it "does not render the search autocomplete on the A variant" do
-      with_variant(SearchAutocomplete: "A") do
-        visit "/"
+  it "renders the search with autocomplete component with the correct source URL" do
+    visit "/"
 
-        expect(page).not_to have_css(".gem-c-search-with-autocomplete")
-      end
-    end
-
-    it "renders the search autocomplete on the B variant with the correct source URL" do
-      with_variant(SearchAutocomplete: "B") do
-        visit "/"
-
-        expect(page).to have_css(".gem-c-search-with-autocomplete")
-        expect(page).to have_css("[data-source-url='http://www.dev.gov.uk/api/search/autocomplete.json']")
-      end
-    end
-
-    it "does not render the search autocomplete on the Z variant" do
-      with_variant(SearchAutocomplete: "Z") do
-        visit "/"
-
-        expect(page).not_to have_css(".gem-c-search-with-autocomplete")
-      end
-    end
+    expect(page).to have_css(".gem-c-search-with-autocomplete")
+    expect(page).to have_css("[data-source-url='http://www.dev.gov.uk/api/search/autocomplete.json']")
   end
 
   context "when visiting a Welsh content item first" do

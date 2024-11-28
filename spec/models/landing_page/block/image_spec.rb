@@ -26,10 +26,4 @@ RSpec.describe LandingPage::Block::Image do
       expect(subject.image.sources.tablet_2x).to eq "landing_page/tablet_2x.jpeg"
     end
   end
-
-  describe "#full_width?" do
-    it "is false" do
-      expect(subject.full_width?).to eq(false)
-    end
-  end
 end

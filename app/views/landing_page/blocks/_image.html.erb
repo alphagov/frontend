@@ -2,6 +2,7 @@
   img_classes = [
     ("govuk-!-width-full" if block.full_width?),
     "govuk-!-margin-bottom-6",
+    ("border-top--#{style(block.data["theme_colour"])}" if block.data["theme_colour"])
   ]
 %>
 

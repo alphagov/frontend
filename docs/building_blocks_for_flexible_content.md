@@ -134,8 +134,11 @@ NB: Like [Hero](#hero) if you are adding this block in Whitehall you do not need
 
 NB: Unlike [Hero](#hero) this image usually displays 3 different versions of the same image, with the same ratio, so although in Whitehall you have to specify the three tags (desktop, mobile, and tablet), you can usually use the same markdown image tag.
 
+If needed, an optional `theme_colour` integer value can be specified, which gives the image a border top utilising the theme colour you specified.
+
 ```yaml
 - type: image
+  theme_colour: 1
   image:
     alt: "Placeholder alt text"
     sources:

@@ -93,6 +93,7 @@ blocks:
       content: "Goal 1: Playing sports at a grassroots level"
     - type: image
       theme: full_width
+      theme_colour: 4
       image:
         alt: "Placeholder image"
         sources:

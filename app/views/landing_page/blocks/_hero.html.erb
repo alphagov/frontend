@@ -8,7 +8,7 @@
   grid_class = "govuk-grid-column-one-third-from-desktop" if block.theme == "middle_left"
 
   hero_textbox_classes = %w[app-b-hero__textbox]
-  hero_textbox_classes << "border-top--#{style(block.data["theme_colour"])}" if block.data["theme_colour"]
+  hero_textbox_classes << "border-top--#{style(block.theme_colour)}" if block.theme_colour
 
   hero_heading_options = {
     font_size: ("l" if block.theme == "default"),

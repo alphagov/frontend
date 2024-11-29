@@ -3,7 +3,7 @@ module LandingPage::Block
   HeroImage = Data.define(:alt, :sources)
 
   class Hero < Base
-    attr_reader :image, :hero_content, :theme
+    attr_reader :image, :hero_content, :theme, :theme_colour
 
     def initialize(block_hash, landing_page)
       super
@@ -13,6 +13,7 @@ module LandingPage::Block
       @image = HeroImage.new(alt:, sources:)
       @hero_content = LandingPage::BlockFactory.build_all(data.dig("hero_content", "blocks"), landing_page)
       @theme = data.fetch("theme", "default")
+      @theme_colour = data["theme_colour"]
     end
 
     def full_width?

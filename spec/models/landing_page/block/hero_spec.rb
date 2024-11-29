@@ -52,6 +52,17 @@ RSpec.describe LandingPage::Block::Hero do
     end
   end
 
+  describe "#theme_colour" do
+    it "defaults to nil" do
+      expect(subject.theme_colour).to eq(nil)
+    end
+
+    it "returns the theme_colour from config" do
+      blocks_hash["theme_colour"] = 2
+      expect(subject.theme_colour).to eq(2)
+    end
+  end
+
   describe "#full_width?" do
     it "is true" do
       expect(subject.full_width?).to eq(true)

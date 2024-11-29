@@ -8,6 +8,7 @@ module GovukChatPromoHelper
     /file-your-confirmation-statement-with-companies-house
     /find-business-rates
     /legal-right-work-uk
+    /register-employer
     /send-rent-lease-details
     /use-construction-industry-scheme-online
   ].freeze

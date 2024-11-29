@@ -10,6 +10,10 @@
   hero_textbox_classes = %w[app-b-hero__textbox]
   hero_textbox_classes << "border-top--#{style(block.data["theme_colour"])}" if block.data["theme_colour"]
 
+  hero_heading_options = {
+    font_size: ("l" if block.data["theme"].nil?),
+  }.compact
+
   image_alt_text = block.image.alt || ""
 %>
 
@@ -26,9 +30,10 @@
       <%= content_tag("div", class: grid_class) do %>
         <%= content_tag("div", class: hero_textbox_classes) do %>
           <% block.hero_content.each_with_index do |subblock, index| %>
-            <% options = {
-              position: block.data["position"],
-              margin_bottom: (0 if block.hero_content.length - 1 == index) } %>
+            <%
+              options = { margin_bottom: (0 if block.hero_content.length - 1 == index) }
+              options.merge!(hero_heading_options) if subblock.type == "heading"
+            %>
             <%= render_block(subblock, options:) %>
           <% end %>
         <% end %>

@@ -41,6 +41,17 @@ RSpec.describe LandingPage::Block::Hero do
     end
   end
 
+  describe "#theme" do
+    it "defaults to default" do
+      expect(subject.theme).to eq("default")
+    end
+
+    it "returns the theme from config" do
+      blocks_hash["theme"] = "middle_left"
+      expect(subject.theme).to eq("middle_left")
+    end
+  end
+
   describe "#full_width?" do
     it "is true" do
       expect(subject.full_width?).to eq(true)

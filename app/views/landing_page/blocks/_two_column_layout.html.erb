@@ -1,9 +1,11 @@
 <div class="govuk-grid-row">
-  <div class="<%= column_class_for_assymetric_columns(block.total_columns, block.left_column_size) %>">
-    <%= render_block(block.left) %>
+  <div class="<%= block.left_column_class %>">
+    <% if block.left.present? %>
+      <%= render_block(block.left) %>
+    <% end %>
   </div>
   <% if block.right.present? %>
-    <div class="<%= column_class_for_assymetric_columns(block.total_columns, block.right_column_size) %>">
+    <div class="<%= block.right_column_class %>">
       <%= render_block(block.right) %>
     </div>
   <% end %>

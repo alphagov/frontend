@@ -51,3 +51,9 @@
 .govuk-block__heading {
   margin-bottom: govuk-spacing(4);
 }
+
+.grid-column-one-third-offset {
+  @include govuk-media-query($from: "desktop") {
+    min-height: 1px;
+  }
+}

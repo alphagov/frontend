@@ -1,8 +1,6 @@
-require "gds_api/test_helpers/search"
-
 RSpec.describe LandingPage::Block::DocumentList do
-  include GdsApi::TestHelpers::Search
   include ContentStoreHelpers
+  include SearchHelpers
 
   describe "#items" do
     context "when the list is hard-coded" do
@@ -132,25 +130,5 @@ RSpec.describe LandingPage::Block::DocumentList do
         expect(described_class.new(blocks_hash, build(:landing_page)).items).to eq([])
       end
     end
-  end
-
-  def stub_taxon_search_results
-    results = [
-      {
-        "title" => "Doc one",
-        "link" => "/doc-one",
-        "description" => "Doc one description",
-        "format" => "press_release",
-        "public_timestamp" => Time.zone.local(2024, 1, 1, 10, 24, 0),
-      },
-    ]
-
-    body = {
-      "results" => results,
-      "start" => "0",
-      "total" => results.size,
-    }
-
-    stub_any_search.to_return("body" => body.to_json)
   end
 end

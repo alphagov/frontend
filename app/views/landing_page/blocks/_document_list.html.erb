@@ -1,4 +1,15 @@
-<%= render "govuk_publishing_components/components/document_list", {
-  margin_bottom: 4,
-  items: block.items,
-} %>
+<% heading = block.heading || "Latest Updates" %>
+
+<% if block.items.any? %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: heading,
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3
+  } %>
+
+  <%= render "govuk_publishing_components/components/document_list", {
+    margin_bottom: 0,
+    items: block.items,
+  } %>
+<% end %>

@@ -177,6 +177,7 @@ blocks:
   theme: two_thirds_one_third
   blocks:
   - type: document_list
+    heading: "Latest things"
     items:
     - text: An example title for this press notice 1
       path: "https://www.gov.uk"

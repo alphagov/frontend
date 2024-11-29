@@ -1,6 +1,6 @@
 module LandingPage::Block
   class DocumentList < Base
-    attr_reader :taxon_base_path
+    attr_reader :taxon_base_path, :heading
 
     TAXON_SEARCH_FIELDS = %w[title
                              link
@@ -12,6 +12,7 @@ module LandingPage::Block
       super
 
       @taxon_base_path = data["taxon_base_path"]
+      @heading = data["heading"]
     end
 
     def full_width?

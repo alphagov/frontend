@@ -1,6 +1,8 @@
+<% heading = block.heading || "Latest Updates" %>
+
 <% if block.items.any? %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: "Press Notices",
+    text: heading,
     padding: true,
     border_top: 5,
     margin_bottom: 3

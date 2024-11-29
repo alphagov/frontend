@@ -63,14 +63,17 @@ A wrapper around the [Big number component](https://components.publishing.servic
 
 #### Document list
 
-A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list)
+A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list) with a title that will only appear if there are any items in the list (if the list is entirely empty the heading will not appear either)
 
 The document list can either be populated with the most recent content tagged to a taxon or from a hard-coded list.
 
 If the `taxon_base_path` is provided and the taxon exists and it has content tagged to it, the document list will be populated with that content. If not, it will default to the hard-coded list.
 
+If the `heading` is provided that will be used, otherwise it will default to the hard-coded heading.
+
 ```yaml
 - type: document_list
+  heading: My Favourite Things
   taxon_base_path: /government/government-efficiency-transparency-and-accountability
   items:
   - text: An example link

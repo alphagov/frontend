@@ -176,7 +176,7 @@ blocks:
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:
-  - type: press_notices
+  - type: document_list
     items:
     - text: An example title for this press notice 1
       path: "https://www.gov.uk"

@@ -36,7 +36,6 @@ Simple blocks generally render one component or "thing". They can either be rend
 - [Heading](#heading)
 - [Image](#image)
 - [Main Navigation](#main-navigation)
-- [Press notices](#press-notices)
 - [Quote](#quote)
 - [Share links](#share-links)
 - [Side Navigation](#side-navigation)
@@ -158,34 +157,6 @@ The top-level navigation. It supports multiple headings, each with a row of link
 - type: main_navigation
   navigation_group_id: Top Menu
 ```
-
-#### Press notices
-
-A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list) with a hardcoded title that will only appear if there are any items in the list (if the list is entirely empty the heading will not appear either)
-
-The document list can either be populate with the most recent content tagged to a taxon, or from a hard-coded list.
-
-If the `taxon_base_path` is provided, the taxon exists and it has content tagged to it, the document list will be populated with that content, otherwise it will default to the hard-coded list.
-
-##### Example
-
-```yaml
-- type: press_notices
-  taxon_base_path: /government/government-efficiency-transparency-and-accountability
-  items:
-  - text: An example link
-    path: https://www.gov.uk
-    document_type: Press release
-    public_updated_at: "2016-06-27 10:29:44 +0000"
-  - text: Another example link
-    path: https://www.gov.uk
-    document_type: News article
-    public_updated_at: "2021-01-16 11:34:12 +0000"
-  - text: A third example link
-    path: https://www.gov.uk
-    document_type: Consultation
-    public_updated_at: "2024-02-01 09:00:11 +0000"
-
 
 #### Quote
 

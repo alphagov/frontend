@@ -43,6 +43,12 @@ navigation_groups:
       href: "/landing-page/learn-something-new"
     - text: Be thankful
       href: "/landing-page/be-thankful"
+  - heading: Exercise more
+    links:
+    - text: Anchor link one
+      href: "/landing-page/exercise-more#anchor-one"
+    - text:  Anchor link two
+      href: "/landing-page/exercise-more#anchor-two"
 - id: Sidebar
   links:
   - text: Be kinder
@@ -146,6 +152,7 @@ blocks:
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
     - type: heading
+      id: anchor-one
       content: Porem ipsum dolor
     - type: govspeak
       content: |
@@ -156,6 +163,7 @@ blocks:
         Maecenas eget.</p>
     - type: heading
       content: Porem ipsum dolor
+      id: anchor-two
     - type: document_list
       taxon_base_path: /government/government-efficiency-transparency-and-accountability
       items:

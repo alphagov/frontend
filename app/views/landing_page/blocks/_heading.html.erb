@@ -9,6 +9,7 @@
 %>
 <%= render "govuk_publishing_components/components/heading", {
   text: govuk_styled_link(text, path:, inverse:),
+  id: block.data["id"],
   font_size: font_size,
   heading_level: heading_level,
   margin_bottom: margin_bottom,

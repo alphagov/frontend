@@ -4,7 +4,7 @@ require "gds_api/test_helpers/search"
 module SearchHelpers
   include GdsApi::TestHelpers::Search
 
-  def stub_taxon_search_results(slug = "doc-one")
+  def stub_taxon_search_results(slug: "doc-one", draft: false)
     title = slug.tr("-", " ").capitalize
 
     results = [
@@ -23,6 +23,11 @@ module SearchHelpers
       "total" => results.size,
     }
 
-    stub_any_search.to_return("body" => body.to_json)
+    if draft
+      endpoint = Plek.find("draft-search-api")
+      stub_request(:get, %r{#{endpoint}/search.json}).to_return("body" => body.to_json)
+    else
+      stub_any_search.to_return("body" => body.to_json)
+    end
   end
 end

@@ -39,7 +39,7 @@
 
 <main class="landing-page" id="content">
   <% @content_item.blocks.each do |block| %>
-    <%= tag.div class: ["govuk-block govuk-block__#{block.type}", ("govuk-block--background" if block.full_width_background?)] do %>
+    <%= tag.div class: ["govuk-block", ("govuk-block--background" if block.full_width_background?)] do %>
       <% if block.full_width? %>
         <%= render_block(block) %>
       <% else %>

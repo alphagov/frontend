@@ -1,10 +1,13 @@
 <%
+  add_view_stylesheet("landing_page/govspeak")
   inverse = options[:inverse] || false
   margin_bottom = options[:margin_bottom] || 0
 %>
-<%= render "govuk_publishing_components/components/govspeak", {
-  inverse: inverse,
-  margin_bottom:,
-} do %>
-  <%= block.data["content"].html_safe %>
-<% end %>
+<div class="govuk-block__govspeak">
+  <%= render "govuk_publishing_components/components/govspeak", {
+    inverse: inverse,
+    margin_bottom:,
+  } do %>
+    <%= block.data["content"].html_safe %>
+  <% end %>
+</div>

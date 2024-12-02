@@ -5,12 +5,13 @@ class LandingPage::BlockFactory
 
   def self.build(block_hash, landing_page)
     block_class(block_hash["type"]).new(block_hash, landing_page)
+  rescue StandardError => e
+    LandingPage::Block::BlockError.new({ "type" => "block_error", "error" => e }, landing_page)
   end
 
   def self.block_class(type)
-    klass = "LandingPage::Block::#{type.camelize}".constantize
-    klass.ancestors.include?(LandingPage::Block::Base) ? klass : LandingPage::Block::Base
+    "LandingPage::Block::#{type.camelize}".constantize
   rescue StandardError
-    LandingPage::Block::Base
+    raise("Couldn't identify a model class for type: #{type}")
   end
 end

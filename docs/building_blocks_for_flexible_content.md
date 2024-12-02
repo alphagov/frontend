@@ -451,7 +451,11 @@ In the following example, the first two `big_number` blocks will be side-by-side
 
 #### Two column layout
 
-A two column layout takes one or two blocks, and depending on the theme (`one_third_two_thirds` or `two_thirds_one_third`), it lays them out horizontally with the first (left) or second (right) block getting twice the width of the other.
+A two column layout takes one or two blocks and a theme to determine the column layout. These options are:
+
+- `one_third_two_thirds`
+- `two_thirds_one_third`
+- `two_thirds_right` - provides the same layout as `one_third_two_thirds` but content for the left column is not required
 
 Theme: one third / two thirds
 
@@ -465,21 +469,10 @@ Theme: one third / two thirds
     blocks:
     - type: govspeak
       content: |
-        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
-        molestie, dictum esta, mattis tellus.</p>
-    - type: statistics
-      title: "Chart to visually represent data"
-      x_axis_label: "X Axis"
-      y_axis_label: "Y Axis"
-      csv_file: "data_one.csv"
-      data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-    - type: govspeak
-      content: |
-        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
-        molestie, dictum esta, mattis tellus.</p>
+        <p>This content will be in a two thirds column.</p>
 ```
 
-Theme: two thirds / one third
+Theme: two thirds / one third (note that content is not required for the one third column)
 
 ```yaml
 - type: two_column_layout
@@ -489,16 +482,24 @@ Theme: two thirds / one third
     blocks:
     - type: govspeak
       content: |
-        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
-    - type: heading
-      content: "Title of content"
-    - type: govspeak
+        <p>This content will be in a two thirds column.</p>
+  - type: govspeak
       content: |
-        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
+        <p>This content will be in a one third column.</p>
 ```
 
-The left column is always populated if only one column is defined.
-A blocks container applied to a column so that everything in the column can be styled relative to one and other.
+Theme: two thirds right
+
+```yaml
+- type: two_column_layout
+  theme: two_thirds_right
+  blocks:
+  - type: blocks_container
+    blocks:
+    - type: govspeak
+      content: |
+        <p>This content will be in a two thirds column, offset one third from the left of the page.</p>
+```
 
 ## Indexing block content in search
 

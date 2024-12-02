@@ -80,6 +80,9 @@ blocks:
     content: Here's the content for item two
 - type: govspeak
   content: <p>Here's some more content!</p>
+- type: quote
+  text: "Here's a quote!"
+  cite: "I said this"
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:

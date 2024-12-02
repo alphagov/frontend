@@ -17,32 +17,6 @@ RSpec.describe BlockHelper do
     end
   end
 
-  describe "#column_class_for_assymetric_columns" do
-    context "when there are three columns" do
-      it "returns govuk-grid-column-one-third when the column size is 1" do
-        expect(column_class_for_assymetric_columns(3, 1)).to eq("govuk-grid-column-one-third")
-      end
-
-      it "returns govuk-grid-column-two-thirds when the column size is 2" do
-        expect(column_class_for_assymetric_columns(3, 2)).to eq("govuk-grid-column-two-thirds-from-desktop")
-      end
-    end
-
-    context "when there are four columns" do
-      it "returns govuk-grid-column-one-quarter when the column size is 1" do
-        expect(column_class_for_assymetric_columns(4, 1)).to eq("govuk-grid-column-one-quarter")
-      end
-
-      it "returns govuk-grid-column-two-quarters when the column size is 2" do
-        expect(column_class_for_assymetric_columns(4, 2)).to eq("govuk-grid-column-two-quarters")
-      end
-
-      it "returns govuk-grid-column-three-quarters when the column size is 2" do
-        expect(column_class_for_assymetric_columns(4, 3)).to eq("govuk-grid-column-three-quarters")
-      end
-    end
-  end
-
   describe "#render_block" do
     it "returns an empty string when a partial template doesn't exist" do
       block = double(type: "not_a_block")

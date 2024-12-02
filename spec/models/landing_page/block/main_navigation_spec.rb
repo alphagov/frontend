@@ -1,4 +1,6 @@
 RSpec.describe LandingPage::Block::MainNavigation do
+  it_behaves_like "it is a landing-page block"
+
   let(:blocks_hash) do
     {
       "type" => "main_navigation",

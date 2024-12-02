@@ -1,4 +1,6 @@
 RSpec.describe LandingPage::Block::ColumnsLayout do
+  it_behaves_like "it is a landing-page block"
+
   let(:blocks_hash) do
     {
       "type" => "columns_layout",

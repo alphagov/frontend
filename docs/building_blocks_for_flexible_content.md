@@ -519,6 +519,16 @@ blocks:
 
 In the example above only the text in the govspeak and header blocks will be searchable.
 
+### Utility blocks
+
+Utility blocks exist to support development. They will not render on the published view of the page, although they may render on the draft view of pages.
+
+- [Block Error](#block-error)
+
+#### Block Error
+
+This is a special type of block that handles errors in other blocks. If a block raises an error during initialization, the block factory will turn it into an error block. This will only render in draft view, where it will display the error in place. It will not show on the live site.
+
 ## Navigation Groups
 
 The top-level key `navigation_groups` contains an array of items with the keys `id`, `name` and `links`. The id is used to identify the group for navigation blocks like [main navigation](#main-navigation) and [side navigation](#side-navigation), which reference a navigation group with their `navigation_group_id` key. The `name` key is used for the main button text (if the navigation collapses behind a button). The `links` key contains an array of `text` keys. These `text` keys represent headings that are rendered on the navigation element. These `text` values also contain a child `links` item, with `links` being an array of links related to that heading.

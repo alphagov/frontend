@@ -40,4 +40,12 @@ RSpec.describe LandingPage::Block::MainNavigation do
       expect(subject.full_width?).to eq(true)
     end
   end
+
+  describe "#initialize" do
+    context "without the specified navigation group" do
+      it "raises an error" do
+        expect { described_class.new(blocks_hash, build(:landing_page)) }.to raise_error("Main Navigation block points to a missing navigation group: Top Menu")
+      end
+    end
+  end
 end

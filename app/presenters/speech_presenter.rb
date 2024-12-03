@@ -49,6 +49,6 @@ private
   end
 
   def speaker_without_profile
-    content_item["details"]["speaker_without_profile"]
+    content_item.content_store_hash.dig("details", "speaker_without_profile")
   end
 end

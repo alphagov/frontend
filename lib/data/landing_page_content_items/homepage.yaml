@@ -93,10 +93,8 @@ blocks:
   - type: govspeak
     content: <p>This should be a two thirds width column occupying the right hand side of the page.</p>
 - type: two_column_layout
-  theme: one_third_two_thirds
+  theme: two_thirds_right
   blocks:
-  - type: govspeak
-    content: <br>
   - type: blocks_container
     blocks:
     - type: press_notices

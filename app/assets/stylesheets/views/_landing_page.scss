@@ -33,7 +33,7 @@
 .govuk-block--background {
   margin-bottom: govuk-spacing(9);
   background: govuk-colour("light-grey");
-  padding-top: govuk-spacing(8);
+  padding-top: govuk-spacing(6);
   padding-bottom: 0.05px; // stop margin escaping
 
   &:has(+ .govuk-block--background) {
@@ -43,14 +43,6 @@
   & + .govuk-block--background {
     padding-top: govuk-spacing(4);
   }
-}
-
-.govuk-block__share_links {
-  // margin-bottom: 0;
-}
-
-.govuk-block__heading {
-  // margin-bottom: govuk-spacing(4);
 }
 
 .grid-column-one-third-offset {

@@ -7,11 +7,7 @@
 <div class="featured">
   <%= tag.div class: featured_child_content_classes do %>
     <% block.featured_content.each do |subblock| %>
-      <%
-        options = {}
-        options[:font_size] = "l" if subblock.type == "heading"
-      %>
-      <%= render_block(subblock, options:) %>
+      <%= render_block(subblock) %>
     <% end %>
   <% end %>
   <% if block.image %>

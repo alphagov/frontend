@@ -422,6 +422,8 @@ id:
     start_now:
     case_study:
       other: Studi kasus
+      withdrawn_notice:
+        title:
     take_part:
       other: Ikut serta
     transaction:

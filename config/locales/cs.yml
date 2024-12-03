@@ -570,6 +570,8 @@ cs:
       few:
       one: Případová studie
       other: Případové studie
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Zúčastněte se

@@ -422,6 +422,8 @@ vi:
     start_now:
     case_study:
       other: Nghiên cứu điển hình
+      withdrawn_notice:
+        title:
     take_part:
       other: Tham gia
     transaction:

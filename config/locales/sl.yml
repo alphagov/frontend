@@ -644,6 +644,8 @@ sl:
       one: Študija primera
       other: Študije primera
       two:
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Sodelujte

@@ -496,6 +496,8 @@ sq:
     case_study:
       one: Rast studimi
       other: Raste studimi
+      withdrawn_notice:
+        title:
     take_part:
       one: Merr pjesë
       other: Merr pjesë

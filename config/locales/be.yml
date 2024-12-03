@@ -644,6 +644,8 @@ be:
       many:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

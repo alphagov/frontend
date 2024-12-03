@@ -644,6 +644,8 @@ uk:
       many:
       one: Аналіз ситуації
       other: Аналізи ситуації
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

@@ -570,6 +570,8 @@ sk:
       few:
       one: Prípadová štúdia
       other: Prípadové štúdie
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Zúčastniť sa

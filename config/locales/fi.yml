@@ -496,6 +496,8 @@ fi:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
+      withdrawn_notice:
+        title:
     take_part:
       one: Osallistu
       other: Osallistu

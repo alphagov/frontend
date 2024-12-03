@@ -2,7 +2,7 @@
 <%
   add_view_stylesheet("landing_page/hero")
 
-  hero_classes = %W[app-b-hero app-b-hero--#{block.theme}]
+  hero_classes = %W[govuk-block--spaced app-b-hero app-b-hero--#{block.theme}]
 
   grid_class = "govuk-grid-column-two-thirds-from-desktop"
   grid_class = "govuk-grid-column-one-third-from-desktop" if block.theme == "middle_left"

@@ -496,6 +496,8 @@ pa:
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ
+      withdrawn_notice:
+        title:
     take_part:
       one: ਹਿੱਸਾ ਲੈਣਾ
       other: ਹਿੱਸਾ ਲੈਣਾ

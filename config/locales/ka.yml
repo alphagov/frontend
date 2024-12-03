@@ -496,6 +496,8 @@ ka:
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
+      withdrawn_notice:
+        title:
     take_part:
       one: მონაწილეობის მიღება
       other: მონაწილეობის მიღება

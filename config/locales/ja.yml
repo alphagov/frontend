@@ -422,6 +422,8 @@ ja:
     start_now:
     case_study:
       other: ケーススタディ
+      withdrawn_notice:
+        title:
     take_part:
       other: 参加する
     transaction:

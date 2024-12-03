@@ -496,6 +496,8 @@ az:
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
+      withdrawn_notice:
+        title:
     take_part:
       one: İştirak edin
       other: İştirak edin

@@ -496,6 +496,8 @@ bg:
     case_study:
       one: Казус
       other: Казуси
+      withdrawn_notice:
+        title:
     take_part:
       one: Вземете участие
       other: Вземете участие

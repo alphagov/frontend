@@ -570,6 +570,8 @@ lt:
       few:
       one: Atvejo analizė
       other: Atvejų analizės
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Dalyvauti

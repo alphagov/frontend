@@ -496,6 +496,8 @@ lv:
     case_study:
       one: Piemērs
       other: Piemēri
+      withdrawn_notice:
+        title:
     take_part:
       one: Piedalīties
       other: Piedalīties

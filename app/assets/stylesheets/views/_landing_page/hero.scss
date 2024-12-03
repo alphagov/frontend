@@ -1,7 +1,7 @@
 @import "govuk_publishing_components/individual_component_support";
 
 $desktop-height: 400px;
-$large-desktop-height: 400px;
+$large-desktop-height: 500px;
 
 .app-b-hero__imagewrapper {
   position: relative;
@@ -26,14 +26,6 @@ $large-desktop-height: 400px;
   @include govuk-media-query($until: desktop) {
     aspect-ratio: 4/3 auto;
     width: 100%;
-  }
-
-  @media (min-width: 1281px) {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    min-width: 100%;
-    transform: translate(-50%);
   }
 }
 

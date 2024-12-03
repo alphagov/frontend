@@ -87,6 +87,75 @@ blocks:
       - type: govspeak
         content: |
           <p><a href="/landing-page/tasks" class="govuk-!-font-weight-bold">Find out more about our tasks</a></p>
+- type: two_column_layout
+  theme: two_thirds_right
+  blocks:
+  - type: govspeak
+    content: <p>This should be a two thirds width column occupying the right hand side of the page.</p>
+- type: two_column_layout
+  theme: one_third_two_thirds
+  blocks:
+  - type: govspeak
+    content: <br>
+  - type: blocks_container
+    blocks:
+    - type: press_notices
+      taxon_base_path: /government/safer-streets
+      items:
+      - text: An example link
+        path: https://www.gov.uk
+        document_type: Press release
+        public_updated_at: "2016-06-27 10:29:44 +0000"
+      - text: Another example link
+        path: https://www.gov.uk
+        document_type: News article
+        public_updated_at: "2021-01-16 11:34:12 +0000"
+      - text: A third example link
+        path: https://www.gov.uk
+        document_type: Consultation
+        public_updated_at: "2024-02-01 09:00:11 +0000"
+    - type: heading
+      content: Porem ipsum dolor
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+    - type: govspeak
+      content: |
+        <p>Another govspeak block! Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+- type: two_column_layout
+  theme: two_thirds_one_third
+  blocks:
+  - type: blocks_container
+    blocks:
+    - type: heading
+      content: Porem ipsum dolor
+    - type: govspeak
+      content: |
+        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
+        molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
+        accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
+        Maecenas eget.</p>
+    - type: press_notices
+      taxon_base_path: /government/safer-streets
+      items:
+      - text: An example link
+        path: https://www.gov.uk
+        document_type: Press release
+        public_updated_at: "2016-06-27 10:29:44 +0000"
+      - text: Another example link
+        path: https://www.gov.uk
+        document_type: News article
+        public_updated_at: "2021-01-16 11:34:12 +0000"
+      - text: A third example link
+        path: https://www.gov.uk
+        document_type: Consultation
+        public_updated_at: "2024-02-01 09:00:11 +0000"
 - type: heading
   content: Porem ipsum dolor
   full_width_background: true

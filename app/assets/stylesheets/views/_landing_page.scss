@@ -26,16 +26,17 @@
   }
 }
 
-.govuk-block {
+.govuk-block--spaced {
   margin-bottom: govuk-spacing(9);
 }
 
 .govuk-block--background {
+  margin-bottom: govuk-spacing(9);
   background: govuk-colour("light-grey");
-  padding: govuk-spacing(8) 0;
+  padding-top: govuk-spacing(8);
+  padding-bottom: 0.05px; // stop margin escaping
 
   &:has(+ .govuk-block--background) {
-    padding-bottom: 0.05px; // stop margin escaping
     margin-bottom: 0;
   }
 
@@ -45,11 +46,11 @@
 }
 
 .govuk-block__share_links {
-  margin-bottom: 0;
+  // margin-bottom: 0;
 }
 
 .govuk-block__heading {
-  margin-bottom: govuk-spacing(4);
+  // margin-bottom: govuk-spacing(4);
 }
 
 .grid-column-one-third-offset {

@@ -644,6 +644,8 @@ gd:
       one: Cás-staidéir
       other: Tuarascálacha staidéir
       two:
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Chun páirt a ghlacadh

@@ -496,6 +496,8 @@ da:
     case_study:
       one: Casestudie
       other: Casestudie
+      withdrawn_notice:
+        title:
     take_part:
       one: Deltage
       other: Deltage

@@ -496,6 +496,8 @@ de:
     case_study:
       one: Fallstudie
       other: Fallstudien
+      withdrawn_notice:
+        title:
     take_part:
       one: Teilnehmen
       other: Teilnehmen

@@ -496,6 +496,8 @@ hu:
     case_study:
       one: Esettanulmány
       other: Esettanulmányok
+      withdrawn_notice:
+        title:
     take_part:
       one: Részvétel
       other: Részvétel

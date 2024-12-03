@@ -496,6 +496,8 @@ sw:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
+      withdrawn_notice:
+        title:
     take_part:
       one: Shiriki
       other: Shiriki

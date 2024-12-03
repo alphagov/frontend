@@ -496,6 +496,8 @@ et:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
+      withdrawn_notice:
+        title:
     take_part:
       one: Osa võtma
       other: Osa võtma

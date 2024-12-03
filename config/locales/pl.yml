@@ -644,6 +644,8 @@ pl:
       many:
       one: Studium przypadku
       other: Studia przypadku
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

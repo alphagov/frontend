@@ -496,6 +496,8 @@ pt:
     case_study:
       one: Estudo de caso
       other: Estudos de caso
+      withdrawn_notice:
+        title:
     take_part:
       one: Participar
       other: Participar

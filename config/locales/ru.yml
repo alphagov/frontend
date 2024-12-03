@@ -644,6 +644,8 @@ ru:
       many:
       one: Причинный анализ
       other: Причинные анализы
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

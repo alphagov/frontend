@@ -496,6 +496,8 @@ el:
     case_study:
       one: Μελέτη περίπτωσης
       other: Μελέτες περιπτώσεων
+      withdrawn_notice:
+        title:
     take_part:
       one: Συμμετοχή
       other: Συμμετοχή

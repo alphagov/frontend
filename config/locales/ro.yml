@@ -570,6 +570,8 @@ ro:
       few:
       one: Studiu de caz
       other: Studii de caz
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Participă

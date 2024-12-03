@@ -496,6 +496,8 @@ kk:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
+      withdrawn_notice:
+        title:
     take_part:
       one: Қатысу
       other: Қатысу

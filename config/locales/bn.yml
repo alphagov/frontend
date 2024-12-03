@@ -496,6 +496,8 @@ bn:
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ
+      withdrawn_notice:
+        title:
     take_part:
       one: অংশ নিন
       other: অংশ নিন

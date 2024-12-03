@@ -11,7 +11,7 @@ module LocationFormHelper
   end
 
   def places_button_text(publication_title)
-    publications_where_button_text_matches_title = ["Find a register office"]
+    publications_where_button_text_matches_title = ["Find a register office", "Darganfod swyddfa gofrestru"]
     publications_where_button_text_matches_title.include?(publication_title) ? publication_title : I18n.t("formats.place.find_results")
   end
 end

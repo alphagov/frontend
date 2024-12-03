@@ -3,6 +3,8 @@ require "gds_api/test_helpers/places_manager"
 RSpec.describe "Places" do
   include GdsApi::TestHelpers::PlacesManager
 
+  let(:content_item_example) { GovukSchemas::Example.find("place", example_name: "find-regional-passport-office") }
+
   before do
     @payload = {
       title: "Find a passport interview office",
@@ -107,18 +109,53 @@ RSpec.describe "Places" do
     end
   end
 
-  context "When the start page button text reflects the page title" do
+  context "when page title is not among ones used for button text" do
     before do
-      content_item = GovukSchemas::Example.find("place", example_name: "find-regional-passport-office")
-      content_item["title"] = "Find a register office"
-      content_item["base_path"] = "/register-offices"
-      stub_content_store_has_item("/register-offices", content_item)
+      stub_content_store_has_item("/find-regional-passport-office", content_item)
+      visit "/find-regional-passport-office"
     end
 
-    it "on the Find a register office page with an en locale" do
+    context "when page is in English" do
+      let(:content_item) { content_item_example }
+
+      it "displays English default button text" do
+        expect(page).to have_css("button", text: "Find results near you")
+      end
+    end
+
+    context "when page is in another language" do
+      let(:content_item) { content_item_example.merge({ "locale" => "cy" }) }
+
+      it "displays translated default button text" do
+        expect(page).to have_css("button", text: "Darganfod canlyniadau yn agos i chi")
+      end
+    end
+  end
+
+  context "when page title is among ones used for button text" do
+    before do
+      content_item_example["title"] = "Find a register office"
+      content_item_example["base_path"] = "/register-offices"
+      stub_content_store_has_item("/register-offices", content_item)
       visit "/register-offices"
-      expect(page).to have_css("button", text: "Find a register office")
-      expect(page).not_to have_css("button", text: "Find results near you")
+    end
+
+    context "when page is in English" do
+      let(:content_item) { content_item_example.merge({ "title" => "Find a register office" }) }
+
+      it "displays page title in English as button text" do
+        expect(page).to have_css("button", text: "Find a register office")
+        expect(page).not_to have_css("button", text: "Find results near you")
+      end
+    end
+
+    context "when page is in another language" do
+      let(:content_item) { content_item_example.merge({ "title" => "Darganfod swyddfa gofrestru", "locale" => "cy" }) }
+
+      it "displays page title in another language as button text" do
+        expect(page).to have_css("button", text: "Darganfod swyddfa gofrestru")
+        expect(page).not_to have_css("button", text: "Darganfod canlyniadau yn agos i chi")
+      end
     end
   end
 

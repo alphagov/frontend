@@ -153,7 +153,7 @@ GEM
     googleapis-common-protos-types (1.16.0)
       google-protobuf (>= 3.18, < 5.a)
     govuk_ab_testing (3.0.0)
-    govuk_app_config (9.15.3)
+    govuk_app_config (9.15.4)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.30)
       opentelemetry-instrumentation-all (>= 0.39.1, < 0.70.0)
@@ -213,7 +213,7 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    io-console (0.7.2)
+    io-console (0.8.0)
     irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)

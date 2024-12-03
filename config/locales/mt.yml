@@ -644,6 +644,8 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

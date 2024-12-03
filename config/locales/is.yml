@@ -496,6 +496,8 @@ is:
     case_study:
       one: Ferilsathugun
       other: Ferilsathuganir
+      withdrawn_notice:
+        title:
     take_part:
       one: Taka þátt
       other: Taka þátt

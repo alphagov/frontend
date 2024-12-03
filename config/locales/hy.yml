@@ -496,6 +496,8 @@ hy:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
+      withdrawn_notice:
+        title:
     take_part:
       one: Մասնակցություն
       other: Մասնակցություն

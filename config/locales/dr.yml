@@ -496,6 +496,8 @@ dr:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
+      withdrawn_notice:
+        title:
     take_part:
       one: سهم بگیرید
       other: سهم بگیرید

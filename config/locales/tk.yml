@@ -496,6 +496,8 @@ tk:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
+      withdrawn_notice:
+        title:
     take_part:
       one: Gatnaşmak
       other: Gatnaşmak

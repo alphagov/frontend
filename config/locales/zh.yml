@@ -422,6 +422,8 @@ zh:
     start_now:
     case_study:
       other: 案例研究
+      withdrawn_notice:
+        title:
     take_part:
       other: 参加
     transaction:

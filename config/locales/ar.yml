@@ -792,6 +792,8 @@ ar:
       other: دراسات الحالة
       two:
       zero:
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

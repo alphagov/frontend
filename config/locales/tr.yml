@@ -496,6 +496,8 @@ tr:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+      withdrawn_notice:
+        title:
     take_part:
       one: Katıl
       other: Katıl

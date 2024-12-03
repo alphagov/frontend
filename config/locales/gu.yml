@@ -496,6 +496,8 @@ gu:
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
+      withdrawn_notice:
+        title:
     take_part:
       one: ભાગ લો
       other: ભાગ લો

@@ -496,6 +496,8 @@ so:
     case_study:
       one: Daraasad
       other: Daraasado
+      withdrawn_notice:
+        title:
     take_part:
       one: Ka qeybgal
       other: Ka qeybgal

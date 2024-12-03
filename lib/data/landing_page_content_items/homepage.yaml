@@ -45,7 +45,6 @@ blocks:
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero
-  position: top
   image:
     sources:
       desktop: "landing_page/placeholder/missions_hero_desktop.jpg"

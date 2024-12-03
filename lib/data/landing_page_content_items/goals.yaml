@@ -45,7 +45,6 @@ blocks:
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero
-  position: top
   image:
     sources:
       desktop: "landing_page/placeholder/desktop.png"
@@ -60,7 +59,8 @@ blocks:
         content: Government Goals
       - type: govspeak
         content: |
-          <p class="govuk-body govuk-!-font-size-27">Culpa atque nostrum numquam eveniet. Cum exercitationem perferendis accusamus minima possimus dolor enim eius. Et est impedit vel voluptate sunt.</p>
+          <p>Culpa atque nostrum numquam eveniet. Cum exercitationem perferendis accusamus minima possimus dolor enim eius. Et est impedit vel voluptate sunt.</p>
+          <p><a href="#">hello world</a></p>
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:

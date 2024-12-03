@@ -65,7 +65,6 @@ blocks:
 - type: main_navigation
   navigation_group_id: Top Menu
 - type: hero
-  position: top
   image:
     alt: "Placeholder alt text"
     sources:

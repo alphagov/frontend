@@ -2,14 +2,13 @@
 <%
   add_view_stylesheet("landing_page/hero")
 
-  hero_classes = %w[app-b-hero]
-  hero_classes << "app-b-hero--mid-page" if block.data["theme"] == "middle_left"
+  hero_classes = %W[app-b-hero app-b-hero--#{block.theme}]
 
   grid_class = "govuk-grid-column-two-thirds-from-desktop"
-  grid_class = "govuk-grid-column-one-third-from-desktop" if block.data["theme"] == "middle_left"
+  grid_class = "govuk-grid-column-one-third-from-desktop" if block.theme == "middle_left"
 
   hero_textbox_classes = %w[app-b-hero__textbox]
-  hero_textbox_classes << "border-top--#{style(block.data["theme_colour"])}" if block.data["theme_colour"]
+  hero_textbox_classes << "border-top--#{style(block.theme_colour)}" if block.theme_colour
 
   image_alt_text = block.image.alt || ""
 %>
@@ -27,9 +26,13 @@
       <%= content_tag("div", class: grid_class) do %>
         <%= content_tag("div", class: hero_textbox_classes) do %>
           <% block.hero_content.each_with_index do |subblock, index| %>
-            <% options = {
-              position: block.data["position"],
-              margin_bottom: (0 if block.hero_content.length - 1 == index) } %>
+            <%
+              is_final_subblock = block.hero_content.length - 1 == index
+              options = {
+                margin_bottom: (0 if is_final_subblock),
+                font_size: ("l" if block.theme == "default" && subblock.type == "heading"),
+              }.compact
+            %>
             <%= render_block(subblock, options:) %>
           <% end %>
         <% end %>

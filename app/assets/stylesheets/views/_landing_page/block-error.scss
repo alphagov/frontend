@@ -1,5 +1,12 @@
 @import "govuk_publishing_components/govuk_frontend_support";
 
 .app-b-block-error {
-  border: 2px solid $govuk-error-colour;
+  padding: govuk-spacing(3);
+  border: $govuk-border-width-narrow solid $govuk-error-colour;
+  @include govuk-responsive-margin(8, "bottom");
+
+  @include govuk-media-query($from: tablet) {
+    padding: govuk-spacing(4);
+    border-width: $govuk-border-width;
+  }
 }

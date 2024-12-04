@@ -124,11 +124,6 @@ blocks:
       mobile_2x: "landing_page/placeholder/mobile_2x.png"
       tablet: "landing_page/placeholder/tablet.png"
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
-  hero_content:
-    blocks:
-      - type: quote
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class"
-        cite: "Lorem ipsum dolor sit, 28 September 2024"
 - type: two_column_layout
   theme: one_third_two_thirds
   blocks:

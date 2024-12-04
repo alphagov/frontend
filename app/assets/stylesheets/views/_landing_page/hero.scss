@@ -59,6 +59,11 @@ $large-desktop-height: 500px;
       min-height: $desktop-height;
       margin-top: -$desktop-height;
     }
+
+    @media (min-width: 1281px) {
+      min-height: $large-desktop-height;
+      margin-top: -$large-desktop-height;
+    }
   }
 
   .app-b-hero__textbox {

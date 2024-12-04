@@ -427,6 +427,9 @@ en:
       was: was
       ways_to_respond: Ways to respond
       write_to: 'Write to:'
+    closed_call_for_evidence:
+      one: Closed call for evidence
+      other: Closed calls for evidence
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     get_involved:

@@ -115,6 +115,8 @@ ko:
       published: 발행일 %{date}
       see_all_updates: 모든 업데이트 보기
       show_all_updates: 모든 업데이트 보기
+    share_links:
+      share_this_page: 이 페이지 공유하기
   continue:
   cookies:
     always_on:
@@ -324,7 +326,6 @@ ko:
   find:
   formats:
     call_for_evidence:
-      other:
       and:
       another_website_html:
       at:
@@ -344,6 +345,7 @@ ko:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

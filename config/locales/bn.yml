@@ -117,6 +117,8 @@ bn:
       published: প্রকাশিত হওয়ার তারিখ %{date}
       see_all_updates: সকল আপডেট দেখুন
       show_all_updates: সকল আপডেট দেখান
+    share_links:
+      share_this_page: এই পেজটি শেয়ার করুন
   continue:
   cookies:
     always_on:
@@ -399,8 +401,6 @@ bn:
   find:
   formats:
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -417,9 +417,11 @@ bn:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

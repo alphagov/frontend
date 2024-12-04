@@ -117,6 +117,8 @@ el:
       published: Δημοσιεύτηκε %{date}
       see_all_updates: δείτε όλες τις ενημερώσεις
       show_all_updates: εμφάνιση όλων των ενημερώσεων
+    share_links:
+      share_this_page: Κοινοποιήστε αυτή τη σελίδα
   continue:
   cookies:
     always_on:
@@ -399,8 +401,6 @@ el:
   find:
   formats:
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -417,9 +417,11 @@ el:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

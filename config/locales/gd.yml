@@ -117,6 +117,8 @@ gd:
       published: Arna chur suas ar %{date}
       see_all_updates: féach gach nuashonrú
       show_all_updates: Taispeáin gach nuashonrú
+    share_links:
+      share_this_page: Comhroinn an leathanach seo
   continue:
   cookies:
     always_on:
@@ -545,10 +547,6 @@ gd:
       other: Tuarascálacha staidéir
       two:
     call_for_evidence:
-      few:
-      one:
-      other:
-      two:
       and:
       another_website_html:
       at:
@@ -562,16 +560,20 @@ gd:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:
       summary:
+      two:
       was:
       ways_to_respond:
       write_to:

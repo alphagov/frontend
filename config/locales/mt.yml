@@ -117,6 +117,8 @@ mt:
       published: Ippubblikat %{date}
       see_all_updates: ara l-aġġornamenti kollha
       show_all_updates: uri l-aġġornamenti kollha
+    share_links:
+      share_this_page: Aqsam din il-paġna ma'
   continue:
   cookies:
     always_on:
@@ -545,10 +547,6 @@ mt:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
     call_for_evidence:
-      few:
-      many:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -562,12 +560,16 @@ mt:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
+      many:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

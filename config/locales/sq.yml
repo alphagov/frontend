@@ -117,6 +117,8 @@ sq:
       published: Publikuar %{date}
       see_all_updates: shih të gjitha përditësimet
       show_all_updates: shfaq të gjitha përditësimet
+    share_links:
+      share_this_page: Shpërdaj këtë faqe
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ sq:
       one: Rast studimi
       other: Raste studimi
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ sq:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

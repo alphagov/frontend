@@ -117,6 +117,8 @@ es:
       published: Publicado %{date}
       see_all_updates: ver todas las actualizaciones
       show_all_updates: mostrar todas las actualizaciones
+    share_links:
+      share_this_page: Compartir esta página
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ es:
       one: Caso de estudio práctico
       other: Casos de estudio práctico
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ es:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ en:
       published: Published %{date}
       see_all_updates: See all updates
       show_all_updates: show all updates
+    share_links:
+      share_this_page: Share this page
   continue: Continue
   cookies:
     always_on: They always need to be on.
@@ -399,8 +401,6 @@ en:
       one: Case study
       other: Case studies
     call_for_evidence:
-      one: Call for evidence
-      other: Calls for evidence
       and: and
       another_website_html: This call for evidence %{closed} held on <a href="%{url}">another website</a>
       at: at
@@ -417,9 +417,11 @@ en:
       is_being: is being
       not_open_yet: This call for evidence isn't open yet
       'on': 'on'
+      one: Call for evidence
       opens: This call for evidence opens
       or: or
       original_call_for_evidence: Original call for evidence
+      other: Calls for evidence
       ran_from: This call for evidence ran from
       respond_online: Respond online
       response_form: response form

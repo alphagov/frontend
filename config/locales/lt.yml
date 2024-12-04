@@ -117,6 +117,8 @@ lt:
       published: Publikuota %{date}
       see_all_updates: matyti visą naują informaciją
       show_all_updates: rodyti visą naują informaciją
+    share_links:
+      share_this_page: Bendrinti šį puslapį
   continue:
   cookies:
     always_on:
@@ -471,9 +473,6 @@ lt:
       one: Atvejo analizė
       other: Atvejų analizės
     call_for_evidence:
-      few:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -487,12 +486,15 @@ lt:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

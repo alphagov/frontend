@@ -117,6 +117,8 @@ sv:
       published: Publicerad %{date}
       see_all_updates: se alla uppdateringar
       show_all_updates: Visa alla uppdateringar
+    share_links:
+      share_this_page: Dela den här sidan
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ sv:
       one: Fallstudie
       other: Fallstudier
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ sv:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

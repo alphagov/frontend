@@ -117,6 +117,8 @@ fa:
       published: منشتر شده %{date}
       see_all_updates: مشاهده تمام بروزرسانی‌ها
       show_all_updates: نمایش تمام بروزرسانی‌ها
+    share_links:
+      share_this_page: اشتراک‌گذاری این صفحه
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ fa:
       one: مطالعه موردی
       other: مطالعات موردی
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ fa:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

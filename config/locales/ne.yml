@@ -117,6 +117,8 @@ ne:
       published: प्रकाशित %{date}
       see_all_updates: सबै अद्यावधिक हेर्नुहोस्
       show_all_updates: सबै अद्यावधिक देखाउनुहोस्
+    share_links:
+      share_this_page: यो पृष्ठ साझा गर्नुहोस्
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ ne:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ ne:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

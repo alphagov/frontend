@@ -117,6 +117,8 @@ hy:
       published: Հրապարակվել է՝ %{date}
       see_all_updates: դիտել բոլոր թարմացումները
       show_all_updates: ցույց տալ բոլոր թարմացումները
+    share_links:
+      share_this_page: Կիսվել այս էջով
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ hy:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ hy:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

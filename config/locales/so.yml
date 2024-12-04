@@ -117,6 +117,8 @@ so:
       published: La daabacay %{date}
       see_all_updates: eeg dhamaan cusboonaysiinaha
       show_all_updates: muuji dhamaan cusboonaysiinaha
+    share_links:
+      share_this_page: Lawadaag bogan
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ so:
       one: Daraasad
       other: Daraasado
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ so:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

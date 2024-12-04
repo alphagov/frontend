@@ -117,6 +117,8 @@ cy:
       published: Cyhoeddwyd ar %{date}
       see_all_updates: gweld pob diweddariad
       show_all_updates: dangos pob diweddariad
+    share_links:
+      share_this_page: Rhannu'r dudalen hon
   continue: Parhau
   cookies:
     always_on: Mae angen iddynt fod ymlaen bob amser.
@@ -695,12 +697,6 @@ cy:
       two:
       zero:
     call_for_evidence:
-      few:
-      many:
-      one:
-      other:
-      two:
-      zero:
       and:
       another_website_html:
       at:
@@ -714,19 +710,25 @@ cy:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
+      many:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:
       summary: Crynodeb
+      two:
       was:
       ways_to_respond:
       write_to:
+      zero:
     closed_call_for_evidence:
       few:
       many:

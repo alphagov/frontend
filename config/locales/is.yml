@@ -117,6 +117,8 @@ is:
       published: Birt %{date}
       see_all_updates: sjá allar uppfærslur
       show_all_updates: sýna allar uppfærslur
+    share_links:
+      share_this_page: Deila þessari síðu
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ is:
       one: Ferilsathugun
       other: Ferilsathuganir
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ is:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ et:
       published: Avaldatud %{date}
       see_all_updates: vt kõiki värskendusi
       show_all_updates: kuva kõik värskendused
+    share_links:
+      share_this_page: Jaga seda lehte
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ et:
       one: Juhtumiuuring
       other: Juhtumiuuringud
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ et:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ dr:
       published: منتشر شده%{date}
       see_all_updates: تمام آپدیت ها را مشاهده نمایید
       show_all_updates: تمام آپدیت ها را نمایش دهید
+    share_links:
+      share_this_page: این صفحه را به اشتراک بگذارید
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ dr:
       one: مطالعه موردی
       other: مطالعات موردی
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ dr:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

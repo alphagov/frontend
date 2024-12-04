@@ -117,6 +117,8 @@ pa:
       published: ਪ੍ਰਕਾਸ਼ਿਤ %{date}
       see_all_updates: ਸਾਰੇ ਅਪਡੇਟਸ ਵੇਖੋ
       show_all_updates: ਸਾਰੇ ਅਪਡੇਟ ਦਿਖਾਉ
+    share_links:
+      share_this_page: ਇਸ ਪੇਜ ਨੂੰ ਸ਼ੇਅਰ ਕਰੋ
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ pa:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ pa:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

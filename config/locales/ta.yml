@@ -117,6 +117,8 @@ ta:
       published: வெளியிடப்பட்ட தேதி %{date}
       see_all_updates: அனைத்து புதுப்பித்தல்களையும் பார்க்க
       show_all_updates: அனைத்து புதுப்பித்தல்களையும் காட்டு
+    share_links:
+      share_this_page: இந்தப் பக்கத்தைப் பகிர்க
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ ta:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ ta:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ be:
       published: Апублікавана %{date}
       see_all_updates: паглядзець усе абнаўленні
       show_all_updates: паказаць усе абнаўленні
+    share_links:
+      share_this_page: Падзяліцца гэтай старонкай
   continue:
   cookies:
     always_on:
@@ -545,10 +547,6 @@ be:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
     call_for_evidence:
-      few:
-      many:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -562,12 +560,16 @@ be:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
+      many:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

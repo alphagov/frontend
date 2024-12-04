@@ -117,6 +117,8 @@ az:
       published: 'Dərc edilib: %{date}'
       see_all_updates: bütün yeniləmələrə baxın
       show_all_updates: bütün yeniləmələri göstər
+    share_links:
+      share_this_page: Bu səhifəni paylaşın
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ az:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ az:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ uz:
       published: Нашр қилинган %{date}
       see_all_updates: Барча янгиланишларни кўриш
       show_all_updates: янгиланишларни барчасини кўрсатиш
+    share_links:
+      share_this_page: Саҳифа билан бўлишиш
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ uz:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ uz:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

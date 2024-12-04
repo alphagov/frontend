@@ -117,6 +117,8 @@ ur:
       published: شائع کردہ %{date}
       see_all_updates: تمام اپ ڈیٹس دیکھیں
       show_all_updates: تمام اپ ڈیٹس دکھائیں
+    share_links:
+      share_this_page: اس صفحے کو شیئر کریں
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ ur:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ ur:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

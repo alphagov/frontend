@@ -117,6 +117,8 @@ cs:
       published: Zveřejněno %{date}
       see_all_updates: vidět všechny aktualizace
       show_all_updates: zobrazit všechny aktualizace
+    share_links:
+      share_this_page: Sdílet tuto stránku
   continue:
   cookies:
     always_on:
@@ -471,9 +473,6 @@ cs:
       one: Případová studie
       other: Případové studie
     call_for_evidence:
-      few:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -487,12 +486,15 @@ cs:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

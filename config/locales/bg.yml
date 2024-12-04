@@ -117,6 +117,8 @@ bg:
       published: Публикувано на %{date}
       see_all_updates: вижте всички актуализации
       show_all_updates: показване на всички актуализации
+    share_links:
+      share_this_page: Споделяне на тази страница
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ bg:
       one: Казус
       other: Казуси
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ bg:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

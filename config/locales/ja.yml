@@ -117,6 +117,8 @@ ja:
       published: 公開日：%{date}
       see_all_updates: すべての更新を見る
       show_all_updates: すべての更新を表示
+    share_links:
+      share_this_page: このページを共有
   continue:
   cookies:
     always_on:
@@ -323,7 +325,6 @@ ja:
     case_study:
       other: ケーススタディ
     call_for_evidence:
-      other:
       and:
       another_website_html:
       at:
@@ -343,6 +344,7 @@ ja:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

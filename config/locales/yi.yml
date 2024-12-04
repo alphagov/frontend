@@ -117,6 +117,8 @@ yi:
       published:
       see_all_updates:
       show_all_updates:
+    share_links:
+      share_this_page:
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ yi:
       one:
       other:
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ yi:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

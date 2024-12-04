@@ -117,6 +117,8 @@ ar:
       published: تاريخ النشر %{date}
       see_all_updates: اطلع على كل التحديثات
       show_all_updates: إظهار كل التحديثات
+    share_links:
+      share_this_page: شارك هذه الصفحة
   continue:
   cookies:
     always_on:
@@ -693,12 +695,6 @@ ar:
       two:
       zero:
     call_for_evidence:
-      few:
-      many:
-      one:
-      other:
-      two:
-      zero:
       and:
       another_website_html:
       at:
@@ -712,19 +708,25 @@ ar:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
+      many:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:
       summary:
+      two:
       was:
       ways_to_respond:
       write_to:
+      zero:
     closed_call_for_evidence:
       few:
       many:

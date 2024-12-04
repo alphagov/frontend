@@ -117,6 +117,8 @@ fi:
       published: Julkaistu %{date}
       see_all_updates: katso kaikki palvelut
       show_all_updates: näytä kaikki päivitykset
+    share_links:
+      share_this_page: Jaa tämä sivu
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ fi:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ fi:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

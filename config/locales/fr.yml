@@ -117,6 +117,8 @@ fr:
       published: Publié le %{date}
       see_all_updates: afficher toutes les mises à jour
       show_all_updates: afficher toutes les mises à jour
+    share_links:
+      share_this_page: Partagez cette page
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ fr:
       one: Etude de cas
       other: Etudes de cas
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ fr:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

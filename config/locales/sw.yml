@@ -117,6 +117,8 @@ sw:
       published: Ulichapishwa tarehe %{date}
       see_all_updates: angalia taarifa zote
       show_all_updates: Onyesha taarifa zote
+    share_links:
+      share_this_page: Shiriki ukurasa huu
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ sw:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ sw:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

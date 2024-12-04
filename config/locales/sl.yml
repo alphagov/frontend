@@ -117,6 +117,8 @@ sl:
       published: Objavljeno %{date}
       see_all_updates: poglej vse posodobitve
       show_all_updates: prikaži vse posodobitve
+    share_links:
+      share_this_page: Deli to stran
   continue:
   cookies:
     always_on:
@@ -545,10 +547,6 @@ sl:
       other: Študije primera
       two:
     call_for_evidence:
-      few:
-      one:
-      other:
-      two:
       and:
       another_website_html:
       at:
@@ -562,16 +560,20 @@ sl:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:
       summary:
+      two:
       was:
       ways_to_respond:
       write_to:

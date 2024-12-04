@@ -117,6 +117,8 @@ zh:
       published: 发布 %{date}
       see_all_updates: 查看全部更新
       show_all_updates: 显示全部更新
+    share_links:
+      share_this_page: 分享本页面
   continue:
   cookies:
     always_on:
@@ -323,7 +325,6 @@ zh:
     case_study:
       other: 案例研究
     call_for_evidence:
-      other:
       and:
       another_website_html:
       at:
@@ -343,6 +344,7 @@ zh:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

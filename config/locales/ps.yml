@@ -117,6 +117,8 @@ ps:
       published: خپور شوی%{date}
       see_all_updates: ټول تازه معلومات وګورئ
       show_all_updates: ټول تازه معلومات وښایاست
+    share_links:
+      share_this_page: دا پاه شریکه کړئ
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ ps:
       one: موردي مطالعه
       other: موردي مطالعات
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ ps:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ gu:
       published: પ્રકાશિત થયો %{date}
       see_all_updates: બધા અપડેટ્સ જુઓ
       show_all_updates: બધા અપડેટ્સ બતાવો
+    share_links:
+      share_this_page: આ પેજ શેર કરો
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ gu:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ gu:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

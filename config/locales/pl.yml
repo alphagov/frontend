@@ -117,6 +117,8 @@ pl:
       published: Opublikowano %{date}
       see_all_updates: zobacz wszystkie aktualizacje
       show_all_updates: pokaż wszystkie aktualizacje
+    share_links:
+      share_this_page: Udostępnij tę stronę
   continue:
   cookies:
     always_on:
@@ -545,10 +547,6 @@ pl:
       one: Studium przypadku
       other: Studia przypadku
     call_for_evidence:
-      few:
-      many:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -562,12 +560,16 @@ pl:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
+      many:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

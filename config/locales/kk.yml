@@ -117,6 +117,8 @@ kk:
       published: "%{date} күні жарияланды"
       see_all_updates: барлық жаңартуларды қарау
       show_all_updates: барлық жаңартуларды көрсету
+    share_links:
+      share_this_page: Осы бетпен бөлісу
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ kk:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ kk:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

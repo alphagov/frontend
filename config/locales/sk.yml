@@ -117,6 +117,8 @@ sk:
       published: Zverejnené %{date}
       see_all_updates: pozrite si všetky aktualizácie
       show_all_updates: zobraziť všetky aktualizácie
+    share_links:
+      share_this_page: Zdieľať túto stránku
   continue:
   cookies:
     always_on:
@@ -471,9 +473,6 @@ sk:
       one: Prípadová štúdia
       other: Prípadové štúdie
     call_for_evidence:
-      few:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -487,12 +486,15 @@ sk:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

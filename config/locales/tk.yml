@@ -117,6 +117,8 @@ tk:
       published: Çap edilen %{date}
       see_all_updates: ähli täzelenmelere serediň
       show_all_updates: ähli täzelenmeleri görkez
+    share_links:
+      share_this_page: Bu sahypany paýlaşyň
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ tk:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ tk:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

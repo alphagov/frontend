@@ -117,6 +117,8 @@ vi:
       published: Ngày xuất bản %{date}
       see_all_updates: xem tất cả nội dung cập nhật
       show_all_updates: hiển thị tất cả nội dung cập nhật
+    share_links:
+      share_this_page: Chia sẻ trang này
   continue:
   cookies:
     always_on:
@@ -323,7 +325,6 @@ vi:
     case_study:
       other: Nghiên cứu điển hình
     call_for_evidence:
-      other:
       and:
       another_website_html:
       at:
@@ -343,6 +344,7 @@ vi:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

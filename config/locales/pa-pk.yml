@@ -117,6 +117,8 @@ pa-pk:
       published: شائع ہویا %{date}
       see_all_updates: ساری تازہ ترین صورتِ حال
       show_all_updates: ساری تازہ ترین صورتِ حال وکھاؤ
+    share_links:
+      share_this_page: ایہ ورقہ تقسیم کرو
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ pa-pk:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ pa-pk:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

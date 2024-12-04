@@ -117,6 +117,8 @@ he:
       published: פורסם %{date}
       see_all_updates: ראה כל העדכונים
       show_all_updates: הצג כל עדכונים
+    share_links:
+      share_this_page: שתף דף זה
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ he:
       one: מקרה בוחן
       other: מקרי בוחן
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ he:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

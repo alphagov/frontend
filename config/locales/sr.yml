@@ -117,6 +117,8 @@ sr:
       published: Objavljeno %{date}
       see_all_updates: pogledajte sva ažuriranja
       show_all_updates: prikaži sva ažuriranja
+    share_links:
+      share_this_page: Podeli ovu stranicu
   continue:
   cookies:
     always_on:
@@ -471,9 +473,6 @@ sr:
       one: Studija slučaja
       other: Studije slučaja
     call_for_evidence:
-      few:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -487,12 +486,15 @@ sr:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

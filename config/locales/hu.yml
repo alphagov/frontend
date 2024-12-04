@@ -117,6 +117,8 @@ hu:
       published: 'közzététel dátuma: %{date}'
       see_all_updates: minden frissítés megtekintése
       show_all_updates: minden frissítés megjelenítése
+    share_links:
+      share_this_page: Oldal megosztása
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ hu:
       one: Esettanulmány
       other: Esettanulmányok
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ hu:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -117,6 +117,8 @@ lv:
       published: Publicēts %{date}
       see_all_updates: skatīt visus atjauninājumus
       show_all_updates: rādīt visus atjauninājumus
+    share_links:
+      share_this_page: Kopīgot šo lapu
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ lv:
       one: Piemērs
       other: Piemēri
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ lv:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

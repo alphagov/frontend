@@ -117,6 +117,8 @@ ka:
       published: გამოქვეყნდა %{date}
       see_all_updates: ყველა ცვლილების ნახვა
       show_all_updates: ყველა ცვლილების ჩვენება
+    share_links:
+      share_this_page: ამ გვერდის გაზიარება
   continue:
   cookies:
     always_on:
@@ -397,8 +399,6 @@ ka:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -415,9 +415,11 @@ ka:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

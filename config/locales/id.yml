@@ -115,6 +115,8 @@ id:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua pembaruan
       show_all_updates: Tampilkan semua pembaruan
+    share_links:
+      share_this_page: Bagikan halaman ini
   continue:
   cookies:
     always_on:
@@ -324,7 +326,6 @@ id:
   find:
   formats:
     call_for_evidence:
-      other:
       and:
       another_website_html:
       at:
@@ -344,6 +345,7 @@ id:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

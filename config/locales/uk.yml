@@ -115,6 +115,8 @@ uk:
       published: Опубліковано %{date}
       see_all_updates: переглянути всі оновлення
       show_all_updates: показати всі оновлення
+    share_links:
+      share_this_page: Поділіться цією сторінкою
   continue:
   cookies:
     always_on:
@@ -543,10 +545,6 @@ uk:
   find:
   formats:
     call_for_evidence:
-      few:
-      many:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -560,12 +558,16 @@ uk:
       download_outcome:
       either:
       email_to:
+      few:
       is_being:
+      many:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

@@ -41,6 +41,8 @@ blocks:
       - type: action_link
         text: "See the missions"
         href: "todo"
+- type: does_not_exist
+  content: replace me with a block-error block
 - type: featured
   image:
     alt: example alt text
@@ -69,17 +71,11 @@ blocks:
       <li>When?</li>
     </ul>
     <a href="/landing-page/sub-page-1">Visit sub-page 1</a>
-- type: tabs
-  id: landing-pages-item-selector
-  tab_items:
-  - id: tab-1
-    label: Item 1
-    content: Here's the content for item one
-  - id: tab-2
-    label: Item 2
-    content: Here's the content for item two
 - type: govspeak
   content: <p>Here's some more content!</p>
+- type: quote
+  text: "Here's a quote!"
+  cite: "I said this"
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:

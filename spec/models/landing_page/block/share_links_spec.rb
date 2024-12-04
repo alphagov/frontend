@@ -1,4 +1,6 @@
 RSpec.describe LandingPage::Block::ShareLinks do
+  it_behaves_like "it is a landing-page block"
+
   let(:blocks_hash) do
     {
       "type" => "share_links",

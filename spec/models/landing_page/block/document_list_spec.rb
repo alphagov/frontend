@@ -2,6 +2,8 @@ RSpec.describe LandingPage::Block::DocumentList do
   include ContentStoreHelpers
   include SearchHelpers
 
+  it_behaves_like "it is a landing-page block"
+
   describe "#items" do
     context "when the list is hard-coded" do
       let(:blocks_hash) do

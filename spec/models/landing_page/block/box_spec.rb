@@ -1,4 +1,6 @@
 RSpec.describe LandingPage::Block::Box do
+  it_behaves_like "it is a landing-page block"
+
   let(:blocks_hash) do
     { "type" => "box",
       "href" => "/landing-page/something",

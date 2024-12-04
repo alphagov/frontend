@@ -100,5 +100,30 @@ RSpec.describe "LandingPage" do
       assert_selector ".gem-c-heading"
       assert_selector ".gem-c-document-list"
     end
+
+    context "the block has errors" do
+      it "doesn't render the erroring block, or replace it with an block-error block" do
+        visit base_path
+
+        expect(page).not_to have_content("replace me with a block-error block")
+        expect(page).not_to have_content("Couldn't identify a model class for type: does_not_exist")
+      end
+
+      context "on the draft server" do
+        before do
+          stub_content_store_has_item(base_path, content_item, draft: true)
+          stub_content_store_has_item(basic_taxon["base_path"], basic_taxon, draft: true)
+          stub_taxon_search_results(draft: true)
+        end
+
+        it "renders the erroring block as a block-error block" do
+          ClimateControl.modify(PLEK_HOSTNAME_PREFIX: "draft-") do
+            visit base_path
+
+            expect(page).to have_content("Couldn't identify a model class for type: does_not_exist")
+          end
+        end
+      end
+    end
   end
 end

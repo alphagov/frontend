@@ -29,19 +29,19 @@ Blocks can be given a full width light grey background by setting `full_width_ba
 
 Simple blocks generally render one component or "thing". They can either be rendered directly or as the children of compound blocks.
 
-- [Action link](#action-link)
-- [Big number](#big-number)
-- [Document list](#document-list)
+- [Action Link](#action-link)
+- [Big Number](#big-number)
+- [Document List](#document-list)
 - [Govspeak](#govspeak)
 - [Heading](#heading)
 - [Image](#image)
 - [Main Navigation](#main-navigation)
 - [Quote](#quote)
-- [Share links](#share-links)
+- [Share Links](#share-links)
 - [Side Navigation](#side-navigation)
 - [Statistics](#statistics)
 
-#### Action link
+#### Action Link
 
 A wrapper around the [action link component](https://components.publishing.service.gov.uk/component-guide/action_link).
 
@@ -51,7 +51,7 @@ A wrapper around the [action link component](https://components.publishing.servi
   href: "/landing-page/goals"
 ```
 
-#### Big number
+#### Big Number
 
 A wrapper around the [Big number component](https://components.publishing.service.gov.uk/component-guide/big_number)
 
@@ -61,7 +61,7 @@ A wrapper around the [Big number component](https://components.publishing.servic
   label: amount of money that looks big
 ```
 
-#### Document list
+#### Document List
 
 A wrapper around the [Document list component](https://components.publishing.service.gov.uk/component-guide/document_list) with a title that will only appear if there are any items in the list (if the list is entirely empty the heading will not appear either)
 
@@ -174,7 +174,7 @@ A blockquote.
   cite: "Lorem ipsum dolor sit, 28 September 2024"
 ```
 
-#### Share links
+#### Share Links
 
 A wrapper around a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading) and a [Share links component](https://components.publishing.service.gov.uk/component-guide/share_links).
 
@@ -375,11 +375,11 @@ Note that the `[Image: desktop.png]` syntax must be wrapped in quotes (`"[Image:
 
 Layout blocks are similar to compound blocks in that they contain nested blocks. They are used to arrange blocks on the page, and to make it easier to apply styling to the blocks.
 
-- [Blocks container](#blocks-container)
-- [Columns layout](#columns-layout)
-- [Two column layout](#two-column-layout)
+- [Blocks Container](#blocks-container)
+- [Columns Layout](#columns-layout)
+- [Two Column Layout](#two-column-layout)
 
-#### Blocks container
+#### Blocks Container
 
 A blocks container is used as an empty unstyled parent container to hold other elements. It is used when we don't want to want to create a row/grid layout to contain nested blocks. It is for situations where the grids and columns have already been defined, and you are nesting other blocks within them (see second example).
 
@@ -422,7 +422,7 @@ Nested blocks container:
 ```
 This example uses the `blocks_container` for the element type in the second [two-thirds width column](#two-column-layout). Without this empty unstyled container we'd have no way of inserting multiple different blocks in the column.
 
-#### Columns layout
+#### Columns Layout
 
 Columns layout spreads its blocks out horizontally. The `columns` property determines how many columns will be in each row, and can accept the following values:
 
@@ -449,7 +449,7 @@ In the following example, the first two `big_number` blocks will be side-by-side
     label: Cost of a cup of coffee in Covent Garden
 ```
 
-#### Two column layout
+#### Two Column Layout
 
 A two column layout takes one or two blocks and a theme to determine the column layout. These options are:
 
@@ -518,6 +518,16 @@ blocks:
 ```
 
 In the example above only the text in the govspeak and header blocks will be searchable.
+
+### Utility blocks
+
+Utility blocks exist to support development. They will not render on the published view of the page, although they may render on the draft view of pages.
+
+- [Block Error](#block-error)
+
+#### Block Error
+
+This is a special type of block that handles errors in other blocks. If a block raises an error during initialization, the block factory will turn it into an error block. This will only render in draft view, where it will display the error in place. It will not show on the live site.
 
 ## Navigation Groups
 

@@ -21,22 +21,24 @@
     <%= image_tag(block.image.sources.desktop, alt: image_alt_text, class: "app-b-hero__image") %>
   <% end %>
 
-  <div class="govuk-width-container app-b-hero__textbox-wrapper">
-    <div class="govuk-grid-row">
-      <%= content_tag("div", class: grid_class) do %>
-        <%= content_tag("div", class: hero_textbox_classes) do %>
-          <% block.hero_content.each_with_index do |subblock, index| %>
-            <%
-              is_final_subblock = block.hero_content.length - 1 == index
-              options = {
-                margin_bottom: (0 if is_final_subblock),
-                font_size: ("l" if block.theme == "default" && subblock.type == "heading"),
-              }.compact
-            %>
-            <%= render_block(subblock, options:) %>
+  <% if block.hero_content.present? %>
+    <div class="govuk-width-container app-b-hero__textbox-wrapper">
+      <div class="govuk-grid-row">
+        <%= content_tag("div", class: grid_class) do %>
+          <%= content_tag("div", class: hero_textbox_classes) do %>
+            <% block.hero_content.each_with_index do |subblock, index| %>
+              <%
+                is_final_subblock = block.hero_content.length - 1 == index
+                options = {
+                  margin_bottom: (0 if is_final_subblock),
+                  font_size: ("l" if block.theme == "default" && subblock.type == "heading"),
+                }.compact
+              %>
+              <%= render_block(subblock, options:) %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>

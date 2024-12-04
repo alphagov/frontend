@@ -41,6 +41,27 @@ RSpec.describe LandingPage::Block::Hero do
       expect(subject.hero_content.first.data).to eq("type" => "govspeak", "content" => "<p>Some content!</p>")
       expect(subject.hero_content.second.data).to eq("type" => "govspeak", "content" => "<p>More content!</p>")
     end
+
+    it "returns nil if hero_content isn't provided" do
+      blocks_hash = {
+        "type" => "hero",
+        "image" => {
+          "alt" => "some alt text",
+          "sources" => {
+            "desktop" => "landing_page/desktop.jpeg",
+            "desktop_2x" => "landing_page/desktop_2x.jpeg",
+            "mobile" => "landing_page/mobile.jpeg",
+            "mobile_2x" => "landing_page/mobile_2x.jpeg",
+            "tablet" => "landing_page/tablet.jpeg",
+            "tablet_2x" => "landing_page/tablet_2x.jpeg",
+          },
+        },
+      }
+
+      hero_block = described_class.new(blocks_hash, build(:landing_page))
+
+      expect(hero_block.hero_content).to be nil
+    end
   end
 
   describe "#theme" do

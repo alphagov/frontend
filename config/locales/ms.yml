@@ -117,6 +117,8 @@ ms:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua kemas kini
       show_all_updates: tunjuk semua kemas kini
+    share_links:
+      share_this_page: Kongsi laman ini
   continue:
   cookies:
     always_on:
@@ -326,7 +328,6 @@ ms:
   find:
   formats:
     call_for_evidence:
-      other:
       and:
       another_website_html:
       at:
@@ -346,6 +347,7 @@ ms:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

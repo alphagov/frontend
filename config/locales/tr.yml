@@ -117,6 +117,8 @@ tr:
       published: Yayınlama %{date}
       see_all_updates: tüm güncellemeleri görün
       show_all_updates: tüm güncellemeleri göster
+    share_links:
+      share_this_page: Bu sayfayı paylaş
   continue:
   cookies:
     always_on:
@@ -399,8 +401,6 @@ tr:
   find:
   formats:
     call_for_evidence:
-      one:
-      other:
       and:
       another_website_html:
       at:
@@ -417,9 +417,11 @@ tr:
       is_being:
       not_open_yet:
       'on':
+      one:
       opens:
       or:
       original_call_for_evidence:
+      other:
       ran_from:
       respond_online:
       response_form:

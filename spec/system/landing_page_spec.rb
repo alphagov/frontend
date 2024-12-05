@@ -53,6 +53,12 @@ RSpec.describe "LandingPage" do
       expect(page.status_code).to eq(200)
     end
 
+    it "has a meta description tag" do
+      visit base_path
+
+      expect(page).to have_css('meta[name="description"][content="A landing page example"]', visible: false)
+    end
+
     it "renders a hero" do
       visit base_path
 

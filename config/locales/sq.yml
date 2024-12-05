@@ -427,6 +427,9 @@ sq:
       was:
       ways_to_respond:
       write_to:
+    call_for_evidence_outcome:
+      one:
+      other:
     closed_call_for_evidence:
       one:
       other:

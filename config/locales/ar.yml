@@ -727,6 +727,13 @@ ar:
       ways_to_respond:
       write_to:
       zero:
+    call_for_evidence_outcome:
+      few:
+      many:
+      one:
+      other:
+      two:
+      zero:
     closed_call_for_evidence:
       few:
       many:

@@ -577,6 +577,11 @@ gd:
       was:
       ways_to_respond:
       write_to:
+    call_for_evidence_outcome:
+      few:
+      one:
+      other:
+      two:
     closed_call_for_evidence:
       few:
       one:

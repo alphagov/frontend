@@ -58,6 +58,12 @@ RSpec.describe "TravelAdvice" do
       expect(page.find("#wrapper")["class"]).to include("travel-advice")
     end
 
+    it "does not display breadcrumbs" do
+      visit "/foreign-travel-advice"
+
+      expect(page).to_not have_css(".gem-c-contextual-breadcrumbs")
+    end
+
     context "with the javascript driver" do
       before do
         content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
@@ -136,6 +142,12 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_css(".govuk-pagination")
       expect(page).to have_css('.govuk-link.govuk-link--no-visited-state[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
+    end
+
+    it "displays breadcrumbs" do
+      visit @base_path
+
+      expect(page).to have_css(".gem-c-contextual-breadcrumbs")
     end
 
     context "first part" do

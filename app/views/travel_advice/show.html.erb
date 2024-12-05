@@ -7,6 +7,7 @@
 <% content_for :extra_headers do %>
   <%= auto_discovery_link_tag :atom, feed_link(@content_item.base_path), title: "Recent updates for #{@content_item.country_name}" %>
 
+  <meta name="description" content="<%= @content_item.description %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     canonical_url: canonical_url(@content_item.current_part_path), 

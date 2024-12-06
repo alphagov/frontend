@@ -396,6 +396,9 @@ az:
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

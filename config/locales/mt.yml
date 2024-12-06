@@ -544,6 +544,11 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+    call_for_evidence:
+      few:
+      many:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -396,6 +396,9 @@ sw:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

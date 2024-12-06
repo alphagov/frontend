@@ -396,6 +396,9 @@ hy:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

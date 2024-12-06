@@ -544,6 +544,11 @@ sl:
       one: Študija primera
       other: Študije primera
       two:
+    call_for_evidence:
+      few:
+      one:
+      other:
+      two:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

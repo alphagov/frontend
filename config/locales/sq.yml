@@ -396,6 +396,9 @@ sq:
     case_study:
       one: Rast studimi
       other: Raste studimi
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

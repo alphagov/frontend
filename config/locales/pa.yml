@@ -396,6 +396,9 @@ pa:
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

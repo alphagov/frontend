@@ -396,6 +396,9 @@ ka:
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

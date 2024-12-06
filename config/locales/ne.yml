@@ -396,6 +396,9 @@ ne:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -396,6 +396,9 @@ fr:
     case_study:
       one: Etude de cas
       other: Etudes de cas
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

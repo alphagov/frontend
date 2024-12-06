@@ -396,6 +396,9 @@ it:
     case_study:
       one: Caso di studio
       other: Casi di studio
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

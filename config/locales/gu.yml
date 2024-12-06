@@ -396,6 +396,9 @@ gu:
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
+    call_for_evidence:
+      one:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

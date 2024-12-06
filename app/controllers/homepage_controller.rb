@@ -9,7 +9,20 @@ class HomepageController < ContentItemsController
 
 private
 
+  def search_component
+    if show_search_autocomplete?
+      "search_with_autocomplete"
+    else
+      "search"
+    end
+  end
+  helper_method :search_component
+
   def publication_class
     HomepagePresenter
+  end
+
+  def show_search_autocomplete?
+    true unless ENV["GOVUK_DISABLE_SEARCH_AUTOCOMPLETE"]
   end
 end

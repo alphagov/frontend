@@ -548,6 +548,10 @@ gd:
       few:
       one: Cás-staidéir
       other: Tuarascálacha staidéir
+    call_for_evidence:
+      few:
+      one:
+      other:
       two:
     find_my_nearest:
       valid_postcode_no_locations:

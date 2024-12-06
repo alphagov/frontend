@@ -695,6 +695,11 @@ ar:
       many:
       one: دراسة الحالة
       other: دراسات الحالة
+    call_for_evidence:
+      few:
+      many:
+      one:
+      other:
       two:
       zero:
     find_my_nearest:

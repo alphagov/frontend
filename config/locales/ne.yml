@@ -493,6 +493,11 @@ ne:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: मामिला अध्ययन
+      other: मामिला अध्ययनहरू
+      withdrawn_notice:
+        title:
     take_part:
       one: सहभागी हुनु
       other: सहभागी हुनु

@@ -493,6 +493,11 @@ es-419:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Estudio de caso
+      other: Estudios de caso
+      withdrawn_notice:
+        title:
     take_part:
       one: Participe
       other: Participe

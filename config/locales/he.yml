@@ -493,6 +493,11 @@ he:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: מקרה בוחן
+      other: מקרי בוחן
+      withdrawn_notice:
+        title:
     take_part:
       one: קח חלק
       other: קח חלק

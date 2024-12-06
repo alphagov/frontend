@@ -493,6 +493,11 @@ ur:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: کیس اسٹڈی
+      other: کیس اسٹڈیز
+      withdrawn_notice:
+        title:
     take_part:
       one: شرکت کریں
       other: شرکت کریں

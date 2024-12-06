@@ -10,11 +10,28 @@ RSpec.describe "Homepage" do
     expect(page).not_to have_css(".homepage-inverse-header__title")
   end
 
-  it "renders the search with autocomplete component with the correct source URL" do
-    visit "/"
+  describe "search autocomplete" do
+    context "when autocomplete is enabled" do
+      it "renders the search with autocomplete component with the correct source URL" do
+        ClimateControl.modify GOVUK_DISABLE_SEARCH_AUTOCOMPLETE: nil do
+          visit "/"
 
-    expect(page).to have_css(".gem-c-search-with-autocomplete")
-    expect(page).to have_css("[data-source-url='http://www.dev.gov.uk/api/search/autocomplete.json']")
+          expect(page).to have_css(".gem-c-search-with-autocomplete")
+          expect(page).to have_css("[data-source-url='http://www.dev.gov.uk/api/search/autocomplete.json']")
+        end
+      end
+    end
+
+    context "when autocomplete is disabled" do
+      it "does not render the search with autocomplete component" do
+        ClimateControl.modify GOVUK_DISABLE_SEARCH_AUTOCOMPLETE: "1" do
+          visit "/"
+
+          expect(page).to_not have_css(".gem-c-search-with-autocomplete")
+          expect(page).to have_css(".gem-c-search")
+        end
+      end
+    end
   end
 
   context "when visiting a Welsh content item first" do

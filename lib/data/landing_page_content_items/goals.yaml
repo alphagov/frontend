@@ -60,7 +60,9 @@ blocks:
       - type: govspeak
         content: |
           <p>Culpa atque nostrum numquam eveniet. Cum exercitationem perferendis accusamus minima possimus dolor enim eius. Et est impedit vel voluptate sunt.</p>
-          <p><a href="#">hello world</a></p>
+          <h2>A second heading 2</h2>
+          <h3>A heading 3</h3>
+          <p><a href="#">An example link</a></p>
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:

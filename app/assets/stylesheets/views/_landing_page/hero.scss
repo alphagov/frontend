@@ -43,6 +43,27 @@ $large-desktop-height: 500px;
   }
 }
 
+// NOTE: This rule is needed because there's no way to pass a "font_size = large"
+//       parameter to the govspeak component. It's a breach of isolation to be modifying
+//       its styles from this level, but the landing page designs call for larger text in
+//       hero content, and this seems to be the least bad option to achieve that.
+//
+//       If the govspeak component supports a font_size = large parameter in future, we
+//       should use that and remove this rule.
+.app-b-hero--default .app-b-hero__textbox .gem-c-govspeak {
+  ol, ul, p {
+    @include govuk-font-size(24);
+  }
+
+  h2 {
+    @include govuk-font-size($size: 36);
+  }
+
+  h3 {
+    @include govuk-font-size($size: 27);
+  }
+}
+
 .app-b-hero--middle_left {
   overflow: hidden;
 

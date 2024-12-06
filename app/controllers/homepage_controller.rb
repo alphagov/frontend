@@ -1,6 +1,5 @@
 class HomepageController < ContentItemsController
   include Cacheable
-  include SearchAutocompleteAbTestable
 
   slimmer_template "gem_layout_homepage"
 
@@ -11,7 +10,7 @@ class HomepageController < ContentItemsController
 private
 
   def search_component
-    if show_search_autocomplete_test?
+    if show_search_autocomplete?
       "search_with_autocomplete"
     else
       "search"
@@ -21,5 +20,11 @@ private
 
   def publication_class
     HomepagePresenter
+  end
+
+  def show_search_autocomplete?
+    return true if Rails.env.development?
+
+    ENV["GOVUK_ENABLE_SEARCH_AUTOCOMPLETE"] == "true"
   end
 end

@@ -19,7 +19,7 @@ private
   helper_method :search_component
 
   def publication_class
-    HomepagePresenter
+    Homepage
   end
 
   def show_search_autocomplete?

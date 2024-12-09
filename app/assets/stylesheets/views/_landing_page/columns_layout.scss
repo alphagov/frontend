@@ -3,6 +3,7 @@
 .app-b-columns-layout {
   display: grid;
   grid-gap: govuk-spacing(6);
+  margin-bottom: govuk-spacing(8);
 
   @include govuk-media-query($from: desktop) {
     @for $i from 2 through 3 {

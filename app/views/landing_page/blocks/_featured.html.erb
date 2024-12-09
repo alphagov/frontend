@@ -3,8 +3,7 @@
   featured_child_content_classes = "featured_child"
   block.image ? featured_child_content_classes << " featured__child--content-with-image" : featured_child_content_classes << " featured__child--content"
 %>
-
-<div class="featured">
+<div class="featured govuk-block--spaced">
   <%= tag.div class: featured_child_content_classes do %>
     <% block.featured_content.each do |subblock| %>
       <%= render_block(subblock) %>

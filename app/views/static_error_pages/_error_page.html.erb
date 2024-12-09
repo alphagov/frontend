@@ -1,0 +1,30 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "static-error-pages.css", :media => "all", integrity: false %>
+  <%= javascript_include_tag 'test-dependencies.js', type: "module" if Rails.env.test? %>
+  <%= javascript_include_tag 'static-error-pages.js', integrity: false, type: "module" %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/layout_for_public", {
+  full_width: false,
+  global_bar: '<div id="user-satisfaction-survey-container"></div>',
+  logo_link: Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/",
+  show_explore_header: true,
+  title: "#{heading} - GOV.UK",
+} do %>
+  <div id="wrapper" class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="content">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">
+            <%= heading %>
+          </h1>
+          <%= raw intro %>
+          <pre class="govuk-!-margin-top-8">Status code: <%= status_code %></pre>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    window.httpStatusCode = '<%= status_code %>'
+  </script>
+<% end %>

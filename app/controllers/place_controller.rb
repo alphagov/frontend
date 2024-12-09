@@ -9,6 +9,7 @@ class PlaceController < ContentItemsController
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
   def show
+    @presenter = PlacePresenter.new(publication)
     render :show, locals: { results_anchor: "results" }
   end
 
@@ -34,9 +35,9 @@ private
 
   def publication
     @publication ||= if postcode_provided? && places_manager_response.places_found?
-                       PlacePresenter.new(content_item_hash, places_manager_response.places)
+                       Place.new(content_item_hash, places_manager_response.places)
                      else
-                       PlacePresenter.new(content_item_hash)
+                       Place.new(content_item_hash)
                      end
   end
 

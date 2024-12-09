@@ -36,11 +36,17 @@ private
 
   # TODO: Controllers should provide a presenter or a publication.
   # These objects duplicate roles (see `presenter || @publication`) in views.
-  def publication; end
+  def publication
+    content_item if country_page?
+  end
 
   def content_item_path
-    return "/#{FOREIGN_TRAVEL_ADVICE_SLUG}" if params[:country].blank?
+    return "/#{FOREIGN_TRAVEL_ADVICE_SLUG}" unless country_page?
 
     "/#{FOREIGN_TRAVEL_ADVICE_SLUG}/#{params[:country]}"
+  end
+
+  def country_page?
+    params[:country].present?
   end
 end

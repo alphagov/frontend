@@ -493,6 +493,11 @@ hy:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Մասնավոր դեպքի ուսումնասիրություն
+      other: Մասնավոր դեպքի ուսումնասիրություններ
+      withdrawn_notice:
+        title:
     take_part:
       one: Մասնակցություն
       other: Մասնակցություն

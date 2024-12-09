@@ -420,6 +420,10 @@ th:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: กรณีศึกษา
+      withdrawn_notice:
+        title:
     take_part:
       other: มีส่วนร่วม
     transaction:

@@ -5,11 +5,17 @@ module Withdrawable
     def withdrawn?
       withdrawal_notice.present?
     end
-  end
 
-private
+    def withdrawal_notice
+      content_store_response["withdrawn_notice"]
+    end
 
-  def withdrawal_notice
-    content_store_response["withdrawn_notice"]
+    def withdrawn_at
+      withdrawal_notice["withdrawn_at"]
+    end
+
+    def withdrawn_explaination
+      withdrawal_notice["explanation"]
+    end
   end
 end

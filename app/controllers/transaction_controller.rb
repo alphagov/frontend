@@ -1,6 +1,7 @@
 class TransactionController < ContentItemsController
   include Cacheable
   include LocaleHelper
+  include RecruitmentBannerHelper
 
   before_action :deny_framing
 

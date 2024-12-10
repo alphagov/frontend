@@ -566,6 +566,12 @@ sr:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Studija slučaja
+      other: Studije slučaja
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Učešće

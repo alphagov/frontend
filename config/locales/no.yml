@@ -493,6 +493,11 @@
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Casestudie
+      other: Casestudier
+      withdrawn_notice:
+        title:
     take_part:
       one: Delta
       other: Delta

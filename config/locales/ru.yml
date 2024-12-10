@@ -639,6 +639,13 @@ ru:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      many:
+      one: Причинный анализ
+      other: Причинные анализы
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

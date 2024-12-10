@@ -566,6 +566,12 @@ cs:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Případová studie
+      other: Případové studie
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Zúčastněte se

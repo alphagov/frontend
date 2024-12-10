@@ -566,6 +566,12 @@ ro:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Studiu de caz
+      other: Studii de caz
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Participă

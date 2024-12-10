@@ -9,6 +9,7 @@
     "public/assets/frontend/govuk_publishing_components*",
     "public/assets/frontend/manifest-*",
     "public/assets/frontend/application-*",
+    "public/assets/frontend/static-error-pages-*",
     "public/assets/frontend/test-dependencies-*",
     "public/assets/frontend/dependencies-*"
   ],

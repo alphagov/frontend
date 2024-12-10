@@ -2,7 +2,6 @@
 <% content_for :extra_headers do %>
   <link rel="canonical" href="<%=  Frontend.govuk_website_root + root_path %>">
   <meta name="description" content="<%= t("homepage.index.meta_description_new") %>">
-  <%= search_autocomplete_ab_test_variant.analytics_meta_tag.html_safe %>
 <% end %>
 <% content_for :title, t("homepage.index.intro_title.text") %>
 <% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>

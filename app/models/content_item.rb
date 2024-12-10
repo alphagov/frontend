@@ -3,9 +3,9 @@ require "ostruct"
 class ContentItem
   include Withdrawable
 
-  attr_reader :attachments, :content_store_response, :content_store_hash, :body, :image,
-              :description, :document_type, :schema_name, :title, :base_path, :locale,
-              :public_updated_at
+  attr_reader :attachments, :base_path, :body, :content_store_hash,
+              :content_store_response, :description, :document_type, :image,
+              :links, :locale, :public_updated_at, :schema_name, :title
 
   # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
   # content items including block details are available from content-store
@@ -22,6 +22,7 @@ class ContentItem
     @base_path = content_store_hash["base_path"]
     @locale = content_store_hash["locale"]
     @public_updated_at = content_store_hash["public_updated_at"]
+    @links = content_store_hash["links"]
 
     @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
 

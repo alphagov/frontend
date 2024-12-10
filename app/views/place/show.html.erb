@@ -10,7 +10,7 @@
     event_name: "form_complete",
     action: "complete",
     type: ga4_type,
-    text: "Results #{publication.preposition} [postcode]",
+    text: "Results #{@presenter.preposition} [postcode]",
     tool_name: publication.title
   }.to_json
 
@@ -25,7 +25,7 @@
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: content_item_hash %>
+    content_item: content_item %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
@@ -67,7 +67,7 @@
       } do %>
         <% if publication.places.any? %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Results #{publication.preposition} <strong>#{postcode}</strong>".html_safe,
+            text: "Results #{@presenter.preposition} <strong>#{postcode}</strong>".html_safe,
             margin_bottom: 4,
           } %>
           <ol id="options" class="govuk-list place-list">

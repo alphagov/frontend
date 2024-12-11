@@ -21,7 +21,6 @@
 .app-b-main-nav__button {
   height: 70px;
   color: govuk-colour("blue");
-  @include govuk-font(19);
   background: none;
   border: 0;
   padding-left: govuk-spacing(3);
@@ -33,6 +32,7 @@
   border-right: 1px solid govuk-colour("light-grey");
   cursor: pointer;
   position: relative;
+  @include govuk-font(19);
 }
 
 // Shared styles for the expanded and collapsed arrow icon. Based off of the super navigation menu button.

@@ -8,28 +8,28 @@ RSpec.describe Calendar do
   context "finding a calendar by slug" do
     it "constructs a calendar with the slug and data from the corresponding JSON file" do
       data_from_json = JSON.parse(File.read(Rails.root.join(Calendar::REPOSITORY_PATH, "single-calendar.json")))
-      expect(Calendar).to receive(:new).with("single-calendar", data_from_json).and_return(:a_calendar)
-      cal = Calendar.find("single-calendar")
+      expect(described_class).to receive(:new).with("single-calendar", data_from_json).and_return(:a_calendar)
+      cal = described_class.find("single-calendar")
 
       expect(cal).to eq(:a_calendar)
     end
 
     it "raises exception when calendar doesn't exist" do
-      expect { Calendar.find("non-existent") }.to raise_error(Calendar::CalendarNotFound)
+      expect { described_class.find("non-existent") }.to raise_error(Calendar::CalendarNotFound)
     end
   end
 
   it "returns the slug" do
-    expect(Calendar.new("a-slug", {}).slug).to eq("a-slug")
+    expect(described_class.new("a-slug", {}).slug).to eq("a-slug")
   end
 
   it "returns the slug for to_param" do
-    expect(Calendar.new("a-slug", {}).to_param).to eq("a-slug")
+    expect(described_class.new("a-slug", {}).to_param).to eq("a-slug")
   end
 
   describe "#divisions" do
     before do
-      @cal = Calendar.new(
+      @cal = described_class.new(
         "a-calendar",
         "title" => "UK bank holidays",
         "divisions" => {
@@ -71,22 +71,22 @@ RSpec.describe Calendar do
   describe "#events" do
     before do
       @divisions = []
-      @calendar = Calendar.new("a-calendar")
+      @calendar = described_class.new("a-calendar")
       allow(@calendar).to receive(:divisions).and_return(@divisions)
     end
 
     it "merges events for all years into single array" do
-      @divisions << instance_double("Division", events: [1, 2])
-      @divisions << instance_double("Division", events: [3, 4, 5])
-      @divisions << instance_double("Division", events: [6, 7])
+      @divisions << instance_double(Division, events: [1, 2])
+      @divisions << instance_double(Division, events: [3, 4, 5])
+      @divisions << instance_double(Division, events: [6, 7])
 
       expect(@calendar.events).to eq([1, 2, 3, 4, 5, 6, 7])
     end
 
     it "handles years with no events" do
-      @divisions << instance_double("Division1", events: [1, 2])
-      @divisions << instance_double("Division2", events: [])
-      @divisions << instance_double("Division3", events: [6, 7])
+      @divisions << instance_double(Division1, events: [1, 2])
+      @divisions << instance_double(Division2, events: [])
+      @divisions << instance_double(Division3, events: [6, 7])
 
       expect(@calendar.events).to eq([1, 2, 6, 7])
     end
@@ -94,7 +94,7 @@ RSpec.describe Calendar do
 
   context "attribute accessors" do
     before do
-      @cal = Calendar.new("a-calendar", "title" => "bank_holidays.calendar.title", "description" => "bank_holidays.calendar.description")
+      @cal = described_class.new("a-calendar", "title" => "bank_holidays.calendar.title", "description" => "bank_holidays.calendar.description")
     end
 
     it "has an accessor for the title" do
@@ -107,30 +107,30 @@ RSpec.describe Calendar do
   end
 
   describe "#show_bunting?" do
-    before { @cal = Calendar.new("a-calendar") }
+    before { @cal = described_class.new("a-calendar") }
 
     it "is true when one division is buntable" do
-      @div1 = instance_double("Division", show_bunting?: true)
-      @div2 = instance_double("Division", show_bunting?: false)
-      @div3 = instance_double("Division", show_bunting?: false)
+      @div1 = instance_double(Division, show_bunting?: true)
+      @div2 = instance_double(Division, show_bunting?: false)
+      @div3 = instance_double(Division, show_bunting?: false)
       allow(@cal).to receive(:divisions).and_return([@div1, @div2, @div3])
 
       expect(@cal.show_bunting?).to be true
     end
 
     it "is true when more than one division is buntable" do
-      @div1 = instance_double("Division", show_bunting?: true)
-      @div2 = instance_double("Division", show_bunting?: true)
-      @div3 = instance_double("Division", show_bunting?: false)
+      @div1 = instance_double(Division, show_bunting?: true)
+      @div2 = instance_double(Division, show_bunting?: true)
+      @div3 = instance_double(Division, show_bunting?: false)
       allow(@cal).to receive(:divisions).and_return([@div1, @div2, @div3])
 
       expect(@cal.show_bunting?).to be true
     end
 
     it "is false when no divisions are buntable" do
-      @div1 = instance_double("Division", show_bunting?: false)
-      @div2 = instance_double("Division", show_bunting?: false)
-      @div3 = instance_double("Division", show_bunting?: false)
+      @div1 = instance_double(Division, show_bunting?: false)
+      @div2 = instance_double(Division, show_bunting?: false)
+      @div3 = instance_double(Division, show_bunting?: false)
       allow(@cal).to receive(:divisions).and_return([@div1, @div2, @div3])
 
       expect(@cal.show_bunting?).to be false
@@ -139,9 +139,9 @@ RSpec.describe Calendar do
 
   describe "#as_json" do
     before do
-      @div1 = instance_double("Division", slug: "division-1", as_json: "div1 json")
-      @div2 = instance_double("Division", slug: "division-2", as_json: "div2 json")
-      @cal = Calendar.new("a-calendar")
+      @div1 = instance_double(Division, slug: "division-1", as_json: "div1 json")
+      @div2 = instance_double(Division, slug: "division-2", as_json: "div2 json")
+      @cal = described_class.new("a-calendar")
       allow(@cal).to receive(:divisions).and_return([@div1, @div2])
     end
 

@@ -45,7 +45,7 @@ RSpec.describe LandingPage::Block::Featured do
 
   describe "#full_width?" do
     it "is false" do
-      expect(subject.full_width?).to eq(false)
+      expect(subject.full_width?).to be(false)
     end
   end
 end

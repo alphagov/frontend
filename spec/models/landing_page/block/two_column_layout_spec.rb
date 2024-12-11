@@ -24,7 +24,7 @@ RSpec.describe LandingPage::Block::TwoColumnLayout do
     it "returns offset column when the theme is two_thirds_right" do
       blocks_hash["theme"] = "two_thirds_right"
       expect(subject.left_column_class).to eq "govuk-grid-column-one-third grid-column-one-third-offset"
-      expect(subject.left).to eq nil
+      expect(subject.left).to be_nil
     end
   end
 

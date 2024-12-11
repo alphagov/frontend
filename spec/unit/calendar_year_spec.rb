@@ -1,11 +1,11 @@
 RSpec.describe Calendar::Year do
   it "returns the year string for to_s" do
-    expect(Calendar::Year.new("2012", :a_division, []).to_s).to eq("2012")
+    expect(described_class.new("2012", :a_division, []).to_s).to eq("2012")
   end
 
   describe "#events" do
     before do
-      @y = Calendar::Year.new("1234", :a_division, [
+      @y = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
       ])
@@ -28,13 +28,13 @@ RSpec.describe Calendar::Year do
 
   describe "#upcoming_event" do
     it "return nil with no events" do
-      y = Calendar::Year.new("1234", :a_division, [])
+      y = described_class.new("1234", :a_division, [])
 
       expect(y.upcoming_event).to be_nil
     end
 
     it "returns nil with no future events" do
-      y = Calendar::Year.new("1234", :a_division, [
+      y = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
       ])
@@ -43,7 +43,7 @@ RSpec.describe Calendar::Year do
     end
 
     it "returns the first event that's in the future" do
-      y = Calendar::Year.new("1234", :a_division, [
+      y = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
         { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
@@ -54,7 +54,7 @@ RSpec.describe Calendar::Year do
     end
 
     it "counts an event today as a future event" do
-      y = Calendar::Year.new("1234", :a_division, [
+      y = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
         { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
@@ -65,7 +65,7 @@ RSpec.describe Calendar::Year do
     end
 
     it "caches the event" do
-      y = Calendar::Year.new("1234", :a_division, [
+      y = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
         { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
@@ -82,7 +82,7 @@ RSpec.describe Calendar::Year do
 
   describe "#upcoming_events" do
     before do
-      @year = Calendar::Year.new("1234", :a_division, [
+      @year = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
         { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },
@@ -106,7 +106,7 @@ RSpec.describe Calendar::Year do
 
   describe "#past_events" do
     before do
-      @year = Calendar::Year.new("1234", :a_division, [
+      @year = described_class.new("1234", :a_division, [
         { "title" => "bank_holidays.new_year", "date" => "02/01/2012" },
         { "title" => "bank_holidays.good_friday", "date" => "27/08/2012" },
         { "title" => "bank_holidays.easter_monday", "date" => "16/10/2012" },

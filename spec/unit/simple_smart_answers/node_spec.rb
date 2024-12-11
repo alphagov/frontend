@@ -2,7 +2,7 @@ module SimpleSmartAnswers
   RSpec.describe Node do
     it "has attribute accessors for basic fields" do
       node =
-        Node.new(
+        described_class.new(
           :a_flow,
           "kind" => "question",
           "slug" => "question-1",
@@ -18,19 +18,19 @@ module SimpleSmartAnswers
 
     describe "#outcome?" do
       it "is true for an outcome node" do
-        expect(Node.new(:a_flow, "kind" => "outcome").outcome?).to be true
+        expect(described_class.new(:a_flow, "kind" => "outcome").outcome?).to be true
       end
 
       it "is false for a question node" do
-        expect(Node.new(:a_flow, "kind" => "question").outcome?).to be false
+        expect(described_class.new(:a_flow, "kind" => "question").outcome?).to be false
       end
     end
 
     describe "#options" do
       before do
-        @flow = instance_double("Flow", node_for_slug: :a_node)
+        @flow = instance_double(Flow, node_for_slug: :a_node)
         @node =
-          Node.new(
+          described_class.new(
             @flow,
             "kind" => "question",
             "slug" => "question-1",
@@ -64,9 +64,9 @@ module SimpleSmartAnswers
 
     describe "#process_response" do
       before do
-        @flow = instance_double("Flow", node_for_slug: :a_node)
+        @flow = instance_double(Flow, node_for_slug: :a_node)
         @node =
-          Node.new(
+          described_class.new(
             @flow,
             "kind" => "question",
             "slug" => "question-1",

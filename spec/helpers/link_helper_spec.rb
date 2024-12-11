@@ -1,5 +1,5 @@
 RSpec.describe LinkHelper do
-  include LinkHelper
+  include described_class
 
   describe "#feed_link" do
     it "appends .atom to the base_path" do

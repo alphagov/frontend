@@ -1,5 +1,5 @@
 RSpec.describe PartsNavigationHelper do
-  include PartsNavigationHelper
+  include described_class
 
   let(:part_one) do
     {

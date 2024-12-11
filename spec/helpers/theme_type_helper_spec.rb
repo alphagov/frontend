@@ -1,5 +1,5 @@
 RSpec.describe ThemeTypeHelper do
-  include ThemeTypeHelper
+  include described_class
 
   describe "no theme type" do
     it "returns theme type default when style is empty" do

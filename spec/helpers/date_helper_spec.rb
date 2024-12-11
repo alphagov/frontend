@@ -1,5 +1,5 @@
 RSpec.describe DateHelper do
-  include DateHelper
+  include described_class
 
   let(:timestamp) { "2024-10-03 19:30:22 +0100" }
 

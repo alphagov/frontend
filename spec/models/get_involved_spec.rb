@@ -12,7 +12,7 @@ RSpec.describe GetInvolved do
 
   describe "#open_consultation_count" do
     it "returns the total number of open consultations" do
-      model_instance = GetInvolved.new(content_item)
+      model_instance = described_class.new(content_item)
 
       expect(model_instance.open_consultation_count).to eq(83)
     end
@@ -20,7 +20,7 @@ RSpec.describe GetInvolved do
 
   describe "#closed_consultation_count" do
     it "returns the total number of closed consultations" do
-      model_instance = GetInvolved.new(content_item)
+      model_instance = described_class.new(content_item)
 
       expect(model_instance.closed_consultation_count).to eq(110)
     end
@@ -28,7 +28,7 @@ RSpec.describe GetInvolved do
 
   describe "#consultation outcome" do
     it "returns the recent consultation outcome" do
-      model_instance = GetInvolved.new(content_item)
+      model_instance = described_class.new(content_item)
 
       expect(model_instance.recent_consultation_outcomes).to eq([consultation_result])
     end
@@ -36,7 +36,7 @@ RSpec.describe GetInvolved do
 
   describe "#next closing consultation" do
     it "returns the next closing consultation" do
-      model_instance = GetInvolved.new(content_item)
+      model_instance = described_class.new(content_item)
 
       expect(model_instance.next_closing_consultation).to eq(next_closing_consultation)
     end

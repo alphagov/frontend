@@ -1,5 +1,5 @@
 RSpec.describe RecruitmentBannerHelper do
-  include RecruitmentBannerHelper
+  include described_class
 
   before do
     @recruitment_banners_data = YAML.load_file(Rails.root.join("spec/fixtures/recruitment_banners.yml"))

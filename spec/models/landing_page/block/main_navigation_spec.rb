@@ -39,7 +39,7 @@ RSpec.describe LandingPage::Block::MainNavigation do
 
   describe "#full_width?" do
     it "is true" do
-      expect(subject.full_width?).to eq(true)
+      expect(subject.full_width?).to be(true)
     end
   end
 

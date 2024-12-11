@@ -78,6 +78,7 @@ RSpec.describe TransactionPresenter do
       I18n.locale = :cy
       @item = { details: { start_button_text: "Start now" } }
     end
+
     after { I18n.locale = :en }
 
     context "start_button_text is 'Start now'" do
@@ -115,7 +116,7 @@ RSpec.describe TransactionPresenter do
     it "shows the tab count for two tabs" do
       item = { details: { more_information: "potatoes", what_you_need_to_know: "all about potatoes" } }
 
-      expect(2).to eq(subject(item).tab_count)
+      expect(subject(item).tab_count).to eq(2)
     end
 
     it "shows the tab count for three tabs" do
@@ -127,7 +128,7 @@ RSpec.describe TransactionPresenter do
         },
       }
 
-      expect(3).to eq(subject(item).tab_count)
+      expect(subject(item).tab_count).to eq(3)
     end
   end
 end

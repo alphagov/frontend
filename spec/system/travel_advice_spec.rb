@@ -134,7 +134,7 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_css(".part-navigation-container nav li", count: parts_size)
       expect(page).to have_css(".part-navigation-container nav li", text: @content_store_response["details"]["parts"].first["title"])
-      expect(page).to_not have_css(".part-navigation li a", text: @content_store_response["details"]["parts"].first["title"])
+      expect(page).not_to have_css(".part-navigation li a", text: @content_store_response["details"]["parts"].first["title"])
 
       @content_store_response["details"]["parts"][1..parts_size].each do |part|
         expect(page).to have_css(".part-navigation-container nav li a[href*=\"#{part['slug']}\"]", text: part["title"])
@@ -192,15 +192,15 @@ RSpec.describe "TravelAdvice" do
       it "does not display a map" do
         visit "#{@base_path}/#{@part['slug']}"
 
-        expect(page).to_not have_css(".map")
-        expect(page).to_not have_css(".gem-c-metadata")
+        expect(page).not_to have_css(".map")
+        expect(page).not_to have_css(".gem-c-metadata")
       end
 
       it "does not display navigation links for the part" do
         visit "#{@base_path}/#{@part['slug']}"
 
         expect(page).to have_css(".part-navigation-container nav li", text: @part["title"])
-        expect(page).to_not have_css(".part-navigation-container nav li a", text: @part["title"])
+        expect(page).not_to have_css(".part-navigation-container nav li a", text: @part["title"])
       end
     end
 
@@ -213,7 +213,7 @@ RSpec.describe "TravelAdvice" do
     it "does not render with the single page notification button" do
       visit @base_path
 
-      expect(page).to_not have_css(".gem-c-single-page-notification-button")
+      expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end
 
     it "has GA4 tracking on the print link" do

@@ -30,14 +30,14 @@ RSpec.shared_examples "it has parts" do |document_type, example_name|
     part_slug = @content_store_response.dig("details", "parts").first["slug"]
     content_item.set_current_part(part_slug)
 
-    expect(content_item.next_part["slug"]).to_not eq(part_slug)
+    expect(content_item.next_part["slug"]).not_to eq(part_slug)
   end
 
   it "gets the previous part" do
     content_item = described_class.new(@content_store_response)
     content_item.set_current_part(@part_slug)
 
-    expect(content_item.previous_part["slug"]).to_not eq(@part_slug)
+    expect(content_item.previous_part["slug"]).not_to eq(@part_slug)
   end
 
   describe "#first_part?" do

@@ -20,13 +20,13 @@ RSpec.describe HomepagePresenter do
 
   let(:subject) { described_class.new(content_item) }
 
-  context "#links" do
+  describe "#links" do
     it "returns links" do
       expect(subject.links).to eq(content_item["links"])
     end
   end
 
-  context "#popular_links" do
+  describe "#popular_links" do
     context "when popular links in the content item" do
       it "memoizes popular links" do
         expected_popular_links = subject.popular_links

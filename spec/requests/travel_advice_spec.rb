@@ -111,6 +111,7 @@ RSpec.describe "Travel Advice" do
         @country_path = @content_item.fetch("base_path")
         stub_content_store_has_item(@country_path, @content_item)
       end
+
       it "redirects to the base_path if the part doesn't exist" do
         get "#{@country_path}/i-dont-exist"
 

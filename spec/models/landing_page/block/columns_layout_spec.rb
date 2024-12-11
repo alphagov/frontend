@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::ColumnsLayout do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     {
       "type" => "columns_layout",
@@ -20,7 +19,8 @@ RSpec.describe LandingPage::Block::ColumnsLayout do
       ],
     }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   it "has column blocks" do
     expect(subject.blocks.size).to eq(3)

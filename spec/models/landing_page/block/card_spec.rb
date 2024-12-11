@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::Card do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     { "type" => "card",
       "href" => "/landing-page/something",
@@ -16,7 +15,8 @@ RSpec.describe LandingPage::Block::Card do
         ],
       } }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   describe "#link" do
     it "includes a link" do

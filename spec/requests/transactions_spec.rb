@@ -1,10 +1,10 @@
 RSpec.describe "Transactions" do
   context "GET show" do
-    it_behaves_like "it can render the govuk_chat promo banner", "/foo"
-
     before do
       @content_item = content_store_has_example_item("/foo", schema: "transaction")
     end
+
+    it_behaves_like "it can render the govuk_chat promo banner", "/foo"
 
     it "sets the cache expiry headers" do
       get "/foo"

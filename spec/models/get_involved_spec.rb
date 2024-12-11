@@ -27,7 +27,7 @@ RSpec.describe GetInvolved do
   end
 
   describe "#consultation outcome" do
-    it "returns the recent consultation outcome " do
+    it "returns the recent consultation outcome" do
       model_instance = GetInvolved.new(content_item)
 
       expect(model_instance.recent_consultation_outcomes).to eq([consultation_result])

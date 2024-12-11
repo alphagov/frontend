@@ -5,6 +5,7 @@ RSpec.describe ThemeTypeHelper do
     it "returns theme type default when style is empty" do
       expect(style("")).to eq("theme-default")
     end
+
     it "returns theme type default when style is invalid" do
       expect(style("asdfghjkl")).to eq("theme-default")
     end

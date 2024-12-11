@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::Image do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     { "type" => "image",
       "image" => {
@@ -15,7 +14,8 @@ RSpec.describe LandingPage::Block::Image do
         },
       } }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   describe "#image" do
     it "returns the properties of the image" do

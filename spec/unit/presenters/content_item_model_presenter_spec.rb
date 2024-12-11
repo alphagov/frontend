@@ -15,7 +15,7 @@ RSpec.describe ContentItemModelPresenter do
       @content_store_response["withdrawn_notice"] = {}
       content_item = ContentItem.new(@content_store_response)
 
-      expect(described_class.new(content_item).page_title).to_not include("[Withdrawn]")
+      expect(described_class.new(content_item).page_title).not_to include("[Withdrawn]")
       expect(described_class.new(content_item).page_title).to include(content_item.title)
     end
   end

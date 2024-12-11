@@ -106,7 +106,7 @@ RSpec.describe Calendar do
     end
   end
 
-  context "#show_bunting?" do
+  describe "#show_bunting?" do
     before { @cal = Calendar.new("a-calendar") }
 
     it "is true when one division is buntable" do

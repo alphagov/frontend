@@ -53,7 +53,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "redirects to the authority slug" do
-          expect(current_path).to eq("/find-local-council/westminster")
+          expect(page).to have_current_path("/find-local-council/westminster", ignore_query: true)
         end
 
         it "shows the local authority result" do
@@ -107,7 +107,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "redirects to the district authority slug" do
-          expect(current_path).to eq("/find-local-council/aylesbury")
+          expect(page).to have_current_path("/find-local-council/aylesbury", ignore_query: true)
         end
 
         it "includes the search result text in the page title" do
@@ -171,7 +171,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "redirects to the district authority slug" do
-          expect(current_path).to eq("/find-local-council/aylesbury")
+          expect(page).to have_current_path("/find-local-council/aylesbury", ignore_query: true)
         end
 
         it "includes the search result text in the page title" do
@@ -220,7 +220,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "remains on the find your local council page" do
-          expect(current_path).to eq("/find-local-council")
+          expect(page).to have_current_path("/find-local-council", ignore_query: true)
           expect(page).to have_content("Find your local council")
           expect(page).to have_content("Find the website for your local council.")
         end
@@ -257,7 +257,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "remains on the find your local council page" do
-          expect(current_path).to eq("/find-local-council")
+          expect(page).to have_current_path("/find-local-council", ignore_query: true)
           expect(page).to have_content("Find your local council")
           expect(page).to have_content("Find the website for your local council.")
         end
@@ -373,7 +373,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "remains on the find your local council page" do
-          expect(current_path).to eq("/find-local-council")
+          expect(page).to have_current_path("/find-local-council", ignore_query: true)
           expect(page).to have_content("Find your local council")
         end
 

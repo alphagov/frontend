@@ -102,7 +102,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "redirects to the appropriate authority slug" do
-        expect(current_path).to eq("/pay-bear-tax/westminster")
+        expect(page).to have_current_path("/pay-bear-tax/westminster", ignore_query: true)
       end
 
       it "includes the search result text in the page title" do
@@ -161,7 +161,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "remains on the pay bear tax page" do
-        expect(current_path).to eq("/pay-bear-tax")
+        expect(page).to have_current_path("/pay-bear-tax", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -188,7 +188,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "remains on the local transaction page" do
-        expect(current_path).to eq("/pay-bear-tax")
+        expect(page).to have_current_path("/pay-bear-tax", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -212,7 +212,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "remains on the local transaction page" do
-        expect(current_path).to eq("/pay-bear-tax")
+        expect(page).to have_current_path("/pay-bear-tax", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -377,7 +377,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "redirects to the appropriate authority slug" do
-        expect(current_path).to eq("/pay-bear-tax/westminster")
+        expect(page).to have_current_path("/pay-bear-tax/westminster", ignore_query: true)
       end
 
       it "includes the search result text in the page title" do
@@ -411,7 +411,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "redirects to the appropriate authority slug" do
-      expect(current_path).to eq("/pay-bear-tax/westminster")
+      expect(page).to have_current_path("/pay-bear-tax/westminster", ignore_query: true)
     end
 
     it "does not link to the authority" do

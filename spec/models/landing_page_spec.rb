@@ -29,18 +29,16 @@ RSpec.describe LandingPage do
   end
 
   describe "#blocks" do
-    before do
-      @blocks_content = YAML.load_file(Rails.root.join("spec/fixtures/landing_page.yaml"))
-    end
+    let(:blocks_content) { YAML.load_file(Rails.root.join("spec/fixtures/landing_page.yaml")) }
 
     it "builds all of the blocks" do
-      expected_size = @blocks_content["blocks"].count
+      expected_size = blocks_content["blocks"].count
 
       expect(described_class.new(content_item).blocks.count).to eq(expected_size)
     end
 
     it "builds blocks of the correct type" do
-      expected_type = @blocks_content["blocks"].first["type"]
+      expected_type = blocks_content["blocks"].first["type"]
 
       expect(described_class.new(content_item).blocks.first.type).to eq(expected_type)
     end
@@ -64,7 +62,7 @@ RSpec.describe LandingPage do
       content_item["details"]["blocks"] = []
 
       content_item["details"]["breadcrumbs"] = nil
-      expect(described_class.new(content_item).breadcrumbs).to be(nil)
+      expect(described_class.new(content_item).breadcrumbs).to be_nil
     end
 
     it "returns breadcrumbs in the structure expected by govuk_publishing_components" do

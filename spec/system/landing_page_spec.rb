@@ -1,7 +1,7 @@
 RSpec.describe "LandingPage" do
   include SearchHelpers
 
-  context "show" do
+  describe "show" do
     let(:content_item) do
       {
         "base_path" => "/landing-page",
@@ -10,9 +10,6 @@ RSpec.describe "LandingPage" do
         "locale" => "en",
         "document_type" => "landing_page",
         "schema_name" => "landing_page",
-        "publishing_app" => "whitehall",
-        "rendering_app" => "frontend",
-        "update_type" => "major",
         "details" => {
           "attachments" => [
             {
@@ -28,12 +25,6 @@ RSpec.describe "LandingPage" do
             },
           ],
         },
-        "routes" => [
-          {
-            "type" => "exact",
-            "path" => "/landing-page",
-          },
-        ],
       }
     end
 
@@ -56,58 +47,58 @@ RSpec.describe "LandingPage" do
     it "has a meta description tag" do
       visit base_path
 
-      expect(page).to have_css('meta[name="description"][content="A landing page example"]', visible: false)
+      expect(page).to have_css('meta[name="description"][content="A landing page example"]', visible: :hidden)
     end
 
     it "renders a hero" do
       visit base_path
 
-      assert_selector ".landing-page .govuk-block__hero"
-      assert_selector ".govuk-block__hero picture"
-      assert_selector ".govuk-block__hero .app-b-hero__textbox"
+      expect(page).to have_selector(".landing-page .govuk-block__hero")
+      expect(page).to have_selector(".govuk-block__hero picture")
+      expect(page).to have_selector(".govuk-block__hero .app-b-hero__textbox")
     end
 
     it "renders a card" do
       visit base_path
 
-      assert_selector ".landing-page .app-b-card"
-      assert_selector ".app-b-card .app-b-card__textbox"
-      assert_selector ".app-b-card .app-b-card__figure"
-      assert_selector ".app-b-card__figure .app-b-card__image"
+      expect(page).to have_selector(".landing-page .app-b-card")
+      expect(page).to have_selector(".app-b-card .app-b-card__textbox")
+      expect(page).to have_selector(".app-b-card .app-b-card__figure")
+      expect(page).to have_selector(".app-b-card__figure .app-b-card__image")
     end
 
     it "renders a column layout" do
       visit base_path
 
-      assert_selector ".landing-page .app-b-columns-layout"
+      expect(page).to have_selector(".landing-page .app-b-columns-layout")
     end
 
     it "renders a blocks container" do
       visit base_path
 
-      assert_selector ".landing-page .blocks-container"
+      expect(page).to have_selector(".landing-page .blocks-container")
     end
 
     it "renders main navigation" do
       visit base_path
 
-      assert_selector ".app-b-main-nav"
+      expect(page).to have_selector(".app-b-main-nav")
     end
 
     it "renders breadcrumbs" do
       visit base_path
 
-      assert_selector ".govuk-breadcrumbs"
+      expect(page).to have_selector(".govuk-breadcrumbs")
     end
 
     it "renders a document list" do
       visit base_path
 
-      assert_selector ".gem-c-heading"
-      assert_selector ".gem-c-document-list"
+      expect(page).to have_selector(".gem-c-heading")
+      expect(page).to have_selector(".gem-c-document-list")
     end
 
-    context "the block has errors" do
+    context "when the block has errors" do
       it "doesn't render the erroring block, or replace it with an block-error block" do
         visit base_path
 
@@ -115,7 +106,7 @@ RSpec.describe "LandingPage" do
         expect(page).not_to have_content("Couldn't identify a model class for type: does_not_exist")
       end
 
-      context "on the draft server" do
+      context "when viewed on the draft server" do
         before do
           stub_content_store_has_item(base_path, content_item, draft: true)
           stub_content_store_has_item(basic_taxon["base_path"], basic_taxon, draft: true)

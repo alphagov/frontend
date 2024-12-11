@@ -1,5 +1,5 @@
 RSpec.describe CurrencyHelper do
-  include CurrencyHelper
+  include described_class
 
   let(:sample_number) { "12000" }
 

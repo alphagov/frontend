@@ -1,5 +1,5 @@
 RSpec.describe PhoneNumberHelper do
-  include PhoneNumberHelper
+  include described_class
 
   let(:sample_phone_text) { "023 4567 8910 (with some text)" }
 

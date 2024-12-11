@@ -1,5 +1,5 @@
 RSpec.describe BlockHelper do
-  include BlockHelper
+  include described_class
 
   describe "#render_block" do
     it "returns an empty string when a partial template doesn't exist" do

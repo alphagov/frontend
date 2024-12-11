@@ -1,5 +1,5 @@
 RSpec.describe LocaleHelper do
-  include LocaleHelper
+  include described_class
 
   describe "#translations_for_nav" do
     it "returns translations in a suitable format for the translation nav component" do

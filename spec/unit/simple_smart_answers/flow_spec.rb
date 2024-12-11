@@ -30,7 +30,7 @@ module SimpleSmartAnswers
             "body" => "<p>This is outcome 1</p>",
           },
         ]
-        @flow = Flow.new(@nodes)
+        @flow = described_class.new(@nodes)
       end
 
       it "returns the node matching the slug" do
@@ -55,7 +55,7 @@ module SimpleSmartAnswers
     describe "#state_for_responses" do
       before do
         @flow =
-          Flow.new(
+          described_class.new(
             [
               {
                 "kind" => "question",

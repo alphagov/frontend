@@ -168,7 +168,7 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (46.2.0)
+    govuk_publishing_components (46.3.0)
       chartkick
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
@@ -266,7 +266,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.4)
-    nokogiri (1.17.0)
+    nokogiri (1.17.1)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     null_logger (0.0.1)

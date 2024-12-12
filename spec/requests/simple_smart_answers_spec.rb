@@ -10,20 +10,6 @@ RSpec.describe "Simple Smart Answers" do
     }
   end
 
-  def simple_smart_answer_content_item_with_start_button_text
-    {
-      base_path: "/the-squirrel-of-doom",
-      document_type: "simple_smart_answer",
-      schema_name: "simple_smart_answer",
-      title: "The squirrel of doom",
-      description: "Noooo, not the squirrel of doom!",
-      details: {
-        start_button_text: "Start now",
-      },
-      external_related_links: [],
-    }
-  end
-
   context "GET 'start page'" do
     it_behaves_like "it can render the govuk_chat promo banner", "/the-bridge-of-death"
 

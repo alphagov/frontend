@@ -98,6 +98,26 @@ RSpec.describe "LandingPage" do
       expect(page).to have_selector(".gem-c-document-list")
     end
 
+    it "does not render the number 10 header" do
+      visit base_path
+
+      expect(page).not_to have_selector(".landing-page-header__org")
+      expect(page).not_to have_selector(".landing-page-header__org .brand--prime-ministers-office-10-downing-street")
+    end
+
+    context "with the prime-ministers-office-10-downing-street theme" do
+      before do
+        stub_content_store_has_item(base_path, content_item.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
+      end
+
+      it "renders the number 10 header" do
+        visit base_path
+
+        expect(page).to have_selector(".landing-page-header__org")
+        expect(page).to have_selector(".landing-page-header__org .brand--prime-ministers-office-10-downing-street")
+      end
+    end
+
     context "when the block has errors" do
       it "doesn't render the erroring block, or replace it with an block-error block" do
         visit base_path

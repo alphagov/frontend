@@ -76,8 +76,28 @@ RSpec.describe LandingPage do
   end
 
   describe "#theme" do
-    it "returns the default theme" do
+    it "returns the default theme if theme is not specified" do
+      content_item["details"]["theme"] = nil
+
       expect(described_class.new(content_item).theme).to eq("default")
+    end
+
+    it "returns the default theme if theme is default" do
+      content_item["details"]["theme"] = "default"
+
+      expect(described_class.new(content_item).theme).to eq("default")
+    end
+
+    it "returns the default theme if theme is not in the list of accepted themes" do
+      content_item["details"]["theme"] = "missing-theme"
+
+      expect(described_class.new(content_item).theme).to eq("default")
+    end
+
+    it "returns the specified theme if theme is in the list of accepted themes" do
+      content_item["details"]["theme"] = "prime-ministers-office-10-downing-street"
+
+      expect(described_class.new(content_item).theme).to eq("prime-ministers-office-10-downing-street")
     end
   end
 end

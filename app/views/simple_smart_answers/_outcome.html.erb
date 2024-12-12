@@ -8,7 +8,7 @@
     type: "simple smart answer",
     section: @flow_state.current_node.title,
     action: "complete",
-    tool_name: publication.title,
+    tool_name: content_item.title,
     text: outcome.slug
   }.to_json
 %>
@@ -17,7 +17,7 @@
   data-ga4-auto="<%= ga4_attributes %>"
 >
   <%= render "govuk_publishing_components/components/title", {
-    context: publication.title,
+    context: content_item.title,
     font_size: "l",
     margin_bottom: 4,
     margin_top: 0,

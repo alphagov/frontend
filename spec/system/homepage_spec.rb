@@ -1,5 +1,6 @@
 RSpec.describe "Homepage" do
   include GovukAbTesting::RspecHelpers
+  include ContentStoreHelpers
 
   before do
     links = {
@@ -17,10 +18,7 @@ RSpec.describe "Homepage" do
       ],
     }
 
-    content_item = GovukSchemas::Example.find("homepage", example_name: "homepage_with_popular_links_on_govuk")
-    base_path = content_item.fetch("base_path")
-    content_item["links"] = links
-    stub_content_store_has_item(base_path, content_item)
+    stub_homepage_content_item(links:)
   end
 
   it "renders the homepage" do

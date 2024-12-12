@@ -1,12 +1,9 @@
 RSpec.describe "Homepage" do
   include GovukAbTesting::RspecHelpers
+  include ContentStoreHelpers
 
   context "loading the homepage" do
-    before do
-      content_item = GovukSchemas::Example.find("homepage", example_name: "homepage_with_popular_links_on_govuk")
-      base_path = content_item.fetch("base_path")
-      stub_content_store_has_item(base_path, content_item)
-    end
+    before { stub_homepage_content_item }
 
     it "responds with success" do
       get "/"

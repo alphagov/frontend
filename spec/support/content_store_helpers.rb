@@ -48,4 +48,15 @@ module ContentStoreHelpers
   def honours_content_store_ttl
     expect(response.headers["Cache-Control"]).to eq("max-age=#{15.minutes.to_i}, public")
   end
+
+  def stub_homepage_content_item(links: [])
+    content_item = GovukSchemas::Example.find("homepage", example_name: "homepage_with_popular_links_on_govuk")
+    base_path = content_item.fetch("base_path")
+
+    if links.any?
+      content_item["links"] = links
+    end
+
+    stub_content_store_has_item(base_path, content_item)
+  end
 end

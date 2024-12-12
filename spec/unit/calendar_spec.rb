@@ -76,17 +76,17 @@ RSpec.describe Calendar do
     end
 
     it "merges events for all years into single array" do
-      @divisions << instance_double(Division, events: [1, 2])
-      @divisions << instance_double(Division, events: [3, 4, 5])
-      @divisions << instance_double(Division, events: [6, 7])
+      @divisions << instance_double(Calendar::Division, events: [1, 2])
+      @divisions << instance_double(Calendar::Division, events: [3, 4, 5])
+      @divisions << instance_double(Calendar::Division, events: [6, 7])
 
       expect(@calendar.events).to eq([1, 2, 3, 4, 5, 6, 7])
     end
 
     it "handles years with no events" do
-      @divisions << instance_double(Division1, events: [1, 2])
-      @divisions << instance_double(Division2, events: [])
-      @divisions << instance_double(Division3, events: [6, 7])
+      @divisions << instance_double(Calendar::Division, events: [1, 2])
+      @divisions << instance_double(Calendar::Division, events: [])
+      @divisions << instance_double(Calendar::Division, events: [6, 7])
 
       expect(@calendar.events).to eq([1, 2, 6, 7])
     end
@@ -110,27 +110,27 @@ RSpec.describe Calendar do
     before { @cal = described_class.new("a-calendar") }
 
     it "is true when one division is buntable" do
-      @div1 = instance_double(Division, show_bunting?: true)
-      @div2 = instance_double(Division, show_bunting?: false)
-      @div3 = instance_double(Division, show_bunting?: false)
+      @div1 = instance_double(Calendar::Division, show_bunting?: true)
+      @div2 = instance_double(Calendar::Division, show_bunting?: false)
+      @div3 = instance_double(Calendar::Division, show_bunting?: false)
       allow(@cal).to receive(:divisions).and_return([@div1, @div2, @div3])
 
       expect(@cal.show_bunting?).to be true
     end
 
     it "is true when more than one division is buntable" do
-      @div1 = instance_double(Division, show_bunting?: true)
-      @div2 = instance_double(Division, show_bunting?: true)
-      @div3 = instance_double(Division, show_bunting?: false)
+      @div1 = instance_double(Calendar::Division, show_bunting?: true)
+      @div2 = instance_double(Calendar::Division, show_bunting?: true)
+      @div3 = instance_double(Calendar::Division, show_bunting?: false)
       allow(@cal).to receive(:divisions).and_return([@div1, @div2, @div3])
 
       expect(@cal.show_bunting?).to be true
     end
 
     it "is false when no divisions are buntable" do
-      @div1 = instance_double(Division, show_bunting?: false)
-      @div2 = instance_double(Division, show_bunting?: false)
-      @div3 = instance_double(Division, show_bunting?: false)
+      @div1 = instance_double(Calendar::Division, show_bunting?: false)
+      @div2 = instance_double(Calendar::Division, show_bunting?: false)
+      @div3 = instance_double(Calendar::Division, show_bunting?: false)
       allow(@cal).to receive(:divisions).and_return([@div1, @div2, @div3])
 
       expect(@cal.show_bunting?).to be false
@@ -139,8 +139,8 @@ RSpec.describe Calendar do
 
   describe "#as_json" do
     before do
-      @div1 = instance_double(Division, slug: "division-1", as_json: "div1 json")
-      @div2 = instance_double(Division, slug: "division-2", as_json: "div2 json")
+      @div1 = instance_double(Calendar::Division, slug: "division-1", as_json: "div1 json")
+      @div2 = instance_double(Calendar::Division, slug: "division-2", as_json: "div2 json")
       @cal = described_class.new("a-calendar")
       allow(@cal).to receive(:divisions).and_return([@div1, @div2])
     end

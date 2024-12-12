@@ -31,6 +31,7 @@ Simple blocks generally render one component or "thing". They can either be rend
 
 - [Action Link](#action-link)
 - [Big Number](#big-number)
+- [Component](#component)
 - [Document List](#document-list)
 - [Govspeak](#govspeak)
 - [Heading](#heading)
@@ -57,6 +58,17 @@ A wrapper around the [Big number component](https://components.publishing.servic
 
 ```yaml
 - type: big_number
+  number: £75m
+  label: amount of money that looks big
+```
+
+#### Component
+
+Renders whatever component from the publishing components gem is specified with the `component_name` value. All attributes _except_ `component_name` and `type` are passed directly to the component. Note that `component_name` should be the component in snake case (ie as it appears at the end of the url in the component guide). The example here will render identically to the Big Number example directly above, for instance.
+
+```yaml
+- type: component
+  component_name: big_number
   number: £75m
   label: amount of money that looks big
 ```

@@ -74,17 +74,17 @@ RSpec.describe Calendar::Division do
     end
 
     it "merges events for all years into single array" do
-      @years << instance_double(Year1, events: [1, 2])
-      @years << instance_double(Year2, events: [3, 4, 5])
-      @years << instance_double(Year3, events: [6, 7])
+      @years << instance_double(Calendar::Year, events: [1, 2])
+      @years << instance_double(Calendar::Year, events: [3, 4, 5])
+      @years << instance_double(Calendar::Year, events: [6, 7])
 
       expect(@div.events).to eq([1, 2, 3, 4, 5, 6, 7])
     end
 
     it "handles years with no events" do
-      @years << instance_double(Year1, events: [1, 2])
-      @years << instance_double(Year2, events: [])
-      @years << instance_double(Year3, events: [6, 7])
+      @years << instance_double(Calendar::Year, events: [1, 2])
+      @years << instance_double(Calendar::Year, events: [])
+      @years << instance_double(Calendar::Year, events: [6, 7])
 
       expect(@div.events).to eq([1, 2, 6, 7])
     end
@@ -102,23 +102,23 @@ RSpec.describe Calendar::Division do
     end
 
     it "returns nil if no years have upcoming_events" do
-      @years << instance_double(Year, upcoming_event: nil)
-      @years << instance_double(Year, upcoming_event: nil)
+      @years << instance_double(Calendar::Year, upcoming_event: nil)
+      @years << instance_double(Calendar::Year, upcoming_event: nil)
 
       expect(@div.upcoming_event).to be_nil
     end
 
     it "returns the upcoming event for the first year that has one" do
-      @years << instance_double(Year, upcoming_event: nil)
-      @years << instance_double(Year, upcoming_event: :event_1)
-      @years << instance_double(Year, upcoming_event: :event_2)
+      @years << instance_double(Calendar::Year, upcoming_event: nil)
+      @years << instance_double(Calendar::Year, upcoming_event: :event_1)
+      @years << instance_double(Calendar::Year, upcoming_event: :event_2)
 
       expect(@div.upcoming_event).to eq(:event_1)
     end
 
     it "caches the event" do
-      y1 = instance_double(Year)
-      y2 = instance_double(Year, upcoming_event: :event_1)
+      y1 = instance_double(Calendar::Year)
+      y2 = instance_double(Calendar::Year, upcoming_event: :event_1)
       @years << y1
       @years << y2
 
@@ -137,16 +137,16 @@ RSpec.describe Calendar::Division do
     end
 
     it "returns a hash of year => events for upcoming events" do
-      y1 = instance_double(Year1, upcoming_events: %i[e1 e2])
-      y2 = instance_double(Year2, upcoming_events: %i[e3 e4 e5])
+      y1 = instance_double(Calendar::Year, upcoming_events: %i[e1 e2])
+      y2 = instance_double(Calendar::Year, upcoming_events: %i[e3 e4 e5])
       ((@years << y1) << y2)
       expected = { y1 => %i[e1 e2], y2 => %i[e3 e4 e5] }
       expect(@div.upcoming_events_by_year).to eq(expected)
     end
 
     it "does not include any years with no upcoming events" do
-      y1 = instance_double(Year1, upcoming_events: [])
-      y2 = instance_double(Year2, upcoming_events: %i[e1 e2 e3])
+      y1 = instance_double(Calendar::Year, upcoming_events: [])
+      y2 = instance_double(Calendar::Year, upcoming_events: %i[e1 e2 e3])
       ((@years << y1) << y2)
       expected = { y2 => %i[e1 e2 e3] }
       expect(@div.upcoming_events_by_year).to eq(expected)
@@ -161,8 +161,8 @@ RSpec.describe Calendar::Division do
     end
 
     it "returns a hash of year => reversed events for past events" do
-      y1 = instance_double(Year, past_events: %i[e1 e2])
-      y2 = instance_double(Year, past_events: %i[e3 e4 e5])
+      y1 = instance_double(Calendar::Year, past_events: %i[e1 e2])
+      y2 = instance_double(Calendar::Year, past_events: %i[e3 e4 e5])
       ((@years << y1) << y2)
       expected = { y1 => %i[e2 e1], y2 => %i[e5 e4 e3] }
       events_by_year = @div.past_events_by_year
@@ -172,8 +172,8 @@ RSpec.describe Calendar::Division do
     end
 
     it "does not include any years with no past events" do
-      y1 = instance_double(Year, past_events: %i[e1 e2])
-      y2 = instance_double(Year, past_events: [])
+      y1 = instance_double(Calendar::Year, past_events: %i[e1 e2])
+      y2 = instance_double(Calendar::Year, past_events: [])
       ((@years << y1) << y2)
       expected = { y1 => %i[e2 e1] }
 
@@ -185,21 +185,21 @@ RSpec.describe Calendar::Division do
     before { @div = described_class.new("something") }
 
     it "is true if there is a buntable bank holiday today" do
-      @event = instance_double(Event, bunting: true, date: Time.zone.today)
+      @event = Calendar::Event.new("bunting" => true, "date" => Time.zone.today)
       allow(@div).to receive(:upcoming_event).and_return(@event)
 
       expect(@div.show_bunting?).to be true
     end
 
     it "is false if there is a non-buntable bank holiday today" do
-      @event = instance_double(Event, bunting: false, date: Time.zone.today)
+      @event = Calendar::Event.new("bunting" => false, "date" => Time.zone.today)
       allow(@div).to receive(:upcoming_event).and_return(@event)
 
       expect(@div.show_bunting?).to be false
     end
 
     it "is false if there is no bank holiday today" do
-      @event = instance_double(Event, bunting: true, date: (Time.zone.today + 1.week))
+      @event = Calendar::Event.new("bunting" => true, "date" => Time.zone.today + 1.week)
       allow(@div).to receive(:upcoming_event).and_return(@event)
 
       expect(@div.show_bunting?).to be false
@@ -215,8 +215,8 @@ RSpec.describe Calendar::Division do
     end
 
     it "returns all events from all years" do
-      y1 = instance_double(Year, events: [1, 2])
-      y2 = instance_double(Year, events: [3, 4])
+      y1 = instance_double(Calendar::Year, events: [1, 2])
+      y2 = instance_double(Calendar::Year, events: [3, 4])
       allow(@div).to receive(:years).and_return([y1, y2])
       hash = @div.as_json
 

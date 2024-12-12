@@ -85,7 +85,7 @@ RSpec.describe "Calendars" do
 
   context "GET 'division'" do
     before do
-      @division = instance_double(Division, to_json: "", events: [])
+      @division = instance_double(Calendar::Division, to_json: "", events: [])
       @calendar = instance_double(Calendar, division: @division)
       allow(Calendar).to receive(:find).and_return(@calendar)
       stub_content_store_has_item("/a-calendar", {
@@ -109,7 +109,7 @@ RSpec.describe "Calendars" do
       expect(@division).to receive(:events).and_return(:some_events)
       expect(@calendar).to receive(:division).with("a-division").and_return(@division)
       allow(Calendar).to receive(:find).with("a-calendar").and_return(@calendar)
-      expect(IcsRenderer).to receive(:new).with(:some_events, "/a-calendar/a-division.ics", :en).and_return(instance_double(Renderer, render: "ics_division"))
+      expect(IcsRenderer).to receive(:new).with(:some_events, "/a-calendar/a-division.ics", :en).and_return(instance_double(IcsRenderer, render: "ics_division"))
       get "/a-calendar/a-division.ics"
 
       expect(response.body).to eq("ics_division")

@@ -1,5 +1,6 @@
 RSpec.describe LandingPage::Block::Statistics do
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_data_attachments)) }
+  subject(:statistics) { described_class.new(blocks_hash, build(:landing_page_with_data_attachments)) }
+
   let(:blocks_hash) do
     {
       "type" => "statistics",
@@ -31,13 +32,13 @@ RSpec.describe LandingPage::Block::Statistics do
         1/6/2019
       ]
 
-      expect(subject.x_axis_keys).to eq(expected_keys)
+      expect(statistics.x_axis_keys).to eq(expected_keys)
     end
 
     it "returns an empty array if the csv_file doesn't exist" do
       blocks_hash["csv_file"] = "dat_one.csv"
 
-      expect(subject.x_axis_keys).to eq([])
+      expect(statistics.x_axis_keys).to eq([])
     end
   end
 
@@ -58,7 +59,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "gets the rows for one line of data with whole numbers" do
@@ -79,7 +80,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "gets the rows for one line of data when some rows are missing" do
@@ -104,7 +105,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "gets the rows for two lines of data" do
@@ -121,22 +122,22 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "returns an empty array if the csv_file doesn't exist" do
       blocks_hash["csv_file"] = "dat_one.csv"
 
-      expect(subject.rows).to eq([])
+      expect(statistics.rows).to eq([])
     end
 
     context "with an unparseable attachment URL" do
-      let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_unparseable_data_attachments)) }
+      subject(:statistics) { described_class.new(blocks_hash, build(:landing_page_with_unparseable_data_attachments)) }
 
       it "returns an empty array" do
         blocks_hash["csv_file"] = "data_one.csv"
 
-        expect(subject.rows).to eq([])
+        expect(statistics.rows).to eq([])
       end
     end
   end

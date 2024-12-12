@@ -1,5 +1,6 @@
 RSpec.describe LandingPage::Block::TwoColumnLayout do
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+  subject(:two_column_layout) { described_class.new(blocks_hash, build(:landing_page)) }
+
   let(:blocks_hash) do
     { "type" => "two_column_layout",
       "theme" => "two_thirds_one_third",
@@ -13,35 +14,35 @@ RSpec.describe LandingPage::Block::TwoColumnLayout do
 
   describe "#left_column_class" do
     it "returns two thirds when the theme is two_thirds_one_third" do
-      expect(subject.left_column_class).to eq "govuk-grid-column-two-thirds-from-desktop"
+      expect(two_column_layout.left_column_class).to eq "govuk-grid-column-two-thirds-from-desktop"
     end
 
     it "returns one third when the theme is one_third_two_thirds" do
       blocks_hash["theme"] = "one_third_two_thirds"
-      expect(subject.left_column_class).to eq "govuk-grid-column-one-third"
+      expect(two_column_layout.left_column_class).to eq "govuk-grid-column-one-third"
     end
 
     it "returns offset column when the theme is two_thirds_right" do
       blocks_hash["theme"] = "two_thirds_right"
-      expect(subject.left_column_class).to eq "govuk-grid-column-one-third grid-column-one-third-offset"
-      expect(subject.left).to be_nil
+      expect(two_column_layout.left_column_class).to eq "govuk-grid-column-one-third grid-column-one-third-offset"
+      expect(two_column_layout.left).to be_nil
     end
   end
 
   describe "#right_column_class" do
     it "returns two thirds when the theme is one_third_two_thirds" do
       blocks_hash["theme"] = "one_third_two_thirds"
-      expect(subject.right_column_class).to eq "govuk-grid-column-two-thirds-from-desktop"
+      expect(two_column_layout.right_column_class).to eq "govuk-grid-column-two-thirds-from-desktop"
     end
 
     it "returns one third when the theme is two_thirds_one_third" do
       blocks_hash["theme"] = "two_thirds_one_third"
-      expect(subject.right_column_class).to eq "govuk-grid-column-one-third"
+      expect(two_column_layout.right_column_class).to eq "govuk-grid-column-one-third"
     end
 
     it "returns two thirds when the theme is two_thirds_right" do
       blocks_hash["theme"] = "two_thirds_right"
-      expect(subject.right_column_class).to eq "govuk-grid-column-two-thirds-from-desktop"
+      expect(two_column_layout.right_column_class).to eq "govuk-grid-column-two-thirds-from-desktop"
     end
   end
 end

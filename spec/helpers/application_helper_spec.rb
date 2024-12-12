@@ -43,7 +43,7 @@ RSpec.describe ApplicationHelper do
     end
 
     it "returns the path of the current request stripping off any query string parameters" do
-      allow(self).to receive(:request).and_return(ActionDispatch::TestRequest.new("PATH_INFO" => "/foo/bar"))
+      allow(self).to receive(:request).and_return(ActionDispatch::TestRequest.new("PATH_INFO" => "/foo/bar?query=true"))
 
       expect(current_path_without_query_string).to eq("/foo/bar")
     end

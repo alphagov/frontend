@@ -1,5 +1,5 @@
 RSpec.describe GetInvolved do
-  let(:consultation_1) do
+  let(:consultation_closing_november) do
     {
       "end_date" => "2024-11-28T23:59:00.000+00:00",
       "title" => "Consultation on the International Council for Harmonisation (ICH) M14",
@@ -10,7 +10,7 @@ RSpec.describe GetInvolved do
     }
   end
 
-  let(:consultation_2) do
+  let(:consultation_closing_december) do
     {
       "end_date" => "2024-12-28T23:59:00.000+00:00",
       "title" => "Consultation on the International Council",
@@ -23,9 +23,9 @@ RSpec.describe GetInvolved do
 
   ## Tests
 
-  context "recently opened consultations" do
+  describe "#recently_opened" do
     let(:content_item) do
-      double("ContentItem", recently_opened_consultations: [consultation_1, consultation_2])
+      instance_double(described_class, recently_opened_consultations: [consultation_closing_november, consultation_closing_december])
     end
 
     it "returns formatted recently opened consultation links" do
@@ -34,23 +34,23 @@ RSpec.describe GetInvolved do
         {
           link: {
             description: "Closes 28 November 2024",
-            path: consultation_1["link"],
-            text: consultation_1["title"],
+            path: consultation_closing_november["link"],
+            text: consultation_closing_november["title"],
           },
           metadata: {
-            document_type: consultation_1["organisations"].first["acronym"],
-            public_updated_at: consultation_1["organisations"].first["public_timestamp"],
+            document_type: consultation_closing_november["organisations"].first["acronym"],
+            public_updated_at: consultation_closing_november["organisations"].first["public_timestamp"],
           },
         },
         {
           link: {
             description: "Closes 28 December 2024",
-            path: consultation_2["link"],
-            text: consultation_2["title"],
+            path: consultation_closing_december["link"],
+            text: consultation_closing_december["title"],
           },
           metadata: {
-            document_type: consultation_2["organisations"].first["acronym"],
-            public_updated_at: consultation_2["organisations"].first["public_timestamp"],
+            document_type: consultation_closing_december["organisations"].first["acronym"],
+            public_updated_at: consultation_closing_december["organisations"].first["public_timestamp"],
           },
         },
       ]
@@ -61,7 +61,7 @@ RSpec.describe GetInvolved do
 
   context "when the consultation is closed" do
     let(:content_item) do
-      double("ContentItem", next_closing_consultation: { "end_date" => (Time.zone.now.to_date - 1).strftime("%Y-%m-%dT23:59:00") })
+      instance_double(described_class, next_closing_consultation: { "end_date" => (Time.zone.now.to_date - 1).strftime("%Y-%m-%dT23:59:00") })
     end
 
     it "returns closed message" do
@@ -73,7 +73,7 @@ RSpec.describe GetInvolved do
 
   context "when the consultation is closing today" do
     let(:content_item) do
-      double("ContentItem", next_closing_consultation: { "end_date" => Time.zone.now.to_date.strftime("%Y-%m-%dT23:59:00") })
+      instance_double(described_class, next_closing_consultation: { "end_date" => Time.zone.now.to_date.strftime("%Y-%m-%dT23:59:00") })
     end
 
     it "returns closing today message" do
@@ -85,7 +85,7 @@ RSpec.describe GetInvolved do
 
   context "when the consultation is closing tomorrow" do
     let(:content_item) do
-      double("ContentItem", next_closing_consultation: { "end_date" => (Time.zone.now.to_date + 1).strftime("%Y-%m-%dT23:59:00") })
+      instance_double(described_class, next_closing_consultation: { "end_date" => (Time.zone.now.to_date + 1).strftime("%Y-%m-%dT23:59:00") })
     end
 
     it "returns closing tomorrow message" do
@@ -97,7 +97,7 @@ RSpec.describe GetInvolved do
 
   context "when the consultation is closing in more than 1 day" do
     let(:content_item) do
-      double("ContentItem", next_closing_consultation: { "end_date" => (Time.zone.now.to_date + 2).strftime("%Y-%m-%dT23:59:00") })
+      instance_double(described_class, next_closing_consultation: { "end_date" => (Time.zone.now.to_date + 2).strftime("%Y-%m-%dT23:59:00") })
     end
 
     it "returns number of days left for closing" do

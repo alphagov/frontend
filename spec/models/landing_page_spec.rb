@@ -74,4 +74,10 @@ RSpec.describe LandingPage do
       ])
     end
   end
+
+  describe "#theme" do
+    it "returns the default theme" do
+      expect(described_class.new(content_item).theme).to eq("default")
+    end
+  end
 end

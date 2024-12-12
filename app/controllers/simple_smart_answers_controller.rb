@@ -3,7 +3,9 @@ require "simple_smart_answers/flow"
 class SimpleSmartAnswersController < ContentItemsController
   include Cacheable
 
-  def show; end
+  def show
+    @presenter = SimpleSmartAnswerPresenter.new(content_item)
+  end
 
   def flow
     responses = params[:responses].to_s.split("/")

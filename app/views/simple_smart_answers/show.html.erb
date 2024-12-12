@@ -15,7 +15,7 @@
     <% end %>
     <p class="get-started">
       <%= render "govuk_publishing_components/components/button",
-        text: publication.start_button_text.html_safe,
+        text: @presenter.start_button_text.html_safe,
         rel: "nofollow",
         start: true,
         margin_bottom: true,

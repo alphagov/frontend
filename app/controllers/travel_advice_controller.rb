@@ -37,7 +37,7 @@ private
   # TODO: Controllers should provide a presenter or a publication.
   # These objects duplicate roles (see `presenter || @publication`) in views.
   def publication
-    content_item if country_page?
+    content_item
   end
 
   def content_item_path

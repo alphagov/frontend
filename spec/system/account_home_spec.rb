@@ -3,7 +3,7 @@ RSpec.describe "AccountHome" do
     stub_content_store_has_item("/", schema: "special_route", links: {})
   end
 
-  context "/account/home" do
+  describe "/account/home" do
     it "redirects users to One Login's Your Services page" do
       visit account_home_path
 

@@ -1,5 +1,5 @@
 RSpec.describe "Static Error Pages" do
-  context "When asked for a 4xx page" do
+  context "when asked for a 4xx page" do
     it "renders the appropriate page" do
       visit "/static-error-pages/404.html"
 
@@ -24,7 +24,7 @@ RSpec.describe "Static Error Pages" do
     end
   end
 
-  context "When asked for a 5xx page" do
+  context "when asked for a 5xx page" do
     it "renders the appropriate page" do
       visit "/static-error-pages/500.html"
 

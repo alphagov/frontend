@@ -1,7 +1,7 @@
 RSpec.describe "LandingPage" do
   include SearchHelpers
 
-  describe "show" do
+  describe "GET <landing-page>" do
     let(:content_item) do
       {
         "base_path" => "/landing-page",
@@ -126,7 +126,7 @@ RSpec.describe "LandingPage" do
         expect(page).not_to have_content("Couldn't identify a model class for type: does_not_exist")
       end
 
-      context "when viewed on the draft server" do
+      context "and is being viewed on the draft server" do
         before do
           stub_content_store_has_item(base_path, content_item, draft: true)
           stub_content_store_has_item(basic_taxon["base_path"], basic_taxon, draft: true)

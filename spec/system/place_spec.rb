@@ -160,7 +160,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given a valid postcode" do
+  context "with a valid postcode" do
     before do
       stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)
       visit "/passport-interview-office"
@@ -231,7 +231,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given a valid postcode with no nearby places" do
+  context "with a valid postcode which has no nearby places" do
     before do
       @places = []
       stub_places_manager_has_places_for_postcode(@places, "find-passport-offices", "SW1A 1AA", Frontend::PLACES_MANAGER_QUERY_LIMIT, nil)
@@ -249,7 +249,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given an empty postcode" do
+  context "with an empty postcode" do
     before do
       visit "/passport-interview-office"
       click_on("Find results near you")
@@ -278,7 +278,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given an invalid postcode" do
+  context "with an invalid postcode" do
     before do
       query_hash = { "postcode" => "BAD POSTCODE", "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
       return_data = { "error" => "invalidPostcodeError" }
@@ -305,7 +305,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given a valid postcode with no locations returned" do
+  context "with a valid postcode but with no locations returned" do
     before do
       query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
       return_data = { "error" => "validPostcodeNoLocation" }
@@ -328,7 +328,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given a postcode which covers multiple authorities (and a local_authority place)" do
+  context "with a postcode which covers multiple authorities (and a local_authority place)" do
     before do
       addresses = [
         { "address" => "House 1", "local_authority_slug" => "achester" },
@@ -346,7 +346,7 @@ RSpec.describe "Places" do
     end
   end
 
-  context "given an internal error response from places manager" do
+  context "when places manager returns an error" do
     before do
       query_hash = { "postcode" => "JE4 5TP", "limit" => Frontend::PLACES_MANAGER_QUERY_LIMIT }
       stub_places_manager_places_request("find-passport-offices", query_hash, {}, 500)

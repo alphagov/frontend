@@ -1,5 +1,5 @@
 RSpec.describe Calendar::Event do
-  context "construction" do
+  describe "#date" do
     it "parses a date given as a string" do
       e = described_class.new("date" => "2012-02-04")
 
@@ -13,7 +13,7 @@ RSpec.describe Calendar::Event do
     end
   end
 
-  context "as_json in English" do
+  describe "#as_json" do
     it "returns a hash representation" do
       I18n.locale = :en
       e = described_class.new("title" => "bank_holidays.new_year", "date" => "02/01/2012", "notes" => "common.substitute_day", "bunting" => true)

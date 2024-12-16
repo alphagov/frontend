@@ -1,7 +1,7 @@
 RSpec.describe "Homepage" do
   include GovukAbTesting::RspecHelpers
 
-  context "loading the homepage" do
+  context "when loading the homepage" do
     before { stub_content_store_has_item("/", schema: "special_route", links: {}) }
 
     it "responds with success" do
@@ -13,7 +13,7 @@ RSpec.describe "Homepage" do
     it "sets correct expiry headers" do
       get "/"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
 
     context "with popular links in the content item" do

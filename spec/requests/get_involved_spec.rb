@@ -4,7 +4,7 @@ RSpec.describe "Get Involved" do
     stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/).to_return(body: { "results" => [], "total" => 83 }.to_json)
   end
 
-  context "GET index" do
+  describe "GET index" do
     it "responds with success" do
       get "/government/get-involved"
 

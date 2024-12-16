@@ -15,7 +15,13 @@ blocks:
 - type: block_type
 ```
 
-This may include a top-level `navigation_groups` element for use by blocks (See [Navigation Groups](#navigation-groups)), or a top-level `extends` element to inherit configuration from another landing page (See [Extending a page (Whitehall Only)](#extending-a-page-whitehall-only)).
+It may optionally include other top-level elements:
+
+* a `breadcrumbs` element, an array of `title/href` pairs which will be used to create a breadcrumb list.
+* an `extends` element to inherit configuration from another landing page (See [Extending a page (Whitehall Only)](#extending-a-page-whitehall-only)).
+* an `image` element. This has one sub-element (`url`) which should be the url for an image to use with social media metadata.
+* a `navigation_groups` element for use by blocks (See [Navigation Groups](#navigation-groups))
+* a `theme` element which will set the general appearance of the page. Valid themes are `default` or `prime-ministers-office-10-downing-street`) - if no theme is specified, `default` will be used (See [Themes](#themes))
 
 Block configuration is designed to be as flexible as possible, so blocks can be nested inside other blocks. An example configuration for each type of block is shown below.
 
@@ -551,6 +557,15 @@ navigation_groups:
     - text: Goal 2
       href: /goal-2
 ```
+
+## Themes
+
+There are two types of `theme` key. If theme appears at the top-level, it affects the structure and layout of the whole page, and must be on the list below. Some blocks have their own themes, which have their own set of valid values and only affect that component. These two types of `theme` key work independently.
+
+### Valid top-level themes:
+
+* `default` (or no theme specified): a general-purpose page, with the gov.uk header and footer.
+* `prime-ministers-office-10-downing-street`: similar to default, but has a dark background/inverted text for the breadcrumbs, and an inverted version of the No. 10 header, with the crest of the Prime Minister's office.
 
 ## Extending a page (Whitehall Only)
 

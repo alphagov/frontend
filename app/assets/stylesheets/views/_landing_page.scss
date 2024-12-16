@@ -3,11 +3,6 @@
 @import "_landing_page/helpers/backgrounds";
 @import "_landing_page/helpers/borders";
 
-.landing-page-header {
-  // I've used the hex value for the background colour as it doesn't exist in the colour palette
-  background-color: #231F20;
-}
-
 .landing-page-header__blue-bar {
   background-color: govuk-colour("blue");
   height: govuk-spacing(2);

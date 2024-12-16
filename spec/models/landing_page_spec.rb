@@ -29,18 +29,16 @@ RSpec.describe LandingPage do
   end
 
   describe "#blocks" do
-    before do
-      @blocks_content = YAML.load_file(Rails.root.join("spec/fixtures/landing_page.yaml"))
-    end
+    let(:blocks_content) { YAML.load_file(Rails.root.join("spec/fixtures/landing_page.yaml")) }
 
     it "builds all of the blocks" do
-      expected_size = @blocks_content["blocks"].count
+      expected_size = blocks_content["blocks"].count
 
       expect(described_class.new(content_item).blocks.count).to eq(expected_size)
     end
 
     it "builds blocks of the correct type" do
-      expected_type = @blocks_content["blocks"].first["type"]
+      expected_type = blocks_content["blocks"].first["type"]
 
       expect(described_class.new(content_item).blocks.first.type).to eq(expected_type)
     end
@@ -64,7 +62,7 @@ RSpec.describe LandingPage do
       content_item["details"]["blocks"] = []
 
       content_item["details"]["breadcrumbs"] = nil
-      expect(described_class.new(content_item).breadcrumbs).to be(nil)
+      expect(described_class.new(content_item).breadcrumbs).to be_nil
     end
 
     it "returns breadcrumbs in the structure expected by govuk_publishing_components" do
@@ -74,6 +72,32 @@ RSpec.describe LandingPage do
         { title: "Some breadcrumb", url: "/some-breadcrumb" },
         { title: "Some other breadcrumb", url: "/some-other-breadcrumb" },
       ])
+    end
+  end
+
+  describe "#theme" do
+    it "returns the default theme if theme is not specified" do
+      content_item["details"]["theme"] = nil
+
+      expect(described_class.new(content_item).theme).to eq("default")
+    end
+
+    it "returns the default theme if theme is default" do
+      content_item["details"]["theme"] = "default"
+
+      expect(described_class.new(content_item).theme).to eq("default")
+    end
+
+    it "returns the default theme if theme is not in the list of accepted themes" do
+      content_item["details"]["theme"] = "missing-theme"
+
+      expect(described_class.new(content_item).theme).to eq("default")
+    end
+
+    it "returns the specified theme if theme is in the list of accepted themes" do
+      content_item["details"]["theme"] = "prime-ministers-office-10-downing-street"
+
+      expect(described_class.new(content_item).theme).to eq("prime-ministers-office-10-downing-street")
     end
   end
 end

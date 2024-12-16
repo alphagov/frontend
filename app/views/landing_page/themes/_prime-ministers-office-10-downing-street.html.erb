@@ -1,0 +1,35 @@
+<%
+  add_view_stylesheet("landing_page/themes/prime-ministers-office-10-downing-street")
+%>
+
+<div class="landing-page-header">
+  <div class="govuk-width-container">
+    <div class="landing-page-header__blue-bar">
+    </div>
+
+    <% if @content_item.breadcrumbs.present? %>
+      <%= render 'govuk_publishing_components/components/breadcrumbs', {
+        collapse_on_mobile: true,
+        inverse: true,
+        breadcrumbs: @content_item.breadcrumbs
+      } %>
+    <% end %>
+
+    <div class="landing-page-header__org">
+      <%= render "govuk_publishing_components/components/organisation_logo", {
+        organisation: {
+          name: sanitize("Prime Minister's Office<br>10 Downing Street"),
+          url: "/government/organisations/prime-ministers-office-10-downing-street",
+          brand: "prime-ministers-office-10-downing-street",
+          crest: "eo",
+        },
+        inverse: true,
+        inline: true,
+      } %>
+    </div>
+  </div>
+</div>
+
+<main class="landing-page" id="content">
+  <%= yield :landing_page_blocks %>
+</main>

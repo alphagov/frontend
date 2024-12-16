@@ -7,7 +7,7 @@
     type: "simple smart answer",
     section: question.title,
     action: "next step",
-    tool_name: publication.title,
+    tool_name: content_item.title,
   }.to_json
 %>
 
@@ -22,7 +22,7 @@
         text: error_message,
         section: question.title,
         action: 'error',
-        tool_name: publication.title,
+        tool_name: content_item.title,
       },
     },
     items: [
@@ -50,7 +50,7 @@
     id: field_id,
     description: description,
     error_message: error_message,
-    heading_caption: publication.title,
+    heading_caption: content_item.title,
     heading_size: "l",
     heading: "#{@flow_state.current_question_number}. #{question.title}",
     heading_level: 1,

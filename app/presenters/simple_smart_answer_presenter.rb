@@ -1,22 +1,11 @@
-class SimpleSmartAnswerPresenter < ContentItemPresenter
-  PASS_THROUGH_DETAILS_KEYS = %i[
-    body
-    nodes
-  ].freeze
-
-  PASS_THROUGH_DETAILS_KEYS.each do |key|
-    define_method key do
-      details[key.to_s]
-    end
-  end
-
+class SimpleSmartAnswerPresenter < ContentItemModelPresenter
   def start_button_text
-    if details["start_button_text"] == "Start now"
+    if content_item.start_button_text == "Start now"
       I18n.t("formats.start_now")
-    elsif details["start_button_text"] == "Continue"
+    elsif content_item.start_button_text == "Continue"
       I18n.t("continue")
     else
-      details["start_button_text"]
+      content_item.start_button_text
     end
   end
 end

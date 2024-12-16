@@ -4,12 +4,13 @@ require "gds_api/test_helpers/content_store"
 module ContentStoreHelpers
   include GdsApi::TestHelpers::ContentStore
 
-  def content_store_has_example_item(base_path, schema:, example: nil, is_tagged_to_taxon: false)
+  def content_store_has_example_item(base_path, schema:, example: nil, is_tagged_to_taxon: false, overrides: {})
     content_item = GovukSchemas::Example.find(schema, example_name: example || schema)
 
     content_item["links"] ||= {}
     content_item["links"]["taxons"] = is_tagged_to_taxon ? [basic_taxon] : []
     content_item["base_path"] = base_path
+    content_item.merge!(overrides)
 
     stub_content_store_has_item(base_path, content_item)
     content_item

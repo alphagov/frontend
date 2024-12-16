@@ -1,21 +1,6 @@
 RSpec.describe HomepagePresenter do
   let(:content_item) do
-    {
-      "links" => {
-        "popular_links" => [
-          {
-            "details" => {
-              "link_items" => [
-                {
-                  "title" => "Some title",
-                  "url" => "/some/path",
-                },
-              ],
-            },
-          },
-        ],
-      },
-    }
+    GovukSchemas::Example.find("homepage", example_name: "homepage_with_popular_links_on_govuk")
   end
 
   let(:subject) { described_class.new(content_item) }

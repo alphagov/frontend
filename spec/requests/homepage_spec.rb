@@ -2,7 +2,16 @@ RSpec.describe "Homepage" do
   include GovukAbTesting::RspecHelpers
 
   context "loading the homepage" do
-    before { stub_content_store_has_item("/", schema: "special_route", links: {}) }
+    let(:overrides) { {} }
+
+    before do
+      content_store_has_example_item(
+        "/",
+        schema: "homepage",
+        example: "homepage_with_popular_links_on_govuk",
+        overrides:,
+      )
+    end
 
     it "responds with success" do
       get "/"
@@ -17,32 +26,27 @@ RSpec.describe "Homepage" do
     end
 
     context "with popular links in the content item" do
-      setup do
-        links = {
-          "popular_links" => [
-            {
-              "details" => {
-                "link_items" => [
-                  {
-                    "title" => "Some popular links title",
-                    "url" => "/some/path",
-                  },
-                ],
-              },
-            },
-          ],
-        }
-        stub_content_store_has_item("/", schema: "special_route", links:)
-      end
-
       it "shows popular links" do
         get "/"
 
-        expect(response.body).to match("Some popular links title")
+        expect(response.body).to match("title1")
+        expect(response.body).to match("url1.com")
+        expect(response.body).to match("title2")
+        expect(response.body).to match("url2.com")
+        expect(response.body).to match("title3")
+        expect(response.body).to match("url3.com")
+        expect(response.body).to match("title4")
+        expect(response.body).to match("url4.com")
+        expect(response.body).to match("title5")
+        expect(response.body).to match("url5.com")
+        expect(response.body).to match("title6")
+        expect(response.body).to match("url6.com")
       end
     end
 
     context "with popular links not in the content item" do
+      let(:overrides) { { "links" => {} } }
+
       it "shows popular links" do
         get "/"
 

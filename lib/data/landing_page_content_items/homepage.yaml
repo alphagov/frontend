@@ -1,3 +1,4 @@
+theme: prime-ministers-office-10-downing-street
 breadcrumbs:
 - title: Home
   href: /
@@ -150,8 +151,11 @@ blocks:
   content: |
     <p><a href="/landing-page/tasks">See the latest data on our progress</a></p>
 - type: columns_layout
+  ga4_tracking: true
+  ga4_type: box
   blocks:
   - type: box
+    href: /landing-page/be-kinder
     content: Preview pickles
     theme_colour: 1
     box_content:
@@ -160,6 +164,7 @@ blocks:
           content: |
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
   - type: box
+    href: /landing-page/be-kinder
     content: Empower elephants
     theme_colour: 2
     box_content:
@@ -172,7 +177,7 @@ blocks:
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
   - type: box
     href: /landing-page/be-kinder
-    content: Celebrate Caribou (with link)
+    content: Celebrate Caribou
     theme_colour: 3
     box_content:
       blocks:

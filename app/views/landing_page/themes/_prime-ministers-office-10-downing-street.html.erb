@@ -25,6 +25,15 @@
         },
         inverse: true,
         inline: true,
+        data_attributes: {
+          module: "ga4-link-tracker",
+          ga4_track_links_only: "",
+          ga4_link: {
+            event_name: "navigation",
+            section: "Header",
+            type: "organisation logo"
+          }.to_json
+        }
       } %>
     </div>
   </div>

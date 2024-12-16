@@ -1,5 +1,5 @@
 RSpec.describe TravelAdviceIndexPresenter do
-  context "handling countries" do
+  context "when handling countries" do
     let(:attributes) { GovukSchemas::Example.find("travel_advice_index", example_name: "index") }
     let(:presenter) { described_class.new(attributes) }
 

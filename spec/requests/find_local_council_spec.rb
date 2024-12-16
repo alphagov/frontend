@@ -8,7 +8,7 @@ RSpec.describe "Find Local Council" do
   it "sets correct expiry headers" do
     get "/find-local-council"
 
-    honours_content_store_ttl
+    expect(response).to honour_content_store_ttl
   end
 
   it "returns a 404 if the local authority can't be found" do

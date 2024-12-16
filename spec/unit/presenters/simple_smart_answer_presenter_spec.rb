@@ -1,6 +1,6 @@
 RSpec.describe SimpleSmartAnswerPresenter do
   def subject(content_item)
-    described_class.new(content_item.deep_stringify_keys!)
+    described_class.new(content_item)
   end
 
   before do

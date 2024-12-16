@@ -2,7 +2,7 @@ RSpec.describe "Homepage" do
   include GovukAbTesting::RspecHelpers
   include ContentStoreHelpers
 
-  context "loading the homepage" do
+  context "when loading the homepage" do
     before { stub_homepage_content_item }
 
     it "responds with success" do
@@ -14,7 +14,7 @@ RSpec.describe "Homepage" do
     it "sets correct expiry headers" do
       get "/"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
   end
 end

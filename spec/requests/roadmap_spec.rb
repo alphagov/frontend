@@ -1,5 +1,5 @@
 RSpec.describe "Roadmap" do
-  context "GET index" do
+  describe "GET index" do
     before do
       content_store_has_random_item(base_path: "/roadmap", schema: "special_route")
     end

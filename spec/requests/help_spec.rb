@@ -8,7 +8,7 @@ RSpec.describe "Help" do
     end
   end
 
-  context "GET index" do
+  describe "GET index" do
     before do
       content_store_has_random_item(base_path: "/help", schema: "help_page")
     end
@@ -16,11 +16,11 @@ RSpec.describe "Help" do
     it "sets the cache expiry headers" do
       get "/help"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
   end
 
-  context "loading the cookies setting page" do
+  context "when loading the cookies setting page" do
     before do
       content_store_has_random_item(base_path: "/help/cookies", schema: "help_page")
     end
@@ -34,11 +34,11 @@ RSpec.describe "Help" do
     it "sets the cache expiry headers" do
       get "/help/cookies"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
   end
 
-  context "GET ab-testing" do
+  describe "GET ab-testing" do
     %w[A B].each do |variant|
       it "does not affect non-AB-testing pages with the #{variant} variant" do
         content_store_has_random_item(base_path: "/help", schema: "help_page")
@@ -99,7 +99,7 @@ RSpec.describe "Help" do
     end
   end
 
-  context "GET /:slug" do
+  describe "GET /:slug" do
     before do
       content_store_has_random_item(base_path: "/help/about-govuk", schema: "help_page")
       content_store_has_random_item(base_path: "/help/cookies", schema: "help_page")
@@ -128,7 +128,7 @@ RSpec.describe "Help" do
   def stub_at_request
     request_headers = {}
     @request = double
-    allow(@request).to receive(:headers).and_return(request_headers)
+    allow(@request).to receive(:headers).and_return(request_headers) # rubocop:disable RSpec/InstanceVariable
     request_headers
   end
 end

@@ -3,7 +3,7 @@ RSpec.describe "Take Part" do
     content_store_has_example_item("/government/get-involved/take-part/tp1", schema: :take_part)
   end
 
-  context "GET index" do
+  describe "GET index" do
     it "returns 200" do
       get "/government/get-involved/take-part/tp1"
 

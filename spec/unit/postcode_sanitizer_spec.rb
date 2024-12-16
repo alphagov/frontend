@@ -1,5 +1,5 @@
 RSpec.describe PostcodeSanitizer do
-  context "postcodes are sanitized before being sent to LocationsApi" do
+  describe "#sanitize" do
     it "strips trailing spaces from entered postcodes" do
       expect(described_class.sanitize("WC2B 6NH ")).to eq("WC2B 6NH")
     end
@@ -11,11 +11,11 @@ RSpec.describe PostcodeSanitizer do
     it "transposes O/0 and I/1 if necessary" do
       expect(described_class.sanitize("WIA OAA")).to eq("W1A 0AA")
     end
-  end
 
-  context "if the postcode parameter is nil or an empty string" do
-    it "returns nil and does not try to perform sanitization" do
-      expect(described_class.sanitize("")).to be_nil
+    context "when the postcode parameter is nil or an empty string" do
+      it "returns nil and does not try to perform sanitization" do
+        expect(described_class.sanitize("")).to be_nil
+      end
     end
   end
 end

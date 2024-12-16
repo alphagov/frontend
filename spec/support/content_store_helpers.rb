@@ -45,10 +45,6 @@ module ContentStoreHelpers
     allow(GdsApi).to receive(:content_store).and_return(content_store)
   end
 
-  def honours_content_store_ttl
-    expect(response.headers["Cache-Control"]).to eq("max-age=#{15.minutes.to_i}, public")
-  end
-
   def stub_homepage_content_item(links: [])
     content_item = GovukSchemas::Example.find("homepage", example_name: "homepage_with_popular_links_on_govuk")
     base_path = content_item.fetch("base_path")

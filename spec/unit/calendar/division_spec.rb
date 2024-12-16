@@ -25,8 +25,9 @@ RSpec.describe Calendar::Division do
     it "construct a year for each one in the data" do
       div = described_class.new("something", "2012" => [1, 2], "2013" => [3, 4])
 
-      expect(Calendar::Year).to receive(:new).with("2012", div, [1, 2]).and_return(:y_2012)
-      expect(Calendar::Year).to receive(:new).with("2013", div, [3, 4]).and_return(:y_2013)
+      allow(Calendar::Year).to receive(:new).with("2012", div, [1, 2]).and_return(:y_2012)
+      allow(Calendar::Year).to receive(:new).with("2013", div, [3, 4]).and_return(:y_2013)
+
       expect(div.years).to eq(%i[y_2012 y_2013])
     end
 
@@ -48,124 +49,126 @@ RSpec.describe Calendar::Division do
       expect(div.years).to eq(%i[y_2012 y_2013])
     end
 
-    context "finding a year by name" do
-      before do
-        @div = described_class.new("something", "title" => "A Division", "2012" => [1, 2], "2013" => [3, 4])
-      end
+    context "when finding a year by name" do
+      subject(:div) { described_class.new("something", "title" => "A Division", "2012" => [1, 2], "2013" => [3, 4]) }
 
       it "returns the year with the matching name" do
-        y = @div.year("2013")
+        y = div.year("2013")
 
         expect(y.class).to eq(Calendar::Year)
         expect(y.to_s).to eq("2013")
       end
 
       it "raises an exception when division doesn't exist" do
-        expect { @div.year("non-existent") }.to raise_error(Calendar::CalendarNotFound)
+        expect { div.year("non-existent") }.to raise_error(Calendar::CalendarNotFound)
       end
     end
   end
 
   describe "#events" do
+    let(:div) { described_class.new("something") }
+    let(:years) { [] }
+
     before do
-      @years = []
-      @div = described_class.new("something")
-      allow(@div).to receive(:years).and_return(@years)
+      allow(div).to receive(:years).and_return(years)
     end
 
     it "merges events for all years into single array" do
-      @years << instance_double(Calendar::Year, events: [1, 2])
-      @years << instance_double(Calendar::Year, events: [3, 4, 5])
-      @years << instance_double(Calendar::Year, events: [6, 7])
+      years << instance_double(Calendar::Year, events: [1, 2])
+      years << instance_double(Calendar::Year, events: [3, 4, 5])
+      years << instance_double(Calendar::Year, events: [6, 7])
 
-      expect(@div.events).to eq([1, 2, 3, 4, 5, 6, 7])
+      expect(div.events).to eq([1, 2, 3, 4, 5, 6, 7])
     end
 
     it "handles years with no events" do
-      @years << instance_double(Calendar::Year, events: [1, 2])
-      @years << instance_double(Calendar::Year, events: [])
-      @years << instance_double(Calendar::Year, events: [6, 7])
+      years << instance_double(Calendar::Year, events: [1, 2])
+      years << instance_double(Calendar::Year, events: [])
+      years << instance_double(Calendar::Year, events: [6, 7])
 
-      expect(@div.events).to eq([1, 2, 6, 7])
+      expect(div.events).to eq([1, 2, 6, 7])
     end
   end
 
   describe "#upcoming_event" do
+    let(:div) { described_class.new("something") }
+    let(:years) { [] }
+
     before do
-      @years = []
-      @div = described_class.new("something")
-      allow(@div).to receive(:years).and_return(@years)
+      allow(div).to receive(:years).and_return(years)
     end
 
     it "returns nil with no years" do
-      expect(@div.upcoming_event).to be_nil
+      expect(div.upcoming_event).to be_nil
     end
 
     it "returns nil if no years have upcoming_events" do
-      @years << instance_double(Calendar::Year, upcoming_event: nil)
-      @years << instance_double(Calendar::Year, upcoming_event: nil)
+      years << instance_double(Calendar::Year, upcoming_event: nil)
+      years << instance_double(Calendar::Year, upcoming_event: nil)
 
-      expect(@div.upcoming_event).to be_nil
+      expect(div.upcoming_event).to be_nil
     end
 
     it "returns the upcoming event for the first year that has one" do
-      @years << instance_double(Calendar::Year, upcoming_event: nil)
-      @years << instance_double(Calendar::Year, upcoming_event: :event_1)
-      @years << instance_double(Calendar::Year, upcoming_event: :event_2)
+      years << instance_double(Calendar::Year, upcoming_event: nil)
+      years << instance_double(Calendar::Year, upcoming_event: :event_1)
+      years << instance_double(Calendar::Year, upcoming_event: :event_2)
 
-      expect(@div.upcoming_event).to eq(:event_1)
+      expect(div.upcoming_event).to eq(:event_1)
     end
 
     it "caches the event" do
       y1 = instance_double(Calendar::Year)
       y2 = instance_double(Calendar::Year, upcoming_event: :event_1)
-      @years << y1
-      @years << y2
+      years << y1
+      years << y2
 
       expect(y1).to receive(:upcoming_event).once.and_return(nil)
-      @div.upcoming_event
+      div.upcoming_event
 
-      expect(@div.upcoming_event).to eq(:event_1)
+      expect(div.upcoming_event).to eq(:event_1)
     end
   end
 
   describe "#upcoming_events_by_year" do
+    let(:div) { described_class.new("something") }
+    let(:years) { [] }
+
     before do
-      @years = []
-      @div = described_class.new("something")
-      allow(@div).to receive(:years).and_return(@years)
+      allow(div).to receive(:years).and_return(years)
     end
 
     it "returns a hash of year => events for upcoming events" do
       y1 = instance_double(Calendar::Year, upcoming_events: %i[e1 e2])
       y2 = instance_double(Calendar::Year, upcoming_events: %i[e3 e4 e5])
-      ((@years << y1) << y2)
+      ((years << y1) << y2)
       expected = { y1 => %i[e1 e2], y2 => %i[e3 e4 e5] }
-      expect(@div.upcoming_events_by_year).to eq(expected)
+      expect(div.upcoming_events_by_year).to eq(expected)
     end
 
     it "does not include any years with no upcoming events" do
       y1 = instance_double(Calendar::Year, upcoming_events: [])
       y2 = instance_double(Calendar::Year, upcoming_events: %i[e1 e2 e3])
-      ((@years << y1) << y2)
+      ((years << y1) << y2)
       expected = { y2 => %i[e1 e2 e3] }
-      expect(@div.upcoming_events_by_year).to eq(expected)
+      expect(div.upcoming_events_by_year).to eq(expected)
     end
   end
 
   describe "#past_events_by_year" do
+    let(:div) { described_class.new("something") }
+    let(:years) { [] }
+
     before do
-      @years = []
-      @div = described_class.new("something")
-      allow(@div).to receive(:years).and_return(@years)
+      allow(div).to receive(:years).and_return(years)
     end
 
     it "returns a hash of year => reversed events for past events" do
       y1 = instance_double(Calendar::Year, past_events: %i[e1 e2])
       y2 = instance_double(Calendar::Year, past_events: %i[e3 e4 e5])
-      ((@years << y1) << y2)
+      ((years << y1) << y2)
       expected = { y1 => %i[e2 e1], y2 => %i[e5 e4 e3] }
-      events_by_year = @div.past_events_by_year
+      events_by_year = div.past_events_by_year
 
       expect(events_by_year).to eq(expected)
       expect(events_by_year.keys).to eq([y2, y1])
@@ -174,51 +177,52 @@ RSpec.describe Calendar::Division do
     it "does not include any years with no past events" do
       y1 = instance_double(Calendar::Year, past_events: %i[e1 e2])
       y2 = instance_double(Calendar::Year, past_events: [])
-      ((@years << y1) << y2)
+      ((years << y1) << y2)
       expected = { y1 => %i[e2 e1] }
 
-      expect(@div.past_events_by_year).to eq(expected)
+      expect(div.past_events_by_year).to eq(expected)
     end
   end
 
   describe "#show_bunting?" do
-    before { @div = described_class.new("something") }
+    let(:div) { described_class.new("something") }
 
     it "is true if there is a buntable bank holiday today" do
-      @event = Calendar::Event.new("bunting" => true, "date" => Time.zone.today)
-      allow(@div).to receive(:upcoming_event).and_return(@event)
+      event = Calendar::Event.new("bunting" => true, "date" => Time.zone.today)
+      allow(div).to receive(:upcoming_event).and_return(event)
 
-      expect(@div.show_bunting?).to be true
+      expect(div.show_bunting?).to be true
     end
 
     it "is false if there is a non-buntable bank holiday today" do
-      @event = Calendar::Event.new("bunting" => false, "date" => Time.zone.today)
-      allow(@div).to receive(:upcoming_event).and_return(@event)
+      event = Calendar::Event.new("bunting" => false, "date" => Time.zone.today)
+      allow(div).to receive(:upcoming_event).and_return(event)
 
-      expect(@div.show_bunting?).to be false
+      expect(div.show_bunting?).to be false
     end
 
     it "is false if there is no bank holiday today" do
-      @event = Calendar::Event.new("bunting" => true, "date" => Time.zone.today + 1.week)
-      allow(@div).to receive(:upcoming_event).and_return(@event)
+      event = Calendar::Event.new("bunting" => true, "date" => Time.zone.today + 1.week)
+      allow(div).to receive(:upcoming_event).and_return(event)
 
-      expect(@div.show_bunting?).to be false
+      expect(div.show_bunting?).to be false
     end
   end
 
   describe "#as_json" do
-    before { @div = described_class.new("something") }
+    let(:div) { described_class.new("something") }
 
     it "returns division slug" do
-      hash = @div.as_json
+      hash = div.as_json
+
       expect(hash["division"]).to eq("something")
     end
 
     it "returns all events from all years" do
       y1 = instance_double(Calendar::Year, events: [1, 2])
       y2 = instance_double(Calendar::Year, events: [3, 4])
-      allow(@div).to receive(:years).and_return([y1, y2])
-      hash = @div.as_json
+      allow(div).to receive(:years).and_return([y1, y2])
+      hash = div.as_json
 
       expect(hash["events"]).to eq([1, 2, 3, 4])
     end

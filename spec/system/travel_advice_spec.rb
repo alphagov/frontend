@@ -58,10 +58,10 @@ RSpec.describe "TravelAdvice" do
       expect(page.find("#wrapper")["class"]).to include("travel-advice")
     end
 
-    it "does not display breadcrumbs" do
+    it "displays breadcrumbs" do
       visit "/foreign-travel-advice"
 
-      expect(page).to_not have_css(".gem-c-contextual-breadcrumbs")
+      expect(page).to have_css(".gem-c-contextual-breadcrumbs")
     end
 
     context "with the javascript driver" do

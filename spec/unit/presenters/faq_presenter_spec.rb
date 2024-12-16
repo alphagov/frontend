@@ -1,8 +1,9 @@
 RSpec.describe FaqPresenter do
   include CalendarHelpers
 
+  let(:view_context) { ApplicationController.new.view_context }
+
   before do
-    @view_context = ApplicationController.new.view_context
     mock_calendar_fixtures
   end
 
@@ -15,7 +16,7 @@ RSpec.describe FaqPresenter do
     Timecop.travel(Date.parse("2012-03-24")) do
       scope = "bank-holidays"
       calendar = Calendar.find(scope)
-      presenter = described_class.new(scope, calendar, payload(calendar), @view_context)
+      presenter = described_class.new(scope, calendar, payload(calendar), view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end
@@ -26,7 +27,7 @@ RSpec.describe FaqPresenter do
     Timecop.travel(Date.parse("2012-03-24")) do
       scope = "when-do-the-clocks-change"
       calendar = Calendar.find(scope)
-      presenter = described_class.new(scope, calendar, payload(calendar), @view_context)
+      presenter = described_class.new(scope, calendar, payload(calendar), view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end

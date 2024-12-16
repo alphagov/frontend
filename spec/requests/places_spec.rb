@@ -63,7 +63,7 @@ RSpec.describe "Places" do
       it "shows location error" do
         post "/slug", params: { postcode: invalid_postcode }
 
-        expect(LocationError.new(PlacesManagerResponse::INVALID_POSTCODE).postcode_error).to eq(describecontroller.view_assigns["location_error"].postcode_error)
+        expect(controller.view_assigns["location_error"].postcode_error).to eq(LocationError.new(PlacesManagerResponse::INVALID_POSTCODE).postcode_error)
       end
     end
   end

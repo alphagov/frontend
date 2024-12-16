@@ -10,7 +10,7 @@ RSpec.describe "Simple Smart Answers" do
     }
   end
 
-  context "GET 'start page'" do
+  describe "GET 'start page'" do
     before do
       content_store_has_random_item(base_path: "/the-bridge-of-death", schema: "simple_smart_answer")
     end

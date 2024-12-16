@@ -39,7 +39,7 @@ RSpec.describe "Contact Electoral Registration Office" do
       end
 
       context "and there are no contact details" do
-        let(:presenter) { instance_double(ElectoralPresenter, show_picker?: true) }
+        let(:presenter) { instance_double(ElectoralPresenter, show_picker?: true, addresses: []) }
 
         it "GET show renders the address picker template" do
           with_electoral_api_url do
@@ -52,7 +52,7 @@ RSpec.describe "Contact Electoral Registration Office" do
       end
 
       context "but contact details are present" do
-        let(:presenter) { instance_double(ElectoralPresenter, show_picker?: false) }
+        let(:presenter) { instance_double(ElectoralPresenter, show_picker?: false, electoral_services: nil, use_electoral_services_contact_details?: false, use_registration_contact_details?: false) }
 
         it "GET show doesn't render the address picker template" do
           with_electoral_api_url do

@@ -21,7 +21,7 @@ RSpec.describe "Transactions" do
   end
 
   context "when loading the jobsearch page" do
-    let(:content_item) { content_store_has_example_item("/jobsearch", schema: "transaction", example: "jobsearch") }
+    let!(:content_item) { content_store_has_example_item("/jobsearch", schema: "transaction", example: "jobsearch") }
 
     it "responds with success" do
       get "/jobsearch"
@@ -56,7 +56,7 @@ RSpec.describe "Transactions" do
   end
 
   context "when a variant exists" do
-    let(:content_item) { content_store_has_example_item("/foo", schema: "transaction", example: "transaction-with-variants") }
+    let!(:content_item) { content_store_has_example_item("/foo", schema: "transaction", example: "transaction-with-variants") }
 
     it "displays variant specific values where present" do
       get "/foo", params: { variant: "council-tax-bands-2-staging" }

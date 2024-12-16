@@ -20,20 +20,19 @@ RSpec.describe "Sessions" do
     end
 
     context "with an HTTP Referer" do
+      let!(:stub_without_redirect_path) { stub_account_api_get_sign_in_url }
+      let!(:stub_with_redirect_path) { stub_account_api_get_sign_in_url(redirect_path:) }
+
       context "with a referer on GOV.UK" do
         let(:referer) { "#{Plek.new.website_root}#{redirect_path}" }
         let(:redirect_path) { "/transition-check/results?c[]=import-wombats&c[]=practice-wizardry" }
-
-        before do
-          setup_referer(redirect_path)
-        end
 
         it "uses the path from the referer as the redirect_path" do
           get "/account", headers: { "Referer" => referer }
 
           expect(response).to have_http_status(:redirect)
-          expect(@stub_with_redirect_path).to have_been_requested
-          expect(@stub_without_redirect_path).not_to have_been_requested
+          expect(stub_with_redirect_path).to have_been_requested
+          expect(stub_without_redirect_path).not_to have_been_requested
         end
       end
 
@@ -41,14 +40,10 @@ RSpec.describe "Sessions" do
         let(:referer) { "//protocol-relative-path" }
         let(:redirect_path) { referer }
 
-        before do
-          setup_referer(redirect_path)
-        end
-
         it "does not take the redirect_path from the referer" do
           get "/account", headers: { "Referer" => referer }
 
-          expect(@stub_with_redirect_path).not_to have_been_requested
+          expect(stub_with_redirect_path).not_to have_been_requested
           expect(response).to redirect_to("https://home.account.gov.uk")
         end
       end
@@ -57,14 +52,10 @@ RSpec.describe "Sessions" do
         let(:referer) { "https://www.some-other-website.gov.uk/path" }
         let(:redirect_path) { "/path" }
 
-        before do
-          setup_referer(redirect_path)
-        end
-
         it "does not take the redirect_path from the referer" do
           get "/account", headers: { "Referer" => referer }
 
-          expect(@stub_with_redirect_path).not_to have_been_requested
+          expect(stub_with_redirect_path).not_to have_been_requested
           expect(response).to redirect_to("https://home.account.gov.uk")
         end
       end
@@ -94,20 +85,25 @@ RSpec.describe "Sessions" do
     end
 
     context "when the :code and :state are valid" do
+      let(:govuk_account_session) { "new-session-id" }
+      let(:redirect_path) { nil }
+      let(:cookie_consent) { true }
+      let(:feedback_consent) { true }
+
       before do
-        @govuk_account_session = "new-session-id"
-        @redirect_path = nil
-        @cookie_consent = true
-        @feedback_consent = true
+        stub_account_api_validates_auth_response(
+          govuk_account_session:,
+          redirect_path:,
+          cookie_consent:,
+          feedback_consent:,
+        )
       end
 
       context "with no extra parameters" do
-        before { stub_account_api }
-
         it "sets the 'GOVUK-Account-Session' header" do
           get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
-          expect(@govuk_account_session).to eq(response.headers["GOVUK-Account-Session"])
+          expect(response.headers["GOVUK-Account-Session"]).to eq(govuk_account_session)
         end
 
         it "redirects to the account home path" do
@@ -136,72 +132,60 @@ RSpec.describe "Sessions" do
       end
 
       context "when account-api returns a :redirect_path" do
-        before do
-          @redirect_path = "/bank-holiday"
-          stub_account_api
-        end
+        let(:redirect_path) { "/bank-holiday" }
 
         it "redirects to the redirect path" do
           get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
           expect(response).to have_http_status(:redirect)
-          assert_includes(response.redirect_url, @redirect_path)
+          assert_includes(response.redirect_url, redirect_path)
         end
 
         context "when the redirect path has a querystring" do
-          before do
-            @redirect_path = "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications"
-            stub_account_api
-          end
+          let(:redirect_path) { "/email/subscriptions/account/confirm?frequency=immediately&return_to_url=true&topic_id=some-page-with-notifications" }
 
           it "preserves the querystring" do
             get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
             expect(response).to have_http_status(:redirect)
-            assert_includes(response.redirect_url, @redirect_path)
+            assert_includes(response.redirect_url, redirect_path)
           end
         end
       end
 
       context "when account-api returns a nil :cookie_consent" do
-        before do
-          @cookie_consent = nil
-          @redirect_path = "/bank-holiday"
-          stub_account_api
-        end
+        let(:cookie_consent) { nil }
+        let(:redirect_path) { "/bank-holiday" }
 
         it "signs the user in properly" do
           get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
-          expect(@govuk_account_session).to eq(response.headers["GOVUK-Account-Session"])
+          expect(response.headers["GOVUK-Account-Session"]).to eq(govuk_account_session)
         end
 
         it "redirects to the redirect_path" do
           get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
           expect(response).to have_http_status(:redirect)
-          assert_includes(@response.redirect_url, @redirect_path)
+          assert_includes(response.redirect_url, redirect_path)
         end
       end
 
       context "when account-api returns a nil :feedback_consent" do
-        before do
-          @feedback_consent = nil
-          @redirect_path = "/bank-holiday"
-          stub_account_api
-        end
+        let(:feedback_consent) { nil }
+        let(:redirect_path) { "/bank-holiday" }
 
         it "signs the user in properly" do
           get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
-          expect(@govuk_account_session).to eq(@response.headers["GOVUK-Account-Session"])
+          expect(response.headers["GOVUK-Account-Session"]).to eq(govuk_account_session)
         end
 
         it "redirects to the redirect_path" do
           get "/sign-in/callback", params: { code: "code123", state: "state123" }
 
           expect(response).to have_http_status(:redirect)
-          assert_includes(@response.redirect_url, @redirect_path)
+          assert_includes(response.redirect_url, redirect_path)
         end
       end
     end
@@ -209,9 +193,10 @@ RSpec.describe "Sessions" do
 
   describe "GET /sign-out" do
     context "when the user is logged in" do
+      let(:end_session_uri) { "https://authentication-provider/end-session" }
+
       before do
-        @end_session_uri = "https://authentication-provider/end-session"
-        stub_account_api_get_end_session_url(end_session_uri: @end_session_uri)
+        stub_account_api_get_end_session_url(end_session_uri:)
       end
 
       # TODO: The request module for govuk_personalisation doesn't support requests correctly,
@@ -227,22 +212,8 @@ RSpec.describe "Sessions" do
         get "/sign-out"
 
         expect(response).to have_http_status(:redirect)
-        expect(@end_session_uri).to eq(response.redirect_url)
+        expect(response.redirect_url).to eq(end_session_uri)
       end
     end
-  end
-
-  def setup_referer(redirect_path)
-    @stub_without_redirect_path = stub_account_api_get_sign_in_url
-    @stub_with_redirect_path = stub_account_api_get_sign_in_url(redirect_path:)
-  end
-
-  def stub_account_api
-    stub_account_api_validates_auth_response(
-      govuk_account_session: @govuk_account_session,
-      redirect_path: @redirect_path,
-      cookie_consent: @cookie_consent,
-      feedback_consent: @feedback_consent,
-    )
   end
 end

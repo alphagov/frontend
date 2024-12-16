@@ -5,20 +5,59 @@
   <h2 class="govuk-visually-hidden" id="app-b-main-navigation-heading">Secondary navigation menu</h2>
   <div class="app-b-main-nav__button-container app-b-main-nav__button-container--collapsed js-app-b-main-nav__button-container">
     <div class="govuk-width-container">
-      <button type="button" class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav-container">
-        <%= block.name || "Menu" %>
-      </button>
+      <% button_text = block.name || "Menu" %>
+      <%= tag.button button_text,
+        type: "button",
+        class: "app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline",
+        aria: { expanded: "false", controls: "app-b-main-nav-container" },
+        data: {
+          module: "ga4-event-tracker",
+          ga4_expandable: "",
+          ga4_event: {
+            event_name: "select content",
+            index_section: 1,
+            index_section_count: 1,
+            type: "secondary header",
+            section: button_text
+          }.to_json
+        } %>
     </div>
   </div>
   <div class="app-b-main-nav__nav-container app-b-main-nav__nav-container--js-hidden govuk-width-container js-app-b-main-nav__nav-container" id="app-b-main-nav-container">
-    <nav aria-labelledby="app-b-main-navigation-heading">
+    <nav aria-labelledby="app-b-main-navigation-heading" data-module="ga4-link-tracker">
+      <%
+        ga4_index_section = 0
+        ga4_index_section_count = block.links.length
+      %>
       <% contents_list(request.path, block.links).each do |link_group| %>
-        <h3 class="app-b-main-nav__heading govuk-heading-s"><%= link_group[:text] %></h3>
+        <%
+          nav_section_heading = link_group[:text]
+          ga4_index_section = ga4_index_section + 1
+        %>
+        <h3 class="app-b-main-nav__heading govuk-heading-s"><%= nav_section_heading %></h3>
         <ul class="app-b-main-nav__list">
+          <%
+            ga4_index_link = 0
+            ga4_index_total = link_group[:links].length
+          %>
           <% link_group[:links].each do |link| %>
-          <li class="app-b-main-nav__list-item">
-            <%= link_to link[:text], link[:href], class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %>
-          </li>
+            <li class="app-b-main-nav__list-item">
+              <% ga4_index_link = ga4_index_link + 1 %>
+              <%= link_to link[:text],
+                link[:href],
+                class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state",
+                data: {
+                  ga4_link: {
+                    event_name: "navigation",
+                    type: "secondary header",
+                    index_link: ga4_index_link,
+                    index_total: ga4_index_total,
+                    index_section: ga4_index_section,
+                    index_section_count: ga4_index_section_count,
+                    section: nav_section_heading,
+                  }.to_json
+                } %>
+            </li>
           <% end %>
         </ul>
       <% end %>

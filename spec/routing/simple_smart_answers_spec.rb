@@ -5,13 +5,13 @@ RSpec.describe "Simple Smart Answers" do
     content_store_has_random_item(base_path: "/fooey", schema: "simple_smart_answer")
   end
 
-  context "for the start page" do
+  context "when accessing the start page" do
     it "routes the start page to the SimpleSmartAnswer controller" do
       expect(get("/fooey")).to route_to(controller: "simple_smart_answers", action: "show", slug: "fooey")
     end
   end
 
-  context "routes in a flow" do
+  context "with routes in a flow" do
     it "routes to the start of a flow" do
       expect(get("/fooey/y")).to route_to(controller: "simple_smart_answers", action: "flow", slug: "fooey")
     end

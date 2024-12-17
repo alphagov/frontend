@@ -64,3 +64,8 @@ $govuk-include-default-font-face: false;
 .bank-hols .govuk-panel {
   margin-bottom: govuk-spacing(6);
 }
+
+.inverse-background {
+  background: $govuk-brand-colour;
+  color: govuk-colour("white");
+}

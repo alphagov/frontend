@@ -1,15 +1,17 @@
 <% heading = block.heading || "Latest Updates" %>
 
 <% if block.items.any? %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: heading,
-    padding: true,
-    border_top: 5,
-    margin_bottom: 3
-  } %>
+  <div class="govuk-block--spaced">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: heading,
+      padding: true,
+      border_top: 5,
+      margin_bottom: 3
+    } %>
 
-  <%= render "govuk_publishing_components/components/document_list", {
-    margin_bottom: 0,
-    items: block.items,
-  } %>
+    <%= render "govuk_publishing_components/components/document_list", {
+      margin_bottom: 0,
+      items: block.items,
+    } %>
+  </div>
 <% end %>

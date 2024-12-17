@@ -1,23 +1,25 @@
 <%
   add_gem_component_stylesheet("chart")
 
-  margin_bottom = options[:margin_bottom] || 8
+  margin_bottom = options[:margin_bottom] || 0
   height = options[:height] || 400
 %>
-<%= render "govuk_publishing_components/components/chart", {
-  chart_heading: block.data["title"],
-  hide_heading: block.data["hide_heading"],
-  h_axis_title: block.data["x_axis_label"],
-  v_axis_title: block.data["y_axis_label"],
-  hide_legend: block.data["hide_legend"],
-  keys: block.x_axis_keys,
-  rows: block.rows,
-  link: block.attachment&.url || block.data["data_source_link"],
-  margin_bottom: margin_bottom,
-  minimal: block.data["minimal"],
-  height: height,
-  table_direction: "vertical",
-  point_size: block.data["point_size"],
-  h_axis_format: block.data["x_axis_format"],
-  v_axis_format: block.data["y_axis_format"],
-} %>
+<div class="govuk-block--spaced">
+  <%= render "govuk_publishing_components/components/chart", {
+    chart_heading: block.data["title"],
+    hide_heading: block.data["hide_heading"],
+    h_axis_title: block.data["x_axis_label"],
+    v_axis_title: block.data["y_axis_label"],
+    hide_legend: block.data["hide_legend"],
+    keys: block.x_axis_keys,
+    rows: block.rows,
+    link: block.attachment&.url || block.data["data_source_link"],
+    margin_bottom: margin_bottom,
+    minimal: block.data["minimal"],
+    height: height,
+    table_direction: "vertical",
+    point_size: block.data["point_size"],
+    h_axis_format: block.data["x_axis_format"],
+    v_axis_format: block.data["y_axis_format"],
+  } %>
+</div>

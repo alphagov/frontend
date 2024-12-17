@@ -1,6 +1,11 @@
+<%
+  add_view_stylesheet("landing_page/side-navigation")
+%>
+<div class="side-nav">
 <%= render "govuk_publishing_components/components/contents_list", {
 	underline_links: block.data["underline_links"],
 	alternative_line_style: block.data["alternative_line_style"],
 	title: block.data["title"],
 	contents: contents_list(request.path, block.links)
 } %>
+</div>

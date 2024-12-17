@@ -1,0 +1,7 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.side-nav {
+  @include govuk-media-query($until: desktop) {
+    display: none;
+  }
+}

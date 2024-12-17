@@ -36,5 +36,34 @@ RSpec.describe LinkHelper do
         expect(govuk_styled_link(text, path:, inverse: true)).to eq(expected)
       end
     end
+
+    context "when the text contains special characters" do
+      it "encodes special characters in the title" do
+        text = "Some text & some more"
+        expected = "<a href='/path' class='govuk-link'>Some text &amp; some more</a>"
+
+        expect(govuk_styled_link(text, path:)).to eq(expected)
+      end
+    end
+  end
+
+  describe "#govuk_styled_links_list" do
+    let(:links) do
+      [
+        { "title" => "Home", "base_path" => "/" },
+        { "title" => "UK Trade & Investment", "base_path" => "/uk-trade-investment" },
+        { "title" => "Foreign & Commonwealth Office", "base_path" => "/foreign-commonwealth-office" },
+      ]
+    end
+
+    it "returns an array of styled links" do
+      expected = [
+        "<a href='/' class='govuk-link'>Home</a>",
+        "<a href='/uk-trade-investment' class='govuk-link'>UK Trade &amp; Investment</a>",
+        "<a href='/foreign-commonwealth-office' class='govuk-link'>Foreign &amp; Commonwealth Office</a>",
+      ]
+
+      expect(govuk_styled_links_list(links)).to eq(expected)
+    end
   end
 end

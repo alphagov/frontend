@@ -1,22 +1,22 @@
 <%
   add_view_stylesheet("landing_page/main-navigation")
 %>
-<div class="app-b-main-nav" data-module="app-b-main-navigation">
-  <h2 class="govuk-visually-hidden" id="app-b-main-navigation-heading">Secondary navigation menu</h2>
-  <div class="app-b-main-nav__button-container app-b-main-nav__button-container--collapsed js-app-b-main-nav__button-container">
+<div class="main-nav" data-module="main-navigation">
+  <h2 class="govuk-visually-hidden" id="main-navigation-heading">Secondary navigation menu</h2>
+  <div class="main-nav__button-container main-nav__button-container--collapsed js-main-nav__button-container">
     <div class="govuk-width-container">
-      <button type="button" class="app-b-main-nav__button app-b-main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="app-b-main-nav-container">
+      <button type="button" class="main-nav__button main-nav__button--no-js govuk-link govuk-link--no-underline" aria-expanded="false" aria-controls="main-nav-container">
         <%= block.name || "Menu" %>
       </button>
     </div>
   </div>
-  <div class="app-b-main-nav__nav-container app-b-main-nav__nav-container--js-hidden govuk-width-container js-app-b-main-nav__nav-container" id="app-b-main-nav-container">
-    <nav aria-labelledby="app-b-main-navigation-heading">
+  <div class="main-nav__nav-container main-nav__nav-container--js-hidden govuk-width-container js-main-nav__nav-container" id="main-nav-container">
+    <nav aria-labelledby="main-navigation-heading">
       <% contents_list(request.path, block.links).each do |link_group| %>
-        <h3 class="app-b-main-nav__heading govuk-heading-s"><%= link_group[:text] %></h3>
-        <ul class="app-b-main-nav__list">
+        <h3 class="main-nav__heading govuk-heading-s"><%= link_group[:text] %></h3>
+        <ul class="main-nav__list">
           <% link_group[:links].each do |link| %>
-          <li class="app-b-main-nav__list-item">
+          <li class="main-nav__list-item">
             <%= link_to link[:text], link[:href], class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %>
           </li>
           <% end %>

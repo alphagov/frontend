@@ -1,6 +1,6 @@
 @import "govuk_publishing_components/individual_component_support";
 
-.app-b-card {
+.card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -13,11 +13,11 @@
   }
 }
 
-.app-b-card__textbox {
+.card__textbox {
   padding: govuk-spacing(4) 0;
 }
 
-.app-b-card__figure {
+.card__figure {
   border-style: solid;
   border-width: 0 1px 1px;
   border-color: govuk-colour("mid-grey");
@@ -25,14 +25,14 @@
   background-color: govuk-colour("white");
 }
 
-.app-b-card__image {
+.card__image {
   display: block;
   width: 100%;
   margin: 0;
 }
 
 @include govuk-media-query($media-type: print) {
-  .app-b-card {
+  .card {
     background: none;
     padding: 0;
 

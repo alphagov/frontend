@@ -3,7 +3,7 @@
 $desktop-height: 400px;
 $large-desktop-height: 500px;
 
-.app-b-hero__imagewrapper {
+.hero__imagewrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -18,18 +18,18 @@ $large-desktop-height: 500px;
   }
 }
 
-.app-b-hero {
+.hero {
   position: relative;
 }
 
-.app-b-hero__image {
+.hero__image {
   @include govuk-media-query($until: desktop) {
     aspect-ratio: 4/3 auto;
     width: 100%;
   }
 }
 
-.app-b-hero__textbox {
+.hero__textbox {
   position: relative;
   min-height: 170px;
   padding: govuk-spacing(6);
@@ -43,7 +43,7 @@ $large-desktop-height: 500px;
   }
 }
 
-.app-b-hero--middle_left {
+.hero--middle_left {
   overflow: hidden;
 
   @include govuk-media-query($until: desktop) {
@@ -51,7 +51,7 @@ $large-desktop-height: 500px;
     flex-direction: column-reverse;
   }
 
-  .app-b-hero__textbox-wrapper {
+  .hero__textbox-wrapper {
     @include govuk-media-query($from: desktop) {
       box-sizing: border-box;
       align-items: center;
@@ -66,7 +66,7 @@ $large-desktop-height: 500px;
     }
   }
 
-  .app-b-hero__textbox {
+  .hero__textbox {
     margin-top: 0;
 
     @include govuk-media-query($until: desktop) {

@@ -4,21 +4,21 @@
   margin-bottom: 0;
 }
 
-.app-b-main-nav {
+.main-nav {
   border-bottom: 1px solid $govuk-border-colour;
   @include govuk-font(19);
 }
 
-.app-b-main-nav__button-container {
+.main-nav__button-container {
   background-color: govuk-colour("light-grey");
   border-bottom: 1px solid govuk-colour("mid-grey");
 }
 
-.app-b-main-nav__button-container--collapsed {
+.main-nav__button-container--collapsed {
   border-bottom: 0;
 }
 
-.app-b-main-nav__button {
+.main-nav__button {
   height: 70px;
   color: govuk-colour("blue");
   background: none;
@@ -36,7 +36,7 @@
 }
 
 // Shared styles for the expanded and collapsed arrow icon. Based off of the super navigation menu button.
-.app-b-main-nav__button::before {
+.main-nav__button::before {
   border-bottom: 2px solid govuk-colour("blue");
   border-right: 2px solid govuk-colour("blue");
   content: "";
@@ -47,24 +47,24 @@
   width: 8px;
 }
 
-.app-b-main-nav__button:focus {
+.main-nav__button:focus {
   border-color: $govuk-focus-colour;
   box-shadow: 0 0, 0 4px govuk-colour("black");
   z-index: 999; // Prevents focus style black bottom border being obscured
 
-  &.app-b-main-nav__button::before {
+  &.main-nav__button::before {
     border-color: govuk-colour("black");
   }
 }
 
-.app-b-main-nav__button[aria-expanded="false"]::before {
+.main-nav__button[aria-expanded="false"]::before {
   // Collapsed arrow icon
   -webkit-transform: translateY(-35%) rotate(45deg) scale(1);
   -ms-transform: translateY(-35%) rotate(45deg) scale(1);
   transform: translateY(-35%) rotate(45deg) scale(1);
 }
 
-.app-b-main-nav__button[aria-expanded="true"] {
+.main-nav__button[aria-expanded="true"] {
   border-color: govuk-colour("mid-grey");
   background-color: govuk-colour("white");
 
@@ -73,20 +73,20 @@
   }
 
   // Expanded arrow icon
-  &.app-b-main-nav__button::before {
+  &.main-nav__button::before {
     -webkit-transform: translateY(1px) rotate(225deg) scale(1);
     -ms-transform: translateY(1px) rotate(225deg) scale(1);
     transform: translateY(1px) rotate(225deg) scale(1);
   }
 }
 
-.app-b-main-nav__button[aria-expanded="true"]:focus {
+.main-nav__button[aria-expanded="true"]:focus {
   background-color: $govuk-focus-colour;
   border-color: $govuk-focus-colour;
 }
 
 // Adds a white border at the bottom of the button when the button is expanded. Used to make the button look like a tab that's seamlessly connected to element below it.
-.app-b-main-nav__button[aria-expanded="true"]::after {
+.main-nav__button[aria-expanded="true"]::after {
   content: "";
   position: absolute;
   border-bottom: 1px solid govuk-colour("white");
@@ -96,34 +96,34 @@
 }
 
 // Removes the white border on bottom of button when focus styles are active.
-.app-b-main-nav__button[aria-expanded="true"]:focus::after {
+.main-nav__button[aria-expanded="true"]:focus::after {
   border: 0;
 }
 
-.app-b-main-nav__button--no-js {
+.main-nav__button--no-js {
   display: none;
 }
 
-.app-b-main-nav__button:hover::before {
+.main-nav__button:hover::before {
   border-color: govuk-colour("dark-blue");
 }
 
-.app-b-main-nav__nav-container {
+.main-nav__nav-container {
   margin-top: govuk-spacing(7);
   margin-bottom: govuk-spacing(9);
 }
 
 .js-enabled {
-  .app-b-main-nav__nav-container--js-hidden {
+  .main-nav__nav-container--js-hidden {
     display: none;
   }
 }
 
-.app-b-main-nav__heading {
+.main-nav__heading {
   margin-bottom: govuk-spacing(2);
 }
 
-.app-b-main-nav__list {
+.main-nav__list {
   padding-left: 0;
   margin-top: 0;
   display: grid;
@@ -139,7 +139,7 @@
   }
 }
 
-.app-b-main-nav__list-item {
+.main-nav__list-item {
   list-style: none;
   @include govuk-media-query($until: mobile) {
     margin-top: govuk-spacing(3);

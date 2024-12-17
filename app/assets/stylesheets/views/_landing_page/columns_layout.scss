@@ -1,6 +1,6 @@
 @import "govuk_publishing_components/individual_component_support";
 
-.app-b-columns-layout {
+.columns-layout {
   display: grid;
   grid-gap: govuk-spacing(6);
 
@@ -14,7 +14,7 @@
 
 }
 @include govuk-media-query($media-type: print) {
-  .app-b-columns-layout  {
+  .columns-layout  {
     display: block;
 
     > * {

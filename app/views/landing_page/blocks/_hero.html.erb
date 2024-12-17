@@ -2,27 +2,27 @@
 <%
   add_view_stylesheet("landing_page/hero")
 
-  hero_classes = %W[app-b-hero app-b-hero--#{block.theme}]
+  hero_classes = %W[hero hero--#{block.theme}]
 
   grid_class = "govuk-grid-column-two-thirds-from-desktop"
   grid_class = "govuk-grid-column-one-third-from-desktop" if block.theme == "middle_left"
 
-  hero_textbox_classes = %w[app-b-hero__textbox]
+  hero_textbox_classes = %w[hero__textbox]
   hero_textbox_classes << "border-top--#{style(block.theme_colour)}" if block.theme_colour
 
   image_alt_text = block.image.alt || ""
 %>
 
 <%= content_tag("div", class: hero_classes) do %>
-  <%= picture_tag(class: "app-b-hero__imagewrapper") do %>
+  <%= picture_tag(class: "hero__imagewrapper") do %>
     <%= tag.source srcset: "#{image_path(block.image.sources.desktop)}, #{image_path(block.image.sources.desktop_2x)} 2x", media: "(min-width: 769px)" %>
     <%= tag.source srcset: "#{image_path(block.image.sources.tablet)}, #{image_path(block.image.sources.tablet_2x)} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
     <%= tag.source srcset: "#{image_path(block.image.sources.mobile)}, #{image_path(block.image.sources.mobile_2x)} 2x", media: "(max-width: 640px)" %>
-    <%= image_tag(block.image.sources.desktop, alt: image_alt_text, class: "app-b-hero__image") %>
+    <%= image_tag(block.image.sources.desktop, alt: image_alt_text, class: "hero__image") %>
   <% end %>
 
   <% if block.hero_content.present? %>
-    <div class="govuk-width-container app-b-hero__textbox-wrapper">
+    <div class="govuk-width-container hero__textbox-wrapper">
       <div class="govuk-grid-row">
         <%= content_tag("div", class: grid_class) do %>
           <%= content_tag("div", class: hero_textbox_classes) do %>

@@ -15,9 +15,9 @@ RSpec.describe "PublishedDates", type: :view do
 
   it "renders published date and last updated date" do
     render_component(published: "1st November 2000", last_updated: "15th July 2015")
-    expect(rendered).to have_css(".app-c-published-dates",
-                                 text: "Published 1st November 2000
-    Last updated 15th July 2015")
+    assert_select ".app-c-published-dates", text: "Updates to this page
+      Published 1st November 2000
+      Last updated 15th July 2015"
   end
 
   it "links to full page history" do

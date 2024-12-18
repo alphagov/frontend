@@ -23,6 +23,8 @@ class CsvPreviewController < ApplicationController
       redirect_to(parent_document_uri, status: :see_other, allow_other_host: true) and return
     end
 
+    return cacheable_404 if @attachment_metadata["content_type"] != "text/csv"
+
     @csv_rows, @truncated = CsvPreviewService
       .new(GdsApi.asset_manager.media(params[:id], params[:filename]).body)
       .csv_rows

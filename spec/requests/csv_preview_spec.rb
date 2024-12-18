@@ -22,6 +22,19 @@ RSpec.describe "CsvPreview" do
     end
   end
 
+  context "when the file type of the attachment is not text/csv" do
+    before do
+      setup_asset_manager(parent_document_url, asset_manager_id, asset_manager_filename)
+      setup_content_item(path_from_filename(asset_manager_filename), parent_document_base_path, content_type: "application/pdf")
+    end
+
+    it "redirects to parent" do
+      get "/#{path_from_filename(asset_manager_filename)}/preview"
+
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
   def path_from_filename(base_name)
     "media/#{asset_manager_id}/#{base_name}.csv"
   end

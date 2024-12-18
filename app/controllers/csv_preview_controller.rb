@@ -15,13 +15,15 @@ class CsvPreviewController < ApplicationController
     parent_document_uri = @asset["parent_document_url"]
     parent_document_path = URI(parent_document_uri).request_uri
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
-    @attachment_metadata = @content_item.dig("details", "attachments").select do |attachment|
+    @attachment_metadata = @content_item.dig("details", "attachments").find do |attachment|
       attachment["filename"] == asset_filename
     end
 
-    if @attachment_metadata.empty?
+    if @attachment_metadata.nil?
       redirect_to(parent_document_uri, status: :see_other, allow_other_host: true) and return
     end
+
+    return cacheable_404 if @attachment_metadata["content_type"] != "text/csv"
 
     @csv_rows, @truncated = CsvPreviewService
       .new(GdsApi.asset_manager.media(params[:id], params[:filename]).body)

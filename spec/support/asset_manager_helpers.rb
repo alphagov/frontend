@@ -16,7 +16,7 @@ module AssetManagerHelpers
     stub_request(:get, "#{Plek.find('asset-manager')}/media/#{asset_manager_id}/#{filename}.csv").to_return(body: csv_file, status: media_code)
   end
 
-  def setup_content_item(non_legacy_url_path, parent_document_base_path)
+  def setup_content_item(non_legacy_url_path, parent_document_base_path, content_type: "text/csv")
     filename = non_legacy_url_path.split("/").last
     content_item = {
       base_path: parent_document_base_path,
@@ -24,8 +24,8 @@ module AssetManagerHelpers
       public_updated_at: "2023-05-27T08:00:07.000+00:00",
       details: {
         attachments: [
-          { title: "Attachment 1", filename: "file.csv", url: "https://www.gov.uk/media/5678/file.csv", file_size: "1024" },
-          { title: "Attachment 2", filename:, url: "https://www.gov.uk/#{non_legacy_url_path}", file_size: "2048" },
+          { title: "Attachment 1", content_type: "text/csv", filename: "file.csv", url: "https://www.gov.uk/media/5678/file.csv", file_size: "1024" },
+          { title: "Attachment 2", content_type:, filename:, url: "https://www.gov.uk/#{non_legacy_url_path}", file_size: "2048" },
         ],
       },
       links: {

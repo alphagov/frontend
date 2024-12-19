@@ -1,4 +1,6 @@
 RSpec.describe HomepagePresenter do
+  subject(:homepage_presenter) { described_class.new(content_item) }
+
   let(:content_item) do
     {
       "links" => {
@@ -18,21 +20,19 @@ RSpec.describe HomepagePresenter do
     }
   end
 
-  let(:subject) { described_class.new(content_item) }
-
-  context "#links" do
+  describe "#links" do
     it "returns links" do
-      expect(subject.links).to eq(content_item["links"])
+      expect(homepage_presenter.links).to eq(content_item["links"])
     end
   end
 
-  context "#popular_links" do
+  describe "#popular_links" do
     context "when popular links in the content item" do
       it "memoizes popular links" do
-        expected_popular_links = subject.popular_links
+        expected_popular_links = homepage_presenter.popular_links
         content_item["links"].delete("popular_links")
 
-        expect(subject.popular_links).to eq(expected_popular_links)
+        expect(homepage_presenter.popular_links).to eq(expected_popular_links)
       end
 
       it "returns popular links from the content item" do
@@ -40,7 +40,7 @@ RSpec.describe HomepagePresenter do
           .dig("links", "popular_links", 0, "details", "link_items")
           .collect(&:with_indifferent_access)
 
-        expect(subject.popular_links).to eq(expected_popular_links)
+        expect(homepage_presenter.popular_links).to eq(expected_popular_links)
       end
     end
 
@@ -52,7 +52,7 @@ RSpec.describe HomepagePresenter do
       it "returns popular links from the locale file" do
         expected_popular_links = I18n.t("homepage.index.popular_links")
           .collect(&:with_indifferent_access)
-        expect(subject.popular_links).to eq(expected_popular_links)
+        expect(homepage_presenter.popular_links).to eq(expected_popular_links)
       end
     end
   end

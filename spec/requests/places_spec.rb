@@ -36,26 +36,26 @@ RSpec.describe "Places" do
     stub_places_manager_places_request("slug", query_hash, return_data, 400)
   end
 
-  context "GET 'a place content item'" do
+  describe "GET 'a place content item'" do
     it "sets the cache expiry headers" do
       get "/slug"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
 
     it "does not show location error" do
       get "/slug"
 
-      expect(@controller.view_assigns["location_error"]).to be_nil
+      expect(controller.view_assigns["location_error"]).to be_nil
     end
   end
 
-  context "POST 'a postcode'" do
+  describe "POST 'a postcode'" do
     context "with valid postcode" do
       it "does not show location error" do
         post "/slug", params: { postcode: valid_postcode }
 
-        expect(@controller.view_assigns["location_error"]).to be_nil
+        expect(controller.view_assigns["location_error"]).to be_nil
       end
     end
 
@@ -63,7 +63,7 @@ RSpec.describe "Places" do
       it "shows location error" do
         post "/slug", params: { postcode: invalid_postcode }
 
-        expect(LocationError.new(PlacesManagerResponse::INVALID_POSTCODE).postcode_error).to eq(@controller.view_assigns["location_error"].postcode_error)
+        expect(controller.view_assigns["location_error"].postcode_error).to eq(LocationError.new(PlacesManagerResponse::INVALID_POSTCODE).postcode_error)
       end
     end
   end

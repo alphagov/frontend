@@ -13,17 +13,17 @@ RSpec.describe "GwyliauBanc" do
     Timecop.travel("2012-12-14")
     visit "/gwyliau-banc"
 
-    within("head", visible: false) do
-      expect(page).to have_selector("title", text: "Gwyliau banc y DU - GOV.UK", visible: false)
-      desc = page.find("meta[name=description]", visible: false)
+    within("head", visible: :hidden) do
+      expect(page).to have_selector("title", text: "Gwyliau banc y DU - GOV.UK", visible: :hidden)
+      desc = page.find("meta[name=description]", visible: :hidden)
       expect(desc["content"]).to eq("Dysgwch pryd mae gwyliau'r banc yng Nghymru, Lloegr, yr Alban a Gogledd Iwerddon - gan gynnwys gwyliau banc yn y gorffennol a'r dyfodol")
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/cymru-a-lloegr.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/cymru-a-lloegr.ics']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/yr-alban.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/yr-alban.ics']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/gogledd-iwerddon.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/gogledd-iwerddon.ics']", visible: false)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/cymru-a-lloegr.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/cymru-a-lloegr.ics']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/yr-alban.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/yr-alban.ics']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/gogledd-iwerddon.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/gogledd-iwerddon.ics']", visible: :hidden)
     end
 
     within("#content") do
@@ -171,7 +171,7 @@ RSpec.describe "GwyliauBanc" do
     end
   end
 
-  context "showing bunting on bank holidays" do
+  context "when showing bunting on bank holidays" do
     it "shows bunting when today is a buntable bank holiday" do
       Timecop.travel(Date.parse("2nd Jan 2012")) do
         visit "/gwyliau-banc"
@@ -197,7 +197,7 @@ RSpec.describe "GwyliauBanc" do
     end
   end
 
-  context "last updated" do
+  describe "last updated" do
     it "is translated and localised" do
       Timecop.travel(Date.parse("25th Dec 2012")) do
         visit "/gwyliau-banc"

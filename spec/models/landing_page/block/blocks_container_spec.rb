@@ -1,5 +1,5 @@
 RSpec.describe LandingPage::Block::BlocksContainer do
-  it_behaves_like "it is a landing-page block"
+  subject(:blocks_container) { described_class.new(blocks_hash, build(:landing_page)) }
 
   let(:blocks_hash) do
     {
@@ -20,9 +20,10 @@ RSpec.describe LandingPage::Block::BlocksContainer do
       ],
     }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   it "has children blocks" do
-    expect(subject.children.size).to eq(3)
+    expect(blocks_container.children.size).to eq(3)
   end
 end

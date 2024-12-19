@@ -25,7 +25,7 @@ RSpec.describe "LicenceTransaction" do
     }
   end
 
-  context "given a location specific licence" do
+  context "with a location specific licence" do
     before do
       configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
       stub_local_links_manager_does_not_have_an_authority("not-a-valid-council-name")
@@ -126,7 +126,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "redirects to the appropriate authority slug" do
-          expect(current_path).to eq("/find-licences/licence-to-kill/westminster")
+          expect(page).to have_current_path("/find-licences/licence-to-kill/westminster", ignore_query: true)
         end
 
         it "includes the authority name in the title element" do
@@ -287,7 +287,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "redirects to the appropriate authority slug" do
-          expect(current_path).to eq("/find-licences/licence-to-kill/buckinghamshire")
+          expect(page).to have_current_path("/find-licences/licence-to-kill/buckinghamshire", ignore_query: true)
         end
 
         it "includes the authority name in the title element" do
@@ -353,7 +353,7 @@ RSpec.describe "LicenceTransaction" do
           end
 
           it "redirects to the appropriate authority slug" do
-            expect(current_path).to eq("/find-licences/licence-to-kill/dorset")
+            expect(page).to have_current_path("/find-licences/licence-to-kill/dorset", ignore_query: true)
           end
 
           it "includes the authority name in the title element" do
@@ -450,7 +450,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "remains on the licence page" do
-        expect(current_path).to eq("/find-licences/licence-to-kill")
+        expect(page).to have_current_path("/find-licences/licence-to-kill", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -485,7 +485,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "remains on the licence page" do
-        expect(current_path).to eq("/find-licences/licence-to-kill")
+        expect(page).to have_current_path("/find-licences/licence-to-kill", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -511,7 +511,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "remains on the licence page" do
-        expect(current_path).to eq("/find-licences/licence-to-kill")
+        expect(page).to have_current_path("/find-licences/licence-to-kill", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -576,7 +576,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "returns the first authority with an actionable licence" do
-        expect(current_path).to eq("/find-licences/licence-to-kill/staffordshire")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/staffordshire", ignore_query: true)
       end
     end
 
@@ -594,7 +594,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "returns licence not found template" do
-        expect(current_path).to eq("/find-licences/licence-to-kill")
+        expect(page).to have_current_path("/find-licences/licence-to-kill", ignore_query: true)
         expect(page).to have_content("You cannot apply for this licence online.")
       end
     end
@@ -688,7 +688,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a non-location specific licence" do
+  context "with a non-location specific licence" do
     before do
       @payload = {
         base_path: "/find-licences/licence-to-kill",
@@ -765,7 +765,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a licence edition with continuation link" do
+  context "with a licence edition with continuation link" do
     before do
       @payload = {
         base_path: "/find-licences/artistic-license",
@@ -799,16 +799,17 @@ RSpec.describe "LicenceTransaction" do
         expect(page).to have_content("Start now")
       end
     end
+
     context "when visiting the licence with an authority slug" do
       before { visit "/find-licences/artistic-license/miniluv" }
 
       it "redirects to the search page" do
-        expect(page.current_path).to eq("/find-licences/artistic-license")
+        expect(page).to have_current_path("/find-licences/artistic-license", ignore_query: true)
       end
     end
   end
 
-  context "given a licence which does not exist in licensify and uses authority url" do
+  context "with a licence which does not exist in licensify and uses authority url" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       configure_locations_api_and_local_authority("SW1A 1AA", %w[a-council], 5990)
@@ -867,7 +868,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a licence which does not exist in licensify" do
+  context "with a licence which does not exist in licensify" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       stub_licence_does_not_exist("1071-5-1")
@@ -898,7 +899,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given that licensify times out" do
+  context "when licensify times out" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       stub_licence_times_out("1071-5-1")
@@ -910,7 +911,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given that licensify errors" do
+  context "when licensify returns an error" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       stub_licence_returns_error("1071-5-1")
@@ -922,7 +923,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given the usesLicensify parameter" do
+  context "with the usesLicensify parameter" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
     end
@@ -1020,7 +1021,7 @@ RSpec.describe "LicenceTransaction" do
       it "displays the interactions for the licence if usesLicensify is set to true" do
         click_link("How to apply")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/apply")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
         expect(page).not_to have_content("You cannot apply for this licence online")
         expect(page).not_to have_content("Contact your local council")
@@ -1029,7 +1030,7 @@ RSpec.describe "LicenceTransaction" do
       it "does not display the interactions for the licence if usesLicensify is set to false" do
         click_link("How to renew")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/renew")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
         expect(page).to have_content("You cannot apply for this licence online")
         expect(page).to have_content("Contact your local council")
@@ -1095,7 +1096,7 @@ RSpec.describe "LicenceTransaction" do
       it "displays the licence unavailable message after you click on the first action" do
         click_on("How to apply")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/apply")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
         expect(page).to have_content("You cannot apply for this licence online")
         expect(page).to have_content("Contact your local council")
@@ -1104,12 +1105,13 @@ RSpec.describe "LicenceTransaction" do
       it "displays the licence unavailable message after you click on the second action" do
         click_on("How to renew")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/renew")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
         expect(page).to have_content("You cannot apply for this licence online")
         expect(page).to have_content("Contact your local council")
       end
     end
+
     context "when usesLicensify is missing for one action" do
       before do
         authorities = [
@@ -1166,7 +1168,7 @@ RSpec.describe "LicenceTransaction" do
       it "does not display interactions for licence with missing usesLicensify" do
         click_on("How to apply")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/apply")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
         expect(page).to have_content("You cannot apply for this licence online")
         expect(page).to have_content("Contact your local council")
@@ -1175,7 +1177,7 @@ RSpec.describe "LicenceTransaction" do
       it "displays interactions for licence with usesLicensify set to true" do
         click_on("How to renew")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/renew")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
         expect(page).not_to have_content("You cannot apply for this licence online")
         expect(page).not_to have_content("Contact your local council")
@@ -1239,7 +1241,7 @@ RSpec.describe "LicenceTransaction" do
       it "displays the licence unavailable message after you click on an action" do
         click_on("How to apply")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/apply")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
         expect(page).to have_content("You cannot apply for this licence online")
         expect(page).to have_content("Contact your local council")
@@ -1326,7 +1328,7 @@ RSpec.describe "LicenceTransaction" do
       it "displays the interactions for the licence if usesLicensify is set to true for a link" do
         click_link("How to apply")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/apply")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
         expect(page).to have_button_as_link("Apply online", start: true, href: "/new-licence/ministry-of-love/apply-3")
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-2", start: true)
@@ -1337,7 +1339,7 @@ RSpec.describe "LicenceTransaction" do
       it "does not display the interactions for the licence if usesLicensify is set to false or is missing for a link" do
         click_link("How to renew")
 
-        expect(current_path).to eq("/find-licences/licence-to-kill/miniluv/renew")
+        expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-2", start: true)
         expect(page).to have_content("You cannot apply for this licence online")

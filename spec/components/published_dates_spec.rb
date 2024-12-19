@@ -47,7 +47,7 @@ RSpec.describe "PublishedDates", type: :view do
 
   it "only adds history id when passed page history" do
     render_component(published: "1st November 2000")
-    expect(rendered).not_to have_css("#full-publication-update-history", visible: false)
+    expect(rendered).not_to have_css("#full-publication-update-history", visible: :hidden)
 
     render_component(
       published: "1st November 2000",

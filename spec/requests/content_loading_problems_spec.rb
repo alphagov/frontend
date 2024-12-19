@@ -1,5 +1,5 @@
 RSpec.describe "Content Loading Problems" do
-  context "loading the homepage without permission" do
+  context "when loading a draft page without permission" do
     before do
       endpoint = content_store_endpoint(draft: false)
       stub_request(:get, "#{endpoint}/content/").to_return(status: 403, headers: {})
@@ -12,7 +12,7 @@ RSpec.describe "Content Loading Problems" do
     end
   end
 
-  context "loading /foreign-travel-advice when the content-store is missing" do
+  context "when the content-store is missing" do
     before do
       stub_content_store_isnt_available
     end

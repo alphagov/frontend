@@ -1,5 +1,5 @@
 RSpec.describe ContentsListHelper do
-  include ContentsListHelper
+  include described_class
 
   describe "#contents_list" do
     let(:current_path) { "/active-page" }

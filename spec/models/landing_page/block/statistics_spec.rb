@@ -1,5 +1,5 @@
 RSpec.describe LandingPage::Block::Statistics do
-  it_behaves_like "it is a landing-page block"
+  subject(:statistics) { described_class.new(blocks_hash, build(:landing_page_with_data_attachments)) }
 
   let(:blocks_hash) do
     {
@@ -11,14 +11,14 @@ RSpec.describe LandingPage::Block::Statistics do
     }
   end
 
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_data_attachments)) }
-
   before do
     stub_request(:get, %r{/media/000000000000000000000001/data_one.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
     stub_request(:get, %r{/media/000000000000000000000002/data_two.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_two.csv"), headers: {})
     stub_request(:get, %r{/media/000000000000000000000003/data_three.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_three.csv"), headers: {})
     stub_request(:get, %r{/media/000000000000000000000004/data_four.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_four.csv"), headers: {})
   end
+
+  it_behaves_like "it is a landing-page block"
 
   describe "#x_axis_keys" do
     it "gets all of the x-axis data points" do
@@ -32,13 +32,13 @@ RSpec.describe LandingPage::Block::Statistics do
         1/6/2019
       ]
 
-      expect(subject.x_axis_keys).to eq(expected_keys)
+      expect(statistics.x_axis_keys).to eq(expected_keys)
     end
 
     it "returns an empty array if the csv_file doesn't exist" do
       blocks_hash["csv_file"] = "dat_one.csv"
 
-      expect(subject.x_axis_keys).to eq([])
+      expect(statistics.x_axis_keys).to eq([])
     end
   end
 
@@ -59,7 +59,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "gets the rows for one line of data with whole numbers" do
@@ -80,7 +80,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "gets the rows for one line of data when some rows are missing" do
@@ -105,7 +105,7 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "gets the rows for two lines of data" do
@@ -122,22 +122,22 @@ RSpec.describe LandingPage::Block::Statistics do
         },
       ]
 
-      expect(subject.rows).to eq(expected_rows)
+      expect(statistics.rows).to eq(expected_rows)
     end
 
     it "returns an empty array if the csv_file doesn't exist" do
       blocks_hash["csv_file"] = "dat_one.csv"
 
-      expect(subject.rows).to eq([])
+      expect(statistics.rows).to eq([])
     end
 
     context "with an unparseable attachment URL" do
-      let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_unparseable_data_attachments)) }
+      subject(:statistics) { described_class.new(blocks_hash, build(:landing_page_with_unparseable_data_attachments)) }
 
       it "returns an empty array" do
         blocks_hash["csv_file"] = "data_one.csv"
 
-        expect(subject.rows).to eq([])
+        expect(statistics.rows).to eq([])
       end
     end
   end

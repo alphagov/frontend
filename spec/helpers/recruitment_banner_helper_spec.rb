@@ -1,16 +1,12 @@
 RSpec.describe RecruitmentBannerHelper do
-  include RecruitmentBannerHelper
-
-  before do
-    @recruitment_banners_data = YAML.load_file(Rails.root.join("spec/fixtures/recruitment_banners.yml"))
-  end
+  include described_class
 
   def request
     OpenStruct.new(path: "/")
   end
 
   def recruitment_banners
-    @recruitment_banners_data["banners"]
+    YAML.load_file(Rails.root.join("spec/fixtures/recruitment_banners.yml"))["banners"]
   end
 
   describe "#recruitment_banner" do
@@ -28,9 +24,9 @@ RSpec.describe RecruitmentBannerHelper do
   end
 
   it "recruitment_banners yaml structure is valid" do
-    @recruitment_banners_data = YAML.load_file(Rails.root.join("lib/data/recruitment_banners.yml"))
+    recruitment_banners_data = YAML.load_file(Rails.root.join("lib/data/recruitment_banners.yml"))
 
-    if @recruitment_banners_data["banners"].present?
+    if recruitment_banners_data["banners"].present?
       recruitment_banners.each do |banner|
         expect(banner.key?("suggestion_text")).to be true
         expect(banner["suggestion_text"]).not_to be_empty

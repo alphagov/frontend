@@ -3,9 +3,9 @@ RSpec.describe TransactionPresenter do
     described_class.new(content_item.deep_stringify_keys!)
   end
 
-  context "details" do
-    before do
-      @item = {
+  describe "attributes" do
+    let(:item) do
+      {
         details: {
           introductory_paragraph: "foo",
           more_information: "bar",
@@ -20,77 +20,79 @@ RSpec.describe TransactionPresenter do
 
     describe "#introductory_paragraph" do
       it "shows the introductory_paragraph" do
-        expect(subject(@item).introductory_paragraph).to eq("foo")
+        expect(subject(item).introductory_paragraph).to eq("foo")
       end
     end
 
     describe "#more_information" do
       it "shows the more_information" do
-        expect(subject(@item).more_information).to eq("bar")
+        expect(subject(item).more_information).to eq("bar")
       end
     end
 
     describe "#other_ways_to_apply" do
       it "shows the other_ways_to_apply" do
-        expect(subject(@item).other_ways_to_apply).to eq("carrots")
+        expect(subject(item).other_ways_to_apply).to eq("carrots")
       end
     end
 
     describe "#transaction_start_link" do
       it "shows the transaction_start_link" do
-        expect(subject(@item).transaction_start_link).to eq("bananas")
+        expect(subject(item).transaction_start_link).to eq("bananas")
       end
     end
 
     describe "#what_you_need_to_know" do
       it "shows the what_you_need_to_know" do
-        expect(subject(@item).what_you_need_to_know).to eq("hats")
+        expect(subject(item).what_you_need_to_know).to eq("hats")
       end
     end
 
     describe "#will_continue_on" do
       it "shows the will_continue_on" do
-        expect(subject(@item).will_continue_on).to eq("scarves")
+        expect(subject(item).will_continue_on).to eq("scarves")
       end
     end
 
-    context "start_button_text is 'Start now'" do
+    context "when start_button_text is 'Start now'" do
       describe "#start_button_text" do
         it "shows the start_button_text" do
-          expect(subject(@item).start_button_text).to eq("Start now")
+          expect(subject(item).start_button_text).to eq("Start now")
         end
       end
     end
 
-    context "start_button_text is 'Sign in'" do
+    context "when start_button_text is 'Sign in'" do
       describe "#start_button_text" do
         it "shows the custom start button text" do
-          @item[:details][:start_button_text] = "Sign in"
+          item[:details][:start_button_text] = "Sign in"
 
-          expect(subject(@item).start_button_text).to eq("Sign in")
+          expect(subject(item).start_button_text).to eq("Sign in")
         end
       end
     end
   end
 
-  context "locale is 'cy'" do
+  context "when locale is 'cy'" do
+    let(:item) { { details: { start_button_text: "Start now" } } }
+
     before do
       I18n.locale = :cy
-      @item = { details: { start_button_text: "Start now" } }
     end
+
     after { I18n.locale = :en }
 
-    context "start_button_text is 'Start now'" do
+    context "and start_button_text is 'Start now'" do
       it "returns Welsh translation 'Dechrau nawr'" do
-        expect(subject(@item).start_button_text).to eq("Dechrau nawr")
+        expect(subject(item).start_button_text).to eq("Dechrau nawr")
       end
     end
 
-    context "start_button_text is 'Sign in'" do
+    context "and start_button_text is 'Sign in'" do
       it "returns Welsh translation 'Mewngofnodi'" do
-        @item[:details][:start_button_text] = "Sign in"
+        item[:details][:start_button_text] = "Sign in"
 
-        expect(subject(@item).start_button_text).to eq("Mewngofnodi")
+        expect(subject(item).start_button_text).to eq("Mewngofnodi")
       end
     end
   end
@@ -115,7 +117,7 @@ RSpec.describe TransactionPresenter do
     it "shows the tab count for two tabs" do
       item = { details: { more_information: "potatoes", what_you_need_to_know: "all about potatoes" } }
 
-      expect(2).to eq(subject(item).tab_count)
+      expect(subject(item).tab_count).to eq(2)
     end
 
     it "shows the tab count for three tabs" do
@@ -127,7 +129,7 @@ RSpec.describe TransactionPresenter do
         },
       }
 
-      expect(3).to eq(subject(item).tab_count)
+      expect(subject(item).tab_count).to eq(3)
     end
   end
 end

@@ -1,7 +1,7 @@
 RSpec.shared_examples "it can render the govuk_chat promo banner" do |path|
   include Capybara::RSpecMatchers
 
-  context "given the base_path is in the GOVUK_CHAT_PROMO_BASE_PATHS constant" do
+  context "when the base_path is in the GOVUK_CHAT_PROMO_BASE_PATHS constant" do
     before do
       stub_const("GovukChatPromoHelper::GOVUK_CHAT_PROMO_BASE_PATHS", [path])
     end

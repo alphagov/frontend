@@ -44,7 +44,7 @@ RSpec.describe "LocalTransactions" do
     stub_content_store_has_item("/pay-bear-tax", @payload)
   end
 
-  context "given a local transaction with an interaction present" do
+  context "with a local transaction with an interaction present" do
     before do
       stub_local_links_manager_has_a_link(
         authority_slug: "westminster",
@@ -102,7 +102,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "redirects to the appropriate authority slug" do
-        expect(current_path).to eq("/pay-bear-tax/westminster")
+        expect(page).to have_current_path("/pay-bear-tax/westminster", ignore_query: true)
       end
 
       it "includes the search result text in the page title" do
@@ -161,7 +161,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "remains on the pay bear tax page" do
-        expect(current_path).to eq("/pay-bear-tax")
+        expect(page).to have_current_path("/pay-bear-tax", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -188,7 +188,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "remains on the local transaction page" do
-        expect(current_path).to eq("/pay-bear-tax")
+        expect(page).to have_current_path("/pay-bear-tax", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -212,7 +212,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "remains on the local transaction page" do
-        expect(current_path).to eq("/pay-bear-tax")
+        expect(page).to have_current_path("/pay-bear-tax", ignore_query: true)
       end
 
       it "shows an error message" do
@@ -347,7 +347,7 @@ RSpec.describe "LocalTransactions" do
     end
   end
 
-  context "given a local transaction without an interaction present" do
+  context "with a local transaction but without an interaction present" do
     before do
       stub_local_links_manager_has_no_link(authority_slug: "westminster", lgsl: 461, lgil: 8, country_name: "England")
     end
@@ -377,7 +377,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "redirects to the appropriate authority slug" do
-        expect(current_path).to eq("/pay-bear-tax/westminster")
+        expect(page).to have_current_path("/pay-bear-tax/westminster", ignore_query: true)
       end
 
       it "includes the search result text in the page title" do
@@ -402,7 +402,7 @@ RSpec.describe "LocalTransactions" do
     end
   end
 
-  context "given no interaction present and a missing homepage url" do
+  context "with no interaction present and a missing homepage url" do
     before do
       stub_local_links_manager_has_no_link_and_no_homepage_url(authority_slug: "westminster", lgsl: 461, lgil: 8, country_name: "England")
       visit "/pay-bear-tax"
@@ -411,7 +411,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "redirects to the appropriate authority slug" do
-      expect(current_path).to eq("/pay-bear-tax/westminster")
+      expect(page).to have_current_path("/pay-bear-tax/westminster", ignore_query: true)
     end
 
     it "does not link to the authority" do

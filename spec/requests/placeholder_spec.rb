@@ -1,5 +1,5 @@
 RSpec.describe "Placeholder" do
-  context "loading the placeholder page" do
+  context "when loading the placeholder page" do
     it "responds with success" do
       stub_content_store_does_not_have_item("/government")
       stub_content_store_does_not_have_item("/government/placeholder")

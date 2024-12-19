@@ -1,5 +1,5 @@
 RSpec.describe PartsNavigationHelper do
-  include PartsNavigationHelper
+  include described_class
 
   let(:part_one) do
     {
@@ -59,6 +59,7 @@ RSpec.describe PartsNavigationHelper do
 
   describe "part_link_elements" do
     let(:parts) { [part_one, part_two] }
+
     it "sets an active link on the cuurent part" do
       current_part = part_two
       expected_elements = [

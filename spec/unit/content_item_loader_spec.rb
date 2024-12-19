@@ -1,13 +1,14 @@
 RSpec.describe ContentItemLoader do
   include ContentStoreHelpers
 
-  let(:subject) { described_class.new }
+  subject(:content_item_loader) { described_class.new }
+
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
 
   describe ".for_request" do
     it "returns a new object per request" do
-      request_1 = double(path: "/my-random-item", env: {})
-      request_2 = double(path: "/my-random-item", env: {})
+      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
+      request_2 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
 
       loader_1 = described_class.for_request(request_1)
       loader_2 = described_class.for_request(request_2)
@@ -16,7 +17,7 @@ RSpec.describe ContentItemLoader do
     end
 
     it "returns the same object for the same request" do
-      request_1 = double(path: "/my-random-item", env: {})
+      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
 
       loader_1 = described_class.for_request(request_1)
       loader_2 = described_class.for_request(request_1)
@@ -27,15 +28,15 @@ RSpec.describe ContentItemLoader do
 
   describe "#load" do
     it "caches calls to the content store" do
-      subject.load("/my-random-item")
-      subject.load("/my-random-item")
+      content_item_loader.load("/my-random-item")
+      content_item_loader.load("/my-random-item")
 
       expect(item_request).to have_been_made.once
     end
 
     it "restricts cache to the specific instance of the class, so does not cache across requests" do
-      request_1 = double(path: "/my-random-item", env: {})
-      request_2 = double(path: "/my-random-item", env: {})
+      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
+      request_2 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
 
       loader_1 = described_class.for_request(request_1)
       loader_2 = described_class.for_request(request_2)
@@ -52,11 +53,11 @@ RSpec.describe ContentItemLoader do
       end
 
       it "returns (but does not raise) the original exception" do
-        expect(subject.load("/my-missing-item")).to be_a(GdsApi::HTTPErrorResponse)
+        expect(content_item_loader.load("/my-missing-item")).to be_a(GdsApi::HTTPErrorResponse)
       end
     end
 
-    context "With ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
+    context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
       before do
         ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = "true"
         stub_const("ContentItemLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
@@ -70,7 +71,7 @@ RSpec.describe ContentItemLoader do
         let!(:item_request) { stub_content_store_has_item("/my-json-item") }
 
         it "loads content from the JSON file instead of the content store" do
-          response = subject.load("/my-json-item")
+          response = content_item_loader.load("/my-json-item")
 
           expect(item_request).not_to have_been_made
           expect(ContentItemFactory.build(response).schema_name).to eq("json_page")
@@ -81,7 +82,7 @@ RSpec.describe ContentItemLoader do
         let!(:item_request) { stub_content_store_has_item("/my-yaml-item") }
 
         it "loads content from the YAML file instead of the content store" do
-          response = subject.load("/my-yaml-item")
+          response = content_item_loader.load("/my-yaml-item")
 
           expect(item_request).not_to have_been_made
           expect(ContentItemFactory.build(response).schema_name).to eq("yaml_page")
@@ -92,7 +93,7 @@ RSpec.describe ContentItemLoader do
         let!(:item_request) { stub_content_store_has_item("/my-remote-item") }
 
         it "returns to loading from the content store" do
-          subject.load("/my-remote-item")
+          content_item_loader.load("/my-remote-item")
 
           expect(item_request).to have_been_made.once
         end

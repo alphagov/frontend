@@ -14,7 +14,7 @@ RSpec.describe "ElectoralLookUp" do
     click_button("Find")
   end
 
-  context "visiting the homepage" do
+  context "when visiting the homepage" do
     it "contains a form for entering a postcode" do
       visit electoral_services_path
 
@@ -25,7 +25,7 @@ RSpec.describe "ElectoralLookUp" do
     end
   end
 
-  context "searching by postcode" do
+  context "when searching by postcode" do
     context "when a valid postcode is entered which matches a single address" do
       it "displays the electoral service (council) address if it's different to the registration office address" do
         with_different_address = JSON.parse(api_response)
@@ -122,24 +122,22 @@ RSpec.describe "ElectoralLookUp" do
     end
   end
 
-  context "API errors" do
-    context "400 and 404" do
-      it "displays unfindable postcode message" do
-        stub_api_postcode_lookup("XM45HQ", status: 404)
-        with_electoral_api_url do
-          search_for(postcode: "XM4 5HQ")
+  context "with API errors" do
+    it "displays unfindable postcode message for a 404" do
+      stub_api_postcode_lookup("XM45HQ", status: 404)
+      with_electoral_api_url do
+        search_for(postcode: "XM4 5HQ")
 
-          expect(page).to have_text("We couldn't find this postcode")
-        end
+        expect(page).to have_text("We couldn't find this postcode")
       end
+    end
 
-      it "displays unfindable address message" do
-        stub_api_address_lookup("1234", status: 400)
-        with_electoral_api_url do
-          visit electoral_services_path(uprn: "1234")
+    it "displays unfindable address message for a 400" do
+      stub_api_address_lookup("1234", status: 400)
+      with_electoral_api_url do
+        visit electoral_services_path(uprn: "1234")
 
-          expect(page).to have_text("We couldn't find this address")
-        end
+        expect(page).to have_text("We couldn't find this address")
       end
     end
   end

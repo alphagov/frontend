@@ -493,6 +493,11 @@ nl:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Casestudy
+      other: Casestudies
+      withdrawn_notice:
+        title:
     take_part:
       one: Neem deel
       other: Deelnemen

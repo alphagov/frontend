@@ -420,6 +420,10 @@ ko:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: 사례 연구
+      withdrawn_notice:
+        title:
     take_part:
       other: 참여하기
     transaction:

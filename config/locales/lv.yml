@@ -493,6 +493,11 @@ lv:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Piemērs
+      other: Piemēri
+      withdrawn_notice:
+        title:
     take_part:
       one: Piedalīties
       other: Piedalīties

@@ -639,6 +639,13 @@ uk:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      many:
+      one: Аналіз ситуації
+      other: Аналізи ситуації
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

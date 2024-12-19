@@ -493,6 +493,11 @@ ta:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: நிகழ்வு ஆய்வு
+      other: நிகழ்வு ஆய்வுகள்
+      withdrawn_notice:
+        title:
     take_part:
       one: பங்கெடுத்தல்
       other: பங்கெடுத்தல்

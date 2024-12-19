@@ -785,6 +785,15 @@ ar:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      many:
+      one: دراسة الحالة
+      other: دراسات الحالة
+      two:
+      zero:
+      withdrawn_notice:
+        title:
     take_part:
       few:
       many:

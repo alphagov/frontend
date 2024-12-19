@@ -639,6 +639,13 @@ gd:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Cás-staidéir
+      other: Tuarascálacha staidéir
+      two:
+      withdrawn_notice:
+        title:
     take_part:
       few:
       one: Chun páirt a ghlacadh

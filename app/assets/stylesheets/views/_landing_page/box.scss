@@ -1,6 +1,6 @@
 @import "govuk_publishing_components/individual_component_support";
 
-.app-b-box {
+.box {
   padding: govuk-spacing(4);
   background-color: govuk-colour("light-grey");
 
@@ -10,7 +10,7 @@
 }
 
 @include govuk-media-query($media-type: print) {
-  .app-b-box {
+  .box {
     background: none;
     border-top: 2pt solid $govuk-print-text-colour;
     padding-inline: 0;

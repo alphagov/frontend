@@ -1,7 +1,7 @@
 <%
   add_view_stylesheet("landing_page/columns_layout")
 %>
-<div class="app-b-columns-layout" data-columns="<%= block.data["columns"] || 3 %>">
+<div class="columns-layout" data-columns="<%= block.data["columns"] || 3 %>">
   <% block.blocks.each do |child| %>
     <%= render "landing_page/blocks/#{child.type}", block: child %>
   <% end %>

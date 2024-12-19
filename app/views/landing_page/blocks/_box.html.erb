@@ -1,7 +1,7 @@
 <%
   add_view_stylesheet("landing_page/box")
 %>
-<div class="app-b-box <%= "border-top--#{style(block.data["theme_colour"])}" %>">
+<div class="box <%= "border-top--#{style(block.data["theme_colour"])}" %>">
   <%= render "govuk_publishing_components/components/heading", {
     text: govuk_styled_link(block.content, path: block.href),
     heading_level: 2,

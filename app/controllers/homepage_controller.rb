@@ -18,10 +18,6 @@ private
   end
   helper_method :search_component
 
-  def publication_class
-    HomepagePresenter
-  end
-
   def show_search_autocomplete?
     true unless ENV["GOVUK_DISABLE_SEARCH_AUTOCOMPLETE"]
   end

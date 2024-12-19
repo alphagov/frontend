@@ -1,5 +1,25 @@
 RSpec.describe "Homepage" do
-  before { stub_content_store_has_item("/", schema: "special_route", links: {}) }
+  include GovukAbTesting::RspecHelpers
+  include ContentStoreHelpers
+
+  before do
+    links = {
+      "popular_links" => [
+        {
+          "details" => {
+            "link_items" => [
+              {
+                "title" => "Some popular links title",
+                "url" => "/some/path",
+              },
+            ],
+          },
+        },
+      ],
+    }
+
+    stub_homepage_content_item(links:)
+  end
 
   it "renders the homepage" do
     visit "/"
@@ -8,6 +28,12 @@ RSpec.describe "Homepage" do
     expect(page.title).to eq("Welcome to GOV.UK")
     expect(page).to have_css(".homepage-header__title")
     expect(page).not_to have_css(".homepage-inverse-header__title")
+  end
+
+  it "shows popular links" do
+    visit "/"
+
+    expect(page).to have_content("Some popular links title")
   end
 
   describe "search autocomplete" do

@@ -5,11 +5,12 @@ RSpec.describe "Sessions" do
   include GdsApi::TestHelpers::AccountApi
   include GdsApi::TestHelpers::EmailAlertApi
   include GovukPersonalisation::TestHelpers::Features
+  include ContentStoreHelpers
 
   before do
     # We add a fake content item pointed at homepage, which allows us to check we've
     # been redirected
-    stub_content_store_has_item("/", schema: "special_route", links: {})
+    stub_homepage_content_item
   end
 
   after { Rails.application.reload_routes! }

@@ -1,7 +1,7 @@
 RSpec.describe "AccountHome" do
-  before do
-    stub_content_store_has_item("/", schema: "special_route", links: {})
-  end
+  include ContentStoreHelpers
+
+  before { stub_homepage_content_item }
 
   context "/account/home" do
     it "redirects users to One Login's Your Services page" do

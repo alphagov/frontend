@@ -382,6 +382,7 @@ Note that the `[Image: desktop.png]` syntax must be wrapped in quotes (`"[Image:
 Layout blocks are similar to compound blocks in that they contain nested blocks. They are used to arrange blocks on the page, and to make it easier to apply styling to the blocks.
 
 - [Blocks Container](#blocks-container)
+- [Box Container](#box-container)
 - [Columns Layout](#columns-layout)
 - [Two Column Layout](#two-column-layout)
 
@@ -427,6 +428,44 @@ Nested blocks container:
         href: "todo"
 ```
 This example uses the `blocks_container` for the element type in the second [two-thirds width column](#two-column-layout). Without this empty unstyled container we'd have no way of inserting multiple different blocks in the column.
+
+#### Box container
+
+A div that contains GA4 link tracking for boxes. Currently box blocks are treated as separate elements, but we need a way to group them together so that indexes can be set on on each box. Therefore adding this container around all rendered boxes allows the tracking to be defined once, and our GA4 JavaScript to automatically set indexes. This is because our GA4 tracking can traverse through the child elements to look for links and add an index to them.
+
+```yaml
+- type: box_container
+  blocks:
+  - type: columns_layout
+    blocks:
+    - type: box
+      href: /link
+      content: Heading
+      theme_colour: 1
+      box_content:
+        blocks:
+          - type: govspeak
+            content: |
+              Content
+    - type: box
+      href: /link
+      content: Heading
+      theme_colour: 2
+      box_content:
+        blocks:
+          - type: govspeak
+            content: |
+              Content
+    - type: box
+      href: /link
+      content: Heading
+      theme_colour: 3
+      box_content:
+        blocks:
+          - type: govspeak
+            content: |
+              Content
+```
 
 #### Columns Layout
 

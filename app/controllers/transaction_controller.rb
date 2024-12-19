@@ -15,7 +15,7 @@ private
     "/#{params[:slug]}"
   end
 
-  def publication_class
-    TransactionPresenter
+  def publication
+    content_item
   end
 end

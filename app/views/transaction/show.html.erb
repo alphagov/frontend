@@ -7,34 +7,34 @@
     schema: :government_service,
     content_item: content_item_hash %>
 
-  <% if publication.variant_slug.present? %>
+  <% if content_item.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />
   <% end %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: publication.title,
-  publication: publication,
+  title: content_item.title,
+  publication: content_item,
   edition: @edition
 } do %>
 
   <section class="intro">
     <div class="get-started-intro">
       <%= render "govuk_publishing_components/components/govspeak", { } do %>
-        <%= publication.introductory_paragraph.try(:html_safe) %>
+        <%= content_item.introductory_paragraph.try(:html_safe) %>
       <% end %>
     </div>
-    <% if publication.downtime_message.present? %>
+    <% if content_item.downtime_message.present? %>
       <%= render "govuk_publishing_components/components/warning_text", {
-        text: sanitize(publication.downtime_message)
+        text: sanitize(content_item.downtime_message)
       } %>
     <% end %>
     <p id="get-started" class="get-started group">
-      <% info_text = "#{t('formats.transaction.on')} #{publication.will_continue_on}" if publication.will_continue_on.present? %>
+      <% info_text = "#{t('formats.transaction.on')} #{content_item.will_continue_on}" if content_item.will_continue_on.present? %>
       <%= render "govuk_publishing_components/components/button",
-                  text: publication.start_button_text.html_safe,
+                  text: content_item.start_button_text.html_safe,
                   rel: "external",
-                  href: publication.transaction_start_link,
+                  href: content_item.transaction_start_link,
                   start: true,
                   info_text: info_text,
                   margin_bottom: true %>
@@ -42,7 +42,7 @@
   </section>
 
   <section class="more">
-    <%- if publication.multiple_more_information_sections? -%>
+    <%- if content_item.multiple_more_information_sections? -%>
       <%= render :partial => 'additional_information_tabbed', :locals => {:transaction => publication } %>
     <%- else -%>
       <%= render :partial => 'additional_information_single', :locals => {:transaction => publication } %>

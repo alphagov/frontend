@@ -1,11 +1,11 @@
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: content_item_hash %>
+    content_item: content_item.to_h %>
 
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :government_service,
-    content_item: content_item_hash %>
+    content_item: content_item.to_h %>
 
   <% if content_item.variant_slug.present? %>
     <meta name="robots" content="noindex, nofollow" />

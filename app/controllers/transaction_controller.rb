@@ -7,6 +7,7 @@ class TransactionController < ContentItemsController
   def show
     content_item.set_current_part(params["variant"])
     @lang_attribute = lang_attribute(content_item.locale.presence)
+    @transaction_presenter = TransactionPresenter.new(content_item)
   end
 
 private
@@ -16,6 +17,6 @@ private
   end
 
   def publication_class
-    TransactionPresenter
+    content_item
   end
 end

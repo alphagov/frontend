@@ -5,8 +5,8 @@ class TransactionController < ContentItemsController
   before_action :deny_framing
 
   def show
-    @lang_attribute = lang_attribute(publication.locale.presence)
     content_item.set_current_part(params["variant"])
+    @lang_attribute = lang_attribute(content_item.locale.presence)
   end
 
 private

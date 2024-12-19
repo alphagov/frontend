@@ -493,6 +493,11 @@ da:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Casestudie
+      other: Casestudie
+      withdrawn_notice:
+        title:
     take_part:
       one: Deltage
       other: Deltage

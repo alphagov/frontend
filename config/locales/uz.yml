@@ -493,6 +493,11 @@ uz:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Ҳолатларнинг таҳлили
+      other: Ҳолатларнинг таҳлиллари
+      withdrawn_notice:
+        title:
     take_part:
       one: Иштирок этиш
       other: Иштирок этиш

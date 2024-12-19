@@ -420,6 +420,10 @@ zh-hk:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: 案例研究
+      withdrawn_notice:
+        title:
     take_part:
       other: 參加活動
     transaction:

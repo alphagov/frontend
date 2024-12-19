@@ -42,10 +42,10 @@
   </section>
 
   <section class="more">
-    <%- if publication.multiple_more_information_sections? -%>
-      <%= render :partial => 'additional_information_tabbed', :locals => {:transaction => publication } %>
+    <%- if @transaction_presenter.multiple_more_information_sections? -%>
+      <%= render :partial => 'additional_information_tabbed' } %>
     <%- else -%>
-      <%= render :partial => 'additional_information_single', :locals => {:transaction => publication } %>
+      <%= render :partial => 'additional_information_single' } %>
     <%- end -%>
   </section>
 <% end %>

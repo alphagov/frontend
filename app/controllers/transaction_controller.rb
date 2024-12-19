@@ -5,8 +5,9 @@ class TransactionController < ContentItemsController
   before_action :deny_framing
 
   def show
-    publication.variant_slug = params["variant"]
-    @lang_attribute = lang_attribute(publication.locale.presence)
+    content_item.set_current_part(params["variant"])
+    @lang_attribute = lang_attribute(content_item.locale.presence)
+    @transaction_presenter = TransactionPresenter.new(content_item)
   end
 
 private
@@ -16,6 +17,6 @@ private
   end
 
   def publication_class
-    TransactionPresenter
+    content_item
   end
 end

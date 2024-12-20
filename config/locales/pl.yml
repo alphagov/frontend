@@ -646,7 +646,11 @@ pl:
       your_answers:
     speech:
       delivered_on: Dostarczono o
+      few:
       location: Lokalizacja
+      many:
+      one: Przemówienie
+      other: Przemówienia
       written_on: Napisano o
     start_now:
     take_part:

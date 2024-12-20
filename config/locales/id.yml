@@ -425,6 +425,7 @@ id:
     speech:
       delivered_on: Dikirim pada
       location: Lokasi
+      other: Pidato
       written_on: Ditulis pada
     start_now:
     take_part:

@@ -499,6 +499,8 @@ yi:
     speech:
       delivered_on:
       location:
+      one:
+      other:
       written_on:
     start_now:
     take_part:

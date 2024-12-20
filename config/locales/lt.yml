@@ -572,7 +572,10 @@ lt:
       your_answers:
     speech:
       delivered_on: Pateikta
+      few:
       location: Vieta
+      one: Kalba
+      other: Kalbos
       written_on: Parašymo data
     start_now:
     take_part:

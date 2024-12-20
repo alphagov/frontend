@@ -499,6 +499,8 @@ sv:
     speech:
       delivered_on: Levererad den
       location: Plats
+      one: Tal
+      other: Tal
       written_on: Skrivet på
     start_now:
     take_part:

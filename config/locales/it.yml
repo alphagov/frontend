@@ -499,6 +499,8 @@ it:
     speech:
       delivered_on: Consegnato il
       location: Posizione
+      one: Discorso
+      other: Discorsi
       written_on: Scritto il
     start_now:
     take_part:

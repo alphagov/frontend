@@ -499,6 +499,8 @@ ka:
     speech:
       delivered_on: გადაეცა
       location: მდებარეობა
+      one: სიტყვით გამოსვლის შენიშვნა
+      other: სიტყვით გამოსვლის შენიშვნები
       written_on: დაწერილი
     start_now:
     take_part:

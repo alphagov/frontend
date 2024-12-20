@@ -11,7 +11,12 @@
   <section class="govuk-!-padding-bottom-6 govuk-roadmap-section">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <%= render "govuk_publishing_components/components/title", title: t('roadmap.hero.heading'), margin_top: 0 %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t('roadmap.hero.heading'),
+          font_size: "xl",
+          margin_bottom: 8,
+          heading_level: 1,
+        } %>
         <p class="govuk-body govuk-roadmap__intro"><%= t('roadmap.hero.description') %></p>
       </div>
 

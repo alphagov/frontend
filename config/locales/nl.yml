@@ -495,6 +495,8 @@ nl:
     speech:
       delivered_on: Geleverd op
       location: Plaats
+      one: Toespraak
+      other: Toespraken
       written_on: Geschreven op
     start_now:
     take_part:

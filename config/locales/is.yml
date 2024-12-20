@@ -495,6 +495,8 @@ is:
     speech:
       delivered_on: Afhent þann
       location: Staðsetning
+      one: Ræða
+      other: Ræður
       written_on: Skrifað þann
     start_now:
     take_part:

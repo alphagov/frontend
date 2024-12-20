@@ -495,6 +495,8 @@ fr:
     speech:
       delivered_on: Livré le
       location: Emplacement
+      one: Discours
+      other: Discours
       written_on: Rédigé le
     start_now:
     take_part:

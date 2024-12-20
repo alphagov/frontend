@@ -422,6 +422,7 @@ zh-tw:
     speech:
       delivered_on: 運送
       location: 地點
+      other: 演說
       written_on: 寫在
     start_now:
     take_part:

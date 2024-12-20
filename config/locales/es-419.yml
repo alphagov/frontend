@@ -495,6 +495,8 @@ es-419:
     speech:
       delivered_on: Entregado en
       location: Ubicación
+      one: Discurso
+      other: Discursos
       written_on: Escrito en
     start_now:
     take_part:

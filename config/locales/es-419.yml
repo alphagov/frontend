@@ -100,6 +100,8 @@ es-419:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Crédito de la imagen: %{credit}'

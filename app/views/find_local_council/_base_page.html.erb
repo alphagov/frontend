@@ -6,8 +6,12 @@
 <main id="content" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", title: t('formats.local_transaction.find_council'),
-        margin_top: 0 %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t('formats.local_transaction.find_council'),
+        font_size: "xl",
+        margin_bottom: 8,
+        heading_level: 1,
+      } %>
     </div>
     <div class="govuk-grid-column-two-thirds article-container">
       <%= yield %>

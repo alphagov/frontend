@@ -951,4 +951,6 @@ en:
     end_title: End of British Summer Time
     start_notes: Clocks go forward one hour
     start_title: Start of British Summer Time
+  withdrawn_notice:
+    title: This %{schema_name} was withdrawn on %{withdrawn_time}
   'yes': 'Yes'

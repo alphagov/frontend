@@ -495,6 +495,8 @@ pa-pk:
     speech:
       delivered_on: حوالے کیتا گیا
       location: تھاں
+      one: تقریر
+      other: تقریراں
       written_on: ایس  تے لکھیا گیا
     start_now:
     take_part:

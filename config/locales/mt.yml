@@ -640,7 +640,11 @@ mt:
       your_answers:
     speech:
       delivered_on: Kunsinnat f'
+      few:
       location: Post
+      many:
+      one: Diskors
+      other: Diskorsi
       written_on: Miktub nhar
     start_now:
     take_part:

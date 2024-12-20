@@ -422,6 +422,7 @@ vi:
     speech:
       delivered_on: Ngày giao
       location: Vị trí
+      other: Bài phát biểu
       written_on: Ngày viết
     start_now:
     take_part:

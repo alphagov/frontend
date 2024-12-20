@@ -786,8 +786,14 @@ ar:
       your_answers:
     speech:
       delivered_on: تاريخ التسليم
+      few:
       location: الموقع
+      many:
+      one: خطاب
+      other: خطابات
+      two:
       written_on: تاريخ الكتابة
+      zero:
     start_now:
     take_part:
       few:

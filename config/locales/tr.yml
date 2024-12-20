@@ -495,6 +495,8 @@ tr:
     speech:
       delivered_on: 'Teslim tarihi:'
       location: Konum
+      one: Konuşma
+      other: Konuşmalar
       written_on: 'Yazılma tarihi:'
     start_now:
     take_part:

@@ -567,7 +567,10 @@ sk:
       your_answers:
     speech:
       delivered_on: Doručené dňa
+      few:
       location: Umiestnenie
+      one: Prejav
+      other: Prejay
       written_on: Napísané dňa
     start_now:
     take_part:

@@ -422,6 +422,7 @@ th:
     speech:
       delivered_on: ส่งมอบเมื่อ
       location: ตำแหน่งที่ตั้ง
+      other: สุนทรพจน์
       written_on: เขียนเมื่อ
     start_now:
     take_part:

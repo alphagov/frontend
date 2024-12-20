@@ -499,6 +499,8 @@ ps:
     speech:
       delivered_on: ته وسپارل شو
       location: ځای
+      one: وینا
+      other: ويناوې
       written_on: باندې لیکل شوی
     start_now:
     take_part:

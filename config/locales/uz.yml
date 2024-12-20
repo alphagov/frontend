@@ -499,6 +499,8 @@ uz:
     speech:
       delivered_on: Етказиб берилди
       location: Жойлашиш жойи
+      one: Нутқ
+      other: Нутқлар
       written_on: Ёзилган
     start_now:
     take_part:

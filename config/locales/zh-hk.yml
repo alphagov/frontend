@@ -425,6 +425,7 @@ zh-hk:
     speech:
       delivered_on: 交付時間
       location: 地點
+      other: 演講
       written_on: 記載於
     start_now:
     take_part:

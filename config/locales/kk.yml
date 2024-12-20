@@ -499,6 +499,8 @@ kk:
     speech:
       delivered_on: Жеткізілген күні
       location: Орны
+      one: Сөйлеу
+      other: Сөйлеулер
       written_on: Жазылған күні
     start_now:
     take_part:

@@ -426,6 +426,7 @@ ja:
     speech:
       delivered_on: 配信日：
       location: 場所
+      other: スピーチ
       written_on: 記述日：
     start_now:
     take_part:

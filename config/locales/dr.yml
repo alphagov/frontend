@@ -500,6 +500,8 @@ dr:
     speech:
       delivered_on: تحویل داده شد به
       location: موقعیت
+      one: سخنرانی
+      other: سخنرانی ها
       written_on: نوشته شده است د
     start_now:
     take_part:

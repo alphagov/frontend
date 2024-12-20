@@ -500,6 +500,8 @@ hy:
     speech:
       delivered_on: Ուղարկվել է
       location: Տեղանք
+      one: Հրապարակային խոսք
+      other: Հրապարակային խոսքեր
       written_on: Գրվել է
     start_now:
     take_part:

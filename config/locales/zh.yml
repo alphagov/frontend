@@ -426,6 +426,7 @@ zh:
     speech:
       delivered_on: 提交日期
       location: 位置
+      other: 演讲
       written_on: 书写日期
     start_now:
     take_part:

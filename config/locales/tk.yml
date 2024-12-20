@@ -500,6 +500,8 @@ tk:
     speech:
       delivered_on: 'Gowşuryldy:'
       location: Ýerleşýän ýeri
+      one: Çykyş
+      other: Çykyşlar
       written_on: 'Ýazylan:'
     start_now:
     take_part:

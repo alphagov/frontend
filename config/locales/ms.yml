@@ -426,6 +426,7 @@ ms:
     speech:
       delivered_on: Dihantar pada
       location: Lokasi
+      other: Ucapan
       written_on: Ditulis pada
     start_now:
     take_part:

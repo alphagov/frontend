@@ -573,7 +573,10 @@ cs:
       your_answers:
     speech:
       delivered_on: Doručeno dne
+      few:
       location: Sídlo
+      one: Projev
+      other: Projevy
       written_on: Odepsané
     start_now:
     take_part:

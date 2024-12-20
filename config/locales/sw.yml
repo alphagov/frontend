@@ -500,6 +500,8 @@ sw:
     speech:
       delivered_on: Iliwasilishwa mnamo
       location: Mahali
+      one: Hotuba
+      other: Hotuba
       written_on: Iliandikwa mnamo
     start_now:
     take_part:

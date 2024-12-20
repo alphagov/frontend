@@ -500,6 +500,8 @@ ta:
     speech:
       delivered_on: ஒப்படைத்த தேதி
       location: இருப்பிடம்
+      one: பேச்சு
+      other: பேச்சுகள்
       written_on: எழுதப்பட்ட தேதி
     start_now:
     take_part:

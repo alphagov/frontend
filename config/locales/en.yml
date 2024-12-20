@@ -505,6 +505,8 @@ en:
     speech:
       delivered_on: Delivered on
       location: Location
+      one: Speech
+      other: Speeches
       written_on: Written on
     start_now: Start now
     take_part:

@@ -500,6 +500,8 @@ hi:
     speech:
       delivered_on: इस पर डिलीवरी किया गया
       location: स्थान
+      one: भाषण
+      other: भाषण
       written_on: पर लिखा
     start_now:
     take_part:

@@ -573,7 +573,10 @@ ro:
       your_answers:
     speech:
       delivered_on: Livrat pe
+      few:
       location: Locație
+      one: Discurs
+      other: Discursuri
       written_on: Scris pe
     start_now:
     take_part:

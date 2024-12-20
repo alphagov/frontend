@@ -500,6 +500,8 @@ az:
     speech:
       delivered_on: Çatdırılıb
       location: Yer
+      one: Nitq
+      other: Nitqlər
       written_on: Yazılma tarixi
     start_now:
     take_part:

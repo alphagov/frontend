@@ -500,6 +500,8 @@ sq:
     speech:
       delivered_on: Dorëzuar më
       location: Vendndodhja
+      one: Fjalim
+      other: Fjalime
       written_on: Shkruar në
     start_now:
     take_part:

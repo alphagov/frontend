@@ -647,7 +647,11 @@ gd:
       your_answers:
     speech:
       delivered_on: Seachadadh ar
+      few:
       location: Suíomh
+      one: Óráid
+      other: Óráid
+      two:
       written_on: Scríobh an
     start_now:
     take_part:

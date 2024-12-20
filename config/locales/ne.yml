@@ -500,6 +500,8 @@ ne:
     speech:
       delivered_on: मा वितरण गरियो
       location: स्थान
+      one: भाषण
+      other: भाषणहरु
       written_on: मा लेखिएको छ
     start_now:
     take_part:

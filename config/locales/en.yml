@@ -100,6 +100,8 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+    withdrawn_notice:
+      title: This %{schema_name} was withdrawn on %{withdrawn_time}
   components:
     figure:
       image_credit: 'Image credit: %{credit}'

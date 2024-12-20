@@ -100,6 +100,8 @@ it:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Credito d’immagine: %{credit}'

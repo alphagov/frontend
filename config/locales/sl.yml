@@ -640,7 +640,11 @@ sl:
       your_answers:
     speech:
       delivered_on: 'Podano dne:'
+      few:
       location: Lokacija
+      one: Govor
+      other: Govori
+      two:
       written_on: Napisano dne
     start_now:
     take_part:

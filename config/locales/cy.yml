@@ -791,8 +791,14 @@ cy:
       your_answers: Eich atebion
     speech:
       delivered_on: Cyflawnwyd ar
+      few:
       location: Lleoliad
+      many:
+      one: Anerchiad
+      other: Anerchiadau
+      two:
       written_on: Ysgrifennwyd ar
+      zero:
     start_now: Dechrau nawr
     take_part:
       few:

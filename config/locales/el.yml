@@ -495,6 +495,8 @@ el:
     speech:
       delivered_on: Παραδόθηκε στις
       location: Τοποθεσία
+      one: Ομιλία
+      other: Ομιλίες
       written_on: Γράφτηκε στις
     start_now:
     take_part:

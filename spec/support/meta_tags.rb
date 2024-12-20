@@ -1,6 +1,6 @@
-RSpec.shared_examples "it has meta tags" do |schema, path|
+RSpec.shared_examples "it has meta tags" do |schema, example_name = nil, path|
   before do
-    example_doc = GovukSchemas::Example.find(schema, example_name: schema)
+    example_doc = GovukSchemas::Example.find(schema, example_name: example_name || schema)
     example_doc.merge!(
       "title" => "Zhe title",
       "withdrawn_notice" => {},
@@ -17,9 +17,9 @@ RSpec.shared_examples "it has meta tags" do |schema, path|
   end
 end
 
-RSpec.shared_examples "it has meta tags for images" do |schema, path|
+RSpec.shared_examples "it has meta tags for images" do |schema, example_name = nil, path|
   before do
-    example_doc = GovukSchemas::Example.find(schema, example_name: schema)
+    example_doc = GovukSchemas::Example.find(schema, example_name: example_name || schema)
     example_doc["details"].merge!(
       "image" => {
         "url" => "https://example.org/image.jpg",

@@ -100,6 +100,8 @@ ta:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'பட உதவி: %{credit}'
@@ -493,6 +495,9 @@ ta:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: நிகழ்வு ஆய்வு
+      other: நிகழ்வு ஆய்வுகள்
     take_part:
       one: பங்கெடுத்தல்
       other: பங்கெடுத்தல்

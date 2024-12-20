@@ -100,6 +100,8 @@ sk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Obrázok: %{credit}'
@@ -566,6 +568,10 @@ sk:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Prípadová štúdia
+      other: Prípadové štúdie
     take_part:
       few:
       one: Zúčastniť sa

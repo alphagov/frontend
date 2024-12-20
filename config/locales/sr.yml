@@ -100,6 +100,8 @@ sr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Vlasnik slike: %{credit}'
@@ -566,6 +568,10 @@ sr:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      one: Studija slučaja
+      other: Studije slučaja
     take_part:
       few:
       one: Učešće

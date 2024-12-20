@@ -100,6 +100,8 @@ hy:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: Նկարը՝ %{credit}
@@ -493,6 +495,9 @@ hy:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Մասնավոր դեպքի ուսումնասիրություն
+      other: Մասնավոր դեպքի ուսումնասիրություններ
     take_part:
       one: Մասնակցություն
       other: Մասնակցություն

@@ -100,6 +100,8 @@ cy:
     today: heddiw
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Delwedd gan: %{credit}'
@@ -682,6 +684,13 @@ cy:
   error:
   find: Ffeindio
   formats:
+    case_study:
+      few:
+      many:
+      one: Astudiaeth achos
+      other: Astudiaethau achos
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations: Doedden ni ddim yn gallu dod o hyd i unrhyw ganlyniadau ar gyfer y cod post hwn.
     get_involved:

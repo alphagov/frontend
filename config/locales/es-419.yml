@@ -100,6 +100,8 @@ es-419:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Crédito de la imagen: %{credit}'
@@ -493,6 +495,9 @@ es-419:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Estudio de caso
+      other: Estudios de caso
     take_part:
       one: Participe
       other: Participe

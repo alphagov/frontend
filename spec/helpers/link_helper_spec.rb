@@ -1,5 +1,5 @@
 RSpec.describe LinkHelper do
-  include LinkHelper
+  include described_class
 
   describe "#feed_link" do
     it "appends .atom to the base_path" do
@@ -35,6 +35,26 @@ RSpec.describe LinkHelper do
 
         expect(govuk_styled_link(text, path:, inverse: true)).to eq(expected)
       end
+    end
+  end
+
+  describe "#govuk_styled_links_list" do
+    let(:links) do
+      [
+        { "title" => "Home", "base_path" => "/" },
+        { "title" => "About", "base_path" => "/about" },
+        { "title" => "Contact", "base_path" => "/contact" },
+      ]
+    end
+
+    it "returns an array of styled links" do
+      expected = [
+        "<a href='/' class='govuk-link'>Home</a>",
+        "<a href='/about' class='govuk-link'>About</a>",
+        "<a href='/contact' class='govuk-link'>Contact</a>",
+      ]
+
+      expect(govuk_styled_links_list(links)).to eq(expected)
     end
   end
 end

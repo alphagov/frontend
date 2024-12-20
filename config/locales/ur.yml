@@ -499,6 +499,8 @@ ur:
     speech:
       delivered_on: ترسیل کردہ بتاریخ
       location: مقام
+      one: تقریر
+      other: تقاریر
       written_on: تحریر کردہ بتاریخ
     start_now:
     take_part:

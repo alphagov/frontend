@@ -499,6 +499,8 @@ si:
     speech:
       delivered_on: බෙදාහරින ලද දිනය
       location: ස්ථානය
+      one: කථාව
+      other: කථා
       written_on: ලියන ලද දිනය
     start_now:
     take_part:

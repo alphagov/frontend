@@ -499,6 +499,8 @@ fi:
     speech:
       delivered_on: Toimitettu
       location: Sijainti
+      one: Puhe
+      other: Puheet
       written_on: Kirjoitettu
     start_now:
     take_part:

@@ -499,6 +499,8 @@ da:
     speech:
       delivered_on: Leveret den
       location: Placering
+      one: tale
+      other: taler
       written_on: Skrevet på
     start_now:
     take_part:

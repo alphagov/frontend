@@ -499,6 +499,8 @@ es:
     speech:
       delivered_on: Entregado el
       location: Ubicación
+      one: Discurso
+      other: Discursos
       written_on: Escrito en
     start_now:
     take_part:

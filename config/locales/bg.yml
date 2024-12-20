@@ -499,6 +499,8 @@ bg:
     speech:
       delivered_on: Доставено на
       location: Местоположение
+      one: Реч
+      other: Речи
       written_on: Написано на
     start_now:
     take_part:

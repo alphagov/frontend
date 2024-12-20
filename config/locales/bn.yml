@@ -499,6 +499,8 @@ bn:
     speech:
       delivered_on: পাঠানো হয়েছে
       location: অবস্থান
+      one: বক্তব্য
+      other: বক্তব্যসমূহ
       written_on: যখন লেখা হয়েছে
     start_now:
     take_part:

@@ -499,6 +499,8 @@ so:
     speech:
       delivered_on: Loo diray
       location: Goobta
+      one: Khudbad
+      other: Khudbado
       written_on: Lagu qoray
     start_now:
     take_part:

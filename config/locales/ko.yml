@@ -422,6 +422,7 @@ ko:
     speech:
       delivered_on: 행사 일시
       location: 위치
+      other: 연설문
       written_on: 작성 날짜
     start_now:
     take_part:

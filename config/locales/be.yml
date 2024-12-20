@@ -640,7 +640,11 @@ be:
       your_answers:
     speech:
       delivered_on: Дастаўлена
+      few:
       location: Месцазнаходжанне
+      many:
+      one: Выступ
+      other: Выступы
       written_on: Напісана
     start_now:
     take_part:

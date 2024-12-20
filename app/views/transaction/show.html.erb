@@ -32,7 +32,7 @@
     <p id="get-started" class="get-started group">
       <% info_text = "#{t('formats.transaction.on')} #{content_item.will_continue_on}" if content_item.will_continue_on.present? %>
       <%= render "govuk_publishing_components/components/button",
-                  text: content_item.start_button_text.html_safe,
+                  text: @transaction_presenter.start_button_text.html_safe,
                   rel: "external",
                   href: content_item.transaction_start_link,
                   start: true,

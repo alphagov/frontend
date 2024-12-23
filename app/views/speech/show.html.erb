@@ -40,16 +40,12 @@
     <div class="content-bottom-margin">
       <div class="responsive-bottom-margin">
         <% if @presenter.important_metadata.any? %>
-          <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
-           <%= render 'components/important_metadata',
-           items: @presenter.important_metadata %>
-           <!--
+          <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>          
            <%= render "govuk_publishing_components/components/metadata", {
               inverse: true, 
               other: @presenter.important_metadata,
               margin_bottom: 0,
-            } %>
-           -->
+            } %>           
           <% end %>
         <% end %>
 

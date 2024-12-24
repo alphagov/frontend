@@ -1,7 +1,5 @@
 RSpec.describe "Transactions" do
   context "GET show" do
-    it_behaves_like "it can render the govuk_chat promo banner", "/foo"
-
     before do
       @content_item = content_store_has_example_item("/foo", schema: "transaction")
     end

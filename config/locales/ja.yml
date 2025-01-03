@@ -100,6 +100,8 @@ ja:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 画像著作権：%{credit}
@@ -420,6 +422,8 @@ ja:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: ケーススタディ
     take_part:
       other: 参加する
     transaction:

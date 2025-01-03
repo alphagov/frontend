@@ -100,6 +100,8 @@ is:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: Uppruni myndar %{credit}
@@ -493,6 +495,9 @@ is:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Ferilsathugun
+      other: Ferilsathuganir
     take_part:
       one: Taka þátt
       other: Taka þátt

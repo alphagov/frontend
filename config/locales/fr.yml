@@ -100,6 +100,8 @@ fr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: Crédit d'image : %{credit}
@@ -493,6 +495,9 @@ fr:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Etude de cas
+      other: Etudes de cas
     take_part:
       one: Participer
       other: Participer

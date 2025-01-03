@@ -100,6 +100,8 @@ ne:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'छवि श्रेय: %{credit}'
@@ -493,6 +495,9 @@ ne:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: मामिला अध्ययन
+      other: मामिला अध्ययनहरू
     take_part:
       one: सहभागी हुनु
       other: सहभागी हुनु

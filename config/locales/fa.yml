@@ -100,6 +100,8 @@ fa:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'اعتبار تصویر: %{credit}'
@@ -493,6 +495,9 @@ fa:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: مطالعه موردی
+      other: مطالعات موردی
     take_part:
       one: مشارکت
       other: مشارکت

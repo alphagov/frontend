@@ -100,6 +100,8 @@ pa-pk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'امیج کریڈٹ: %{credit}'
@@ -493,6 +495,9 @@ pa-pk:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: کیس دی پڑھائی
+      other: کیس دی پڑھائی
     take_part:
       one: حصہ لوؤ
       other: حصہ لوؤ

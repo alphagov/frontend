@@ -100,6 +100,8 @@ ps:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: د انځور کریډیټ:%{credit}
@@ -493,6 +495,9 @@ ps:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: موردي مطالعه
+      other: موردي مطالعات
     take_part:
       one: برخه واخلئ
       other: برخه واخلئ

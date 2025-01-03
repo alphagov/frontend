@@ -100,6 +100,8 @@ he:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'קרדיט תמונה: %{credit}'
@@ -493,6 +495,9 @@ he:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: מקרה בוחן
+      other: מקרי בוחן
     take_part:
       one: קח חלק
       other: קח חלק

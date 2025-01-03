@@ -100,6 +100,8 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+    withdrawn_notice:
+      title: This %{schema_name} was withdrawn on %{withdrawn_time}
   components:
     figure:
       image_credit: 'Image credit: %{credit}'
@@ -390,6 +392,9 @@ en:
   error: Error
   find: Find
   formats:
+    case_study:
+      one: Case study
+      other: Case studies
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     get_involved:

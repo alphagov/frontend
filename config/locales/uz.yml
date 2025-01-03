@@ -100,6 +100,8 @@ uz:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'График материаллар тақдим этилган: %{credit}'
@@ -493,6 +495,9 @@ uz:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Ҳолатларнинг таҳлили
+      other: Ҳолатларнинг таҳлиллари
     take_part:
       one: Иштирок этиш
       other: Иштирок этиш

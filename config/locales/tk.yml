@@ -100,6 +100,8 @@ tk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Surat krediti: %{credit}'
@@ -493,6 +495,9 @@ tk:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: Ýagdaý seljermesi
+      other: Ýagdaý seljermeleri
     take_part:
       one: Gatnaşmak
       other: Gatnaşmak

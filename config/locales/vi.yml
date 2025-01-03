@@ -100,6 +100,8 @@ vi:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'Nguồn hình ảnh: %{credit}'
@@ -420,6 +422,8 @@ vi:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: Nghiên cứu điển hình
     take_part:
       other: Tham gia
     transaction:

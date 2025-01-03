@@ -100,6 +100,8 @@ ko:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: '이미지 저작권: %{credit}'
@@ -420,6 +422,8 @@ ko:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      other: 사례 연구
     take_part:
       other: 참여하기
     transaction:

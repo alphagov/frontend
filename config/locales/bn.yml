@@ -100,6 +100,8 @@ bn:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'ছবির কৃতিত্ব: %{credit}'
@@ -493,6 +495,9 @@ bn:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: কেস স্টাডি
+      other: কেস স্টাডিসমূহ
     take_part:
       one: অংশ নিন
       other: অংশ নিন

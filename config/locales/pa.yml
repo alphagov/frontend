@@ -100,6 +100,8 @@ pa:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: 'ਚਿੱਤਰ ਕ੍ਰੈਡਿਟ: %{credit}'
@@ -493,6 +495,9 @@ pa:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      one: ਕੇਸ ਅਧਿਐਨ
+      other: ਕੇਸ ਅਧਿਐਨ
     take_part:
       one: ਹਿੱਸਾ ਲੈਣਾ
       other: ਹਿੱਸਾ ਲੈਣਾ

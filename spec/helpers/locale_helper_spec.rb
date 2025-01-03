@@ -1,5 +1,5 @@
 RSpec.describe LocaleHelper do
-  include LocaleHelper
+  include described_class
 
   describe "#translations_for_nav" do
     it "returns translations in a suitable format for the translation nav component" do
@@ -41,6 +41,13 @@ RSpec.describe LocaleHelper do
       I18n.with_locale(:cy) do
         expect(t_locale_fallback("blah", count: 1)).to eq(:en)
       end
+    end
+  end
+
+  describe "#native_language_name_for" do
+    it "returns the native language name for the given locale" do
+      expect(native_language_name_for(:en)).to eq("English")
+      expect(native_language_name_for(:cy)).to eq("Cymraeg")
     end
   end
 end

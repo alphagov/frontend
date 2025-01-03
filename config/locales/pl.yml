@@ -100,6 +100,8 @@ pl:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    withdrawn_notice:
+      title:
   components:
     figure:
       image_credit: Obrazek:%{credit}
@@ -639,6 +641,11 @@ pl:
       start_again:
       your_answers:
     start_now:
+    case_study:
+      few:
+      many:
+      one: Studium przypadku
+      other: Studia przypadku
     take_part:
       few:
       many:

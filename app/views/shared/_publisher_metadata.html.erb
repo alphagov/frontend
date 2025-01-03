@@ -1,0 +1,16 @@
+<%
+  add_stylesheet_path("helpers/_publisher-metadata-with-logo.css")
+%>
+
+<div class="govuk-grid-row govuk-!-margin-top-3">
+  <div class="metadata-logo-wrapper">
+    <div class="govuk-grid-column-two-thirds metadata-column">
+      <%= render 'govuk_publishing_components/components/metadata', {
+        from: locals[:from],
+        first_published: locals[:first_published],
+        last_updated: locals[:last_updated],
+        see_updates_link: locals[:see_updates_link],
+      } %>
+    </div>
+  </div>
+</div>

@@ -16,13 +16,14 @@
   data-module="ga4-auto-tracker"
   data-ga4-auto="<%= ga4_attributes %>"
 >
-  <%= render "govuk_publishing_components/components/title", {
-    context: content_item.title,
+  <% if content_item.title %>
+    <span class="govuk-caption-xl"><%= content_item.title %></span>
+  <% end %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: outcome.title,
     font_size: "l",
     margin_bottom: 4,
-    margin_top: 0,
-    average_title_length: "long",
-    title: outcome.title,
+    heading_level: 1,
   } %>
 
   <% if outcome.body %>

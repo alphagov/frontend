@@ -22,8 +22,14 @@
     </div>
   </div>
 
-<%= render 'shared/publisher_metadata_with_logo' %>
-<%= render 'shared/history_notice', content_item: @content_item %>
+ <%= render 'shared/publisher_metadata', locals: {
+    from: govuk_styled_links_list(content_item.related_entities),
+    first_published: display_date(content_item.first_public_at || content_item.first_published_at),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+    }
+  %>
+  <%= render 'shared/history_notice', content_item: @content_item %>
   <% if content_item.withdrawn? %>
     <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 

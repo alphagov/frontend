@@ -73,6 +73,9 @@ blocks:
     <a href="/landing-page/sub-page-1">Visit sub-page 1</a>
 - type: govspeak
   content: <p>Here's some more content!</p>
+- type: component
+  component_name: big_number
+  number: 555
 - type: quote
   text: "Here's a quote!"
   cite: "I said this"

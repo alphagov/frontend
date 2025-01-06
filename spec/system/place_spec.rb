@@ -78,7 +78,7 @@ RSpec.describe "Places" do
       end
 
       within("#content") do
-        within(".gem-c-title") do
+        within("h1.gem-c-heading") do
           expect(page).to have_title("Find a passport interview office")
         end
 

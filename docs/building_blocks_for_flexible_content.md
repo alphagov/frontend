@@ -36,7 +36,6 @@ Blocks can be given a full width light grey background by setting `full_width_ba
 Simple blocks generally render one component or "thing". They can either be rendered directly or as the children of compound blocks.
 
 - [Action Link](#action-link)
-- [Big Number](#big-number)
 - [Document List](#document-list)
 - [Govspeak](#govspeak)
 - [Heading](#heading)
@@ -45,7 +44,6 @@ Simple blocks generally render one component or "thing". They can either be rend
 - [Quote](#quote)
 - [Share Links](#share-links)
 - [Side Navigation](#side-navigation)
-- [Statistics](#statistics)
 
 #### Action Link
 
@@ -55,16 +53,6 @@ A wrapper around the [action link component](https://components.publishing.servi
 - type: action_link
   text: "Learn more about our goals"
   href: "/landing-page/goals"
-```
-
-#### Big Number
-
-A wrapper around the [Big number component](https://components.publishing.service.gov.uk/component-guide/big_number)
-
-```yaml
-- type: big_number
-  number: £75m
-  label: amount of money that looks big
 ```
 
 #### Document List
@@ -220,32 +208,6 @@ A navigation item suitable for use in a sidebar. It supports a single column of 
   navigation_group_id: Sidebar
 ```
 
-#### Statistics
-
-A wrapper around the [Chart](https://components.publishing.service.gov.uk/component-guide/chart) component. The `csv_file` key can be an uploaded file (from `/lib/data/landing_page_content_items/statistics`), or (preferably) an attachment from the content item, in which case the filename of the attachment will be matched to the `csv_file` key.
-
-```yaml
-- type: statistics
-  title: "Chart to visually represent data"
-  x_axis_label: "X Axis"
-  y_axis_label: "Y Axis"
-  csv_file: "data_one.csv"
-  data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-```
-
-For a minimal chart add `minimal: true` to the block config. This will output a simplified graph with no interactivity.
-
-```yaml
-- type: statistics
-  title: "Chart to visually represent data"
-  x_axis_label: "X Axis"
-  y_axis_label: "Y Axis"
-  csv_file: "data_one.csv"
-  data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-  minimal: true
-  minimal_link: /landing-page/task
-```
-
 ### Compound blocks
 
 Compound blocks generally render more than one component and can contain nested blocks. The nested blocks can be simple blocks or themselves compound blocks
@@ -284,11 +246,6 @@ A card block renders its `card_content` value as a [Heading component](https://c
     - type: heading
       content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
       path: http://gov.uk
-    - type: statistics
-      x_axis_label: "X Axis"
-      y_axis_label: "Y Axis"
-      csv_file: "data_one.csv"
-      data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 ```
 
 #### Featured
@@ -397,15 +354,6 @@ It does nothing except contain other blocks and is only required as the top leve
   - type: govspeak
     content: |
       <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum esta, mattis tellus.</p>
-  - type: statistics
-    title: "Chart to visually represent data"
-    x_axis_label: "X Axis"
-    y_axis_label: "Y Axis"
-    csv_file: "data_one.csv"
-    data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-  - type: govspeak
-    content: |
-      <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum esta, mattis tellus.</p>
 ```
 
 Nested blocks container:
@@ -438,21 +386,21 @@ Columns layout spreads its blocks out horizontally. The `columns` property deter
 
 If `columns` is missing entirely, three columns will be rendered by default.
 
-In the following example, the first two `big_number` blocks will be side-by-side on the first row and the third block will drop down onto the next row, taking up the left hand column.
+In the following example, the first two `govspeak` blocks will be side-by-side on the first row and the third block will drop down onto the next row, taking up the left hand column.
 
 ```yaml
 - type: columns_layout
   columns: 2
   blocks:
-  - type: big_number
-    number: £75m
-    label: amount of money that looks big
-  - type: big_number
-    number: 100%
-    label: increase in the number of big_number components added to the columns at this point
-  - type: big_number
-    number: £43
-    label: Cost of a cup of coffee in Covent Garden
+  - type: govspeak
+    content: |
+      <p>Lorem ipsum...</p>
+  - type: govspeak
+    content: |
+      <p>Lorem ipsum...</p>
+  - type: govspeak
+    content: |
+      <p>Lorem ipsum...</p>
 ```
 
 #### Two Column Layout

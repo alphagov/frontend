@@ -3,9 +3,9 @@ RSpec.describe LandingPage::Block::LayoutBase do
     let(:blocks_hash) do
       {
         "blocks" => [
-          { "type" => "big_number", "number" => "£75m", "label" => "amount of money that looks big" },
-          { "type" => "big_number", "number" => "100%", "label" => "increase in the number of big_number components added to the columns at this point" },
-          { "type" => "big_number", "number" => "£43", "label" => "Cost of a cup of coffee in Covent Garden" },
+          { "type" => "govspeak", "content" => "test1" },
+          { "type" => "govspeak", "content" => "test2" },
+          { "type" => "govspeak", "content" => "test3" },
         ],
       }
     end
@@ -16,7 +16,7 @@ RSpec.describe LandingPage::Block::LayoutBase do
     end
 
     it "builds blocks of the correct type" do
-      expect(subject.blocks.first.type).to eq("big_number")
+      expect(subject.blocks.first.type).to eq("govspeak")
     end
   end
 end

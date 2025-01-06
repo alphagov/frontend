@@ -23,7 +23,6 @@ RSpec.describe "Landing Page" do
           },
         ]
         stub_content_store_has_item(@base_path, @content_item)
-        stub_request(:get, %r{/media/000000000000000000000001/data_one.csv}).to_return(status: 200, body: File.read("spec/fixtures/landing_page_statistics_data/data_one.csv"), headers: {})
         stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
         stub_any_search_to_return_no_results
       end

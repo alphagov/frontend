@@ -107,13 +107,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_one.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
@@ -123,13 +116,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_two.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
@@ -139,13 +125,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_three.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
 - type: govspeak
   content: |
     <p><a href="/landing-page/tasks">See the latest data on our progress</a></p>
@@ -191,13 +170,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_two.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
@@ -207,13 +179,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_three.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/exercise-more
     content: Exercise more
@@ -223,13 +188,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_two.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
@@ -239,13 +197,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_three.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
@@ -255,13 +206,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_three.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
   - type: card
     href: /landing-page/donate-to-charity
     content: Donate to charity
@@ -271,13 +215,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        - type: statistics
-          title: "Chart to visually represent some data"
-          x_axis_label: "X Axis"
-          y_axis_label: "Y Axis"
-          csv_file: "data_three.csv"
-          data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-          minimal: true
 - type: share_links
   links:
     - href: /twitter-profile

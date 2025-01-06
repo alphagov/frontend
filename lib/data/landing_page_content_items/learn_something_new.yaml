@@ -95,12 +95,6 @@ blocks:
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
-    - type: statistics
-      title: "Chart to visually represent data"
-      x_axis_label: "X Axis"
-      y_axis_label: "Y Axis"
-      csv_file: "data_one.csv"
-      data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
     - type: govspeak
       content: |
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis

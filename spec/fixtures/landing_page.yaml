@@ -87,17 +87,6 @@ blocks:
   content: Statistics
 - type: columns_layout
   blocks:
-  - type: big_number
-    number: £75m
-    label: amount of money that looks big
-  - type: big_number
-    number: 100%
-    label: increase in the number of big_number components added to the columns at this point
-  - type: big_number
-    number: £43
-    label: Cost of a cup of coffee in Covent Garden
-- type: columns_layout
-  blocks:
   - type: card
     image:
       alt: "Placeholder alt text"

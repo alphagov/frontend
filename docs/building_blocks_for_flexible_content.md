@@ -36,7 +36,6 @@ Blocks can be given a full width light grey background by setting `full_width_ba
 Simple blocks generally render one component or "thing". They can either be rendered directly or as the children of compound blocks.
 
 - [Action Link](#action-link)
-- [Big Number](#big-number)
 - [Document List](#document-list)
 - [Govspeak](#govspeak)
 - [Heading](#heading)
@@ -54,16 +53,6 @@ A wrapper around the [action link component](https://components.publishing.servi
 - type: action_link
   text: "Learn more about our goals"
   href: "/landing-page/goals"
-```
-
-#### Big Number
-
-A wrapper around the [Big number component](https://components.publishing.service.gov.uk/component-guide/big_number)
-
-```yaml
-- type: big_number
-  number: £75m
-  label: amount of money that looks big
 ```
 
 #### Document List
@@ -397,21 +386,21 @@ Columns layout spreads its blocks out horizontally. The `columns` property deter
 
 If `columns` is missing entirely, three columns will be rendered by default.
 
-In the following example, the first two `big_number` blocks will be side-by-side on the first row and the third block will drop down onto the next row, taking up the left hand column.
+In the following example, the first two `govspeak` blocks will be side-by-side on the first row and the third block will drop down onto the next row, taking up the left hand column.
 
 ```yaml
 - type: columns_layout
   columns: 2
   blocks:
-  - type: big_number
-    number: £75m
-    label: amount of money that looks big
-  - type: big_number
-    number: 100%
-    label: increase in the number of big_number components added to the columns at this point
-  - type: big_number
-    number: £43
-    label: Cost of a cup of coffee in Covent Garden
+  - type: govspeak
+    content: |
+      <p>Lorem ipsum...</p>
+  - type: govspeak
+    content: |
+      <p>Lorem ipsum...</p>
+  - type: govspeak
+    content: |
+      <p>Lorem ipsum...</p>
 ```
 
 #### Two Column Layout

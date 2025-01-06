@@ -10,11 +10,7 @@
   </div>
 
   <% block.card_content.each do |subblock| %>
-    <%
-      options = {}
-      options[:height] = 200 if subblock.data["minimal"] && subblock.data["type"] == "statistics"
-    %>
-    <%= render_block(subblock, options:)  %>
+    <%= render_block(subblock)  %>
   <% end %>
 
   <% if block.image %>

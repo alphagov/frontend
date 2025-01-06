@@ -45,7 +45,6 @@ Simple blocks generally render one component or "thing". They can either be rend
 - [Quote](#quote)
 - [Share Links](#share-links)
 - [Side Navigation](#side-navigation)
-- [Statistics](#statistics)
 
 #### Action Link
 
@@ -220,32 +219,6 @@ A navigation item suitable for use in a sidebar. It supports a single column of 
   navigation_group_id: Sidebar
 ```
 
-#### Statistics
-
-A wrapper around the [Chart](https://components.publishing.service.gov.uk/component-guide/chart) component. The `csv_file` key can be an uploaded file (from `/lib/data/landing_page_content_items/statistics`), or (preferably) an attachment from the content item, in which case the filename of the attachment will be matched to the `csv_file` key.
-
-```yaml
-- type: statistics
-  title: "Chart to visually represent data"
-  x_axis_label: "X Axis"
-  y_axis_label: "Y Axis"
-  csv_file: "data_one.csv"
-  data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-```
-
-For a minimal chart add `minimal: true` to the block config. This will output a simplified graph with no interactivity.
-
-```yaml
-- type: statistics
-  title: "Chart to visually represent data"
-  x_axis_label: "X Axis"
-  y_axis_label: "Y Axis"
-  csv_file: "data_one.csv"
-  data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
-  minimal: true
-  minimal_link: /landing-page/task
-```
-
 ### Compound blocks
 
 Compound blocks generally render more than one component and can contain nested blocks. The nested blocks can be simple blocks or themselves compound blocks
@@ -284,11 +257,6 @@ A card block renders its `card_content` value as a [Heading component](https://c
     - type: heading
       content: Rorem ipsum dolor sit amet, consectetur adipiscing elit.
       path: http://gov.uk
-    - type: statistics
-      x_axis_label: "X Axis"
-      y_axis_label: "Y Axis"
-      csv_file: "data_one.csv"
-      data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 ```
 
 #### Featured
@@ -394,15 +362,6 @@ It does nothing except contain other blocks and is only required as the top leve
 ```yaml
 - type: blocks_container
   blocks:
-  - type: govspeak
-    content: |
-      <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum esta, mattis tellus.</p>
-  - type: statistics
-    title: "Chart to visually represent data"
-    x_axis_label: "X Axis"
-    y_axis_label: "Y Axis"
-    csv_file: "data_one.csv"
-    data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
   - type: govspeak
     content: |
       <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum esta, mattis tellus.</p>

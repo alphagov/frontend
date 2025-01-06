@@ -152,12 +152,6 @@ blocks:
           - type: heading
             content: Title 2 govspeak title goes here
             path: http://gov.uk
-- type: statistics
-  title: "Chart to visually represent data"
-  x_axis_label: "X Axis"
-  y_axis_label: "Y Axis"
-  csv_file: "data_one.csv"
-  data_source_link: https://www.example.com
 - type: document_list
   taxon_base_path: /a-taxon
   items:

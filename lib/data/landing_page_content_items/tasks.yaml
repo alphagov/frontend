@@ -89,13 +89,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
-      - type: statistics
-        title: "Chart heading"
-        hide_heading: true
-        x_axis_label: "X Axis"
-        y_axis_label: "Y Axis"
-        csv_file: "data_one.csv"
-        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: card
   href: /landing-page/be-kinder
   content: Exercise more
@@ -108,13 +101,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
-      - type: statistics
-        title: "Chart heading"
-        hide_heading: true
-        x_axis_label: "X Axis"
-        y_axis_label: "Y Axis"
-        csv_file: "data_two.csv"
-        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: card
   href: /landing-page/donate-to-charity
   content: Donate to charity
@@ -127,13 +113,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
-      - type: statistics
-        title: "Chart heading"
-        hide_heading: true
-        x_axis_label: "X Axis"
-        y_axis_label: "Y Axis"
-        csv_file: "data_three.csv"
-        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: card
   href: /landing-page/learn-something-new
   content: Learn something new
@@ -146,13 +125,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
-      - type: statistics
-        title: "Chart heading"
-        hide_heading: true
-        x_axis_label: "X Axis"
-        y_axis_label: "Y Axis"
-        csv_file: "data_four.csv"
-        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: card
   href: /landing-page/be-thankful
   content: Be thankful
@@ -165,13 +137,6 @@ blocks:
         - type: govspeak
           content: |
             <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
-      - type: statistics
-        title: "Chart heading"
-        hide_heading: true
-        x_axis_label: "X Axis"
-        y_axis_label: "Y Axis"
-        csv_file: "data_one.csv"
-        data_source_link: https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ihyq/qna
 - type: two_column_layout
   theme: two_thirds_one_third
   blocks:

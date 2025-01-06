@@ -1,8 +1,27 @@
 <%
   add_view_stylesheet("landing_page/columns_layout")
+
+  data_attributes = {
+    columns: block.data["columns"] || 3,
+  }
+
+  ga4_tracking = block.data["ga4_tracking"] || false
+
+  if ga4_tracking
+    data_attributes.merge!({
+      module: "ga4-link-tracker",
+      ga4_set_indexes: "",
+      ga4_track_links_only: "",
+      ga4_link: {
+        event_name: "navigation",
+        type: block.data["ga4_type"],
+      }.to_json
+    })
+  end
 %>
-<div class="columns-layout" data-columns="<%= block.data["columns"] || 3 %>">
+
+<%= tag.div class: "columns-layout", data: data_attributes do %>
   <% block.blocks.each do |child| %>
     <%= render "landing_page/blocks/#{child.type}", block: child %>
   <% end %>
-</div>
+<% end %>

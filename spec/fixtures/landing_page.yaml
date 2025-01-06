@@ -13,6 +13,12 @@ navigation_groups:
       text: "Homepage"
     - href: "/goals"
       text: "Goals"
+  - text: "Heading 2"
+    links:
+    - href: "/homepage"
+      text: "Homepage 2"
+    - href: "/goals"
+      text: "Goals 2"
 - id: "Sidebar"
   links:
   - href: "/a"
@@ -156,3 +162,37 @@ blocks:
     path: https://www.gov.uk
     document_type: Consultation
     public_updated_at: "2024-02-01 09:00:11 +0000"
+- type: columns_layout
+  ga4_tracking: true
+  ga4_type: box
+  blocks:
+  - type: box
+    href: /landing-page/be-kinder
+    content: Preview pickles
+    theme_colour: 1
+    box_content:
+      blocks:
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+  - type: box
+    href: /landing-page/be-kinder
+    content: Empower elephants
+    theme_colour: 2
+    box_content:
+      blocks:
+        - type: govspeak
+          content: |
+            <h3>Subtitle here</h3>
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+            <h3>Subtitle here</h3>
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>
+  - type: box
+    href: /landing-page/be-kinder
+    content: Celebrate Caribou
+    theme_colour: 3
+    box_content:
+      blocks:
+        - type: govspeak
+          content: |
+            <p>Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis class.</p>

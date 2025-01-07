@@ -392,6 +392,13 @@ fa:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
+    corporate_information_page:
+      about_our_services_html: اطلاعات کسب کنید %{link}.
+      corporate_information: اطلاعات شرکت
+      personal_information_charter_html: "%{link} نحوه رفتار ما با اطلاعات شخصی شما را توضیح می‌دهد."
+      publication_scheme_html: درباره انواع اطلاعاتی که معمولاً در %{link} خود منتشر می‌کنیم، اطلاعات بیشتری کسب کنید.
+      social_media_use_html: سیاست ما را درباره %{link} مطالعه کنید.
+      welsh_language_scheme_html: درباره تعهد ما نسبت به %{link} اطلاعات کسب کنید.
     fatality_notice:
       alt_text: تاج وزارت دفاع
       field_of_operation: زمینه فعالیت

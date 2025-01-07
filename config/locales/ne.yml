@@ -392,6 +392,13 @@ ne:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    corporate_information_page:
+      about_our_services_html: पत्ता लगाउनुहोस् %{link}।
+      corporate_information: निगम जानकारी
+      personal_information_charter_html: हाम्रो %{link} ले हामी तपाईंको व्यक्तिगत जानकारीलाई कसरी व्यवहार गर्छौं भनेर व्याख्या गर्छ।
+      publication_scheme_html: हामी नियमित रूपमा हाम्रो %{link} मा प्रकाशित जानकारीको प्रकारको बारेमा पढ्नुहोस्।
+      social_media_use_html: "%{link} मा हाम्रो नीति पढ्नुहोस्।"
+      welsh_language_scheme_html: "%{link} को हाम्रो प्रतिबद्धताको बारेमा जानकारी पाउनुहोस्।"
     fatality_notice:
       alt_text: रक्षा मन्त्रालय क्रेस्ट
       field_of_operation: सञ्चालन क्षेत्र

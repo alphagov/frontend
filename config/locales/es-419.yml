@@ -392,6 +392,13 @@ es-419:
     case_study:
       one: Estudio de caso
       other: Estudios de caso
+    corporate_information_page:
+      about_our_services_html: Conozca %{link}.
+      corporate_information: Información corporativa
+      personal_information_charter_html: Nuestro %{link} explica cómo manejamos su información personal.
+      publication_scheme_html: Lea los tipos de información que publicamos habitualmente en nuestro %{link}.
+      social_media_use_html: Lea nuestra normativa en %{link}.
+      welsh_language_scheme_html: Conozca nuestro compromiso con %{link}.
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación

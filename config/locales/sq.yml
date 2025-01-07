@@ -392,6 +392,13 @@ sq:
     case_study:
       one: Rast studimi
       other: Raste studimi
+    corporate_information_page:
+      about_our_services_html: Mësoni %{link}.
+      corporate_information: Informacioni i korporatës
+      personal_information_charter_html: "%{link} ynë shpjegon se si i trajtojmë informacionet tuaja personale."
+      publication_scheme_html: Lexoni për llojet e informacionit që botojmë në mënyrë rutinore në %{link} tonë.
+      social_media_use_html: Lexoni politikën tonë në %{link}.
+      welsh_language_scheme_html: Mësoni rreth angazhimit tonë ndaj %{link}.
     fatality_notice:
       alt_text: Stema e Ministrisë së Mbrojtjes
       field_of_operation: Fusha e operimit

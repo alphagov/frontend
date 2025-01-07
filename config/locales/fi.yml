@@ -392,6 +392,13 @@ fi:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
+    corporate_information_page:
+      about_our_services_html: Ota selvää %{link}.
+      corporate_information: Yritystiedot
+      personal_information_charter_html: "%{link} selittää, miten käsittelemme henkilötietojasi."
+      publication_scheme_html: Lue, millaisia tietoja julkaisemme rutiininomaisesti %{link}.
+      social_media_use_html: Lue käytäntömme osoitteesta %{link}.
+      welsh_language_scheme_html: Tutustu sitoumukseemme %{link}.
     fatality_notice:
       alt_text: Puolustusministeriön vaakuna
       field_of_operation: Toiminta -alue

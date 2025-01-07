@@ -542,6 +542,13 @@ uk:
       many:
       one: Аналіз ситуації
       other: Аналізи ситуації
+    corporate_information_page:
+      about_our_services_html: Дізнатися %{link}.
+      corporate_information: Корпоративна інформація
+      personal_information_charter_html: Наш %{link} пояснює, як ми обробляємо ваші персональні дані.
+      publication_scheme_html: Про те, які типи інформації ми регулярно публікуємо, читайте у нашому %{link}.
+      social_media_use_html: Ознайомтеся із нашою політикою на %{link}.
+      welsh_language_scheme_html: Дізнайтесь про дотримання нами %{link}.
     fatality_notice:
       alt_text: Герб Міністерства оборони
       few:

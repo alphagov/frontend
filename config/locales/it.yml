@@ -392,6 +392,13 @@ it:
     case_study:
       one: Caso di studio
       other: Casi di studio
+    corporate_information_page:
+      about_our_services_html: Trova %{link}.
+      corporate_information: Informazioni aziendali
+      personal_information_charter_html: Il nostro %{link} spiega come trattiamo i tuoi dati personali.
+      publication_scheme_html: Leggi i tipi di informazioni che pubblichiamo abitualmente nel nostro %{link}.
+      social_media_use_html: Leggi la nostra informativa su %{link}.
+      welsh_language_scheme_html: Scopri il nostro impegno per %{link}.
     fatality_notice:
       alt_text: Stemma del Ministero della Difesa
       field_of_operation: Campo operativo

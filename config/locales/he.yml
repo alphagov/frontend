@@ -392,6 +392,13 @@ he:
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן
+    corporate_information_page:
+      about_our_services_html: גלה %{link}.
+      corporate_information: מידע תאגידי
+      personal_information_charter_html: ה%{link} מסביר אודות המדיניות שלנו כלפי מידע פרטי
+      publication_scheme_html: קרא על סוגי המידע שאנו מפרסמים באופן שגרתי ב- %{link} שלנו
+      social_media_use_html: קרא/י אודות המדיניות שלנו %{link}
+      welsh_language_scheme_html: מידע נוסף על המחויבות שלנו לפרסום %{link}
     fatality_notice:
       alt_text: סמל משרד הביטחון
       field_of_operation: תחום הפעולה

@@ -467,6 +467,13 @@ sk:
       few:
       one: Prípadová štúdia
       other: Prípadové štúdie
+    corporate_information_page:
+      about_our_services_html: Zistite %{link}.
+      corporate_information: Firemné informácie
+      personal_information_charter_html: Náš %{link} vysvetľuje, ako zaobchádzame s vašimi osobnými údajmi.
+      publication_scheme_html: Prečítajte si o typoch informácií, ktoré bežne zverejňujeme v našom %{link}.
+      social_media_use_html: Prečítajte si naše zásady na %{link}.
+      welsh_language_scheme_html: Prečítajte si o našom záväzku voči %{link}.
     fatality_notice:
       alt_text: Erb ministerstva obrany
       few:

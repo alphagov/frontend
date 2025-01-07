@@ -392,6 +392,13 @@ tk:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
+    corporate_information_page:
+      about_our_services_html: Öwreniň %{link}.
+      corporate_information: Korporatiw maglumatlar
+      personal_information_charter_html: Biziň %{link} baglanyşygymyz siziň şahsy maglumatlaryňyza nähili çemeleşýändigimiz barada habar berýär.
+      publication_scheme_html: Biziň %{link} baglanyşygymyzdan nähili habarlary yzygiderli neşir edýändigimizi okaň.
+      social_media_use_html: Biziň syýasatymyz barada %{link} baglanyşygymyzda okaň.
+      welsh_language_scheme_html: Niýetimiz barada %{link}-da okaň.
     fatality_notice:
       alt_text: Goranmak ministrliginiň nyşany
       field_of_operation: Iş meýdany

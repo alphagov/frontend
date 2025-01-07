@@ -392,6 +392,13 @@ ps:
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات
+    corporate_information_page:
+      about_our_services_html: "%{link} ومومئ."
+      corporate_information: د شرکت معلومات
+      personal_information_charter_html: زموږ %{link} تشریح کوي چې موږ ستاسو شخصي معلوماتو سره څنګه چلند کوو.
+      publication_scheme_html: د هغه معلوماتو ډولونو په اړه ولولئ چې موږ یې په منظم ډول زموږ په %{link} کې خپروو.
+      social_media_use_html: زموږ پالیسي په%{link} ولولئ.
+      welsh_language_scheme_html: "%{link} ته زموږ د ژمنتیا په اړه معلومات ترلاسه کړئ."
     fatality_notice:
       alt_text: د دفاع وزارت کریسټ
       field_of_operation: د عملیاتو ساحه

@@ -392,6 +392,13 @@ da:
     case_study:
       one: Casestudie
       other: Casestudie
+    corporate_information_page:
+      about_our_services_html: Find ud af %{link}.
+      corporate_information: Virksomhedsoplysninger
+      personal_information_charter_html: Vores %{link} forklarer, hvordan vi behandler dine personlige oplysninger.
+      publication_scheme_html: Læs om de typer af oplysninger, som vi rutinemæssigt offentliggør i vores %{link}.
+      social_media_use_html: Læs vores politik om %{link}.
+      welsh_language_scheme_html: Learn more about our commitment to% {link}.
     fatality_notice:
       alt_text: Forsvarsministeriets kam
       field_of_operation: Operationsområde

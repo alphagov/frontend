@@ -315,6 +315,13 @@ vi:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Tìm hiểu %{link}.
+      corporate_information: Thông tin doanh nghiệp
+      personal_information_charter_html: "%{link} của chúng tôi giải thích cách chúng tôi xử lý thông tin cá nhân của bạn."
+      publication_scheme_html: Tìm hiểu về các loại thông tin chúng tôi thường xuyên xuất bản trong %{link} của chúng tôi.
+      social_media_use_html: Đọc chính sách của chúng tôi trên %{link}.
+      welsh_language_scheme_html: Tìm hiểu về cam kết của chúng tôi đối với %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

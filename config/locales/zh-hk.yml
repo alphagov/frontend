@@ -315,6 +315,13 @@ zh-hk:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: 找尋 %{link}。
+      corporate_information: 政府資訊
+      personal_information_charter_html: 我們的 %{link} 解釋我們如何處理你的個人資料。
+      publication_scheme_html: 查閱我們在 %{link} 定期發佈的資訊。
+      social_media_use_html: 查閱我們在 %{link} 的政策。
+      welsh_language_scheme_html: 查閱我們在 %{link} 的發佈承諾。
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

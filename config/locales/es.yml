@@ -388,6 +388,13 @@ es:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Descubra %{link}.
+      corporate_information: Información corporativa
+      personal_information_charter_html: El siguiente enlace %{link} explica cómo tratamos tu información personal
+      publication_scheme_html: Lea acerca del tipo de información que publicamos en el siguiente enlace %{link}
+      social_media_use_html: Lea nuestra política en %{link}
+      welsh_language_scheme_html: Encuentre más sobre nuestro compromiso de publicar en %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

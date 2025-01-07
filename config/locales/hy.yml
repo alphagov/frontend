@@ -388,6 +388,13 @@ hy:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Տեղեկանալ %{link}։
+      corporate_information: Կորպորատիվ տեղեկություն
+      personal_information_charter_html: Մեր %{link}-ում ներկայացված է, թե ինչպես ենք մշակում ձեր անձնական տվյալները
+      publication_scheme_html: Կարդալ մեր %{link}-ում պարբերաբար հրապարակվող տեղեկությունների տեսակների մասին։
+      social_media_use_html: 'Կարդալ մեր քաղաքականությունը %{link} հղումով:'
+      welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

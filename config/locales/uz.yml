@@ -388,6 +388,13 @@ uz:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Билиб олиш %{link}.
+      corporate_information: Корпоратив маълумотлар
+      personal_information_charter_html: Бизнинг %{link} биз сизнинг шахсий маълумотларингизга қандай тарзда ишлов беришни бажараётганимизни тушунтириб беради.
+      publication_scheme_html: Биз мунтазам нашр қилаётган маълумотларнинг турлари ҳақида, бизнинг %{link} да ўқинг.
+      social_media_use_html: "%{link} да бизнинг сиёсатимиз билан танишинг."
+      welsh_language_scheme_html: "%{link} да бизнинг содиқлилигимиз ҳақида билиб олинг ."
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -461,6 +461,13 @@ cs:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Zjistěte %{link}.
+      corporate_information: Firemní informace
+      personal_information_charter_html: Náš %{link} vysvětluje, jak nakládáme s vašimi osobními údaji.
+      publication_scheme_html: Přečtěte si, jaké informace běžně zveřejňujeme v našem %{link}.
+      social_media_use_html: Přečtěte si naše zásady na %{link}.
+      welsh_language_scheme_html: Přečtěte si o našem závazku k %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -388,6 +388,13 @@ ur:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: "%{link} کو جانیے۔"
+      corporate_information: کارپوریٹ معلومات
+      personal_information_charter_html: ہماری %{link} بیان کرتی ہے کہ ہم آپ کی ذاتی معلومات سے کیسے نمٹتے ہیں۔
+      publication_scheme_html: ہماری %{link} میں ہماری جانب سے معمول کے حساب سے شائع کی جانے والی معلومات کی اقسام کے بارے میں پڑھیں۔
+      social_media_use_html: "%{link} پر ہماری پالیسی کو پڑھیں۔"
+      welsh_language_scheme_html: "%{link} کے ساتھ ہماری وابستگی کے بارے میں جانیں۔"
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

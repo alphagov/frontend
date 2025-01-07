@@ -315,6 +315,13 @@ zh-tw:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: 了解 %{link}。
+      corporate_information: 公司資訊
+      personal_information_charter_html: 我們的 %{link} 說明了我們是如何處理你的個資。
+      publication_scheme_html: 閱讀我們在 %{link} 中定期發布的資訊類型。
+      social_media_use_html: 在 %{link} 上閱讀我們政策。
+      welsh_language_scheme_html: 了解我們對 %{link} 的承諾。
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

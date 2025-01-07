@@ -388,6 +388,13 @@ he:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: גלה %{link}.
+      corporate_information: מידע תאגידי
+      personal_information_charter_html: ה%{link} מסביר אודות המדיניות שלנו כלפי מידע פרטי
+      publication_scheme_html: קרא על סוגי המידע שאנו מפרסמים באופן שגרתי ב- %{link} שלנו
+      social_media_use_html: קרא/י אודות המדיניות שלנו %{link}
+      welsh_language_scheme_html: מידע נוסף על המחויבות שלנו לפרסום %{link}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

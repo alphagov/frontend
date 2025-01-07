@@ -534,6 +534,13 @@ ru:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Узнайте %{link}.
+      corporate_information: Корпоративная информация
+      personal_information_charter_html: Наше %{link} с объяснением о том, как мы обращаемся с вашей личной информацией
+      publication_scheme_html: Прочитайте о информации, которая обычно публикуется нами на %{link}.
+      social_media_use_html: Ознакомьтесь с нашей политикой по %{link}.
+      welsh_language_scheme_html: Узнайте о наших обязательствах по %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

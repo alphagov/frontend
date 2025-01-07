@@ -534,6 +534,13 @@ gd:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Amharc ar %{link}.
+      corporate_information: Faisnéis cuideachta
+      personal_information_charter_html: Míníonn ár %{link} conas a dhéanaimid do chuid smaointe pearsanta a rianú.
+      publication_scheme_html: Faigh amach na príomhchineálacha faisnéise a ndéanaimid cumarsáid rialta inár %{link}.
+      social_media_use_html: Léigh ár mbeartas ar %{link}.
+      welsh_language_scheme_html: Faigh amach ár gcomhréiteach ar an %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

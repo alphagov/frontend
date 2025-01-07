@@ -388,6 +388,13 @@ si:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: "%{link} සොයන්න."
+      corporate_information: ආයතනික තොරතුරු
+      personal_information_charter_html: අගේ %{link} අපි ඔබගේ පුද්ගලික තොරතුරු හසුරුවන ආකාරය විස්තර කරයි.
+      publication_scheme_html: අපේ %{link} තුල අපි ආකාරික ලෙස ප්රකාශයට පත් කරන තොරතුරු වර්ග ගැන කියවන්න.
+      social_media_use_html: අපේ ප්රතිපත්තිය කියවන්න %{link}.
+      welsh_language_scheme_html: "%{link} සඳහා අපේ කැපවීම ගැන සොයා බලන්න."
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

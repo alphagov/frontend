@@ -390,6 +390,13 @@ en:
   error: Error
   find: Find
   formats:
+    corporate_information_page:
+      about_our_services_html: Find out %{link}.
+      corporate_information: Corporate information
+      personal_information_charter_html: Our %{link} explains how we treat your personal information.
+      publication_scheme_html: Read about the types of information we routinely publish in our %{link}.
+      social_media_use_html: Read our policy on %{link}.
+      welsh_language_scheme_html: Find out about our commitment to %{link}.
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     get_involved:

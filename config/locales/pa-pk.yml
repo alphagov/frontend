@@ -388,6 +388,13 @@ pa-pk:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: اینوں لبھو %{link}.
+      corporate_information: کاروبار دی معلومات
+      personal_information_charter_html: ساڈا %{link} ایہ وضاحت کر دا اے کہ اسی ذاتی معلومات نال کی سلوک کرنے آں۔
+      publication_scheme_html: ایس تے ایہ پڑھو کہ اسی رضاکارانہ طور تے کیس طراں دی معلومات شائع کرنے آں %{link}.
+      social_media_use_html: ایندے تے ساڈی حکمتِ عملی بارے پڑھو %{link}.
+      welsh_language_scheme_html: ساڈی وابستگی دے بارے جانو %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

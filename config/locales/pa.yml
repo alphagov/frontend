@@ -388,6 +388,13 @@ pa:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: "%{link} ਪਤਾ ਕਰੋ।"
+      corporate_information: ਕਾਰਪੋਰੇਟ ਜਾਣਕਾਰੀ
+      personal_information_charter_html: ਸਾਡਾ %{link} ਦੱਸਦਾ ਹੈ ਕਿ ਅਸੀਂ ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਨਾਲ ਕਿਵੇਂ ਵਿਵਹਾਰ ਕਰਦੇ ਹਾਂ.
+      publication_scheme_html: ਉਹਨਾਂ ਜਾਣਕਾਰੀ ਦੀਆਂ ਕਿਸਮਾਂ ਬਾਰੇ ਪੜ੍ਹੋ ਜੋ ਅਸੀਂ ਨਿਯਮਿਤ ਤੌਰ ਤੇ ਸਾਡੇ %{link} ਵਿੱਚ ਪ੍ਰਕਾਸ਼ਤ ਕਰਦੇ ਹਾਂ।
+      social_media_use_html: "%{link} 'ਤੇ ਸਾਡੀ ਨੀਤੀ ਪੜ੍ਹੋ।"
+      welsh_language_scheme_html: "%{link} ਪ੍ਰਤੀ ਸਾਡੀ ਵਚਨਬੱਧਤਾ ਬਾਰੇ ਜਾਣੋ।"
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

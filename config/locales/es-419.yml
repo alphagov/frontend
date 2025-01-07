@@ -388,6 +388,13 @@ es-419:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Conozca %{link}.
+      corporate_information: Información corporativa
+      personal_information_charter_html: Nuestro %{link} explica cómo manejamos su información personal.
+      publication_scheme_html: Lea los tipos de información que publicamos habitualmente en nuestro %{link}.
+      social_media_use_html: Lea nuestra normativa en %{link}.
+      welsh_language_scheme_html: Conozca nuestro compromiso con %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

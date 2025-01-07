@@ -388,6 +388,13 @@ is:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Kynntu þér málið %{link}.
+      corporate_information: Upplýsingar um fyrirtæki
+      personal_information_charter_html: "%{link} okkar útskýrir hvernig við meðhöndlum þínar persónulegu upplýsingar."
+      publication_scheme_html: Lestu um hvaða upplýsingar við birtum reglulega í %{link} okkar.
+      social_media_use_html: Lestu stefnuna okkar varðandi %{link}.
+      welsh_language_scheme_html: Kynntu þér skuldbindingu okkar við %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

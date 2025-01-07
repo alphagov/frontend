@@ -1,7 +1,6 @@
-<% content_for :extra_head_content do %>
-  <%= machine_readable_metadata(
-    schema: :article
-  ) %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= content_item.description %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
 <% @additional_body = capture do %>

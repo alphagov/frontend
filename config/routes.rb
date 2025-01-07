@@ -81,6 +81,9 @@ Rails.application.routes.draw do
       get "/", to: "get_involved#show"
       get "/take-part/:slug", to: "take_part#show"
     end
+
+    get "/organisations/:organisation_slug/about", to: "corporate_information_page#show"
+    get "/organisations/:organisation_slug/about/:slug", to: "corporate_information_page#show"
   end
 
   # Static error page routes - in practice used only during deploy, these don't have a

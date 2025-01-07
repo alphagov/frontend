@@ -41,7 +41,7 @@ en:
   bank-holidays: bank-holidays
   bank_holidays:
     2nd_january: 2nd January
-    add_clock_changes_to_calendar: Add clock changes in the UK to your calendar (ICS, 2KB)
+    add_clock_changes_to_calendar: Add clock changes in the UK to your calendar
     bank_holiday: Bank holiday
     battle_boyne: Battle of the Boyne (Orangemen’s Day)
     boxing_day: Boxing Day
@@ -55,7 +55,8 @@ en:
     clocks_forward: Clocks go forward
     date: Date
     day_of_week: Day of the week
-    download_clock_changes: Download these dates so you can add them to a calendar application such as iCal or Outlook
+    download_clock_changes: Download these dates so you can add them to a calendar application such as iCal or Outlook.
+    download_clock_changes_link: "Download clock changes calendar (ICS, 2KB)"
     early_may: Early May bank holiday
     early_may_ve: Early May bank holiday (VE day)
     easter_monday: Easter Monday
@@ -74,11 +75,12 @@ en:
     year: Year
   cancel: cancel
   common:
-    add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
+    add_holiday_ics: Add bank holidays %{for_nation} to your calendar
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
     bank_holiday_translation_html: This guide is also available <a href="/gwyliau-banc" title="Gwyliau banc y DU" class="govuk-link">in Welsh (Cymraeg)</a>.
-    download_ics: Download these dates so you can add them to a calendar application such as iCal or Outlook
+    download_holiday_ics_link: "Download bank holidays calendar (ICS, 14KB)"
+    download_ics: Download these dates so you can add them to a calendar application such as iCal or Outlook.
     extra_bank_holiday: Extra bank holiday
     holiday_entitlement_html: Your employer does not have to give you <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">paid leave on bank or public holidays</a>.
     nations:

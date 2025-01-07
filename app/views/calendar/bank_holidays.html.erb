@@ -71,10 +71,19 @@
                 text: t("common.bank_holiday_translation_html")
               } %>
 
-              <%= render "components/subscribe", {
-                label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-                url: division_path(@calendar, division, :format => 'ics'),
-                title: t("common.download_ics"),
+              <%= render "govuk_publishing_components/components/heading", {
+                text: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+                heading_level: 3,
+                font_size: "s"
+              } %>
+
+              <p><%= t("common.download_ics") %></p>
+
+              <%= render "govuk_publishing_components/components/button", {
+                text: t("common.download_holiday_ics_link"),
+                secondary_solid: true,
+                margin_bottom: 6,
+                href: division_path(@calendar, division, :format => 'ics'),
                 data: {
                   module: "ga4-link-tracker",
                   ga4_link: {

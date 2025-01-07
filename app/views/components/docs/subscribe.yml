@@ -9,13 +9,13 @@ accessibility_criteria: |
 examples:
   default:
     data:
-      label: Add bank holidays for England and Wales to your calendar (ICS, 10KB)
-      title: Download these dates so you can add them to a calendar application such as iCal or Outlook
+      label: Add bank holidays for England and Wales to your calendar
+      title: Download these dates so you can add them to a calendar application such as iCal or Outlook.
       url: /
   with_data_attributes:
     data:
-      label: Add bank holidays for England and Wales to your calendar (ICS, 10KB)
-      title: Download these dates so you can add them to a calendar application such as iCal or Outlook
+      label: Add bank holidays for England and Wales to your calendar
+      title: Download these dates so you can add them to a calendar application such as iCal or Outlook.
       url: /
       data:
         module: example-module

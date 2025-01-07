@@ -43,7 +43,7 @@ RSpec.describe "Transaction" do
       end
 
       within("#content") do
-        within("h1.gem-c-heading") { expect(page).to have_title("Carrots") }
+        within(".gem-c-heading h1") { expect(page).to have_title("Carrots") }
         within(".article-container") do
           within("section.intro") do
             expect(page).to have_selector(".get-started-intro", text: "This is the introduction to carrots")
@@ -159,7 +159,7 @@ RSpec.describe "Transaction" do
       expect(page.status_code).to eq(200)
       expect(page).to have_button_as_link("Start now", href: "http://cti-staging.voa.gov.uk/cti/inits.asp")
 
-      within("h1.gem-c-heading") do
+      within(".gem-c-heading h1") do
         expect(page).to have_title("Check your Council Tax band (staging)")
       end
 

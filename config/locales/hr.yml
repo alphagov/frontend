@@ -461,6 +461,13 @@ hr:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Saznajte %{link}.
+      corporate_information: Korporativne informacije
+      personal_information_charter_html: Naš %{link} objašnjava kako postupamo s vašim osobnim podacima.
+      publication_scheme_html: Pročitajte o vrstama informacija koje redovito objavljujemo u našoj %{link}.
+      social_media_use_html: Pročitajte naša pravila na %{link}.
+      welsh_language_scheme_html: Saznajte o našoj predanosti %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

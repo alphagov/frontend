@@ -388,6 +388,13 @@ dr:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: دریابید%{link}.
+      corporate_information: اطلاعات شرکت
+      personal_information_charter_html: ما%{link} نحوهء برخورد ما با اطلاعات شخصی شما را بیان مینماید
+      publication_scheme_html: در بارهء انواع اطلاعاتی که بطور معمول نشرمیشود در%{link}.
+      social_media_use_html: سیاست ما را در اینجا بخوانید%{link}.
+      welsh_language_scheme_html: از تعهد ما به %{link} مطلع شوید.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

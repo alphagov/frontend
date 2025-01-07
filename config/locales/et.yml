@@ -388,6 +388,13 @@ et:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Uuri välja %{link}.
+      corporate_information: Ettevõtte teave
+      personal_information_charter_html: Meie %{link} selgitab, kuidas me teie isikuandmeid käsitleme.
+      publication_scheme_html: Lisateavet selle kohta, millist teavet me regulaarselt avaldame oma saidil %{link}.
+      social_media_use_html: Lugege meie eeskirju saidil %{link}.
+      welsh_language_scheme_html: Lisateave meie pühendumuse kohta %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

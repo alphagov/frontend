@@ -534,6 +534,13 @@ pl:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Dowiedz się %{link}.
+      corporate_information: Informacje korporacyjne
+      personal_information_charter_html: Nasz %{link} pokazuje, w jaki sposób traktujemy Państwa informacje osobiste.
+      publication_scheme_html: Przeczytaj, jakiego rodzaju wiadomości publikujemy zwykle w naszym %{link}.
+      social_media_use_html: Przeczytaj naszą politykę dotyczącą %{link}.
+      welsh_language_scheme_html: Poznaj nasze zobowiązania związane z publikowaniem w %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

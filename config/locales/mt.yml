@@ -534,6 +534,13 @@ mt:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Kun af %{link}.
+      corporate_information: Informazzjoni korporattiva
+      personal_information_charter_html: Il-%{link} jispjega kif aħna nittrattaw l-informazzjoni personali tiegħek.
+      publication_scheme_html: Aqra dwar it-tipi ta' informazzjoni li aħna nippubblikaw regolarment fuq %{link}.
+      social_media_use_html: Aqra l-politika tagħna fuq %{link}.
+      welsh_language_scheme_html: Kun af dwar l-impenn tagħna lejn %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

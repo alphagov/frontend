@@ -388,6 +388,13 @@ gu:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: "%{link} શોધી કાઢો."
+      corporate_information: કોર્પોરેટ માહિતી
+      personal_information_charter_html: અમારી %{link} માં સમજાવ્યું છે કે અમે તમારી વ્યક્તિગત માહિતી સાથે કેવી રીતે વર્તીએ છીએ.
+      publication_scheme_html: અમે અમારી %{link} માં સામાન્ય રીતે કઈ પ્રકારની માહિતી પ્રકાશિત કરીએ છીએ તે વાંચો.
+      social_media_use_html: "%{link} માં અમારી નીતિ વાંચો."
+      welsh_language_scheme_html: "%{link} પ્રત્યે અમારી પ્રતિબદ્ધતા અંગે જાણો."
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

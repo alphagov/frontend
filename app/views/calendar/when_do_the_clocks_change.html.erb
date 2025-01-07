@@ -39,15 +39,16 @@
             } %>
           </div>
 
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t("bank_holidays.add_clock_changes_to_calendar"),
+            heading_level: 2,
+            margin_bottom: 4,
+          } %>
+
+          <p class="govuk-body"><%= t("bank_holidays.download_clock_changes") %></p>
+
           <p class="govuk-body govuk-!-margin-bottom-8 govuk-!-display-none-print">
-            <%= link_to(
-              t('bank_holidays.add_clock_changes_to_calendar'),
-              division_path(@calendar, division, :format => 'ics'),
-              {
-                class: "govuk-link govuk-!-font-weight-bold",
-                title: t('bank_holidays.download_clock_changes')
-              }
-            ) %>
+            <a href="#" class="govuk-link">Download Calendar (ICS, 14KB)</a>  
           </p>
 
           <p class="govuk-body"> <%= t('bank_holidays.clock_change_explanation') %> </p>

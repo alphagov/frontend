@@ -74,11 +74,10 @@ cy:
     year: Blwyddyn
   cancel:
   common:
-    add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
+    add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
     bank_holiday_on_wkend: Os yw gŵyl banc yn cwympo ar benwythnos, bydd dydd o'r wythnos yn dod yn ŵyl banc 'amgen' yn ei le, fel arfer y dydd Llun canlynol.
     bank_holiday_translation_html: Mae'r canllaw hwn hefyd ar gael <a href="/bank-holidays" title="UK bank holidays" class="govuk-link">yn Saesneg (English)</a>.
-    download_ics: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu at raglen calendr fel iCal neu Outlook
     extra_bank_holiday: Gŵyl banc ychwanegol
     holiday_entitlement_html: Nid oes yn rhaid i'ch cyflogwr roi <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">gwyliau â thâl i chi ar wyliau banc neu gyhoeddus</a>.
     nations:

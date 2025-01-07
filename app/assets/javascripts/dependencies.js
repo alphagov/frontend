@@ -11,6 +11,4 @@
 //= require govuk_publishing_components/components/table
 //= require govuk_publishing_components/components/tabs
 
-//= require govuk_publishing_components/components/chart
-
 //= require govuk_web_banners/dependencies

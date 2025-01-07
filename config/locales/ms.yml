@@ -317,6 +317,13 @@ ms:
       other: Artikel ditulis penulis
     case_study:
       other: Kajian kes
+    corporate_information_page:
+      about_our_services_html: Ketahui %{link}.
+      corporate_information: Maklumat korporat
+      personal_information_charter_html: "%{link} kami menerangkan bagaimana kami menggunakan maklumat peribadi anda."
+      publication_scheme_html: Baca tentang jenis maklumat yang kami biasa terbitkan dalam %{link} kami.
+      social_media_use_html: Baca dasar kami di %{link}.
+      welsh_language_scheme_html: Ketahui tentang komitmen kami kepada %{link}.
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Medan operasi

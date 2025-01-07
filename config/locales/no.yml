@@ -392,6 +392,13 @@
     case_study:
       one: Casestudie
       other: Casestudier
+    corporate_information_page:
+      about_our_services_html: Finn ut %{link}.
+      corporate_information: Bedriftsinformasjon
+      personal_information_charter_html: Vår %{link} forklarer hvordan vi behandler dine personopplysninger.
+      publication_scheme_html: Les om informasjonstypene vi rutinemessig publiserer i vår %{link}.
+      social_media_use_html: Les retningslinjene våre på %{link}.
+      welsh_language_scheme_html: Finn ut mer om vårt engasjement for %{link}.
     fatality_notice:
       alt_text: Forsvarsdepartementets crest
       field_of_operation: Operasjonsfelt

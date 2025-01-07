@@ -392,6 +392,13 @@ tr:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+    corporate_information_page:
+      about_our_services_html: "%{link} bağlantısını keşfedin."
+      corporate_information: Kurumsal bilgiler
+      personal_information_charter_html: "%{link} bağlantımız özel bilgilerinizi nasıl işlediğimizi açıklamaktadır."
+      publication_scheme_html: "%{link} bağlantımızda düzenli olarak yayınladığımız bilgi türlerini okuyun."
+      social_media_use_html: "%{link} bağlantısındaki politikamızı okuyun."
+      welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
       field_of_operation: Faaliyet alanı

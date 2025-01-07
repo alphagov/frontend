@@ -467,6 +467,13 @@ lt:
       few:
       one: Atvejo analizė
       other: Atvejų analizės
+    corporate_information_page:
+      about_our_services_html: Sužinokite %{link}.
+      corporate_information: Korporatyvinė informacija
+      personal_information_charter_html: Čia %{link} rasite paaiškinimą, kaip tvarkoma Jūsų asmeninė informacija.
+      publication_scheme_html: Sužinokite, kokią informaciją mes pastoviai pateikiame puslapyje %{link}.
+      social_media_use_html: Perskaitykite mūsų strategiją %{link}.
+      welsh_language_scheme_html: Sužinokite apie mūsų įsipareigojimą skelbti %{link}.
     fatality_notice:
       alt_text: Apsaugos ministerijos herbas
       few:

@@ -694,6 +694,13 @@ cy:
       other: Astudiaethau achos
       two:
       zero:
+    corporate_information_page:
+      about_our_services_html: Dysgu %{link}.
+      corporate_information: Gwybodaeth gorfforaethol
+      personal_information_charter_html: Mae ein %{link} yn esbonio sut rydyn ni'n ymdrin â'ch gwybodaeth bersonol.
+      publication_scheme_html: Darllenwch am y mathau o wybodaeth rydyn ni'n ei chyhoeddi'n rheolaidd yn ein %{link}.
+      social_media_use_html: Darllenwch ein polisi ar %{link}.
+      welsh_language_scheme_html: Dysgwch am ein hymrwymiad i %{link}.
     fatality_notice:
       alt_text: Arwyddlun y Weinyddiaeth Amddiffyn
       few:

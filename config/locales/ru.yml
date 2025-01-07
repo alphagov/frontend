@@ -542,6 +542,13 @@ ru:
       many:
       one: Причинный анализ
       other: Причинные анализы
+    corporate_information_page:
+      about_our_services_html: Узнайте %{link}.
+      corporate_information: Корпоративная информация
+      personal_information_charter_html: Наше %{link} с объяснением о том, как мы обращаемся с вашей личной информацией
+      publication_scheme_html: Прочитайте о информации, которая обычно публикуется нами на %{link}.
+      social_media_use_html: Ознакомьтесь с нашей политикой по %{link}.
+      welsh_language_scheme_html: Узнайте о наших обязательствах по %{link}.
     fatality_notice:
       alt_text: Герб Министерства Обороны
       few:

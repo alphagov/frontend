@@ -542,6 +542,13 @@ be:
       many:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
+    corporate_information_page:
+      about_our_services_html: Даведайцеся %{link}.
+      corporate_information: Карпаратыўная іфармацыя
+      personal_information_charter_html: Наша %{link} тлумачыць, як мы ставімся да Вашай асабістай інфармацыі.
+      publication_scheme_html: Чытайце пра тыпы інфармацыі, якую мы рэгулярна публікуем, у нашым %{link}.
+      social_media_use_html: Прачытайце пра нашу палітыку датычна %{link}.
+      welsh_language_scheme_html: Даведайцеся аб нашых абавязках да публікацыі ў %{link}.
     fatality_notice:
       alt_text: Герб Міністэрства абароны
       few:

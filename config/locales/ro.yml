@@ -467,6 +467,13 @@ ro:
       few:
       one: Studiu de caz
       other: Studii de caz
+    corporate_information_page:
+      about_our_services_html: Aflați %{link}.
+      corporate_information: Informații despre corporație
+      personal_information_charter_html: "%{link} explică cum tratăm informațiile dvs. cu caracter personal."
+      publication_scheme_html: Citiți despre tipurile de informații pe care le publicăm de obicei în %{link}.
+      social_media_use_html: Citiți politica noastră pe %{link}.
+      welsh_language_scheme_html: Aflați mai multe despre angajamentul nostru pentru %{link}.
     fatality_notice:
       alt_text: Emblema Ministerului Apărării
       few:

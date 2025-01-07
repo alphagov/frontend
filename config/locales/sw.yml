@@ -392,6 +392,13 @@ sw:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
+    corporate_information_page:
+      about_our_services_html: Pata maelezo kuhusu %{link}.
+      corporate_information: Maelezo ya shirika
+      personal_information_charter_html: "%{link} yetu inafafanua jinsi tunavyoshughulikia maelezo yako ya kibinafsi."
+      publication_scheme_html: Soma maelezo kuhusu aina za maelezo tunayochapisha kila wakati kwenye %{link} yetu.
+      social_media_use_html: Soma sera yetu kwenye %{link}.
+      welsh_language_scheme_html: Pata maelezo kuhusu wajibu wetu wa %{link}.
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
       field_of_operation: Sehemu ya kazi

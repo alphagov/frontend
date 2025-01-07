@@ -392,6 +392,13 @@ sv:
     case_study:
       one: Fallstudie
       other: Fallstudier
+    corporate_information_page:
+      about_our_services_html: Ta reda på %{link}.
+      corporate_information: Företagsinformation
+      personal_information_charter_html: Vår %{link} förklarar hur vi behandlar din personliga information.
+      publication_scheme_html: Läs om vilka typer av information vi rutinmässigt publicerar i vår %{link}.
+      social_media_use_html: Läs vår policy för %{link}.
+      welsh_language_scheme_html: Ta reda på vårt åtagande om %{link}.
     fatality_notice:
       alt_text: Försvarsministeriets vapensköld
       field_of_operation: Verksamhetsområde

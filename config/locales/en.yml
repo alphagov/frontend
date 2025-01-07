@@ -394,6 +394,13 @@ en:
     case_study:
       one: Case study
       other: Case studies
+    corporate_information_page:
+      about_our_services_html: Find out %{link}.
+      corporate_information: Corporate information
+      personal_information_charter_html: Our %{link} explains how we treat your personal information.
+      publication_scheme_html: Read about the types of information we routinely publish in our %{link}.
+      social_media_use_html: Read our policy on %{link}.
+      welsh_language_scheme_html: Find out about our commitment to %{link}.
     fatality_notice:
       alt_text: Ministry of Defence crest
       field_of_operation: Field of operation

@@ -392,6 +392,13 @@ kk:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
+    corporate_information_page:
+      about_our_services_html: "%{link} туралы мәлімет алу."
+      corporate_information: Корпоративтік ақпарат
+      personal_information_charter_html: Біздің %{link} жеке басқа қатысты ақпаратты қалай пайдалану керектігін түсіндіреді.
+      publication_scheme_html: Біз үнемі %{link} бөлімінде жариялайтын ақпарат түрлері туралы оқыңыз.
+      social_media_use_html: "%{link} мекенжайындағы саясатымызды оқыңыз."
+      welsh_language_scheme_html: "%{link} қосқан үлесіміз туралы оқыңыз."
     fatality_notice:
       alt_text: Қорғаныс министрлігінің елтаңбасы
       field_of_operation: Жұмыс аймағы

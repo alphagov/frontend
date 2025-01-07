@@ -392,6 +392,13 @@ ka:
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
+    corporate_information_page:
+      about_our_services_html: შეიტყვეთ %{link}.
+      corporate_information: კორპორატიული ინფორმაცია
+      personal_information_charter_html: ჩვენი %{link} განმარტავს, თუ როგორ ვამუშავებთ ჩვენ თქვენს პირად ინფორმაციას.
+      publication_scheme_html: წაიკითხეთ ინფორმაციის ტიპების შესახებ, რომელსაც ჩვენ რეგულარულად ვაქვეყნებთ ჩვენს %{link}-ზე.
+      social_media_use_html: წაიკითხეთ ჩვენი პოლიტიკის შესახებ %{link}.
+      welsh_language_scheme_html: გაეცანით ჩვენს ვალდებულებას %{link}.
     fatality_notice:
       alt_text: თავდაცვის სამინისტრო
       field_of_operation: ოპერაციის სფერო

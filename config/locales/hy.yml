@@ -392,6 +392,13 @@ hy:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
+    corporate_information_page:
+      about_our_services_html: Տեղեկանալ %{link}։
+      corporate_information: Կորպորատիվ տեղեկություն
+      personal_information_charter_html: Մեր %{link}-ում ներկայացված է, թե ինչպես ենք մշակում ձեր անձնական տվյալները
+      publication_scheme_html: Կարդալ մեր %{link}-ում պարբերաբար հրապարակվող տեղեկությունների տեսակների մասին։
+      social_media_use_html: 'Կարդալ մեր քաղաքականությունը %{link} հղումով:'
+      welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
     fatality_notice:
       alt_text: Պաշտպանության նախարարության զինանշան
       field_of_operation: Գործունեության ոլորտ

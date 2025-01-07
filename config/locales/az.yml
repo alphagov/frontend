@@ -392,6 +392,13 @@ az:
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
+    corporate_information_page:
+      about_our_services_html: Öyrənin %{link}.
+      corporate_information: Korporativ məlumat
+      personal_information_charter_html: Bizim %{link} şəxsi məlumatlarınızla necə davrandığımızı izah edir.
+      publication_scheme_html: "%{link}-də adətən istifadə etdiyimiz məlumatların növləri barədə oxuyun."
+      social_media_use_html: "%{link}-də siyasətmizi oxuyun."
+      welsh_language_scheme_html: "%{link} ilə bağlı öhdəliyimiz barədə öyrənin."
     fatality_notice:
       alt_text: Müdafiə nazirliyinin emblemi
       field_of_operation: Əməliyyat sahəsi

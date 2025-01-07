@@ -692,6 +692,13 @@ ar:
       other: دراسات الحالة
       two:
       zero:
+    corporate_information_page:
+      about_our_services_html: تعرف على %{link}.
+      corporate_information: معلومات الشركة
+      personal_information_charter_html: يوضح %{link} كيف نتعامل مع معلوماتك الشخصية.
+      publication_scheme_html: اقرأ عن أنواع المعلومات التي ننشرها بشكل روتيني في %{link}.
+      social_media_use_html: اقرأ سياستنا على %{link}.
+      welsh_language_scheme_html: تعرف على التزامنا بشأن %{link}.
     fatality_notice:
       alt_text: شعار وزارة الدفاع
       few:

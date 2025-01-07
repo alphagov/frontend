@@ -392,6 +392,13 @@ bg:
     case_study:
       one: Казус
       other: Казуси
+    corporate_information_page:
+      about_our_services_html: Научете повече за %{link}.
+      corporate_information: Фирмена информация
+      personal_information_charter_html: В нашия %{link} е обяснено как работим с личната информация.
+      publication_scheme_html: Прочетете за видовете информация, които обичайно публикуваме на нашата %{link}.
+      social_media_use_html: Прочетете нашите правила на %{link}.
+      welsh_language_scheme_html: Научете повече за нашия ангажимент към %{link}.
     fatality_notice:
       alt_text: Герб на Министерството на отбраната
       field_of_operation: Област на действие

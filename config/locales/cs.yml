@@ -467,6 +467,13 @@ cs:
       few:
       one: Případová studie
       other: Případové studie
+    corporate_information_page:
+      about_our_services_html: Zjistěte %{link}.
+      corporate_information: Firemní informace
+      personal_information_charter_html: Náš %{link} vysvětluje, jak nakládáme s vašimi osobními údaji.
+      publication_scheme_html: Přečtěte si, jaké informace běžně zveřejňujeme v našem %{link}.
+      social_media_use_html: Přečtěte si naše zásady na %{link}.
+      welsh_language_scheme_html: Přečtěte si o našem závazku k %{link}.
     fatality_notice:
       alt_text: Ministerstvo obrany
       few:

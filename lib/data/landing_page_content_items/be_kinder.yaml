@@ -87,6 +87,14 @@ blocks:
     navigation_group_id: Sidebar
   - type: blocks_container
     blocks:
+    - type: heading
+      content: This is a level two H2 heading with a custom font size
+      heading_level: 2
+      font_size: "m"
+    - type: heading
+      content: This is a level three H3 heading with a custom font size
+      heading_level: 3
+      font_size: "s"
     - type: govspeak
       content: |
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis

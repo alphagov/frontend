@@ -14,6 +14,8 @@ some hard-coded routes.
 |                       ||https://www.gov.uk/when-do-the-clocks-change|
 |Case studies           |[case_study](https://docs.publishing.service.gov.uk/content-schemas/case_study.html)|https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy|
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
+|Corporate information pages  |[corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/corporate_information_page.html)|https://www.gov.uk/government/organisations/forensic-science-regulator/about|
+|                             |                                   |https://www.gov.uk/government/organisations/forensic-science-regulator/about/accessible-documents-policy|
 |Fatality notice        |[fatality_notice](https://docs.publishing.service.gov.uk/content-schemas/fatality_notice.html)|https://www.gov.uk/government/fatalities/corporal-lee-churcher-dies-in-iraq|
 |Fields of operation    |[fields_of_operation](https://docs.publishing.service.gov.uk/content-schemas/fields_of_operation.html)|https://www.gov.uk/government/fields-of-operation|
 |Find electoral office  |hardcoded|https://www.gov.uk/contact-electoral-registration-office|

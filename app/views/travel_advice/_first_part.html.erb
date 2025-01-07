@@ -11,10 +11,22 @@
 
 <% if content_item.map %>
   <figure class="map">
-    <img src="<%= content_item.map["url"] %>" alt="<%= content_item.map["alt_text"] %>" class="map-image">
+    <img src="<%= content_item.map["url"] %>" alt="<%= content_item.map["alt_text"] %>" class="map-image govuk-!-margin-bottom-3">
     <% if content_item.map_download_url %>
       <figcaption>
-        <%= render 'components/download_link', href: content_item.map_download_url, link_text: "Download a more detailed map (PDF)" %>
+        <%= render "govuk_publishing_components/components/button", {
+          text: "Download a more detailed map (PDF)",
+          secondary_solid: true,
+          margin_bottom: 6,
+          href: content_item.map_download_url,
+          data: {
+            module: "ga4-link-tracker",
+            ga4_link: {
+              event_name: "file_download",
+              type: "generic download"
+            }
+          }
+        } %>
       </figcaption>
     <% end %>
   </figure>

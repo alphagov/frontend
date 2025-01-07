@@ -1,6 +1,6 @@
 <%
   heading_level = block.data["heading_level"] || 2
-  font_size = options[:font_size]
+  font_size = block.data["font_size"] || options[:font_size]
   text = block.data["content"]
   path = block.data["path"] || nil
   inverse = options[:inverse] || false

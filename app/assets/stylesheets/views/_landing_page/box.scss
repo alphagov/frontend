@@ -3,10 +3,6 @@
 .box {
   padding: govuk-spacing(4);
   background-color: govuk-colour("light-grey");
-
-  @include govuk-media-query($until: desktop) {
-    margin-bottom: govuk-spacing(6);
-  }
 }
 
 @include govuk-media-query($media-type: print) {

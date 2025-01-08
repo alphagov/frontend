@@ -11,7 +11,7 @@ RSpec.describe "BankHolidays" do
     mock_calendar_fixtures
   end
 
-  context "AB testing spacing" do
+  context "when AB testing spacing" do
     it "has spacing for the B variant" do
       Timecop.travel("2012-12-14")
       with_variant(BankHolidaysTest: "B") do
@@ -39,17 +39,17 @@ RSpec.describe "BankHolidays" do
     Timecop.travel("2012-12-14")
     visit "/bank-holidays"
 
-    within("head", visible: false) do
-      expect(page).to have_selector("title", text: "UK bank holidays - GOV.UK", visible: false)
-      desc = page.find("meta[name=description]", visible: false)
+    within("head", visible: :hidden) do
+      expect(page).to have_selector("title", text: "UK bank holidays - GOV.UK", visible: :hidden)
+      desc = page.find("meta[name=description]", visible: :hidden)
       expect(desc["content"]).to eq("Find out when bank holidays are in England, Wales, Scotland and Northern Ireland - including past and future bank holidays")
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/england-and-wales.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/england-and-wales.ics']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/scotland.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/scotland.ics']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/northern-ireland.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/northern-ireland.ics']", visible: false)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/england-and-wales.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/england-and-wales.ics']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/scotland.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/scotland.ics']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/northern-ireland.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/northern-ireland.ics']", visible: :hidden)
     end
 
     within("#content") do
@@ -199,7 +199,7 @@ RSpec.describe "BankHolidays" do
     end
   end
 
-  context "showing bunting on bank holidays" do
+  context "when showing bunting on bank holidays" do
     it "shows bunting when today is a buntable bank holiday" do
       Timecop.travel(Date.parse("9th April 2012")) do
         visit "/bank-holidays"
@@ -258,7 +258,7 @@ RSpec.describe "BankHolidays" do
     end
   end
 
-  context "last updated" do
+  describe "last updated" do
     it "is formatted correctly" do
       Timecop.travel(Date.parse("5th Dec 2012")) do
         visit "/bank-holidays"
@@ -270,8 +270,8 @@ RSpec.describe "BankHolidays" do
     end
   end
 
-  context "GA4 tracking" do
-    it "has GA4 tracking on the .ics file links" do
+  describe ".ics file links" do
+    it "has GA4 tracking" do
       visit "/bank-holidays"
       link_parents = page.all(".app-c-subscribe")
       link_parents.each do |link_parent|

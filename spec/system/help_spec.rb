@@ -1,5 +1,5 @@
 RSpec.describe "Help" do
-  context "rendering the help index page" do
+  describe "the help index page" do
     before do
       payload = {
         base_path: "/help",

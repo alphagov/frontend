@@ -20,7 +20,7 @@ RSpec.describe "HelpPage" do
     it "sets noindex meta tag" do
       visit "/help/cookie-details"
 
-      expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: false)
+      expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
     end
 
     it "does not render with the single page notification button" do

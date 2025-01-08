@@ -1,5 +1,5 @@
 RSpec.describe "TravelAdvice" do
-  context "index" do
+  describe "GET /foreign-travel-advice" do
     before do
       content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
       base_path = content_item.fetch("base_path")
@@ -14,7 +14,7 @@ RSpec.describe "TravelAdvice" do
       within("head", visible: :all) do
         expect(page).to have_selector("title", text: "Foreign travel advice", visible: :all)
         expect(page).to have_selector("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']", visible: :all)
-        expect(page).to have_selector("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: false)
+        expect(page).to have_selector("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: :hidden)
       end
 
       expect(page).to have_selector("#wrapper.travel-advice")
@@ -98,7 +98,7 @@ RSpec.describe "TravelAdvice" do
     end
   end
 
-  context "show" do
+  describe "GET /foreign-travel-advice/<country>" do
     before do
       @content_store_response = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
       @base_path = @content_store_response.fetch("base_path")
@@ -150,7 +150,7 @@ RSpec.describe "TravelAdvice" do
       expect(page).to have_css(".gem-c-contextual-breadcrumbs")
     end
 
-    context "first part" do
+    describe "first part" do
       it "displays latest updates" do
         visit @base_path
 
@@ -176,7 +176,7 @@ RSpec.describe "TravelAdvice" do
       end
     end
 
-    context "other parts" do
+    describe "other parts" do
       before do
         @part = @content_store_response.dig("details", "parts").last
       end
@@ -207,7 +207,7 @@ RSpec.describe "TravelAdvice" do
     it "includes a discoverable atom feed link" do
       visit @base_path
 
-      expect(page).to have_css("link[type*='atom'][href='#{@base_path}.atom']", visible: false)
+      expect(page).to have_css("link[type*='atom'][href='#{@base_path}.atom']", visible: :hidden)
     end
 
     it "does not render with the single page notification button" do

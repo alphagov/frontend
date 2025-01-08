@@ -25,7 +25,7 @@ RSpec.describe "LicenceTransaction" do
     }
   end
 
-  context "given a location specific licence" do
+  context "with a location specific licence" do
     before do
       configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
       stub_local_links_manager_does_not_have_an_authority("not-a-valid-council-name")
@@ -688,7 +688,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a non-location specific licence" do
+  context "with a non-location specific licence" do
     before do
       @payload = {
         base_path: "/find-licences/licence-to-kill",
@@ -765,7 +765,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a licence edition with continuation link" do
+  context "with a licence edition with continuation link" do
     before do
       @payload = {
         base_path: "/find-licences/artistic-license",
@@ -809,7 +809,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a licence which does not exist in licensify and uses authority url" do
+  context "with a licence which does not exist in licensify and uses authority url" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       configure_locations_api_and_local_authority("SW1A 1AA", %w[a-council], 5990)
@@ -868,7 +868,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given a licence which does not exist in licensify" do
+  context "with a licence which does not exist in licensify" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       stub_licence_does_not_exist("1071-5-1")
@@ -899,7 +899,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given that licensify times out" do
+  context "when licensify times out" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       stub_licence_times_out("1071-5-1")
@@ -911,7 +911,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given that licensify errors" do
+  context "when licensify returns an error" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
       stub_licence_returns_error("1071-5-1")
@@ -923,7 +923,7 @@ RSpec.describe "LicenceTransaction" do
     end
   end
 
-  context "given the usesLicensify parameter" do
+  context "with the usesLicensify parameter" do
     before do
       stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
     end

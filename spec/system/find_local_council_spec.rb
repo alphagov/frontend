@@ -31,7 +31,7 @@ RSpec.describe "FindLocalCouncil" do
     end
 
     it "adds the description as meta tag for SEO purposes" do
-      description = page.find("meta[name=\"description\"]", visible: false)["content"]
+      description = page.find("meta[name=\"description\"]", visible: :hidden)["content"]
 
       expect(description).to eq("Find your local authority in England, Wales, Scotland and Northern Ireland")
     end
@@ -43,8 +43,8 @@ RSpec.describe "FindLocalCouncil" do
   end
 
   context "when entering a postcode in the search form" do
-    context "for successful postcode lookup" do
-      context "for unitary local authority" do
+    context "with a successful postcode lookup" do
+      context "and with a unitary local authority" do
         before do
           configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
           visit "/find-local-council"
@@ -97,7 +97,7 @@ RSpec.describe "FindLocalCouncil" do
         end
       end
 
-      context "for district local authority" do
+      context "and with a district local authority" do
         before do
           stub_locations_api_has_location("HP20 1UG", [{ "latitude" => 51.5010096, "longitude" => -0.141587, "local_custodian_code" => 440 }])
           stub_local_links_manager_has_a_district_and_county_local_authority("aylesbury", "buckinghamshire", local_custodian_code: 440)
@@ -161,7 +161,7 @@ RSpec.describe "FindLocalCouncil" do
       # and a unitary (rather than district and council), which can happen during merge periods
       # where it is useful for a short period of time to mark a county as a unitary if it is
       # becoming one. See find_local_council_controller#result for more explanation
-      context "for district local authority with a unitary instead of county upper tier" do
+      context "and for a district local authority with a unitary instead of county upper tier" do
         before do
           stub_locations_api_has_location("HP20 1UG", [{ "latitude" => 51.5010096, "longitude" => -0.141587, "local_custodian_code" => 440 }])
           stub_local_links_manager_has_a_district_and_unitary_local_authority("aylesbury", "buckinghamshire", local_custodian_code: 440)
@@ -210,7 +210,7 @@ RSpec.describe "FindLocalCouncil" do
       end
     end
 
-    context "for unsuccessful postcode lookup" do
+    context "with an unsuccessful postcode lookup" do
       context "with invalid postcode" do
         before do
           stub_locations_api_does_not_have_a_bad_postcode("NO POSTCODE")
@@ -226,7 +226,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "adds \"Error:\" to the beginning of the page title" do
-          expect(page).to have_selector("title", text: "Error: Find your local council - GOV.UK", visible: false)
+          expect(page).to have_selector("title", text: "Error: Find your local council - GOV.UK", visible: :hidden)
         end
 
         it "shows an error message" do
@@ -263,7 +263,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "adds \"Error:\" to the beginning of the page title" do
-          expect(page).to have_selector("title", text: "Error: Find your local council - GOV.UK", visible: false)
+          expect(page).to have_selector("title", text: "Error: Find your local council - GOV.UK", visible: :hidden)
         end
 
         it "shows an error message" do

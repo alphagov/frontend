@@ -44,7 +44,7 @@ RSpec.describe "LocalTransactions" do
     stub_content_store_has_item("/pay-bear-tax", @payload)
   end
 
-  context "given a local transaction with an interaction present" do
+  context "with a local transaction with an interaction present" do
     before do
       stub_local_links_manager_has_a_link(
         authority_slug: "westminster",
@@ -347,7 +347,7 @@ RSpec.describe "LocalTransactions" do
     end
   end
 
-  context "given a local transaction without an interaction present" do
+  context "with a local transaction but without an interaction present" do
     before do
       stub_local_links_manager_has_no_link(authority_slug: "westminster", lgsl: 461, lgil: 8, country_name: "England")
     end
@@ -402,7 +402,7 @@ RSpec.describe "LocalTransactions" do
     end
   end
 
-  context "given no interaction present and a missing homepage url" do
+  context "with no interaction present and a missing homepage url" do
     before do
       stub_local_links_manager_has_no_link_and_no_homepage_url(authority_slug: "westminster", lgsl: 461, lgil: 8, country_name: "England")
       visit "/pay-bear-tax"

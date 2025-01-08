@@ -53,7 +53,7 @@ RSpec.describe "Homepage" do
         ClimateControl.modify GOVUK_DISABLE_SEARCH_AUTOCOMPLETE: "1" do
           visit "/"
 
-          expect(page).to_not have_css(".gem-c-search-with-autocomplete")
+          expect(page).not_to have_css(".gem-c-search-with-autocomplete")
           expect(page).to have_css(".gem-c-search")
         end
       end

@@ -9,7 +9,7 @@ RSpec.describe "Icalendar" do
     end
   end
 
-  context "getting ICS version" do
+  describe "ICS downloads" do
     before do
       Timecop.freeze(Time.zone.parse("2012-10-17 01:00:00"))
     end

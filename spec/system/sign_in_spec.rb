@@ -1,5 +1,5 @@
 RSpec.describe "Sign in" do
-  context "rendering the sign-in help page" do
+  describe "Sign-in help page" do
     before do
       payload = {
         base_path: "/sign-in",

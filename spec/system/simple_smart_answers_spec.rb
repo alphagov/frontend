@@ -325,7 +325,7 @@ RSpec.describe "SimpleSmartAnswers" do
     click_on("Start now")
 
     expect(page.current_url).to eq("http://www.example.com/the-bridge-of-death/y?token=#{token}")
-    expect(page).to have_selector("input[value='#{token}']", visible: false)
+    expect(page).to have_selector("input[value='#{token}']", visible: :hidden)
   end
 
   it "allows changing an answer" do

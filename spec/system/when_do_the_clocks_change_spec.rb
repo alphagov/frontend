@@ -9,13 +9,13 @@ RSpec.describe "When Do The Clocks Change" do
 
   it "displays the clocks change page" do
     visit "/when-do-the-clocks-change"
-    within("head", visible: false) do
-      expect(page).to have_selector("title", text: "When do the clocks change? - GOV.UK", visible: false)
-      desc = page.find("meta[name=description]", visible: false)
+    within("head", visible: :hidden) do
+      expect(page).to have_selector("title", text: "When do the clocks change? - GOV.UK", visible: :hidden)
+      desc = page.find("meta[name=description]", visible: :hidden)
 
       expect(desc["content"]).to eq("Dates when the clocks go back or forward - includes British Summer Time, Greenwich Mean Time")
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/when-do-the-clocks-change/united-kingdom.json']", visible: false)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/when-do-the-clocks-change/united-kingdom.ics']", visible: false)
+      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/when-do-the-clocks-change/united-kingdom.json']", visible: :hidden)
+      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/when-do-the-clocks-change/united-kingdom.ics']", visible: :hidden)
     end
 
     within("#content") do

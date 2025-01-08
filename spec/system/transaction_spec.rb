@@ -1,7 +1,7 @@
 RSpec.describe "Transaction" do
   include SchemaOrgHelpers
 
-  context "a transaction with all the optional things" do
+  context "with a transaction with all the optional things" do
     before do
       @payload = {
         analytics_identifier: nil,
@@ -38,8 +38,8 @@ RSpec.describe "Transaction" do
 
       expect(page.status_code).to eq(200)
       within("head", visible: :all) do
-        expect(page).to have_selector("title", text: "Carrots - GOV.UK", visible: false)
-        expect(page).not_to have_selector("meta[name='robots']", visible: false)
+        expect(page).to have_selector("title", text: "Carrots - GOV.UK", visible: :hidden)
+        expect(page).not_to have_selector("meta[name='robots']", visible: :hidden)
       end
 
       within("#content") do
@@ -90,7 +90,7 @@ RSpec.describe "Transaction" do
     end
   end
 
-  context "jobsearch page" do
+  context "with a jobsearch page" do
     it "renders ok" do
       content_store_has_example_item("/jobsearch", schema: "transaction", example: "jobsearch")
       visit "/jobsearch"
@@ -100,7 +100,7 @@ RSpec.describe "Transaction" do
     end
   end
 
-  context "start page which should have cross domain analytics" do
+  context "with a start page which should have cross domain analytics" do
     it "includes cross domain analytics javascript" do
       content_store_has_example_item("/foo", schema: "transaction", example: "transaction")
       visit "/foo"
@@ -110,7 +110,7 @@ RSpec.describe "Transaction" do
     end
   end
 
-  context "start page format which shouldn't have cross domain analytics" do
+  context "with a start page format which shouldn't have cross domain analytics" do
     it "does not include cross domain analytics javascript" do
       content_store_has_example_item("/foo", schema: "transaction", example: "jobsearch")
       visit "/foo"
@@ -120,7 +120,7 @@ RSpec.describe "Transaction" do
     end
   end
 
-  context "locale is 'cy'" do
+  context "when locale is 'cy'" do
     before do
       @payload = {
         base_path: "/cymraeg",
@@ -151,7 +151,7 @@ RSpec.describe "Transaction" do
     end
   end
 
-  context "a transaction has variants" do
+  context "when a transaction has variants" do
     it "renders correct content including robots meta tag" do
       content_store_has_example_item("/council-tax-bands-2", schema: "transaction", example: "transaction-with-variants")
       visit "/council-tax-bands-2/council-tax-bands-2-staging"
@@ -164,7 +164,7 @@ RSpec.describe "Transaction" do
       end
 
       within("head", visible: :all) do
-        expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: false)
+        expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
       end
     end
   end

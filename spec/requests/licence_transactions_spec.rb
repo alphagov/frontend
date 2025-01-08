@@ -8,7 +8,7 @@ RSpec.describe "Licence Transactions" do
   include GdsApi::TestHelpers::LicenceApplication
   include LocationHelpers
 
-  context "GET start" do
+  describe "GET start" do
     before do
       content_store_has_example_item("/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction")
     end
@@ -16,13 +16,13 @@ RSpec.describe "Licence Transactions" do
     it "sets the cache expiry headers" do
       get "/find-licences/new-licence"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
   end
 
-  context "POST to find" do
+  describe "POST to find" do
     before do
-      @payload = {
+      payload = {
         base_path: "/find-licences/new-licence",
         document_type: "licence_transaction",
         schema_name: "specialist_document",
@@ -36,10 +36,10 @@ RSpec.describe "Licence Transactions" do
           },
         },
       }
-      stub_content_store_has_item("/find-licences/new-licence", @payload)
+      stub_content_store_has_item("/find-licences/new-licence", payload)
     end
 
-    context "loading the licence edition when posting a location" do
+    context "when loading the licence edition and posting a location" do
       before do
         stub_licence_exists(
           "1071-5-1/00BK",
@@ -74,7 +74,7 @@ RSpec.describe "Licence Transactions" do
     end
   end
 
-  context "GET authority" do
+  describe "GET authority" do
     before do
       content_store_has_example_item("/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction")
     end
@@ -82,7 +82,7 @@ RSpec.describe "Licence Transactions" do
     it "sets the cache expiry headers" do
       get "/find-licences/new-licence/secret-service"
 
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
   end
 end

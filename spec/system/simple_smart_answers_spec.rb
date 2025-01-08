@@ -108,7 +108,7 @@ RSpec.describe "SimpleSmartAnswers" do
     it "reroutes to the base slug if requested with part route" do
       visit "/the-bridge-of-death/old-part-route"
 
-      expect(page.current_path).to eq("/the-bridge-of-death")
+      expect(page).to have_current_path("/the-bridge-of-death", ignore_query: true)
     end
   end
 
@@ -116,7 +116,7 @@ RSpec.describe "SimpleSmartAnswers" do
     visit "/the-bridge-of-death"
     click_on("Start now")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y")
+    expect(page).to have_current_path("/the-bridge-of-death/y", ignore_query: true)
 
     within("head", visible: :all) do
       expect(page).to have_selector("title", exact_text: "What...is your name? - The Bridge of Death - GOV.UK", visible: :all)
@@ -173,7 +173,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Sir Lancelot of Camelot")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true)
 
     within(".gem-c-heading + .govuk-body") do
       expect(page).to have_link("Start again", href: "/the-bridge-of-death")
@@ -212,7 +212,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Blue")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue", ignore_query: true)
 
     within(".gem-c-heading + .govuk-body") do
       expect(page).to have_link("Start again", href: "/the-bridge-of-death")
@@ -266,7 +266,7 @@ RSpec.describe "SimpleSmartAnswers" do
 
     click_on("Start now")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y")
+    expect(page).to have_current_path("/the-bridge-of-death/y", ignore_query: true)
     expect(page).not_to have_selector("[data-ga4-link='{\"event_name\":\"form_start\",\"type\":\"simple smart answer\",\"section\":\"start page\",\"action\":\"start\",\"tool_name\":\"The Bridge of Death\"}']")
     expect(page).to have_selector("[data-module='ga4-form-tracker']")
     expect(page).to have_selector("[data-ga4-form='{\"event_name\":\"form_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your name?\",\"action\":\"next step\",\"tool_name\":\"The Bridge of Death\"}']")
@@ -274,7 +274,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Sir Lancelot of Camelot")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true)
     expect(page).not_to have_selector("[data-ga4-link='{\"event_name\":\"form_start\",\"type\":\"simple smart answer\",\"section\":\"start page\",\"action\":\"start\",\"tool_name\":\"The Bridge of Death\"}']")
     expect(page).to have_selector("[data-module='ga4-form-tracker']")
     expect(page).to have_selector("[data-ga4-form='{\"event_name\":\"form_response\",\"type\":\"simple smart answer\",\"section\":\"What...is your favorite colour?\",\"action\":\"next step\",\"tool_name\":\"The Bridge of Death\"}']")
@@ -286,7 +286,7 @@ RSpec.describe "SimpleSmartAnswers" do
     visit "/the-bridge-of-death"
     click_on("Start now")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y")
+    expect(page).to have_current_path("/the-bridge-of-death/y", ignore_query: true)
 
     click_on("Next step")
 
@@ -298,19 +298,19 @@ RSpec.describe "SimpleSmartAnswers" do
     visit "/the-bridge-of-death"
     click_on("Start now")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y")
+    expect(page).to have_current_path("/the-bridge-of-death/y", ignore_query: true)
     expect(page).not_to have_selector("[data-module='ga4-auto-tracker']")
 
     choose("Sir Lancelot of Camelot")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true)
     expect(page).not_to have_selector("[data-module='ga4-auto-tracker']")
 
     choose("Blue")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue", ignore_query: true)
     expect(page).to have_selector("[data-module='ga4-auto-tracker']")
     expect(page).to have_selector("[data-ga4-auto='{\"event_name\":\"form_complete\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"complete\",\"tool_name\":\"The Bridge of Death\",\"text\":\"right-off-you-go\"}']")
     expect(page).to have_selector("[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"simple smart answer\",\"section\":\"Right, off you go.\",\"action\":\"information click\",\"tool_name\":\"The Bridge of Death\"}']")
@@ -325,7 +325,7 @@ RSpec.describe "SimpleSmartAnswers" do
     click_on("Start now")
 
     expect(page.current_url).to eq("http://www.example.com/the-bridge-of-death/y?token=#{token}")
-    expect(page).to have_selector("input[value='#{token}']", visible: false)
+    expect(page).to have_selector("input[value='#{token}']", visible: :hidden)
   end
 
   it "allows changing an answer" do
@@ -334,7 +334,7 @@ RSpec.describe "SimpleSmartAnswers" do
       click_on("Change")
     end
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot", ignore_query: true)
 
     within(".govuk-summary-list") do
       expect(page).to have_selector(".govuk-summary-list__row", count: 1)
@@ -367,7 +367,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Blue... NO! YELLOOOOOOOOOOOOOOOOWWW!!!!")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue-no-yelloooooooooooooooowww")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue-no-yelloooooooooooooooowww", ignore_query: true)
     expect(page).to have_content("AAAAARRRRRRRRRRRRRRRRGGGGGHHH!!!!!!!")
   end
 
@@ -402,7 +402,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Blue")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue", ignore_query: true)
     expect(page).to have_selector(".govuk-summary-list .govuk-summary-list__row", count: 2)
     expect(page).to have_content("Right, off you go")
   end
@@ -458,7 +458,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Blue")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue", ignore_query: true)
     expect(page).to have_selector(".govuk-summary-list .govuk-summary-list__row", count: 2)
     expect(page).to have_content("Right, off you go")
   end
@@ -493,7 +493,7 @@ RSpec.describe "SimpleSmartAnswers" do
     choose("Blue")
     click_on("Next step")
 
-    expect(page.current_path).to eq("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue")
+    expect(page).to have_current_path("/the-bridge-of-death/y/sir-lancelot-of-camelot/blue", ignore_query: true)
     expect(page).to have_selector(".govuk-summary-list .govuk-summary-list__row", count: 2)
     expect(page).to have_content("Right, off you go")
   end

@@ -1,5 +1,5 @@
 RSpec.describe "Calendars" do
-  context "GET 'calendar'" do
+  describe "GET 'calendar'" do
     before do
       allow(Calendar).to receive(:find).and_return(Calendar.new("bank-holidays", "title" => "Brilliant holidays!", "divisions" => []))
       stub_content_store_has_item("/bank-holidays", {
@@ -11,7 +11,7 @@ RSpec.describe "Calendars" do
       stub_content_store_has_item("/when-do-the-clocks-change", schema_name: "calendar")
     end
 
-    context "HTML request (no format)" do
+    context "when requesting HTML (with no format)" do
       it "loads the calendar and show it" do
         get "/bank-holidays"
 
@@ -27,11 +27,11 @@ RSpec.describe "Calendars" do
       it "sets the expiry headers" do
         get "/bank-holidays"
 
-        honours_content_store_ttl
+        expect(response).to honour_content_store_ttl
       end
     end
 
-    context "for a welsh language content item" do
+    context "when the content item is in Welsh" do
       it "sets the I18n locale" do
         stub_content_store_has_item("/gwyliau-banc", {
           schema_name: "calendar",
@@ -46,9 +46,9 @@ RSpec.describe "Calendars" do
       end
     end
 
-    context "json request" do
+    describe "json request" do
       it "loads the calendar and return its json representation" do
-        expect(Calendar).to receive(:find).with("bank-holidays").and_return(instance_double("Calendar", to_json: "json_calendar"))
+        allow(Calendar).to receive(:find).with("bank-holidays").and_return(instance_double(Calendar, to_json: "json_calendar"))
         get "/bank-holidays.json"
 
         expect(response.body).to eq("json_calendar")
@@ -83,11 +83,12 @@ RSpec.describe "Calendars" do
     end
   end
 
-  context "GET 'division'" do
+  describe "GET 'division'" do
+    let(:division) { instance_double(Calendar::Division, to_json: "", events: []) }
+    let(:calendar) { instance_double(Calendar, division: division) }
+
     before do
-      @division = instance_double("Division", to_json: "", events: [])
-      @calendar = instance_double("Calendar", division: @division)
-      allow(Calendar).to receive(:find).and_return(@calendar)
+      allow(Calendar).to receive(:find).and_return(calendar)
       stub_content_store_has_item("/a-calendar", {
         schema_name: "calendar",
         title: "A calendar with divisions",
@@ -97,19 +98,19 @@ RSpec.describe "Calendars" do
     end
 
     it "returns the json representation of the division" do
-      expect(@division).to receive(:to_json).and_return("json_division")
-      expect(@calendar).to receive(:division).with("a-division").and_return(@division)
-      allow(Calendar).to receive(:find).with("a-calendar").and_return(@calendar)
+      allow(division).to receive(:to_json).and_return("json_division")
+      allow(calendar).to receive(:division).with("a-division").and_return(division)
+      allow(Calendar).to receive(:find).with("a-calendar").and_return(calendar)
       get "/a-calendar/a-division.json"
 
       expect(response.body).to eq("json_division")
     end
 
     it "returns the ics representation of the division" do
-      expect(@division).to receive(:events).and_return(:some_events)
-      expect(@calendar).to receive(:division).with("a-division").and_return(@division)
-      allow(Calendar).to receive(:find).with("a-calendar").and_return(@calendar)
-      expect(IcsRenderer).to receive(:new).with(:some_events, "/a-calendar/a-division.ics", :en).and_return(instance_double("Renderer", render: "ics_division"))
+      allow(division).to receive(:events).and_return(:some_events)
+      allow(calendar).to receive(:division).with("a-division").and_return(division)
+      allow(Calendar).to receive(:find).with("a-calendar").and_return(calendar)
+      allow(IcsRenderer).to receive(:new).with(:some_events, "/a-calendar/a-division.ics", :en).and_return(instance_double(IcsRenderer, render: "ics_division"))
       get "/a-calendar/a-division.ics"
 
       expect(response.body).to eq("ics_division")
@@ -132,7 +133,7 @@ RSpec.describe "Calendars" do
     end
 
     it "returns 404 with an invalid division" do
-      allow(@calendar).to receive(:division).and_raise(Calendar::CalendarNotFound)
+      allow(calendar).to receive(:division).and_raise(Calendar::CalendarNotFound)
       get "/a-calendar/foo.json"
 
       expect(response).to have_http_status(:not_found)

@@ -1,5 +1,5 @@
 RSpec.describe "HelpCookies" do
-  context "rendering the cookies setting page" do
+  describe "the cookies settings page" do
     before do
       payload = {
         base_path: "/help/cookies",

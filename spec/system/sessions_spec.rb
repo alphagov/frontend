@@ -15,7 +15,7 @@ RSpec.describe "Sessions" do
 
   after { Rails.application.reload_routes! }
 
-  context "Given a signing in user" do
+  context "when a user is signing in" do
     it "Logs the user in and redirect them to manage their account" do
       given_a_successful_login_attempt
       visit new_govuk_session_callback_path(code: "code", state: "state")

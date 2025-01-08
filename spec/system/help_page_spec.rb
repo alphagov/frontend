@@ -1,10 +1,10 @@
 RSpec.describe "HelpPage" do
-  it_behaves_like "it has meta tags", "help_page", "/help/about-govuk"
-
   before do
     content_store_has_example_item("/help/about-govuk", schema: :help_page, example: "about-govuk")
     content_store_has_example_item("/help/cookie-details", schema: :help_page, example: "cookie-details")
   end
+
+  it_behaves_like "it has meta tags", "help_page", "/help/about-govuk"
 
   context "when visiting 'help/:slug'" do
     it "displays the help page using a content item" do
@@ -20,7 +20,7 @@ RSpec.describe "HelpPage" do
     it "sets noindex meta tag" do
       visit "/help/cookie-details"
 
-      expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: false)
+      expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
     end
 
     it "does not render with the single page notification button" do

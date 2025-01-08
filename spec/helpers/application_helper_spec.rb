@@ -43,7 +43,7 @@ RSpec.describe ApplicationHelper do
     end
 
     it "returns the path of the current request stripping off any query string parameters" do
-      allow(self).to receive(:request).and_return(ActionDispatch::TestRequest.new("PATH_INFO" => "/foo/bar"))
+      allow(self).to receive(:request).and_return(ActionDispatch::TestRequest.new("PATH_INFO" => "/foo/bar?query=true"))
 
       expect(current_path_without_query_string).to eq("/foo/bar")
     end
@@ -54,7 +54,7 @@ RSpec.describe ApplicationHelper do
       let(:content_item) { ContentItem.new({ "schema_name" => "landing_page" }) }
 
       it "removes breadcrumbs" do
-        expect(remove_breadcrumbs(content_item)).to eq(true)
+        expect(remove_breadcrumbs(content_item)).to be(true)
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe ApplicationHelper do
       let(:content_item) { ContentItem.new({ "schema_name" => "a_different_page" }) }
 
       it "does not remove breadcrumbs" do
-        expect(remove_breadcrumbs(content_item)).to eq(false)
+        expect(remove_breadcrumbs(content_item)).to be(false)
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe ApplicationHelper do
       let(:content_item) { ContentItem.new({}) }
 
       it "does not remove breadcrumbs" do
-        expect(remove_breadcrumbs(content_item)).to eq(false)
+        expect(remove_breadcrumbs(content_item)).to be(false)
       end
     end
   end

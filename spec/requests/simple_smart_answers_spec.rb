@@ -10,21 +10,21 @@ RSpec.describe "Simple Smart Answers" do
     }
   end
 
-  context "GET 'start page'" do
+  describe "GET 'start page'" do
     before do
       content_store_has_random_item(base_path: "/the-bridge-of-death", schema: "simple_smart_answer")
     end
 
     it "sets the cache expiry headers" do
       get "/the-bridge-of-death"
-      honours_content_store_ttl
+      expect(response).to honour_content_store_ttl
     end
   end
 
-  context "GET 'question flow'" do
-    context "for a simple_smart_answer slug" do
-      before do
-        @node_details = [
+  describe "GET 'question flow'" do
+    context "with a simple_smart_answer slug" do
+      let(:node_details) do
+        [
           {
             "kind" => "question",
             "slug" => "question-1",
@@ -79,22 +79,25 @@ RSpec.describe "Simple Smart Answers" do
             "body" => "<p>This is outcome 2</p>",
           },
         ]
+      end
+
+      before do
         payload =
           simple_smart_answer_content_item.merge(
             details: {
               start_button_text: "Start here",
               body: "Hello",
-              nodes: @node_details,
+              nodes: node_details,
             },
           )
         stub_content_store_has_item("/the-bridge-of-death", payload)
       end
 
       it "calculates the flow state with no responses" do
-        flow = SimpleSmartAnswers::Flow.new(@node_details)
+        flow = SimpleSmartAnswers::Flow.new(node_details)
         state = flow.state_for_responses([])
         allow(SimpleSmartAnswers::Flow).to receive(:new).with(
-          @node_details,
+          node_details,
         ).and_return(flow)
         allow(flow).to receive(:state_for_responses).with([]).and_return(state)
         get "/the-bridge-of-death/y"
@@ -103,10 +106,10 @@ RSpec.describe "Simple Smart Answers" do
       end
 
       it "calculates the flow state for the given responses" do
-        flow = SimpleSmartAnswers::Flow.new(@node_details)
+        flow = SimpleSmartAnswers::Flow.new(node_details)
         state = flow.state_for_responses(%w[option-1 option-2])
         allow(SimpleSmartAnswers::Flow).to receive(:new).with(
-          @node_details,
+          node_details,
         ).and_return(flow)
         allow(flow).to receive(:state_for_responses).with(
           %w[option-1 option-2],
@@ -125,7 +128,7 @@ RSpec.describe "Simple Smart Answers" do
       it "sets cache control headers" do
         get "/the-bridge-of-death/y/option-1/option-2"
 
-        honours_content_store_ttl
+        expect(response).to honour_content_store_ttl
       end
 
       context "with form submission params" do
@@ -145,7 +148,7 @@ RSpec.describe "Simple Smart Answers" do
         it "sets cache control headers when redirecting" do
           get "/the-bridge-of-death/y/option-1", params: { response: "option-2" }
 
-          honours_content_store_ttl
+          expect(response).to honour_content_store_ttl
         end
 
         it "does not redirect if the form submission results in an error" do

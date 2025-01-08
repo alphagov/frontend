@@ -1,5 +1,5 @@
 RSpec.describe ErrorItemsHelper do
-  include ErrorItemsHelper
+  include described_class
 
   before do
     flash[:validation] = [

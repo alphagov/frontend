@@ -1,7 +1,7 @@
 RSpec.describe "LandingPage" do
   include SearchHelpers
 
-  describe "show" do
+  describe "GET <landing-page>" do
     let(:content_item) do
       {
         "base_path" => "/landing-page",
@@ -125,7 +125,7 @@ RSpec.describe "LandingPage" do
         expect(page).not_to have_content("Couldn't identify a model class for type: does_not_exist")
       end
 
-      context "when viewed on the draft server" do
+      context "and is being viewed on the draft server" do
         before do
           stub_content_store_has_item(base_path, content_item, draft: true)
           stub_content_store_has_item(basic_taxon["base_path"], basic_taxon, draft: true)
@@ -142,10 +142,11 @@ RSpec.describe "LandingPage" do
       end
     end
 
-    context "organisation logo" do
+    describe "organisation logo" do
       before do
         stub_content_store_has_item(base_path, content_item.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
       end
+
       it "has ga4 tracking on the organisation logo" do
         visit base_path
         expect(page).to have_selector(".gem-c-organisation-logo[data-module=ga4-link-tracker]")
@@ -154,7 +155,7 @@ RSpec.describe "LandingPage" do
       end
     end
 
-    context "columns layout" do
+    describe "columns layout" do
       it "has ga4 tracking on the columns layout" do
         visit base_path
         expect(page).to have_selector(".columns-layout[data-module=ga4-link-tracker]")
@@ -164,7 +165,7 @@ RSpec.describe "LandingPage" do
       end
     end
 
-    context "main navigation" do
+    describe "main navigation" do
       it "has ga4 tracking on the main navigation" do
         visit base_path
         expect(page).to have_selector(".main-nav__nav-container nav[data-module=ga4-link-tracker]")

@@ -7,7 +7,7 @@ RSpec.describe "JSON" do
     mock_calendar_fixtures
   end
 
-  context "GET /calendars/<calendar>.json" do
+  describe "GET /calendars/<calendar>.json" do
     it "contains calendar with division" do
       visit "/bank-holidays/england-and-wales.json"
       expected = {

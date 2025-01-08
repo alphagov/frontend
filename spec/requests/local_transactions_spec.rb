@@ -10,19 +10,19 @@ RSpec.describe "Local Transactions" do
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
     get "/a-slug"
 
-    expect(@response.headers["X-Frame-Options"]).to eq("DENY")
+    expect(response.headers["X-Frame-Options"]).to eq("DENY")
   end
 
   it "sets expiry headers for an edition" do
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
     get "/a-slug"
 
-    honours_content_store_ttl
+    expect(response).to honour_content_store_ttl
   end
 
-  context "given a local transaction exists in content store" do
+  context "when a local transaction exists in content store" do
     before do
-      @payload_bear = {
+      payload_bear = {
         analytics_identifier: nil,
         base_path: "/pay-bear-tax",
         content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
@@ -55,7 +55,7 @@ RSpec.describe "Local Transactions" do
         },
         external_related_links: [],
       }
-      @payload_electoral = {
+      payload_electoral = {
         analytics_identifier: nil,
         base_path: "/get-on-electoral-register",
         content_id: "d6d6caaf-77db-47e1-8206-30cd4f3hwe78",
@@ -81,27 +81,27 @@ RSpec.describe "Local Transactions" do
         },
         external_related_links: [],
       }
-      stub_content_store_has_item("/send-a-bear-to-your-local-council", @payload_bear)
-      stub_content_store_has_item("/get-on-electoral-register", @payload_electoral)
+      stub_content_store_has_item("/send-a-bear-to-your-local-council", payload_bear)
+      stub_content_store_has_item("/get-on-electoral-register", payload_electoral)
     end
 
-    context "loading the local transaction edition without any location" do
+    context "when loading the local transaction edition without any location" do
       it "returns the normal content for a page" do
         get "/send-a-bear-to-your-local-council"
 
         expect(response).to have_http_status(:ok)
-        expect("Send a bear to your local council").to eq(assigns(:publication).title)
+        expect(assigns(:publication).title).to eq("Send a bear to your local council")
       end
 
       it "sets correct expiry headers" do
         get "/send-a-bear-to-your-local-council"
 
-        honours_content_store_ttl
+        expect(response).to honour_content_store_ttl
       end
     end
 
-    context "loading the local transaction when posting a location" do
-      context "for an English local authority" do
+    context "when loading the local transaction when posting a location" do
+      context "and for an English local authority" do
         before do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
           post "/send-a-bear-to-your-local-council", params: { postcode: "ST10-4DB] " }
@@ -112,7 +112,7 @@ RSpec.describe "Local Transactions" do
         end
       end
 
-      context "for a Northern Ireland local authority" do
+      context "and for a Northern Ireland local authority" do
         before do
           configure_locations_api_and_local_authority("BT1 4QG", %w[belfast], 8132)
           post "/send-a-bear-to-your-local-council", params: { postcode: "BT1-4QG] " }
@@ -123,7 +123,7 @@ RSpec.describe "Local Transactions" do
         end
       end
 
-      context "for electoral registration for an English local authority" do
+      context "and for electoral registration for an English local authority" do
         before do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
           post "/get-on-electoral-register", params: { postcode: "ST10-4DB] " }
@@ -134,7 +134,7 @@ RSpec.describe "Local Transactions" do
         end
       end
 
-      context "for electoral registration for a Northern Ireland local authority" do
+      context "and for electoral registration for a Northern Ireland local authority" do
         before do
           stub_locations_api_has_location("BT1 3QG", [{ "local_custodian_code" => 8132 }])
           stub_local_links_manager_has_a_local_authority("belfast", country_name: "Northern Ireland", local_custodian_code: 8132)
@@ -147,7 +147,7 @@ RSpec.describe "Local Transactions" do
       end
     end
 
-    context "loading the local transaction when posting an invalid postcode" do
+    context "when loading the local transaction when posting an invalid postcode" do
       before do
         stub_locations_api_does_not_have_a_bad_postcode("BLAH")
         post "/send-a-bear-to-your-local-council", params: { postcode: "BLAH" }
@@ -159,7 +159,7 @@ RSpec.describe "Local Transactions" do
       end
     end
 
-    context "loading the local transaction when posting a postcode with no matching areas" do
+    context "when loading the local transaction when posting a postcode with no matching areas" do
       before do
         stub_locations_api_has_no_location("WC1E 9ZZ")
         post "/send-a-bear-to-your-local-council", params: { postcode: "WC1E 9ZZ" }
@@ -171,7 +171,7 @@ RSpec.describe "Local Transactions" do
       end
     end
 
-    context "loading the local transaction when posting a location that has no matching local authority" do
+    context "when loading the local transaction when posting a location that has no matching local authority" do
       before do
         stub_locations_api_has_location("AB1 2CD", [{ "local_custodian_code" => 123 }])
         stub_local_links_manager_does_not_have_a_custodian_code(123)
@@ -184,7 +184,7 @@ RSpec.describe "Local Transactions" do
       end
     end
 
-    context "loading the local transaction for an authority" do
+    context "when loading the local transaction for an authority" do
       before do
         configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire-moorlands], 3435)
         stub_local_links_manager_has_a_link(
@@ -219,9 +219,9 @@ RSpec.describe "Local Transactions" do
     end
   end
 
-  context "loading a local transaction without an interaction that exists in content store" do
+  context "when loading a local transaction without an interaction that exists in content store" do
     before do
-      @payload = {
+      payload = {
         analytics_identifier: nil,
         base_path: "/report-a-bear-on-a-local-road",
         content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
@@ -249,7 +249,7 @@ RSpec.describe "Local Transactions" do
       }
       configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire-moorlands], 3435)
       stub_local_links_manager_has_no_link(authority_slug: "staffordshire-moorlands", lgsl: 1234, lgil: 1, country_name: "England")
-      stub_content_store_has_item("/report-a-bear-on-a-local-road", @payload)
+      stub_content_store_has_item("/report-a-bear-on-a-local-road", payload)
       get "/report-a-bear-on-a-local-road/staffordshire-moorlands"
     end
 
@@ -281,7 +281,7 @@ RSpec.describe "Local Transactions" do
         country_name: "England",
         status: "ok",
       )
-      @payload = {
+      payload = {
         base_path: "/pay-bear-tax",
         document_type: "local_transaction",
         format: "local_transaction",
@@ -294,7 +294,7 @@ RSpec.describe "Local Transactions" do
             "Information about paying local tax on owning or looking after a bear.",
         },
       }
-      stub_content_store_has_item("/pay-bear-tax", @payload)
+      stub_content_store_has_item("/pay-bear-tax", payload)
     end
 
     it "redirects to the correct authority and pass cache and token as params" do

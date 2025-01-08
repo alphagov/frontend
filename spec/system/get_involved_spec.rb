@@ -1,5 +1,4 @@
 RSpec.describe "Get Involved" do
-  it_behaves_like "it has meta tags", "get_involved", "/government/get-involved"
   before do
     content_store_has_example_item("/government/get-involved", schema: :get_involved)
     stub_search_query(query: hash_including(filter_content_store_document_type: "open_consultation"), response: { "results" => [], "total" => 83 })
@@ -7,6 +6,8 @@ RSpec.describe "Get Involved" do
     stub_search_query(query: hash_including(filter_content_store_document_type: "consultation_outcome"), response: { "results" => [consultation_result] })
     visit "/government/get-involved"
   end
+
+  it_behaves_like "it has meta tags", "get_involved", "/government/get-involved"
 
   context "when visiting get involved page" do
     it "displays the get involved page with the correct title" do

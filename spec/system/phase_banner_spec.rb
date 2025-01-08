@@ -3,7 +3,8 @@ require "gds_api/test_helpers/local_links_manager"
 
 RSpec.describe "Phase Banner" do
   let(:base_path) { "/help/about-govuk" }
-  context "in the live phase" do
+
+  context "when in the live phase" do
     before do
       content_store_has_example_item(base_path, schema: :help_page, example: "about-govuk")
     end
@@ -15,7 +16,7 @@ RSpec.describe "Phase Banner" do
     end
   end
 
-  context "in the beta phase" do
+  context "when in the beta phase" do
     before do
       content_item = GovukSchemas::Example.find(:help_page, example_name: "about-govuk")
       content_item["base_path"] = base_path

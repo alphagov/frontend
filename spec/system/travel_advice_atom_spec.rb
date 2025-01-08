@@ -1,7 +1,7 @@
 RSpec.describe "TravelAdviceAtom" do
   include GdsApi::TestHelpers::ContentStore
 
-  context "aggregate feed" do
+  describe "aggregate feed" do
     it "displays the list of countries as an atom feed" do
       content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
       base_path = content_item.fetch("base_path")
@@ -41,7 +41,7 @@ RSpec.describe "TravelAdviceAtom" do
     end
   end
 
-  context "individual country feed" do
+  describe "individual country feed" do
     it "displays a country as an atom feed" do
       content_store_response = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
       base_path = content_store_response.fetch("base_path")

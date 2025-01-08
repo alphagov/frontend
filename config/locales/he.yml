@@ -709,6 +709,8 @@ he:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: זה פורסם תחת %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

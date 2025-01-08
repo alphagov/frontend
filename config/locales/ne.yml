@@ -709,6 +709,8 @@ ne:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: यो %{government} अन्तर्गत प्रकाशित भएको थियो
   sign_up:
   website:
   when_do_the_clocks_change:

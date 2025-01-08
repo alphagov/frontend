@@ -709,6 +709,8 @@ es-419:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Esto fue publicado bajo el %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

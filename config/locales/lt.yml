@@ -784,6 +784,8 @@ lt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tai buvo publikuota pagal %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

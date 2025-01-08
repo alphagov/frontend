@@ -709,6 +709,8 @@ dr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: این تحت%{government}منتشر شده است
   sign_up:
   website:
   when_do_the_clocks_change:

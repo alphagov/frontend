@@ -784,6 +784,8 @@ sk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Táto správa bola uverejnená pod hlavičkou %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -709,6 +709,8 @@ et:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: See avaldati %{government} all
   sign_up:
   website:
   when_do_the_clocks_change:

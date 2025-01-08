@@ -709,6 +709,8 @@ bn:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: এটি %{government}-এর অধীনে প্রকাশিত হয়েছে
   sign_up:
   website:
   when_do_the_clocks_change:

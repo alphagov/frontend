@@ -709,6 +709,8 @@ it:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Questo è stato pubblicato sotto %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

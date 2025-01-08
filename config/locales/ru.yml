@@ -859,6 +859,8 @@ ru:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Данный документ был опубликован в соответствии %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -634,6 +634,8 @@ ko:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 이 문서는 %{government} 산하에 출판되었습니다
   sign_up:
   website:
   when_do_the_clocks_change:

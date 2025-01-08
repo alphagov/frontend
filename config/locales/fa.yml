@@ -709,6 +709,8 @@ fa:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: این مورد تحت %{government} منتشر شده است
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -634,6 +634,8 @@ zh:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 这是由 %{government} 发布的。
   sign_up:
   website:
   when_do_the_clocks_change:

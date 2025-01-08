@@ -859,6 +859,8 @@ be:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Гэта было апублікавана пад%{government}
   sign_up:
   website:
   when_do_the_clocks_change:

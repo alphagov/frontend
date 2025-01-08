@@ -709,6 +709,8 @@ ta:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: "%{government}-ன்கீழ் இது வெளியிடப்பட்டது"
   sign_up:
   website:
   when_do_the_clocks_change:

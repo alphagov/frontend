@@ -709,6 +709,8 @@ fr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Cela a été publié dans le cadre du %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

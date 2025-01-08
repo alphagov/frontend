@@ -709,6 +709,8 @@ ps:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: دا د%{government} لاندې خپور شوی
   sign_up:
   website:
   when_do_the_clocks_change:

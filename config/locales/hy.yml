@@ -709,6 +709,8 @@ hy:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Սույնը հրապարակվել է %{government} բաժնում
   sign_up:
   website:
   when_do_the_clocks_change:

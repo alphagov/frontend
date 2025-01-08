@@ -709,6 +709,8 @@ el:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Αυτό δημοσιεύτηκε στο %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

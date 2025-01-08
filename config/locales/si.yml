@@ -709,6 +709,8 @@ si:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: මෙය %{government} යටතේ ප්‍රකාශණය කරණ ලදී
   sign_up:
   website:
   when_do_the_clocks_change:

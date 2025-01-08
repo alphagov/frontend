@@ -23,6 +23,7 @@ APP_STYLESHEETS = {
   "views/_landing_page/card.scss" => "views/_landing_page/card.css",
   "views/_landing_page/columns_layout.scss" => "views/_landing_page/columns_layout.css",
   "views/_landing_page/hero.scss" => "views/_landing_page/hero.css",
+  "views/_landing_page/image.scss" => "views/_landing_page/image.css",
   "views/_landing_page/featured.scss" => "views/_landing_page/featured.css",
   "views/_landing_page/main-navigation.scss" => "views/_landing_page/main-navigation.css",
   "views/_landing_page/quote.scss" => "views/_landing_page/quote.css",

@@ -1,35 +1,35 @@
-<% if transaction.more_information.present? %>
+<% if content_item.more_information.present? %>
   <div id="before-you-start">
     <%= render "govuk_publishing_components/components/heading", {
       text: t("formats.transaction.before_you_start"),
       margin_bottom: 4,
     } %>
     <%= render "govuk_publishing_components/components/govspeak", { } do %>
-      <%= transaction.more_information.try(:html_safe) %>
+      <%= content_item.more_information.try(:html_safe) %>
     <% end %>
   </div>
 <% end %>
 
-<% if transaction.what_you_need_to_know.present? %>
+<% if content_item.what_you_need_to_know.present? %>
   <div id="what-you-need-to-know">
     <%= render "govuk_publishing_components/components/heading", {
       text: t("formats.transaction.what_you_need_to_know"),
       margin_bottom: 4,
     } %>
     <%= render "govuk_publishing_components/components/govspeak", { } do %>
-      <%= transaction.what_you_need_to_know.try(:html_safe) %>
+      <%= content_item.what_you_need_to_know.try(:html_safe) %>
     <% end %>
   </div>
 <% end %>
 
-<% if transaction.other_ways_to_apply.present? %>
+<% if content_item.other_ways_to_apply.present? %>
   <div id="other-ways-to-apply">
     <%= render "govuk_publishing_components/components/heading", {
       text: t("formats.transaction.other_ways_to_apply"),
       margin_bottom: 4,
     } %>
     <%= render "govuk_publishing_components/components/govspeak", { } do %>
-      <%= transaction.other_ways_to_apply.try(:html_safe) %>
+      <%= content_item.other_ways_to_apply.try(:html_safe) %>
     <% end %>
   </div>
 <% end %>

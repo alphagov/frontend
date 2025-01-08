@@ -32,7 +32,7 @@ RSpec.describe "Transactions" do
     it "loads the correct details" do
       get "/jobsearch"
 
-      expect(assigns(:publication).title).to eq(@content_item["title"])
+      expect(assigns(:content_item).title).to eq(@content_item["title"])
     end
 
     it "sets correct expiry headers" do
@@ -63,14 +63,14 @@ RSpec.describe "Transactions" do
     it "displays variant specific values where present" do
       get "/foo", params: { variant: "council-tax-bands-2-staging" }
 
-      expect(assigns(:publication).title).to eq(@content_item.dig("details", "variants", 0, "title"))
-      expect(assigns(:publication).transaction_start_link).to eq(@content_item.dig("details", "variants", 0, "transaction_start_link"))
+      expect(assigns(:content_item).title).to eq(@content_item.dig("details", "variants", 0, "title"))
+      expect(assigns(:content_item).transaction_start_link).to eq(@content_item.dig("details", "variants", 0, "transaction_start_link"))
     end
 
     it "displays normal value where variant does not specify value" do
       get "/foo", params: { variant: "council-tax-bands-2-staging" }
 
-      expect(assigns(:publication).more_information).to eq(@content_item.dig("details", "more_information"))
+      expect(assigns(:content_item).more_information).to eq(@content_item.dig("details", "more_information"))
     end
   end
 end

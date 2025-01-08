@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::ShareLinks do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     {
       "type" => "share_links",
@@ -20,7 +19,8 @@ RSpec.describe LandingPage::Block::ShareLinks do
       ],
     }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   it "returns all of the side navigation links" do
     expect(subject.links.count).to eq(2)

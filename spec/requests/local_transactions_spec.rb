@@ -90,7 +90,7 @@ RSpec.describe "Local Transactions" do
         get "/send-a-bear-to-your-local-council"
 
         expect(response).to have_http_status(:ok)
-        expect("Send a bear to your local council").to eq(assigns(:publication).title)
+        expect(assigns(:publication).title).to eq("Send a bear to your local council")
       end
 
       it "sets correct expiry headers" do

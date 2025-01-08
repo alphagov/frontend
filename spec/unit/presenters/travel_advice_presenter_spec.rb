@@ -16,7 +16,7 @@ RSpec.describe TravelAdvicePresenter do
       part_slug = content_store_response.dig("details", "parts").first["slug"]
       content_item.set_current_part(part_slug)
 
-      expect(described_class.new(content_item).page_title).to_not include(content_item.current_part_title)
+      expect(described_class.new(content_item).page_title).not_to include(content_item.current_part_title)
       expect(described_class.new(content_item).page_title).to include(content_item.title)
     end
 

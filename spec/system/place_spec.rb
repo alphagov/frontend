@@ -70,6 +70,7 @@ RSpec.describe "Places" do
 
   context "when visiting the start page" do
     before { visit "/passport-interview-office" }
+
     it "renders the place page" do
       expect(page.status_code).to eq(200)
 
@@ -168,7 +169,7 @@ RSpec.describe "Places" do
     end
 
     it "redirects to same page and not put postcode as URL query parameter" do
-      expect(page.current_path).to eq("/passport-interview-office")
+      expect(page).to have_current_path("/passport-interview-office", ignore_query: true)
     end
 
     it "does not display an error message" do
@@ -323,7 +324,7 @@ RSpec.describe "Places" do
     it "reroutes to the base slug if requested with part route" do
       visit "/passport-interview-office/old-part-route"
 
-      expect(page.current_path).to eq("/passport-interview-office")
+      expect(page).to have_current_path("/passport-interview-office", ignore_query: true)
     end
   end
 

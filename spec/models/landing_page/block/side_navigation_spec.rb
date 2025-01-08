@@ -1,13 +1,13 @@
 RSpec.describe LandingPage::Block::SideNavigation do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_navigation_groups)) }
   let(:blocks_hash) do
     {
       "type" => "side_navigation",
       "navigation_group_id" => "Submenu",
     }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page_with_navigation_groups)) }
+
+  it_behaves_like "it is a landing-page block"
 
   describe "#links" do
     it "returns all of the navigation links from the specified navigation group" do

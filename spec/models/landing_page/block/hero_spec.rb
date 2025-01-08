@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::Hero do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     { "type" => "hero",
       "image" => {
@@ -21,7 +20,8 @@ RSpec.describe LandingPage::Block::Hero do
         ],
       } }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   describe "#image" do
     it "returns the properties of the image" do
@@ -60,7 +60,7 @@ RSpec.describe LandingPage::Block::Hero do
 
       hero_block = described_class.new(blocks_hash, build(:landing_page))
 
-      expect(hero_block.hero_content).to be nil
+      expect(hero_block.hero_content).to be_nil
     end
   end
 

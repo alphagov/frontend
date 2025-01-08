@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::TwoColumnLayout do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     { "type" => "two_column_layout",
       "theme" => "two_thirds_one_third",
@@ -9,7 +8,8 @@ RSpec.describe LandingPage::Block::TwoColumnLayout do
         { "type" => "govspeak", "content" => "<p>Right content!</p>" },
       ] }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   describe "#left_column_class" do
     it "returns two thirds when the theme is two_thirds_one_third" do

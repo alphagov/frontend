@@ -183,6 +183,7 @@ RSpec.describe Calendar::Division do
 
   describe "#show_bunting?" do
     before { @div = Calendar::Division.new("something") }
+
     it "is true if there is a buntable bank holiday today" do
       @event = instance_double("Event", bunting: true, date: Time.zone.today)
       allow(@div).to receive(:upcoming_event).and_return(@event)
@@ -207,6 +208,7 @@ RSpec.describe Calendar::Division do
 
   describe "#as_json" do
     before { @div = Calendar::Division.new("something") }
+
     it "returns division slug" do
       hash = @div.as_json
       expect(hash["division"]).to eq("something")

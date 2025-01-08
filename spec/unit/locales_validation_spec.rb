@@ -1,6 +1,6 @@
 RSpec.describe "Locales Validation" do
   # Stop the checker putting it's jaunty message to stdout
-  around(:example) do |ex|
+  around do |ex|
     original_stdout = $stdout
     $stdout = File.open(File::NULL, "w")
     ex.run

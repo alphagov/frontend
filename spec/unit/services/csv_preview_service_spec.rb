@@ -28,6 +28,7 @@ RSpec.describe CsvPreviewService do
   describe "#csv_rows" do
     context "with normal CSV" do
       subject { described_class.new(@csv).csv_rows }
+
       it "parses the CSV correctly" do
         expect(subject.first).to eq(@parsed_csv)
       end

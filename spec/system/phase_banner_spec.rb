@@ -3,6 +3,7 @@ require "gds_api/test_helpers/local_links_manager"
 
 RSpec.describe "Phase Banner" do
   let(:base_path) { "/help/about-govuk" }
+
   context "in the live phase" do
     before do
       content_store_has_example_item(base_path, schema: :help_page, example: "about-govuk")

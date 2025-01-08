@@ -1,6 +1,5 @@
 RSpec.describe LandingPage::Block::Box do
-  it_behaves_like "it is a landing-page block"
-
+  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
   let(:blocks_hash) do
     { "type" => "box",
       "href" => "/landing-page/something",
@@ -12,7 +11,8 @@ RSpec.describe LandingPage::Block::Box do
         ],
       } }
   end
-  let(:subject) { described_class.new(blocks_hash, build(:landing_page)) }
+
+  it_behaves_like "it is a landing-page block"
 
   it "includes a link" do
     expect(subject.href).to eq "/landing-page/something"

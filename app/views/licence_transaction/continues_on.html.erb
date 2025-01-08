@@ -1,11 +1,11 @@
 <%= render layout: 'shared/base_page', locals: {
   context: "Licence",
-  title: publication.title,
-  publication: publication,
+  title: content_item.title,
+  publication: content_item,
   edition: @edition,
 } do %>
 
-  <%= render "govuk_publishing_components/components/lead_paragraph", text: publication.description %>
+  <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
 
   <article role="article" class="content-block group">
     <div class="inner">
@@ -14,14 +14,14 @@
           <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence", margin_bottom: 4 %>
 
           <p id="get-started" class="get-started group">
-            <% info_text = "#{t('formats.transaction.on')} #{publication.licence_transaction_will_continue_on}" if publication.licence_transaction_will_continue_on.present? %>
+            <% info_text = "#{t('formats.transaction.on')} #{content_item.licence_transaction_will_continue_on}" if content_item.licence_transaction_will_continue_on.present? %>
             <%= render "govuk_publishing_components/components/button",
                         text: "Start now",
                         rel: "external",
                         start: true,
                         info_text: info_text,
                         margin_bottom: true,
-                        href: publication.licence_transaction_continuation_link %>
+                        href: content_item.licence_transaction_continuation_link %>
           </p>
         </div>
       </div>
@@ -29,7 +29,7 @@
       <div id="overview">
         <%= render "govuk_publishing_components/components/govspeak", {
         } do %>
-          <%= raw publication.body %>
+          <%= raw content_item.body %>
         <% end %>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <%
-  ga4_type = content_item_hash["document_type"].gsub("_", " ")
+  ga4_type = content_item.document_type.gsub("_", " ")
 
   ga4_form_complete_attributes = {
     event_name: "form_complete",

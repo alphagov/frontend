@@ -3,7 +3,7 @@
 <%
   ga4_attributes = {
     event_name: "form_complete",
-    type: content_item_hash["document_type"].gsub("_", " "),
+    type: content_item.document_type.gsub("_", " "),
     text: "You cannot apply for this licence online",
     action: "complete",
     tool_name: content_item.title,

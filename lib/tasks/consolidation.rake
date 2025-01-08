@@ -29,7 +29,7 @@ namespace :consolidation do
       government_frontend_keys = YAML.load(File.read(Rails.root.join("../government-frontend/config/locales", flf)))
       locale_key_parts = [flf.gsub(".yml", "")] + key_parts
       translation_tree = government_frontend_keys.dig(*locale_key_parts)
-      abort("key #{key} not found in government-frontend's #{flf}") unless translation_tree
+      abort("key #{key} not found in government-frontend's #{flf}") unless key_tree_exists?(government_frontend_keys, locale_key_parts)
 
       target_locale_key_parts = [flf.gsub(".yml", "")] + target_key_parts
       if translation_tree.is_a?(Hash)
@@ -39,6 +39,15 @@ namespace :consolidation do
       end
     end
   end
+end
+
+def key_tree_exists?(keys, key_tree)
+  return true if key_tree.empty?
+
+  next_key = key_tree.shift
+  return false unless keys.key?(next_key)
+
+  key_tree_exists?(keys[next_key], key_tree)
 end
 
 def get_leaf_paths(tree, prefix: "")

@@ -1,6 +1,7 @@
 APP_STYLESHEETS = {
   "application.scss" => "application.css",
   "static-error-pages.scss" => "static-error-pages.css",
+  "components/_back-to-top.scss" => "components/_back-to-top.css",
   "components/_calendar.scss" => "components/_calendar.css",
   "components/_contents-list-with-body.scss" => "components/_contents-list-with-body.css",
   "components/_download-link.scss" => "components/_download-link.css",

@@ -11,14 +11,6 @@
 .landing-page-header__org {
   padding-top: govuk-spacing(2);
   padding-bottom: govuk-spacing(6);
-
-  // I've added this styling here rather than in the gem because it's application specific
-  // and it would introduce further work to make this variation work in the gem without
-  // affecting the other variants.
-  // TODO add this as a variant in the components gem.
-  .gem-c-organisation-logo__link:link:not(:hover) {
-    text-decoration: none;
-  }
 }
 
 .govuk-block {

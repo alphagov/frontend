@@ -101,6 +101,16 @@ blocks:
         molestie, dictum esta, mattis tellus. Sed dignissim, metus nec fringilla
         accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus.
         Maecenas eget.</p>
+    - type: image
+      theme_colour: 1
+      image:
+        sources:
+          desktop: "landing_page/placeholder/desktop.png"
+          desktop_2x: "landing_page/placeholder/desktop_2x.png"
+          mobile: "landing_page/placeholder/mobile.png"
+          mobile_2x: "landing_page/placeholder/mobile_2x.png"
+          tablet: "landing_page/placeholder/tablet.png"
+          tablet_2x: "landing_page/placeholder/tablet_2x.png"
     - type: govspeak
       content: |
         <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis

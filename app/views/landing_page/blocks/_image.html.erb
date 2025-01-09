@@ -1,7 +1,8 @@
 <%
+  add_view_stylesheet("landing_page/image")
+
   img_classes = [
-    "govuk-!-width-full",
-    "govuk-!-margin-bottom-6",
+    "image",
     ("border-top--#{style(block.data["theme_colour"])}" if block.data["theme_colour"])
   ]
 %>

@@ -1,3 +1,5 @@
 class CorporateInformationPageController < ContentItemsController
-  def show; end
+  def show
+    @presenter = CorporateInformationPagePresenter.new(@content_item)
+  end
 end

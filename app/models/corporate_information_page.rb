@@ -1,0 +1,2 @@
+class CorporateInformationPage < ContentItem
+end

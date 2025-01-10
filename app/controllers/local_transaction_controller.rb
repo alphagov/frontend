@@ -38,9 +38,9 @@ class LocalTransactionController < ContentItemsController
     @country_name = @local_authority.country_name
     content_item.set_country(@country_name)
 
-    if publication.unavailable?(@country_name)
+    if content_item.unavailable?
       render :unavailable_service
-    elsif publication.devolved_administration_service?(@country_name)
+    elsif content_item.devolved_administration_service?
       render :devolved_administration_service
     else
       render :results
@@ -59,8 +59,8 @@ private
     "/#{params[:slug]}"
   end
 
-  def publication_class
-    LocalTransactionPresenter
+  def publication
+    content_item
   end
 
   def authority_results

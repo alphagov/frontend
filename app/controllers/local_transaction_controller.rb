@@ -36,6 +36,7 @@ class LocalTransactionController < ContentItemsController
     @interaction_details = interaction_details
     @local_authority = LocalAuthorityPresenter.new(@interaction_details["local_authority"])
     @country_name = @local_authority.country_name
+    content_item.set_country(@country_name)
 
     if publication.unavailable?(@country_name)
       render :unavailable_service

@@ -2,6 +2,7 @@ RSpec.describe TravelAdvice do
   let(:content_store_response) { GovukSchemas::Example.find("travel_advice", example_name: "full-country") }
 
   it_behaves_like "it has parts", "travel_advice", "full-country"
+  it_behaves_like "it can be withdrawn", "travel_advice", "withdrawn-full-country"
 
   describe "#alert_status" do
     it "adds allowed statuses" do

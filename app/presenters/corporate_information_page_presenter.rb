@@ -5,6 +5,10 @@ class CorporateInformationPagePresenter < ContentItemModelPresenter
     page_title
   end
 
+  def contents_items
+    super + extra_headings
+  end
+
   def organisation_logo(organisation = default_organisation)
     return nil unless organisation && organisation.dig("details", "logo")
 

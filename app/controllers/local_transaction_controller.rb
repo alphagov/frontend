@@ -106,11 +106,11 @@ private
   end
 
   def lgsl
-    content_item_hash["details"]["lgsl_code"]
+    content_item.lgsl_code
   end
 
   def lgil
-    content_item_hash["details"]["lgil_code"] || content_item_hash["details"]["lgil_override"]
+    content_item.lgil_code || content_item.lgil_override
   end
 
   def interaction_details

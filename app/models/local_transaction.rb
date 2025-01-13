@@ -1,10 +1,15 @@
 class LocalTransaction < ContentItem
-  attr_reader :country_name, :introduction, :more_information, :need_to_know
+  attr_reader :country_name, :introduction,
+              :lgil_code, :lgil_override, :lgsl_code,
+              :more_information, :need_to_know
 
   def initialize(content_store_response)
     super(content_store_response)
 
     @introduction = content_store_response.dig("details", "introduction")
+    @lgil_code = content_store_response.dig("details", "lgil_code")
+    @lgil_override = content_store_response.dig("details", "lgil_override")
+    @lgsl_code = content_store_response.dig("details", "lgsl_code")
     @more_information = content_store_response.dig("details", "more_information")
     @need_to_know = content_store_response.dig("details", "need_to_know")
   end

@@ -2,7 +2,7 @@
   add_view_stylesheet("csv_preview")
 %>
 
-<% content_for :title, "#{@attachment_metadata.first["title"]} - GOV.UK" %>
+<% content_for :title, "#{@attachment_metadata["title"]} - GOV.UK" %>
 
 <main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
@@ -35,7 +35,7 @@
       <%= render 'govuk_publishing_components/components/inverse_header', {} do %>
         <%= render "govuk_publishing_components/components/title", {
           context: I18n.t("csv_preview.document_type.#{@content_item['document_type']}", count: 1),
-          title: @attachment_metadata.first["title"],
+          title: @attachment_metadata["title"],
           font_size: "xl",
           inverse: true,
           margin_bottom: 8,
@@ -43,7 +43,7 @@
         <p class="govuk-body csv-preview__updated">
           Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %>
           <br>
-          <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata.first['file_size'])}".html_safe, @attachment_metadata.first['url'], class: "csv-preview__download-link") %>
+          <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata['url'], class: "csv-preview__download-link") %>
         </p>
       <% end %>
     </div>
@@ -56,7 +56,7 @@
           <p class="govuk-body">
             This CSV cannot be viewed online.
             <br>
-            You can <%= link_to("download the file", @attachment_metadata.first['url'], class: "govuk-link") %> to open it with your own software.
+            You can <%= link_to("download the file", @attachment_metadata['url'], class: "govuk-link") %> to open it with your own software.
           </p>
         </div>
       </div>

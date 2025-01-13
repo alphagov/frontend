@@ -1,6 +1,10 @@
 RSpec.shared_examples "it can have a contents list" do |document_type, example_name|
   let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
 
+  before do
+    content_store_response["details"]["corporate_information_groups"] = []
+  end
+
   it "memoises the contents to avoid repeated processing and extraction" do
     contents_list = described_class.new(content_store_response)
 

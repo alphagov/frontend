@@ -8,9 +8,9 @@
 <% end %>
 
 <% @additional_body = capture do %>
-  <% if @content_item.corporate_information? %>
-    <%= @content_item.corporate_information_heading_tag %>
-    <% @content_item.corporate_information.each do |group| %>
+  <% if @presenter.corporate_information? %>
+    <%= @presenter.corporate_information_heading_tag %>
+    <% @presenter.corporate_information.each do |group| %>
       <%= group[:heading] %>
       <ul>
         <% group[:links].each do |link| %>
@@ -21,9 +21,9 @@
       </ul>
     <% end %>
 
-    <% if @content_item.further_information.present? %>
+    <% if @presenter.further_information.present? %>
       <p>
-        <%= @content_item.further_information %>
+        <%= @presenter.further_information %>
       </p>
     <% end %>
   <% end %>

@@ -64,4 +64,55 @@ RSpec.describe CorporateInformationPagePresenter do
       expect(presenter.organisation_brand_class).to be_nil
     end
   end
+
+  describe "#corporate_information?" do
+    it "presents corporate information groups on about pages" do
+      expect(presenter.corporate_information?).to be(true)
+    end
+
+    it "does not present corporate information groups on about pages if information isn't available" do
+      content_store_response["details"]["corporate_information_groups"] = nil
+
+      expect(presenter.corporate_information?).to be(false)
+    end
+  end
+
+  describe "#corporate_information" do
+    it "presents group links that are guids" do
+      presented_groups = presenter.corporate_information
+
+      expect(presented_groups.first[:links].first).to eq('<a href="/government/organisations/department-of-health/about/complaints-procedure">Complaints procedure</a>')
+    end
+
+    it "presents group links that are internal links with paths and no GUID" do
+      presented_groups = presenter.corporate_information
+
+      expect(presented_groups.first[:links].last).to eq('<a href="/government/publications?departments%5B%5D=department-of-health&amp;publication_type=corporate-reports">Corporate reports</a>')
+    end
+
+    it "presents group links that are external" do
+      presented_groups = presenter.corporate_information
+      expect(presented_groups.last[:links].last).to eq('<a href="https://www.civilservicejobs.service.gov.uk/csr">Jobs</a>')
+    end
+
+    it "presents group headings" do
+      presented_groups = presenter.corporate_information
+      expect(presented_groups.first[:heading]).to eq('<h3 id="access-our-information">Access our information</h3>')
+    end
+  end
+
+  describe "#corporate_information_heading_tag" do
+    it "returns the H2 tag" do
+      expect(presenter.corporate_information_heading_tag).to eq("<h2 id=\"corporate-information\">Corporate information</h2>")
+    end
+  end
+
+  describe "#further_information" do
+    it "presents further information based on corporate information page links" do
+      expect(presenter.further_information).to include("Publication scheme")
+      expect(presenter.further_information).to include("/government/organisations/department-of-health/about/publication-scheme")
+      expect(presenter.further_information).to include("Personal information charter")
+      expect(presenter.further_information).to include("/government/organisations/department-of-health/about/personal-information-charter")
+    end
+  end
 end

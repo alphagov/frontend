@@ -1,6 +1,11 @@
 RSpec.describe CorporateInformationPage do
   let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page") }
 
+  let(:corporate_information_page) { described_class.new(GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page")) }
+
+  it_behaves_like "it can be withdrawn", "corporate_information_page", "best-practice-welsh-language-scheme-withdrawn"
+  it_behaves_like "it can have a contents list", "corporate_information_page", "corporate_information_page_without_description"
+
   describe "#organisation_logo" do
     it "presents the logo for organisations" do
       expected_organisation = content_store_response["links"]["organisations"].first
@@ -105,6 +110,12 @@ RSpec.describe CorporateInformationPage do
 
       expect(presented_groups.first[:title]).to eq("Access our information")
       expect(presented_groups.first[:id]).to eq("access-our-information")
+    end
+  end
+
+  describe "#contents_items" do
+    it "includes the corporate information heading in the contents list if corporate informations groups are present" do
+      expect(corporate_information_page.contents_items).to include({ text: "Corporate information", id: "corporate-information" })
     end
   end
 end

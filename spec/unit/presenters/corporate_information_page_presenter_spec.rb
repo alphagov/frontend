@@ -18,4 +18,43 @@ RSpec.describe CorporateInformationPagePresenter do
       expect(presenter.page_title).to eq("[Withdrawn] About us - Department of Health")
     end
   end
+
+  describe "#organisation_logo" do
+    it "presents the logo for organisations" do
+      logo = presenter.organisation_logo
+      expect(logo[:organisation][:brand]).to eq("department-of-health")
+      expect(logo[:organisation][:url]).to eq("/government/organisations/department-of-health")
+      expect(logo[:organisation][:crest]).to eq("single-identity")
+      expect(logo[:organisation][:name]).to eq("Department<br/>of Health")
+    end
+
+    it "includes an image organisation with a custom logo" do
+      content_store_response["links"]["organisations"].first["details"]["logo"]["image"] = {
+        "url" => "url",
+        "alt_text" => "alt_text",
+      }
+
+      logo = presenter.organisation_logo
+
+      expect(logo[:organisation][:image][:url]).to eq("url")
+      expect(logo[:organisation][:image][:alt_text]).to eq("alt_text")
+    end
+  end
+
+  describe "#organisation_brand_class" do
+    it "presents the brand colour class for organisations" do
+      expect(presenter.organisation_brand_class).to eq("department-of-health-brand-colour")
+    end
+
+    it "alters the brand for organisations with an executive order crest" do
+      content_store_response["links"]["organisations"].first["details"]["logo"]["crest"] = "eo"
+
+      expect(presenter.organisation_brand_class).to eq("executive-office-brand-colour")
+    end
+
+    it "has no branding when organisation is not set" do
+      content_store_response["links"].delete("organisations")
+      expect(presenter.organisation_brand_class).to be_nil
+    end
+  end
 end

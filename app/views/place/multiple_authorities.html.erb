@@ -1,8 +1,8 @@
-<% content_for :title, "#{publication.title}: #{t('formats.local_transaction.select_address').downcase} - GOV.UK" %>
+<% content_for :title, "#{content_item.title}: #{t('formats.local_transaction.select_address').downcase} - GOV.UK" %>
 
 <%= render layout: "shared/base_page", locals: {
-  title: publication.title,
-  publication: publication,
+  title: content_item.title,
+  publication: content_item,
   edition: @edition,
 } do %>
   <%= render "govuk_publishing_components/components/heading", {

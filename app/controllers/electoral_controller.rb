@@ -22,8 +22,8 @@ class ElectoralController < ContentItemsController
 
 private
 
-  def publication_class
-    LocalTransactionPresenter
+  def publication
+    content_item
   end
 
   def content_item_path

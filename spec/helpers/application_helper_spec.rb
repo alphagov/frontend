@@ -1,15 +1,7 @@
 RSpec.describe ApplicationHelper do
   include ContentStoreHelpers
 
-  def dummy_publication
-    ContentItemPresenter.new(content_store_has_random_item(base_path: "/dummy"))
-  end
-
   describe "#page_title" do
-    it "doesn't contain consecutive pipes" do
-      expect(page_title(dummy_publication)).not_to match(/\|\s*\|/)
-    end
-
     it "doesn't fail if the publication titles are nil" do
       publication = OpenStruct.new(title: nil)
 

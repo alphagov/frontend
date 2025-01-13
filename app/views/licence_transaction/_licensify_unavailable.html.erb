@@ -1,12 +1,12 @@
-<% content_for :title, "#{publication.title}: #{t('formats.local_transaction.contact_council')} - GOV.UK" %>
+<% content_for :title, "#{content_item.title}: #{t('formats.local_transaction.contact_council')} - GOV.UK" %>
 
 <%
   ga4_attributes = {
     event_name: "form_complete",
-    type: content_item_hash["document_type"].gsub("_", " "),
+    type: content_item.document_type.gsub("_", " "),
     text: "You cannot apply for this licence online",
     action: "complete",
-    tool_name: publication.title,
+    tool_name: content_item.title,
   }.to_json
 %>
 <div

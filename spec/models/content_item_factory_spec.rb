@@ -34,6 +34,11 @@ RSpec.describe ContentItemFactory do
       response = fake_response("landing_page", "landing_page")
       expect(described_class.build(response).class).to eq(LandingPage)
     end
+
+    it "builds LicenceTransactions" do
+      response = fake_response("licence_transaction", "specialist_document")
+      expect(described_class.build(response).class).to eq(LicenceTransaction)
+    end
   end
 
   describe ".content_item_class" do

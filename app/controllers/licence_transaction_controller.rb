@@ -13,7 +13,7 @@ class LicenceTransactionController < ContentItemsController
   NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze
 
   def start
-    return render :continues_on if publication.licence_transaction_continuation_link.present?
+    return render :continues_on if content_item.licence_transaction_continuation_link.present?
     return render :licence_not_found if licence_without_authority_code.licence.blank?
 
     if licence_without_authority_code.single_licence_authority_present?
@@ -69,7 +69,7 @@ class LicenceTransactionController < ContentItemsController
 private
 
   def redirect_to_continuation_licence
-    if publication.licence_transaction_continuation_link.present?
+    if content_item.licence_transaction_continuation_link.present?
       redirect_to licence_transaction_path(slug: params[:slug])
     end
   end
@@ -78,8 +78,8 @@ private
     "/find-licences/#{params[:slug]}"
   end
 
-  def publication_class
-    LicenceTransactionPresenter
+  def publication
+    content_item
   end
 
   def licence_without_authority_code
@@ -101,10 +101,10 @@ private
   end
 
   def licence_details_from_api(local_authority_code = nil)
-    return {} if publication.licence_transaction_continuation_link.present?
+    return {} if content_item.licence_transaction_continuation_link.present?
 
     begin
-      GdsApi.licence_application.details_for_licence(publication.licence_transaction_licence_identifier, local_authority_code)
+      GdsApi.licence_application.details_for_licence(content_item.licence_transaction_licence_identifier, local_authority_code)
     rescue GdsApi::HTTPErrorResponse => e
       return {} if e.code == 404
 

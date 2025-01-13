@@ -65,7 +65,7 @@ private
 
   def places_from_places_manager
     places_manager_response = Frontend.places_manager_api.places_for_postcode(
-      content_item_hash["details"]["place_type"],
+      content_item.place_type,
       postcode,
       Frontend::PLACES_MANAGER_QUERY_LIMIT,
       local_authority_slug,

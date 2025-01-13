@@ -4,7 +4,7 @@
 
 <%
   results_anchor ||= nil
-  ga4_type = content_item_hash["document_type"].gsub("_", " ")
+  ga4_type = content_item.document_type.gsub("_", " ")
 
   if postcode_provided? && !location_error
     ga4_form_complete_attributes = {
@@ -27,7 +27,7 @@
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: content_item_hash %>
+    content_item: content_item.to_h %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {

@@ -108,4 +108,12 @@ RSpec.describe LocalTransaction do
       expect(content_item.devolved_administration_service_alternative_url).to be_nil
     end
   end
+
+  describe "#slug" do
+    it "returns the subject slug" do
+      content_store_response = GovukSchemas::Example.find("local_transaction", example_name: "local_transaction")
+      content_store_response["base_path"] = "/foo/bar"
+      expect(described_class.new(content_store_response).slug).to eq("foo/bar")
+    end
+  end
 end

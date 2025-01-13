@@ -32,6 +32,10 @@ class LocalTransaction < ContentItem
     @country_name = country_name.downcase.gsub(" ", "_")
   end
 
+  def slug
+    URI.parse(base_path).path.sub(%r{\A/}, "")
+  end
+
 private
 
   def country_name_availability_for(key)

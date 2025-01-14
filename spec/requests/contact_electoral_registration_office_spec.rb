@@ -2,7 +2,7 @@ RSpec.describe "Contact Electoral Registration Office" do
   include ElectionHelpers
 
   before do
-    stub_content_store_has_item("/contact-electoral-registration-office")
+    content_store_has_example_item("/contact-electoral-registration-office", schema: "local_transaction", example: "local_transaction")
   end
 
   context "without postcode params" do

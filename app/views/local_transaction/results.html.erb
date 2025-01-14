@@ -1,11 +1,11 @@
 <%
   add_view_stylesheet("local-transaction")
 %>
-<% content_for :title, "#{publication.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
+<% content_for :title, "#{content_item.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: publication.title,
-  publication: publication,
+  title: content_item.title,
+  publication: content_item,
   edition: @edition,
 } do %>
   <div class="interaction">
@@ -16,12 +16,12 @@
         type: "local transaction",
         text: Nokogiri::HTML(t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name, locale: :en)).text,
         action: "complete",
-        tool_name: publication.title
+        tool_name: content_item.title
        }.to_json %>">
       <%= t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name) %>    
     </p>
     <p class="govuk-body">
-      <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), local_transaction_search_path(publication.slug), class: "govuk-link" %>
+      <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
     </p>
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
@@ -34,7 +34,7 @@
         data-ga4-link="<%= {
           "event_name": "information_click",
           "type": "local transaction",
-          "tool_name": publication.title,
+          "tool_name": content_item.title,
           "action": "information click"
         }.to_json %>">
         <%= render "govuk_publishing_components/components/button", {
@@ -65,11 +65,11 @@
     <% end %>
   </div>
 
-  <% if publication.more_information.present? %>
+  <% if content_item.more_information.present? %>
     <section class="more">
       <div class="more">
         <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= raw publication.more_information %>
+          <%= raw content_item.more_information %>
         <% end %>
       </div>
     </section>

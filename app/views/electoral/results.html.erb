@@ -3,8 +3,8 @@
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: publication.title,
-  publication: publication,
+  title: content_item.title,
+  publication: content_item,
   edition: @edition,
 } do %>
 
@@ -15,7 +15,7 @@
         type: "local transaction",
         text: Nokogiri::HTML(t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
         action: "complete",
-        tool_name: publication.title
+        tool_name: content_item.title
       }.to_json
     %>
     <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
@@ -27,7 +27,7 @@
     ga4_link = {
       event_name: "information_click",
       type: "local transaction",
-      tool_name: publication.title,
+      tool_name: content_item.title,
       action: "information click"
     }.to_json
   %>

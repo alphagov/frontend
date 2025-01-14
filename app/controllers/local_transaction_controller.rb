@@ -36,10 +36,11 @@ class LocalTransactionController < ContentItemsController
     @interaction_details = interaction_details
     @local_authority = LocalAuthorityPresenter.new(@interaction_details["local_authority"])
     @country_name = @local_authority.country_name
+    content_item.set_country(@country_name)
 
-    if publication.unavailable?(@country_name)
+    if content_item.unavailable?
       render :unavailable_service
-    elsif publication.devolved_administration_service?(@country_name)
+    elsif content_item.devolved_administration_service?
       render :devolved_administration_service
     else
       render :results
@@ -58,8 +59,8 @@ private
     "/#{params[:slug]}"
   end
 
-  def publication_class
-    LocalTransactionPresenter
+  def publication
+    content_item
   end
 
   def authority_results
@@ -105,11 +106,11 @@ private
   end
 
   def lgsl
-    content_item_hash["details"]["lgsl_code"]
+    content_item.lgsl_code
   end
 
   def lgil
-    content_item_hash["details"]["lgil_code"] || content_item_hash["details"]["lgil_override"]
+    content_item.lgil_code || content_item.lgil_override
   end
 
   def interaction_details

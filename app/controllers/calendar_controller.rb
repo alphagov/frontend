@@ -2,12 +2,8 @@ class CalendarController < ContentItemsController
   include Cacheable
   include BankHolAbTestable
 
-  class InvalidCalendarScope < StandardError; end
-
   before_action :set_cors_headers, if: :json_request?
   rescue_from Calendar::CalendarNotFound, with: :simple_404
-  rescue_from InvalidCalendarScope, with: :simple_404
-  prepend_before_action :validate_scope
   skip_before_action :set_expiry, only: [:division]
 
   def show_calendar
@@ -58,10 +54,6 @@ private
 
   def calendar
     @calendar ||= Calendar.find(params[:slug])
-  end
-
-  def validate_scope
-    raise InvalidCalendarScope unless params[:slug].match?(/\A[a-z-]+\z/)
   end
 
   def simple_404

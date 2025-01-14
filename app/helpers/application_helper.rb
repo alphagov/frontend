@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def page_title(publication = nil)
-    title = publication.title if publication
+  def page_title(content_item = nil)
+    title = content_item.title if content_item
     [title, "GOV.UK"].select(&:present?).join(" - ")
   end
 

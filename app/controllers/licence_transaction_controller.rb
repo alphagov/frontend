@@ -78,10 +78,6 @@ private
     "/find-licences/#{params[:slug]}"
   end
 
-  def publication
-    content_item
-  end
-
   def licence_without_authority_code
     @licence_without_authority_code ||= LicenceDetailsPresenter.new(
       licence_details_from_api, params[:authority_slug], params[:interaction]

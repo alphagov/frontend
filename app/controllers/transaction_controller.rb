@@ -15,8 +15,4 @@ private
   def content_item_path
     "/#{params[:slug]}"
   end
-
-  def publication
-    content_item
-  end
 end

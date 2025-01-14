@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  helper_method :content_item, :content_item_hash, :publication
+  helper_method :content_item, :content_item_hash
 
   def error_403
     error :forbidden
@@ -61,12 +61,6 @@ protected
     unless Rails.env.development?
       expires_in(duration, public: true)
     end
-  end
-
-  # TODO: Remove these nil methods by moving logic down from application.html.erb
-  # to a content item specific view.
-  def publication
-    nil
   end
 
   def content_item

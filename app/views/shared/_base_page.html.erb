@@ -3,14 +3,12 @@
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %> govuk-main-wrapper" <%= @lang_attribute %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <% if local_assigns[:context] %>
-        <span class="govuk-caption-xl"><%= local_assigns[:context] %></span>
-      <% end %>
       <%= render "govuk_publishing_components/components/heading", {
         text: title,
         font_size: "xl",
         margin_bottom: 8,
         heading_level: 1,
+        context: local_assigns[:context],
       } %>
     </div>
     <div class="article-container group govuk-grid-column-two-thirds">

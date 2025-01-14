@@ -34,12 +34,6 @@ class TravelAdviceController < ContentItemsController
 
 private
 
-  # TODO: Controllers should provide a presenter or a publication.
-  # These objects duplicate roles (see `presenter || @publication`) in views.
-  def publication
-    content_item
-  end
-
   def content_item_path
     return "/#{FOREIGN_TRAVEL_ADVICE_SLUG}" unless country_page?
 

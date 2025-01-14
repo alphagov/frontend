@@ -1,23 +1,20 @@
 RSpec.describe ContentItemPresenter do
-  def subject(content_item)
-    described_class.new(content_item.deep_stringify_keys!)
-  end
+  describe "#page_title" do
+    let(:content_store_response) { GovukSchemas::Example.find("detailed_guide", example_name: "withdrawn_detailed_guide") }
 
-  describe "#base_path" do
-    it "returns the subject base path" do
-      expect(subject(base_path: "foo").base_path).to eq("foo")
+    it "includes withdrawn in the page title when the content item is withdrawn" do
+      content_item = ContentItem.new(content_store_response)
+
+      expect(described_class.new(content_item).page_title).to include("[Withdrawn]")
+      expect(described_class.new(content_item).page_title).to include(content_item.title)
     end
-  end
 
-  describe "#slug" do
-    it "returns the subject slug" do
-      expect(subject(base_path: "foo").slug).to eq("foo")
-    end
-  end
+    it "only includes the content item title when the page is not withdrawn" do
+      content_store_response["withdrawn_notice"] = {}
+      content_item = ContentItem.new(content_store_response)
 
-  describe "#locale" do
-    it "returns the subject locale" do
-      expect(subject(locale: "foo").locale).to eq("foo")
+      expect(described_class.new(content_item).page_title).not_to include("[Withdrawn]")
+      expect(described_class.new(content_item).page_title).to include(content_item.title)
     end
   end
 end

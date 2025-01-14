@@ -36,10 +36,6 @@ private
 
   helper_method :location_error
 
-  def publication
-    content_item
-  end
-
   def postcode_provided?
     params[:postcode].present? && request.post?
   end

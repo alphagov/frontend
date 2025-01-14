@@ -6,7 +6,7 @@ class TransactionController < ContentItemsController
 
   def show
     content_item.set_variant(params["variant"])
-    @lang_attribute = lang_attribute(publication.locale.presence)
+    @lang_attribute = lang_attribute(content_item.locale.presence)
     @transaction_presenter = TransactionPresenter.new(content_item)
   end
 
@@ -14,9 +14,5 @@ private
 
   def content_item_path
     "/#{params[:slug]}"
-  end
-
-  def publication
-    content_item
   end
 end

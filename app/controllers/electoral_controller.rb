@@ -22,10 +22,6 @@ class ElectoralController < ContentItemsController
 
 private
 
-  def publication
-    content_item
-  end
-
   def content_item_path
     BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE
   end

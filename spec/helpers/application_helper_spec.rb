@@ -2,10 +2,10 @@ RSpec.describe ApplicationHelper do
   include ContentStoreHelpers
 
   describe "#page_title" do
-    it "doesn't fail if the publication titles are nil" do
-      publication = OpenStruct.new(title: nil)
+    it "doesn't fail if the content_item titles are nil" do
+      content_item = OpenStruct.new(title: nil)
 
-      expect(page_title(publication)).to be_truthy
+      expect(page_title(content_item)).to be_truthy
     end
   end
 
@@ -18,12 +18,12 @@ RSpec.describe ApplicationHelper do
   end
 
   it "builds title from content items" do
-    publication = OpenStruct.new(title: "Title")
+    content_item = OpenStruct.new(title: "Title")
 
-    expect(page_title(publication)).to eq("Title - GOV.UK")
+    expect(page_title(content_item)).to eq("Title - GOV.UK")
   end
 
-  it "omits first part of title if publication is omitted" do
+  it "omits first part of title if content_item is omitted" do
     expect(page_title).to eq("GOV.UK")
   end
 

@@ -59,10 +59,6 @@ private
     "/#{params[:slug]}"
   end
 
-  def publication
-    content_item
-  end
-
   def authority_results
     @authority_results = Frontend.local_links_manager_api.local_authority_by_custodian_code(locations_api_response.local_custodian_codes.first)
   rescue GdsApi::HTTPNotFound

@@ -23,11 +23,11 @@ class LicenceDetailsPresenter
     authority && authority["actions"].present?
   end
 
-  def actions_for_contents_list_component(publication)
+  def actions_for_contents_list_component(content_item)
     items = [
       {
         text: "1. Overview",
-        href: !action ? nil : licence_transaction_authority_path(publication.slug, authority_slug, interaction: nil),
+        href: !action ? nil : licence_transaction_authority_path(content_item.slug, authority_slug, interaction: nil),
         active: !action,
       },
     ]
@@ -35,7 +35,7 @@ class LicenceDetailsPresenter
     authority["actions"].keys.each_with_index do |action_key, index|
       items << {
         text: "#{index + 2}. How to #{action_key}",
-        href: action == action_key ? nil : licence_transaction_authority_interaction_path(publication.slug, authority_slug, action_key),
+        href: action == action_key ? nil : licence_transaction_authority_interaction_path(content_item.slug, authority_slug, action_key),
         active: action == action_key,
       }
     end

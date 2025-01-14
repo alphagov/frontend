@@ -13,14 +13,6 @@ protected
 
 private
 
-  def publication
-    @publication ||= publication_class.new(content_item_hash)
-  end
-
-  def publication_class
-    ContentItemPresenter
-  end
-
   def content_item
     loader_response = ContentItemLoader.for_request(request).load(content_item_path)
     raise loader_response if loader_response.is_a?(StandardError)

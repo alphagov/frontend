@@ -1,6 +1,4 @@
-class TravelAdvicePresenter < ContentItemModelPresenter
-  attr_reader :content_item
-
+class TravelAdvicePresenter < ContentItemPresenter
   def page_title
     if content_item.part_slug.blank? || content_item.first_part?
       super

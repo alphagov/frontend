@@ -1,4 +1,4 @@
-<% content_for :title, "Error: #{page_title(publication)}" if @location_error %>
+<% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
 
 <main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %> govuk-main-wrapper" <%= @lang_attribute %>>
   <div class="govuk-grid-row">
@@ -17,7 +17,7 @@
           <%= yield %>
         </div>
       </div>
-      <%= render 'shared/publication_metadata', :publication => publication %>
+      <%= render 'shared/publication_metadata' %>
     </div>
 
     <div class="govuk-grid-column-one-third">

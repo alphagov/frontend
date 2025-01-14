@@ -1,4 +1,4 @@
-class SimpleSmartAnswerPresenter < ContentItemModelPresenter
+class SimpleSmartAnswerPresenter < ContentItemPresenter
   def start_button_text
     if content_item.start_button_text == "Start now"
       I18n.t("formats.start_now")

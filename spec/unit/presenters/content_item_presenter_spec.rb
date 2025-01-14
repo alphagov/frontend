@@ -1,4 +1,4 @@
-RSpec.describe ContentItemModelPresenter do
+RSpec.describe ContentItemPresenter do
   describe "#page_title" do
     let(:content_store_response) { GovukSchemas::Example.find("detailed_guide", example_name: "withdrawn_detailed_guide") }
 

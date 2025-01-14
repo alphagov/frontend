@@ -1,4 +1,4 @@
-class ContentItemModelPresenter
+class ContentItemPresenter
   attr_reader :content_item
 
   def initialize(content_item)

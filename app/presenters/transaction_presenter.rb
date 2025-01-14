@@ -1,4 +1,4 @@
-class TransactionPresenter < ContentItemModelPresenter
+class TransactionPresenter < ContentItemPresenter
   def start_button_text
     if content_item.start_button_text.blank?
       return I18n.t("formats.start_now")

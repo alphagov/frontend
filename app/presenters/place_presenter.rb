@@ -1,4 +1,4 @@
-class PlacePresenter < ContentItemModelPresenter
+class PlacePresenter < ContentItemPresenter
   attr_reader :places
 
   def initialize(content_item, places = [])

@@ -1,4 +1,4 @@
-class TravelAdvicePresenter < ContentItemModelPresenter
+class TravelAdvicePresenter < ContentItemPresenter
   attr_reader :content_item
 
   def page_title

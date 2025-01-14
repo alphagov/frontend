@@ -74,10 +74,10 @@ Transaction start pages:
 | http://www.gov.uk/contact-the-dvla/y/ | `flow` |
 | http://www.gov.uk/check-a-passport-travel-europe | `_publication_metadata`<br>`_base_page`<br>`transaction/show` |
 | http://www.gov.uk/renew-driving-licence-at-70    <br>http://www.gov.uk/check-mot-history    <br>http://www.gov.uk/mot-testing-service    <br>http://www.gov.uk/order-coronavirus-rapid-lateral-flow-tests   <br>http://www.gov.uk/check-legal-aid | `_base_page`<br>`transaction/show` |
+
 ## Nomenclature
 
 - **format**: our phrase for a type of content
-- **scope**: each type of calendar (eg daylight saving, bank holidays) is known as a scope. A scope has its own view templates, JSON data source and primary route.
 
 ## Technical documentation
 

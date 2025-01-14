@@ -25,6 +25,10 @@ class PlaceController < ContentItemsController
       return render :multiple_authorities
     end
 
+    if postcode_provided? && places_manager_response.places_found?
+      @places_presenter = PlacePresenter.new(content_item, places_manager_response.places)
+    end
+
     render :show, locals: { results_anchor: "results" }
   end
 
@@ -33,11 +37,7 @@ private
   helper_method :location_error
 
   def publication
-    @publication ||= if postcode_provided? && places_manager_response.places_found?
-                       PlacePresenter.new(content_item_hash, places_manager_response.places)
-                     else
-                       PlacePresenter.new(content_item_hash)
-                     end
+    content_item
   end
 
   def postcode_provided?
@@ -65,7 +65,7 @@ private
 
   def places_from_places_manager
     places_manager_response = Frontend.places_manager_api.places_for_postcode(
-      content_item_hash["details"]["place_type"],
+      content_item.place_type,
       postcode,
       Frontend::PLACES_MANAGER_QUERY_LIMIT,
       local_authority_slug,

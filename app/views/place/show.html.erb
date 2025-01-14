@@ -4,41 +4,43 @@
 
 <%
   results_anchor ||= nil
-  ga4_type = content_item_hash["document_type"].gsub("_", " ")
+  ga4_type = content_item.document_type.gsub("_", " ")
 
-  ga4_form_complete_attributes = {
-    event_name: "form_complete",
-    action: "complete",
-    type: ga4_type,
-    text: "Results #{publication.preposition} [postcode]",
-    tool_name: publication.title
-  }.to_json
+  if postcode_provided? && !location_error
+    ga4_form_complete_attributes = {
+      event_name: "form_complete",
+      action: "complete",
+      type: ga4_type,
+      text: "Results #{@places_presenter.preposition} [postcode]",
+      tool_name: content_item.title
+    }.to_json
+  end
 
   ga4_information_click_attributes = {
     event_name: "information_click",
     action: "information click",
     type: ga4_type,
-    tool_name: publication.title,
+    tool_name: content_item.title,
   }.to_json
 %>
 
 <% content_for :extra_headers do %>
   <%= render 'govuk_publishing_components/components/machine_readable_metadata',
     schema: :article,
-    content_item: content_item_hash %>
+    content_item: content_item.to_h %>
 <% end %>
 
 <%= render layout: 'shared/base_page', locals: {
-  title: publication.title,
-  publication: publication,
+  title: content_item.title,
+  publication: content_item,
   edition: @edition,
 } do %>
   <section class="intro">
     <div class="get-started-intro">
       <div class="find-nearest">
-        <% if publication.introduction.present? %>
+        <% if content_item.introduction.present? %>
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
-            <%= raw publication.introduction %>
+            <%= raw content_item.introduction %>
           <% end %>
         <% end %>
         <%= render partial: 'location_form',
@@ -47,7 +49,7 @@
             publication_format: 'place',
             postcode: postcode,
             margin_top: @location_error ? 5 : 0,
-            publication_title: publication.title,
+            publication_title: content_item.title,
           }.merge(results_anchor ? {
             action: "/#{params[:slug]}\##{results_anchor}",
             results_anchor: results_anchor,
@@ -65,32 +67,32 @@
         ga4_track_links_only: "",
         ga4_set_indexes: "",
       } do %>
-        <% if publication.places.any? %>
+        <% if @places_presenter.places.any? %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Results #{publication.preposition} <strong>#{postcode}</strong>".html_safe,
+            text: "Results #{@places_presenter.preposition} <strong>#{postcode}</strong>".html_safe,
             margin_bottom: 4,
           } %>
           <ol id="options" class="govuk-list place-list">
-            <%= render partial: "place", locals: { places: publication.places } %>
+            <%= render partial: "place", locals: { places: @places_presenter.places } %>
           </ol>
         <% end %>
     <% end %>
   <% else %>
-    <% if publication.need_to_know.present? || publication.more_information.present? %>
+    <% if content_item.need_to_know.present? || content_item.more_information.present? %>
       <section class="more">
         <div class="further-information">
           <%= render "govuk_publishing_components/components/heading", {
             text: "Further information",
             margin_bottom: 4,
           } %>
-          <% if publication.need_to_know.present? %>
+          <% if content_item.need_to_know.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
-              <%= raw publication.need_to_know %>
+              <%= raw content_item.need_to_know %>
             <% end %>
           <% end %>
-          <% if publication.more_information.present? %>
+          <% if content_item.more_information.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
-              <%= raw publication.more_information %>
+              <%= raw content_item.more_information %>
             <% end %>
           <% end %>
         </div>

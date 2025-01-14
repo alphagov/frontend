@@ -115,7 +115,7 @@ When added through Whitehall content can either be written in HTML or govspeak m
 
 A wrapper around the [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). This block uses `content` where the component uses `text` for the title text key. This is so that headings can appear in search (only values inside a `content` key will be indexed when being published from Whitehall - see [Indexing block content in search](#indexing-block-content-in-search))
 
-If an `id` is added, the heading can be referenced in an anchor link. `heading_level` can be used to specify the heading level (the default is 2) - you should usually have at least one `heading_level: 1` towards the beginning of a page's content.
+If an `id` is added, the heading can be referenced in an anchor link. `heading_level` can be used to specify the heading level (the default is 2) - you should usually have at least one `heading_level: 1` towards the beginning of a page's content. `context` may also be used to add a [context sub-heading](https://components.publishing.service.gov.uk/component-guide/heading#with_context)
 
 ```yaml
 - type: heading

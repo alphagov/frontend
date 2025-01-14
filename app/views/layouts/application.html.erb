@@ -7,8 +7,8 @@
     <% if content_item.to_h["phase"] == "beta" %>
       <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
     <% end %>
-    <% unless current_page?(root_path) || !(publication || @calendar) || remove_breadcrumbs(content_item) %>
-      <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item_hash %>
+    <% unless current_page?(root_path) || !(content_item || @calendar) || remove_breadcrumbs(content_item) %>
+      <%= render 'govuk_publishing_components/components/contextual_breadcrumbs', content_item: content_item.to_h %>
     <% end %>
     <%= render "govuk_web_banners/recruitment_banner" %>
     <% if local_assigns %>
@@ -25,8 +25,8 @@
       page_title = yield :title
       if page_title.present?
         page_title
-      elsif publication
-        page_title(publication)
+      elsif content_item
+        page_title(content_item)
       else
         "GOV.UK"
       end

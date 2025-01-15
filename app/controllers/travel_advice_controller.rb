@@ -4,7 +4,7 @@ class TravelAdviceController < ContentItemsController
   FOREIGN_TRAVEL_ADVICE_SLUG = "foreign-travel-advice".freeze
 
   def index
-    @presenter = TravelAdviceIndexPresenter.new(content_item_hash)
+    @presenter = TravelAdviceIndexPresenter.new(content_item.to_h)
 
     respond_to do |format|
       format.html do

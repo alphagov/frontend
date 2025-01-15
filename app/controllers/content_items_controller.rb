@@ -14,10 +14,6 @@ private
     request.path
   end
 
-  def content_item_hash
-    @content_item_hash ||= content_item.to_h
-  end
-
   # NOTE: Frontend honours the max-age directive  provided
   # in Content Store's Cache-Control response header.
   def set_expiry(expiry = nil)

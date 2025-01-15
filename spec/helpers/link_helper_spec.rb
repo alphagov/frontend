@@ -37,4 +37,24 @@ RSpec.describe LinkHelper do
       end
     end
   end
+
+  describe "#govuk_styled_links_list" do
+    let(:links) do
+      [
+        { "title" => "Home", "base_path" => "/" },
+        { "title" => "UK Trade & Investment", "base_path" => "/uk-trade-investment" },
+        { "title" => "Foreign & Commonwealth Office", "base_path" => "/foreign-commonwealth-office" },
+      ]
+    end
+
+    it "returns an array of styled links with link titles containing an &" do
+      expected = [
+        "<a href='/' class='govuk-link'>Home</a>",
+        "<a href='/uk-trade-investment' class='govuk-link'>UK Trade &amp; Investment</a>",
+        "<a href='/foreign-commonwealth-office' class='govuk-link'>Foreign &amp; Commonwealth Office</a>",
+      ]
+
+      expect(govuk_styled_links_list(links)).to eq(expected)
+    end
+  end
 end

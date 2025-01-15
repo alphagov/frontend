@@ -461,6 +461,10 @@ cs:
   error:
   find:
   formats:
+    case_study:
+      few:
+      one: Případová studie
+      other: Případové studie
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -784,4 +788,6 @@ cs:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

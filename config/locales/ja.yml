@@ -419,6 +419,11 @@ ja:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 配信日：
+      location: 場所
+      other: スピーチ
+      written_on: 記述日：
     start_now:
     take_part:
       other: 参加する
@@ -440,6 +445,8 @@ ja:
       still_current_at: 現状：
       summary: 概要
       updated: 更新済み
+    written_statement:
+      other: 議会への書面による声明
   help:
     index:
       about:
@@ -625,6 +632,8 @@ ja:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 本件は、%{government}で公開されました
   sign_up:
   website:
   when_do_the_clocks_change:

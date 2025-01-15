@@ -638,6 +638,14 @@ mt:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Kunsinnat f'
+      few:
+      location: Post
+      many:
+      one: Diskors
+      other: Diskorsi
+      written_on: Miktub nhar
     start_now:
     take_part:
       few:
@@ -662,6 +670,11 @@ mt:
       still_current_at: Għadu jeżisti fuq
       summary: Sommarju
       updated: Aġġornat
+    written_statement:
+      few:
+      many:
+      one: Dikjarazzjoni bil-miktub lill-Parlament
+      other: Dikjarazzjonijiet bil-miktub lill-Parlament
   help:
     index:
       about:
@@ -847,6 +860,8 @@ mt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Din ma ġietx ippubblikata taħt il- %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

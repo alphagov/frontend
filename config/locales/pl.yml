@@ -638,6 +638,14 @@ pl:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Dostarczono o
+      few:
+      location: Lokalizacja
+      many:
+      one: Przemówienie
+      other: Przemówienia
+      written_on: Napisano o
     start_now:
     take_part:
       few:
@@ -662,6 +670,11 @@ pl:
       still_current_at: Aktualne na dzień
       summary: Podsumowanie
       updated: Zaktualizowano
+    written_statement:
+      few:
+      many:
+      one: Pisemne oświadczenie przed parlamentem
+      other: Pisemne oświadczenia przed parlamentem
   help:
     index:
       about:
@@ -847,6 +860,8 @@ pl:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Zostało to opublikowane w ramach %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

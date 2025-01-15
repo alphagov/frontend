@@ -492,6 +492,12 @@ ta:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: ஒப்படைத்த தேதி
+      location: இருப்பிடம்
+      one: பேச்சு
+      other: பேச்சுகள்
+      written_on: எழுதப்பட்ட தேதி
     start_now:
     take_part:
       one: பங்கெடுத்தல்
@@ -514,6 +520,9 @@ ta:
       still_current_at: தற்போதும் உள்ளது
       summary: சுருக்கம்
       updated: புதுப்பிக்கப்பட்டது
+    written_statement:
+      one: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்பு
+      other: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்புகள்
   help:
     index:
       about:
@@ -699,6 +708,8 @@ ta:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: "%{government}-ன்கீழ் இது வெளியிடப்பட்டது"
   sign_up:
   website:
   when_do_the_clocks_change:

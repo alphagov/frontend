@@ -565,6 +565,13 @@ cs:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Doručeno dne
+      few:
+      location: Sídlo
+      one: Projev
+      other: Projevy
+      written_on: Odepsané
     start_now:
     take_part:
       few:
@@ -588,6 +595,10 @@ cs:
       still_current_at: Stále aktuální na
       summary: Shrnutí
       updated: Aktualizováno
+    written_statement:
+      few:
+      one: Písemné prohlášení pro Parlament
+      other: Písemná prohlášení pro Parlament
   help:
     index:
       about:
@@ -773,6 +784,8 @@ cs:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tento dokument byl zveřejněn pod hlavičkou %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

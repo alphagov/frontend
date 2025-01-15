@@ -789,6 +789,16 @@ cy:
       please_answer: Mae angen ateb y cwestiwn hwn
       start_again: Dechrau eto
       your_answers: Eich atebion
+    speech:
+      delivered_on: Cyflawnwyd ar
+      few:
+      location: Lleoliad
+      many:
+      one: Anerchiad
+      other: Anerchiadau
+      two:
+      written_on: Ysgrifennwyd ar
+      zero:
     start_now: Dechrau nawr
     take_part:
       few:
@@ -815,6 +825,13 @@ cy:
       still_current_at: Yn gyfredol o hyd ar
       summary: Crynodeb
       updated: Diweddarwyd
+    written_statement:
+      few:
+      many:
+      one: Datganiad ysgrifenedig i'r Senedd
+      other: Datganiadau ysgrifenedig i'r Senedd
+      two:
+      zero:
   help:
     index:
       about: Ynghylch GOV.UK
@@ -1009,6 +1026,8 @@ cy:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Cyhoeddwyd hwn o dan y %{government}
   sign_up: Cofrestru
   website: Gwefan
   when_do_the_clocks_change:

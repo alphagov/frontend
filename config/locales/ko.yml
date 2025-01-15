@@ -419,6 +419,11 @@ ko:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 행사 일시
+      location: 위치
+      other: 연설문
+      written_on: 작성 날짜
     start_now:
     take_part:
       other: 참여하기
@@ -440,6 +445,8 @@ ko:
       still_current_at: 최신 상태
       summary: 요약
       updated: 업데이트
+    written_statement:
+      other: 의회로 서면 성명
   help:
     index:
       about:
@@ -625,6 +632,8 @@ ko:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 이 문서는 %{government} 산하에 출판되었습니다
   sign_up:
   website:
   when_do_the_clocks_change:

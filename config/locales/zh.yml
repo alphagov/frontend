@@ -419,6 +419,11 @@ zh:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 提交日期
+      location: 位置
+      other: 演讲
+      written_on: 书写日期
     start_now:
     take_part:
       other: 参加
@@ -440,6 +445,8 @@ zh:
       still_current_at: 有效范围
       summary: 总结
       updated: 已更新
+    written_statement:
+      other: 议会口头声明
   help:
     index:
       about:
@@ -625,6 +632,8 @@ zh:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 这是由 %{government} 发布的。
   sign_up:
   website:
   when_do_the_clocks_change:

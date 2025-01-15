@@ -638,6 +638,14 @@ gd:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Seachadadh ar
+      few:
+      location: Suíomh
+      one: Óráid
+      other: Óráid
+      two:
+      written_on: Scríobh an
     start_now:
     take_part:
       few:
@@ -662,6 +670,11 @@ gd:
       still_current_at: Bailí i gcónaí ar
       summary: Coimriú
       updated: Athnuachan
+    written_statement:
+      few:
+      one: Dearbhú i scríbhinn don Pharlaimint
+      other: Ráitis i scríbhinn don Pharlaimint
+      two:
   help:
     index:
       about:
@@ -847,6 +860,8 @@ gd:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Foilsíodh an doiciméad seo go deimhin faoi chuimsiú an %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

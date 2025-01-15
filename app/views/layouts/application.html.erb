@@ -49,8 +49,8 @@
     <% if content_item_hash %>
       <%= render 'govuk_publishing_components/components/meta_tags', content_item: content_item_hash %>
       <%# TODO: use content_item.meta_content %>
-      <% if meta_section(content_item_hash).present? %>
-        <meta name="govuk:section" content="<%= meta_section(content_item_hash) %>">
+      <% if content_item&.meta_section.present? %>
+        <meta name="govuk:section" content="<%= content_item.meta_section %>">
       <% end %>
     <% end %>
   </head>

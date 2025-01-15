@@ -1,16 +1,6 @@
 class ContentItemsController < ApplicationController
   before_action :set_locale, if: -> { request.format.html? }
 
-protected
-
-  helper_method :meta_section
-
-  def meta_section(content_item_hash)
-    @meta_section ||= content_item_hash.dig(
-      "links", "parent", 0, "links", "parent", 0, "title"
-    )&.downcase
-  end
-
 private
 
   def content_item

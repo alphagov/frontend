@@ -53,6 +53,12 @@ class ContentItem
     translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
   end
 
+  def meta_section
+    @meta_section ||= content_store_hash.dig(
+      "links", "parent", 0, "links", "parent", 0, "title"
+    )&.downcase
+  end
+
 private
 
   def get_attachments(attachment_hash)

@@ -4,16 +4,16 @@
   add_gem_component_stylesheet("document-list")
   add_gem_component_stylesheet("inset-text")
 %>
-<% content_for :title, "#{content_item_hash["title"]} - GOV.UK" %>
+<% content_for :title, "#{content_item.title} - GOV.UK" %>
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= content_item_hash["description"] %>">
+  <meta name="description" content="<%= content_item.description %>">
 <% end %>
 <main id="content">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", title: content_item_hash["title"] %>
+      <%= render "govuk_publishing_components/components/title", title: content_item.title %>
 
-      <%= sanitize(content_item_hash["details"]["body"]) %>
+      <%= sanitize(content_item.body) %>
 
       <%= render "govuk_publishing_components/components/heading", {
         text: t('help.sign_in.service_not_listed_heading'),

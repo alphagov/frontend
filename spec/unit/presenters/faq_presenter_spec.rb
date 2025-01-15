@@ -14,9 +14,9 @@ RSpec.describe FaqPresenter do
       q_and_a("Northern Ireland", "The next bank holiday in Northern Ireland is Good Friday on the 6th of April"),
     ]
     Timecop.travel(Date.parse("2012-03-24")) do
-      scope = "bank-holidays"
-      calendar = Calendar.find(scope)
-      presenter = described_class.new(scope, calendar, payload(calendar), view_context)
+      type = "bank-holidays"
+      calendar = Calendar.find(type)
+      presenter = described_class.new(type, calendar, payload(calendar), view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end
@@ -25,9 +25,9 @@ RSpec.describe FaqPresenter do
   it "uses wdtcc body for wdtcc" do
     expected = [q_and_a("When do the clocks change?", "The clocks go forward on the 25th of March")]
     Timecop.travel(Date.parse("2012-03-24")) do
-      scope = "when-do-the-clocks-change"
-      calendar = Calendar.find(scope)
-      presenter = described_class.new(scope, calendar, payload(calendar), view_context)
+      type = "when-do-the-clocks-change"
+      calendar = Calendar.find(type)
+      presenter = described_class.new(type, calendar, payload(calendar), view_context)
 
       expect(presenter.metadata["mainEntity"]).to eq(expected)
     end

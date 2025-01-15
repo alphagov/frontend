@@ -4,7 +4,7 @@
       <%= yield %>
     </main>
   <% else %>
-    <% if content_item.to_h["phase"] == "beta" %>
+    <% if content_item&.phase == "beta" %>
       <%= render 'govuk_publishing_components/components/phase_banner', phase: "beta" %>
     <% end %>
     <% unless current_page?(root_path) || !(content_item || @calendar) || remove_breadcrumbs(content_item) %>
@@ -46,11 +46,11 @@
 
     <%= yield :extra_javascript %>
     <%= yield :extra_headers %>
-    <% if content_item_hash %>
-      <%= render 'govuk_publishing_components/components/meta_tags', content_item: content_item_hash %>
+    <% if content_item.to_h %>
+      <%= render 'govuk_publishing_components/components/meta_tags', content_item: content_item.to_h %>
       <%# TODO: use content_item.meta_content %>
-      <% if meta_section(content_item_hash).present? %>
-        <meta name="govuk:section" content="<%= meta_section(content_item_hash) %>">
+      <% if content_item&.meta_section.present? %>
+        <meta name="govuk:section" content="<%= content_item.meta_section %>">
       <% end %>
     <% end %>
   </head>

@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  helper_method :content_item, :content_item_hash
+  helper_method :content_item
 
   def error_403
     error :forbidden
@@ -64,10 +64,6 @@ protected
   end
 
   def content_item
-    nil
-  end
-
-  def content_item_hash
     nil
   end
 

@@ -9,7 +9,7 @@ class CalendarController < ContentItemsController
   def show_calendar
     respond_to do |format|
       format.html do
-        @faq_presenter = FaqPresenter.new(calendar.type, calendar, content_item_hash, view_context)
+        @faq_presenter = FaqPresenter.new(calendar.type, calendar, content_item.to_h, view_context)
 
         render calendar.type.tr("-", "_")
       end

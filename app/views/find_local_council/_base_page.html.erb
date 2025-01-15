@@ -17,7 +17,7 @@
       <%= yield %>
     </div>
     <div class="govuk-grid-column-one-third">
-      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item_hash %>
+      <%= render 'govuk_publishing_components/components/contextual_sidebar', content_item: content_item.to_h %>
     </div>
   </div>
 </main>

@@ -5,7 +5,7 @@ class ContentItem
 
   attr_reader :attachments, :base_path, :body, :content_store_hash,
               :content_store_response, :description, :document_type, :image,
-              :links, :locale, :public_updated_at, :schema_name, :title
+              :links, :locale, :phase, :public_updated_at, :schema_name, :title
 
   # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
   # content items including block details are available from content-store
@@ -23,6 +23,7 @@ class ContentItem
     @locale = content_store_hash["locale"]
     @public_updated_at = content_store_hash["public_updated_at"]
     @links = content_store_hash["links"]
+    @phase = content_store_hash["phase"]
 
     @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
 
@@ -50,6 +51,12 @@ class ContentItem
     translations = content_store_response["links"]["available_translations"] || []
 
     translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
+  end
+
+  def meta_section
+    @meta_section ||= content_store_hash.dig(
+      "links", "parent", 0, "links", "parent", 0, "title"
+    )&.downcase
   end
 
 private

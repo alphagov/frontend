@@ -22,6 +22,7 @@ module AssetManagerHelpers
       base_path: parent_document_base_path,
       document_type: "guidance",
       public_updated_at: "2023-05-27T08:00:07.000+00:00",
+      phase: "live",
       details: {
         attachments: [
           { title: "Attachment 1", content_type: "text/csv", filename: "file.csv", url: "https://www.gov.uk/media/5678/file.csv", file_size: "1024" },

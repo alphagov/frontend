@@ -11,7 +11,7 @@
   css_classes = %w[postcode-search-form]
   css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
 
-  ga4_type = content_item_hash["document_type"].gsub("_", " ")
+  ga4_type = content_item.document_type.gsub("_", " ")
   ga4_section = t('formats.local_transaction.enter_postcode', locale: :en)
 %>
 

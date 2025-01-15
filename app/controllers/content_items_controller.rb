@@ -1,16 +1,6 @@
 class ContentItemsController < ApplicationController
   before_action :set_locale, if: -> { request.format.html? }
 
-protected
-
-  helper_method :meta_section
-
-  def meta_section(content_item_hash)
-    @meta_section ||= content_item_hash.dig(
-      "links", "parent", 0, "links", "parent", 0, "title"
-    )&.downcase
-  end
-
 private
 
   def content_item
@@ -22,10 +12,6 @@ private
 
   def content_item_path
     request.path
-  end
-
-  def content_item_hash
-    @content_item_hash ||= content_item.to_h
   end
 
   # NOTE: Frontend honours the max-age directive  provided

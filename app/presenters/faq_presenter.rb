@@ -1,6 +1,6 @@
 class FaqPresenter
-  def initialize(scope, calendar, content_item, view_context)
-    @scope = scope
+  def initialize(type, calendar, content_item, view_context)
+    @type = type
     @calendar = calendar
     @content_item = content_item.symbolize_keys
     @view_context = view_context
@@ -28,7 +28,7 @@ class FaqPresenter
 
 private
 
-  attr_reader :scope, :calendar, :content_item, :view_context
+  attr_reader :type, :calendar, :content_item, :view_context
 
   def questions_and_answers
     calendar.divisions.map { |division| answer_for(division) }.compact
@@ -39,7 +39,7 @@ private
 
     date = "the #{division.upcoming_event.date.day.ordinalize} of #{division.upcoming_event.date.strftime('%B')}"
 
-    case scope
+    case type
     when "bank-holidays"
       title = I18n.t(division.title, locale: :en)
       body = "The next bank holiday in #{title} is #{division.upcoming_event.title} on #{date}"

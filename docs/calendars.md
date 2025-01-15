@@ -1,8 +1,8 @@
 # Calendars
 
-Calendar JSON data files are stored in `lib/data/<scope>.json`, with a `divisions` hash for separate data per region (`united-kingdom`, `england-and-wales`, `scotland` or `northern-ireland`).
+Calendar JSON data files are stored in `lib/data/<type>.json`, with a `divisions` hash for separate data per region (`united-kingdom`, `england-and-wales`, `scotland` or `northern-ireland`).
 
-Each scope's data file contains a list of divisions, containing a list of years, each with a list of events:
+Each type's data file contains a list of divisions, containing a list of years, each with a list of events:
 
 ```json
 {

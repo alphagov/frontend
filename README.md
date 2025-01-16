@@ -7,14 +7,10 @@ some hard-coded routes including the GOV.UK homepage.
 
 ### Formats
 
-Simple smart answer
-* https://www.gov.uk/sold-bought-vehicle
-* https://www.gov.uk/contact-the-dvla
+### Calendars
 
-Transaction start pages:
- * https://www.gov.uk/register-to-vote
- * https://www.gov.uk/vehicle-tax
- * https://www.gov.uk/find-a-job
+* https://www.gov.uk/bank-holidays
+* https://www.gov.uk/when-do-the-clocks-change
 
 ### Help
 
@@ -55,14 +51,19 @@ Transaction start pages:
 * https://www.gov.uk/find-licences/cooling-tower-notification
 * https://www.gov.uk/find-licences/performing-animals-registration
 
-### Calendars
+## Simple smart answer
 
-* https://www.gov.uk/bank-holidays
-* https://www.gov.uk/when-do-the-clocks-change
+* https://www.gov.uk/sold-bought-vehicle
+* https://www.gov.uk/contact-the-dvla
 
 ### Take Part
 
 * https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing
+
+### Transaction start pages
+ * https://www.gov.uk/register-to-vote
+ * https://www.gov.uk/vehicle-tax
+ * https://www.gov.uk/find-a-job
 
 ### Travel Advice Country pages
 

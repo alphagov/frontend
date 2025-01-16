@@ -1,5 +1,6 @@
-class Speech < ContentItem  
-  include Organisations  
+class Speech < ContentItem
+  include NewsImage
+  include Organisations
   include Updatable
 
   def contributors

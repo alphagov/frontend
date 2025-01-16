@@ -14,7 +14,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds responsive-top-margin">
-    <%= render "govuk_publishing_components/components/title", @content_item.title_and_context %>
+    <%= render "govuk_publishing_components/components/title", {
+        title: content_item.title,
+        context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+        average_title_length: "long",
+      } %>
   </div>
   <%= render "shared/translations" %>
   <div class="govuk-grid-column-two-thirds">

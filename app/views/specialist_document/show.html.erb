@@ -4,10 +4,10 @@
   <%= content_item.title %> - GOV.UK
 <% end %>
 
-<% content_for :extra_head_content do %>
-  <%= machine_readable_metadata(
+<% content_for :extra_headers do %>
+    <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
-  ) %>
+    content_item: content_item.to_h %>
 <% end %>
 
 <% content_for :simple_header, true %>

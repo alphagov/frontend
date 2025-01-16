@@ -2,6 +2,6 @@
   <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
 </div>
 
-<script type="application/ld+json">
+<script type="application/ld+json"> <%# erb_lint:disable AllowedScriptType %>
   <%= @faq_presenter.metadata.to_json.html_safe %>
 </script>

@@ -4,9 +4,9 @@
   <meta name="description" content="<%= t("homepage.index.meta_description_new") %>">
 <% end %>
 <% content_for :title, t("homepage.index.intro_title.text") %>
+<% content_for :main_classes, "govuk-!-padding-top-0" %>
 <% content_for :body_classes, "homepage" %><%# The `homepage` body class is required for emergency banner. %>
 
-<main id="content" role="main">
   <%
     # The GA4 tracking on the homepage depends on some hardcoded values for index. If a section is added or removed, these values will need to be updated.
     # Specifically 'index_section_count' (the total number of sections) and 'index_section' (the index of the section e.g. 2 for the 2nd section).
@@ -34,4 +34,3 @@
       </div>
     </div>
   </div>
-</main>

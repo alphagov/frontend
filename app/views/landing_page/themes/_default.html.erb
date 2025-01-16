@@ -1,3 +1,4 @@
+<% content_for :before_content do %>
 <div class="landing-page-header">
   <div class="govuk-width-container">
     <div class="landing-page-header__blue-bar">
@@ -8,7 +9,6 @@
     </div>
   </div>
 </div>
+<% end %>
 
-<main class="landing-page" id="content">
-  <%= yield :landing_page_blocks %>
-</main>
+   <%= yield :landing_page_blocks %>

@@ -4,7 +4,6 @@
 
 <% content_for :title, "#{@attachment_metadata["title"]} - GOV.UK" %>
 
-<main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <% @content_item.dig("links", "organisations").each do |organisation| %>
@@ -62,4 +61,3 @@
       </div>
     </div>
   </div>
-</main>

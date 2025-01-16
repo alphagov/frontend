@@ -1,6 +1,7 @@
 class Speech < ContentItem
   include NewsImage
   include Organisations
+  include Political
   include Updatable
 
   def contributors

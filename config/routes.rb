@@ -126,6 +126,10 @@ Rails.application.routes.draw do
     get ":slug/:division", to: "calendar#division", as: :division
   end
 
+  constraints FullPathFormatRoutingConstraint.new("specialist_document") do
+    get "*path", to: "specialist_document#show"
+  end
+
   constraints FullPathFormatRoutingConstraint.new("landing_page") do
     get "*path", to: "landing_page#show"
   end

@@ -17,6 +17,10 @@ module ApplicationHelper
     html_classes.join(" ")
   end
 
+  def content_item_class
+    content_item&.schema_name ? content_item.schema_name.dasherize : ""
+  end
+
   def current_path_without_query_string
     request.original_fullpath.split("?", 2).first
   end

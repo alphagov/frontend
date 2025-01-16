@@ -12,7 +12,10 @@
     <% end %>
     <%= render "govuk_web_banners/recruitment_banner" %>
     <% if local_assigns %>
-      <%= yield %>
+      <%= yield :before_content %>
+      <main role="main" id="content" class="govuk-main-wrapper <%= content_item_class %>" <%= lang_attribute %>>
+        <%= yield %>
+      </main>
       <%= yield :after_content %>
     <% end %>
   <% end %>

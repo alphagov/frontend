@@ -1,9 +1,0 @@
-<%
-  add_app_component_stylesheet("subscribe")
-
-  data ||= false
-%>
-
-<%= tag.div class: "app-c-subscribe govuk-!-display-none-print" do %>
-  <%= link_to label, url, title: title, class: "app-c-subscribe__link govuk-link", data: data %>
-<% end %>

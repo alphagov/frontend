@@ -71,18 +71,17 @@
                 text: t("common.bank_holiday_translation_html")
               } %>
 
-              <%= render "components/subscribe", {
-                label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-                url: division_path(@calendar, division, :format => 'ics'),
-                title: t("common.download_ics"),
-                data: {
-                  module: "ga4-link-tracker",
-                  ga4_link: {
-                    event_name: "file_download",
-                    type: "generic download"
-                  }
-                }
+              <%= render "govuk_publishing_components/components/heading", {
+                text: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+                heading_level: 3,
+                font_size: "s"
               } %>
+
+              <p><%= t("common.download_ics") %></p>
+
+              <p class="govuk-body govuk-!-margin-bottom-8 govuk-!-display-none-print">
+               <a href="#" class="govuk-link">Download Calendar (ICS, 14KB)</a>  
+              </p>
 
               <% caption = "#{t "common.past_bank_holidays"} #{t "#{division.title}_in"}" %>
               <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>

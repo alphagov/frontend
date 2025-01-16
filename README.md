@@ -56,6 +56,12 @@ some hard-coded routes including the GOV.UK homepage.
 * https://www.gov.uk/sold-bought-vehicle
 * https://www.gov.uk/contact-the-dvla
 
+### Specialist documents
+
+* https://www.gov.uk/cma-cases/veterinary-services-market-for-pets-review
+* https://www.gov.uk/aaib-reports/aaib-investigation-to-aw189-g-fsar
+* https://www.gov.uk/protected-food-drink-names/pitahaya-amazonica-de-palora
+
 ### Take Part
 
 * https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing

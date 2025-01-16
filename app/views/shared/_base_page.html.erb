@@ -1,6 +1,5 @@
 <% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
 
-<main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %> govuk-main-wrapper" <%= @lang_attribute %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/heading", {
@@ -25,12 +24,8 @@
         content_item: content_item.to_h %>
     </div>
 
-    <% content_for :after_content do %>
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/contextual_footer",
         content_item: content_item.to_h %>
     </div>
   </div>
-</main>
-
-<% end %>

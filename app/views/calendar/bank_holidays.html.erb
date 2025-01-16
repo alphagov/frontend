@@ -8,7 +8,6 @@
 
 <%= render :partial => "calendar_head" %>
 
-<main id="content" role="main" class="govuk-main-wrapper">
   <% if @calendar.show_bunting? %>
   <div class="app-bunting" aria-hidden="true">
     <div class="app-bunting__<%= "#{@calendar.bunting_styles}" %>"></div>
@@ -131,5 +130,3 @@
     </div>
       <%= render :partial => "calendar_footer" %>
   </div>
-
-</main>

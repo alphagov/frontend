@@ -46,6 +46,22 @@ jobs:
     name: Lint Ruby
     uses: alphagov/govuk-infrastructure/.github/workflows/rubocop.yml@main
 
+  lint-erb:
+    name: Lint Views
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run Erblint
+        run: bundle exec erb_lint --lint-all
+
+
   test-javascript:
     name: Test JavaScript
     uses: ./.github/workflows/jasmine.yml

@@ -6,7 +6,6 @@ class TransactionController < ContentItemsController
 
   def show
     content_item.set_variant(params["variant"])
-    @lang_attribute = lang_attribute(content_item.locale.presence)
     @transaction_presenter = TransactionPresenter.new(content_item)
   end
 

@@ -15,7 +15,7 @@
               url: organisation["base_path"],
               brand: organisation.dig("details", "brand"),
               crest: organisation.dig("details", "logo", "crest"),
-            }
+            },
           } %>
         </div>
       <% end %>
@@ -32,7 +32,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <%= render 'govuk_publishing_components/components/inverse_header', {} do %>
+      <%= render "govuk_publishing_components/components/inverse_header", {} do %>
         <%= render "govuk_publishing_components/components/title", {
           context: I18n.t("csv_preview.document_type.#{@content_item['document_type']}", count: 1),
           title: @attachment_metadata["title"],
@@ -43,7 +43,7 @@
         <p class="govuk-body csv-preview__updated">
           Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %>
           <br>
-          <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata['url'], class: "csv-preview__download-link") %>
+          <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata["url"], class: "csv-preview__download-link") %>
         </p>
       <% end %>
     </div>
@@ -56,7 +56,7 @@
           <p class="govuk-body">
             This CSV cannot be viewed online.
             <br>
-            You can <%= link_to("download the file", @attachment_metadata['url'], class: "govuk-link") %> to open it with your own software.
+            You can <%= link_to("download the file", @attachment_metadata["url"], class: "govuk-link") %> to open it with your own software.
           </p>
         </div>
       </div>

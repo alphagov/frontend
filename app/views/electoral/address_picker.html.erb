@@ -2,10 +2,10 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<% title = t('formats.local_transaction.choose_address') %>
+<% title = t("formats.local_transaction.choose_address") %>
 <% content_for :title, title %>
 
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   title: title,
   publication: content_item,
   edition: @edition,
@@ -16,17 +16,17 @@
   </p>
 
   <% if @presenter.addresses.present? %>
-    <% items = @presenter.addresses.map { |a| { text: a['address'], value: a["slug"] } } %>
+    <% items = @presenter.addresses.map { |a| { text: a["address"], value: a["slug"] } } %>
 
     <%= form_with url: electoral_services_path, method: :get do |form| %>
       <%= render "govuk_publishing_components/components/select", {
         id: "uprn",
         name: "uprn",
-        label: t('formats.local_transaction.select_address'),
-        options: items
+        label: t("formats.local_transaction.select_address"),
+        options: items,
       } %>
 
-      <%= render "govuk_publishing_components/components/button", text: t('continue'), margin_bottom: true %>
+      <%= render "govuk_publishing_components/components/button", text: t("continue"), margin_bottom: true %>
     <% end %>
   <% end %>
 <% end %>

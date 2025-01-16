@@ -1,10 +1,10 @@
-<% content_for :title, t('roadmap.page_title') %>
+<% content_for :title, t("roadmap.page_title") %>
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= t('roadmap.hero.description') %>" />
-  <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://www.gov.uk/roadmap" />
-  <meta property="og:title" content="Roadmap - GOV.UK" />
-  <meta property="og:description" content="<%= t('roadmap.hero.description') %>" />
+  <meta name="description" content="<%= t("roadmap.hero.description") %>">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:url" content="https://www.gov.uk/roadmap">
+  <meta property="og:title" content="Roadmap - GOV.UK">
+  <meta property="og:description" content="<%= t("roadmap.hero.description") %>">
 <% end %>
 
 <main id="content" class="govuk-main-wrapper">
@@ -12,12 +12,12 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t('roadmap.hero.heading'),
+          text: t("roadmap.hero.heading"),
           font_size: "xl",
           margin_bottom: 8,
           heading_level: 1,
         } %>
-        <p class="govuk-body govuk-roadmap__intro"><%= t('roadmap.hero.description') %></p>
+        <p class="govuk-body govuk-roadmap__intro"><%= t("roadmap.hero.description") %></p>
       </div>
 
       <div class="govuk-grid-column-one-third">
@@ -30,21 +30,21 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t('roadmap.updates_section.heading'),
-          font_size: 'l',
+          text: t("roadmap.updates_section.heading"),
+          font_size: "l",
         } %>
       </div>
     </div>
     <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" aria-hidden="true">
     <div class="govuk-grid-row">
-      <% t('roadmap.updates_section.items').each do |item| %>
+      <% t("roadmap.updates_section.items").each do |item| %>
         <div class="govuk-grid-column-one-third">
           <%= render "govuk_publishing_components/components/image_card", {
             href: item[:href],
             image_src: asset_path(item[:image_src]),
             heading_text: item[:heading_text],
             heading_level: 0,
-            font_size: 'm'
+            font_size: "m",
           } %>
         </div>
       <% end %>
@@ -55,18 +55,18 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t('roadmap.actions_section.heading'),
-          font_size: 'l',
+          text: t("roadmap.actions_section.heading"),
+          font_size: "l",
         } %>
       </div>
     </div>
-    <% t('roadmap.actions_section.items').each do |item| %>
+    <% t("roadmap.actions_section.items").each do |item| %>
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" aria-hidden="true">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds-from-desktop">
           <%= render "govuk_publishing_components/components/heading", {
             text: item[:heading],
-            font_size: 'm',
+            font_size: "m",
             heading_level: 3,
             margin_bottom: 4,
           } %>
@@ -79,7 +79,7 @@
             <div class="govuk-grid-column-one-third">
               <%= render "govuk_publishing_components/components/heading", {
                 text: step[:heading],
-                font_size: 's',
+                font_size: "s",
                 heading_level: 4,
                 margin_bottom: 4,
               } %>
@@ -98,8 +98,8 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t('roadmap.numbers_section.heading_large'),
-          font_size: 'l',
+          text: t("roadmap.numbers_section.heading_large"),
+          font_size: "l",
         } %>
       </div>
     </div>
@@ -107,32 +107,32 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <% content_for :small_heading_text do %>
-          <%= sanitize(t('roadmap.numbers_section.heading_small')) %>
+          <%= sanitize(t("roadmap.numbers_section.heading_small")) %>
         <% end %>
 
         <%= render "govuk_publishing_components/components/heading", {
           text: yield(:small_heading_text),
-          font_size: 'm',
+          font_size: "m",
           heading_level: 3,
           margin_bottom: 4,
         } %>
-        <p class="govuk-body-s"><%= t('roadmap.numbers_section.footnote') %></p>
+        <p class="govuk-body-s"><%= t("roadmap.numbers_section.footnote") %></p>
       </div>
     </div>
     <div class="govuk-grid-row govuk-roadmap-numbers govuk-!-margin-bottom-3">
       <div class="govuk-grid-column-one-third govuk-roadmap-numbers__column">
         <%= render "govuk_publishing_components/components/big_number", {
-          number: t('roadmap.numbers_section.numbers_columns.column_one_count'),
-          label: t('roadmap.numbers_section.numbers_columns.column_one_text'),
+          number: t("roadmap.numbers_section.numbers_columns.column_one_count"),
+          label: t("roadmap.numbers_section.numbers_columns.column_one_text"),
         } %>
       </div>
       <div class="govuk-grid-column-one-third govuk-roadmap-numbers__column">
         <%= render "govuk_publishing_components/components/big_number", {
-          number: t('roadmap.numbers_section.numbers_columns.column_two_count'),
-          label: t('roadmap.numbers_section.numbers_columns.column_two_text'),
+          number: t("roadmap.numbers_section.numbers_columns.column_two_count"),
+          label: t("roadmap.numbers_section.numbers_columns.column_two_text"),
         } %>
       </div>
     </div>
   </section>
-  <p class="govuk-body-s govuk-!-margin-top-4"><%= t('roadmap.numbers_section.last_updated') %></p>
+  <p class="govuk-body-s govuk-!-margin-top-4"><%= t("roadmap.numbers_section.last_updated") %></p>
 </main>

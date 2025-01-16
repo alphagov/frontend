@@ -1,7 +1,7 @@
 <% content_for :simple_header, true %>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'govuk_publishing_components/components/title',
+    <%= render "govuk_publishing_components/components/title",
       title: @content_item.title %>
   </div>
 </div>
@@ -9,21 +9,21 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="responsive-bottom-margin">
 
-      <%= render 'govuk_publishing_components/components/govspeak', {
+      <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
         disable_youtube_expansions: true,
       } do %>
       <%= raw(@content_item.body) %>
       <% end %>
-      
+
       <% if @content_item.public_updated_at && @content_item.schema_name == "help_page" %>
       <%= render "components/published_dates", {
-        last_updated: display_date(@content_item.public_updated_at)
+        last_updated: display_date(@content_item.public_updated_at),
       } %>
       <% end %>
     </div>
   </div>
-  <%= render 'shared/sidebar_navigation' %>
+  <%= render "shared/sidebar_navigation" %>
 </div>
 
-<%= render 'shared/footer_navigation' %>
+<%= render "shared/footer_navigation" %>

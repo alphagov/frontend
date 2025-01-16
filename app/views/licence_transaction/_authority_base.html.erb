@@ -20,7 +20,7 @@
     event_name: "form_change_response",
     action: "change response",
     type: ga4_type,
-    tool_name: content_item.title
+    tool_name: content_item.title,
   }.to_json
 
   ga4_data_modules = "ga4-link-tracker"
@@ -32,20 +32,19 @@
   end
 %>
 
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   context: "Licence",
   title: content_item.title,
   publication: content_item,
   edition: @edition,
 } do %>
 
-  <p class="govuk-body">From <strong><%= licence_details.authority['name'] %></strong></p>
+  <p class="govuk-body">From <strong><%= licence_details.authority["name"] %></strong></p>
 
   <%= render "govuk_publishing_components/components/contents_list",
     underline_links: true,
     format_numbers: true,
-    contents: licence_details.actions_for_contents_list_component(content_item)
-  %>
+    contents: licence_details.actions_for_contents_list_component(content_item) %>
 
   <article
     role="article"
@@ -56,15 +55,14 @@
     <% end %>
     data-ga4-link="<%= ga4_information_click_attributes %>"
     data-ga4-track-links-only
-    data-ga4-set-indexes
-  >
+    data-ga4-set-indexes>
     <div id="overview" class="inner">
       <%= yield :main_content %>
 
       <% if licence_details.local_authority_specific? %>
         <div class="contact">
           <p class="govuk-body">The issuing authority for this licence is <strong><%= licence_details.authority["name"] %></strong>
-            <%= link_to '(change location)',
+            <%= link_to "(change location)",
               licence_transaction_path(content_item.slug),
               class: "govuk-link",
               data: {
@@ -72,16 +70,15 @@
                 # As per the GA4 implementation guide, we don't add an index to change_response links. Therefore, the data-ga4-do-not-index
                 # attribute is used to override behaviour of data-ga4-set-indexes on the parent element, therefore preventing this link from
                 # having an index added.
-                ga4_do_not_index: ""
-              }
-            %>
+                ga4_do_not_index: "",
+              } %>
           </p>
 
           <% if licence_details.authority['contact'] and ! licence_details.authority['contact']['address'].blank? %>
             <p class="govuk-body">You can contact them using the details below.</p>
             <%= render "govuk_publishing_components/components/govspeak", {
             } do %>
-              <%= simple_format licence_details.authority['contact']['address'] %>
+              <%= simple_format licence_details.authority["contact"]["address"] %>
             <% end %>
           <% end %>
         </div>

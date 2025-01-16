@@ -20,14 +20,14 @@
       data_attributes: {
         module: "ga4-link-tracker",
         ga4_link: {
-          event_name: 'navigation',
-          type: 'homepage',
+          event_name: "navigation",
+          type: "homepage",
           index_section: locals[:index_section],
           index_link: index + 1,
           index_section_count: locals[:index_section_count],
           index_total: t("homepage.index.promotion_slots").length,
-          section: t("homepage.index.featured", locale: :en)
-        }
+          section: t("homepage.index.featured", locale: :en),
+        },
       },
       image_src: image_path(item[:image_src]),
       image_alt: "",
@@ -38,7 +38,7 @@
       large_font_size_mobile: true,
       description: item[:text],
       font_size: "s",
-      srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence
+      srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence,
     } %>
   <% end %>
 </section>

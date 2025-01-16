@@ -10,7 +10,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/title", {
-          title: @calendar.title
+          title: @calendar.title,
         } %>
 
         <article role="article">
@@ -27,33 +27,33 @@
             <%= render "govuk_publishing_components/components/table", {
               first_cell_is_header: true,
               head: [
-                { text: t('bank_holidays.year') },
-                { text: t('bank_holidays.clocks_forward') },
-                { text: t('bank_holidays.clocks_backward') }
+                { text: t("bank_holidays.year") },
+                { text: t("bank_holidays.clocks_forward") },
+                { text: t("bank_holidays.clocks_backward") },
               ],
-              rows: division.years.each.map { |year| [
+              rows: division.years.each.map do |year| [
                 { :text => year },
-                { :text => year.events[0].date.strftime('%e %B') },
-                { :text => year.events[1].date.strftime('%e %B') }
-              ] }
+                { :text => year.events[0].date.strftime("%e %B") },
+                { :text => year.events[1].date.strftime("%e %B") },
+              ] end,
             } %>
           </div>
 
           <%= render "components/subscribe", {
-            label: t('bank_holidays.add_clock_changes_to_calendar'),
-            url: division_path(@calendar, division, :format => 'ics'),
-            title: t('bank_holidays.download_clock_changes')
+            label: t("bank_holidays.add_clock_changes_to_calendar"),
+            url: division_path(@calendar, division, :format => "ics"),
+            title: t("bank_holidays.download_clock_changes"),
           } %>
 
-          <p class="govuk-body"> <%= t('bank_holidays.clock_change_explanation') %> </p>
+          <p class="govuk-body"> <%= t("bank_holidays.clock_change_explanation") %> </p>
 
-          <p class="govuk-body"> <%= t('bank_holidays.bst_explanation') %> </p>
+          <p class="govuk-body"> <%= t("bank_holidays.bst_explanation") %> </p>
 
-          <p class="govuk-body"> <%= t('bank_holidays.gmt_explanation') %> </p>
+          <p class="govuk-body"> <%= t("bank_holidays.gmt_explanation") %> </p>
         </article>
 
         <%= render "govuk_publishing_components/components/metadata", {
-          last_updated: format_date(last_updated_date)
+          last_updated: format_date(last_updated_date),
         } %>
       </div>
       <%= render :partial => "calendar_footer" %>

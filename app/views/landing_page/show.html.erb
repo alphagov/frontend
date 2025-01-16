@@ -7,15 +7,15 @@
 
   <%= render "govuk_publishing_components/components/machine_readable_metadata", {
     content_item: @content_item.to_h,
-    schema: :article
+    schema: :article,
   } %>
 <% end %>
 
 <% content_for :landing_page_breadcrumbs do %>
   <% if @content_item.breadcrumbs.present? %>
-    <%= render 'govuk_publishing_components/components/breadcrumbs', {
+    <%= render "govuk_publishing_components/components/breadcrumbs", {
       collapse_on_mobile: true,
-      breadcrumbs: @content_item.breadcrumbs
+      breadcrumbs: @content_item.breadcrumbs,
     } %>
   <% end %>
 <% end %>

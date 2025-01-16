@@ -27,7 +27,7 @@
           <fieldset class="country-filter-form__form-group">
             <%= render "govuk_publishing_components/components/input", {
               label: {
-                text: "Search for a country or territory - you can sign up for email updates on its page"
+                text: "Search for a country or territory - you can sign up for email updates on its page",
               },
               id: "country",
               name: "country",
@@ -40,9 +40,9 @@
                   event_name: "filter",
                   type: "filter",
                   action: "filter",
-                  section: @presenter.title
-                }
-              }
+                  section: @presenter.title,
+                },
+              },
             } %>
           </fieldset>
         </form>
@@ -76,14 +76,13 @@
           class="subscriptions-wrapper"
           data-module="ga4-link-tracker"
           data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Footer" }'
-          data-ga4-track-links-only
-        >
+          data-ga4-track-links-only>
           <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Get updates for all countries</h2>
             <%= render "govuk_publishing_components/components/subscription_links", {
               email_signup_link_text: "email",
               email_signup_link: @presenter.subscription_url,
               hide_heading: true,
-              margin_bottom: 0
+              margin_bottom: 0,
             } %>
         </div>
       </div>

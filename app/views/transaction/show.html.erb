@@ -1,21 +1,21 @@
 <% content_for :extra_headers do %>
-  <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>
 
-  <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :government_service,
     content_item: content_item.to_h %>
 
   <% if content_item.variant_slug.present? %>
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, nofollow">
   <% end %>
 <% end %>
 
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   title: content_item.title,
   publication: content_item,
-  edition: @edition
+  edition: @edition,
 } do %>
 
   <section class="intro">
@@ -26,7 +26,7 @@
     </div>
     <% if content_item.downtime_message.present? %>
       <%= render "govuk_publishing_components/components/warning_text", {
-        text: sanitize(content_item.downtime_message)
+        text: sanitize(content_item.downtime_message),
       } %>
     <% end %>
     <p id="get-started" class="get-started group">
@@ -43,9 +43,9 @@
 
   <section class="more">
     <% if content_item.multiple_more_information_sections? %>
-      <%= render :partial => 'additional_information_tabbed' %>
+      <%= render :partial => "additional_information_tabbed" %>
     <% else %>
-      <%= render :partial => 'additional_information_single' %>
+      <%= render :partial => "additional_information_single" %>
     <% end %>
   </section>
 <% end %>

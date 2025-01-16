@@ -8,14 +8,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/title", {
-        title: "This is a test page"
+        title: "This is a test page",
       } %>
 
-      <p class="govuk-body"><%= t('ab_testing.explanation') %></p>
+      <p class="govuk-body"><%= t("ab_testing.explanation") %></p>
 
-      <p class="govuk-body"><%= t('ab_testing.two_versions') %> <strong class="ab-example-group"><%= @requested_variant.variant?("A") ? t('a') : t('b') %></strong> <%= t('ab_testing.version') %>.</p>
+      <p class="govuk-body"><%= t("ab_testing.two_versions") %> <strong class="ab-example-group"><%= @requested_variant.variant?("A") ? t("a") : t("b") %></strong> <%= t("ab_testing.version") %>.</p>
 
-      <p class="govuk-body"><%= t('ab_testing.visit_govuk_html') %></p>
+      <p class="govuk-body"><%= t("ab_testing.visit_govuk_html") %></p>
     </div>
   </div>
 </main>

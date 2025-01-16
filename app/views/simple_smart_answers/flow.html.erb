@@ -9,7 +9,7 @@
 
   content_for :extra_headers do
 %>
-  <meta name="robots" content="noindex" />
+  <meta name="robots" content="noindex">
 <% end %>
 
 <main id="content" class="govuk-main-wrapper">
@@ -20,8 +20,7 @@
         data-module="ga4-link-tracker"
         data-ga4-link="<%= ga4_attributes %>"
         data-ga4-track-links-only
-        data-ga4-set-indexes
-      >
+        data-ga4-set-indexes>
         <% if @flow_state.current_node.outcome? %>
           <%= render partial: "outcome", object: @flow_state.current_node %>
         <% else %>
@@ -52,8 +51,8 @@
                 section: @flow_state.current_node.title,
                 action: "start again",
                 tool_name: content_item.title,
-              }
-            }
+              },
+            },
           ) %>
         </p>
 
@@ -66,7 +65,7 @@
     <% if @flow_state.current_node.outcome? %>
       <div class="govuk-grid-column-one-third">
         <%= render "govuk_publishing_components/components/contextual_sidebar", {
-          content_item: content_item.to_h
+          content_item: content_item.to_h,
         } %>
       </div>
     <% end %>

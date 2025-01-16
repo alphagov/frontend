@@ -1,8 +1,7 @@
 <%= render "govuk_publishing_components/components/heading",
     text: title,
     font_size: "m",
-    margin_bottom: 4
-%>
+    margin_bottom: 4 %>
 <% if name %>
   <p class="govuk-body"><%= name %></p>
 <% end %>
@@ -26,5 +25,5 @@
     sanitize(link_to website, website, class: "govuk-link"),
     phone,
     email,
-  ]
+  ],
 } %>

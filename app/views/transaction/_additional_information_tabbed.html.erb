@@ -2,25 +2,25 @@
   panel_border: false,
   tabs: [
     {
-      id: ('more-information' if content_item.more_information.present?),
-      label: t('formats.transaction.more_information'),
+      id: ("more-information" if content_item.more_information.present?),
+      label: t("formats.transaction.more_information"),
       content: render("govuk_publishing_components/components/govspeak", {}) do
                   raw(content_item.more_information)
-                end
+                end,
     },
     {
-      id: ('what-you-need-to-know' if content_item.what_you_need_to_know.present?),
-      label: t('formats.transaction.what_you_need_to_know'),
+      id: ("what-you-need-to-know" if content_item.what_you_need_to_know.present?),
+      label: t("formats.transaction.what_you_need_to_know"),
       content: render("govuk_publishing_components/components/govspeak", {}) do
                   raw(content_item.what_you_need_to_know)
-                end
+                end,
     },
     {
-      id: ('other-ways-to-apply' if content_item.other_ways_to_apply.present?),
-      label: t('formats.transaction.other_ways_to_apply'),
+      id: ("other-ways-to-apply" if content_item.other_ways_to_apply.present?),
+      label: t("formats.transaction.other_ways_to_apply"),
       content: render("govuk_publishing_components/components/govspeak", {}) do
                   raw(content_item.other_ways_to_apply)
-                end
-    }
-  ].reject {|item| item[:id].blank?}
+                end,
+    },
+  ].reject {|item| item[:id].blank?},
 } %>

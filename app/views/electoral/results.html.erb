@@ -2,7 +2,7 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   title: content_item.title,
   publication: content_item,
   edition: @edition,
@@ -13,22 +13,22 @@
       ga4_auto = {
         event_name: "form_complete",
         type: "local transaction",
-        text: Nokogiri::HTML(t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
+        text: Nokogiri::HTML(t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
         action: "complete",
-        tool_name: content_item.title
+        tool_name: content_item.title,
       }.to_json
     %>
     <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
-      <%= t('electoral.service.matched_postcode_html', postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
+      <%= t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
     </p>
-    <p class="govuk-body"><%= t('electoral.service.search_postcode_html') %></p>
+    <p class="govuk-body"><%= t("electoral.service.search_postcode_html") %></p>
   <% end %>
   <%
     ga4_link = {
       event_name: "information_click",
       type: "local transaction",
       tool_name: content_item.title,
-      action: "information click"
+      action: "information click",
     }.to_json
   %>
   <div data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-track-links-only data-ga4-link="<%= ga4_link %>">
@@ -44,8 +44,7 @@
           website: @presenter.electoral_services["website"],
           phone: @presenter.electoral_services["phone"],
           email: @presenter.electoral_services["email"],
-          }
-      %>
+          } %>
     <% end %>
 
     <% if @presenter.use_registration_contact_details? %>
@@ -59,9 +58,8 @@
           postcode: @presenter.registration["postcode"],
           website: @presenter.registration["website"],
           phone: @presenter.registration["phone"],
-          email: @presenter.registration["email"]
-          }
-      %>
+          email: @presenter.registration["email"],
+          } %>
     <% end %>
   </div>
 <% end %>

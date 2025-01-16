@@ -3,7 +3,7 @@
 %>
 <% content_for :title, "#{content_item.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
 
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   title: content_item.title,
   publication: content_item,
   edition: @edition,
@@ -14,18 +14,18 @@
        data-ga4-auto="<%= {
         event_name: "form_complete",
         type: "local transaction",
-        text: Nokogiri::HTML(t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name, locale: :en)).text,
+        text: Nokogiri::HTML(t("formats.local_transaction.matched_postcode_html", local_authority: @local_authority.name, locale: :en)).text,
         action: "complete",
-        tool_name: content_item.title
+        tool_name: content_item.title,
        }.to_json %>">
-      <%= t('formats.local_transaction.matched_postcode_html', local_authority: @local_authority.name) %>    
+      <%= t("formats.local_transaction.matched_postcode_html", local_authority: @local_authority.name) %>
     </p>
     <p class="govuk-body">
-      <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
+      <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
     </p>
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
-        <%= t('formats.local_transaction.info_on_website') %>
+        <%= t("formats.local_transaction.info_on_website") %>
       </p>
       <p id="get-started" class="get-started group"
         data-module="ga4-link-tracker"
@@ -35,24 +35,24 @@
           "event_name": "information_click",
           "type": "local transaction",
           "tool_name": content_item.title,
-          "action": "information click"
+          "action": "information click",
         }.to_json %>">
         <%= render "govuk_publishing_components/components/button", {
-          text: t('formats.local_transaction.local_authority_website', local_authority_name: @local_authority.name),
+          text: t("formats.local_transaction.local_authority_website", local_authority_name: @local_authority.name),
           rel: "external",
           margin_bottom: true,
-          href: @interaction_details['local_interaction']['url'],
+          href: @interaction_details["local_interaction"]["url"],
         } %>
       </p>
     <% else %>
       <% if @local_authority.url.present? %>
         <p class="govuk-body">
-          <%= t('formats.local_transaction.unknown_service') %>
+          <%= t("formats.local_transaction.unknown_service") %>
         </p>
         <div class="local-authority-result">
           <p id="get-started" class="get-started group">
             <%= render "govuk_publishing_components/components/button", {
-              text: t('formats.local_transaction.local_authority_website', local_authority_name: @local_authority.name),
+              text: t("formats.local_transaction.local_authority_website", local_authority_name: @local_authority.name),
               rel: "external",
               margin_bottom: true,
               href: @local_authority.url,
@@ -60,7 +60,7 @@
           </p>
         </div>
       <% else %>
-        <%= render partial: 'no_local_authority_url' %>
+        <%= render partial: "no_local_authority_url" %>
       <% end %>
     <% end %>
   </div>

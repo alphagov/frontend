@@ -8,7 +8,7 @@
   <%= render "govuk_publishing_components/components/heading", {
     text: t("formats.place.postcode"),
     heading_level: 2,
-    margin_bottom: 2
+    margin_bottom: 2,
   } %>
 
   <p class="govuk-body">
@@ -21,7 +21,7 @@
       <%= render "govuk_publishing_components/components/select", {
         id: "local_authority_slug",
         label: t("formats.place.select_address"),
-        options: @options
+        options: @options,
       } %>
     <% else %>
       <%= render "govuk_publishing_components/components/radio", {
@@ -29,12 +29,12 @@
         name: "local_authority_slug",
         heading: t("formats.place.select_address"),
         heading_size: "s",
-        items: @options
+        items: @options,
       } %>
     <% end %>
 
     <%= render "govuk_publishing_components/components/button", {
-      text: t("continue")
+      text: t("continue"),
     } %>
   <% end %>
 <% end %>

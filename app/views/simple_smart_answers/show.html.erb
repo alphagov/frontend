@@ -7,7 +7,7 @@
 <%= render layout: "shared/base_page", locals: {
   title: content_item.title,
   publication: content_item,
-  edition: @edition
+  edition: @edition,
 } do %>
   <div class="intro">
     <%= render "govuk_publishing_components/components/govspeak" do %>
@@ -21,16 +21,15 @@
         margin_bottom: true,
         href: smart_answer_flow_path(slug: content_item.slug, edition: @edition),
         data_attributes: {
-          module: 'ga4-link-tracker',
+          module: "ga4-link-tracker",
           ga4_link: {
             event_name: "form_start",
             type: "simple smart answer",
             section: "start page",
             action: "start",
             tool_name: content_item.title,
-          }
-        }
-      %>
+          },
+        } %>
     </p>
   </div>
 <% end %>

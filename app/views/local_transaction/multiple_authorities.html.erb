@@ -14,7 +14,7 @@
       <%= render "govuk_publishing_components/components/select", {
         id: "authority_slug",
         label: t("formats.local_transaction.select_address"),
-        options: @options
+        options: @options,
       } %>
     <% else %>
       <%= render "govuk_publishing_components/components/radio", {
@@ -22,12 +22,12 @@
         name: "authority_slug",
         heading: t("formats.local_transaction.select_address"),
         heading_size: "s",
-        items: @options
+        items: @options,
       } %>
     <% end %>
 
     <%= render "govuk_publishing_components/components/button", {
-      text: t("continue")
+      text: t("continue"),
     } %>
   <% end %>
 <% end %>

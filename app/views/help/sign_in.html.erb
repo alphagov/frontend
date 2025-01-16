@@ -8,7 +8,6 @@
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item.description %>">
 <% end %>
-<main id="content">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/title", title: content_item.title %>
@@ -51,4 +50,3 @@
       </form>
     </div>
   </div>
-</main>

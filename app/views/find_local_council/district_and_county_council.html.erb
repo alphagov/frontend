@@ -1,18 +1,18 @@
 <% content_for :title, "Find your local council: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
 
-<%= render layout: 'base_page' do %>
+<%= render layout: "base_page" do %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: t('formats.local_transaction.county_district_council'),
+    text: t("formats.local_transaction.county_district_council"),
     margin_bottom: 4,
     font_size: "m",
   } %>
 
   <p class="govuk-body">
-    <%= t('formats.local_transaction.different_local_authorities') %>   
+    <%= t("formats.local_transaction.different_local_authorities") %>
   </p>
 
   <p class="govuk-body govuk-!-margin-bottom-8">
-    <%= link_to t('formats.local_transaction.search_for_a_different_postcode'), find_local_council_path, class: "govuk-link" %>
+    <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), find_local_council_path, class: "govuk-link" %>
   </p>
 
   <% ga4_type = content_item.document_type.gsub("_", " ") %>
@@ -23,45 +23,44 @@
          action: "complete",
          type: ga4_type,
          text: "#{@county["name"]},#{@district["name"]}",
-         tool_name: t('formats.local_transaction.find_council', locale: :en)
+         tool_name: t("formats.local_transaction.find_council", locale: :en),
       }.to_json %>">
 
     <div class="county-result group govuk-!-margin-bottom-8">
       <%= render "govuk_publishing_components/components/heading", {
         text: @county["name"],
         heading_level: 3,
-        font_size: 'm'
+        font_size: "m",
       } %>
 
       <p class="govuk-body govuk-!-margin-bottom-1">
-        <%= t('formats.local_transaction.county_council_services')%>:
+        <%= t("formats.local_transaction.county_council_services") %>:
       </p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <% t('formats.local_transaction.county_council_services_list').each do |service| %>
+        <% t("formats.local_transaction.county_council_services_list").each do |service| %>
           <li><%= service %></li>
         <% end %>
       </ul>
 
       <p class="govuk-body">
         <% if @county["homepage_url"].blank? %>
-          <%= t('formats.local_transaction.county_district_council') %>
+          <%= t("formats.local_transaction.county_district_council") %>
         <% else %>
           <%= link_to t("formats.local_transaction.local_authority_website",
             local_authority_name: @county["name"]), @county["homepage_url"],
             class: "govuk-link",
             data: {
-              module: 'ga4-link-tracker',
+              module: "ga4-link-tracker",
               ga4_link: {
                 event_name: "information_click",
                 action: "information click",
                 type: ga4_type,
                 index_link: 1,
                 index_total: 2,
-                tool_name: t('formats.local_transaction.find_council', locale: :en)
-              }
-            }
-          %>
+                tool_name: t("formats.local_transaction.find_council", locale: :en),
+              },
+            } %>
         <% end %>
       </p>
     </div>
@@ -70,38 +69,37 @@
       <%= render "govuk_publishing_components/components/heading", {
         text: @district["name"],
         heading_level: 3,
-        font_size: 'm'
+        font_size: "m",
       } %>
 
       <p class="govuk-body govuk-!-margin-bottom-1">
-        <%= t('formats.local_transaction.district_council_services')%>:
+        <%= t("formats.local_transaction.district_council_services") %>:
       </p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li><%= t('formats.local_transaction.rubbish_recycling_collection')%></li>
-        <li><%= t('formats.local_transaction.council_tax')%></li>
-        <li><%= t('formats.local_transaction.housing')%></li>
+        <li><%= t("formats.local_transaction.rubbish_recycling_collection") %></li>
+        <li><%= t("formats.local_transaction.council_tax") %></li>
+        <li><%= t("formats.local_transaction.housing") %></li>
       </ul>
 
       <p class="govuk-body">
         <% if @district["homepage_url"].blank? %>
-          <%= t('formats.local_transaction.no_website') %>
+          <%= t("formats.local_transaction.no_website") %>
         <% else %>
           <%= link_to t("formats.local_transaction.local_authority_website",
             local_authority_name: @district["name"]), @district["homepage_url"],
             class: "govuk-link",
             data: {
-              module: 'ga4-link-tracker',
+              module: "ga4-link-tracker",
               ga4_link: {
                 event_name: "information_click",
                 action: "information click",
                 type: ga4_type,
                 index_link: 2,
                 index_total: 2,
-                tool_name: t('formats.local_transaction.find_council', locale: :en)
-              }
-            }
-          %>
+                tool_name: t("formats.local_transaction.find_council", locale: :en),
+              },
+            } %>
         <% end %>
       </p>
     </div>

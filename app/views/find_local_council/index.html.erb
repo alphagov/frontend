@@ -1,13 +1,13 @@
 <% content_for :title do %><%= "Error: " if @location_error %>Find your local council - GOV.UK<% end %>
 
-<%= render layout: 'base_page' do %>
-  <p class="govuk-body"><%= t('formats.local_transaction.find_council_website') %></p>
-  <%= render partial: 'location_form',
+<%= render layout: "base_page" do %>
+  <p class="govuk-body"><%= t("formats.local_transaction.find_council_website") %></p>
+  <%= render partial: "location_form",
     locals: {
-      format: 'service',
-      publication_format: 'find_local_council',
+      format: "service",
+      publication_format: "find_local_council",
       postcode: @postcode,
       margin_top: @location_error ? 5 : 0,
-      publication_title: t('formats.local_transaction.find_council', locale: :en),
+      publication_title: t("formats.local_transaction.find_council", locale: :en),
     } %>
 <% end %>

@@ -8,10 +8,10 @@
     </div>
 
     <% if @content_item.breadcrumbs.present? %>
-      <%= render 'govuk_publishing_components/components/breadcrumbs', {
+      <%= render "govuk_publishing_components/components/breadcrumbs", {
         collapse_on_mobile: true,
         inverse: true,
-        breadcrumbs: @content_item.breadcrumbs
+        breadcrumbs: @content_item.breadcrumbs,
       } %>
     <% end %>
 
@@ -32,9 +32,9 @@
           ga4_link: {
             event_name: "navigation",
             section: "Header",
-            type: "organisation logo"
-          }.to_json
-        }
+            type: "organisation logo",
+          }.to_json,
+        },
       } %>
     </div>
   </div>

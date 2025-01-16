@@ -12,16 +12,16 @@
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/title", {
       context: "Government activity",
-      title: t('formats.get_involved.page_heading'),
+      title: t("formats.get_involved.page_heading"),
     } %>
 
     <%= render "govuk_publishing_components/components/lead_paragraph", {
-      text: t('formats.get_involved.intro_paragraph.body_html',
-      engage_with_government: link_to(t('formats.get_involved.intro_paragraph.engage_with_government'), "#engage-with-government",
+      text: t("formats.get_involved.intro_paragraph.body_html",
+      engage_with_government: link_to(t("formats.get_involved.intro_paragraph.engage_with_government"), "#engage-with-government",
       class: "govuk-link"),
-      take_part: link_to(t('formats.get_involved.intro_paragraph.take_part'), "#take-part",
+      take_part: link_to(t("formats.get_involved.intro_paragraph.take_part"), "#take-part",
       class: "govuk-link")),
-      margin_bottom: 9
+      margin_bottom: 9,
     } %>
   </div>
 </div>
@@ -29,20 +29,20 @@
   <%# Engage with government section %>
   <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-6">
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.engage_with_gov'),
+      text: t("formats.get_involved.engage_with_gov"),
       heading_level: 2,
       border_top: 2,
       padding: true,
-      id: "engage-with-government"
+      id: "engage-with-government",
     } %>
     <p class="govuk-body govuk-!-padding-bottom-5">
-      <%= t('formats.get_involved.your_views') %>
+      <%= t("formats.get_involved.your_views") %>
     </p>
     <%# Respond to consultations %>
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.respond_to_consultations'),
+      text: t("formats.get_involved.respond_to_consultations"),
       heading_level: 2,
-      font_size: "s"
+      font_size: "s",
     } %>
 
     <%# Big numbers %>
@@ -50,15 +50,15 @@
       <div class="govuk-grid-column-one-third">
         <%= render "govuk_publishing_components/components/big_number", {
           number: @content_item.open_consultation_count,
-          label: t('formats.get_involved.open_consultations'),
-          href: "/search/policy-papers-and-consultations?content_store_document_type=open_consultations"
+          label: t("formats.get_involved.open_consultations"),
+          href: "/search/policy-papers-and-consultations?content_store_document_type=open_consultations",
         } %>
       </div>
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/big_number", {
           number: @content_item.closed_consultation_count,
-          label: t('formats.get_involved.closed_consultations'),
-          href: "/search/policy-papers-and-consultations?content_store_document_type=closed_consultations"
+          label: t("formats.get_involved.closed_consultations"),
+          href: "/search/policy-papers-and-consultations?content_store_document_type=closed_consultations",
         } %>
       </div>
     </div>
@@ -69,12 +69,12 @@
       } do %>
         <%= render "govuk_publishing_components/components/heading", {
           text: @presenter.time_until_next_closure,
-          heading_level: 3
-        } %> 
+          heading_level: 3,
+        } %>
         <p class="govuk-body">
-          <%= @content_item.next_closing_consultation['title'] %>
+          <%= @content_item.next_closing_consultation["title"] %>
         </p>
-        <%= link_to t('formats.get_involved.read_respond'), @content_item.next_closing_consultation['link'], class: "govuk-link" %>
+        <%= link_to t("formats.get_involved.read_respond"), @content_item.next_closing_consultation["link"], class: "govuk-link" %>
       <% end %>
     <% end %>
   </div>
@@ -84,16 +84,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-8">
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.recently_opened'),
+      text: t("formats.get_involved.recently_opened"),
       padding: true,
       border_top: 2,
       font_size: "s",
-      margin_bottom: 4
+      margin_bottom: 4,
     } %>
     <%= render "govuk_publishing_components/components/document_list", {
-      items: @presenter.recently_opened
+      items: @presenter.recently_opened,
     } %>
-    <%= link_to(t('formats.get_involved.search_all'), @content_item.consultations_link, class: "govuk-link" ) %>
+    <%= link_to(t("formats.get_involved.search_all"), @content_item.consultations_link, class: "govuk-link" ) %>
   </div>
 </div>
 
@@ -101,18 +101,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-8">
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.recent_outcomes'),
+      text: t("formats.get_involved.recent_outcomes"),
       padding: true,
       border_top: 2,
       font_size: "s",
-      margin_bottom: 4
+      margin_bottom: 4,
     } %>
 
     <%= render "govuk_publishing_components/components/document_list", {
-      items: @presenter.recent_outcomes
+      items: @presenter.recent_outcomes,
     } %>
 
-    <%= link_to(t('formats.get_involved.search_all'), @content_item.consultations_link, class: "govuk-link" ) %>
+    <%= link_to(t("formats.get_involved.search_all"), @content_item.consultations_link, class: "govuk-link" ) %>
   </div>
 </div>
 
@@ -120,12 +120,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-6">
       <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.start_a_petition'),
+      text: t("formats.get_involved.start_a_petition"),
       padding: true,
       border_top: 2,
     } %>
       <p class="govuk-body">
-        <%= t('formats.get_involved.petition_paragraph.body_html', create_a_petition: link_to(t('formats.get_involved.petition_paragraph.create_a_petition'), "https://petition.parliament.uk/", class: "govuk-link", rel: "external")) %>
+        <%= t("formats.get_involved.petition_paragraph.body_html", create_a_petition: link_to(t("formats.get_involved.petition_paragraph.create_a_petition"), "https://petition.parliament.uk/", class: "govuk-link", rel: "external")) %>
       </p>
   </div>
 </div>
@@ -134,18 +134,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-padding-bottom-6">
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.follow'),
+      text: t("formats.get_involved.follow"),
       padding: true,
       border_top: 2,
     } %>
-    <p class="govuk-body"><%= t('formats.get_involved.follow_paragraph') %></p>
+    <p class="govuk-body"><%= t("formats.get_involved.follow_paragraph") %></p>
     <p class="govuk-body govuk-!-padding-bottom-6">
       <a href="/government/organisations/" class="govuk-link">
-        <%= t('formats.get_involved.see_all_dept') %>
+        <%= t("formats.get_involved.see_all_dept") %>
       </a>
     </p>
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.follow_links'),
+      text: t("formats.get_involved.follow_links"),
       heading_level: 3,
       font_size: "s",
       padding: true,
@@ -158,7 +158,7 @@
         sanitize("<a href=\"http://blogs.fcdo.gov.uk\" rel=\"noopener\" class=\"govuk-link\">#{t('formats.get_involved.fcdo_bloggers')}</a>"),
         sanitize("<a href=\"https://gds.blog.gov.uk/\" rel=\"noopener\" class=\"govuk-link\">#{t('formats.get_involved.gds_blog')}</a>"),
         sanitize("<a href=\"https://civilservice.blog.gov.uk/\" rel=\"noopener\" class=\"govuk-link\">#{t('formats.get_involved.civil_service')}</a>"),
-      ]
+      ],
     } %>
   </div>
 </div>
@@ -167,12 +167,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-padding-bottom-8">
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('formats.get_involved.take_part'),
+      text: t("formats.get_involved.take_part"),
       padding: true,
       border_top: 2,
       margin_bottom: 4,
       font_size: "l",
-      id: "take-part"
+      id: "take-part",
     } %>
     <div role="list">
     <% @content_item.take_part_pages.each_with_index do |take_part_page, index| %>
@@ -182,11 +182,11 @@
       <% end %>
           <div class="govuk-grid-column-one-third" role="listitem">
             <%= render "govuk_publishing_components/components/image_card", {
-              href: take_part_page['base_path'],
-              image_src: take_part_page['details']['image']['url'],
-              image_alt: take_part_page['details']['image']['alt_text'],
-              heading_text: take_part_page['title'],
-              description: take_part_page['description'],
+              href: take_part_page["base_path"],
+              image_src: take_part_page["details"]["image"]["url"],
+              image_alt: take_part_page["details"]["image"]["alt_text"],
+              heading_text: take_part_page["title"],
+              description: take_part_page["description"],
               heading_level: 3,
               image_loading: "lazy",
             } %>
@@ -202,12 +202,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/heading", {
-      text:t('formats.get_involved.more_ways'),
+      text:t("formats.get_involved.more_ways"),
       padding: true,
       border_top: 2,
     } %>
     <p class="govuk-body">
-    <%= t('formats.get_involved.take_part_suggestions') %>
+    <%= t("formats.get_involved.take_part_suggestions") %>
     </p>
 
   <%= render "govuk_publishing_components/components/list", {
@@ -215,7 +215,7 @@
       sanitize("<a href=\"http://www.ourwatch.org.uk/knowledge-base-category/how-to-get-involved/\" class=\"govuk-link\">#{t('formats.get_involved.neighbourhood_watch')}</a>"),
       sanitize("<a href=\"/donating-to-charity\" class=\"govuk-link\">#{t('formats.get_involved.make_donation')}</a>"),
       sanitize("<a href=\"https://schoolsonline.britishcouncil.org/about-schools-online/about-programmes/connecting-classrooms\" rel=\"noopener\" class=\"govuk-link\">#{t('formats.get_involved.school_overseas')}</a>"),
-    ]
+    ],
   } %>
   </div>
 </div>

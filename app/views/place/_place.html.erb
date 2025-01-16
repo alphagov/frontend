@@ -1,5 +1,5 @@
-<% 
-  content_for :title, "#{content_item.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" 
+<%
+  content_for :title, "#{content_item.title}: #{t('formats.local_transaction.search_result')} - GOV.UK"
 %>
 
 <% places.each do |place| %>
@@ -14,15 +14,15 @@
               <% end %>
 
               <% if place["address"].present? %>
-                <br /><span class="street-address"><%= place["address"] %></span><span class="govuk-visually-hidden">,</span>
+                <br><span class="street-address"><%= place["address"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
               <% if place["town"].present? %>
-                <br /><span class="locality"><%= place["town"] %></span><span class="govuk-visually-hidden">,</span>
+                <br><span class="locality"><%= place["town"] %></span><span class="govuk-visually-hidden">,</span>
               <% end %>
 
               <% if place["postcode"].present? && (place["address1"].present? || place["town"].present?) %>
-                <br /><span class="postal-code"><%= place["postcode"] %></span>
+                <br><span class="postal-code"><%= place["postcode"] %></span>
               <% end %>
             </div>
 

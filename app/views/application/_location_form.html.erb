@@ -12,7 +12,7 @@
   css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
 
   ga4_type = content_item.document_type.gsub("_", " ")
-  ga4_section = t('formats.local_transaction.enter_postcode', locale: :en)
+  ga4_section = t("formats.local_transaction.enter_postcode", locale: :en)
 %>
 
 <%= tag.div class: css_classes do %>
@@ -28,15 +28,15 @@
           type: ga4_type,
           text: t(@location_error.message, **@location_error.message_args, locale: :en),
           section: ga4_section,
-          tool_name: publication_title ||= nil
-        }.to_json
+          tool_name: publication_title ||= nil,
+        }.to_json,
       },
       items: [
         {
           text: t(@location_error.message, **@location_error.message_args),
-          href: "#postcode"
-        }
-      ]
+          href: "#postcode",
+        },
+      ],
     } %>
   <% end %>
 
@@ -54,36 +54,34 @@
         "text": t("find", locale: :en),
         "section": ga4_section,
         "tool_name": publication_title ||= nil,
-      }.to_json
-    }
+      }.to_json,
+    },
   ) do | form | %>
 
-    <%= render partial: 'draft_fields' %>
+    <%= render partial: "draft_fields" %>
 
     <%= render "govuk_publishing_components/components/input", {
       label: {
-        text: t('formats.local_transaction.enter_postcode')
+        text: t("formats.local_transaction.enter_postcode"),
       },
       value: postcode,
       name: "postcode",
       id: "postcode",
-      hint: t('formats.local_transaction.postcode_hint'),
-      invalid: @location_error ? 'true' : 'false',
+      hint: t("formats.local_transaction.postcode_hint"),
+      invalid: @location_error ? "true" : "false",
       autocomplete: "postal-code",
-      error_message: (t(@location_error.message, **@location_error.message_args) if @location_error)
+      error_message: (t(@location_error.message, **@location_error.message_args) if @location_error),
     } %>
 
     <%= render "govuk_publishing_components/components/button",
       text: button_text(publication_format, publication_title),
-      margin_bottom: true
-    %>
+      margin_bottom: true %>
 
-    <%= tag.p link_to(t('formats.local_transaction.find_postcode_royal_mail'),
+    <%= tag.p link_to(t("formats.local_transaction.find_postcode_royal_mail"),
       "https://www.royalmail.com/find-a-postcode",
-      id: 'postcode-finder-link',
+      id: "postcode-finder-link",
       class: "govuk-link",
       rel: "external"),
-      class: "govuk-body"
-    %>
+      class: "govuk-body" %>
   <% end %>
 <% end %>

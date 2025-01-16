@@ -12,7 +12,7 @@
       action: "complete",
       type: ga4_type,
       text: "Results #{@places_presenter.preposition} [postcode]",
-      tool_name: content_item.title
+      tool_name: content_item.title,
     }.to_json
   end
 
@@ -25,12 +25,12 @@
 %>
 
 <% content_for :extra_headers do %>
-  <%= render 'govuk_publishing_components/components/machine_readable_metadata',
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>
 <% end %>
 
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   title: content_item.title,
   publication: content_item,
   edition: @edition,
@@ -43,18 +43,17 @@
             <%= raw content_item.introduction %>
           <% end %>
         <% end %>
-        <%= render partial: 'location_form',
+        <%= render partial: "location_form",
           locals: {
-            format: 'service',
-            publication_format: 'place',
+            format: "service",
+            publication_format: "place",
             postcode: postcode,
             margin_top: @location_error ? 5 : 0,
             publication_title: content_item.title,
           }.merge(results_anchor ? {
             action: "/#{params[:slug]}\##{results_anchor}",
             results_anchor: results_anchor,
-          } : {})
-        %>
+          } : {}) %>
       </div>
     </div>
   </section>

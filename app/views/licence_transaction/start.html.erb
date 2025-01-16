@@ -1,4 +1,4 @@
-<%= render layout: 'shared/base_page', locals: {
+<%= render layout: "shared/base_page", locals: {
   context: "Licence",
   title: content_item.title,
   publication: content_item,
@@ -12,10 +12,10 @@
       <div class="intro">
         <div class="get-started-intro">
           <%= render "govuk_publishing_components/components/heading", text: "Apply for this licence" %>
-          <%= render partial: 'location_form',
+          <%= render partial: "location_form",
                      locals: {
-                       format: 'licence',
-                       publication_format: 'licence',
+                       format: "licence",
+                       publication_format: "licence",
                        postcode: @postcode,
                       margin_top: @location_error ? 5 : 0,
                       publication_title: content_item.title,

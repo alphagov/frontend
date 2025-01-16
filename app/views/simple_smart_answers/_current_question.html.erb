@@ -1,5 +1,5 @@
 <% error_message = t("formats.simple_smart_answer.please_answer") if @flow_state.error? %>
-<% field_id = question.title.parameterize(separator: '-') %>
+<% field_id = question.title.parameterize(separator: "-") %>
 
 <%
   ga4_attributes = {
@@ -17,26 +17,26 @@
     data_attributes: {
       module: "ga4-auto-tracker",
       ga4_auto: {
-        event_name: 'form_error',
-        type: 'simple smart answer',
+        event_name: "form_error",
+        type: "simple smart answer",
         text: error_message,
         section: question.title,
-        action: 'error',
+        action: "error",
         tool_name: content_item.title,
       },
     },
     items: [
       {
         text: error_message,
-        href: "\##{field_id}"
-      }
-    ]
+        href: "\##{field_id}",
+      },
+    ],
   } %>
 <% end %>
 
 <%= form_tag smart_answer_path_for_responses(@flow_state.completed_questions, edition: nil), method: "get", "data-module": "ga4-form-tracker" , "data-ga4-form": ga4_attributes do %>
   <%= hidden_field_tag :edition, @edition if @edition.present? %>
-  <%= hidden_field_tag 'response', '' %>
+  <%= hidden_field_tag "response", "" %>
 
   <% content_for :title do
       simple_smart_answer_page_title(question.title)
@@ -61,7 +61,7 @@
         value: option.slug,
         checked: option.slug == params[:previous_response],
       }
-    end
+    end,
   } %>
 
   <%= render partial: "draft_fields" %>

@@ -4,6 +4,7 @@ RSpec.describe Speech do
   let(:content_store_response) { GovukSchemas::Example.find("speech", example_name: "speech") }
 
   it_behaves_like "it has news image", "speech"
+  it_behaves_like "it has historical government information", "speech", "speech"
   it_behaves_like "it has updates", "speech", "speech-with-updates"
   it_behaves_like "it has no updates", "speech", "speech"
   it_behaves_like "it can be withdrawn", "speech", "withdrawn-speech"

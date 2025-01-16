@@ -14,14 +14,14 @@
   ) do %>
     <% if contents.any? %>
       <div class="responsive-bottom-margin">
-        <%= render 'govuk_publishing_components/components/contents_list', contents: contents %>
+        <%= render "govuk_publishing_components/components/contents_list", contents: contents %>
       </div>
     <% end %>
     <%= block %>
     <% if contents.any? %>
       <div data-sticky-element class="app-c-contents-list-with-body__link-wrapper">
         <div class="app-c-contents-list-with-body__link-container">
-          <%= render 'components/back_to_top', href: "#contents" %>
+          <%= render "components/back_to_top", href: "#contents" %>
         </div>
       </div>
     <% end %>

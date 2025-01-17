@@ -29,14 +29,17 @@ RSpec.describe SpecialistDocument do
         {
           href: "#summary",
           text: "Summary",
+          level: 2,
           items: [
             {
               href: "#download-report",
               text: "Download report",
+              level: 3,
             },
             {
               href: "#download-glossary-of-abbreviations",
               text: "Download glossary of abbreviations",
+              level: 3,
             },
           ],
         },

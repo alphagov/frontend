@@ -5,6 +5,10 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.headers
   end
 
+  def show_finder_link?
+    content_item.finder.present? && statutory_instrument?
+  end
+
 private
 
   attr_reader :view_context
@@ -15,5 +19,9 @@ private
 
   def level_two_headings?
     content_item.headers.any? { |header| header[:level] == 2 }
+  end
+
+  def statutory_instrument?
+    content_item.document_type == "statutory_instrument"
   end
 end

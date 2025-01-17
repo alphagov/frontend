@@ -146,5 +146,17 @@ RSpec.describe "ElectoralLookUp" do
         end
       end
     end
+
+    context "when the API returns 500" do
+      before { stub_api_postcode_lookup("LS11UR", status: 500) }
+
+      it "displays election service not available message" do
+        with_electoral_api_url do
+          search_for(postcode: "LS1 1UR")
+
+          expect(page).to have_text("Electoral service is currently not available. Please, try again later.")
+        end
+      end
+    end
   end
 end

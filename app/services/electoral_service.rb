@@ -38,6 +38,9 @@ private
       else
         "validUprnNoElectionsMatch"
       end
+    elsif [500, 502, 503, 504].include? exception.http_code
+      GovukError.notify(exception)
+      "electoralServiceNotAvailable"
     else
       raise
     end
@@ -45,7 +48,11 @@ private
 
   def request_url
     endpoint = postcode.present? ? "postcode/#{postcode}" : "address/#{uprn}"
-    "#{api_base_path}/#{endpoint}?token=#{ENV['ELECTIONS_API_KEY']}"
+    "#{api_base_path}/#{endpoint}?token=#{api_key}"
+  end
+
+  def api_key
+    ENV["ELECTIONS_API_KEY"]
   end
 
   def api_base_path

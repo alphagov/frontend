@@ -522,6 +522,9 @@ bg:
       still_current_at: Все още актуален в
       summary: Обобщение
       updated: Актуализиран
+    written_statement:
+      one: Писмено изявление в Парламента
+      other: Писмени изявления в Парламента
   help:
     index:
       about:

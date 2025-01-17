@@ -524,6 +524,9 @@ it:
       still_current_at: Ancora in corso il
       summary: Riepilogo
       updated: Aggiornato
+    written_statement:
+      one: Dichiarazione scritta al Parlamento
+      other: Dichiarazioni scritte al Parlamento
   help:
     index:
       about:

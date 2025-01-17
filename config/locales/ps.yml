@@ -524,6 +524,9 @@ ps:
       still_current_at: په اوسني وخت کې
       summary: لنډيز
       updated: تازه شوی
+    written_statement:
+      one: پارلمان ته لیکلې وینا
+      other: پارلمان ته لیکلي بیانونه
   help:
     index:
       about:

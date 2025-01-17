@@ -524,6 +524,9 @@
       still_current_at: Fortsatt aktuell
       summary: Sammendrag
       updated: Oppdatert
+    written_statement:
+      one: Skriftlig uttalelse til Stortinget
+      other: Skriftlige uttalelser til Stortinget
   help:
     index:
       about:

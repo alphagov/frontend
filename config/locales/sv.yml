@@ -524,6 +524,9 @@ sv:
       still_current_at: Fortfarande aktuell på
       summary: Sammanfattning
       updated: Uppdaterad
+    written_statement:
+      one: Skriftligt uttalande till parlamentet
+      other: Skriftliga uttalanden till parlamentet
   help:
     index:
       about:

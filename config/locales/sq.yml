@@ -524,6 +524,9 @@ sq:
       still_current_at: Ende aktuale në
       summary: Përmbajtja
       updated: Përditësuar
+    written_statement:
+      one: Deklaratë me shkrim në Parlament
+      other: Deklarata me shkrim në Parlament
   help:
     index:
       about:

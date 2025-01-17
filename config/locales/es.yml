@@ -524,6 +524,9 @@ es:
       still_current_at: Sigue siendo actual en
       summary: Resumen
       updated: Actualizado
+    written_statement:
+      one: Declaración escrita
+      other: Declaraciones escritas
   help:
     index:
       about:

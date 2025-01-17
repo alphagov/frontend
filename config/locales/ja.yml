@@ -449,6 +449,8 @@ ja:
       still_current_at: 現状：
       summary: 概要
       updated: 更新済み
+    written_statement:
+      other: 議会への書面による声明
   help:
     index:
       about:

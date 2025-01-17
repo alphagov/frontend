@@ -524,6 +524,9 @@ uz:
       still_current_at: Ҳанузгача кучда
       summary: Жамланма маълумот
       updated: Янгиланган
+    written_statement:
+      one: Парламентга ёзма баёнот
+      other: Парламентга ёзма баёнотлар
   help:
     index:
       about:

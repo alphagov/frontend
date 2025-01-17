@@ -674,6 +674,11 @@ mt:
       still_current_at: Għadu jeżisti fuq
       summary: Sommarju
       updated: Aġġornat
+    written_statement:
+      few:
+      many:
+      one: Dikjarazzjoni bil-miktub lill-Parlament
+      other: Dikjarazzjonijiet bil-miktub lill-Parlament
   help:
     index:
       about:

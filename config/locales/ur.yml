@@ -524,6 +524,9 @@ ur:
       still_current_at: ابھی تک حالیہ ہے از
       summary: خلاصہ
       updated: اپ ڈیٹ کردہ
+    written_statement:
+      one: پالیمان کے لیے تحریری بیان
+      other: پالیمان کے لیے تحریری بیانات
   help:
     index:
       about:

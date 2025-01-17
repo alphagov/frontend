@@ -524,6 +524,9 @@ lv:
       still_current_at: Joprojām aktuāli
       summary: Kopsavilkums
       updated: Atjaunināts
+    written_statement:
+      one: Rakstisks ziņojums parlamentam
+      other: Rakstiski ziņojumi parlamentam
   help:
     index:
       about:

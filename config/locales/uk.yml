@@ -674,6 +674,11 @@ uk:
       still_current_at: Досі актуально на
       summary: Резюме
       updated: Оновлено
+    written_statement:
+      few:
+      many:
+      one: Письмова заява до Парламенту
+      other: Письмові заяви до Парламенту
   help:
     index:
       about:

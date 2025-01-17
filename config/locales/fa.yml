@@ -524,6 +524,9 @@ fa:
       still_current_at: همچنان جاری است در
       summary: خلاصه
       updated: بروز شده
+    written_statement:
+      one: بیانیه کتبی به پارلمان
+      other: بیانیه‌های کتبی به پارلمان
   help:
     index:
       about:

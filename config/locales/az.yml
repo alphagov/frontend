@@ -524,6 +524,9 @@ az:
       still_current_at: Hələ də qüvvədədir
       summary: İcmal
       updated: Yenilənib
+    written_statement:
+      one: Parlamentə yazılı müraciət
+      other: Parlamentə yazılı müraciətlər
   help:
     index:
       about:

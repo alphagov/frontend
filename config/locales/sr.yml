@@ -599,6 +599,10 @@ sr:
       still_current_at: Još važi za
       summary: Rezime
       updated: Ažurirano
+    written_statement:
+      few:
+      one: Pismena predstavka Parlamentu
+      other: Pismene predstavke Parlamentu
   help:
     index:
       about:

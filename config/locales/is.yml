@@ -524,6 +524,9 @@ is:
       still_current_at: Enn uppfært þann
       summary: Samantekt
       updated: Uppfært
+    written_statement:
+      one: Skrifleg yfirlýsing til Þingsins
+      other: Skriflegar yfirlýsingar til Þingsins
   help:
     index:
       about:

@@ -524,6 +524,9 @@ sw:
       still_current_at: Bado unapatikana katika
       summary: Muhtasari
       updated: Ulisasishwa
+    written_statement:
+      one: Taarifa ya Maandishi kwa Bunge
+      other: Taarifa za Maandishi kwa Bunge
   help:
     index:
       about:

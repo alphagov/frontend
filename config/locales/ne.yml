@@ -524,6 +524,9 @@ ne:
       still_current_at: अहिले सम्म वर्तमानमा
       summary: सारांश
       updated: अद्यावधिक गरियो
+    written_statement:
+      one: संसदमा लिखित वक्तव्य
+      other: संसदमा लिखित वक्तव्यहरू
   help:
     index:
       about:

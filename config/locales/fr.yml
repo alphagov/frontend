@@ -524,6 +524,9 @@ fr:
       still_current_at: Toujours d'actualité à
       summary: Sommaire
       updated: Mis à jour
+    written_statement:
+      one: Déclaration écrite au Parlement
+      other: Déclarations écrites au Parlement
   help:
     index:
       about:

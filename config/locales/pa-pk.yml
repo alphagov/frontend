@@ -524,6 +524,9 @@ pa-pk:
       still_current_at: ہون ایس ویلے وی اوتھے ای اے
       summary: خلاصہ
       updated: تازہ ترین حال
+    written_statement:
+      one: قومی مجلس دے سامنے تحریری بیان
+      other: قومی مجلس دے سامنے تحریری بیانات
   help:
     index:
       about:

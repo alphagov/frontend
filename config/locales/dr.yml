@@ -524,6 +524,9 @@ dr:
       still_current_at: هنور هم در
       summary: خلاصه
       updated: آپدیت شده
+    written_statement:
+      one: بیانیهء کتبی به پارلمان
+      other: بیانیه هایی کتبی به پارلمان
   help:
     index:
       about:

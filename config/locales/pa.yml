@@ -524,6 +524,9 @@ pa:
       still_current_at: "'ਤੇ ਅਜੇ ਵੀ ਮੌਜੂਦਾ"
       summary: ਸੰਖੇਪ
       updated: ਅੱਪਡੇਟ ਕੀਤਾ
+    written_statement:
+      one: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ
+      other: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ ਦਿੱਤੇ
   help:
     index:
       about:

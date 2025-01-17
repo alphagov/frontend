@@ -674,6 +674,11 @@ gd:
       still_current_at: Bailí i gcónaí ar
       summary: Coimriú
       updated: Athnuachan
+    written_statement:
+      few:
+      one: Dearbhú i scríbhinn don Pharlaimint
+      other: Ráitis i scríbhinn don Pharlaimint
+      two:
   help:
     index:
       about:

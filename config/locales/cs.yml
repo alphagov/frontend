@@ -599,6 +599,10 @@ cs:
       still_current_at: Stále aktuální na
       summary: Shrnutí
       updated: Aktualizováno
+    written_statement:
+      few:
+      one: Písemné prohlášení pro Parlament
+      other: Písemná prohlášení pro Parlament
   help:
     index:
       about:

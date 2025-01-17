@@ -524,6 +524,9 @@ si:
       still_current_at: තවමත් වත්මන්
       summary: සාරාංශය
       updated: යාවත්කාලීන කෙරිණි
+    written_statement:
+      one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+      other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
   help:
     index:
       about:

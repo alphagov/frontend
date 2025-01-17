@@ -674,6 +674,11 @@ be:
       still_current_at: Усё яшчэ актуальна
       summary: Рэзюмэ
       updated: Адноўлена
+    written_statement:
+      few:
+      many:
+      one: Пісьмовая заява ў парламенце
+      other: Пісьмовыя заявы ў парламенце
   help:
     index:
       about:

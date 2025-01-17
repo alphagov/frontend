@@ -829,6 +829,13 @@ cy:
       still_current_at: Yn gyfredol o hyd ar
       summary: Crynodeb
       updated: Diweddarwyd
+    written_statement:
+      few:
+      many:
+      one: Datganiad ysgrifenedig i'r Senedd
+      other: Datganiadau ysgrifenedig i'r Senedd
+      two:
+      zero:
   help:
     index:
       about: Ynghylch GOV.UK

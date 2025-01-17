@@ -524,6 +524,9 @@ hy:
       still_current_at: Դեռևս ընթացիկ
       summary: Ամփոփ
       updated: Թարմացված
+    written_statement:
+      one: Խորհրդարանին ուղղված գրավոր հայտարարություն
+      other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
   help:
     index:
       about:

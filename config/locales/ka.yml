@@ -524,6 +524,9 @@ ka:
       still_current_at: ჯერ კიდევ აქტუალურია
       summary: შეჯამება
       updated: განახლებული
+    written_statement:
+      one: წერილობითი განცხადება პარლამენტში
+      other: წერილობითი განცხადებები პარლამენტში
   help:
     index:
       about:

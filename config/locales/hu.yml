@@ -524,6 +524,9 @@ hu:
       still_current_at: 'Még érvényben itt:'
       summary: Összefoglalás
       updated: Frissítve
+    written_statement:
+      one: Írásbeli parlamenti nyilatkozat
+      other: Írásbeli parlamenti nyilatkozatok
   help:
     index:
       about:

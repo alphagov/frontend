@@ -529,6 +529,9 @@ en:
       still_current_at: Still current at
       summary: Summary
       updated: Updated
+    written_statement:
+      one: Written statement to Parliament
+      other: Written statements to Parliament
   help:
     index:
       about: About GOV.UK

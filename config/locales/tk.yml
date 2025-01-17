@@ -524,6 +524,9 @@ tk:
       still_current_at: Häzir hem bar
       summary: Gysgaça
       updated: Täzelenen
+    written_statement:
+      one: Mejlise ýazmaça beýan
+      other: Mejlise ýazmaça beýanlar
   help:
     index:
       about:

@@ -524,6 +524,9 @@ fi:
       still_current_at: Vielä ajankohtainen klo
       summary: Yhteenveto
       updated: Päivitetty
+    written_statement:
+      one: Kirjallinen lausuma parlamentille
+      other: Kirjallinen lausumat parlamentille
   help:
     index:
       about:

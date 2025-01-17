@@ -524,6 +524,9 @@ da:
       still_current_at: Stadig aktuel på
       summary: Resumé
       updated: Opdateret
+    written_statement:
+      one: Mundtlig erklæring til Parlamentet
+      other: Mundtlige erklæring til Parlamentet
   help:
     index:
       about:

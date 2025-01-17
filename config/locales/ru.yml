@@ -674,6 +674,11 @@ ru:
       still_current_at: Все еще на
       summary: Резюме
       updated: Обновлено
+    written_statement:
+      few:
+      many:
+      one: Письменное заявление парламенту
+      other: Письменные заявления парламенту
   help:
     index:
       about:

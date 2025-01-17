@@ -449,6 +449,8 @@ zh-hk:
       still_current_at: 目前仍在
       summary: 摘要
       updated: 已更新
+    written_statement:
+      other: 提交國會的書面聲明
   help:
     index:
       about:

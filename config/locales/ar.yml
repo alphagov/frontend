@@ -824,6 +824,13 @@ ar:
       still_current_at: لا يزال ساريًا في
       summary: ملخص
       updated: تاريخ التحديث
+    written_statement:
+      few:
+      many:
+      one: بيان خطي للبرلمان
+      other: بيانات خطية للبرلمان
+      two:
+      zero:
   help:
     index:
       about:

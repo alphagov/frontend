@@ -524,6 +524,9 @@ so:
       still_current_at: Ilaa hadadan
       summary: Soo koobitaanka
       updated: La cusboonaysiiyay
+    written_statement:
+      one: Bayaan qoran oo loogu talogalay Baarlamaanka
+      other: Bayaanada qoran ee loogu talogalay Baarlamaanka
   help:
     index:
       about:

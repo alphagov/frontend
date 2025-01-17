@@ -449,6 +449,8 @@ ko:
       still_current_at: 최신 상태
       summary: 요약
       updated: 업데이트
+    written_statement:
+      other: 의회로 서면 성명
   help:
     index:
       about:

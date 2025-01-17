@@ -524,6 +524,9 @@ de:
       still_current_at: Aktuell noch bei
       summary: Zusammenfassung
       updated: Aktualisiert
+    written_statement:
+      one: Schriftliche Erklärung vor dem Parlament
+      other: Schriftliche Erklärungen vor dem Parlament
   help:
     index:
       about:

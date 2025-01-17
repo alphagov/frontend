@@ -524,6 +524,9 @@ bn:
       still_current_at: এখানে এখনও চলমান
       summary: সারসংক্ষেপ
       updated: হালনাগাদ করা হয়েছে
+    written_statement:
+      one: সংসদে লিখিত বিবৃতি
+      other: সংসদে লিখিত বিবৃতিসমূহ
   help:
     index:
       about:

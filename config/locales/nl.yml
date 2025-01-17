@@ -524,6 +524,9 @@ nl:
       still_current_at: Nog steeds actueel op
       summary: Samenvatting
       updated: Bijgewerkt op
+    written_statement:
+      one: Schriftelijke verklaring aan het Parlement
+      other: Schriftelijke verklaringen aan het Parlement
   help:
     index:
       about:

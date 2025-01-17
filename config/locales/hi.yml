@@ -524,6 +524,9 @@ hi:
       still_current_at: अभी भी चालू है
       summary: सारांश
       updated: अपडेट किया गया
+    written_statement:
+      one: संसद में लिखित बयान
+      other: संसद में लिखित बयान
   help:
     index:
       about:

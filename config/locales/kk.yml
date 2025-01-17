@@ -524,6 +524,9 @@ kk:
       still_current_at: Әлі де ағымдағы
       summary: Қысқаша мазмұны
       updated: Жаңартылды
+    written_statement:
+      one: Парламентке жазбаша мәлімдеме
+      other: Парламентке жазбаша мәлімдемелер
   help:
     index:
       about:

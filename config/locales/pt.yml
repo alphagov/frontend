@@ -524,6 +524,9 @@ pt:
       still_current_at: Continua atual às
       summary: Resumo
       updated: Atualizado em
+    written_statement:
+      one: Declaração escrita ao Parlamento
+      other: Declarações escritas ao Parlamento
   help:
     index:
       about:

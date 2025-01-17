@@ -599,6 +599,10 @@ ro:
       still_current_at: În acest moment la
       summary: Rezumat
       updated: Actualizat
+    written_statement:
+      few:
+      one: Declarație scrisă către Parlament
+      other: Declarații scrise către Parlament
   help:
     index:
       about:

@@ -449,6 +449,8 @@ id:
       still_current_at: Masih berlaku di
       summary: Rangkuman
       updated: Diperbarui
+    written_statement:
+      other: Pernyataan tertulis kepada Parlemen
   help:
     index:
       about:

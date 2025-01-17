@@ -524,6 +524,9 @@ tr:
       still_current_at: Halen şurada
       summary: Özet
       updated: Güncelleme
+    written_statement:
+      one: Parlamentoya yazılı açıklama
+      other: Parlamentoya yazılı açıklamalar
   help:
     index:
       about:

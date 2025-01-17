@@ -674,6 +674,11 @@ pl:
       still_current_at: Aktualne na dzień
       summary: Podsumowanie
       updated: Zaktualizowano
+    written_statement:
+      few:
+      many:
+      one: Pisemne oświadczenie przed parlamentem
+      other: Pisemne oświadczenia przed parlamentem
   help:
     index:
       about:

@@ -524,6 +524,9 @@ es-419:
       still_current_at: Todavía vigente en
       summary: Resumen
       updated: Actualizado
+    written_statement:
+      one: Declaración escrita ante el Parlamento
+      other: Declaraciones escritas ante el Parlamento
   help:
     index:
       about:

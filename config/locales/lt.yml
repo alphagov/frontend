@@ -599,6 +599,10 @@ lt:
       still_current_at: Vis dar
       summary: Santrauka
       updated: Atnaujinta
+    written_statement:
+      few:
+      one: Rašytinis kreipimasis į parlamentą
+      other: Rašytiniai kreipimaisi į parlamentą
   help:
     index:
       about:

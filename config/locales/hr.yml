@@ -599,6 +599,10 @@ hr:
       still_current_at: Još uvijek aktualno u
       summary: Sažetak
       updated: Ažurirano
+    written_statement:
+      few:
+      one: Pismena izjava Parlamentu
+      other: Pismene izjave Parlamentu
   help:
     index:
       about:

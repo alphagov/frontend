@@ -599,6 +599,10 @@ sk:
       still_current_at: Stále aktuálne na
       summary: Zhrnutie
       updated: Aktualizované
+    written_statement:
+      few:
+      one: Písomné vyhlásenie pre Parlament
+      other: Písomné vyhlásenia pre Parlament
   help:
     index:
       about:

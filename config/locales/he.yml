@@ -524,6 +524,9 @@ he:
       still_current_at: עדיין עדכני ב
       summary: סיכום
       updated: מעודכן
+    written_statement:
+      one: הצהרה בכתב לפרלמנט
+      other: הצהרות בכתב לפרלמנט
   help:
     index:
       about:

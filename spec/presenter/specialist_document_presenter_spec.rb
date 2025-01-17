@@ -34,4 +34,20 @@ RSpec.describe SpecialistDocumentPresenter do
       expect(described_class.new(content_item).contents).to eq(expected_contents)
     end
   end
+
+  describe "#show_finder_link?" do
+    it "returns true when document type is statutory instrument" do
+      content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "eu-withdrawal-act-2018-statutory-instruments")
+      content_item = SpecialistDocument.new(content_store_response)
+
+      expect(described_class.new(content_item).show_finder_link?).to be true
+    end
+
+    it "returns false when document type is not a statutory instrument" do
+      content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports")
+      content_item = SpecialistDocument.new(content_store_response)
+
+      expect(described_class.new(content_item).show_finder_link?).to be false
+    end
+  end
 end

@@ -10,6 +10,10 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_hash.dig("details", "headers"))
   end
 
+  def finder
+    @finder ||= Finder.new(content_store_hash.dig("links", "finder", 0))
+  end
+
 private
 
   def headers_list(headers)

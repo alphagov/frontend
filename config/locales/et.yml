@@ -522,6 +522,9 @@ et:
       still_current_at: Ikka praegune
       summary: Kokkuvõte
       updated: Uuendatud
+    written_statement:
+      one: Kirjalik avaldus parlamendile
+      other: Kirjalikud avaldused parlamendile
   help:
     index:
       about:

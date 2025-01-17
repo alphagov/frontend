@@ -40,7 +40,9 @@
       <% end %>
     <% end %>
 
-    <%= render "components/contents_list_with_body", contents: @content_item.contents do %>
+    <% if @specialist_document_presenter.show_contents_list? %>
+      <%= render "components/contents_list_with_body", contents: content_item.headers do %>
+    <% end %>
 
       <% if @content_item.protected_food_drink_name? %>
         <img

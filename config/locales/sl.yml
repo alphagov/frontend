@@ -673,6 +673,11 @@ sl:
       still_current_at: Še vedno aktualno ob
       summary: Povzetek
       updated: Posodobljeno
+    written_statement:
+      few:
+      one: Pisna izjava za parlament
+      other: Pisne izjave za parlament
+      two:
   help:
     index:
       about:

@@ -388,6 +388,9 @@ tk:
   error:
   find:
   formats:
+    case_study:
+      one: Ýagdaý seljermesi
+      other: Ýagdaý seljermeleri
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -710,4 +713,6 @@ tk:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

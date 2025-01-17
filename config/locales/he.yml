@@ -492,6 +492,12 @@ he:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: נמסר ב
+      location: מיקום
+      one: נאום
+      other: נאומים
+      written_on: כתוב על
     start_now:
     take_part:
       one: קח חלק
@@ -514,6 +520,9 @@ he:
       still_current_at: עדיין עדכני ב
       summary: סיכום
       updated: מעודכן
+    written_statement:
+      one: הצהרה בכתב לפרלמנט
+      other: הצהרות בכתב לפרלמנט
   help:
     index:
       about:
@@ -699,6 +708,8 @@ he:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: זה פורסם תחת %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

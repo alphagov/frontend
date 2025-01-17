@@ -565,6 +565,13 @@ hr:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Dostavljeno
+      few:
+      location: Mjesto
+      one: Govor
+      other: Govori
+      written_on: Napisano
     start_now:
     take_part:
       few:
@@ -588,6 +595,10 @@ hr:
       still_current_at: Još uvijek aktualno u
       summary: Sažetak
       updated: Ažurirano
+    written_statement:
+      few:
+      one: Pismena izjava Parlamentu
+      other: Pismene izjave Parlamentu
   help:
     index:
       about:
@@ -773,6 +784,8 @@ hr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ovo je objavljeno pod %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

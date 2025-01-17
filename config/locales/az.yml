@@ -492,6 +492,12 @@ az:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Çatdırılıb
+      location: Yer
+      one: Nitq
+      other: Nitqlər
+      written_on: Yazılma tarixi
     start_now:
     take_part:
       one: İştirak edin
@@ -514,6 +520,9 @@ az:
       still_current_at: Hələ də qüvvədədir
       summary: İcmal
       updated: Yenilənib
+    written_statement:
+      one: Parlamentə yazılı müraciət
+      other: Parlamentə yazılı müraciətlər
   help:
     index:
       about:
@@ -699,6 +708,8 @@ az:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Bu %{government} əsasən dərc edilmişdir
   sign_up:
   website:
   when_do_the_clocks_change:

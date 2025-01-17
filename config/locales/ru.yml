@@ -638,6 +638,14 @@ ru:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Доставлено на
+      few:
+      location: Место
+      many:
+      one: Текст выступления
+      other: Тексты выступлений
+      written_on: Написано на
     start_now:
     take_part:
       few:
@@ -662,6 +670,11 @@ ru:
       still_current_at: Все еще на
       summary: Резюме
       updated: Обновлено
+    written_statement:
+      few:
+      many:
+      one: Письменное заявление парламенту
+      other: Письменные заявления парламенту
   help:
     index:
       about:
@@ -847,6 +860,8 @@ ru:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Данный документ был опубликован в соответствии %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

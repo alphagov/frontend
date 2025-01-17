@@ -492,6 +492,12 @@ kk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Жеткізілген күні
+      location: Орны
+      one: Сөйлеу
+      other: Сөйлеулер
+      written_on: Жазылған күні
     start_now:
     take_part:
       one: Қатысу
@@ -514,6 +520,9 @@ kk:
       still_current_at: Әлі де ағымдағы
       summary: Қысқаша мазмұны
       updated: Жаңартылды
+    written_statement:
+      one: Парламентке жазбаша мәлімдеме
+      other: Парламентке жазбаша мәлімдемелер
   help:
     index:
       about:
@@ -699,6 +708,8 @@ kk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Бұл %{government} кезінде жарияланды
   sign_up:
   website:
   when_do_the_clocks_change:

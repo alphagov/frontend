@@ -497,6 +497,12 @@ en:
       please_answer: Please answer this question
       start_again: Start again
       your_answers: Your answers
+    speech:
+      delivered_on: Delivered on
+      location: Location
+      one: Speech
+      other: Speeches
+      written_on: Written on
     start_now: Start now
     take_part:
       one: Take part
@@ -519,6 +525,9 @@ en:
       still_current_at: Still current at
       summary: Summary
       updated: Updated
+    written_statement:
+      one: Written statement to Parliament
+      other: Written statements to Parliament
   help:
     index:
       about: About GOV.UK
@@ -937,6 +946,8 @@ en:
         heading: Feedback about your GOV.UK account
       invalid: There was a problem
       title: Control how we use information about you
+  shared:
+    historically_political: This was published under the %{government}
   sign_up: Sign up
   website: Website
   when_do_the_clocks_change:

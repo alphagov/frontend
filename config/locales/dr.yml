@@ -492,6 +492,12 @@ dr:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: تحویل داده شد به
+      location: موقعیت
+      one: سخنرانی
+      other: سخنرانی ها
+      written_on: نوشته شده است د
     start_now:
     take_part:
       one: سهم بگیرید
@@ -514,6 +520,9 @@ dr:
       still_current_at: هنور هم در
       summary: خلاصه
       updated: آپدیت شده
+    written_statement:
+      one: بیانیهء کتبی به پارلمان
+      other: بیانیه هایی کتبی به پارلمان
   help:
     index:
       about:
@@ -699,6 +708,8 @@ dr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: این تحت%{government}منتشر شده است
   sign_up:
   website:
   when_do_the_clocks_change:

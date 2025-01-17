@@ -492,6 +492,12 @@ sv:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Levererad den
+      location: Plats
+      one: Tal
+      other: Tal
+      written_on: Skrivet på
     start_now:
     take_part:
       one: Delta
@@ -514,6 +520,9 @@ sv:
       still_current_at: Fortfarande aktuell på
       summary: Sammanfattning
       updated: Uppdaterad
+    written_statement:
+      one: Skriftligt uttalande till parlamentet
+      other: Skriftliga uttalanden till parlamentet
   help:
     index:
       about:
@@ -699,6 +708,8 @@ sv:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Det här publicerades under %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

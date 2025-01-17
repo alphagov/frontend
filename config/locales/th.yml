@@ -419,6 +419,11 @@ th:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: ส่งมอบเมื่อ
+      location: ตำแหน่งที่ตั้ง
+      other: สุนทรพจน์
+      written_on: เขียนเมื่อ
     start_now:
     take_part:
       other: มีส่วนร่วม
@@ -440,6 +445,8 @@ th:
       still_current_at: ยังคงเป็นปัจจุบันเมื่อ
       summary: สรุป
       updated: ปรับปรุงแล้ว
+    written_statement:
+      other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
   help:
     index:
       about:
@@ -625,6 +632,8 @@ th:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: เผยแพร่ภายใต้ %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

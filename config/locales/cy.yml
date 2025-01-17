@@ -740,6 +740,7 @@ cy:
       county_district_council:
       different_local_authorities:
       district_council_services: Mae cynghorau dosbarth yn gyfrifol am wasanaethau fel
+      electoral_service_not_available:
       enter_postcode: Ysgrifennwch god post
       error_summary_title: Mae problem wedi codi
       find_council: Dod o hyd i'ch cyngor lleol

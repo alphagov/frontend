@@ -7,6 +7,7 @@ class LocationError
     "invalidUprnFormat" => "formats.local_transaction.invalid_uprn",
     "validPostcodeNoElectionsMatch" => "formats.local_transaction.valid_postcode_no_match",
     "validUprnNoElectionsMatch" => "formats.local_transaction.valid_uprn_no_match",
+    "electoralServiceNotAvailable" => "formats.local_transaction.electoral_service_not_available",
   }.freeze
 
   SUB_MESSAGES = {

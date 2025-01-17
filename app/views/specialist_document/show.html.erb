@@ -51,10 +51,10 @@
           <%= raw(@content_item.govspeak_body[:content]) %>
         <% end %>
 
-        <% if @content_item.continuation_link %>
+        <% if content_item.continuation_link %>
           <%= render "govuk_publishing_components/components/button", {
-            href: @content_item.continuation_link,
-            info_text: @content_item.will_continue_on,
+            href: content_item.continuation_link.strip.html_safe,
+            info_text: content_item.will_continue_on.strip.html_safe,
             start: true,
             text: "Find out more",
           } %>

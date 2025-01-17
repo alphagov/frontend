@@ -19,6 +19,7 @@ private
       h = {
         href: "##{header['id']}",
         text: header["text"].gsub(/:$/, ""),
+        level: header["level"],
       }
 
       if header["headers"]

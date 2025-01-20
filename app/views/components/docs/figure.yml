@@ -11,7 +11,7 @@ accessibility_criteria: |
   The figure must:
 
   - provide an informative text description, as alt text or caption
-
+uses_component_wrapper_helper: true
 examples:
   default:
     data:

@@ -634,6 +634,11 @@ ru:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Устное заявление парламенту
+      other: Устные заявления парламенту
     place:
       change:
       find_results:

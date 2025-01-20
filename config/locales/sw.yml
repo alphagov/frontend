@@ -486,6 +486,9 @@ sw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Taarifa ya Matamshi kwa Bunge
+      other: Taarifa za Matamshi kwa Bunge
     place:
       change:
       find_results:

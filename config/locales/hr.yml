@@ -560,6 +560,10 @@ hr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Usmena izjava Parlamentu
+      other: Usmene izjave Parlamentu
     place:
       change:
       find_results:

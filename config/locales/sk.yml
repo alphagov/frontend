@@ -560,6 +560,10 @@ sk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Ústne vyhlásenie pred Parlamentom
+      other: Ústne vyhlásenia pred Parlamentom
     place:
       change:
       find_results:

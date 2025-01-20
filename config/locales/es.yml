@@ -486,6 +486,9 @@ es:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Declaración formulada oralmente
+      other: Declaraciones formuladas oralmente
     place:
       change:
       find_results:

@@ -486,6 +486,9 @@ pa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
+      other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
     place:
       change:
       find_results:

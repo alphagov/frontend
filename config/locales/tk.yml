@@ -486,6 +486,9 @@ tk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mejlise dilden beýan
+      other: Mejlise dilden beýanlar
     place:
       change:
       find_results:

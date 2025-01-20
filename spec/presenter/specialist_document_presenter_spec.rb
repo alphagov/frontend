@@ -50,4 +50,28 @@ RSpec.describe SpecialistDocumentPresenter do
       expect(described_class.new(content_item).show_finder_link?).to be false
     end
   end
+
+  describe "#show_protection_type_image?" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
+
+    it "returns true if the document type is protected_food_drink_name and there is a protection type" do
+      content_item = SpecialistDocument.new(content_store_response)
+
+      expect(described_class.new(content_item).show_protection_type_image?).to be true
+    end
+
+    it "returns false if the document type is not protected_food_drink_name" do
+      content_store_response["document_type"] = "transaction"
+      content_item = SpecialistDocument.new(content_store_response)
+
+      expect(described_class.new(content_item).show_protection_type_image?).to be false
+    end
+
+    it "returns false when there is no protection type" do
+      content_store_response["details"]["metadata"]["protection_type"] = nil
+      content_item = SpecialistDocument.new(content_store_response)
+
+      expect(described_class.new(content_item).show_protection_type_image?).to be false
+    end
+  end
 end

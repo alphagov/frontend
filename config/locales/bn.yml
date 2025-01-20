@@ -486,6 +486,9 @@ bn:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: সংসদে মৌখিক বিবৃতি
+      other: সংসদে মৌখিক বিবৃতিসমূহ
     place:
       change:
       find_results:

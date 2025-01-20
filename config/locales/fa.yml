@@ -486,6 +486,9 @@ fa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: بیانیه شفاهی به پارلمان
+      other: بیانیه‌های شفاهی به پارلمان
     place:
       change:
       find_results:

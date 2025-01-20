@@ -486,6 +486,9 @@ hi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: संसद में मौखिक बयान
+      other: संसद में मौखिक बयान
     place:
       change:
       find_results:

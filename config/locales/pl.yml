@@ -634,6 +634,11 @@ pl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Ustne oświadczenie przed parlamentem
+      other: Ustne oświadczenia przed parlamentem
     place:
       change:
       find_results:

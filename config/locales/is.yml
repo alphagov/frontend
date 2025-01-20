@@ -486,6 +486,9 @@ is:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Munnleg yfirlýsing til Þingsins
+      other: Munnlegar yfirlýsingar til Þingsins
     place:
       change:
       find_results:

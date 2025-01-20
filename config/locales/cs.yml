@@ -560,6 +560,10 @@ cs:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Ústní prohlášení pro Parlament
+      other: Ústní prohlášení pro Parlament
     place:
       change:
       find_results:

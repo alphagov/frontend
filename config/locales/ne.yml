@@ -486,6 +486,9 @@ ne:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: संसदमा मौखिक वक्तव्य
+      other: 'संसदमा मौखिक वक्तव्यहरू '
     place:
       change:
       find_results:

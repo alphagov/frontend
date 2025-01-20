@@ -486,6 +486,9 @@ pt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Declaração oral ao Parlamento
+      other: Declarações orais ao Parlamento
     place:
       change:
       find_results:

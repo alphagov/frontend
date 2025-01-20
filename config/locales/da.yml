@@ -486,6 +486,9 @@ da:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mundtlig erklæring til Parlamentet
+      other: Mundtlige erklæring til Parlamentet
     place:
       change:
       find_results:

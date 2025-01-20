@@ -486,6 +486,9 @@ de:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mündliche Erklärung vor dem Parlament
+      other: Mündliche Erklärungen vor dem Parlament
     place:
       change:
       find_results:

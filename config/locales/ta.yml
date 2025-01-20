@@ -486,6 +486,9 @@ ta:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
+      other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்
     place:
       change:
       find_results:

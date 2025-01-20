@@ -486,6 +486,9 @@ ur:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: پارلیمان کے لیے زبانی بیان
+      other: پارلیمان کے لیے زبانی بیانات
     place:
       change:
       find_results:

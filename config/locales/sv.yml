@@ -486,6 +486,9 @@ sv:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Muntligt uttalande till parlamentet
+      other: Muntliga uttalanden till parlamentet
     place:
       change:
       find_results:

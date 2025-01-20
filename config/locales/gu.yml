@@ -486,6 +486,9 @@ gu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: સંસદમાં મૌખિક નિવેદન
+      other: સંસદમાં મૌખિક નિવેદનો
     place:
       change:
       find_results:

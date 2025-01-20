@@ -491,6 +491,9 @@ en:
       valid_uprn_no_match_sub_html: Check it and enter the postcode again.
       website: You can get information on their website.
       what_you_need_to_know: What you need to know
+    oral_statement:
+      one: Oral statement to Parliament
+      other: Oral statements to Parliament
     place:
       change: Change
       find_results: Find results near you

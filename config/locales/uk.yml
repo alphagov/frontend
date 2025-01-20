@@ -634,6 +634,11 @@ uk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Усна заява до Парламенту
+      other: Усні заяви до Парламенту
     place:
       change:
       find_results:

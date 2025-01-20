@@ -66,4 +66,36 @@ RSpec.describe SpecialistDocument do
       end
     end
   end
+
+  describe "protection type images" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
+
+    context "when a protection type exists and is known" do
+      it "gets the image details" do
+        content_store_response["details"]["metadata"]["protection_type"] = "protected-designation-of-origin-pdo"
+        expected = {
+          "file_name" => "protected-designation-of-origin-pdo.png",
+          "alt_text_tag" => "pdo_alt_text",
+        }
+
+        expect(described_class.new(content_store_response).protection_type_image).to eq(expected)
+      end
+    end
+
+    context "when a protection type exists but is not recognised" do
+      it "returns nil" do
+        content_store_response["details"]["metadata"]["protection_type"] = "fake-type"
+
+        expect(described_class.new(content_store_response).protection_type_image).to be_nil
+      end
+    end
+
+    context "when a protection type does not exist" do
+      it "returns nil" do
+        content_store_response["details"]["metadata"]["protection_type"] = nil
+
+        expect(described_class.new(content_store_response).protection_type_image).to be_nil
+      end
+    end
+  end
 end

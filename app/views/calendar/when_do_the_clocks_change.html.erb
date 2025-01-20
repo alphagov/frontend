@@ -39,10 +39,12 @@
             } %>
           </div>
 
-          <%= render "components/subscribe", {
-            label: t("bank_holidays.add_clock_changes_to_calendar"),
-            url: division_path(@calendar, division, :format => "ics"),
+          <%= render "components/download_link", {
+            text: t("bank_holidays.add_clock_changes_to_calendar"),
+            href: division_path(@calendar, division, :format => "ics"),
             title: t("bank_holidays.download_clock_changes"),
+            icon: "calendar",
+            margin_bottom: 8,
           } %>
 
           <p class="govuk-body"> <%= t("bank_holidays.clock_change_explanation") %> </p>

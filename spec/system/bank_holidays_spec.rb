@@ -273,16 +273,11 @@ RSpec.describe "BankHolidays" do
   describe ".ics file links" do
     it "has GA4 tracking" do
       visit "/bank-holidays"
-      link_parents = page.all(".app-c-subscribe")
-      link_parents.each do |link_parent|
-        within(link_parent) do
-          expect(link_parent).to have_selector("a[data-module='ga4-link-tracker']")
+      ics_file_links = page.all("a[href$='.ics']")
 
-          ga4_link = link_parent.find("a[data-ga4-link]")["data-ga4-link"]
-          ga4_expected_object = "{\"event_name\":\"file_download\",\"type\":\"generic download\"}"
-
-          expect(ga4_expected_object).to eq(ga4_link)
-        end
+      ics_file_links.each do |ics_file_link|
+        expect(ics_file_link["data-module"]).to eq("ga4-link-tracker")
+        expect(ics_file_link["data-ga4-link"]).to eq('{"event_name":"file_download","type":"generic download"}')
       end
     end
   end

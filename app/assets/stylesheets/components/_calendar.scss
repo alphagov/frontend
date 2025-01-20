@@ -16,6 +16,8 @@
 }
 
 .app-c-calendar--clocks {
+  margin-bottom: govuk-spacing(8);
+
   td:nth-child(1) {
     width: 10%;
   }

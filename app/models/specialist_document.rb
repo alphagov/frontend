@@ -12,6 +12,12 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_hash.dig("details", "headers"))
   end
 
+  def protection_type_image
+    return if protection_type.blank?
+
+    all_protection_type_images[protection_type]
+  end
+
 private
 
   def headers_list(headers)
@@ -30,5 +36,9 @@ private
 
       h
     end
+  end
+
+  def all_protection_type_images
+    @all_protection_type_images ||= YAML.load_file(Rails.root.join("lib/data/specialist_documents/protected_food_drink_name/images.yaml"))
   end
 end

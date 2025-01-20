@@ -71,10 +71,12 @@
                 text: t("common.bank_holiday_translation_html"),
               } %>
 
-              <%= render "components/subscribe", {
-                label: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-                url: division_path(@calendar, division, :format => "ics"),
+              <%= render "components/download_link", {
+                text: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+                href: division_path(@calendar, division, :format => "ics"),
                 title: t("common.download_ics"),
+                icon: "calendar",
+                margin_bottom: 8,
                 link_data_attributes: {
                   module: "ga4-link-tracker",
                   ga4_link: {

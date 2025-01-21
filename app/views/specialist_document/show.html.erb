@@ -48,8 +48,10 @@
       <% end %>
 
       <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= raw(@content_item.govspeak_body[:content]) %>
+        <%= render "govuk_publishing_components/components/govspeak", {
+          direction: page_text_direction,
+        } do %>
+          <%= raw(content_item.body.html_safe) %>
         <% end %>
 
         <% if content_item.continuation_link %>

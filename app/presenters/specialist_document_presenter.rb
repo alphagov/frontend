@@ -11,6 +11,10 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.finder.present? && statutory_instrument?
   end
 
+  def protection_image_path
+    "specialist-documents/protected-food-drink-names/#{content_item.protection_type_image['file_name']}"
+  end
+
 private
 
   def level_two_headings?

@@ -17,12 +17,12 @@ RSpec.describe "SubscribeComponent", type: :view do
     expect(rendered).to have_css(".app-c-subscribe a[href='https://www.gov.uk'][title='title']", text: "label")
   end
 
-  it "renders the component with data attributes" do
+  it "renders the component with data attributes on the link" do
     render_component(
       label: "label",
       url: "https://www.gov.uk",
       title: "title",
-      data: {
+      link_data_attributes: {
         module: "test-module",
         ok: "go",
       },

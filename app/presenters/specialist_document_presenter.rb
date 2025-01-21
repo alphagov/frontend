@@ -15,6 +15,10 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     "specialist-documents/protected-food-drink-names/#{content_item.protection_type_image['file_name']}"
   end
 
+  def protection_image_alt_text
+    I18n.t("formats.specialist_document.protection_image.#{content_item.protection_type_image['alt_text_tag']}")
+  end
+
 private
 
   def level_two_headings?

@@ -497,6 +497,11 @@ pa-pk:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Designated Origin UK Protected
+        pgi_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Geographic Origin UK Protected
+        tsg_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Traditional Speciality UK Protected
     start_now:
     take_part:
       one: حصہ لوؤ

@@ -571,6 +571,11 @@ lt:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugoma kilmės vietos nuoroda“ '
+        pgi_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugoma geografinė kilmės vieta“ '
+        tsg_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugomas tradicinis gaminys“ '
     start_now:
     take_part:
       few:

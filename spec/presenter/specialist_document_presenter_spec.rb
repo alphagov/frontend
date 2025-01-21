@@ -74,4 +74,15 @@ RSpec.describe SpecialistDocumentPresenter do
       expect(described_class.new(content_item).show_protection_type_image?).to be false
     end
   end
+
+  describe "#protection_image_path" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
+
+    it "returns the full path to the protection image" do
+      content_item = SpecialistDocument.new(content_store_response)
+      expected_path = "specialist-documents/protected-food-drink-names/protected-designation-of-origin-pdo.png"
+
+      expect(described_class.new(content_item).protection_image_path).to eq(expected_path)
+    end
+  end
 end

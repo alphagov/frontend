@@ -497,6 +497,11 @@ tk:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Shemanyň nyşany Designated Origin UK Protected sözlerini özünde saklaýan gara ştampdyr.
+        pgi_alt_text: Shemanyň nyşany Geographic Origin UK Protected sözlerini özünde saklaýan gara ştampdyr.
+        tsg_alt_text: Shemanyň nyşany Traditional Speciality UK Protected sözlerini özünde saklaýan gara ştampdyr.
     start_now:
     take_part:
       one: Gatnaşmak

@@ -571,6 +571,11 @@ ro:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Logoul schemei este un timbru negru cu cuvintele Designated Origin UK Protected
+        pgi_alt_text: Logoul schemei este un timbru negru cu cuvintele Geographic Origin UK Protected
+        tsg_alt_text: Logoul schemei este un timbru negru cu cuvintele Traditional Speciality UK Protected
     start_now:
     take_part:
       few:

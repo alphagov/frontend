@@ -645,6 +645,11 @@ mt:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Oriġini Magħżula Protetta mir-RU
+        pgi_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem  Oriġini Ġeografika Protetta mir-RU
+        tsg_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Speċjalità Tradizzjonali Protetta mir-RU
     start_now:
     take_part:
       few:

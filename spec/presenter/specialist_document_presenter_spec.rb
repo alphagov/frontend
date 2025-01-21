@@ -85,4 +85,15 @@ RSpec.describe SpecialistDocumentPresenter do
       expect(described_class.new(content_item).protection_image_path).to eq(expected_path)
     end
   end
+
+  describe "#protection_image_alt_text" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
+
+    it "returns the alt text for the protection image" do
+      content_item = SpecialistDocument.new(content_store_response)
+      expected_alt_text = I18n.t("formats.specialist_document.protection_image.pdo_alt_text")
+
+      expect(described_class.new(content_item).protection_image_alt_text).to eq(expected_alt_text)
+    end
+  end
 end

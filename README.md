@@ -16,6 +16,10 @@ Transaction start pages:
  * https://www.gov.uk/vehicle-tax
  * https://www.gov.uk/find-a-job
 
+### Detailed Guide
+
+ * https://www.gov.uk/guidance/guidance-on-devolution
+
 ### Help
 
 * https://www.gov.uk/help/browsers

@@ -5,9 +5,12 @@
   year ||= nil
   events ||= []
   headings ||= []
+
+  component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+  component_helper.add_class("app-c-calendar")
 %>
 
-<div class="app-c-calendar">
+<%= tag.div(**component_helper.all_attributes) do %>
   <% table_caption = capture do %>
     <span class="govuk-visually-hidden"><%= title %></span> <%= year.to_s %>
   <% end %>
@@ -26,4 +29,4 @@
       ]
     end,
   } %>
-</div>
+<% end %>

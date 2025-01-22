@@ -7,57 +7,59 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<% @additional_body = capture do %>
-  <% if @presenter.corporate_information? %>
-    <%= @presenter.corporate_information_heading_tag %>
-    <% @presenter.corporate_information.each do |group| %>
-      <%= group[:heading] %>
-      <ul>
-        <% group[:links].each do |link| %>
-          <li>
-            <%= link %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
+<main role="main" id="content" class="corporate-information-page" <%= lang_attribute(content_item.locale) %>>
+  <% @additional_body = capture do %>
+    <% if @presenter.corporate_information? %>
+      <%= @presenter.corporate_information_heading_tag %>
+      <% @presenter.corporate_information.each do |group| %>
+        <%= group[:heading] %>
+        <ul>
+          <% group[:links].each do |link| %>
+            <li>
+              <%= link %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
 
-    <% if @presenter.further_information.present? %>
-      <p>
-        <%= @presenter.further_information %>
-      </p>
+      <% if @presenter.further_information.present? %>
+        <p>
+          <%= @presenter.further_information %>
+        </p>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
-<div class="<%= @presenter.organisation_brand_class %>">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render 'govuk_publishing_components/components/title', title: @content_item.title %>
-    </div>
-    <%= render 'shared/translations' %>
-    <div class="govuk-grid-column-two-thirds">
-      <%= render 'govuk_publishing_components/components/lead_paragraph', text: @content_item.description %>
-      <% if @content_item.withdrawn? %>
-        <%= render 'govuk_publishing_components/components/notice', @content_item.withdrawal_notice_component  %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <hr class="govuk-section-break govuk-section-break--visible">
-      <div class="govuk-!-width-one-half govuk-!-margin-top-3 responsive-bottom-margin">
-        <%= render 'govuk_publishing_components/components/organisation_logo', @presenter.organisation_logo %>
+  <div class="<%= @presenter.organisation_brand_class %>">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "govuk_publishing_components/components/title", title: @content_item.title %>
       </div>
+      <%= render "shared/translations" %>
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
+        <% if @content_item.withdrawn? %>
+          <%= render "govuk_publishing_components/components/notice", @content_item.withdrawal_notice_component %>
+        <% end %>
+      </div>
+    </div>
 
-      <%= render "components/contents_list_with_body", contents: @content_item.contents do %>
-        <div class="responsive-bottom-margin">
-          <%= render 'govuk_publishing_components/components/govspeak', {} do %>
-            <%= raw(@content_item.body) %>
-            <%= raw(@additional_body) %>
-          <% end %>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-!-width-one-half govuk-!-margin-top-3 responsive-bottom-margin">
+          <%= render "govuk_publishing_components/components/organisation_logo", @presenter.organisation_logo %>
         </div>
-      <% end %>
+
+        <%= render "components/contents_list_with_body", contents: @content_item.contents do %>
+          <div class="responsive-bottom-margin">
+            <%= render "govuk_publishing_components/components/govspeak", {} do %>
+              <%= raw(@content_item.body) %>
+              <%= raw(@additional_body) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</main>

@@ -1,7 +1,10 @@
-<% content_for :extra_head_content do %>
-  <%= machine_readable_metadata(
-    schema: :faq,
-  ) %>
+<% content_for :title do %>
+  <%= @content_item.title %> - GOV.UK
+<% end %>
+
+<% content_for :extra_headers do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: @content_item.to_h, schema: :faq } %>
+  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
 <% end %>
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: @content_item.title_and_context[:title] } %>

@@ -7,7 +7,6 @@
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
-<main id="content" role="main" class="group full-width">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <%= render "govuk_publishing_components/components/title", {
@@ -88,7 +87,6 @@
       </div>
     </section>
   </div>
-</main>
 
 <% content_for :title, page_title(@presenter) %>
 

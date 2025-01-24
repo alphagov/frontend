@@ -6,11 +6,14 @@
 <%= render :partial => "calendar_head" %>
 
 <div class="govuk-width-container">
-  <main id="content" role="main" class="govuk-main-wrapper govuk-!-padding-top-0">
+  <main id="content" role="main" class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <%= render "govuk_publishing_components/components/title", {
-          title: @calendar.title,
+        <%= render "govuk_publishing_components/components/heading", {
+          text: @calendar.title,
+          heading_level: 1,
+          font_size: "xl",
+          margin_bottom: 8,
         } %>
 
         <article role="article">

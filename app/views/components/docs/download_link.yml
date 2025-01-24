@@ -8,11 +8,27 @@ accessibility_criteria: |
   - be presentational and ignored by screen readers
 shared_accessibility_criteria:
   - link
+uses_component_wrapper_helper: true
 examples:
   default:
     data:
-      href: '/download-this'
-  custom_link_text:
-    data:
       href: '/download-map'
-      link_text: 'Download Map (PDF)'
+      text: 'Download Map (PDF, 10KB)'
+  calendar_icon:
+    data:
+      href: '/download-calendar'
+      text: 'Download Calendar (ICS, 2KB)'
+      icon: 'calendar'
+  with_title_attribute_on_link:
+    data:
+      href: '/download-calendar'
+      text: 'Download Calendar (ICS, 2KB)'
+      title: 'Download these dates so you can add them to a calendar application such as iCal or Outlook'
+      icon: 'calendar'
+  with_data_attributes_on_link:
+    data:
+      href: '/download-calendar'
+      text: 'Download Calendar (ICS, 2KB)'
+      link_data_attributes:
+        module: example-module
+        fruit: banana

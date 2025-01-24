@@ -1,18 +1,17 @@
-<% add_app_component_stylesheet("download-link") %>
 <%
-  link_text ||= "Download File"
-%>
+  add_app_component_stylesheet("download-link")
 
-<a class="app-c-download-link govuk-link" href="<%= href %>">
-  <svg class="app-c-download-link__icon"
-        aria-hidden="true"
-        viewBox="0 0 25 25"
-        height="25"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg">
-    <g>
-      <path d="M23 5h2v20H5v-2h18V5z" />
-      <path d="M0 0h20v20H0z" />
-    </g>
-  </svg><%= link_text %>
-</a>
+  text ||= nil
+  href ||= nil
+  icon ||= "download"
+
+  link_data_attributes ||= false
+
+  component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+  component_helper.add_class("govuk-body govuk-link govuk-!-font-weight-bold govuk-!-display-none-print")
+  component_helper.add_class("app-c-download-link app-c-download-link--#{icon}")
+  component_helper.add_data_attribute(link_data_attributes) if link_data_attributes
+%>
+<% if text && href %>
+  <%= link_to text, href, **component_helper.all_attributes %>
+<% end %>

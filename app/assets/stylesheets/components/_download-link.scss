@@ -2,18 +2,16 @@
 
 .app-c-download-link {
   display: inline-block;
-  margin-top: govuk-spacing(3);
-  margin-bottom: govuk-spacing(3);
-  @include govuk-font(19, $weight: bold);
-
-  @include govuk-media-query($from: tablet) {
-    margin-top: govuk-spacing(6);
-  }
+  padding-left: 25px;
+  background-image: url("components/download-link/download-icon.svg");
+  background-repeat: no-repeat;
+  background-position: 0 3px;
+  background-size: 20px 20px;
 }
 
-.app-c-download-link__icon {
-  margin-right: .5em;
-  height: 1.3158em; // 25 / 19
-  width: 1.3158em;
-  vertical-align: middle;
+.app-c-download-link--calendar {
+  padding-left: 26px;
+  background-image: url("components/download-link/calendar-icon.svg");
+  background-position: 0 2px;
+  background-size: 18px 21px;
 }

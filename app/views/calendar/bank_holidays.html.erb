@@ -8,7 +8,7 @@
 
 <%= render :partial => "calendar_head" %>
 
-<main id="content" role="main" class="govuk-main-wrapper govuk-!-padding-top-0">
+<main id="content" role="main" class="govuk-main-wrapper">
   <% if @calendar.show_bunting? %>
   <div class="app-bunting" aria-hidden="true">
     <div class="app-bunting__<%= "#{@calendar.bunting_styles}" %>"></div>
@@ -20,8 +20,11 @@
     <div class="govuk-grid-column-two-thirds">
       <section class="app-o-main-container" lang="<%= I18n.locale %>">
 
-        <%= render "govuk_publishing_components/components/title", {
-          title: @calendar.title,
+        <%= render "govuk_publishing_components/components/heading", {
+          text: @calendar.title,
+          heading_level: 1,
+          font_size: "xl",
+          margin_bottom: 8,
         } %>
 
         <article role="article">

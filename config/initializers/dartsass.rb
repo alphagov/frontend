@@ -1,7 +1,9 @@
 APP_STYLESHEETS = {
   "application.scss" => "application.css",
   "static-error-pages.scss" => "static-error-pages.css",
+  "components/_back-to-top.scss" => "components/_back-to-top.css",
   "components/_calendar.scss" => "components/_calendar.css",
+  "components/_contents-list-with-body.scss" => "components/_contents-list-with-body.css",
   "components/_download-link.scss" => "components/_download-link.css",
   "components/_figure.scss" => "components/_figure.css",
   "components/_subscribe.scss" => "components/_subscribe.css",
@@ -16,6 +18,7 @@ APP_STYLESHEETS = {
   "views/_location_form.scss" => "views/_location_form.css",
   "views/_place-list.scss" => "views/_place-list.css",
   "views/_popular_links.scss" => "views/_popular_links.css",
+  "views/_specialist-document.scss" => "views/_specialist-document.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
   "views/_landing_page.scss" => "views/_landing_page.css",
   "views/_landing_page/block-error.scss" => "views/_landing_page/block-error.css",

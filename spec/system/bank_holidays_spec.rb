@@ -53,7 +53,7 @@ RSpec.describe "BankHolidays" do
     end
 
     within("#content") do
-      within(".gem-c-title") do
+      within(".gem-c-heading") do
         expect(page).to have_content("UK bank holidays")
       end
 

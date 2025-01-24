@@ -27,7 +27,7 @@ RSpec.describe "GwyliauBanc" do
     end
 
     within("#content") do
-      within(".gem-c-title") do
+      within(".gem-c-heading") do
         expect(page).to have_content("Gwyliau banc y DU")
       end
       within("article") do

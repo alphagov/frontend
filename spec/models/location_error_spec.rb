@@ -43,4 +43,22 @@ RSpec.describe LocationError do
       end
     end
   end
+
+  describe "#data_related?" do
+    context "when error is related to the entered postcode" do
+      let(:postcode_error) { "invalidPostcodeFormat" }
+
+      it "returns true" do
+        expect(location_error.data_related?).to be(true)
+      end
+    end
+
+    context "when error is related to the service itself and not the entered postcode" do
+      let(:postcode_error) { "electoralServiceNotAvailable" }
+
+      it "returns false" do
+        expect(location_error.data_related?).to be(false)
+      end
+    end
+  end
 end

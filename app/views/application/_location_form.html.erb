@@ -68,9 +68,9 @@
       name: "postcode",
       id: "postcode",
       hint: t("formats.local_transaction.postcode_hint"),
-      invalid: @location_error ? "true" : "false",
+      invalid: @location_error&.data_related? ? "true" : "false",
       autocomplete: "postal-code",
-      error_message: (t(@location_error.message, **@location_error.message_args) if @location_error),
+      error_message: (t(@location_error.message, **@location_error.message_args) if @location_error&.data_related?),
     } %>
 
     <%= render "govuk_publishing_components/components/button",

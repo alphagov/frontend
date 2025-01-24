@@ -388,6 +388,13 @@ nl:
   error:
   find:
   formats:
+    corporate_information_page:
+      about_our_services_html: Ontdek %{link}.
+      corporate_information: Bedrijfsinformatie
+      personal_information_charter_html: In onze %{link} leggen wij uit hoe wij met uw persoonlijke informatie omgaan.
+      publication_scheme_html: Lees over de soorten informatie die wij routinematig publiceren in onze %{link}.
+      social_media_use_html: Lees ons beleid inzake %{link}.
+      welsh_language_scheme_html: Lees meer over onze inzet voor %{link}.
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

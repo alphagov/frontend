@@ -315,6 +315,8 @@ id:
   error:
   find:
   formats:
+    case_study:
+      other: Studi kasus
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -636,4 +638,6 @@ id:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

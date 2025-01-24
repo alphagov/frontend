@@ -773,6 +773,13 @@ ar:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: بيان شفوي للبرلمان
+      other: بيانات شفوية للبرلمان
+      two:
+      zero:
     place:
       change:
       find_results:
@@ -784,6 +791,16 @@ ar:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: تاريخ التسليم
+      few:
+      location: الموقع
+      many:
+      one: خطاب
+      other: خطابات
+      two:
+      written_on: تاريخ الكتابة
+      zero:
     start_now:
     take_part:
       few:
@@ -810,6 +827,13 @@ ar:
       still_current_at: لا يزال ساريًا في
       summary: ملخص
       updated: تاريخ التحديث
+    written_statement:
+      few:
+      many:
+      one: بيان خطي للبرلمان
+      other: بيانات خطية للبرلمان
+      two:
+      zero:
   help:
     index:
       about:
@@ -995,6 +1019,8 @@ ar:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: تم نشره بموجب %{government}
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -1006,4 +1032,6 @@ ar:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

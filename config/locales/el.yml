@@ -481,6 +481,9 @@ el:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Προφορική δήλωση στη Βουλή
+      other: Προφορικές δηλώσεις στη Βουλή
     place:
       change:
       find_results:
@@ -492,6 +495,12 @@ el:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Παραδόθηκε στις
+      location: Τοποθεσία
+      one: Ομιλία
+      other: Ομιλίες
+      written_on: Γράφτηκε στις
     start_now:
     take_part:
       one: Συμμετοχή
@@ -514,6 +523,9 @@ el:
       still_current_at: Ακόμα επίκαιρο στο
       summary: Περίληψη
       updated: Ενημερωμένο
+    written_statement:
+      one: Γραπτή δήλωση στη Βουλή
+      other: Γραπτές δηλώσεις στη Βουλή
   help:
     index:
       about:
@@ -699,6 +711,8 @@ el:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Αυτό δημοσιεύτηκε στο %{government}
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -710,4 +724,6 @@ el:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

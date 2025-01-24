@@ -554,6 +554,10 @@ sk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Ústne vyhlásenie pred Parlamentom
+      other: Ústne vyhlásenia pred Parlamentom
     place:
       change:
       find_results:
@@ -565,6 +569,13 @@ sk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Doručené dňa
+      few:
+      location: Umiestnenie
+      one: Prejav
+      other: Prejay
+      written_on: Napísané dňa
     start_now:
     take_part:
       few:
@@ -588,6 +599,10 @@ sk:
       still_current_at: Stále aktuálne na
       summary: Zhrnutie
       updated: Aktualizované
+    written_statement:
+      few:
+      one: Písomné vyhlásenie pre Parlament
+      other: Písomné vyhlásenia pre Parlament
   help:
     index:
       about:
@@ -773,6 +788,8 @@ sk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Táto správa bola uverejnená pod hlavičkou %{government}
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -784,4 +801,6 @@ sk:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

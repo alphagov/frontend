@@ -481,6 +481,9 @@ kk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Парламентке ауызша мәлімдеме
+      other: Парламентке ауызша мәлімдемелер
     place:
       change:
       find_results:
@@ -492,6 +495,12 @@ kk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Жеткізілген күні
+      location: Орны
+      one: Сөйлеу
+      other: Сөйлеулер
+      written_on: Жазылған күні
     start_now:
     take_part:
       one: Қатысу
@@ -514,6 +523,9 @@ kk:
       still_current_at: Әлі де ағымдағы
       summary: Қысқаша мазмұны
       updated: Жаңартылды
+    written_statement:
+      one: Парламентке жазбаша мәлімдеме
+      other: Парламентке жазбаша мәлімдемелер
   help:
     index:
       about:
@@ -699,6 +711,8 @@ kk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Бұл %{government} кезінде жарияланды
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -710,4 +724,6 @@ kk:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

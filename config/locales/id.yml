@@ -408,6 +408,8 @@ id:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: Pernyataan lisan kepada Parlemen
     place:
       change:
       find_results:
@@ -419,6 +421,11 @@ id:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Dikirim pada
+      location: Lokasi
+      other: Pidato
+      written_on: Ditulis pada
     start_now:
     take_part:
       other: Ikut serta
@@ -440,6 +447,8 @@ id:
       still_current_at: Masih berlaku di
       summary: Rangkuman
       updated: Diperbarui
+    written_statement:
+      other: Pernyataan tertulis kepada Parlemen
   help:
     index:
       about:
@@ -625,6 +634,8 @@ id:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ini diterbitkan di bawah %{government}
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -636,4 +647,6 @@ id:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

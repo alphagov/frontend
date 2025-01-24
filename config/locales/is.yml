@@ -481,6 +481,9 @@ is:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Munnleg yfirlýsing til Þingsins
+      other: Munnlegar yfirlýsingar til Þingsins
     place:
       change:
       find_results:
@@ -492,6 +495,12 @@ is:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Afhent þann
+      location: Staðsetning
+      one: Ræða
+      other: Ræður
+      written_on: Skrifað þann
     start_now:
     take_part:
       one: Taka þátt
@@ -514,6 +523,9 @@ is:
       still_current_at: Enn uppfært þann
       summary: Samantekt
       updated: Uppfært
+    written_statement:
+      one: Skrifleg yfirlýsing til Þingsins
+      other: Skriflegar yfirlýsingar til Þingsins
   help:
     index:
       about:
@@ -699,6 +711,8 @@ is:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Þetta var gefið út undir %{government}
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -710,4 +724,6 @@ is:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

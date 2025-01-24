@@ -481,6 +481,9 @@ si:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
+      other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
     place:
       change:
       find_results:
@@ -492,6 +495,12 @@ si:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: බෙදාහරින ලද දිනය
+      location: ස්ථානය
+      one: කථාව
+      other: කථා
+      written_on: ලියන ලද දිනය
     start_now:
     take_part:
       one: සහභාගී වන්න
@@ -514,6 +523,9 @@ si:
       still_current_at: තවමත් වත්මන්
       summary: සාරාංශය
       updated: යාවත්කාලීන කෙරිණි
+    written_statement:
+      one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+      other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
   help:
     index:
       about:
@@ -699,6 +711,8 @@ si:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: මෙය %{government} යටතේ ප්‍රකාශණය කරණ ලදී
   sign_up:
   website:
   when_do_the_clocks_change:
@@ -710,4 +724,6 @@ si:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

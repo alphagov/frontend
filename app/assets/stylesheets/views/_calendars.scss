@@ -54,5 +54,7 @@
 }
 
 .app-o-related-container {
-  margin-top: govuk-spacing(7);
+  @include govuk-media-query($until: tablet) {
+    margin-top: govuk-spacing(7);
+  }
 }

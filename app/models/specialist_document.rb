@@ -1,10 +1,13 @@
 class SpecialistDocument < ContentItem
-  attr_reader :continuation_link, :finder, :headers, :protection_type, :will_continue_on
+  attr_reader :continuation_link, :facets, :finder, :headers, :metadata,
+              :protection_type, :will_continue_on
 
   def initialize(content_store_response)
     super(content_store_response)
 
     @continuation_link = content_store_hash.dig("details", "metadata", "continuation_link")
+    @facets = content_store_hash.dig("links", "finder", 0, "details", "facets")
+    @metadata = content_store_hash["details"]["metadata"]
     @finder = content_store_hash.dig("links", "finder", 0)
     @protection_type = content_store_hash.dig("details", "metadata", "protection_type")
     @will_continue_on = content_store_hash.dig("details", "metadata", "will_continue_on")

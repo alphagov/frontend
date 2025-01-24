@@ -8,9 +8,13 @@
 </head>
 <body>
   <div id="wrapper">
-    <main class="govspeak">
-      <%= render "govuk_publishing_components/components/title", title: "frontend" %>
-
+    <main class="govspeak  govuk-main-wrapper--auto-spacing">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "frontend",
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
+      } %>
       <% html = capture do %>
         <p>Here is a list of the content types that frontend renders and an example page.</p>
         <table>

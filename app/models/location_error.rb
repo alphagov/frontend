@@ -18,6 +18,16 @@ class LocationError
     "validUprnNoElectionsMatch" => "formats.local_transaction.valid_uprn_no_match_sub_html",
   }.freeze
 
+  POSTCODE_RELATED = %w[
+    noLaMatch
+    fullPostcodeNoLocationsApiMatch
+    validPostcodeNoLocation
+    invalidPostcodeFormat
+    invalidUprnFormat
+    validPostcodeNoElectionsMatch
+    validUprnNoElectionsMatch
+  ].freeze
+
   attr_reader :postcode_error, :message, :sub_message, :message_args
 
   def initialize(postcode_error = nil, message_args = {})
@@ -31,5 +41,9 @@ class LocationError
       @message = "formats.local_transaction.invalid_postcode"
       @sub_message = "formats.local_transaction.invalid_postcode_sub"
     end
+  end
+
+  def postcode_related?
+    POSTCODE_RELATED.include?(@postcode_error)
   end
 end

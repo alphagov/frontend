@@ -6,15 +6,15 @@
       type: "subscribe",
       index_link: 1,
       index_total: 2,
-      section: "Top"
-    }
+      section: "Top",
+    },
   }
 %>
 
 <% ga4_data_attributes = ga4_data_attributes || default_ga4_data_attributes %>
 <% skip_account = skip_account || "false" %>
 
-<%= render 'govuk_publishing_components/components/single_page_notification_button', {
+<%= render "govuk_publishing_components/components/single_page_notification_button", {
   base_path: @content_item.base_path,
   js_enhancement: @has_govuk_account,
   ga4_data_attributes: ga4_data_attributes,

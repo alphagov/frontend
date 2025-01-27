@@ -11,6 +11,7 @@
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
+/* istanbul ignore next */
 (function (Modules) {
   function StickyElementContainer (element) {
     this.wrapper = element

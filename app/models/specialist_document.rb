@@ -15,6 +15,32 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_hash.dig("details", "headers"))
   end
 
+  def facet_values
+    selected_facets = facets.select { |facet| metadata[facet["key"]] && metadata[facet["key"]].present? }
+
+    selected_facets.map do |selected_facet|
+      f = {
+        key: selected_facet["key"],
+        name: selected_facet["name"],
+        type: selected_facet["type"],
+        filterable: selected_facet["filterable"],
+      }
+
+      metadata_facet_value = metadata[selected_facet["key"]]
+      f[:value] = if selected_facet["allowed_values"].present?
+                    selected_facet["allowed_values"].select do |allowed_value|
+                      if allowed_value["value"] == metadata_facet_value ||
+                          metadata_facet_value.is_a?(Array) && allowed_value["value"].in?(metadata_facet_value)
+                        allowed_value.deep_symbolize_keys!
+                      end
+                    end
+                  else
+                    metadata_facet_value
+                  end
+      f
+    end
+  end
+
   def protection_type_image
     return if protection_type.blank?
 

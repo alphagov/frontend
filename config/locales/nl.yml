@@ -388,6 +388,9 @@ nl:
   error:
   find:
   formats:
+    case_study:
+      one: Casestudy
+      other: Casestudies
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -710,4 +713,6 @@ nl:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

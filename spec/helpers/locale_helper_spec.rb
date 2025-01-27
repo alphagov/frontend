@@ -43,4 +43,11 @@ RSpec.describe LocaleHelper do
       end
     end
   end
+
+  describe "#native_language_name_for" do
+    it "returns the native language name for the given locale" do
+      expect(native_language_name_for(:en)).to eq("English")
+      expect(native_language_name_for(:cy)).to eq("Cymraeg")
+    end
+  end
 end

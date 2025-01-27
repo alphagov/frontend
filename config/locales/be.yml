@@ -534,6 +534,11 @@ be:
   error:
   find:
   formats:
+    case_study:
+      few:
+      many:
+      one: Тэматычнае даследаванне
+      other: Тэматычныя даследаванні
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -858,4 +863,6 @@ be:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

@@ -390,6 +390,9 @@ en:
   error: Error
   find: Find
   formats:
+    case_study:
+      one: Case study
+      other: Case studies
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     get_involved:
@@ -948,4 +951,6 @@ en:
     end_title: End of British Summer Time
     start_notes: Clocks go forward one hour
     start_title: Start of British Summer Time
+  withdrawn_notice:
+    title: This %{schema_name} was withdrawn on %{withdrawn_time}
   'yes': 'Yes'

@@ -22,7 +22,11 @@ Transaction start pages:
 
 ### Get Involved
 
- * https://www.gov.uk/government/get-involved
+* https://www.gov.uk/government/get-involved
+
+### Case studies
+
+* https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy
 
 ### Hard-coded routes
 

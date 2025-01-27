@@ -388,6 +388,9 @@ hi:
   error:
   find:
   formats:
+    case_study:
+      one: विषय अध्ययन
+      other: विषय अध्ययन
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -710,4 +713,6 @@ hi:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title:
   'yes':

@@ -1,0 +1,16 @@
+<%
+  add_view_stylesheet("publisher_metadata")
+%>
+
+<div class="govuk-grid-row">
+  <div class="metadata-wrapper">
+    <div class="govuk-grid-column-two-thirds metadata-column">
+      <%= render "govuk_publishing_components/components/metadata", {
+        from: locals[:from],
+        first_published: locals[:first_published],
+        last_updated: locals[:last_updated],
+        see_updates_link: locals[:see_updates_link],
+      } %>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,14 @@ module Withdrawable
     def withdrawn?
       withdrawal_notice.present?
     end
+
+    def withdrawn_at
+      withdrawal_notice["withdrawn_at"]
+    end
+
+    def withdrawn_explanation
+      withdrawal_notice["explanation"]
+    end
   end
 
 private

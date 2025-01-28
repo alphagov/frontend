@@ -1,4 +1,4 @@
-class CallForEvidencePresenter < ContentItemModelPresenter
+class CallForEvidencePresenter < ContentItemPresenter
   def opening_date_time
     content_item.content_store_response.dig("details", "opening_date")
   end

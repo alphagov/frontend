@@ -20,7 +20,7 @@ RSpec.describe "TravelAdvice" do
       expect(page).to have_selector("#wrapper.travel-advice")
 
       within("#content") do
-        within(".gem-c-title") do
+        within(".gem-c-heading") do
           expect(page).to have_content("Foreign travel advice")
         end
 
@@ -116,7 +116,7 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_title("#{@content_store_response['details']['country']['name']} travel advice")
 
-      within(".gem-c-title") do
+      within(".travel-advice__header .gem-c-heading") do
         expect(page).to have_content(@content_store_response["details"]["country"]["name"])
       end
     end

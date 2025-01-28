@@ -7,11 +7,14 @@
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
-<main id="content" role="main" class="group full-width">
+<main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <%= render "govuk_publishing_components/components/title", {
-        title: @presenter.title,
+      <%= render "govuk_publishing_components/components/heading", {
+        text: @presenter.title,
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
       } %>
 
       <%= render "govuk_publishing_components/components/lead_paragraph", {

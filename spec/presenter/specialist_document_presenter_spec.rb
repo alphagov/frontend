@@ -66,7 +66,7 @@ RSpec.describe SpecialistDocumentPresenter do
     end
   end
 
-  describe "protection_image_alt_text" do
+  describe "#protection_image_alt_text" do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
 
     it "returns the alt text for the protection image" do

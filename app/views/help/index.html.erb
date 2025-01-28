@@ -3,103 +3,103 @@
   <meta name="description" content="<%= t("help.index.find_out") %>">
 <% end %>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Help using GOV.UK",
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
-      } %>
-      <p class="govuk-body govuk-!-margin-bottom-8"><%= t("help.index.find_out") %></p>
-      <%= render "govuk_publishing_components/components/document_list", {
-        equal_item_spacing: true,
-        items: [
-          {
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Help using GOV.UK",
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
+    <p class="govuk-body govuk-!-margin-bottom-8"><%= t("help.index.find_out") %></p>
+    <%= render "govuk_publishing_components/components/document_list", {
+      equal_item_spacing: true,
+      items: [
+        {
+          link: {
+            text: t("help.index.about"),
+            path: "/help/about-govuk",
+            description: t("help.index.about_description"),
+            full_size_description: true,
+          },
+        },
+        {
+          link: {
+            text: t("help.index.accessibility"),
+            path: "/help/accessibility",
+            description: t("help.index.accessibility_description"),
+            full_size_description: true,
+          },
+        },
+        {
+          link: {
+            text: t("help.index.beta"),
+            path: "/help/beta",
+            description: t("help.index.beta_description"),
+            full_size_description: true,
+          },
+        },
+        {
             link: {
-              text: t("help.index.about"),
-              path: "/help/about-govuk",
-              description: t("help.index.about_description"),
-              full_size_description: true,
-            },
+            text: t("help.index.browsers"),
+            path: "/help/browsers",
+            description: t("help.index.browsers_description"),
+            full_size_description: true,
           },
-          {
-            link: {
-              text: t("help.index.accessibility"),
-              path: "/help/accessibility",
-              description: t("help.index.accessibility_description"),
-              full_size_description: true,
-            },
+        },
+        {
+          link: {
+            text: t("help.index.cookies"),
+            path: "/help/cookies",
+            description: t("help.index.cookies_description"),
+            full_size_description: true,
           },
-          {
-            link: {
-              text: t("help.index.beta"),
-              path: "/help/beta",
-              description: t("help.index.beta_description"),
-              full_size_description: true,
-            },
+        },
+        {
+          link: {
+            text: t("help.index.email"),
+            path: "/help/update-email-notifications",
+            description: t("help.index.email_description"),
+            full_size_description: true,
           },
-          {
-             link: {
-              text: t("help.index.browsers"),
-              path: "/help/browsers",
-              description: t("help.index.browsers_description"),
-              full_size_description: true,
-            },
+        },
+        {
+          link: {
+            text: t("help.index.privacy_notice"),
+            path: "/help/privacy-notice",
+            description: t("help.index.privacy_notice_description"),
+            full_size_description: true,
           },
-          {
-            link: {
-              text: t("help.index.cookies"),
-              path: "/help/cookies",
-              description: t("help.index.cookies_description"),
-              full_size_description: true,
-           },
+        },
+        {
+          link: {
+            text: t("help.index.vulnerability"),
+            path: "/help/report-vulnerability",
+            description: t("help.index.vulnerability_description"),
+            full_size_description: true,
           },
-          {
-            link: {
-              text: t("help.index.email"),
-              path: "/help/update-email-notifications",
-              description: t("help.index.email_description"),
-              full_size_description: true,
-            },
+        },
+        {
+          link: {
+            text: t("help.index.reuse_content"),
+            path: "/help/reuse-govuk-content",
+            description: t("help.index.reuse_content_description"),
+            full_size_description: true,
           },
-          {
-            link: {
-              text: t("help.index.privacy_notice"),
-              path: "/help/privacy-notice",
-              description: t("help.index.privacy_notice_description"),
-              full_size_description: true,
-            },
+        },
+        {
+          link: {
+            text: t("help.index.terms"),
+            path: "/help/terms-conditions",
+            description: t("help.index.terms_description"),
+            full_size_description: true,
           },
-          {
-            link: {
-              text: t("help.index.vulnerability"),
-              path: "/help/report-vulnerability",
-              description: t("help.index.vulnerability_description"),
-              full_size_description: true,
-            },
-          },
-          {
-            link: {
-              text: t("help.index.reuse_content"),
-              path: "/help/reuse-govuk-content",
-              description: t("help.index.reuse_content_description"),
-              full_size_description: true,
-            },
-          },
-          {
-            link: {
-              text: t("help.index.terms"),
-              path: "/help/terms-conditions",
-              description: t("help.index.terms_description"),
-              full_size_description: true,
-            },
-          },
-        ],
-      } %>
-    </div>
-
-    <div class="govuk-grid-column-one-third govuk-!-margin-top-8">
-      <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
-    </div>
+        },
+      ],
+    } %>
   </div>
+
+  <div class="govuk-grid-column-one-third govuk-!-margin-top-8">
+    <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
+  </div>
+</div>

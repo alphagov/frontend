@@ -8,125 +8,126 @@
 
 <%= render :partial => "calendar_head" %>
 
-  <% if @calendar.show_bunting? %>
+<% if @calendar.show_bunting? %>
   <div class="app-bunting" aria-hidden="true">
     <div class="app-bunting__<%= "#{@calendar.bunting_styles}" %>"></div>
   </div>
 
   <div class="app-bunting--spacer"></div>
-  <% end %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <section class="app-o-main-container" lang="<%= I18n.locale %>">
+<% end %>
 
-        <%= render "govuk_publishing_components/components/heading", {
-          text: @calendar.title,
-          heading_level: 1,
-          font_size: "xl",
-          margin_bottom: 8,
-        } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <section class="app-o-main-container" lang="<%= I18n.locale %>">
 
-        <article role="article">
-          <% tab_content ||= [] %>
-          <% @calendar.divisions.each_with_index do |division, index| %>
-            <% tab_content[index] = capture do %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: @calendar.title,
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
+      } %>
 
-              <% if division.upcoming_event %>
-                <% rendered_panel = render "govuk_publishing_components/components/panel", {
-                  prepend: t("common.next_holiday_in_is", :in_nation => t("#{division.title}_in")),
-                  title: division.upcoming_event.date == Time.zone.today ? t("common.today") : l(division.upcoming_event.date, format: "%e %B"),
-                  append: division.upcoming_event.title,
-                } %>
-                <% if variant_b_page? %>
-                  <%= content_tag("span", rendered_panel, class: "bank-hols") %>
-                <% else %>
-                  <%= rendered_panel %>
-                <% end %>
-              <% end %>
+      <article role="article">
+        <% tab_content ||= [] %>
+        <% @calendar.divisions.each_with_index do |division, index| %>
+          <% tab_content[index] = capture do %>
 
-              <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
-              <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
-
-              <% division.upcoming_events_by_year.each do |year, events| %>
-                <%= render "components/calendar", {
-                  title: caption,
-                  year: year,
-                  events: events,
-                  headings: [
-                    {
-                      text: I18n.t("bank_holidays.date"),
-                    },
-                    {
-                      text: I18n.t("bank_holidays.day_of_week"),
-                    },
-                    {
-                      text: I18n.t("bank_holidays.bank_holiday"),
-                    },
-                  ],
-                } %>
-              <% end %>
-
-              <p class="govuk-body"><%= t("common.bank_holiday_on_wkend") %></p>
-              <p class="govuk-body"><%= t("common.holiday_entitlement_html") %></p>
-              <p class="govuk-body"><%= t("common.bank_holiday_benefits_html") %></p>
-              <%= render "govuk_publishing_components/components/inset_text", {
-                text: t("common.bank_holiday_translation_html"),
+            <% if division.upcoming_event %>
+              <% rendered_panel = render "govuk_publishing_components/components/panel", {
+                prepend: t("common.next_holiday_in_is", :in_nation => t("#{division.title}_in")),
+                title: division.upcoming_event.date == Time.zone.today ? t("common.today") : l(division.upcoming_event.date, format: "%e %B"),
+                append: division.upcoming_event.title,
               } %>
-
-              <%= render "components/download_link", {
-                text: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
-                href: division_path(@calendar, division, :format => "ics"),
-                title: t("common.download_ics"),
-                icon: "calendar",
-                margin_bottom: 8,
-                link_data_attributes: {
-                  module: "ga4-link-tracker",
-                  ga4_link: {
-                    event_name: "file_download",
-                    type: "generic download",
-                  },
-                },
-              } %>
-
-              <% caption = "#{t "common.past_bank_holidays"} #{t "#{division.title}_in"}" %>
-              <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
-
-              <% division.past_events_by_year.each do |year, events| %>
-                <%= render "components/calendar", {
-                  title: caption,
-                  year: year,
-                  events: events,
-                  headings: [
-                    {
-                      text: I18n.t("bank_holidays.date"),
-                    },
-                    {
-                      text: I18n.t("bank_holidays.day_of_week"),
-                    },
-                    {
-                      text: I18n.t("bank_holidays.bank_holiday"),
-                    },
-                  ],
-                } %>
+              <% if variant_b_page? %>
+                <%= content_tag("span", rendered_panel, class: "bank-hols") %>
+              <% else %>
+                <%= rendered_panel %>
               <% end %>
-
             <% end %>
+
+            <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>
+            <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
+
+            <% division.upcoming_events_by_year.each do |year, events| %>
+              <%= render "components/calendar", {
+                title: caption,
+                year: year,
+                events: events,
+                headings: [
+                  {
+                    text: I18n.t("bank_holidays.date"),
+                  },
+                  {
+                    text: I18n.t("bank_holidays.day_of_week"),
+                  },
+                  {
+                    text: I18n.t("bank_holidays.bank_holiday"),
+                  },
+                ],
+              } %>
+            <% end %>
+
+            <p class="govuk-body"><%= t("common.bank_holiday_on_wkend") %></p>
+            <p class="govuk-body"><%= t("common.holiday_entitlement_html") %></p>
+            <p class="govuk-body"><%= t("common.bank_holiday_benefits_html") %></p>
+            <%= render "govuk_publishing_components/components/inset_text", {
+              text: t("common.bank_holiday_translation_html"),
+            } %>
+
+            <%= render "components/download_link", {
+              text: t("common.add_holiday_ics", :for_nation => t("#{division.title}_for")),
+              href: division_path(@calendar, division, :format => "ics"),
+              title: t("common.download_ics"),
+              icon: "calendar",
+              margin_bottom: 8,
+              link_data_attributes: {
+                module: "ga4-link-tracker",
+                ga4_link: {
+                  event_name: "file_download",
+                  type: "generic download",
+                },
+              },
+            } %>
+
+            <% caption = "#{t "common.past_bank_holidays"} #{t "#{division.title}_in"}" %>
+            <h2 class="govuk-heading-m" id="<%= caption.parameterize %>"><%= caption %></h2>
+
+            <% division.past_events_by_year.each do |year, events| %>
+              <%= render "components/calendar", {
+                title: caption,
+                year: year,
+                events: events,
+                headings: [
+                  {
+                    text: I18n.t("bank_holidays.date"),
+                  },
+                  {
+                    text: I18n.t("bank_holidays.day_of_week"),
+                  },
+                  {
+                    text: I18n.t("bank_holidays.bank_holiday"),
+                  },
+                ],
+              } %>
+            <% end %>
+
           <% end %>
+        <% end %>
 
-          <%= render "govuk_publishing_components/components/tabs", {
-            panel_border: false,
-            tabs: @calendar.divisions.each_with_index.map do |division, index| {
-              :id => division.slug,
-              :label => t(division.title),
-              :content => tab_content[index],
-            } end,
-          } %>
-        </article>
-
-        <%= render "govuk_publishing_components/components/metadata", {
-          last_updated: format_date(last_updated_date),
+        <%= render "govuk_publishing_components/components/tabs", {
+          panel_border: false,
+          tabs: @calendar.divisions.each_with_index.map do |division, index| {
+            :id => division.slug,
+            :label => t(division.title),
+            :content => tab_content[index],
+          } end,
         } %>
-      </section>
-    </div>
-      <%= render :partial => "calendar_footer" %>
+      </article>
+
+      <%= render "govuk_publishing_components/components/metadata", {
+        last_updated: format_date(last_updated_date),
+      } %>
+    </section>
   </div>
+    <%= render :partial => "calendar_footer" %>
+</div>

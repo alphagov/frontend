@@ -12,60 +12,60 @@
   <meta name="robots" content="noindex">
 <% end %>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <section
-        class="simple-smart-answer__question-and-outcome"
-        data-module="ga4-link-tracker"
-        data-ga4-link="<%= ga4_attributes %>"
-        data-ga4-track-links-only
-        data-ga4-set-indexes>
-        <% if @flow_state.current_node.outcome? %>
-          <%= render partial: "outcome", object: @flow_state.current_node %>
-        <% else %>
-          <%= render partial: "current_question", locals: {
-            question: @flow_state.current_node,
-          } %>
-        <% end %>
-      </section>
-    <% if @flow_state.completed_questions.any? %>
-      <section class="govuk-!-padding-top-6">
-        <%= render "govuk_publishing_components/components/heading", {
-          font_size: "m",
-          heading_level: 2,
-          margin_bottom: 4,
-          text: t("formats.simple_smart_answer.your_answers"),
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <section
+      class="simple-smart-answer__question-and-outcome"
+      data-module="ga4-link-tracker"
+      data-ga4-link="<%= ga4_attributes %>"
+      data-ga4-track-links-only
+      data-ga4-set-indexes>
+      <% if @flow_state.current_node.outcome? %>
+        <%= render partial: "outcome", object: @flow_state.current_node %>
+      <% else %>
+        <%= render partial: "current_question", locals: {
+          question: @flow_state.current_node,
         } %>
+      <% end %>
+    </section>
+  <% if @flow_state.completed_questions.any? %>
+    <section class="govuk-!-padding-top-6">
+      <%= render "govuk_publishing_components/components/heading", {
+        font_size: "m",
+        heading_level: 2,
+        margin_bottom: 4,
+        text: t("formats.simple_smart_answer.your_answers"),
+      } %>
 
-        <p class="govuk-body">
-          <%= link_to(
-            t("formats.simple_smart_answer.start_again"),
-            simple_smart_answer_path(content_item.slug, :edition => @edition),
-            class: "govuk-link",
-            data: {
-              module: "ga4-link-tracker",
-              ga4_link: {
-                event_name: "form_start_again",
-                type: "simple smart answer",
-                section: @flow_state.current_node.title,
-                action: "start again",
-                tool_name: content_item.title,
-              },
+      <p class="govuk-body">
+        <%= link_to(
+          t("formats.simple_smart_answer.start_again"),
+          simple_smart_answer_path(content_item.slug, :edition => @edition),
+          class: "govuk-link",
+          data: {
+            module: "ga4-link-tracker",
+            ga4_link: {
+              event_name: "form_start_again",
+              type: "simple smart answer",
+              section: @flow_state.current_node.title,
+              action: "start again",
+              tool_name: content_item.title,
             },
-          ) %>
-        </p>
+          },
+        ) %>
+      </p>
 
-        <%= render "govuk_publishing_components/components/summary_list", {
-          items: answer_summary_data,
-        } %>
-      </section>
-    <% end %>
-    </div>
-    <% if @flow_state.current_node.outcome? %>
-      <div class="govuk-grid-column-one-third">
-        <%= render "govuk_publishing_components/components/contextual_sidebar", {
-          content_item: content_item.to_h,
-        } %>
-      </div>
-    <% end %>
+      <%= render "govuk_publishing_components/components/summary_list", {
+        items: answer_summary_data,
+      } %>
+    </section>
+  <% end %>
   </div>
+  <% if @flow_state.current_node.outcome? %>
+    <div class="govuk-grid-column-one-third">
+      <%= render "govuk_publishing_components/components/contextual_sidebar", {
+        content_item: content_item.to_h,
+      } %>
+    </div>
+  <% end %>
+</div>

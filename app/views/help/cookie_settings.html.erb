@@ -2,147 +2,148 @@
   add_view_stylesheet("cookie-settings")
 %>
 <% content_for :title, "Cookies on GOV.UK" %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
-        <%= render "govuk_publishing_components/components/success_alert", {
-          message: t("cookies.confirmation_title"),
-          description: raw("<p class='govuk-body'>#{t('cookies.confirmation_message')}</p>
-          <a class='govuk-link govuk-notification-banner__link cookie-settings__prev-page' href='#'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe,
-          margin_bottom: 0,
-        } %>
-      </div>
 
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t("cookies.cookies_on_govuk"),
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
+      <%= render "govuk_publishing_components/components/success_alert", {
+        message: t("cookies.confirmation_title"),
+        description: raw("<p class='govuk-body'>#{t('cookies.confirmation_message')}</p>
+        <a class='govuk-link govuk-notification-banner__link cookie-settings__prev-page' href='#'>#{t('cookies.confirmation_previous_referrer_link')}</a>").html_safe,
+        margin_bottom: 0,
       } %>
+    </div>
 
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("cookies.cookies_on_govuk"),
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
+
+    <%= render "govuk_publishing_components/components/govspeak", {
+    } do %>
+      <p><%= t("cookies.explanation") %></p>
+      <p><%= t("cookies.how_we_use") %></p>
+      <p><%= t("cookies.explanation_html") %></p>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("cookies.cookie_settings"),
+      padding: true,
+      heading_level: 2,
+      margin_bottom: 3,
+    } %>
+
+    <div class="cookie-settings__no-js">
       <%= render "govuk_publishing_components/components/govspeak", {
-      } do %>
-        <p><%= t("cookies.explanation") %></p>
-        <p><%= t("cookies.how_we_use") %></p>
-        <p><%= t("cookies.explanation_html") %></p>
+        } do %>
+        <p><%= t("cookies.javascript") %></p>
+        <ul>
+          <% t("cookies.javascript_list").each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+        <p><%= t("cookies.javascript_extra") %></p>
       <% end %>
+    </div>
 
+    <div class="cookie-settings__form-wrapper">
+      <p class="govuk-body"><%= t("cookies.four_types") %></p>
+
+      <form data-module="cookie-settings">
+        <% cookies_usage_hint = capture do %>
+          <p class="govuk-body govuk-hint"><%= t("cookies.usage_info") %></p>
+          <p class="govuk-body govuk-hint"><%= t("cookies.google_info") %></p>
+          <ul class="govuk-list--bullet govuk-hint">
+            <li><%= t("cookies.how_you_got") %></li>
+            <li><%= t("cookies.pages_visited") %></li>
+            <li><%= t("cookies.clicks") %></li>
+          </ul>
+          <p class="govuk-body govuk-hint"><%= t("cookies.lux_explain") %></p>
+          <p class="govuk-body govuk-hint"><%= t("cookies.lux_info") %></p>
+          <p class="govuk-body govuk-hint"><%= t("cookies.google_share") %></p>
+        <% end %>
+
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "cookies-usage",
+          inline: false,
+          heading: t("cookies.types.usage"),
+          hint: cookies_usage_hint,
+          items: [
+            {
+              value: "on",
+              text: t("cookies.on-usage"),
+            },
+            {
+              value: "off",
+              text: t("cookies.off-usage"),
+              checked: true,
+            },
+          ],
+        } %>
+
+        <% cookies_campaigns_hint = capture do %>
+          <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
+        <% end %>
+
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "cookies-campaigns",
+          inline: false,
+          heading: t("cookies.types.campaigns"),
+          hint: cookies_campaigns_hint,
+          items: [
+            {
+              value: "on",
+              text: t("cookies.on-campaigns"),
+            },
+            {
+              value: "off",
+              text: t("cookies.off-campaigns"),
+              checked: true,
+            },
+          ],
+        } %>
+
+        <%= render "govuk_publishing_components/components/radio", {
+          name: "cookies-settings",
+          inline: false,
+          heading: t("cookies.types.settings"),
+          hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
+          items: [
+            {
+              value: "on",
+              text: t("cookies.on-settings"),
+            },
+            {
+              value: "off",
+              text: t("cookies.off-settings"),
+              checked: true,
+            },
+          ],
+        } %>
+
+        <%= render "govuk_publishing_components/components/govspeak", {
+          } do %>
+          <h2><%= t("cookies.types.essential") %></h2>
+          <p><%= t("cookies.essential_explanation") %></p>
+          <p><%= t("cookies.always_on") %></p>
+        <% end %>
+
+        <%= render "govuk_publishing_components/components/button", {
+          text: t("cookies.save_changes"),
+        } %>
+      </form>
+    </div>
+
+    <div class="cookie-settings__gov-services">
       <%= render "govuk_publishing_components/components/heading", {
-        text: t("cookies.cookie_settings"),
-        padding: true,
+        text: "Government services",
         heading_level: 2,
         margin_bottom: 3,
       } %>
-
-      <div class="cookie-settings__no-js">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          } do %>
-          <p><%= t("cookies.javascript") %></p>
-          <ul>
-            <% t("cookies.javascript_list").each do |item| %>
-              <li><%= item %></li>
-            <% end %>
-          </ul>
-          <p><%= t("cookies.javascript_extra") %></p>
-        <% end %>
-      </div>
-
-      <div class="cookie-settings__form-wrapper">
-        <p class="govuk-body"><%= t("cookies.four_types") %></p>
-
-        <form data-module="cookie-settings">
-          <% cookies_usage_hint = capture do %>
-            <p class="govuk-body govuk-hint"><%= t("cookies.usage_info") %></p>
-            <p class="govuk-body govuk-hint"><%= t("cookies.google_info") %></p>
-            <ul class="govuk-list--bullet govuk-hint">
-              <li><%= t("cookies.how_you_got") %></li>
-              <li><%= t("cookies.pages_visited") %></li>
-              <li><%= t("cookies.clicks") %></li>
-            </ul>
-            <p class="govuk-body govuk-hint"><%= t("cookies.lux_explain") %></p>
-            <p class="govuk-body govuk-hint"><%= t("cookies.lux_info") %></p>
-            <p class="govuk-body govuk-hint"><%= t("cookies.google_share") %></p>
-          <% end %>
-
-          <%= render "govuk_publishing_components/components/radio", {
-            name: "cookies-usage",
-            inline: false,
-            heading: t("cookies.types.usage"),
-            hint: cookies_usage_hint,
-            items: [
-              {
-                value: "on",
-                text: t("cookies.on-usage"),
-              },
-              {
-                value: "off",
-                text: t("cookies.off-usage"),
-                checked: true,
-              },
-            ],
-          } %>
-
-          <% cookies_campaigns_hint = capture do %>
-            <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
-          <% end %>
-
-          <%= render "govuk_publishing_components/components/radio", {
-            name: "cookies-campaigns",
-            inline: false,
-            heading: t("cookies.types.campaigns"),
-            hint: cookies_campaigns_hint,
-            items: [
-              {
-                value: "on",
-                text: t("cookies.on-campaigns"),
-              },
-              {
-                value: "off",
-                text: t("cookies.off-campaigns"),
-                checked: true,
-              },
-            ],
-          } %>
-
-          <%= render "govuk_publishing_components/components/radio", {
-            name: "cookies-settings",
-            inline: false,
-            heading: t("cookies.types.settings"),
-            hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
-            items: [
-              {
-                value: "on",
-                text: t("cookies.on-settings"),
-              },
-              {
-                value: "off",
-                text: t("cookies.off-settings"),
-                checked: true,
-              },
-            ],
-          } %>
-
-          <%= render "govuk_publishing_components/components/govspeak", {
-            } do %>
-            <h2><%= t("cookies.types.essential") %></h2>
-            <p><%= t("cookies.essential_explanation") %></p>
-            <p><%= t("cookies.always_on") %></p>
-          <% end %>
-
-          <%= render "govuk_publishing_components/components/button", {
-            text: t("cookies.save_changes"),
-          } %>
-        </form>
-      </div>
-
-      <div class="cookie-settings__gov-services">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Government services",
-          heading_level: 2,
-          margin_bottom: 3,
-        } %>
-        <p class="govuk-body"><%= t("cookies.services") %></p>
-        <p class="govuk-body"><%= t("cookies.services_additional") %></p>
-      </div>
+      <p class="govuk-body"><%= t("cookies.services") %></p>
+      <p class="govuk-body"><%= t("cookies.services_additional") %></p>
     </div>
   </div>
+</div>

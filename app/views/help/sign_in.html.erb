@@ -8,50 +8,51 @@
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item.description %>">
 <% end %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: content_item.title,
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
+
+    <%= sanitize(content_item.body) %>
+
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("help.sign_in.service_not_listed_heading"),
+      heading_level: 2,
+      font_size: "m",
+      margin_bottom: 4,
+    } %>
+
+    <p class="govuk-body"><%= t("help.sign_in.service_not_listed_text") %></p>
+
+    <form
+      action="/search/all"
+      method="GET"
+      role="search"
+      data-module="ga4-form-tracker"
+      data-ga4-form-no-answer-undefined
+      data-ga4-form="<%= { event_name: "search", type: "content", url: "/search/all", section: t("help.sign_in.service_not_listed_heading", locale: :en), action: "search" }.to_json %>"
+      data-ga4-form-include-text>
+      <% @search_services_facets.each do |facet| %>
+        <input type="hidden" name="<%= facet[:key] %>" value="<%= facet[:value] %>">
+      <% end %>
+
+      <%= render "govuk_publishing_components/components/input", {
+        label: {
+          text: t("help.sign_in.search_for_a_service"),
+        },
+        name: "keywords",
+        type: "search",
+        search_icon: true,
       } %>
 
-      <%= sanitize(content_item.body) %>
-
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t("help.sign_in.service_not_listed_heading"),
-        heading_level: 2,
-        font_size: "m",
-        margin_bottom: 4,
-      } %>
-
-      <p class="govuk-body"><%= t("help.sign_in.service_not_listed_text") %></p>
-
-      <form
-        action="/search/all"
-        method="GET"
-        role="search"
-        data-module="ga4-form-tracker"
-        data-ga4-form-no-answer-undefined
-        data-ga4-form="<%= { event_name: "search", type: "content", url: "/search/all", section: t("help.sign_in.service_not_listed_heading", locale: :en), action: "search" }.to_json %>"
-        data-ga4-form-include-text>
-        <% @search_services_facets.each do |facet| %>
-          <input type="hidden" name="<%= facet[:key] %>" value="<%= facet[:value] %>">
-        <% end %>
-
-        <%= render "govuk_publishing_components/components/input", {
-          label: {
-            text: t("help.sign_in.search_for_a_service"),
-          },
-          name: "keywords",
-          type: "search",
-          search_icon: true,
-        } %>
-
-        <%= render "govuk_publishing_components/components/button",
-          text: t("help.sign_in.search_for_a_service_button"),
-          secondary_solid: true %>
-      </form>
-    </div>
+      <%= render "govuk_publishing_components/components/button",
+        text: t("help.sign_in.search_for_a_service_button"),
+        secondary_solid: true %>
+    </form>
   </div>
+</div>

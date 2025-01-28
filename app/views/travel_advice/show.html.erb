@@ -16,74 +16,74 @@
     content_item: @content_item.to_h %>
 <% end %>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds travel-advice__header">
-      <%= render "govuk_publishing_components/components/heading", {
-        context: I18n.t("formats.travel_advice.context"),
-        text: @content_item.country_name,
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
-      } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds travel-advice__header">
+    <%= render "govuk_publishing_components/components/heading", {
+      context: I18n.t("formats.travel_advice.context"),
+      text: @content_item.country_name,
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
 
-    <%= render "govuk_publishing_components/components/govspeak", {
-      } do %>
-        <% @content_item.alert_status.each do |status| %>
-          <%= render "govuk_publishing_components/components/warning_text",
-            text: I18n.t("formats.travel_advice.alert_status.#{status}_html", country: @content_item.country_name).html_safe %>
-        <% end %>
+  <%= render "govuk_publishing_components/components/govspeak", {
+    } do %>
+      <% @content_item.alert_status.each do |status| %>
+        <%= render "govuk_publishing_components/components/warning_text",
+          text: I18n.t("formats.travel_advice.alert_status.#{status}_html", country: @content_item.country_name).html_safe %>
+      <% end %>
+    <% end %>
+
+    <aside class="part-navigation-container" role="complementary">
+      <%= render "govuk_publishing_components/components/contents_list",
+        aria: { label: t("formats.travel_advice.pages") },
+        contents: part_link_elements(@content_item.parts, @content_item.current_part),
+        underline_links: true %>
+
+      <div
+        data-module="ga4-link-tracker"
+        data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Top" }'
+        data-ga4-track-links-only>
+        <%= render "govuk_publishing_components/components/subscription_links",
+          email_signup_link: @content_item.email_signup_link,
+          email_signup_link_text: "Get email alerts" %>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <% unless @content_item.parts.empty? %>
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
+      <%= render "govuk_publishing_components/components/heading", heading_level: 1, font_size: "l", margin_bottom: 6, text: @content_item.current_part_title %>
+
+      <% if @content_item.first_part? %>
+        <%= render "first_part", content_item: @content_item %>
       <% end %>
 
-      <aside class="part-navigation-container" role="complementary">
-        <%= render "govuk_publishing_components/components/contents_list",
-          aria: { label: t("formats.travel_advice.pages") },
-          contents: part_link_elements(@content_item.parts, @content_item.current_part),
-          underline_links: true %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(@content_item.current_part_body) %>
+      <% end %>
 
-        <div
+      <%= render "govuk_publishing_components/components/previous_and_next_navigation",
+        previous_and_next_navigation(@content_item.previous_part, @content_item.next_part) %>
+
+      <div class="responsive-bottom-margin">
+        <a href="<%= print_link(@content_item.base_path) %>"
+          class="govuk-link govuk-link--no-visited-state govuk-body"
           data-module="ga4-link-tracker"
-          data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Top" }'
-          data-ga4-track-links-only>
-          <%= render "govuk_publishing_components/components/subscription_links",
-            email_signup_link: @content_item.email_signup_link,
-            email_signup_link_text: "Get email alerts" %>
-        </div>
-      </aside>
-    </div>
+          data-ga4-link="<%= {
+            event_name: "navigation",
+            type: "print page",
+            section: "Footer",
+            text: t("multi_page.print_entire_guide", locale: :en),
+          }.to_json %>"><%= t("multi_page.print_entire_guide") %></a>
+      </div>
+  <% end %>
   </div>
-
-  <div class="govuk-grid-row">
-    <% unless @content_item.parts.empty? %>
-      <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
-        <%= render "govuk_publishing_components/components/heading", heading_level: 1, font_size: "l", margin_bottom: 6, text: @content_item.current_part_title %>
-
-        <% if @content_item.first_part? %>
-          <%= render "first_part", content_item: @content_item %>
-        <% end %>
-
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= raw(@content_item.current_part_body) %>
-        <% end %>
-
-        <%= render "govuk_publishing_components/components/previous_and_next_navigation",
-          previous_and_next_navigation(@content_item.previous_part, @content_item.next_part) %>
-
-        <div class="responsive-bottom-margin">
-          <a href="<%= print_link(@content_item.base_path) %>"
-            class="govuk-link govuk-link--no-visited-state govuk-body"
-            data-module="ga4-link-tracker"
-            data-ga4-link="<%= {
-              event_name: "navigation",
-              type: "print page",
-              section: "Footer",
-              text: t("multi_page.print_entire_guide", locale: :en),
-            }.to_json %>"><%= t("multi_page.print_entire_guide") %></a>
-        </div>
-    <% end %>
-    </div>
-    <%= render "shared/sidebar_navigation" %>
-  </div>
+  <%= render "shared/sidebar_navigation" %>
+</div>
 
 <%= render "shared/footer_navigation" %>

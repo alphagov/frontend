@@ -7,12 +7,15 @@
   <meta name="description" content="<%= strip_tags(@content_item.description) %>">
 <% end %>
 
-<main role="main" id="content" class="get-involved" <%= lang_attribute(@content_item.locale) %>>
+<main role="main" id="content" class="get-involved govuk-main-wrapper" <%= lang_attribute(@content_item.locale) %>>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/title", {
+    <%= render "govuk_publishing_components/components/heading", {
       context: "Government activity",
-      title: t("formats.get_involved.page_heading"),
+      text: t("formats.get_involved.page_heading"),
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
     } %>
 
     <%= render "govuk_publishing_components/components/lead_paragraph", {

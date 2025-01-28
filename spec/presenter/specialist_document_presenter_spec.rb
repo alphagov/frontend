@@ -55,7 +55,7 @@ RSpec.describe SpecialistDocumentPresenter do
     end
   end
 
-  describe "protection_image_path" do
+  describe "#protection_image_path" do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
 
     it "returns the full path to the protection image" do

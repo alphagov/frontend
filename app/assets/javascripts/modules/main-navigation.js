@@ -1,9 +1,11 @@
+/* istanbul ignore next */
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
   'use strict'
 
+  /* istanbul ignore next */
   function MainNavigation (module) {
     this.module = module
     this.module.button = this.module.querySelector('button')

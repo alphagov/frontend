@@ -2,7 +2,7 @@
   add_view_stylesheet("cookie-settings")
 %>
 <% content_for :title, "Cookies on GOV.UK" %>
-<main id="content" role="main">
+<main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="cookie-settings__confirmation" data-cookie-confirmation="true">
@@ -14,8 +14,11 @@
         } %>
       </div>
 
-      <%= render "govuk_publishing_components/components/title", {
-        title: t("cookies.cookies_on_govuk"),
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("cookies.cookies_on_govuk"),
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
       } %>
 
       <%= render "govuk_publishing_components/components/govspeak", {

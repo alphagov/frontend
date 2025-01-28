@@ -3,10 +3,15 @@
   <meta name="description" content="<%= t("help.index.find_out") %>">
 <% end %>
 
-<main id="content" role="main">
+<main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", title: "Help using GOV.UK" %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Help using GOV.UK",
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
+      } %>
       <p class="govuk-body govuk-!-margin-bottom-8"><%= t("help.index.find_out") %></p>
       <%= render "govuk_publishing_components/components/document_list", {
         equal_item_spacing: true,

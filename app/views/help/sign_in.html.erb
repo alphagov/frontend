@@ -8,10 +8,15 @@
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item.description %>">
 <% end %>
-<main id="content">
+<main id="content" role="main" class="govuk-main-wrapper">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", title: content_item.title %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: content_item.title,
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
+      } %>
 
       <%= sanitize(content_item.body) %>
 

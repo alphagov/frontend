@@ -7,13 +7,17 @@
   <meta name="robots" content="noindex, nofollow">
 <% end %>
 
-<main role="main" id="content" class="travel-advice" <%= lang_attribute(@content_item.locale) %>>
+<main role="main" id="content" class="travel-advice govuk-main-wrapper" <%= lang_attribute(@content_item.locale) %>>
   <div class="govuk-grid-row" id="travel-advice-print">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-!-margin-bottom-6">
-        <%= render "govuk_publishing_components/components/title",
+        <%= render "govuk_publishing_components/components/heading", {
           context: I18n.t("formats.travel_advice.context"),
-          title: @content_item.country_name %>
+          text: @content_item.country_name,
+          heading_level: 1,
+          font_size: "xl",
+          margin_bottom: 8,
+        } %>
       </div>
 
       <div class="govuk-!-display-none-print">

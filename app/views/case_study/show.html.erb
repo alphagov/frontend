@@ -6,14 +6,17 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<main role="main" id="content" class="case-study" <%= lang_attribute(content_item.locale) %>>
+<main role="main" id="content" class="case-study govuk-main-wrapper" <%= lang_attribute(content_item.locale) %>>
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds responsive-top-margin">
-      <%= render "govuk_publishing_components/components/title", {
-        title: content_item.title,
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: content_item.title,
         context: I18n.t("formats.#{content_item.document_type}", count: 1),
         context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
         average_title_length: "long",
+        heading_level: 1,
+        font_size: "l",
+        margin_bottom: 8,
       } %>
     </div>
     <%= render "shared/translations" %>

@@ -1,3 +1,7 @@
-<div class="govuk-grid-column-one-third">
+<%
+  add_view_stylesheet("sidebar-navigation")
+%>
+
+<div class="govuk-grid-column-one-third sidebar-navigation">
   <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
 </div>

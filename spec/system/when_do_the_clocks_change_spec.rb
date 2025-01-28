@@ -19,7 +19,7 @@ RSpec.describe "When Do The Clocks Change" do
     end
 
     within("#content") do
-      within(".gem-c-title") do
+      within(".gem-c-heading") do
         expect(page).to have_content("When do the clocks change?")
       end
 

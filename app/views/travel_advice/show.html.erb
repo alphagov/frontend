@@ -16,12 +16,16 @@
     content_item: @content_item.to_h %>
 <% end %>
 
-<main role="main" id="content" class="travel-advice" <%= lang_attribute(@content_item.locale) %>>
+<main role="main" id="content" class="travel-advice govuk-main-wrapper" <%= lang_attribute(@content_item.locale) %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds travel-advice__header">
-      <%= render "govuk_publishing_components/components/title",
+      <%= render "govuk_publishing_components/components/heading", {
         context: I18n.t("formats.travel_advice.context"),
-        title: @content_item.country_name %>
+        text: @content_item.country_name,
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
+      } %>
 
     <%= render "govuk_publishing_components/components/govspeak", {
       } do %>

@@ -1,0 +1,7 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.sidebar-navigation {
+  @include govuk-media-query($until: tablet) {
+    margin-top: govuk-spacing(7);
+  }
+}

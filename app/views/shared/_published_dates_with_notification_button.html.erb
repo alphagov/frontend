@@ -1,7 +1,7 @@
 <% add_view_stylesheet("published-dates-button-group") %>
 <% skip_account = skip_account || "false" %>
 
-<%= render 'components/published_dates', {
+<%= render "components/published_dates", {
     published: display_date(@content_item.first_public_at),
     last_updated: display_date(@content_item.updated),
     history: @content_item.history,
@@ -17,7 +17,7 @@
     <% end %>
   </h2>
 
-  <%= render 'govuk_publishing_components/components/single_page_notification_button', {
+  <%= render "govuk_publishing_components/components/single_page_notification_button", {
     base_path: @content_item.base_path,
     js_enhancement: @has_govuk_account,
     button_location: "bottom",
@@ -30,13 +30,12 @@
         type: "subscribe",
         index_link: 2,
         index_total: 2,
-        section: "Footer"
-      }
-    }
+        section: "Footer",
+      },
+    },
   } if @content_item.has_single_page_notifications? %>
   <%= render "govuk_publishing_components/components/print_link", {
     margin_top: 0,
     margin_bottom: 8,
   } %>
 </div>
-

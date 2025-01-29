@@ -130,7 +130,10 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           search_for(postcode: "XM4 5HQ")
 
-          expect(page).to have_text("We couldn't find this postcode")
+          expect(page).to have_text(
+            "We couldn't find this postcode",
+            count: 2,
+          )
         end
       end
     end
@@ -142,7 +145,25 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           visit electoral_services_path(uprn: "1234")
 
-          expect(page).to have_text("We couldn't find this address")
+          expect(page).to have_text(
+            "We couldn't find this address",
+            count: 2,
+          )
+        end
+      end
+    end
+
+    context "when the API returns 500" do
+      before { stub_api_postcode_lookup("LS11UR", status: 500) }
+
+      it "displays election service not available message" do
+        with_electoral_api_url do
+          search_for(postcode: "LS1 1UR")
+
+          expect(page).to have_text(
+            "This service is currently experiencing technical difficulties. Try again later.",
+            count: 1,
+          )
         end
       end
     end

@@ -451,6 +451,7 @@ en:
       county_district_council: Services in your area are provided by two local authorities
       different_local_authorities: Different local authorities are responsible for different services.
       district_council_services: District councils are responsible for services like
+      electoral_service_not_available: This service is currently experiencing technical difficulties. Try again later.
       enter_postcode: Enter a postcode
       error_summary_title: There is a problem
       find_council: Find your local council

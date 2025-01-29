@@ -7,6 +7,7 @@ class LocationError
     "invalidUprnFormat" => "formats.local_transaction.invalid_uprn",
     "validPostcodeNoElectionsMatch" => "formats.local_transaction.valid_postcode_no_match",
     "validUprnNoElectionsMatch" => "formats.local_transaction.valid_uprn_no_match",
+    "electoralServiceNotAvailable" => "formats.local_transaction.electoral_service_not_available",
   }.freeze
 
   SUB_MESSAGES = {
@@ -16,6 +17,16 @@ class LocationError
     "validPostcodeNoElectionsMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
     "validUprnNoElectionsMatch" => "formats.local_transaction.valid_uprn_no_match_sub_html",
   }.freeze
+
+  DATA_RELATED = %w[
+    noLaMatch
+    fullPostcodeNoLocationsApiMatch
+    validPostcodeNoLocation
+    invalidPostcodeFormat
+    invalidUprnFormat
+    validPostcodeNoElectionsMatch
+    validUprnNoElectionsMatch
+  ].freeze
 
   attr_reader :postcode_error, :message, :sub_message, :message_args
 
@@ -30,5 +41,9 @@ class LocationError
       @message = "formats.local_transaction.invalid_postcode"
       @sub_message = "formats.local_transaction.invalid_postcode_sub"
     end
+  end
+
+  def data_related?
+    DATA_RELATED.include?(@postcode_error)
   end
 end

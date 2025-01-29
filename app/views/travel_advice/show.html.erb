@@ -16,7 +16,6 @@
     content_item: @content_item.to_h %>
 <% end %>
 
-<main role="main" id="content" class="travel-advice govuk-main-wrapper" <%= lang_attribute(@content_item.locale) %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds travel-advice__header">
       <%= render "govuk_publishing_components/components/heading", {
@@ -86,6 +85,5 @@
     </div>
     <%= render "shared/sidebar_navigation" %>
   </div>
-</main>
 
 <%= render "shared/footer_navigation" %>

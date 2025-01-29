@@ -7,91 +7,89 @@
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
-<main id="content" role="main" class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: @presenter.title,
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
-      } %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: @presenter.title,
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
 
-      <%= render "govuk_publishing_components/components/lead_paragraph", {
-        text: @presenter.description,
-      } %>
+    <%= render "govuk_publishing_components/components/lead_paragraph", {
+      text: @presenter.description,
+    } %>
+  </div>
+</div>
+
+<div class="travel-container js-travel-container">
+  <section class="govuk-grid-row">
+    <div id="country-filter" class="govuk-grid-column-one-half">
+      <form class="country-filter-form">
+        <fieldset class="country-filter-form__form-group">
+          <%= render "govuk_publishing_components/components/input", {
+            label: {
+              text: "Search for a country or territory - you can sign up for email updates on its page",
+            },
+            id: "country",
+            name: "country",
+            type: "text",
+            search_icon: true,
+            width: 20,
+            data: {
+              module: "ga4-focus-loss-tracker",
+              ga4_focus_loss: {
+                event_name: "filter",
+                type: "filter",
+                action: "filter",
+                section: @presenter.title,
+              },
+            },
+          } %>
+        </fieldset>
+      </form>
     </div>
-  </div>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible app-full-width-break">
+  </section>
 
-  <div class="travel-container js-travel-container">
-    <section class="govuk-grid-row">
-      <div id="country-filter" class="govuk-grid-column-one-half">
-        <form class="country-filter-form">
-          <fieldset class="country-filter-form__form-group">
-            <%= render "govuk_publishing_components/components/input", {
-              label: {
-                text: "Search for a country or territory - you can sign up for email updates on its page",
-              },
-              id: "country",
-              name: "country",
-              type: "text",
-              search_icon: true,
-              width: 20,
-              data: {
-                module: "ga4-focus-loss-tracker",
-                ga4_focus_loss: {
-                  event_name: "filter",
-                  type: "filter",
-                  action: "filter",
-                  section: @presenter.title,
-                },
-              },
-            } %>
-          </fieldset>
-        </form>
-      </div>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible app-full-width-break">
-    </section>
+  <section class="govuk-grid-row countries-wrapper js-countries-wrapper">
+    <div class="countries govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m countries__heading">Countries or territories</h2>
+      <p class="country-count js-country-count">
+        <span class="filter-count js-filter-count"><%= @presenter.countries.length %></span>
+        <span class="govuk-visually-hidden">Countries or territories</span>
+      </p>
+    </div>
 
-    <section class="govuk-grid-row countries-wrapper js-countries-wrapper">
-      <div class="countries govuk-grid-column-one-third">
-        <h2 class="govuk-heading-m countries__heading">Countries or territories</h2>
-        <p class="country-count js-country-count">
-          <span class="filter-count js-filter-count"><%= @presenter.countries.length %></span>
-          <span class="govuk-visually-hidden">Countries or territories</span>
-        </p>
-      </div>
-
-      <div class="govuk-grid-column-two-thirds">
-        <% @presenter.countries_grouped_by_initial_letter.each do |initial,countries| %>
-          <div id="<%= initial %>" class="list">
-            <h3 class="countries-initial-letter"><span class="govuk-visually-hidden">Countries starting with </span><%= initial %></h3>
-            <ul class="govuk-list govuk-clearfix countries-list js-countries-list">
-              <% countries.each do |country| %>
-                <li class="countries-list__item" data-synonyms="<%= country.synonyms ? country.synonyms.join("|") : "" %>">
-                  <%= link_to country.name, "/foreign-travel-advice/#{country.identifier}", class: "govuk-link countries-list__link" %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <div
-          class="subscriptions-wrapper"
-          data-module="ga4-link-tracker"
-          data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Footer" }'
-          data-ga4-track-links-only>
-          <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Get updates for all countries</h2>
-            <%= render "govuk_publishing_components/components/subscription_links", {
-              email_signup_link_text: "email",
-              email_signup_link: @presenter.subscription_url,
-              hide_heading: true,
-              margin_bottom: 0,
-            } %>
+    <div class="govuk-grid-column-two-thirds">
+      <% @presenter.countries_grouped_by_initial_letter.each do |initial,countries| %>
+        <div id="<%= initial %>" class="list">
+          <h3 class="countries-initial-letter"><span class="govuk-visually-hidden">Countries starting with </span><%= initial %></h3>
+          <ul class="govuk-list govuk-clearfix countries-list js-countries-list">
+            <% countries.each do |country| %>
+              <li class="countries-list__item" data-synonyms="<%= country.synonyms ? country.synonyms.join("|") : "" %>">
+                <%= link_to country.name, "/foreign-travel-advice/#{country.identifier}", class: "govuk-link countries-list__link" %>
+              </li>
+            <% end %>
+          </ul>
         </div>
+      <% end %>
+      <div
+        class="subscriptions-wrapper"
+        data-module="ga4-link-tracker"
+        data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Footer" }'
+        data-ga4-track-links-only>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Get updates for all countries</h2>
+          <%= render "govuk_publishing_components/components/subscription_links", {
+            email_signup_link_text: "email",
+            email_signup_link: @presenter.subscription_url,
+            hide_heading: true,
+            margin_bottom: 0,
+          } %>
       </div>
-    </section>
-  </div>
-</main>
+    </div>
+  </section>
+</div>
 
 <% content_for :title, page_title(@presenter) %>
 

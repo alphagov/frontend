@@ -1,36 +1,31 @@
 <% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
 
-<main id="content" role="main" class="<%= main_class if local_assigns.include?(:main_class) %> govuk-main-wrapper" <%= @lang_attribute %>>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: title,
-        font_size: "xl",
-        margin_bottom: 8,
-        heading_level: 1,
-        context: local_assigns[:context],
-      } %>
-    </div>
-    <div class="article-container group govuk-grid-column-two-thirds">
-      <div class="content-block">
-        <div class="inner">
-          <%= yield %>
-        </div>
-      </div>
-      <%= render "shared/publication_metadata" %>
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-      <%= render "govuk_publishing_components/components/contextual_sidebar",
-        content_item: content_item.to_h %>
-    </div>
-
-    <% content_for :after_content do %>
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/contextual_footer",
-        content_item: content_item.to_h %>
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: title,
+      font_size: "xl",
+      margin_bottom: 8,
+      heading_level: 1,
+      context: local_assigns[:context],
+    } %>
   </div>
-</main>
+  <div class="article-container group govuk-grid-column-two-thirds">
+    <div class="content-block">
+      <div class="inner">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render "shared/publication_metadata" %>
+  </div>
 
-<% end %>
+  <div class="govuk-grid-column-one-third">
+    <%= render "govuk_publishing_components/components/contextual_sidebar",
+      content_item: content_item.to_h %>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/contextual_footer",
+      content_item: content_item.to_h %>
+  </div>
+</div>

@@ -4,72 +4,70 @@
 
 <% content_for :title, "#{@attachment_metadata["title"]} - GOV.UK" %>
 
-<main id="content" role="main" class="govuk-main-wrapper">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <% @content_item.dig("links", "organisations").each do |organisation| %>
-        <div class="govuk-!-margin-bottom-6">
-          <%= render "govuk_publishing_components/components/organisation_logo", {
-            organisation: {
-              name: sanitize(organisation.dig("details", "logo", "formatted_title")),
-              url: Plek.website_root + organisation["base_path"],
-              brand: organisation.dig("details", "brand"),
-              crest: organisation.dig("details", "logo", "crest"),
-            },
-          } %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <p class="govuk-body">
-        <%= link_to("See more information about this guidance", @asset["parent_document_url"], class: "govuk-link") %>
-      </p>
-    </div>
-  </div>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <%= render "govuk_publishing_components/components/inverse_header", {} do %>
-        <%= render "govuk_publishing_components/components/heading", {
-          context: I18n.t("csv_preview.document_type.#{@content_item['document_type']}", count: 1),
-          text: @attachment_metadata["title"],
-          font_size: "xl",
-          inverse: true,
-          margin_bottom: 8,
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <% @content_item.dig("links", "organisations").each do |organisation| %>
+      <div class="govuk-!-margin-bottom-6">
+        <%= render "govuk_publishing_components/components/organisation_logo", {
+          organisation: {
+            name: sanitize(organisation.dig("details", "logo", "formatted_title")),
+            url: Plek.website_root + organisation["base_path"],
+            brand: organisation.dig("details", "brand"),
+            crest: organisation.dig("details", "logo", "crest"),
+          },
         } %>
-        <p class="govuk-body csv-preview__updated">
-          Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %>
-          <br>
-          <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata["url"], class: "csv-preview__download-link") %>
-        </p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <% if @truncated %>
-    <%= render "govuk_publishing_components/components/notice", {
-      title: "Download the file to see all the information",
-    } do %>
-      <p class="govuk-body">
-        This preview shows the first 1,000 rows and 50 columns.
-        <%= link_to("Download CSV #{number_to_human_size(@attachment_metadata['file_size'])}", @attachment_metadata["url"], class: "govuk-link") %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body">
+      <%= link_to("See more information about this guidance", @asset["parent_document_url"], class: "govuk-link") %>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <%= render "govuk_publishing_components/components/inverse_header", {} do %>
+      <%= render "govuk_publishing_components/components/heading", {
+        context: I18n.t("csv_preview.document_type.#{@content_item['document_type']}", count: 1),
+        text: @attachment_metadata["title"],
+        font_size: "xl",
+        inverse: true,
+        margin_bottom: 8,
+      } %>
+      <p class="govuk-body csv-preview__updated">
+        Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %>
+        <br>
+        <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata["url"], class: "csv-preview__download-link") %>
       </p>
     <% end %>
-  <% end %>
+  </div>
+</div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <div class="csv-preview__outer">
-        <div class="csv-preview__inner">
-          <%= render "govuk_publishing_components/components/table", {
-                head: @csv_rows.first,
-                rows: @csv_rows.drop(1),
-              } %>
-        </div>
+<% if @truncated %>
+  <%= render "govuk_publishing_components/components/notice", {
+    title: "Download the file to see all the information",
+  } do %>
+    <p class="govuk-body">
+      This preview shows the first 1,000 rows and 50 columns.
+      <%= link_to("Download CSV #{number_to_human_size(@attachment_metadata['file_size'])}", @attachment_metadata["url"], class: "govuk-link") %>
+    </p>
+  <% end %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="csv-preview__outer">
+      <div class="csv-preview__inner">
+        <%= render "govuk_publishing_components/components/table", {
+              head: @csv_rows.first,
+              rows: @csv_rows.drop(1),
+            } %>
       </div>
     </div>
   </div>
-</main>
+</div>

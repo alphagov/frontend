@@ -52,7 +52,7 @@ RSpec.describe "LandingPage" do
     it "renders a hero" do
       visit base_path
 
-      expect(page).to have_selector(".landing-page .govuk-block__hero")
+      expect(page).to have_selector(".govuk-block__hero")
       expect(page).to have_selector(".govuk-block__hero picture")
       expect(page).to have_selector(".govuk-block__hero .hero__textbox")
     end
@@ -60,7 +60,7 @@ RSpec.describe "LandingPage" do
     it "renders a card" do
       visit base_path
 
-      expect(page).to have_selector(".landing-page .card")
+      expect(page).to have_selector(".card")
       expect(page).to have_selector(".card .card__textbox")
       expect(page).to have_selector(".card .card__figure")
       expect(page).to have_selector(".card__figure .card__image")
@@ -69,13 +69,13 @@ RSpec.describe "LandingPage" do
     it "renders a column layout" do
       visit base_path
 
-      expect(page).to have_selector(".landing-page .columns-layout")
+      expect(page).to have_selector(".columns-layout")
     end
 
     it "renders a blocks container" do
       visit base_path
 
-      expect(page).to have_selector(".landing-page .blocks-container")
+      expect(page).to have_selector(".blocks-container")
     end
 
     it "renders main navigation" do

@@ -6,7 +6,6 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<main role="main" id="content" class="case-study govuk-main-wrapper" <%= lang_attribute(content_item.locale) %>>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/heading", {
@@ -70,6 +69,5 @@
 
     <%= render "shared/sidebar_navigation" %>
   </div>
-</main>
 
 <%= render "shared/footer_navigation" %>

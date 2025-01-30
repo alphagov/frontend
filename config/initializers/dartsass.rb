@@ -30,7 +30,6 @@ APP_STYLESHEETS = {
   "views/_landing_page/quote.scss" => "views/_landing_page/quote.css",
   "views/_landing_page/side-navigation.scss" => "views/_landing_page/side-navigation.css",
   "views/_landing_page/themes/prime-ministers-office-10-downing-street.scss" => "views/_landing_page/themes/prime-ministers-office-10-downing-street.css",
-  "helpers/_publisher-metadata-with-logo.scss" => "helpers/_publisher-metadata-with-logo.css",
 }.freeze
 
 all_stylesheets = APP_STYLESHEETS.merge(GovukPublishingComponents::Config.all_stylesheets)

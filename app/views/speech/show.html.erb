@@ -9,11 +9,14 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/title", {
-          title: content_item.title,
+      <%= render "govuk_publishing_components/components/heading", {
+          text: content_item.title,
           context: I18n.t("formats.#{content_item.document_type}", count: 1),
           context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
           average_title_length: "long",
+          heading_level: 1,
+          font_size: "l",
+          margin_bottom: 8,
         } %>
     </div>
     <%= render "shared/translations" %>
@@ -44,14 +47,14 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="content-bottom-margin">
       <div class="responsive-bottom-margin">
-        <% if @presenter.important_metadata.any? %>
           <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
+          <% delivered_on = tag.time(display_date(content_item.delivered_on_date), datetime: content_item.delivered_on_date) %>
+          <% speech_type_explanation = content_item.speech_type_explanation %>
            <%= render "govuk_publishing_components/components/metadata", {
               inverse: true,
-              other: @presenter.important_metadata,
+              other: { I18n.t("formats.speech.location") => content_item.location , @presenter.delivery_type => "#{delivered_on}#{speech_type_explanation}" },
               margin_bottom: 0,
             } %>
-          <% end %>
         <% end %>
 
         <%= render "components/figure",

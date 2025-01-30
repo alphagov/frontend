@@ -33,4 +33,14 @@ RSpec.shared_examples "it has no updates" do |document_type, example_name|
       expect(described_class.new(content_store_response).history).to eq([])
     end
   end
+
+  context "when public_updated_at value is empty" do
+    before do
+      content_store_response["public_updated_at"] = nil
+    end
+
+    it "returns nil for updated" do
+      expect(described_class.new(content_store_response).updated).to be_nil
+    end
+  end
 end

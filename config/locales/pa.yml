@@ -393,6 +393,9 @@ pa:
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ
+    detailed_guide:
+      one: ਸੇਧ
+      other: ਸੇਧ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

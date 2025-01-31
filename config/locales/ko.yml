@@ -319,6 +319,8 @@ ko:
   formats:
     case_study:
       other: 사례 연구
+    detailed_guide:
+      other: 지침
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

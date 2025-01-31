@@ -393,6 +393,9 @@ he:
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן
+    detailed_guide:
+      one: הדרכה
+      other: הדרכה
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

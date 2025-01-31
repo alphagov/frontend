@@ -467,6 +467,10 @@ hr:
       few:
       one: Studija slučaja
       other: Studije slučaja
+    detailed_guide:
+      few:
+      one: Upute
+      other: Upute
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

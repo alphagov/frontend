@@ -393,6 +393,9 @@ so:
     case_study:
       one: Daraasad
       other: Daraasado
+    detailed_guide:
+      one: Tilmaam
+      other: Tilmaam
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

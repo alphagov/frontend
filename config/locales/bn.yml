@@ -393,6 +393,9 @@ bn:
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ
+    detailed_guide:
+      one: পরিচালনা
+      other: পরিচালনা
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

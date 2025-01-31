@@ -393,6 +393,9 @@ et:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
+    detailed_guide:
+      one: Juhised
+      other: Juhised
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

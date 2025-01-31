@@ -393,6 +393,9 @@ lv:
     case_study:
       one: Piemērs
       other: Piemēri
+    detailed_guide:
+      one: Detalizētas norādes
+      other: Detalizētas norādes
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

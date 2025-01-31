@@ -689,6 +689,13 @@ ar:
       other: دراسات الحالة
       two:
       zero:
+    detailed_guide:
+      few:
+      many:
+      one:
+      other: توجيه
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

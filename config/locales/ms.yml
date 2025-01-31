@@ -319,6 +319,8 @@ ms:
   formats:
     case_study:
       other: Kajian kes
+    detailed_guide:
+      other: Panduan
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

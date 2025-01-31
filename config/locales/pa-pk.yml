@@ -393,6 +393,9 @@ pa-pk:
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی
+    detailed_guide:
+      one: 'رہنمائی '
+      other: 'رہنمائی '
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

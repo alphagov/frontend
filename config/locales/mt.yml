@@ -541,6 +541,11 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+    detailed_guide:
+      few:
+      many:
+      one: Gwida
+      other: Gwida
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

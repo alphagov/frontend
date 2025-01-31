@@ -393,6 +393,9 @@ si:
     case_study:
       one: සිද්ධි අධ්යයනය
       other: සිද්ධි අධ්යයන
+    detailed_guide:
+      one: මාර්ගෝපදේශය
+      other: මාර්ගෝපදේශය
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

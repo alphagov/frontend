@@ -541,6 +541,11 @@ sl:
       one: Študija primera
       other: Študije primera
       two:
+    detailed_guide:
+      few:
+      one: Smernice
+      other: Smernice
+      two:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

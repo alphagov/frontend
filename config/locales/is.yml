@@ -393,6 +393,9 @@ is:
     case_study:
       one: Ferilsathugun
       other: Ferilsathuganir
+    detailed_guide:
+      one: Leiðsögn
+      other: Leiðsögn
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -393,6 +393,9 @@ da:
     case_study:
       one: Casestudie
       other: Casestudie
+    detailed_guide:
+      one: Vejledning
+      other: Vejledning
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

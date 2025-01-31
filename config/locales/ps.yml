@@ -393,6 +393,9 @@ ps:
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات
+    detailed_guide:
+      one: لارښود
+      other: لارښود
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

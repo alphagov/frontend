@@ -541,6 +541,11 @@ be:
       many:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
+    detailed_guide:
+      few:
+      many:
+      one: Кіраўніцтва
+      other: Кіраўніцтва
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

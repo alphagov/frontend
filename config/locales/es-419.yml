@@ -393,6 +393,9 @@ es-419:
     case_study:
       one: Estudio de caso
       other: Estudios de caso
+    detailed_guide:
+      one: Orientación
+      other: Orientación
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

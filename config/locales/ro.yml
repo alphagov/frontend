@@ -467,6 +467,10 @@ ro:
       few:
       one: Studiu de caz
       other: Studii de caz
+    detailed_guide:
+      few:
+      one: Orientări
+      other: Orientări
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

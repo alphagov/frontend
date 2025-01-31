@@ -393,6 +393,9 @@ hi:
     case_study:
       one: विषय अध्ययन
       other: विषय अध्ययन
+    detailed_guide:
+      one: मार्गदर्शन
+      other: मार्गदर्शन
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

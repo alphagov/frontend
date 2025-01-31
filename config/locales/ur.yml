@@ -393,6 +393,9 @@ ur:
     case_study:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز
+    detailed_guide:
+      one: رہنمائی
+      other: رہنمائی
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

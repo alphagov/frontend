@@ -393,6 +393,9 @@ kk:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
+    detailed_guide:
+      one: Нұсқаулық
+      other: Нұсқаулық
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -393,6 +393,9 @@ tr:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+    detailed_guide:
+      one: Rehberlik
+      other: Rehberlik
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

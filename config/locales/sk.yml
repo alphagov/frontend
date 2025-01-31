@@ -467,6 +467,10 @@ sk:
       few:
       one: Prípadová štúdia
       other: Prípadové štúdie
+    detailed_guide:
+      few:
+      one: Poradenstvo
+      other: Poradenstvo
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -393,6 +393,9 @@ uz:
     case_study:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари
+    detailed_guide:
+      one: Қўлланма
+      other: Қўлланма
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

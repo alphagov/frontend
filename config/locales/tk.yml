@@ -393,6 +393,9 @@ tk:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
+    detailed_guide:
+      one: Gözkezme
+      other: Gözkezme
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

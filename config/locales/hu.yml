@@ -393,6 +393,9 @@ hu:
     case_study:
       one: Esettanulmány
       other: Esettanulmányok
+    detailed_guide:
+      one: Útmutató
+      other: Útmutató
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

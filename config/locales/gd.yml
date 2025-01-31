@@ -541,6 +541,11 @@ gd:
       one: Cás-staidéir
       other: Tuarascálacha staidéir
       two:
+    detailed_guide:
+      few:
+      one: Treoshuíomh
+      other: Treoshuíomh
+      two:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

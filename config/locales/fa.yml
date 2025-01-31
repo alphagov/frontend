@@ -393,6 +393,9 @@ fa:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
+    detailed_guide:
+      one: راهنمایی
+      other: راهنمایی
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

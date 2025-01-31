@@ -319,6 +319,8 @@ zh-hk:
   formats:
     case_study:
       other: 案例研究
+    detailed_guide:
+      other: 詳細指引
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

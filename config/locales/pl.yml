@@ -541,6 +541,11 @@ pl:
       many:
       one: Studium przypadku
       other: Studia przypadku
+    detailed_guide:
+      few:
+      many:
+      one: Szczegółowe wskazówki
+      other: Szczegółowe wskazówki
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

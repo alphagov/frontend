@@ -393,6 +393,9 @@ fi:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
+    detailed_guide:
+      one: Ohjaus
+      other: Ohjaus
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -541,6 +541,11 @@ ru:
       many:
       one: Причинный анализ
       other: Причинные анализы
+    detailed_guide:
+      few:
+      many:
+      one: Подробное руководство
+      other: Руководство
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

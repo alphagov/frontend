@@ -393,6 +393,9 @@ sw:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
+    detailed_guide:
+      one: Mwongozo
+      other: Mwongozo
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

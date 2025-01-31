@@ -393,6 +393,9 @@ de:
     case_study:
       one: Fallstudie
       other: Fallstudien
+    detailed_guide:
+      one: Detaillierte Hinweise
+      other: Detaillierte Hinweise
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

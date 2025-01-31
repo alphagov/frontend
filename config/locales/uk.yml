@@ -541,6 +541,11 @@ uk:
       many:
       one: Аналіз ситуації
       other: Аналізи ситуації
+    detailed_guide:
+      few:
+      many:
+      one: Керівництво
+      other: Керівництво
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

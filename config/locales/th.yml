@@ -319,6 +319,8 @@ th:
   formats:
     case_study:
       other: กรณีศึกษา
+    detailed_guide:
+      other: คำแนะนำ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

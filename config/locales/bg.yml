@@ -393,6 +393,9 @@ bg:
     case_study:
       one: Казус
       other: Казуси
+    detailed_guide:
+      one: Насока
+      other: Насока
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

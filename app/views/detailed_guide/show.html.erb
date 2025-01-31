@@ -7,11 +7,19 @@
   <meta name="description" content="<%= strip_tags(@content_item.description) %>">
 <% end %>
 
-<%= render "shared/email_subscribe_unsubscribe_flash", { title: @content_item.title_and_context[:title] } %>
+<%= render "shared/email_subscribe_unsubscribe_flash", { title: @content_item.title } %>
 
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/title", @content_item.title_and_context %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      context: I18n.t("formats.#{content_item.document_type}", count: 1),
+      context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+      average_title_length: "long",
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+    } %>
   </div>
   <%= render "shared/translations" %>
   <div class="govuk-grid-column-two-thirds">

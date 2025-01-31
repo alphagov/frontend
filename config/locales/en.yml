@@ -380,6 +380,8 @@ en:
       matched_postcode_html: We’ve matched the postcode <strong>%{postcode}</strong> to <strong>%{electoral_service_name}</strong>.
       search_postcode_html: <a href="/contact-electoral-registration-office" class="govuk-link">Search for a different postcode</a>
       title: Your local council
+  email:
+    description: See and manage all your GOV.UK email subscriptions
   error: Error
   find: Find
   formats:

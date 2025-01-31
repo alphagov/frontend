@@ -25,10 +25,11 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.facet_values.each do |facet_value|
       metadata[facet_value[:name]] = if facet_value[:type] == "date"
                                        view_context.display_date(facet_value[:value])
-                                     elsif facet_value[:type] == "text" && facet_value[:value].is_a?(String) && facet_value[:filterable] == true
-                                       view_context.govuk_styled_link(facet_value[:label], facet_value[:value], inverse: true)
-                                     elsif facet_value[:type] == "text" && facet_value[:value].is_a?(Array)
-                                       facet_value[:value].pluck(:label).join(", ")
+                                     elsif facet_value[:type] == "text" && facet_value[:value].is_a?(Array) && facet_value[:filterable] == true
+                                       facet_value[:value].map do |fv|
+                                         path = filtered_finder_path(facet_value[:key], fv[:value])
+                                         view_context.govuk_styled_link(fv[:label], path:, inverse: true)
+                                       end
                                      else
                                        facet_value[:value]
                                      end
@@ -59,5 +60,9 @@ private
 
   def statutory_instrument?
     content_item.document_type == "statutory_instrument"
+  end
+
+  def filtered_finder_path(key, value)
+    "#{content_item.finder_base_path}?#{key}%5B%5D=#{value}"
   end
 end

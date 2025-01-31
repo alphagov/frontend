@@ -80,23 +80,39 @@ RSpec.describe SpecialistDocumentPresenter do
   describe "#facet_metadata" do
     subject(:presenter) { described_class.new(content_item, view_context) }
 
-    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
     let(:content_item) { SpecialistDocument.new(content_store_response) }
     let(:view_context) { ApplicationController.new.view_context }
 
-    # it "returns the formated facet metadata" do
-    #   expected_facet_metadata = {
-    #     "Alert type" => "Medical device alert",
-    #     "Medical specialty" => "Critical care, General practice, Obstetrics and gynaecology, Paediatrics, Theatre practitioners",
-    #     "Issued" => "2015-07-06",
-    #   }
+    context "when the metadata contains text" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
-    #   expect(specialist_document.facet_metadata).to eq(expected_facet_metadata)
-    # end
+      it "returns the value of the metadata" do
+        expected_metadata = {
+          "Aircraft type" => "Rotorsport UK Calidus",
+        }
 
-    it "returns facet metadata with formatted dates" do
-      expected_metadata = { "Issued" => "6 July 2015" }
-      expect(presenter.facet_metadata).to include(expected_metadata)
+        expect(presenter.facet_metadata).to include(expected_metadata)
+      end
+    end
+
+    context "when the metdata contains dates" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "returns facet metadata with formatted dates" do
+        expected_metadata = { "Issued" => "6 July 2015" }
+        expect(presenter.facet_metadata).to include(expected_metadata)
+      end
+    end
+
+    context "when the metadata contains and array of values" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "formats the links for all values" do
+        expected_metadata = {
+          "Medical specialty" => "Critical care, General practice, Obstetrics and gynaecology, Paediatrics, Theatre practitioners",
+        }
+        expect(presenter.facet_metadata).to include(expected_metadata)
+      end
     end
   end
 end

@@ -1,5 +1,6 @@
 class SpecialistDocumentPresenter < ContentItemPresenter
   include DateHelper
+  include LinkHelper
 
   def initialize(content_item, view_context = nil)
     super(content_item)
@@ -25,7 +26,7 @@ class SpecialistDocumentPresenter < ContentItemPresenter
       metadata[facet_value[:name]] = if facet_value[:type] == "date"
                                        view_context.display_date(facet_value[:value])
                                      elsif facet_value[:type] == "text" && facet_value[:value].is_a?(String) && facet_value[:filterable] == true
-                                       facet_value[:value]
+                                       view_context.govuk_styled_link(facet_value[:label], facet_value[:value], inverse: true)
                                      elsif facet_value[:type] == "text" && facet_value[:value].is_a?(Array)
                                        facet_value[:value].pluck(:label).join(", ")
                                      else

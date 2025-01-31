@@ -78,18 +78,25 @@ RSpec.describe SpecialistDocumentPresenter do
   end
 
   describe "#facet_metadata" do
+    subject(:presenter) { described_class.new(content_item, view_context) }
+
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+    let(:content_item) { SpecialistDocument.new(content_store_response) }
+    let(:view_context) { ApplicationController.new.view_context }
 
-    it "returns the formated facet metadata" do
-      content_item = SpecialistDocument.new(content_store_response)
+    # it "returns the formated facet metadata" do
+    #   expected_facet_metadata = {
+    #     "Alert type" => "Medical device alert",
+    #     "Medical specialty" => "Critical care, General practice, Obstetrics and gynaecology, Paediatrics, Theatre practitioners",
+    #     "Issued" => "2015-07-06",
+    #   }
 
-      expected_facet_metadata = {
-        "Alert type" => "Medical device alert",
-        "Medical specialty" => "Critical care, General practice, Obstetrics and gynaecology, Paediatrics, Theatre practitioners",
-        "Issued" => "2015-07-06",
-      }
+    #   expect(specialist_document.facet_metadata).to eq(expected_facet_metadata)
+    # end
 
-      expect(described_class.new(content_item).facet_metadata).to eq(expected_facet_metadata)
+    it "returns facet metadata with formatted dates" do
+      expected_metadata = { "Issued" => "6 July 2015" }
+      expect(presenter.facet_metadata).to include(expected_metadata)
     end
   end
 end

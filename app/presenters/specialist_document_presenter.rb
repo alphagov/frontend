@@ -1,4 +1,12 @@
 class SpecialistDocumentPresenter < ContentItemPresenter
+  include DateHelper
+
+  def initialize(content_item, view_context = nil)
+    super(content_item)
+
+    @view_context = view_context
+  end
+
   def show_contents_list?
     content_item.headers.present? && level_two_headings?
   end
@@ -15,7 +23,7 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     metadata = {}
     content_item.facet_values.each do |facet_value|
       metadata[facet_value[:name]] = if facet_value[:type] == "date"
-                                       facet_value[:value]
+                                       view_context.display_date(facet_value[:value])
                                      elsif facet_value[:type] == "text" && facet_value[:value].is_a?(String) && facet_value[:filterable] == true
                                        facet_value[:value]
                                      elsif facet_value[:type] == "text" && facet_value[:value].is_a?(Array)
@@ -37,6 +45,8 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
 private
+
+  attr_reader :view_context
 
   def level_two_headings?
     content_item.headers.any? { |header| header[:level] == 2 }

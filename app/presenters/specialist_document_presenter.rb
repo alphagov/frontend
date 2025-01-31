@@ -1,4 +1,13 @@
 class SpecialistDocumentPresenter < ContentItemPresenter
+  include DateHelper
+  include LinkHelper
+
+  def initialize(content_item, view_context = nil)
+    super(content_item)
+
+    @view_context = view_context
+  end
+
   def show_contents_list?
     content_item.headers.present? && level_two_headings?
   end
@@ -11,6 +20,18 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.finder.present? && statutory_instrument?
   end
 
+  def important_metadata
+    metadata = {}
+    content_item.facet_values.each do |facet_value|
+      metadata[facet_value[:name]] = format_facet_value(facet_value[:type],
+                                                        facet_value[:value],
+                                                        facet_value[:key],
+                                                        facet_value[:filterable])
+    end
+
+    metadata
+  end
+
   def protection_image_path
     "specialist-documents/protected-food-drink-names/#{content_item.protection_type_image['file_name']}"
   end
@@ -20,6 +41,8 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
 private
+
+  attr_reader :view_context
 
   def level_two_headings?
     content_item.headers.any? { |header| header[:level] == 2 }
@@ -31,5 +54,24 @@ private
 
   def statutory_instrument?
     content_item.document_type == "statutory_instrument"
+  end
+
+  def format_facet_value(type, value, key, filterable)
+    if type == "date"
+      view_context.display_date(value)
+    elsif type == "text" && value.is_a?(Array) && filterable == true
+      value.map { |v| format_filterable_links(key, v[:value], v[:label]) }
+    else
+      value
+    end
+  end
+
+  def format_filterable_links(key, value, label)
+    path = filtered_finder_path(key, value)
+    view_context.govuk_styled_link(label, path:, inverse: true)
+  end
+
+  def filtered_finder_path(key, value)
+    "#{content_item.finder_base_path}?#{key}%5B%5D=#{value}"
   end
 end

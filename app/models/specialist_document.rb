@@ -17,9 +17,7 @@ class SpecialistDocument < ContentItem
   end
 
   def facet_values
-    selected_facets = facets.select { |facet| metadata[facet["key"]] && metadata[facet["key"]].present? }
-
-    selected_facets.map do |selected_facet|
+    @facet_values ||= selected_facets.map do |selected_facet|
       f = {
         key: selected_facet["key"],
         name: selected_facet["name"],
@@ -66,6 +64,10 @@ private
 
       h
     end
+  end
+
+  def selected_facets
+    @selected_facets = facets.select { |facet| metadata[facet["key"]] && metadata[facet["key"]].present? }
   end
 
   def all_protection_type_images

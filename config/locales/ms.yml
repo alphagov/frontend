@@ -411,6 +411,8 @@ ms:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: Kenyataan lisan kepada Parlimen
     place:
       change:
       find_results:
@@ -422,6 +424,11 @@ ms:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Dihantar pada
+      location: Lokasi
+      other: Ucapan
+      written_on: Ditulis pada
     start_now:
     take_part:
       other: Ambil bahagian
@@ -443,6 +450,8 @@ ms:
       still_current_at: Masih semasa di
       summary: Ringkasan
       updated: Dikemas kini
+    written_statement:
+      other: Kenyataan bertulis kepada Parlimen
   help:
     index:
       about:
@@ -628,6 +637,8 @@ ms:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ini telah diterbitkan di bawah %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

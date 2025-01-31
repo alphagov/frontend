@@ -485,6 +485,9 @@ tk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mejlise dilden beýan
+      other: Mejlise dilden beýanlar
     place:
       change:
       find_results:
@@ -496,6 +499,12 @@ tk:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 'Gowşuryldy:'
+      location: Ýerleşýän ýeri
+      one: Çykyş
+      other: Çykyşlar
+      written_on: 'Ýazylan:'
     start_now:
     take_part:
       one: Gatnaşmak
@@ -518,6 +527,9 @@ tk:
       still_current_at: Häzir hem bar
       summary: Gysgaça
       updated: Täzelenen
+    written_statement:
+      one: Mejlise ýazmaça beýan
+      other: Mejlise ýazmaça beýanlar
   help:
     index:
       about:
@@ -703,6 +715,8 @@ tk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Bu %{government} garamagynda neşir edildi
   sign_up:
   website:
   when_do_the_clocks_change:

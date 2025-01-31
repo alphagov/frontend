@@ -411,6 +411,8 @@ zh-tw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: 對議會的口頭聲明
     place:
       change:
       find_results:
@@ -422,6 +424,11 @@ zh-tw:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: 運送
+      location: 地點
+      other: 演說
+      written_on: 寫在
     start_now:
     take_part:
       other: 參與
@@ -443,6 +450,8 @@ zh-tw:
       still_current_at: 目前仍
       summary: 概括
       updated: 更新
+    written_statement:
+      other: 對議會的書面聲明
   help:
     index:
       about:
@@ -628,6 +637,8 @@ zh-tw:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 此由 %{government} 發佈
   sign_up:
   website:
   when_do_the_clocks_change:

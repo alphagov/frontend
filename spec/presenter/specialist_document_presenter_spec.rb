@@ -76,4 +76,20 @@ RSpec.describe SpecialistDocumentPresenter do
       expect(described_class.new(content_item).protection_image_alt_text).to eq(expected_alt_text)
     end
   end
+
+  describe "#facet_metadata" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+    it "returns the formated facet metadata" do
+      content_item = SpecialistDocument.new(content_store_response)
+
+      expected_facet_metadata = {
+        "Alert type" => "Medical device alert",
+        "Medical specialty" => "Critical care, General practice, Obstetrics and gynaecology, Paediatrics, Theatre practitioners",
+        "Issued" => "2015-07-06",
+      }
+
+      expect(described_class.new(content_item).facet_metadata).to eq(expected_facet_metadata)
+    end
+  end
 end

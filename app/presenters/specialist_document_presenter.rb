@@ -11,6 +11,23 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.finder.present? && statutory_instrument?
   end
 
+  def facet_metadata
+    metadata = {}
+    content_item.facet_values.each do |facet_value|
+      metadata[facet_value[:name]] = if facet_value[:type] == "date"
+                                       facet_value[:value]
+                                     elsif facet_value[:type] == "text" && facet_value[:value].is_a?(String) && facet_value[:filterable] == true
+                                       facet_value[:value]
+                                     elsif facet_value[:type] == "text" && facet_value[:value].is_a?(Array)
+                                       facet_value[:value].pluck(:label).join(", ")
+                                     else
+                                       facet_value[:value]
+                                     end
+    end
+
+    metadata
+  end
+
   def protection_image_path
     "specialist-documents/protected-food-drink-names/#{content_item.protection_type_image['file_name']}"
   end

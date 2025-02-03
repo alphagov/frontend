@@ -11,5 +11,8 @@
   <%= render "govuk_publishing_components/components/document_list", {
     margin_bottom: 0,
     items: block.items,
+    ga4_extra_data: {
+      section: heading,
+    },
   } %>
 <% end %>

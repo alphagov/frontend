@@ -1,5 +1,7 @@
 class DetailedGuide < ContentItem
-  include Updatable
+  include NationalApplicability
   include Organisations
+  include Updatable
   include SinglePageNotificationButton
+  include Political
 end

@@ -8,7 +8,6 @@ class TravelAdviceController < ContentItemsController
 
     respond_to do |format|
       format.html do
-        slimmer_template "gem_layout"
       end
       format.atom do
         set_expiry(5.minutes)

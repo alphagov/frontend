@@ -6,6 +6,7 @@ private
   def content_item
     loader_response = ContentItemLoader.for_request(request).load(content_item_path)
     raise loader_response if loader_response.is_a?(StandardError)
+    raise RecordNotFound if loader_response["base_path"] != content_item_path
 
     @content_item ||= ContentItemFactory.build(loader_response)
   end

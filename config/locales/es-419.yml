@@ -395,6 +395,8 @@ es-419:
     corporate_information_page:
       about_our_services_html: Conozca %{link}.
       corporate_information: Información corporativa
+      one: Página de información
+      other: Páginas de información
       personal_information_charter_html: Nuestro %{link} explica cómo manejamos su información personal.
       publication_scheme_html: Lea los tipos de información que publicamos habitualmente en nuestro %{link}.
       social_media_use_html: Lea nuestra normativa en %{link}.

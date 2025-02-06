@@ -395,6 +395,8 @@ el:
     corporate_information_page:
       about_our_services_html: Μάθετε %{link}.
       corporate_information: Εταιρικές πληροφορίες
+      one: Σελίδα πληροφοριών
+      other: Σελίδες πληροφοριών
       personal_information_charter_html: Το %{link} εξηγεί πώς αντιμετωπίζουμε τα προσωπικά σας στοιχεία.
       publication_scheme_html: Διαβάστε σχετικά με τους τύπους πληροφοριών που δημοσιεύουμε συνήθως στο %{link}.
       social_media_use_html: Διαβάστε την πολιτική μας στο %{link}.

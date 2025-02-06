@@ -320,6 +320,7 @@ th:
     corporate_information_page:
       about_our_services_html: ดูข้อมูลเพิ่มเติมที่ %{link}
       corporate_information: ข้อมูลองค์กร
+      other: หน้าข้อมูล
       personal_information_charter_html: "%{link} ของเราอธิบายว่าเราปฏิบัติต่อข้อมูลส่วนบุคคลของคุณอย่างไร"
       publication_scheme_html: อ่านเกี่ยวกับประเภทข้อมูลที่เราเผยแพร่เป็นประจำใน %{link} ของเรา
       social_media_use_html: อ่านนโยบายของเราที่ %{link}

@@ -395,6 +395,8 @@ ps:
     corporate_information_page:
       about_our_services_html: "%{link} ومومئ."
       corporate_information: د شرکت معلومات
+      one: د معلوماتو پاڼه
+      other: د معلوماتو پاڼې
       personal_information_charter_html: زموږ %{link} تشریح کوي چې موږ ستاسو شخصي معلوماتو سره څنګه چلند کوو.
       publication_scheme_html: د هغه معلوماتو ډولونو په اړه ولولئ چې موږ یې په منظم ډول زموږ په %{link} کې خپروو.
       social_media_use_html: زموږ پالیسي په%{link} ولولئ.

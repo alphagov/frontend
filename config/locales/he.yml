@@ -395,6 +395,8 @@ he:
     corporate_information_page:
       about_our_services_html: גלה %{link}.
       corporate_information: מידע תאגידי
+      one: דף מידע
+      other: דפי מידע
       personal_information_charter_html: ה%{link} מסביר אודות המדיניות שלנו כלפי מידע פרטי
       publication_scheme_html: קרא על סוגי המידע שאנו מפרסמים באופן שגרתי ב- %{link} שלנו
       social_media_use_html: קרא/י אודות המדיניות שלנו %{link}

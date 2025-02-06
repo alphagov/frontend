@@ -320,6 +320,7 @@ id:
     corporate_information_page:
       about_our_services_html: Temukan %{link}.
       corporate_information: Informasi korporat
+      other: Halaman informasi
       personal_information_charter_html: "%{link} menjelaskan cara kami memperlakukan informasi pribadi Anda."
       publication_scheme_html: Bacalah jenis-jenis informasi yang kami terbitkan secara rutin di %{link} kami.
       social_media_use_html: Baca kebijakan kami di %{link}.

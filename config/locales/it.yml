@@ -395,6 +395,8 @@ it:
     corporate_information_page:
       about_our_services_html: Trova %{link}.
       corporate_information: Informazioni aziendali
+      one: Pagina informativa
+      other: Pagine informative
       personal_information_charter_html: Il nostro %{link} spiega come trattiamo i tuoi dati personali.
       publication_scheme_html: Leggi i tipi di informazioni che pubblichiamo abitualmente nel nostro %{link}.
       social_media_use_html: Leggi la nostra informativa su %{link}.

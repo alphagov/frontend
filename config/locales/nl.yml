@@ -395,6 +395,8 @@ nl:
     corporate_information_page:
       about_our_services_html: Ontdek %{link}.
       corporate_information: Bedrijfsinformatie
+      one: Informatie pagina
+      other: Informatie pagina's
       personal_information_charter_html: In onze %{link} leggen wij uit hoe wij met uw persoonlijke informatie omgaan.
       publication_scheme_html: Lees over de soorten informatie die wij routinematig publiceren in onze %{link}.
       social_media_use_html: Lees ons beleid inzake %{link}.

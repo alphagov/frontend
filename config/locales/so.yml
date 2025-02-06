@@ -395,6 +395,8 @@ so:
     corporate_information_page:
       about_our_services_html: Ka raadi %{link}.
       corporate_information: Macluumaadka shirkada
+      one: Boga macluumaadka
+      other: Bogaga macluumaadka
       personal_information_charter_html: Sharaxadahayagu %{link} waxay sheegayaan sida loola dhaqmayo macluumaadkaaga shaqsiyeed.
       publication_scheme_html: Akhri waxyaabaha ku saabsan nooca macluumaadka aan si joogto ugu daabacno %{link}.
       social_media_use_html: Ka akhri siyaasadayahaga %{link}.

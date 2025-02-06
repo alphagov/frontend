@@ -395,6 +395,8 @@ pa-pk:
     corporate_information_page:
       about_our_services_html: اینوں لبھو %{link}.
       corporate_information: کاروبار دی معلومات
+      one: خبراں دا ورقہ
+      other: خبراں دا ورقے
       personal_information_charter_html: ساڈا %{link} ایہ وضاحت کر دا اے کہ اسی ذاتی معلومات نال کی سلوک کرنے آں۔
       publication_scheme_html: ایس تے ایہ پڑھو کہ اسی رضاکارانہ طور تے کیس طراں دی معلومات شائع کرنے آں %{link}.
       social_media_use_html: ایندے تے ساڈی حکمتِ عملی بارے پڑھو %{link}.

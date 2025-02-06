@@ -395,6 +395,8 @@ pa:
     corporate_information_page:
       about_our_services_html: "%{link} ਪਤਾ ਕਰੋ।"
       corporate_information: ਕਾਰਪੋਰੇਟ ਜਾਣਕਾਰੀ
+      one: ਜਾਣਕਾਰੀ ਪੰਨਾ
+      other: ਜਾਣਕਾਰੀ ਪੰਨੇ
       personal_information_charter_html: ਸਾਡਾ %{link} ਦੱਸਦਾ ਹੈ ਕਿ ਅਸੀਂ ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਨਾਲ ਕਿਵੇਂ ਵਿਵਹਾਰ ਕਰਦੇ ਹਾਂ.
       publication_scheme_html: ਉਹਨਾਂ ਜਾਣਕਾਰੀ ਦੀਆਂ ਕਿਸਮਾਂ ਬਾਰੇ ਪੜ੍ਹੋ ਜੋ ਅਸੀਂ ਨਿਯਮਿਤ ਤੌਰ ਤੇ ਸਾਡੇ %{link} ਵਿੱਚ ਪ੍ਰਕਾਸ਼ਤ ਕਰਦੇ ਹਾਂ।
       social_media_use_html: "%{link} 'ਤੇ ਸਾਡੀ ਨੀਤੀ ਪੜ੍ਹੋ।"

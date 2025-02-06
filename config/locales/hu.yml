@@ -395,6 +395,8 @@ hu:
     corporate_information_page:
       about_our_services_html: 'Tudja meg: %{link}.'
       corporate_information: Vállalati adatok
+      one: Információs oldal
+      other: Információs oldalak
       personal_information_charter_html: 'A következő oldalon olvashat róla, hogy hogyan kezeljük a személyes adatokat: %{link}.'
       publication_scheme_html: 'Tekintse meg, hogy milyen jellegű információkat teszünk közzé: %{link}'
       social_media_use_html: 'Bővebb információk az alábbi témával kapcsolatban: %{link}'

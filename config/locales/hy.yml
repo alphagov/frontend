@@ -395,6 +395,8 @@ hy:
     corporate_information_page:
       about_our_services_html: Տեղեկանալ %{link}։
       corporate_information: Կորպորատիվ տեղեկություն
+      one: Տեղեկատվական էջ
+      other: Տեղեկատվական էջեր
       personal_information_charter_html: Մեր %{link}-ում ներկայացված է, թե ինչպես ենք մշակում ձեր անձնական տվյալները
       publication_scheme_html: Կարդալ մեր %{link}-ում պարբերաբար հրապարակվող տեղեկությունների տեսակների մասին։
       social_media_use_html: 'Կարդալ մեր քաղաքականությունը %{link} հղումով:'

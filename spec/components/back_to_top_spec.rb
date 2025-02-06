@@ -1,4 +1,4 @@
-RSpec.describe "BackToTopComponent", type: :view do
+RSpec.describe "BackToTopComponent" do
   def component_name
     "back_to_top"
   end
@@ -8,12 +8,10 @@ RSpec.describe "BackToTopComponent", type: :view do
   end
 
   it "renders a back to top link when a href is given" do
-    render_component(href: "#contents")
-    expect(rendered).to have_css(".app-c-back-to-top[href='#contents']")
+    expect { render_component(href: "#contents") }.to have_css(".app-c-back-to-top[href='#contents']")
   end
 
   it "renders a back to top link with custom text" do
-    render_component(href: "#contents", text: "Back to top")
-    expect(rendered).to have_css(".app-c-back-to-top[href='#contents']", text: "Back to top")
+    expect { render_component(href: "#contents", text: "Back to top") }.to have_css(".app-c-back-to-top[href='#contents']", text: "Back to top")
   end
 end

@@ -395,6 +395,8 @@ hi:
     corporate_information_page:
       about_our_services_html: "%{link} खोजें।"
       corporate_information: कारपोरेट सूचना
+      one: सूचना का पेज
+      other: सूचना के पेज
       personal_information_charter_html: हमारे %{link} बताते हैं कि हम कैसे आपकी व्यक्तिगत सूचना का उपयोग करते हैं।
       publication_scheme_html: सूचना के उन प्रकारों के बारे में पढ़ें, जिन्हें हम अपने %{link} में नियमित रूप से प्रकाशित करते हैं।
       social_media_use_html: इस बारे में हमारी नीतियां पढ़ें %{link}

@@ -395,6 +395,8 @@ lv:
     corporate_information_page:
       about_our_services_html: Uzziniet vairāk %{link}.
       corporate_information: Korporatīva informācija
+      one: Informācijas lapa
+      other: Informācijas lapas
       personal_information_charter_html: Šeit %{link} izskaidrots, kā tiks apstrādāta Jūsu sniegtā personīgā informācija.
       publication_scheme_html: Iepazīsties ar informāciju, kāda parasti tiek publicēta mūsu %{link}.
       social_media_use_html: Iepazīsties ar mūsu nostāju par %{link}.

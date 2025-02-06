@@ -395,6 +395,8 @@ ne:
     corporate_information_page:
       about_our_services_html: पत्ता लगाउनुहोस् %{link}।
       corporate_information: निगम जानकारी
+      one: जानकारी पृष्ठ
+      other: जानकारी पृष्ठहरू
       personal_information_charter_html: हाम्रो %{link} ले हामी तपाईंको व्यक्तिगत जानकारीलाई कसरी व्यवहार गर्छौं भनेर व्याख्या गर्छ।
       publication_scheme_html: हामी नियमित रूपमा हाम्रो %{link} मा प्रकाशित जानकारीको प्रकारको बारेमा पढ्नुहोस्।
       social_media_use_html: "%{link} मा हाम्रो नीति पढ्नुहोस्।"

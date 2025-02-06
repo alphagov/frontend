@@ -395,6 +395,8 @@ sq:
     corporate_information_page:
       about_our_services_html: Mësoni %{link}.
       corporate_information: Informacioni i korporatës
+      one: Faqja e informacionit
+      other: Faqet e informacionit
       personal_information_charter_html: "%{link} ynë shpjegon se si i trajtojmë informacionet tuaja personale."
       publication_scheme_html: Lexoni për llojet e informacionit që botojmë në mënyrë rutinore në %{link} tonë.
       social_media_use_html: Lexoni politikën tonë në %{link}.

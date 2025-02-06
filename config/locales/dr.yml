@@ -395,6 +395,8 @@ dr:
     corporate_information_page:
       about_our_services_html: دریابید%{link}.
       corporate_information: اطلاعات شرکت
+      one: صفحه معلومات
+      other: صفحات معلومات
       personal_information_charter_html: ما%{link} نحوهء برخورد ما با اطلاعات شخصی شما را بیان مینماید
       publication_scheme_html: در بارهء انواع اطلاعاتی که بطور معمول نشرمیشود در%{link}.
       social_media_use_html: سیاست ما را در اینجا بخوانید%{link}.

@@ -395,6 +395,8 @@ sv:
     corporate_information_page:
       about_our_services_html: Ta reda på %{link}.
       corporate_information: Företagsinformation
+      one: Informationssida
+      other: Informationssidor
       personal_information_charter_html: Vår %{link} förklarar hur vi behandlar din personliga information.
       publication_scheme_html: Läs om vilka typer av information vi rutinmässigt publicerar i vår %{link}.
       social_media_use_html: Läs vår policy för %{link}.

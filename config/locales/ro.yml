@@ -470,6 +470,9 @@ ro:
     corporate_information_page:
       about_our_services_html: Aflați %{link}.
       corporate_information: Informații despre corporație
+      few:
+      one: Pagina de informații
+      other: Pagini de informații
       personal_information_charter_html: "%{link} explică cum tratăm informațiile dvs. cu caracter personal."
       publication_scheme_html: Citiți despre tipurile de informații pe care le publicăm de obicei în %{link}.
       social_media_use_html: Citiți politica noastră pe %{link}.

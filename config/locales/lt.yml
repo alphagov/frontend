@@ -470,6 +470,9 @@ lt:
     corporate_information_page:
       about_our_services_html: Sužinokite %{link}.
       corporate_information: Korporatyvinė informacija
+      few:
+      one: Informacinis puslapis
+      other: Informaciniai puslapiai
       personal_information_charter_html: Čia %{link} rasite paaiškinimą, kaip tvarkoma Jūsų asmeninė informacija.
       publication_scheme_html: Sužinokite, kokią informaciją mes pastoviai pateikiame puslapyje %{link}.
       social_media_use_html: Perskaitykite mūsų strategiją %{link}.

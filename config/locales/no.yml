@@ -395,6 +395,8 @@
     corporate_information_page:
       about_our_services_html: Finn ut %{link}.
       corporate_information: Bedriftsinformasjon
+      one: Informasjonsside
+      other: Informasjonssider
       personal_information_charter_html: Vår %{link} forklarer hvordan vi behandler dine personopplysninger.
       publication_scheme_html: Les om informasjonstypene vi rutinemessig publiserer i vår %{link}.
       social_media_use_html: Les retningslinjene våre på %{link}.

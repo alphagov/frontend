@@ -394,6 +394,8 @@ az:
     corporate_information_page:
       about_our_services_html: Öyrənin %{link}.
       corporate_information: Korporativ məlumat
+      one: Məlumat səhifəsi
+      other: Məlumat səhifələri
       personal_information_charter_html: Bizim %{link} şəxsi məlumatlarınızla necə davrandığımızı izah edir.
       publication_scheme_html: "%{link}-də adətən istifadə etdiyimiz məlumatların növləri barədə oxuyun."
       social_media_use_html: "%{link}-də siyasətmizi oxuyun."

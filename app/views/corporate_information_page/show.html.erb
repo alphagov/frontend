@@ -1,5 +1,7 @@
+<% content_for :title, "#{@presenter.page_title} - #{content_item.default_organisation["title"]} - GOV.UK" %>
+
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= @content_item.description %>">
+  <meta name="description" content="<%= content_item.description %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
@@ -30,7 +32,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/heading", {
-        text: @content_item.title,
+        text: content_item.title,
         heading_level: 1,
         font_size: "xl",
         margin_bottom: 8,
@@ -38,9 +40,16 @@
     </div>
     <%= render "shared/translations" %>
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
-      <% if @content_item.withdrawn? %>
-        <%= render "govuk_publishing_components/components/notice", @content_item.withdrawal_notice_component %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+      <% if content_item.withdrawn? %>
+        <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+        <%= render "govuk_publishing_components/components/notice", {
+          title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+          description_govspeak: content_item.withdrawn_explanation&.html_safe,
+          time: withdrawn_time_tag,
+          lang: "en",
+        } %>
       <% end %>
     </div>
   </div>
@@ -52,10 +61,10 @@
         <%= render "govuk_publishing_components/components/organisation_logo", @content_item.organisation_logo %>
       </div>
 
-      <%= render "components/contents_list_with_body", contents: @content_item.contents do %>
+      <%= render "components/contents_list_with_body", contents: content_item.contents do %>
         <div class="responsive-bottom-margin">
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
-            <%= raw(@content_item.body) %>
+            <%= raw(content_item.body) %>
             <%= raw(@additional_body) %>
           <% end %>
         </div>

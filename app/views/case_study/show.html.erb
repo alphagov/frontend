@@ -62,7 +62,7 @@
       <%= render "components/published_dates", {
         published: display_date(content_item.first_public_at),
         last_updated: display_date(content_item.updated),
-        history: content_item.history,
+        history: @case_study_presenter.history,
       } %>
     </div>
   </div>

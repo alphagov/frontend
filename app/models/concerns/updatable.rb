@@ -11,6 +11,10 @@ module Updatable
 
       reverse_chronological_change_history
     end
+
+    def initial_publication_date
+      first_public_at || first_published_at
+    end
   end
 
 private
@@ -21,10 +25,6 @@ private
     else
       false
     end
-  end
-
-  def initial_publication_date
-    first_public_at || first_published_at
   end
 
   def reverse_chronological_change_history

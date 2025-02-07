@@ -63,10 +63,6 @@ class ContentItem
     )&.downcase
   end
 
-  def contributors
-    organisations
-  end
-
 private
 
   def get_attachments(attachment_hash)

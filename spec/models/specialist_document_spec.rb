@@ -23,6 +23,9 @@ RSpec.describe SpecialistDocument do
       ]
     end
 
+    it_behaves_like "it has updates", "specialist_document", "cma-cases-with-change-history"
+    it_behaves_like "it has no updates", "specialist_document", "cma-cases"
+
     it "gets a list of headers" do
       content_store_response["details"]["headers"] = details_headers
       expected_headers = [

@@ -4,7 +4,7 @@ RSpec.describe CorporateInformationPage do
   let(:corporate_information_page) { described_class.new(GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page")) }
 
   it_behaves_like "it can be withdrawn", "corporate_information_page", "best-practice-welsh-language-scheme-withdrawn"
-  it_behaves_like "it can have a contents list", "corporate_information_page", "corporate_information_page"
+  it_behaves_like "it can have a contents list", "corporate_information_page", "corporate_information_page_without_description"
 
   describe "#organisation_logo" do
     it "presents the logo for organisations" do

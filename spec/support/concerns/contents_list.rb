@@ -2,12 +2,9 @@ RSpec.shared_examples "it can have a contents list" do |document_type, example_n
   let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
   let(:contents_list) { described_class.new(content_store_response) }
 
-  before do
-    content_store_response["details"]["corporate_information_groups"] = []
-  end
-
   it "memoises the contents to avoid repeated processing and extraction" do
     expect(contents_list).to receive(:show_contents_list?).and_return(true).once
+
     contents_list.contents
     contents_list.contents
   end
@@ -20,6 +17,10 @@ RSpec.shared_examples "it can have a contents list" do |document_type, example_n
   end
 
   context "when there are H2s present with ids" do
+    def expect_method_to_be_called
+      expect(contents_list).to receive(:extract_headings_with_ids)
+    end
+
     it "includes all H2s with ids in the contents list" do
       body = Nokogiri::HTML(content_store_response["details"]["body"])
       expected_headings = body.css("h2").map do |heading|

@@ -1,4 +1,6 @@
 class SpecialistDocument < ContentItem
+  include Updatable
+
   attr_reader :continuation_link, :headers, :metadata,
               :protection_type, :will_continue_on
 

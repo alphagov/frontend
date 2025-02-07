@@ -1,4 +1,7 @@
 .landing-page-header {
   // I've used the hex value for the background colour as it doesn't exist in the colour palette
   background-color: #231F20;
+  // Setting the overflow to auto is required to prevent the breadcrumb
+  // component's margin from collapsing.
+  overflow: auto;
 }

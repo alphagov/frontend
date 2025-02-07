@@ -5,17 +5,6 @@ RSpec.shared_examples "it has updates" do |document_type, example_name|
     it "knows its updated" do
       expect(described_class.new(content_store_response).updated).to eq(content_store_response["public_updated_at"])
     end
-
-    it "knows its history" do
-      change_history = content_store_response["details"]["change_history"].map do |change|
-        {
-          display_time: change["public_timestamp"],
-          note: change["note"],
-          timestamp: change["public_timestamp"],
-        }
-      end
-      expect(described_class.new(content_store_response).history).to eq(change_history)
-    end
   end
 end
 

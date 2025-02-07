@@ -65,7 +65,7 @@
 
       <div class="responsive-bottom-margin">
         <%= render "components/published_dates", {
-            published: @content_item.published,
+            published: display_date(content_item.initial_publication_date),
             last_updated: @content_item.updated,
             history: @content_item.history,
           } %>

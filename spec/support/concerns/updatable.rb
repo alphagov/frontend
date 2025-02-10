@@ -14,7 +14,9 @@ RSpec.shared_examples "it has updates" do |document_type, example_name|
           timestamp: change["public_timestamp"],
         }
       end
-      expect(described_class.new(content_store_response).history).to eq(change_history)
+      sorted_change_history = change_history.sort_by { |item| Time.zone.parse(item[:timestamp]) }.reverse
+
+      expect(described_class.new(content_store_response).history).to eq(sorted_change_history)
     end
   end
 end

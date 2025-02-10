@@ -40,7 +40,3 @@ $govuk-include-default-font-face: false;
     @include responsive-bottom-margin;
   }
 }
-
-.bank-hols .govuk-panel {
-  margin-bottom: govuk-spacing(6);
-}

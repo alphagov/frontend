@@ -1,0 +1,41 @@
+<% content_for :body do %>
+  <%= yield :before_content %>
+  <main role="main" id="content" class="govuk-main-wrapper <%= yield :main_classes %>" <%= lang_attribute %>>
+    <%= yield %>
+  </main>
+  <%= yield :after_content %>
+<% end %>
+
+<%
+  title = yield(:title)
+  title = if title.present?
+            title
+          elsif content_item
+            page_title(content_item)
+          else
+            "GOV.UK"
+          end
+%>
+
+<%= content_for :head do %>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
+  <% add_gem_component_stylesheet("layout-for-public") %>
+  <% add_gem_component_stylesheet("layout-super-navigation-header") %>
+  <% add_gem_component_stylesheet("layout-header") %>
+  <% add_gem_component_stylesheet("layout-footer") %>
+  <%= render_component_stylesheets %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/layout_for_public", {
+      title:,
+	    full_width: true,
+	    homepage: true,
+      show_explore_header: true,
+      # emergency_banner: render("govuk_web_banners/emergency_banner"),
+      global_banner: render("govuk_web_banners/global_banner"),
+      logo_link: Plek.new.website_root.present? ? Plek.new.website_root : "https://www.gov.uk/",
+  } do %>
+  <%= yield :body %>
+  <%= javascript_include_tag 'application', type: "module" %>
+<% end %>
+

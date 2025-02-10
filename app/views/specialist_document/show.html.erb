@@ -24,7 +24,12 @@
   </div>
 </div>
 
-<%= render "shared/publisher_metadata_with_logo" %>
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(content_item.contributors),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+  } %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

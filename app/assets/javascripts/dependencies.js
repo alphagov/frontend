@@ -1,9 +1,12 @@
 // This file contains the dependencies required by the application.
+//= require govuk_publishing_components/dependencies
 //= require govuk_publishing_components/lib
 //= require govuk_publishing_components/components/error-summary
+//= require govuk_publishing_components/components/feedback
 //= require govuk_publishing_components/components/govspeak
 //= require govuk_publishing_components/components/image-card
 //= require govuk_publishing_components/components/intervention
+//= require govuk_publishing_components/components/layout-super-navigation-header
 //= require govuk_publishing_components/components/metadata
 //= require govuk_publishing_components/components/print-link
 //= require govuk_publishing_components/components/radio

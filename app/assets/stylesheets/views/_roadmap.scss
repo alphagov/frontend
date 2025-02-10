@@ -1,0 +1,22 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.govuk-roadmap__intro {
+  @include govuk-font(24);
+}
+
+.govuk-roadmap-section {
+  border-bottom: 5px solid govuk-colour("black");
+  margin-bottom: govuk-spacing(6);
+  padding-bottom: govuk-spacing(6);
+}
+
+.govuk-roadmap-section__image {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.govuk-roadmap-numbers__column {
+  @include govuk-media-query($until: desktop) {
+    width: 50%;
+  }
+}

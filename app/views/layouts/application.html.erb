@@ -1,66 +1,45 @@
 <% content_for :body do %>
-  <% if @is_account && local_assigns %>
-    <main id="content">
+  <% if content_item&.phase == "beta" %>
+    <%= render "govuk_publishing_components/components/phase_banner", phase: "beta" %>
+  <% end %>
+  <% unless !(content_item || @calendar) || remove_breadcrumbs(content_item) %>
+    <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+  <% end %>
+  <%= render "govuk_web_banners/recruitment_banner" %>
+  <% if local_assigns %>
+    <%= yield :before_content %>
+    <main role="main" id="content" class="govuk-main-wrapper <%= yield :main_classes %>" <%= lang_attribute %>>
       <%= yield %>
     </main>
-  <% else %>
-    <% if content_item&.phase == "beta" %>
-      <%= render "govuk_publishing_components/components/phase_banner", phase: "beta" %>
-    <% end %>
-    <% unless current_page?(root_path) || !(content_item || @calendar) || remove_breadcrumbs(content_item) %>
-      <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
-    <% end %>
-    <%= render "govuk_web_banners/recruitment_banner" %>
-    <% if local_assigns %>
-      <%= yield :before_content %>
-      <main role="main" id="content" class="govuk-main-wrapper <%= yield :main_classes %>" <%= lang_attribute %>>
-        <%= yield %>
-      </main>
-      <%= yield :after_content %>
-    <% end %>
+    <%= yield :after_content %>
   <% end %>
 <% end %>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title><%=
-      page_title = yield :title
-      if page_title.present?
-        page_title
-      elsif content_item
-        page_title(content_item)
-      else
-        "GOV.UK"
-      end
-           %></title>
-    <%= yield :extra_stylesheets %>
 
-    <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
+<%
+  title = yield(:title)
+  title = if title.present?
+            title
+          elsif content_item
+            page_title(content_item)
+          else
+            "GOV.UK"
+          end
+%>
 
-    <%= stylesheet_link_tag "application.css", :media => "all", integrity: false %>
+<%= content_for :head do %>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
+  <%= render_component_stylesheets %>
+<% end %>
 
-    <%=
-      render_component_stylesheets
-    %>
+<%= render "govuk_publishing_components/components/layout_for_public", {
+      title:,
+      show_explore_header: true,
+      # emergency_banner: render("govuk_web_banners/emergency_banner"),
+      global_banner: render("govuk_web_banners/global_banner"),
+  } do %>
+  <div class="govuk-width-container">
+    <%= yield :body %>
+  </div>
+  <%= javascript_include_tag 'application', type: "module" %>
+<% end %>
 
-    <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
-    <%= javascript_include_tag "application.js", integrity: false, type: "module" %>
-
-    <%= yield :extra_javascript %>
-    <%= yield :extra_headers %>
-    <% if content_item.to_h %>
-      <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
-      <%# TODO: use content_item.meta_content %>
-      <% if content_item&.meta_section.present? %>
-        <meta name="govuk:section" content="<%= content_item.meta_section %>">
-      <% end %>
-    <% end %>
-  </head>
-
-  <body class="mainstream <%= yield :body_classes %>">
-    <div id="wrapper" class="<%= wrapper_class(content_item) %> direction-<%= page_text_direction %>">
-      <%= yield :body %>
-    </div>
-  </body>
-</html>

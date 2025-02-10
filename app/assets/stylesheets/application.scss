@@ -4,6 +4,7 @@
 $govuk-include-default-font-face: false;
 
 @import "govuk_publishing_components/govuk_frontend_support";
+@import "govuk_publishing_components/component_support";
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/content-bottom-margin";

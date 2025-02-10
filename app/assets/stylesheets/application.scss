@@ -6,6 +6,7 @@ $govuk-include-default-font-face: false;
 @import "govuk_publishing_components/govuk_frontend_support";
 
 // Helper stylesheets (things on more than one page layout)
+@import "helpers/inverse-background";
 @import "helpers/truncated-url";
 @import "helpers/content-bottom-margin";
 
@@ -64,9 +65,4 @@ $govuk-include-default-font-face: false;
 
 .bank-hols .govuk-panel {
   margin-bottom: govuk-spacing(6);
-}
-
-.inverse-background {
-  background: $govuk-brand-colour;
-  color: govuk-colour("white");
 }

@@ -3,5 +3,5 @@ class HomepageController < ContentItemsController
 
   layout "homepage"
 
-  def index;  end
+  def index; end
 end

@@ -79,6 +79,7 @@ bn:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ bn:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ভিজিট করুন:'
   components:
     figure:
       image_credit: 'ছবির কৃতিত্ব: %{credit}'
@@ -385,12 +388,17 @@ bn:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ
+    detailed_guide:
+      one: পরিচালনা
+      other: পরিচালনা
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

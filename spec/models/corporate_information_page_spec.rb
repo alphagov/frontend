@@ -53,4 +53,43 @@ RSpec.describe CorporateInformationPage do
       expect(described_class.new(content_store_response).organisation_brand_class).to be_nil
     end
   end
+
+  describe "#corporate_information?" do
+    it "presents corporate information groups on about pages" do
+      expect(described_class.new(content_store_response).corporate_information?).to be(true)
+    end
+
+    it "does not present corporate information groups on about pages if information isn't available" do
+      content_store_response["details"]["corporate_information_groups"] = nil
+
+      expect(described_class.new(content_store_response).corporate_information?).to be(false)
+    end
+  end
+
+  describe "#corporate_information" do
+    it "includes group links that are guids" do
+      presented_groups = described_class.new(content_store_response).corporate_information
+
+      expect(presented_groups.first[:links].first).to eq({ title: "Complaints procedure", path: "/government/organisations/department-of-health/about/complaints-procedure" })
+    end
+
+    it "includes group links that are internal links with paths and no GUID" do
+      presented_groups = described_class.new(content_store_response).corporate_information
+
+      expect(presented_groups.first[:links].last).to eq({ title: "Corporate reports", path: "/government/publications?departments%5B%5D=department-of-health&publication_type=corporate-reports" })
+    end
+
+    it "includes group links that are external" do
+      presented_groups = described_class.new(content_store_response).corporate_information
+
+      expect(presented_groups.last[:links].last).to eq({ title: "Jobs", path: "https://www.civilservicejobs.service.gov.uk/csr" })
+    end
+
+    it "includes group headings" do
+      presented_groups = described_class.new(content_store_response).corporate_information
+
+      expect(presented_groups.first[:title]).to eq("Access our information")
+      expect(presented_groups.first[:id]).to eq("access-our-information")
+    end
+  end
 end

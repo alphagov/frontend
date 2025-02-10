@@ -5,21 +5,22 @@
 
 <% @additional_body = capture do %>
   <% if @content_item.corporate_information? %>
-    <%= @content_item.corporate_information_heading_tag %>
-    <% @content_item.corporate_information.each do |group| %>
-      <%= group[:heading] %>
+    <h2 id="#{@presenter.corporate_information_heading_id}"><%= @presenter.corporate_information_heading %></h2>
+
+    <% content_item.corporate_information.each do |group| %>
+      <h3 id="#{group[:id]}"><%= group[:title] %></h3>
       <ul>
         <% group[:links].each do |link| %>
           <li>
-            <%= link %>
+            <%= link_to(link[:title], link[:path]) %>
           </li>
         <% end %>
       </ul>
     <% end %>
 
-    <% if @content_item.further_information.present? %>
+    <% if @presenter.further_information.present? %>
       <p>
-        <%= @content_item.further_information %>
+        <%= @presenter.further_information %>
       </p>
     <% end %>
   <% end %>

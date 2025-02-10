@@ -559,6 +559,10 @@ ro:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Expunere orală către Parlament
+      other: Expuneri orale către Parlament
     place:
       change:
       find_results:
@@ -570,6 +574,13 @@ ro:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Livrat pe
+      few:
+      location: Locație
+      one: Discurs
+      other: Discursuri
+      written_on: Scris pe
     start_now:
     take_part:
       few:
@@ -593,6 +604,10 @@ ro:
       still_current_at: În acest moment la
       summary: Rezumat
       updated: Actualizat
+    written_statement:
+      few:
+      one: Declarație scrisă către Parlament
+      other: Declarații scrise către Parlament
   help:
     index:
       about:
@@ -778,6 +793,8 @@ ro:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Acesta a fost publicat sub %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

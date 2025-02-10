@@ -485,6 +485,9 @@ gu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: સંસદમાં મૌખિક નિવેદન
+      other: સંસદમાં મૌખિક નિવેદનો
     place:
       change:
       find_results:
@@ -496,6 +499,12 @@ gu:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: ના રોજ ડિલિવર થયું
+      location: સ્થાન
+      one: ભાષણ
+      other: ભાષણો
+      written_on: પર લખેલ
     start_now:
     take_part:
       one: ભાગ લો
@@ -518,6 +527,9 @@ gu:
       still_current_at: પર હજુ પણ ચાલુ
       summary: સારાંશ
       updated: અપડેટ કરેલ
+    written_statement:
+      one: સંસદમાં લેખિત નિવેદન
+      other: સંસદમાં લેખિત નિવેદનો
   help:
     index:
       about:
@@ -703,6 +715,8 @@ gu:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: આ %{government} હેઠળ પ્રકાશિત કરવામાં આવ્યું હતું.
   sign_up:
   website:
   when_do_the_clocks_change:

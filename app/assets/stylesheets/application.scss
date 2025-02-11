@@ -11,12 +11,6 @@ $govuk-include-default-font-face: false;
 // frontend mixins
 @import "mixins/margins";
 
-.gem-c-govspeak {
-  address {
-    font-style: normal;
-  }
-}
-
 .article-container {
   margin-bottom: govuk-spacing(6);
 

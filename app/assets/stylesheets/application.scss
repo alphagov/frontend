@@ -12,21 +12,6 @@ $govuk-include-default-font-face: false;
 // frontend mixins
 @import "mixins/margins";
 
-// Reset some styles from the `.content` when it"s wrapped in the Govspeak
-// component. Can be removed when static is no longer being used.
-.content-block {
-  .gem-c-govspeak {
-    h2 + p,
-    h3 + p {
-      margin-top: govuk-spacing(4);
-    }
-
-    .help-notice p {
-      padding: 0;
-    }
-  }
-}
-
 .gem-c-govspeak {
   address {
     font-style: normal;

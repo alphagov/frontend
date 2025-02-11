@@ -6,7 +6,6 @@ $govuk-include-default-font-face: false;
 @import "govuk_publishing_components/govuk_frontend_support";
 
 // Helper stylesheets (things on more than one page layout)
-@import "helpers/truncated-url";
 @import "helpers/content-bottom-margin";
 
 // frontend mixins

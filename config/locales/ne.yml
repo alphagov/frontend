@@ -79,6 +79,7 @@ ne:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ne:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'भ्रमण:'
   components:
     figure:
       image_credit: 'छवि श्रेय: %{credit}'
@@ -385,12 +388,17 @@ ne:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    detailed_guide:
+      one: मार्गदर्शन
+      other: मार्गदर्शन
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

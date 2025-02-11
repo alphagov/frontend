@@ -4,7 +4,7 @@ RSpec.describe "HelpPage" do
     content_store_has_example_item("/help/cookie-details", schema: :help_page, example: "cookie-details")
   end
 
-  it_behaves_like "it has meta tags", "help_page", "/help/about-govuk"
+  it_behaves_like "it has meta tags", "help_page", "about-govuk"
 
   context "when visiting 'help/:slug'" do
     it "displays the help page using a content item" do

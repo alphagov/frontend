@@ -4,8 +4,8 @@ RSpec.describe "CaseStudy" do
     content_store_has_example_item("/government/case-studies/doing-business-in-spain", schema: :case_study, example: "doing-business-in-spain")
   end
 
-  it_behaves_like "it has meta tags", "case_study", "/government/case-studies/doing-business-in-spain"
-  it_behaves_like "it has meta tags for images", "case_study", "/government/case-studies/doing-business-in-spain"
+  it_behaves_like "it has meta tags", "case_study", "doing-business-in-spain"
+  it_behaves_like "it has meta tags for images", "case_study", "doing-business-in-spain"
 
   context "when visiting a Case Study page" do
     it "displays the case_study page" do

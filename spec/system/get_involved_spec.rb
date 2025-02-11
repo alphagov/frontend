@@ -7,7 +7,7 @@ RSpec.describe "Get Involved" do
     visit "/government/get-involved"
   end
 
-  it_behaves_like "it has meta tags", "get_involved", "/government/get-involved"
+  it_behaves_like "it has meta tags", "get_involved", "get_involved"
 
   context "when visiting get involved page" do
     it "displays the get involved page with the correct title" do

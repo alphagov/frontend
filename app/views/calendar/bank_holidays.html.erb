@@ -33,16 +33,11 @@
           <% tab_content[index] = capture do %>
 
             <% if division.upcoming_event %>
-              <% rendered_panel = render "govuk_publishing_components/components/panel", {
+              <%= render "govuk_publishing_components/components/panel", {
                 prepend: t("common.next_holiday_in_is", :in_nation => t("#{division.title}_in")),
                 title: division.upcoming_event.date == Time.zone.today ? t("common.today") : l(division.upcoming_event.date, format: "%e %B"),
                 append: division.upcoming_event.title,
-              } %>
-              <% if variant_b_page? %>
-                <%= content_tag("span", rendered_panel, class: "bank-hols") %>
-              <% else %>
-                <%= rendered_panel %>
-              <% end %>
+              }.merge(variant_b_page? ? { margin_bottom: 6 } : {}) %>
             <% end %>
 
             <% caption = "#{t "common.upcoming_bank_holidays"} #{t "#{division.title}_in"}" %>

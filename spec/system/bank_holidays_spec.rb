@@ -18,7 +18,7 @@ RSpec.describe "BankHolidays" do
         visit "/bank-holidays"
 
         within("#content") do
-          expect(page).to have_selector(".bank-hols")
+          expect(page).to have_selector(".gem-c-panel.govuk-\\!-margin-bottom-6")
         end
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe "BankHolidays" do
         visit "/bank-holidays"
 
         within("#content") do
-          expect(page).not_to have_selector(".bank-hols")
+          expect(page).not_to have_selector("gem-c-panel.govuk-\\!-margin-bottom-6")
         end
       end
     end

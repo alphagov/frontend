@@ -6,32 +6,10 @@ $govuk-include-default-font-face: false;
 @import "govuk_publishing_components/govuk_frontend_support";
 
 // Helper stylesheets (things on more than one page layout)
-@import "helpers/truncated-url";
 @import "helpers/content-bottom-margin";
 
 // frontend mixins
 @import "mixins/margins";
-
-// Reset some styles from the `.content` when it"s wrapped in the Govspeak
-// component. Can be removed when static is no longer being used.
-.content-block {
-  .gem-c-govspeak {
-    h2 + p,
-    h3 + p {
-      margin-top: govuk-spacing(4);
-    }
-
-    .help-notice p {
-      padding: 0;
-    }
-  }
-}
-
-.gem-c-govspeak {
-  address {
-    font-style: normal;
-  }
-}
 
 .article-container {
   margin-bottom: govuk-spacing(6);
@@ -39,29 +17,4 @@ $govuk-include-default-font-face: false;
   @include govuk-media-query($from: tablet) {
     @include responsive-bottom-margin;
   }
-}
-
-.govuk-roadmap__intro {
-  @include govuk-font(24);
-}
-
-.govuk-roadmap-section {
-  border-bottom: 5px solid govuk-colour("black");
-  margin-bottom: govuk-spacing(6);
-  padding-bottom: govuk-spacing(6);
-}
-
-.govuk-roadmap-section__image {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.govuk-roadmap-numbers__column {
-  @include govuk-media-query($until: desktop) {
-    width: 50%;
-  }
-}
-
-.bank-hols .govuk-panel {
-  margin-bottom: govuk-spacing(6);
 }

@@ -1,0 +1,2 @@
+class FatalityNoticeController < ContentItemsController
+end

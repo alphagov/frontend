@@ -7,6 +7,7 @@ $govuk-include-default-font-face: false;
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/content-bottom-margin";
+@import "helpers/sticky-element-container";
 
 // frontend mixins
 @import "mixins/margins";

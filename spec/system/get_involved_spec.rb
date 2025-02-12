@@ -35,6 +35,14 @@ RSpec.describe "Get Involved" do
     it "does not display a single page notification button" do
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end
+
+    it "shows date of last update" do
+      expect(page).to have_text("Updated: 2 January 2022")
+    end
+
+    it "shows closing date" do
+      expect(page).to have_text("Closed: 8 February 2023")
+    end
   end
 end
 
@@ -47,8 +55,8 @@ end
 def consultation_result
   {
     "title" => "Consulting on time zones",
-    "public_timestamp" => "2022-02-14T00:00:00.000+01:00",
-    "end_date" => "2022-02-14T00:00:00.000+01:00",
+    "public_timestamp" => "2022-01-02T00:00:00.000+00:00",
+    "end_date" => "2023-02-08T00:00:00.000+00:00",
     "link" => "/consultation/link",
     "organisations" => [{
       "slug" => "ministry-of-justice",

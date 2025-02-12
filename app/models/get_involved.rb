@@ -35,7 +35,7 @@ class GetInvolved < ContentItem
   def recently_opened_consultations
     query = {
       filter_content_store_document_type: "open_consultation",
-      fields: "end_date,title,link,organisations",
+      fields: "public_timestamp,end_date,title,link,organisations",
       order: "-start_date",
       count: 3,
     }
@@ -47,7 +47,7 @@ class GetInvolved < ContentItem
     query = {
       filter_content_store_document_type: "consultation_outcome",
       filter_end_date: "to: #{Time.zone.now.to_date}",
-      fields: "end_date,title,link,organisations",
+      fields: "public_timestamp,end_date,title,link,organisations",
       order: "-end_date",
       count: 3,
     }

@@ -52,7 +52,7 @@ end
 def consultation_result
   {
     "title" => "Consulting on time zones",
-    "public_timestamp" => "2024-10-14T00:00:00.000+01:00",
+    "public_timestamp" => "2024-10-11T00:00:00.000+01:00",
     "end_date" => "2024-10-14T00:00:00.000+01:00",
     "link" => "/consultation/link",
     "organisations" => [{
@@ -68,7 +68,7 @@ end
 def next_closing_consultation
   {
     "title" => "Incorporating international rules",
-    "public_timestamp" => "2023-11-14T00:00:00.000+01:00",
+    "public_timestamp" => "2023-11-11T00:00:00.000+01:00",
     "end_date" => "2024-11-14T00:00:00.000+01:00",
     "link" => "/consultation/link",
     "organisations" => [{

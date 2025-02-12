@@ -1,83 +1,40 @@
 # Frontend
 
-Frontend renders the citizen-facing part of formats stored in the Content Store, and
-some hard-coded routes including the GOV.UK homepage.
+Frontend renders the citizen-facing part of content items stored in the Content Store, and
+some hard-coded routes.
 
-## Live examples
+## Formats
 
-### Formats
-
-Simple smart answer
-* https://www.gov.uk/sold-bought-vehicle
-* https://www.gov.uk/contact-the-dvla
-
-Transaction start pages:
- * https://www.gov.uk/register-to-vote
- * https://www.gov.uk/vehicle-tax
- * https://www.gov.uk/find-a-job
-
-### Help
-
-* https://www.gov.uk/help/browsers
-
-### Get Involved
-
-* https://www.gov.uk/government/get-involved
-
-### Case studies
-
-* https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy
-
-### Hard-coded routes
-
-* https://www.gov.uk/ (homepage)
-* https://www.gov.uk/help (help index page)
-* https://www.gov.uk/help/cookies
-* https://www.gov.uk/help/ab-testing
-* https://www.gov.uk/foreign-travel-advice (travel advice index page)
-* https://www.gov.uk/find-local-council
-* https://assets.publishing.service.gov.uk/government/placeholder (asset placeholder while attachments are virus-checked)
-* https://www.gov.uk/roadmap (GOV.UK public facing roadmap)
-* https://www.gov.uk/contact-electoral-registration-office (elections API)
-
-### Licence finders
-
-* https://www.gov.uk/find-licences/premises-licence
-* https://www.gov.uk/find-licences/temporary-events-notice
-* https://www.gov.uk/find-licences/apply-skip-permit
-* https://www.gov.uk/find-licences/street-collection-licence
-* https://www.gov.uk/find-licences/zoo-licence
-* https://www.gov.uk/find-licences/premises-licence-scotland
-* https://www.gov.uk/find-licences/house-to-house-collection-licence
-* https://www.gov.uk/find-licences/public-charitable-collection-permit-scotland
-* https://www.gov.uk/find-licences/late-hours-catering-licence-scotland
-* https://www.gov.uk/find-licences/food-business-registration
-* https://www.gov.uk/find-licences/cooling-tower-notification
-* https://www.gov.uk/find-licences/performing-animals-registration
-
-### Calendars
-
-* https://www.gov.uk/bank-holidays
-* https://www.gov.uk/when-do-the-clocks-change
-
-### Take Part
-
-* https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing
-
-### Travel Advice Country pages
-
-* https://www.gov.uk/foreign-travel-advice/azerbaijan
-
-### Misc
-
-| URL  | Related views |
-|-|-|
-| http://www.gov.uk/school-term-holiday-dates<br>http://www.gov.uk/pay-council-tax<br>http://www.gov.uk/find-covid-19-lateral-flow-test-site<br>http://www.gov.uk/rubbish-collection-day<br>http://www.gov.uk/apply-council-tax-reduction<br>http://www.gov.uk/apply-for-disabled-bus-pass<br>http://www.gov.uk/apply-free-school-meals | `_base_page` <br>`local_transaction/search` |
-| http://www.gov.uk/register-offices<br>http://www.gov.uk/ukonline-centre-internet-access-computer-training<br>http://www.gov.uk/find-theory-test-centre<br>http://www.gov.uk/id-scan-eu-settlement-scheme | `_base_page`<br>`place/show` |
-| http://www.gov.uk/provide-journey-contact-details-before-travel-uk | `publication_metadata`<br>`_base_page`<br>`show` |
-| http://www.gov.uk/contact-the-dvla/y/ | `flow` |
-| http://www.gov.uk/check-a-passport-travel-europe | `_publication_metadata`<br>`_base_page`<br>`transaction/show` |
-| http://www.gov.uk/renew-driving-licence-at-70    <br>http://www.gov.uk/check-mot-history    <br>http://www.gov.uk/mot-testing-service    <br>http://www.gov.uk/order-coronavirus-rapid-lateral-flow-tests   <br>http://www.gov.uk/check-legal-aid | `_base_page`<br>`transaction/show` |
+| Format | Schema/Document Type | Live example(s) |
+|---|---|---|
+|AB testing             |hardcoded|https://www.gov.uk/help/ab-testing|
+|Asset placeholder      |hardcoded|https://assets.publishing.service.gov.uk/government/placeholder|
+|Calendars              |[calendar](https://docs.publishing.service.gov.uk/content-schemas/calendar.html)|https://www.gov.uk/bank-holidays|
+|                       ||https://www.gov.uk/when-do-the-clocks-change|
+|Case studies           |[case_study](https://docs.publishing.service.gov.uk/content-schemas/case_study.html)|https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy|
+|Cookies                |hardcoded|https://www.gov.uk/help/cookies|
+|Find electoral office  |hardcoded|https://www.gov.uk/contact-electoral-registration-office|
+|Find local council     |hardcoded|https://www.gov.uk/find-local-council|
+|Foreign travel advice index |[travel_advice_index](https://docs.publishing.service.gov.uk/content-schemas/travel_advice_index.html)|https://www.gov.uk/foreign-travel-advice|
+|Foreign travel advice  |[travel_advice](https://docs.publishing.service.gov.uk/content-schemas/travel_advice.html)|https://www.gov.uk/foreign-travel-advice/azerbaijan|
+|Guidance               |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/travel-to-england-from-another-country-during-coronavirus-covid-19|
+|Help index             |hardcoded|https://www.gov.uk/help|
+|Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|
+|Homepage               |[homepage](https://docs.publishing.service.gov.uk/content-schemas/homepage.html)|https://www.gov.uk/|
+|Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
+|Licence finder         |schema: [specialist_document](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/find-licences/premises-licence|
+|                       |document_type: [licence_transaction](https://docs.publishing.service.gov.uk/document-types/licence_transaction.html)|https://www.gov.uk/find-licences/zoo-licence|
+|Local transaction      |[local_transaction](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|http://www.gov.uk/school-term-holiday-dates|
+|                       ||http://www.gov.uk/apply-council-tax-reduction|
+|Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|http://www.gov.uk/register-offices|
+|                       ||http://www.gov.uk/register-offices|
+|Roadmap                |hardcoded|https://www.gov.uk/roadmap
+|Simple smart answer    |[simple_smart_answer](https://docs.publishing.service.gov.uk/content-schemas/simple_smart_answer.html)|https://www.gov.uk/sold-bought-vehicle|
+|                       ||https://www.gov.uk/contact-the-dvla|
+|Take part              |[take_part](https://docs.publishing.service.gov.uk/content-schemas/take_part.html)|https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing|
+|Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
+|                       ||https://www.gov.uk/vehicle-tax|
+|                       ||https://www.gov.uk/find-a-job|
 
 ## Nomenclature
 
@@ -93,6 +50,7 @@ See the [CONTRIBUTING](CONTRIBUTING.md) guide for more information.
 
 - [alphagov/static](https://github.com/alphagov/static) - provides shared templates, styles, and JavaScript
 - [alphagov/content-store](https://github.com/alphagov/content-store) - provides raw data for rendering formats
+- [alphagov/local-links-manager](https://github.com/alphagov/local-links-manager) - provides council info lookups
 - [alphagov/locations-api](https://github.com/alphagov/locations-api) - provides postcode lookups
 - [alphagov/places-manager](https://github.com/alphagov/places-manager) - provides places lookups (e.g. for find-my-nearest)
 - [alphagov/publishing-api](https://github.com/alphagov/publishing-api) - this app sends data to the content-store

@@ -1,4 +1,6 @@
 class ManualController < ContentItemsController
+  slimmer_template "gem_layout_full_width"
+
   def show
     @topics = sorted_topics
   end

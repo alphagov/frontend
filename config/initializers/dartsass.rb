@@ -17,7 +17,6 @@ APP_STYLESHEETS = {
   "views/_place-list.scss" => "views/_place-list.css",
   "views/_popular_links.scss" => "views/_popular_links.css",
   "views/_publisher_metadata.scss" => "views/_publisher_metadata.css",
-  "views/_service_manual_guide.scss" => "views/_service_manual_guide.css",
   "views/_sidebar-navigation.scss" => "views/_sidebar-navigation.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
   "views/_landing_page.scss" => "views/_landing_page.css",

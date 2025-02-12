@@ -398,7 +398,9 @@ pa:
       alt_text: ਰੱਖਿਆ ਮੰਤਰਾਲਾ ਸਿਖਰ
       field_of_operation: ਕਾਰਜ ਖੇਤਰ
       none_added: ਇਸ ਕਾਰਜ ਦੇ ਖੇਤਰ ਵਿੱਚ ਅਜੇ ਤੱਕ ਕੋਈ ਘਾਤਕ ਸੂਚਨਾ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ।
+      one: ਘਾਤਕ ਸੂਚਨਾ
       operations_in: "%{location} ਵਿੱਚ ਕਾਰਜ"
+      other: ਘਾਤਕ ਸੂਚਨਾ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -398,7 +398,9 @@ ur:
       alt_text: وزارت دفاع کا کریسنٹ
       field_of_operation: کارروائی کی فیلڈ
       none_added: اس کارروائی کی فیلڈ کے لیے ابھی تک کوئی موت کے نوٹسز شامل نہیں کیے گئے۔
+      one: موت کا نوٹس
       operations_in: "%{location} میں کارروائیاں"
+      other: موت کے نوٹسز
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

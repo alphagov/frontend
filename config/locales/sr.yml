@@ -471,9 +471,12 @@ sr:
       other: Studije slučaja
     fatality_notice:
       alt_text: Grb Ministarstva odbrane
+      few:
       field_of_operation: Oblast delovanja
       none_added: Još nisu dodata obaveštenja o smrtnim slučajevima u ovoj oblasti delovanja.
+      one: Obaveštenje o smrtnim slučajevima
       operations_in: Delovanje na lokaciji %{location}
+      other: Obaveštenja o smrtnim slučajevima
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

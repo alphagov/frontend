@@ -471,9 +471,12 @@ ro:
       other: Studii de caz
     fatality_notice:
       alt_text: Emblema Ministerului Apărării
+      few:
       field_of_operation: Domeniul de activitate
       none_added: Încă nu au fost adăugate notificări de accidente mortale în acest domeniu de activitate.
+      one: Notificare accident mortal
       operations_in: Operațiuni în %{location}
+      other: Notificări accident mortal
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

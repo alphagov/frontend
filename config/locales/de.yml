@@ -398,7 +398,9 @@ de:
       alt_text: Wappen des Verteidigungsministeriums
       field_of_operation: Tätigkeitsbereich
       none_added: Für dieses Einsatzgebiet wurden noch keine Meldungen über Todesfälle hinzugefügt.
+      one: Todesanzeige
       operations_in: Tätigkeiten in %{location}
+      other: Todesanzeigen
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

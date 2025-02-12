@@ -398,7 +398,9 @@ so:
       alt_text: Calaamada Wasaarada Difaaca
       field_of_operation: Hawalaha dibadaa
       none_added: Ma jiraan wax ogaysiisyada muhiimka ah oo lagu daray goobtan shaqada wali.
+      one: Ogeysiiska masiibooyinka
       operations_in: Hawalaha %{location}
+      other: Ogeysiisyada masiibooyinka
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -324,6 +324,7 @@ zh:
       field_of_operation: 经营领域
       none_added: 目前还没有关于这一经营领域的死亡通知。
       operations_in: 在 %{location} 经营
+      other: 死亡通知
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

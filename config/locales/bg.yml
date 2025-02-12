@@ -398,7 +398,9 @@ bg:
       alt_text: Герб на Министерството на отбраната
       field_of_operation: Област на действие
       none_added: Все още няма добавени съобщения за смъртни случаи в тази област на дейност.
+      one: Известие за смъртен случай
       operations_in: Операции в %{location}
+      other: Известия за смъртни случаи
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

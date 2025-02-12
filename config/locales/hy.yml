@@ -398,7 +398,9 @@ hy:
       alt_text: Պաշտպանության նախարարության զինանշան
       field_of_operation: Գործունեության ոլորտ
       none_added: 'Գործունեության այս ոլորտի համար դժբախտ պատահարի ծանուցումներ դեռևս չեն ավելացվել:'
+      one: Դժբախտ պատահարի ծանուցում
       operations_in: Գործունեություն % {location}-ում
+      other: Դժբախտ պատահարի ծանուցումներ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

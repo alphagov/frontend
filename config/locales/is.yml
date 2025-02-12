@@ -398,7 +398,9 @@ is:
       alt_text: Skjaldarmerki Varnarmálaráðuneytisins
       field_of_operation: Starfsvið
       none_added: Engum tilkynningum um dauðsföll hefur verið bætt við fyrir þetta starfsvið.
+      one: Tilkynning um dauðsfall
       operations_in: Starfsemi á %{location}
+      other: Tilkynningar um dauðsfall
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

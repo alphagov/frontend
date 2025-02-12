@@ -398,7 +398,9 @@ es:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación
       none_added: Aún no se han agregado los avisos de defunción para este campo de operación.
+      one: Aviso de defunción
       operations_in: Operaciones en %{location}
+      other: Avisos de defunción
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

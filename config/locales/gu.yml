@@ -398,7 +398,9 @@ gu:
       alt_text: સંરક્ષણ મંત્રાલય ક્રેસ્ટ
       field_of_operation: કામગીરીનું ક્ષેત્ર
       none_added: આ કામગીરીના ક્ષેત્રમાં હજુ સુધી કોઇ જાનહાનિ સૂચનાઓ ઉમેરાઈ નથી.
+      one: મૃત્યુ અંગેની સૂચના
       operations_in: "%{location} માં સંચાલનો"
+      other: મૃત્યુ અંગેની સૂચનાઓ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

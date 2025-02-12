@@ -398,7 +398,9 @@ bn:
       alt_text: প্রতিরক্ষা মন্ত্রণালয়ের ক্রেস্ট
       field_of_operation: কার্যক্রমের ক্ষেত্র
       none_added: এখনও এই পরিচালনার ফিল্ডের জন্য কোনো বিপর্যয়ের বিজ্ঞপ্তি যোগ করা হয়নি।
+      one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
       operations_in: "%{location}-এ পরিচালনা"
+      other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

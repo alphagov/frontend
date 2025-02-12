@@ -398,7 +398,9 @@ el:
       alt_text: Οικόσημο Υπουργείου Άμυνας
       field_of_operation: Πεδίο λειτουργίας
       none_added: Δεν έχουν προστεθεί ακόμη ανακοινώσεις θανάτου για αυτό το πεδίο λειτουργίας.
+      one: Ανακοίνωση θανάτου
       operations_in: Λειτουργίες στην τοποθεσία %{location}
+      other: Ανακοινώσεις θανάτου
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

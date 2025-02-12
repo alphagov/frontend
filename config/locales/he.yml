@@ -398,7 +398,9 @@ he:
       alt_text: סמל משרד הביטחון
       field_of_operation: תחום הפעולה
       none_added: עדיין לא נוספו הודעות פטירה על תחום פעולה זה.
+      one: הודעת פטירה
       operations_in: פעולות ב- %{location}
+      other: הודעות פטירה
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -398,7 +398,9 @@ hi:
       alt_text: रक्षा मंत्रालय का क्रेस्ट
       field_of_operation: संचालन का क्षेत्र
       none_added: संचालन के इस क्षेत्र में अभी तक कोई घातक नोटिस नहीं जोड़ा गया है।
+      one: विपत्ति की सूचना
       operations_in: "%{location} में संचालन"
+      other: विपत्ति की सूचना
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

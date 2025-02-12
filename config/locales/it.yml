@@ -398,7 +398,9 @@ it:
       alt_text: Stemma del Ministero della Difesa
       field_of_operation: Campo operativo
       none_added: Non sono stati ancora aggiunti avvisi di morte per questo campo di attività.
+      one: Avviso di morte
       operations_in: Operazioni in %{location}
+      other: Avvisi di morte
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

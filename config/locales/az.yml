@@ -398,7 +398,9 @@ az:
       alt_text: Müdafiə nazirliyinin emblemi
       field_of_operation: Əməliyyat sahəsi
       none_added: Bu iş sahəsi üzrə hələ heç bir ölüm hadisəsi bildirişləri əlavə edilməyib.
+      one: Ölüm hadisəsi bildirişi
       operations_in: "%{location}-də olan əməliyyatlar"
+      other: Ölüm hadisəsi bildirişləri
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

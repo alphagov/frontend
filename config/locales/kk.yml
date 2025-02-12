@@ -398,7 +398,9 @@ kk:
       alt_text: Қорғаныс министрлігінің елтаңбасы
       field_of_operation: Жұмыс аймағы
       none_added: Бұл жұмыс саласы үшін өлім туралы хабарламалар әлі қосылмады.
+      one: Өлім туралы хабарлама
       operations_in: "%{location} орнындағы жұмыстар"
+      other: Өлім туралы хабарламалар
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

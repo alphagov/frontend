@@ -324,6 +324,7 @@ ja:
       field_of_operation: 運用分野
       none_added: この活動分野での死亡通知はまだ追加されていません。
       operations_in: "%{location} での操作"
+      other: 死亡通知
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

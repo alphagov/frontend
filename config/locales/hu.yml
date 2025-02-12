@@ -398,7 +398,9 @@ hu:
       alt_text: A Védelmi Minisztérium címere
       field_of_operation: Működési terület
       none_added: Ehhez a működési területhez még nem lettek hozzáadva halálesetekkel kapcsolatos értesítések.
+      one: Halálesettel kapcsolatos értesítés
       operations_in: 'Tevékenységek itt: %{location}'
+      other: Halálesettel kapcsolatos értesítések
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

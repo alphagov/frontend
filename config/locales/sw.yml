@@ -398,7 +398,9 @@ sw:
       alt_text: Eneo la Wizara ya Ulinzi
       field_of_operation: Sehemu ya kazi
       none_added: Bado hakuna notisi za idadi ya vifo zilizowekwa kwenye sehemu hii ya kazi.
+      one: Notisi ya idadi ya vifo
       operations_in: Shughuli zinazofanywa katika %{location}
+      other: Notisi za idadi ya vifo
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

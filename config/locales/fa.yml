@@ -398,7 +398,9 @@ fa:
       alt_text: تاج وزارت دفاع
       field_of_operation: زمینه فعالیت
       none_added: هنوز هیچ اعلامیه مرگ‌و‌میری برای این زمینه فعالیت اضافه نشده است.
+      one: اطلاعیه مرگ‌و‌میر
       operations_in: فعالیت در %{location}
+      other: اطلاعیه‌های مرگ‌و‌میر
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -471,9 +471,12 @@ lt:
       other: Atvejų analizės
     fatality_notice:
       alt_text: Apsaugos ministerijos herbas
+      few:
       field_of_operation: Veiklos sritis
       none_added: Šioje srityje kol kas neskelbiamas apie nelaimes.
+      one: Pranešimas apie nelaimę
       operations_in: Veikla vykdoma %{location}
+      other: Pranešimas apie nelaimes
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

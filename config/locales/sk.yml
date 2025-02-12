@@ -471,9 +471,12 @@ sk:
       other: Prípadové štúdie
     fatality_notice:
       alt_text: Erb ministerstva obrany
+      few:
       field_of_operation: Oblasť činnosti
       none_added: Pre túto oblasť činnosti zatiaľ neboli pridané žiadne oznámenia o úmrtí.
+      one: Oznámenie o úmrtí
       operations_in: Operácie v %{location}
+      other: Oznámenia o úmrtí
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

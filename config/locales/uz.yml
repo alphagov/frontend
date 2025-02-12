@@ -398,7 +398,9 @@ uz:
       alt_text: Мудофаа вазирлигининг эмблемаси
       field_of_operation: Фаолият соҳаси
       none_added: Ушбу фаолият соҳасида ўлим ҳолатлари ҳақида хабарномалар ҳали қўшилмаган.
+      one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
       operations_in: "%{location} да ишлаш"
+      other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

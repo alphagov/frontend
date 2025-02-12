@@ -398,7 +398,9 @@ yi:
       alt_text:
       field_of_operation:
       none_added:
+      one:
       operations_in:
+      other:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

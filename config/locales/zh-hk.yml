@@ -324,6 +324,7 @@ zh-hk:
       field_of_operation: 行動領域
       none_added: 此運作領域仍未加入任何死亡通知。
       operations_in: 行動位置 %{location}
+      other: 安全事故通知
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
